@@ -1,17 +1,27 @@
+import { Send } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
 export default function Page() {
   return (
     <div className="flex min-h-svh items-center justify-center p-6">
-      <div className="w-full max-w-md min-w-0">
-        <form className="flex items-center gap-2">
+      <div className="w-full max-w-lg min-w-0">
+        <form className="relative">
           <Input
             aria-label="Message"
+            className="h-12 rounded-full pr-12 pl-4 text-base md:text-base"
             name="message"
             placeholder="Type a message..."
           />
-          <Button type="submit">Send</Button>
+          <Button
+            aria-label="Send message"
+            className="absolute top-1/2 right-1.5 -translate-y-1/2"
+            size="icon"
+            type="submit"
+          >
+            <Send aria-hidden="true" />
+          </Button>
         </form>
       </div>
     </div>
