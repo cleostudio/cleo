@@ -201,11 +201,11 @@ export function AskForm() {
       <div
         className={
           hasMessages
-            ? "fixed bottom-4 left-1/2 z-10 w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 bg-background pt-3 sm:bottom-6 sm:w-[calc(100%-3rem)]"
+            ? "fixed inset-x-0 bottom-0 z-10 bg-background px-4 pt-3 pb-4 sm:px-6 sm:pb-6"
             : "flex flex-1 items-center"
         }
       >
-        <div className="w-full">
+        <div className={hasMessages ? "mx-auto w-full max-w-3xl" : "w-full"}>
           {error ? (
             <p className="mb-3 px-4 text-sm text-destructive" role="alert">
               {error}
