@@ -25,16 +25,12 @@ export function AskForm() {
   const [messages, setMessages] = useState<Message[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
-  const messagesRef = useRef<HTMLDivElement>(null)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const hasMessages = messages.length > 0
 
   useEffect(() => {
-    const messageList = messagesRef.current
-
-    if (messageList) {
-      messageList.scrollTop = messageList.scrollHeight
-    }
+    messagesEndRef.current?.scrollIntoView({ block: "end" })
   }, [messages])
 
   useEffect(() => {
@@ -152,12 +148,9 @@ export function AskForm() {
   }
 
   return (
-    <div className="mx-auto flex h-full w-full max-w-3xl min-w-0 flex-col">
+    <div className="mx-auto flex min-h-[calc(100svh-2rem)] w-full max-w-3xl min-w-0 flex-col sm:min-h-[calc(100svh-3rem)]">
       {hasMessages ? (
-        <div
-          className="min-h-0 flex-1 overflow-y-auto px-1 py-6 sm:px-3"
-          ref={messagesRef}
-        >
+        <div className="flex-1 px-1 pt-6 pb-24 sm:px-3 sm:pb-28">
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === "user" ? (
@@ -197,17 +190,22 @@ export function AskForm() {
               )
             )}
           </div>
+          <div
+            aria-hidden="true"
+            className="scroll-mb-24"
+            ref={messagesEndRef}
+          />
         </div>
       ) : null}
 
       <div
         className={
           hasMessages
-            ? "shrink-0 bg-background pt-3"
+            ? "fixed inset-x-0 bottom-0 z-10 bg-background px-4 pt-3 pb-4 sm:px-6 sm:pb-6"
             : "flex flex-1 items-center"
         }
       >
-        <div className="w-full">
+        <div className={hasMessages ? "mx-auto w-full max-w-3xl" : "w-full"}>
           {error ? (
             <p className="mb-3 px-4 text-sm text-destructive" role="alert">
               {error}
