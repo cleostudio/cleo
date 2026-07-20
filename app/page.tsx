@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input"
 
 export default function Page() {
   return (
-    <div className="flex min-h-svh p-6">
+    <div className="flex min-h-svh items-center justify-center p-6">
       <div className="w-full max-w-md min-w-0">
         <form className="flex items-center gap-2">
           <Input
