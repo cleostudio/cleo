@@ -6,13 +6,13 @@ import { Input } from "@/components/ui/input"
 export default function Page() {
   return (
     <div className="flex min-h-svh items-center justify-center p-6">
-      <div className="w-full max-w-lg min-w-0">
+      <div className="w-full max-w-2xl min-w-0">
         <form className="relative">
           <Input
             aria-label="Message"
             className="h-12 rounded-full pr-12 pl-4 text-base md:text-base"
             name="message"
-            placeholder="Type a message..."
+            placeholder="Ask anything"
           />
           <Button
             aria-label="Send message"
