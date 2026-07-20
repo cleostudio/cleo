@@ -10,3 +10,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - `cleo` is a single Next.js 16 app (App Router). Package manager is **pnpm**; standard scripts live in `package.json` (`dev`, `build`, `start`, `lint`, `typecheck`, `format`).
 - Run the dev server with `pnpm dev` (serves on http://localhost:3000). This is the only service.
 - The core feature is the "Ask anything" bar, which POSTs to `/api/responses`. That route calls the OpenAI Responses API with model `gpt-5.6-terra` and reads `OPENAI_API_KEY` from the environment. In Cloud the key is injected as an env secret, so the full ask→answer flow works without a local `.env.local`. If `OPENAI_API_KEY` is missing the route returns HTTP 503 ("The AI service is not configured.") and the UI renders that error — the page still loads fine for UI-only work.
+
+## OpenAI developer docs
+
+Always use the OpenAI developer documentation MCP server if you need to work with the OpenAI API, ChatGPT Apps SDK, Codex, or related OpenAI developer docs—without me having to explicitly ask. Prefer its tools (`search_openai_docs`, `list_openai_docs`, `fetch_openai_doc`, `list_api_endpoints`, `get_openapi_spec`) over guessing from training data.
