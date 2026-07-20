@@ -1,4 +1,4 @@
-import { Send } from "lucide-react"
+import { CornerRightUp } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -20,7 +20,7 @@ export default function Page() {
             size="icon"
             type="submit"
           >
-            <Send aria-hidden="true" />
+            <CornerRightUp aria-hidden="true" />
           </Button>
         </form>
       </div>
