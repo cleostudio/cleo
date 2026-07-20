@@ -162,7 +162,7 @@ export function AskForm() {
             {messages.map((message) =>
               message.role === "user" ? (
                 <div
-                  className="ml-auto max-w-[85%] rounded-3xl rounded-br-lg bg-primary px-4 py-2.5 text-sm leading-6 whitespace-pre-wrap text-primary-foreground shadow-sm"
+                  className="ml-auto max-w-[85%] rounded-3xl rounded-br-lg bg-primary px-4 py-2.5 text-sm leading-6 whitespace-pre-wrap text-primary-foreground shadow-sm sm:max-w-[70%]"
                   key={message.id}
                 >
                   {message.content}
