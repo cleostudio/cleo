@@ -25,16 +25,12 @@ export function AskForm() {
   const [messages, setMessages] = useState<Message[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
-  const messagesRef = useRef<HTMLDivElement>(null)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const hasMessages = messages.length > 0
 
   useEffect(() => {
-    const messageList = messagesRef.current
-
-    if (messageList) {
-      messageList.scrollTop = messageList.scrollHeight
-    }
+    messagesEndRef.current?.scrollIntoView({ block: "end" })
   }, [messages])
 
   useEffect(() => {
@@ -152,12 +148,9 @@ export function AskForm() {
   }
 
   return (
-    <div className="mx-auto flex h-full w-full max-w-3xl min-w-0 flex-col">
+    <div className="mx-auto flex min-h-[calc(100svh-2rem)] w-full max-w-3xl min-w-0 flex-col sm:min-h-[calc(100svh-3rem)]">
       {hasMessages ? (
-        <div
-          className="min-h-0 flex-1 overflow-y-auto px-1 py-6 sm:px-3"
-          ref={messagesRef}
-        >
+        <div className="flex-1 px-1 pt-6 pb-24 sm:px-3 sm:pb-28">
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === "user" ? (
@@ -197,13 +190,18 @@ export function AskForm() {
               )
             )}
           </div>
+          <div
+            aria-hidden="true"
+            className="scroll-mb-24"
+            ref={messagesEndRef}
+          />
         </div>
       ) : null}
 
       <div
         className={
           hasMessages
-            ? "shrink-0 bg-background pt-3"
+            ? "fixed bottom-4 left-1/2 z-10 w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 bg-background pt-3 sm:bottom-6 sm:w-[calc(100%-3rem)]"
             : "flex flex-1 items-center"
         }
       >
