@@ -48,23 +48,61 @@ export async function POST(request: Request) {
   const client = new OpenAI({ apiKey })
 
   try {
-    const response = await client.responses.create({
-      model: MODEL,
-      input,
-      instructions: "Answer the user's question clearly and directly.",
-      max_output_tokens: 4096,
-      reasoning: { effort: "medium" },
-      text: { verbosity: "medium" },
-      store: false,
+    const responseStream = await client.responses.create(
+      {
+        model: MODEL,
+        input,
+        instructions: "Answer the user's question clearly and directly.",
+        max_output_tokens: 4096,
+        reasoning: { effort: "medium" },
+        stream: true,
+        text: { verbosity: "medium" },
+        store: false,
+      },
+      { signal: request.signal }
+    )
+    const encoder = new TextEncoder()
+    const outputStream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        try {
+          for await (const event of responseStream) {
+            if (event.type === "response.output_text.delta") {
+              controller.enqueue(encoder.encode(event.delta))
+            }
+
+            if (event.type === "error") {
+              throw new Error(event.message)
+            }
+
+            if (event.type === "response.failed") {
+              throw new Error(
+                event.response.error?.message ??
+                  "The AI service could not complete the request."
+              )
+            }
+          }
+
+          controller.close()
+        } catch (streamError) {
+          if (!request.signal.aborted) {
+            console.error("OpenAI Responses API stream failed.", streamError)
+            controller.error(streamError)
+          }
+        }
+      },
+      cancel() {
+        responseStream.controller.abort()
+      },
     })
 
-    const output = response.output_text.trim()
-
-    if (!output) {
-      return errorResponse("The AI service returned an empty response.", 502)
-    }
-
-    return Response.json({ output })
+    return new Response(outputStream, {
+      headers: {
+        "Cache-Control": "no-cache, no-transform",
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-Accel-Buffering": "no",
+        "X-Content-Type-Options": "nosniff",
+      },
+    })
   } catch (error) {
     console.error("OpenAI Responses API request failed.", error)
 
