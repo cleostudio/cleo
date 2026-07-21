@@ -254,8 +254,12 @@ export function AskForm() {
           <div aria-hidden="true" ref={messagesEndRef} />
         </div>
 
-        <div className="sticky bottom-0 isolate z-10 bg-background py-4">
+        <div className="sticky bottom-0 isolate z-10 bg-background pt-4 pb-4">
           <div className="pointer-events-none absolute inset-x-0 -top-16 -z-10 h-16 bg-gradient-to-t from-background via-background/45 to-transparent" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-full -z-10 h-24 bg-background"
+          />
           {composer}
         </div>
       </div>
