@@ -3,6 +3,7 @@
 import { type FormEvent, useEffect, useRef, useState } from "react"
 import { CornerRightUp, LoaderCircle } from "lucide-react"
 
+import { Markdown } from "@/components/markdown"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -164,21 +165,19 @@ export function AskForm() {
                 <section
                   aria-label="AI response"
                   aria-live="polite"
-                  className="px-1 text-sm leading-7 whitespace-pre-wrap"
+                  className="min-w-0 px-1"
                   key={message.id}
                 >
                   {message.content ? (
-                    <>
+                    <Markdown
+                      isAnimating={
+                        isSubmitting && message.id === messages.at(-1)?.id
+                      }
+                    >
                       {message.content}
-                      {isSubmitting && message.id === messages.at(-1)?.id ? (
-                        <span
-                          aria-hidden="true"
-                          className="ml-1 inline-block h-4 w-0.5 animate-pulse bg-foreground align-text-bottom"
-                        />
-                      ) : null}
-                    </>
+                    </Markdown>
                   ) : (
-                    <span className="inline-flex items-center gap-2 text-muted-foreground">
+                    <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                       <LoaderCircle
                         aria-hidden="true"
                         className="size-4 animate-spin"
