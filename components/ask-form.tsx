@@ -220,7 +220,7 @@ export function AskForm() {
             <Input
               aria-label="Message"
               autoComplete="off"
-              className="h-12 rounded-full pr-12 pl-4 text-base shadow-sm md:text-base"
+              className="h-12 rounded-full bg-card pr-12 pl-4 text-base shadow-sm md:text-base"
               disabled={isSubmitting}
               maxLength={MAX_INPUT_LENGTH}
               name="message"
