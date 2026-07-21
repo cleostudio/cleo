@@ -26,11 +26,18 @@ export function AskForm() {
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesViewportRef = useRef<HTMLDivElement>(null)
 
   const hasMessages = messages.length > 0
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ block: "end" })
+    const viewport = messagesViewportRef.current
+
+    if (!viewport) {
+      return
+    }
+
+    viewport.scrollTo({ top: viewport.scrollHeight })
   }, [messages])
 
   useEffect(() => {
@@ -147,108 +154,111 @@ export function AskForm() {
     }
   }
 
-  return (
-    <div className="mx-auto flex min-h-[calc(100svh-2rem)] w-full max-w-3xl min-w-0 flex-col sm:min-h-[calc(100svh-3rem)]">
-      {hasMessages ? (
-        <div className="flex-1 px-1 pt-6 pb-24 sm:px-3 sm:pb-28">
-          <div className="flex flex-col gap-7">
-            {messages.map((message) =>
-              message.role === "user" ? (
-                <div
-                  className="ml-auto max-w-[85%] rounded-3xl rounded-br-lg bg-primary px-4 py-2.5 text-sm leading-6 whitespace-pre-wrap text-primary-foreground shadow-sm sm:max-w-[70%]"
-                  key={message.id}
-                >
-                  {message.content}
-                </div>
-              ) : (
-                <section
-                  aria-label="AI response"
-                  aria-live="polite"
-                  className="px-1 text-sm leading-7 whitespace-pre-wrap"
-                  key={message.id}
-                >
-                  {message.content ? (
-                    <>
-                      {message.content}
-                      {isSubmitting && message.id === messages.at(-1)?.id ? (
-                        <span
-                          aria-hidden="true"
-                          className="ml-1 inline-block h-4 w-0.5 animate-pulse bg-foreground align-text-bottom"
-                        />
-                      ) : null}
-                    </>
-                  ) : (
-                    <span className="inline-flex items-center gap-2 text-muted-foreground">
-                      <LoaderCircle
-                        aria-hidden="true"
-                        className="size-4 animate-spin"
-                      />
-                      Thinking
-                    </span>
-                  )}
-                </section>
-              )
-            )}
-          </div>
-          <div
-            aria-hidden="true"
-            className="scroll-mb-24"
-            ref={messagesEndRef}
-          />
-        </div>
+  const composer = (
+    <div className="w-full">
+      {error ? (
+        <p className="mb-3 px-4 text-sm text-destructive" role="alert">
+          {error}
+        </p>
       ) : null}
 
-      <div
-        className={
-          hasMessages
-            ? "fixed inset-x-0 bottom-0 z-10 overflow-visible bg-background px-4 pt-3 pb-4 sm:px-6 sm:pb-6"
-            : "flex flex-1 items-center"
-        }
-        style={
-          hasMessages
-            ? { boxShadow: "0 100dvh 0 100dvh var(--background)" }
-            : undefined
-        }
+      <form
+        aria-busy={isSubmitting}
+        className="relative"
+        onSubmit={handleSubmit}
       >
-        <div className={hasMessages ? "mx-auto w-full max-w-3xl" : "w-full"}>
-          {error ? (
-            <p className="mb-3 px-4 text-sm text-destructive" role="alert">
-              {error}
-            </p>
-          ) : null}
+        <Input
+          aria-label="Message"
+          autoComplete="off"
+          className="h-12 rounded-full pr-12 pl-4 text-base shadow-sm md:text-base"
+          disabled={isSubmitting}
+          maxLength={MAX_INPUT_LENGTH}
+          name="message"
+          onChange={(event) => setInput(event.target.value)}
+          placeholder="Ask anything"
+          ref={inputRef}
+          required
+          value={input}
+        />
+        <Button
+          aria-label={isSubmitting ? "Sending message" : "Send message"}
+          className="absolute top-1/2 right-1.5 -translate-y-1/2"
+          disabled={isSubmitting || !input.trim()}
+          size="icon"
+          type="submit"
+        >
+          {isSubmitting ? (
+            <LoaderCircle aria-hidden="true" className="animate-spin" />
+          ) : (
+            <CornerRightUp aria-hidden="true" />
+          )}
+        </Button>
+      </form>
+    </div>
+  )
 
-          <form
-            aria-busy={isSubmitting}
-            className="relative"
-            onSubmit={handleSubmit}
-          >
-            <Input
-              aria-label="Message"
-              autoComplete="off"
-              className="h-12 rounded-full pr-12 pl-4 text-base shadow-sm md:text-base"
-              disabled={isSubmitting}
-              maxLength={MAX_INPUT_LENGTH}
-              name="message"
-              onChange={(event) => setInput(event.target.value)}
-              placeholder="Ask anything"
-              ref={inputRef}
-              required
-              value={input}
-            />
-            <Button
-              aria-label={isSubmitting ? "Sending message" : "Send message"}
-              className="absolute top-1/2 right-1.5 -translate-y-1/2"
-              disabled={isSubmitting || !input.trim()}
-              size="icon"
-              type="submit"
-            >
-              {isSubmitting ? (
-                <LoaderCircle aria-hidden="true" className="animate-spin" />
-              ) : (
-                <CornerRightUp aria-hidden="true" />
-              )}
-            </Button>
-          </form>
+  if (!hasMessages) {
+    return (
+      <div className="mx-auto flex h-full w-full max-w-3xl min-w-0 flex-col px-4 sm:px-6">
+        <div className="flex flex-1 items-center">{composer}</div>
+      </div>
+    )
+  }
+
+  return (
+    <div
+      className="mx-auto flex h-full w-full max-w-3xl min-w-0 flex-col overflow-y-auto px-4 sm:px-6"
+      ref={messagesViewportRef}
+    >
+      <div className="flex min-h-full w-full flex-col">
+        <div className="flex flex-1 flex-col gap-7 pt-6 pb-4">
+          {messages.map((message) =>
+            message.role === "user" ? (
+              <div
+                className="ml-auto max-w-[85%] rounded-3xl rounded-br-lg bg-primary px-4 py-2.5 text-sm leading-6 whitespace-pre-wrap text-primary-foreground shadow-sm sm:max-w-[70%]"
+                key={message.id}
+              >
+                {message.content}
+              </div>
+            ) : (
+              <section
+                aria-label="AI response"
+                aria-live="polite"
+                className="px-1 text-sm leading-7 whitespace-pre-wrap"
+                key={message.id}
+              >
+                {message.content ? (
+                  <>
+                    {message.content}
+                    {isSubmitting && message.id === messages.at(-1)?.id ? (
+                      <span
+                        aria-hidden="true"
+                        className="ml-1 inline-block h-4 w-0.5 animate-pulse bg-foreground align-text-bottom"
+                      />
+                    ) : null}
+                  </>
+                ) : (
+                  <span className="inline-flex items-center gap-2 text-muted-foreground">
+                    <LoaderCircle
+                      aria-hidden="true"
+                      className="size-4 animate-spin"
+                    />
+                    Thinking
+                  </span>
+                )}
+              </section>
+            )
+          )}
+          <div aria-hidden="true" ref={messagesEndRef} />
+        </div>
+
+        <div className="sticky bottom-0 isolate z-10 bg-background pt-4 pb-4">
+          <div className="pointer-events-none absolute inset-x-0 -top-16 -z-10 h-16 bg-gradient-to-t from-background via-background/45 to-transparent" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-full -z-10 h-24 bg-background"
+          />
+          {composer}
         </div>
       </div>
     </div>
