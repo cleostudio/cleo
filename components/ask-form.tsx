@@ -167,32 +167,34 @@ export function AskForm() {
         className="relative"
         onSubmit={handleSubmit}
       >
-        <Input
-          aria-label="Message"
-          autoComplete="off"
-          className="h-12 rounded-full border border-border bg-secondary pr-12 pl-4 text-base shadow-none md:text-base"
-          disabled={isSubmitting}
-          maxLength={MAX_INPUT_LENGTH}
-          name="message"
-          onChange={(event) => setInput(event.target.value)}
-          placeholder="Ask anything"
-          ref={inputRef}
-          required
-          value={input}
-        />
-        <Button
-          aria-label={isSubmitting ? "Sending message" : "Send message"}
-          className="absolute top-1/2 right-1.5 -translate-y-1/2"
-          disabled={isSubmitting || !input.trim()}
-          size="icon"
-          type="submit"
-        >
-          {isSubmitting ? (
-            <LoaderCircle aria-hidden="true" className="animate-spin" />
-          ) : (
-            <CornerRightUp aria-hidden="true" />
-          )}
-        </Button>
+        <div className="relative flex min-h-12 items-center rounded-full border border-border bg-secondary">
+          <Input
+            aria-label="Message"
+            autoComplete="off"
+            className="h-12 flex-1 rounded-full border-0 bg-transparent! pr-12 pl-4 text-base shadow-none md:text-base"
+            disabled={isSubmitting}
+            maxLength={MAX_INPUT_LENGTH}
+            name="message"
+            onChange={(event) => setInput(event.target.value)}
+            placeholder="Ask anything"
+            ref={inputRef}
+            required
+            value={input}
+          />
+          <Button
+            aria-label={isSubmitting ? "Sending message" : "Send message"}
+            className="absolute top-1/2 right-1.5 -translate-y-1/2"
+            disabled={isSubmitting || !input.trim()}
+            size="icon"
+            type="submit"
+          >
+            {isSubmitting ? (
+              <LoaderCircle aria-hidden="true" className="animate-spin" />
+            ) : (
+              <CornerRightUp aria-hidden="true" />
+            )}
+          </Button>
+        </div>
       </form>
     </div>
   )
@@ -252,7 +254,7 @@ export function AskForm() {
           <div aria-hidden="true" ref={messagesEndRef} />
         </div>
 
-        <div className="sticky bottom-0 isolate z-0 bg-background py-4">
+        <div className="sticky bottom-0 isolate z-10 bg-background py-4">
           <div className="pointer-events-none absolute inset-x-0 -top-16 -z-10 h-16 bg-gradient-to-t from-background via-background/45 to-transparent" />
           {composer}
         </div>
