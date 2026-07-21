@@ -52,7 +52,8 @@ export async function POST(request: Request) {
       {
         model: MODEL,
         input,
-        instructions: "Answer the user's question clearly and directly.",
+        instructions:
+          "Answer the user's question clearly and directly. Use Markdown when it improves readability (headings, lists, tables, links, and fenced code blocks with language tags).",
         max_output_tokens: 4096,
         reasoning: { effort: "medium" },
         stream: true,
