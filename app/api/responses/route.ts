@@ -1,10 +1,88 @@
 import OpenAI, { APIError } from "openai"
+import type { EasyInputMessage } from "openai/resources/responses/responses"
 
 const MODEL = "gpt-5.6-terra"
 const MAX_INPUT_LENGTH = 10_000
+const MAX_MESSAGES = 50
+const MAX_TOTAL_INPUT_LENGTH = 100_000
+
+type ConversationMessage = {
+  content: string
+  role: "assistant" | "user"
+}
 
 function errorResponse(error: string, status: number) {
   return Response.json({ error }, { status })
+}
+
+function parseMessages(body: unknown): ConversationMessage[] | Response {
+  if (typeof body !== "object" || body === null) {
+    return errorResponse("The request body must be a JSON object.", 400)
+  }
+
+  if (!("messages" in body) || !Array.isArray(body.messages)) {
+    return errorResponse("A messages array is required.", 400)
+  }
+
+  if (body.messages.length === 0) {
+    return errorResponse("Enter a question before sending.", 400)
+  }
+
+  if (body.messages.length > MAX_MESSAGES) {
+    return errorResponse(
+      `Conversations must be ${MAX_MESSAGES} messages or fewer.`,
+      400
+    )
+  }
+
+  const messages: ConversationMessage[] = []
+  let totalLength = 0
+
+  for (const item of body.messages) {
+    if (
+      typeof item !== "object" ||
+      item === null ||
+      !("role" in item) ||
+      !("content" in item) ||
+      (item.role !== "user" && item.role !== "assistant") ||
+      typeof item.content !== "string"
+    ) {
+      return errorResponse(
+        "Each message must include a user or assistant role and text content.",
+        400
+      )
+    }
+
+    const content = item.content.trim()
+
+    if (!content) {
+      return errorResponse("Messages cannot be empty.", 400)
+    }
+
+    if (content.length > MAX_INPUT_LENGTH) {
+      return errorResponse(
+        `Messages must be ${MAX_INPUT_LENGTH.toLocaleString()} characters or fewer.`,
+        400
+      )
+    }
+
+    totalLength += content.length
+
+    if (totalLength > MAX_TOTAL_INPUT_LENGTH) {
+      return errorResponse(
+        `Conversations must be ${MAX_TOTAL_INPUT_LENGTH.toLocaleString()} characters or fewer.`,
+        400
+      )
+    }
+
+    messages.push({ content, role: item.role })
+  }
+
+  if (messages.at(-1)?.role !== "user") {
+    return errorResponse("The last message must come from the user.", 400)
+  }
+
+  return messages
 }
 
 export async function POST(request: Request) {
@@ -16,26 +94,10 @@ export async function POST(request: Request) {
     return errorResponse("The request body must be valid JSON.", 400)
   }
 
-  if (
-    typeof body !== "object" ||
-    body === null ||
-    !("input" in body) ||
-    typeof body.input !== "string"
-  ) {
-    return errorResponse("A text input is required.", 400)
-  }
+  const parsed = parseMessages(body)
 
-  const input = body.input.trim()
-
-  if (!input) {
-    return errorResponse("Enter a question before sending.", 400)
-  }
-
-  if (input.length > MAX_INPUT_LENGTH) {
-    return errorResponse(
-      `Questions must be ${MAX_INPUT_LENGTH.toLocaleString()} characters or fewer.`,
-      400
-    )
+  if (parsed instanceof Response) {
+    return parsed
   }
 
   const apiKey = process.env.OPENAI_API_KEY
@@ -46,6 +108,10 @@ export async function POST(request: Request) {
   }
 
   const client = new OpenAI({ apiKey })
+  const input: EasyInputMessage[] = parsed.map((message) => ({
+    role: message.role,
+    content: message.content,
+  }))
 
   try {
     const responseStream = await client.responses.create(

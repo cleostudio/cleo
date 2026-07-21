@@ -60,6 +60,13 @@ export function AskForm() {
       role: "assistant",
     }
 
+    const conversation = [
+      ...messages
+        .filter((message) => message.content.trim())
+        .map(({ role, content }) => ({ role, content })),
+      { role: "user" as const, content: question },
+    ]
+
     setMessages((currentMessages) => [
       ...currentMessages,
       userMessage,
@@ -73,7 +80,7 @@ export function AskForm() {
       const response = await fetch("/api/responses", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ input: question }),
+        body: JSON.stringify({ messages: conversation }),
       })
 
       if (!response.ok) {
@@ -179,7 +186,7 @@ export function AskForm() {
                   ) : (
                     <span
                       aria-label="Thinking"
-                      className="inline-block size-2 rounded-full bg-foreground/70 animate-pulse"
+                      className="inline-block size-2 animate-pulse rounded-full bg-foreground/70"
                       role="status"
                     />
                   )}
