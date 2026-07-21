@@ -32,9 +32,8 @@ export function AskForm() {
 
   useEffect(() => {
     const viewport = messagesViewportRef.current
-    const end = messagesEndRef.current
 
-    if (!viewport || !end) {
+    if (!viewport) {
       return
     }
 
@@ -207,12 +206,12 @@ export function AskForm() {
   }
 
   return (
-    <div className="mx-auto flex h-full w-full max-w-3xl min-w-0 flex-col">
-      <div
-        className="min-h-0 flex-1 overflow-y-auto px-4 pt-6 sm:px-6"
-        ref={messagesViewportRef}
-      >
-        <div className="flex flex-col gap-7 pb-4">
+    <div
+      className="mx-auto flex h-full w-full max-w-3xl min-w-0 flex-col overflow-y-auto px-4 sm:px-6"
+      ref={messagesViewportRef}
+    >
+      <div className="flex min-h-full w-full flex-col">
+        <div className="flex flex-1 flex-col gap-7 pt-6 pb-4">
           {messages.map((message) =>
             message.role === "user" ? (
               <div
@@ -250,13 +249,13 @@ export function AskForm() {
               </section>
             )
           )}
+          <div aria-hidden="true" ref={messagesEndRef} />
         </div>
-        <div aria-hidden="true" ref={messagesEndRef} />
-      </div>
 
-      <div className="relative isolate z-0 shrink-0 bg-background px-4 py-4 sm:px-6">
-        <div className="pointer-events-none absolute inset-x-0 -top-16 -z-10 h-16 bg-gradient-to-t from-background via-background/45 to-transparent" />
-        {composer}
+        <div className="sticky bottom-0 isolate z-0 bg-background py-4">
+          <div className="pointer-events-none absolute inset-x-0 -top-16 -z-10 h-16 bg-gradient-to-t from-background via-background/45 to-transparent" />
+          {composer}
+        </div>
       </div>
     </div>
   )
