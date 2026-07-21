@@ -201,8 +201,13 @@ export function AskForm() {
       <div
         className={
           hasMessages
-            ? "fixed inset-x-0 bottom-0 z-10 overflow-visible bg-background px-4 pt-3 pb-4 shadow-[0_100dvh_0_100dvh_var(--background)] sm:px-6 sm:pb-6"
+            ? "fixed inset-x-0 bottom-0 z-10 overflow-visible bg-background px-4 pt-3 pb-4 sm:px-6 sm:pb-6"
             : "flex flex-1 items-center"
+        }
+        style={
+          hasMessages
+            ? { boxShadow: "0 100dvh 0 100dvh var(--background)" }
+            : undefined
         }
       >
         <div className={hasMessages ? "mx-auto w-full max-w-3xl" : "w-full"}>
