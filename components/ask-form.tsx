@@ -177,13 +177,11 @@ export function AskForm() {
                       {message.content}
                     </Markdown>
                   ) : (
-                    <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                      <LoaderCircle
-                        aria-hidden="true"
-                        className="size-4 animate-spin"
-                      />
-                      Thinking
-                    </span>
+                    <span
+                      aria-label="Thinking"
+                      className="inline-block size-2 rounded-full bg-foreground/70 animate-pulse"
+                      role="status"
+                    />
                   )}
                 </section>
               )
