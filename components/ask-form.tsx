@@ -167,34 +167,32 @@ export function AskForm() {
         className="relative"
         onSubmit={handleSubmit}
       >
-        <div className="relative flex min-h-12 items-center rounded-full border border-border bg-secondary">
-          <Input
-            aria-label="Message"
-            autoComplete="off"
-            className="h-12 flex-1 rounded-full border-0 bg-transparent! pr-12 pl-4 text-base shadow-none md:text-base"
-            disabled={isSubmitting}
-            maxLength={MAX_INPUT_LENGTH}
-            name="message"
-            onChange={(event) => setInput(event.target.value)}
-            placeholder="Ask anything"
-            ref={inputRef}
-            required
-            value={input}
-          />
-          <Button
-            aria-label={isSubmitting ? "Sending message" : "Send message"}
-            className="absolute top-1/2 right-1.5 -translate-y-1/2"
-            disabled={isSubmitting || !input.trim()}
-            size="icon"
-            type="submit"
-          >
-            {isSubmitting ? (
-              <LoaderCircle aria-hidden="true" className="animate-spin" />
-            ) : (
-              <CornerRightUp aria-hidden="true" />
-            )}
-          </Button>
-        </div>
+        <Input
+          aria-label="Message"
+          autoComplete="off"
+          className="h-12 rounded-full pr-12 pl-4 text-base shadow-sm md:text-base"
+          disabled={isSubmitting}
+          maxLength={MAX_INPUT_LENGTH}
+          name="message"
+          onChange={(event) => setInput(event.target.value)}
+          placeholder="Ask anything"
+          ref={inputRef}
+          required
+          value={input}
+        />
+        <Button
+          aria-label={isSubmitting ? "Sending message" : "Send message"}
+          className="absolute top-1/2 right-1.5 -translate-y-1/2"
+          disabled={isSubmitting || !input.trim()}
+          size="icon"
+          type="submit"
+        >
+          {isSubmitting ? (
+            <LoaderCircle aria-hidden="true" className="animate-spin" />
+          ) : (
+            <CornerRightUp aria-hidden="true" />
+          )}
+        </Button>
       </form>
     </div>
   )
