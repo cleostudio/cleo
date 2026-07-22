@@ -118,8 +118,18 @@ export async function POST(request: Request) {
       {
         model: MODEL,
         input,
-        instructions:
-          "Answer the user's question clearly and directly. Use Markdown when it improves readability (headings, lists, tables, links, and fenced code blocks with language tags).",
+        instructions: [
+          "Answer the user's question clearly and directly.",
+          "Lead with the key point, then add supporting detail.",
+          "Use Markdown for scannable hierarchy:",
+          "prefer ## and ### section headings (avoid a lone top-level # title),",
+          "short paragraphs,",
+          "bulleted or numbered lists for steps/options/takeaways,",
+          "tables for comparisons,",
+          "links when citing sources,",
+          "and fenced code blocks with language tags for code.",
+          "Keep heading levels shallow and consistent; bold key terms sparingly.",
+        ].join(" "),
         max_output_tokens: 4096,
         reasoning: { effort: "medium" },
         stream: true,

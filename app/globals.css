@@ -135,3 +135,216 @@
     @apply font-sans;
   }
 }
+
+/*
+ * Chat-scale Markdown for AI responses (Streamdown).
+ * Unlayered on purpose: Streamdown ships Tailwind utilities, and unlayered
+ * rules beat @layer utilities so spacing/hierarchy actually apply.
+ */
+.ai-response {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+/* Kill Streamdown/Tailwind space-y-4 margins; flex gap owns the vertical rhythm.
+ * TW v4 space-y uses margin-block-end on :not(:last-child) inside :where(). */
+.ai-response > :not(:last-child) {
+  margin-block-end: 0;
+}
+
+.ai-response > :not([hidden]) ~ :not([hidden]) {
+  margin-block-start: 0;
+  margin-top: 0;
+}
+
+.ai-response > :first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.ai-response > :last-child {
+  margin-bottom: 0;
+}
+
+/* Browser default <p> margins stack with flex gap and create uneven rhythm. */
+.ai-response > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Neutralize Streamdown per-element vertical margins. */
+.ai-response [data-streamdown="heading-1"],
+.ai-response [data-streamdown="heading-2"],
+.ai-response [data-streamdown="heading-3"],
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"],
+.ai-response [data-streamdown="unordered-list"],
+.ai-response [data-streamdown="ordered-list"],
+.ai-response [data-streamdown="blockquote"],
+.ai-response [data-streamdown="horizontal-rule"],
+.ai-response [data-streamdown="code-block"],
+.ai-response [data-streamdown="table-wrapper"],
+.ai-response [data-streamdown="mermaid-block"] {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.ai-response [data-streamdown="heading-1"],
+.ai-response [data-streamdown="heading-2"],
+.ai-response [data-streamdown="heading-3"],
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"] {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+}
+
+.ai-response [data-streamdown="heading-1"] {
+  font-size: 1.375rem;
+  line-height: 1.3;
+}
+
+.ai-response [data-streamdown="heading-2"] {
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.ai-response [data-streamdown="heading-3"] {
+  font-size: 1.0625rem;
+  line-height: 1.4;
+}
+
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"] {
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+/*
+ * Extra section break before headings via padding so it stacks cleanly with
+ * flex gap (margin would fight space-y / gap unpredictably).
+ */
+.ai-response [data-streamdown="heading-1"],
+.ai-response [data-streamdown="heading-2"] {
+  padding-top: 0.85rem;
+}
+
+.ai-response [data-streamdown="heading-3"],
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"] {
+  padding-top: 0.65rem;
+}
+
+.ai-response > :first-child[data-streamdown="heading-1"],
+.ai-response > :first-child[data-streamdown="heading-2"],
+.ai-response > :first-child[data-streamdown="heading-3"],
+.ai-response > :first-child[data-streamdown="heading-4"],
+.ai-response > :first-child[data-streamdown="heading-5"],
+.ai-response > :first-child[data-streamdown="heading-6"] {
+  padding-top: 0;
+}
+
+.ai-response [data-streamdown="unordered-list"],
+.ai-response [data-streamdown="ordered-list"] {
+  list-style-position: outside;
+  padding-left: 1.25rem;
+  white-space: normal;
+}
+
+.ai-response [data-streamdown="unordered-list"] {
+  list-style-type: disc;
+}
+
+.ai-response [data-streamdown="ordered-list"] {
+  list-style-type: decimal;
+}
+
+.ai-response [data-streamdown="list-item"] {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0.25rem;
+}
+
+.ai-response [data-streamdown="list-item"] + [data-streamdown="list-item"] {
+  margin-top: 0.5rem;
+}
+
+.ai-response [data-streamdown="list-item"]::marker {
+  color: var(--muted-foreground);
+}
+
+.ai-response [data-streamdown="list-item"] > p {
+  display: inline;
+  margin: 0;
+}
+
+.ai-response li [data-streamdown="unordered-list"],
+.ai-response li [data-streamdown="ordered-list"] {
+  margin-top: 0.4rem;
+  margin-bottom: 0.15rem;
+  padding-left: 1.15rem;
+}
+
+.ai-response [data-streamdown="strong"] {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.ai-response [data-streamdown="link"] {
+  font-weight: 500;
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--foreground) 35%, transparent);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 150ms ease;
+}
+
+.ai-response [data-streamdown="link"]:hover {
+  text-decoration-color: var(--foreground);
+}
+
+.dark .ai-response [data-streamdown="link"] {
+  text-decoration-color: color-mix(in oklab, var(--foreground) 55%, transparent);
+}
+
+.ai-response [data-streamdown="inline-code"] {
+  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--muted);
+  padding: 0.12em 0.4em;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.875em;
+  color: var(--foreground);
+}
+
+.dark .ai-response [data-streamdown="inline-code"] {
+  border-color: color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
+.ai-response [data-streamdown="blockquote"] {
+  border-left: 2px solid color-mix(in oklab, var(--foreground) 20%, transparent);
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  padding-left: 0.875rem;
+  color: var(--muted-foreground);
+  font-style: normal;
+}
+
+.dark .ai-response [data-streamdown="blockquote"] {
+  border-left-color: color-mix(in oklab, var(--foreground) 32%, transparent);
+}
+
+.ai-response [data-streamdown="horizontal-rule"] {
+  width: 100%;
+  border-color: var(--border);
+  margin-block: 0.25rem;
+}
