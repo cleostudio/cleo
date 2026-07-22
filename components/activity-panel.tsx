@@ -111,7 +111,7 @@ export function ActivityPanel({
   const showPulse = isLive && hasActive
 
   return (
-    <div className="mb-3">
+    <div className="activity-panel mb-3">
       <button
         aria-expanded={isOpen}
         className="group flex max-w-full items-center gap-1.5 rounded-md text-left text-sm transition-colors"
@@ -128,10 +128,8 @@ export function ActivityPanel({
         />
         <span
           className={cn(
-            "min-w-0 truncate",
-            showPulse
-              ? "activity-shimmer"
-              : "text-muted-foreground group-hover:text-foreground"
+            "min-w-0 truncate text-muted-foreground group-hover:text-foreground",
+            showPulse && "activity-shimmer"
           )}
         >
           {label}
@@ -146,7 +144,7 @@ export function ActivityPanel({
       </button>
 
       {isOpen ? (
-        <ul className="mt-2 space-y-1.5 pl-0.5">
+        <ul className="mt-2 space-y-1 pl-5">
           {activities.map((activity) => {
             const detail = activityLabel(activity)
             const isActive =
@@ -155,24 +153,13 @@ export function ActivityPanel({
 
             return (
               <li
-                className="flex min-w-0 items-start gap-2 text-xs leading-5 text-muted-foreground"
+                className={cn(
+                  "min-w-0 text-xs leading-5 break-words text-muted-foreground",
+                  isActive && isLive && "activity-shimmer"
+                )}
                 key={activity.id}
               >
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "mt-1.5 size-1.5 shrink-0 rounded-full bg-muted-foreground/50",
-                    isActive && "animate-pulse bg-foreground"
-                  )}
-                />
-                <span
-                  className={cn(
-                    "min-w-0 break-words",
-                    isActive && isLive && "activity-shimmer"
-                  )}
-                >
-                  {detail}
-                </span>
+                {detail}
               </li>
             )
           })}
