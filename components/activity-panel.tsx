@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Globe } from "lucide-react"
+import { ChevronRight, Globe } from "lucide-react"
 
 import type { ActivityItem } from "@/lib/stream"
 import { cn } from "@/lib/utils"
@@ -147,11 +147,11 @@ export function ActivityPanel({
         >
           {label}
         </ShimmerText>
-        <ChevronDown
+        <ChevronRight
           aria-hidden="true"
           className={cn(
             "size-3.5 shrink-0 text-muted-foreground transition-transform group-hover:text-foreground",
-            isOpen && "rotate-180"
+            isOpen && "rotate-90"
           )}
         />
       </button>
