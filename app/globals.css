@@ -135,3 +135,106 @@
     @apply font-sans;
   }
 }
+
+/* Chat-scale Markdown hierarchy for AI responses (Streamdown). */
+@layer components {
+  .ai-response {
+    @apply min-w-0 text-[15px] leading-7 text-foreground;
+  }
+
+  .ai-response > :first-child {
+    @apply mt-0;
+  }
+
+  .ai-response > :last-child {
+    @apply mb-0;
+  }
+
+  .ai-response > p {
+    @apply my-3;
+  }
+
+  .ai-response [data-streamdown="heading-1"] {
+    @apply mt-7 mb-2 text-xl font-semibold tracking-tight text-foreground;
+  }
+
+  .ai-response [data-streamdown="heading-2"] {
+    @apply mt-6 mb-2 text-lg font-semibold tracking-tight text-foreground;
+  }
+
+  .ai-response [data-streamdown="heading-3"] {
+    @apply mt-5 mb-1.5 text-base font-semibold tracking-tight text-foreground;
+  }
+
+  .ai-response [data-streamdown="heading-4"],
+  .ai-response [data-streamdown="heading-5"],
+  .ai-response [data-streamdown="heading-6"] {
+    @apply mt-4 mb-1.5 text-[15px] font-semibold tracking-tight text-foreground;
+  }
+
+  .ai-response [data-streamdown="heading-1"] + p,
+  .ai-response [data-streamdown="heading-2"] + p,
+  .ai-response [data-streamdown="heading-3"] + p,
+  .ai-response [data-streamdown="heading-4"] + p,
+  .ai-response [data-streamdown="heading-5"] + p,
+  .ai-response [data-streamdown="heading-6"] + p {
+    @apply mt-0;
+  }
+
+  .ai-response [data-streamdown="unordered-list"],
+  .ai-response [data-streamdown="ordered-list"] {
+    @apply my-3 list-outside space-y-1.5 pl-5 whitespace-normal;
+  }
+
+  .ai-response [data-streamdown="unordered-list"] {
+    @apply list-disc;
+  }
+
+  .ai-response [data-streamdown="ordered-list"] {
+    @apply list-decimal;
+  }
+
+  .ai-response [data-streamdown="list-item"] {
+    @apply py-0 pl-1 marker:text-muted-foreground;
+  }
+
+  .ai-response [data-streamdown="list-item"] > p {
+    @apply my-0 inline;
+  }
+
+  .ai-response li [data-streamdown="unordered-list"],
+  .ai-response li [data-streamdown="ordered-list"] {
+    @apply my-1.5;
+  }
+
+  .ai-response [data-streamdown="strong"] {
+    @apply font-semibold text-foreground;
+  }
+
+  .ai-response [data-streamdown="link"] {
+    @apply font-medium text-foreground underline decoration-foreground/30
+      underline-offset-2 transition-colors hover:decoration-foreground;
+  }
+
+  .ai-response [data-streamdown="inline-code"] {
+    @apply rounded-md border border-border/70 bg-muted px-1.5 py-0.5
+      font-mono text-[0.875em] text-foreground;
+  }
+
+  .ai-response [data-streamdown="blockquote"] {
+    @apply my-4 border-l-2 border-foreground/20 pl-4 text-muted-foreground
+      not-italic;
+  }
+
+  .ai-response [data-streamdown="horizontal-rule"] {
+    @apply my-6 border-border;
+  }
+
+  .ai-response [data-streamdown="table-wrapper"] {
+    @apply my-4;
+  }
+
+  .ai-response [data-streamdown="code-block"] {
+    @apply my-4;
+  }
+}

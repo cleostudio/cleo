@@ -19,10 +19,7 @@ export function Markdown({
   return (
     <Streamdown
       caret={isAnimating ? "block" : undefined}
-      className={cn(
-        "space-y-4 text-sm leading-7 text-foreground [&>*:first-child]:mt-0 [&>*:last-child]:mb-0",
-        className
-      )}
+      className={cn("ai-response", className)}
       isAnimating={isAnimating}
       lineNumbers={false}
       plugins={{ code }}
