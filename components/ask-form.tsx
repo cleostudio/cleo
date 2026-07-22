@@ -262,30 +262,23 @@ export function AskForm() {
               required={!isSubmitting}
               value={input}
             />
-            {isSubmitting ? (
-              <Button
-                aria-label="Stop generating"
-                className="absolute top-1/2 right-1.5 -translate-y-1/2"
-                onClick={handleStop}
-                size="icon"
-                type="button"
-              >
+            <Button
+              aria-label={isSubmitting ? "Stop generating" : "Send message"}
+              className="absolute top-1.5 right-1.5 active:!translate-y-0"
+              disabled={!isSubmitting && !input.trim()}
+              onClick={isSubmitting ? handleStop : undefined}
+              size="icon"
+              type={isSubmitting ? "button" : "submit"}
+            >
+              {isSubmitting ? (
                 <Square
                   aria-hidden="true"
                   className="size-3.5 fill-current"
                 />
-              </Button>
-            ) : (
-              <Button
-                aria-label="Send message"
-                className="absolute top-1/2 right-1.5 -translate-y-1/2"
-                disabled={!input.trim()}
-                size="icon"
-                type="submit"
-              >
+              ) : (
                 <CornerRightUp aria-hidden="true" />
-              </Button>
-            )}
+              )}
+            </Button>
           </form>
         </div>
       </div>
