@@ -134,7 +134,6 @@ export function ActivityPanel({
           aria-hidden="true"
           className={cn(
             "size-3.5 shrink-0 text-muted-foreground",
-            showPulse && "animate-pulse",
             !showPulse && "group-hover:text-foreground"
           )}
         />
