@@ -214,7 +214,7 @@ export function AskForm() {
                   ) : (
                     <span
                       aria-label="Thinking"
-                      className="inline-block size-2 animate-pulse rounded-full bg-foreground/70"
+                      className="inline-block size-2 animate-pulse rounded-full bg-foreground"
                       role="status"
                     />
                   )}
