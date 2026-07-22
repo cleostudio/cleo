@@ -350,43 +350,36 @@
 }
 
 @keyframes activity-shimmer {
-  0% {
-    transform: translateX(-120%);
+  from {
+    background-position: 0 0;
   }
-  100% {
-    transform: translateX(120%);
+  to {
+    background-position: 12ch 0;
   }
 }
 
 .activity-shimmer {
-  position: relative;
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  color: var(--muted-foreground);
-  -webkit-text-fill-color: var(--muted-foreground);
-  vertical-align: bottom;
-}
-
-.activity-shimmer::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
+  background-image: repeating-linear-gradient(
     90deg,
-    transparent 0%,
-    color-mix(in oklab, white 90%, transparent) 45%,
-    color-mix(in oklab, white 90%, transparent) 55%,
-    transparent 100%
-  );
-  transform: translateX(-120%);
-  animation: activity-shimmer 1.25s linear infinite;
-  mix-blend-mode: plus-lighter;
-  pointer-events: none;
+    var(--muted-foreground) 0,
+    var(--muted-foreground) 3.5ch,
+    var(--foreground) 6ch,
+    var(--muted-foreground) 8.5ch,
+    var(--muted-foreground) 12ch
+  ) !important;
+  background-size: 12ch 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  animation: activity-shimmer 1.2s linear infinite !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .activity-shimmer::after {
-    display: none;
+  .activity-shimmer {
+    animation: none !important;
+    background-image: none !important;
+    color: var(--muted-foreground) !important;
+    -webkit-text-fill-color: var(--muted-foreground) !important;
   }
 }

@@ -11,6 +11,18 @@ type ActivityPanelProps = {
   isLive?: boolean
 }
 
+type ShimmerTextProps = {
+  active?: boolean
+  children: string
+  className?: string
+}
+
+function ShimmerText({ active = false, children, className }: ShimmerTextProps) {
+  return (
+    <span className={cn(className, active && "activity-shimmer")}>{children}</span>
+  )
+}
+
 function hostnameFromUrl(url: string) {
   try {
     return new URL(url).hostname.replace(/^www\./, "")
@@ -126,14 +138,16 @@ export function ActivityPanel({
             !showPulse && "group-hover:text-foreground"
           )}
         />
-        <span
+        <ShimmerText
+          active={showPulse}
           className={cn(
-            "min-w-0 truncate text-muted-foreground group-hover:text-foreground",
-            showPulse && "activity-shimmer"
+            "min-w-0",
+            showPulse ? "whitespace-nowrap" : "truncate",
+            !showPulse && "text-muted-foreground group-hover:text-foreground"
           )}
         >
           {label}
-        </span>
+        </ShimmerText>
         <ChevronDown
           aria-hidden="true"
           className={cn(
@@ -152,14 +166,16 @@ export function ActivityPanel({
               activity.status === "searching"
 
             return (
-              <li
-                className={cn(
-                  "min-w-0 text-xs leading-5 break-words text-muted-foreground",
-                  isActive && isLive && "activity-shimmer"
-                )}
-                key={activity.id}
-              >
-                {detail}
+              <li className="min-w-0" key={activity.id}>
+                <ShimmerText
+                  active={isActive && isLive}
+                  className={cn(
+                    "text-xs leading-5 break-words",
+                    !(isActive && isLive) && "text-muted-foreground"
+                  )}
+                >
+                  {detail}
+                </ShimmerText>
               </li>
             )
           })}
