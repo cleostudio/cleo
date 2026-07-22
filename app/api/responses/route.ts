@@ -1,5 +1,16 @@
 import OpenAI, { APIError } from "openai"
-import type { EasyInputMessage } from "openai/resources/responses/responses"
+import type {
+  EasyInputMessage,
+  ResponseFunctionWebSearch,
+} from "openai/resources/responses/responses"
+
+import {
+  type ActivityItem,
+  type ActivityStatus,
+  type ClientStreamEvent,
+  encodeStreamEvent,
+  type WebSearchAction,
+} from "@/lib/stream"
 
 const MODEL = "gpt-5.6-terra"
 const MAX_INPUT_LENGTH = 10_000
@@ -85,6 +96,47 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
   return messages
 }
 
+function toWebSearchAction(
+  action: ResponseFunctionWebSearch["action"] | undefined
+): WebSearchAction | undefined {
+  if (!action) {
+    return undefined
+  }
+
+  if (action.type === "search") {
+    return {
+      type: "search",
+      queries: action.queries,
+      query: action.query,
+    }
+  }
+
+  if (action.type === "open_page") {
+    return {
+      type: "open_page",
+      url: action.url,
+    }
+  }
+
+  return {
+    type: "find_in_page",
+    pattern: action.pattern,
+    url: action.url,
+  }
+}
+
+function activityFromWebSearch(
+  item: ResponseFunctionWebSearch,
+  status?: ActivityStatus
+): ActivityItem {
+  return {
+    id: item.id,
+    kind: "web_search",
+    status: status ?? item.status,
+    action: toWebSearchAction(item.action),
+  }
+}
+
 export async function POST(request: Request) {
   let body: unknown
 
@@ -121,12 +173,14 @@ export async function POST(request: Request) {
         instructions: [
           "Answer the user's question clearly and directly.",
           "Lead with the key point, then add supporting detail.",
+          "Use the web_search tool when the question needs current,",
+          "time-sensitive, or otherwise hard-to-verify information.",
+          "When you use web results, cite sources with Markdown links.",
           "Use Markdown for scannable hierarchy:",
           "prefer ## and ### section headings (avoid a lone top-level # title),",
           "short paragraphs,",
           "bulleted or numbered lists for steps/options/takeaways,",
           "tables for comparisons,",
-          "links when citing sources,",
           "and fenced code blocks with language tags for code.",
           "Keep heading levels shallow and consistent; bold key terms sparingly.",
         ].join(" "),
@@ -134,17 +188,87 @@ export async function POST(request: Request) {
         reasoning: { effort: "medium" },
         stream: true,
         text: { verbosity: "medium" },
+        tools: [{ type: "web_search" }],
         store: false,
       },
       { signal: request.signal }
     )
     const encoder = new TextEncoder()
+    const activities = new Map<string, ActivityItem>()
+
+    const enqueue = (
+      controller: ReadableStreamDefaultController<Uint8Array>,
+      event: ClientStreamEvent
+    ) => {
+      controller.enqueue(encoder.encode(encodeStreamEvent(event)))
+    }
+
+    const emitActivity = (
+      controller: ReadableStreamDefaultController<Uint8Array>,
+      activity: ActivityItem
+    ) => {
+      const previous = activities.get(activity.id)
+      const next: ActivityItem = {
+        ...previous,
+        ...activity,
+        action: activity.action ?? previous?.action,
+      }
+
+      activities.set(activity.id, next)
+      enqueue(controller, { type: "activity", activity: next })
+    }
+
     const outputStream = new ReadableStream<Uint8Array>({
       async start(controller) {
         try {
           for await (const event of responseStream) {
             if (event.type === "response.output_text.delta") {
-              controller.enqueue(encoder.encode(event.delta))
+              enqueue(controller, { type: "text", delta: event.delta })
+              continue
+            }
+
+            if (event.type === "response.output_item.added") {
+              if (event.item.type === "web_search_call") {
+                emitActivity(
+                  controller,
+                  activityFromWebSearch(event.item, "in_progress")
+                )
+              }
+              continue
+            }
+
+            if (event.type === "response.web_search_call.in_progress") {
+              emitActivity(controller, {
+                id: event.item_id,
+                kind: "web_search",
+                status: "in_progress",
+              })
+              continue
+            }
+
+            if (event.type === "response.web_search_call.searching") {
+              emitActivity(controller, {
+                id: event.item_id,
+                kind: "web_search",
+                status: "searching",
+              })
+              continue
+            }
+
+            if (event.type === "response.output_item.done") {
+              if (event.item.type === "web_search_call") {
+                emitActivity(controller, activityFromWebSearch(event.item))
+              }
+              continue
+            }
+
+            if (event.type === "response.web_search_call.completed") {
+              emitActivity(controller, {
+                id: event.item_id,
+                kind: "web_search",
+                status: "completed",
+              })
+              continue
             }
 
             if (event.type === "error") {
@@ -163,7 +287,19 @@ export async function POST(request: Request) {
         } catch (streamError) {
           if (!request.signal.aborted) {
             console.error("OpenAI Responses API stream failed.", streamError)
-            controller.error(streamError)
+
+            try {
+              enqueue(controller, {
+                type: "error",
+                error:
+                  streamError instanceof Error
+                    ? streamError.message
+                    : "The AI service could not complete the request.",
+              })
+              controller.close()
+            } catch {
+              controller.error(streamError)
+            }
           }
         }
       },
@@ -175,7 +311,7 @@ export async function POST(request: Request) {
     return new Response(outputStream, {
       headers: {
         "Cache-Control": "no-cache, no-transform",
-        "Content-Type": "text/plain; charset=utf-8",
+        "Content-Type": "application/x-ndjson; charset=utf-8",
         "X-Accel-Buffering": "no",
         "X-Content-Type-Options": "nosniff",
       },

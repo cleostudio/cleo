@@ -348,3 +348,38 @@
   border-color: var(--border);
   margin-block: 0.25rem;
 }
+
+@keyframes activity-shimmer {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 12ch 0;
+  }
+}
+
+.activity-shimmer {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--muted-foreground) 0,
+    var(--muted-foreground) 3.5ch,
+    var(--foreground) 6ch,
+    var(--muted-foreground) 8.5ch,
+    var(--muted-foreground) 12ch
+  ) !important;
+  background-size: 12ch 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  animation: activity-shimmer 1.2s linear infinite !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-shimmer {
+    animation: none !important;
+    background-image: none !important;
+    color: var(--muted-foreground) !important;
+    -webkit-text-fill-color: var(--muted-foreground) !important;
+  }
+}
