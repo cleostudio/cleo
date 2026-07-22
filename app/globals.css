@@ -151,8 +151,14 @@
   color: var(--foreground);
 }
 
-/* Kill Streamdown space-y-4 margins; flex gap owns the vertical rhythm. */
+/* Kill Streamdown/Tailwind space-y-4 margins; flex gap owns the vertical rhythm.
+ * TW v4 space-y uses margin-block-end on :not(:last-child) inside :where(). */
+.ai-response > :not(:last-child) {
+  margin-block-end: 0;
+}
+
 .ai-response > :not([hidden]) ~ :not([hidden]) {
+  margin-block-start: 0;
   margin-top: 0;
 }
 
