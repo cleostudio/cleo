@@ -303,13 +303,17 @@
   font-weight: 500;
   color: var(--foreground);
   text-decoration: underline;
-  text-decoration-color: color-mix(in oklab, var(--foreground) 30%, transparent);
+  text-decoration-color: color-mix(in oklab, var(--foreground) 35%, transparent);
   text-underline-offset: 2px;
   transition: text-decoration-color 150ms ease;
 }
 
 .ai-response [data-streamdown="link"]:hover {
   text-decoration-color: var(--foreground);
+}
+
+.dark .ai-response [data-streamdown="link"] {
+  text-decoration-color: color-mix(in oklab, var(--foreground) 55%, transparent);
 }
 
 .ai-response [data-streamdown="inline-code"] {
@@ -322,6 +326,10 @@
   color: var(--foreground);
 }
 
+.dark .ai-response [data-streamdown="inline-code"] {
+  border-color: color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
 .ai-response [data-streamdown="blockquote"] {
   border-left: 2px solid color-mix(in oklab, var(--foreground) 20%, transparent);
   padding-top: 0.15rem;
@@ -329,6 +337,10 @@
   padding-left: 0.875rem;
   color: var(--muted-foreground);
   font-style: normal;
+}
+
+.dark .ai-response [data-streamdown="blockquote"] {
+  border-left-color: color-mix(in oklab, var(--foreground) 32%, transparent);
 }
 
 .ai-response [data-streamdown="horizontal-rule"] {
