@@ -3,9 +3,11 @@
 import { type FormEvent, useEffect, useRef, useState } from "react"
 import { CornerRightUp, Square } from "lucide-react"
 
+import { ActivityPanel } from "@/components/activity-panel"
 import { Markdown } from "@/components/markdown"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { type ActivityItem, parseStreamLine } from "@/lib/stream"
 
 const MAX_INPUT_LENGTH = 10_000
 
@@ -14,6 +16,7 @@ type ResponsePayload = {
 }
 
 type Message = {
+  activities?: ActivityItem[]
   content: string
   id: number
   role: "assistant" | "user"
@@ -24,6 +27,27 @@ function isAbortError(error: unknown) {
     (error instanceof DOMException && error.name === "AbortError") ||
     (error instanceof Error && error.name === "AbortError")
   )
+}
+
+function upsertActivity(
+  activities: ActivityItem[] | undefined,
+  activity: ActivityItem
+) {
+  const current = activities ?? []
+  const index = current.findIndex((item) => item.id === activity.id)
+
+  if (index === -1) {
+    return [...current, activity]
+  }
+
+  const previous = current[index]
+  const next = [...current]
+  next[index] = {
+    ...previous,
+    ...activity,
+    action: activity.action ?? previous.action,
+  }
+  return next
 }
 
 export function AskForm() {
@@ -73,6 +97,7 @@ export function AskForm() {
       role: "user",
     }
     const assistantMessage: Message = {
+      activities: [],
       content: "",
       id: messageIdRef.current++,
       role: "assistant",
@@ -119,7 +144,33 @@ export function AskForm() {
 
       const reader = response.body.getReader()
       const decoder = new TextDecoder()
+      let buffer = ""
       let output = ""
+      let streamError: string | null = null
+
+      const applyTextDelta = (delta: string) => {
+        output += delta
+        setMessages((currentMessages) =>
+          currentMessages.map((message) =>
+            message.id === assistantMessage.id
+              ? { ...message, content: message.content + delta }
+              : message
+          )
+        )
+      }
+
+      const applyActivity = (activity: ActivityItem) => {
+        setMessages((currentMessages) =>
+          currentMessages.map((message) =>
+            message.id === assistantMessage.id
+              ? {
+                  ...message,
+                  activities: upsertActivity(message.activities, activity),
+                }
+              : message
+          )
+        )
+      }
 
       while (true) {
         const { done, value } = await reader.read()
@@ -128,33 +179,53 @@ export function AskForm() {
           break
         }
 
-        const chunk = decoder.decode(value, { stream: true })
+        buffer += decoder.decode(value, { stream: true })
+        const lines = buffer.split("\n")
+        buffer = lines.pop() ?? ""
 
-        if (!chunk) {
-          continue
+        for (const line of lines) {
+          const event = parseStreamLine(line)
+
+          if (!event) {
+            continue
+          }
+
+          if (event.type === "text") {
+            applyTextDelta(event.delta)
+            continue
+          }
+
+          if (event.type === "activity") {
+            applyActivity(event.activity)
+            continue
+          }
+
+          if (event.type === "error") {
+            streamError = event.error
+          }
         }
-
-        output += chunk
-        setMessages((currentMessages) =>
-          currentMessages.map((message) =>
-            message.id === assistantMessage.id
-              ? { ...message, content: message.content + chunk }
-              : message
-          )
-        )
       }
 
       const finalChunk = decoder.decode()
 
       if (finalChunk) {
-        output += finalChunk
-        setMessages((currentMessages) =>
-          currentMessages.map((message) =>
-            message.id === assistantMessage.id
-              ? { ...message, content: message.content + finalChunk }
-              : message
-          )
-        )
+        buffer += finalChunk
+      }
+
+      if (buffer.trim()) {
+        const event = parseStreamLine(buffer)
+
+        if (event?.type === "text") {
+          applyTextDelta(event.delta)
+        } else if (event?.type === "activity") {
+          applyActivity(event.activity)
+        } else if (event?.type === "error") {
+          streamError = event.error
+        }
+      }
+
+      if (streamError && !abortController.signal.aborted) {
+        throw new Error(streamError)
       }
 
       if (!output.trim() && !abortController.signal.aborted) {
@@ -164,7 +235,9 @@ export function AskForm() {
       setMessages((currentMessages) =>
         currentMessages.filter(
           (message) =>
-            message.id !== assistantMessage.id || Boolean(message.content)
+            message.id !== assistantMessage.id ||
+            Boolean(message.content) ||
+            Boolean(message.activities?.length)
         )
       )
 
@@ -203,6 +276,15 @@ export function AskForm() {
                   className="min-w-0 px-1"
                   key={message.id}
                 >
+                  {message.activities && message.activities.length > 0 ? (
+                    <ActivityPanel
+                      activities={message.activities}
+                      isLive={
+                        isSubmitting && message.id === messages.at(-1)?.id
+                      }
+                    />
+                  ) : null}
+
                   {message.content ? (
                     <Markdown
                       isAnimating={
@@ -211,13 +293,15 @@ export function AskForm() {
                     >
                       {message.content}
                     </Markdown>
-                  ) : (
+                  ) : isSubmitting &&
+                    message.id === messages.at(-1)?.id &&
+                    !(message.activities && message.activities.length > 0) ? (
                     <span
                       aria-label="Thinking"
                       className="inline-block size-2 animate-pulse rounded-full bg-foreground"
                       role="status"
                     />
-                  )}
+                  ) : null}
                 </section>
               )
             )}
