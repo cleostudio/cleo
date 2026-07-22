@@ -1,7 +1,7 @@
 "use client"
 
 import { type FormEvent, useEffect, useRef, useState } from "react"
-import { CornerRightUp, LoaderCircle } from "lucide-react"
+import { CornerRightUp, Square } from "lucide-react"
 
 import { Markdown } from "@/components/markdown"
 import { Button } from "@/components/ui/button"
@@ -19,11 +19,19 @@ type Message = {
   role: "assistant" | "user"
 }
 
+function isAbortError(error: unknown) {
+  return (
+    (error instanceof DOMException && error.name === "AbortError") ||
+    (error instanceof Error && error.name === "AbortError")
+  )
+}
+
 export function AskForm() {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
+  const abortControllerRef = useRef<AbortController | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -39,6 +47,16 @@ export function AskForm() {
       inputRef.current?.focus()
     }
   }, [hasMessages, isSubmitting])
+
+  useEffect(() => {
+    return () => {
+      abortControllerRef.current?.abort()
+    }
+  }, [])
+
+  function handleStop() {
+    abortControllerRef.current?.abort()
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -67,6 +85,9 @@ export function AskForm() {
       { role: "user" as const, content: question },
     ]
 
+    const abortController = new AbortController()
+    abortControllerRef.current = abortController
+
     setMessages((currentMessages) => [
       ...currentMessages,
       userMessage,
@@ -81,6 +102,7 @@ export function AskForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: conversation }),
+        signal: abortController.signal,
       })
 
       if (!response.ok) {
@@ -135,7 +157,7 @@ export function AskForm() {
         )
       }
 
-      if (!output.trim()) {
+      if (!output.trim() && !abortController.signal.aborted) {
         throw new Error("The AI service returned an empty response.")
       }
     } catch (requestError) {
@@ -145,12 +167,18 @@ export function AskForm() {
             message.id !== assistantMessage.id || Boolean(message.content)
         )
       )
-      setError(
-        requestError instanceof Error
-          ? requestError.message
-          : "The request could not be completed."
-      )
+
+      if (!isAbortError(requestError) && !abortController.signal.aborted) {
+        setError(
+          requestError instanceof Error
+            ? requestError.message
+            : "The request could not be completed."
+        )
+      }
     } finally {
+      if (abortControllerRef.current === abortController) {
+        abortControllerRef.current = null
+      }
       setIsSubmitting(false)
     }
   }
@@ -231,18 +259,22 @@ export function AskForm() {
               onChange={(event) => setInput(event.target.value)}
               placeholder="Ask anything"
               ref={inputRef}
-              required
+              required={!isSubmitting}
               value={input}
             />
             <Button
-              aria-label={isSubmitting ? "Sending message" : "Send message"}
-              className="absolute top-1/2 right-1.5 -translate-y-1/2"
-              disabled={isSubmitting || !input.trim()}
+              aria-label={isSubmitting ? "Stop generating" : "Send message"}
+              className="absolute top-1.5 right-1.5 active:!translate-y-0"
+              disabled={!isSubmitting && !input.trim()}
+              onClick={isSubmitting ? handleStop : undefined}
               size="icon"
-              type="submit"
+              type={isSubmitting ? "button" : "submit"}
             >
               {isSubmitting ? (
-                <LoaderCircle aria-hidden="true" className="animate-spin" />
+                <Square
+                  aria-hidden="true"
+                  className="size-3.5 fill-current"
+                />
               ) : (
                 <CornerRightUp aria-hidden="true" />
               )}
