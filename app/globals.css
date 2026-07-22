@@ -136,105 +136,210 @@
   }
 }
 
-/* Chat-scale Markdown hierarchy for AI responses (Streamdown). */
-@layer components {
-  .ai-response {
-    @apply min-w-0 text-[15px] leading-7 text-foreground;
-  }
+/*
+ * Chat-scale Markdown for AI responses (Streamdown).
+ * Unlayered on purpose: Streamdown ships Tailwind utilities, and unlayered
+ * rules beat @layer utilities so spacing/hierarchy actually apply.
+ */
+.ai-response {
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--foreground);
+}
 
-  .ai-response > :first-child {
-    @apply mt-0;
-  }
+/* Replace Streamdown's space-y-4 with a tighter block rhythm. */
+.ai-response > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.625rem;
+}
 
-  .ai-response > :last-child {
-    @apply mb-0;
-  }
+.ai-response > :first-child {
+  margin-top: 0;
+}
 
-  .ai-response > p {
-    @apply my-3;
-  }
+.ai-response > :last-child {
+  margin-bottom: 0;
+}
 
-  .ai-response [data-streamdown="heading-1"] {
-    @apply mt-7 mb-2 text-xl font-semibold tracking-tight text-foreground;
-  }
+/* Neutralize Streamdown per-element vertical margins; rhythm comes from above. */
+.ai-response [data-streamdown="heading-1"],
+.ai-response [data-streamdown="heading-2"],
+.ai-response [data-streamdown="heading-3"],
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"],
+.ai-response [data-streamdown="unordered-list"],
+.ai-response [data-streamdown="ordered-list"],
+.ai-response [data-streamdown="blockquote"],
+.ai-response [data-streamdown="horizontal-rule"],
+.ai-response [data-streamdown="code-block"],
+.ai-response [data-streamdown="table-wrapper"],
+.ai-response [data-streamdown="mermaid-block"] {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
-  .ai-response [data-streamdown="heading-2"] {
-    @apply mt-6 mb-2 text-lg font-semibold tracking-tight text-foreground;
-  }
+.ai-response [data-streamdown="heading-1"],
+.ai-response [data-streamdown="heading-2"],
+.ai-response [data-streamdown="heading-3"],
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"] {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+}
 
-  .ai-response [data-streamdown="heading-3"] {
-    @apply mt-5 mb-1.5 text-base font-semibold tracking-tight text-foreground;
-  }
+.ai-response [data-streamdown="heading-1"] {
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
 
-  .ai-response [data-streamdown="heading-4"],
-  .ai-response [data-streamdown="heading-5"],
-  .ai-response [data-streamdown="heading-6"] {
-    @apply mt-4 mb-1.5 text-[15px] font-semibold tracking-tight text-foreground;
-  }
+.ai-response [data-streamdown="heading-2"] {
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
 
-  .ai-response [data-streamdown="heading-1"] + p,
-  .ai-response [data-streamdown="heading-2"] + p,
-  .ai-response [data-streamdown="heading-3"] + p,
-  .ai-response [data-streamdown="heading-4"] + p,
-  .ai-response [data-streamdown="heading-5"] + p,
-  .ai-response [data-streamdown="heading-6"] + p {
-    @apply mt-0;
-  }
+.ai-response [data-streamdown="heading-3"] {
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
 
-  .ai-response [data-streamdown="unordered-list"],
-  .ai-response [data-streamdown="ordered-list"] {
-    @apply my-3 list-outside space-y-1.5 pl-5 whitespace-normal;
-  }
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"] {
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
 
-  .ai-response [data-streamdown="unordered-list"] {
-    @apply list-disc;
-  }
+/* Extra air before section headings (not the first block). */
+.ai-response > :not([hidden]) ~ [data-streamdown="heading-1"] {
+  margin-top: 1.375rem;
+}
 
-  .ai-response [data-streamdown="ordered-list"] {
-    @apply list-decimal;
-  }
+.ai-response > :not([hidden]) ~ [data-streamdown="heading-2"] {
+  margin-top: 1.25rem;
+}
 
-  .ai-response [data-streamdown="list-item"] {
-    @apply py-0 pl-1 marker:text-muted-foreground;
-  }
+.ai-response > :not([hidden]) ~ [data-streamdown="heading-3"] {
+  margin-top: 1.125rem;
+}
 
-  .ai-response [data-streamdown="list-item"] > p {
-    @apply my-0 inline;
-  }
+.ai-response > :not([hidden]) ~ [data-streamdown="heading-4"],
+.ai-response > :not([hidden]) ~ [data-streamdown="heading-5"],
+.ai-response > :not([hidden]) ~ [data-streamdown="heading-6"] {
+  margin-top: 1rem;
+}
 
-  .ai-response li [data-streamdown="unordered-list"],
-  .ai-response li [data-streamdown="ordered-list"] {
-    @apply my-1.5;
-  }
+/* Keep heading → following content close (must beat the base sibling gap). */
+.ai-response
+  > :not([hidden])[data-streamdown="heading-1"]
+  + :not([hidden]),
+.ai-response
+  > :not([hidden])[data-streamdown="heading-2"]
+  + :not([hidden]),
+.ai-response
+  > :not([hidden])[data-streamdown="heading-3"]
+  + :not([hidden]),
+.ai-response
+  > :not([hidden])[data-streamdown="heading-4"]
+  + :not([hidden]),
+.ai-response
+  > :not([hidden])[data-streamdown="heading-5"]
+  + :not([hidden]),
+.ai-response
+  > :not([hidden])[data-streamdown="heading-6"]
+  + :not([hidden]) {
+  margin-top: 0.375rem;
+}
 
-  .ai-response [data-streamdown="strong"] {
-    @apply font-semibold text-foreground;
-  }
+.ai-response [data-streamdown="unordered-list"],
+.ai-response [data-streamdown="ordered-list"] {
+  list-style-position: outside;
+  padding-left: 1.25rem;
+  white-space: normal;
+}
 
-  .ai-response [data-streamdown="link"] {
-    @apply font-medium text-foreground underline decoration-foreground/30
-      underline-offset-2 transition-colors hover:decoration-foreground;
-  }
+.ai-response [data-streamdown="unordered-list"] {
+  list-style-type: disc;
+}
 
-  .ai-response [data-streamdown="inline-code"] {
-    @apply rounded-md border border-border/70 bg-muted px-1.5 py-0.5
-      font-mono text-[0.875em] text-foreground;
-  }
+.ai-response [data-streamdown="ordered-list"] {
+  list-style-type: decimal;
+}
 
-  .ai-response [data-streamdown="blockquote"] {
-    @apply my-4 border-l-2 border-foreground/20 pl-4 text-muted-foreground
-      not-italic;
-  }
+.ai-response [data-streamdown="list-item"] {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0.25rem;
+}
 
-  .ai-response [data-streamdown="horizontal-rule"] {
-    @apply my-6 border-border;
-  }
+.ai-response [data-streamdown="list-item"] + [data-streamdown="list-item"] {
+  margin-top: 0.25rem;
+}
 
-  .ai-response [data-streamdown="table-wrapper"] {
-    @apply my-4;
-  }
+.ai-response [data-streamdown="list-item"]::marker {
+  color: var(--muted-foreground);
+}
 
-  .ai-response [data-streamdown="code-block"] {
-    @apply my-4;
-  }
+.ai-response [data-streamdown="list-item"] > p {
+  display: inline;
+  margin: 0;
+}
+
+.ai-response li [data-streamdown="unordered-list"],
+.ai-response li [data-streamdown="ordered-list"] {
+  margin-top: 0.375rem;
+  margin-bottom: 0.25rem;
+  padding-left: 1.15rem;
+}
+
+.ai-response [data-streamdown="strong"] {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.ai-response [data-streamdown="link"] {
+  font-weight: 500;
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--foreground) 30%, transparent);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 150ms ease;
+}
+
+.ai-response [data-streamdown="link"]:hover {
+  text-decoration-color: var(--foreground);
+}
+
+.ai-response [data-streamdown="inline-code"] {
+  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--muted);
+  padding: 0.1em 0.35em;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.875em;
+  color: var(--foreground);
+}
+
+.ai-response [data-streamdown="blockquote"] {
+  border-left: 2px solid color-mix(in oklab, var(--foreground) 20%, transparent);
+  padding-left: 0.875rem;
+  color: var(--muted-foreground);
+  font-style: normal;
+}
+
+.ai-response > :not([hidden]) ~ [data-streamdown="blockquote"],
+.ai-response > :not([hidden]) ~ [data-streamdown="horizontal-rule"] {
+  margin-top: 1rem;
+}
+
+.ai-response [data-streamdown="horizontal-rule"] {
+  border-color: var(--border);
+}
+
+.ai-response > :not([hidden]) ~ [data-streamdown="code-block"],
+.ai-response > :not([hidden]) ~ [data-streamdown="table-wrapper"],
+.ai-response > :not([hidden]) ~ [data-streamdown="mermaid-block"] {
+  margin-top: 0.75rem;
 }
