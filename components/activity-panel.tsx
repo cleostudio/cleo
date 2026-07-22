@@ -120,9 +120,19 @@ export function ActivityPanel({
       >
         <Globe
           aria-hidden="true"
-          className={cn("size-3.5 shrink-0", showPulse && "animate-pulse")}
+          className={cn(
+            "size-3.5 shrink-0",
+            showPulse && "animate-pulse"
+          )}
         />
-        <span className="min-w-0 truncate">{label}</span>
+        <span
+          className={cn(
+            "min-w-0 truncate",
+            showPulse && "activity-shimmer"
+          )}
+        >
+          {label}
+        </span>
         <ChevronDown
           aria-hidden="true"
           className={cn(
@@ -133,7 +143,7 @@ export function ActivityPanel({
       </button>
 
       {isOpen ? (
-        <ul className="mt-2 space-y-1.5 border-l border-border/70 pl-3">
+        <ul className="mt-2 space-y-1.5 pl-0.5">
           {activities.map((activity) => {
             const detail = activityLabel(activity)
             const isActive =
@@ -152,7 +162,14 @@ export function ActivityPanel({
                     isActive && "animate-pulse bg-foreground"
                   )}
                 />
-                <span className="min-w-0 break-words">{detail}</span>
+                <span
+                  className={cn(
+                    "min-w-0 break-words",
+                    isActive && isLive && "activity-shimmer"
+                  )}
+                >
+                  {detail}
+                </span>
               </li>
             )
           })}
