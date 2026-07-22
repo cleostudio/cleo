@@ -114,21 +114,24 @@ export function ActivityPanel({
     <div className="mb-3">
       <button
         aria-expanded={isOpen}
-        className="group flex max-w-full items-center gap-1.5 rounded-md text-left text-sm text-muted-foreground transition-colors hover:text-foreground"
+        className="group flex max-w-full items-center gap-1.5 rounded-md text-left text-sm transition-colors"
         onClick={() => setIsOpen((open) => !open)}
         type="button"
       >
         <Globe
           aria-hidden="true"
           className={cn(
-            "size-3.5 shrink-0",
-            showPulse && "animate-pulse"
+            "size-3.5 shrink-0 text-muted-foreground",
+            showPulse && "animate-pulse",
+            !showPulse && "group-hover:text-foreground"
           )}
         />
         <span
           className={cn(
             "min-w-0 truncate",
-            showPulse && "activity-shimmer"
+            showPulse
+              ? "activity-shimmer"
+              : "text-muted-foreground group-hover:text-foreground"
           )}
         >
           {label}
@@ -136,7 +139,7 @@ export function ActivityPanel({
         <ChevronDown
           aria-hidden="true"
           className={cn(
-            "size-3.5 shrink-0 transition-transform",
+            "size-3.5 shrink-0 text-muted-foreground transition-transform group-hover:text-foreground",
             isOpen && "rotate-180"
           )}
         />
