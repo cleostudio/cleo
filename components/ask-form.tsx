@@ -2,6 +2,7 @@
 
 import { type FormEvent, useEffect, useRef, useState } from "react"
 import { CornerRightUp, Square } from "lucide-react"
+import { ThinkingOrb } from "thinking-orbs"
 
 import { ActivityPanel } from "@/components/activity-panel"
 import { LiquidGlass } from "@/components/liquid-glass"
@@ -299,10 +300,11 @@ export function AskForm() {
                   ) : isSubmitting &&
                     message.id === messages.at(-1)?.id &&
                     !(message.activities && message.activities.length > 0) ? (
-                    <span
-                      aria-label="Thinking"
-                      className="inline-block size-2 animate-pulse rounded-full bg-foreground"
-                      role="status"
+                    <ThinkingOrb
+                      aria-label="Listening"
+                      className="block"
+                      size={20}
+                      state="listening"
                     />
                   ) : null}
                 </section>
