@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronRight, Globe } from "lucide-react"
+import { ChevronRight } from "lucide-react"
+import { ThinkingOrb } from "thinking-orbs"
 
 import type { ActivityItem } from "@/lib/stream"
 import { cn } from "@/lib/utils"
@@ -130,12 +131,12 @@ export function ActivityPanel({
         onClick={() => setIsOpen((open) => !open)}
         type="button"
       >
-        <Globe
-          aria-hidden="true"
-          className={cn(
-            "size-3.5 shrink-0 text-muted-foreground",
-            !showPulse && "group-hover:text-foreground"
-          )}
+        <ThinkingOrb
+          aria-label="Searching"
+          className="shrink-0"
+          paused={!showPulse}
+          size={20}
+          state="searching"
         />
         <ShimmerText
           active={showPulse}
