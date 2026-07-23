@@ -118,20 +118,21 @@ export function LiquidGlass({
       )
       .join("  ")
 
+  const backdropFilter = glass
+    ? glass.chromium
+      ? `url(#${glass.id}) blur(${blur}px) saturate(${saturate})`
+      : `blur(${blur * 3}px) saturate(${saturate})`
+    : `blur(${blur * 3}px) saturate(${saturate})`
+
   return (
     <span
       ref={ref}
       className="liquid-glass"
       aria-hidden
-      style={
-        glass
-          ? {
-              backdropFilter: glass.chromium
-                ? `url(#${glass.id}) blur(${blur}px) saturate(${saturate})`
-                : `blur(${blur * 3}px) saturate(${saturate})`,
-            }
-          : undefined
-      }
+      style={{
+        backdropFilter,
+        WebkitBackdropFilter: backdropFilter,
+      }}
     >
       {glass?.chromium ? (
         <svg
