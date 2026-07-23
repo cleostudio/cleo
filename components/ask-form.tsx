@@ -373,7 +373,7 @@ export function AskForm() {
                 <CornerRightUp
                   aria-hidden="true"
                   className="size-5"
-                  strokeWidth={2.5}
+                  strokeWidth={2.25}
                 />
               )}
             </Button>
