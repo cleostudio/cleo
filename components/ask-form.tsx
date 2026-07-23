@@ -4,10 +4,12 @@ import { type FormEvent, useEffect, useRef, useState } from "react"
 import { CornerRightUp, Square } from "lucide-react"
 
 import { ActivityPanel } from "@/components/activity-panel"
+import { LiquidGlass } from "@/components/liquid-glass"
 import { Markdown } from "@/components/markdown"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { type ActivityItem, parseStreamLine } from "@/lib/stream"
+import { cn } from "@/lib/utils"
 
 const MAX_INPUT_LENGTH = 10_000
 
@@ -259,15 +261,16 @@ export function AskForm() {
   return (
     <div className="mx-auto flex min-h-[calc(100svh-2rem)] w-full max-w-3xl min-w-0 flex-col sm:min-h-[calc(100svh-3rem)]">
       {hasMessages ? (
-        <div className="flex-1 px-1 pt-6 pb-24 sm:px-3 sm:pb-28">
+        <div className="flex-1 px-1 pt-6 pb-28 sm:px-3 sm:pb-32">
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === "user" ? (
                 <div
-                  className="ml-auto max-w-[85%] rounded-3xl rounded-br-lg bg-primary px-4 py-2.5 text-sm leading-6 whitespace-pre-wrap text-primary-foreground shadow-sm sm:max-w-[70%]"
+                  className="glass-surface user-message"
                   key={message.id}
                 >
-                  {message.content}
+                  <LiquidGlass />
+                  <span className="user-message-text">{message.content}</span>
                 </div>
               ) : (
                 <section
@@ -308,35 +311,40 @@ export function AskForm() {
           </div>
           <div
             aria-hidden="true"
-            className="scroll-mb-24"
+            className="scroll-mb-28"
             ref={messagesEndRef}
           />
         </div>
       ) : null}
 
       <div
-        className={
-          hasMessages
-            ? "fixed inset-x-0 bottom-0 z-10 bg-background px-4 pt-3 pb-4 sm:px-6 sm:pb-6"
-            : "flex flex-1 items-center"
-        }
+        className={cn(
+          hasMessages ? null : "flex flex-1 items-center justify-center"
+        )}
       >
-        <div className={hasMessages ? "mx-auto w-full max-w-3xl" : "w-full"}>
+        <div
+          className="prompt-dock-shell"
+          data-docked={hasMessages || undefined}
+        >
           {error ? (
-            <p className="mb-3 px-4 text-sm text-destructive" role="alert">
+            <p
+              className="mb-3 px-4 text-center text-sm text-destructive"
+              role="alert"
+            >
               {error}
             </p>
           ) : null}
 
           <form
             aria-busy={isSubmitting}
-            className="relative"
+            className="glass-surface prompt-dock"
             onSubmit={handleSubmit}
           >
+            <LiquidGlass />
             <Input
               aria-label="Message"
               autoComplete="off"
-              className="h-12 rounded-full bg-card pr-12 pl-4 text-base shadow-sm md:text-base"
+              className="prompt-dock-input md:text-base"
               disabled={isSubmitting}
               maxLength={MAX_INPUT_LENGTH}
               name="message"
@@ -348,7 +356,7 @@ export function AskForm() {
             />
             <Button
               aria-label={isSubmitting ? "Stop generating" : "Send message"}
-              className="absolute top-1.5 right-1.5 active:!translate-y-0"
+              className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
               disabled={!isSubmitting && !input.trim()}
               onClick={isSubmitting ? handleStop : undefined}
               size="icon"
