@@ -88,6 +88,14 @@
   --ease-swift: cubic-bezier(0.2, 0.8, 0.2, 1);
   --shadow-medium: 0 8px 30px rgb(0 0 0 / 0.12);
   --z-nav: 100;
+  --app-column-max: 48rem;
+  --app-column-gutter: 1rem;
+}
+
+@media (max-width: 39.99rem) {
+  :root {
+    --app-column-gutter: 0.5rem;
+  }
 }
 
 .dark {
@@ -430,23 +438,34 @@
   }
 }
 
+/* Shared width for chat column + prompt dock so edges stay aligned. */
+.app-column {
+  width: min(
+    calc(100% - (2 * var(--app-column-gutter))),
+    var(--app-column-max)
+  );
+  margin-inline: auto;
+}
+
 .prompt-dock-shell {
-  width: min(100%, 48rem);
+  width: 100%;
 }
 
 .prompt-dock-shell[data-docked] {
   position: fixed;
-  bottom: 1.25rem;
+  bottom: 2rem;
   left: 50%;
   z-index: var(--z-nav);
-  width: min(calc(100% - 2rem), 48rem);
+  width: min(
+    calc(100% - (2 * var(--app-column-gutter))),
+    var(--app-column-max)
+  );
   transform: translateX(-50%);
 }
 
 @media (max-width: 39.99rem) {
   .prompt-dock-shell[data-docked] {
-    bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
-    width: min(calc(100% - 1rem), 48rem);
+    bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
   }
 }
 

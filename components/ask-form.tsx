@@ -260,9 +260,9 @@ export function AskForm() {
   }
 
   return (
-    <div className="mx-auto flex min-h-[calc(100svh-2rem)] w-full max-w-3xl min-w-0 flex-col sm:min-h-[calc(100svh-3rem)]">
+    <div className="app-column flex min-h-[calc(100svh-2rem)] min-w-0 flex-col sm:min-h-[calc(100svh-3rem)]">
       {hasMessages ? (
-        <div className="flex-1 px-1 pt-6 pb-28 sm:px-3 sm:pb-32">
+        <div className="flex-1 pt-6 pb-28 sm:pb-32">
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === "user" ? (
@@ -277,7 +277,7 @@ export function AskForm() {
                 <section
                   aria-label="AI response"
                   aria-live="polite"
-                  className="min-w-0 px-1"
+                  className="min-w-0"
                   key={message.id}
                 >
                   {message.activities && message.activities.length > 0 ? (
@@ -321,7 +321,7 @@ export function AskForm() {
 
       <div
         className={cn(
-          hasMessages ? null : "flex flex-1 items-center justify-center"
+          hasMessages ? null : "flex flex-1 items-center justify-center pb-16"
         )}
       >
         <div
