@@ -361,7 +361,6 @@ export function AskForm() {
               onClick={isSubmitting ? handleStop : undefined}
               size="icon"
               type={isSubmitting ? "button" : "submit"}
-              variant="ghost"
             >
               {isSubmitting ? (
                 <Square
