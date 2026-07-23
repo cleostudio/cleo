@@ -18,16 +18,16 @@ Cleo is a general-purpose AI agent, not a starter template.
 
 ### Architecture
 
-- `components/ask-form.tsx` owns messages, cancellation, and NDJSON stream
+- `src/components/ask-form.tsx` owns messages, cancellation, and NDJSON stream
   consumption.
-- `app/api/responses/route.ts` validates messages and calls the OpenAI
+- `src/app/api/responses/route.ts` validates messages and calls the OpenAI
   Responses API with `gpt-5.6-terra`, `web_search`, streaming, and
   `store: false`.
-- `lib/cleo-instructions.ts` defines agent behavior.
-- `lib/stream.ts` defines the `text`, `activity`, and `error` events. Update the
-  route and client together when this protocol changes.
-- `components/markdown.tsx` renders model output; `app/globals.css` defines the
-  visual system.
+- `src/lib/cleo-instructions.ts` defines agent behavior.
+- `src/lib/stream.ts` defines the `text`, `activity`, and `error` events. Update
+  the route and client together when this protocol changes.
+- `src/components/markdown.tsx` renders model output;
+  `src/app/globals.css` defines the visual system.
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and
 100,000 total, with a final `user` message.
@@ -43,9 +43,9 @@ Cleo is a general-purpose AI agent, not a starter template.
 - Use the OpenAI developer docs MCP server for API, SDK, model, tool, or prompt
   work. Prefer its search and fetch tools over memory.
 - Keep model configuration in the route and behavior in
-  `lib/cleo-instructions.ts`.
+  `src/lib/cleo-instructions.ts`.
 - Keep strict TypeScript, the `@/*` alias, and `.prettierrc` style. Reuse `cn`
-  and `components/ui/*`.
+  and `src/components/ui/*`.
 - Preserve the accessible, responsive glass UI. Render model output through
   Streamdown, never raw HTML.
 - Update `README.md` and this file when setup or behavior changes.

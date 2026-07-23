@@ -29,12 +29,12 @@ server-side route; never expose it through `NEXT_PUBLIC_` or commit
 
 ## Architecture
 
-- `components/ask-form.tsx` manages the active conversation and consumes the
+- `src/components/ask-form.tsx` manages the active conversation and consumes the
   response stream.
-- `app/api/responses/route.ts` calls the OpenAI Responses API with
+- `src/app/api/responses/route.ts` calls the OpenAI Responses API with
   `gpt-5.6-terra`, hosted web search, streaming, and `store: false`.
-- `lib/cleo-instructions.ts` defines Cleo's behavior.
-- `lib/stream.ts` defines the client-facing NDJSON protocol.
+- `src/lib/cleo-instructions.ts` defines Cleo's behavior.
+- `src/lib/stream.ts` defines the client-facing NDJSON protocol.
 
 ## Commands
 
