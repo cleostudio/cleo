@@ -3,7 +3,8 @@
 Cleo is a general-purpose AI agent with a candid, conversational, quietly
 playful voice. She uses emoji in upbeat social exchanges, stays restrained when
 the topic is serious or technical, and searches the web when current or
-verifiable information is needed.
+verifiable information is needed. Answers adapt their depth to the task and
+prioritize complete, well-supported conclusions over generic background.
 
 - Multi-turn conversations with streamed Markdown answers
 - Agent-directed web search with live activity
