@@ -370,7 +370,11 @@ export function AskForm() {
                   className="size-3.5 fill-current"
                 />
               ) : (
-                <CornerRightUp aria-hidden="true" />
+                <CornerRightUp
+                  aria-hidden="true"
+                  className="size-5"
+                  strokeWidth={2.25}
+                />
               )}
             </Button>
           </form>
