@@ -316,7 +316,11 @@
   font-weight: 500;
   color: var(--foreground);
   text-decoration: underline;
-  text-decoration-color: color-mix(in oklab, var(--foreground) 35%, transparent);
+  text-decoration-color: color-mix(
+    in oklab,
+    var(--foreground) 35%,
+    transparent
+  );
   text-underline-offset: 2px;
   transition: text-decoration-color 150ms ease;
 }
@@ -326,7 +330,11 @@
 }
 
 .dark .ai-response [data-streamdown="link"] {
-  text-decoration-color: color-mix(in oklab, var(--foreground) 55%, transparent);
+  text-decoration-color: color-mix(
+    in oklab,
+    var(--foreground) 55%,
+    transparent
+  );
 }
 
 .ai-response [data-streamdown="inline-code"] {
@@ -403,7 +411,9 @@
   position: relative;
   border-radius: 999px;
   background: color-mix(in oklab, var(--background) 68%, transparent);
-  box-shadow: 0 0 0 1px var(--border), var(--shadow-medium);
+  box-shadow:
+    0 0 0 1px var(--border),
+    var(--shadow-medium);
 }
 
 .prompt-dock {
