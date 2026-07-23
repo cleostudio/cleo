@@ -4,6 +4,7 @@ import type {
   ResponseFunctionWebSearch,
 } from "openai/resources/responses/responses"
 
+import { CLEO_INSTRUCTIONS } from "@/lib/cleo-instructions"
 import {
   type ActivityItem,
   type ActivityStatus,
@@ -170,20 +171,7 @@ export async function POST(request: Request) {
       {
         model: MODEL,
         input,
-        instructions: [
-          "Answer the user's question clearly and directly.",
-          "Lead with the key point, then add supporting detail.",
-          "Use the web_search tool when the question needs current,",
-          "time-sensitive, or otherwise hard-to-verify information.",
-          "When you use web results, cite sources with Markdown links.",
-          "Use Markdown for scannable hierarchy:",
-          "prefer ## and ### section headings (avoid a lone top-level # title),",
-          "short paragraphs,",
-          "bulleted or numbered lists for steps/options/takeaways,",
-          "tables for comparisons,",
-          "and fenced code blocks with language tags for code.",
-          "Keep heading levels shallow and consistent; bold key terms sparingly.",
-        ].join(" "),
+        instructions: CLEO_INSTRUCTIONS,
         max_output_tokens: 4096,
         reasoning: { effort: "medium" },
         stream: true,
