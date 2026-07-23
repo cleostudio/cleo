@@ -413,7 +413,8 @@
   max-width: 85%;
   margin-left: auto;
   padding: 0.625rem 1.125rem;
-  color: var(--foreground);
+  background: var(--primary);
+  color: var(--primary-foreground);
   font-size: 0.875rem;
   line-height: 1.5rem;
   white-space: pre-wrap;
