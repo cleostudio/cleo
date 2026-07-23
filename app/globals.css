@@ -491,15 +491,44 @@
   width: 2.75rem;
   height: 2.75rem;
   flex-shrink: 0;
+  border: 0;
   border-radius: 999px;
+  background: transparent;
+  color: var(--muted-foreground);
+  box-shadow: none;
   transition:
     color 150ms ease,
     background-color 150ms ease,
     transform 150ms var(--ease-swift);
 }
 
+.prompt-dock-send:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--foreground) 6%, transparent);
+  color: var(--foreground);
+}
+
+.prompt-dock-send:focus-visible {
+  border-color: transparent;
+  background: color-mix(in oklab, var(--foreground) 6%, transparent);
+  color: var(--foreground);
+  box-shadow: none;
+}
+
+.prompt-dock-send:disabled {
+  background: transparent;
+  color: var(--muted-foreground);
+  opacity: 0.45;
+}
+
 .prompt-dock-send:active:not(:disabled) {
   transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .prompt-dock-send:hover:not(:disabled) {
+    background: color-mix(in oklab, var(--foreground) 6%, transparent);
+    color: var(--foreground);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
