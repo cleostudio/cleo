@@ -484,7 +484,6 @@
 }
 
 .prompt-dock-send {
-  position: relative;
   z-index: 1;
   display: grid;
   place-items: center;
@@ -492,36 +491,43 @@
   height: 2.75rem;
   flex-shrink: 0;
   border: 0;
-  border-radius: 999px;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  box-shadow: none;
+  color: var(--foreground);
   transition:
     color 150ms ease,
     background-color 150ms ease,
+    box-shadow 150ms ease,
     transform 150ms var(--ease-swift);
 }
 
 .prompt-dock-send:hover:not(:disabled) {
-  background: color-mix(in oklab, var(--primary) 80%, var(--foreground));
-  color: var(--primary-foreground);
+  background: color-mix(in oklab, var(--background) 55%, transparent);
+  color: var(--foreground);
 }
 
 .prompt-dock-send:focus-visible {
   border-color: transparent;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  box-shadow: none;
+  background: color-mix(in oklab, var(--background) 68%, transparent);
+  color: var(--foreground);
+  box-shadow: 0 0 0 1px var(--border), var(--shadow-medium);
 }
 
 .prompt-dock-send:disabled {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  opacity: 0.45;
+  background: color-mix(in oklab, var(--background) 68%, transparent);
+  color: var(--muted-foreground);
+  opacity: 0.55;
 }
 
 .prompt-dock-send:active:not(:disabled) {
   transform: scale(0.97);
+}
+
+.prompt-dock-send > .liquid-glass {
+  z-index: 0;
+}
+
+.prompt-dock-send > svg {
+  position: relative;
+  z-index: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {

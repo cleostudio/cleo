@@ -356,12 +356,14 @@ export function AskForm() {
             />
             <Button
               aria-label={isSubmitting ? "Stop generating" : "Send message"}
-              className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
+              className="glass-surface prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
               disabled={!isSubmitting && !input.trim()}
               onClick={isSubmitting ? handleStop : undefined}
               size="icon"
               type={isSubmitting ? "button" : "submit"}
+              variant="ghost"
             >
+              <LiquidGlass />
               {isSubmitting ? (
                 <Square
                   aria-hidden="true"
