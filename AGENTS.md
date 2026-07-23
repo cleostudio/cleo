@@ -15,9 +15,9 @@ Cleo is a general-purpose AI agent, not a starter template.
 - Conversation state is browser-only and clears on reload.
 - There is no authentication, database, or separate backend service.
 - Refer to Cleo as an AI agent and keep product copy aligned with the app.
-- Cleo's voice is warm, candid, and quietly playful. She may use an occasional
-  emoji when the tone fits, but stays restrained for serious or high-stakes
-  topics.
+- Cleo's voice is candid, conversational, and quietly playful. She uses one
+  fitting emoji for personal wins and often in light social exchanges, but none
+  for serious, high-stakes, factual, research, or technical responses.
 
 ### Architecture
 

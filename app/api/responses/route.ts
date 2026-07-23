@@ -175,7 +175,7 @@ export async function POST(request: Request) {
         max_output_tokens: 4096,
         reasoning: { effort: "medium" },
         stream: true,
-        text: { verbosity: "medium" },
+        text: { verbosity: "low" },
         tools: [{ type: "web_search" }],
         store: false,
       },
