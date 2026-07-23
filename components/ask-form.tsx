@@ -321,7 +321,7 @@ export function AskForm() {
 
       <div
         className={cn(
-          hasMessages ? null : "flex flex-1 items-center justify-center"
+          hasMessages ? null : "flex flex-1 items-center justify-center pb-16"
         )}
       >
         <div

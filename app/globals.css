@@ -436,7 +436,7 @@
 
 .prompt-dock-shell[data-docked] {
   position: fixed;
-  bottom: 1.25rem;
+  bottom: 2rem;
   left: 50%;
   z-index: var(--z-nav);
   width: min(calc(100% - 2rem), 48rem);
@@ -445,7 +445,7 @@
 
 @media (max-width: 39.99rem) {
   .prompt-dock-shell[data-docked] {
-    bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+    bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
     width: min(calc(100% - 1rem), 48rem);
   }
 }
