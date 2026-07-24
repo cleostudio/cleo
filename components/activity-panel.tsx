@@ -207,10 +207,12 @@ function liveSummaryLabel(activities: ActivityItem[]) {
 
 function summaryLabel(
   activities: ActivityItem[],
-  hasActive: boolean,
+  isLive: boolean,
   durationMs: number | null
 ) {
-  if (!hasActive && durationMs !== null) {
+  // Only show the completed duration after the stream finishes. Gaps between
+  // reasoning and search steps briefly clear `hasActive` and would flash this.
+  if (!isLive && durationMs !== null) {
     return `Thought for ${formatThoughtDuration(durationMs)}`
   }
 
@@ -262,6 +264,8 @@ export function ActivityPanel({
       startedAtRef.current = performance.now()
     }
 
+    // Record duration whenever steps settle. Gaps between steps may update this
+    // early; the label only uses it after the stream is no longer live.
     if (!hasActive) {
       setDurationMs(performance.now() - startedAtRef.current)
     }
@@ -275,7 +279,7 @@ export function ActivityPanel({
     (activity) =>
       activity.kind === "web_search" && isActiveStatus(activity.status)
   )
-  const label = summaryLabel(activities, hasActive, durationMs)
+  const label = summaryLabel(activities, isLive, durationMs)
   const showPulse = isLive && hasActive
   const showShimmer = isLive && hasActiveSearch
   const orbState = panelOrbState(activities, isLive)
