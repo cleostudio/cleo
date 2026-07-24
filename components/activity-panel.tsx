@@ -101,28 +101,61 @@ function activityLabel(activity: ActivityItem) {
   return `Looking for “${action.pattern}” on ${host}`
 }
 
+function collapsedActivityLabel(activity: ActivityItem) {
+  const label = activityLabel(activity)
+
+  if (activity.kind !== "reasoning") {
+    return label
+  }
+
+  const lines = label
+    .split(/\n+/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+
+  if (lines.length === 0) {
+    return isActiveStatus(activity.status) ? "Thinking" : "Thought"
+  }
+
+  // Track the latest reasoning line so the collapsed row stays current.
+  return lines[lines.length - 1]!
+}
+
+function currentStepActivity(activities: ActivityItem[]) {
+  for (let index = activities.length - 1; index >= 0; index -= 1) {
+    const activity = activities[index]!
+
+    if (activity.kind === "web_search" && isActiveStatus(activity.status)) {
+      return activity
+    }
+  }
+
+  for (let index = activities.length - 1; index >= 0; index -= 1) {
+    const activity = activities[index]!
+
+    if (activity.kind === "reasoning" && isActiveStatus(activity.status)) {
+      return activity
+    }
+  }
+
+  return activities.at(-1) ?? null
+}
+
 function summaryLabel(activities: ActivityItem[], isLive: boolean) {
+  if (isLive) {
+    const step = currentStepActivity(activities)
+
+    if (step) {
+      return collapsedActivityLabel(step)
+    }
+  }
+
   const reasoningItems = activities.filter(
     (activity) => activity.kind === "reasoning"
   )
   const searchItems = activities.filter(
     (activity) => activity.kind === "web_search"
   )
-  const hasActiveReasoning = reasoningItems.some((activity) =>
-    isActiveStatus(activity.status)
-  )
-  const hasActiveSearch = searchItems.some((activity) =>
-    isActiveStatus(activity.status)
-  )
-
-  if (isLive && hasActiveSearch) {
-    return "Searching the web"
-  }
-
-  if (isLive && hasActiveReasoning) {
-    return "Thinking"
-  }
-
   const searchCount = searchItems.filter(
     (activity) => !activity.action || activity.action.type === "search"
   ).length
@@ -153,6 +186,12 @@ function summaryLabel(activities: ActivityItem[], isLive: boolean) {
   }
 
   if (hasReasoning) {
+    const latestReasoning = reasoningItems.at(-1)
+
+    if (latestReasoning) {
+      return collapsedActivityLabel(latestReasoning)
+    }
+
     return "Thought"
   }
 
@@ -168,6 +207,12 @@ function summaryLabel(activities: ActivityItem[], isLive: boolean) {
 
   if (searchCount > 1) {
     return `Searched the web · ${searchCount} queries`
+  }
+
+  const latestSearch = searchItems.at(-1)
+
+  if (latestSearch) {
+    return collapsedActivityLabel(latestSearch)
   }
 
   return "Searched the web"
@@ -237,8 +282,7 @@ export function ActivityPanel({
         <ShimmerText
           active={showShimmer}
           className={cn(
-            "min-w-0",
-            showPulse ? "whitespace-nowrap" : "truncate",
+            "min-w-0 truncate whitespace-nowrap",
             !showShimmer && "text-muted-foreground group-hover:text-foreground"
           )}
         >
