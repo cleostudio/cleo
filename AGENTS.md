@@ -12,7 +12,9 @@ Cleo is a general-purpose AI agent, not a starter template.
 ### Product
 
 - The "Ask anything" UI streams Markdown answers plus reasoning and web-search
-  activity.
+  activity. The collapsed activity row tracks the current concrete step.
+- Stopping before any answer text abandons that turn so it does not linger in
+  the conversation sent on the next request.
 - Conversation state is browser-only and clears on reload.
 - There is no authentication, database, or separate backend service.
 - Refer to Cleo as an AI agent and keep product copy aligned with the app.
