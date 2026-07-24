@@ -99,9 +99,7 @@ export function LiquidGlass({
       if (!w || !h) return
       const radius = Math.min(w, h) / 2
       const map = makeDisplacementMap(w, h, radius)
-      setGlass(
-        map ? { chromium, id: `lg-${++generation}`, w, h, map } : null
-      )
+      setGlass(map ? { chromium, id: `lg-${++generation}`, w, h, map } : null)
     })
     observer.observe(el)
     return () => observer.disconnect()
@@ -135,12 +133,7 @@ export function LiquidGlass({
       }}
     >
       {glass?.chromium ? (
-        <svg
-          width="0"
-          height="0"
-          style={{ position: "absolute" }}
-          aria-hidden
-        >
+        <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden>
           <filter
             id={glass.id}
             x="0"

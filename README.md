@@ -7,7 +7,8 @@ verifiable information is needed. Answers adapt their depth to the task and
 prioritize complete, well-supported conclusions over generic background.
 
 - Multi-turn conversations with streamed Markdown answers
-- Live reasoning and agent-directed web-search activity
+- Image attachments for vision, plus agent-directed image generation
+- Live reasoning, web-search, and image-generation activity
 - Syntax-highlighted code and a stop control
 - Responsive glass UI with system-aware light and dark themes
 
@@ -17,7 +18,7 @@ accounts or application database.
 ## Run locally
 
 Requires Node.js 20.9+, pnpm, and an OpenAI API key with access to
-`gpt-5.6-terra`.
+`gpt-5.6-terra` (and image generation if you want that tool to succeed).
 
 ```bash
 pnpm install
@@ -32,14 +33,15 @@ server-side route; never expose it through `NEXT_PUBLIC_` or commit
 
 ## Architecture
 
-- `components/ask-form.tsx` manages the active conversation and consumes the
-  response stream.
+- `components/ask-form.tsx` manages the active conversation, image attachments,
+  and the response stream.
 - `app/api/responses/route.ts` calls the OpenAI Responses API with
-  `gpt-5.6-terra`, hosted web search, reasoning summaries, streaming, and
-  `store: false`.
+  `gpt-5.6-terra`, hosted web search, image generation, reasoning summaries,
+  streaming, and `store: false`.
 - `lib/cleo-instructions.ts` defines Cleo's behavior.
 - `lib/stream.ts` defines the client-facing NDJSON protocol, including
-  reasoning and web-search activity.
+  reasoning, web-search, and image-generation activity plus streamed images.
+- `lib/images.ts` validates image data URLs shared by the client and API.
 
 ## Commands
 

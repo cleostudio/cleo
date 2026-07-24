@@ -1,7 +1,13 @@
 "use client"
 
-import { type FormEvent, useEffect, useRef, useState } from "react"
-import { CornerRightUp, Square } from "lucide-react"
+import {
+  type ChangeEvent,
+  type FormEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
+import { CornerRightUp, Plus, Square, X } from "lucide-react"
 import { ThinkingOrb } from "thinking-orbs"
 
 import { ActivityPanel } from "@/components/activity-panel"
@@ -9,7 +15,16 @@ import { LiquidGlass } from "@/components/liquid-glass"
 import { Markdown } from "@/components/markdown"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { type ActivityItem, parseStreamLine } from "@/lib/stream"
+import {
+  filesToMessageImages,
+  IMAGE_ACCEPT,
+  MAX_IMAGES_PER_MESSAGE,
+} from "@/lib/client-images"
+import {
+  type ActivityItem,
+  type MessageImage,
+  parseStreamLine,
+} from "@/lib/stream"
 import { cn } from "@/lib/utils"
 
 const MAX_INPUT_LENGTH = 10_000
@@ -22,6 +37,7 @@ type Message = {
   activities?: ActivityItem[]
   content: string
   id: number
+  images?: MessageImage[]
   role: "assistant" | "user"
 }
 
@@ -54,17 +70,45 @@ function upsertActivity(
   return next
 }
 
+function upsertMessageImage(
+  images: MessageImage[] | undefined,
+  image: MessageImage
+) {
+  const current = images ?? []
+  const index = current.findIndex((item) => item.id === image.id)
+
+  if (index === -1) {
+    return [...current, image]
+  }
+
+  const next = [...current]
+  next[index] = image
+  return next
+}
+
+function messageHasVisibleContent(message: Message) {
+  return (
+    Boolean(message.content.trim()) ||
+    Boolean(message.images?.length) ||
+    Boolean(message.activities?.length)
+  )
+}
+
 export function AskForm() {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
+  const [pendingImages, setPendingImages] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const abortControllerRef = useRef<AbortController | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const hasMessages = messages.length > 0
+  const canSubmit =
+    !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ block: "end" })
@@ -86,32 +130,84 @@ export function AskForm() {
     abortControllerRef.current?.abort()
   }
 
+  function removePendingImage(index: number) {
+    setPendingImages((current) => current.filter((_, i) => i !== index))
+  }
+
+  async function handleImageSelection(event: ChangeEvent<HTMLInputElement>) {
+    // FileList is live — copy files before clearing the input so the same
+    // file can be re-selected and the selection is not wiped mid-handler.
+    const selectedFiles = Array.from(event.target.files ?? [])
+    event.target.value = ""
+
+    if (selectedFiles.length === 0) {
+      return
+    }
+
+    const remaining = MAX_IMAGES_PER_MESSAGE - pendingImages.length
+
+    if (remaining <= 0) {
+      setError(`Attach up to ${MAX_IMAGES_PER_MESSAGE} images per message.`)
+      return
+    }
+
+    try {
+      const selected = selectedFiles.slice(0, remaining)
+      const urls = await filesToMessageImages(selected)
+      setPendingImages((current) =>
+        [...current, ...urls].slice(0, MAX_IMAGES_PER_MESSAGE)
+      )
+      setError(null)
+    } catch (selectionError) {
+      setError(
+        selectionError instanceof Error
+          ? selectionError.message
+          : "Could not attach that image."
+      )
+    }
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     const question = input.trim()
+    const attachedImages = pendingImages
 
-    if (!question || isSubmitting) {
+    if ((!question && attachedImages.length === 0) || isSubmitting) {
       return
     }
 
+    const userImages: MessageImage[] = attachedImages.map((url) => ({ url }))
     const userMessage: Message = {
       content: question,
       id: messageIdRef.current++,
       role: "user",
+      ...(userImages.length > 0 ? { images: userImages } : {}),
     }
     const assistantMessage: Message = {
       activities: [],
       content: "",
       id: messageIdRef.current++,
+      images: [],
       role: "assistant",
     }
 
     const conversation = [
       ...messages
-        .filter((message) => message.content.trim())
-        .map(({ role, content }) => ({ role, content })),
-      { role: "user" as const, content: question },
+        .filter(
+          (message) =>
+            Boolean(message.content.trim()) || Boolean(message.images?.length)
+        )
+        .map(({ role, content, images }) => ({
+          role,
+          content,
+          ...(images && images.length > 0 ? { images } : {}),
+        })),
+      {
+        role: "user" as const,
+        content: question,
+        ...(userImages.length > 0 ? { images: userImages } : {}),
+      },
     ]
 
     const abortController = new AbortController()
@@ -123,10 +219,12 @@ export function AskForm() {
       assistantMessage,
     ])
     setInput("")
+    setPendingImages([])
     setError(null)
     setIsSubmitting(true)
 
     let output = ""
+    let receivedImages = false
 
     try {
       const response = await fetch("/api/responses", {
@@ -177,6 +275,23 @@ export function AskForm() {
         )
       }
 
+      const applyImage = (id: string, imageUrl: string) => {
+        receivedImages = true
+        setMessages((currentMessages) =>
+          currentMessages.map((message) =>
+            message.id === assistantMessage.id
+              ? {
+                  ...message,
+                  images: upsertMessageImage(message.images, {
+                    id,
+                    url: imageUrl,
+                  }),
+                }
+              : message
+          )
+        )
+      }
+
       while (true) {
         const { done, value } = await reader.read()
 
@@ -205,6 +320,11 @@ export function AskForm() {
             continue
           }
 
+          if (event.type === "image") {
+            applyImage(event.id, event.imageUrl)
+            continue
+          }
+
           if (event.type === "error") {
             streamError = event.error
           }
@@ -224,6 +344,8 @@ export function AskForm() {
           applyTextDelta(event.delta)
         } else if (event?.type === "activity") {
           applyActivity(event.activity)
+        } else if (event?.type === "image") {
+          applyImage(event.id, event.imageUrl)
         } else if (event?.type === "error") {
           streamError = event.error
         }
@@ -233,7 +355,11 @@ export function AskForm() {
         throw new Error(streamError)
       }
 
-      if (!output.trim() && !abortController.signal.aborted) {
+      if (
+        !output.trim() &&
+        !receivedImages &&
+        !abortController.signal.aborted
+      ) {
         throw new Error("The AI service returned an empty response.")
       }
     } catch (requestError) {
@@ -241,9 +367,9 @@ export function AskForm() {
         isAbortError(requestError) || abortController.signal.aborted
 
       setMessages((currentMessages) => {
-        // Stop before any answer text: abandon the whole turn so the unanswered
-        // prompt does not leak into the next request.
-        if (aborted && !output.trim()) {
+        // Stop before any answer text or image: abandon the whole turn so the
+        // unanswered prompt does not leak into the next request.
+        if (aborted && !output.trim() && !receivedImages) {
           return currentMessages.filter(
             (message) =>
               message.id !== assistantMessage.id &&
@@ -254,8 +380,7 @@ export function AskForm() {
         return currentMessages.filter(
           (message) =>
             message.id !== assistantMessage.id ||
-            Boolean(message.content) ||
-            Boolean(message.activities?.length)
+            messageHasVisibleContent(message)
         )
       })
 
@@ -277,13 +402,36 @@ export function AskForm() {
   return (
     <div className="app-column flex min-h-[calc(100svh-2rem)] min-w-0 flex-col sm:min-h-[calc(100svh-3rem)]">
       {hasMessages ? (
-        <div className="flex-1 pt-6 pb-28 sm:pb-32">
+        <div className="flex-1 pt-6 pb-36 sm:pb-40">
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === "user" ? (
-                <div className="glass-surface user-message" key={message.id}>
-                  <LiquidGlass />
-                  <span className="user-message-text">{message.content}</span>
+                <div className="user-turn" key={message.id}>
+                  {message.images && message.images.length > 0 ? (
+                    <div className="user-message-images">
+                      {message.images.map((image, index) => (
+                        // eslint-disable-next-line @next/next/no-img-element -- data URLs from the local conversation
+                        <img
+                          alt={
+                            message.content
+                              ? `Attachment ${index + 1}`
+                              : `Uploaded image ${index + 1}`
+                          }
+                          className="message-image"
+                          key={image.id ?? `${message.id}-${index}`}
+                          src={image.url}
+                        />
+                      ))}
+                    </div>
+                  ) : null}
+                  {message.content ? (
+                    <div className="glass-surface user-message">
+                      <LiquidGlass />
+                      <span className="user-message-text">
+                        {message.content}
+                      </span>
+                    </div>
+                  ) : null}
                 </div>
               ) : (
                 <section
@@ -301,6 +449,20 @@ export function AskForm() {
                     />
                   ) : null}
 
+                  {message.images && message.images.length > 0 ? (
+                    <div className="assistant-message-images mb-3">
+                      {message.images.map((image, index) => (
+                        // eslint-disable-next-line @next/next/no-img-element -- streamed data URLs from image generation
+                        <img
+                          alt={`Generated image ${index + 1}`}
+                          className="message-image message-image-assistant"
+                          key={image.id ?? `${message.id}-${index}`}
+                          src={image.url}
+                        />
+                      ))}
+                    </div>
+                  ) : null}
+
                   {message.content ? (
                     <Markdown
                       isAnimating={
@@ -311,7 +473,8 @@ export function AskForm() {
                     </Markdown>
                   ) : isSubmitting &&
                     message.id === messages.at(-1)?.id &&
-                    !(message.activities && message.activities.length > 0) ? (
+                    !(message.activities && message.activities.length > 0) &&
+                    !(message.images && message.images.length > 0) ? (
                     <ThinkingOrb
                       aria-label="Listening"
                       className="block"
@@ -355,37 +518,94 @@ export function AskForm() {
             onSubmit={handleSubmit}
           >
             <LiquidGlass />
-            <Input
-              aria-label="Message"
-              autoComplete="off"
-              className="prompt-dock-input md:text-base"
-              disabled={isSubmitting}
-              maxLength={MAX_INPUT_LENGTH}
-              name="message"
-              onChange={(event) => setInput(event.target.value)}
-              placeholder="Ask anything"
-              ref={inputRef}
-              required={!isSubmitting}
-              value={input}
-            />
-            <Button
-              aria-label={isSubmitting ? "Stop generating" : "Send message"}
-              className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
-              disabled={!isSubmitting && !input.trim()}
-              onClick={isSubmitting ? handleStop : undefined}
-              size="icon"
-              type={isSubmitting ? "button" : "submit"}
-            >
-              {isSubmitting ? (
-                <Square aria-hidden="true" className="size-3.5 fill-current" />
-              ) : (
-                <CornerRightUp
+            {pendingImages.length > 0 ? (
+              <div className="prompt-dock-attachments">
+                {pendingImages.map((url, index) => (
+                  <div
+                    className="prompt-dock-attachment"
+                    key={`${url.slice(0, 48)}-${index}`}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element -- local preview data URLs */}
+                    <img
+                      alt={`Selected image ${index + 1}`}
+                      className="prompt-dock-attachment-image"
+                      src={url}
+                    />
+                    <button
+                      aria-label={`Remove image ${index + 1}`}
+                      className="prompt-dock-attachment-remove"
+                      disabled={isSubmitting}
+                      onClick={() => removePendingImage(index)}
+                      type="button"
+                    >
+                      <X aria-hidden="true" className="size-3.5" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+            <div className="prompt-dock-row">
+              <input
+                accept={IMAGE_ACCEPT}
+                className="sr-only"
+                disabled={isSubmitting}
+                multiple
+                onChange={handleImageSelection}
+                ref={fileInputRef}
+                type="file"
+              />
+              <Button
+                aria-label="Attach images"
+                className="prompt-dock-attach size-11 shrink-0 rounded-full active:!translate-y-0"
+                disabled={
+                  isSubmitting || pendingImages.length >= MAX_IMAGES_PER_MESSAGE
+                }
+                onClick={() => fileInputRef.current?.click()}
+                size="icon"
+                type="button"
+                variant="ghost"
+              >
+                <Plus
                   aria-hidden="true"
                   className="size-5"
                   strokeWidth={2.25}
                 />
-              )}
-            </Button>
+              </Button>
+              <Input
+                aria-label="Message"
+                autoComplete="off"
+                className="prompt-dock-input md:text-base"
+                disabled={isSubmitting}
+                maxLength={MAX_INPUT_LENGTH}
+                name="message"
+                onChange={(event) => setInput(event.target.value)}
+                placeholder="Ask anything"
+                ref={inputRef}
+                required={!isSubmitting && pendingImages.length === 0}
+                value={input}
+              />
+              <Button
+                aria-label={isSubmitting ? "Stop generating" : "Send message"}
+                className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
+                disabled={!isSubmitting && !canSubmit}
+                onClick={isSubmitting ? handleStop : undefined}
+                size="icon"
+                type={isSubmitting ? "button" : "submit"}
+              >
+                {isSubmitting ? (
+                  <Square
+                    aria-hidden="true"
+                    className="size-3.5 fill-current"
+                  />
+                ) : (
+                  <CornerRightUp
+                    aria-hidden="true"
+                    className="size-5"
+                    strokeWidth={2.25}
+                  />
+                )}
+              </Button>
+            </div>
           </form>
         </div>
       </div>
