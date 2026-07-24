@@ -42,12 +42,21 @@ function isActiveStatus(status: ActivityItem["status"]) {
   return status === "in_progress" || status === "searching"
 }
 
+function formatReasoningSummary(summary: string) {
+  return summary
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/__(.+?)__/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .trim()
+}
+
 function activityLabel(activity: ActivityItem) {
   if (activity.kind === "reasoning") {
     const summary = activity.summary?.trim()
 
     if (summary) {
-      return summary
+      return formatReasoningSummary(summary)
     }
 
     return isActiveStatus(activity.status) ? "Thinking" : "Thought"
