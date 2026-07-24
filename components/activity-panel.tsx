@@ -101,53 +101,83 @@ function activityLabel(activity: ActivityItem) {
   return `Looking for “${action.pattern}” on ${host}`
 }
 
-function collapsedActivityLabel(activity: ActivityItem) {
-  const label = activityLabel(activity)
+function hasActionDetail(activity: ActivityItem) {
+  const action = activity.action
 
-  if (activity.kind !== "reasoning") {
-    return label
+  if (!action) {
+    return false
   }
 
-  const lines = label
-    .split(/\n+/)
-    .map((line) => line.trim())
-    .filter(Boolean)
-
-  if (lines.length === 0) {
-    return isActiveStatus(activity.status) ? "Thinking" : "Thought"
+  if (action.type === "search") {
+    return Boolean(action.queries?.[0] ?? action.query)
   }
 
-  // Track the latest reasoning line so the collapsed row stays current.
-  return lines[lines.length - 1]!
+  if (action.type === "open_page") {
+    return Boolean(action.url)
+  }
+
+  return Boolean(action.pattern && action.url)
 }
 
-function currentStepActivity(activities: ActivityItem[]) {
+function hasSpecificCollapsedDetail(activity: ActivityItem) {
+  if (activity.kind === "reasoning") {
+    return Boolean(activity.summary?.trim())
+  }
+
+  return hasActionDetail(activity)
+}
+
+function collapsedActivityLabel(activity: ActivityItem) {
+  if (activity.kind === "reasoning") {
+    const summary = activity.summary?.trim()
+
+    if (!summary) {
+      return isActiveStatus(activity.status) ? "Thinking" : "Thought"
+    }
+
+    const parts = formatReasoningSummary(summary)
+      .split(/\n\n+/)
+      .map((part) => part.trim())
+      .filter(Boolean)
+
+    if (parts.length === 0) {
+      return isActiveStatus(activity.status) ? "Thinking" : "Thought"
+    }
+
+    // Use the latest summary part's heading so the collapsed row tracks steps.
+    const heading = parts[parts.length - 1]!.split(/\n+/)
+      .map((line) => line.trim())
+      .find(Boolean)
+
+    return heading ?? (isActiveStatus(activity.status) ? "Thinking" : "Thought")
+  }
+
+  return activityLabel(activity)
+}
+
+function liveCollapsedLabel(activities: ActivityItem[]) {
+  // Search actions often arrive only when the call completes, so skip
+  // generic placeholders and keep the latest concrete step visible.
   for (let index = activities.length - 1; index >= 0; index -= 1) {
     const activity = activities[index]!
 
-    if (activity.kind === "web_search" && isActiveStatus(activity.status)) {
-      return activity
+    if (hasSpecificCollapsedDetail(activity)) {
+      return collapsedActivityLabel(activity)
     }
   }
 
-  for (let index = activities.length - 1; index >= 0; index -= 1) {
-    const activity = activities[index]!
+  const latest = activities.at(-1)
 
-    if (activity.kind === "reasoning" && isActiveStatus(activity.status)) {
-      return activity
-    }
+  if (latest) {
+    return collapsedActivityLabel(latest)
   }
 
-  return activities.at(-1) ?? null
+  return "Thinking"
 }
 
 function summaryLabel(activities: ActivityItem[], isLive: boolean) {
   if (isLive) {
-    const step = currentStepActivity(activities)
-
-    if (step) {
-      return collapsedActivityLabel(step)
-    }
+    return liveCollapsedLabel(activities)
   }
 
   const reasoningItems = activities.filter(
