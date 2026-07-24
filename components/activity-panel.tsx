@@ -210,8 +210,13 @@ export function ActivityPanel({
   const hasActive = activities.some((activity) =>
     isActiveStatus(activity.status)
   )
+  const hasActiveSearch = activities.some(
+    (activity) =>
+      activity.kind === "web_search" && isActiveStatus(activity.status)
+  )
   const label = summaryLabel(activities, isLive)
   const showPulse = isLive && hasActive
+  const showShimmer = isLive && hasActiveSearch
   const orbState = panelOrbState(activities, isLive)
 
   return (
@@ -230,11 +235,11 @@ export function ActivityPanel({
           state={orbState}
         />
         <ShimmerText
-          active={showPulse}
+          active={showShimmer}
           className={cn(
             "min-w-0",
             showPulse ? "whitespace-nowrap" : "truncate",
-            !showPulse && "text-muted-foreground group-hover:text-foreground"
+            !showShimmer && "text-muted-foreground group-hover:text-foreground"
           )}
         >
           {label}
@@ -254,15 +259,16 @@ export function ActivityPanel({
             const detail = activityLabel(activity)
             const isActive = isActiveStatus(activity.status)
             const isReasoning = activity.kind === "reasoning"
+            const shimmerActive = !isReasoning && isActive && isLive
 
             return (
               <li className="min-w-0" key={activity.id}>
                 <ShimmerText
-                  active={isActive && isLive}
+                  active={shimmerActive}
                   className={cn(
                     "text-xs leading-5 break-words",
                     isReasoning && "whitespace-pre-wrap",
-                    !(isActive && isLive) && "text-muted-foreground"
+                    !shimmerActive && "text-muted-foreground"
                   )}
                 >
                   {detail}
