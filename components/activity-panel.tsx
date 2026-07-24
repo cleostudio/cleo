@@ -51,6 +51,30 @@ function formatReasoningSummary(summary: string) {
     .trim()
 }
 
+function latestReasoningHeading(summary: string) {
+  const headings: string[] = []
+  const boldHeading = /(?:^|\n\n)\s*\*\*(.+?)\*\*/g
+
+  for (const match of summary.matchAll(boldHeading)) {
+    const heading = match[1]?.trim()
+
+    if (heading) {
+      headings.push(formatReasoningSummary(heading))
+    }
+  }
+
+  if (headings.length > 0) {
+    return headings[headings.length - 1]!
+  }
+
+  return (
+    formatReasoningSummary(summary)
+      .split(/\n+/)
+      .map((line) => line.trim())
+      .find(Boolean) ?? null
+  )
+}
+
 function activityLabel(activity: ActivityItem) {
   if (activity.kind === "reasoning") {
     const summary = activity.summary?.trim()
@@ -135,27 +159,16 @@ function collapsedActivityLabel(activity: ActivityItem) {
       return isActiveStatus(activity.status) ? "Thinking" : "Thought"
     }
 
-    const parts = formatReasoningSummary(summary)
-      .split(/\n\n+/)
-      .map((part) => part.trim())
-      .filter(Boolean)
-
-    if (parts.length === 0) {
-      return isActiveStatus(activity.status) ? "Thinking" : "Thought"
-    }
-
-    // Use the latest summary part's heading so the collapsed row tracks steps.
-    const heading = parts[parts.length - 1]!.split(/\n+/)
-      .map((line) => line.trim())
-      .find(Boolean)
-
-    return heading ?? (isActiveStatus(activity.status) ? "Thinking" : "Thought")
+    return (
+      latestReasoningHeading(summary) ??
+      (isActiveStatus(activity.status) ? "Thinking" : "Thought")
+    )
   }
 
   return activityLabel(activity)
 }
 
-function liveCollapsedLabel(activities: ActivityItem[]) {
+function summaryLabel(activities: ActivityItem[]) {
   // Search actions often arrive only when the call completes, so skip
   // generic placeholders and keep the latest concrete step visible.
   for (let index = activities.length - 1; index >= 0; index -= 1) {
@@ -173,79 +186,6 @@ function liveCollapsedLabel(activities: ActivityItem[]) {
   }
 
   return "Thinking"
-}
-
-function summaryLabel(activities: ActivityItem[], isLive: boolean) {
-  if (isLive) {
-    return liveCollapsedLabel(activities)
-  }
-
-  const reasoningItems = activities.filter(
-    (activity) => activity.kind === "reasoning"
-  )
-  const searchItems = activities.filter(
-    (activity) => activity.kind === "web_search"
-  )
-  const searchCount = searchItems.filter(
-    (activity) => !activity.action || activity.action.type === "search"
-  ).length
-  const pageCount = searchItems.filter(
-    (activity) => activity.action?.type === "open_page"
-  ).length
-  const hasReasoning = reasoningItems.length > 0
-  const hasSearch = searchItems.length > 0
-
-  if (hasReasoning && hasSearch) {
-    if (pageCount > 0 && searchCount > 0) {
-      return `Thought · searched ${searchCount} ${
-        searchCount === 1 ? "query" : "queries"
-      }, ${pageCount} ${pageCount === 1 ? "page" : "pages"}`
-    }
-
-    if (pageCount > 0) {
-      return `Thought · browsed ${pageCount} ${
-        pageCount === 1 ? "page" : "pages"
-      }`
-    }
-
-    if (searchCount > 1) {
-      return `Thought · searched ${searchCount} queries`
-    }
-
-    return "Thought · searched the web"
-  }
-
-  if (hasReasoning) {
-    const latestReasoning = reasoningItems.at(-1)
-
-    if (latestReasoning) {
-      return collapsedActivityLabel(latestReasoning)
-    }
-
-    return "Thought"
-  }
-
-  if (pageCount > 0 && searchCount > 0) {
-    return `Searched the web · ${searchCount} ${
-      searchCount === 1 ? "query" : "queries"
-    }, ${pageCount} ${pageCount === 1 ? "page" : "pages"}`
-  }
-
-  if (pageCount > 0) {
-    return `Browsed ${pageCount} ${pageCount === 1 ? "page" : "pages"}`
-  }
-
-  if (searchCount > 1) {
-    return `Searched the web · ${searchCount} queries`
-  }
-
-  const latestSearch = searchItems.at(-1)
-
-  if (latestSearch) {
-    return collapsedActivityLabel(latestSearch)
-  }
-
-  return "Searched the web"
 }
 
 function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
@@ -289,7 +229,7 @@ export function ActivityPanel({
     (activity) =>
       activity.kind === "web_search" && isActiveStatus(activity.status)
   )
-  const label = summaryLabel(activities, isLive)
+  const label = summaryLabel(activities)
   const showPulse = isLive && hasActive
   const showShimmer = isLive && hasActiveSearch
   const orbState = panelOrbState(activities, isLive)
