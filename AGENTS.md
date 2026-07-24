@@ -11,10 +11,13 @@ Cleo is a general-purpose AI agent, not a starter template.
 
 ### Product
 
-- The "Ask anything" UI streams Markdown answers plus reasoning and web-search
-  activity. The collapsed activity row tracks the current concrete step.
-- Stopping before any answer text abandons that turn so it does not linger in
-  the conversation sent on the next request.
+- The "Ask anything" UI streams Markdown answers plus reasoning, web-search,
+  and image-generation activity. The collapsed activity row tracks the current
+  concrete step.
+- Users can attach PNG, JPEG, WEBP, or GIF images for vision; Cleo can also
+  generate images with the Responses API `image_generation` tool.
+- Stopping before any answer text or generated image abandons that turn so it
+  does not linger in the conversation sent on the next request.
 - Conversation state is browser-only and clears on reload.
 - There is no authentication, database, or separate backend service.
 - Refer to Cleo as an AI agent and keep product copy aligned with the app.
@@ -27,20 +30,22 @@ Cleo is a general-purpose AI agent, not a starter template.
 
 ### Architecture
 
-- `components/ask-form.tsx` owns messages, cancellation, and NDJSON stream
-  consumption.
-- `app/api/responses/route.ts` validates messages and calls the OpenAI
-  Responses API with `gpt-5.6-terra`, `web_search`, reasoning summaries,
-  streaming, and `store: false`.
+- `components/ask-form.tsx` owns messages, image attachments, cancellation, and
+  NDJSON stream consumption.
+- `app/api/responses/route.ts` validates messages (including image data URLs)
+  and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
+  `image_generation`, reasoning summaries, streaming, and `store: false`.
 - `lib/cleo-instructions.ts` defines agent behavior.
-- `lib/stream.ts` defines the `text`, `activity`, and `error` events. Activity
-  items cover `reasoning` and `web_search`. Update the route and client
-  together when this protocol changes.
+- `lib/stream.ts` defines the `text`, `activity`, `image`, and `error` events.
+  Activity items cover `reasoning`, `web_search`, and `image_generation`.
+  Update the route and client together when this protocol changes.
+- `lib/images.ts` shared image limits and data-URL validation.
 - `components/markdown.tsx` renders model output; `app/globals.css` defines the
   visual system.
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and
-100,000 total, with a final `user` message.
+100,000 total, with a final `user` message. User and assistant messages may
+include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
 
 ### Development rules
 
@@ -64,8 +69,9 @@ Cleo is a general-purpose AI agent, not a starter template.
 
 - Code: `pnpm lint && pnpm typecheck && pnpm build`.
 - UI: manually verify the changed flow on desktop/mobile and light/dark.
-- Agent/API: verify multi-turn chat, reasoning activity, web search, streaming,
-  cancellation, and relevant errors.
+- Agent/API: verify multi-turn chat, reasoning activity, web search, image
+  attach/vision, image generation, streaming, cancellation, and relevant
+  errors.
 - Docs: `pnpm exec prettier --check README.md AGENTS.md` and compare claims
   against the source.
 

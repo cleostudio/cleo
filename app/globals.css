@@ -409,17 +409,100 @@
 .prompt-dock {
   z-index: var(--z-nav);
   display: flex;
-  align-items: center;
-  gap: 0.25rem;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
-  height: 3.5rem;
+  min-height: 3.5rem;
   padding: 0.375rem;
+}
+
+/* Multi-row dock (attachment previews) needs a softer radius than a pill so
+   thumbnails are not clipped by the capsule shape. */
+.prompt-dock:has(.prompt-dock-attachments) {
+  border-radius: 1.5rem;
+}
+
+.prompt-dock-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.prompt-dock-attachments {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.375rem 0.5rem 0;
+}
+
+.prompt-dock-attachment {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.prompt-dock-attachment-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.prompt-dock-attachment-remove {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.35rem;
+  display: grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.prompt-dock-attach {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted-foreground);
+  box-shadow: none;
+}
+
+.prompt-dock-attach:hover:not(:disabled) {
+  color: var(--foreground);
+  background: color-mix(in oklab, var(--muted) 80%, transparent);
+}
+
+.prompt-dock-attach:disabled {
+  opacity: 0.45;
+}
+
+.user-turn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  max-width: 85%;
+  margin-left: auto;
 }
 
 .user-message {
   display: block;
-  max-width: 85%;
-  margin-left: auto;
+  max-width: 100%;
   padding: 0.625rem 1.125rem;
   color: var(--foreground);
   font-size: 0.875rem;
@@ -432,8 +515,35 @@
   z-index: 1;
 }
 
+.user-message-images,
+.assistant-message-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.assistant-message-images {
+  justify-content: flex-start;
+}
+
+.message-image {
+  display: block;
+  max-width: min(100%, 18rem);
+  max-height: 18rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.75rem;
+}
+
+.message-image-assistant {
+  max-width: min(100%, 24rem);
+  max-height: 24rem;
+}
+
 @media (min-width: 40rem) {
-  .user-message {
+  .user-turn {
     max-width: 70%;
   }
 }
@@ -491,7 +601,7 @@
   background: transparent !important;
   box-shadow: none !important;
   border-radius: 999px !important;
-  padding-inline: 0.875rem 0.5rem !important;
+  padding-inline: 0.4rem 0.5rem !important;
   font-size: 1rem !important;
   outline: none;
 }

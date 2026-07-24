@@ -2,15 +2,23 @@ import OpenAI, { APIError } from "openai"
 import type {
   EasyInputMessage,
   ResponseFunctionWebSearch,
+  ResponseInputMessageContentList,
+  ResponseOutputItem,
   ResponseReasoningItem,
 } from "openai/resources/responses/responses"
 
 import { CLEO_INSTRUCTIONS } from "@/lib/cleo-instructions"
 import {
+  MAX_IMAGES_PER_MESSAGE,
+  parseImageDataUrl,
+  toImageDataUrl,
+} from "@/lib/images"
+import {
   type ActivityItem,
   type ActivityStatus,
   type ClientStreamEvent,
   encodeStreamEvent,
+  type MessageImage,
   type WebSearchAction,
 } from "@/lib/stream"
 
@@ -21,11 +29,75 @@ const MAX_TOTAL_INPUT_LENGTH = 100_000
 
 type ConversationMessage = {
   content: string
+  images?: MessageImage[]
   role: "assistant" | "user"
 }
 
 function errorResponse(error: string, status: number) {
   return Response.json({ error }, { status })
+}
+
+function parseMessageImages(value: unknown): MessageImage[] | Response {
+  if (value === undefined) {
+    return []
+  }
+
+  if (!Array.isArray(value)) {
+    return errorResponse("Message images must be an array.", 400)
+  }
+
+  if (value.length > MAX_IMAGES_PER_MESSAGE) {
+    return errorResponse(
+      `Attach up to ${MAX_IMAGES_PER_MESSAGE} images per message.`,
+      400
+    )
+  }
+
+  const images: MessageImage[] = []
+
+  for (const item of value) {
+    if (typeof item !== "object" || item === null || !("url" in item)) {
+      return errorResponse(
+        "Each image must include a data URL in the url field.",
+        400
+      )
+    }
+
+    if (typeof item.url !== "string") {
+      return errorResponse(
+        "Each image must include a data URL in the url field.",
+        400
+      )
+    }
+
+    const parsed = parseImageDataUrl(item.url)
+
+    if (!parsed) {
+      return errorResponse(
+        "Images must be PNG, JPEG, WEBP, or GIF data URLs within the size limit.",
+        400
+      )
+    }
+
+    const image: MessageImage = {
+      url: toImageDataUrl(parsed.mediaType, parsed.base64),
+    }
+
+    if ("id" in item && item.id !== undefined) {
+      if (typeof item.id !== "string" || !item.id.trim()) {
+        return errorResponse(
+          "Generated image ids must be non-empty strings.",
+          400
+        )
+      }
+
+      image.id = item.id.trim()
+    }
+
+    images.push(image)
+  }
+
+  return images
 }
 
 function parseMessages(body: unknown): ConversationMessage[] | Response {
@@ -67,8 +139,15 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
     }
 
     const content = item.content.trim()
+    const imagesResult = parseMessageImages(
+      "images" in item ? item.images : undefined
+    )
 
-    if (!content) {
+    if (imagesResult instanceof Response) {
+      return imagesResult
+    }
+
+    if (!content && imagesResult.length === 0) {
       return errorResponse("Messages cannot be empty.", 400)
     }
 
@@ -88,7 +167,16 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
       )
     }
 
-    messages.push({ content, role: item.role })
+    const message: ConversationMessage = {
+      content,
+      role: item.role,
+    }
+
+    if (imagesResult.length > 0) {
+      message.images = imagesResult
+    }
+
+    messages.push(message)
   }
 
   if (messages.at(-1)?.role !== "user") {
@@ -96,6 +184,62 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
   }
 
   return messages
+}
+
+function toUserContent(
+  text: string,
+  images: MessageImage[]
+): string | ResponseInputMessageContentList {
+  if (images.length === 0) {
+    return text
+  }
+
+  const content: ResponseInputMessageContentList = []
+
+  if (text) {
+    content.push({ type: "input_text", text })
+  }
+
+  for (const image of images) {
+    content.push({
+      type: "input_image",
+      image_url: image.url,
+      detail: "auto",
+    })
+  }
+
+  return content
+}
+
+function toApiInput(messages: ConversationMessage[]): EasyInputMessage[] {
+  const input: EasyInputMessage[] = []
+  // With store: false, image_generation_call ids cannot be replayed. Carry the
+  // latest generated images into the next user turn as input_image instead.
+  let pendingGeneratedImages: MessageImage[] = []
+
+  for (const message of messages) {
+    if (message.role === "assistant") {
+      input.push({
+        role: "assistant",
+        content: message.content || "Generated an image.",
+      })
+      pendingGeneratedImages = message.images ?? []
+      continue
+    }
+
+    const userImages = message.images ?? []
+    // Prefer the latest generated images that still fit beside new attachments.
+    const room = Math.max(0, MAX_IMAGES_PER_MESSAGE - userImages.length)
+    const images = [...pendingGeneratedImages.slice(-room), ...userImages]
+    pendingGeneratedImages = []
+
+    input.push({
+      role: "user",
+      content: toUserContent(message.content, images),
+    })
+  }
+
+  return input
 }
 
 function toWebSearchAction(
@@ -136,6 +280,17 @@ function activityFromWebSearch(
     kind: "web_search",
     status: status ?? item.status,
     action: toWebSearchAction(item.action),
+  }
+}
+
+function activityFromImageGeneration(
+  item: ResponseOutputItem.ImageGenerationCall,
+  status?: ActivityStatus
+): ActivityItem {
+  return {
+    id: item.id,
+    kind: "image_generation",
+    status: status ?? item.status,
   }
 }
 
@@ -196,10 +351,7 @@ export async function POST(request: Request) {
   }
 
   const client = new OpenAI({ apiKey })
-  const input: EasyInputMessage[] = parsed.map((message) => ({
-    role: message.role,
-    content: message.content,
-  }))
+  const input = toApiInput(parsed)
 
   try {
     const responseStream = await client.responses.create(
@@ -211,7 +363,16 @@ export async function POST(request: Request) {
         reasoning: { effort: "max", summary: "auto" },
         stream: true,
         text: { verbosity: "medium" },
-        tools: [{ type: "web_search" }],
+        tools: [
+          { type: "web_search" },
+          {
+            type: "image_generation",
+            partial_images: 2,
+            quality: "auto",
+            size: "auto",
+            output_format: "png",
+          },
+        ],
         store: false,
       },
       { signal: request.signal }
@@ -282,6 +443,11 @@ export async function POST(request: Request) {
                   controller,
                   activityFromReasoning(event.item, "in_progress")
                 )
+              } else if (event.item.type === "image_generation_call") {
+                emitActivity(
+                  controller,
+                  activityFromImageGeneration(event.item, "in_progress")
+                )
               }
               continue
             }
@@ -327,6 +493,48 @@ export async function POST(request: Request) {
               continue
             }
 
+            if (event.type === "response.image_generation_call.in_progress") {
+              emitActivity(controller, {
+                id: event.item_id,
+                kind: "image_generation",
+                status: "in_progress",
+              })
+              continue
+            }
+
+            if (event.type === "response.image_generation_call.generating") {
+              emitActivity(controller, {
+                id: event.item_id,
+                kind: "image_generation",
+                status: "generating",
+              })
+              continue
+            }
+
+            if (event.type === "response.image_generation_call.partial_image") {
+              emitActivity(controller, {
+                id: event.item_id,
+                kind: "image_generation",
+                status: "generating",
+              })
+              enqueue(controller, {
+                type: "image",
+                id: event.item_id,
+                imageUrl: toImageDataUrl("image/png", event.partial_image_b64),
+                partial: true,
+              })
+              continue
+            }
+
+            if (event.type === "response.image_generation_call.completed") {
+              emitActivity(controller, {
+                id: event.item_id,
+                kind: "image_generation",
+                status: "completed",
+              })
+              continue
+            }
+
             if (event.type === "response.output_item.done") {
               if (event.item.type === "web_search_call") {
                 emitActivity(controller, activityFromWebSearch(event.item))
@@ -342,6 +550,19 @@ export async function POST(request: Request) {
                   ...activityFromReasoning(event.item, "completed"),
                   summary,
                 })
+              } else if (event.item.type === "image_generation_call") {
+                emitActivity(
+                  controller,
+                  activityFromImageGeneration(event.item, "completed")
+                )
+
+                if (event.item.result) {
+                  enqueue(controller, {
+                    type: "image",
+                    id: event.item.id,
+                    imageUrl: toImageDataUrl("image/png", event.item.result),
+                  })
+                }
               }
               continue
             }
@@ -407,6 +628,13 @@ export async function POST(request: Request) {
       return errorResponse(
         "The AI service is receiving too many requests. Try again shortly.",
         429
+      )
+    }
+
+    if (error instanceof APIError && error.status === 400) {
+      return errorResponse(
+        error.message || "The request could not be completed.",
+        400
       )
     }
 
