@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
 import { ThinkingOrb, type OrbState } from "thinking-orbs"
 
@@ -168,7 +168,24 @@ function collapsedActivityLabel(activity: ActivityItem) {
   return activityLabel(activity)
 }
 
-function summaryLabel(activities: ActivityItem[]) {
+function formatThoughtDuration(ms: number) {
+  const totalSeconds = Math.max(1, Math.round(ms / 1000))
+
+  if (totalSeconds < 60) {
+    return `${totalSeconds}s`
+  }
+
+  const minutes = Math.floor(totalSeconds / 60)
+  const seconds = totalSeconds % 60
+
+  if (seconds === 0) {
+    return `${minutes}m`
+  }
+
+  return `${minutes}m ${seconds}s`
+}
+
+function liveSummaryLabel(activities: ActivityItem[]) {
   // Search actions often arrive only when the call completes, so skip
   // generic placeholders and keep the latest concrete step visible.
   for (let index = activities.length - 1; index >= 0; index -= 1) {
@@ -186,6 +203,18 @@ function summaryLabel(activities: ActivityItem[]) {
   }
 
   return "Thinking"
+}
+
+function summaryLabel(
+  activities: ActivityItem[],
+  hasActive: boolean,
+  durationMs: number | null
+) {
+  if (!hasActive && durationMs !== null) {
+    return `Thought for ${formatThoughtDuration(durationMs)}`
+  }
+
+  return liveSummaryLabel(activities)
 }
 
 function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
@@ -217,19 +246,36 @@ export function ActivityPanel({
   isLive = false,
 }: ActivityPanelProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const startedAtRef = useRef<number | null>(null)
+  const [durationMs, setDurationMs] = useState<number | null>(null)
+
+  const hasActive = activities.some((activity) =>
+    isActiveStatus(activity.status)
+  )
+
+  useEffect(() => {
+    if (activities.length === 0) {
+      return
+    }
+
+    if (startedAtRef.current === null) {
+      startedAtRef.current = performance.now()
+    }
+
+    if (!hasActive) {
+      setDurationMs(performance.now() - startedAtRef.current)
+    }
+  }, [activities, hasActive])
 
   if (activities.length === 0) {
     return null
   }
 
-  const hasActive = activities.some((activity) =>
-    isActiveStatus(activity.status)
-  )
   const hasActiveSearch = activities.some(
     (activity) =>
       activity.kind === "web_search" && isActiveStatus(activity.status)
   )
-  const label = summaryLabel(activities)
+  const label = summaryLabel(activities, hasActive, durationMs)
   const showPulse = isLive && hasActive
   const showShimmer = isLive && hasActiveSearch
   const orbState = panelOrbState(activities, isLive)
