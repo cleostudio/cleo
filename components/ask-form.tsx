@@ -49,6 +49,7 @@ function upsertActivity(
     ...previous,
     ...activity,
     action: activity.action ?? previous.action,
+    summary: activity.summary ?? previous.summary,
   }
   return next
 }
@@ -266,10 +267,7 @@ export function AskForm() {
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === "user" ? (
-                <div
-                  className="glass-surface user-message"
-                  key={message.id}
-                >
+                <div className="glass-surface user-message" key={message.id}>
                   <LiquidGlass />
                   <span className="user-message-text">{message.content}</span>
                 </div>
@@ -365,10 +363,7 @@ export function AskForm() {
               type={isSubmitting ? "button" : "submit"}
             >
               {isSubmitting ? (
-                <Square
-                  aria-hidden="true"
-                  className="size-3.5 fill-current"
-                />
+                <Square aria-hidden="true" className="size-3.5 fill-current" />
               ) : (
                 <CornerRightUp
                   aria-hidden="true"

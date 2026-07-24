@@ -11,7 +11,8 @@ Cleo is a general-purpose AI agent, not a starter template.
 
 ### Product
 
-- The "Ask anything" UI streams Markdown answers and web-search activity.
+- The "Ask anything" UI streams Markdown answers plus reasoning and web-search
+  activity.
 - Conversation state is browser-only and clears on reload.
 - There is no authentication, database, or separate backend service.
 - Refer to Cleo as an AI agent and keep product copy aligned with the app.
@@ -27,11 +28,12 @@ Cleo is a general-purpose AI agent, not a starter template.
 - `components/ask-form.tsx` owns messages, cancellation, and NDJSON stream
   consumption.
 - `app/api/responses/route.ts` validates messages and calls the OpenAI
-  Responses API with `gpt-5.6-terra`, `web_search`, streaming, and
-  `store: false`.
+  Responses API with `gpt-5.6-terra`, `web_search`, reasoning summaries,
+  streaming, and `store: false`.
 - `lib/cleo-instructions.ts` defines agent behavior.
-- `lib/stream.ts` defines the `text`, `activity`, and `error` events. Update the
-  route and client together when this protocol changes.
+- `lib/stream.ts` defines the `text`, `activity`, and `error` events. Activity
+  items cover `reasoning` and `web_search`. Update the route and client
+  together when this protocol changes.
 - `components/markdown.tsx` renders model output; `app/globals.css` defines the
   visual system.
 
@@ -60,8 +62,8 @@ Cleo is a general-purpose AI agent, not a starter template.
 
 - Code: `pnpm lint && pnpm typecheck && pnpm build`.
 - UI: manually verify the changed flow on desktop/mobile and light/dark.
-- Agent/API: verify multi-turn chat, web search, streaming, cancellation, and
-  relevant errors.
+- Agent/API: verify multi-turn chat, reasoning activity, web search, streaming,
+  cancellation, and relevant errors.
 - Docs: `pnpm exec prettier --check README.md AGENTS.md` and compare claims
   against the source.
 

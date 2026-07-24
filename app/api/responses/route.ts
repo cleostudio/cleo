@@ -2,6 +2,7 @@ import OpenAI, { APIError } from "openai"
 import type {
   EasyInputMessage,
   ResponseFunctionWebSearch,
+  ResponseReasoningItem,
 } from "openai/resources/responses/responses"
 
 import { CLEO_INSTRUCTIONS } from "@/lib/cleo-instructions"
@@ -138,6 +139,40 @@ function activityFromWebSearch(
   }
 }
 
+function summaryFromReasoning(item: ResponseReasoningItem) {
+  const parts = item.summary.map((part) => part.text.trim()).filter(Boolean)
+
+  if (parts.length === 0) {
+    return undefined
+  }
+
+  return parts.join("\n\n")
+}
+
+function activityFromReasoning(
+  item: ResponseReasoningItem,
+  status?: ActivityStatus
+): ActivityItem {
+  return {
+    id: item.id,
+    kind: "reasoning",
+    status:
+      status ??
+      (item.status === "completed" || item.status === "incomplete"
+        ? "completed"
+        : "in_progress"),
+    summary: summaryFromReasoning(item),
+  }
+}
+
+function joinReasoningParts(parts: Map<number, string>) {
+  return [...parts.entries()]
+    .sort(([left], [right]) => left - right)
+    .map(([, text]) => text.trim())
+    .filter(Boolean)
+    .join("\n\n")
+}
+
 export async function POST(request: Request) {
   let body: unknown
 
@@ -173,7 +208,7 @@ export async function POST(request: Request) {
         input,
         instructions: CLEO_INSTRUCTIONS,
         max_output_tokens: 4096,
-        reasoning: { effort: "max" },
+        reasoning: { effort: "max", summary: "auto" },
         stream: true,
         text: { verbosity: "medium" },
         tools: [{ type: "web_search" }],
@@ -183,6 +218,7 @@ export async function POST(request: Request) {
     )
     const encoder = new TextEncoder()
     const activities = new Map<string, ActivityItem>()
+    const reasoningParts = new Map<string, Map<number, string>>()
 
     const enqueue = (
       controller: ReadableStreamDefaultController<Uint8Array>,
@@ -200,10 +236,30 @@ export async function POST(request: Request) {
         ...previous,
         ...activity,
         action: activity.action ?? previous?.action,
+        summary: activity.summary ?? previous?.summary,
       }
 
       activities.set(activity.id, next)
       enqueue(controller, { type: "activity", activity: next })
+    }
+
+    const emitReasoningSummary = (
+      controller: ReadableStreamDefaultController<Uint8Array>,
+      itemId: string,
+      summaryIndex: number,
+      text: string,
+      status: ActivityStatus = "in_progress"
+    ) => {
+      const parts = reasoningParts.get(itemId) ?? new Map<number, string>()
+      parts.set(summaryIndex, text)
+      reasoningParts.set(itemId, parts)
+
+      emitActivity(controller, {
+        id: itemId,
+        kind: "reasoning",
+        status,
+        summary: joinReasoningParts(parts) || undefined,
+      })
     }
 
     const outputStream = new ReadableStream<Uint8Array>({
@@ -221,7 +277,35 @@ export async function POST(request: Request) {
                   controller,
                   activityFromWebSearch(event.item, "in_progress")
                 )
+              } else if (event.item.type === "reasoning") {
+                emitActivity(
+                  controller,
+                  activityFromReasoning(event.item, "in_progress")
+                )
               }
+              continue
+            }
+
+            if (event.type === "response.reasoning_summary_text.delta") {
+              const parts =
+                reasoningParts.get(event.item_id) ?? new Map<number, string>()
+              const previous = parts.get(event.summary_index) ?? ""
+              emitReasoningSummary(
+                controller,
+                event.item_id,
+                event.summary_index,
+                previous + event.delta
+              )
+              continue
+            }
+
+            if (event.type === "response.reasoning_summary_text.done") {
+              emitReasoningSummary(
+                controller,
+                event.item_id,
+                event.summary_index,
+                event.text
+              )
               continue
             }
 
@@ -246,6 +330,18 @@ export async function POST(request: Request) {
             if (event.type === "response.output_item.done") {
               if (event.item.type === "web_search_call") {
                 emitActivity(controller, activityFromWebSearch(event.item))
+              } else if (event.item.type === "reasoning") {
+                const summary =
+                  summaryFromReasoning(event.item) ||
+                  joinReasoningParts(
+                    reasoningParts.get(event.item.id) ?? new Map()
+                  ) ||
+                  undefined
+
+                emitActivity(controller, {
+                  ...activityFromReasoning(event.item, "completed"),
+                  summary,
+                })
               }
               continue
             }

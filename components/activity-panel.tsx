@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ChevronRight } from "lucide-react"
-import { ThinkingOrb } from "thinking-orbs"
+import { ThinkingOrb, type OrbState } from "thinking-orbs"
 
 import type { ActivityItem } from "@/lib/stream"
 import { cn } from "@/lib/utils"
@@ -18,9 +18,15 @@ type ShimmerTextProps = {
   className?: string
 }
 
-function ShimmerText({ active = false, children, className }: ShimmerTextProps) {
+function ShimmerText({
+  active = false,
+  children,
+  className,
+}: ShimmerTextProps) {
   return (
-    <span className={cn(className, active && "activity-shimmer")}>{children}</span>
+    <span className={cn(className, active && "activity-shimmer")}>
+      {children}
+    </span>
   )
 }
 
@@ -32,7 +38,21 @@ function hostnameFromUrl(url: string) {
   }
 }
 
+function isActiveStatus(status: ActivityItem["status"]) {
+  return status === "in_progress" || status === "searching"
+}
+
 function activityLabel(activity: ActivityItem) {
+  if (activity.kind === "reasoning") {
+    const summary = activity.summary?.trim()
+
+    if (summary) {
+      return summary
+    }
+
+    return isActiveStatus(activity.status) ? "Thinking" : "Thought"
+  }
+
   const action = activity.action
 
   if (!action) {
@@ -73,21 +93,59 @@ function activityLabel(activity: ActivityItem) {
 }
 
 function summaryLabel(activities: ActivityItem[], isLive: boolean) {
-  const hasActive = activities.some(
-    (activity) =>
-      activity.status === "in_progress" || activity.status === "searching"
+  const reasoningItems = activities.filter(
+    (activity) => activity.kind === "reasoning"
+  )
+  const searchItems = activities.filter(
+    (activity) => activity.kind === "web_search"
+  )
+  const hasActiveReasoning = reasoningItems.some((activity) =>
+    isActiveStatus(activity.status)
+  )
+  const hasActiveSearch = searchItems.some((activity) =>
+    isActiveStatus(activity.status)
   )
 
-  if (isLive && hasActive) {
+  if (isLive && hasActiveSearch) {
     return "Searching the web"
   }
 
-  const searchCount = activities.filter(
+  if (isLive && hasActiveReasoning) {
+    return "Thinking"
+  }
+
+  const searchCount = searchItems.filter(
     (activity) => !activity.action || activity.action.type === "search"
   ).length
-  const pageCount = activities.filter(
+  const pageCount = searchItems.filter(
     (activity) => activity.action?.type === "open_page"
   ).length
+  const hasReasoning = reasoningItems.length > 0
+  const hasSearch = searchItems.length > 0
+
+  if (hasReasoning && hasSearch) {
+    if (pageCount > 0 && searchCount > 0) {
+      return `Thought · searched ${searchCount} ${
+        searchCount === 1 ? "query" : "queries"
+      }, ${pageCount} ${pageCount === 1 ? "page" : "pages"}`
+    }
+
+    if (pageCount > 0) {
+      return `Thought · browsed ${pageCount} ${
+        pageCount === 1 ? "page" : "pages"
+      }`
+    }
+
+    if (searchCount > 1) {
+      return `Thought · searched ${searchCount} queries`
+    }
+
+    return "Thought · searched the web"
+  }
+
+  if (hasReasoning) {
+    return "Thought"
+  }
 
   if (pageCount > 0 && searchCount > 0) {
     return `Searched the web · ${searchCount} ${
@@ -106,6 +164,30 @@ function summaryLabel(activities: ActivityItem[], isLive: boolean) {
   return "Searched the web"
 }
 
+function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
+  const hasActiveSearch = activities.some(
+    (activity) =>
+      activity.kind === "web_search" && isActiveStatus(activity.status)
+  )
+  const hasActiveReasoning = activities.some(
+    (activity) =>
+      activity.kind === "reasoning" && isActiveStatus(activity.status)
+  )
+  const hasSearch = activities.some(
+    (activity) => activity.kind === "web_search"
+  )
+
+  if (isLive && hasActiveSearch) {
+    return "searching"
+  }
+
+  if (isLive && hasActiveReasoning) {
+    return "working"
+  }
+
+  return hasSearch ? "searching" : "working"
+}
+
 export function ActivityPanel({
   activities,
   isLive = false,
@@ -116,12 +198,12 @@ export function ActivityPanel({
     return null
   }
 
-  const hasActive = activities.some(
-    (activity) =>
-      activity.status === "in_progress" || activity.status === "searching"
+  const hasActive = activities.some((activity) =>
+    isActiveStatus(activity.status)
   )
   const label = summaryLabel(activities, isLive)
   const showPulse = isLive && hasActive
+  const orbState = panelOrbState(activities, isLive)
 
   return (
     <div className="activity-panel mb-3">
@@ -132,11 +214,11 @@ export function ActivityPanel({
         type="button"
       >
         <ThinkingOrb
-          aria-label="Searching"
+          aria-label={orbState === "searching" ? "Searching" : "Thinking"}
           className="shrink-0"
           paused={!showPulse}
           size={20}
-          state="searching"
+          state={orbState}
         />
         <ShimmerText
           active={showPulse}
@@ -158,12 +240,11 @@ export function ActivityPanel({
       </button>
 
       {isOpen ? (
-        <ul className="mt-2 space-y-1 pl-5">
+        <ul className="mt-2 space-y-1.5 pl-5">
           {activities.map((activity) => {
             const detail = activityLabel(activity)
-            const isActive =
-              activity.status === "in_progress" ||
-              activity.status === "searching"
+            const isActive = isActiveStatus(activity.status)
+            const isReasoning = activity.kind === "reasoning"
 
             return (
               <li className="min-w-0" key={activity.id}>
@@ -171,6 +252,7 @@ export function ActivityPanel({
                   active={isActive && isLive}
                   className={cn(
                     "text-xs leading-5 break-words",
+                    isReasoning && "whitespace-pre-wrap",
                     !(isActive && isLive) && "text-muted-foreground"
                   )}
                 >

@@ -15,16 +15,16 @@ export type WebSearchAction =
     }
 
 export type ActivityStatus =
-  | "in_progress"
-  | "searching"
-  | "completed"
-  | "failed"
+  "in_progress" | "searching" | "completed" | "failed"
+
+export type ActivityKind = "web_search" | "reasoning"
 
 export type ActivityItem = {
   action?: WebSearchAction
   id: string
-  kind: "web_search"
+  kind: ActivityKind
   status: ActivityStatus
+  summary?: string
 }
 
 export type StreamTextEvent = {
@@ -43,9 +43,65 @@ export type StreamErrorEvent = {
 }
 
 export type ClientStreamEvent =
-  | StreamTextEvent
-  | StreamActivityEvent
-  | StreamErrorEvent
+  StreamTextEvent | StreamActivityEvent | StreamErrorEvent
+
+function isActivityStatus(value: unknown): value is ActivityStatus {
+  return (
+    value === "in_progress" ||
+    value === "searching" ||
+    value === "completed" ||
+    value === "failed"
+  )
+}
+
+function isActivityKind(value: unknown): value is ActivityKind {
+  return value === "web_search" || value === "reasoning"
+}
+
+function parseActivityItem(value: unknown): ActivityItem | null {
+  if (typeof value !== "object" || value === null) {
+    return null
+  }
+
+  if (
+    !("id" in value) ||
+    typeof value.id !== "string" ||
+    !("kind" in value) ||
+    !isActivityKind(value.kind) ||
+    !("status" in value) ||
+    !isActivityStatus(value.status)
+  ) {
+    return null
+  }
+
+  const activity: ActivityItem = {
+    id: value.id,
+    kind: value.kind,
+    status: value.status,
+  }
+
+  if (
+    "summary" in value &&
+    value.summary !== undefined &&
+    typeof value.summary !== "string"
+  ) {
+    return null
+  }
+
+  if ("summary" in value && typeof value.summary === "string") {
+    activity.summary = value.summary
+  }
+
+  if ("action" in value && value.action !== undefined) {
+    if (typeof value.action !== "object" || value.action === null) {
+      return null
+    }
+
+    activity.action = value.action as WebSearchAction
+  }
+
+  return activity
+}
 
 export function encodeStreamEvent(event: ClientStreamEvent) {
   return `${JSON.stringify(event)}\n`
@@ -79,17 +135,19 @@ export function parseStreamLine(line: string): ClientStreamEvent | null {
     }
 
     if (parsed.type === "activity") {
-      if (
-        !("activity" in parsed) ||
-        typeof parsed.activity !== "object" ||
-        parsed.activity === null
-      ) {
+      if (!("activity" in parsed)) {
+        return null
+      }
+
+      const activity = parseActivityItem(parsed.activity)
+
+      if (!activity) {
         return null
       }
 
       return {
         type: "activity",
-        activity: parsed.activity as ActivityItem,
+        activity,
       }
     }
 
