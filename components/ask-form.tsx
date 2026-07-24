@@ -126,6 +126,8 @@ export function AskForm() {
     setError(null)
     setIsSubmitting(true)
 
+    let output = ""
+
     try {
       const response = await fetch("/api/responses", {
         method: "POST",
@@ -149,7 +151,6 @@ export function AskForm() {
       const reader = response.body.getReader()
       const decoder = new TextDecoder()
       let buffer = ""
-      let output = ""
       let streamError: string | null = null
 
       const applyTextDelta = (delta: string) => {
@@ -236,16 +237,29 @@ export function AskForm() {
         throw new Error("The AI service returned an empty response.")
       }
     } catch (requestError) {
-      setMessages((currentMessages) =>
-        currentMessages.filter(
+      const aborted =
+        isAbortError(requestError) || abortController.signal.aborted
+
+      setMessages((currentMessages) => {
+        // Stop before any answer text: abandon the whole turn so the unanswered
+        // prompt does not leak into the next request.
+        if (aborted && !output.trim()) {
+          return currentMessages.filter(
+            (message) =>
+              message.id !== assistantMessage.id &&
+              message.id !== userMessage.id
+          )
+        }
+
+        return currentMessages.filter(
           (message) =>
             message.id !== assistantMessage.id ||
             Boolean(message.content) ||
             Boolean(message.activities?.length)
         )
-      )
+      })
 
-      if (!isAbortError(requestError) && !abortController.signal.aborted) {
+      if (!aborted) {
         setError(
           requestError instanceof Error
             ? requestError.message
