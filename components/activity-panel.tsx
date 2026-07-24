@@ -171,6 +171,20 @@ function hasSpecificCollapsedDetail(activity: ActivityItem) {
   return hasActionDetail(activity)
 }
 
+function shouldShowExpandedActivity(activity: ActivityItem, isLive: boolean) {
+  if (activity.kind !== "reasoning") {
+    return true
+  }
+
+  if (activity.summary?.trim()) {
+    return true
+  }
+
+  // Keep a live empty reasoning step as "Thinking"; hide completed placeholders
+  // that otherwise repeat as bare "Thought" between search actions.
+  return isLive && isActiveStatus(activity.status)
+}
+
 function collapsedActivityLabel(activity: ActivityItem) {
   if (activity.kind === "reasoning") {
     const summary = activity.summary?.trim()
@@ -347,28 +361,30 @@ export function ActivityPanel({
 
       {isOpen ? (
         <ul className="mt-2 space-y-1.5 pl-5">
-          {activities.map((activity) => {
-            const detail = activityLabel(activity)
-            const isActive = isActiveStatus(activity.status)
-            const isReasoning = activity.kind === "reasoning"
-            const shimmerActive =
-              activity.kind !== "reasoning" && isActive && isLive
+          {activities
+            .filter((activity) => shouldShowExpandedActivity(activity, isLive))
+            .map((activity) => {
+              const detail = activityLabel(activity)
+              const isActive = isActiveStatus(activity.status)
+              const isReasoning = activity.kind === "reasoning"
+              const shimmerActive =
+                activity.kind !== "reasoning" && isActive && isLive
 
-            return (
-              <li className="min-w-0" key={activity.id}>
-                <ShimmerText
-                  active={shimmerActive}
-                  className={cn(
-                    "text-xs leading-5 break-words",
-                    isReasoning && "whitespace-pre-wrap",
-                    !shimmerActive && "text-muted-foreground"
-                  )}
-                >
-                  {detail}
-                </ShimmerText>
-              </li>
-            )
-          })}
+              return (
+                <li className="min-w-0" key={activity.id}>
+                  <ShimmerText
+                    active={shimmerActive}
+                    className={cn(
+                      "text-xs leading-5 break-words",
+                      isReasoning && "whitespace-pre-wrap",
+                      !shimmerActive && "text-muted-foreground"
+                    )}
+                  >
+                    {detail}
+                  </ShimmerText>
+                </li>
+              )
+            })}
         </ul>
       ) : null}
     </div>
