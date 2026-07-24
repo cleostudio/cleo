@@ -191,10 +191,10 @@ function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
   }
 
   if (isLive && hasActiveReasoning) {
-    return "working"
+    return "composing"
   }
 
-  return hasSearch ? "searching" : "working"
+  return hasSearch ? "searching" : "composing"
 }
 
 export function ActivityPanel({
