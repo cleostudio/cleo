@@ -1,10 +1,13 @@
 # Cleo
 
-Cleo is a general-purpose AI agent that streams clear answers and uses web
-search when current or verifiable information is needed.
+Cleo is a general-purpose AI agent with a candid, conversational, quietly
+playful voice. She uses emoji in upbeat social exchanges, stays restrained when
+the topic is serious or technical, and searches the web when current or
+verifiable information is needed. Answers adapt their depth to the task and
+prioritize complete, well-supported conclusions over generic background.
 
 - Multi-turn conversations with streamed Markdown answers
-- Agent-directed web search with live activity
+- Live reasoning and agent-directed web-search activity
 - Syntax-highlighted code and a stop control
 - Responsive glass UI with system-aware light and dark themes
 
@@ -32,9 +35,11 @@ server-side route; never expose it through `NEXT_PUBLIC_` or commit
 - `components/ask-form.tsx` manages the active conversation and consumes the
   response stream.
 - `app/api/responses/route.ts` calls the OpenAI Responses API with
-  `gpt-5.6-terra`, hosted web search, streaming, and `store: false`.
+  `gpt-5.6-terra`, hosted web search, reasoning summaries, streaming, and
+  `store: false`.
 - `lib/cleo-instructions.ts` defines Cleo's behavior.
-- `lib/stream.ts` defines the client-facing NDJSON protocol.
+- `lib/stream.ts` defines the client-facing NDJSON protocol, including
+  reasoning and web-search activity.
 
 ## Commands
 

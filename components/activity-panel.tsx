@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
-import { ThinkingOrb } from "thinking-orbs"
+import { ThinkingOrb, type OrbState } from "thinking-orbs"
 
 import type { ActivityItem } from "@/lib/stream"
 import { cn } from "@/lib/utils"
@@ -18,9 +18,15 @@ type ShimmerTextProps = {
   className?: string
 }
 
-function ShimmerText({ active = false, children, className }: ShimmerTextProps) {
+function ShimmerText({
+  active = false,
+  children,
+  className,
+}: ShimmerTextProps) {
   return (
-    <span className={cn(className, active && "activity-shimmer")}>{children}</span>
+    <span className={cn(className, active && "activity-shimmer")}>
+      {children}
+    </span>
   )
 }
 
@@ -32,7 +38,54 @@ function hostnameFromUrl(url: string) {
   }
 }
 
+function isActiveStatus(status: ActivityItem["status"]) {
+  return status === "in_progress" || status === "searching"
+}
+
+function formatReasoningSummary(summary: string) {
+  return summary
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/__(.+?)__/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .trim()
+}
+
+function latestReasoningHeading(summary: string) {
+  const headings: string[] = []
+  const boldHeading = /(?:^|\n\n)\s*\*\*(.+?)\*\*/g
+
+  for (const match of summary.matchAll(boldHeading)) {
+    const heading = match[1]?.trim()
+
+    if (heading) {
+      headings.push(formatReasoningSummary(heading))
+    }
+  }
+
+  if (headings.length > 0) {
+    return headings[headings.length - 1]!
+  }
+
+  return (
+    formatReasoningSummary(summary)
+      .split(/\n+/)
+      .map((line) => line.trim())
+      .find(Boolean) ?? null
+  )
+}
+
 function activityLabel(activity: ActivityItem) {
+  if (activity.kind === "reasoning") {
+    const summary = activity.summary?.trim()
+
+    if (summary) {
+      return formatReasoningSummary(summary)
+    }
+
+    return isActiveStatus(activity.status) ? "Thinking" : "Thought"
+  }
+
   const action = activity.action
 
   if (!action) {
@@ -72,38 +125,122 @@ function activityLabel(activity: ActivityItem) {
   return `Looking for “${action.pattern}” on ${host}`
 }
 
-function summaryLabel(activities: ActivityItem[], isLive: boolean) {
-  const hasActive = activities.some(
+function hasActionDetail(activity: ActivityItem) {
+  const action = activity.action
+
+  if (!action) {
+    return false
+  }
+
+  if (action.type === "search") {
+    return Boolean(action.queries?.[0] ?? action.query)
+  }
+
+  if (action.type === "open_page") {
+    return Boolean(action.url)
+  }
+
+  return Boolean(action.pattern && action.url)
+}
+
+function hasSpecificCollapsedDetail(activity: ActivityItem) {
+  if (activity.kind === "reasoning") {
+    return Boolean(activity.summary?.trim())
+  }
+
+  return hasActionDetail(activity)
+}
+
+function collapsedActivityLabel(activity: ActivityItem) {
+  if (activity.kind === "reasoning") {
+    const summary = activity.summary?.trim()
+
+    if (!summary) {
+      return isActiveStatus(activity.status) ? "Thinking" : "Thought"
+    }
+
+    return (
+      latestReasoningHeading(summary) ??
+      (isActiveStatus(activity.status) ? "Thinking" : "Thought")
+    )
+  }
+
+  return activityLabel(activity)
+}
+
+function formatThoughtDuration(ms: number) {
+  const totalSeconds = Math.max(1, Math.round(ms / 1000))
+
+  if (totalSeconds < 60) {
+    return `${totalSeconds}s`
+  }
+
+  const minutes = Math.floor(totalSeconds / 60)
+  const seconds = totalSeconds % 60
+
+  if (seconds === 0) {
+    return `${minutes}m`
+  }
+
+  return `${minutes}m ${seconds}s`
+}
+
+function liveSummaryLabel(activities: ActivityItem[]) {
+  // Search actions often arrive only when the call completes, so skip
+  // generic placeholders and keep the latest concrete step visible.
+  for (let index = activities.length - 1; index >= 0; index -= 1) {
+    const activity = activities[index]!
+
+    if (hasSpecificCollapsedDetail(activity)) {
+      return collapsedActivityLabel(activity)
+    }
+  }
+
+  const latest = activities.at(-1)
+
+  if (latest) {
+    return collapsedActivityLabel(latest)
+  }
+
+  return "Thinking"
+}
+
+function summaryLabel(
+  activities: ActivityItem[],
+  isLive: boolean,
+  durationMs: number | null
+) {
+  // Only show the completed duration after the stream finishes. Gaps between
+  // reasoning and search steps briefly clear `hasActive` and would flash this.
+  if (!isLive && durationMs !== null) {
+    return `Thought for ${formatThoughtDuration(durationMs)}`
+  }
+
+  return liveSummaryLabel(activities)
+}
+
+function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
+  const hasActiveSearch = activities.some(
     (activity) =>
-      activity.status === "in_progress" || activity.status === "searching"
+      activity.kind === "web_search" && isActiveStatus(activity.status)
+  )
+  const hasActiveReasoning = activities.some(
+    (activity) =>
+      activity.kind === "reasoning" && isActiveStatus(activity.status)
+  )
+  const hasSearch = activities.some(
+    (activity) => activity.kind === "web_search"
   )
 
-  if (isLive && hasActive) {
-    return "Searching the web"
+  if (isLive && hasActiveSearch) {
+    return "searching"
   }
 
-  const searchCount = activities.filter(
-    (activity) => !activity.action || activity.action.type === "search"
-  ).length
-  const pageCount = activities.filter(
-    (activity) => activity.action?.type === "open_page"
-  ).length
-
-  if (pageCount > 0 && searchCount > 0) {
-    return `Searched the web · ${searchCount} ${
-      searchCount === 1 ? "query" : "queries"
-    }, ${pageCount} ${pageCount === 1 ? "page" : "pages"}`
+  if (isLive && hasActiveReasoning) {
+    return "composing"
   }
 
-  if (pageCount > 0) {
-    return `Browsed ${pageCount} ${pageCount === 1 ? "page" : "pages"}`
-  }
-
-  if (searchCount > 1) {
-    return `Searched the web · ${searchCount} queries`
-  }
-
-  return "Searched the web"
+  return hasSearch ? "searching" : "composing"
 }
 
 export function ActivityPanel({
@@ -111,17 +248,41 @@ export function ActivityPanel({
   isLive = false,
 }: ActivityPanelProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const startedAtRef = useRef<number | null>(null)
+  const [durationMs, setDurationMs] = useState<number | null>(null)
+
+  const hasActive = activities.some((activity) =>
+    isActiveStatus(activity.status)
+  )
+
+  useEffect(() => {
+    if (activities.length === 0) {
+      return
+    }
+
+    if (startedAtRef.current === null) {
+      startedAtRef.current = performance.now()
+    }
+
+    // Record duration whenever steps settle. Gaps between steps may update this
+    // early; the label only uses it after the stream is no longer live.
+    if (!hasActive) {
+      setDurationMs(performance.now() - startedAtRef.current)
+    }
+  }, [activities, hasActive])
 
   if (activities.length === 0) {
     return null
   }
 
-  const hasActive = activities.some(
+  const hasActiveSearch = activities.some(
     (activity) =>
-      activity.status === "in_progress" || activity.status === "searching"
+      activity.kind === "web_search" && isActiveStatus(activity.status)
   )
-  const label = summaryLabel(activities, isLive)
+  const label = summaryLabel(activities, isLive, durationMs)
   const showPulse = isLive && hasActive
+  const showShimmer = isLive && hasActiveSearch
+  const orbState = panelOrbState(activities, isLive)
 
   return (
     <div className="activity-panel mb-3">
@@ -132,18 +293,17 @@ export function ActivityPanel({
         type="button"
       >
         <ThinkingOrb
-          aria-label="Searching"
+          aria-label={orbState === "searching" ? "Searching" : "Thinking"}
           className="shrink-0"
           paused={!showPulse}
           size={20}
-          state="searching"
+          state={orbState}
         />
         <ShimmerText
-          active={showPulse}
+          active={showShimmer}
           className={cn(
-            "min-w-0",
-            showPulse ? "whitespace-nowrap" : "truncate",
-            !showPulse && "text-muted-foreground group-hover:text-foreground"
+            "min-w-0 truncate whitespace-nowrap",
+            !showShimmer && "text-muted-foreground group-hover:text-foreground"
           )}
         >
           {label}
@@ -158,20 +318,21 @@ export function ActivityPanel({
       </button>
 
       {isOpen ? (
-        <ul className="mt-2 space-y-1 pl-5">
+        <ul className="mt-2 space-y-1.5 pl-5">
           {activities.map((activity) => {
             const detail = activityLabel(activity)
-            const isActive =
-              activity.status === "in_progress" ||
-              activity.status === "searching"
+            const isActive = isActiveStatus(activity.status)
+            const isReasoning = activity.kind === "reasoning"
+            const shimmerActive = !isReasoning && isActive && isLive
 
             return (
               <li className="min-w-0" key={activity.id}>
                 <ShimmerText
-                  active={isActive && isLive}
+                  active={shimmerActive}
                   className={cn(
                     "text-xs leading-5 break-words",
-                    !(isActive && isLive) && "text-muted-foreground"
+                    isReasoning && "whitespace-pre-wrap",
+                    !shimmerActive && "text-muted-foreground"
                   )}
                 >
                   {detail}
