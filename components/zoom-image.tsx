@@ -92,9 +92,10 @@ export function ZoomImage({
   }, [state])
 
   const expandedSrc = largestRendition(renditions)?.src ?? src
-  // Next Image owns responsive selection and layout, while Bunny remains the
-  // encoder/cache layer. Selecting an immutable Rendition here avoids a second
-  // quality pass through Next's optimizer.
+  // Prefer prebuilt static renditions (atlas JPEGs under /images/...). The
+  // custom loader returns those paths directly; `unoptimized` keeps Next from
+  // re-encoding through /_next/image at request time.
+  const useStaticRenditions = Boolean(renditions?.length)
   const renditionLoader = useCallback<ImageLoader>(
     ({ width: requestedWidth }) =>
       renditionForWidth(renditions, requestedWidth)?.src ?? expandedSrc,
@@ -258,7 +259,8 @@ export function ZoomImage({
         onClick={open}
       >
         <Image
-          loader={renditions ? renditionLoader : undefined}
+          unoptimized={useStaticRenditions}
+          loader={useStaticRenditions ? renditionLoader : undefined}
           src={src}
           alt={alt}
           width={width}

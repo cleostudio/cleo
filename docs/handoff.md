@@ -8,8 +8,8 @@ English-only personal site with:
 
 - MDX blog, Explore country field guides (about, facts, three places, sources,
   place photo), projects, newsletters
-- Photos: filterable Country Atlas (`content/atlas.json` +
-  `public/images/atlas/`) — one curated Pexels place photograph per country
+- Photos: filterable Country Atlas (`content/atlas.json` + optimized static
+  JPEGs in `public/images/atlas/`) — one curated place photograph per country
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
 
 There is **no** Clerk auth, Neon/Postgres, Bunny media, AMA booking, Stripe,
@@ -20,8 +20,11 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4, Base UI
 - Posts: `content/blog/<slug>/` via owned content route
 - Explore / Atlas: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/photos`
+- Atlas images: import-time mozjpeg 640/1024/1600 under `public/images/atlas/`;
+  rendered with static `srcset` (`AtlasImage` / unoptimized ZoomImage). No
+  runtime image account, API, or third-party fetch.
 - Atlas workflow: `pnpm generate:atlas-content` → `pnpm import:atlas-photos` →
-  `pnpm validate:atlas` (no runtime Pexels; originals in `.atlas-originals/`)
+  `pnpm validate:atlas` (originals in `.atlas-originals/`)
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`

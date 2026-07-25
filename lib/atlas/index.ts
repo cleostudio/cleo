@@ -12,6 +12,11 @@ const bySlug = new Map(Object.entries(manifest))
 
 export type { AtlasEntry, AtlasManifest, AtlasPhoto, AtlasPlace, AtlasSource } from './types'
 export { validateAtlasManifest, AtlasValidationError } from './validate'
+export {
+  atlasIntrinsicSize,
+  atlasRendition,
+  atlasSrcSet,
+} from './static-image'
 
 export function getAtlasEntry(slug: string): AtlasEntry | undefined {
   return bySlug.get(slug)

@@ -1,9 +1,9 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 
+import { AtlasImage } from '~/components/atlas-image'
 import type { AtlasEntry } from '~/lib/atlas'
 
 export function CountryAtlas({
@@ -88,32 +88,27 @@ export function CountryAtlas({
         <p className="text-sm text-muted-foreground">No countries match that filter.</p>
       ) : (
         <ul className="photo-masonry">
-          {filtered.map((entry) => {
-            const thumb =
-              entry.photo.renditions.find((r) => r.width === 640) ?? entry.photo.renditions[0]!
-            return (
-              <li key={entry.slug} className="photo-item">
-                <Link
-                  href={`/explore/${entry.slug}`}
-                  className="group block outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  <Image
-                    src={thumb.src}
-                    alt={entry.photo.alt}
-                    width={640}
-                    height={Math.round((640 * entry.photo.height) / entry.photo.width)}
-                    className="photo-frame w-full object-cover transition-[filter] duration-200 group-hover:brightness-[1.03]"
-                    sizes="(max-width: 40rem) 50vw, 12.5rem"
-                    loading="lazy"
-                  />
-                  <div className="mt-2 space-y-0.5 px-0.5">
-                    <p className="text-sm font-medium text-foreground">{entry.photo.placeName}</p>
-                    <p className="text-xs text-muted-foreground">{entry.name}</p>
-                  </div>
-                </Link>
-              </li>
-            )
-          })}
+          {filtered.map((entry) => (
+            <li key={entry.slug} className="photo-item">
+              <Link
+                href={`/explore/${entry.slug}`}
+                className="group block outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <AtlasImage
+                  photo={entry.photo}
+                  width={640}
+                  alt={entry.photo.alt}
+                  className="photo-frame w-full object-cover transition-[filter] duration-200 group-hover:brightness-[1.03]"
+                  sizes="(max-width: 40rem) 50vw, 12.5rem"
+                  loading="lazy"
+                />
+                <div className="mt-2 space-y-0.5 px-0.5">
+                  <p className="text-sm font-medium text-foreground">{entry.photo.placeName}</p>
+                  <p className="text-xs text-muted-foreground">{entry.name}</p>
+                </div>
+              </Link>
+            </li>
+          ))}
         </ul>
       )}
     </div>

@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 /**
- * Manual Pexels → local atlas renditions.
+ * Manual Pexels → optimized local atlas renditions.
  *
- * For each country in content/atlas.content.json:
- * 1. Download the selected Pexels JPEG (import-time only; not a runtime API)
- * 2. Strip metadata, write 640 / 1024 / 1600px JPEGs under public/images/atlas/{slug}/
- * 3. Merge photo credits + checksum + rendition metadata into content/atlas.json
+ * Import-time only (no account/API key required at runtime):
+ * 1. Download the curated Pexels JPEG once
+ * 2. Strip metadata, write mozjpeg 640 / 1024 / 1600px files under
+ *    public/images/atlas/{slug}/
+ * 3. Merge credits + checksum + rendition metadata into content/atlas.json
  *
- * Originals are written to .atlas-originals/ (gitignored), never exposed publicly.
+ * The app serves those static files directly — never via Bunny, Pexels, or
+ * /_next/image. Originals stay in .atlas-originals/ (gitignored).
  */
 
 import { createHash } from 'node:crypto'

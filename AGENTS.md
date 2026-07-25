@@ -6,10 +6,12 @@ a general-purpose AI agent on the dock at `/cleo`.
 
 Country atlas records live in `content/atlas.json` (one entry per Explore slug).
 Generate evergreen copy with `pnpm generate:atlas-content`, then import curated
-Pexels place photos into local JPEG renditions with `pnpm import:atlas-photos`.
-Validate with `pnpm validate:atlas`. Originals stay in `.atlas-originals/`
-(gitignored); public assets are under `public/images/atlas/{slug}/`. No Pexels
-API key, Bunny CDN, or runtime third-party image request.
+Pexels place photos into optimized local JPEG renditions with
+`pnpm import:atlas-photos`. Validate with `pnpm validate:atlas`. Originals stay
+in `.atlas-originals/` (gitignored); public assets are under
+`public/images/atlas/{slug}/` and are served as static files with browser
+`srcset` — no account, Pexels API, Bunny CDN, or `/_next/image` re-encode at
+runtime.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

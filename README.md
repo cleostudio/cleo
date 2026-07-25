@@ -15,7 +15,8 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
 - Base UI primitives with the `@fluid` component registry
 - MDX posts under `content/blog/`; English-only public routes
-- Country atlas: `content/atlas.json` + local JPEGs in `public/images/atlas/`
+- Country atlas: `content/atlas.json` + optimized static JPEGs in
+  `public/images/atlas/` (no image CDN/account at runtime)
 - **OpenAI** is the only third-party API (`OPENAI_API_KEY` → `POST /api/responses`)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*`
 - Bottom dock: Writing, Photos, Projects, Explore, Cleo
