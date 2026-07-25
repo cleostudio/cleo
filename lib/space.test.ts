@@ -9,7 +9,7 @@ import {
 
 describe('space subjects', () => {
   it('ships a curated catalog with unique slugs and codes', () => {
-    expect(spaceSubjects.length).toBeGreaterThanOrEqual(12)
+    expect(spaceSubjects.length).toBeGreaterThanOrEqual(20)
 
     const slugs = spaceSubjects.map((subject) => subject.slug)
     const codes = spaceSubjects.map((subject) => subject.code)
@@ -39,10 +39,15 @@ describe('space subjects', () => {
     const groups = spaceSubjectsByCategory()
     expect(groups.map(([category]) => category)).toEqual([
       'Solar System',
+      'Moons',
       'Deep Space',
     ])
     expect(groups[0]?.[1].some((subject) => subject.slug === 'mars')).toBe(true)
-    expect(groups[1]?.[1].some((subject) => subject.slug === 'andromeda')).toBe(
+    expect(groups[0]?.[1].some((subject) => subject.slug === 'iss')).toBe(true)
+    expect(groups[1]?.[1].some((subject) => subject.slug === 'europa')).toBe(
+      true,
+    )
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'orion-nebula')).toBe(
       true,
     )
   })

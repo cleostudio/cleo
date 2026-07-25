@@ -18,11 +18,12 @@ public assets are under `public/images/atlas/{slug}/` and are served as static
 files with browser `srcset` — no account, CDN, or `/_next/image` re-encode at
 runtime.
 
-Space field guides live in `lib/space.ts` (Solar System + nearby deep space)
-and render at `/space` and `/space/[slug]`. Curated NASA photographs are
-imported with `pnpm import:space-photos` into `public/images/space/{slug}/`
-and `content/space-photos.json`; validate with `pnpm validate:space`. The
-Gallery at `/gallery` shows both Explore place photos and Space body photos.
+Space field guides live in `lib/space.ts` (Solar System, Moons, Deep Space —
+planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
+`/space/[slug]`. Curated NASA photographs are imported with
+`pnpm import:space-photos` into `public/images/space/{slug}/` and
+`content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
+at `/gallery` shows both Explore place photos and Space body photos.
 The Topics catalog in `lib/topics.ts` lists Countries and Space.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the

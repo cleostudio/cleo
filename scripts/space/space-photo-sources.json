@@ -110,5 +110,77 @@
     "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000839",
     "credit": "NASA/ESA/J. Dalcanton (University of Washington)/R. Foley (UC Santa Cruz)/A. Rest (STScI)",
     "license": "Public Domain (NASA)"
+  },
+  "io": {
+    "featureName": "Global view of Io",
+    "nasaId": "PIA00583",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA00583/PIA00583~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA00583",
+    "credit": "NASA/JPL/University of Arizona",
+    "license": "Public Domain (NASA)"
+  },
+  "europa": {
+    "featureName": "Europa's icy surface",
+    "nasaId": "PIA19048",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA19048/PIA19048~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA19048",
+    "credit": "NASA/JPL-Caltech/SETI Institute",
+    "license": "Public Domain (NASA)"
+  },
+  "ganymede": {
+    "featureName": "Ganymede in color",
+    "nasaId": "PIA00716",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA00716/PIA00716~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA00716",
+    "credit": "NASA/JPL",
+    "license": "Public Domain (NASA)"
+  },
+  "titan": {
+    "featureName": "Titan's orange and blue hazes",
+    "nasaId": "PIA14913",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA14913/PIA14913~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA14913",
+    "credit": "NASA/JPL-Caltech/Space Science Institute",
+    "license": "Public Domain (NASA)"
+  },
+  "enceladus": {
+    "featureName": "Approaching Enceladus",
+    "nasaId": "PIA17202",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA17202/PIA17202~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA17202",
+    "credit": "NASA/JPL-Caltech/Space Science Institute",
+    "license": "Public Domain (NASA)"
+  },
+  "iss": {
+    "featureName": "ISS flyaround",
+    "nasaId": "iss01-389-023",
+    "downloadUrl": "https://images-assets.nasa.gov/image/iss01-389-023/iss01-389-023~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/iss01-389-023",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "orion-nebula": {
+    "featureName": "Heart of the Orion Nebula",
+    "nasaId": "PIA01322",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA01322/PIA01322~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA01322",
+    "credit": "NASA/JPL-Caltech/STScI",
+    "license": "Public Domain (NASA)"
+  },
+  "crab-nebula": {
+    "featureName": "Crab Nebula",
+    "nasaId": "PIA03606",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA03606/PIA03606~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA03606",
+    "credit": "NASA/ESA/JPL/Arizona State University",
+    "license": "Public Domain (NASA)"
+  },
+  "carina-nebula": {
+    "featureName": "Carina Nebula landscape",
+    "nasaId": "GSFC_20171208_Archive_e002076",
+    "downloadUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002076/GSFC_20171208_Archive_e002076~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002076",
+    "credit": "NASA/ESA/M. Livio / Hubble Heritage Team",
+    "license": "Public Domain (NASA)"
   }
 }

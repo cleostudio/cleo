@@ -15,7 +15,7 @@ export interface SpaceSource {
 }
 
 export interface SpaceFacts {
-  /** Body class: Star, Planet, Moon, Dwarf planet, Region, Galaxy. */
+  /** Body class: Star, Planet, Moon, Dwarf planet, Region, Galaxy, Nebula, Space station. */
   kind: string
   /** Broader neighborhood: Solar System, Local Group, etc. */
   system: string
@@ -64,7 +64,10 @@ function withPhoto(draft: SpaceSubjectDraft): SpaceSubject {
   return { ...draft, photo }
 }
 
-/** Curated first catalog — solar system bodies plus two nearby galaxies. */
+/**
+ * Curated catalog — Solar System bodies, major moons, the ISS, nearby galaxies,
+ * and signature nebulae. Expand here as new Space guides ship.
+ */
 const spaceSubjectDrafts: SpaceSubjectDraft[] = [
   {
     slug: 'sun',
@@ -258,7 +261,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     slug: 'moon',
     code: 'LUN',
     name: 'Moon',
-    category: 'Solar System',
+    category: 'Moons',
     subtitle: 'Natural satellite · Earth',
     about:
       'The Moon is Earth’s companion and the only other world humans have walked. Its near side shows dark maria of ancient basalt and bright highlands saturated with craters; the far side is almost all highlands. Tidally locked, it keeps one face toward Earth while sunlight crawls across two weeks of day and two weeks of night. There is no substantial air, so shadows stay knife-edged and the sky is always black. The Moon raises tides, steadies Earth’s tilt over long timescales, and preserves an impact record mostly erased on our planet by weather and tectonics. Orientation here is selenography: basins, highlands, and a crust born from a giant impact early in Solar System history. It remains the nearest archive of that violent youth.',
@@ -631,6 +634,288 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     ],
   },
   {
+    slug: 'iss',
+    code: 'ISS',
+    name: 'International Space Station',
+    category: 'Solar System',
+    subtitle: 'Orbital laboratory · Low Earth orbit',
+    about:
+      'The International Space Station is a continuously inhabited laboratory circling Earth about every ninety minutes. Assembled module by module in low orbit, it is a joint outpost where crews run experiments in microgravity, watch Earth systems from above, and practice the logistics of living beyond the atmosphere. Orientation is architectural and orbital rather than planetary: pressurized nodes, solar arrays, visiting vehicles, and a path that threads between atmosphere and the radiation of deeper space. The station is not a destination world — it is scaffolding for human presence, a place where the sky is a ninety-minute day-night cycle and “down” is always toward the blue curve. This primer stays with what the ISS is for: research, partnership, and a durable foothold just above the air.',
+    facts: {
+      kind: 'Space station',
+      system: 'Low Earth orbit',
+      meanDistance: '~400 km above Earth',
+      radiusKm: null,
+      orbitalPeriod: '~92 minutes',
+      rotationPeriod: 'Attitude-controlled (orbital day/night ~45 min each)',
+      companions: 'Crew vehicles and cargo craft on rotating schedules',
+    },
+    features: [
+      {
+        name: 'Pressurized modules',
+        description:
+          'Linked laboratories and living quarters where air, power, and thermal control make long stays possible.',
+      },
+      {
+        name: 'Solar array wings',
+        description:
+          'Large photovoltaic arrays that track the Sun and feed the station’s electrical bus.',
+      },
+      {
+        name: 'Cupola',
+        description:
+          'A seven-window observatory module used for Earth viewing, robotics, and visiting-vehicle operations.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — International Space Station',
+        url: 'https://www.nasa.gov/international-space-station/',
+        kind: 'agency',
+      },
+      {
+        label: 'ESA — International Space Station',
+        url: 'https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/International_Space_Station',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'io',
+    code: 'IOJ',
+    name: 'Io',
+    category: 'Moons',
+    subtitle: 'Galilean moon · Jupiter',
+    about:
+      'Io is the innermost of Jupiter’s four large Galilean moons and the most volcanically active world known. Tidal flexing from Jupiter and neighboring moons kneads its interior, driving hundreds of volcanoes that paint the surface in sulfur yellows, reds, and blacks. There are almost no impact craters — lava and plume fallout resurface the crust continuously. Orientation is geology under stress: a thin atmosphere of sulfur dioxide, towering plumes, and a moon locked in resonance with Europa and Ganymede. Io is a laboratory for tidal heating, not a cold ice ball. This primer stays with the durable picture — a rocky satellite remade by gravity — rather than any single eruption campaign.',
+    facts: {
+      kind: 'Moon',
+      system: 'Jupiter',
+      meanDistance: '421,700 km from Jupiter',
+      radiusKm: 1821.6,
+      orbitalPeriod: '1.77 Earth days',
+      rotationPeriod: '1.77 Earth days (tidally locked)',
+      companions: 'Jupiter; resonant with Europa and Ganymede',
+    },
+    features: [
+      {
+        name: 'Active volcanoes',
+        description:
+          'Hundreds of vents and lava lakes, some of the hottest surfaces in the Solar System.',
+      },
+      {
+        name: 'Sulfur plains',
+        description:
+          'Colorful deposits of sulfur and sulfur dioxide frost that resurface the moon on short timescales.',
+      },
+      {
+        name: 'Tidal heating',
+        description:
+          'Orbital resonance flexes Io’s interior, powering the volcanism that erases older terrain.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA Solar System Exploration — Io',
+        url: 'https://solarsystem.nasa.gov/moons/jupiter-moons/io/overview/',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Galileo mission',
+        url: 'https://science.nasa.gov/mission/galileo/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'europa',
+    code: 'EUR',
+    name: 'Europa',
+    category: 'Moons',
+    subtitle: 'Galilean moon · Jupiter',
+    about:
+      'Europa is an ice-shelled moon of Jupiter and one of the Solar System’s prime ocean worlds. A bright, cracked crust a few to tens of kilometers thick is thought to overlie a global saltwater ocean kept liquid by tidal heat. The surface is young by planetary standards — ridges, chaos terrain, and reddish stains mark places where the ice has broken and refrozen. Orientation is habitability without romance: a moon small enough to hold in a mental model, yet hiding more water than Earth’s seas if the ocean models hold. Radiation from Jupiter makes the surface hostile; the interesting chemistry, if any, would be below. This primer stays with structure and evidence — ice, ocean, and the physics that keep both in play.',
+    facts: {
+      kind: 'Moon',
+      system: 'Jupiter',
+      meanDistance: '670,900 km from Jupiter',
+      radiusKm: 1560.8,
+      orbitalPeriod: '3.55 Earth days',
+      rotationPeriod: '3.55 Earth days (tidally locked)',
+      companions: 'Jupiter; resonant with Io and Ganymede',
+    },
+    features: [
+      {
+        name: 'Icy crust',
+        description:
+          'A bright, fractured shell of water ice crossed by ridges and chaos regions.',
+      },
+      {
+        name: 'Subsurface ocean',
+        description:
+          'A global saltwater layer inferred from magnetic induction and geology, kept liquid by tidal heat.',
+      },
+      {
+        name: 'Lineae',
+        description:
+          'Long reddish cracks and bands that record stress and possible exchange with material below.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA Solar System Exploration — Europa',
+        url: 'https://solarsystem.nasa.gov/moons/jupiter-moons/europa/overview/',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Europa Clipper',
+        url: 'https://science.nasa.gov/mission/europa-clipper/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'ganymede',
+    code: 'GAN',
+    name: 'Ganymede',
+    category: 'Moons',
+    subtitle: 'Galilean moon · Jupiter',
+    about:
+      'Ganymede is the largest moon in the Solar System — bigger than Mercury — and the only one known to generate its own magnetic field. Its surface mixes dark, ancient cratered terrain with brighter, grooved ice that tells of tectonic stretching. Beneath the crust, models point to a layered interior that may include a deep saltwater ocean. Orientation is scale and complexity: a differentiated world with aurorae, a thin oxygen atmosphere, and a place in the Laplace resonance with Io and Europa. Ganymede is less a “planet-like moon” slogan than a body that simply grew large enough to behave like one. This primer stays with that architecture — field, ice, and interior — without mission-of-the-week framing.',
+    facts: {
+      kind: 'Moon',
+      system: 'Jupiter',
+      meanDistance: '1,070,400 km from Jupiter',
+      radiusKm: 2634.1,
+      orbitalPeriod: '7.15 Earth days',
+      rotationPeriod: '7.15 Earth days (tidally locked)',
+      companions: 'Jupiter; resonant with Io and Europa',
+    },
+    features: [
+      {
+        name: 'Intrinsic magnetic field',
+        description:
+          'A dynamo-generated field unique among known moons, interacting with Jupiter’s magnetosphere.',
+      },
+      {
+        name: 'Grooved terrain',
+        description:
+          'Bright, tectonically deformed ice that contrasts with darker, heavily cratered regions.',
+      },
+      {
+        name: 'Differentiated interior',
+        description:
+          'A layered structure — ice, rock, and metal — with evidence for a deep subsurface ocean.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA Solar System Exploration — Ganymede',
+        url: 'https://solarsystem.nasa.gov/moons/jupiter-moons/ganymede/overview/',
+        kind: 'agency',
+      },
+      {
+        label: 'ESA Juice mission',
+        url: 'https://www.esa.int/Science_Exploration/Space_Science/Juice',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'titan',
+    code: 'TIT',
+    name: 'Titan',
+    category: 'Moons',
+    subtitle: 'Natural satellite · Saturn',
+    about:
+      'Titan is Saturn’s largest moon and the only satellite with a thick nitrogen atmosphere. Orange haze hides a cold surface where methane and ethane play the role water plays on Earth — clouds, rain, rivers, and lakes near the poles. Under the organic-rich crust, evidence points to a water-ammonia ocean. Orientation is climate chemistry at 94 kelvin: dunes of hydrocarbon sand, bright highlands, and a weather cycle that would feel familiar if the liquids were not methane. Huygens’s descent and Cassini’s radar mapped enough to make Titan a second geologic world, not just a featureless blob. This primer stays with atmosphere, hydrology, and interior — the durable Titan — rather than any single flyby highlight.',
+    facts: {
+      kind: 'Moon',
+      system: 'Saturn',
+      meanDistance: '1,221,870 km from Saturn',
+      radiusKm: 2574.7,
+      orbitalPeriod: '15.95 Earth days',
+      rotationPeriod: '15.95 Earth days (tidally locked)',
+      companions: 'Saturn; thick N₂ atmosphere',
+    },
+    features: [
+      {
+        name: 'Thick atmosphere',
+        description:
+          'A nitrogen-rich envelope with organic haze layers that hide the surface at visible wavelengths.',
+      },
+      {
+        name: 'Methane lakes',
+        description:
+          'Polar seas and lakes of liquid methane and ethane — an active hydrological cycle of organics.',
+      },
+      {
+        name: 'Equatorial dunes',
+        description:
+          'Vast linear dunes of organic sand shaped by Titan’s slow winds.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA Solar System Exploration — Titan',
+        url: 'https://solarsystem.nasa.gov/moons/saturn-moons/titan/overview/',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Cassini mission',
+        url: 'https://science.nasa.gov/mission/cassini/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'enceladus',
+    code: 'ENC',
+    name: 'Enceladus',
+    category: 'Moons',
+    subtitle: 'Natural satellite · Saturn',
+    about:
+      'Enceladus is a small, bright icy moon of Saturn whose south polar region vents water vapor and ice into space. Those plumes feed a diffuse ring and, more importantly, sample a subsurface ocean that contacts rock — a setting where chemistry can run. Tiger-stripe fractures mark the active pole; the rest of the moon is cratered and cold. Orientation is contrast: a world you could almost circle in an afternoon of imagination, yet one that punches above its size for ocean science. Cassini flew through the plumes and tasted salts and organics; the durable story is a heated, porous interior under a cracked shell. This primer stays with that ocean-moon picture, not with any single plume-brightness headline.',
+    facts: {
+      kind: 'Moon',
+      system: 'Saturn',
+      meanDistance: '238,020 km from Saturn',
+      radiusKm: 252.1,
+      orbitalPeriod: '1.37 Earth days',
+      rotationPeriod: '1.37 Earth days (tidally locked)',
+      companions: 'Saturn; feeds the E ring via plumes',
+    },
+    features: [
+      {
+        name: 'South polar plumes',
+        description:
+          'Jets of water vapor and ice grains erupting from warm fractures at the south pole.',
+      },
+      {
+        name: 'Tiger stripes',
+        description:
+          'Parallel tectonic troughs that mark the active, heated region of the crust.',
+      },
+      {
+        name: 'Subsurface ocean',
+        description:
+          'A global or regional saltwater layer beneath the ice, sampled indirectly by plume chemistry.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA Solar System Exploration — Enceladus',
+        url: 'https://solarsystem.nasa.gov/moons/saturn-moons/enceladus/overview/',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Cassini mission',
+        url: 'https://science.nasa.gov/mission/cassini/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
     slug: 'milky-way',
     code: 'MWY',
     name: 'Milky Way',
@@ -720,6 +1005,147 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
       {
         label: 'ESA Hubble — Andromeda',
         url: 'https://esahubble.org/images/heic1502a/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'orion-nebula',
+    code: 'ORI',
+    name: 'Orion Nebula',
+    category: 'Deep Space',
+    subtitle: 'Star-forming nebula · Orion',
+    about:
+      'The Orion Nebula (M42) is the nearest large star-forming region bright enough to see with the unaided eye as a fuzzy patch in Orion’s sword. Hot young stars in its core carve cavities in gas and dust, lighting the cloud from within and driving outflows that shred natal material. Infrared views pierce the haze to reveal protoplanetary disks and embedded clusters; optical views show the glowing walls of ionized hydrogen. Orientation is stellar nursery at a human scale of night-sky familiarity: about 1,300–1,400 light-years away, close enough that its structure is a textbook for how stars assemble. This primer stays with the cloud’s architecture and role — a factory floor for stars — not with transient brightness alerts.',
+    facts: {
+      kind: 'Nebula',
+      system: 'Milky Way · Orion Molecular Cloud',
+      meanDistance: '~1,350 light-years',
+      radiusKm: null,
+      orbitalPeriod: 'Co-rotating with the local Galactic disk',
+      rotationPeriod: 'Turbulent; not a solid body',
+      companions: 'Trapezium cluster and embedded young stars',
+    },
+    features: [
+      {
+        name: 'Trapezium',
+        description:
+          'A tight group of hot young stars that ionize and sculpt the nebula’s bright core.',
+      },
+      {
+        name: 'Ionization front',
+        description:
+          'Glowing walls where ultraviolet light from massive stars meets cold molecular gas.',
+      },
+      {
+        name: 'Protoplanetary disks',
+        description:
+          'Circumstellar disks around young stars — raw material for future planetary systems.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Orion Nebula',
+        url: 'https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-42/',
+        kind: 'agency',
+      },
+      {
+        label: 'ESA Hubble — Orion Nebula',
+        url: 'https://esahubble.org/images/heic0601a/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'crab-nebula',
+    code: 'CRB',
+    name: 'Crab Nebula',
+    category: 'Deep Space',
+    subtitle: 'Supernova remnant · Taurus',
+    about:
+      'The Crab Nebula (M1) is the expanding debris of a star that exploded in 1054 CE — a supernova recorded by skywatchers across Eurasia. At its center, a pulsar spins dozens of times per second, injecting energy that lights filaments of gas and a synchrotron nebula across the spectrum. Orientation is aftermath: what a core-collapse leaves behind when the remnant is still young on cosmic clocks. Roughly 6,500 light-years away in Taurus, the Crab is a calibration source for high-energy astronomy and a vivid case study in how neutron stars power their surroundings. This primer stays with the remnant’s structure and engine, not with day-to-day flux monitoring.',
+    facts: {
+      kind: 'Nebula',
+      system: 'Milky Way · Taurus',
+      meanDistance: '~6,500 light-years',
+      radiusKm: null,
+      orbitalPeriod: 'Expanding remnant (~1,500 km/s scale)',
+      rotationPeriod: 'Central pulsar period ~33 ms',
+      companions: 'Crab pulsar (neutron star)',
+    },
+    features: [
+      {
+        name: 'Crab pulsar',
+        description:
+          'A rapidly spinning neutron star that powers the nebula’s glow across the electromagnetic spectrum.',
+      },
+      {
+        name: 'Filamentary ejecta',
+        description:
+          'Tangled strands of enriched gas from the exploded star, expanding into space.',
+      },
+      {
+        name: 'Synchrotron nebula',
+        description:
+          'A continuum glow from relativistic electrons spiraling in magnetic fields.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Crab Nebula',
+        url: 'https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-1/',
+        kind: 'agency',
+      },
+      {
+        label: 'ESA Hubble — Crab Nebula',
+        url: 'https://esahubble.org/images/heic0515a/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'carina-nebula',
+    code: 'CAR',
+    name: 'Carina Nebula',
+    category: 'Deep Space',
+    subtitle: 'Star-forming nebula · Carina',
+    about:
+      'The Carina Nebula (NGC 3372) is a vast southern star-forming complex where massive stars carve pillars, cavities, and shock fronts into dense clouds. Home to η Carinae and rich clusters of young stars, it is a more violent nursery than Orion — higher masses, stronger winds, and a landscape of cold dust lit by ultraviolet glare. Orientation is southern-sky grandeur: thousands of light-years away, spanning degrees on the sky, a region where stellar feedback is rewriting the molecular cloud in real geologic time. Hubble and other observatories have turned its ridges into iconic “landscapes,” but the durable story is feedback physics — how the biggest stars shape the next generation. This primer stays with that role and structure.',
+    facts: {
+      kind: 'Nebula',
+      system: 'Milky Way · Carina–Sagittarius arm',
+      meanDistance: '~7,500 light-years',
+      radiusKm: null,
+      orbitalPeriod: 'Co-rotating with the local Galactic disk',
+      rotationPeriod: 'Turbulent; not a solid body',
+      companions: 'η Carinae and young massive clusters',
+    },
+    features: [
+      {
+        name: 'Massive star feedback',
+        description:
+          'Winds and radiation from O-type stars that sculpt pillars and clear cavities in the cloud.',
+      },
+      {
+        name: 'η Carinae',
+        description:
+          'A luminous, unstable stellar system whose outbursts and winds dominate the nebula’s energetics.',
+      },
+      {
+        name: 'Dust pillars',
+        description:
+          'Cold, dense columns of gas and dust — lingering nurseries inside a harsh ultraviolet environment.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Carina Nebula',
+        url: 'https://science.nasa.gov/asset/hubble/carina-nebula-detail/',
+        kind: 'agency',
+      },
+      {
+        label: 'ESA Hubble — Carina Nebula',
+        url: 'https://esahubble.org/images/heic0707a/',
         kind: 'agency',
       },
     ],

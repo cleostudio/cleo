@@ -24,6 +24,7 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 - Posts: `content/blog/<slug>/` via owned content route
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
+  (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
 - Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
 - Place images: import-time mozjpeg 640/1024/1600 under `public/images/atlas/`
   (Wikimedia Commons curation) and `public/images/space/` (NASA); rendered with

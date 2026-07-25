@@ -38,6 +38,15 @@ otherwise — keep the on-page credit and source link.
 | `asteroid-belt` | PIA20348 | Ceres from Dawn |
 | `milky-way` | PIA03653 | Galactic center |
 | `andromeda` | GSFC_20171208_Archive_e000839 | Andromeda panorama |
+| `io` | PIA00583 | Global view of Io |
+| `europa` | PIA19048 | Europa's icy surface |
+| `ganymede` | PIA00716 | Ganymede in color |
+| `titan` | PIA14913 | Titan's orange and blue hazes |
+| `enceladus` | PIA17202 | Approaching Enceladus |
+| `iss` | iss01-389-023 | ISS flyaround |
+| `orion-nebula` | PIA01322 | Heart of the Orion Nebula |
+| `crab-nebula` | PIA03606 | Crab Nebula |
+| `carina-nebula` | GSFC_20171208_Archive_e002076 | Carina Nebula landscape |
 
 ## Taste shelf
 
