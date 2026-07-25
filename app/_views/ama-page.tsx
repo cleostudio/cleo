@@ -12,7 +12,7 @@ import { localePath, localize, type Locale } from '~/lib/locale-route'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 
 export function amaPageMetadata(locale: Locale): Metadata {
-  const copy = publicPageMetadata.ama[locale]
+  const copy = publicPageMetadata.ama
   return localeMetadata({
     locale,
     path: '/ama',
@@ -222,40 +222,22 @@ export function AmaPageView({ locale }: { locale: Locale }) {
               className="page-introduction enter mt-4 text-balance"
               style={{ '--enter-delay': '70ms' } as React.CSSProperties}
             >
-              {locale === 'zh' ? (
-                <div className="flex flex-col gap-3">
-                  <p>答案越来越便宜，判断越来越值钱。</p>
-                  <p>
-                    这几年，我一直在做产品设计、工程、独立开发、创业和出海。一路下来，我也把自己的工作方式围着
-                    AI 重新搭了一遍。
-                  </p>
-                  <p>
-                    AI 工具是最简单的一层。真正花时间的，是把经验变成 Prompt、Workflow、Memory 和
-                    Agent。
-                  </p>
-                  <p>
-                    这样确实能放大一个人的能力。但做什么、不做什么、下一步往哪里走，最后还是得靠判断。
-                  </p>
-                  <p>如果你也在想这些，不妨聊聊。</p>
-                </div>
-              ) : (
-                <div className="flex flex-col gap-4">
-                  <p>Answers are getting cheaper. Judgment is getting more valuable.</p>
-                  <p>
-                    I’ve spent the last few years across product design, engineering, indie
-                    development, and startups. Along the way, I’ve rebuilt how I work around AI.
-                  </p>
-                  <p>
-                    AI tools are the easy part. I spend more time turning what I know into prompts,
-                    workflows, memory, and agents.
-                  </p>
-                  <p>
-                    That gives me leverage. Judgment still decides what to build, what to skip, and
-                    where to go next.
-                  </p>
-                  <p>If you’re working through questions like that, let’s talk.</p>
-                </div>
-              )}
+              <div className="flex flex-col gap-4">
+                <p>Answers are getting cheaper. Judgment is getting more valuable.</p>
+                <p>
+                  I’ve spent the last few years across product design, engineering, indie
+                  development, and startups. Along the way, I’ve rebuilt how I work around AI.
+                </p>
+                <p>
+                  AI tools are the easy part. I spend more time turning what I know into prompts,
+                  workflows, memory, and agents.
+                </p>
+                <p>
+                  That gives me leverage. Judgment still decides what to build, what to skip, and
+                  where to go next.
+                </p>
+                <p>If you’re working through questions like that, let’s talk.</p>
+              </div>
             </div>
           </header>
           <PixelCluster variant={5} className="enter shrink-0" />
@@ -289,65 +271,37 @@ export function AmaPageView({ locale }: { locale: Locale }) {
           <SectionHeading index="01" locale={locale} zh="关于我" en="About me" delay={170} />
         </div>
         <div className="mt-4">
-          {locale === 'zh' ? (
-            <div className="page-introduction flex flex-col gap-3">
-              <p>
-                我是 Cali，佐玩（Zolplay）的创始人。Web、iOS、工程、产品设计和独立产品都亲手做过。通过佐玩，我也帮
-                Apple、Insta360 和多家 YC 创业公司做过策略、产品设计和产品落地。
-              </p>
-              <p>
-                更早之前，我在西雅图的游戏工作室参与过 Niantic、Microsoft 和 Google 的大型项目。
-              </p>
-              <p>
-                现在，我把产品判断、设计、工程和运营连成了一套 software factory。想法从{' '}
-                <AmaProductName name="Linear" /> 里的 issue 开始，
-                <AmaProductName name="Codex" />、<AmaProductName name="Claude Code" /> 和{' '}
-                <AmaProductName name="Cursor" /> 参与调研、拆 scope、实现和 review，最后回到{' '}
-                <AmaProductName name="Slack" />，跟团队继续推进。
-              </p>
-              <p>
-                我也自己部署了一套 OpenClaw，调度负责 PM、财务和日常运营的
-                agents。很多流程已经可以从头到尾自己跑完。
-              </p>
-              <p>
-                佐玩不是一人公司，但我会借用这套模式里好用的部分：把经验留进系统，把重复工作交给
-                agents，把人的注意力留给判断和品味。
-              </p>
-              <p>我相信，AI Native 最后会变成公司文化里少不了的一部分。</p>
-            </div>
-          ) : (
-            <div className="page-introduction flex flex-col gap-4">
-              <p>
-                I’m Cali, founder of Zolplay. My work spans web, iOS, engineering, product design,
-                and indie products. Through Zolplay, I’ve helped teams at Apple, Insta360, and
-                YC-backed startups with strategy, product design, and turning ideas into working
-                products.
-              </p>
-              <p>
-                Before that, I worked at game studios in Seattle on large projects with Niantic,
-                Microsoft, and Google.
-              </p>
-              <p>
-                My software factory connects product judgment, design, engineering, and operations.
-                Ideas start in <AmaProductName name="Linear" />;{' '}
-                <AmaProductName name="Codex" />, <AmaProductName name="Claude Code" />, and{' '}
-                <AmaProductName name="Cursor" /> help with research, scoping, implementation, and
-                review; the work returns to <AmaProductName name="Slack" /> and the team.
-              </p>
-              <p>
-                I also run a self-hosted OpenClaw setup that orchestrates agents across PM, finance,
-                and day-to-day operations. Many processes now run end to end on their own.
-              </p>
-              <p>
-                Zolplay isn’t a one-person company. But I borrow the useful part of that model: put
-                knowledge into systems, hand repetitive work to agents, and keep human attention
-                on judgment and taste.
-              </p>
-              <p>
-                I believe an AI-native approach will become an essential part of company culture.
-              </p>
-            </div>
-          )}
+          <div className="page-introduction flex flex-col gap-4">
+            <p>
+              I’m Cali, founder of Zolplay. My work spans web, iOS, engineering, product design,
+              and indie products. Through Zolplay, I’ve helped teams at Apple, Insta360, and
+              YC-backed startups with strategy, product design, and turning ideas into working
+              products.
+            </p>
+            <p>
+              Before that, I worked at game studios in Seattle on large projects with Niantic,
+              Microsoft, and Google.
+            </p>
+            <p>
+              My software factory connects product judgment, design, engineering, and operations.
+              Ideas start in <AmaProductName name="Linear" />;{' '}
+              <AmaProductName name="Codex" />, <AmaProductName name="Claude Code" />, and{' '}
+              <AmaProductName name="Cursor" /> help with research, scoping, implementation, and
+              review; the work returns to <AmaProductName name="Slack" /> and the team.
+            </p>
+            <p>
+              I also run a self-hosted OpenClaw setup that orchestrates agents across PM, finance,
+              and day-to-day operations. Many processes now run end to end on their own.
+            </p>
+            <p>
+              Zolplay isn’t a one-person company. But I borrow the useful part of that model: put
+              knowledge into systems, hand repetitive work to agents, and keep human attention
+              on judgment and taste.
+            </p>
+            <p>
+              I believe an AI-native approach will become an essential part of company culture.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -356,23 +310,14 @@ export function AmaPageView({ locale }: { locale: Locale }) {
           <SectionHeading index="02" locale={locale} zh="聊什么" en="Topics" delay={200} />
         </div>
         <div className="page-introduction mt-4 flex flex-col gap-3">
-          {locale === 'zh' ? (
-            <>
-              <p>不一定非要从 AI 开始。</p>
-              <p>
-                职业、产品、工程和出海，看起来是不同的问题，最后经常都落到同一个判断上：什么值得做，什么可以交给系统，什么还是得自己来。
-              </p>
-            </>
-          ) : (
-            <>
-              <p>AI doesn’t have to be the starting point.</p>
-              <p>
-                Careers, products, and engineering can look like separate problems. Often they come
-                down to the same judgment: what’s worth doing, what a system can handle, and what
-                still needs your judgment.
-              </p>
-            </>
-          )}
+          <>
+            <p>AI doesn’t have to be the starting point.</p>
+            <p>
+              Careers, products, and engineering can look like separate problems. Often they come
+              down to the same judgment: what’s worth doing, what a system can handle, and what
+              still needs your judgment.
+            </p>
+          </>
         </div>
         <ul className="mt-4 text-sm">
           {AMA_TOPICS.map((topic) => {

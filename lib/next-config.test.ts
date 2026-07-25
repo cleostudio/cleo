@@ -9,15 +9,7 @@ describe('server output tracing', () => {
         './content/blog/**/*',
         './app/_fonts/FrexSansGB-OG-*.ttf',
       ]),
-      '/en/blog/**': expect.arrayContaining([
-        './content/blog/**/*',
-        './app/_fonts/FrexSansGB-OG-*.ttf',
-      ]),
       '/newsletters/**': expect.arrayContaining([
-        './content/newsletters/**/*',
-        './app/_fonts/FrexSansGB-OG-*.ttf',
-      ]),
-      '/en/newsletters/**': expect.arrayContaining([
         './content/newsletters/**/*',
         './app/_fonts/FrexSansGB-OG-*.ttf',
       ]),
@@ -26,6 +18,21 @@ describe('server output tracing', () => {
         './content/newsletters/**/*',
       ],
     })
+    expect(nextConfig.outputFileTracingIncludes).not.toHaveProperty('/en/blog/**')
+    expect(nextConfig.outputFileTracingIncludes).not.toHaveProperty('/en/newsletters/**')
+  })
+})
+
+describe('English-only redirects', () => {
+  it('permanently redirects legacy /en and English feed URLs', async () => {
+    const redirects = await nextConfig.redirects!()
+    expect(redirects).toEqual(
+      expect.arrayContaining([
+        { source: '/en', destination: '/', permanent: true },
+        { source: '/en/:path*', destination: '/:path*', permanent: true },
+        { source: '/feed.en.xml', destination: '/feed.xml', permanent: true },
+      ]),
+    )
   })
 })
 

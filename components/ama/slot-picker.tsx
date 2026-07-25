@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { enUS, zhCN } from 'date-fns/locale'
+import { enUS } from 'date-fns/locale'
 
 import { Button } from '~/components/ui/button'
 import { Calendar, calendarDayKey } from '~/components/ui/calendar'
@@ -236,7 +236,7 @@ export function SlotPicker({
             endMonth={groups.at(-1)?.date}
             disabled={(date) => disabled || !availableDayKeys.has(calendarDayKey(date))}
             modifiers={{ available: availableDates }}
-            locale={locale === 'zh' ? zhCN : enUS}
+            locale={enUS}
             weekStartsOn={0}
             fixedWeeks
             className="mx-auto max-w-[22rem]"

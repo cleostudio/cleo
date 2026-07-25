@@ -24,8 +24,8 @@ export function ProjectsPageView() {
             style={{ '--enter-delay': '70ms' } as React.CSSProperties}
           >
             <T
-              zh={publicPageMetadata.projects.zh.description}
-              en={publicPageMetadata.projects.en.description}
+              zh={publicPageMetadata.projects.description}
+              en={publicPageMetadata.projects.description}
             />
           </p>
         </header>

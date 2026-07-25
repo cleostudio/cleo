@@ -25,28 +25,6 @@ function localImageReferences(source) {
   ].map(([, reference]) => reference)
 }
 
-function mdxComponentInvocations(source) {
-  const componentPattern =
-    /<[A-Z][A-Za-z0-9.]*\b(?:[^"'<>]|"[^"]*"|'[^']*')*\/?>/gs
-
-  return [...withoutFencedCode(source).matchAll(componentPattern)].map(
-    ([invocation]) => invocation,
-  )
-}
-
-function assertOccurrencesPreserved(original, english, description) {
-  const available = new Map()
-  for (const value of english) {
-    available.set(value, (available.get(value) ?? 0) + 1)
-  }
-
-  for (const value of original) {
-    const remaining = available.get(value) ?? 0
-    assert.ok(remaining > 0, `${description} ${value}`)
-    available.set(value, remaining - 1)
-  }
-}
-
 async function contentDirectories(root) {
   const entries = await readdir(root, { withFileTypes: true })
 
@@ -56,141 +34,86 @@ async function contentDirectories(root) {
     .sort()
 }
 
-test('every blog post has a complete English source', async (t) => {
+test('every blog post is English-only index.mdx', async (t) => {
   for (const directory of await contentDirectories(blogRoot)) {
-    const originalPath = join(blogRoot, directory, 'index.mdx')
+    const path = join(blogRoot, directory, 'index.mdx')
 
-    let originalSource
+    let source
     try {
-      originalSource = await readFile(originalPath, 'utf8')
+      source = await readFile(path, 'utf8')
     } catch (error) {
       if (error?.code === 'ENOENT') continue
       throw error
     }
 
     await t.test(directory, async () => {
-      const englishPath = join(blogRoot, directory, 'index.en.mdx')
-      let englishSource
-
-      try {
-        englishSource = await readFile(englishPath, 'utf8')
-      } catch (error) {
-        assert.notEqual(
-          error?.code,
-          'ENOENT',
-          `${directory} has index.mdx but is missing index.en.mdx`,
-        )
-        throw error
-      }
-
-      const original = matter(originalSource)
-      const english = matter(englishSource)
+      const parsed = matter(source)
 
       assert.doesNotMatch(
-        originalSource,
+        source,
         dashPattern,
         `${directory}/index.mdx must not contain em or en dashes`,
       )
-      assert.doesNotMatch(
-        englishSource,
-        dashPattern,
-        `${directory}/index.en.mdx must not contain em or en dashes`,
-      )
-
       assert.equal(
-        typeof english.data.title,
+        typeof parsed.data.title,
         'string',
-        `${directory} must have an English title`,
+        `${directory} must have a title`,
       )
-      assert.ok(english.data.title.trim(), `${directory} must have a nonempty English title`)
+      assert.ok(parsed.data.title.trim(), `${directory} must have a nonempty title`)
       assert.equal(
-        typeof english.data.description,
+        typeof parsed.data.description,
         'string',
-        `${directory} must have an English description`,
+        `${directory} must have a description`,
       )
       assert.ok(
-        english.data.description.trim(),
-        `${directory} must have a nonempty English description`,
+        parsed.data.description.trim(),
+        `${directory} must have a nonempty description`,
       )
       assert.doesNotMatch(
-        englishSource,
+        source,
         hanPattern,
-        `${directory}/index.en.mdx must not contain Han characters`,
+        `${directory}/index.mdx must not contain Han characters`,
       )
-
-      assertOccurrencesPreserved(
-        localImageReferences(original.content),
-        localImageReferences(english.content),
-        `${directory}/index.en.mdx is missing image reference`,
-      )
-      assertOccurrencesPreserved(
-        mdxComponentInvocations(original.content),
-        mdxComponentInvocations(english.content),
-        `${directory}/index.en.mdx is missing MDX component invocation`,
+      assert.ok(
+        localImageReferences(parsed.content).every((ref) => typeof ref === 'string'),
+        `${directory}/index.mdx image references are readable`,
       )
     })
   }
 })
 
-test('every newsletter archive has a complete English source', async (t) => {
+test('every newsletter archive is English-only index.mdx', async (t) => {
   for (const directory of await contentDirectories(newsletterRoot)) {
-    const originalPath = join(newsletterRoot, directory, 'index.mdx')
-    const originalSource = await readFile(originalPath, 'utf8')
+    const path = join(newsletterRoot, directory, 'index.mdx')
+    const source = await readFile(path, 'utf8')
 
     await t.test(directory, async () => {
-      const englishPath = join(newsletterRoot, directory, 'index.en.mdx')
-      let englishSource
-
-      try {
-        englishSource = await readFile(englishPath, 'utf8')
-      } catch (error) {
-        assert.notEqual(
-          error?.code,
-          'ENOENT',
-          `${directory} has index.mdx but is missing index.en.mdx`,
-        )
-        throw error
-      }
-
-      const english = matter(englishSource)
+      const parsed = matter(source)
 
       assert.doesNotMatch(
-        originalSource,
+        source,
         dashPattern,
         `${directory}/index.mdx must not contain em or en dashes`,
       )
-      assert.doesNotMatch(
-        englishSource,
-        dashPattern,
-        `${directory}/index.en.mdx must not contain em or en dashes`,
-      )
       assert.equal(
-        typeof english.data.title,
+        typeof parsed.data.title,
         'string',
-        `${directory} must have an English title`,
+        `${directory} must have a title`,
+      )
+      assert.ok(parsed.data.title.trim(), `${directory} must have a nonempty title`)
+      assert.equal(
+        typeof parsed.data.description,
+        'string',
+        `${directory} must have a description`,
       )
       assert.ok(
-        english.data.title.trim(),
-        `${directory} must have a nonempty English title`,
-      )
-      assert.equal(
-        typeof english.data.description,
-        'string',
-        `${directory} must have an English description`,
-      )
-      assert.ok(
-        english.data.description.trim(),
-        `${directory} must have a nonempty English description`,
+        parsed.data.description.trim(),
+        `${directory} must have a nonempty description`,
       )
       assert.doesNotMatch(
-        englishSource,
+        source,
         hanPattern,
-        `${directory}/index.en.mdx must not contain Han characters`,
-      )
-      assertOccurrencesPreserved(
-        localImageReferences(originalSource),
-        localImageReferences(englishSource),
-        `${directory}/index.en.mdx is missing image reference`,
+        `${directory}/index.mdx must not contain Han characters`,
       )
     })
   }

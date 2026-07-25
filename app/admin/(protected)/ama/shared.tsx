@@ -82,10 +82,10 @@ function zonedFormatter(zone: string, locale: Locale) {
       hour12: false,
     }
     try {
-      formatter = new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', options)
+      formatter = new Intl.DateTimeFormat('en-US', options)
     } catch {
       // An unknown stored time zone must not break the page; fall back to UTC.
-      formatter = new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', {
+      formatter = new Intl.DateTimeFormat('en-US', {
         ...options,
         timeZone: 'UTC',
       })
@@ -110,9 +110,9 @@ function zonedTimeFormatter(zone: string, locale: Locale) {
       hour12: false,
     }
     try {
-      formatter = new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', options)
+      formatter = new Intl.DateTimeFormat('en-US', options)
     } catch {
-      formatter = new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', {
+      formatter = new Intl.DateTimeFormat('en-US', {
         ...options,
         timeZone: 'UTC',
       })
@@ -378,7 +378,7 @@ export function OperationsList({
                     </span>
                     <span className="tabular-nums">
                       <T
-                        zh={`下次尝试 ${zonedDateTime(operation.nextAttemptAt, OWNER_TIME_ZONE, 'zh')}`}
+                        zh={`下次尝试 ${zonedDateTime(operation.nextAttemptAt, OWNER_TIME_ZONE, 'en')}`}
                         en={`Next attempt ${zonedDateTime(operation.nextAttemptAt, OWNER_TIME_ZONE, 'en')}`}
                       />
                       {' '}(Asia/Taipei)

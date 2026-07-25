@@ -9,49 +9,43 @@ import {
 
 const profiles = [
   {
-    name: 'Chinese home on light desktop',
+    name: 'Home on light desktop',
     path: '/',
-    lang: 'zh-CN' as const,
     viewport: { width: 1440, height: 900 },
     colorScheme: 'light' as const,
     reducedMotion: 'no-preference' as const,
   },
   {
-    name: 'English projects on dark desktop',
-    path: '/en/projects',
-    lang: 'en' as const,
+    name: 'Projects on dark desktop',
+    path: '/projects',
     viewport: { width: 1440, height: 900 },
     colorScheme: 'dark' as const,
     reducedMotion: 'no-preference' as const,
   },
   {
-    name: 'Chinese writing on mobile',
+    name: 'Writing on mobile',
     path: '/blog',
-    lang: 'zh-CN' as const,
     viewport: { width: 390, height: 844 },
     colorScheme: 'light' as const,
     reducedMotion: 'no-preference' as const,
   },
   {
-    name: 'English photos on reduced-motion mobile',
-    path: '/en/photos',
-    lang: 'en' as const,
+    name: 'Photos on reduced-motion mobile',
+    path: '/photos',
     viewport: { width: 390, height: 844 },
     colorScheme: 'dark' as const,
     reducedMotion: 'reduce' as const,
   },
   {
-    name: 'Chinese AMA on desktop',
+    name: 'AMA on desktop',
     path: '/ama',
-    lang: 'zh-CN' as const,
     viewport: { width: 1440, height: 900 },
     colorScheme: 'light' as const,
     reducedMotion: 'no-preference' as const,
   },
   {
-    name: 'English article on desktop',
+    name: 'Article on desktop',
     path: browserArticleFixture.path,
-    lang: 'en' as const,
     viewport: { width: 1440, height: 900 },
     colorScheme: 'light' as const,
     reducedMotion: 'no-preference' as const,
@@ -70,7 +64,7 @@ for (const profile of profiles) {
       reducedMotion: profile.reducedMotion,
     })
 
-    await expectHealthyPublicDocument(page, profile.path, profile.lang)
+    await expectHealthyPublicDocument(page, profile.path)
 
     await expect(page).toHaveTitle(/Cali/)
     expect(browserErrors).toEqual([])

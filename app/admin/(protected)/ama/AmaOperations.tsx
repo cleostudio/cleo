@@ -98,7 +98,7 @@ function BookingRow({
             <span data-booking-time="owner" className="block tabular-nums">
               <span className="booking-owner-time">
                 <T
-                  zh={zonedDateTime(booking.startsAt, ownerTimeZone, 'zh')}
+                  zh={zonedDateTime(booking.startsAt, ownerTimeZone, 'en')}
                   en={zonedDateTime(booking.startsAt, ownerTimeZone, 'en')}
                 />
                 {' '}({ownerTimeZone})
@@ -111,8 +111,8 @@ function BookingRow({
               <T
                 zh={
                   sameLocalDate
-                    ? zonedTime(booking.startsAt, booking.guestTimeZone, 'zh')
-                    : zonedDateTime(booking.startsAt, booking.guestTimeZone, 'zh')
+                    ? zonedTime(booking.startsAt, booking.guestTimeZone, 'en')
+                    : zonedDateTime(booking.startsAt, booking.guestTimeZone, 'en')
                 }
                 en={
                   sameLocalDate
@@ -282,7 +282,7 @@ function AlternateTimeRequests({
                     <span aria-hidden="true"> · </span>
                     <span className="tabular-nums">
                       <T
-                        zh={`${zonedDateTime(request.createdAt, OWNER_TIME_ZONE, 'zh')} 提交`}
+                        zh={`${zonedDateTime(request.createdAt, OWNER_TIME_ZONE, 'en')} 提交`}
                         en={`Sent ${zonedDateTime(request.createdAt, OWNER_TIME_ZONE, 'en')}`}
                       />
                       {' '}(Asia/Taipei)

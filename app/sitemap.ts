@@ -9,24 +9,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // newest first per getAllPosts — the site "changed" when the latest post landed
   const latest = posts[0]?.publishedAt
 
-  const pairedEntry = (path: string, lastModified?: Date): MetadataRoute.Sitemap => {
+  const entry = (path: string, lastModified?: Date): MetadataRoute.Sitemap[number] => {
     const pair = localeRoutePair(path)
-    const alternates = { languages: pair.languages }
-
-    return [
-      { url: pair.zh.href, lastModified, alternates },
-      { url: pair.en.href, lastModified, alternates },
-    ]
+    return {
+      url: pair.en.href,
+      lastModified,
+      alternates: { languages: pair.languages },
+    }
   }
 
   return [
-    ...pairedEntry('/', latest),
-    ...pairedEntry('/blog', latest),
-    ...pairedEntry('/photos', latest),
-    ...pairedEntry('/projects', latest),
-    ...pairedEntry('/ama'),
-    ...pairedEntry('/cleo'),
-    ...archivedNewsletterIds.flatMap((id) => pairedEntry(`/newsletters/${id}`)),
-    ...posts.flatMap((post) => pairedEntry(`/blog/${post.slug}`, post.publishedAt)),
+    entry('/', latest),
+    entry('/blog', latest),
+    entry('/photos', latest),
+    entry('/projects', latest),
+    entry('/ama'),
+    entry('/cleo'),
+    ...archivedNewsletterIds.map((id) => entry(`/newsletters/${id}`)),
+    ...posts.map((post) => entry(`/blog/${post.slug}`, post.publishedAt)),
   ]
 }

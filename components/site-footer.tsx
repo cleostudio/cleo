@@ -47,7 +47,7 @@ async function CopyrightYear() {
 export function SiteFooter({
   social,
   github,
-  locale = 'zh',
+  locale = 'en',
 }: {
   social: { x: SocialSnapshot; telegram: SocialSnapshot; youtube: SocialSnapshot }
   github: GitHubSnapshot
@@ -105,10 +105,7 @@ export function SiteFooter({
             </Link>
           </li>
           <li>
-            <a href="/feed.xml" className="footer-tree-link" data-zh>
-              RSS
-            </a>
-            <a href="/feed.en.xml" className="footer-tree-link" data-en>
+            <a href="/feed.xml" className="footer-tree-link">
               RSS
             </a>
           </li>

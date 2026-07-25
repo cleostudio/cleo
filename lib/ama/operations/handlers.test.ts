@@ -743,12 +743,13 @@ describe('send_booking_email', () => {
       expect(sent.idempotencyKey).toBe(dedupeKey)
       expect(sent.message.to).toBe('ada@example.com')
       const rawToken = deriveManageToken(ENCRYPTION_KEY, 'bk_1')
-      expect(sent.message.text).toContain(`https://cali.so/en/ama/manage/${rawToken}`)
+      expect(sent.message.text).toContain(`https://cali.so/ama/manage/${rawToken}`)
+      expect(sent.message.text).not.toContain('/en/ama/manage/')
       expect(f.events.at(-1)).toMatchObject({ event: 'email_sent', detail: { kind } })
     },
   )
 
-  it('builds the manage link without a locale prefix for Chinese guests', async () => {
+  it('builds the manage link without a locale prefix', async () => {
     const f = fixture({ locale: 'zh', meetingUrl: 'https://meet.google.com/existing' })
 
     await f.handle(emailOp({ kind: 'confirmation' }))

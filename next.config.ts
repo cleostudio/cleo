@@ -44,12 +44,7 @@ const nextConfig: NextConfig = {
       './public/images/headshot.jpg',
     ],
     '/blog/**': ['./content/blog/**/*', ...ogRuntimeAssets],
-    '/en/blog/**': ['./content/blog/**/*', ...ogRuntimeAssets],
     '/newsletters/**': ['./content/newsletters/**/*', ...ogRuntimeAssets],
-    '/en/newsletters/**': [
-      './content/newsletters/**/*',
-      ...ogRuntimeAssets,
-    ],
     '/content/\\[\\.\\.\\.path\\]': [
       './content/blog/**/*',
       './content/newsletters/**/*',
@@ -119,8 +114,14 @@ const nextConfig: NextConfig = {
   ],
 
   // The checked-in manifest is the v3 cutover contract for every preserved,
-  // replaced or retired public URL from the legacy site.
-  redirects: async () => legacyRedirects,
+  // replaced or retired public URL from the legacy site. English-only:
+  // former `/en` URLs permanently redirect to the unprefixed paths.
+  redirects: async () => [
+    { source: '/en', destination: '/', permanent: true },
+    { source: '/en/:path*', destination: '/:path*', permanent: true },
+    { source: '/feed.en.xml', destination: '/feed.xml', permanent: true },
+    ...legacyRedirects,
+  ],
 
   rewrites: async () => legacyRewrites,
 }

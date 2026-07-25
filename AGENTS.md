@@ -1,8 +1,8 @@
 # Cleo + cali.so
 
-This repository hosts [Cali Castle's personal site](https://cali.so) (v3) with
-**Cleo**, a general-purpose AI agent, mounted as a public dock page at `/cleo`
-(and `/en/cleo`).
+This repository hosts [Cali Castle's personal site](https://cali.so) (v3) —
+English-only — with **Cleo**, a general-purpose AI agent, mounted as a public
+dock page at `/cleo`.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo surface.

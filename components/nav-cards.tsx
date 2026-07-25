@@ -11,7 +11,7 @@ export function NavCards({
   postCount,
   projectCount,
   photoCard,
-  locale = 'zh',
+  locale = 'en',
 }: {
   postCount: number
   projectCount: number
@@ -93,7 +93,7 @@ export function NavCards({
 
 export function PhotoNavCard({
   photoPreview,
-  locale = 'zh',
+  locale = 'en',
   pending = false,
 }: {
   photoPreview: ReturnType<typeof getHomepagePhotoPreview>

@@ -12,7 +12,7 @@ export function PostRow({
   post,
   headingLevel = 'h2',
   dateStyle = 'full',
-  locale = 'zh',
+  locale = 'en',
   listStageId,
 }: {
   post: Post

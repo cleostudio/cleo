@@ -20,8 +20,10 @@ const PUBLIC_SECTIONS = new Set<PublicSection>([
   'projects',
 ])
 
-function isLocale(value: string | null): value is Locale {
-  return value === 'zh' || value === 'en'
+/** Accept `en` (and legacy `zh`, treated as English) for cache-compat. */
+function resolveLocale(value: string | null): Locale | null {
+  if (value === 'en' || value === 'zh') return 'en'
+  return null
 }
 
 function cachedImage(response: Response) {
@@ -34,10 +36,10 @@ function cachedImage(response: Response) {
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  const locale = searchParams.get('locale')
+  const locale = resolveLocale(searchParams.get('locale'))
   const path = searchParams.get('path')
 
-  if (!isLocale(locale) || !path?.startsWith('/')) {
+  if (!locale || !path?.startsWith('/')) {
     return new Response('Not found', { status: 404 })
   }
 

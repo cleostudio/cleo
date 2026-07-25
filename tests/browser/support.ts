@@ -2,7 +2,7 @@ import { expect, type Page } from '@playwright/test'
 
 export const browserArticleFixture = {
   description: 'English article with a zoomable image and article map',
-  path: '/en/blog/how-to-protect-your-site-with-upstash',
+  path: '/blog/how-to-protect-your-site-with-upstash',
 } as const
 
 export async function prepareBrowserPage(page: Page) {
@@ -46,15 +46,11 @@ export async function gotoBrowserArticleFixture(page: Page) {
   await expect(page.locator('article h1')).toBeVisible()
 }
 
-export async function expectHealthyPublicDocument(
-  page: Page,
-  path: string,
-  lang: 'en' | 'zh-CN',
-) {
+export async function expectHealthyPublicDocument(page: Page, path: string) {
   const response = await page.goto(path)
 
   expect(response?.status(), `Browser test route must return 200: ${path}`).toBe(200)
-  await expect(page.locator('html')).toHaveAttribute('lang', lang)
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en')
   await expect(page.locator('main h1')).toBeVisible()
   await expect(page.locator('nav.dock button:not([disabled])')).toHaveCount(1)
   await expect(page.locator('nextjs-portal')).toHaveCount(0)

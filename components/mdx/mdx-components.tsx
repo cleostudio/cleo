@@ -41,7 +41,7 @@ function PostImage({ slug, src, alt, title }: { slug: string; src: string; alt?:
   )
 }
 
-export function mdxComponents(slug: string, locale: Locale = 'zh'): MDXComponents {
+export function mdxComponents(slug: string, locale: Locale = 'en'): MDXComponents {
   return {
     pre: (props) => <CodeBlockPre {...props} />,
     InlineProductName,

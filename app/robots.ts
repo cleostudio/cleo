@@ -11,10 +11,8 @@ export default function robots(): MetadataRoute.Robots {
         '/admin',
         '/api/admin',
         '/confirm/',
-        '/en/confirm/',
         // Manage Links are private capability URLs.
         '/ama/manage/',
-        '/en/ama/manage/',
       ],
     },
     sitemap: new URL('/sitemap.xml', seo.url).href,

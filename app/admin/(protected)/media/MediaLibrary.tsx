@@ -437,7 +437,7 @@ function Inspector({
   }
 
   const captured = asset.capturedAt
-    ? new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', {
+    ? new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
         month: 'short',
         day: 'numeric',

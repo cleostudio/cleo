@@ -1,12 +1,6 @@
 import { renderToStaticMarkup } from 'react-dom/server'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-const { fontVariablesForLocale } = vi.hoisted(() => ({
-  fontVariablesForLocale: vi.fn((locale: 'zh' | 'en') =>
-    locale === 'zh' ? 'latin-font cjk-font' : 'latin-font',
-  ),
-}))
-
 vi.mock('react', async (importOriginal) => {
   const react = await importOriginal<typeof import('react')>()
 
@@ -26,14 +20,6 @@ vi.mock('~/components/ambient-background', () => ({
 vi.mock('~/components/dock', () => ({
   Dock: () => <span data-public-dock="" />,
   DockFallback: () => <span data-public-dock-fallback="" />,
-}))
-vi.mock('~/components/locale-restorer', () => ({
-  LocaleRestorer: () => null,
-}))
-vi.mock('~/components/locale-suggestion', () => ({
-  LocaleSuggestion: ({ locale }: { locale: 'zh' | 'en' }) => (
-    <span data-locale-suggestion={locale} />
-  ),
 }))
 vi.mock('~/components/preview-card-timing', () => ({
   PreviewCardTimingProvider: ({ children }: { children: React.ReactNode }) => (
@@ -60,7 +46,7 @@ vi.mock('~/components/route-motion-controller', () => ({
   ),
 }))
 vi.mock('./fonts', () => ({
-  fontVariablesForLocale,
+  fontVariables: 'latin-font',
 }))
 
 import { SiteDocument } from './_components/site-document'
@@ -71,36 +57,30 @@ beforeEach(() => {
 })
 
 describe('SiteDocument analytics', () => {
-  it('activates the CJK font only for Chinese documents', async () => {
-    const chinese = renderToStaticMarkup(
-      await SiteDocument({ children: <p>中文页面</p>, locale: 'zh' }),
-    )
-    const english = renderToStaticMarkup(
-      await SiteDocument({ children: <p>English page</p>, locale: 'en' }),
+  it('renders an English public document with latin font variables', async () => {
+    const html = renderToStaticMarkup(
+      await SiteDocument({ children: <p>English page</p> }),
     )
 
-    expect(chinese).toContain('cjk-font')
-    expect(english).not.toContain('cjk-font')
-    expect(fontVariablesForLocale).toHaveBeenCalledWith('zh')
-    expect(fontVariablesForLocale).toHaveBeenCalledWith('en')
+    expect(html).toContain('lang="en"')
+    expect(html).toContain('data-locale="en"')
+    expect(html).toContain('latin-font')
+    expect(html).not.toContain('cjk-font')
   })
 
-  it('collects page views across the public route families', async () => {
-    for (const locale of ['zh', 'en'] as const) {
-      const html = renderToStaticMarkup(
-        await SiteDocument({
-          children: <p>Public page</p>,
-          locale,
-        }),
-      )
+  it('collects page views on the public shell', async () => {
+    const html = renderToStaticMarkup(
+      await SiteDocument({
+        children: <p>Public page</p>,
+      }),
+    )
 
-      expect(html).toContain('data-vercel-analytics')
-      expect(html).toContain('data-public-dock')
-      expect(html).toContain('data-public-footer')
-      expect(html).toContain('data-public-route-transition')
-      expect(html).toContain('data-public-preview-cards')
-      expect(html).toContain(`data-locale-suggestion="${locale}"`)
-    }
+    expect(html).toContain('data-vercel-analytics')
+    expect(html).toContain('data-public-dock')
+    expect(html).toContain('data-public-footer')
+    expect(html).toContain('data-public-route-transition')
+    expect(html).toContain('data-public-preview-cards')
+    expect(html).not.toContain('data-locale-suggestion')
   })
 
   it('keeps owner-admin routes outside public chrome and social reads', async () => {
@@ -108,7 +88,6 @@ describe('SiteDocument analytics', () => {
       await SiteDocument({
         children: <p>Owner admin</p>,
         isAdmin: true,
-        locale: 'zh',
       }),
     )
 

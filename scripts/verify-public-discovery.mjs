@@ -9,155 +9,92 @@ import { openProductionServer } from './production-server.mjs'
 const productionOrigin =
   process.env.PUBLIC_DISCOVERY_EXPECTED_ORIGIN ?? 'https://cali.so'
 
-function localizedPages(pathname, zh, en, imageAlt) {
-  const zhPath = pathname
-  const enPath = pathname === '/' ? '/en' : `/en${pathname}`
-  return [
-    {
-      path: zhPath,
-      locale: 'zh-CN',
-      title: zh.title,
-      documentTitle: pathname === '/' ? zh.title : `${zh.title} | Cali Castle`,
-      description: zh.description,
-      imageAlt: imageAlt.zh,
-    },
-    {
-      path: enPath,
-      locale: 'en',
-      title: en.title,
-      documentTitle: pathname === '/' ? en.title : `${en.title} | Cali Castle`,
-      description: en.description,
-      imageAlt: imageAlt.en,
-    },
-  ]
+function englishPage(pathname, copy, imageAlt) {
+  return {
+    path: pathname,
+    locale: 'en',
+    title: copy.title,
+    documentTitle: pathname === '/' ? copy.title : `${copy.title} | Cali Castle`,
+    description: copy.description,
+    imageAlt,
+  }
 }
 
 const publicPages = [
-  ...localizedPages(
+  englishPage(
     '/',
-    {
-      title: 'Cali Castle',
-      description: '设计工程师、Agent 指挥官、创意总监。',
-    },
     {
       title: 'Cali Castle',
       description: 'Design Engineer. Agent Orchestrator. Creative Director.',
     },
-    {
-      zh: 'Cali Castle。设计工程师、Agent 指挥官、创意总监。',
-      en: 'Cali Castle. Design Engineer. Agent Orchestrator. Creative Director.',
-    },
+    'Cali Castle. Design Engineer. Agent Orchestrator. Creative Director.',
   ),
-  ...localizedPages(
+  englishPage(
     '/blog',
-    {
-      title: '写作',
-      description: 'Cali 关于设计、工程、产品，以及一路上在意的人和事的文章。',
-    },
     {
       title: 'Writing',
       description:
         'Essays by Cali about design, engineering, products, and the people and ideas that matter along the way.',
     },
-    {
-      zh: '写作 · Cali Castle。Cali 关于设计、工程、产品，以及一路上在意的人和事的文章。',
-      en: 'Writing · Cali Castle. Essays by Cali about design, engineering, products, and the people and ideas that matter along the way.',
-    },
+    'Writing · Cali Castle. Essays by Cali about design, engineering, products, and the people and ideas that matter along the way.',
   ),
-  ...localizedPages(
+  englishPage(
     '/photos',
-    { title: '照片', description: 'Cali 在工作、生活和旅途中留下的一些瞬间。' },
     {
       title: 'Photos',
       description: 'Moments Cali has kept from work, life, and everywhere in between.',
     },
-    {
-      zh: '照片 · Cali Castle。Cali 在工作、生活和旅途中留下的一些瞬间。',
-      en: 'Photos · Cali Castle. Moments Cali has kept from work, life, and everywhere in between.',
-    },
+    'Photos · Cali Castle. Moments Cali has kept from work, life, and everywhere in between.',
   ),
-  ...localizedPages(
+  englishPage(
     '/projects',
-    {
-      title: '项目',
-      description:
-        '这些年做过的产品、开源工具和小实验。有些实用，有些只是好玩，但每一个我都认真做过。',
-    },
     {
       title: 'Projects',
       description:
         'Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
     },
-    {
-      zh: '项目 · Cali Castle。这些年做过的产品、开源工具和小实验。有些实用，有些只是好玩，但每一个我都认真做过。',
-      en: 'Projects · Cali Castle. Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
-    },
+    'Projects · Cali Castle. Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
   ),
-  ...localizedPages(
+  englishPage(
     '/ama',
-    {
-      title: '一对一',
-      description:
-        '从产品设计、工程、职业到独立开发、创业、出海、英语学习与 AI 工作流，用一小时聊清楚怎么判断、怎么取舍、下一步做什么。',
-    },
     {
       title: 'AMA',
       description:
         'A one-to-one conversation about AI-native work, product strategy, engineering, startups, career moves, and building products.',
     },
-    {
-      zh: '一对一 · Cali Castle。从产品设计、工程、职业到独立开发、创业、出海、英语学习与 AI 工作流，用一小时聊清楚怎么判断、怎么取舍、下一步做什么。',
-      en: 'AMA · Cali Castle. A one-to-one conversation about AI-native work, product strategy, engineering, startups, career moves, and building products.',
-    },
+    'AMA · Cali Castle. A one-to-one conversation about AI-native work, product strategy, engineering, startups, career moves, and building products.',
   ),
-  ...localizedPages(
+  englishPage(
     '/cleo',
-    {
-      title: 'Cleo',
-      description: 'Cali 的通用 AI agent。对话、搜网页、看图、生图。',
-    },
     {
       title: 'Cleo',
       description:
         'Cali’s general-purpose AI agent — chat, search the web, read images, and generate them.',
     },
-    {
-      zh: 'Cleo · Cali Castle。Cali 的通用 AI agent。对话、搜网页、看图、生图。',
-      en: 'Cleo · Cali Castle. Cali’s general-purpose AI agent — chat, search the web, read images, and generate them.',
-    },
+    'Cleo · Cali Castle. Cali’s general-purpose AI agent — chat, search the web, read images, and generate them.',
   ),
 ]
 
 const blogDirectory = new URL('../content/blog/', import.meta.url)
 for (const slug of (await readdir(blogDirectory)).sort()) {
-  const zh = matter(await readFile(new URL(`${slug}/index.mdx`, blogDirectory), 'utf8')).data
-  const en = matter(await readFile(new URL(`${slug}/index.en.mdx`, blogDirectory), 'utf8')).data
+  const frontmatter = matter(
+    await readFile(new URL(`${slug}/index.mdx`, blogDirectory), 'utf8'),
+  ).data
   publicPages.push(
-    ...localizedPages(
-      `/blog/${slug}`,
-      zh,
-      en,
-      {
-        zh: `${zh.title} · Cali Castle`,
-        en: `${en.title} · Cali Castle`,
-      },
-    ),
+    englishPage(`/blog/${slug}`, frontmatter, `${frontmatter.title} · Cali Castle`),
   )
 }
 
 const newsletterDirectory = new URL('../content/newsletters/', import.meta.url)
 for (const id of (await readdir(newsletterDirectory)).sort()) {
-  const zh = matter(await readFile(new URL(`${id}/index.mdx`, newsletterDirectory), 'utf8')).data
-  const en = matter(await readFile(new URL(`${id}/index.en.mdx`, newsletterDirectory), 'utf8')).data
+  const frontmatter = matter(
+    await readFile(new URL(`${id}/index.mdx`, newsletterDirectory), 'utf8'),
+  ).data
   publicPages.push(
-    ...localizedPages(
+    englishPage(
       `/newsletters/${id}`,
-      zh,
-      en,
-      {
-        zh: `${zh.title} · Cali Castle`,
-        en: `${en.title} · Cali Castle`,
-      },
+      frontmatter,
+      `${frontmatter.title} · Cali Castle`,
     ),
   )
 }
@@ -205,14 +142,10 @@ async function verifyMetadata(baseUrl, page) {
     `${page.path} canonical`,
   )
 
-  const unlocalized = page.path.replace(/^\/en(?=\/|$)/, '') || '/'
-  const zh = new URL(unlocalized, productionOrigin).href
-  const enPath = unlocalized === '/' ? '/en' : `/en${unlocalized}`
-  const en = new URL(enPath, productionOrigin).href
+  const english = new URL(page.path, productionOrigin).href
   for (const [language, expected] of [
-    ['zh-CN', zh],
-    ['en', en],
-    ['x-default', zh],
+    ['en', english],
+    ['x-default', english],
   ]) {
     const alternate = requiredElement(
       document,
@@ -222,6 +155,11 @@ async function verifyMetadata(baseUrl, page) {
     assert.ok(alternate)
     assert.equal(new URL(alternate).href, expected)
   }
+  assert.equal(
+    document.querySelector('link[rel="alternate"][hreflang="zh-CN"]'),
+    null,
+    `${page.path} must not expose zh-CN hreflang`,
+  )
 
   assert.equal(
     requiredElement(
@@ -229,7 +167,7 @@ async function verifyMetadata(baseUrl, page) {
       'meta[property="og:locale"]',
       `${page.path} OG locale`,
     ).getAttribute('content'),
-    page.locale === 'en' ? 'en_US' : 'zh_CN',
+    'en_US',
   )
   for (const [selector, expected, description] of [
     ['meta[property="og:title"]', page.title, 'OG title'],
@@ -244,10 +182,7 @@ async function verifyMetadata(baseUrl, page) {
       selector,
       `${page.path} ${description}`,
     )
-    assert.equal(
-      element.getAttribute('content'),
-      expected,
-    )
+    assert.equal(element.getAttribute('content'), expected)
   }
   assert.equal(
     requiredElement(
@@ -300,6 +235,7 @@ async function verifyDiscoveryFiles(baseUrl) {
       `sitemap ${path}`,
     )
   }
+  assert.doesNotMatch(sitemapXml, /https:\/\/cali\.so\/en(?:\/|"|<)/)
 
   const robots = await fetch(new URL('/robots.txt', baseUrl))
   assert.equal(robots.status, 200)
@@ -308,6 +244,7 @@ async function verifyDiscoveryFiles(baseUrl) {
   assert.match(robotsText, /Allow: \//)
   assert.match(robotsText, /Disallow: \/admin/)
   assert.match(robotsText, /Disallow: \/api\/admin/)
+  assert.doesNotMatch(robotsText, /Disallow: \/en\//)
   assert.match(
     robotsText,
     new RegExp(`Sitemap: ${new URL('/sitemap.xml', productionOrigin).href}`),
@@ -324,9 +261,7 @@ async function verifyNotFound(baseUrl) {
   for (const pathname of [
     '/release-check-missing',
     '/blog/not-a-published-post',
-    '/en/blog/not-a-published-post',
     '/newsletters/not-an-id',
-    '/en/newsletters/not-an-id',
   ]) {
     const response = await fetch(new URL(pathname, baseUrl))
     assert.equal(response.status, 404, `${pathname} status`)
@@ -359,12 +294,6 @@ async function verifyNoIndexUtilities(baseUrl) {
   const pages = [
     {
       path: '/confirm/legacy-token',
-      title: 'Newsletter 确认链接已停用 | Cali Castle',
-      description:
-        '这个旧链接不会再读取或更新任何订阅信息。Newsletter 服务已经停止，你仍然可以通过 RSS 阅读网站更新。',
-    },
-    {
-      path: '/en/confirm/legacy-token',
       title: 'Newsletter confirmation is retired | Cali Castle',
       description:
         'This old link no longer reads or updates subscriber information. The newsletter service has ended, but site updates remain available through RSS.',

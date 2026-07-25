@@ -8,16 +8,14 @@ import {
 } from './lib/public-content-routes'
 
 function missingPublicContent(pathname: string) {
-  const postMatch = pathname.match(/^\/(?:en\/)?blog\/([^/]+)\/?$/)
+  const postMatch = pathname.match(/^\/blog\/([^/]+)\/?$/)
   if (postMatch) {
     const slug = postMatch[1]
     if (/^(?:opengraph-image|twitter-image)-/.test(slug)) return false
     return !isPublishedPostSlug(slug)
   }
 
-  const newsletterMatch = pathname.match(
-    /^\/(?:en\/)?newsletters\/([^/]+)\/?$/,
-  )
+  const newsletterMatch = pathname.match(/^\/newsletters\/([^/]+)\/?$/)
   return newsletterMatch
     ? !isArchivedNewsletterId(newsletterMatch[1])
     : false
@@ -76,8 +74,6 @@ export const config = {
     '/admin/:path*',
     '/api/admin/:path*',
     '/blog/:slug',
-    '/en/blog/:slug',
     '/newsletters/:id',
-    '/en/newsletters/:id',
   ],
 }

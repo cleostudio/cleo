@@ -9,7 +9,7 @@ import {
 } from '~/lib/non-public-metadata'
 import { cn } from '~/lib/utils'
 
-import { fontVariablesForLocale } from './fonts'
+import { fontVariables } from './fonts'
 import { NotFoundPageView } from './_views/not-found-page'
 
 export const metadata: Metadata = {
@@ -19,14 +19,12 @@ export const metadata: Metadata = {
 }
 
 export default function GlobalNotFound() {
-  // Next's global-not-found API receives no pathname, so the static document
-  // defaults to Chinese. PREPAINT_SCRIPT derives an explicit /en URL before
-  // paint and updates lang/data-locale without consulting localStorage.
   return (
     <html
-      lang="zh-CN"
+      lang="en"
+      data-locale="en"
       suppressHydrationWarning
-      className={cn('font-sans', fontVariablesForLocale('zh'))}
+      className={cn('font-sans', fontVariables)}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: PREPAINT_SCRIPT }} />

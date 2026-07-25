@@ -30,13 +30,13 @@ export function AdminDockFallback() {
   return (
     <nav
       className="dock"
-      aria-label={localize('zh', '管理导航', 'Admin navigation')}
+      aria-label={localize('en', '管理导航', 'Admin navigation')}
       aria-busy="true"
     >
       <DockGlass />
       <DockItem
         href="/admin"
-        locale="zh"
+        locale="en"
         zh="总览"
         en="Overview"
         goKey={adminGoKeyFor('/admin')}
@@ -50,7 +50,7 @@ export function AdminDockFallback() {
         <DockItem
           key={href}
           href={href}
-          locale="zh"
+          locale="en"
           zh={zh}
           en={en}
           goKey={adminGoKeyFor(href)}
@@ -61,7 +61,7 @@ export function AdminDockFallback() {
       <span className="dock-rule" aria-hidden />
       <DockItem
         href="/"
-        locale="zh"
+        locale="en"
         zh="返回站点"
         en="Back to site"
         goKey={adminGoKeyFor('/')}
@@ -71,7 +71,7 @@ export function AdminDockFallback() {
       <button
         type="button"
         className="dock-item"
-        aria-label={localize('zh', '偏好设置加载中', 'Loading preferences')}
+        aria-label={localize('en', '偏好设置加载中', 'Loading preferences')}
         disabled
       >
         <PreferencesIcon />

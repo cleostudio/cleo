@@ -2,7 +2,7 @@ import { cacheLife } from 'next/cache'
 import { ImageResponse } from 'next/og'
 
 import type { Post } from './content'
-import { formatDate, formatDateEn } from './date'
+import { formatDateEn } from './date'
 import type { Locale } from './locale-route'
 import type { ArchivedNewsletter } from './newsletters'
 import {
@@ -20,18 +20,14 @@ import {
 } from './public-page-metadata'
 
 const NAME = 'Cali Castle'
-const HOME_INTRODUCTIONS: Record<Locale, string> = {
-  zh: publicPageMetadata.home.zh.ogDescription,
-  en: publicPageMetadata.home.en.ogDescription,
-}
+const HOME_INTRODUCTION = publicPageMetadata.home.ogDescription
 
 const IMAGE_SIZE = { width: 1200, height: 630 } as const
 
-async function renderHomeOgImage(locale: Locale) {
+async function renderHomeOgImage(_locale: Locale = 'en') {
   'use cache'
   cacheLife('max')
 
-  const introduction = HOME_INTRODUCTIONS[locale]
   const portrait = await publicImageDataUri('/images/headshot.jpg')
 
   return new ImageResponse(
@@ -74,7 +70,7 @@ async function renderHomeOgImage(locale: Locale) {
                 color: ogColors.mutedForeground,
               }}
             >
-              {introduction}
+              {HOME_INTRODUCTION}
             </div>
           </div>
           <div
@@ -104,7 +100,7 @@ async function renderHomeOgImage(locale: Locale) {
   ).arrayBuffer()
 }
 
-export async function createHomeOgImage(locale: Locale) {
+export async function createHomeOgImage(locale: Locale = 'en') {
   return new Response(await renderHomeOgImage(locale), {
     headers: { 'content-type': 'image/png' },
   })
@@ -275,11 +271,11 @@ function OgSectionMark({ section }: { section: PublicSection }) {
   )
 }
 
-async function renderSectionOgImage(section: PublicSection, locale: Locale) {
+async function renderSectionOgImage(section: PublicSection, _locale: Locale = 'en') {
   'use cache'
   cacheLife('max')
 
-  const copy = publicPageMetadata[section][locale]
+  const copy = publicPageMetadata[section]
   const signature = 'Cali Castle'
 
   return new ImageResponse(
@@ -348,7 +344,7 @@ async function renderSectionOgImage(section: PublicSection, locale: Locale) {
   ).arrayBuffer()
 }
 
-export async function createSectionOgImage(section: PublicSection, locale: Locale) {
+export async function createSectionOgImage(section: PublicSection, locale: Locale = 'en') {
   return new Response(await renderSectionOgImage(section, locale), {
     headers: { 'content-type': 'image/png' },
   })
@@ -359,17 +355,13 @@ type NewsletterOgInput = Pick<
   'id' | 'title' | 'titleEn' | 'description' | 'descriptionEn'
 >
 
-async function renderNewsletterOgImage(newsletter: NewsletterOgInput, locale: Locale) {
+async function renderNewsletterOgImage(newsletter: NewsletterOgInput, _locale: Locale = 'en') {
   'use cache'
   cacheLife('max')
 
-  const title = locale === 'en' ? newsletter.titleEn : newsletter.title
-  const description =
-    locale === 'en' ? newsletter.descriptionEn : newsletter.description
-  const archiveLabel =
-    locale === 'en'
-      ? `Cali Castle · Archive ${newsletter.id.padStart(3, '0')}`
-      : `Cali Castle · 存档 ${newsletter.id.padStart(3, '0')}`
+  const title = newsletter.titleEn
+  const description = newsletter.descriptionEn
+  const archiveLabel = `Cali Castle · Archive ${newsletter.id.padStart(3, '0')}`
   const cover = await coverDataUri(
     `/content/newsletters/${newsletter.id}/cover.png`,
   )
@@ -441,7 +433,7 @@ async function renderNewsletterOgImage(newsletter: NewsletterOgInput, locale: Lo
 
 export async function createNewsletterOgImage(
   newsletter: ArchivedNewsletter,
-  locale: Locale,
+  locale: Locale = 'en',
 ) {
   const input: NewsletterOgInput = {
     id: newsletter.id,
@@ -458,12 +450,12 @@ export async function createNewsletterOgImage(
 
 type PostOgInput = Pick<Post, 'slug' | 'title' | 'titleEn' | 'publishedAt' | 'cover'>
 
-async function renderPostOgImage(post: PostOgInput, locale: Locale) {
+async function renderPostOgImage(post: PostOgInput, _locale: Locale = 'en') {
   'use cache'
   cacheLife('max')
 
-  const title = locale === 'en' ? post.titleEn : post.title
-  const date = locale === 'en' ? formatDateEn(post.publishedAt) : formatDate(post.publishedAt)
+  const title = post.titleEn
+  const date = formatDateEn(post.publishedAt)
 
   return new ImageResponse(
     (
@@ -533,7 +525,7 @@ async function renderPostOgImage(post: PostOgInput, locale: Locale) {
   ).arrayBuffer()
 }
 
-export async function createPostOgImage(post: Post, locale: Locale) {
+export async function createPostOgImage(post: Post, locale: Locale = 'en') {
   const input: PostOgInput = {
     slug: post.slug,
     title: post.title,

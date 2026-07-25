@@ -10,99 +10,57 @@ function imageAlt(metadata: Metadata) {
   return typeof image === 'object' && image && 'alt' in image ? image.alt : undefined
 }
 
-function metadataFor(
-  locale: 'zh' | 'en',
-  path: string,
-  title: string,
-  description: string,
-) {
-  return localeMetadata({ locale, path, title, description })
+function metadataFor(path: string, title: string, description: string) {
+  return localeMetadata({ locale: 'en', path, title, description })
 }
 
 describe('social OG image metadata', () => {
   it('does not repeat Cali’s name in the homepage artwork description', () => {
-    const chinese = publicPageMetadata.home.zh
-    const english = publicPageMetadata.home.en
+    const home = publicPageMetadata.home
 
-    expect(imageAlt(metadataFor('zh', '/', chinese.title, chinese.description))).toBe(
-      'Cali Castle。设计工程师、Agent 指挥官、创意总监。',
-    )
-    expect(imageAlt(metadataFor('en', '/', english.title, english.description))).toBe(
+    expect(imageAlt(metadataFor('/', home.title, home.description))).toBe(
       'Cali Castle. Design Engineer. Agent Orchestrator. Creative Director.',
     )
   })
 
   it.each([
     [
-      'zh',
       '/blog',
-      publicPageMetadata.blog.zh,
-      '写作 · Cali Castle。Cali 关于设计、工程、产品，以及一路上在意的人和事的文章。',
-    ],
-    [
-      'en',
-      '/blog',
-      publicPageMetadata.blog.en,
+      publicPageMetadata.blog,
       'Writing · Cali Castle. Essays by Cali about design, engineering, products, and the people and ideas that matter along the way.',
     ],
     [
-      'zh',
       '/photos',
-      publicPageMetadata.photos.zh,
-      '照片 · Cali Castle。Cali 在工作、生活和旅途中留下的一些瞬间。',
-    ],
-    [
-      'en',
-      '/photos',
-      publicPageMetadata.photos.en,
+      publicPageMetadata.photos,
       'Photos · Cali Castle. Moments Cali has kept from work, life, and everywhere in between.',
     ],
     [
-      'zh',
       '/projects',
-      publicPageMetadata.projects.zh,
-      '项目 · Cali Castle。这些年做过的产品、开源工具和小实验。有些实用，有些只是好玩，但每一个我都认真做过。',
-    ],
-    [
-      'en',
-      '/projects',
-      publicPageMetadata.projects.en,
+      publicPageMetadata.projects,
       'Projects · Cali Castle. Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
     ],
     [
-      'zh',
       '/cleo',
-      publicPageMetadata.cleo.zh,
-      'Cleo · Cali Castle。Cali 的通用 AI agent。对话、搜网页、看图、生图。',
-    ],
-    [
-      'en',
-      '/cleo',
-      publicPageMetadata.cleo.en,
+      publicPageMetadata.cleo,
       'Cleo · Cali Castle. Cali’s general-purpose AI agent — chat, search the web, read images, and generate them.',
     ],
-  ] as const)(
-    'describes the %s %s artwork with its own content',
-    (locale, path, copy, expected) => {
-      expect(imageAlt(metadataFor(locale, path, copy.title, copy.description))).toBe(expected)
-    },
-  )
+  ] as const)('describes the %s artwork with its own content', (path, copy, expected) => {
+    expect(imageAlt(metadataFor(path, copy.title, copy.description))).toBe(expected)
+  })
 
-  it('describes article and newsletter artwork with the localized title', () => {
+  it('describes article and newsletter artwork with the title', () => {
     expect(
       imageAlt(
         metadataFor(
-          'zh',
           '/blog/do-buttons-need-pointer-cursors',
-          '按钮真的需要手指光标吗？',
-          '文章摘要',
+          'Do buttons need pointer cursors?',
+          'Article summary',
         ),
       ),
-    ).toBe('按钮真的需要手指光标吗？ · Cali Castle')
+    ).toBe('Do buttons need pointer cursors? · Cali Castle')
     expect(
       imageAlt(
         metadataFor(
-          'en',
           '/newsletters/1',
           'Cali.so Monthly Update Newsletter 01',
           'Archive summary',

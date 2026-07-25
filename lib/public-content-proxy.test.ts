@@ -10,25 +10,21 @@ const event = {
 } as unknown as NextFetchEvent
 
 describe('public content proxy', () => {
-  it.each([
-    '/blog/not-a-published-post',
-    '/en/blog/not-a-published-post',
-    '/newsletters/not-an-id',
-    '/en/newsletters/not-an-id',
-  ])('rewrites an unknown content route before streaming: %s', (pathname) => {
-    const response = siteProxy(new NextRequest(`https://cali.so${pathname}`))
+  it.each(['/blog/not-a-published-post', '/newsletters/not-an-id'])(
+    'rewrites an unknown content route before streaming: %s',
+    (pathname) => {
+      const response = siteProxy(new NextRequest(`https://cali.so${pathname}`))
 
-    expect(response.status).toBe(404)
-    expect(response.headers.get('x-middleware-rewrite')).toBe(
-      'https://cali.so/_not-found',
-    )
-  })
+      expect(response.status).toBe(404)
+      expect(response.headers.get('x-middleware-rewrite')).toBe(
+        'https://cali.so/_not-found',
+      )
+    },
+  )
 
   it.each([
     '/blog/how-to-add-rss-to-your-nextjs-app-router',
-    '/en/blog/how-to-add-rss-to-your-nextjs-app-router',
     '/newsletters/1',
-    '/en/newsletters/1',
   ])('passes through a published content route without Clerk: %s', async (pathname) => {
     const response = await proxy(
       new NextRequest(`https://cali.so${pathname}`),
@@ -40,11 +36,10 @@ describe('public content proxy', () => {
     expect(response?.headers.has('x-middleware-rewrite')).toBe(false)
   })
 
-  it.each([
-    '/blog/opengraph-image-generated',
-    '/en/blog/opengraph-image-generated',
-  ])('does not mistake a generated metadata route for a post slug: %s', (pathname) => {
-    const response = siteProxy(new NextRequest(`https://cali.so${pathname}`))
+  it('does not mistake a generated metadata route for a post slug', () => {
+    const response = siteProxy(
+      new NextRequest('https://cali.so/blog/opengraph-image-generated'),
+    )
 
     expect(response.status).toBe(200)
     expect(response.headers.get('x-middleware-next')).toBe('1')

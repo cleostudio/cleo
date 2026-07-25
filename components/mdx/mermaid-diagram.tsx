@@ -11,7 +11,7 @@ const FONT_IMPORTS = /^\s*@import url\('https:\/\/fonts\.googleapis\.com[^']*'\)
 export function MermaidDiagram({
   code,
   caption,
-  locale = 'zh',
+  locale = 'en',
 }: {
   code: string
   caption?: string

@@ -94,8 +94,7 @@ export function createOperationHandlers(dependencies: OperationHandlerDependenci
   }
 
   function manageUrl(booking: BookingRecord, rawToken: string) {
-    const prefix = booking.locale === 'en' ? '/en' : ''
-    return new URL(`${prefix}/ama/manage/${rawToken}`, baseUrl).toString()
+    return new URL(`/ama/manage/${rawToken}`, baseUrl).toString()
   }
 
   function calendarDescription(booking: BookingRecord, meetingUrl: string | null) {

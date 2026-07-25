@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest'
 
-import { buildEnglishFeedXml } from './feed.en.xml/route'
+import { buildFeedXml } from './feed.xml/route'
 import robots from './robots'
 import sitemap from './sitemap'
 import { getAllPosts } from '~/lib/content'
 import { archivedNewsletterIds } from '~/lib/newsletters'
 import { seo } from '~/lib/seo'
 
-describe('localized discovery routes', () => {
+describe('discovery routes', () => {
   it('publishes an explicit crawler policy for public and private surfaces', () => {
     expect(robots()).toEqual({
       rules: {
@@ -17,9 +17,7 @@ describe('localized discovery routes', () => {
           '/admin',
           '/api/admin',
           '/confirm/',
-          '/en/confirm/',
           '/ama/manage/',
-          '/en/ama/manage/',
         ],
       },
       sitemap: new URL('/sitemap.xml', seo.url).href,
@@ -27,21 +25,21 @@ describe('localized discovery routes', () => {
     })
   })
 
-  it('publishes English feed item URLs under /en while keeping the feed endpoint', async () => {
-    const xml = buildEnglishFeedXml()
+  it('publishes English feed item URLs under unprefixed paths', () => {
+    const xml = buildFeedXml()
 
     expect(xml).toContain(
-      `<atom:link href="${new URL('/feed.en.xml', seo.url).href}" rel="self"`,
+      `<atom:link href="${new URL('/feed.xml', seo.url).href}" rel="self"`,
     )
-    expect(xml).toContain(`<link>${new URL('/en', seo.url).href}</link>`)
+    expect(xml).toContain(`<link>${seo.url.href}</link>`)
     for (const post of getAllPosts()) {
-      const url = new URL(`/en/blog/${post.slug}`, seo.url).href
+      const url = new URL(`/blog/${post.slug}`, seo.url).href
       expect(xml).toContain(`<guid isPermaLink="false">${url}</guid>`)
       expect(xml).toContain(`<link>${url}</link>`)
     }
   })
 
-  it('publishes every public Chinese and English route with language alternates', () => {
+  it('publishes every public English route once', () => {
     const entries = sitemap()
     const expectedPaths = [
       '/',
@@ -55,23 +53,21 @@ describe('localized discovery routes', () => {
     ]
 
     for (const path of expectedPaths) {
-      const zh = new URL(path, seo.url).href
-      const en = new URL(path === '/' ? '/en' : `/en${path}`, seo.url).href
+      const url = new URL(path, seo.url).href
 
-      for (const url of [zh, en]) {
-        expect(entries).toContainEqual(
-          expect.objectContaining({
-            url,
-            alternates: {
-              languages: {
-                'zh-CN': zh,
-                en,
-                'x-default': zh,
-              },
+      expect(entries).toContainEqual(
+        expect.objectContaining({
+          url,
+          alternates: {
+            languages: {
+              en: url,
+              'x-default': url,
             },
-          }),
-        )
-      }
+          },
+        }),
+      )
     }
+
+    expect(entries).toHaveLength(expectedPaths.length)
   })
 })

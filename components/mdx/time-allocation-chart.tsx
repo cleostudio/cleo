@@ -23,7 +23,7 @@ const ALLOCATION = [
   },
 ] as const
 
-export function TimeAllocationChart({ locale = 'zh' }: { locale?: Locale }) {
+export function TimeAllocationChart({ locale = 'en' }: { locale?: Locale }) {
   const title = localize(
     locale,
     '95% 的时间花在判断与打磨上',

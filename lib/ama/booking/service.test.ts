@@ -458,14 +458,15 @@ describe('Booking service createCheckout', () => {
     expect(f.repo.intents[0].stripeCheckoutSessionId).toBe('cs_test_1')
   })
 
-  it('prefixes the return URLs for English-locale guests', async () => {
+  it('uses unprefixed return URLs for guests', async () => {
     const f = await heldFixture({ locale: 'en' })
 
     await f.service.createCheckout(f.holdId)
 
-    expect(f.stripeCalls[0].successUrl).toContain('/en/ama/book/confirmation?hold=')
+    expect(f.stripeCalls[0].successUrl).toContain('/ama/book/confirmation?hold=')
+    expect(f.stripeCalls[0].successUrl).not.toContain('/en/ama/')
     expect(f.stripeCalls[0].cancelUrl).toBe(
-      'https://cali.so/en/ama/book?checkout=cancelled',
+      'https://cali.so/ama/book?checkout=cancelled',
     )
   })
 

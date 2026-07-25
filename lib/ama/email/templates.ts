@@ -2,6 +2,7 @@ import type { BookingEmailKind } from './types'
 
 export type BookingEmailContext = {
   kind: BookingEmailKind
+  /** Kept for type/DB compat; emails are always rendered in English. */
   locale: 'zh' | 'en'
   guestName: string
   startsAt: Date
@@ -21,13 +22,13 @@ type Block =
   | { type: 'button'; label: string; url: string }
   | { type: 'link'; label: string; url: string }
 
-function providerName(provider: BookingEmailContext['meetingProvider'], locale: Locale) {
+function providerName(provider: BookingEmailContext['meetingProvider'], _locale?: Locale) {
   if (provider === 'google-meet') return 'Google Meet'
-  return locale === 'zh' ? '腾讯会议' : 'Tencent Meeting'
+  return 'Tencent Meeting'
 }
 
-function formatSessionTime(startsAt: Date, guestTimeZone: string, locale: Locale) {
-  const intlLocale = locale === 'zh' ? 'zh-CN' : 'en-US'
+function formatSessionTime(startsAt: Date, guestTimeZone: string, _locale?: Locale) {
+  const intlLocale = 'en-US'
   const dateTime = new Intl.DateTimeFormat(intlLocale, {
     dateStyle: 'full',
     timeStyle: 'short',
@@ -40,30 +41,27 @@ function formatSessionTime(startsAt: Date, guestTimeZone: string, locale: Locale
     })
       .formatToParts(startsAt)
       .find((part) => part.type === 'timeZoneName')?.value ?? guestTimeZone
-  return locale === 'zh'
-    ? `${dateTime}（${zoneName}，60 分钟）`
-    : `${dateTime} (${zoneName}, 60 minutes)`
+  return `${dateTime} (${zoneName}, 60 minutes)`
 }
 
-function greeting(guestName: string, locale: Locale): Block {
+function greeting(guestName: string, _locale?: Locale): Block {
   return {
     type: 'paragraph',
-    text: locale === 'zh' ? `${guestName}，你好！` : `Hi ${guestName},`,
+    text: `Hi ${guestName},`,
   }
 }
 
 function meetingBlocks(context: BookingEmailContext): Block[] {
-  const { locale } = context
-  const name = providerName(context.meetingProvider, locale)
+  const name = providerName(context.meetingProvider)
   if (context.meetingUrl) {
     return [
       {
         type: 'paragraph',
-        text: locale === 'zh' ? `会议将通过${name}进行。` : `We'll meet on ${name}.`,
+        text: `We'll meet on ${name}.`,
       },
       {
         type: 'button',
-        label: locale === 'zh' ? '加入会议' : 'Join the session',
+        label: 'Join the session',
         url: context.meetingUrl,
       },
     ]
@@ -71,41 +69,32 @@ function meetingBlocks(context: BookingEmailContext): Block[] {
   return [
     {
       type: 'paragraph',
-      text:
-        locale === 'zh'
-          ? `${name}的会议链接还在准备中，稍后会通过日历更新发送给你。`
-          : `Your ${name} link is still being finalized and will follow in a calendar update.`,
+      text: `Your ${name} link is still being finalized and will follow in a calendar update.`,
     },
   ]
 }
 
-function policyBlock(locale: Locale): Block {
+function policyBlock(_locale?: Locale): Block {
   return {
     type: 'paragraph',
-    text:
-      locale === 'zh'
-        ? '会话开始前 24 小时之外，你可以免费改期或取消；距开始不足 24 小时时，取消将不会自动退款。'
-        : 'You can reschedule or cancel for free until 24 hours before the session. Within 24 hours of the start time, cancellations are not automatically refunded.',
+    text: 'You can reschedule or cancel for free until 24 hours before the session. Within 24 hours of the start time, cancellations are not automatically refunded.',
   }
 }
 
 function manageBlocks(
   manageUrl: string | null,
-  locale: Locale,
+  _locale: Locale | undefined,
   presentation: 'button' | 'link',
 ): Block[] {
   if (!manageUrl) return []
   return [
     {
       type: 'paragraph',
-      text:
-        locale === 'zh'
-          ? '下面这条专属管理链接可以查看、改期或取消这次预订，请不要分享给别人。'
-          : 'Your private Manage Link below lets you view, reschedule, or cancel this booking. Please keep it to yourself.',
+      text: 'Your private Manage Link below lets you view, reschedule, or cancel this booking. Please keep it to yourself.',
     },
     {
       type: presentation,
-      label: locale === 'zh' ? '管理预订' : 'Manage your booking',
+      label: 'Manage your booking',
       url: manageUrl,
     },
   ]
@@ -115,133 +104,93 @@ function signOff(): Block {
   return { type: 'paragraph', text: 'Cali' }
 }
 
-function subjectFor(kind: BookingEmailKind, locale: Locale): string {
-  const subjects: Record<BookingEmailKind, Record<Locale, string>> = {
-    confirmation: {
-      en: 'Your AMA Session with Cali is booked',
-      zh: '你的 AMA Session 已预订',
-    },
-    rescheduled: {
-      en: 'Your AMA Session has a new time',
-      zh: '你的 AMA Session 已改期',
-    },
-    needs_reschedule: {
-      en: 'Please pick a new time for your AMA Session',
-      zh: '请为你的 AMA Session 重新选择时间',
-    },
-    cancelled: {
-      en: 'Your AMA Session has been cancelled',
-      zh: '你的 AMA Session 已取消',
-    },
-    reminder_24h: {
-      en: 'Your AMA Session is in 24 hours',
-      zh: '你的 AMA Session 将在 24 小时后开始',
-    },
-    reminder_1h: {
-      en: 'Your AMA Session starts in 1 hour',
-      zh: '你的 AMA Session 将在 1 小时后开始',
-    },
+function subjectFor(kind: BookingEmailKind, _locale?: Locale): string {
+  const subjects: Record<BookingEmailKind, string> = {
+    confirmation: 'Your AMA Session with Cali is booked',
+    rescheduled: 'Your AMA Session has a new time',
+    needs_reschedule: 'Please pick a new time for your AMA Session',
+    cancelled: 'Your AMA Session has been cancelled',
+    reminder_24h: 'Your AMA Session is in 24 hours',
+    reminder_1h: 'Your AMA Session starts in 1 hour',
   }
-  return subjects[kind][locale]
+  return subjects[kind]
 }
 
 function bodyBlocks(context: BookingEmailContext): Block[] {
-  const { locale } = context
-  const sessionTime = formatSessionTime(context.startsAt, context.guestTimeZone, locale)
+  const sessionTime = formatSessionTime(context.startsAt, context.guestTimeZone)
   const manageAs = context.meetingUrl ? 'link' : 'button'
 
   switch (context.kind) {
     case 'confirmation':
       return [
-        greeting(context.guestName, locale),
+        greeting(context.guestName),
         {
           type: 'paragraph',
-          text:
-            locale === 'zh'
-              ? `谢谢你预订 AMA Session，我们的时间定在${sessionTime}。`
-              : `Thank you for booking an AMA Session. We're set for ${sessionTime}.`,
+          text: `Thank you for booking an AMA Session. We're set for ${sessionTime}.`,
         },
         ...meetingBlocks(context),
-        policyBlock(locale),
-        ...manageBlocks(context.manageUrl, locale, manageAs),
+        policyBlock(),
+        ...manageBlocks(context.manageUrl, context.locale, manageAs),
         {
           type: 'paragraph',
-          text: locale === 'zh' ? '期待与你聊聊。' : 'Looking forward to talking with you.',
+          text: 'Looking forward to talking with you.',
         },
         signOff(),
       ]
     case 'rescheduled':
       return [
-        greeting(context.guestName, locale),
+        greeting(context.guestName),
         {
           type: 'paragraph',
-          text:
-            locale === 'zh'
-              ? `你的 AMA Session 已改期，新的时间是${sessionTime}。`
-              : `Your AMA Session has been rescheduled. The new time is ${sessionTime}.`,
+          text: `Your AMA Session has been rescheduled. The new time is ${sessionTime}.`,
         },
         ...meetingBlocks(context),
-        policyBlock(locale),
-        ...manageBlocks(context.manageUrl, locale, manageAs),
+        policyBlock(),
+        ...manageBlocks(context.manageUrl, context.locale, manageAs),
         {
           type: 'paragraph',
-          text: locale === 'zh' ? '到时见。' : 'See you then.',
+          text: 'See you then.',
         },
         signOff(),
       ]
     case 'needs_reschedule':
       return [
-        greeting(context.guestName, locale),
+        greeting(context.guestName),
         {
           type: 'paragraph',
-          text:
-            locale === 'zh'
-              ? '很抱歉，在你完成付款的同时，你选中的时间被别人订走了。请放心，你的付款已经成功，预订也不会受影响，只需要重新选一个时间。'
-              : 'Sorry about this: while your payment was completing, someone else took the time you picked. Your payment went through and your booking is safe, it just needs a new time.',
+          text: 'Sorry about this: while your payment was completing, someone else took the time you picked. Your payment went through and your booking is safe, it just needs a new time.',
         },
         {
           type: 'paragraph',
-          text:
-            locale === 'zh'
-              ? '准备好后，用下面这条专属管理链接挑一个新时间即可。这条链接可以管理这次预订，请不要分享给别人。'
-              : "Whenever you're ready, pick a new time with your private Manage Link below. The link manages this booking, so please keep it to yourself.",
+          text: "Whenever you're ready, pick a new time with your private Manage Link below. The link manages this booking, so please keep it to yourself.",
         },
         ...(context.manageUrl
           ? [
               {
                 type: 'button',
-                label: locale === 'zh' ? '重新选择时间' : 'Pick a new time',
+                label: 'Pick a new time',
                 url: context.manageUrl,
               } satisfies Block,
             ]
           : []),
         {
           type: 'paragraph',
-          text:
-            locale === 'zh'
-              ? '再次抱歉，期待很快见到你。'
-              : 'Sorry again for the shuffle. Talk soon.',
+          text: 'Sorry again for the shuffle. Talk soon.',
         },
         signOff(),
       ]
     case 'cancelled':
       return [
-        greeting(context.guestName, locale),
+        greeting(context.guestName),
         {
           type: 'paragraph',
-          text:
-            locale === 'zh'
-              ? `你原定于${sessionTime}的 AMA Session 已取消。`
-              : `Your AMA Session scheduled for ${sessionTime} has been cancelled.`,
+          text: `Your AMA Session scheduled for ${sessionTime} has been cancelled.`,
         },
         ...(context.refund === 'automatic'
           ? [
               {
                 type: 'paragraph',
-                text:
-                  locale === 'zh'
-                    ? '全额退款已原路退回你的付款方式，通常需要几个工作日到账。'
-                    : 'A full refund has been issued to your original payment method. It may take a few business days to show up.',
+                text: 'A full refund has been issued to your original payment method. It may take a few business days to show up.',
               } satisfies Block,
             ]
           : []),
@@ -249,58 +198,45 @@ function bodyBlocks(context: BookingEmailContext): Block[] {
           ? [
               {
                 type: 'paragraph',
-                text:
-                  locale === 'zh'
-                    ? '根据取消政策，距开始不足 24 小时取消的预订不提供自动退款。'
-                    : 'Per the cancellation policy, bookings cancelled within 24 hours of the start time are not automatically refunded.',
+                text: 'Per the cancellation policy, bookings cancelled within 24 hours of the start time are not automatically refunded.',
               } satisfies Block,
             ]
           : []),
         {
           type: 'paragraph',
-          text:
-            locale === 'zh'
-              ? '如果有任何问题，或想重新预订，直接回复这封邮件就好。'
-              : "If anything went sideways or you'd like to rebook, just reply to this email.",
+          text: "If anything went sideways or you'd like to rebook, just reply to this email.",
         },
         signOff(),
       ]
     case 'reminder_24h':
       return [
-        greeting(context.guestName, locale),
+        greeting(context.guestName),
         {
           type: 'paragraph',
-          text:
-            locale === 'zh'
-              ? `提醒一下，你的 AMA Session 快到了：${sessionTime}。`
-              : `Just a reminder that your AMA Session is coming up: ${sessionTime}.`,
+          text: `Just a reminder that your AMA Session is coming up: ${sessionTime}.`,
         },
         ...meetingBlocks(context),
-        ...manageBlocks(context.manageUrl, locale, 'link'),
+        ...manageBlocks(context.manageUrl, context.locale, 'link'),
         signOff(),
       ]
     case 'reminder_1h':
       return [
-        greeting(context.guestName, locale),
+        greeting(context.guestName),
         {
           type: 'paragraph',
-          text:
-            locale === 'zh'
-              ? `你的 AMA Session 即将开始：${sessionTime}。`
-              : `Your AMA Session starts soon: ${sessionTime}.`,
+          text: `Your AMA Session starts soon: ${sessionTime}.`,
         },
         ...meetingBlocks(context),
-        ...manageBlocks(context.manageUrl, locale, 'link'),
+        ...manageBlocks(context.manageUrl, context.locale, 'link'),
         signOff(),
       ]
   }
 }
 
-function renderText(blocks: Block[], locale: Locale): string {
-  const colon = locale === 'zh' ? '：' : ': '
+function renderText(blocks: Block[], _locale?: Locale): string {
   return blocks
     .map((block) =>
-      block.type === 'paragraph' ? block.text : `${block.label}${colon}${block.url}`,
+      block.type === 'paragraph' ? block.text : `${block.label}: ${block.url}`,
     )
     .join('\n\n')
 }
@@ -339,8 +275,8 @@ export function renderBookingEmail(context: BookingEmailContext): {
 } {
   const blocks = bodyBlocks(context)
   return {
-    subject: subjectFor(context.kind, context.locale),
-    text: renderText(blocks, context.locale),
+    subject: subjectFor(context.kind),
+    text: renderText(blocks),
     html: renderHtml(blocks),
   }
 }

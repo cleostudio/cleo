@@ -77,8 +77,8 @@ describe('AMA settings UI contract', () => {
     expect(html).toContain('Sunday')
     expect(html).toContain('value="set-time-zone"')
     expect(html).toContain('value="set-weekday"')
-    expect(html).toContain('data-en="true">Copy</span>')
-    expect(html).toContain('data-en="true">Add override</span>')
+    expect(html).toContain('Copy')
+    expect(html).toContain('Add override')
     expect(html).toContain('2026-07-18')
     expect(html).toContain('Readiness checklist')
     expect(html).toContain('Connect Google Calendar to check conflicts before publishing open times.')
@@ -195,16 +195,15 @@ describe('AMA settings UI contract', () => {
       .toBe('09:00')
   })
 
-  it('keeps localized scheduling content and accessible form recovery in static HTML', () => {
+  it('keeps English scheduling content and accessible form recovery in static HTML', () => {
     const html = renderSettingsMarkup('expired')
 
-    // The fluid Select posts through a hidden input; server locale is zh.
+    // The fluid Select posts through a hidden input.
     expect(html).toMatch(/<input[^>]+name="weekday"[^>]+value="1"/)
     expect(html).toMatch(/<input[^>]+name="start"[^>]+value="09:00"/)
     expect(html).toMatch(/<input[^>]+name="end"[^>]+value="12:00"/)
-    expect(html).toContain('星期一')
-    expect(html).toContain('data-zh="true"')
-    expect(html).toContain('data-en="true"')
+    expect(html).toContain('Monday')
+    expect(html).not.toContain('星期一')
     expect(html).toContain('Wed, Jul 15')
     expect(html).toContain('aria-describedby="availability-notice"')
     expect(html).toContain('id="availability-notice"')

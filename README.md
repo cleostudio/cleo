@@ -2,18 +2,18 @@
 
 Cleo is the product repository that now hosts [cali.so](https://cali.so) — Cali
 Castle's personal site — with the **Cleo** AI agent available as a dock page at
-`/cleo` (English: `/en/cleo`).
+`/cleo`.
 
-The site remains bilingual (Chinese unprefixed, English under `/en`), with
-MDX writing, photos, projects, AMA booking, and an owner admin. Cleo adds a
-browser-only chat agent with streamed Markdown, vision attachments, image
-generation, and live reasoning / web-search activity.
+The public site is English-only (legacy `/en/...` URLs permanently redirect to
+the unprefixed paths), with MDX writing, photos, projects, AMA booking, and an
+owner admin. Cleo adds a browser-only chat agent with streamed Markdown, vision
+attachments, image generation, and live reasoning / web-search activity.
 
 ## Architecture
 
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
 - Base UI primitives with the `@fluid` component registry
-- MDX posts under `content/blog/`; Chinese and English route families
+- MDX posts under `content/blog/`; English-only public routes
 - Owner admin (Clerk + owner metadata), Bunny media library, AMA booking
 - Cleo agent: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
 - Bottom dock navigation includes Writing, Photos, Projects, AMA, and Cleo

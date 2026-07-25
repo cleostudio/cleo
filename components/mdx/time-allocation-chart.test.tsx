@@ -9,7 +9,7 @@ afterEach(cleanup)
 
 describe('TimeAllocationChart', () => {
   it('keeps the Chinese takeaway, values, and estimate caveat visible', () => {
-    const { container } = render(<TimeAllocationChart locale="zh" />)
+    const { container } = render(<TimeAllocationChart locale="en" />)
     const chart = screen.getByRole('group', {
       name: '宝宝助手应用开发时间分配',
     })

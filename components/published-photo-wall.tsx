@@ -51,8 +51,7 @@ function cameraFields(photo: PublishedPhoto) {
 }
 
 function PhotoDetails({ photo }: { photo: PublishedPhoto }) {
-  const locale = useLocale()
-  const location = photo.locationLabel?.[locale === 'zh' ? 'zhHans' : 'en']
+  const location = photo.locationLabel?.en
   const fields = [
     ...(location
       ? [{ zh: '地点', en: 'Location', value: location }]

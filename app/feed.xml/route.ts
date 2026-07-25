@@ -4,13 +4,13 @@ import { cacheLife } from 'next/cache'
 import { getAllPosts } from '~/lib/content'
 import { seo } from '~/lib/seo'
 
-export function buildChineseFeedXml() {
+export function buildFeedXml() {
   const feed = new RSS({
     title: seo.title,
     description: seo.description,
     site_url: seo.url.href,
     feed_url: `${seo.url.href}feed.xml`,
-    language: 'zh-CN',
+    language: 'en',
     // RSS <image> wants a small square channel logo, not the 1200×630 OG
     image_url: `${seo.url.href}images/avatar.png`,
     generator: 'PHP 9.0',
@@ -31,17 +31,17 @@ export function buildChineseFeedXml() {
   return feed.xml()
 }
 
-async function getChineseFeedXml() {
+async function getFeedXml() {
   'use cache'
   cacheLife('max')
 
-  return buildChineseFeedXml()
+  return buildFeedXml()
 }
 
 // Content is filesystem-based, so the cached feed only changes with a
 // deployment. /feed, /rss and /rss.xml rewrite here.
 export async function GET() {
-  return new Response(await getChineseFeedXml(), {
+  return new Response(await getFeedXml(), {
     headers: { 'content-type': 'application/xml' },
   })
 }

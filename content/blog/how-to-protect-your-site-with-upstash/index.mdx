@@ -1,136 +1,137 @@
 ---
-title: "如何用 Upstash 为网站保驾护航"
-description: "有人持续高频请求我的接口，推高了 Redis 费用。我用 Upstash 的限流和 IP 封锁解决了这个问题。"
-publishedAt: "2023-05-22T08:32:00.000Z"
+title: How to Protect Your Site With Upstash
+description: >-
+  Someone was deliberately hammering one of my APIs and driving up my Redis
+  bill. I used Upstash rate limits and IP blocking to stop them.
+publishedAt: '2023-05-22T08:32:00.000Z'
 cover: ./cover.png
 coverWidth: 1200
 coverHeight: 675
 ---
+Disclosure: [Upstash](https://upstash.com) did not sponsor this article.
 
-声明：本文并没有接受来自 [Upstash](https://upstash.com) 任何形式的赞助。
+## How it started
 
-## 事件源头
+A couple of days ago, I added emoji reactions to my blog posts. I wanted a little interaction without opening the door to full comments, so reactions felt right.
 
-前两天给博客的文章添加了一个新功能：表情回复。我觉得这样会给文章增添一点互动感，但又不想要互动感太重的评论，最后就思考了一番，决定还是给文章添加一个表情回复的功能。
+Slack, iMessage, Twitter DMs, and Telegram all have reactions (*cough* unlike WeChat). Slack and Telegram handle them especially well.
 
-毕竟现在像 Slack，iMessage，Twitter 私信，Telegram （*咳嗽*除了微信）等等类似优秀的应用都有着自己的一套“reactions”功能实现，其中 Slack 和 Telegram 的 UX 可谓是我见过实现的最好的。
-
-然后昨天晚上我看了一眼缅怀皓哥的文章，发现有什么东西不太对劲 🤨
+Last night, I opened my article commemorating Hao and saw something strange 🤨
 
 ![](./image-1.png#1130x848)
 
-是的，🙏 这个表情被按了3.1万次？
+Had someone really pressed 🙏 31,000 times?
 
-根据比例来看，最多的“拥抱”表情才123次而已，那中间肯定有蹊跷。
+The next most popular reaction, "hug," had only 123 presses. Something was clearly wrong.
 
-我立马去 Upstash 后台看了一下确保是不是有人在刷我的 API 接口流量，果真如此。
+I opened the Upstash dashboard to see whether someone was flooding my API. They were.
 
-![](./image-2.png#1130x418 "Upstash 流量曲线图表")
+![](./image-2.png#1130x418 "Upstash traffic chart")
 
-从这个带宽图表可以看出，从0点左右开始我的 Upstash Redis 读写数开始飙涨，最高期甚至还达到了每秒1000次请求，我看到的时候心想：“这谁啊跟我血海深仇，也太离谱了吧？”。
+The bandwidth chart showed my Upstash Redis reads and writes climbing from around midnight, peaking at 1,000 requests per second. I stared at it and thought, "Who is this? What kind of blood feud do they have with me? This is absurd."
 
-因为整个表情回复的功能我实现的也挺匆忙，基本上当天下午就写完了，而且也是给个人网站做的功能，就没考虑过多，否则的话我可能会加上单元测试，e2e 测试以及各种安全验证手段确保只有我自己才能访问等等。
+I had rushed the emoji reaction feature out in one afternoon. Because it was for my personal site, I had not thought through every risk. With more time, I might have added unit tests, end-to-end tests, and security checks to prevent abusive access.
 
-万万没想到，我刚刚实现这功能的当天就有喜欢作恶的人来“搞”我。
+I did not expect someone to attack it on the day I shipped it.
 
-那你可能会问：“这个会影响什么呢？”
+So what did the attack cost me?
 
-因为我的整个博客网站架构是全 Serverless + Edge 部署的，所以像 Redis 这种 KV 存储我必须得用支持 Serverless 架构的才行，那么调查了一番以后就发现，Upstash 是现在最靠谱的服务商。
+My blog runs entirely on Serverless and Edge infrastructure, so its Redis-style KV store also needs to support Serverless. After comparing the options, I settled on Upstash as the most reliable provider.
 
-但是 Upstash 的收费规则是按量的，很合理，也就是每10万次读写需要花$0.4。
+Upstash charges by usage, which is reasonable: every 100,000 reads and writes cost $0.40.
 
-那么也就意味着我的 Redis 读写量越高，我要缴的钱就越多。
+Every bogus Redis request added to my bill.
 
-想到这里，我立马进入了防守模式。
+I went straight into defense mode.
 
-## Rate limit 限流
+## Rate limiting
 
-其实解决方案在本文分了两个阶段，第一阶段就是在我发现了以后，花了10分钟加了 Upstash 提供的官方 rate limit 来进行对我的接口限流保护。
+I responded in two stages. First, I spent ten minutes adding Upstash's official rate limiter to the API.
 
-![](./image-3.png#1468x1330 "Rate Limit 限流示例代码")
+![](./image-3.png#1468x1330 "Rate-limiting example code")
 
-可以在我的 [GitHub commit](https://github.com/CaliCastle/cali.so/commit/50635c7d94f9d7e0299ddc63a6fb190c6c0858c7) 里看到完整的代码。
+You can see the complete code in my [GitHub commit](https://github.com/CaliCastle/cali.so/commit/50635c7d94f9d7e0299ddc63a6fb190c6c0858c7).
 
-我再次查看了 Upstash 后台仪表盘，成功限流！
+I checked the Upstash dashboard again. It worked!
 
-然后我就安心地去睡了。
+Relieved, I went to bed.
 
-谁曾想，此人并没有罢休。
+The person was not done.
 
-我第二天早上起来发现 Upstash 仍然有着很稳定的一条用量线条：
+The next morning, Upstash still showed a steady line of usage:
 
-![](./image-4.png#1192x894 "第二天早上的 Upstash 流量图表")
+![](./image-4.png#1192x894 "Upstash traffic chart the next morning")
 
-我无语了，也就是说我限流了以后这人仍然在限流内最大值频繁地刷着请求数。。。
+I was speechless. They were still sending requests as fast as the rate limit allowed...
 
-我内心一句“好家伙”，逼我直接封你 IP 呗，我看你还怎么继续？
+"All right, then," I thought. If they wanted to force me to block their IP, I would. Let us see them keep going after that.
 
-## IP 封锁
+## IP blocking
 
-实在是忍无可忍，我在 Upstash 面板找到了请求被限流最多的人的 IP 地址（因为我在 rate limit 的限流里回传了对方的 IP 作为 key 的一部分方便我做分析处理）
+I had had enough. In the Upstash dashboard, I found the IP responsible for the most rate-limited requests. I had included each caller's IP in the rate-limit key so I could analyze the traffic later.
 
-为了能够让 IP 封锁快速生效，并且在不需要重新部署构建的前提下，我想到了完全可以利用 Vercel 的 [Edge Config](https://vercel.com/storage/edge-config)。
+I wanted the block to take effect quickly without rebuilding and redeploying the site. Vercel's [Edge Config](https://vercel.com/storage/edge-config) was a good fit.
 
-用 Edge Config 就可以帮助我存储动态方便改变的配置，而我原来就配置了官网短链的重定向，比如访问 cali.so/twitter 就可以前往我的官方 Twitter 链接。
+Edge Config stores configuration I can change on the fly. I already used it for short-link redirects; for example, cali.so/twitter sends visitors to my Twitter profile.
 
-我三下五除二就把这个人的 IP 地址给添加到了我的 Edge Config 里：
+I added the person's IP address to Edge Config:
 
-![](./image-5.png#1918x1230 "Vercel Edge Config 截图")
+![](./image-5.png#1918x1230 "Screenshot of Vercel Edge Config")
 
-然后在自己的 Next.js 项目里可以很轻松的在任意支持 Edge 的运行时的地方去从 Edge Config 中获取值，比如说利用 Edge Middleware 可以确保在所有请求执行之前去检测：
+A Next.js project can read Edge Config anywhere the Edge runtime is available. With Edge Middleware, I could check the IP before handling any request:
 
-![](./image-6.png#1810x1510 "Next.js Edge Middleware 示例代码")
+![](./image-6.png#1810x1510 "Next.js Edge Middleware example code")
 
-代码量可谓是非常少了，这也正是为什么 Upstash DX 体验这么好的原因之一，集成起来不啰嗦，恰到好处。
+The code is tiny, which is exactly what I wanted.
 
-查看完整代码变更：[GitHub commit](https://github.com/CaliCastle/cali.so/commit/2b10d8e45868b670e36b6e73c401304e5eae045e)。
+See the complete code change in this [GitHub commit](https://github.com/CaliCastle/cali.so/commit/2b10d8e45868b670e36b6e73c401304e5eae045e).
 
-所以现在只要 IP 出现在 Vercel 后台定义好了的 IP 黑名单内，就会默认被拒绝一切页面和接口的访问。
+Any IP on the Vercel blacklist is now denied access to every page and API by default.
 
-![](./image-7.png#2440x1766 "禁止 IP 后访问的页面展示")
+![](./image-7.png#2440x1766 "The page shown after an IP is blocked")
 
-舒服了。
+Much better.
 
-我赶紧提交了代码，Vercel 花了2分钟部署完毕。
+I committed the code, and Vercel deployed it in two minutes.
 
-过了一会儿，果真效果显著！
+Soon afterward, the result was obvious.
 
-我们一起来看看完整的流量图：
+Here is the complete traffic chart:
 
-![](./image-8.png#1376x846 "完整的 Upstash 流量图表")
+![](./image-8.png#1376x846 "Complete Upstash traffic chart")
 
-图上的三处时段解释：
+The three marked periods show:
 
-- 1是开始刷我流量的时候。
+- 1: The person began flooding me with traffic.
 
-- 2是我开启了 rate limit 限流功能后。
+- 2: I enabled rate limiting.
 
-- 3是我加了 IP 封锁功能后。
+- 3: I blocked the IP.
 
-哎，看来这个人目前是平息下来了，我也不了解他的出发点是什么，纯属为了让我更花钱吗？
+Sigh. The person seems to have stopped for now. I still have no idea why they did it. Was the whole point to make me spend more money?
 
-他要是再来一次换一个新的 IP，那我要操作的成本其实就很小了，添加多一个 IP 而已。而对于他每次新开一个 DigitalOcean VPS 实例反而是一件成本更大的事情，如果他真的卷土重来，我也奉陪到底。
+If they return with a new IP, adding it to the list takes me almost no effort. Spinning up a new DigitalOcean VPS each time costs them more. If they come back, I am ready.
 
-说到这那有人可能会问，这种要想黑名单别人的 IP 或者限流不是很简单吗？比如用 NGINX 都可以做到，为什么要用其他的第三方服务？
+You might ask why I used third-party services for something as basic as rate limiting and an IP blacklist. NGINX can do both.
 
-## 为什么选择 Serverless
+## Why I chose Serverless
 
-因为我选择的是无服务器架构，其实并不是顾名思义的意思，因为我们并没有用另外一种实体去代替服务器本身，只不过做了一层抽离，就是说并没有一个服务器单例在某个数据中心24小时无间断地为你运行着而已。
+I chose a Serverless architecture. The name does not mean servers disappear. It means the server is abstracted away, so there is no single instance sitting in a data center and running for you around the clock.
 
-这种做法可以让开发者专注于代码，而不用去管理自己的 VPS 或者单例服务器，那也就代表着可以多花时间写业务代码而不是忙碌建立稳定可拓展的基础架构（比如担心实例是否宕机了，焦虑自己的 NGINX 有没有在正常运转，不清楚数据库进程有没有报错等等）
+That lets developers focus on code instead of managing a VPS or standalone server. I can spend my time on the product instead of building infrastructure, checking whether an instance is down, watching NGINX, or chasing database errors.
 
-就像无糖可乐并不是真的无“糖”一样，这里的无糖指的是无蔗糖，但是为了提供甜味，还是会添加代糖的。
+It is like sugar-free cola. It contains no sucrose, but it still uses a sugar substitute for sweetness.
 
-我个人是非常喜欢这种 Serverless 计算架构的，也导致我几乎每个 web 项目都利用了 Vercel 来部署 Serverless 网站和应用。
+I love this kind of Serverless architecture, which is why I deploy almost every web project on Vercel.
 
-因为 DX（开发者体验）对我来说，真的很重要。
+Developer experience really matters to me.
 
-## 总结
+## Conclusion
 
-互联网上作恶多端的人其实也不少，我们还是要尽可能的确保能被公开访问的资源有所方法做到限流和封 IP 行为，不一定要像 OpenAI 一样风控那么严厉，但起码还是要留一手的。
+The internet has no shortage of people willing to cause trouble. Public resources need basic protections such as rate limits and IP blocking. They do not need OpenAI-level risk controls, but they should not be left wide open.
 
-我猜测最近 Next.js 13.4 宣布的 [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions#action) 也许可以一定程度释放自己写 API 接口给自己第一方网站/应用调用的需求，因为就完全不公开任何 API 接口了，自然就少了这个他人恶意刷你接口的潜在可能性。
+The [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions#action) announced in Next.js 13.4 may reduce the need to write API endpoints for your own websites and apps. Without a public API endpoint, there is less for someone else to hammer.
 
-这种猫和老鼠的游戏，其实也没有一劳永逸的办法，最后还是得在自己的服务端做好安全防护。
+There is no permanent answer to this cat-and-mouse game. You still need solid protection on the server.
 
-但无论如何，我们还是要尽可能在自己的网站里做好相对应的防护措施，以及经常关注自己使用的第三方服务用量，避免被这些人钻了空子。
+Protect your site and watch the usage on every third-party service you pay for. Do not give people like this an easy opening.

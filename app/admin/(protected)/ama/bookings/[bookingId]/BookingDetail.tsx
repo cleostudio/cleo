@@ -83,7 +83,7 @@ const LADDER_STEPS = [
 
 function formatAmount(amountTotal: number, currency: string, locale: Locale) {
   try {
-    return new Intl.NumberFormat(locale === 'zh' ? 'zh-CN' : 'en-US', {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: currency.toUpperCase(),
     }).format(amountTotal / 100)
@@ -136,9 +136,9 @@ function dayLabel(iso: string, zone: string, locale: Locale) {
       day: 'numeric',
     }
     try {
-      formatter = new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', options)
+      formatter = new Intl.DateTimeFormat('en-US', options)
     } catch {
-      formatter = new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', {
+      formatter = new Intl.DateTimeFormat('en-US', {
         ...options,
         timeZone: 'UTC',
       })
@@ -202,13 +202,13 @@ function ZonedTimes({ iso, guestTimeZone }: { iso: string; guestTimeZone: string
   return (
     <span className="tabular-nums">
       <T
-        zh={zonedDateTime(iso, OWNER_TIME_ZONE, 'zh')}
+        zh={zonedDateTime(iso, OWNER_TIME_ZONE, 'en')}
         en={zonedDateTime(iso, OWNER_TIME_ZONE, 'en')}
       />
       {' '}(Asia/Taipei)
       <span aria-hidden="true"> · </span>
       <T
-        zh={zonedDateTime(iso, guestTimeZone, 'zh')}
+        zh={zonedDateTime(iso, guestTimeZone, 'en')}
         en={zonedDateTime(iso, guestTimeZone, 'en')}
       />
       {' '}({guestTimeZone})
@@ -611,7 +611,7 @@ export function BookingDetail({
                   <div key={dayKey(group[0]!.startsAt, pickerZone)}>
                     <p className="text-sm text-muted-foreground">
                       <T
-                        zh={dayLabel(group[0]!.startsAt, pickerZone, 'zh')}
+                        zh={dayLabel(group[0]!.startsAt, pickerZone, 'en')}
                         en={dayLabel(group[0]!.startsAt, pickerZone, 'en')}
                       />
                     </p>
@@ -771,7 +771,7 @@ export function BookingDetail({
           <DefinitionRow term={<T zh="创建于" en="Created" />}>
             <span className="tabular-nums">
               <T
-                zh={zonedDateTime(booking.createdAt, OWNER_TIME_ZONE, 'zh')}
+                zh={zonedDateTime(booking.createdAt, OWNER_TIME_ZONE, 'en')}
                 en={zonedDateTime(booking.createdAt, OWNER_TIME_ZONE, 'en')}
               />
               {' '}(Asia/Taipei)
@@ -816,7 +816,7 @@ export function BookingDetail({
         {booking.briefPurgedAt ? (
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
             <T
-              zh={`已清除（${zonedDateTime(booking.briefPurgedAt, OWNER_TIME_ZONE, 'zh')}）。简述在会话结束后按期删除。`}
+              zh={`已清除（${zonedDateTime(booking.briefPurgedAt, OWNER_TIME_ZONE, 'en')}）。简述在会话结束后按期删除。`}
               en={`Purged (${zonedDateTime(booking.briefPurgedAt, OWNER_TIME_ZONE, 'en')}). Briefs are deleted on schedule after the session.`}
             />
           </p>
@@ -863,7 +863,7 @@ export function BookingDetail({
           <DefinitionRow term={<T zh="金额" en="Amount" />}>
             <span className="tabular-nums">
               <T
-                zh={formatAmount(booking.amountTotal, booking.currency, 'zh')}
+                zh={formatAmount(booking.amountTotal, booking.currency, 'en')}
                 en={formatAmount(booking.amountTotal, booking.currency, 'en')}
               />
             </span>
@@ -987,7 +987,7 @@ export function BookingDetail({
                     className="tabular-nums text-muted-foreground"
                   >
                     <T
-                      zh={zonedDateTime(event.occurredAt, OWNER_TIME_ZONE, 'zh')}
+                      zh={zonedDateTime(event.occurredAt, OWNER_TIME_ZONE, 'en')}
                       en={zonedDateTime(event.occurredAt, OWNER_TIME_ZONE, 'en')}
                     />
                   </time>

@@ -66,11 +66,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
         </div>
         <div className="w-[9.35rem] shrink-0 sm:w-60">
           <PortraitHiddenStage
-            label={
-              locale === 'en'
-                ? "Cali's halftone portrait. Reveal the hidden topographic field"
-                : 'Cali 的半调网点肖像。显现隐藏的等高线场'
-            }
+            label="Cali's halftone portrait. Reveal the hidden topographic field"
           >
             <HalftonePortrait
               srcLight="/images/headshot.jpg"

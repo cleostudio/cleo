@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 // on admin routes) when the lockfile bumps @clerk/nextjs.
 export default function AdminRootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <SiteDocument isAdmin locale="zh" restoreLocale>
+    <SiteDocument isAdmin>
       <ClerkProvider>{children}</ClerkProvider>
     </SiteDocument>
   )

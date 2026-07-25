@@ -55,20 +55,14 @@ export function getArchivedNewsletter(
   const raw = readFileSync(path.join(NEWSLETTERS_DIR, id, 'index.mdx'), 'utf8')
   const { data, content } = matter(raw)
   const frontmatter = newsletterFrontmatterSchema.parse(data)
-  const englishRaw = readFileSync(
-    path.join(NEWSLETTERS_DIR, id, 'index.en.mdx'),
-    'utf8',
-  )
-  const { data: englishData, content: englishContent } = matter(englishRaw)
-  const englishFrontmatter = newsletterFrontmatterSchema.parse(englishData)
 
   const newsletter = {
     id,
     ...frontmatter,
-    titleEn: englishFrontmatter.title,
-    descriptionEn: englishFrontmatter.description,
+    titleEn: frontmatter.title,
+    descriptionEn: frontmatter.description,
     body: content,
-    bodyEn: englishContent,
+    bodyEn: content,
   }
 
   archivedNewsletterCache.set(id, newsletter)

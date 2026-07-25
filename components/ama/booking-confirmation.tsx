@@ -87,11 +87,11 @@ function sessionTime(iso: string, timeZone: string, locale: 'zh' | 'en') {
     hour12: false,
   }
   try {
-    return new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', options).format(
+    return new Intl.DateTimeFormat('en-US', options).format(
       new Date(iso),
     )
   } catch {
-    return new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', {
+    return new Intl.DateTimeFormat('en-US', {
       ...options,
       timeZone: 'UTC',
     }).format(new Date(iso))

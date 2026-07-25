@@ -17,12 +17,12 @@ vi.mock('~/lib/sound', () => ({
 }))
 
 function Harness({
-  locale = 'zh' as const,
+  locale = 'en' as const,
   activeHref = '/' as string | undefined,
   onNavigate,
   ownerAdmin,
 }: {
-  locale?: 'zh' | 'en'
+  locale?: 'en'
   activeHref?: string | undefined
   onNavigate?: (href: string, keyboardInitiated: boolean) => void
   ownerAdmin?: boolean
@@ -66,11 +66,11 @@ describe('useDockGoShortcuts', () => {
   })
 
   it.each([
-    { key: 'w', href: '/en/blog' },
-    { key: 'p', href: '/en/photos' },
-    { key: 'j', href: '/en/projects' },
-    { key: 'a', href: '/en/ama' },
-    { key: 'c', href: '/en/cleo' },
+    { key: 'w', href: '/blog' },
+    { key: 'p', href: '/photos' },
+    { key: 'j', href: '/projects' },
+    { key: 'a', href: '/ama' },
+    { key: 'c', href: '/cleo' },
   ] as const)('maps G then $key to $href', ({ key, href }) => {
     render(<Harness locale="en" activeHref="/" />)
 

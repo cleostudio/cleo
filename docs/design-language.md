@@ -75,7 +75,7 @@ Hard rules:
 
 ## Typography
 
-- Stack: Geist (Latin) → Frex Sans GB (CJK) → system, per `app/fonts.ts`.
+- Stack: Geist (Latin) → Geist Mono → system, per `app/fonts.ts`.
   Weights 400/500/600 only, as `--font-weight-{normal,medium,semibold}`
   variables. Weight never changes on hover or selection — state is shown with
   color, never with weight or size.

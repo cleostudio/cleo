@@ -5,7 +5,7 @@ import { localePath } from './locale-route'
 import { seo } from './seo'
 
 interface LocaleMetadataOptions {
-  locale: Locale
+  locale?: Locale
   path: string
   title: string
   description: string
@@ -21,50 +21,46 @@ const SECTION_IMAGE_PATHS = new Set([
   '/projects',
 ])
 
-export function socialImageUrl(locale: Locale, path: string) {
+export function socialImageUrl(_locale: Locale = 'en', path: string) {
   const url = new URL('/og', seo.url)
-  url.searchParams.set('locale', locale)
+  url.searchParams.set('locale', 'en')
   url.searchParams.set('path', path)
   if (SOCIAL_IMAGE_VERSION) url.searchParams.set('v', SOCIAL_IMAGE_VERSION)
   return url
 }
 
+/** English-only canonical URL helper. */
 export function localeRoutePair(path: string) {
-  const zh = new URL(localePath('zh', path), seo.url)
-  const en = new URL(localePath('en', path), seo.url)
+  const canonical = new URL(localePath('en', path), seo.url)
 
   return {
-    zh,
-    en,
+    en: canonical,
     languages: {
-      'zh-CN': zh.href,
-      en: en.href,
-      'x-default': zh.href,
+      en: canonical.href,
+      'x-default': canonical.href,
     },
   }
 }
 
-/** Build server-rendered metadata for one side of a Chinese/English route pair. */
+/** Build server-rendered metadata for a public English route. */
 export function localeMetadata({
-  locale,
   path,
   title,
   description,
   type = 'website',
 }: LocaleMetadataOptions): Metadata {
   const pair = localeRoutePair(path)
-  const canonical = locale === 'en' ? pair.en : pair.zh
-  const sentenceSeparator = locale === 'en' ? '. ' : '。'
+  const canonical = pair.en
   const image = {
-    url: socialImageUrl(locale, path),
+    url: socialImageUrl('en', path),
     width: 1200,
     height: 630,
     alt:
       path === '/'
-        ? `${title}${sentenceSeparator}${description}`
+        ? `${title}. ${description}`
         : SECTION_IMAGE_PATHS.has(path)
-          ? `${title} · Cali Castle${sentenceSeparator}${description}`
-        : `${title} · Cali Castle`,
+          ? `${title} · Cali Castle. ${description}`
+          : `${title} · Cali Castle`,
     type: 'image/png',
   }
 
@@ -79,7 +75,7 @@ export function localeMetadata({
       title,
       description,
       type,
-      locale: locale === 'en' ? 'en_US' : 'zh_CN',
+      locale: 'en_US',
       siteName: 'Cali Castle',
       url: canonical,
       images: [image],

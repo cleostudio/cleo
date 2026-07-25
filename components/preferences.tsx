@@ -3,7 +3,6 @@
 import { Popover } from '@base-ui/react/popover'
 import { Monitor, Moon, Sun, Volume2, VolumeX } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 import { PreferencesIcon } from '~/components/dock-icons'
 import { useTheme } from '~/components/theme-provider'
@@ -12,8 +11,7 @@ import { useEffect, useRef, useState } from 'react'
 import { TabItem, Tabs, TabsList } from '~/components/ui/tabs'
 import { Elevated } from '~/lib/elevated'
 import { T } from '~/lib/i18n'
-import { LOCALE_CHANGE_EVENT, localize, useLocale } from '~/lib/locale-client'
-import { localePath, type Locale } from '~/lib/locale-route'
+import { localize, useLocale } from '~/lib/locale-client'
 import {
   playDockSound,
   playPreferenceSound,
@@ -32,10 +30,9 @@ function Row({ zh, en, children }: { zh: string; en: string; children: React.Rea
   )
 }
 
-// 偏好 — the dock's preferences panel: language, theme, and UI sound,
-// each as full-width fluid tabs. On the public dock the site owner gets
-// one more row (the way into the admin); the owner dock's variant swaps
-// it for sign-out and never probes.
+// Preferences panel: theme and UI sound as full-width fluid tabs. On the
+// public dock the site owner gets one more row (admin); the owner dock's
+// variant swaps it for sign-out and never probes.
 export function Preferences({
   variant = 'public',
   ownerAdmin = false,
@@ -46,16 +43,13 @@ export function Preferences({
   onOwnerAdminChange?: (owner: boolean) => void
 } = {}) {
   const activeLocale = useLocale()
-  const pathname = usePathname()
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  const [locale, setLocale] = useState<'zh' | 'en'>('zh')
   const [sound, setSound] = useState(false)
   const probingRef = useRef(false)
 
   useEffect(() => {
     setMounted(true)
-    setLocale(document.documentElement.dataset.locale === 'en' ? 'en' : 'zh')
     setSound(soundEnabled())
   }, [])
 
@@ -85,39 +79,6 @@ export function Preferences({
       .finally(() => {
         probingRef.current = false
       })
-  }
-
-  function applyLocale(next: string) {
-    const nextLocale = next as Locale
-    const nextPathname =
-      pathname && pathname !== '/admin' && !pathname.startsWith('/admin/')
-        ? localePath(nextLocale, pathname)
-        : null
-
-    try {
-      localStorage.locale = nextLocale
-    } catch {
-      /* private mode */
-    }
-    playPreferenceSound()
-
-    if (nextPathname) {
-      // Assigning pathname preserves the query and hash while keeping the
-      // destination on this origin. localePath rejects malformed segments.
-      window.location.pathname = nextPathname
-      return
-    }
-
-    const html = document.documentElement
-    if (nextLocale === 'en') {
-      html.dataset.locale = 'en'
-      html.lang = 'en'
-    } else {
-      delete html.dataset.locale
-      html.lang = 'zh-CN'
-    }
-    setLocale(nextLocale)
-    window.dispatchEvent(new Event(LOCALE_CHANGE_EVENT))
   }
 
   return (
@@ -151,14 +112,6 @@ export function Preferences({
             render={<Elevated offset={2} shadowLevel={3} />}
             className="prefs-panel w-max rounded-xl outline-none"
           >
-            <Row zh="语言" en="Language">
-              <Tabs value={mounted ? locale : activeLocale} onValueChange={applyLocale}>
-                <TabsList aria-label={localize(activeLocale, '语言', 'Language')}>
-                  <TabItem value="zh" label="中文" />
-                  <TabItem value="en" label="English" />
-                </TabsList>
-              </Tabs>
-            </Row>
             <Row zh="外观" en="Theme">
               <Tabs
                 value={mounted && theme ? theme : 'system'}

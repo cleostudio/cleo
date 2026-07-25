@@ -1,24 +1,38 @@
-import { formatDate, SITE_TIME_ZONE } from '~/lib/date'
+'use client'
 
-// Shared chrome keeps both languages in the static DOM; explicit public
-// routes set html[data-locale] before paint (/ is Chinese, /en is English).
-// Only the isolated admin root restores its in-place preference from storage.
-export function T({ zh, en }: { zh: React.ReactNode; en: React.ReactNode }) {
-  return (
-    <>
-      <span data-zh>{zh}</span>
-      <span data-en>{en}</span>
-    </>
-  )
+import type { ReactNode } from 'react'
+
+import { formatDateEn } from '~/lib/date'
+
+/** English-only text. The `zh` prop is accepted for call-site compatibility
+ *  during cleanup and ignored. */
+export function T({
+  en,
+  children,
+}: {
+  zh?: ReactNode
+  en: ReactNode
+  children?: ReactNode
+}) {
+  return <>{children ?? en}</>
 }
 
-const enFormatter = new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-  timeZone: SITE_TIME_ZONE,
-})
-
-export function LocalDate({ date }: { date: Date }) {
-  return <T zh={formatDate(date)} en={enFormatter.format(date)} />
+export function LocalDate({
+  date,
+  dateTime,
+  className,
+}: {
+  date: Date | string | number
+  /** Ignored; English formatting is always used. */
+  zhClassName?: string
+  enClassName?: string
+  dateTime?: string
+  className?: string
+}) {
+  const value = date instanceof Date ? date : new Date(date)
+  return (
+    <time className={className} dateTime={dateTime ?? value.toISOString()}>
+      {formatDateEn(value)}
+    </time>
+  )
 }

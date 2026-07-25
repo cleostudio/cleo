@@ -159,8 +159,9 @@ export function validateIntake(input: HoldIntakeInput): { field: string } | null
   return null
 }
 
-function localePathPrefix(locale: BookingLocale) {
-  return locale === 'en' ? '/en' : ''
+function localePathPrefix(_locale: BookingLocale) {
+  // English-only public site — booking URLs are unprefixed.
+  return ''
 }
 
 export function createBookingService(dependencies: BookingServiceDependencies) {
@@ -362,10 +363,7 @@ export function createBookingService(dependencies: BookingServiceDependencies) {
           idempotencyKey: `ama-checkout:${holdId}`,
           amount: AMA_SESSION_PRICE.amount,
           currency: AMA_SESSION_PRICE.currency,
-          productName:
-            intent.locale === 'en'
-              ? 'AMA Session with Cali (60 minutes)'
-              : 'Cali AMA Session（60 分钟）',
+          productName: 'AMA Session with Cali (60 minutes)',
           customerEmail: intent.guestEmail,
           successUrl: confirmationUrl.toString(),
           cancelUrl: cancelUrl.toString(),

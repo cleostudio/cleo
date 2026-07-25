@@ -14,17 +14,12 @@ const POSTS_DIR = path.join(process.cwd(), 'content/blog')
 
 const frontmatterSchema = z.object({
   title: z.string().min(1),
-  description: z.string().optional(),
+  description: z.string().min(1),
   publishedAt: z.coerce.date(),
   cover: z.string().startsWith('./').optional(),
   coverWidth: z.number().int().positive().optional(),
   coverHeight: z.number().int().positive().optional(),
   coverCaption: z.string().optional(),
-})
-
-const translatedFrontmatterSchema = z.object({
-  title: z.string().min(1),
-  description: z.string().min(1),
 })
 
 export interface PostCover {
@@ -148,12 +143,10 @@ export function getPost(slug: string): Post {
   const raw = readFileSync(path.join(POSTS_DIR, slug, 'index.mdx'), 'utf8')
   const { data, content } = matter(raw)
   const fm = frontmatterSchema.parse(data)
-  const translatedRaw = readFileSync(path.join(POSTS_DIR, slug, 'index.en.mdx'), 'utf8')
-  const { data: translatedData, content: translatedContent } = matter(translatedRaw)
-  const translatedFm = translatedFrontmatterSchema.parse(translatedData)
-
+  // English-only: keep *En aliases populated for call sites not yet simplified.
+  const title = fm.title
+  const description = fm.description ?? ''
   const stats = bodyStats(content)
-  const statsEn = bodyStats(translatedContent)
 
   let cover: PostCover | undefined
   if (fm.cover) {
@@ -169,18 +162,18 @@ export function getPost(slug: string): Post {
 
   return {
     slug,
-    title: fm.title,
-    titleEn: translatedFm.title,
-    description: fm.description,
-    descriptionEn: translatedFm.description,
+    title,
+    titleEn: title,
+    description,
+    descriptionEn: description,
     publishedAt: fm.publishedAt,
     cover,
     readingMinutes: stats.minutes,
-    readingMinutesEn: statsEn.minutes,
+    readingMinutesEn: stats.minutes,
     bodyUnits: stats.units,
-    bodyUnitsEn: statsEn.units,
+    bodyUnitsEn: stats.units,
     body: content,
-    bodyEn: translatedContent,
+    bodyEn: content,
   }
 }
 

@@ -6,8 +6,8 @@
 
 @theme inline {
     --font-heading: var(--font-sans);
-    /* Geist for Latin; Frex Sans GB catches CJK glyphs via stack order */
-    --font-sans: var(--font-geist), var(--font-frex-gb, ui-sans-serif), system-ui, sans-serif;
+    /* Geist Latin stack */
+    --font-sans: var(--font-geist), system-ui, sans-serif;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -1317,7 +1317,7 @@
   padding: 0.625rem 0;
   border-top: var(--border-hairline) solid var(--border);
   border-bottom: var(--border-hairline) solid var(--border);
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-variant-numeric: tabular-nums;
   user-select: none;
 }
@@ -1365,7 +1365,7 @@
 .spec-nameplate {
   margin: 0;
   border: var(--border-hairline) solid var(--border);
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.8125rem;
 }
 
@@ -1428,7 +1428,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.375rem;
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1477,7 +1477,7 @@
   padding: 0.375rem 0.75rem;
   border: var(--border-hairline) solid color-mix(in oklab, var(--foreground) 55%, transparent);
   color: var(--gray-11, var(--foreground));
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1491,7 +1491,7 @@
   align-items: stretch;
   gap: 0;
   color: var(--gray-8, var(--muted-foreground));
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.75rem;
   font-weight: var(--font-weight-normal);
   letter-spacing: 0.08em;
@@ -1670,7 +1670,7 @@
 
 .page-eyebrow {
   color: var(--gray-8, var(--muted-foreground));
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.75rem;
   font-weight: var(--font-weight-normal);
   letter-spacing: 0.08em;
@@ -1691,7 +1691,7 @@
 
 .post-related-label {
   color: color-mix(in oklab, var(--muted-foreground) 72%, transparent);
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
   font-weight: var(--font-weight-normal);
   letter-spacing: 0.08em;
@@ -1800,7 +1800,7 @@
 .prose .post-figcaption {
   margin-top: 0.625rem;
   text-align: left;
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.75rem;
   letter-spacing: 0.02em;
   line-height: 1.5;
@@ -2081,7 +2081,7 @@ figure[data-rehype-pretty-code-figure] {
 .time-allocation-chart__eyebrow {
   margin: 0;
   color: var(--muted-foreground);
-  font-family: var(--font-geist-mono), var(--font-frex-gb), ui-monospace,
+  font-family: var(--font-geist-mono), ui-monospace,
     monospace;
   font-size: 0.6875rem;
   font-variant-numeric: tabular-nums;
@@ -2199,7 +2199,7 @@ figure[data-rehype-pretty-code-figure] {
 }
 
 .mermaid-sheet svg .mono {
-  font-family: var(--font-geist-mono), var(--font-frex-gb), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 figure[data-rehype-pretty-code-figure] figcaption[data-rehype-pretty-code-title] {
@@ -2385,7 +2385,7 @@ img.tweet-card-avatar {
   padding: 0.5rem 1rem;
   border-top: var(--border-hairline) solid var(--border);
   color: color-mix(in oklab, var(--muted-foreground) 72%, transparent);
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -4501,7 +4501,7 @@ a:focus-visible .external-label .external-mark {
 /* handles are machine text */
 .service-card-sub {
   color: var(--muted-foreground);
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.75rem;
   letter-spacing: 0.02em;
 }
@@ -4524,7 +4524,7 @@ a:focus-visible .external-label .external-mark {
   padding-top: 0.5rem;
   border-top: var(--border-hairline) solid var(--border);
   color: var(--muted-foreground);
-  font-family: var(--font-geist-mono), var(--font-frex-gb, ui-monospace), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
@@ -4932,33 +4932,20 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
-/* ── Bilingual chrome (lib/i18n.tsx) — CSS-swapped, no hydration ────
-   Public routes render a single language per segment, so only the inline
-   [data-zh]/[data-en] pair from <T> appears there. The block variant
-   survives solely for admin, which swaps locale in place (no route
-   change) and needs both DOM branches present in scheduling controls. */
+/* ── Legacy bilingual display hooks ────────────────────────────────
+   <T> no longer emits [data-zh]/[data-en] pairs (English-only site).
+   Keep the English-visible rules so any leftover markup still shows. */
+
+[data-zh],
+[data-zh-block] {
+  display: none;
+}
 
 [data-en] {
-  display: none;
-}
-
-[data-en-block] {
-  display: none;
-}
-
-html[data-locale='en'] [data-zh] {
-  display: none;
-}
-
-html[data-locale='en'] [data-en] {
   display: inline;
 }
 
-html[data-locale='en'] [data-zh-block] {
-  display: none;
-}
-
-html[data-locale='en'] [data-en-block] {
+[data-en-block] {
   display: block;
 }
 

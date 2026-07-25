@@ -21,8 +21,8 @@ export function CleoPageView() {
               style={{ '--enter-delay': '70ms' } as CSSProperties}
             >
               <T
-                zh={publicPageMetadata.cleo.zh.description}
-                en={publicPageMetadata.cleo.en.description}
+                zh={publicPageMetadata.cleo.description}
+                en={publicPageMetadata.cleo.description}
               />
             </p>
           </header>

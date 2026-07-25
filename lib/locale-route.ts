@@ -1,86 +1,34 @@
-export type Locale = 'zh' | 'en'
+/** English-only site. Kept as a thin helper layer for call sites that still
+ *  pass a locale argument around AMA/admin history. */
+export type Locale = 'en'
 
-const ENGLISH_PREFIX = '/en'
-
-function splitPathSuffix(path: string) {
-  const suffixIndex = path.search(/[?#]/)
-  if (suffixIndex === -1) return { pathname: path, suffix: '' }
-  return {
-    pathname: path.slice(0, suffixIndex),
-    suffix: path.slice(suffixIndex),
-  }
+export function localeFromPathname(_pathname: string): Locale {
+  return 'en'
 }
 
-function assertSafePathname(pathname: string) {
+export function unlocalizedPathname(pathname: string) {
+  if (!pathname || pathname === '/') return '/'
   if (
     !pathname.startsWith('/') ||
     pathname.startsWith('//') ||
     pathname.includes('\\') ||
-    pathname.includes('\0') ||
-    /[\u0000-\u001f\u007f]/.test(pathname)
+    pathname.includes('\0')
   ) {
     throw new Error('Invalid locale path')
   }
-
-  const segments = pathname.split('/')
-  const finalSegment = segments.length - 1
-
-  for (const [index, segment] of segments.entries()) {
-    if (segment === '' && index !== 0 && index !== finalSegment) {
-      throw new Error('Invalid locale path')
-    }
-
-    let decoded: string
-    try {
-      decoded = decodeURIComponent(segment)
-    } catch {
-      throw new Error('Invalid locale path')
-    }
-
-    if (
-      decoded === '.' ||
-      decoded === '..' ||
-      decoded.includes('/') ||
-      decoded.includes('\\') ||
-      /[\u0000-\u001f\u007f]/.test(decoded)
-    ) {
-      throw new Error('Invalid locale path')
-    }
-  }
-}
-
-function normalizePathname(pathname: string) {
-  if (!pathname || pathname === '/') return '/'
-  assertSafePathname(pathname)
+  // Legacy /en URLs normalize to the unprefixed English path.
+  if (pathname === '/en' || pathname === '/en/') return '/'
+  if (pathname.startsWith('/en/')) return pathname.slice(3)
   return pathname
 }
 
-export function localeFromPathname(pathname: string): Locale {
-  const normalized = normalizePathname(splitPathSuffix(pathname).pathname)
-  return normalized === ENGLISH_PREFIX || normalized.startsWith(`${ENGLISH_PREFIX}/`)
-    ? 'en'
-    : 'zh'
+export function localePath(_locale: Locale, path: string) {
+  const suffixIndex = path.search(/[?#]/)
+  const pathname = suffixIndex === -1 ? path : path.slice(0, suffixIndex)
+  const suffix = suffixIndex === -1 ? '' : path.slice(suffixIndex)
+  return `${unlocalizedPathname(pathname)}${suffix}`
 }
 
-export function unlocalizedPathname(pathname: string) {
-  const normalized = normalizePathname(splitPathSuffix(pathname).pathname)
-
-  if (normalized === ENGLISH_PREFIX || normalized === `${ENGLISH_PREFIX}/`) return '/'
-  if (normalized.startsWith(`${ENGLISH_PREFIX}/`)) {
-    return normalized.slice(ENGLISH_PREFIX.length)
-  }
-  return normalized
-}
-
-export function localePath(locale: Locale, path: string) {
-  const { pathname, suffix } = splitPathSuffix(path)
-  const unlocalized = unlocalizedPathname(pathname)
-
-  if (locale === 'zh') return `${unlocalized}${suffix}`
-  const localized = unlocalized === '/' ? ENGLISH_PREFIX : `${ENGLISH_PREFIX}${unlocalized}`
-  return `${localized}${suffix}`
-}
-
-export function localize(locale: Locale, zh: string, en: string) {
-  return locale === 'en' ? en : zh
+export function localize(_locale: Locale, _zh: string, en: string) {
+  return en
 }
