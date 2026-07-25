@@ -28,8 +28,8 @@ import { playDockSound } from '~/lib/sound'
 const ITEMS = [
   { href: '/blog', zh: '写作', en: 'Writing', icon: WritingIcon },
   { href: '/photos', zh: '照片', en: 'Photos', icon: PhotosIcon },
-  { href: '/projects', zh: '项目', en: 'Projects', icon: ProjectsIcon },
   { href: '/explore', zh: '探索', en: 'Explore', icon: ExploreIcon },
+  { href: '/projects', zh: '项目', en: 'Projects', icon: ProjectsIcon },
   { href: '/cleo', zh: 'Cleo', en: 'Cleo', icon: SayHiIcon },
 ] as const
 

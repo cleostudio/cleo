@@ -21,9 +21,15 @@ describe('DockFallback', () => {
     expect(screen.getByRole('link', { name: /Explore/ }).getAttribute('href')).toBe(
       '/explore',
     )
+    expect(screen.getByRole('link', { name: /Projects/ }).getAttribute('href')).toBe(
+      '/projects',
+    )
     expect(screen.getByRole('link', { name: /Cleo/ }).getAttribute('href')).toBe(
       '/cleo',
     )
+
+    const hrefs = screen.getAllByRole('link').map((link) => link.getAttribute('href'))
+    expect(hrefs.indexOf('/explore')).toBeLessThan(hrefs.indexOf('/projects'))
     expect((screen.getByRole('button') as HTMLButtonElement).disabled).toBe(true)
   })
 })
