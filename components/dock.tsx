@@ -103,6 +103,9 @@ export function DockItem({
     <Link
       ref={itemRef}
       href={href}
+      // Full destination UI (not just the App Shell) — heavy routes like
+      // Gallery otherwise paint a fallback then swap, which reads as shake.
+      prefetch
       className="dock-item"
       data-active={active || undefined}
       aria-label={ariaLabel}

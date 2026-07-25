@@ -1,10 +1,4 @@
-import { Suspense } from 'react'
-import { cacheLife } from 'next/cache'
-
-import {
-  PlaceGallery,
-  PlaceGalleryLoading,
-} from '~/components/place-gallery'
+import { PlaceGallery } from '~/components/place-gallery'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { allGalleryItems, galleryFilterKeys } from '~/lib/gallery'
 import { T } from '~/lib/i18n'
@@ -20,31 +14,29 @@ export function galleryPageMetadata() {
   })
 }
 
+/**
+ * Fully static gallery: sync local catalog, no Suspense swap.
+ * Instant Navigation paints the real toolbar + tiles on first click —
+ * a placeholder masonry was what made dock arrivals feel shaky.
+ */
 export function GalleryPageView() {
+  const entries = allGalleryItems()
+  const filterKeys = galleryFilterKeys()
+
   return (
     <div className="mx-auto w-full max-w-[42rem] px-6">
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-[38.5rem]">
-          <h1 className="page-eyebrow enter">
+          <h1 className="page-eyebrow">
             <T zh="图库" en="Gallery" />
           </h1>
         </header>
-        <PixelCluster variant={4} className="enter shrink-0" />
+        <PixelCluster variant={4} className="shrink-0" />
       </div>
 
       <div className="mt-4">
-        <Suspense fallback={<PlaceGalleryLoading />}>
-          <PlaceGalleryMasonry />
-        </Suspense>
+        <PlaceGallery entries={entries} filterKeys={filterKeys} />
       </div>
     </div>
   )
-}
-
-async function PlaceGalleryMasonry() {
-  'use cache'
-  cacheLife('max')
-  const entries = allGalleryItems()
-  const filterKeys = galleryFilterKeys()
-  return <PlaceGallery entries={entries} filterKeys={filterKeys} />
 }

@@ -787,16 +787,16 @@ Photo tiles are quiet objects: no hover captions or overlays — location and
 capture data appear only in the lightbox details, and the only fine-pointer
 response is the calibration corner brackets.
 
-The Gallery keeps its title in the prefetched static shell and streams the
-filterable masonry (Explore places + Space bodies) behind a page-level
-boundary. While the catalog resolves, six quiet, nonanimated tiles reserve the
-two-column mobile or three-column desktop masonry. Placeholders use the final
-card radius, gutter, and neutral edge treatment so navigation responds
-immediately without introducing a second visual language or shifting the page
-header. Tile links disable prefetch to avoid a destination storm; the search /
-collection toolbar is a small client island over server-rendered tiles. The
-sticky toolbar uses an opaque paper fill (no backdrop-blur) so long masonry
-scrolls stay calm.
+The Gallery is a fully static Instant Navigation surface: the sync local
+catalog (Explore places + Space bodies) renders in the page shell with no
+Suspense fallback swap, so dock arrivals paint the real toolbar and masonry
+immediately. The page eyebrow skips entrance choreography (frequency: dock-
+frequent). Tile links disable prefetch to avoid a destination storm; the
+search / collection toolbar is a small client island over server-rendered
+tiles. The sticky toolbar uses an opaque paper fill (no backdrop-blur) so
+long masonry scrolls stay calm. Dock links use `prefetch` so the full
+destination UI is warm before click.
+
 
 
 ## Frosted dock
