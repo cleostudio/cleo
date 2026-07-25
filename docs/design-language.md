@@ -787,12 +787,14 @@ Photo tiles are quiet objects: no hover captions or overlays — location and
 capture data appear only in the lightbox details, and the only fine-pointer
 response is the calibration corner brackets.
 
-The Gallery keeps its title in the prefetched static shell and renders curated
-place photographs from `content/atlas.json` as a filterable masonry. Quiet,
-nonanimated placeholders may reserve masonry geometry while images resolve.
-Placeholders use the final card radius, gutter, and neutral edge treatment so
-navigation responds immediately without introducing a second visual language
-or shifting the page header.
+The Gallery keeps its title in the prefetched static shell and streams the
+filterable masonry (Explore places + Space bodies) behind a page-level
+boundary. While the catalog resolves, six quiet, nonanimated tiles reserve the
+two-column mobile or three-column desktop masonry. Placeholders use the final
+card radius, gutter, and neutral edge treatment so navigation responds
+immediately without introducing a second visual language or shifting the page
+header. Tile links disable prefetch to avoid a destination storm; the search /
+collection toolbar is a small client island over server-rendered tiles.
 
 ## Frosted dock
 

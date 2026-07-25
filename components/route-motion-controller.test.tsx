@@ -44,6 +44,7 @@ describe('RouteMotionController', () => {
   afterEach(() => {
     cleanup()
     document.documentElement.removeAttribute('data-route-motion')
+    document.documentElement.removeAttribute('data-visited')
     vi.restoreAllMocks()
   })
 
@@ -121,6 +122,7 @@ describe('RouteMotionController', () => {
     fireEvent.keyDown(document, { key: 'Enter' })
 
     expect(document.documentElement.dataset.routeMotion).toBe('none')
+    expect(document.documentElement.hasAttribute('data-visited')).toBe(true)
   })
 
   it('restores instant route motion on browser history navigation', () => {
@@ -130,6 +132,25 @@ describe('RouteMotionController', () => {
     fireEvent.popState(window)
 
     expect(document.documentElement.dataset.routeMotion).toBe('none')
+    expect(document.documentElement.hasAttribute('data-visited')).toBe(true)
+  })
+
+  it('marks the document visited before ordinary link navigation', () => {
+    document.documentElement.removeAttribute('data-route-motion')
+    render(
+      <>
+        <RouteMotionController />
+        <a href="/blog">Writing</a>
+      </>,
+    )
+
+    fireEvent.pointerDown(screen.getByRole('link', { name: 'Writing' }), {
+      button: 0,
+      isPrimary: true,
+    })
+
+    expect(document.documentElement.dataset.routeMotion).toBe('none')
+    expect(document.documentElement.hasAttribute('data-visited')).toBe(true)
   })
 
   it('removes every input and history listener on unmount', () => {
@@ -200,5 +221,6 @@ describe('RouteMotionController', () => {
     finishArticleTransition?.()
 
     expect(document.documentElement.dataset.routeMotion).toBe('none')
+    expect(document.documentElement.hasAttribute('data-visited')).toBe(true)
   })
 })

@@ -2639,13 +2639,19 @@ img.tweet-card-avatar {
 }
 
 /* Listing polaroids pop like prints dropped on the sheet; skipped after
-   the first visit this session (html[data-visited] set pre-paint) */
+   the first visit this session (html[data-visited] set pre-paint) or when
+   ordinary/dock navigation marks the document visited before the swap. */
 .enter-polaroid .polaroid {
   animation: polaroid-pop 350ms var(--ease-swift) backwards;
   animation-delay: var(--enter-delay, 0ms);
 }
 
-html[data-visited] .enter-polaroid .polaroid {
+/* Skip index/list entrance choreography after ordinary navigation, but keep
+   the staged post opening (`.post-body-stage.enter`) — that register is the
+   documented exception after the shared cover/title morph. */
+html[data-visited] .enter:not(.post-body-stage),
+html[data-visited] .enter-polaroid .polaroid,
+html[data-visited] .enter-swing {
   animation: none;
 }
 

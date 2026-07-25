@@ -1,4 +1,10 @@
-import { PlaceGallery } from '~/components/place-gallery'
+import { Suspense } from 'react'
+import { cacheLife } from 'next/cache'
+
+import {
+  PlaceGallery,
+  PlaceGalleryLoading,
+} from '~/components/place-gallery'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { allGalleryItems, galleryFilterKeys } from '~/lib/gallery'
 import { T } from '~/lib/i18n'
@@ -15,9 +21,6 @@ export function galleryPageMetadata() {
 }
 
 export function GalleryPageView() {
-  const entries = allGalleryItems()
-  const filterKeys = galleryFilterKeys()
-
   return (
     <div className="mx-auto w-full max-w-[42rem] px-6">
       <div className="flex items-start justify-between gap-4">
@@ -36,8 +39,18 @@ export function GalleryPageView() {
       </div>
 
       <div className="mt-8">
-        <PlaceGallery entries={entries} filterKeys={filterKeys} />
+        <Suspense fallback={<PlaceGalleryLoading />}>
+          <PlaceGalleryMasonry />
+        </Suspense>
       </div>
     </div>
   )
+}
+
+async function PlaceGalleryMasonry() {
+  'use cache'
+  cacheLife('max')
+  const entries = allGalleryItems()
+  const filterKeys = galleryFilterKeys()
+  return <PlaceGallery entries={entries} filterKeys={filterKeys} />
 }
