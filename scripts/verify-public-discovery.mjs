@@ -42,9 +42,10 @@ const publicPages = [
     '/photos',
     {
       title: 'Photos',
-      description: 'Moments Cleo has kept from work, life, and everywhere in between.',
+      description:
+        '195 country atlas places — filter by region or search by country and place.',
     },
-    'Photos · Cleo. Moments Cleo has kept from work, life, and everywhere in between.',
+    'Photos · Cleo. 195 country atlas places — filter by region or search by country and place.',
   ),
   englishPage(
     '/projects',
@@ -60,9 +61,9 @@ const publicPages = [
     {
       title: 'Explore',
       description:
-        'A guide to every country on Earth — open a page for each place and keep adding notes as you go.',
+        'Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
     },
-    'Explore · Cleo. A guide to every country on Earth — open a page for each place and keep adding notes as you go.',
+    'Explore · Cleo. Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
   ),
   englishPage(
     '/cleo',
