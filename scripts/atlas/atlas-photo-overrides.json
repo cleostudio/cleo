@@ -1,0 +1,205 @@
+{
+  "egypt": {
+    "placeName": "Giza Pyramids",
+    "countryName": "Egypt",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/All_Gizah_Pyramids.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:All_Gizah_Pyramids.jpg",
+    "photographer": "Ricardo Liberato",
+    "license": "CC BY-SA 2.0",
+    "commonsTitle": "File:All_Gizah_Pyramids.jpg"
+  },
+  "peru": {
+    "placeName": "Machu Picchu",
+    "countryName": "Peru",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Machu_Picchu%2C_Peru.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Peru.jpg",
+    "photographer": "Martin St-Amant",
+    "license": "CC BY 3.0",
+    "commonsTitle": "File:Machu_Picchu,_Peru.jpg"
+  },
+  "united-states": {
+    "placeName": "Grand Canyon",
+    "countryName": "United States",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/Canyon_River_Tree_%28165872763%29.jpeg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Canyon_River_Tree_(165872763).jpeg",
+    "photographer": "Murray Foubister",
+    "license": "CC BY-SA 2.0",
+    "commonsTitle": "File:Canyon_River_Tree_(165872763).jpeg"
+  },
+  "fiji": {
+    "placeName": "Bouma National Heritage Park",
+    "countryName": "Fiji",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Beach_on_Naviti_island%2C_Yasawa_Islands%2C_Fiji_%282%29_-_August_2016.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beach_on_Naviti_island,_Yasawa_Islands,_Fiji_(2)_-_August_2016.jpg",
+    "photographer": "Dmitry A. Mottl",
+    "license": "CC BY-SA 4.0",
+    "commonsTitle": "File:Beach_on_Naviti_island,_Yasawa_Islands,_Fiji_(2)_-_August_2016.jpg"
+  },
+  "brazil": {
+    "placeName": "Amazon Rainforest",
+    "countryName": "Brazil",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Amazon_rainforest%2C_Brazil_-_2026.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amazon_rainforest,_Brazil_-_2026.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY 4.0",
+    "commonsTitle": "File:Amazon_rainforest,_Brazil_-_2026.jpg"
+  },
+  "morocco": {
+    "placeName": "Medina of Fez",
+    "countryName": "Morocco",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Medina_of_Fes%2C_Marocco.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Medina_of_Fes,_Marocco.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 4.0",
+    "commonsTitle": "File:Medina_of_Fes,_Marocco.jpg"
+  },
+  "nepal": {
+    "placeName": "Everest Region",
+    "countryName": "Nepal",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg",
+    "photographer": "Tobias Alt / shrimpo1967 / Papa Lima Whiskey 2",
+    "license": "CC BY-SA 2.0",
+    "commonsTitle": "File:Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg"
+  },
+  "new-zealand": {
+    "placeName": "Milford Sound",
+    "countryName": "New Zealand",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Milford_Sound_in_Fiordland_National_Park_01.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Milford_Sound_in_Fiordland_National_Park_01.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 4.0",
+    "commonsTitle": "File:Milford_Sound_in_Fiordland_National_Park_01.jpg"
+  },
+  "south-sudan": {
+    "placeName": "Boma National Park",
+    "countryName": "South Sudan",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/59/MAJESTIC_VIEW_OF_WHITE_NILE_%2C_JUBA%2C_SOUTH_SUDAN.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MAJESTIC_VIEW_OF_WHITE_NILE_,_JUBA,_SOUTH_SUDAN.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 4.0",
+    "commonsTitle": "File:MAJESTIC_VIEW_OF_WHITE_NILE_,_JUBA,_SOUTH_SUDAN.jpg"
+  },
+  "niger": {
+    "placeName": "Air Mountains",
+    "countryName": "Niger",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/%D8%A7%D9%84%D9%83%D8%A7%D9%84_%D8%B9%D9%8A%D8%B1_%D8%A7%D9%84%D9%86%D9%8A%D8%AC%D8%B1.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:\u0627\u0644\u0643\u0627\u0644_\u0639\u064a\u0631_\u0627\u0644\u0646\u064a\u062c\u0631.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 4.0",
+    "commonsTitle": "File:\u0627\u0644\u0643\u0627\u0644_\u0639\u064a\u0631_\u0627\u0644\u0646\u064a\u062c\u0631.jpg"
+  },
+  "eritrea": {
+    "placeName": "Asmara Modernist Architecture",
+    "countryName": "Eritrea",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Italian_Colonial_Building_%2C_Asmara%2C_Eritrea_%2830660748782%29.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Italian_Colonial_Building_,_Asmara,_Eritrea_(30660748782).jpg",
+    "photographer": "David Stanley",
+    "license": "CC BY-SA 2.0",
+    "commonsTitle": "File:Italian_Colonial_Building_,_Asmara,_Eritrea_(30660748782).jpg"
+  },
+  "eswatini": {
+    "placeName": "Sibebe Rock",
+    "countryName": "Eswatini",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Granite_monolith.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Granite_monolith.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "commonsTitle": "File:Granite_monolith.jpg"
+  },
+  "angola": {
+    "placeName": "Kissama National Park",
+    "countryName": "Angola",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/Luanda_Bay_-_panoramio.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luanda_Bay_-_panoramio.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY 3.0",
+    "commonsTitle": "File:Luanda_Bay_-_panoramio.jpg"
+  },
+  "equatorial-guinea": {
+    "placeName": "Pico Basile",
+    "countryName": "Equatorial Guinea",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/The_Great_Bioko_mountain.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Great_Bioko_mountain.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 4.0",
+    "commonsTitle": "File:The_Great_Bioko_mountain.jpg"
+  },
+  "kiribati": {
+    "placeName": "Christmas Island (Kiritimati)",
+    "countryName": "Kiribati",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Teaoraereke%2C_South_Tarawa%2C_Kiribati.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Teaoraereke,_South_Tarawa,_Kiribati.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 4.0",
+    "commonsTitle": "File:Teaoraereke,_South_Tarawa,_Kiribati.jpg"
+  },
+  "sao-tome-and-principe": {
+    "placeName": "Obo Natural Parks",
+    "countryName": "Sao Tome and Principe",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Sao_Tome_%26_Principe%2C_fishermen%27s_beach_launch_area.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sao_Tome_&_Principe,_fishermen's_beach_launch_area.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "commonsTitle": "File:Sao_Tome_&_Principe,_fishermen's_beach_launch_area.jpg"
+  },
+  "suriname": {
+    "placeName": "Historic Inner City of Paramaribo",
+    "countryName": "Suriname",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Paramaribo_2026_-_02.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paramaribo_2026_-_02.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 4.0",
+    "commonsTitle": "File:Paramaribo_2026_-_02.jpg"
+  },
+  "solomon-islands": {
+    "placeName": "Marovo Lagoon",
+    "countryName": "Solomon Islands",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Palm_Tree_at_Marovo_Lagoon_%2816_August_2008%29.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palm_Tree_at_Marovo_Lagoon_(16_August_2008).jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY 2.0",
+    "commonsTitle": "File:Palm_Tree_at_Marovo_Lagoon_(16_August_2008).jpg",
+    "score": 99
+  },
+  "timor-leste": {
+    "placeName": "Christo Rei",
+    "countryName": "Timor-Leste",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Cristo_Rei_Dili_Timor_Leste_2.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cristo_Rei_Dili_Timor_Leste_2.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY 4.0",
+    "commonsTitle": "File:Cristo_Rei_Dili_Timor_Leste_2.jpg",
+    "score": 99
+  },
+  "paraguay": {
+    "placeName": "Jesuit Missions of La Santisima Trinidad",
+    "countryName": "Paraguay",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/General_view_of_the_Jesuit_mission_of_La_Sant%C3%ADsima_Trinidad_de_Paran%C3%A1%2C_Paraguay.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:General_view_of_the_Jesuit_mission_of_La_Sant%C3%ADsima_Trinidad_de_Paran%C3%A1,_Paraguay.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 4.0",
+    "commonsTitle": "File:General_view_of_the_Jesuit_mission_of_La_Sant\u00edsima_Trinidad_de_Paran\u00e1,_Paraguay.jpg",
+    "score": 99
+  },
+  "korea-north": {
+    "placeName": "Mount Paektu",
+    "countryName": "North Korea",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/Tianchi_Lake_of_Changbai_20130714.jpeg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tianchi_Lake_of_Changbai_20130714.jpeg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "commonsTitle": "File:Tianchi_Lake_of_Changbai_20130714.jpeg",
+    "score": 99
+  },
+  "belize": {
+    "placeName": "Great Blue Hole",
+    "countryName": "Belize",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Great_Blue_Hole_Belize.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Great_Blue_Hole_Belize.jpg",
+    "photographer": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 4.0",
+    "commonsTitle": "File:Great_Blue_Hole_Belize.jpg",
+    "score": 99
+  }
+}

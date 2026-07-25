@@ -181,6 +181,38 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'space') {
+    // A ringed planet with a few field-guide stars.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="116" cy="118" r="48" stroke={faint} strokeWidth="1.4" />
+          <circle cx="116" cy="118" r="48" stroke={stroke} strokeWidth="1.7" />
+          <ellipse
+            cx="116"
+            cy="118"
+            rx="86"
+            ry="22"
+            stroke={stroke}
+            strokeWidth="1.55"
+            transform="rotate(-18 116 118)"
+          />
+          <path
+            d="M52 58l3.2 8.4 8.8 1.2-6.8 5.8 2.2 8.6L52 77.2 44.6 82l2.2-8.6-6.8-5.8 8.8-1.2zM178 46l2.4 6.2 6.6.9-5.1 4.4 1.6 6.4L178 60.2l-5.5 3.7 1.6-6.4-5.1-4.4 6.6-.9zM186 168l2 5.2 5.4.8-4.2 3.6 1.4 5.2L186 180l-4.6 3.1 1.4-5.2-4.2-3.6 5.4-.8z"
+            stroke={stroke}
+            strokeWidth="1.45"
+          />
+        </g>
+      </svg>
+    )
+  }
+
   if (section === 'gallery') {
     return (
       <svg

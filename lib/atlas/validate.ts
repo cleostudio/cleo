@@ -114,8 +114,8 @@ function validateEntry(entry: AtlasEntry, slug: string) {
     throw new AtlasValidationError(`${ctx}: photo.photographer missing`)
   }
   assertHttps(photo.sourceUrl, `${ctx} photo.sourceUrl`)
-  if (photo.license !== 'Pexels License') {
-    throw new AtlasValidationError(`${ctx}: photo.license must be Pexels License`)
+  if (!photo.license.trim()) {
+    throw new AtlasValidationError(`${ctx}: photo.license missing`)
   }
   if (!photo.provenance.trim()) throw new AtlasValidationError(`${ctx}: photo.provenance missing`)
   if (!/^[a-f0-9]{64}$/.test(photo.checksum)) {
