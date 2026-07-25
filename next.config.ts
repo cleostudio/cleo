@@ -60,11 +60,19 @@ const nextConfig: NextConfig = {
 
   images: {
     // Post images are served from content/ via app/content/[...path]/route.ts;
-    // other static media live in public/images
+    // other static media live in public/images. Country place photos are
+    // baked Unsplash CDN URLs (no Unsplash API key).
     localPatterns: [
       { pathname: '/content/**' },
       { pathname: '/images/**' },
       { pathname: '/_next/static/**' },
+    ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/photo-*',
+      },
     ],
   },
 

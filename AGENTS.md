@@ -1,8 +1,12 @@
 # Cleo
 
 This repository hosts the **Cleo** site (v3, English-only) with Explore country
-pages at `/explore`, and a general-purpose AI agent mounted as a public dock
-page at `/cleo`.
+pages at `/explore` (about + place photo per country), a Photos masonry of those
+places at `/photos`, and a general-purpose AI agent on the dock at `/cleo`.
+
+Country guides live in `content/country-guides.json` (regenerate with
+`pnpm generate:country-guides`). Place images are baked Unsplash CDN URLs —
+not a third-party product API.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

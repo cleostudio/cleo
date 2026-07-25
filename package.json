@@ -27,6 +27,7 @@
     "verify:legacy-urls": "node scripts/verify-legacy-url-contract.mjs",
     "verify:links": "node scripts/verify-public-links.mjs",
     "verify:public-discovery": "node scripts/verify-public-discovery.mjs",
+    "generate:country-guides": "tsx scripts/generate-country-guides.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

@@ -11,7 +11,8 @@ export const publicPageMetadata = {
   },
   photos: {
     title: 'Photos',
-    description: 'Moments Cleo has kept from work, life, and everywhere in between.',
+    description:
+      'Beautiful places across every country — open a photograph to read its Explore page.',
   },
   projects: {
     title: 'Projects',
@@ -21,7 +22,7 @@ export const publicPageMetadata = {
   explore: {
     title: 'Explore',
     description:
-      'A guide to every country on Earth — open a page for each place and keep adding notes as you go.',
+      'A guide to every country on Earth — a short about, a beautiful place, and a path into more.',
   },
   cleo: {
     title: 'Cleo',

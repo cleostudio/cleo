@@ -1,5 +1,7 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
+import { photoPreviewGuides, allCountryGuides } from '~/lib/country-guides'
 import { T } from '~/lib/i18n'
 import { localePath, type Locale } from '~/lib/locale-route'
 
@@ -93,6 +95,9 @@ export function NavCards({
 }
 
 export function PhotoNavCard({ locale = 'en' }: { locale?: Locale }) {
+  const previews = photoPreviewGuides(3)
+  const count = allCountryGuides().length
+
   return (
     <Link
       href={localePath(locale, '/photos')}
@@ -100,19 +105,28 @@ export function PhotoNavCard({ locale = 'en' }: { locale?: Locale }) {
       style={{ '--enter-delay': '190ms' } as React.CSSProperties}
     >
       <span className="nc-vignette nc-polaroids" aria-hidden>
-        {Array.from({ length: 3 }, (_, i) => (
+        {previews.map((guide, i) => (
           <span
-            key={i}
-            className="nc-polaroid nc-polaroid-placeholder"
+            key={guide.slug}
+            className="nc-polaroid"
             style={{ '--i': i } as React.CSSProperties}
-          />
+          >
+            <Image
+              src={guide.place.image}
+              alt=""
+              width={64}
+              height={56}
+              className="object-cover"
+              sizes="64px"
+            />
+          </span>
         ))}
       </span>
       <span className="nc-label">
         <T zh="照片" en="Photos" />
       </span>
       <span className="nc-sub">
-        <T zh="0 张照片" en="0 photos" />
+        <T zh={`${count} 张照片`} en={`${count} photos`} />
       </span>
     </Link>
   )

@@ -19,7 +19,8 @@ describe('public page metadata copy', () => {
     })
     expect(publicPageMetadata.photos).toEqual({
       title: 'Photos',
-      description: 'Moments Cleo has kept from work, life, and everywhere in between.',
+      description:
+        'Beautiful places across every country — open a photograph to read its Explore page.',
     })
     expect(publicPageMetadata.projects).toEqual({
       title: 'Projects',
@@ -29,7 +30,7 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.explore).toEqual({
       title: 'Explore',
       description:
-        'A guide to every country on Earth — open a page for each place and keep adding notes as you go.',
+        'A guide to every country on Earth — a short about, a beautiful place, and a path into more.',
     })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',

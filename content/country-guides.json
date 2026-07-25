@@ -1,0 +1,2732 @@
+{
+  "afghanistan": {
+    "code": "AF",
+    "name": "Afghanistan",
+    "slug": "afghanistan",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "about": "Afghanistan sits in Southern Asia, part of Asia — a place where geography still sets the pace of a day. Travelers often start with Band-e Amir lakes, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Band-e Amir lakes",
+      "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Band-e Amir lakes in Afghanistan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "albania": {
+    "code": "AL",
+    "name": "Albania",
+    "slug": "albania",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "Albania sits in Southern Europe, part of Europe — a place where geography still sets the pace of a day. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Berat old town",
+      "image": "https://images.unsplash.com/photo-1516483638261-75a2190b14de?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Berat old town in Albania",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "algeria": {
+    "code": "DZ",
+    "name": "Algeria",
+    "slug": "algeria",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "about": "In Northern Africa, Algeria gathers coastlines, highlands, and towns into one compact story of Africa. Travelers often start with Sahara dunes near Timimoun, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Sahara dunes near Timimoun",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Sahara dunes near Timimoun in Algeria",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "andorra": {
+    "code": "AD",
+    "name": "Andorra",
+    "slug": "andorra",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "In Southern Europe, Andorra gathers coastlines, highlands, and towns into one compact story of Europe. undefined undefined",
+    "place": {
+      "name": "Coma Pedrosa peaks",
+      "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Coma Pedrosa peaks in Andorra",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "angola": {
+    "code": "AO",
+    "name": "Angola",
+    "slug": "angola",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "about": "Angola belongs to Middle Africa in Africa, with landscapes that reward slow looking. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Tundavala Gap",
+      "image": "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Tundavala Gap in Angola",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "antigua-and-barbuda": {
+    "code": "AG",
+    "name": "Antigua and Barbuda",
+    "slug": "antigua-and-barbuda",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "In Caribbean, Antigua and Barbuda gathers coastlines, highlands, and towns into one compact story of Americas. Spend time around Dickenson Bay: it captures the textures people remember long after the itinerary fades. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Dickenson Bay",
+      "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Dickenson Bay in Antigua and Barbuda",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "argentina": {
+    "code": "AR",
+    "name": "Argentina",
+    "slug": "argentina",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "From South America to the wider map of Americas, Argentina keeps a distinctive sense of place. Travelers often start with Perito Moreno Glacier, where light, weather, and terrain do most of the talking. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Perito Moreno Glacier",
+      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Perito Moreno Glacier in Argentina",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "armenia": {
+    "code": "AM",
+    "name": "Armenia",
+    "slug": "armenia",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "In Western Asia, Armenia gathers coastlines, highlands, and towns into one compact story of Asia. undefined undefined",
+    "place": {
+      "name": "Tatev Monastery",
+      "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Tatev Monastery in Armenia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "australia": {
+    "code": "AU",
+    "name": "Australia",
+    "slug": "australia",
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "about": "Australia sits in Australia and New Zealand, part of Oceania — a place where geography still sets the pace of a day. Travelers often start with Uluru at dawn, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Uluru at dawn",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Uluru at dawn in Australia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "austria": {
+    "code": "AT",
+    "name": "Austria",
+    "slug": "austria",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "about": "In Western Europe, Austria gathers coastlines, highlands, and towns into one compact story of Europe. undefined undefined",
+    "place": {
+      "name": "Hallstatt on the lake",
+      "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Hallstatt on the lake in Austria",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "azerbaijan": {
+    "code": "AZ",
+    "name": "Azerbaijan",
+    "slug": "azerbaijan",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "From Western Asia to the wider map of Asia, Azerbaijan keeps a distinctive sense of place. Spend time around Old City of Baku: it captures the textures people remember long after the itinerary fades. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Old City of Baku",
+      "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Old City of Baku in Azerbaijan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "bahamas": {
+    "code": "BS",
+    "name": "Bahamas",
+    "slug": "bahamas",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "From Caribbean to the wider map of Americas, Bahamas keeps a distinctive sense of place. Travelers often start with Exuma sandbars, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Exuma sandbars",
+      "image": "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Exuma sandbars in Bahamas",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "bahrain": {
+    "code": "BH",
+    "name": "Bahrain",
+    "slug": "bahrain",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "In Western Asia, Bahrain gathers coastlines, highlands, and towns into one compact story of Asia. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Manama corniche at dusk",
+      "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Manama corniche at dusk in Bahrain",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "bangladesh": {
+    "code": "BD",
+    "name": "Bangladesh",
+    "slug": "bangladesh",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "about": "From Southern Asia to the wider map of Asia, Bangladesh keeps a distinctive sense of place. Travelers often start with Sundarbans mangrove waterways, where light, weather, and terrain do most of the talking. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Sundarbans mangrove waterways",
+      "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Sundarbans mangrove waterways in Bangladesh",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "barbados": {
+    "code": "BB",
+    "name": "Barbados",
+    "slug": "barbados",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "Barbados belongs to Caribbean in Americas, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Bathsheba coast",
+      "image": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Bathsheba coast in Barbados",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "belarus": {
+    "code": "BY",
+    "name": "Belarus",
+    "slug": "belarus",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "about": "Belarus sits in Eastern Europe, part of Europe — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Mir Castle",
+      "image": "https://images.unsplash.com/photo-1467269234592-1990dabc067a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Mir Castle in Belarus",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "belgium": {
+    "code": "BE",
+    "name": "Belgium",
+    "slug": "belgium",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "about": "From Western Europe to the wider map of Europe, Belgium keeps a distinctive sense of place. Travelers often start with Ghent canal houses, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Ghent canal houses",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Ghent canal houses in Belgium",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "belize": {
+    "code": "BZ",
+    "name": "Belize",
+    "slug": "belize",
+    "region": "Americas",
+    "subregion": "Central America",
+    "about": "From Central America to the wider map of Americas, Belize keeps a distinctive sense of place. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Great Blue Hole",
+      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Great Blue Hole in Belize",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "benin": {
+    "code": "BJ",
+    "name": "Benin",
+    "slug": "benin",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "Benin sits in Western Africa, part of Africa — a place where geography still sets the pace of a day. Spend time around Ganvié lake village: it captures the textures people remember long after the itinerary fades. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Ganvié lake village",
+      "image": "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Ganvié lake village in Benin",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "bhutan": {
+    "code": "BT",
+    "name": "Bhutan",
+    "slug": "bhutan",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "about": "Bhutan belongs to Southern Asia in Asia, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Tiger’s Nest Monastery",
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Tiger’s Nest Monastery in Bhutan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "bolivia": {
+    "code": "BO",
+    "name": "Bolivia",
+    "slug": "bolivia",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "Bolivia sits in South America, part of Americas — a place where geography still sets the pace of a day. Travelers often start with Salar de Uyuni, where light, weather, and terrain do most of the talking. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Salar de Uyuni",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Salar de Uyuni in Bolivia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "bosnia-and-herzegovina": {
+    "code": "BA",
+    "name": "Bosnia and Herzegovina",
+    "slug": "bosnia-and-herzegovina",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "From Southern Europe to the wider map of Europe, Bosnia and Herzegovina keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Stari Most, Mostar",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Stari Most, Mostar in Bosnia and Herzegovina",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "botswana": {
+    "code": "BW",
+    "name": "Botswana",
+    "slug": "botswana",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "about": "In Southern Africa, Botswana gathers coastlines, highlands, and towns into one compact story of Africa. undefined undefined",
+    "place": {
+      "name": "Okavango Delta",
+      "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Okavango Delta in Botswana",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "brazil": {
+    "code": "BR",
+    "name": "Brazil",
+    "slug": "brazil",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "Brazil sits in South America, part of Americas — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Sugarloaf Mountain, Rio",
+      "image": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Sugarloaf Mountain, Rio in Brazil",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "brunei": {
+    "code": "BN",
+    "name": "Brunei",
+    "slug": "brunei",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "In South-eastern Asia, Brunei gathers coastlines, highlands, and towns into one compact story of Asia. undefined undefined",
+    "place": {
+      "name": "Kampong Ayer water village",
+      "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Kampong Ayer water village in Brunei",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "bulgaria": {
+    "code": "BG",
+    "name": "Bulgaria",
+    "slug": "bulgaria",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "about": "From Eastern Europe to the wider map of Europe, Bulgaria keeps a distinctive sense of place. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Rila Monastery",
+      "image": "https://images.unsplash.com/photo-1555881400-74d7acaacdba?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Rila Monastery in Bulgaria",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "burkina-faso": {
+    "code": "BF",
+    "name": "Burkina Faso",
+    "slug": "burkina-faso",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "Burkina Faso sits in Western Africa, part of Africa — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Cascades de Banfora",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Cascades de Banfora in Burkina Faso",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "burundi": {
+    "code": "BI",
+    "name": "Burundi",
+    "slug": "burundi",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "In Eastern Africa, Burundi gathers coastlines, highlands, and towns into one compact story of Africa. A stop at Lake Tanganyika shore makes the country’s character concrete — color, air, and horizon in one frame. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Lake Tanganyika shore",
+      "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Lake Tanganyika shore in Burundi",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "cabo-verde": {
+    "code": "CV",
+    "name": "Cabo Verde",
+    "slug": "cabo-verde",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "Cabo Verde belongs to Western Africa in Africa, with landscapes that reward slow looking. Travelers often start with Pico do Fogo crater, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Pico do Fogo crater",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Pico do Fogo crater in Cabo Verde",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "cambodia": {
+    "code": "KH",
+    "name": "Cambodia",
+    "slug": "cambodia",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "Cambodia sits in South-eastern Asia, part of Asia — a place where geography still sets the pace of a day. Travelers often start with Angkor Wat at sunrise, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Angkor Wat at sunrise",
+      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Angkor Wat at sunrise in Cambodia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "cameroon": {
+    "code": "CM",
+    "name": "Cameroon",
+    "slug": "cameroon",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "about": "Cameroon belongs to Middle Africa in Africa, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Mount Cameroon slopes",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Mount Cameroon slopes in Cameroon",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "canada": {
+    "code": "CA",
+    "name": "Canada",
+    "slug": "canada",
+    "region": "Americas",
+    "subregion": "Northern America",
+    "about": "Canada belongs to Northern America in Americas, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Moraine Lake, Banff",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Moraine Lake, Banff in Canada",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "central-african-republic": {
+    "code": "CF",
+    "name": "Central African Republic",
+    "slug": "central-african-republic",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "about": "In Middle Africa, Central African Republic gathers coastlines, highlands, and towns into one compact story of Africa. Dzanga Bai forest clearing is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Dzanga Bai forest clearing",
+      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Dzanga Bai forest clearing in Central African Republic",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "chad": {
+    "code": "TD",
+    "name": "Chad",
+    "slug": "chad",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "about": "Chad sits in Middle Africa, part of Africa — a place where geography still sets the pace of a day. Ennedi Plateau arches is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Ennedi Plateau arches",
+      "image": "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Ennedi Plateau arches in Chad",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "chile": {
+    "code": "CL",
+    "name": "Chile",
+    "slug": "chile",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "In South America, Chile gathers coastlines, highlands, and towns into one compact story of Americas. A stop at Torres del Paine makes the country’s character concrete — color, air, and horizon in one frame. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Torres del Paine",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Torres del Paine in Chile",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "china": {
+    "code": "CN",
+    "name": "China",
+    "slug": "china",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "about": "From Eastern Asia to the wider map of Asia, China keeps a distinctive sense of place. Spend time around Li River, Guilin: it captures the textures people remember long after the itinerary fades. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Li River, Guilin",
+      "image": "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Li River, Guilin in China",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "colombia": {
+    "code": "CO",
+    "name": "Colombia",
+    "slug": "colombia",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "Colombia sits in South America, part of Americas — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Cocora Valley wax palms",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Cocora Valley wax palms in Colombia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "comoros": {
+    "code": "KM",
+    "name": "Comoros",
+    "slug": "comoros",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "Comoros sits in Eastern Africa, part of Africa — a place where geography still sets the pace of a day. Mount Karthala is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Mount Karthala",
+      "image": "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Mount Karthala in Comoros",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "congo": {
+    "code": "CG",
+    "name": "Congo",
+    "slug": "congo",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "about": "Congo belongs to Middle Africa in Africa, with landscapes that reward slow looking. Congo Basin canopy is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Congo Basin canopy",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Congo Basin canopy in Congo",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "congo-democratic-republic-of-the": {
+    "code": "CD",
+    "name": "Congo, Democratic Republic of the",
+    "slug": "congo-democratic-republic-of-the",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "about": "In Middle Africa, Congo, Democratic Republic of the gathers coastlines, highlands, and towns into one compact story of Africa. Travelers often start with Virunga volcanoes, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Virunga volcanoes",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Virunga volcanoes in Congo, Democratic Republic of the",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "costa-rica": {
+    "code": "CR",
+    "name": "Costa Rica",
+    "slug": "costa-rica",
+    "region": "Americas",
+    "subregion": "Central America",
+    "about": "Costa Rica belongs to Central America in Americas, with landscapes that reward slow looking. Arenal Volcano is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Arenal Volcano",
+      "image": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Arenal Volcano in Costa Rica",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "cote-divoire": {
+    "code": "CI",
+    "name": "Côte d'Ivoire",
+    "slug": "cote-divoire",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "Côte d'Ivoire belongs to Western Africa in Africa, with landscapes that reward slow looking. Basilica of Our Lady of Peace is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Basilica of Our Lady of Peace",
+      "image": "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Basilica of Our Lady of Peace in Côte d'Ivoire",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "croatia": {
+    "code": "HR",
+    "name": "Croatia",
+    "slug": "croatia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "From Southern Europe to the wider map of Europe, Croatia keeps a distinctive sense of place. Plitvice Lakes is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Plitvice Lakes",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Plitvice Lakes in Croatia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "cuba": {
+    "code": "CU",
+    "name": "Cuba",
+    "slug": "cuba",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "In Caribbean, Cuba gathers coastlines, highlands, and towns into one compact story of Americas. Spend time around Viñales Valley: it captures the textures people remember long after the itinerary fades. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Viñales Valley",
+      "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Viñales Valley in Cuba",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "cyprus": {
+    "code": "CY",
+    "name": "Cyprus",
+    "slug": "cyprus",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "Cyprus belongs to Western Asia in Asia, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Akamas Peninsula",
+      "image": "https://images.unsplash.com/photo-1548786811-dd6e753970d0?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Akamas Peninsula in Cyprus",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "czechia": {
+    "code": "CZ",
+    "name": "Czechia",
+    "slug": "czechia",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "about": "From Eastern Europe to the wider map of Europe, Czechia keeps a distinctive sense of place. Charles Bridge, Prague is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Charles Bridge, Prague",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Charles Bridge, Prague in Czechia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "denmark": {
+    "code": "DK",
+    "name": "Denmark",
+    "slug": "denmark",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "about": "Denmark belongs to Northern Europe in Europe, with landscapes that reward slow looking. A stop at Nyhavn harbor makes the country’s character concrete — color, air, and horizon in one frame. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Nyhavn harbor",
+      "image": "https://images.unsplash.com/photo-1523906834658-6e24ef6506b4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Nyhavn harbor in Denmark",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "djibouti": {
+    "code": "DJ",
+    "name": "Djibouti",
+    "slug": "djibouti",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "Djibouti belongs to Eastern Africa in Africa, with landscapes that reward slow looking. A stop at Lake Assal makes the country’s character concrete — color, air, and horizon in one frame. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Lake Assal",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Lake Assal in Djibouti",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "dominica": {
+    "code": "DM",
+    "name": "Dominica",
+    "slug": "dominica",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "Dominica sits in Caribbean, part of Americas — a place where geography still sets the pace of a day. Travelers often start with Boiling Lake trail, where light, weather, and terrain do most of the talking. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Boiling Lake trail",
+      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Boiling Lake trail in Dominica",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "dominican-republic": {
+    "code": "DO",
+    "name": "Dominican Republic",
+    "slug": "dominican-republic",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "From Caribbean to the wider map of Americas, Dominican Republic keeps a distinctive sense of place. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Samaná Bay",
+      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Samaná Bay in Dominican Republic",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "ecuador": {
+    "code": "EC",
+    "name": "Ecuador",
+    "slug": "ecuador",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "In South America, Ecuador gathers coastlines, highlands, and towns into one compact story of Americas. undefined undefined",
+    "place": {
+      "name": "Galápagos coastline",
+      "image": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Galápagos coastline in Ecuador",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "egypt": {
+    "code": "EG",
+    "name": "Egypt",
+    "slug": "egypt",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "about": "From Northern Africa to the wider map of Africa, Egypt keeps a distinctive sense of place. A stop at Giza pyramids at dusk makes the country’s character concrete — color, air, and horizon in one frame. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Giza pyramids at dusk",
+      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Giza pyramids at dusk in Egypt",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "el-salvador": {
+    "code": "SV",
+    "name": "El Salvador",
+    "slug": "el-salvador",
+    "region": "Americas",
+    "subregion": "Central America",
+    "about": "El Salvador sits in Central America, part of Americas — a place where geography still sets the pace of a day. Travelers often start with Santa Ana Volcano, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Santa Ana Volcano",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Santa Ana Volcano in El Salvador",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "equatorial-guinea": {
+    "code": "GQ",
+    "name": "Equatorial Guinea",
+    "slug": "equatorial-guinea",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "about": "From Middle Africa to the wider map of Africa, Equatorial Guinea keeps a distinctive sense of place. Travelers often start with Bioko Island rainforest, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Bioko Island rainforest",
+      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Bioko Island rainforest in Equatorial Guinea",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "eritrea": {
+    "code": "ER",
+    "name": "Eritrea",
+    "slug": "eritrea",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "Eritrea belongs to Eastern Africa in Africa, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Dahlak Archipelago",
+      "image": "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Dahlak Archipelago in Eritrea",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "estonia": {
+    "code": "EE",
+    "name": "Estonia",
+    "slug": "estonia",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "about": "In Northern Europe, Estonia gathers coastlines, highlands, and towns into one compact story of Europe. undefined undefined",
+    "place": {
+      "name": "Tallinn old town",
+      "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Tallinn old town in Estonia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "eswatini": {
+    "code": "SZ",
+    "name": "Eswatini",
+    "slug": "eswatini",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "about": "Eswatini sits in Southern Africa, part of Africa — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Mlilwane wildlife hills",
+      "image": "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Mlilwane wildlife hills in Eswatini",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "ethiopia": {
+    "code": "ET",
+    "name": "Ethiopia",
+    "slug": "ethiopia",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "In Eastern Africa, Ethiopia gathers coastlines, highlands, and towns into one compact story of Africa. undefined undefined",
+    "place": {
+      "name": "Simien Mountains",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Simien Mountains in Ethiopia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "fiji": {
+    "code": "FJ",
+    "name": "Fiji",
+    "slug": "fiji",
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "about": "Fiji belongs to Melanesia in Oceania, with landscapes that reward slow looking. Travelers often start with Yasawa Islands reef, where light, weather, and terrain do most of the talking. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Yasawa Islands reef",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Yasawa Islands reef in Fiji",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "finland": {
+    "code": "FI",
+    "name": "Finland",
+    "slug": "finland",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "about": "Finland belongs to Northern Europe in Europe, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Lapland northern lights",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Lapland northern lights in Finland",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "france": {
+    "code": "FR",
+    "name": "France",
+    "slug": "france",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "about": "From Western Europe to the wider map of Europe, France keeps a distinctive sense of place. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Mont Saint-Michel",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Mont Saint-Michel in France",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "gabon": {
+    "code": "GA",
+    "name": "Gabon",
+    "slug": "gabon",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "about": "From Middle Africa to the wider map of Africa, Gabon keeps a distinctive sense of place. Travelers often start with Loango coastline, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Loango coastline",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Loango coastline in Gabon",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "gambia": {
+    "code": "GM",
+    "name": "Gambia",
+    "slug": "gambia",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "From Western Africa to the wider map of Africa, Gambia keeps a distinctive sense of place. Travelers often start with River Gambia wetlands, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "River Gambia wetlands",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "River Gambia wetlands in Gambia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "georgia": {
+    "code": "GE",
+    "name": "Georgia",
+    "slug": "georgia",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "Georgia belongs to Western Asia in Asia, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Kazbegi and Mount Kazbek",
+      "image": "https://images.unsplash.com/photo-1548786811-dd6e753970d0?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Kazbegi and Mount Kazbek in Georgia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "germany": {
+    "code": "DE",
+    "name": "Germany",
+    "slug": "germany",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "about": "From Western Europe to the wider map of Europe, Germany keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Neuschwanstein Castle",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Neuschwanstein Castle in Germany",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "ghana": {
+    "code": "GH",
+    "name": "Ghana",
+    "slug": "ghana",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "From Western Africa to the wider map of Africa, Ghana keeps a distinctive sense of place. Spend time around Cape Coast shoreline: it captures the textures people remember long after the itinerary fades. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Cape Coast shoreline",
+      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Cape Coast shoreline in Ghana",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "greece": {
+    "code": "GR",
+    "name": "Greece",
+    "slug": "greece",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "In Southern Europe, Greece gathers coastlines, highlands, and towns into one compact story of Europe. undefined undefined",
+    "place": {
+      "name": "Santorini caldera",
+      "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Santorini caldera in Greece",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "grenada": {
+    "code": "GD",
+    "name": "Grenada",
+    "slug": "grenada",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "Grenada belongs to Caribbean in Americas, with landscapes that reward slow looking. Grand Anse Beach is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Grand Anse Beach",
+      "image": "https://images.unsplash.com/photo-1470071450321-d077b3c9f5b0?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Grand Anse Beach in Grenada",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "guatemala": {
+    "code": "GT",
+    "name": "Guatemala",
+    "slug": "guatemala",
+    "region": "Americas",
+    "subregion": "Central America",
+    "about": "In Central America, Guatemala gathers coastlines, highlands, and towns into one compact story of Americas. undefined undefined",
+    "place": {
+      "name": "Lake Atitlán",
+      "image": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Lake Atitlán in Guatemala",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "guinea": {
+    "code": "GN",
+    "name": "Guinea",
+    "slug": "guinea",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "From Western Africa to the wider map of Africa, Guinea keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Fouta Djallon highlands",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Fouta Djallon highlands in Guinea",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "guinea-bissau": {
+    "code": "GW",
+    "name": "Guinea-Bissau",
+    "slug": "guinea-bissau",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "In Western Africa, Guinea-Bissau gathers coastlines, highlands, and towns into one compact story of Africa. A stop at Bijagós Archipelago makes the country’s character concrete — color, air, and horizon in one frame. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Bijagós Archipelago",
+      "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Bijagós Archipelago in Guinea-Bissau",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "guyana": {
+    "code": "GY",
+    "name": "Guyana",
+    "slug": "guyana",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "In South America, Guyana gathers coastlines, highlands, and towns into one compact story of Americas. undefined undefined",
+    "place": {
+      "name": "Kaieteur Falls",
+      "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Kaieteur Falls in Guyana",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "haiti": {
+    "code": "HT",
+    "name": "Haiti",
+    "slug": "haiti",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "In Caribbean, Haiti gathers coastlines, highlands, and towns into one compact story of Americas. Travelers often start with Citadelle Laferrière, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Citadelle Laferrière",
+      "image": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Citadelle Laferrière in Haiti",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "honduras": {
+    "code": "HN",
+    "name": "Honduras",
+    "slug": "honduras",
+    "region": "Americas",
+    "subregion": "Central America",
+    "about": "Honduras sits in Central America, part of Americas — a place where geography still sets the pace of a day. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Copán ruins in mist",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Copán ruins in mist in Honduras",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "hungary": {
+    "code": "HU",
+    "name": "Hungary",
+    "slug": "hungary",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "about": "Hungary belongs to Eastern Europe in Europe, with landscapes that reward slow looking. Travelers often start with Parliament on the Danube, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Parliament on the Danube",
+      "image": "https://images.unsplash.com/photo-1523906834658-6e24ef6506b4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Parliament on the Danube in Hungary",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "iceland": {
+    "code": "IS",
+    "name": "Iceland",
+    "slug": "iceland",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "about": "Iceland belongs to Northern Europe in Europe, with landscapes that reward slow looking. Spend time around Skógafoss waterfall: it captures the textures people remember long after the itinerary fades. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Skógafoss waterfall",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Skógafoss waterfall in Iceland",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "india": {
+    "code": "IN",
+    "name": "India",
+    "slug": "india",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "about": "From Southern Asia to the wider map of Asia, India keeps a distinctive sense of place. Spend time around Taj Mahal at sunrise: it captures the textures people remember long after the itinerary fades. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Taj Mahal at sunrise",
+      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Taj Mahal at sunrise in India",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "indonesia": {
+    "code": "ID",
+    "name": "Indonesia",
+    "slug": "indonesia",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "Indonesia sits in South-eastern Asia, part of Asia — a place where geography still sets the pace of a day. Travelers often start with Tegallalang rice terraces, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Tegallalang rice terraces",
+      "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Tegallalang rice terraces in Indonesia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "iran": {
+    "code": "IR",
+    "name": "Iran",
+    "slug": "iran",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "about": "Iran belongs to Southern Asia in Asia, with landscapes that reward slow looking. Spend time around Nasir al-Mulk Mosque light: it captures the textures people remember long after the itinerary fades. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Nasir al-Mulk Mosque light",
+      "image": "https://images.unsplash.com/photo-1548786811-dd6e753970d0?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Nasir al-Mulk Mosque light in Iran",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "iraq": {
+    "code": "IQ",
+    "name": "Iraq",
+    "slug": "iraq",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "In Western Asia, Iraq gathers coastlines, highlands, and towns into one compact story of Asia. A stop at Erbil citadel makes the country’s character concrete — color, air, and horizon in one frame. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Erbil citadel",
+      "image": "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Erbil citadel in Iraq",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "ireland": {
+    "code": "IE",
+    "name": "Ireland",
+    "slug": "ireland",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "about": "From Northern Europe to the wider map of Europe, Ireland keeps a distinctive sense of place. Travelers often start with Cliffs of Moher, where light, weather, and terrain do most of the talking. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Cliffs of Moher",
+      "image": "https://images.unsplash.com/photo-1555881400-74d7acaacdba?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Cliffs of Moher in Ireland",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "israel": {
+    "code": "IL",
+    "name": "Israel",
+    "slug": "israel",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "Israel sits in Western Asia, part of Asia — a place where geography still sets the pace of a day. Travelers often start with Old City of Jerusalem, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Old City of Jerusalem",
+      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Old City of Jerusalem in Israel",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "italy": {
+    "code": "IT",
+    "name": "Italy",
+    "slug": "italy",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "From Southern Europe to the wider map of Europe, Italy keeps a distinctive sense of place. Travelers often start with Amalfi Coast, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Amalfi Coast",
+      "image": "https://images.unsplash.com/photo-1516483638261-75a2190b14de?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Amalfi Coast in Italy",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "jamaica": {
+    "code": "JM",
+    "name": "Jamaica",
+    "slug": "jamaica",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "Jamaica sits in Caribbean, part of Americas — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Blue Mountains ridgeline",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Blue Mountains ridgeline in Jamaica",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "japan": {
+    "code": "JP",
+    "name": "Japan",
+    "slug": "japan",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "about": "Japan belongs to Eastern Asia in Asia, with landscapes that reward slow looking. Travelers often start with Mount Fuji and cherry blossoms, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Mount Fuji and cherry blossoms",
+      "image": "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Mount Fuji and cherry blossoms in Japan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "jordan": {
+    "code": "JO",
+    "name": "Jordan",
+    "slug": "jordan",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "Jordan sits in Western Asia, part of Asia — a place where geography still sets the pace of a day. Travelers often start with Petra Treasury, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Petra Treasury",
+      "image": "https://images.unsplash.com/photo-1548786811-dd6e753970d0?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Petra Treasury in Jordan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "kazakhstan": {
+    "code": "KZ",
+    "name": "Kazakhstan",
+    "slug": "kazakhstan",
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "about": "Kazakhstan sits in Central Asia, part of Asia — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Charyn Canyon",
+      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Charyn Canyon in Kazakhstan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "kenya": {
+    "code": "KE",
+    "name": "Kenya",
+    "slug": "kenya",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "Kenya sits in Eastern Africa, part of Africa — a place where geography still sets the pace of a day. A stop at Maasai Mara savanna makes the country’s character concrete — color, air, and horizon in one frame. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Maasai Mara savanna",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Maasai Mara savanna in Kenya",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "kiribati": {
+    "code": "KI",
+    "name": "Kiribati",
+    "slug": "kiribati",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "about": "In Micronesia, Kiribati gathers coastlines, highlands, and towns into one compact story of Oceania. undefined undefined",
+    "place": {
+      "name": "Tarawa lagoon",
+      "image": "https://images.unsplash.com/photo-1478131143081-80fbd22d2b0e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Tarawa lagoon in Kiribati",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "korea-north": {
+    "code": "KP",
+    "name": "Korea, North",
+    "slug": "korea-north",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "about": "Korea, North belongs to Eastern Asia in Asia, with landscapes that reward slow looking. Travelers often start with Mount Paektu, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Mount Paektu",
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Mount Paektu in Korea, North",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "korea-south": {
+    "code": "KR",
+    "name": "Korea, South",
+    "slug": "korea-south",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "about": "Korea, South belongs to Eastern Asia in Asia, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Bukchon Hanok Village",
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Bukchon Hanok Village in Korea, South",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "kuwait": {
+    "code": "KW",
+    "name": "Kuwait",
+    "slug": "kuwait",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "From Western Asia to the wider map of Asia, Kuwait keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Kuwait Towers waterfront",
+      "image": "https://images.unsplash.com/photo-1512453979798-5ea7199d0b0b?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Kuwait Towers waterfront in Kuwait",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "kyrgyzstan": {
+    "code": "KG",
+    "name": "Kyrgyzstan",
+    "slug": "kyrgyzstan",
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "about": "Kyrgyzstan belongs to Central Asia in Asia, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Issyk-Kul lake shore",
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Issyk-Kul lake shore in Kyrgyzstan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "laos": {
+    "code": "LA",
+    "name": "Laos",
+    "slug": "laos",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "In South-eastern Asia, Laos gathers coastlines, highlands, and towns into one compact story of Asia. A stop at Luang Prabang temples makes the country’s character concrete — color, air, and horizon in one frame. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Luang Prabang temples",
+      "image": "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Luang Prabang temples in Laos",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "latvia": {
+    "code": "LV",
+    "name": "Latvia",
+    "slug": "latvia",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "about": "From Northern Europe to the wider map of Europe, Latvia keeps a distinctive sense of place. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Riga Art Nouveau streets",
+      "image": "https://images.unsplash.com/photo-1555881400-74d7acaacdba?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Riga Art Nouveau streets in Latvia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "lebanon": {
+    "code": "LB",
+    "name": "Lebanon",
+    "slug": "lebanon",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "In Western Asia, Lebanon gathers coastlines, highlands, and towns into one compact story of Asia. Spend time around Jeita Grotto: it captures the textures people remember long after the itinerary fades. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Jeita Grotto",
+      "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Jeita Grotto in Lebanon",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "lesotho": {
+    "code": "LS",
+    "name": "Lesotho",
+    "slug": "lesotho",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "about": "Lesotho belongs to Southern Africa in Africa, with landscapes that reward slow looking. Travelers often start with Maloti mountain passes, where light, weather, and terrain do most of the talking. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Maloti mountain passes",
+      "image": "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Maloti mountain passes in Lesotho",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "liberia": {
+    "code": "LR",
+    "name": "Liberia",
+    "slug": "liberia",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "Liberia belongs to Western Africa in Africa, with landscapes that reward slow looking. Robertsport surf coast is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Robertsport surf coast",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Robertsport surf coast in Liberia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "libya": {
+    "code": "LY",
+    "name": "Libya",
+    "slug": "libya",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "about": "In Northern Africa, Libya gathers coastlines, highlands, and towns into one compact story of Africa. Leptis Magna ruins is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Leptis Magna ruins",
+      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Leptis Magna ruins in Libya",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "liechtenstein": {
+    "code": "LI",
+    "name": "Liechtenstein",
+    "slug": "liechtenstein",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "about": "In Western Europe, Liechtenstein gathers coastlines, highlands, and towns into one compact story of Europe. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Vaduz Castle hillside",
+      "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Vaduz Castle hillside in Liechtenstein",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "lithuania": {
+    "code": "LT",
+    "name": "Lithuania",
+    "slug": "lithuania",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "about": "In Northern Europe, Lithuania gathers coastlines, highlands, and towns into one compact story of Europe. undefined undefined",
+    "place": {
+      "name": "Curonian Spit dunes",
+      "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Curonian Spit dunes in Lithuania",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "luxembourg": {
+    "code": "LU",
+    "name": "Luxembourg",
+    "slug": "luxembourg",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "about": "Luxembourg belongs to Western Europe in Europe, with landscapes that reward slow looking. Travelers often start with Luxembourg City casemates, where light, weather, and terrain do most of the talking. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Luxembourg City casemates",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Luxembourg City casemates in Luxembourg",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "madagascar": {
+    "code": "MG",
+    "name": "Madagascar",
+    "slug": "madagascar",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "Madagascar sits in Eastern Africa, part of Africa — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Avenue of the Baobabs",
+      "image": "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Avenue of the Baobabs in Madagascar",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "malawi": {
+    "code": "MW",
+    "name": "Malawi",
+    "slug": "malawi",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "From Eastern Africa to the wider map of Africa, Malawi keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Lake Malawi shoreline",
+      "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Lake Malawi shoreline in Malawi",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "malaysia": {
+    "code": "MY",
+    "name": "Malaysia",
+    "slug": "malaysia",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "From South-eastern Asia to the wider map of Asia, Malaysia keeps a distinctive sense of place. A stop at Langkawi skybridge views makes the country’s character concrete — color, air, and horizon in one frame. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Langkawi skybridge views",
+      "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Langkawi skybridge views in Malaysia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "maldives": {
+    "code": "MV",
+    "name": "Maldives",
+    "slug": "maldives",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "about": "From Southern Asia to the wider map of Asia, Maldives keeps a distinctive sense of place. Travelers often start with Maldivian overwater reef, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Maldivian overwater reef",
+      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Maldivian overwater reef in Maldives",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "mali": {
+    "code": "ML",
+    "name": "Mali",
+    "slug": "mali",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "In Western Africa, Mali gathers coastlines, highlands, and towns into one compact story of Africa. Spend time around Great Mosque of Djenné: it captures the textures people remember long after the itinerary fades. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Great Mosque of Djenné",
+      "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Great Mosque of Djenné in Mali",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "malta": {
+    "code": "MT",
+    "name": "Malta",
+    "slug": "malta",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "In Southern Europe, Malta gathers coastlines, highlands, and towns into one compact story of Europe. Travelers often start with Azure Window coast, Gozo, where light, weather, and terrain do most of the talking. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Azure Window coast, Gozo",
+      "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Azure Window coast, Gozo in Malta",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "marshall-islands": {
+    "code": "MH",
+    "name": "Marshall Islands",
+    "slug": "marshall-islands",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "about": "From Micronesia to the wider map of Oceania, Marshall Islands keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Majuro atoll lagoon",
+      "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Majuro atoll lagoon in Marshall Islands",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "mauritania": {
+    "code": "MR",
+    "name": "Mauritania",
+    "slug": "mauritania",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "In Western Africa, Mauritania gathers coastlines, highlands, and towns into one compact story of Africa. Travelers often start with Banc d’Arguin shores, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Banc d’Arguin shores",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Banc d’Arguin shores in Mauritania",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "mauritius": {
+    "code": "MU",
+    "name": "Mauritius",
+    "slug": "mauritius",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "From Eastern Africa to the wider map of Africa, Mauritius keeps a distinctive sense of place. Le Morne Brabant is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Le Morne Brabant",
+      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Le Morne Brabant in Mauritius",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "mexico": {
+    "code": "MX",
+    "name": "Mexico",
+    "slug": "mexico",
+    "region": "Americas",
+    "subregion": "Central America",
+    "about": "In Central America, Mexico gathers coastlines, highlands, and towns into one compact story of Americas. undefined undefined",
+    "place": {
+      "name": "Cenote in Yucatán",
+      "image": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Cenote in Yucatán in Mexico",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "micronesia": {
+    "code": "FM",
+    "name": "Micronesia",
+    "slug": "micronesia",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "about": "Micronesia sits in Micronesia, part of Oceania — a place where geography still sets the pace of a day. Spend time around Pohnpei waterfall jungle: it captures the textures people remember long after the itinerary fades. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Pohnpei waterfall jungle",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Pohnpei waterfall jungle in Micronesia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "moldova": {
+    "code": "MD",
+    "name": "Moldova",
+    "slug": "moldova",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "about": "Moldova sits in Eastern Europe, part of Europe — a place where geography still sets the pace of a day. Travelers often start with Orheiul Vechi monastery, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Orheiul Vechi monastery",
+      "image": "https://images.unsplash.com/photo-1467269234592-1990dabc067a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Orheiul Vechi monastery in Moldova",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "monaco": {
+    "code": "MC",
+    "name": "Monaco",
+    "slug": "monaco",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "about": "In Western Europe, Monaco gathers coastlines, highlands, and towns into one compact story of Europe. Travelers often start with Monte Carlo harbor, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Monte Carlo harbor",
+      "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Monte Carlo harbor in Monaco",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "mongolia": {
+    "code": "MN",
+    "name": "Mongolia",
+    "slug": "mongolia",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "about": "Mongolia sits in Eastern Asia, part of Asia — a place where geography still sets the pace of a day. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Orkhon Valley steppe",
+      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Orkhon Valley steppe in Mongolia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "montenegro": {
+    "code": "ME",
+    "name": "Montenegro",
+    "slug": "montenegro",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "Montenegro sits in Southern Europe, part of Europe — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Bay of Kotor",
+      "image": "https://images.unsplash.com/photo-1467269234592-1990dabc067a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Bay of Kotor in Montenegro",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "morocco": {
+    "code": "MA",
+    "name": "Morocco",
+    "slug": "morocco",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "about": "Morocco sits in Northern Africa, part of Africa — a place where geography still sets the pace of a day. Spend time around Chefchaouen blue streets: it captures the textures people remember long after the itinerary fades. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Chefchaouen blue streets",
+      "image": "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Chefchaouen blue streets in Morocco",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "mozambique": {
+    "code": "MZ",
+    "name": "Mozambique",
+    "slug": "mozambique",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "Mozambique belongs to Eastern Africa in Africa, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Bazaruto Archipelago",
+      "image": "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Bazaruto Archipelago in Mozambique",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "myanmar": {
+    "code": "MM",
+    "name": "Myanmar",
+    "slug": "myanmar",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "In South-eastern Asia, Myanmar gathers coastlines, highlands, and towns into one compact story of Asia. Travelers often start with Bagan temple plains, where light, weather, and terrain do most of the talking. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Bagan temple plains",
+      "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Bagan temple plains in Myanmar",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "namibia": {
+    "code": "NA",
+    "name": "Namibia",
+    "slug": "namibia",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "about": "From Southern Africa to the wider map of Africa, Namibia keeps a distinctive sense of place. Deadvlei and dunes is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Deadvlei and dunes",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Deadvlei and dunes in Namibia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "nauru": {
+    "code": "NR",
+    "name": "Nauru",
+    "slug": "nauru",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "about": "In Micronesia, Nauru gathers coastlines, highlands, and towns into one compact story of Oceania. Travelers often start with Nauru coastal cliff line, where light, weather, and terrain do most of the talking. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Nauru coastal cliff line",
+      "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Nauru coastal cliff line in Nauru",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "nepal": {
+    "code": "NP",
+    "name": "Nepal",
+    "slug": "nepal",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "about": "Nepal sits in Southern Asia, part of Asia — a place where geography still sets the pace of a day. Travelers often start with Everest Base Camp trail, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Everest Base Camp trail",
+      "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Everest Base Camp trail in Nepal",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "netherlands": {
+    "code": "NL",
+    "name": "Netherlands",
+    "slug": "netherlands",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "about": "Netherlands sits in Western Europe, part of Europe — a place where geography still sets the pace of a day. Spend time around Kinderdijk windmills: it captures the textures people remember long after the itinerary fades. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Kinderdijk windmills",
+      "image": "https://images.unsplash.com/photo-1467269234592-1990dabc067a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Kinderdijk windmills in Netherlands",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "new-zealand": {
+    "code": "NZ",
+    "name": "New Zealand",
+    "slug": "new-zealand",
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "about": "New Zealand sits in Australia and New Zealand, part of Oceania — a place where geography still sets the pace of a day. Spend time around Milford Sound: it captures the textures people remember long after the itinerary fades. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Milford Sound",
+      "image": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Milford Sound in New Zealand",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "nicaragua": {
+    "code": "NI",
+    "name": "Nicaragua",
+    "slug": "nicaragua",
+    "region": "Americas",
+    "subregion": "Central America",
+    "about": "From Central America to the wider map of Americas, Nicaragua keeps a distinctive sense of place. Isletas of Granada is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Isletas of Granada",
+      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Isletas of Granada in Nicaragua",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "niger": {
+    "code": "NE",
+    "name": "Niger",
+    "slug": "niger",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "In Western Africa, Niger gathers coastlines, highlands, and towns into one compact story of Africa. A stop at Aïr Mountains makes the country’s character concrete — color, air, and horizon in one frame. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Aïr Mountains",
+      "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Aïr Mountains in Niger",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "nigeria": {
+    "code": "NG",
+    "name": "Nigeria",
+    "slug": "nigeria",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "In Western Africa, Nigeria gathers coastlines, highlands, and towns into one compact story of Africa. Spend time around Olumo Rock: it captures the textures people remember long after the itinerary fades. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Olumo Rock",
+      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Olumo Rock in Nigeria",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "north-macedonia": {
+    "code": "MK",
+    "name": "North Macedonia",
+    "slug": "north-macedonia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "In Southern Europe, North Macedonia gathers coastlines, highlands, and towns into one compact story of Europe. A stop at Ohrid lake town makes the country’s character concrete — color, air, and horizon in one frame. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Ohrid lake town",
+      "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Ohrid lake town in North Macedonia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "norway": {
+    "code": "NO",
+    "name": "Norway",
+    "slug": "norway",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "about": "Norway belongs to Northern Europe in Europe, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Geirangerfjord",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Geirangerfjord in Norway",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "oman": {
+    "code": "OM",
+    "name": "Oman",
+    "slug": "oman",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "From Western Asia to the wider map of Asia, Oman keeps a distinctive sense of place. Wadi Shab gorge is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Wadi Shab gorge",
+      "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Wadi Shab gorge in Oman",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "pakistan": {
+    "code": "PK",
+    "name": "Pakistan",
+    "slug": "pakistan",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "about": "In Southern Asia, Pakistan gathers coastlines, highlands, and towns into one compact story of Asia. A stop at Hunza Valley makes the country’s character concrete — color, air, and horizon in one frame. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Hunza Valley",
+      "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Hunza Valley in Pakistan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "palau": {
+    "code": "PW",
+    "name": "Palau",
+    "slug": "palau",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "about": "From Micronesia to the wider map of Oceania, Palau keeps a distinctive sense of place. Jellyfish Lake is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Jellyfish Lake",
+      "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Jellyfish Lake in Palau",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "palestine": {
+    "code": "PS",
+    "name": "Palestine",
+    "slug": "palestine",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "In Western Asia, Palestine gathers coastlines, highlands, and towns into one compact story of Asia. Spend time around Old City of Nablus hills: it captures the textures people remember long after the itinerary fades. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Old City of Nablus hills",
+      "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Old City of Nablus hills in Palestine",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "panama": {
+    "code": "PA",
+    "name": "Panama",
+    "slug": "panama",
+    "region": "Americas",
+    "subregion": "Central America",
+    "about": "Panama sits in Central America, part of Americas — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "San Blas islands",
+      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "San Blas islands in Panama",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "papua-new-guinea": {
+    "code": "PG",
+    "name": "Papua New Guinea",
+    "slug": "papua-new-guinea",
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "about": "Papua New Guinea belongs to Melanesia in Oceania, with landscapes that reward slow looking. A stop at Kokoda Track rainforest makes the country’s character concrete — color, air, and horizon in one frame. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Kokoda Track rainforest",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Kokoda Track rainforest in Papua New Guinea",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "paraguay": {
+    "code": "PY",
+    "name": "Paraguay",
+    "slug": "paraguay",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "Paraguay belongs to South America in Americas, with landscapes that reward slow looking. Travelers often start with Iguazú from the Paraguay side, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Iguazú from the Paraguay side",
+      "image": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Iguazú from the Paraguay side in Paraguay",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "peru": {
+    "code": "PE",
+    "name": "Peru",
+    "slug": "peru",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "Peru sits in South America, part of Americas — a place where geography still sets the pace of a day. A stop at Machu Picchu makes the country’s character concrete — color, air, and horizon in one frame. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Machu Picchu",
+      "image": "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Machu Picchu in Peru",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "philippines": {
+    "code": "PH",
+    "name": "Philippines",
+    "slug": "philippines",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "In South-eastern Asia, Philippines gathers coastlines, highlands, and towns into one compact story of Asia. Travelers often start with Palawan lagoon, where light, weather, and terrain do most of the talking. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Palawan lagoon",
+      "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Palawan lagoon in Philippines",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "poland": {
+    "code": "PL",
+    "name": "Poland",
+    "slug": "poland",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "about": "Poland belongs to Eastern Europe in Europe, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Kraków old town square",
+      "image": "https://images.unsplash.com/photo-1523906834658-6e24ef6506b4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Kraków old town square in Poland",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "portugal": {
+    "code": "PT",
+    "name": "Portugal",
+    "slug": "portugal",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "Portugal belongs to Southern Europe in Europe, with landscapes that reward slow looking. A stop at Douro Valley terraces makes the country’s character concrete — color, air, and horizon in one frame. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Douro Valley terraces",
+      "image": "https://images.unsplash.com/photo-1555881400-74d7acaacdba?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Douro Valley terraces in Portugal",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "qatar": {
+    "code": "QA",
+    "name": "Qatar",
+    "slug": "qatar",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "In Western Asia, Qatar gathers coastlines, highlands, and towns into one compact story of Asia. Spend time around Inland Sea (Khor Al Adaid): it captures the textures people remember long after the itinerary fades. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Inland Sea (Khor Al Adaid)",
+      "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Inland Sea (Khor Al Adaid) in Qatar",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "romania": {
+    "code": "RO",
+    "name": "Romania",
+    "slug": "romania",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "about": "In Eastern Europe, Romania gathers coastlines, highlands, and towns into one compact story of Europe. Spend time around Transfăgărășan road: it captures the textures people remember long after the itinerary fades. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Transfăgărășan road",
+      "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Transfăgărășan road in Romania",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "russia": {
+    "code": "RU",
+    "name": "Russia",
+    "slug": "russia",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "about": "From Eastern Europe to the wider map of Europe, Russia keeps a distinctive sense of place. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Lake Baikal ice",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Lake Baikal ice in Russia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "rwanda": {
+    "code": "RW",
+    "name": "Rwanda",
+    "slug": "rwanda",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "From Eastern Africa to the wider map of Africa, Rwanda keeps a distinctive sense of place. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Volcanoes National Park",
+      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Volcanoes National Park in Rwanda",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "saint-kitts-and-nevis": {
+    "code": "KN",
+    "name": "Saint Kitts and Nevis",
+    "slug": "saint-kitts-and-nevis",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "From Caribbean to the wider map of Americas, Saint Kitts and Nevis keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Nevis Peak",
+      "image": "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Nevis Peak in Saint Kitts and Nevis",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "saint-lucia": {
+    "code": "LC",
+    "name": "Saint Lucia",
+    "slug": "saint-lucia",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "Saint Lucia belongs to Caribbean in Americas, with landscapes that reward slow looking. Travelers often start with Pitons of Soufrière, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Pitons of Soufrière",
+      "image": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Pitons of Soufrière in Saint Lucia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "saint-vincent-and-the-grenadines": {
+    "code": "VC",
+    "name": "Saint Vincent and the Grenadines",
+    "slug": "saint-vincent-and-the-grenadines",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "Saint Vincent and the Grenadines belongs to Caribbean in Americas, with landscapes that reward slow looking. Spend time around Tobago Cays: it captures the textures people remember long after the itinerary fades. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Tobago Cays",
+      "image": "https://images.unsplash.com/photo-1470071450321-d077b3c9f5b0?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Tobago Cays in Saint Vincent and the Grenadines",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "samoa": {
+    "code": "WS",
+    "name": "Samoa",
+    "slug": "samoa",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "about": "In Polynesia, Samoa gathers coastlines, highlands, and towns into one compact story of Oceania. Spend time around To Sua Ocean Trench: it captures the textures people remember long after the itinerary fades. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "To Sua Ocean Trench",
+      "image": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=1200&q=80",
+      "alt": "To Sua Ocean Trench in Samoa",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "san-marino": {
+    "code": "SM",
+    "name": "San Marino",
+    "slug": "san-marino",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "In Southern Europe, San Marino gathers coastlines, highlands, and towns into one compact story of Europe. undefined undefined",
+    "place": {
+      "name": "Mount Titano towers",
+      "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Mount Titano towers in San Marino",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "sao-tome-and-principe": {
+    "code": "ST",
+    "name": "Sao Tome and Principe",
+    "slug": "sao-tome-and-principe",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "about": "Sao Tome and Principe belongs to Middle Africa in Africa, with landscapes that reward slow looking. Travelers often start with Pico Cão Grande, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Pico Cão Grande",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Pico Cão Grande in Sao Tome and Principe",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "saudi-arabia": {
+    "code": "SA",
+    "name": "Saudi Arabia",
+    "slug": "saudi-arabia",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "From Western Asia to the wider map of Asia, Saudi Arabia keeps a distinctive sense of place. AlUla rock formations is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "AlUla rock formations",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "AlUla rock formations in Saudi Arabia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "senegal": {
+    "code": "SN",
+    "name": "Senegal",
+    "slug": "senegal",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "In Western Africa, Senegal gathers coastlines, highlands, and towns into one compact story of Africa. Pink Lake Retba is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Pink Lake Retba",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Pink Lake Retba in Senegal",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "serbia": {
+    "code": "RS",
+    "name": "Serbia",
+    "slug": "serbia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "Serbia belongs to Southern Europe in Europe, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Uvac river meanders",
+      "image": "https://images.unsplash.com/photo-1523906834658-6e24ef6506b4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Uvac river meanders in Serbia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "seychelles": {
+    "code": "SC",
+    "name": "Seychelles",
+    "slug": "seychelles",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "From Eastern Africa to the wider map of Africa, Seychelles keeps a distinctive sense of place. Travelers often start with Anse Source d’Argent, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Anse Source d’Argent",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Anse Source d’Argent in Seychelles",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "sierra-leone": {
+    "code": "SL",
+    "name": "Sierra Leone",
+    "slug": "sierra-leone",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "Sierra Leone belongs to Western Africa in Africa, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Banana Islands",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Banana Islands in Sierra Leone",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "singapore": {
+    "code": "SG",
+    "name": "Singapore",
+    "slug": "singapore",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "Singapore sits in South-eastern Asia, part of Asia — a place where geography still sets the pace of a day. Travelers often start with Gardens by the Bay, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Gardens by the Bay",
+      "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Gardens by the Bay in Singapore",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "slovakia": {
+    "code": "SK",
+    "name": "Slovakia",
+    "slug": "slovakia",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "about": "Slovakia belongs to Eastern Europe in Europe, with landscapes that reward slow looking. Travelers often start with High Tatras, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "High Tatras",
+      "image": "https://images.unsplash.com/photo-1523906834658-6e24ef6506b4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "High Tatras in Slovakia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "slovenia": {
+    "code": "SI",
+    "name": "Slovenia",
+    "slug": "slovenia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "In Southern Europe, Slovenia gathers coastlines, highlands, and towns into one compact story of Europe. Travelers often start with Lake Bled, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Lake Bled",
+      "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Lake Bled in Slovenia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "solomon-islands": {
+    "code": "SB",
+    "name": "Solomon Islands",
+    "slug": "solomon-islands",
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "about": "Solomon Islands belongs to Melanesia in Oceania, with landscapes that reward slow looking. A stop at Marovo Lagoon makes the country’s character concrete — color, air, and horizon in one frame. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Marovo Lagoon",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Marovo Lagoon in Solomon Islands",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "somalia": {
+    "code": "SO",
+    "name": "Somalia",
+    "slug": "somalia",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "Somalia sits in Eastern Africa, part of Africa — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Laas Geel rock art hills",
+      "image": "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Laas Geel rock art hills in Somalia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "south-africa": {
+    "code": "ZA",
+    "name": "South Africa",
+    "slug": "south-africa",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "about": "South Africa belongs to Southern Africa in Africa, with landscapes that reward slow looking. A stop at Table Mountain makes the country’s character concrete — color, air, and horizon in one frame. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Table Mountain",
+      "image": "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Table Mountain in South Africa",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "south-sudan": {
+    "code": "SS",
+    "name": "South Sudan",
+    "slug": "south-sudan",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "From Eastern Africa to the wider map of Africa, South Sudan keeps a distinctive sense of place. Boma National Park plains is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Boma National Park plains",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Boma National Park plains in South Sudan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "spain": {
+    "code": "ES",
+    "name": "Spain",
+    "slug": "spain",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "In Southern Europe, Spain gathers coastlines, highlands, and towns into one compact story of Europe. Alhambra, Granada is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Alhambra, Granada",
+      "image": "https://images.unsplash.com/photo-1543783207-ec64e4d87511?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Alhambra, Granada in Spain",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "sri-lanka": {
+    "code": "LK",
+    "name": "Sri Lanka",
+    "slug": "sri-lanka",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "about": "Sri Lanka sits in Southern Asia, part of Asia — a place where geography still sets the pace of a day. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Sigiriya rock fortress",
+      "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Sigiriya rock fortress in Sri Lanka",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "sudan": {
+    "code": "SD",
+    "name": "Sudan",
+    "slug": "sudan",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "about": "From Northern Africa to the wider map of Africa, Sudan keeps a distinctive sense of place. Meroe pyramids is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Meroe pyramids",
+      "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Meroe pyramids in Sudan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "suriname": {
+    "code": "SR",
+    "name": "Suriname",
+    "slug": "suriname",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "Suriname sits in South America, part of Americas — a place where geography still sets the pace of a day. Travelers often start with Central Suriname Nature Reserve, where light, weather, and terrain do most of the talking. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Central Suriname Nature Reserve",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Central Suriname Nature Reserve in Suriname",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "sweden": {
+    "code": "SE",
+    "name": "Sweden",
+    "slug": "sweden",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "about": "Sweden sits in Northern Europe, part of Europe — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Swedish Lapland aurora",
+      "image": "https://images.unsplash.com/photo-1516483638261-75a2190b14de?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Swedish Lapland aurora in Sweden",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "switzerland": {
+    "code": "CH",
+    "name": "Switzerland",
+    "slug": "switzerland",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "about": "From Western Europe to the wider map of Europe, Switzerland keeps a distinctive sense of place. Travelers often start with Matterhorn above Zermatt, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Matterhorn above Zermatt",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Matterhorn above Zermatt in Switzerland",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "syria": {
+    "code": "SY",
+    "name": "Syria",
+    "slug": "syria",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "Syria sits in Western Asia, part of Asia — a place where geography still sets the pace of a day. Travelers often start with Old City of Damascus courtyards, where light, weather, and terrain do most of the talking. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Old City of Damascus courtyards",
+      "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Old City of Damascus courtyards in Syria",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "tajikistan": {
+    "code": "TJ",
+    "name": "Tajikistan",
+    "slug": "tajikistan",
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "about": "Tajikistan sits in Central Asia, part of Asia — a place where geography still sets the pace of a day. A stop at Fann Mountains makes the country’s character concrete — color, air, and horizon in one frame. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Fann Mountains",
+      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Fann Mountains in Tajikistan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "tanzania": {
+    "code": "TZ",
+    "name": "Tanzania",
+    "slug": "tanzania",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "Tanzania belongs to Eastern Africa in Africa, with landscapes that reward slow looking. undefined undefined",
+    "place": {
+      "name": "Serengeti migration plains",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Serengeti migration plains in Tanzania",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "thailand": {
+    "code": "TH",
+    "name": "Thailand",
+    "slug": "thailand",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "From South-eastern Asia to the wider map of Asia, Thailand keeps a distinctive sense of place. Travelers often start with Railay Beach cliffs, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Railay Beach cliffs",
+      "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Railay Beach cliffs in Thailand",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "timor-leste": {
+    "code": "TL",
+    "name": "Timor-Leste",
+    "slug": "timor-leste",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "In South-eastern Asia, Timor-Leste gathers coastlines, highlands, and towns into one compact story of Asia. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Jaco Island waters",
+      "image": "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Jaco Island waters in Timor-Leste",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "togo": {
+    "code": "TG",
+    "name": "Togo",
+    "slug": "togo",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "about": "From Western Africa to the wider map of Africa, Togo keeps a distinctive sense of place. Travelers often start with Koutammakou mud-tower villages, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Koutammakou mud-tower villages",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Koutammakou mud-tower villages in Togo",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "tonga": {
+    "code": "TO",
+    "name": "Tonga",
+    "slug": "tonga",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "about": "In Polynesia, Tonga gathers coastlines, highlands, and towns into one compact story of Oceania. Haʻamonga ʻa Maui trilithon is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Haʻamonga ʻa Maui trilithon",
+      "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Haʻamonga ʻa Maui trilithon in Tonga",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "trinidad-and-tobago": {
+    "code": "TT",
+    "name": "Trinidad and Tobago",
+    "slug": "trinidad-and-tobago",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "about": "Trinidad and Tobago sits in Caribbean, part of Americas — a place where geography still sets the pace of a day. Travelers often start with Maracas Bay, where light, weather, and terrain do most of the talking. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Maracas Bay",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Maracas Bay in Trinidad and Tobago",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "tunisia": {
+    "code": "TN",
+    "name": "Tunisia",
+    "slug": "tunisia",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "about": "From Northern Africa to the wider map of Africa, Tunisia keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Sidi Bou Said blue doors",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Sidi Bou Said blue doors in Tunisia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "turkiye": {
+    "code": "TR",
+    "name": "Türkiye",
+    "slug": "turkiye",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "From Western Asia to the wider map of Asia, Türkiye keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Cappadocia fairy chimneys",
+      "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Cappadocia fairy chimneys in Türkiye",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "turkmenistan": {
+    "code": "TM",
+    "name": "Turkmenistan",
+    "slug": "turkmenistan",
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "about": "From Central Asia to the wider map of Asia, Turkmenistan keeps a distinctive sense of place. A stop at Darvaza gas crater makes the country’s character concrete — color, air, and horizon in one frame. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Darvaza gas crater",
+      "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Darvaza gas crater in Turkmenistan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "tuvalu": {
+    "code": "TV",
+    "name": "Tuvalu",
+    "slug": "tuvalu",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "about": "In Polynesia, Tuvalu gathers coastlines, highlands, and towns into one compact story of Oceania. undefined undefined",
+    "place": {
+      "name": "Funafuti lagoon",
+      "image": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Funafuti lagoon in Tuvalu",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "uganda": {
+    "code": "UG",
+    "name": "Uganda",
+    "slug": "uganda",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "Uganda sits in Eastern Africa, part of Africa — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Murchison Falls",
+      "image": "https://images.unsplash.com/photo-1509316975854-fba7e9b7e0e9?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Murchison Falls in Uganda",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "ukraine": {
+    "code": "UA",
+    "name": "Ukraine",
+    "slug": "ukraine",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "about": "From Eastern Europe to the wider map of Europe, Ukraine keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Carpathian mountain meadows",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Carpathian mountain meadows in Ukraine",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "united-arab-emirates": {
+    "code": "AE",
+    "name": "United Arab Emirates",
+    "slug": "united-arab-emirates",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "From Western Asia to the wider map of Asia, United Arab Emirates keeps a distinctive sense of place. Travelers often start with Liwa Oasis dunes, where light, weather, and terrain do most of the talking. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Liwa Oasis dunes",
+      "image": "https://images.unsplash.com/photo-1512453979798-5ea7199d0b0b?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Liwa Oasis dunes in United Arab Emirates",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "united-kingdom": {
+    "code": "GB",
+    "name": "United Kingdom",
+    "slug": "united-kingdom",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "about": "In Northern Europe, United Kingdom gathers coastlines, highlands, and towns into one compact story of Europe. Travelers often start with Scottish Highlands loch, where light, weather, and terrain do most of the talking. undefined",
+    "place": {
+      "name": "Scottish Highlands loch",
+      "image": "https://images.unsplash.com/photo-1467269234592-1990dabc067a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Scottish Highlands loch in United Kingdom",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "united-states": {
+    "code": "US",
+    "name": "United States",
+    "slug": "united-states",
+    "region": "Americas",
+    "subregion": "Northern America",
+    "about": "United States sits in Northern America, part of Americas — a place where geography still sets the pace of a day. Yosemite Valley is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Think of it as a postcard: orientation first, wonder second, plans later.",
+    "place": {
+      "name": "Yosemite Valley",
+      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Yosemite Valley in United States",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "uruguay": {
+    "code": "UY",
+    "name": "Uruguay",
+    "slug": "uruguay",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "Uruguay belongs to South America in Americas, with landscapes that reward slow looking. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Cabo Polonio dunes",
+      "image": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Cabo Polonio dunes in Uruguay",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "uzbekistan": {
+    "code": "UZ",
+    "name": "Uzbekistan",
+    "slug": "uzbekistan",
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "about": "Uzbekistan sits in Central Asia, part of Asia — a place where geography still sets the pace of a day. undefined undefined",
+    "place": {
+      "name": "Registan Square, Samarkand",
+      "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Registan Square, Samarkand in Uzbekistan",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "vanuatu": {
+    "code": "VU",
+    "name": "Vanuatu",
+    "slug": "vanuatu",
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "about": "Vanuatu sits in Melanesia, part of Oceania — a place where geography still sets the pace of a day. Spend time around Mount Yasur glow: it captures the textures people remember long after the itinerary fades. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "Mount Yasur glow",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Mount Yasur glow in Vanuatu",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "vatican-city": {
+    "code": "VA",
+    "name": "Vatican City",
+    "slug": "vatican-city",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "about": "Vatican City sits in Southern Europe, part of Europe — a place where geography still sets the pace of a day. St. Peter’s Square is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Keep this page as a bookmark for mood and orientation before you dig into deeper guides.",
+    "place": {
+      "name": "St. Peter’s Square",
+      "image": "https://images.unsplash.com/photo-1467269234592-1990dabc067a?auto=format&fit=crop&w=1200&q=80",
+      "alt": "St. Peter’s Square in Vatican City",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "venezuela": {
+    "code": "VE",
+    "name": "Venezuela",
+    "slug": "venezuela",
+    "region": "Americas",
+    "subregion": "South America",
+    "about": "In South America, Venezuela gathers coastlines, highlands, and towns into one compact story of Americas. undefined undefined",
+    "place": {
+      "name": "Angel Falls",
+      "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Angel Falls in Venezuela",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "vietnam": {
+    "code": "VN",
+    "name": "Vietnam",
+    "slug": "vietnam",
+    "region": "Asia",
+    "subregion": "South-eastern Asia",
+    "about": "Vietnam sits in South-eastern Asia, part of Asia — a place where geography still sets the pace of a day. A stop at Hạ Long Bay makes the country’s character concrete — color, air, and horizon in one frame. This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Hạ Long Bay",
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Hạ Long Bay in Vietnam",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "yemen": {
+    "code": "YE",
+    "name": "Yemen",
+    "slug": "yemen",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "about": "Yemen belongs to Western Asia in Asia, with landscapes that reward slow looking. Old City of Sana’a is a natural doorway into the country’s scale — wide enough to feel wild, close enough to notice detail. Use it as a starting point — an about sketch, a beautiful place, and an invitation to look closer.",
+    "place": {
+      "name": "Old City of Sana’a",
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Old City of Sana’a in Yemen",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "zambia": {
+    "code": "ZM",
+    "name": "Zambia",
+    "slug": "zambia",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "Zambia sits in Eastern Africa, part of Africa — a place where geography still sets the pace of a day. undefined This Explore page is a quiet field note: a short about, a place worth seeking, and a path into more when you’re ready.",
+    "place": {
+      "name": "Victoria Falls",
+      "image": "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Victoria Falls in Zambia",
+      "credit": "Photo via Unsplash"
+    }
+  },
+  "zimbabwe": {
+    "code": "ZW",
+    "name": "Zimbabwe",
+    "slug": "zimbabwe",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "about": "From Eastern Africa to the wider map of Africa, Zimbabwe keeps a distinctive sense of place. undefined undefined",
+    "place": {
+      "name": "Hwange wildlife plains",
+      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Hwange wildlife plains in Zimbabwe",
+      "credit": "Photo via Unsplash"
+    }
+  }
+}

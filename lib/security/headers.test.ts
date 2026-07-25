@@ -15,6 +15,7 @@ describe('site security headers', () => {
     expect(headers['content-security-policy']).toContain("form-action 'self'")
     expect(headers['content-security-policy']).toContain("script-src 'self' 'unsafe-inline'")
     expect(headers['content-security-policy']).toContain('https://og.zolplay.com')
+    expect(headers['content-security-policy']).toContain('https://images.unsplash.com')
     expect(headers['content-security-policy']).not.toContain('clerk')
     expect(headers['content-security-policy']).not.toContain('bunny')
     expect(headers['content-security-policy']).not.toContain('https://www.google.com')

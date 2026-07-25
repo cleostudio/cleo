@@ -1,12 +1,13 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { PixelCluster } from '~/components/pixel-cluster'
+import { countrySlugs, getCountry } from '~/lib/countries'
 import {
-  countrySlugs,
-  getCountry,
-  type Country,
-} from '~/lib/countries'
+  countryDescription,
+  getCountryGuide,
+} from '~/lib/country-guides'
 import { localeMetadata } from '~/lib/locale-metadata'
 
 export function exploreCountryStaticParams() {
@@ -16,21 +17,20 @@ export function exploreCountryStaticParams() {
 export function exploreCountryMetadata(slug: string) {
   const country = getCountry(slug)
   if (!country) return {}
+  const guide = getCountryGuide(slug)
 
   return localeMetadata({
     path: `/explore/${country.slug}`,
     title: country.name,
-    description: countryDescription(country),
+    description: guide ? countryDescription(guide) : countryDescription(country),
   })
-}
-
-function countryDescription(country: Country) {
-  return `${country.name} — ${country.subregion}, ${country.region}. An Explore page for ${country.name}.`
 }
 
 export function ExploreCountryPageView({ slug }: { slug: string }) {
   const country = getCountry(slug)
   if (!country) notFound()
+  const guide = getCountryGuide(slug)
+  if (!guide) notFound()
 
   return (
     <article className="mx-auto w-full max-w-[37.5rem] px-6">
@@ -51,17 +51,41 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
           >
             {country.name}
           </h1>
-          <p
-            className="page-introduction enter mt-4 text-balance"
-            style={{ '--enter-delay': '70ms' } as React.CSSProperties}
-          >
-            {countryDescription(country)}
-          </p>
         </header>
         <PixelCluster variant={5} className="enter shrink-0" />
       </div>
 
-      <dl className="enter mt-10 grid gap-4 text-sm" style={{ '--enter-delay': '110ms' } as React.CSSProperties}>
+      <figure
+        className="enter mt-8 overflow-hidden rounded-[2px]"
+        style={{ '--enter-delay': '70ms' } as React.CSSProperties}
+      >
+        <Image
+          src={guide.place.image}
+          alt={guide.place.alt}
+          width={1200}
+          height={800}
+          className="photo-frame aspect-[3/2] w-full object-cover"
+          sizes="(max-width: 40rem) 100vw, 37.5rem"
+          priority
+        />
+        <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-2 text-sm text-muted-foreground">
+          <span>{guide.place.name}</span>
+          <span className="text-xs">{guide.place.credit}</span>
+        </figcaption>
+      </figure>
+
+      <div
+        className="enter mt-8 space-y-4 text-sm leading-relaxed text-foreground/90"
+        style={{ '--enter-delay': '100ms' } as React.CSSProperties}
+      >
+        <h2 className="text-sm font-medium text-muted-foreground">About</h2>
+        <p className="text-balance">{guide.about}</p>
+      </div>
+
+      <dl
+        className="enter mt-10 grid gap-4 text-sm"
+        style={{ '--enter-delay': '130ms' } as React.CSSProperties}
+      >
         <div className="hairline-top flex justify-between gap-6 pt-3">
           <dt className="text-muted-foreground">Region</dt>
           <dd className="text-right">{country.region}</dd>
@@ -76,15 +100,13 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         </div>
       </dl>
 
-      <p
-        className="enter mt-10 text-sm leading-relaxed text-muted-foreground"
-        style={{ '--enter-delay': '140ms' } as React.CSSProperties}
-      >
-        This country page is ready for a deeper guide — places, notes, and
-        whatever belongs here next.
+      <p className="enter mt-8" style={{ '--enter-delay': '160ms' } as React.CSSProperties}>
+        <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground">
+          See all country places →
+        </Link>
       </p>
 
-      <p className="enter mt-8" style={{ '--enter-delay': '170ms' } as React.CSSProperties}>
+      <p className="enter mt-4" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
         <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
           ← All countries
         </Link>

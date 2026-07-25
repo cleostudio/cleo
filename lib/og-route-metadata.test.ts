@@ -32,7 +32,7 @@ describe('social OG image metadata', () => {
     [
       '/photos',
       publicPageMetadata.photos,
-      'Photos · Cleo. Moments Cleo has kept from work, life, and everywhere in between.',
+      'Photos · Cleo. Beautiful places across every country — open a photograph to read its Explore page.',
     ],
     [
       '/projects',
@@ -42,7 +42,7 @@ describe('social OG image metadata', () => {
     [
       '/explore',
       publicPageMetadata.explore,
-      'Explore · Cleo. A guide to every country on Earth — open a page for each place and keep adding notes as you go.',
+      'Explore · Cleo. A guide to every country on Earth — a short about, a beautiful place, and a path into more.',
     ],
     [
       '/cleo',

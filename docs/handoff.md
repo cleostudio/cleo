@@ -6,8 +6,8 @@ Current as of July 2026 (Cleo fork).
 
 English-only personal site with:
 
-- MDX blog, Explore countries, projects, newsletters archive
-- Empty Photos placeholder (no media library)
+- MDX blog, Explore countries (about + place photo each), projects, newsletters
+- Photos: masonry of beautiful places for every country (`content/country-guides.json`)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
 
 There is **no** Clerk auth, Neon/Postgres, Bunny media, AMA booking, Stripe,

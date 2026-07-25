@@ -18,7 +18,8 @@ function contentSecurityPolicy(
     "script-src-attr 'none'",
     `style-src ${styleSources}`,
     // og.zolplay.com hosts baked Open Graph images for outbound link cards.
-    "img-src 'self' data: blob: https://og.zolplay.com",
+    // images.unsplash.com hosts baked country place photographs.
+    "img-src 'self' data: blob: https://og.zolplay.com https://images.unsplash.com",
     "font-src 'self' data:",
     `connect-src 'self'${connectSources}`,
     "media-src 'self' blob:",

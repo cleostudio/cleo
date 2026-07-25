@@ -1,17 +1,12 @@
-import { PhotosPageView } from '../../_views/photos-page'
-import { localeMetadata } from '~/lib/locale-metadata'
-import { publicPageMetadata } from '~/lib/public-page-metadata'
+import {
+  PhotosPageView,
+  photosPageMetadata,
+} from '../../_views/photos-page'
 
-// The active photo publication streams into a prefetched masonry shell.
+// Country place masonry is static content from baked guides.
 export const instant = true
 
-const copy = publicPageMetadata.photos
-
-export const metadata = localeMetadata({
-  locale: 'en',
-  path: '/photos',
-  ...copy,
-})
+export const metadata = photosPageMetadata()
 
 export default function EnglishPhotosPage() {
   return <PhotosPageView />
