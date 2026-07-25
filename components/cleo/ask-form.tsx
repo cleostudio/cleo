@@ -2,7 +2,6 @@
 
 import {
   type ChangeEvent,
-  type CSSProperties,
   type FormEvent,
   useEffect,
   useRef,
