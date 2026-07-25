@@ -32,7 +32,7 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.space).toEqual({
       title: 'Space',
       description:
-        'Evergreen field guides for the Solar System and nearby deep space — orientation, features, and facts.',
+        'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
     })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',

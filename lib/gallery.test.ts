@@ -22,6 +22,7 @@ describe('gallery catalog', () => {
     const keys = galleryFilterKeys()
     expect(keys).toContain('Asia')
     expect(keys).toContain('Solar System')
+    expect(keys).toContain('Moons')
     expect(keys).toContain('Deep Space')
   })
 
