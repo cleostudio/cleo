@@ -114,7 +114,7 @@ describe('Published Photo Selection UI', () => {
     const html = renderToStaticMarkup(
       <NavCards
         postCount={9}
-        projectCount={6}
+        exploreCount={195}
         photoCard={
           <PhotoNavCard photoPreview={getHomepagePhotoPreview(published)} />
         }
@@ -133,7 +133,7 @@ describe('Published Photo Selection UI', () => {
     const html = renderToStaticMarkup(
       <NavCards
         postCount={9}
-        projectCount={6}
+        exploreCount={195}
         photoCard={<PhotoNavCard photoPreview={null} pending />}
       />,
     )

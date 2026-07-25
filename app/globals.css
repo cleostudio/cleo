@@ -6119,8 +6119,8 @@ a:focus-visible .external-label .external-mark {
   content: '';
 }
 
-/* standalone construction icon + the crossed project mark */
-.nc-project-icon {
+/* Explore doorway: a soft-framed globe mark */
+.nc-explore-icon {
   position: absolute;
   isolation: isolate;
   width: 3.25rem;
@@ -6151,23 +6151,7 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
-.nc-construction-guides {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
-}
-
-.nc-guide-solid {
-  stroke: color-mix(in oklab, var(--foreground) 25%, transparent);
-  stroke-width: 0.65;
-  vector-effect: non-scaling-stroke;
-}
-
-.nc-project-mark {
+.nc-explore-mark {
   position: absolute;
   z-index: 2;
   top: 50%;
@@ -6179,29 +6163,9 @@ a:focus-visible .external-label .external-mark {
   transform: translate(-50%, -50%);
 }
 
-.nc-explode-a,
-.nc-explode-b,
-.nc-explode-c {
-  transform-box: fill-box;
-  transform-origin: center;
-  transition: transform 300ms var(--ease-spring);
-}
-
 @media (hover: hover) and (pointer: fine) {
-  .nav-card:hover .nc-project-icon {
+  .nav-card:hover .nc-explore-icon {
     transform: translate(-50%, calc(-50% - 2px));
-  }
-
-  .nav-card:hover .nc-explode-a {
-    transform: translate(1.5px, -1.5px) rotate(3deg);
-  }
-
-  .nav-card:hover .nc-explode-b {
-    transform: translate(-2.5px, -2px) rotate(-6deg);
-  }
-
-  .nav-card:hover .nc-explode-c {
-    transform: translate(2px, 2.5px) rotate(5deg);
   }
 }
 
@@ -6233,14 +6197,11 @@ a:focus-visible .external-label .external-mark {
 @media (prefers-reduced-motion: reduce) {
   .nc-sheets span,
   .nc-polaroid,
-  .nc-project-icon,
-  .nc-explode-a,
-  .nc-explode-b,
-  .nc-explode-c {
+  .nc-explore-icon {
     transition: none;
   }
 
-  .nav-card:hover .nc-project-icon {
+  .nav-card:hover .nc-explore-icon {
     transform: translate(-50%, -50%);
   }
 }

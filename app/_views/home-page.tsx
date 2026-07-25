@@ -11,8 +11,8 @@ import { VinylShelf } from '~/components/vinyl-shelf'
 import { getAllPosts } from '~/lib/content'
 import { T } from '~/lib/i18n'
 import { localePath, type Locale } from '~/lib/locale-route'
+import { countries } from '~/lib/countries'
 import { books, experience, records } from '~/lib/personal'
-import { projects } from '~/lib/projects'
 import { getGitHub, getSocial } from '~/lib/social-live'
 import { getHomepagePhotoPreview } from '~/lib/media/photo-selection/repository'
 import { getPublishedPhotoSelection } from '~/lib/media/photo-selection/server'
@@ -64,7 +64,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 
       <NavCards
         postCount={posts.length}
-        projectCount={projects.length}
+        exploreCount={countries.length}
         locale={locale}
         photoCard={
           <Suspense
