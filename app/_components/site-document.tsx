@@ -10,6 +10,7 @@ import {
   RouteMotionController,
   RouteViewTransition,
 } from '~/components/route-motion-controller'
+import { SiteChrome } from '~/components/site-chrome'
 import { SiteFooter } from '~/components/site-footer'
 import { SiteFooterSlot } from '~/components/site-footer-slot'
 import { ThemeProvider } from '~/components/theme-provider'
@@ -52,16 +53,17 @@ export async function SiteDocument({
           <PreviewCardTimingProvider>
             <RouteMotionController />
             <AmbientBackground />
-            <div className="flex min-h-screen flex-col pb-20">
-              <main className="flex-1 pt-14">
-                {/* The non-none default isolates route content while keeping the
-                    CSS-named list → loading shell → article groups active. */}
-                <RouteViewTransition>{children}</RouteViewTransition>
-              </main>
-              <SiteFooterSlot>
-                <SiteFooter locale="en" />
-              </SiteFooterSlot>
-            </div>
+            <SiteChrome
+              footer={
+                <SiteFooterSlot>
+                  <SiteFooter locale="en" />
+                </SiteFooterSlot>
+              }
+            >
+              {/* The non-none default isolates route content while keeping the
+                  CSS-named list → loading shell → article groups active. */}
+              <RouteViewTransition>{children}</RouteViewTransition>
+            </SiteChrome>
             <Suspense fallback={<DockFallback locale="en" />}>
               <Dock />
             </Suspense>

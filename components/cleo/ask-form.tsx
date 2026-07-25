@@ -400,9 +400,9 @@ export function AskForm() {
   }
 
   return (
-    <div className="app-column flex min-h-[calc(100svh-8rem)] min-w-0 flex-col">
+    <div className="app-column flex h-full min-h-0 min-w-0 flex-col">
       {hasMessages ? (
-        <div className="flex-1 pb-44 pt-2 sm:pb-48">
+        <div className="min-h-0 flex-1 overflow-y-auto pb-44 pt-2 sm:pb-48">
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === 'user' ? (
@@ -496,7 +496,9 @@ export function AskForm() {
 
       <div
         className={cn(
-          hasMessages ? null : 'flex flex-1 items-center justify-center pb-28',
+          hasMessages
+            ? null
+            : 'flex min-h-0 flex-1 items-center justify-center pb-24',
         )}
       >
         <div

@@ -22,6 +22,20 @@ vi.mock('~/components/preview-card-timing', () => ({
     <div data-public-preview-cards="">{children}</div>
   ),
 }))
+vi.mock('~/components/site-chrome', () => ({
+  SiteChrome: ({
+    children,
+    footer,
+  }: {
+    children: React.ReactNode
+    footer: React.ReactNode
+  }) => (
+    <div data-public-chrome="">
+      {children}
+      {footer}
+    </div>
+  ),
+}))
 vi.mock('~/components/site-footer', () => ({
   SiteFooter: () => <span data-public-footer-body="" />,
 }))
