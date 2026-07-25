@@ -1,9 +1,13 @@
 import { publicPageMetadata } from './public-page-metadata'
 
 function publicSiteUrl() {
+  const configured = process.env.PUBLIC_SITE_URL?.trim()
   const raw =
-    process.env.PUBLIC_SITE_URL ??
-    (process.env.NODE_ENV === 'production' ? 'https://cali.so' : 'http://localhost:3199')
+    configured ||
+    (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3199')
+  if (!raw) {
+    throw new Error('PUBLIC_SITE_URL must be set in production')
+  }
   let url: URL
   try {
     url = new URL(raw)

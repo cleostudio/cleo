@@ -9,9 +9,10 @@
 import { existsSync, readFileSync, appendFileSync } from 'node:fs'
 
 const stubs = {
-  // Used when VERCEL_ENV is absent/local; Preview derives from VERCEL_URL.
-  SITE_URL: 'https://cali.so',
-  PUBLIC_SITE_URL: 'https://cali.so',
+  // Neutral placeholder when VERCEL_ENV is absent/local. Set real origins in
+  // the deployment environment; Preview may still derive from VERCEL_URL.
+  SITE_URL: 'https://your-domain.com',
+  PUBLIC_SITE_URL: 'https://your-domain.com',
 }
 
 const target = '.env.production.local'

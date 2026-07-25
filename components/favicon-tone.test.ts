@@ -70,7 +70,7 @@ describe('faviconTone', () => {
   })
 
   it('samples same-origin media without touching cross-origin fallbacks', () => {
-    const pageUrl = 'https://cali.so/ama'
+    const pageUrl = 'https://example.com/blog'
 
     expect(
       isSameOriginFaviconSource(

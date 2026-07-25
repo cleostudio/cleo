@@ -10,13 +10,12 @@ describe('public site origin', () => {
     vi.resetModules()
   })
 
-  it('keeps Staging discovery canonical to the public site', async () => {
+  it('requires PUBLIC_SITE_URL in production instead of a hard-coded host', async () => {
     vi.stubEnv('NODE_ENV', 'production')
-    vi.stubEnv('SITE_URL', 'https://beta.cali.so')
+    vi.stubEnv('SITE_URL', 'https://staging.example.com')
+    vi.stubEnv('PUBLIC_SITE_URL', '')
 
-    const { seo } = await import('./seo')
-
-    expect(seo.url.href).toBe('https://cali.so/')
+    await expect(import('./seo')).rejects.toThrowError(/PUBLIC_SITE_URL/)
   })
 
   it('accepts an explicit public site origin independently of the runtime origin', async () => {

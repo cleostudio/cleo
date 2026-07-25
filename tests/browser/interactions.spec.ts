@@ -14,20 +14,19 @@ async function runningAnimationCount(pageOrLocator: {
   )
 }
 
-test('keyboard preview cards open without card or contribution-cell motion', async ({ page }) => {
+test('keyboard preview cards open without card motion', async ({ page }) => {
   await prepareBrowserPage(page)
   const browserErrors = watchBrowserErrors(page)
-  await page.goto('/en')
+  await gotoBrowserArticleFixture(page)
   await expect(page.getByRole('button', { name: 'Preferences' })).toBeEnabled()
 
-  const trigger = page.locator('main a[href="https://github.com/CaliCastle"]:visible')
-  await expect(trigger).toHaveCount(1)
+  const trigger = page.locator('article a.external-link:visible').first()
+  await expect(trigger).toBeVisible()
   await trigger.focus()
 
   const card = page.locator('.link-card')
   await expect(card).toBeVisible()
   await expect(card).toHaveClass(/preview-card-instant/)
-  await expect(card.locator('.contrib-grid i')).toHaveCount(182)
   expect(
     await card.evaluate(
       (element) =>
@@ -101,7 +100,7 @@ test('reduced motion leaves the public shell with no running web animations', as
   await prepareBrowserPage(page)
   const browserErrors = watchBrowserErrors(page)
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  await page.goto('/en')
+  await page.goto('/')
   await expect(page.getByRole('button', { name: 'Preferences' })).toBeEnabled()
 
   await expect.poll(() => runningAnimationCount(page)).toBe(0)

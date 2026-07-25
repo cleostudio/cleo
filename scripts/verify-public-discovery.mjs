@@ -7,7 +7,9 @@ import { JSDOM } from 'jsdom'
 import { openProductionServer } from './production-server.mjs'
 
 const productionOrigin =
-  process.env.PUBLIC_DISCOVERY_EXPECTED_ORIGIN ?? 'https://cali.so'
+  process.env.PUBLIC_DISCOVERY_EXPECTED_ORIGIN ??
+  process.env.PUBLIC_SITE_URL ??
+  'https://your-domain.com'
 
 function englishPage(pathname, copy, imageAlt) {
   return {
@@ -236,7 +238,7 @@ async function verifyDiscoveryFiles(baseUrl) {
       `sitemap ${path}`,
     )
   }
-  assert.doesNotMatch(sitemapXml, /https:\/\/cali\.so\/en(?:\/|"|<)/)
+  assert.doesNotMatch(sitemapXml, /https:\/\/[^/\s"']+\/en(?:\/|"|<)/)
 
   const robots = await fetch(new URL('/robots.txt', baseUrl))
   assert.equal(robots.status, 200)

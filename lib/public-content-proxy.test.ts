@@ -7,11 +7,11 @@ describe('public content proxy', () => {
   it.each(['/blog/not-a-published-post', '/newsletters/not-an-id'])(
     'rewrites an unknown content route before streaming: %s',
     (pathname) => {
-      const response = proxy(new NextRequest(`https://cali.so${pathname}`))
+      const response = proxy(new NextRequest(`https://example.com${pathname}`))
 
       expect(response.status).toBe(404)
       expect(response.headers.get('x-middleware-rewrite')).toBe(
-        'https://cali.so/_not-found',
+        'https://example.com/_not-found',
       )
     },
   )
@@ -20,7 +20,7 @@ describe('public content proxy', () => {
     '/blog/how-to-add-rss-to-your-nextjs-app-router',
     '/newsletters/1',
   ])('passes through a published content route: %s', (pathname) => {
-    const response = proxy(new NextRequest(`https://cali.so${pathname}`))
+    const response = proxy(new NextRequest(`https://example.com${pathname}`))
 
     expect(response.status).toBe(200)
     expect(response.headers.get('x-middleware-next')).toBe('1')
@@ -29,7 +29,7 @@ describe('public content proxy', () => {
 
   it('does not mistake a generated metadata route for a post slug', () => {
     const response = proxy(
-      new NextRequest('https://cali.so/blog/opengraph-image-generated'),
+      new NextRequest('https://example.com/blog/opengraph-image-generated'),
     )
 
     expect(response.status).toBe(200)
