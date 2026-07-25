@@ -7,13 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: [
-        '/admin',
-        '/api/admin',
-        '/confirm/',
-        // Manage Links are private capability URLs.
-        '/ama/manage/',
-      ],
+      disallow: ['/confirm/', '/api/'],
     },
     sitemap: new URL('/sitemap.xml', seo.url).href,
     host: seo.url.origin,

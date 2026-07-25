@@ -1,11 +1,7 @@
 import type { NextConfig } from 'next'
 
 import legacyUrlManifest from './content/legacy-url-manifest.json'
-import {
-  adminSecurityHeader,
-  googleOAuthFormSecurityHeader,
-  securityHeaders,
-} from './lib/security/headers'
+import { securityHeaders } from './lib/security/headers'
 
 const legacyRedirects = legacyUrlManifest.entries.flatMap((entry) =>
   entry.kind === 'redirect' && typeof entry.destination === 'string'
@@ -57,7 +53,6 @@ const nextConfig: NextConfig = {
   // Shared-element morphs (cover/title) on route navigation; browsers
   // without the View Transitions API just navigate instantly.
   experimental: {
-    authInterrupts: true,
     viewTransition: true,
     globalNotFound: true,
     sri: { algorithm: 'sha256' },
@@ -77,25 +72,6 @@ const nextConfig: NextConfig = {
     {
       source: '/:path*',
       headers: [...securityHeaders],
-    },
-    {
-      // The global policy is intentionally useful for public navigation, but
-      // admin API responses must never disclose their origin to another site.
-      source: '/api/admin/:path*',
-      headers: [{ key: 'Referrer-Policy', value: 'no-referrer' }],
-    },
-    {
-      // Admin pages ship clerk-js for background session-token refresh, so
-      // their policy alone allows the Clerk instance origins. The AMA
-      // settings entry below overrides this for its Google OAuth form.
-      source: '/admin/:path*',
-      headers: [adminSecurityHeader],
-    },
-    {
-      // The native connect form receives a same-origin 303 whose destination
-      // is Google's OAuth page. Limit that form destination to this one page.
-      source: '/admin/ama/settings',
-      headers: [googleOAuthFormSecurityHeader],
     },
     {
       // Proxied link media (favicons, Open Graph images) are never a
@@ -119,8 +95,11 @@ const nextConfig: NextConfig = {
     { source: '/en', destination: '/', permanent: true },
     { source: '/en/:path*', destination: '/:path*', permanent: true },
     { source: '/feed.en.xml', destination: '/feed.xml', permanent: true },
-    // Marketing AMA page became Explore; booking/manage stay under /ama/*.
+    // Former AMA marketing page; booking APIs were removed.
     { source: '/ama', destination: '/explore', permanent: true },
+    { source: '/ama/:path*', destination: '/explore', permanent: true },
+    { source: '/admin', destination: '/', permanent: true },
+    { source: '/admin/:path*', destination: '/', permanent: true },
     ...legacyRedirects,
   ],
 

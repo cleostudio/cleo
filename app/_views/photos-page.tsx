@@ -1,12 +1,5 @@
-import { Suspense } from 'react'
-
 import { PixelCluster } from '~/components/pixel-cluster'
-import {
-  PublishedPhotoWall,
-  PublishedPhotoWallLoading,
-} from '~/components/published-photo-wall'
 import { T } from '~/lib/i18n'
-import { getPublishedPhotoSelection } from '~/lib/media/photo-selection/server'
 
 export function PhotosPageView() {
   return (
@@ -17,14 +10,9 @@ export function PhotosPageView() {
         </h1>
         <PixelCluster variant={4} className="enter shrink-0" />
       </div>
-      <Suspense fallback={<PublishedPhotoWallLoading />}>
-        <PublishedPhotoMasonry />
-      </Suspense>
+      <p className="enter mt-10 text-sm text-muted-foreground">
+        <T zh="暂无照片。" en="No photos yet." />
+      </p>
     </div>
   )
-}
-
-async function PublishedPhotoMasonry() {
-  const selection = await getPublishedPhotoSelection()
-  return <PublishedPhotoWall selection={selection} />
 }

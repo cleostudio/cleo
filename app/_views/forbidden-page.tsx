@@ -12,8 +12,8 @@ export function ForbiddenPageView() {
         </h1>
         <p className="mt-3 text-sm leading-6 text-muted-foreground">
           <T
-            zh="请使用有权限的账户登录，或返回首页。"
-            en="Sign in with an account that has access, or return home."
+            zh="请返回首页继续浏览。"
+            en="Return home to keep browsing."
           />
         </p>
         <Link

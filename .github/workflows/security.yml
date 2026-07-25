@@ -23,23 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      DATABASE_URL: postgresql://runtime:runtime@127.0.0.1:5432/cali
-      # Publishable keys are public by design; CI uses the site's real Clerk
-      # frontend so signed-out redirects can be verified without a secret.
-      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_live_Y2xlcmsuY2FsaS5zbyQ
-      CLERK_SECRET_KEY: sk_live_ci_secret_not_real
-      ADMIN_EMAIL: owner@example.com
-      AMA_ENCRYPTION_KEY: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
-      MEDIA_ENCRYPTION_KEY: BQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU=
-      RATE_LIMIT_HASH_KEY: AgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI=
-      GOOGLE_CLIENT_ID: ci.apps.googleusercontent.com
-      GOOGLE_CLIENT_SECRET: ci-google-secret
       SITE_URL: https://cali.so
-      BUNNY_MEDIA_REGION: ny
-      BUNNY_MEDIA_ZONE: ci-media
-      BUNNY_MEDIA_PASSWORD: ci-media-password
-      BUNNY_MEDIA_CDN_URL: https://media-ci.example.com
-      BUNNY_CDN_API_KEY: ci-cdn-api-key
+      PUBLIC_SITE_URL: https://cali.so
     steps:
       - name: Check out repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -61,23 +46,8 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
-      # The canonical glob includes app, components, db, and lib, covering
-      # security plus every non-live Media suite without rerunning subsets.
-      - name: Test unit and integration suites
-        run: pnpm test:unit
-
-      - name: Validate database migrations
-        run: pnpm db:validate
-
-      - name: Test deployment workflows
-        run: pnpm test:deployment
-
-      - name: Check Production migration compatibility
-        if: github.event_name == 'pull_request' && github.base_ref == 'main'
-        env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: node scripts/check-production-migrations.mjs "$BASE_SHA" "$HEAD_SHA"
+      - name: Test unit and security suites
+        run: pnpm test:unit && pnpm test:security
 
       - name: Test localization
         run: pnpm test:localization
@@ -106,9 +76,6 @@ jobs:
 
       - name: Verify public discovery and failure handling
         run: pnpm verify:public-discovery
-
-      - name: Verify production security boundary
-        run: pnpm verify:security-boundary
 
   codeql:
     name: CodeQL

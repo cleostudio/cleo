@@ -24,23 +24,21 @@ vi.mock('next/font/local', () => ({
 afterEach(cleanup)
 
 describe('public error recovery', () => {
-  it('renders a deliberate bilingual forbidden surface', () => {
+  it('renders a deliberate forbidden surface', () => {
     render(<ForbiddenPageView />)
 
     expect(screen.getByText('ERROR / 403')).toBeTruthy()
-    expect(screen.getByText('你没有访问这个页面的权限。')).toBeTruthy()
     expect(screen.getByText('You do not have access to this page.')).toBeTruthy()
-    expect(
-      screen.getByRole('link', { name: /返回首页|Go home/ }).getAttribute('href'),
-    ).toBe('/')
+    expect(screen.getByRole('link', { name: 'Go home' }).getAttribute('href')).toBe(
+      '/',
+    )
   })
 
-  it('keeps the not-found proof sheet bilingual', () => {
+  it('keeps the not-found proof sheet', () => {
     render(<NotFoundPageView />)
 
-    expect(screen.getByText('错误 / 404')).toBeTruthy()
-    expect(screen.getByText('这页走丢了。')).toBeTruthy()
-    expect(screen.getByText('无印迹')).toBeTruthy()
+    expect(screen.getByText('ERR / 404')).toBeTruthy()
+    expect(screen.getByText('This page slipped off the grid.')).toBeTruthy()
   })
 
   it('offers retry and home recovery without exposing an error message', () => {
@@ -49,12 +47,10 @@ describe('public error recovery', () => {
     render(<ErrorPageView retry={retry} />)
 
     expect(screen.queryByText('private database error')).toBeNull()
-    expect(
-      screen
-        .getByRole('link', { name: /返回首页|Go home/ })
-        .getAttribute('href'),
-    ).toBe('/')
-    fireEvent.click(screen.getByRole('button', { name: /重试|Try again/ }))
+    expect(screen.getByRole('link', { name: 'Go home' }).getAttribute('href')).toBe(
+      '/',
+    )
+    fireEvent.click(screen.getByRole('button', { name: 'Try again' }))
     expect(retry).toHaveBeenCalledOnce()
   })
 

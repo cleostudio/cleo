@@ -10,10 +10,6 @@ vi.mock('react', async (importOriginal) => {
   }
 })
 
-vi.mock('@vercel/analytics/next', () => ({
-  Analytics: () => <span data-vercel-analytics="" />,
-}))
-
 vi.mock('~/components/ambient-background', () => ({
   AmbientBackground: () => null,
 }))
@@ -56,7 +52,7 @@ beforeEach(() => {
   vi.clearAllMocks()
 })
 
-describe('SiteDocument analytics', () => {
+describe('SiteDocument', () => {
   it('renders an English public document with latin font variables', async () => {
     const html = renderToStaticMarkup(
       await SiteDocument({ children: <p>English page</p> }),
@@ -68,41 +64,19 @@ describe('SiteDocument analytics', () => {
     expect(html).not.toContain('cjk-font')
   })
 
-  it('collects page views on the public shell', async () => {
+  it('renders the public chrome without third-party analytics', async () => {
     const html = renderToStaticMarkup(
       await SiteDocument({
         children: <p>Public page</p>,
       }),
     )
 
-    expect(html).toContain('data-vercel-analytics')
+    expect(html).not.toContain('data-vercel-analytics')
     expect(html).toContain('data-public-dock')
     expect(html).toContain('data-public-footer')
     expect(html).toContain('data-public-route-transition')
     expect(html).toContain('data-public-preview-cards')
-    expect(html).not.toContain('data-locale-suggestion')
-  })
-
-  it('keeps owner-admin routes outside public chrome and social reads', async () => {
-    const html = renderToStaticMarkup(
-      await SiteDocument({
-        children: <p>Owner admin</p>,
-        isAdmin: true,
-      }),
-    )
-
-    expect(html).not.toContain('data-vercel-analytics')
-    expect(html).not.toContain('data-public-dock')
-    expect(html).not.toContain('data-public-footer')
-    expect(html).not.toContain('data-public-route-motion')
-    expect(html).not.toContain('data-public-route-transition')
-    expect(html).not.toContain('data-public-preview-cards')
-    expect(html).not.toContain('data-locale-suggestion')
-    expect(html).toContain('Owner admin')
-    // The admin shares the warm working-paper palette (July 2026 decision)
-    // while staying outside analytics and social reads.
-    expect(html).toContain('public-site')
-    expect(getSocial).not.toHaveBeenCalled()
-    expect(getGitHub).not.toHaveBeenCalled()
+    expect(getSocial).toHaveBeenCalledOnce()
+    expect(getGitHub).toHaveBeenCalledOnce()
   })
 })

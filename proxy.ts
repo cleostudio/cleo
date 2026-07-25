@@ -1,5 +1,4 @@
-import { clerkMiddleware } from '@clerk/nextjs/server'
-import type { NextFetchEvent, NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 
 import {
@@ -21,33 +20,11 @@ function missingPublicContent(pathname: string) {
     : false
 }
 
-function isAdminPage(pathname: string) {
-  return pathname === '/admin' || pathname.startsWith('/admin/')
-}
-
-function isUnavailableAmaFixture(pathname: string) {
-  return (
-    process.env.NODE_ENV !== 'development' &&
-    (pathname === '/admin/ama/fixtures' ||
-      pathname.startsWith('/admin/ama/fixtures/'))
-  )
-}
-
-function usesClerk(pathname: string) {
-  return (
-    isAdminPage(pathname) ||
-    pathname === '/api/admin' ||
-    pathname.startsWith('/api/admin/')
-  )
-}
-
-// Admin pages use the static site CSP from next.config (July 2026): the
-// former per-request nonce policy forced dynamic rendering, which is
-// incompatible with the admin's prerendered instant-navigation shells.
-export function siteProxy(request: NextRequest) {
+/** Public-content proxy: rewrite unknown blog/newsletter slugs to 404. */
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  if (missingPublicContent(pathname) || isUnavailableAmaFixture(pathname)) {
+  if (missingPublicContent(pathname)) {
     const notFoundUrl = request.nextUrl.clone()
     notFoundUrl.pathname = '/_not-found'
     return NextResponse.rewrite(notFoundUrl, { status: 404 })
@@ -56,24 +33,6 @@ export function siteProxy(request: NextRequest) {
   return NextResponse.next()
 }
 
-const clerkProxy = clerkMiddleware(async (auth, request) => {
-  if (isAdminPage(request.nextUrl.pathname)) await auth.protect()
-  return siteProxy(request)
-})
-
-export function proxy(request: NextRequest, event: NextFetchEvent) {
-  if (isUnavailableAmaFixture(request.nextUrl.pathname)) {
-    return siteProxy(request)
-  }
-  if (!usesClerk(request.nextUrl.pathname)) return siteProxy(request)
-  return clerkProxy(request, event)
-}
-
 export const config = {
-  matcher: [
-    '/admin/:path*',
-    '/api/admin/:path*',
-    '/blog/:slug',
-    '/newsletters/:id',
-  ],
+  matcher: ['/blog/:slug', '/newsletters/:id'],
 }

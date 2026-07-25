@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
 import { T } from '~/lib/i18n'
-import type { getHomepagePhotoPreview } from '~/lib/media/photo-selection/repository'
 import { localePath, type Locale } from '~/lib/locale-route'
 
 // The three doorways, greeting visitors who never look at the dock:
@@ -93,67 +92,27 @@ export function NavCards({
   )
 }
 
-export function PhotoNavCard({
-  photoPreview,
-  locale = 'en',
-  pending = false,
-}: {
-  photoPreview: ReturnType<typeof getHomepagePhotoPreview>
-  locale?: Locale
-  pending?: boolean
-}) {
+export function PhotoNavCard({ locale = 'en' }: { locale?: Locale }) {
   return (
     <Link
       href={localePath(locale, '/photos')}
       className="nav-card enter-swing"
       style={{ '--enter-delay': '190ms' } as React.CSSProperties}
-      aria-busy={pending || undefined}
     >
       <span className="nc-vignette nc-polaroids" aria-hidden>
-        {pending
-          ? Array.from({ length: 3 }, (_, i) => (
-              <span
-                key={i}
-                className="nc-polaroid nc-polaroid-placeholder"
-                style={{ '--i': i } as React.CSSProperties}
-              />
-            ))
-          : photoPreview?.items.map((photo, i) => {
-              const rendition = photo.renditions[0]!
-              const focalPoint = photo.focalPoint ?? { x: 0.5, y: 0.5 }
-              return (
-                <span
-                  key={photo.id}
-                  className="nc-polaroid"
-                  style={{ '--i': i } as React.CSSProperties}
-                >
-                  {/* Bunny is the public binary cache layer for Renditions. */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={rendition.src}
-                    alt=""
-                    width={64}
-                    height={56}
-                    style={{
-                      objectPosition: `${focalPoint.x * 100}% ${focalPoint.y * 100}%`,
-                    }}
-                  />
-                </span>
-              )
-            })}
+        {Array.from({ length: 3 }, (_, i) => (
+          <span
+            key={i}
+            className="nc-polaroid nc-polaroid-placeholder"
+            style={{ '--i': i } as React.CSSProperties}
+          />
+        ))}
       </span>
       <span className="nc-label">
         <T zh="照片" en="Photos" />
       </span>
       <span className="nc-sub">
-        {pending ? (
-          <span aria-hidden>…</span>
-        ) : (
-          <T
-            zh={`${photoPreview?.count ?? 0} 张照片`}
-            en={`${photoPreview?.count ?? 0} photos`}
-          />
-        )}
+        <T zh="0 张照片" en="0 photos" />
       </span>
     </Link>
   )

@@ -30,18 +30,24 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 
-Conversation state is browser-only and clears on reload. Cleo itself has no
-accounts. Site admin/AMA/media continue to use Clerk, Neon, Bunny, and the
-fail-closed provider pairs documented in `.env.example`.
+Conversation state is browser-only and clears on reload. There is no
+authentication, database, media library, AMA booking, or analytics.
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and
 100,000 total, with a final `user` message. User and assistant messages may
 include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
 
+## External APIs
+
+**OpenAI is the only third-party API.** Configure `OPENAI_API_KEY`. Site URLs
+use `PUBLIC_SITE_URL` / `SITE_URL`. Do not reintroduce Clerk, Neon, Bunny,
+Stripe, Resend, Google, Tencent, Upstash, or Vercel Analytics without an
+explicit product decision.
+
 ## Development rules
 
 - Use `pnpm` only. Scripts include `dev`, `build`, `start`, `typecheck`, plus
-  the site/media/ama/security suites listed in `README.md`.
+  unit/security/browser suites listed in `package.json`.
 - Before changing framework code, read the relevant Next.js guide in
   `node_modules/next/dist/docs/` — this App Router stack has breaking changes
   vs older Next.js.
@@ -54,8 +60,7 @@ include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
 ## Verification
 
 - Code: `pnpm typecheck` (and `pnpm build` when changing routes/config).
-- Site: follow the suite in `README.md` (`typecheck`, unit/media/ama
-  tests as relevant).
+- Site: relevant unit tests via `pnpm test:unit` / `pnpm test:security`.
 - Cleo: multi-turn chat, reasoning activity, web search, image attach/vision,
   image generation, streaming, cancellation, and relevant errors.
 - UI: manually verify changed flows on desktop/mobile and light/dark.
@@ -65,9 +70,8 @@ include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
 - `pnpm dev` starts the only service (default Next port).
 - `OPENAI_API_KEY` is injected when available. Without it, `/api/responses`
   returns HTTP 503 while the page remains available for UI work.
-- Previews can ship without Neon/Bunny/Clerk; stubbed features fail closed at
-  runtime. `scripts/ensure-preview-env.mjs` stubs missing site credentials
-  during `prebuild`.
+- Previews do not need Neon/Bunny/Clerk. `scripts/ensure-preview-env.mjs`
+  stubs missing `SITE_URL` / `PUBLIC_SITE_URL` during `prebuild`.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

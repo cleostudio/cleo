@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Analytics } from '@vercel/analytics/next'
 // Experimental React channel export — available because next.config.ts sets
 // experimental.viewTransition (see docs/design-language.md, page transitions)
 import { Suspense } from 'react'
@@ -30,44 +29,13 @@ export const rootMetadata: Metadata = {
 
 export async function SiteDocument({
   children,
-  isAdmin = false,
 }: Readonly<{
   children: React.ReactNode
-  isAdmin?: boolean
   /** @deprecated Ignored; site is English-only. */
   locale?: 'en'
   /** @deprecated Ignored; site is English-only. */
   restoreLocale?: boolean
 }>) {
-  if (isAdmin) {
-    // The owner admin shares the public warm paper, ambient layer, and
-    // column geometry, but stays outside public analytics, social reads,
-    // and route view transitions — its chrome is the owner dock rendered
-    // by the protected admin layout.
-    return (
-      <html
-        lang="en"
-        data-locale="en"
-        suppressHydrationWarning
-        className={cn('font-sans', fontVariables, 'public-site')}
-      >
-        <head>
-          <script dangerouslySetInnerHTML={{ __html: PREPAINT_SCRIPT }} />
-        </head>
-        <body className="antialiased">
-          <ThemeProvider>
-            <AmbientBackground />
-            <div className="flex min-h-screen flex-col pb-20">
-              <main className="flex-1 pt-14">{children}</main>
-            </div>
-          </ThemeProvider>
-        </body>
-      </html>
-    )
-  }
-
-  // Live-but-cached social numbers (ISR via the fetch data cache) keep the
-  // shared public chrome fresh without making any page request-bound.
   const [social, github] = await Promise.all([getSocial(), getGitHub()])
 
   return (
@@ -99,7 +67,6 @@ export async function SiteDocument({
             </Suspense>
           </PreviewCardTimingProvider>
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   )

@@ -889,6 +889,10 @@ introducing a second visual language or shifting the page header.
 
 ## Owner admin
 
+**Removed.** Owner admin (Clerk), AMA, and Media Library were deleted; OpenAI
+is the only third-party API. Historical notes below are retained only as design
+archive and do not describe the running app.
+
 The admin is a desk in the same studio: it shares the warm paper, grain,
 dashed column guides, and the 37.5rem center column, while staying outside
 public analytics, social reads, and route view transitions. Its contract:

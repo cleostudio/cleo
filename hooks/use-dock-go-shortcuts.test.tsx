@@ -20,14 +20,12 @@ function Harness({
   locale = 'en' as const,
   activeHref = '/' as string | undefined,
   onNavigate,
-  ownerAdmin,
 }: {
   locale?: 'en'
   activeHref?: string | undefined
   onNavigate?: (href: string, keyboardInitiated: boolean) => void
-  ownerAdmin?: boolean
 }) {
-  useDockGoShortcuts({ locale, activeHref, onNavigate, ownerAdmin })
+  useDockGoShortcuts({ locale, activeHref, onNavigate })
   return null
 }
 
@@ -122,7 +120,7 @@ describe('useDockGoShortcuts', () => {
     expect(playDockSound).not.toHaveBeenCalled()
   })
 
-  it('keeps G then D inert until the owner probe confirms', () => {
+  it('keeps G then D inert with no admin chord', () => {
     render(<Harness />)
 
     keydown('g')
@@ -130,17 +128,5 @@ describe('useDockGoShortcuts', () => {
 
     expect(push).not.toHaveBeenCalled()
     expect(playDockSound).not.toHaveBeenCalled()
-  })
-
-  it('sends the confirmed owner to /admin with G then D, unlocalized', () => {
-    const onNavigate = vi.fn()
-    render(<Harness locale="en" activeHref="/" onNavigate={onNavigate} ownerAdmin />)
-
-    keydown('g')
-    keydown('d')
-
-    expect(onNavigate).toHaveBeenCalledWith('/admin', true)
-    expect(push).toHaveBeenCalledWith('/admin')
-    expect(playDockSound).toHaveBeenCalledOnce()
   })
 })

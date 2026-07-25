@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { Suspense } from 'react'
 
 import { Bookshelf } from '~/components/bookshelf'
 import { HomeIntroduction } from '~/components/home-introduction'
@@ -13,8 +12,6 @@ import { localePath, type Locale } from '~/lib/locale-route'
 import { countries } from '~/lib/countries'
 import { books, records } from '~/lib/personal'
 import { getGitHub, getSocial } from '~/lib/social-live'
-import { getHomepagePhotoPreview } from '~/lib/media/photo-selection/repository'
-import { getPublishedPhotoSelection } from '~/lib/media/photo-selection/server'
 
 function SectionTitle({
   index,
@@ -65,19 +62,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
         postCount={posts.length}
         exploreCount={countries.length}
         locale={locale}
-        photoCard={
-          <Suspense
-            fallback={
-              <PhotoNavCard
-                photoPreview={null}
-                locale={locale}
-                pending
-              />
-            }
-          >
-            <PublishedPhotoNavCard locale={locale} />
-          </Suspense>
-        }
+        photoCard={<PhotoNavCard locale={locale} />}
       />
 
       <section className="mt-16">
@@ -130,15 +115,5 @@ export async function HomePageView({ locale }: { locale: Locale }) {
         </section>
       )}
     </div>
-  )
-}
-
-async function PublishedPhotoNavCard({ locale }: { locale: Locale }) {
-  const photoSelection = await getPublishedPhotoSelection()
-  return (
-    <PhotoNavCard
-      photoPreview={getHomepagePhotoPreview(photoSelection)}
-      locale={locale}
-    />
   )
 }

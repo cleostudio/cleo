@@ -24,7 +24,7 @@ describe('server output tracing', () => {
 })
 
 describe('English-only redirects', () => {
-  it('permanently redirects legacy /en and English feed URLs', async () => {
+  it('permanently redirects legacy /en, AMA, and admin URLs', async () => {
     const redirects = await nextConfig.redirects!()
     expect(redirects).toEqual(
       expect.arrayContaining([
@@ -32,25 +32,25 @@ describe('English-only redirects', () => {
         { source: '/en/:path*', destination: '/:path*', permanent: true },
         { source: '/feed.en.xml', destination: '/feed.xml', permanent: true },
         { source: '/ama', destination: '/explore', permanent: true },
+        { source: '/ama/:path*', destination: '/explore', permanent: true },
+        { source: '/admin', destination: '/', permanent: true },
+        { source: '/admin/:path*', destination: '/', permanent: true },
       ]),
     )
   })
 })
 
 describe('route security headers', () => {
-  it('allows the Google OAuth form redirect only from AMA settings', async () => {
+  it('applies the public CSP without admin or OAuth overrides', async () => {
     const rules = await nextConfig.headers!()
     const globalPolicy = rules
       .find(({ source }) => source === '/:path*')
       ?.headers.find(({ key }) => key === 'Content-Security-Policy')?.value
-    const googleOAuthPolicy = rules
-      .find(({ source }) => source === '/admin/ama/settings')
-      ?.headers.find(({ key }) => key === 'Content-Security-Policy')?.value
 
     expect(globalPolicy).toContain("form-action 'self'")
     expect(globalPolicy).not.toContain('https://accounts.google.com')
-    expect(googleOAuthPolicy).toContain(
-      "form-action 'self' https://accounts.google.com",
-    )
+    expect(rules.find(({ source }) => source === '/admin/:path*')).toBeUndefined()
+    expect(rules.find(({ source }) => source === '/admin/ama/settings')).toBeUndefined()
+    expect(rules.find(({ source }) => source === '/api/admin/:path*')).toBeUndefined()
   })
 })

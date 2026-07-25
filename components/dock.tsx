@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
 
 import {
   ExploreIcon,
@@ -178,10 +177,6 @@ export function Dock() {
   const pathname = usePathname()
   const routePathname = unlocalizedPathname(pathname)
   const activeHref = routePathname === '/' ? '/' : ITEMS.find(({ href }) => routePathname.startsWith(href))?.href
-  // Owner chrome is invisible until known: the hint remembers a confirmed
-  // probe so the Admin row and its chord are armed instantly on later
-  // visits; the probe itself runs when the Preferences panel opens.
-  const [ownerAdmin, setOwnerAdmin] = useState(false)
   const { dockRef, indicatorRef, registerItem, handleNavigate } =
     useDockActiveIndicator(activeHref)
 
@@ -189,16 +184,7 @@ export function Dock() {
     locale,
     activeHref,
     onNavigate: handleNavigate,
-    ownerAdmin,
   })
-
-  useEffect(() => {
-    try {
-      if (localStorage.owner === '1') setOwnerAdmin(true)
-    } catch {
-      /* private mode */
-    }
-  }, [])
 
   return (
     <nav
@@ -238,7 +224,7 @@ export function Dock() {
         </DockItem>
       ))}
       <span className="dock-rule" aria-hidden />
-      <Preferences ownerAdmin={ownerAdmin} onOwnerAdminChange={setOwnerAdmin} />
+      <Preferences />
     </nav>
   )
 }

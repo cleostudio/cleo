@@ -1,13 +1,16 @@
 # Context Map
 
-Personal site v3 is a ground-up rewrite; contexts are added here as the
-architecture takes shape. Each context gets its own `CONTEXT.md` (glossary)
-and `docs/adr/` (context-scoped decisions). System-wide ADRs live in `docs/adr/`.
+Personal site v3 contexts. System-wide ADRs live in `docs/adr/`.
 
-## Contexts
+## Active contexts
 
-- [AMA Booking](./lib/ama/CONTEXT.md) — sells and manages Cleo's paid
-  one-to-one AMA sessions
-- [Media Library](./lib/media/CONTEXT.md): stores, reviews, and curates photos
-  through the owner admin, then publishes an immutable Photo Selection to the
-  homepage and public photos page
+- **Content** — MDX blog and newsletters under `content/`
+- **Explore** — country pages from `lib/countries.ts`
+- **Cleo agent** — OpenAI Responses API at `/cleo` and `/api/responses`
+  (`lib/cleo/`, `components/cleo/`)
+
+## Removed contexts
+
+AMA Booking, Media Library, owner admin (Clerk), Neon/Postgres, rate-limit
+backends, and related ADRs/docs were deleted. Do not restore them without an
+explicit product decision. OpenAI is the only third-party API.
