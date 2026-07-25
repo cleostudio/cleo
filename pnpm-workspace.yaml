@@ -1,6 +1,2 @@
-packages: []
-
-allowBuilds:
-  sharp: true
-  unrs-resolver: true
-  msw: false
+patchedDependencies:
+  typegpu@0.11.9: patches/typegpu@0.11.9.patch

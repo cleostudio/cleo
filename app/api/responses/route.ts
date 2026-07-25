@@ -7,12 +7,12 @@ import type {
   ResponseReasoningItem,
 } from "openai/resources/responses/responses"
 
-import { CLEO_INSTRUCTIONS } from "@/lib/cleo-instructions"
+import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
   MAX_IMAGES_PER_MESSAGE,
   parseImageDataUrl,
   toImageDataUrl,
-} from "@/lib/images"
+} from "~/lib/cleo/images"
 import {
   type ActivityItem,
   type ActivityStatus,
@@ -20,7 +20,7 @@ import {
   encodeStreamEvent,
   type MessageImage,
   type WebSearchAction,
-} from "@/lib/stream"
+} from "~/lib/cleo/stream"
 
 const MODEL = "gpt-5.6-terra"
 const MAX_INPUT_LENGTH = 10_000

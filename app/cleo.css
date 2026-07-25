@@ -1,0 +1,525 @@
+/* Column geometry for the Cleo chat surface */
+:root {
+  --app-column-max: 37.5rem;
+  --app-column-gutter: 1.5rem;
+  /* Site dock is 3.5rem tall at bottom 1.25rem; keep the prompt above it */
+  --cleo-prompt-bottom: 5.75rem;
+  --cleo-prompt-bottom-mobile: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (max-width: 39.99rem) {
+  :root {
+    --app-column-gutter: 1rem;
+  }
+}
+
+/* Cleo agent chat surface — streamdown + prompt dock */
+@import "streamdown/styles.css";
+@source "../node_modules/streamdown/dist/*.js";
+@source "../node_modules/@streamdown/code/dist/*.js";
+
+.ai-response {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 14px;
+  line-height: 1.72;
+  color: var(--foreground);
+}
+
+/* Kill Streamdown/Tailwind space-y-4 margins; flex gap owns the vertical rhythm.
+ * TW v4 space-y uses margin-block-end on :not(:last-child) inside :where(). */
+.ai-response > :not(:last-child) {
+  margin-block-end: 0;
+}
+
+.ai-response > :not([hidden]) ~ :not([hidden]) {
+  margin-block-start: 0;
+  margin-top: 0;
+}
+
+.ai-response > :first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.ai-response > :last-child {
+  margin-bottom: 0;
+}
+
+/* Browser default <p> margins stack with flex gap and create uneven rhythm. */
+.ai-response > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Neutralize Streamdown per-element vertical margins. */
+.ai-response [data-streamdown="heading-1"],
+.ai-response [data-streamdown="heading-2"],
+.ai-response [data-streamdown="heading-3"],
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"],
+.ai-response [data-streamdown="unordered-list"],
+.ai-response [data-streamdown="ordered-list"],
+.ai-response [data-streamdown="blockquote"],
+.ai-response [data-streamdown="horizontal-rule"],
+.ai-response [data-streamdown="code-block"],
+.ai-response [data-streamdown="table-wrapper"],
+.ai-response [data-streamdown="mermaid-block"] {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.ai-response [data-streamdown="heading-1"],
+.ai-response [data-streamdown="heading-2"],
+.ai-response [data-streamdown="heading-3"],
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"] {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+}
+
+.ai-response [data-streamdown="heading-1"] {
+  font-size: 1.375rem;
+  line-height: 1.3;
+}
+
+.ai-response [data-streamdown="heading-2"] {
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.ai-response [data-streamdown="heading-3"] {
+  font-size: 1.0625rem;
+  line-height: 1.4;
+}
+
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"] {
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+/*
+ * Extra section break before headings via padding so it stacks cleanly with
+ * flex gap (margin would fight space-y / gap unpredictably).
+ */
+.ai-response [data-streamdown="heading-1"],
+.ai-response [data-streamdown="heading-2"] {
+  padding-top: 0.85rem;
+}
+
+.ai-response [data-streamdown="heading-3"],
+.ai-response [data-streamdown="heading-4"],
+.ai-response [data-streamdown="heading-5"],
+.ai-response [data-streamdown="heading-6"] {
+  padding-top: 0.65rem;
+}
+
+.ai-response > :first-child[data-streamdown="heading-1"],
+.ai-response > :first-child[data-streamdown="heading-2"],
+.ai-response > :first-child[data-streamdown="heading-3"],
+.ai-response > :first-child[data-streamdown="heading-4"],
+.ai-response > :first-child[data-streamdown="heading-5"],
+.ai-response > :first-child[data-streamdown="heading-6"] {
+  padding-top: 0;
+}
+
+.ai-response [data-streamdown="unordered-list"],
+.ai-response [data-streamdown="ordered-list"] {
+  list-style-position: outside;
+  padding-left: 1.25rem;
+  white-space: normal;
+}
+
+.ai-response [data-streamdown="unordered-list"] {
+  list-style-type: disc;
+}
+
+.ai-response [data-streamdown="ordered-list"] {
+  list-style-type: decimal;
+}
+
+.ai-response [data-streamdown="list-item"] {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0.25rem;
+}
+
+.ai-response [data-streamdown="list-item"] + [data-streamdown="list-item"] {
+  margin-top: 0.5rem;
+}
+
+.ai-response [data-streamdown="list-item"]::marker {
+  color: var(--muted-foreground);
+}
+
+.ai-response [data-streamdown="list-item"] > p {
+  display: inline;
+  margin: 0;
+}
+
+.ai-response li [data-streamdown="unordered-list"],
+.ai-response li [data-streamdown="ordered-list"] {
+  margin-top: 0.4rem;
+  margin-bottom: 0.15rem;
+  padding-left: 1.15rem;
+}
+
+.ai-response [data-streamdown="strong"] {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.ai-response [data-streamdown="link"] {
+  font-weight: 500;
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--foreground) 35%, transparent);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 150ms ease;
+}
+
+.ai-response [data-streamdown="link"]:hover {
+  text-decoration-color: var(--foreground);
+}
+
+.dark .ai-response [data-streamdown="link"] {
+  text-decoration-color: color-mix(in oklab, var(--foreground) 55%, transparent);
+}
+
+.ai-response [data-streamdown="inline-code"] {
+  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--muted);
+  padding: 0.12em 0.4em;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.875em;
+  color: var(--foreground);
+}
+
+.dark .ai-response [data-streamdown="inline-code"] {
+  border-color: color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
+.ai-response [data-streamdown="blockquote"] {
+  border-left: 2px solid color-mix(in oklab, var(--foreground) 20%, transparent);
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  padding-left: 0.875rem;
+  color: var(--muted-foreground);
+  font-style: normal;
+}
+
+.dark .ai-response [data-streamdown="blockquote"] {
+  border-left-color: color-mix(in oklab, var(--foreground) 32%, transparent);
+}
+
+.ai-response [data-streamdown="horizontal-rule"] {
+  width: 100%;
+  border-color: var(--border);
+  margin-block: 0.25rem;
+}
+
+@keyframes activity-shimmer {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 12ch 0;
+  }
+}
+
+.activity-shimmer {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--muted-foreground) 0,
+    var(--muted-foreground) 3.5ch,
+    var(--foreground) 6ch,
+    var(--muted-foreground) 8.5ch,
+    var(--muted-foreground) 12ch
+  ) !important;
+  background-size: 12ch 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  animation: activity-shimmer 1.2s linear infinite !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-shimmer {
+    animation: none !important;
+    background-image: none !important;
+    color: var(--muted-foreground) !important;
+    -webkit-text-fill-color: var(--muted-foreground) !important;
+  }
+}
+
+
+/* ── Prompt dock (cali.so dock grammar) ───────────────────────────── */
+
+.glass-surface {
+  position: relative;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--background) 68%, transparent);
+  box-shadow: 0 0 0 1px var(--border), var(--shadow-medium);
+}
+
+.prompt-dock {
+  z-index: var(--z-nav);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0.375rem;
+}
+
+/* Multi-row dock (attachment previews) needs a softer radius than a pill so
+   thumbnails are not clipped by the capsule shape. */
+.prompt-dock:has(.prompt-dock-attachments) {
+  border-radius: 1.5rem;
+}
+
+.prompt-dock-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.prompt-dock-attachments {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.375rem 0.5rem 0;
+}
+
+.prompt-dock-attachment {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.prompt-dock-attachment-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.prompt-dock-attachment-remove {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.35rem;
+  display: grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.prompt-dock-attach {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted-foreground);
+  box-shadow: none;
+}
+
+.prompt-dock-attach:hover:not(:disabled) {
+  color: var(--foreground);
+  background: color-mix(in oklab, var(--muted) 80%, transparent);
+}
+
+.prompt-dock-attach:disabled {
+  opacity: 0.45;
+}
+
+.user-turn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  max-width: 85%;
+  margin-left: auto;
+}
+
+.user-message {
+  display: block;
+  max-width: 100%;
+  padding: 0.625rem 1.125rem;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  white-space: pre-wrap;
+}
+
+.user-message > .user-message-text {
+  position: relative;
+  z-index: 1;
+}
+
+.user-message-images,
+.assistant-message-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.assistant-message-images {
+  justify-content: flex-start;
+}
+
+.message-image {
+  display: block;
+  max-width: min(100%, 18rem);
+  max-height: 18rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.75rem;
+}
+
+.message-image-assistant {
+  max-width: min(100%, 24rem);
+  max-height: 24rem;
+}
+
+@media (min-width: 40rem) {
+  .user-turn {
+    max-width: 70%;
+  }
+}
+
+/* Shared width for chat column + prompt dock so edges stay aligned. */
+.app-column {
+  width: min(
+    calc(100% - (2 * var(--app-column-gutter))),
+    var(--app-column-max)
+  );
+  margin-inline: auto;
+}
+
+.prompt-dock-shell {
+  width: 100%;
+}
+
+.prompt-dock-shell[data-docked] {
+  position: fixed;
+  bottom: var(--cleo-prompt-bottom);
+  left: 50%;
+  z-index: calc(var(--z-nav) - 1);
+  width: min(
+    calc(100% - (2 * var(--app-column-gutter))),
+    var(--app-column-max)
+  );
+  transform: translateX(-50%);
+}
+
+@media (max-width: 39.99rem) {
+  .prompt-dock-shell[data-docked] {
+    bottom: var(--cleo-prompt-bottom-mobile);
+  }
+}
+
+/* the refraction layer — its backdrop-filter is set inline from the
+   component (LightningCSS strips the property from stylesheets) */
+.liquid-glass {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.2),
+    inset 0 -1px 0 rgb(255 255 255 / 0.06);
+}
+
+.prompt-dock-input {
+  position: relative;
+  z-index: 1;
+  height: 2.75rem !important;
+  min-width: 0;
+  flex: 1;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 999px !important;
+  padding-inline: 0.4rem 0.5rem !important;
+  font-size: 1rem !important;
+  outline: none;
+}
+
+.prompt-dock-input:focus-visible {
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.prompt-dock-send {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: none;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    transform 150ms var(--ease-swift);
+}
+
+.prompt-dock-send:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--primary) 80%, var(--foreground));
+  color: var(--primary-foreground);
+}
+
+.prompt-dock-send:focus-visible {
+  border-color: transparent;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: none;
+}
+
+.prompt-dock-send:disabled {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  opacity: 0.45;
+}
+
+.prompt-dock-send:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prompt-dock-send {
+    transition: none;
+  }
+}

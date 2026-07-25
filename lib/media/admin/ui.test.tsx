@@ -1,0 +1,715 @@
+// @vitest-environment jsdom
+
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
+import { MediaLibrary } from '../../../app/admin/(protected)/media/MediaLibrary'
+import type { MediaAssetReviewRecord } from '../asset-review/service'
+import type { TransferJob } from '../transfer/service'
+
+// jsdom ships no ResizeObserver; the inspector dialog's scrollable body
+// observes its viewport to drive the edge fades. Assigned directly (not
+// vi.stubGlobal) so afterEach's unstubAllGlobals leaves it in place.
+class ResizeObserverStub {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+globalThis.ResizeObserver = ResizeObserverStub as unknown as typeof ResizeObserver
+
+const activeAsset: MediaAssetReviewRecord = {
+  id: '11111111-1111-4111-8111-111111111111',
+  createdAt: new Date('2026-07-15T12:00:00.000Z'),
+  catalogState: 'active',
+  processingState: 'ready',
+  width: 4032,
+  height: 3024,
+  capturedAt: new Date('2025-05-08T00:31:34.000Z'),
+  cameraMake: 'Google',
+  cameraModel: 'Pixel 9 Pro',
+  lens: null,
+  focalLengthMillimeters: 6.9,
+  aperture: 1.7,
+  shutterSpeedSeconds: 0.01,
+  iso: 80,
+  hasCaptureLocation: true,
+  locationLabelZhHans: '旧金山',
+  locationLabelEn: 'San Francisco',
+  focalPoint: { x: 0.4, y: 0.6 },
+  altTextSuggestion: {
+    zhHans: '一辆缆车沿着街道行驶。',
+    en: 'A cable car travels along a city street.',
+    model: 'gateway/model',
+    suggestedAt: new Date('2026-07-15T12:00:00.000Z'),
+  },
+  altTextZhHans: null,
+  altTextEn: null,
+  altTextApprovedAt: null,
+  archivedAt: null,
+  previewRendition: {
+    src: 'https://media.example.com/renditions/photo-640.jpg',
+    width: 640,
+    height: 480,
+  },
+}
+
+const failedTransfer: TransferJob = {
+  uploadIntentId: '22222222-2222-4222-8222-222222222222',
+  mediaAssetId: '33333333-3333-4333-8333-333333333333',
+  contentType: 'image/jpeg',
+  byteSize: 2_700_000,
+  checksumSha256: 'a'.repeat(64),
+  stage: 'failed',
+  processingState: 'retryable_failure',
+  processingErrorCode: 'dependency_unavailable',
+  createdAt: new Date('2026-07-20T08:00:00.000Z'),
+  updatedAt: new Date('2026-07-20T08:01:00.000Z'),
+  expiresAt: new Date('2026-07-20T08:15:00.000Z'),
+}
+
+const processingTransfer: TransferJob = {
+  ...failedTransfer,
+  stage: 'processing',
+  processingState: 'processing',
+  processingErrorCode: null,
+}
+
+beforeEach(() => {
+  const entries = new Map<string, string>()
+  vi.stubGlobal('localStorage', {
+    get length() {
+      return entries.size
+    },
+    clear() {
+      entries.clear()
+    },
+    getItem(key: string) {
+      return entries.get(key) ?? null
+    },
+    removeItem(key: string) {
+      entries.delete(key)
+    },
+    setItem(key: string, value: string) {
+      entries.set(key, value)
+    },
+  })
+})
+
+afterEach(() => {
+  cleanup()
+  vi.restoreAllMocks()
+  localStorage.clear()
+  vi.unstubAllGlobals()
+  delete document.documentElement.dataset.locale
+})
+
+describe('Media archive UI contract', () => {
+  it('renders a stable contact sheet with Transfers outside page flow', () => {
+    const html = renderToStaticMarkup(
+      <MediaLibrary
+        initialActive={[activeAsset]}
+        initialArchived={[]}
+        initialTransfers={[]}
+        selectionIds={[activeAsset.id]}
+      />,
+    )
+
+    expect(html).toContain('Transfers')
+    expect(html).not.toContain('multiple=""')
+    expect(html).toContain('role="tablist"')
+    expect(html).toContain('aria-haspopup="dialog"')
+    // The selection mark shows what the photos page is using.
+    expect(html).toContain('In use')
+    // Compact 32px controls restore their 44px hit target with a pseudo.
+    expect(html).toContain('before:h-11')
+    expect(html).not.toMatch(/latitude|longitude|originals\//i)
+  })
+
+  it('opens the inspector and supports keyboard Focal Point adjustment', async () => {
+    document.documentElement.dataset.locale = 'en'
+    const { getByRole } = render(
+      <MediaLibrary
+        initialActive={[activeAsset]}
+        initialArchived={[]}
+        initialTransfers={[]}
+        selectionIds={[]}
+      />,
+    )
+
+    fireEvent.click(getByRole('button', { name: /San Francisco/ }))
+    const focal = await screen.findByRole('button', { name: /Set Focal Point/ })
+    fireEvent.keyDown(focal, { key: 'ArrowRight' })
+
+    await waitFor(() => {
+      const marker = focal.querySelector<HTMLSpanElement>('span[style]')
+      expect(marker?.style.left).toBe('45%')
+    })
+  })
+
+  it('keeps manual Location entry available when a file has no GPS metadata', async () => {
+    document.documentElement.dataset.locale = 'en'
+    const withoutCaptureLocation = {
+      ...activeAsset,
+      hasCaptureLocation: false,
+      locationLabelEn: null,
+      locationLabelZhHans: null,
+    }
+    const { getByRole } = render(
+      <MediaLibrary
+        initialActive={[withoutCaptureLocation]}
+        initialArchived={[]}
+        initialTransfers={[]}
+        selectionIds={[]}
+      />,
+    )
+
+    fireEvent.click(
+      getByRole('button', { name: /11111111/ }),
+    )
+    await screen.findByRole('dialog')
+
+    expect(
+      screen.queryByRole('button', { name: /Fill from Capture Location/ }),
+    ).toBeNull()
+    expect(
+      (
+        screen.getByRole('textbox', {
+          name: /Location \(English\)/,
+        }) as HTMLInputElement
+      ).disabled,
+    ).toBe(false)
+  })
+
+  it('saves location and alt text edits with one Save action', async () => {
+    document.documentElement.dataset.locale = 'en'
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const body = JSON.parse(String(init?.body)) as { intent: string }
+      return Response.json({
+        asset: {
+          ...activeAsset,
+          ...(body.intent === 'approve_alt_text'
+            ? {
+                altTextZhHans: '一辆缆车沿着街道行驶。',
+                altTextEn: 'A cable car travels along a city street.',
+                altTextApprovedAt: new Date().toISOString(),
+              }
+            : {}),
+        },
+      })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const { getByRole } = render(
+      <MediaLibrary
+        initialActive={[activeAsset]}
+        initialArchived={[]}
+        initialTransfers={[]}
+        selectionIds={[]}
+      />,
+    )
+
+    fireEvent.click(getByRole('button', { name: /San Francisco/ }))
+    await screen.findByRole('dialog')
+    fireEvent.change(screen.getByRole('textbox', { name: /Location \(English\)/ }), {
+      target: { value: 'San Francisco, CA' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /Save/ }))
+
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2))
+    const intents = fetchMock.mock.calls.map(
+      ([, init]) => (JSON.parse(String(init?.body)) as { intent: string }).intent,
+    )
+    // Both halves changed (location edited; alt text prefilled from the
+    // suggestion but not yet approved), one Save sends both.
+    expect(intents).toEqual(['update_display_metadata', 'approve_alt_text'])
+  })
+
+  it('purges through one dedicated confirmation dialog', async () => {
+    document.documentElement.dataset.locale = 'en'
+    const archivedAsset: MediaAssetReviewRecord = {
+      ...activeAsset,
+      catalogState: 'archived',
+      archivedAt: new Date('2026-07-15T13:00:00.000Z'),
+    }
+    const fetchMock = vi.fn(async () => Response.json({ result: { purged: true } }))
+    vi.stubGlobal('fetch', fetchMock)
+    const { getByRole } = render(
+      <MediaLibrary
+        initialActive={[]}
+        initialArchived={[archivedAsset]}
+        initialTransfers={[]}
+        selectionIds={[]}
+      />,
+    )
+
+    fireEvent.click(getByRole('tab', { name: /Archived/ }))
+    fireEvent.click(getByRole('button', { name: /San Francisco/ }))
+    await screen.findByRole('dialog')
+    fireEvent.click(screen.getByRole('button', { name: /Purge$/ }))
+
+    const confirmButton = screen.getByRole('button', {
+      name: /Purge$/,
+    }) as HTMLButtonElement
+    fireEvent.click(confirmButton)
+
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledOnce())
+    expect(fetchMock).toHaveBeenCalledWith(
+      `/api/admin/media/assets/${activeAsset.id}/purge`,
+      expect.objectContaining({
+        method: 'POST',
+        body: JSON.stringify({ confirmation: 'PURGE' }),
+      }),
+    )
+  })
+
+  it('restores failed Transfer Jobs after reload and discards through one dialog', async () => {
+    document.documentElement.dataset.locale = 'en'
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (
+        url ===
+          `/api/admin/media/upload-intents/${failedTransfer.uploadIntentId}` &&
+        init?.method === 'DELETE'
+      ) {
+        return Response.json({ result: { status: 'discarded' } })
+      }
+      if (url.endsWith('?view=active') || url.endsWith('?view=archived')) {
+        return Response.json({ assets: [] })
+      }
+      if (url === '/api/admin/media/upload-intents') {
+        return Response.json({ transfers: [] })
+      }
+      throw new Error(`Unexpected request: ${url}`)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const { getByRole, getByText, queryByRole } = render(
+      <MediaLibrary
+        initialActive={[]}
+        initialArchived={[]}
+        initialTransfers={[failedTransfer]}
+        selectionIds={[]}
+      />,
+    )
+
+    expect(getByRole('button', { name: /Transfers/ }).textContent).toContain('1')
+    expect(getByText('The Library is empty — start a Transfer.')).toBeTruthy()
+    fireEvent.click(getByRole('button', { name: /Transfers/ }))
+    expect(
+      await screen.findByText(
+        'Storage is temporarily unavailable; it is safe to retry',
+      ),
+    ).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /Discard/ }))
+
+    await screen.findByRole('dialog', { name: /Discard Transfer/ })
+    expect(queryByRole('textbox')).toBeNull()
+    fireEvent.click(
+      screen.getByRole('button', { name: /Discard Permanently/ }),
+    )
+
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        `/api/admin/media/upload-intents/${failedTransfer.uploadIntentId}`,
+        { method: 'DELETE' },
+      ),
+    )
+  })
+
+  it('keeps Discard available while a Transfer Job is processing', async () => {
+    document.documentElement.dataset.locale = 'en'
+    render(
+      <MediaLibrary
+        initialActive={[]}
+        initialArchived={[]}
+        initialTransfers={[processingTransfer]}
+        selectionIds={[]}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: /Transfers/ }))
+    expect(
+      await screen.findByRole('button', { name: /Discard/ }),
+    ).toBeTruthy()
+  })
+
+  it('automatically retries a transient Original transfer before completion', async () => {
+    const digest = new Uint8Array(32).buffer
+    vi.stubGlobal('crypto', {
+      randomUUID: vi
+        .fn()
+        .mockReturnValueOnce('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa')
+        .mockReturnValueOnce('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'),
+      subtle: { digest: vi.fn().mockResolvedValue(digest) },
+    })
+
+    const originalAttempts: string[] = []
+    const fetchMock = vi.fn(
+      async (input: RequestInfo | URL, _init?: RequestInit) => {
+        const url = String(input)
+        if (url === '/api/admin/media/upload-intents') {
+          return Response.json(
+            {
+              uploadIntent: {
+                id: '22222222-2222-4222-8222-222222222222',
+              },
+            },
+            { status: 201 },
+          )
+        }
+        if (url.includes('/original?chunk=')) {
+          originalAttempts.push(url)
+          const secondChunkAttempts = originalAttempts.filter((attempt) =>
+            attempt.endsWith('?chunk=1'),
+          ).length
+          return new Response(null, {
+            status:
+              url.endsWith('?chunk=1') && secondChunkAttempts === 1
+                ? 503
+                : 204,
+          })
+        }
+        if (url.endsWith('/complete')) {
+          return Response.json({
+            mediaAsset: { id: activeAsset.id, processingState: 'ready' },
+          })
+        }
+        if (url.endsWith('/alt-text')) {
+          return Response.json({ suggestion: null, asset: null })
+        }
+        if (url.endsWith('?view=active')) {
+          return Response.json({ assets: [activeAsset] })
+        }
+        if (url.endsWith('?view=archived')) {
+          return Response.json({ assets: [] })
+        }
+        throw new Error(`Unexpected request: ${url}`)
+      },
+    )
+    vi.stubGlobal('fetch', fetchMock)
+
+    const { container, getByRole } = render(
+      <MediaLibrary initialActive={[]} initialArchived={[]} initialTransfers={[]} selectionIds={[]} />,
+    )
+    const file = new File(
+      [new Uint8Array(4 * 1024 * 1024 + 3)],
+      'photo.jpg',
+      {
+      type: 'image/jpeg',
+      },
+    )
+    if (!file.arrayBuffer) {
+      Object.defineProperty(file, 'arrayBuffer', {
+        value: async () => new Uint8Array(4 * 1024 * 1024 + 3).buffer,
+      })
+    }
+    fireEvent.click(getByRole('button', { name: /Transfers/ }))
+    fireEvent.change(document.querySelector('input[type="file"]')!, {
+      target: { files: [file] },
+    })
+
+    await waitFor(() => {
+      expect(originalAttempts).toEqual([
+        '/api/admin/media/upload-intents/22222222-2222-4222-8222-222222222222/original?chunk=0',
+        '/api/admin/media/upload-intents/22222222-2222-4222-8222-222222222222/original?chunk=1',
+        '/api/admin/media/upload-intents/22222222-2222-4222-8222-222222222222/original?chunk=1',
+      ])
+      expect(
+        fetchMock.mock.calls.some(([input]) => String(input).endsWith('/complete')),
+      ).toBe(true)
+    })
+
+    const urls = fetchMock.mock.calls.map(([input]) => String(input))
+    expect(urls.filter((url) => url === '/api/admin/media/upload-intents')).toHaveLength(1)
+    expect(urls.filter((url) => url.includes('/original?chunk='))).toHaveLength(3)
+    expect(urls.filter((url) => url.endsWith('/complete'))).toHaveLength(1)
+    const chunkBodies = fetchMock.mock.calls
+      .filter(([input]) => String(input).includes('/original?chunk='))
+      .map(([, init]) => init?.body as Blob)
+    expect(chunkBodies.map((body) => body.size)).toEqual([
+      4 * 1024 * 1024,
+      3,
+      3,
+    ])
+    expect(chunkBodies.every((body) => body.size < 4_500_000)).toBe(true)
+    // The auto-approve request follows completion without user action.
+    expect(urls.some((url) => url.endsWith('/alt-text'))).toBe(true)
+    const intentBody = JSON.parse(
+      String(
+        fetchMock.mock.calls.find(([input]) =>
+          String(input).endsWith('/upload-intents'),
+        )?.[1]?.body,
+      ),
+    ) as { idempotencyKey: string }
+    expect(intentBody.idempotencyKey).toBe('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb')
+    expect(localStorage.length).toBe(0)
+  })
+
+  it('replaces an expired Upload Intent after the first chunk returns 404', async () => {
+    const digest = new Uint8Array(32).buffer
+    vi.stubGlobal('crypto', {
+      randomUUID: vi
+        .fn()
+        .mockReturnValueOnce('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa')
+        .mockReturnValueOnce('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb')
+        .mockReturnValueOnce('cccccccc-cccc-4ccc-8ccc-cccccccccccc'),
+      subtle: { digest: vi.fn().mockResolvedValue(digest) },
+    })
+    const intentIds = [
+      '22222222-2222-4222-8222-222222222222',
+      '33333333-3333-4333-8333-333333333333',
+    ]
+    const originalAttempts: string[] = []
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url === '/api/admin/media/upload-intents') {
+        return Response.json({ uploadIntent: { id: intentIds.shift() } })
+      }
+      if (url.includes('/original?chunk=')) {
+        originalAttempts.push(url)
+        return new Response(null, {
+          status: url.includes('22222222-2222-4222-8222-222222222222')
+            ? 404
+            : 204,
+        })
+      }
+      if (url.endsWith('/complete')) {
+        return Response.json({
+          mediaAsset: { id: activeAsset.id, processingState: 'ready' },
+        })
+      }
+      if (url.endsWith('/alt-text')) {
+        return Response.json({ suggestion: null, asset: null })
+      }
+      if (url.endsWith('?view=active')) {
+        return Response.json({ assets: [activeAsset] })
+      }
+      if (url.endsWith('?view=archived')) {
+        return Response.json({ assets: [] })
+      }
+      throw new Error(`Unexpected request: ${url}`)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    const { getByRole, queryByRole } = render(
+      <MediaLibrary initialActive={[]} initialArchived={[]} initialTransfers={[]} selectionIds={[]} />,
+    )
+    const file = new File([new Uint8Array([1, 2, 3])], 'photo.jpg', {
+      type: 'image/jpeg',
+    })
+    if (!file.arrayBuffer) {
+      Object.defineProperty(file, 'arrayBuffer', {
+        value: async () => new Uint8Array([1, 2, 3]).buffer,
+      })
+    }
+    fireEvent.click(getByRole('button', { name: /Transfers/ }))
+    fireEvent.change(document.querySelector('input[type="file"]')!, {
+      target: { files: [file] },
+    })
+
+    await waitFor(() => {
+      expect(originalAttempts).toEqual([
+        '/api/admin/media/upload-intents/22222222-2222-4222-8222-222222222222/original?chunk=0',
+        '/api/admin/media/upload-intents/33333333-3333-4333-8333-333333333333/original?chunk=0',
+      ])
+    })
+    expect(
+      fetchMock.mock.calls.filter(
+        ([input]) => String(input) === '/api/admin/media/upload-intents',
+      ),
+    ).toHaveLength(2)
+    expect(queryByRole('button', { name: /Retry/ })).toBeNull()
+  })
+
+  it('restarts once from chunk zero after a missing-prior-chunk response', async () => {
+    const digest = new Uint8Array(32).buffer
+    vi.stubGlobal('crypto', {
+      randomUUID: vi
+        .fn()
+        .mockReturnValueOnce('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa')
+        .mockReturnValueOnce('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'),
+      subtle: { digest: vi.fn().mockResolvedValue(digest) },
+    })
+
+    const originalAttempts: string[] = []
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url === '/api/admin/media/upload-intents') {
+        return Response.json(
+          {
+            uploadIntent: {
+              id: '22222222-2222-4222-8222-222222222222',
+            },
+          },
+          { status: 201 },
+        )
+      }
+      if (url.includes('/original?chunk=')) {
+        originalAttempts.push(url)
+        const firstChunkOneAttempt =
+          url.endsWith('?chunk=1') &&
+          originalAttempts.filter((attempt) => attempt.endsWith('?chunk=1'))
+            .length === 1
+        return new Response(null, { status: firstChunkOneAttempt ? 409 : 204 })
+      }
+      if (url.endsWith('/complete')) {
+        return Response.json({
+          mediaAsset: { id: activeAsset.id, processingState: 'ready' },
+        })
+      }
+      if (url.endsWith('/alt-text')) {
+        return Response.json({ suggestion: null, asset: null })
+      }
+      if (url.endsWith('?view=active')) {
+        return Response.json({ assets: [activeAsset] })
+      }
+      if (url.endsWith('?view=archived')) {
+        return Response.json({ assets: [] })
+      }
+      throw new Error(`Unexpected request: ${url}`)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    const { getByRole, queryByRole } = render(
+      <MediaLibrary initialActive={[]} initialArchived={[]} initialTransfers={[]} selectionIds={[]} />,
+    )
+    const file = new File(
+      [new Uint8Array(4 * 1024 * 1024 + 3)],
+      'photo.jpg',
+      { type: 'image/jpeg' },
+    )
+    if (!file.arrayBuffer) {
+      Object.defineProperty(file, 'arrayBuffer', {
+        value: async () => new Uint8Array(4 * 1024 * 1024 + 3).buffer,
+      })
+    }
+    fireEvent.click(getByRole('button', { name: /Transfers/ }))
+    fireEvent.change(document.querySelector('input[type="file"]')!, {
+      target: { files: [file] },
+    })
+
+    await waitFor(() => {
+      expect(originalAttempts).toEqual([
+        '/api/admin/media/upload-intents/22222222-2222-4222-8222-222222222222/original?chunk=0',
+        '/api/admin/media/upload-intents/22222222-2222-4222-8222-222222222222/original?chunk=1',
+        '/api/admin/media/upload-intents/22222222-2222-4222-8222-222222222222/original?chunk=0',
+        '/api/admin/media/upload-intents/22222222-2222-4222-8222-222222222222/original?chunk=1',
+      ])
+      expect(
+        fetchMock.mock.calls.filter(([input]) =>
+          String(input).endsWith('/complete'),
+        ),
+      ).toHaveLength(1)
+    })
+    expect(queryByRole('button', { name: /Retry/ })).toBeNull()
+  })
+
+  it('reuses an unfinished upload key after the admin remounts', async () => {
+    const digest = new Uint8Array(32).buffer
+    vi.stubGlobal('crypto', {
+      randomUUID: vi
+        .fn()
+        .mockReturnValueOnce('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa')
+        .mockReturnValueOnce('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb')
+        .mockReturnValueOnce('cccccccc-cccc-4ccc-8ccc-cccccccccccc'),
+      subtle: { digest: vi.fn().mockResolvedValue(digest) },
+    })
+    const intentBodies: Array<{ idempotencyKey: string }> = []
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+        intentBodies.push(JSON.parse(String(init?.body)))
+        return Response.json({ error: 'dependency_unavailable' }, { status: 503 })
+      }),
+    )
+    const file = new File([new Uint8Array([1, 2, 3])], 'photo.jpg', {
+      type: 'image/jpeg',
+    })
+    if (!file.arrayBuffer) {
+      Object.defineProperty(file, 'arrayBuffer', {
+        value: async () => new Uint8Array([1, 2, 3]).buffer,
+      })
+    }
+
+    const first = render(
+      <MediaLibrary initialActive={[]} initialArchived={[]} initialTransfers={[]} selectionIds={[]} />,
+    )
+    fireEvent.click(first.getByRole('button', { name: /Transfers/ }))
+    fireEvent.change(document.querySelector('input[type="file"]')!, {
+      target: { files: [file] },
+    })
+    await waitFor(() => expect(intentBodies).toHaveLength(1))
+    first.unmount()
+
+    const second = render(
+      <MediaLibrary initialActive={[]} initialArchived={[]} initialTransfers={[]} selectionIds={[]} />,
+    )
+    fireEvent.click(second.getByRole('button', { name: /Transfers/ }))
+    fireEvent.change(document.querySelector('input[type="file"]')!, {
+      target: { files: [file] },
+    })
+    await waitFor(() => expect(intentBodies).toHaveLength(2))
+    expect(intentBodies.map(({ idempotencyKey }) => idempotencyKey)).toEqual([
+      'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
+      'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
+    ])
+  })
+
+  it('keeps a completed upload archived when the library refresh fails', async () => {
+    document.documentElement.dataset.locale = 'en'
+    const digest = new Uint8Array(32).buffer
+    vi.stubGlobal('crypto', {
+      randomUUID: vi
+        .fn()
+        .mockReturnValueOnce('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa')
+        .mockReturnValueOnce('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'),
+      subtle: { digest: vi.fn().mockResolvedValue(digest) },
+    })
+
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url === '/api/admin/media/upload-intents') {
+        return Response.json({
+          uploadIntent: { id: '22222222-2222-4222-8222-222222222222' },
+        })
+      }
+      if (url.includes('/original?chunk=')) {
+        return new Response(null, { status: 204 })
+      }
+      if (url.endsWith('/complete')) {
+        return Response.json({
+          mediaAsset: { id: activeAsset.id, processingState: 'ready' },
+        })
+      }
+      if (url.endsWith('/alt-text')) {
+        return Response.json({ suggestion: null, asset: null })
+      }
+      if (url.includes('/api/admin/media/assets?view=')) {
+        return Response.json({ error: 'dependency_unavailable' }, { status: 503 })
+      }
+      throw new Error(`Unexpected request: ${url}`)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    const { getByRole, getByText, queryByRole } = render(
+      <MediaLibrary initialActive={[]} initialArchived={[]} initialTransfers={[]} selectionIds={[]} />,
+    )
+    const file = new File([new Uint8Array([1, 2, 3])], 'photo.jpg', {
+      type: 'image/jpeg',
+    })
+    if (!file.arrayBuffer) {
+      Object.defineProperty(file, 'arrayBuffer', {
+        value: async () => new Uint8Array([1, 2, 3]).buffer,
+      })
+    }
+    fireEvent.click(getByRole('button', { name: /Transfers/ }))
+    fireEvent.change(document.querySelector('input[type="file"]')!, {
+      target: { files: [file] },
+    })
+
+    await waitFor(() => expect(getByText('In the archive')).toBeTruthy())
+    expect(queryByRole('button', { name: /Retry/ })).toBeNull()
+    expect(
+      fetchMock.mock.calls.filter(([input]) => String(input).endsWith('/complete')),
+    ).toHaveLength(1)
+  })
+})

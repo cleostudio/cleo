@@ -1,0 +1,170 @@
+import type { Metadata } from 'next'
+import { Suspense } from 'react'
+
+import { AdminBackLink } from '~/components/admin-nav'
+import { PixelCluster } from '~/components/pixel-cluster'
+import { requireOwnerPage } from '~/lib/admin/server'
+import { getAmaAdminServices } from '~/lib/ama/admin/server'
+import { T } from '~/lib/i18n'
+import { nonPublicRobots } from '~/lib/non-public-metadata'
+import { firstSearchParam } from '~/lib/search-params'
+
+import { AmaSettings } from '../AmaSettings'
+import type { AmaSettingsNotices, GoogleConnectionStatus } from '../AmaSettings'
+import { AmaSettingsSkeleton } from '../AmaSkeletons'
+
+export const metadata: Metadata = {
+  title: 'AMA Settings',
+  robots: nonPublicRobots,
+}
+
+export const instant = true
+
+const availabilityNotices = new Set([
+  'saved',
+  'invalid',
+  'invalid-time-zone',
+  'invalid-override',
+  'invalid-copy',
+  'failed',
+] as const)
+const calendarNotices = new Set([
+  'disconnected',
+  'connected',
+  'expired',
+  'revoked',
+  'denied-scope',
+  'unavailable',
+] as const)
+
+function queryNotices(input: {
+  availability?: string | string[]
+  calendar?: string | string[]
+}): AmaSettingsNotices {
+  const availability = firstSearchParam(input.availability)
+  const calendar = firstSearchParam(input.calendar)
+  return {
+    availability: availabilityNotices.has(
+      availability as AmaSettingsNotices['availability'] & string,
+    )
+      ? (availability as AmaSettingsNotices['availability'])
+      : undefined,
+    calendar: calendarNotices.has(calendar as GoogleConnectionStatus)
+      ? (calendar as GoogleConnectionStatus)
+      : undefined,
+  }
+}
+
+function connectionStatus(status: string | undefined): GoogleConnectionStatus {
+  if (status === 'connected' || status === 'expired' || status === 'revoked') {
+    return status
+  }
+  if (status === 'denied_scope') return 'denied-scope'
+  if (status === 'error') return 'unavailable'
+  return 'disconnected'
+}
+
+type SettingsSearchParams = Promise<{
+  availability?: string | string[]
+  calendar?: string | string[]
+}>
+
+function SettingsHeader() {
+  return (
+    <>
+      <AdminBackLink href="/admin/ama">
+        <T zh="咨询" en="AMA" />
+      </AdminBackLink>
+      <div className="flex items-center justify-between gap-4">
+        <h1 className="page-eyebrow">
+          <T zh="设置" en="Settings" />
+        </h1>
+        <PixelCluster variant={7} className="shrink-0" />
+      </div>
+    </>
+  )
+}
+
+function SettingsFallback() {
+  return (
+    <div className="pb-10" aria-busy="true">
+      <SettingsHeader />
+      <AmaSettingsSkeleton />
+    </div>
+  )
+}
+
+async function SettingsLoader({
+  searchParams,
+}: {
+  searchParams: SettingsSearchParams
+}) {
+  await requireOwnerPage('/admin/ama/settings')
+  const { availability, google, baseUrl } = getAmaAdminServices()
+  const [schedule, connection, preview, params] = await Promise.all([
+    availability.getSchedule(),
+    google.getConnection(),
+    availability.preview(),
+    searchParams,
+  ])
+
+  const persistedStatus = connectionStatus(connection?.status)
+  const status =
+    persistedStatus === 'connected' && preview.status !== 'connected'
+      ? preview.status
+      : persistedStatus
+
+  return (
+    <>
+      <SettingsHeader />
+      <AmaSettings
+        timeZone={schedule.timeZone}
+        weekdays={schedule.weekdays}
+        windows={schedule.windows.map(({ id, isoWeekday, startMinute, endMinute }) => ({
+          id,
+          isoWeekday,
+          startMinute,
+          endMinute,
+        }))}
+        overrides={schedule.overrides.map((override) => ({
+          id: override.id,
+          localDate: override.localDate,
+          intervals: override.intervals.map(({ startMinute, endMinute }) => ({
+            startMinute,
+            endMinute,
+          })),
+        }))}
+        googleConnection={{
+          status,
+          identity:
+            connection?.calendarId && connection.status !== 'disconnected'
+              ? {
+                  calendarId: connection.calendarId,
+                  summary: connection.calendarSummary,
+                  email: connection.calendarEmail,
+                }
+              : null,
+        }}
+        previewSlots={preview.slots.map((slot) => ({
+          startsAt: slot.startsAt.toISOString(),
+          endsAt: slot.endsAt.toISOString(),
+        }))}
+        previewDiagnosis={preview.diagnosis}
+        publicBookingUrl={new URL('/ama/book', baseUrl).toString()}
+        notices={queryNotices(params)}
+      />
+    </>
+  )
+}
+
+export default function AdminAmaSettingsPage({
+  searchParams,
+}: {
+  searchParams: SettingsSearchParams
+}) {
+  return (
+    <Suspense fallback={<SettingsFallback />}>
+      <SettingsLoader searchParams={searchParams} />
+    </Suspense>
+  )
+}
