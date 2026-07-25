@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 
 export function PlaceGalleryToolbar({
   filterKeys,
@@ -10,13 +10,14 @@ export function PlaceGalleryToolbar({
   totalCount: number
 }) {
   const searchId = useId()
+  const rootRef = useRef<HTMLDivElement>(null)
   const [filter, setFilter] = useState('all')
   const [query, setQuery] = useState('')
   const [visibleCount, setVisibleCount] = useState(totalCount)
 
   useEffect(() => {
-    const root = document.querySelector('[data-place-gallery]')
-    if (!(root instanceof HTMLElement)) return
+    const root = rootRef.current?.closest<HTMLElement>('[data-place-gallery]')
+    if (!root) return
 
     const items = root.querySelectorAll<HTMLElement>('[data-gallery-item]')
     const empty = root.querySelector<HTMLElement>('[data-gallery-empty]')
@@ -39,7 +40,10 @@ export function PlaceGalleryToolbar({
   }, [filter, query])
 
   return (
-    <div className="gallery-toolbar sticky top-0 z-[2] -mx-6 mb-6 border-b border-[var(--border)] bg-[color-mix(in_oklab,var(--background)_92%,transparent)] px-6 py-3 backdrop-blur-md">
+    <div
+      ref={rootRef}
+      className="gallery-toolbar sticky top-0 z-[2] -mx-6 mb-6 border-b border-[var(--border)] bg-[color-mix(in_oklab,var(--background)_92%,transparent)] px-6 py-3 backdrop-blur-md"
+    >
       <div className="flex flex-col gap-3">
         <div className="min-w-0">
           <label className="guide-label" htmlFor={searchId}>
