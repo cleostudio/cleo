@@ -242,9 +242,10 @@ async function verifyDiscoveryFiles(baseUrl) {
   const robotsText = await robots.text()
   assert.match(robotsText, /User-Agent: \*/)
   assert.match(robotsText, /Allow: \//)
-  assert.match(robotsText, /Disallow: \/admin/)
-  assert.match(robotsText, /Disallow: \/api\/admin/)
+  assert.match(robotsText, /Disallow: \/confirm\//)
+  assert.match(robotsText, /Disallow: \/api\//)
   assert.doesNotMatch(robotsText, /Disallow: \/en\//)
+  assert.doesNotMatch(robotsText, /Disallow: \/admin/)
   assert.match(
     robotsText,
     new RegExp(`Sitemap: ${new URL('/sitemap.xml', productionOrigin).href}`),
