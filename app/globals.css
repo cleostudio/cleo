@@ -5471,13 +5471,11 @@ a:focus-visible .external-label .external-mark {
   scroll-margin-top: 4.5rem;
 }
 
-/* ── Photo masonry (/gallery) — 2 cols, 3 from sm up ────────────────
-   Flush tiles (no gutters): keeps Instant Navigation calm — placeholders and
-   streamed photos share the same geometry, so the masonry doesn’t reflow. */
+/* ── Photo masonry (/gallery) — 2 cols, 3 from sm up ──────────────── */
 
 .photo-masonry {
   columns: 2;
-  column-gap: 0;
+  column-gap: 0.75rem;
 }
 
 @media (min-width: 40rem) {
@@ -5488,7 +5486,7 @@ a:focus-visible .external-label .external-mark {
 
 .photo-item {
   break-inside: avoid;
-  margin-bottom: 0;
+  margin-bottom: 0.75rem;
 }
 
 /* tiles sit on the register's 2px corner, matching the loading shell */

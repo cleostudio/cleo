@@ -790,13 +790,14 @@ response is the calibration corner brackets.
 The Gallery keeps its title in the prefetched static shell and streams the
 filterable masonry (Explore places + Space bodies) behind a page-level
 boundary. While the catalog resolves, six quiet, nonanimated tiles reserve the
-two-column mobile or three-column desktop masonry. Tiles are flush (no column
-or row gutters) and carry no under-image captions — place names stay on the
-destination guide — so placeholders and streamed photos share geometry and
-dock navigation does not reflow. Placeholders use the final card radius and
-neutral edge treatment. Tile links disable prefetch to avoid a destination
-storm; the search / collection toolbar is a small client island over
-server-rendered tiles.
+two-column mobile or three-column desktop masonry. Placeholders use the final
+card radius, gutter, and neutral edge treatment so navigation responds
+immediately without introducing a second visual language or shifting the page
+header. Tile links disable prefetch to avoid a destination storm; the search /
+collection toolbar is a small client island over server-rendered tiles. The
+sticky toolbar uses an opaque paper fill (no backdrop-blur) so long masonry
+scrolls stay calm.
+
 
 ## Frosted dock
 

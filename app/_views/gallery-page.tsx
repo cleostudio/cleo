@@ -32,7 +32,7 @@ export function GalleryPageView() {
         <PixelCluster variant={4} className="enter shrink-0" />
       </div>
 
-      <div className="mt-8">
+      <div className="mt-4">
         <Suspense fallback={<PlaceGalleryLoading />}>
           <PlaceGalleryMasonry />
         </Suspense>
