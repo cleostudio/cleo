@@ -84,16 +84,18 @@ async function renderHomeOgImage(_locale: Locale = 'en') {
             >
               {NAME}
             </div>
-            <div
-              style={{
-                display: 'flex',
-                fontSize: 29,
-                lineHeight: 1.48,
-                color: ogColors.mutedForeground,
-              }}
-            >
-              {HOME_INTRODUCTION}
-            </div>
+            {HOME_INTRODUCTION ? (
+              <div
+                style={{
+                  display: 'flex',
+                  fontSize: 29,
+                  lineHeight: 1.48,
+                  color: ogColors.mutedForeground,
+                }}
+              >
+                {HOME_INTRODUCTION}
+              </div>
+            ) : null}
           </div>
           <div style={{ display: 'flex', flexShrink: 0 }}>
             <OgHomeMark />
@@ -341,17 +343,19 @@ async function renderSectionOgImage(section: PublicSection, _locale: Locale = 'e
             >
               {copy.title}
             </div>
-            <div
-              style={{
-                display: 'flex',
-                marginTop: 24,
-                fontSize: 29,
-                lineHeight: 1.48,
-                color: ogColors.mutedForeground,
-              }}
-            >
-              {copy.description}
-            </div>
+            {copy.description ? (
+              <div
+                style={{
+                  display: 'flex',
+                  marginTop: 24,
+                  fontSize: 29,
+                  lineHeight: 1.48,
+                  color: ogColors.mutedForeground,
+                }}
+              >
+                {copy.description}
+              </div>
+            ) : null}
           </div>
           <div style={{ display: 'flex', flexShrink: 0 }}>
             <OgSectionMark section={section} />

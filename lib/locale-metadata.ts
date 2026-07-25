@@ -54,29 +54,34 @@ export function localeMetadata({
   const pair = localeRoutePair(path)
   const canonical = pair.en
   const siteName = 'Cleo'
+  const trimmedDescription = description.trim()
   const image = {
     url: socialImageUrl('en', path),
     width: 1200,
     height: 630,
     alt:
       path === '/' || title === siteName
-        ? `${title}. ${description}`
+        ? trimmedDescription
+          ? `${title}. ${trimmedDescription}`
+          : title
         : SECTION_IMAGE_PATHS.has(path)
-          ? `${title} · ${siteName}. ${description}`
+          ? trimmedDescription
+            ? `${title} · ${siteName}. ${trimmedDescription}`
+            : `${title} · ${siteName}`
           : `${title} · ${siteName}`,
     type: 'image/png',
   }
 
   return {
     title,
-    description,
+    description: trimmedDescription || undefined,
     alternates: {
       canonical,
       languages: pair.languages,
     },
     openGraph: {
       title,
-      description,
+      ...(trimmedDescription ? { description: trimmedDescription } : {}),
       type,
       locale: 'en_US',
       siteName,
@@ -86,7 +91,7 @@ export function localeMetadata({
     twitter: {
       card: 'summary_large_image',
       title,
-      description,
+      ...(trimmedDescription ? { description: trimmedDescription } : {}),
       images: [image],
     },
   }
