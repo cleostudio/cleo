@@ -44,7 +44,7 @@ export function PlaceGallery({
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Country or place"
-              className="mt-1.5 w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground"
+              className="mt-1.5 w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground"
             />
           </div>
           <fieldset>
