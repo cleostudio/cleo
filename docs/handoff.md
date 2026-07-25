@@ -9,9 +9,10 @@ English-only general-knowledge portal with:
 - Homepage: country search, highlighted places, topic discovery (no personal
   contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
-  country field guides, Topics catalog (countries first; more topics later)
-- Gallery: filterable place photographs (`content/atlas.json` + optimized static
-  JPEGs in `public/images/atlas/`) — one curated place photograph per country
+  country field guides, Space field guides, Topics catalog (countries and
+  space first; more topics later)
+- Gallery: filterable photographs from Explore places and Space guides
+  (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
 
 There is **no** Clerk auth, Neon/Postgres, Bunny media, AMA booking, Stripe,
@@ -22,11 +23,14 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4, Base UI
 - Posts: `content/blog/<slug>/` via owned content route
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
-- Place images: import-time mozjpeg 640/1024/1600 under `public/images/atlas/`;
-  rendered with static `srcset` (`AtlasImage` / unoptimized ZoomImage). No
-  runtime image account, API, or third-party fetch.
-- Media workflow: `pnpm generate:atlas-content` → `pnpm import:atlas-photos` →
-  `pnpm validate:atlas` (originals in `.atlas-originals/`)
+- Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
+- Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
+- Place images: import-time mozjpeg 640/1024/1600 under `public/images/atlas/`
+  (Wikimedia Commons curation) and `public/images/space/` (NASA); rendered with
+  static `srcset`. No runtime image account, API, or third-party fetch.
+- Media workflow: `pnpm generate:atlas-content` → `pnpm curate:atlas-photos` →
+  `pnpm import:atlas-photos` → `pnpm validate:atlas`; Space via
+  `pnpm import:space-photos` → `pnpm validate:space`
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`

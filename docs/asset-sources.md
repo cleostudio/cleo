@@ -1,4 +1,45 @@
-# Taste shelf asset sources
+# Asset sources
+
+Source record for promotional taste-shelf artwork and curated knowledge-portal
+photographs.
+
+## Country place photographs
+
+One curated photograph per Explore country, matched to the featured place in
+`scripts/atlas/country-facts.json`. Sources are curated from Wikimedia Commons
+(`pnpm curate:atlas-photos` → `scripts/atlas/atlas-photo-sources.json`, with
+manual fixes in `atlas-photo-overrides.json`) and imported locally with
+`pnpm import:atlas-photos`. Runtime serves JPEGs under
+`public/images/atlas/{slug}/`. Keep on-page photographer credit, license, and
+source link (typically CC BY / CC BY-SA / public domain).
+
+## Space photographs
+
+One curated NASA image per Space guide. Import-time only via
+`pnpm import:space-photos` (sources in `scripts/space/space-photo-sources.json`);
+runtime serves local JPEGs under `public/images/space/{slug}/`. Originals stay
+in `.space-originals/` (gitignored). NASA material is used under NASA’s media
+guidelines as public-domain U.S. government work unless a specific credit notes
+otherwise — keep the on-page credit and source link.
+
+| Slug | NASA id | Feature |
+| --- | --- | --- |
+| `sun` | GSFC_20171208_Archive_e002035 | Full-disk Sun (SDO) |
+| `mercury` | PIA13823 | Mercury in color |
+| `venus` | PIA00159 | Venus hemisphere |
+| `earth` | GSFC_20171208_Archive_e001386 | Blue Marble |
+| `moon` | as11-44-6667 | Full Moon (Apollo 11) |
+| `mars` | PIA00407 | Global color view |
+| `jupiter` | PIA21775 | Great Red Spot |
+| `saturn` | PIA17172 | The Day the Earth Smiled |
+| `uranus` | PIA18182 | Uranus from Voyager 2 |
+| `neptune` | PIA01492 | Neptune full disk |
+| `pluto` | PIA19937 | Pluto in true color |
+| `asteroid-belt` | PIA20348 | Ceres from Dawn |
+| `milky-way` | PIA03653 | Galactic center |
+| `andromeda` | GSFC_20171208_Archive_e000839 | Andromeda panorama |
+
+## Taste shelf
 
 Source record for the album and book assets added in July 2026. Cover images
 are promotional artwork from Apple Music, publishers, authors, or retailers.

@@ -45,9 +45,9 @@ const publicPages = [
     {
       title: 'Gallery',
       description:
-        '195 place photographs — filter by region or search by country and place.',
+        'Curated photographs from Explore places and Space guides, filterable by collection.',
     },
-    'Gallery · Cleo. 195 place photographs — filter by region or search by country and place.',
+    'Gallery · Cleo. Curated photographs from Explore places and Space guides, filterable by collection.',
   ),
   englishPage(
     '/topics',
@@ -66,6 +66,15 @@ const publicPages = [
         'Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
     },
     'Explore · Cleo. Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
+  ),
+  englishPage(
+    '/space',
+    {
+      title: 'Space',
+      description:
+        'Evergreen field guides for the Solar System and nearby deep space — orientation, features, and facts.',
+    },
+    'Space · Cleo. Evergreen field guides for the Solar System and nearby deep space — orientation, features, and facts.',
   ),
   englishPage(
     '/cleo',

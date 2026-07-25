@@ -12,7 +12,7 @@ export const publicPageMetadata = {
   gallery: {
     title: 'Gallery',
     description:
-      'One curated place photograph for every country, filterable by region.',
+      'Curated photographs from Explore places and Space guides, filterable by collection.',
   },
   topics: {
     title: 'Topics',
@@ -29,6 +29,11 @@ export const publicPageMetadata = {
     title: 'Explore',
     description:
       'Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
+  },
+  space: {
+    title: 'Space',
+    description:
+      'Evergreen field guides for the Solar System and nearby deep space — orientation, features, and facts.',
   },
   cleo: {
     title: 'Cleo',

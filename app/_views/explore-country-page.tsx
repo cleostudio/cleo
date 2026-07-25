@@ -92,7 +92,7 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
               rel="noreferrer"
               className="underline-offset-2 hover:underline"
             >
-              Pexels
+              Source
             </a>
           </span>
         </figcaption>

@@ -20,7 +20,7 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.gallery).toEqual({
       title: 'Gallery',
       description:
-        'One curated place photograph for every country, filterable by region.',
+        'Curated photographs from Explore places and Space guides, filterable by collection.',
     })
     expect(publicPageMetadata.topics).toEqual({
       title: 'Topics',
@@ -32,6 +32,11 @@ describe('public page metadata copy', () => {
       description:
         'Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
     })
+    expect(publicPageMetadata.space).toEqual({
+      title: 'Space',
+      description:
+        'Evergreen field guides for the Solar System and nearby deep space — orientation, features, and facts.',
+    })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',
       description:
@@ -40,7 +45,14 @@ describe('public page metadata copy', () => {
   })
 
   it('keeps section descriptions within social preview budgets', () => {
-    for (const section of ['blog', 'gallery', 'topics', 'explore', 'cleo'] as const) {
+    for (const section of [
+      'blog',
+      'gallery',
+      'topics',
+      'explore',
+      'space',
+      'cleo',
+    ] as const) {
       expect(publicPageMetadata[section].description.length, section).toBeLessThanOrEqual(160)
     }
   })

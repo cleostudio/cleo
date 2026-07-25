@@ -28,8 +28,11 @@
     "verify:links": "node scripts/verify-public-links.mjs",
     "verify:public-discovery": "node scripts/verify-public-discovery.mjs",
     "generate:atlas-content": "tsx scripts/atlas/generate-atlas-content.mjs",
-    "import:atlas-photos": "tsx scripts/atlas/import-atlas-photos.mjs",
+    "curate:atlas-photos": "node scripts/atlas/curate-commons-photos.mjs",
+    "import:atlas-photos": "node scripts/atlas/import-atlas-photos.mjs",
     "validate:atlas": "tsx scripts/atlas/preflight.mjs",
+    "import:space-photos": "node scripts/space/import-space-photos.mjs",
+    "validate:space": "node scripts/space/preflight.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -78,6 +81,7 @@
     "jsdom": "^29.1.1",
     "shadcn": "^4.14.0",
     "tailwindcss": "^4.3.3",
+    "tsx": "4.23.1",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10"
   }

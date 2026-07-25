@@ -54,3 +54,6 @@ static/
 # Country atlas import originals (never public)
 .atlas-originals/
 
+# Space photo import originals (never public)
+.space-originals/
+

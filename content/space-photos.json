@@ -1,0 +1,422 @@
+{
+  "sun": {
+    "featureName": "Full-disk Sun",
+    "alt": "Full-disk Sun — sun",
+    "caption": "Full-disk Sun",
+    "photographer": "NASA/SDO/AIA",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002035",
+    "license": "Public Domain (NASA)",
+    "nasaId": "GSFC_20171208_Archive_e002035",
+    "provenance": "Curated from NASA image GSFC_20171208_Archive_e002035; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "96ae2d0582944a62e850186333bfe2936b3ae63feab9b2e3fa2e1ef1379e82b9",
+    "width": 1024,
+    "height": 1024,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/sun/w640.jpg",
+        "bytes": 41852
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/sun/w1024.jpg",
+        "bytes": 97266
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/sun/w1600.jpg",
+        "bytes": 97266
+      }
+    ]
+  },
+  "mercury": {
+    "featureName": "Mercury in color",
+    "alt": "Mercury in color — mercury",
+    "caption": "Mercury in color",
+    "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
+    "sourceUrl": "https://images.nasa.gov/details/PIA13823",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA13823",
+    "provenance": "Curated from NASA image PIA13823; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "38be2a6880e312cd0bc00af16df49a4a31a78ae61a2e4cd3f8b8c315af5cdc5b",
+    "width": 4425,
+    "height": 1600,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/mercury/w640.jpg",
+        "bytes": 34835
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/mercury/w1024.jpg",
+        "bytes": 79890
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/mercury/w1600.jpg",
+        "bytes": 179932
+      }
+    ]
+  },
+  "venus": {
+    "featureName": "Venus hemisphere",
+    "alt": "Venus hemisphere — venus",
+    "caption": "Venus hemisphere",
+    "photographer": "NASA/JPL/USGS",
+    "sourceUrl": "https://images.nasa.gov/details/PIA00159",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA00159",
+    "provenance": "Curated from NASA image PIA00159; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a47ea016bac4686399677a014deb66f6559034ec122b8be02bcedde586b6d95a",
+    "width": 4064,
+    "height": 4064,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/venus/w640.jpg",
+        "bytes": 104219
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/venus/w1024.jpg",
+        "bytes": 261151
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/venus/w1600.jpg",
+        "bytes": 626563
+      }
+    ]
+  },
+  "earth": {
+    "featureName": "Blue Marble",
+    "alt": "Blue Marble — earth",
+    "caption": "Blue Marble",
+    "photographer": "NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001386",
+    "license": "Public Domain (NASA)",
+    "nasaId": "GSFC_20171208_Archive_e001386",
+    "provenance": "Curated from NASA image GSFC_20171208_Archive_e001386; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7086bb4b90dc2660c3e76fdb4ddf91536a38796ea8da2e153b77758021111a8d",
+    "width": 1920,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/earth/w640.jpg",
+        "bytes": 65021
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/earth/w1024.jpg",
+        "bytes": 155689
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/earth/w1600.jpg",
+        "bytes": 349222
+      }
+    ]
+  },
+  "moon": {
+    "featureName": "Full Moon",
+    "alt": "Full Moon — moon",
+    "caption": "Full Moon",
+    "photographer": "NASA/Apollo 11",
+    "sourceUrl": "https://images.nasa.gov/details/as11-44-6667",
+    "license": "Public Domain (NASA)",
+    "nasaId": "as11-44-6667",
+    "provenance": "Curated from NASA image as11-44-6667; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "69629f78e3ccd939b39f31c19b89c1e2e751effd930d5a3a58f823403553f64c",
+    "width": 1920,
+    "height": 1930,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/moon/w640.jpg",
+        "bytes": 37443
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/moon/w1024.jpg",
+        "bytes": 97324
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/moon/w1600.jpg",
+        "bytes": 228411
+      }
+    ]
+  },
+  "mars": {
+    "featureName": "Global color view",
+    "alt": "Global color view — mars",
+    "caption": "Global color view",
+    "photographer": "NASA/JPL/USGS",
+    "sourceUrl": "https://images.nasa.gov/details/PIA00407",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA00407",
+    "provenance": "Curated from NASA image PIA00407; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "076d0be8f7cf603f05e8b7281709400d9d39f21c6f615e8e385b8dfffc9bafdd",
+    "width": 6787,
+    "height": 6787,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/mars/w640.jpg",
+        "bytes": 54068
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/mars/w1024.jpg",
+        "bytes": 123467
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/mars/w1600.jpg",
+        "bytes": 276174
+      }
+    ]
+  },
+  "jupiter": {
+    "featureName": "Great Red Spot",
+    "alt": "Great Red Spot — jupiter",
+    "caption": "Great Red Spot",
+    "photographer": "NASA/JPL-Caltech/SwRI/MSSS/Gerald Eichstädt/Seán Doran",
+    "sourceUrl": "https://images.nasa.gov/details/PIA21775",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA21775",
+    "provenance": "Curated from NASA image PIA21775; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b067e9be8968a4969c250aa1b06944aa3e9c04c1bd7b8e9f812149af2d3818c9",
+    "width": 1620,
+    "height": 1440,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/jupiter/w640.jpg",
+        "bytes": 20814
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/jupiter/w1024.jpg",
+        "bytes": 46374
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/jupiter/w1600.jpg",
+        "bytes": 101243
+      }
+    ]
+  },
+  "saturn": {
+    "featureName": "The Day the Earth Smiled",
+    "alt": "The Day the Earth Smiled — saturn",
+    "caption": "The Day the Earth Smiled",
+    "photographer": "NASA/JPL-Caltech/Space Science Institute",
+    "sourceUrl": "https://images.nasa.gov/details/PIA17172",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA17172",
+    "provenance": "Curated from NASA image PIA17172; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ff486622c38c6681ef306195ba83f3ed8a304c9937279fe38d70a088f728c6d7",
+    "width": 9000,
+    "height": 3500,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/saturn/w640.jpg",
+        "bytes": 14706
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/saturn/w1024.jpg",
+        "bytes": 22893
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/saturn/w1600.jpg",
+        "bytes": 37806
+      }
+    ]
+  },
+  "uranus": {
+    "featureName": "Uranus from Voyager 2",
+    "alt": "Uranus from Voyager 2 — uranus",
+    "caption": "Uranus from Voyager 2",
+    "photographer": "NASA/JPL-Caltech",
+    "sourceUrl": "https://images.nasa.gov/details/PIA18182",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA18182",
+    "provenance": "Curated from NASA image PIA18182; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3dcc83114f1a25caa1ae1a1436830fffaa15a3e429666dbf4c68bcf035e8932b",
+    "width": 1720,
+    "height": 1720,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/uranus/w640.jpg",
+        "bytes": 16192
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/uranus/w1024.jpg",
+        "bytes": 27238
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/uranus/w1600.jpg",
+        "bytes": 48597
+      }
+    ]
+  },
+  "neptune": {
+    "featureName": "Neptune full disk",
+    "alt": "Neptune full disk — neptune",
+    "caption": "Neptune full disk",
+    "photographer": "NASA/JPL",
+    "sourceUrl": "https://images.nasa.gov/details/PIA01492",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA01492",
+    "provenance": "Curated from NASA image PIA01492; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "97b57802f44be2218578a98c8c26f8426ff7a95890d266d34486734f14c1edb6",
+    "width": 2188,
+    "height": 2185,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/neptune/w640.jpg",
+        "bytes": 17121
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/neptune/w1024.jpg",
+        "bytes": 46479
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/neptune/w1600.jpg",
+        "bytes": 114252
+      }
+    ]
+  },
+  "pluto": {
+    "featureName": "Pluto in true color",
+    "alt": "Pluto in true color — pluto",
+    "caption": "Pluto in true color",
+    "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute",
+    "sourceUrl": "https://images.nasa.gov/details/PIA19937",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA19937",
+    "provenance": "Curated from NASA image PIA19937; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "62ef4b19c16ad8a2c6397657ff3891cc818d161711369dd97b01ef862202b15a",
+    "width": 8000,
+    "height": 8000,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/pluto/w640.jpg",
+        "bytes": 42243
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/pluto/w1024.jpg",
+        "bytes": 105515
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/pluto/w1600.jpg",
+        "bytes": 246507
+      }
+    ]
+  },
+  "asteroid-belt": {
+    "featureName": "Ceres from Dawn",
+    "alt": "Ceres from Dawn — asteroid belt",
+    "caption": "Ceres from Dawn",
+    "photographer": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
+    "sourceUrl": "https://images.nasa.gov/details/PIA20348",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA20348",
+    "provenance": "Curated from NASA image PIA20348; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "55a8119fdec2b5d8e8c1195298f049eca410ea8c9a2db600ae84dd2830fcfc83",
+    "width": 2969,
+    "height": 3282,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/asteroid-belt/w640.jpg",
+        "bytes": 67432
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/asteroid-belt/w1024.jpg",
+        "bytes": 154293
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/asteroid-belt/w1600.jpg",
+        "bytes": 335674
+      }
+    ]
+  },
+  "milky-way": {
+    "featureName": "Galactic center",
+    "alt": "Galactic center — milky way",
+    "caption": "Galactic center",
+    "photographer": "NASA/JPL-Caltech/ESA/CXC/STScI",
+    "sourceUrl": "https://images.nasa.gov/details/PIA03653",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA03653",
+    "provenance": "Curated from NASA image PIA03653; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a07c42bb7d00efe6393b8a1d0109a2d37e9bf141b1bd79beed1f124dac1e1b93",
+    "width": 7002,
+    "height": 5050,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/milky-way/w640.jpg",
+        "bytes": 50908
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/milky-way/w1024.jpg",
+        "bytes": 125078
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/milky-way/w1600.jpg",
+        "bytes": 301399
+      }
+    ]
+  },
+  "andromeda": {
+    "featureName": "Andromeda panorama",
+    "alt": "Andromeda panorama — andromeda",
+    "caption": "Andromeda panorama",
+    "photographer": "NASA/ESA/J. Dalcanton (University of Washington)/R. Foley (UC Santa Cruz)/A. Rest (STScI)",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000839",
+    "license": "Public Domain (NASA)",
+    "nasaId": "GSFC_20171208_Archive_e000839",
+    "provenance": "Curated from NASA image GSFC_20171208_Archive_e000839; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1662867fd9eb42fe4e836550b4b3caef26f585e9a6a3ece24f5ee0b57bdcbe1b",
+    "width": 1165,
+    "height": 361,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/andromeda/w640.jpg",
+        "bytes": 42852
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/andromeda/w1024.jpg",
+        "bytes": 79031
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/andromeda/w1600.jpg",
+        "bytes": 99147
+      }
+    ]
+  }
+}

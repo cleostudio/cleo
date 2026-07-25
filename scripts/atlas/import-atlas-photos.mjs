@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 /**
- * Manual Pexels → optimized local atlas renditions.
+ * Curated place photographs → optimized local atlas renditions.
+ *
+ * Prefer scripts/atlas/atlas-photo-sources.json (Wikimedia Commons curation).
+ * Falls back to legacy Pexels IDs in content/atlas.content.json when needed.
  *
  * Import-time only (no account/API key required at runtime):
- * 1. Download the curated Pexels JPEG once
+ * 1. Download the curated JPEG/PNG once
  * 2. Strip metadata, write mozjpeg 640 / 1024 / 1600px files under
  *    public/images/atlas/{slug}/
  * 3. Merge credits + checksum + rendition metadata into content/atlas.json
  *
- * The app serves those static files directly — never via Bunny, Pexels, or
+ * The app serves those static files directly — never via a CDN account or
  * /_next/image. Originals stay in .atlas-originals/ (gitignored).
  */
 
@@ -28,10 +31,15 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const WIDTHS = [640, 1024, 1600]
 const ORIGINALS = join(root, '.atlas-originals')
 const PUBLIC_ATLAS = join(root, 'public/images/atlas')
+const UA = 'cleo-atlas-import/1.0 (https://github.com/cleostudio/cleo; knowledge portal photo import)'
 
 const content = JSON.parse(
   readFileSync(join(root, 'content/atlas.content.json'), 'utf8'),
 )
+const sourcesPath = join(root, 'scripts/atlas/atlas-photo-sources.json')
+const photoSources = existsSync(sourcesPath)
+  ? JSON.parse(readFileSync(sourcesPath, 'utf8'))
+  : {}
 
 mkdirSync(ORIGINALS, { recursive: true })
 mkdirSync(PUBLIC_ATLAS, { recursive: true })
@@ -39,7 +47,7 @@ mkdirSync(PUBLIC_ATLAS, { recursive: true })
 async function fetchPhotographer(pexelsId) {
   try {
     const res = await fetch(`https://www.pexels.com/photo/${pexelsId}/`, {
-      headers: { 'user-agent': 'cleo-atlas-import/1.0', accept: 'text/html' },
+      headers: { 'user-agent': UA, accept: 'text/html' },
       signal: AbortSignal.timeout(12_000),
     })
     if (!res.ok) return 'Pexels contributor'
@@ -52,7 +60,6 @@ async function fetchPhotographer(pexelsId) {
         /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["']/i,
       )
     const title = og?.[1] ?? ''
-    // Titles often look like "Free Stock Photo · Name" or "Photo by Name"
     const by = title.match(/photo by\s+([^·|]+)/i)?.[1]?.trim()
     if (by) return by
     const name = title.split(/[·|]/)[0]?.trim()
@@ -62,19 +69,39 @@ async function fetchPhotographer(pexelsId) {
   }
 }
 
-async function downloadOriginal(pexelsId, dest) {
-  if (existsSync(dest)) return readFileSync(dest)
-  const url = `https://images.pexels.com/photos/${pexelsId}/pexels-photo-${pexelsId}.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=2000`
-  const res = await fetch(url, {
-    headers: { 'user-agent': 'cleo-atlas-import/1.0' },
-    signal: AbortSignal.timeout(30_000),
-  })
-  if (!res.ok) {
-    throw new Error(`Pexels download ${pexelsId} failed: HTTP ${res.status}`)
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+async function downloadUrl(url, dest) {
+  if (existsSync(dest) && readFileSync(dest).byteLength > 1000) {
+    return readFileSync(dest)
   }
-  const buffer = Buffer.from(await res.arrayBuffer())
-  writeFileSync(dest, buffer)
-  return buffer
+  let lastError = null
+  for (let attempt = 1; attempt <= 5; attempt++) {
+    const res = await fetch(url, {
+      headers: { 'user-agent': UA, accept: 'image/*' },
+      signal: AbortSignal.timeout(60_000),
+    })
+    if (res.ok) {
+      const buffer = Buffer.from(await res.arrayBuffer())
+      if (buffer.byteLength < 1000) {
+        throw new Error(`Download too small: ${buffer.byteLength} bytes`)
+      }
+      writeFileSync(dest, buffer)
+      return buffer
+    }
+    lastError = new Error(`Download failed: HTTP ${res.status}`)
+    // Back off on rate limits / transient errors.
+    if (![429, 500, 502, 503, 504].includes(res.status)) break
+    await sleep(1500 * attempt)
+  }
+  throw lastError ?? new Error(`Download failed for ${url}`)
+}
+
+async function downloadPexels(pexelsId, dest) {
+  const url = `https://images.pexels.com/photos/${pexelsId}/pexels-photo-${pexelsId}.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=2000`
+  return downloadUrl(url, dest)
 }
 
 async function buildRenditions(slug, originalBuffer) {
@@ -90,7 +117,7 @@ async function buildRenditions(slug, originalBuffer) {
   const renditions = []
   for (const targetWidth of WIDTHS) {
     const outPath = join(dir, `w${targetWidth}.jpg`)
-    const pipeline = sharp(originalBuffer)
+    const out = await sharp(originalBuffer)
       .rotate()
       .resize({
         width: Math.min(targetWidth, width),
@@ -98,9 +125,8 @@ async function buildRenditions(slug, originalBuffer) {
         fit: 'inside',
       })
       .jpeg({ quality: 82, mozjpeg: true, chromaSubsampling: '4:2:0' })
-
-    // Strip metadata by not re-attaching EXIF/ICC beyond sRGB.
-    const out = await pipeline.withMetadata({ orientation: undefined }).toBuffer()
+      .withMetadata({ orientation: undefined })
+      .toBuffer()
     writeFileSync(outPath, out)
     renditions.push({
       width: targetWidth,
@@ -116,8 +142,14 @@ const atlasPath = join(root, 'content/atlas.json')
 const atlas = existsSync(atlasPath)
   ? JSON.parse(readFileSync(atlasPath, 'utf8'))
   : {}
-const only = process.argv.includes('--only')
-  ? process.argv[process.argv.indexOf('--only') + 1]?.split(',').filter(Boolean)
+const onlyArg = process.argv.find((arg) => arg === '--only' || arg.startsWith('--only='))
+const only = onlyArg
+  ? (onlyArg.includes('=')
+      ? onlyArg.slice('--only='.length)
+      : process.argv[process.argv.indexOf('--only') + 1] || ''
+    )
+      .split(',')
+      .filter(Boolean)
   : null
 const force = process.argv.includes('--force')
 const errors = []
@@ -131,38 +163,60 @@ for (const slug of slugs) {
     errors.push(`${slug}: missing from atlas.content.json`)
     continue
   }
+  const source = photoSources[slug]
   const label = `[${index}/${slugs.length}] ${slug}`
-  if (!force && atlas[slug]?.photo?.renditions?.length === 3) {
-    const expectedId = String(entry.pexelsId)
-    if (atlas[slug].photo.sourceUrl.includes(`/${expectedId}/`)) {
-      console.log(`${label} skip (cached)`)
-      continue
-    }
+  const cacheKey = source?.downloadUrl || `pexels:${entry.pexelsId}`
+  if (
+    !force &&
+    atlas[slug]?.photo?.renditions?.length === 3 &&
+    atlas[slug]?.photo?.provenance?.includes(cacheKey.slice(0, 48))
+  ) {
+    console.log(`${label} skip (cached)`)
+    continue
   }
+
   try {
     process.stdout.write(`${label}… `)
-    const originalPath = join(ORIGINALS, `${entry.pexelsId}.jpg`)
-    // Drop stale failed downloads so retries hit the network.
-    if (existsSync(originalPath) && readFileSync(originalPath).byteLength < 1000) {
-      rmSync(originalPath)
-    }
-    const original = await downloadOriginal(entry.pexelsId, originalPath)
-    const checksum = createHash('sha256').update(original).digest('hex')
-    const { width, height, renditions } = await buildRenditions(slug, original)
-    const photographer = await fetchPhotographer(entry.pexelsId)
-    const placeName = entry.featuredPlaceName
-
-    atlas[slug] = {
-      slug: entry.slug,
-      code: entry.code,
-      name: entry.name,
-      region: entry.region,
-      subregion: entry.subregion,
-      about: entry.about,
-      facts: entry.facts,
-      places: entry.places,
-      sources: entry.sources,
-      photo: {
+    // Be polite to Wikimedia / upstream CDNs.
+    await sleep(350)
+    let original
+    let photoMeta
+    if (source?.downloadUrl) {
+      const originalPath = join(
+        ORIGINALS,
+        `commons-${slug}-${createHash('sha1').update(source.downloadUrl).digest('hex').slice(0, 12)}.bin`,
+      )
+      if (existsSync(originalPath) && readFileSync(originalPath).byteLength < 1000) {
+        rmSync(originalPath)
+      }
+      original = await downloadUrl(source.downloadUrl, originalPath)
+      const checksum = createHash('sha256').update(original).digest('hex')
+      const { width, height, renditions } = await buildRenditions(slug, original)
+      const placeName = source.placeName || entry.featuredPlaceName
+      photoMeta = {
+        placeName,
+        alt: `${placeName} in ${entry.name}`,
+        caption: `${placeName}, ${entry.name}`,
+        photographer: source.photographer || 'Wikimedia Commons contributor',
+        sourceUrl: source.sourceUrl,
+        license: source.license,
+        provenance: `Curated from Wikimedia Commons (${source.commonsTitle || 'file'}); source ${cacheKey}; imported locally with metadata stripped; originals kept outside the public tree.`,
+        checksum,
+        width,
+        height,
+        renditions,
+      }
+    } else {
+      const originalPath = join(ORIGINALS, `${entry.pexelsId}.jpg`)
+      if (existsSync(originalPath) && readFileSync(originalPath).byteLength < 1000) {
+        rmSync(originalPath)
+      }
+      original = await downloadPexels(entry.pexelsId, originalPath)
+      const checksum = createHash('sha256').update(original).digest('hex')
+      const { width, height, renditions } = await buildRenditions(slug, original)
+      const photographer = await fetchPhotographer(entry.pexelsId)
+      const placeName = entry.featuredPlaceName
+      photoMeta = {
         placeName,
         alt: `${placeName} in ${entry.name}`,
         caption: `${placeName}, ${entry.name}`,
@@ -174,7 +228,20 @@ for (const slug of slugs) {
         width,
         height,
         renditions,
-      },
+      }
+    }
+
+    atlas[slug] = {
+      slug: entry.slug,
+      code: entry.code,
+      name: entry.name,
+      region: entry.region,
+      subregion: entry.subregion,
+      about: entry.about,
+      facts: entry.facts,
+      places: entry.places,
+      sources: entry.sources,
+      photo: photoMeta,
     }
     console.log('ok')
   } catch (error) {

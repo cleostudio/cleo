@@ -14,7 +14,8 @@ export interface AtlasPhoto {
   caption: string
   photographer: string
   sourceUrl: string
-  license: 'Pexels License'
+  /** e.g. Pexels License, Public domain, CC BY-SA 4.0 */
+  license: string
   provenance: string
   checksum: string
   width: number

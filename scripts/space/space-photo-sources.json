@@ -1,0 +1,114 @@
+{
+  "sun": {
+    "featureName": "Full-disk Sun",
+    "nasaId": "GSFC_20171208_Archive_e002035",
+    "downloadUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002035/GSFC_20171208_Archive_e002035~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002035",
+    "credit": "NASA/SDO/AIA",
+    "license": "Public Domain (NASA)"
+  },
+  "mercury": {
+    "featureName": "Mercury in color",
+    "nasaId": "PIA13823",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA13823/PIA13823~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA13823",
+    "credit": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
+    "license": "Public Domain (NASA)"
+  },
+  "venus": {
+    "featureName": "Venus hemisphere",
+    "nasaId": "PIA00159",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA00159/PIA00159~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA00159",
+    "credit": "NASA/JPL/USGS",
+    "license": "Public Domain (NASA)"
+  },
+  "earth": {
+    "featureName": "Blue Marble",
+    "nasaId": "GSFC_20171208_Archive_e001386",
+    "downloadUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001386/GSFC_20171208_Archive_e001386~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001386",
+    "credit": "NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring",
+    "license": "Public Domain (NASA)"
+  },
+  "moon": {
+    "featureName": "Full Moon",
+    "nasaId": "as11-44-6667",
+    "downloadUrl": "https://images-assets.nasa.gov/image/as11-44-6667/as11-44-6667~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/as11-44-6667",
+    "credit": "NASA/Apollo 11",
+    "license": "Public Domain (NASA)"
+  },
+  "mars": {
+    "featureName": "Global color view",
+    "nasaId": "PIA00407",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA00407/PIA00407~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA00407",
+    "credit": "NASA/JPL/USGS",
+    "license": "Public Domain (NASA)"
+  },
+  "jupiter": {
+    "featureName": "Great Red Spot",
+    "nasaId": "PIA21775",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA21775/PIA21775~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA21775",
+    "credit": "NASA/JPL-Caltech/SwRI/MSSS/Gerald Eichstädt/Seán Doran",
+    "license": "Public Domain (NASA)"
+  },
+  "saturn": {
+    "featureName": "The Day the Earth Smiled",
+    "nasaId": "PIA17172",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA17172/PIA17172~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA17172",
+    "credit": "NASA/JPL-Caltech/Space Science Institute",
+    "license": "Public Domain (NASA)"
+  },
+  "uranus": {
+    "featureName": "Uranus from Voyager 2",
+    "nasaId": "PIA18182",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA18182/PIA18182~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA18182",
+    "credit": "NASA/JPL-Caltech",
+    "license": "Public Domain (NASA)"
+  },
+  "neptune": {
+    "featureName": "Neptune full disk",
+    "nasaId": "PIA01492",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA01492/PIA01492~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA01492",
+    "credit": "NASA/JPL",
+    "license": "Public Domain (NASA)"
+  },
+  "pluto": {
+    "featureName": "Pluto in true color",
+    "nasaId": "PIA19937",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Pluto_in_True_Color_-_High-Res.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA19937",
+    "credit": "NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute",
+    "license": "Public Domain (NASA)"
+  },
+  "asteroid-belt": {
+    "featureName": "Ceres from Dawn",
+    "nasaId": "PIA20348",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA20348/PIA20348~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA20348",
+    "credit": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
+    "license": "Public Domain (NASA)"
+  },
+  "milky-way": {
+    "featureName": "Galactic center",
+    "nasaId": "PIA03653",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA03653/PIA03653~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA03653",
+    "credit": "NASA/JPL-Caltech/ESA/CXC/STScI",
+    "license": "Public Domain (NASA)"
+  },
+  "andromeda": {
+    "featureName": "Andromeda panorama",
+    "nasaId": "GSFC_20171208_Archive_e000839",
+    "downloadUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000839/GSFC_20171208_Archive_e000839~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000839",
+    "credit": "NASA/ESA/J. Dalcanton (University of Washington)/R. Foley (UC Santa Cruz)/A. Rest (STScI)",
+    "license": "Public Domain (NASA)"
+  }
+}

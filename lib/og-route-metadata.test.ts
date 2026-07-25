@@ -32,7 +32,7 @@ describe('social OG image metadata', () => {
     [
       '/gallery',
       publicPageMetadata.gallery,
-      'Gallery · Cleo. One curated place photograph for every country, filterable by region.',
+      'Gallery · Cleo. Curated photographs from Explore places and Space guides, filterable by collection.',
     ],
     [
       '/topics',
@@ -43,6 +43,11 @@ describe('social OG image metadata', () => {
       '/explore',
       publicPageMetadata.explore,
       'Explore · Cleo. Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
+    ],
+    [
+      '/space',
+      publicPageMetadata.space,
+      'Space · Cleo. Evergreen field guides for the Solar System and nearby deep space — orientation, features, and facts.',
     ],
     [
       '/cleo',

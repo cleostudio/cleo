@@ -4,6 +4,7 @@ import { getAllPosts } from '~/lib/content'
 import { countrySlugs } from '~/lib/countries'
 import { localeRoutePair } from '~/lib/locale-metadata'
 import { archivedNewsletterIds } from '~/lib/newsletters'
+import { spaceSubjectSlugs } from '~/lib/space'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts()
@@ -25,8 +26,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/gallery', latest),
     entry('/topics', latest),
     entry('/explore'),
+    entry('/space'),
     entry('/cleo'),
     ...countrySlugs().map((slug) => entry(`/explore/${slug}`)),
+    ...spaceSubjectSlugs().map((slug) => entry(`/space/${slug}`)),
     ...archivedNewsletterIds.map((id) => entry(`/newsletters/${id}`)),
     ...posts.map((post) => entry(`/blog/${post.slug}`, post.publishedAt)),
   ]

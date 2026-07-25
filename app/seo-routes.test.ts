@@ -7,6 +7,7 @@ import { getAllPosts } from '~/lib/content'
 import { countrySlugs } from '~/lib/countries'
 import { archivedNewsletterIds } from '~/lib/newsletters'
 import { seo } from '~/lib/seo'
+import { spaceSubjectSlugs } from '~/lib/space'
 
 describe('discovery routes', () => {
   it('publishes an explicit crawler policy for public and private surfaces', () => {
@@ -43,8 +44,10 @@ describe('discovery routes', () => {
       '/gallery',
       '/topics',
       '/explore',
+      '/space',
       '/cleo',
       ...countrySlugs().map((slug) => `/explore/${slug}`),
+      ...spaceSubjectSlugs().map((slug) => `/space/${slug}`),
       ...archivedNewsletterIds.map((id) => `/newsletters/${id}`),
       ...getAllPosts().map((post) => `/blog/${post.slug}`),
     ]
