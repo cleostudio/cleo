@@ -5,11 +5,14 @@
   /* Site dock is 3.5rem tall at bottom 1.25rem; keep the prompt above it */
   --cleo-prompt-bottom: 5.75rem;
   --cleo-prompt-bottom-mobile: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  /* Clearance under the last message: prompt bottom offset + prompt height + air */
+  --cleo-content-pad: calc(var(--cleo-prompt-bottom) + 5rem);
 }
 
 @media (max-width: 39.99rem) {
   :root {
     --app-column-gutter: 1rem;
+    --cleo-content-pad: calc(var(--cleo-prompt-bottom-mobile) + 5rem);
   }
 }
 
@@ -449,6 +452,13 @@
   .prompt-dock-shell[data-docked] {
     bottom: var(--cleo-prompt-bottom-mobile);
   }
+}
+
+/* Tall end spacer so document scroll / scrollIntoView keep streamed text
+   above the fixed prompt + site dock instead of under them. */
+.cleo-messages-end {
+  height: var(--cleo-content-pad);
+  pointer-events: none;
 }
 
 /* Cleo: hide drafting guides; empty prompt locks the viewport; once messages

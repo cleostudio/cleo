@@ -111,8 +111,9 @@ export function AskForm() {
 
   useEffect(() => {
     if (!hasMessages) return
-    // Scroll the document, not a nested chat pane.
-    messagesEndRef.current?.scrollIntoView({ block: 'end' })
+    // Scroll the document so the clearance spacer sits against the viewport
+    // bottom — leaving the latest text above the fixed prompt.
+    messagesEndRef.current?.scrollIntoView({ block: 'end', behavior: 'instant' })
   }, [hasMessages, messages])
 
   useEffect(() => {
@@ -420,7 +421,7 @@ export function AskForm() {
       data-cleo-surface=""
     >
       {hasMessages ? (
-        <div className="pb-44 pt-6 sm:pb-48">
+        <div className="cleo-messages pt-6">
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === 'user' ? (
@@ -504,7 +505,11 @@ export function AskForm() {
               )
             )}
           </div>
-          <div aria-hidden="true" className="h-px" ref={messagesEndRef} />
+          <div
+            aria-hidden="true"
+            className="cleo-messages-end"
+            ref={messagesEndRef}
+          />
         </div>
       ) : null}
 
