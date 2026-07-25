@@ -2,6 +2,7 @@
 
 import {
   type ChangeEvent,
+  type CSSProperties,
   type FormEvent,
   useEffect,
   useRef,
@@ -13,6 +14,7 @@ import { ThinkingOrb } from "thinking-orbs"
 import { ActivityPanel } from "@/components/activity-panel"
 import { LiquidGlass } from "@/components/liquid-glass"
 import { Markdown } from "@/components/markdown"
+import { PixelCluster } from "@/components/pixel-cluster"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -402,7 +404,13 @@ export function AskForm() {
   return (
     <div className="app-column flex min-h-[calc(100svh-2rem)] min-w-0 flex-col sm:min-h-[calc(100svh-3rem)]">
       {hasMessages ? (
-        <div className="flex-1 pt-6 pb-36 sm:pb-40">
+        <div className="flex-1 pt-10 pb-36 sm:pb-40">
+          <div className="mb-8 enter flex items-center gap-2">
+            <p className="text-sm font-semibold tracking-tight text-foreground">
+              Cleo
+            </p>
+            <PixelCluster className="shrink-0" variant={1} />
+          </div>
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === "user" ? (
@@ -496,12 +504,38 @@ export function AskForm() {
 
       <div
         className={cn(
-          hasMessages ? null : "flex flex-1 items-center justify-center pb-16"
+          hasMessages
+            ? null
+            : "flex flex-1 flex-col justify-center pb-16 pt-10"
         )}
       >
+        {!hasMessages ? (
+          <header className="cleo-masthead enter">
+            <div className="cleo-masthead-title">
+              <h1>Cleo</h1>
+              <PixelCluster className="shrink-0" variant={2} />
+            </div>
+            <p className="cleo-masthead-lede">
+              A general-purpose AI agent — candid, conversational, and ready
+              when you are. Attach images, search the web, or just ask.
+            </p>
+            <p className="cleo-masthead-hint">
+              Press <kbd>D</kbd> to toggle theme
+            </p>
+          </header>
+        ) : null}
+
         <div
-          className="prompt-dock-shell"
+          className={cn(
+            "prompt-dock-shell",
+            !hasMessages && "enter"
+          )}
           data-docked={hasMessages || undefined}
+          style={
+            !hasMessages
+              ? ({ "--enter-delay": "80ms" } as CSSProperties)
+              : undefined
+          }
         >
           {error ? (
             <p

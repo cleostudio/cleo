@@ -10,10 +10,14 @@ prioritize complete, well-supported conclusions over generic background.
 - Image attachments for vision, plus agent-directed image generation
 - Live reasoning, web-search, and image-generation activity
 - Syntax-highlighted code and a stop control
-- Responsive glass UI with system-aware light and dark themes
+- Warm working-paper UI adapted from
+  [cali.so](https://github.com/CaliCastle/cali.so): paper grain, drafting
+  guides, liquid-glass prompt dock, and a signal masthead stamp
+- System-aware light and dark themes (`D` toggles)
 
 Conversation history lives in browser memory and clears on refresh. Cleo has no
-accounts or application database.
+accounts or application database. Design-system attribution lives in
+[`NOTICE.md`](./NOTICE.md).
 
 ## Run locally
 
@@ -35,6 +39,8 @@ server-side route; never expose it through `NEXT_PUBLIC_` or commit
 
 - `components/ask-form.tsx` manages the active conversation, image attachments,
   and the response stream.
+- `components/ambient-background.tsx` and `components/pixel-cluster.tsx` provide
+  the cali.so-inspired paper shell and masthead stamp.
 - `app/api/responses/route.ts` calls the OpenAI Responses API with
   `gpt-5.6-terra`, hosted web search, image generation, reasoning summaries,
   streaming, and `store: false`.

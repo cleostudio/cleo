@@ -1,0 +1,42 @@
+// Masthead stamp adapted from cali.so: a 2×2 dither cluster with one lit
+// signal cell. Recurring home of the signal accent — a mark, never a control.
+// Kept out of the accessibility tree; the page's real title carries meaning.
+//
+// Each cell is one of: 's' (lit signal), 'a' (strong ink), 'b' (faint ink),
+// or '' (empty). Every variant keeps exactly one 's'.
+
+const VARIANTS = [
+  ["", "s", "a", "b"],
+  ["a", "s", "", "b"],
+  ["s", "a", "b", ""],
+  ["b", "", "s", "a"],
+  ["a", "b", "s", ""],
+  ["", "a", "b", "s"],
+] as const
+
+export function PixelCluster({
+  className,
+  variant = 0,
+}: {
+  className?: string
+  variant?: number
+}) {
+  const cells =
+    VARIANTS[
+      ((variant % VARIANTS.length) + VARIANTS.length) % VARIANTS.length
+    ]
+
+  return (
+    <span
+      aria-hidden="true"
+      className={className ? `pixel-cluster ${className}` : "pixel-cluster"}
+    >
+      {cells.map((cell, index) => (
+        <span
+          className={cell ? `pc-cell pc-${cell}` : "pc-cell"}
+          key={index}
+        />
+      ))}
+    </span>
+  )
+}

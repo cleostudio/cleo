@@ -20,6 +20,10 @@ Cleo is a general-purpose AI agent, not a starter template.
   does not linger in the conversation sent on the next request.
 - Conversation state is browser-only and clears on reload.
 - There is no authentication, database, or separate backend service.
+- The shell borrows cali.so's warm working-paper design language (palette,
+  paper grain, drafting guides, liquid-glass dock, signal pixel stamp). Do not
+  pull in cali.so's Clerk auth, Neon/AMA/media backends, bilingual content, or
+  personal assets. Keep attribution current in `NOTICE.md`.
 - Refer to Cleo as an AI agent and keep product copy aligned with the app.
 - Cleo's voice is candid, conversational, and quietly playful. She uses one
   fitting emoji for personal wins and often in light social exchanges, but none
@@ -32,6 +36,9 @@ Cleo is a general-purpose AI agent, not a starter template.
 
 - `components/ask-form.tsx` owns messages, image attachments, cancellation, and
   NDJSON stream consumption.
+- `components/ambient-background.tsx` and `components/pixel-cluster.tsx` own the
+  paper-shell ambience and masthead stamp; `app/layout.tsx` applies the
+  `public-site` class that activates the warm paper tokens.
 - `app/api/responses/route.ts` validates messages (including image data URLs)
   and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, reasoning summaries, streaming, and `store: false`.
@@ -41,7 +48,7 @@ Cleo is a general-purpose AI agent, not a starter template.
   Update the route and client together when this protocol changes.
 - `lib/images.ts` shared image limits and data-URL validation.
 - `components/markdown.tsx` renders model output; `app/globals.css` defines the
-  visual system.
+  visual system (including cali.so-adapted paper tokens and dock grammar).
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and
 100,000 total, with a final `user` message. User and assistant messages may
@@ -61,9 +68,10 @@ include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
   `lib/cleo-instructions.ts`.
 - Keep strict TypeScript, the `@/*` alias, and `.prettierrc` style. Reuse `cn`
   and `components/ui/*`.
-- Preserve the accessible, responsive glass UI. Render model output through
-  Streamdown, never raw HTML.
-- Update `README.md` and this file when setup or behavior changes.
+- Preserve the accessible, responsive paper shell and glass prompt dock.
+  Render model output through Streamdown, never raw HTML.
+- Update `README.md`, `NOTICE.md`, and this file when setup or design-system
+  attribution changes.
 
 ### Verification
 
