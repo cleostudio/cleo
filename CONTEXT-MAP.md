@@ -1,11 +1,17 @@
 # Context Map
 
-Personal site v3 contexts. System-wide ADRs live in `docs/adr/`.
+Cleo (v3) contexts. System-wide ADRs live in `docs/adr/`. Site status:
+`docs/handoff.md`.
 
 ## Active contexts
 
-- **Content** — MDX blog and newsletters under `content/`
-- **Explore** — country pages from `lib/countries.ts`
+- **Portal** — Homepage country search, highlighted places, topic discovery
+- **Content** — MDX Writing under `content/blog/` (future encyclopedia layer);
+  archived newsletters under `content/newsletters/`
+- **Explore / Gallery** — Country field guides and place photographs from
+  `content/atlas.json` + `public/images/atlas/`
+- **Topics** — Catalog starting with countries (`/topics`; `/projects`
+  redirects here)
 - **Cleo agent** — OpenAI Responses API at `/cleo` and `/api/responses`
   (`lib/cleo/`, `components/cleo/`)
 
@@ -14,3 +20,8 @@ Personal site v3 contexts. System-wide ADRs live in `docs/adr/`.
 AMA Booking, Media Library, owner admin (Clerk), Neon/Postgres, rate-limit
 backends, and related ADRs/docs were deleted. Do not restore them without an
 explicit product decision. OpenAI is the only third-party API.
+
+## Retained for reuse
+
+Projects UI, vinyl/bookshelf, and social card components remain in the repo
+but are not mounted in the public chrome.
