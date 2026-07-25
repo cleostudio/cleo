@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 import { Bookshelf } from '~/components/bookshelf'
-import { ExternalLabel } from '~/components/external-mark'
 import { HomeIntroduction } from '~/components/home-introduction'
 import { NavCards, PhotoNavCard } from '~/components/nav-cards'
 import { PixelCluster } from '~/components/pixel-cluster'
@@ -12,7 +11,7 @@ import { getAllPosts } from '~/lib/content'
 import { T } from '~/lib/i18n'
 import { localePath, type Locale } from '~/lib/locale-route'
 import { countries } from '~/lib/countries'
-import { books, experience, records } from '~/lib/personal'
+import { books, records } from '~/lib/personal'
 import { getGitHub, getSocial } from '~/lib/social-live'
 import { getHomepagePhotoPreview } from '~/lib/media/photo-selection/repository'
 import { getPublishedPhotoSelection } from '~/lib/media/photo-selection/server'
@@ -82,56 +81,14 @@ export async function HomePageView({ locale }: { locale: Locale }) {
       />
 
       <section className="mt-16">
-        <SectionTitle index={nextSectionIndex()} delay={120}>
-          <T zh="经历" en="Experience" />
-        </SectionTitle>
-        <ul className="mt-4 flex flex-col">
-          {experience.map((job, i) => (
-            <li
-              key={job.company}
-              className="enter-swing hairline-top"
-              style={{ '--enter-delay': `${150 + i * 40}ms` } as React.CSSProperties}
-            >
-              <div className="experience-row text-sm">
-                <div className="experience-details">
-                  {job.url ? (
-                    <a
-                      href={job.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="experience-company font-medium transition-colors duration-150 ease-[ease] hover:text-foreground"
-                    >
-                      <ExternalLabel>
-                        <T zh={job.company} en={job.companyEn} />
-                      </ExternalLabel>
-                    </a>
-                  ) : (
-                    <span className="experience-company font-medium">
-                      <T zh={job.company} en={job.companyEn} />
-                    </span>
-                  )}
-                  <span className="experience-role text-muted-foreground">
-                    <T zh={job.role} en={job.roleEn ?? job.role} />
-                  </span>
-                </div>
-                <span className="experience-date text-muted-foreground tabular-nums">
-                  {job.from}—{job.to ?? <T zh="现在" en="now" />}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="mt-16">
         <div className="flex items-center justify-between gap-4">
-          <SectionTitle index={nextSectionIndex()} delay={200}>
+          <SectionTitle index={nextSectionIndex()} delay={120}>
             <T zh="写作" en="Writing" />
           </SectionTitle>
           <Link
             href={localePath(locale, '/blog')}
             className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
-            style={{ '--enter-delay': '200ms' } as React.CSSProperties}
+            style={{ '--enter-delay': '120ms' } as React.CSSProperties}
           >
             <T zh="查看全部" en="View all" />
           </Link>
@@ -142,7 +99,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
               key={post.slug}
               className="enter-swing"
               style={
-                { '--enter-delay': `${240 + Math.abs(index - center) * 50}ms` } as React.CSSProperties
+                { '--enter-delay': `${160 + Math.abs(index - center) * 50}ms` } as React.CSSProperties
               }
             >
               <PostRow post={post} headingLevel="h3" dateStyle="short" locale={locale} />

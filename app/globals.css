@@ -4282,35 +4282,6 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
-/* ── Experience rows ──────────────────────────────────────────────── */
-
-.experience-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) max-content;
-  align-items: start;
-  gap: 1rem;
-  padding: 0.625rem 0;
-}
-
-.experience-details {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.125rem;
-}
-
-.experience-company,
-.experience-role {
-  min-width: 0;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-}
-
-.experience-date {
-  white-space: nowrap;
-}
-
 /* ── Per-service hover cards (components/social-cards.tsx) ────────── */
 
 .service-card {
