@@ -1,8 +1,11 @@
 # Cleo
 
-This repository hosts the **Cleo** site (v3, English-only) with Explore country
-field guides at `/explore/[slug]`, a filterable Country Atlas at `/photos`, and
-a general-purpose AI agent on the dock at `/cleo`.
+This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
+app starting with countries. Explore field guides live at `/explore/[slug]`, the
+filterable Country Atlas at `/photos`, the Topics catalog at `/topics`, Writing
+at `/blog` (kept for a future encyclopedia-like layer), and the AI agent at
+`/cleo`. `/projects` permanently redirects to `/topics`; Projects UI remains in
+the repo for later reuse.
 
 Country atlas records live in `content/atlas.json` (one entry per Explore slug).
 Generate evergreen copy with `pnpm generate:atlas-content`, then import curated
@@ -87,5 +90,8 @@ explicit product decision.
 
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
 <!-- END:nextjs-agent-rules -->

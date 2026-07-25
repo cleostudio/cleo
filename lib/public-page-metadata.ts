@@ -14,6 +14,12 @@ export const publicPageMetadata = {
     description:
       'Country atlas — one curated place photograph for every country, filterable by region.',
   },
+  topics: {
+    title: 'Topics',
+    description:
+      'General-knowledge collections — starting with countries, growing into more topics over time.',
+  },
+  /** Retained for preserved Projects UI / future portfolio surfaces. */
   projects: {
     title: 'Projects',
     description:

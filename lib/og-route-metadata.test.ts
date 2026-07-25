@@ -35,9 +35,9 @@ describe('social OG image metadata', () => {
       'Photos · Cleo. Country atlas — one curated place photograph for every country, filterable by region.',
     ],
     [
-      '/projects',
-      publicPageMetadata.projects,
-      'Projects · Cleo. Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
+      '/topics',
+      publicPageMetadata.topics,
+      'Topics · Cleo. General-knowledge collections — starting with countries, growing into more topics over time.',
     ],
     [
       '/explore',

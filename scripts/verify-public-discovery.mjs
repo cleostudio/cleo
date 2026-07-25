@@ -48,13 +48,13 @@ const publicPages = [
     'Photos · Cleo. 195 country atlas places — filter by region or search by country and place.',
   ),
   englishPage(
-    '/projects',
+    '/topics',
     {
-      title: 'Projects',
+      title: 'Topics',
       description:
-        'Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
+        'General-knowledge collections — starting with countries, growing into more topics over time.',
     },
-    'Projects · Cleo. Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
+    'Topics · Cleo. General-knowledge collections — starting with countries, growing into more topics over time.',
   ),
   englishPage(
     '/explore',

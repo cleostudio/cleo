@@ -1,3 +1,7 @@
+/**
+ * Preserved Projects index UI for future portfolio / build surfaces.
+ * The public dock route is now `/topics`; `/projects` redirects there.
+ */
 import Image from 'next/image'
 
 import { ExternalLabel } from '~/components/external-mark'

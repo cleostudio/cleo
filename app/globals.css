@@ -742,6 +742,78 @@
   }
 }
 
+/* ── Topics catalog: knowledge collections (reuses project stage UX) ─ */
+
+.topic-row {
+  padding-block: 0.875rem;
+}
+
+.topic-primary {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 9rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 0.25rem 1rem;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.topic-primary:focus-visible {
+  border-radius: 2px;
+  outline: 1px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.topic-index {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  padding-top: 0.125rem;
+}
+
+.topic-identity {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+  line-height: 1.4;
+}
+
+.topic-name {
+  text-wrap: balance;
+}
+
+.topic-tally {
+  font-size: 0.75rem;
+}
+
+.topic-description {
+  min-width: 0;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+.topic-secondary {
+  margin: 0.35rem 0 0 calc(2rem + 1rem);
+}
+
+@media (max-width: 39.99rem) {
+  .topic-primary {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    row-gap: 0.375rem;
+  }
+
+  .topic-identity,
+  .topic-description {
+    grid-column: 2;
+  }
+
+  .topic-secondary {
+    margin-left: calc(2rem + 1rem);
+  }
+}
+
 /* ── Error proof sheet ───────────────────────────────────────────── */
 
 .error-sheet {

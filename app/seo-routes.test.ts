@@ -41,7 +41,7 @@ describe('discovery routes', () => {
       '/',
       '/blog',
       '/photos',
-      '/projects',
+      '/topics',
       '/explore',
       '/cleo',
       ...countrySlugs().map((slug) => `/explore/${slug}`),

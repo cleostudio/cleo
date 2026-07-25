@@ -22,10 +22,10 @@ describe('public page metadata copy', () => {
       description:
         'Country atlas — one curated place photograph for every country, filterable by region.',
     })
-    expect(publicPageMetadata.projects).toEqual({
-      title: 'Projects',
+    expect(publicPageMetadata.topics).toEqual({
+      title: 'Topics',
       description:
-        'Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
+        'General-knowledge collections — starting with countries, growing into more topics over time.',
     })
     expect(publicPageMetadata.explore).toEqual({
       title: 'Explore',
@@ -40,7 +40,7 @@ describe('public page metadata copy', () => {
   })
 
   it('keeps section descriptions within social preview budgets', () => {
-    for (const section of ['blog', 'photos', 'projects', 'explore', 'cleo'] as const) {
+    for (const section of ['blog', 'photos', 'topics', 'explore', 'cleo'] as const) {
       expect(publicPageMetadata[section].description.length, section).toBeLessThanOrEqual(160)
     }
   })

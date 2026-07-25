@@ -63,6 +63,7 @@ export function PhotosIcon() {
   )
 }
 
+/** Kept for future portfolio / build surfaces. */
 export function ProjectsIcon() {
   return (
     <Base>
@@ -80,6 +81,24 @@ export function ProjectsIcon() {
       <path d="M3.41599 7.513L5.18398 5.745" />
       <path d="M2.25 15.75C2.25 15.75 5.849 15.182 6.796 14.235C7.743 13.288 15.373 5.65799 15.373 5.65799C16.21 4.82099 16.21 3.46399 15.373 2.62799C14.536 1.79099 13.179 1.79099 12.343 2.62799C12.343 2.62799 4.713 10.258 3.766 11.205C2.819 12.152 2.251 15.751 2.251 15.751L2.25 15.75Z" />
       <path d="M11.121 3.84802L14.152 6.87902" />
+    </Base>
+  )
+}
+
+/** Knowledge catalog: stacked index cards. */
+export function TopicsIcon() {
+  return (
+    <Base>
+      <path
+        d="M4.25 5.5h9.5v9H4.25z"
+        fill="currentColor"
+        opacity=".3"
+        strokeWidth="0"
+        stroke="none"
+      />
+      <path d="M4.25 5.5h9.5v9H4.25z" />
+      <path d="M6 3.25h9.5V12" />
+      <path d="M7.75 7.75h4M7.75 10h3" />
     </Base>
   )
 }

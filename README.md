@@ -4,9 +4,9 @@
 dock at `/cleo`.
 
 The public site includes MDX writing, Explore country field guides, a
-filterable Country Atlas at `/photos`, projects, and a browser-only chat agent
-with streamed Markdown, vision attachments, image generation, and live
-reasoning / web-search activity.
+filterable Country Atlas at `/photos`, a Topics catalog (countries first), and a
+browser-only chat agent with streamed Markdown, vision attachments, image
+generation, and live reasoning / web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 
@@ -19,7 +19,7 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   `public/images/atlas/` (no image CDN/account at runtime)
 - **OpenAI** is the only third-party API (`OPENAI_API_KEY` → `POST /api/responses`)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*`
-- Bottom dock: Writing, Photos, Projects, Explore, Cleo
+- Bottom dock: Writing, Photos, Explore, Topics, Cleo
 
 Site design notes live under `docs/`. Cleo-specific agent notes live in
 [`AGENTS.md`](./AGENTS.md).

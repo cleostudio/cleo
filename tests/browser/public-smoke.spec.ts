@@ -16,8 +16,8 @@ const profiles = [
     reducedMotion: 'no-preference' as const,
   },
   {
-    name: 'Projects on dark desktop',
-    path: '/projects',
+    name: 'Topics on dark desktop',
+    path: '/topics',
     viewport: { width: 1440, height: 900 },
     colorScheme: 'dark' as const,
     reducedMotion: 'no-preference' as const,

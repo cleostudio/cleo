@@ -8,11 +8,11 @@ test('@hosted prefetched dock navigation renders instantly and preserves history
 }) => {
   await prepareBrowserPage(page)
   const browserErrors = watchBrowserErrors(page)
-  const projectsPrefetch = page.waitForResponse((response) => {
+  const topicsPrefetch = page.waitForResponse((response) => {
     const headers = response.request().headers()
 
     return (
-      new URL(response.url()).pathname === '/projects' &&
+      new URL(response.url()).pathname === '/topics' &&
       (headers['next-router-prefetch'] === '1' ||
         headers['next-router-segment-prefetch'] !== undefined)
     )
@@ -20,7 +20,7 @@ test('@hosted prefetched dock navigation renders instantly and preserves history
   await page.goto('/blog')
   await expect(page.getByRole('heading', { level: 1, name: 'Writing' })).toBeVisible()
   await expect(page.getByRole('button', { name: 'Preferences' })).toBeEnabled()
-  await projectsPrefetch
+  await topicsPrefetch
 
   const historyLength = await page.evaluate(() => window.history.length)
   await page.evaluate(() => {
@@ -29,10 +29,10 @@ test('@hosted prefetched dock navigation renders instantly and preserves history
   })
 
   await instant(page, async () => {
-    await page.getByRole('link', { name: 'Projects, G then J' }).click()
+    await page.getByRole('link', { name: 'Topics, G then T' }).click()
 
-    await expect(page).toHaveURL(/\/projects$/)
-    await expect(page.getByRole('heading', { level: 1, name: 'Projects' })).toBeVisible()
+    await expect(page).toHaveURL(/\/topics$/)
+    await expect(page.getByRole('heading', { level: 1, name: 'Topics' })).toBeVisible()
     await expect(page.locator('main [data-list-stage-row]')).not.toHaveCount(0)
     expect(
       await page.evaluate(
@@ -42,7 +42,7 @@ test('@hosted prefetched dock navigation renders instantly and preserves history
     expect(await page.evaluate(() => window.history.length)).toBe(historyLength + 1)
   })
 
-  await expect(page.locator('main a[target="_blank"]')).not.toHaveCount(0)
+  await expect(page.locator('main a[href="/explore"]')).not.toHaveCount(0)
   await page.goBack()
   await expect(page).toHaveURL(/\/blog$/)
   await expect(page.getByRole('heading', { level: 1, name: 'Writing' })).toBeVisible()
@@ -86,7 +86,7 @@ test('Preferences applies theme from the keyboard and restores trigger focus', a
 test('Preferences no longer exposes a language switcher', async ({ page }) => {
   await prepareBrowserPage(page)
   const browserErrors = watchBrowserErrors(page)
-  await page.goto('/projects')
+  await page.goto('/topics')
 
   const trigger = page.getByRole('button', { name: 'Preferences' })
   await expect(trigger).toBeEnabled()
@@ -96,7 +96,7 @@ test('Preferences no longer exposes a language switcher', async ({ page }) => {
   await expect(panel).toBeVisible()
   await expect(panel.getByRole('tablist', { name: 'Language' })).toHaveCount(0)
   await expect(panel.getByRole('tablist', { name: 'Theme' })).toBeVisible()
-  await expect(page).toHaveURL(/\/projects$/)
+  await expect(page).toHaveURL(/\/topics$/)
   await expect(page.locator('html')).toHaveAttribute('lang', 'en')
   expect(browserErrors).toEqual([])
 })

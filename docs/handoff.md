@@ -6,8 +6,9 @@ Current as of July 2026 (Cleo fork).
 
 English-only personal site with:
 
-- MDX blog, Explore country field guides (about, facts, three places, sources,
-  place photo), projects, newsletters
+- MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
+  country field guides, Topics catalog (countries first; more topics later),
+  newsletters
 - Photos: filterable Country Atlas (`content/atlas.json` + optimized static
   JPEGs in `public/images/atlas/`) — one curated place photograph per country
 - Cleo AI agent at `/cleo` powered by **OpenAI only**

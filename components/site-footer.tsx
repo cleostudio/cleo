@@ -80,8 +80,8 @@ export function SiteFooter({
             </Link>
           </li>
           <li>
-            <Link href={localePath(locale, '/projects')} className="footer-tree-link">
-              <T zh="项目" en="Projects" />
+            <Link href={localePath(locale, '/topics')} className="footer-tree-link">
+              <T zh="主题" en="Topics" />
             </Link>
           </li>
           <li>

@@ -8,8 +8,8 @@ import {
   HomeIcon,
   PhotosIcon,
   PreferencesIcon,
-  ProjectsIcon,
   SayHiIcon,
+  TopicsIcon,
   WritingIcon,
 } from '~/components/dock-icons'
 import { Preferences } from '~/components/preferences'
@@ -28,7 +28,7 @@ const ITEMS = [
   { href: '/blog', zh: '写作', en: 'Writing', icon: WritingIcon },
   { href: '/photos', zh: '照片', en: 'Photos', icon: PhotosIcon },
   { href: '/explore', zh: '探索', en: 'Explore', icon: ExploreIcon },
-  { href: '/projects', zh: '项目', en: 'Projects', icon: ProjectsIcon },
+  { href: '/topics', zh: '主题', en: 'Topics', icon: TopicsIcon },
   { href: '/cleo', zh: 'Cleo', en: 'Cleo', icon: SayHiIcon },
 ] as const
 

@@ -93,14 +93,18 @@ const nextConfig: NextConfig = {
   // former `/en` URLs permanently redirect to the unprefixed paths.
   redirects: async () => [
     { source: '/en', destination: '/', permanent: true },
-    { source: '/en/:path*', destination: '/:path*', permanent: true },
     { source: '/feed.en.xml', destination: '/feed.xml', permanent: true },
     // Former AMA marketing page; booking APIs were removed.
     { source: '/ama', destination: '/explore', permanent: true },
     { source: '/ama/:path*', destination: '/explore', permanent: true },
+    // Projects catalog became Topics (general-knowledge collections).
+    { source: '/projects', destination: '/topics', permanent: true },
+    { source: '/projects/:path*', destination: '/topics', permanent: true },
     { source: '/admin', destination: '/', permanent: true },
     { source: '/admin/:path*', destination: '/', permanent: true },
+    // Specific /en/* legacy rules must win over the prefix strip below.
     ...legacyRedirects,
+    { source: '/en/:path*', destination: '/:path*', permanent: true },
   ],
 
   rewrites: async () => legacyRewrites,

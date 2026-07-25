@@ -66,7 +66,7 @@ describe('useDockGoShortcuts', () => {
   it.each([
     { key: 'w', href: '/blog' },
     { key: 'p', href: '/photos' },
-    { key: 'j', href: '/projects' },
+    { key: 't', href: '/topics' },
     { key: 'e', href: '/explore' },
     { key: 'c', href: '/cleo' },
   ] as const)('maps G then $key to $href', ({ key, href }) => {
@@ -111,12 +111,12 @@ describe('useDockGoShortcuts', () => {
   })
 
   it('skips the dock sound when already on the target route', () => {
-    render(<Harness activeHref="/projects" />)
+    render(<Harness activeHref="/topics" />)
 
     keydown('g')
-    keydown('j')
+    keydown('t')
 
-    expect(push).toHaveBeenCalledWith('/projects')
+    expect(push).toHaveBeenCalledWith('/topics')
     expect(playDockSound).not.toHaveBeenCalled()
   })
 

@@ -18,6 +18,9 @@ function validateManifest(manifest) {
     assert.equal(typeof entry.source, 'string')
     assert.match(entry.source, /^\/(?!\/)/)
     assert.ok(Array.isArray(entry.probes) && entry.probes.length > 0)
+    if (entry.status == null && (entry.kind === 'redirect' || entry.kind === 'rewrite')) {
+      entry.status = 308
+    }
     assert.ok([200, 308].includes(entry.status))
     assert.equal(typeof entry.contains, entry.kind === 'redirect' ? 'undefined' : 'string')
     if (entry.kind === 'redirect' || entry.kind === 'rewrite') {
@@ -46,8 +49,25 @@ async function validateBlogCoverage(probes) {
   }
 }
 
-function expectedLocation(baseUrl, destination) {
-  return new URL(destination, baseUrl).href
+function expandPathPattern(pattern, source, probe) {
+  if (!pattern.includes(':')) return pattern
+  const sourceParts = source.split('/')
+  const probeParts = probe.split('/')
+  const params = new Map()
+  for (let index = 0; index < sourceParts.length; index += 1) {
+    const part = sourceParts[index]
+    if (part?.startsWith(':') && probeParts[index]) {
+      params.set(part.slice(1), probeParts[index])
+    }
+  }
+  return pattern
+    .split('/')
+    .map((part) => (part.startsWith(':') ? (params.get(part.slice(1)) ?? part) : part))
+    .join('/')
+}
+
+function expectedLocation(baseUrl, destination, source = destination, probe = destination) {
+  return new URL(expandPathPattern(destination, source, probe), baseUrl).href
 }
 
 export function validatedProbeUrl(baseUrl, probe) {
@@ -87,8 +107,8 @@ async function verifyEntry(baseUrl, entry, probe) {
     const location = response.headers.get('location')
     assert.ok(location, `${probe} needs a Location header`)
     assert.equal(
-      expectedLocation(baseUrl, location),
-      expectedLocation(baseUrl, entry.destination),
+      expectedLocation(baseUrl, location, entry.source, probe),
+      expectedLocation(baseUrl, entry.destination, entry.source, probe),
       `${probe} location`,
     )
     return

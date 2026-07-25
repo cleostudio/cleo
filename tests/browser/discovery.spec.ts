@@ -7,16 +7,16 @@ test('@hosted English metadata keeps its canonical locale contract', async ({
 }) => {
   await prepareBrowserPage(page)
   const browserErrors = watchBrowserErrors(page)
-  await page.goto('/projects')
+  await page.goto('/topics')
 
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     'href',
-    'https://cali.so/projects',
+    'https://cali.so/topics',
   )
   await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveCount(0)
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
     'href',
-    'https://cali.so/projects',
+    'https://cali.so/topics',
   )
   await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute(
     'content',
@@ -31,7 +31,7 @@ test('@hosted English metadata keeps its canonical locale contract', async ({
   expect(socialImageUrl.origin).toBe('https://cali.so')
   expect(socialImageUrl.pathname).toBe('/og')
   expect(socialImageUrl.searchParams.get('locale')).toBe('en')
-  expect(socialImageUrl.searchParams.get('path')).toBe('/projects')
+  expect(socialImageUrl.searchParams.get('path')).toBe('/topics')
   expect(browserErrors).toEqual([])
 })
 
@@ -42,7 +42,7 @@ test('@hosted feed and social images return their public media contracts', async
   const englishFeedRedirect = await request.get('/feed.en.xml', {
     maxRedirects: 0,
   })
-  const socialImage = await request.get('/og?locale=en&path=%2Fprojects')
+  const socialImage = await request.get('/og?locale=en&path=%2Ftopics')
 
   expect(feed.status()).toBe(200)
   expect(feed.headers()['content-type']).toContain('xml')

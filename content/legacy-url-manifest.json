@@ -36,10 +36,19 @@
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/projects",
+      "destination": "/topics",
       "probes": [
         "/projects"
+      ],
+      "status": 308
+    },
+    {
+      "kind": "page",
+      "source": "/topics",
+      "probes": [
+        "/topics"
       ],
       "status": 200,
       "contains": "<main"
@@ -47,10 +56,11 @@
     {
       "kind": "redirect",
       "source": "/en/projects",
-      "destination": "/projects",
+      "destination": "/topics",
       "probes": [
         "/en/projects"
-      ]
+      ],
+      "status": 308
     },
     {
       "kind": "page",
