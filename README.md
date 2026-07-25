@@ -58,9 +58,10 @@ theme/dock coexistence.
 ## Preview deploys
 
 This repo enables Vercel Git deployments for branch previews. Upstream cali.so
-kept Git deploys off (GitHub Actions + Neon owned Production); here the GitHub
-`Deploy Preview` workflow still targets only `CaliCastle/cali.so` and is
-skipped for `cleostudio/cleo`.
+kept Git deploys off (GitHub Actions + Neon owned Production) and declared
+Hobby-incompatible cron jobs; those crons are omitted here so `cleostudio/cleo`
+previews can ship. The GitHub `Deploy Preview` workflow still targets only
+`CaliCastle/cali.so` and is skipped for this repository.
 
 `pnpm build` runs `scripts/ensure-preview-env.mjs` so a preview host that only
 has `OPENAI_API_KEY` can still compile: missing Neon/Clerk/Bunny pairs are
