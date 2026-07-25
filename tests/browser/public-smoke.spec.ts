@@ -30,8 +30,8 @@ const profiles = [
     reducedMotion: 'no-preference' as const,
   },
   {
-    name: 'Photos on reduced-motion mobile',
-    path: '/photos',
+    name: 'Gallery on reduced-motion mobile',
+    path: '/gallery',
     viewport: { width: 390, height: 844 },
     colorScheme: 'dark' as const,
     reducedMotion: 'reduce' as const,

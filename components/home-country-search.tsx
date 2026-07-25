@@ -24,7 +24,7 @@ export function HomeCountrySearch({ countries }: { countries: Country[] }) {
 
   return (
     <div className="home-country-search">
-      <label className="atlas-label" htmlFor="home-country-search">
+      <label className="guide-label" htmlFor="home-country-search">
         Find a country
       </label>
       <input

@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     entry('/', latest),
     entry('/blog', latest),
-    entry('/photos', latest),
+    entry('/gallery', latest),
     entry('/topics', latest),
     entry('/explore'),
     entry('/cleo'),

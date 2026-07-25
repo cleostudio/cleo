@@ -55,8 +55,8 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
             </li>
           ))}
           <li>
-            <Link href={localePath(locale, '/photos')} className="footer-tree-link">
-              <T zh="国家图集" en="Country atlas" />
+            <Link href={localePath(locale, '/gallery')} className="footer-tree-link">
+              <T zh="图库" en="Gallery" />
             </Link>
           </li>
         </Tree>

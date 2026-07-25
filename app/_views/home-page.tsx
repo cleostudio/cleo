@@ -71,11 +71,11 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
             </span>
           </SectionTitle>
           <Link
-            href="/photos"
+            href="/gallery"
             className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
             style={{ '--enter-delay': '160ms' } as React.CSSProperties}
           >
-            <T zh="全部图集" en="Full atlas" />
+            <T zh="全部图库" en="Full gallery" />
           </Link>
         </div>
         <div className="enter mt-5" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>

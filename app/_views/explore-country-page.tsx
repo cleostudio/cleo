@@ -33,7 +33,7 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
   const renditions = entry.photo.renditions.map((r) => ({ src: r.src, width: r.width }))
 
   return (
-    <article className="atlas-guide mx-auto w-full max-w-[37.5rem] px-6">
+    <article className="field-guide mx-auto w-full max-w-[37.5rem] px-6">
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-[34rem]">
           <p className="page-eyebrow enter">
@@ -82,7 +82,7 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
             </div>
           }
         />
-        <figcaption className="atlas-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
+        <figcaption className="guide-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
           <span>{entry.photo.caption}</span>
           <span>
             {entry.photo.photographer} ·{' '}
@@ -101,9 +101,9 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       <section
         className="enter mt-10"
         style={{ '--enter-delay': '100ms' } as React.CSSProperties}
-        aria-labelledby="atlas-about"
+        aria-labelledby="guide-about"
       >
-        <h2 id="atlas-about" className="atlas-label">
+        <h2 id="guide-about" className="guide-label">
           Orientation
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-foreground/90 text-pretty">
@@ -114,9 +114,9 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       <section
         className="enter mt-12"
         style={{ '--enter-delay': '120ms' } as React.CSSProperties}
-        aria-labelledby="atlas-places"
+        aria-labelledby="guide-places"
       >
-        <h2 id="atlas-places" className="atlas-label">
+        <h2 id="guide-places" className="guide-label">
           Places
         </h2>
         <ol className="mt-3 flex flex-col">
@@ -137,9 +137,9 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       <section
         className="enter mt-12"
         style={{ '--enter-delay': '140ms' } as React.CSSProperties}
-        aria-labelledby="atlas-facts"
+        aria-labelledby="guide-facts"
       >
-        <h2 id="atlas-facts" className="atlas-label">
+        <h2 id="guide-facts" className="guide-label">
           Fact plate
         </h2>
         <dl className="mt-3 grid gap-0 text-sm">
@@ -175,9 +175,9 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       <section
         className="enter mt-12"
         style={{ '--enter-delay': '160ms' } as React.CSSProperties}
-        aria-labelledby="atlas-sources"
+        aria-labelledby="guide-sources"
       >
-        <h2 id="atlas-sources" className="atlas-label">
+        <h2 id="guide-sources" className="guide-label">
           Sources
         </h2>
         <ul className="mt-3 flex flex-col gap-2 text-sm">
@@ -200,8 +200,8 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
-        <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground">
-          Country atlas photos →
+        <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
+          Browse the gallery →
         </Link>
       </p>
       <p className="enter mt-3 mb-4" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>

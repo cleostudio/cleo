@@ -30,7 +30,7 @@ function wordCount(text) {
 function expandToWordRange(text, min = 250, max = 350) {
   let body = text.trim()
   const fillers = [
-    'The atlas entry stays evergreen: it orients rather than instructs, and it avoids visas, safety advisories, health notices, entry rules, and prices that drift with policy and season.',
+    'This field guide stays evergreen: it orients rather than instructs, and it avoids visas, safety advisories, health notices, entry rules, and prices that drift with policy and season.',
     'Think of the page as a printed field note — compact enough to scan, specific enough to remember — before any deeper itinerary takes shape.',
     'Geography still sets the tempo: weather systems, trade winds, mountain walls, and river corridors continue to shape settlement and travel patterns more than any slogan can.',
     'What belongs here is durable context: names of places, the grain of the landscape, and a few open doors for curiosity, not a checklist of what to do next week.',

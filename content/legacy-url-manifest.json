@@ -63,10 +63,19 @@
       "status": 308
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/photos",
+      "destination": "/gallery",
       "probes": [
         "/photos"
+      ],
+      "status": 308
+    },
+    {
+      "kind": "page",
+      "source": "/gallery",
+      "probes": [
+        "/gallery"
       ],
       "status": 200,
       "contains": "<main"
@@ -74,10 +83,11 @@
     {
       "kind": "redirect",
       "source": "/en/photos",
-      "destination": "/photos",
+      "destination": "/gallery",
       "probes": [
         "/en/photos"
-      ]
+      ],
+      "status": 308
     },
     {
       "kind": "page",

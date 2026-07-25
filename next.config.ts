@@ -60,7 +60,7 @@ const nextConfig: NextConfig = {
 
   images: {
     // Post images are served from content/ via app/content/[...path]/route.ts;
-    // atlas place photos and other static media live under public/images.
+    // country place photos and other static media live under public/images.
     localPatterns: [
       { pathname: '/content/**' },
       { pathname: '/images/**' },
@@ -100,6 +100,10 @@ const nextConfig: NextConfig = {
     // Projects catalog became Topics (general-knowledge collections).
     { source: '/projects', destination: '/topics', permanent: true },
     { source: '/projects/:path*', destination: '/topics', permanent: true },
+    // Photos became Gallery.
+    { source: '/photos', destination: '/gallery', permanent: true },
+    { source: '/photos/:path*', destination: '/gallery', permanent: true },
+    { source: '/en/photos', destination: '/gallery', permanent: true },
     { source: '/admin', destination: '/', permanent: true },
     { source: '/admin/:path*', destination: '/', permanent: true },
     // Specific /en/* legacy rules must win over the prefix strip below.

@@ -39,13 +39,13 @@ const publicPages = [
     'Writing · Cleo. Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
   ),
   englishPage(
-    '/photos',
+    '/gallery',
     {
-      title: 'Photos',
+      title: 'Gallery',
       description:
-        '195 country atlas places — filter by region or search by country and place.',
+        '195 place photographs — filter by region or search by country and place.',
     },
-    'Photos · Cleo. 195 country atlas places — filter by region or search by country and place.',
+    'Gallery · Cleo. 195 place photographs — filter by region or search by country and place.',
   ),
   englishPage(
     '/topics',

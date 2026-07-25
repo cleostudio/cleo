@@ -10,7 +10,7 @@ English-only general-knowledge portal with:
   contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
   country field guides, Topics catalog (countries first; more topics later)
-- Photos: filterable Country Atlas (`content/atlas.json` + optimized static
+- Gallery: filterable place photographs (`content/atlas.json` + optimized static
   JPEGs in `public/images/atlas/`) — one curated place photograph per country
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
 
@@ -21,16 +21,17 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4, Base UI
 - Posts: `content/blog/<slug>/` via owned content route
-- Explore / Atlas: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/photos`
-- Atlas images: import-time mozjpeg 640/1024/1600 under `public/images/atlas/`;
+- Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
+- Place images: import-time mozjpeg 640/1024/1600 under `public/images/atlas/`;
   rendered with static `srcset` (`AtlasImage` / unoptimized ZoomImage). No
   runtime image account, API, or third-party fetch.
-- Atlas workflow: `pnpm generate:atlas-content` → `pnpm import:atlas-photos` →
+- Media workflow: `pnpm generate:atlas-content` → `pnpm import:atlas-photos` →
   `pnpm validate:atlas` (originals in `.atlas-originals/`)
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
-- Former `/ama` and `/admin` URLs redirect away (Explore / home)
+  (components retained; not linked from the public chrome)
+- Former `/ama`, `/admin`, `/projects`, and `/photos` URLs redirect away
 
 ## Design
 

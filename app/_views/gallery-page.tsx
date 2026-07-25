@@ -1,4 +1,4 @@
-import { CountryAtlas } from '~/components/country-atlas'
+import { PlaceGallery } from '~/components/place-gallery'
 import { PixelCluster } from '~/components/pixel-cluster'
 import {
   allAtlasEntries,
@@ -8,17 +8,17 @@ import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 
-export function photosPageMetadata() {
-  const copy = publicPageMetadata.photos
+export function galleryPageMetadata() {
+  const copy = publicPageMetadata.gallery
   const count = allAtlasEntries().length
   return localeMetadata({
-    path: '/photos',
+    path: '/gallery',
     title: copy.title,
-    description: `${count} country atlas places — filter by region or search by country and place.`,
+    description: `${count} place photographs — filter by region or search by country and place.`,
   })
 }
 
-export function PhotosPageView() {
+export function GalleryPageView() {
   const entries = allAtlasEntries()
   const regions = atlasRegions()
 
@@ -27,21 +27,21 @@ export function PhotosPageView() {
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-[34rem]">
           <h1 className="page-eyebrow enter">
-            <T zh="照片" en="Photos" />
+            <T zh="图库" en="Gallery" />
           </h1>
           <p
             className="page-introduction enter mt-4 text-balance"
             style={{ '--enter-delay': '70ms' } as React.CSSProperties}
           >
-            Country atlas — one curated place photograph for every country on
-            Explore. Filter by region or search by country and place.
+            One curated place photograph for every country on Explore. Filter by
+            region or search by country and place.
           </p>
         </header>
         <PixelCluster variant={4} className="enter shrink-0" />
       </div>
 
       <div className="mt-8">
-        <CountryAtlas entries={entries} regions={regions} />
+        <PlaceGallery entries={entries} regions={regions} />
       </div>
     </div>
   )

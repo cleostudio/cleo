@@ -65,7 +65,7 @@ describe('useDockGoShortcuts', () => {
 
   it.each([
     { key: 'w', href: '/blog' },
-    { key: 'p', href: '/photos' },
+    { key: 'p', href: '/gallery' },
     { key: 't', href: '/topics' },
     { key: 'e', href: '/explore' },
     { key: 'c', href: '/cleo' },

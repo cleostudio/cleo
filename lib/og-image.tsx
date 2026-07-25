@@ -181,7 +181,7 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
-  if (section === 'photos') {
+  if (section === 'gallery') {
     return (
       <svg
         width="232"

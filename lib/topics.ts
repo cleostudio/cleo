@@ -9,7 +9,7 @@ export interface Topic {
   tally: string
   /** Primary destination for the collection. */
   href: string
-  /** Optional secondary surface (e.g. visual atlas). */
+  /** Optional secondary surface (e.g. place gallery). */
   secondaryHref?: string
   secondaryLabel?: string
 }
@@ -24,8 +24,8 @@ export function allTopics(): Topic[] {
         'Evergreen field guides for every country — orientation, notable places, facts, sources, and one curated photograph.',
       tally: `${countryCount} guides`,
       href: '/explore',
-      secondaryHref: '/photos',
-      secondaryLabel: 'Atlas photos',
+      secondaryHref: '/gallery',
+      secondaryLabel: 'Gallery',
     },
   ]
 }

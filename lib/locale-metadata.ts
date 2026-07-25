@@ -17,7 +17,7 @@ const SECTION_IMAGE_PATHS = new Set([
   '/blog',
   '/cleo',
   '/explore',
-  '/photos',
+  '/gallery',
   '/topics',
   '/projects',
 ])

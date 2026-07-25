@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import {
   ExploreIcon,
   HomeIcon,
-  PhotosIcon,
+  GalleryIcon,
   PreferencesIcon,
   SayHiIcon,
   TopicsIcon,
@@ -26,7 +26,7 @@ import { playDockSound } from '~/lib/sound'
 
 const ITEMS = [
   { href: '/blog', zh: '写作', en: 'Writing', icon: WritingIcon },
-  { href: '/photos', zh: '照片', en: 'Photos', icon: PhotosIcon },
+  { href: '/gallery', zh: '图库', en: 'Gallery', icon: GalleryIcon },
   { href: '/explore', zh: '探索', en: 'Explore', icon: ExploreIcon },
   { href: '/topics', zh: '主题', en: 'Topics', icon: TopicsIcon },
   { href: '/cleo', zh: 'Cleo', en: 'Cleo', icon: SayHiIcon },

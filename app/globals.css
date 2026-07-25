@@ -5515,7 +5515,7 @@ a:focus-visible .external-label .external-mark {
   scroll-margin-top: 4.5rem;
 }
 
-/* ── Photo masonry (/photos) — 2 cols, 3 from sm up ───────────────── */
+/* ── Photo masonry (/gallery) — 2 cols, 3 from sm up ──────────────── */
 
 .photo-masonry {
   columns: 2;
@@ -5551,9 +5551,9 @@ a:focus-visible .external-label .external-mark {
   box-shadow: 0 0 0 1px var(--border);
 }
 
-/* ── Country atlas field guide (/explore/[slug], /photos) ─────────── */
+/* ── Country field guide (/explore/[slug]) + gallery toolbar ─────── */
 
-.atlas-label {
+.guide-label {
   color: color-mix(in oklab, var(--muted-foreground) 78%, transparent);
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
@@ -5562,20 +5562,20 @@ a:focus-visible .external-label .external-mark {
   text-transform: uppercase;
 }
 
-.atlas-guide .atlas-credit {
+.field-guide .guide-credit {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   letter-spacing: 0.02em;
 }
 
-.atlas-guide .photo-frame {
+.field-guide .photo-frame {
   box-shadow: 0 0 0 1px var(--border);
 }
 
-.atlas-toolbar {
+.gallery-toolbar {
   border-color: color-mix(in oklab, var(--border) 85%, transparent);
 }
 
-.country-atlas .photo-item a:focus-visible .photo-frame {
+.place-gallery .photo-item a:focus-visible .photo-frame {
   outline: 1px solid var(--foreground);
   outline-offset: 2px;
 }

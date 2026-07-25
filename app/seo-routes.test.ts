@@ -40,7 +40,7 @@ describe('discovery routes', () => {
     const expectedPaths = [
       '/',
       '/blog',
-      '/photos',
+      '/gallery',
       '/topics',
       '/explore',
       '/cleo',

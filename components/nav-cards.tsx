@@ -95,12 +95,16 @@ export function NavCards({
 }
 
 export function PhotoNavCard({ locale = 'en' }: { locale?: Locale }) {
+  return <GalleryNavCard locale={locale} />
+}
+
+export function GalleryNavCard({ locale = 'en' }: { locale?: Locale }) {
   const previews = atlasPhotoPreview(3)
   const count = allAtlasEntries().length
 
   return (
     <Link
-      href={localePath(locale, '/photos')}
+      href={localePath(locale, '/gallery')}
       className="nav-card enter-swing"
       style={{ '--enter-delay': '190ms' } as React.CSSProperties}
     >
@@ -123,10 +127,10 @@ export function PhotoNavCard({ locale = 'en' }: { locale?: Locale }) {
         ))}
       </span>
       <span className="nc-label">
-        <T zh="照片" en="Photos" />
+        <T zh="图库" en="Gallery" />
       </span>
       <span className="nc-sub">
-        <T zh={`${count} 张照片`} en={`${count} photos`} />
+        <T zh={`${count} 张照片`} en={`${count} places`} />
       </span>
     </Link>
   )

@@ -213,7 +213,7 @@ open when the card is hovered (fine pointer) or `:focus-visible` (keyboard).
 ### Current doorways
 
 - **Writing** (`.nc-sheets`): three ruled manuscript pages.
-- **Photos** (`.nc-polaroids`): three polaroid minis (`--i` fan), live
+- **Gallery** (`.nc-polaroids`): three polaroid minis (`--i` fan), live
   renditions when published, placeholders while pending.
 - **Explore** (`.nc-folio`): layered travel folio — circular passport stamp
   (`.nc-folio-stamp`, hairline SVG rings on `--paper`), tall itinerary slip
@@ -784,7 +784,7 @@ copyright and clock occupy opposite halves of a two-column grid.
 
 ## Project index
 
-Homepage doorways no longer include Projects; Writing, Photos, and Explore use
+Homepage doorways no longer include Projects; Writing, Gallery, and Explore use
 the paper-artifact vignette pattern above. Projects remain a dock destination
 and their own index page.
 

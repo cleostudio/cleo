@@ -28,7 +28,7 @@ describe('locale routes', () => {
   it('removes only an explicit English route segment', () => {
     expect(unlocalizedPathname('/en')).toBe('/')
     expect(unlocalizedPathname('/en/')).toBe('/')
-    expect(unlocalizedPathname('/en/photos')).toBe('/photos')
+    expect(unlocalizedPathname('/en/gallery')).toBe('/gallery')
     expect(unlocalizedPathname('/english')).toBe('/english')
   })
 

@@ -9,10 +9,10 @@ export const publicPageMetadata = {
     description:
       'Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
   },
-  photos: {
-    title: 'Photos',
+  gallery: {
+    title: 'Gallery',
     description:
-      'Country atlas — one curated place photograph for every country, filterable by region.',
+      'One curated place photograph for every country, filterable by region.',
   },
   topics: {
     title: 'Topics',

@@ -30,9 +30,9 @@ describe('social OG image metadata', () => {
       'Writing · Cleo. Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
     ],
     [
-      '/photos',
-      publicPageMetadata.photos,
-      'Photos · Cleo. Country atlas — one curated place photograph for every country, filterable by region.',
+      '/gallery',
+      publicPageMetadata.gallery,
+      'Gallery · Cleo. One curated place photograph for every country, filterable by region.',
     ],
     [
       '/topics',

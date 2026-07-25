@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react'
 import { AtlasImage } from '~/components/atlas-image'
 import type { AtlasEntry } from '~/lib/atlas'
 
-export function CountryAtlas({
+export function PlaceGallery({
   entries,
   regions,
 }: {
@@ -31,15 +31,15 @@ export function CountryAtlas({
   }, [entries, query, region])
 
   return (
-    <div className="country-atlas">
-      <div className="atlas-toolbar enter sticky top-0 z-[2] -mx-6 mb-6 border-b border-[var(--border)] bg-[color-mix(in_oklab,var(--background)_92%,transparent)] px-6 py-3 backdrop-blur-md">
+    <div className="place-gallery">
+      <div className="gallery-toolbar enter sticky top-0 z-[2] -mx-6 mb-6 border-b border-[var(--border)] bg-[color-mix(in_oklab,var(--background)_92%,transparent)] px-6 py-3 backdrop-blur-md">
         <div className="flex flex-col gap-3">
           <div className="min-w-0">
-            <label className="atlas-label" htmlFor="atlas-search">
+            <label className="guide-label" htmlFor="gallery-search">
               Search
             </label>
             <input
-              id="atlas-search"
+              id="gallery-search"
               type="search"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
@@ -48,7 +48,7 @@ export function CountryAtlas({
             />
           </div>
           <fieldset>
-            <legend className="atlas-label">Region</legend>
+            <legend className="guide-label">Region</legend>
             <div
               className="mt-1.5 flex flex-wrap gap-1.5"
               role="radiogroup"
