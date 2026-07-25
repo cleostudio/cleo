@@ -501,13 +501,8 @@ export function AskForm() {
         )}
       >
         <div
-          className="prompt-dock-shell enter"
+          className="prompt-dock-shell"
           data-docked={hasMessages || undefined}
-          style={
-            {
-              '--enter-delay': hasMessages ? '0ms' : '80ms',
-            } as CSSProperties
-          }
         >
           {error ? (
             <p

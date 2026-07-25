@@ -30,10 +30,7 @@ export function CleoPageView() {
         </div>
       </div>
 
-      <div
-        className="enter mt-8"
-        style={{ '--enter-delay': '120ms' } as CSSProperties}
-      >
+      <div className="mt-8">
         <AskForm />
       </div>
     </div>
