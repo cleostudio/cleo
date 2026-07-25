@@ -113,11 +113,11 @@ export function SiteFooter({
         <div className="footer-colophon col-span-2 sm:order-first sm:col-span-1">
           <div>
             <p>
-              © <CopyrightYear /> Cali Castle
+              © <CopyrightYear /> Cleo
             </p>
             {/* the name echoed in braille — a printer's mark on the sheet */}
             <p className="footer-braille" aria-hidden>
-              {brailleText('cali castle')}
+              {brailleText('cleo')}
             </p>
           </div>
           <div className="flex flex-col gap-2.5">

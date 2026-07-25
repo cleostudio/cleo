@@ -101,12 +101,12 @@ function manageBlocks(
 }
 
 function signOff(): Block {
-  return { type: 'paragraph', text: 'Cali' }
+  return { type: 'paragraph', text: 'Cleo' }
 }
 
 function subjectFor(kind: BookingEmailKind, _locale?: Locale): string {
   const subjects: Record<BookingEmailKind, string> = {
-    confirmation: 'Your AMA Session with Cali is booked',
+    confirmation: 'Your AMA Session with Cleo is booked',
     rescheduled: 'Your AMA Session has a new time',
     needs_reschedule: 'Please pick a new time for your AMA Session',
     cancelled: 'Your AMA Session has been cancelled',

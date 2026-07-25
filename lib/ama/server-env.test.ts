@@ -344,7 +344,7 @@ describe('AMA server environment', () => {
       STRIPE_SECRET_KEY: 'sk_test_secret',
       STRIPE_WEBHOOK_SECRET: 'whsec_secret',
       RESEND_API_KEY: 're_secret',
-      AMA_EMAIL_FROM: 'Cali Castle <ama@cali.so>',
+      AMA_EMAIL_FROM: 'Cleo <ama@cali.so>',
       TENCENT_MEETING_MCP_URL: 'https://mcp.example.com/tencent',
       TENCENT_MEETING_MCP_TOKEN: 'tencent-token',
     })
@@ -427,12 +427,12 @@ describe('AMA server environment', () => {
     const environment = parseServerEnv({
       ...validEnvironment,
       RESEND_API_KEY: 're_secret',
-      AMA_EMAIL_FROM: 'Cali Castle <ama@cali.so>',
+      AMA_EMAIL_FROM: 'Cleo <ama@cali.so>',
     })
     expect(environment.features.bookingFinalization).toBe(true)
-    expect(environment.AMA_EMAIL_FROM).toBe('Cali Castle <ama@cali.so>')
+    expect(environment.AMA_EMAIL_FROM).toBe('Cleo <ama@cali.so>')
 
-    for (const malformed of ['@', '@cali.so', 'ama@', 'Cali <not-an-address>']) {
+    for (const malformed of ['@', '@cali.so', 'ama@', 'Cleo <not-an-address>']) {
       expect(() =>
         parseServerEnv({
           ...validEnvironment,

@@ -148,22 +148,22 @@
   },
   "https://github.com/CaliCastle/cali.so": {
     "domain": "github.com",
-    "title": "GitHub - CaliCastle/cali.so: Cali 的个人官网开源项目",
-    "titleEn": "GitHub - CaliCastle/cali.so: Personal website for Cali Castle",
-    "description": "Cali 的个人博客网站 https://cali.so/ 的源代码。A personal website project built with Next.js, React, TypeScript, and Tailwind CSS.",
-    "descriptionEn": "Personal website for Cali Castle. Contribute to CaliCastle/cali.so development by creating an account on GitHub.",
+    "title": "GitHub - CaliCastle/cali.so: Cleo 的个人官网开源项目",
+    "titleEn": "GitHub - CaliCastle/cali.so: Personal website for Cleo",
+    "description": "Cleo 的个人博客网站 https://cali.so/ 的源代码。A personal website project built with Next.js, React, TypeScript, and Tailwind CSS.",
+    "descriptionEn": "Personal website for Cleo. Contribute to CaliCastle/cali.so development by creating an account on GitHub.",
     "hasImage": true
   },
   "https://github.com/CaliCastle/cali.so/commit/2b10d8e45868b670e36b6e73c401304e5eae045e": {
     "domain": "github.com",
     "title": "feat: add blocked page and IP blocking · CaliCastle/cali.so@2b10d8e",
-    "description": "Personal website for Cali Castle. Contribute to CaliCastle/cali.so development by creating an account on GitHub.",
+    "description": "Personal website for Cleo. Contribute to CaliCastle/cali.so development by creating an account on GitHub.",
     "hasImage": true
   },
   "https://github.com/CaliCastle/cali.so/commit/50635c7d94f9d7e0299ddc63a6fb190c6c0858c7": {
     "domain": "github.com",
     "title": "fix: add ratelimit to reactions endpoint · CaliCastle/cali.so@50635c7",
-    "description": "Personal website for Cali Castle. Contribute to CaliCastle/cali.so development by creating an account on GitHub.",
+    "description": "Personal website for Cleo. Contribute to CaliCastle/cali.so development by creating an account on GitHub.",
     "hasImage": true
   },
   "https://github.com/pmndrs": {
@@ -595,7 +595,7 @@
   },
   "https://twitter.com/thecalicastle/status/1655421012530569216?s=20": {
     "domain": "twitter.com",
-    "title": "Cali Castle (@calicastle) on X",
+    "title": "Cleo (@calicastle) on X",
     "description": "今天晚上做客 MegaEase 做个设计分享会\n主题是「How to Create Good UI/UX」\n第一次分享讲纯设计内容\n我一直认为好的开发和好的设计应该是相辅相成的",
     "descriptionEn": "I'll be a guest at MegaEase tonight for a design talk titled \"How to Create Good UI/UX.\" (tweet verified live via Twitter syndication API; direct x.com fetch is blocked)",
     "hasImage": true
@@ -621,21 +621,21 @@
   },
   "https://x.com/thecalicastle/status/1667490519906410496?s=20": {
     "domain": "x.com",
-    "title": "Cali Castle (@calicastle) on X",
+    "title": "Cleo (@calicastle) on X",
     "description": "明年的美国旧金山👇\n https://t.co/LRu4zNAIYf",
     "descriptionEn": "San Francisco, USA, next year 👇 (with image; tweet verified live via Twitter syndication API; direct x.com fetch is blocked)",
     "hasImage": true
   },
   "https://x.com/thecalicastle/status/1700895469281690015?s=20": {
     "domain": "x.com",
-    "title": "Cali Castle (@calicastle) on X",
+    "title": "Cleo (@calicastle) on X",
     "description": "佐玩首届「开发者交流会」已圆满结束！\n感谢来参与的每位朋友们！认识了很多新朋友，面基了老朋友 🙏\n\n9月03日场照片：https://t.co/Fr9DXrS8N9\n9月10日场照片：https://t.co/CEWs6dlJL0\n\n以后还会举办 🤘\n\n也感谢本次 @BeWaterOfficial 的大力支持提供的 T 恤\n\n我们下次再见 👋",
     "descriptionEn": "Zolplay's first Developer Meetup has successfully wrapped up! Thank you to every friend who joined us! (tweet verified live via Twitter syndication API; direct x.com fetch is blocked)",
     "hasImage": true
   },
   "https://x.com/thecalicastle/status/1726632903738888412?s=20": {
     "domain": "x.com",
-    "title": "Cali Castle (@calicastle) on X",
+    "title": "Cleo (@calicastle) on X",
     "description": "昨天跟 @huozhi 聊的很开心～\n晚上还一起给我过了个生日 🎂\n谢谢 @theterryfei @_cuvii_",
     "descriptionEn": "I had a great time chatting with @huozhi yesterday. We even celebrated my birthday together that evening 🎂 Thank you, @theterryfei and @_cuvii_ (tweet verified live via Twitter syndication API; direct x.com fetch is blocked)",
     "hasImage": true
@@ -708,8 +708,8 @@
   },
   "https://www.bilibili.com/video/BV1kH4y157xg/": {
     "domain": "www.bilibili.com",
-    "title": "【Cali 手把手教学】快速部署个人博客网站_哔哩哔哩_bilibili",
-    "titleEn": "[Cali Step-by-Step Tutorial] Quickly Deploy a Personal Blog Website_Bilibili",
+    "title": "【Cleo 手把手教学】快速部署个人博客网站_哔哩哔哩_bilibili",
+    "titleEn": "[Cleo Step-by-Step Tutorial] Quickly Deploy a Personal Blog Website_Bilibili",
     "description": "A tutorial video demonstrating how to deploy a personal blog website using cali.so with Vercel, Resend, Upstash, Clerk, and Sanity."
   },
   "https://www.ecosia.org/": {
@@ -751,8 +751,8 @@
   },
   "https://youtu.be/Ctr-kHrBHeU?si=NJfSrdI0BwOSsw18": {
     "domain": "youtu.be",
-    "title": "【Cali 手把手教学】快速部署个人博客网站",
-    "titleEn": "[Cali Step-by-Step Tutorial] Quickly Deploy a Personal Blog Website",
+    "title": "【Cleo 手把手教学】快速部署个人博客网站",
+    "titleEn": "[Cleo Step-by-Step Tutorial] Quickly Deploy a Personal Blog Website",
     "description": "YouTube video (redirects to www.youtube.com/watch?v=Ctr-kHrBHeU); title confirmed, description not served to the fetcher."
   },
   "https://zolplay.com": {

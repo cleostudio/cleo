@@ -1,17 +1,17 @@
 export const publicPageMetadata = {
   home: {
-    title: 'Cali Castle',
+    title: 'Cleo',
     description: 'Design Engineer. Agent Orchestrator. Creative Director.',
     ogDescription: 'Design Engineer. Agent Orchestrator. Creative Director.',
   },
   blog: {
     title: 'Writing',
     description:
-      'Essays by Cali about design, engineering, products, and the people and ideas that matter along the way.',
+      'Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
   },
   photos: {
     title: 'Photos',
-    description: 'Moments Cali has kept from work, life, and everywhere in between.',
+    description: 'Moments Cleo has kept from work, life, and everywhere in between.',
   },
   projects: {
     title: 'Projects',
@@ -26,7 +26,7 @@ export const publicPageMetadata = {
   cleo: {
     title: 'Cleo',
     description:
-      'Cali’s general-purpose AI agent — chat, search the web, read images, and generate them.',
+      'A general-purpose AI agent — chat, search the web, read images, and generate them.',
   },
 } as const
 

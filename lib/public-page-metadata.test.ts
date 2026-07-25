@@ -5,7 +5,7 @@ import { publicPageMetadata } from './public-page-metadata'
 describe('public page metadata copy', () => {
   it('uses a timeless homepage title and OG description', () => {
     expect(publicPageMetadata.home).toEqual({
-      title: 'Cali Castle',
+      title: 'Cleo',
       description: 'Design Engineer. Agent Orchestrator. Creative Director.',
       ogDescription: 'Design Engineer. Agent Orchestrator. Creative Director.',
     })
@@ -15,11 +15,11 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.blog).toEqual({
       title: 'Writing',
       description:
-        'Essays by Cali about design, engineering, products, and the people and ideas that matter along the way.',
+        'Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
     })
     expect(publicPageMetadata.photos).toEqual({
       title: 'Photos',
-      description: 'Moments Cali has kept from work, life, and everywhere in between.',
+      description: 'Moments Cleo has kept from work, life, and everywhere in between.',
     })
     expect(publicPageMetadata.projects).toEqual({
       title: 'Projects',
@@ -34,7 +34,7 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',
       description:
-        'Cali’s general-purpose AI agent — chat, search the web, read images, and generate them.',
+        'A general-purpose AI agent — chat, search the web, read images, and generate them.',
     })
   })
 

@@ -153,7 +153,7 @@ function connectedConnection(
     status: 'connected',
     calendarId: 'owner@example.com',
     calendarEmail: 'owner@example.com',
-    calendarSummary: 'Cali Castle',
+    calendarSummary: 'Cleo',
     grantedScopes: [...GOOGLE_CALENDAR_SCOPES],
     refreshTokenEnvelope,
     accessTokenExpiresAt: new Date('2026-07-14T05:00:00.000Z'),

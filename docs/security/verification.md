@@ -81,7 +81,7 @@ Repository API checks refreshed on 2026-07-20 verified:
 
 Project API checks refreshed on 2026-07-20 verified:
 
-- [x] `cali-so` is accessible in the `Cali` Pro workspace. Its production
+- [x] `cali-so` is accessible in the `Cleo` Pro workspace. Its production
   branch remains `main`, and Git fork protection is enabled.
 - [x] Production and Preview have distinct database variables. Preview uses a
   disposable Neon branch and a pooled CRUD-only runtime role; migrations use a

@@ -142,7 +142,7 @@ are short, concrete, and conversational — "为什么按钮不需要手指光�
 
 ## Homepage introduction
 
-The homepage opens with four short bilingual paragraphs: Cali is a father of
+The homepage opens with four short bilingual paragraphs: Cleo is a father of
 two, a design engineer, and an agent orchestrator; he loves getting the details
 just right. Zolplay is introduced as an AI-native design studio creating
 products, brands, and digital experiences, a casual generalist note connects
@@ -367,8 +367,8 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   `oklch(0.98 0.004 95)`, ink `oklch(0.28 0.012 95)`), developing into the
   true photo on hover/focus (300ms). Two modes: pure ordered dither (4×4
   Bayer, 2.5px cells — list thumbnails), and the collage — seeded vertical
-  panels of dither, ascii raster (7px cells, ` -li+tcsea` ramp — the letters of
-  "cali castle" plus - and +, ordered by ink), and a
+  panels of dither, ascii raster (7px cells, ` -+cleo` ramp — the letters of
+  "cleo" plus - and +, ordered by ink), and a
   window of the original photo (post heroes). Post covers enter with a
   morse-choreographed glitch (· — · · –, coverage ≈9→39→12→12→12%);
   afterwards **clicking toggles photo ⇄ the full dither print** through
@@ -454,7 +454,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   Sleeves without art retain the word-raster fallback.
 - **Bookshelf** (`components/bookshelf.tsx`): one book opens at a time while
   the other books remain as tightly packed spines with 1px seams. The books are
-  ordered by relevance to Cali's work as a designer, developer, and founder,
+  ordered by relevance to Cleo's work as a designer, developer, and founder,
   rather than alphabetically or by color. Active covers keep their intrinsic
   aspect ratio at a fixed 210px book height; source dimensions drive the 3D
   projection, so square and narrow editions render whole without shifting the
@@ -614,7 +614,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   barcode whose bar widths derive deterministically from its code string
   (stable across SSR), with the human-readable code beneath. It scans as
   ornament, not data (`aria-hidden`). One per surface: the error proof
-  sheets (`ERR-404-CALI-SO`, `ERR-500-CALI-SO`) at 38% ink, and the AMA
+  sheets (`ERR-404-CLEO`, `ERR-500-CLEO`) at 38% ink, and the AMA
   confirmation's proof-sheet foot (`AMA-<hold prefix>`) in the stage's
   faded paper ink.
 - **Ghost folio numerals** (`.ghost-folio`): the writing index's year
@@ -741,7 +741,7 @@ links carried forward from the earlier dual-DOM implementation.
 
 ## Footer colophon
 
-The leftmost desktop colophon puts the copyright at the top and Cali's local
+The leftmost desktop colophon puts the copyright at the top and Cleo's local
 clock at the bottom. The clock shows the `UTC+8` timezone, a muted tabular live
 Asia/Taipei time in 12-hour `h:mm AM/PM` format without seconds, and a small
 redundant analog face. The readout is set as a small spec plate: the `UTC+8`

@@ -170,7 +170,7 @@ export function XiaohongshuCardBody() {
           className="service-card-avatar"
         />
         <span className="service-card-names">
-          <span className="service-card-name">Cali Castle</span>
+          <span className="service-card-name">Cleo</span>
           <span className="service-card-sub">小红书号 calicastle</span>
         </span>
         <span className="service-card-glyph xiaohongshu-card-wordmark" aria-hidden>
@@ -183,7 +183,7 @@ export function XiaohongshuCardBody() {
         </span>
       </span>
       <span className="service-card-bio xiaohongshu-card-bio">
-        <span>设计工程师，Cali 宝宝助手 app 开发者设计师</span>
+        <span>设计工程师，Cleo 宝宝助手 app 开发者设计师</span>
         <span>@佐玩 Zolplay 创始人 CEO</span>
       </span>
       <span className="service-card-stat">
@@ -360,14 +360,14 @@ export function EmailCard({
           <span className="email-envelope-flap" />
           <span className="email-envelope-return">
             <span>FROM</span>
-            CALI CASTLE
+            CLEO
             <br />
             TAIPEI
           </span>
           <span className="email-envelope-stamps">
             <span className="email-envelope-stamp email-envelope-stamp-portrait">
               <Image src="/images/avatar.png" alt="" width={32} height={32} />
-              <span>CALI · 20</span>
+              <span>CLEO · 20</span>
             </span>
             <span className="email-envelope-stamp email-envelope-stamp-mark">
               <span className="email-envelope-stamp-star">✦</span>

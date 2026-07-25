@@ -38,7 +38,7 @@ function settingsProps(
           ? null
           : {
               calendarId: 'owner@example.com',
-              summary: 'Cali Castle',
+              summary: 'Cleo',
               email: 'owner@example.com',
             },
     },
@@ -261,7 +261,7 @@ describe('AMA settings UI contract', () => {
           status: 'connected',
           identity: {
             calendarId: 'owner@example.com',
-            summary: 'Cali Castle',
+            summary: 'Cleo',
             email: 'owner@example.com',
           },
         }}

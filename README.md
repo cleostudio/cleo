@@ -1,13 +1,13 @@
 # Cleo
 
-Cleo is the product repository that now hosts [cali.so](https://cali.so) — Cali
-Castle's personal site — with the **Cleo** AI agent available as a dock page at
-`/cleo`.
+**Cleo** is an English-only personal site with a general-purpose AI agent on the
+dock at `/cleo`.
 
-The public site is English-only (legacy `/en/...` URLs permanently redirect to
-the unprefixed paths), with MDX writing, photos, projects, AMA booking, and an
+The public site includes MDX writing, photos, projects, AMA booking, and an
 owner admin. Cleo adds a browser-only chat agent with streamed Markdown, vision
 attachments, image generation, and live reasoning / web-search activity.
+
+Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 
 ## Architecture
 
@@ -18,8 +18,8 @@ attachments, image generation, and live reasoning / web-search activity.
 - Cleo agent: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
 - Bottom dock navigation includes Writing, Photos, Projects, AMA, and Cleo
 
-Upstream cali.so documentation in `docs/` still applies to site, media, AMA,
-and security work. Cleo-specific agent notes live in [`AGENTS.md`](./AGENTS.md).
+Site, media, AMA, and security docs live under `docs/`. Cleo-specific agent
+notes live in [`AGENTS.md`](./AGENTS.md).
 
 ## Local development
 
@@ -31,7 +31,7 @@ environment.
 corepack enable
 pnpm install
 cp .env.example .env.local
-# Set OPENAI_API_KEY for /cleo. Other vars follow cali.so fail-closed rules.
+# Set OPENAI_API_KEY for /cleo. Other vars follow fail-closed provider rules.
 pnpm dev
 ```
 
@@ -44,8 +44,7 @@ for the site, plus `OPENAI_API_KEY` for Cleo.
 
 ## Validation
 
-Run the checks relevant to a change. Before release of site surfaces, prefer
-the full cali.so suite from upstream. For Cleo-only changes:
+Run the checks relevant to a change:
 
 ```bash
 pnpm typecheck
@@ -53,24 +52,26 @@ pnpm build
 ```
 
 Then manually verify `/cleo` chat, streaming, cancellation, attachments, and
-theme/dock coexistence.
+theme/dock coexistence. Broader site/media/ama suites are listed in
+`package.json`.
 
 ## Preview deploys
 
-This repo enables Vercel Git deployments for branch previews. Upstream cali.so
-kept Git deploys off (GitHub Actions + Neon owned Production) and declared
-Hobby-incompatible cron jobs; those crons are omitted here so `cleostudio/cleo`
-previews can ship. The GitHub `Deploy Preview` workflow still targets only
-`CaliCastle/cali.so` and is skipped for this repository.
+This repo enables Vercel Git deployments for branch previews. Hobby-incompatible
+cron jobs are omitted so `cleostudio/cleo` previews can ship.
 
 `pnpm build` runs `scripts/ensure-preview-env.mjs` so a preview host that only
 has `OPENAI_API_KEY` can still compile: missing Neon/Clerk/Bunny pairs are
 stubbed for build, and those features fail closed at runtime until real
 credentials are configured.
 
+Photos require a real Neon `DATABASE_URL`, Bunny CDN, and a published selection
+from `/admin/photos`. Without those, `/photos` shows an empty state on Preview.
+
 ## Attribution
 
 Site design system and application source originate from
 [CaliCastle/cali.so](https://github.com/CaliCastle/cali.so) (MIT for original
 application source; personal content and assets remain under their respective
-rights — see `LICENSE`).
+rights — see `LICENSE`). The live site URL may still be configured via
+`PUBLIC_SITE_URL` (defaults to `https://cali.so` in production).

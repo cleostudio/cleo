@@ -51,16 +51,17 @@ export function localeMetadata({
 }: LocaleMetadataOptions): Metadata {
   const pair = localeRoutePair(path)
   const canonical = pair.en
+  const siteName = 'Cleo'
   const image = {
     url: socialImageUrl('en', path),
     width: 1200,
     height: 630,
     alt:
-      path === '/'
+      path === '/' || title === siteName
         ? `${title}. ${description}`
         : SECTION_IMAGE_PATHS.has(path)
-          ? `${title} · Cali Castle. ${description}`
-          : `${title} · Cali Castle`,
+          ? `${title} · ${siteName}. ${description}`
+          : `${title} · ${siteName}`,
     type: 'image/png',
   }
 
@@ -76,7 +77,7 @@ export function localeMetadata({
       description,
       type,
       locale: 'en_US',
-      siteName: 'Cali Castle',
+      siteName,
       url: canonical,
       images: [image],
     },

@@ -14,7 +14,7 @@ function englishPage(pathname, copy, imageAlt) {
     path: pathname,
     locale: 'en',
     title: copy.title,
-    documentTitle: pathname === '/' ? copy.title : `${copy.title} | Cali Castle`,
+    documentTitle: pathname === '/' ? copy.title : `${copy.title} | Cleo`,
     description: copy.description,
     imageAlt,
   }
@@ -24,27 +24,27 @@ const publicPages = [
   englishPage(
     '/',
     {
-      title: 'Cali Castle',
+      title: 'Cleo',
       description: 'Design Engineer. Agent Orchestrator. Creative Director.',
     },
-    'Cali Castle. Design Engineer. Agent Orchestrator. Creative Director.',
+    'Cleo. Design Engineer. Agent Orchestrator. Creative Director.',
   ),
   englishPage(
     '/blog',
     {
       title: 'Writing',
       description:
-        'Essays by Cali about design, engineering, products, and the people and ideas that matter along the way.',
+        'Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
     },
-    'Writing · Cali Castle. Essays by Cali about design, engineering, products, and the people and ideas that matter along the way.',
+    'Writing · Cleo. Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
   ),
   englishPage(
     '/photos',
     {
       title: 'Photos',
-      description: 'Moments Cali has kept from work, life, and everywhere in between.',
+      description: 'Moments Cleo has kept from work, life, and everywhere in between.',
     },
-    'Photos · Cali Castle. Moments Cali has kept from work, life, and everywhere in between.',
+    'Photos · Cleo. Moments Cleo has kept from work, life, and everywhere in between.',
   ),
   englishPage(
     '/projects',
@@ -53,7 +53,7 @@ const publicPages = [
       description:
         'Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
     },
-    'Projects · Cali Castle. Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
+    'Projects · Cleo. Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
   ),
   englishPage(
     '/ama',
@@ -62,16 +62,16 @@ const publicPages = [
       description:
         'A one-to-one conversation about AI-native work, product strategy, engineering, startups, career moves, and building products.',
     },
-    'AMA · Cali Castle. A one-to-one conversation about AI-native work, product strategy, engineering, startups, career moves, and building products.',
+    'AMA · Cleo. A one-to-one conversation about AI-native work, product strategy, engineering, startups, career moves, and building products.',
   ),
   englishPage(
     '/cleo',
     {
       title: 'Cleo',
       description:
-        'Cali’s general-purpose AI agent — chat, search the web, read images, and generate them.',
+        'A general-purpose AI agent — chat, search the web, read images, and generate them.',
     },
-    'Cleo · Cali Castle. Cali’s general-purpose AI agent — chat, search the web, read images, and generate them.',
+    'Cleo. A general-purpose AI agent — chat, search the web, read images, and generate them.',
   ),
 ]
 
@@ -81,7 +81,7 @@ for (const slug of (await readdir(blogDirectory)).sort()) {
     await readFile(new URL(`${slug}/index.mdx`, blogDirectory), 'utf8'),
   ).data
   publicPages.push(
-    englishPage(`/blog/${slug}`, frontmatter, `${frontmatter.title} · Cali Castle`),
+    englishPage(`/blog/${slug}`, frontmatter, `${frontmatter.title} · Cleo`),
   )
 }
 
@@ -94,7 +94,7 @@ for (const id of (await readdir(newsletterDirectory)).sort()) {
     englishPage(
       `/newsletters/${id}`,
       frontmatter,
-      `${frontmatter.title} · Cali Castle`,
+      `${frontmatter.title} · Cleo`,
     ),
   )
 }
@@ -294,7 +294,7 @@ async function verifyNoIndexUtilities(baseUrl) {
   const pages = [
     {
       path: '/confirm/legacy-token',
-      title: 'Newsletter confirmation is retired | Cali Castle',
+      title: 'Newsletter confirmation is retired | Cleo',
       description:
         'This old link no longer reads or updates subscriber information. The newsletter service has ended, but site updates remain available through RSS.',
     },

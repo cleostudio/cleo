@@ -5,7 +5,7 @@ cali.so, while payment is delegated to Stripe-hosted Checkout. Google Calendar
 is the source of busy time and calendar invitations; Google Meet and Tencent
 Meeting sit behind meeting-provider adapters; guests manage Bookings through
 signed capability links instead of accounts. This keeps the guest journey and
-booking rules under Cali's control without taking ownership of card-entry UI,
+booking rules under Cleo's control without taking ownership of card-entry UI,
 and replaces the v1 Alipay plus Cal.com handoff with one coherent system.
 
 ## Consequences

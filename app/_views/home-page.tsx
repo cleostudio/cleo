@@ -57,7 +57,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
       <div className="flex flex-col-reverse justify-between gap-10 sm:flex-row sm:items-start">
         <div className="enter max-w-[19rem]">
           <div className="flex items-center gap-2">
-            <h1 className="text-base font-semibold tracking-tight text-foreground">Cali Castle</h1>
+            <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
             <PixelCluster variant={2} className="shrink-0" />
           </div>
           <div className="mt-4">
@@ -66,13 +66,13 @@ export async function HomePageView({ locale }: { locale: Locale }) {
         </div>
         <div className="w-[9.35rem] shrink-0 sm:w-60">
           <PortraitHiddenStage
-            label="Cali's halftone portrait. Reveal the hidden topographic field"
+            label="Cleo's halftone portrait. Reveal the hidden topographic field"
           >
             <HalftonePortrait
               srcLight="/images/headshot.jpg"
               srcDark="/images/portrait-square.jpg"
-              alt="Cali 的半调网点肖像"
-              altEn="Cali's halftone portrait"
+              alt="Cleo 的半调网点肖像"
+              altEn="Cleo's halftone portrait"
             />
           </PortraitHiddenStage>
         </div>

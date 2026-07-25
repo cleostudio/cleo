@@ -23,7 +23,7 @@ async function orientedPhoto() {
   })
     .withExif({
       IFD0: {
-        Make: '  Cali Test Camera  ',
+        Make: '  Cleo Test Camera  ',
         Model: 'Pocket One',
       },
       IFD2: {
@@ -54,7 +54,7 @@ describe('Media Library image processing', () => {
       format: 'jpeg',
       width: 80,
       height: 120,
-      cameraMake: 'Cali Test Camera',
+      cameraMake: 'Cleo Test Camera',
       cameraModel: 'Pocket One',
       lens: 'Prime 50',
       focalLengthMillimeters: 50,

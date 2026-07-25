@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 
 // Liquid glass: an SVG feDisplacementMap driven by a displacement map we
-// draw on the fly from the element's shape. Ported from cali.so's dock.
+// draw on the fly from the element's shape. Ported from the site dock.
 // Applied as an inline-style backdrop-filter (never in the stylesheet —
 // LightningCSS strips raw backdrop-filter declarations). Chromium renders
 // the refraction; Safari/Firefox get a plain frosted pane instead.

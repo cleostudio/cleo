@@ -23,8 +23,8 @@ import { fontVariables } from '../fonts'
 export const rootMetadata: Metadata = {
   metadataBase: seo.url,
   title: {
-    default: 'Cali Castle',
-    template: '%s | Cali Castle',
+    default: 'Cleo',
+    template: '%s | Cleo',
   },
 }
 

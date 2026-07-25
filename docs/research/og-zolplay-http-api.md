@@ -1,6 +1,6 @@
 # og.zolplay.com HTTP API
 
-_Internal first-party contract supplied by Cali and live-verified on 2026-07-14._
+_Internal first-party contract supplied by Cleo and live-verified on 2026-07-14._
 
 The cali.so external-link preview integration tracked in issue #112 uses this
 service for build-time metadata snapshots and non-critical favicon and Open

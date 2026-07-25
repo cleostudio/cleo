@@ -19,7 +19,7 @@ import {
   type PublicSection,
 } from './public-page-metadata'
 
-const NAME = 'Cali Castle'
+const NAME = 'Cleo'
 const HOME_INTRODUCTION = publicPageMetadata.home.ogDescription
 
 const IMAGE_SIZE = { width: 1200, height: 630 } as const
@@ -276,7 +276,7 @@ async function renderSectionOgImage(section: PublicSection, _locale: Locale = 'e
   cacheLife('max')
 
   const copy = publicPageMetadata[section]
-  const signature = 'Cali Castle'
+  const signature = 'Cleo'
 
   return new ImageResponse(
     (
@@ -361,7 +361,7 @@ async function renderNewsletterOgImage(newsletter: NewsletterOgInput, _locale: L
 
   const title = newsletter.titleEn
   const description = newsletter.descriptionEn
-  const archiveLabel = `Cali Castle · Archive ${newsletter.id.padStart(3, '0')}`
+  const archiveLabel = `Cleo · Archive ${newsletter.id.padStart(3, '0')}`
   const cover = await coverDataUri(
     `/content/newsletters/${newsletter.id}/cover.png`,
   )

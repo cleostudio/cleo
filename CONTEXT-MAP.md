@@ -6,7 +6,7 @@ and `docs/adr/` (context-scoped decisions). System-wide ADRs live in `docs/adr/`
 
 ## Contexts
 
-- [AMA Booking](./lib/ama/CONTEXT.md) — sells and manages Cali's paid
+- [AMA Booking](./lib/ama/CONTEXT.md) — sells and manages Cleo's paid
   one-to-one AMA sessions
 - [Media Library](./lib/media/CONTEXT.md): stores, reviews, and curates photos
   through the owner admin, then publishes an immutable Photo Selection to the

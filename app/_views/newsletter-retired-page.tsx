@@ -25,7 +25,7 @@ export function newsletterRetiredMetadata(_locale: Locale = 'en'): Metadata {
       description,
       type: 'website',
       locale: 'en_US',
-      siteName: 'Cali Castle',
+      siteName: 'Cleo',
       url: pair.en,
     },
     twitter: { card: 'summary_large_image', title, description },

@@ -21,14 +21,14 @@ test('parses a bounded YouTube follower snapshot', () => {
 test('updates only the validated YouTube snapshot fields', () => {
   const current = {
     x: { followers: '10' },
-    youtube: { name: 'Cali Castle', followers: '1K', asOf: '2026-06' },
+    youtube: { name: 'Cleo', followers: '1K', asOf: '2026-06' },
   }
 
   assert.deepEqual(
     updateSocialSnapshot(current, { followers: '1.91K', asOf: '2026-07' }),
     {
       x: { followers: '10' },
-      youtube: { name: 'Cali Castle', followers: '1.91K', asOf: '2026-07' },
+      youtube: { name: 'Cleo', followers: '1.91K', asOf: '2026-07' },
     },
   )
   assert.equal(current.youtube.followers, '1K')

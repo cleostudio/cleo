@@ -66,7 +66,7 @@ for (const profile of profiles) {
 
     await expectHealthyPublicDocument(page, profile.path)
 
-    await expect(page).toHaveTitle(/Cali/)
+    await expect(page).toHaveTitle(/Cleo/)
     expect(browserErrors).toEqual([])
   })
 }

@@ -1,17 +1,16 @@
-# Cleo + cali.so
+# Cleo
 
-This repository hosts [Cali Castle's personal site](https://cali.so) (v3) —
-English-only — with **Cleo**, a general-purpose AI agent, mounted as a public
-dock page at `/cleo`.
+This repository hosts the **Cleo** site (v3, English-only) with a general-purpose
+AI agent mounted as a public dock page at `/cleo`.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
-Cleo surface.
+Cleo agent surface.
 
 ## Agent skills (site)
 
 ### Issue tracker / triage / design / domain
 
-See the cali.so guidance retained under `docs/agents/` and
+See the site guidance retained under `docs/agents/` and
 `docs/design-language.md`. Multi-context map: `CONTEXT-MAP.md`.
 
 ## Cleo agent surface
@@ -39,27 +38,34 @@ include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
 
 ## Development rules
 
-- Use `pnpm` only (`packageManager` in `package.json`). Node `>=22`.
+- Use `pnpm` only. Scripts include `dev`, `build`, `start`, `typecheck`, plus
+  the site/media/ama/security suites listed in `README.md`.
 - Before changing framework code, read the relevant Next.js guide in
-  `node_modules/next/dist/docs/`.
-- Path alias is `~/*`. Keep OpenAI calls and `OPENAI_API_KEY` on the server.
-- Use the OpenAI developer docs MCP for API/SDK/model/prompt work on Cleo.
-- Preserve the accessible paper shell and bottom dock. Render Cleo Markdown
+  `node_modules/next/dist/docs/` — this App Router stack has breaking changes
+  vs older Next.js.
+- Keep OpenAI calls and `OPENAI_API_KEY` on the server.
+- Path alias is `~/*`. Prefer existing `cn` helpers and `components/ui/*`.
+- Preserve the accessible, responsive glass/paper UI. Render model output
   through Streamdown, never raw HTML.
 - Update `README.md` and this file when setup or Cleo behavior changes.
 
 ## Verification
 
-- Site: follow the cali.so suite in `README.md` (`typecheck`, unit/media/ama
-  tests, `build`, verify scripts) for the change surface you touched.
-- Cleo: exercise `/cleo` multi-turn chat, reasoning activity, web search,
-  image attach/vision, image generation, streaming, cancellation, and API
-  errors. Without `OPENAI_API_KEY`, `/api/responses` returns HTTP 503 while
-  the page remains available.
-- Previews: Vercel Git deploys are enabled. `Deploy Preview` GitHub Actions
-  stays gated to `CaliCastle/cali.so`. `scripts/ensure-preview-env.mjs` stubs
-  missing site credentials at build time so the public shell and `/cleo` can
-  ship without Neon/Bunny.
+- Code: `pnpm typecheck` (and `pnpm build` when changing routes/config).
+- Site: follow the suite in `README.md` (`typecheck`, unit/media/ama
+  tests as relevant).
+- Cleo: multi-turn chat, reasoning activity, web search, image attach/vision,
+  image generation, streaming, cancellation, and relevant errors.
+- UI: manually verify changed flows on desktop/mobile and light/dark.
+
+## Cursor Cloud / Previews
+
+- `pnpm dev` starts the only service (default Next port).
+- `OPENAI_API_KEY` is injected when available. Without it, `/api/responses`
+  returns HTTP 503 while the page remains available for UI work.
+- Previews can ship without Neon/Bunny/Clerk; stubbed features fail closed at
+  runtime. `scripts/ensure-preview-env.mjs` stubs missing site credentials
+  during `prebuild`.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

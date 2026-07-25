@@ -273,7 +273,7 @@ export function AmaPageView({ locale }: { locale: Locale }) {
         <div className="mt-4">
           <div className="page-introduction flex flex-col gap-4">
             <p>
-              I’m Cali, founder of Zolplay. My work spans web, iOS, engineering, product design,
+              I’m Cleo, founder of Zolplay. My work spans web, iOS, engineering, product design,
               and indie products. Through Zolplay, I’ve helped teams at Apple, Insta360, and
               YC-backed startups with strategy, product design, and turning ideas into working
               products.

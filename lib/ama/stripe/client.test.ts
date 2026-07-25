@@ -29,7 +29,7 @@ function checkoutInput() {
     idempotencyKey: 'ama-checkout:claim-1',
     amount: 9900,
     currency: 'usd',
-    productName: 'AMA Session with Cali (60 minutes)',
+    productName: 'AMA Session with Cleo (60 minutes)',
     customerEmail: 'ada@example.com',
     successUrl: 'https://cali.so/ama/book/confirmation?hold=claim-1',
     cancelUrl: 'https://cali.so/ama/book?checkout=cancelled',
@@ -60,7 +60,7 @@ describe('Stripe Checkout client', () => {
       'line_items[0][price_data][currency]': 'usd',
       'line_items[0][price_data][unit_amount]': '9900',
       'line_items[0][price_data][product_data][name]':
-        'AMA Session with Cali (60 minutes)',
+        'AMA Session with Cleo (60 minutes)',
       customer_email: 'ada@example.com',
       success_url: 'https://cali.so/ama/book/confirmation?hold=claim-1',
       cancel_url: 'https://cali.so/ama/book?checkout=cancelled',

@@ -363,7 +363,7 @@ export function createBookingService(dependencies: BookingServiceDependencies) {
           idempotencyKey: `ama-checkout:${holdId}`,
           amount: AMA_SESSION_PRICE.amount,
           currency: AMA_SESSION_PRICE.currency,
-          productName: 'AMA Session with Cali (60 minutes)',
+          productName: 'AMA Session with Cleo (60 minutes)',
           customerEmail: intent.guestEmail,
           successUrl: confirmationUrl.toString(),
           cancelUrl: cancelUrl.toString(),
