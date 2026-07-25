@@ -22,10 +22,10 @@ export function TopicsPageView() {
   const center = (topics.length - 1) / 2
 
   return (
-    <div className="relative mx-auto w-full max-w-[37.5rem] px-6">
+    <div className="relative mx-auto w-full max-w-[42rem] px-6">
       <GhostSchematic className="top-4 right-6 hidden w-56 sm:block" />
       <div className="flex items-start justify-between gap-4">
-        <header className="max-w-[34rem]">
+        <header className="max-w-[38.5rem]">
           <h1 className="page-eyebrow enter">
             <T zh="主题" en="Topics" />
           </h1>

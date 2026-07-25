@@ -15,10 +15,10 @@ describe('AmbientBackground', () => {
     expect(container.querySelector('[class*="scroll-fade"]')).toBeNull()
   })
 
-  it('still renders drafting guides for non-Cleo routes to hide via CSS', () => {
+  it('renders grain and rulers without column-edge guide borders', () => {
     const { container } = render(<AmbientBackground />)
 
-    expect(container.querySelector('.column-guides')).not.toBeNull()
+    expect(container.querySelector('.column-guides')).toBeNull()
     expect(container.querySelector('.column-rulers')).not.toBeNull()
     expect(container.querySelector('.paper-grain')).not.toBeNull()
   })

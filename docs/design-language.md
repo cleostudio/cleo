@@ -6,8 +6,8 @@ be buildable: when a value is stated, use it; when a component is described,
 its behavior spec is the contract.
 
 The primary navigation is a fixed bottom-center pill dock at z `--z-nav`.
-Viewport-edge fades and the drafting guides remain ambient rather than
-navigation chrome. On desktop, the footer is a single Swiss grid with a quiet,
+Viewport-edge fades and the bent rulers remain ambient rather than navigation
+chrome. On desktop, the footer is a single Swiss grid with a quiet,
 left-aligned colophon first, followed by the contact and index trees.
 
 ## Motion system
@@ -91,7 +91,7 @@ Hard rules:
   32px; prose h2 is 18px/1.35 and h3 is
   16px/1.45. Code remains 13px. Form inputs stay ≥16px to prevent iOS zoom.
   Headings use `text-wrap: balance` and tighter letter-spacing as size grows.
-- Content column is narrow: ~600px (`37.5rem`) plus padding.
+- Content column is compact: ~672px (`42rem`) plus padding.
 - `font-variant-numeric: tabular-nums` on anything that counts: dates in
   lists, reading time, subscriber counts.
 - Curly quotes, real ellipsis (…), full-width CJK punctuation left alone.
@@ -460,7 +460,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   corner wear, at most two short localized creases, and no more than 0.34° lean
   or 1.1px settling variation. There is no runtime randomness. Covers keep the
   default cursor and only inactive sleeves lift slightly on a
-  fine-pointer hover. The shelf is clipped to a centered 37.5rem frame. Pointer
+  fine-pointer hover. The shelf is clipped to a centered 42rem frame. Pointer
   drag and horizontal trackpad wheel input pan the stack continuously; vertical
   wheel input remains native page scrolling. Releasing the pointer or ending a
   horizontal wheel gesture commits the new front sleeve and annotation, then
@@ -506,10 +506,8 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   150ms ease, settling from `scale(1.05)` over 300ms `--ease-swift`,
   62% ink); in the lightbox they fade in 10px outside the settled photo,
   delayed 140ms so the pick-up lands first. Reduced motion renders them
-  statically. Registration crosses — 9px hairline `+` marks — ride each
-  column guide 14px from the top, marking where the intentionally absent
-  top rule would cross; they live inside the guide layer and inherit its
-  missability contract.
+  statically.   Registration crosses formerly rode each column guide; those guide borders
+  were removed so the content column can open wider without a boxed frame.
 - **Ghost line art** (`components/ghost-schematic.tsx`): a single
   precise-stroke schematic drawn in `--ghost-ink` (5% foreground on light,
   6.5% on dark) — currently a drafting compass mid-arc behind the project
@@ -743,7 +741,7 @@ that resolved preference differs from the explicit route, one fixed instrument
 plate offers the equivalent route. Its ruled surface spans the full viewport
 width and clamps to the top edge instead of floating above the page; the hatch,
 two balanced screw heads, prompt, and actions stay aligned inside the centered
-37.5rem site grid. A full-height diagonal hatch in the existing section-tag
+42rem site grid. A full-height diagonal hatch in the existing section-tag
 register replaces the language label, while the center registration tick marks
 the plate below. The short human prompt speaks in the offered language; the
 shared pill buttons answer with localized Yes and No while retaining descriptive
@@ -894,7 +892,7 @@ is the only third-party API. Historical notes below are retained only as design
 archive and do not describe the running app.
 
 The admin is a desk in the same studio: it shares the warm paper, grain,
-dashed column guides, and the 37.5rem center column, while staying outside
+bent rulers, and the 42rem center column, while staying outside
 public analytics, social reads, and route view transitions. Its contract:
 
 - **Owner dock** (`components/admin-dock.tsx`): the public dock's grammar —
@@ -1052,11 +1050,10 @@ The page reads as a sheet of working paper, not a void:
 - **Grain**: a tiled noise texture over the whole page (fixed, tiled,
   `pointer-events: none`), at an opacity just past the threshold of
   perception. Light and dark modes get separately tuned strengths.
-- **Guides**: the content column is boxed by full-height dashed vertical
-  hairlines (2px dash / 2px gap) at both column edges. The top horizontal
-  dashed rule is intentionally absent; the bottom ruler and both bent ruler
-  arcs remain. All are hairline-weight marks at ~16px insets.
-- No full-page dot matrix — texture comes from grain, structure from guides.
+- **Rulers**: bent ruler arcs remain at the viewport edges. Column-edge
+  dashed guide borders were removed so the page no longer reads as a boxed
+  frame; structure comes from typography and section rhythm instead.
+- No full-page dot matrix — texture comes from grain and the bent rulers.
 - Everything in this layer is `pointer-events: none`, `user-select: none`,
   and must be missable: noticed on the second visit, not the first.
 
