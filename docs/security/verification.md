@@ -10,8 +10,6 @@ auth, database, media library, AMA booking, or analytics stack.
 
 ## Local repository
 
-- [x] `SECURITY.md` directs coordinated disclosure to GitHub private
-  vulnerability reporting.
 - [x] No committed `.github/` workflows, Dependabot config, or funding
   metadata. Deploys use Vercel Git integration.
 - [x] No committed `.claude/` or `.codex/` agent tooling config.
