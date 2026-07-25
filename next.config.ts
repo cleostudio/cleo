@@ -104,6 +104,17 @@ const nextConfig: NextConfig = {
     { source: '/photos', destination: '/gallery', permanent: true },
     { source: '/photos/:path*', destination: '/gallery', permanent: true },
     { source: '/en/photos', destination: '/gallery', permanent: true },
+    // Retired post.
+    {
+      source: '/blog/we-decided-to-stop-buying-saas',
+      destination: '/blog',
+      permanent: true,
+    },
+    {
+      source: '/en/blog/we-decided-to-stop-buying-saas',
+      destination: '/blog',
+      permanent: true,
+    },
     { source: '/admin', destination: '/', permanent: true },
     { source: '/admin/:path*', destination: '/', permanent: true },
     // Specific /en/* legacy rules must win over the prefix strip below.
