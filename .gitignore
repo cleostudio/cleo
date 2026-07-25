@@ -50,3 +50,7 @@ static/
 .react-email/
 /.idea
 .env*
+
+# Country atlas import originals (never public)
+.atlas-originals/
+

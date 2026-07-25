@@ -12,7 +12,7 @@ export const publicPageMetadata = {
   photos: {
     title: 'Photos',
     description:
-      'Beautiful places across every country — open a photograph to read its Explore page.',
+      'Country atlas — one curated place photograph for every country, filterable by region.',
   },
   projects: {
     title: 'Projects',
@@ -22,7 +22,7 @@ export const publicPageMetadata = {
   explore: {
     title: 'Explore',
     description:
-      'A guide to every country on Earth — a short about, a beautiful place, and a path into more.',
+      'Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
   },
   cleo: {
     title: 'Cleo',

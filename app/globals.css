@@ -5461,6 +5461,35 @@ a:focus-visible .external-label .external-mark {
   box-shadow: 0 0 0 1px var(--border);
 }
 
+/* ── Country atlas field guide (/explore/[slug], /photos) ─────────── */
+
+.atlas-label {
+  color: color-mix(in oklab, var(--muted-foreground) 78%, transparent);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-normal);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.atlas-guide .atlas-credit {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  letter-spacing: 0.02em;
+}
+
+.atlas-guide .photo-frame {
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+.atlas-toolbar {
+  border-color: color-mix(in oklab, var(--border) 85%, transparent);
+}
+
+.country-atlas .photo-item a:focus-visible .photo-frame {
+  outline: 1px solid var(--foreground);
+  outline-offset: 2px;
+}
+
 .zoom-overlay-details {
   --zoom-details-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
   position: fixed;

@@ -3,9 +3,10 @@
 **Cleo** is an English-only personal site with a general-purpose AI agent on the
 dock at `/cleo`.
 
-The public site includes MDX writing, Explore countries, projects, and a
-browser-only chat agent with streamed Markdown, vision attachments, image
-generation, and live reasoning / web-search activity.
+The public site includes MDX writing, Explore country field guides, a
+filterable Country Atlas at `/photos`, projects, and a browser-only chat agent
+with streamed Markdown, vision attachments, image generation, and live
+reasoning / web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 
@@ -14,9 +15,10 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
 - Base UI primitives with the `@fluid` component registry
 - MDX posts under `content/blog/`; English-only public routes
+- Country atlas: `content/atlas.json` + local JPEGs in `public/images/atlas/`
 - **OpenAI** is the only third-party API (`OPENAI_API_KEY` → `POST /api/responses`)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*`
-- Bottom dock: Writing, Photos (empty placeholder), Projects, Explore, Cleo
+- Bottom dock: Writing, Photos, Projects, Explore, Cleo
 
 Site design notes live under `docs/`. Cleo-specific agent notes live in
 [`AGENTS.md`](./AGENTS.md).

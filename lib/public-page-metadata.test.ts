@@ -20,7 +20,7 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.photos).toEqual({
       title: 'Photos',
       description:
-        'Beautiful places across every country — open a photograph to read its Explore page.',
+        'Country atlas — one curated place photograph for every country, filterable by region.',
     })
     expect(publicPageMetadata.projects).toEqual({
       title: 'Projects',
@@ -30,7 +30,7 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.explore).toEqual({
       title: 'Explore',
       description:
-        'A guide to every country on Earth — a short about, a beautiful place, and a path into more.',
+        'Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
     })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',

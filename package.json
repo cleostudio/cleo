@@ -27,7 +27,9 @@
     "verify:legacy-urls": "node scripts/verify-legacy-url-contract.mjs",
     "verify:links": "node scripts/verify-public-links.mjs",
     "verify:public-discovery": "node scripts/verify-public-discovery.mjs",
-    "generate:country-guides": "tsx scripts/generate-country-guides.mjs",
+    "generate:atlas-content": "tsx scripts/atlas/generate-atlas-content.mjs",
+    "import:atlas-photos": "tsx scripts/atlas/import-atlas-photos.mjs",
+    "validate:atlas": "tsx scripts/atlas/preflight.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

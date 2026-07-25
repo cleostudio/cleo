@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { photoPreviewGuides, allCountryGuides } from '~/lib/country-guides'
+import { allAtlasEntries, atlasPhotoPreview } from '~/lib/atlas'
 import { T } from '~/lib/i18n'
 import { localePath, type Locale } from '~/lib/locale-route'
 
@@ -95,8 +95,8 @@ export function NavCards({
 }
 
 export function PhotoNavCard({ locale = 'en' }: { locale?: Locale }) {
-  const previews = photoPreviewGuides(3)
-  const count = allCountryGuides().length
+  const previews = atlasPhotoPreview(3)
+  const count = allAtlasEntries().length
 
   return (
     <Link
@@ -105,22 +105,26 @@ export function PhotoNavCard({ locale = 'en' }: { locale?: Locale }) {
       style={{ '--enter-delay': '190ms' } as React.CSSProperties}
     >
       <span className="nc-vignette nc-polaroids" aria-hidden>
-        {previews.map((guide, i) => (
-          <span
-            key={guide.slug}
-            className="nc-polaroid"
-            style={{ '--i': i } as React.CSSProperties}
-          >
-            <Image
-              src={guide.place.image}
-              alt=""
-              width={64}
-              height={56}
-              className="object-cover"
-              sizes="64px"
-            />
-          </span>
-        ))}
+        {previews.map((entry, i) => {
+          const thumb =
+            entry.photo.renditions.find((r) => r.width === 640) ?? entry.photo.renditions[0]!
+          return (
+            <span
+              key={entry.slug}
+              className="nc-polaroid"
+              style={{ '--i': i } as React.CSSProperties}
+            >
+              <Image
+                src={thumb.src}
+                alt=""
+                width={64}
+                height={56}
+                className="object-cover"
+                sizes="64px"
+              />
+            </span>
+          )
+        })}
       </span>
       <span className="nc-label">
         <T zh="照片" en="Photos" />

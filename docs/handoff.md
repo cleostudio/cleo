@@ -6,8 +6,10 @@ Current as of July 2026 (Cleo fork).
 
 English-only personal site with:
 
-- MDX blog, Explore countries (about + place photo each), projects, newsletters
-- Photos: masonry of beautiful places for every country (`content/country-guides.json`)
+- MDX blog, Explore country field guides (about, facts, three places, sources,
+  place photo), projects, newsletters
+- Photos: filterable Country Atlas (`content/atlas.json` +
+  `public/images/atlas/`) — one curated Pexels place photograph per country
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
 
 There is **no** Clerk auth, Neon/Postgres, Bunny media, AMA booking, Stripe,
@@ -17,7 +19,9 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4, Base UI
 - Posts: `content/blog/<slug>/` via owned content route
-- Explore: `lib/countries.ts` + `/explore`
+- Explore / Atlas: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/photos`
+- Atlas workflow: `pnpm generate:atlas-content` → `pnpm import:atlas-photos` →
+  `pnpm validate:atlas` (no runtime Pexels; originals in `.atlas-originals/`)
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
@@ -26,13 +30,15 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 ## Design
 
 Visual contract: `docs/design-language.md` (including § Paper-artifact doorway
-vignettes for homepage NavCards).
+vignettes for homepage NavCards). Country pages use the warm-paper field-guide
+layout (passport labels, hairline rules, zoomable contact-print hero).
 
 ## Local / Preview
 
 ```bash
 pnpm install
 cp .env.example .env.local   # set OPENAI_API_KEY
+pnpm validate:atlas
 pnpm dev
 pnpm typecheck && pnpm build
 ```

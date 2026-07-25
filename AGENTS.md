@@ -1,12 +1,15 @@
 # Cleo
 
 This repository hosts the **Cleo** site (v3, English-only) with Explore country
-pages at `/explore` (about + place photo per country), a Photos masonry of those
-places at `/photos`, and a general-purpose AI agent on the dock at `/cleo`.
+field guides at `/explore/[slug]`, a filterable Country Atlas at `/photos`, and
+a general-purpose AI agent on the dock at `/cleo`.
 
-Country guides live in `content/country-guides.json` (regenerate with
-`pnpm generate:country-guides`). Place images are baked Unsplash CDN URLs —
-not a third-party product API.
+Country atlas records live in `content/atlas.json` (one entry per Explore slug).
+Generate evergreen copy with `pnpm generate:atlas-content`, then import curated
+Pexels place photos into local JPEG renditions with `pnpm import:atlas-photos`.
+Validate with `pnpm validate:atlas`. Originals stay in `.atlas-originals/`
+(gitignored); public assets are under `public/images/atlas/{slug}/`. No Pexels
+API key, Bunny CDN, or runtime third-party image request.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.
@@ -64,6 +67,7 @@ explicit product decision.
 ## Verification
 
 - Code: `pnpm typecheck` (and `pnpm build` when changing routes/config).
+- Atlas: `pnpm validate:atlas` before deploying image or manifest changes.
 - Site: relevant unit tests via `pnpm test:unit` / `pnpm test:security`.
 - Cleo: multi-turn chat, reasoning activity, web search, image attach/vision,
   image generation, streaming, cancellation, and relevant errors.
@@ -81,8 +85,5 @@ explicit product decision.
 
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->

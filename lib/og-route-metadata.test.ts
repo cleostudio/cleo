@@ -32,7 +32,7 @@ describe('social OG image metadata', () => {
     [
       '/photos',
       publicPageMetadata.photos,
-      'Photos · Cleo. Beautiful places across every country — open a photograph to read its Explore page.',
+      'Photos · Cleo. Country atlas — one curated place photograph for every country, filterable by region.',
     ],
     [
       '/projects',
@@ -42,7 +42,7 @@ describe('social OG image metadata', () => {
     [
       '/explore',
       publicPageMetadata.explore,
-      'Explore · Cleo. A guide to every country on Earth — a short about, a beautiful place, and a path into more.',
+      'Explore · Cleo. Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
     ],
     [
       '/cleo',

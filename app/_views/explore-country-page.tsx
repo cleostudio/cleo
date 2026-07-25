@@ -1,13 +1,10 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { PixelCluster } from '~/components/pixel-cluster'
+import { ZoomImage } from '~/components/zoom-image'
 import { countrySlugs, getCountry } from '~/lib/countries'
-import {
-  countryDescription,
-  getCountryGuide,
-} from '~/lib/country-guides'
+import { atlasDescription, getAtlasEntry } from '~/lib/atlas'
 import { localeMetadata } from '~/lib/locale-metadata'
 
 export function exploreCountryStaticParams() {
@@ -16,24 +13,27 @@ export function exploreCountryStaticParams() {
 
 export function exploreCountryMetadata(slug: string) {
   const country = getCountry(slug)
-  if (!country) return {}
-  const guide = getCountryGuide(slug)
+  const entry = getAtlasEntry(slug)
+  if (!country || !entry) return {}
 
   return localeMetadata({
     path: `/explore/${country.slug}`,
     title: country.name,
-    description: guide ? countryDescription(guide) : countryDescription(country),
+    description: atlasDescription(entry).slice(0, 160),
   })
 }
 
 export function ExploreCountryPageView({ slug }: { slug: string }) {
   const country = getCountry(slug)
   if (!country) notFound()
-  const guide = getCountryGuide(slug)
-  if (!guide) notFound()
+  const entry = getAtlasEntry(slug)
+  if (!entry) notFound()
+
+  const hero = entry.photo.renditions.find((r) => r.width === 1024) ?? entry.photo.renditions[0]!
+  const renditions = entry.photo.renditions.map((r) => ({ src: r.src, width: r.width }))
 
   return (
-    <article className="mx-auto w-full max-w-[37.5rem] px-6">
+    <article className="atlas-guide mx-auto w-full max-w-[37.5rem] px-6">
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-[34rem]">
           <p className="page-eyebrow enter">
@@ -43,70 +43,168 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
             <span aria-hidden className="mx-2 text-muted-foreground/50">
               /
             </span>
-            <span className="tabular-nums">{country.code}</span>
+            <span className="tabular-nums">{entry.code}</span>
           </p>
           <h1
             className="enter mt-4 text-2xl font-semibold tracking-tight text-foreground text-balance"
             style={{ '--enter-delay': '40ms' } as React.CSSProperties}
           >
-            {country.name}
+            {entry.name}
           </h1>
+          <p
+            className="enter mt-2 text-sm text-muted-foreground"
+            style={{ '--enter-delay': '55ms' } as React.CSSProperties}
+          >
+            {entry.subregion} · {entry.region}
+          </p>
         </header>
         <PixelCluster variant={5} className="enter shrink-0" />
       </div>
 
       <figure
-        className="enter mt-8 overflow-hidden rounded-[2px]"
+        className="enter mt-8"
         style={{ '--enter-delay': '70ms' } as React.CSSProperties}
       >
-        <Image
-          src={guide.place.image}
-          alt={guide.place.alt}
-          width={1200}
-          height={800}
+        <ZoomImage
+          src={hero.src}
+          alt={entry.photo.alt}
+          width={entry.photo.width}
+          height={entry.photo.height}
           className="photo-frame aspect-[3/2] w-full object-cover"
           sizes="(max-width: 40rem) 100vw, 37.5rem"
-          priority
+          renditions={renditions}
+          expandedContent={
+            <div className="spec-plate mx-auto max-w-[37.5rem] px-6 text-sm text-[var(--paper)]">
+              <p className="font-medium">{entry.photo.caption}</p>
+              <p className="mt-1 opacity-80">
+                Photo by {entry.photo.photographer} · {entry.photo.license}
+              </p>
+            </div>
+          }
         />
-        <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-2 text-sm text-muted-foreground">
-          <span>{guide.place.name}</span>
-          <span className="text-xs">{guide.place.credit}</span>
+        <figcaption className="atlas-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
+          <span>{entry.photo.caption}</span>
+          <span>
+            {entry.photo.photographer} ·{' '}
+            <a
+              href={entry.photo.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="underline-offset-2 hover:underline"
+            >
+              Pexels
+            </a>
+          </span>
         </figcaption>
       </figure>
 
-      <div
-        className="enter mt-8 space-y-4 text-sm leading-relaxed text-foreground/90"
+      <section
+        className="enter mt-10"
         style={{ '--enter-delay': '100ms' } as React.CSSProperties}
+        aria-labelledby="atlas-about"
       >
-        <h2 className="text-sm font-medium text-muted-foreground">About</h2>
-        <p className="text-balance">{guide.about}</p>
-      </div>
+        <h2 id="atlas-about" className="atlas-label">
+          Orientation
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-foreground/90 text-pretty">
+          {entry.about}
+        </p>
+      </section>
 
-      <dl
-        className="enter mt-10 grid gap-4 text-sm"
-        style={{ '--enter-delay': '130ms' } as React.CSSProperties}
+      <section
+        className="enter mt-12"
+        style={{ '--enter-delay': '120ms' } as React.CSSProperties}
+        aria-labelledby="atlas-places"
       >
-        <div className="hairline-top flex justify-between gap-6 pt-3">
-          <dt className="text-muted-foreground">Region</dt>
-          <dd className="text-right">{country.region}</dd>
-        </div>
-        <div className="hairline-top flex justify-between gap-6 pt-3">
-          <dt className="text-muted-foreground">Subregion</dt>
-          <dd className="text-right">{country.subregion}</dd>
-        </div>
-        <div className="hairline-top flex justify-between gap-6 pt-3">
-          <dt className="text-muted-foreground">ISO 3166-1</dt>
-          <dd className="text-right font-mono tabular-nums">{country.code}</dd>
-        </div>
-      </dl>
+        <h2 id="atlas-places" className="atlas-label">
+          Places
+        </h2>
+        <ol className="mt-3 flex flex-col">
+          {entry.places.map((place, index) => (
+            <li key={place.name} className="hairline-top grid grid-cols-[2rem_1fr] gap-3 py-3 text-sm">
+              <span className="tabular-nums text-muted-foreground" aria-hidden>
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <div>
+                <p className="font-medium text-foreground">{place.name}</p>
+                <p className="mt-1 text-muted-foreground leading-relaxed">{place.description}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
 
-      <p className="enter mt-8" style={{ '--enter-delay': '160ms' } as React.CSSProperties}>
+      <section
+        className="enter mt-12"
+        style={{ '--enter-delay': '140ms' } as React.CSSProperties}
+        aria-labelledby="atlas-facts"
+      >
+        <h2 id="atlas-facts" className="atlas-label">
+          Fact plate
+        </h2>
+        <dl className="mt-3 grid gap-0 text-sm">
+          <div className="hairline-top flex justify-between gap-6 py-3">
+            <dt className="text-muted-foreground">Capital</dt>
+            <dd className="text-right">{entry.facts.capital}</dd>
+          </div>
+          <div className="hairline-top flex justify-between gap-6 py-3">
+            <dt className="text-muted-foreground">Languages</dt>
+            <dd className="text-right">{entry.facts.languages.join(', ')}</dd>
+          </div>
+          <div className="hairline-top flex justify-between gap-6 py-3">
+            <dt className="text-muted-foreground">Currency</dt>
+            <dd className="text-right">{entry.facts.currency}</dd>
+          </div>
+          <div className="hairline-top flex justify-between gap-6 py-3">
+            <dt className="text-muted-foreground">Area</dt>
+            <dd className="text-right tabular-nums">
+              {entry.facts.areaKm2.toLocaleString('en-US')} km²
+            </dd>
+          </div>
+          <div className="hairline-top flex justify-between gap-6 py-3">
+            <dt className="text-muted-foreground">Region</dt>
+            <dd className="text-right">{entry.facts.region}</dd>
+          </div>
+          <div className="hairline-top flex justify-between gap-6 py-3">
+            <dt className="text-muted-foreground">ISO 3166-1</dt>
+            <dd className="text-right font-mono tabular-nums">{entry.code}</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section
+        className="enter mt-12"
+        style={{ '--enter-delay': '160ms' } as React.CSSProperties}
+        aria-labelledby="atlas-sources"
+      >
+        <h2 id="atlas-sources" className="atlas-label">
+          Sources
+        </h2>
+        <ul className="mt-3 flex flex-col gap-2 text-sm">
+          {entry.sources.map((source) => (
+            <li key={source.url} className="hairline-top pt-2">
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-foreground underline-offset-2 hover:underline"
+              >
+                {source.label}
+              </a>
+              <span className="ml-2 text-xs uppercase tracking-wide text-muted-foreground">
+                {source.kind}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
         <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground">
-          See all country places →
+          Country atlas photos →
         </Link>
       </p>
-
-      <p className="enter mt-4" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
+      <p className="enter mt-3 mb-4" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
         <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
           ← All countries
         </Link>
