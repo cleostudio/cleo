@@ -6,7 +6,6 @@ import type { ReactNode } from 'react'
 const POST_LINK_SELECTOR = '[data-post-transition-link]'
 const POST_LOADING_SHELL_SELECTOR = '[data-post-loading-shell]'
 const ROUTE_MOTION_ATTRIBUTE = 'data-route-motion'
-const VISITED_ATTRIBUTE = 'data-visited'
 
 export function RouteMotionController() {
   useEffect(() => {
@@ -14,9 +13,6 @@ export function RouteMotionController() {
 
     function disableRouteMotion() {
       root.setAttribute(ROUTE_MOTION_ATTRIBUTE, 'none')
-      // Frequent dock / ordinary navigations skip entrance choreography on the
-      // destination (matches the design-language frequency principle).
-      root.setAttribute(VISITED_ATTRIBUTE, '')
     }
 
     function preparePointerRoute(event: PointerEvent) {
@@ -54,9 +50,7 @@ export function RouteViewTransition({ children }: { children: ReactNode }) {
   function handleUpdate() {
     return () => {
       if (document.querySelector(POST_LOADING_SHELL_SELECTOR) === null) {
-        const root = document.documentElement
-        root.setAttribute(ROUTE_MOTION_ATTRIBUTE, 'none')
-        root.setAttribute(VISITED_ATTRIBUTE, '')
+        document.documentElement.setAttribute(ROUTE_MOTION_ATTRIBUTE, 'none')
       }
     }
   }
