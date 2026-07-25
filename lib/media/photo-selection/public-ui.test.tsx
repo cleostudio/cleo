@@ -66,7 +66,7 @@ describe('Published Photo Selection UI', () => {
     expect(html).toContain('class="photo-masonry mt-6"')
     expect(html).toContain('width="4032"')
     expect(html).toContain('height="3024"')
-    expect(html).toContain('alt="第 1 张城市照片"')
+    expect(html).toContain('alt="City photograph 1"')
     expect(html).toContain('https://media.example.com/1/2560.jpg')
     expect(html).toContain('640w')
     // tiles stay quiet — location/capture data render only in the lightbox
