@@ -7,12 +7,12 @@ import type {
   ResponseReasoningItem,
 } from "openai/resources/responses/responses"
 
-import { CLEO_INSTRUCTIONS } from "@/lib/cleo-instructions"
+import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
   MAX_IMAGES_PER_MESSAGE,
   parseImageDataUrl,
   toImageDataUrl,
-} from "@/lib/images"
+} from "~/lib/cleo/images"
 import {
   type ActivityItem,
   type ActivityStatus,
@@ -20,12 +20,15 @@ import {
   encodeStreamEvent,
   type MessageImage,
   type WebSearchAction,
-} from "@/lib/stream"
+} from "~/lib/cleo/stream"
 
 const MODEL = "gpt-5.6-terra"
 const MAX_INPUT_LENGTH = 10_000
 const MAX_MESSAGES = 50
 const MAX_TOTAL_INPUT_LENGTH = 100_000
+
+/** Allow long tool-using turns on Vercel without cutting the NDJSON stream short. */
+export const maxDuration = 60
 
 type ConversationMessage = {
   content: string
@@ -359,8 +362,10 @@ export async function POST(request: Request) {
         model: MODEL,
         input,
         instructions: CLEO_INSTRUCTIONS,
-        max_output_tokens: 4096,
-        reasoning: { effort: "max", summary: "auto" },
+        // Keep headroom for reasoning + tools + visible answer. Effort "max"
+        // with a tight budget often ends incomplete with zero answer text.
+        max_output_tokens: 16_384,
+        reasoning: { effort: "medium", summary: "auto" },
         stream: true,
         text: { verbosity: "medium" },
         tools: [
@@ -584,6 +589,15 @@ export async function POST(request: Request) {
               throw new Error(
                 event.response.error?.message ??
                   "The AI service could not complete the request."
+              )
+            }
+
+            if (event.type === "response.incomplete") {
+              const reason = event.response.incomplete_details?.reason
+              throw new Error(
+                reason === "max_output_tokens"
+                  ? "The AI service ran out of room before finishing an answer. Try a shorter question."
+                  : "The AI service stopped before finishing an answer. Try again."
               )
             }
           }

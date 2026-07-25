@@ -1,0 +1,4582 @@
+{
+  "AF": {
+    "capital": "Kabul",
+    "languages": [
+      "Dari",
+      "Pashto"
+    ],
+    "currency": "Afghan afghani (AFN)",
+    "areaKm2": 652230,
+    "places": [
+      {
+        "name": "Band-e Amir",
+        "description": "A chain of deep-blue alpine lakes set in the Hindu Kush, long regarded as one of Afghanistan's most striking highland landscapes."
+      },
+      {
+        "name": "Herat Citadel",
+        "description": "An ancient mud-brick fortress overlooking the historic Silk Road city of Herat, layered with centuries of Persianate and Timurid heritage."
+      },
+      {
+        "name": "Bamiyan Valley",
+        "description": "A high valley famed for cliff-carved Buddhist heritage and dramatic mountain amphitheaters along central Afghanistan's highland corridors."
+      }
+    ],
+    "pexelsId": 1285625
+  },
+  "AL": {
+    "capital": "Tirana",
+    "languages": [
+      "Albanian"
+    ],
+    "currency": "Albanian lek (ALL)",
+    "areaKm2": 28748,
+    "places": [
+      {
+        "name": "Butrint",
+        "description": "A UNESCO-listed archaeological park where Greek, Roman, Byzantine, and Venetian layers meet beside a quiet lagoon."
+      },
+      {
+        "name": "Berat",
+        "description": "The city of a thousand windows, with Ottoman houses cascading down a hillside beneath a hilltop castle."
+      },
+      {
+        "name": "Albanian Alps",
+        "description": "Rugged limestone peaks and remote valleys in the north, among the wildest mountain landscapes in the Balkans."
+      }
+    ],
+    "pexelsId": 2104152
+  },
+  "DZ": {
+    "capital": "Algiers",
+    "languages": [
+      "Arabic",
+      "Tamazight",
+      "French"
+    ],
+    "currency": "Algerian dinar (DZD)",
+    "areaKm2": 2381741,
+    "places": [
+      {
+        "name": "Casbah of Algiers",
+        "description": "A dense historic medina of whitewashed alleys and Ottoman-era houses overlooking the Mediterranean."
+      },
+      {
+        "name": "Tassili n'Ajjer",
+        "description": "A vast Saharan plateau of sandstone arches and prehistoric rock art in southeastern Algeria."
+      },
+      {
+        "name": "Constantine",
+        "description": "A dramatic city of gorges and bridges spanning deep canyons in eastern Algeria."
+      }
+    ],
+    "pexelsId": 417074
+  },
+  "AD": {
+    "capital": "Andorra la Vella",
+    "languages": [
+      "Catalan"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 468,
+    "places": [
+      {
+        "name": "Madriu-Perafita-Claror Valley",
+        "description": "A UNESCO glacial valley preserving Pyrenean pastoral landscapes and stone hamlets."
+      },
+      {
+        "name": "Casa de la Vall",
+        "description": "The historic parliament house in Andorra la Vella, a symbol of the tiny principality's self-rule."
+      },
+      {
+        "name": "Coma Pedrosa",
+        "description": "Andorra's highest peak, a classic Pyrenean summit above alpine meadows and lakes."
+      }
+    ],
+    "pexelsId": 2440021
+  },
+  "AO": {
+    "capital": "Luanda",
+    "languages": [
+      "Portuguese"
+    ],
+    "currency": "Angolan kwanza (AOA)",
+    "areaKm2": 1246700,
+    "places": [
+      {
+        "name": "Kissama National Park",
+        "description": "Coastal woodland and savannah south of Luanda, known for wildlife restoration and Atlantic shoreline."
+      },
+      {
+        "name": "Tundavala Gap",
+        "description": "A sheer escarpment viewpoint near Lubango, dropping toward the Namibe plains."
+      },
+      {
+        "name": "Fortress of Sao Miguel",
+        "description": "A Portuguese colonial fort on Luanda Bay that anchors the capital's historic waterfront."
+      }
+    ],
+    "pexelsId": 3310871
+  },
+  "AG": {
+    "capital": "Saint John's",
+    "languages": [
+      "English"
+    ],
+    "currency": "East Caribbean dollar (XCD)",
+    "areaKm2": 442,
+    "places": [
+      {
+        "name": "Nelson's Dockyard",
+        "description": "A restored Georgian naval yard in English Harbour, framed by green hills and sailing boats."
+      },
+      {
+        "name": "Shirley Heights",
+        "description": "A hilltop lookout above the twin harbors, famous for sunset panoramas across the Caribbean Sea."
+      },
+      {
+        "name": "Devil's Bridge",
+        "description": "A natural limestone arch on Antigua's Atlantic coast, carved by relentless surf."
+      }
+    ],
+    "pexelsId": 1179229
+  },
+  "AR": {
+    "capital": "Buenos Aires",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Argentine peso (ARS)",
+    "areaKm2": 2780400,
+    "places": [
+      {
+        "name": "Iguazú Falls",
+        "description": "A vast horseshoe of waterfalls on the Brazil-Argentina border, roaring through subtropical forest."
+      },
+      {
+        "name": "Perito Moreno Glacier",
+        "description": "A massive advancing glacier in Patagonia that calves into Lago Argentino."
+      },
+      {
+        "name": "Plaza de Mayo",
+        "description": "The historic square at the political heart of Buenos Aires, ringed by neoclassical landmarks."
+      }
+    ],
+    "pexelsId": 807598
+  },
+  "AM": {
+    "capital": "Yerevan",
+    "languages": [
+      "Armenian"
+    ],
+    "currency": "Armenian dram (AMD)",
+    "areaKm2": 29743,
+    "places": [
+      {
+        "name": "Geghard Monastery",
+        "description": "A medieval rock-hewn monastery partly carved into cliffs, with chambers echoing Armenian sacred music."
+      },
+      {
+        "name": "Temple of Garni",
+        "description": "A Greco-Roman colonnaded temple set above a gorge, rare classical architecture in the Caucasus."
+      },
+      {
+        "name": "Lake Sevan",
+        "description": "A high-altitude alpine lake often called Armenia's blue jewel, edged by monasteries and beaches."
+      }
+    ],
+    "pexelsId": 1450353
+  },
+  "AU": {
+    "capital": "Canberra",
+    "languages": [
+      "English"
+    ],
+    "currency": "Australian dollar (AUD)",
+    "areaKm2": 7692024,
+    "places": [
+      {
+        "name": "Uluru",
+        "description": "An immense sandstone monolith rising from the red center, sacred to Anangu people and iconic worldwide."
+      },
+      {
+        "name": "Great Barrier Reef",
+        "description": "The world's largest coral reef system, stretching along Queensland's tropical coast."
+      },
+      {
+        "name": "Sydney Opera House",
+        "description": "A sail-like harborside landmark that has become a global emblem of Australian design."
+      }
+    ],
+    "pexelsId": 1237119
+  },
+  "AT": {
+    "capital": "Vienna",
+    "languages": [
+      "German"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 83871,
+    "places": [
+      {
+        "name": "Schonbrunn Palace",
+        "description": "A baroque imperial residence and gardens that defined Habsburg court life in Vienna."
+      },
+      {
+        "name": "Hallstatt",
+        "description": "A lakeside alpine village of salt-mining heritage, mirrored in crystal waters beneath steep peaks."
+      },
+      {
+        "name": "Grossglockner",
+        "description": "Austria's highest mountain, anchoring the High Tauern with glaciers and hairpin alpine roads."
+      }
+    ],
+    "pexelsId": 1366919
+  },
+  "AZ": {
+    "capital": "Baku",
+    "languages": [
+      "Azerbaijani"
+    ],
+    "currency": "Azerbaijani manat (AZN)",
+    "areaKm2": 86600,
+    "places": [
+      {
+        "name": "Old City of Baku",
+        "description": "A walled medieval core with the Maiden Tower and palace quarters beside the Caspian Sea."
+      },
+      {
+        "name": "Gobustan",
+        "description": "A desert landscape of mud volcanoes and petroglyphs documenting millennia of human presence."
+      },
+      {
+        "name": "Sheki Khan's Palace",
+        "description": "An 18th-century palace famed for stained-glass windows in the mountain town of Sheki."
+      }
+    ],
+    "pexelsId": 1271619
+  },
+  "BS": {
+    "capital": "Nassau",
+    "languages": [
+      "English"
+    ],
+    "currency": "Bahamian dollar (BSD)",
+    "areaKm2": 13880,
+    "places": [
+      {
+        "name": "Exuma Cays",
+        "description": "A chain of turquoise channels and sandbars where shallow seas glow electric blue."
+      },
+      {
+        "name": "Lucayan National Park",
+        "description": "Home to one of the world's longest underwater cave systems and a classic pink-sand beach."
+      },
+      {
+        "name": "Queen's Staircase",
+        "description": "A historic limestone stairway in Nassau carved by enslaved laborers in the colonial era."
+      }
+    ],
+    "pexelsId": 167699
+  },
+  "BH": {
+    "capital": "Manama",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Bahraini dinar (BHD)",
+    "areaKm2": 780,
+    "places": [
+      {
+        "name": "Bahrain Fort",
+        "description": "A coastal archaeological mound revealing Dilmun, Portuguese, and later layers of Gulf history."
+      },
+      {
+        "name": "Tree of Life",
+        "description": "A lone mesquite tree thriving in desert sands, a symbol of endurance in Bahrain."
+      },
+      {
+        "name": "Al Fateh Grand Mosque",
+        "description": "A vast contemporary mosque of marble and fiberglass domes that dominates Manama's skyline."
+      }
+    ],
+    "pexelsId": 1770809
+  },
+  "BD": {
+    "capital": "Dhaka",
+    "languages": [
+      "Bengali"
+    ],
+    "currency": "Bangladeshi taka (BDT)",
+    "areaKm2": 147570,
+    "places": [
+      {
+        "name": "Sundarbans",
+        "description": "The world's largest mangrove forest, shared with India and home to the Bengal tiger."
+      },
+      {
+        "name": "Lalbagh Fort",
+        "description": "An unfinished Mughal fort complex in Dhaka with gardens, mosques, and riverside ramparts."
+      },
+      {
+        "name": "Cox's Bazar",
+        "description": "A famously long sandy shoreline along the Bay of Bengal, edged by fishing communities."
+      }
+    ],
+    "pexelsId": 3225517
+  },
+  "BB": {
+    "capital": "Bridgetown",
+    "languages": [
+      "English"
+    ],
+    "currency": "Barbadian dollar (BBD)",
+    "areaKm2": 430,
+    "places": [
+      {
+        "name": "Historic Bridgetown",
+        "description": "A UNESCO-listed port city of Georgian warehouses and a deep natural harbor."
+      },
+      {
+        "name": "Harrison's Cave",
+        "description": "A living limestone cave system of streams, stalactites, and underground chambers."
+      },
+      {
+        "name": "Animal Flower Cave",
+        "description": "Sea caves on the northern cliffs where waves surge into rock pools and chambers."
+      }
+    ],
+    "pexelsId": 2422588
+  },
+  "BY": {
+    "capital": "Minsk",
+    "languages": [
+      "Belarusian",
+      "Russian"
+    ],
+    "currency": "Belarusian ruble (BYN)",
+    "areaKm2": 207600,
+    "places": [
+      {
+        "name": "Mir Castle",
+        "description": "A red-brick Gothic-Renaissance fortress that anchors Belarusian architectural heritage."
+      },
+      {
+        "name": "Belovezhskaya Pushcha",
+        "description": "An ancient forest shared with Poland, refuge of European bison and old-growth woodland."
+      },
+      {
+        "name": "Nesvizh Palace",
+        "description": "A former Radziwill residence with baroque gardens and a lakeside parkland estate."
+      }
+    ],
+    "pexelsId": 1438761
+  },
+  "BE": {
+    "capital": "Brussels",
+    "languages": [
+      "Dutch",
+      "French",
+      "German"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 30528,
+    "places": [
+      {
+        "name": "Grand Place",
+        "description": "Brussels' ornate central square lined with guildhalls and the Gothic Town Hall."
+      },
+      {
+        "name": "Bruges Canals",
+        "description": "Medieval waterways threading a preserved Flemish city of brick gables and belfries."
+      },
+      {
+        "name": "Ardennes",
+        "description": "Forested hills and river valleys in southern Belgium, a quiet contrast to the dense north."
+      }
+    ],
+    "pexelsId": 2325446
+  },
+  "BZ": {
+    "capital": "Belmopan",
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "currency": "Belize dollar (BZD)",
+    "areaKm2": 22966,
+    "places": [
+      {
+        "name": "Great Blue Hole",
+        "description": "A vast marine sinkhole off the coast, a signature dive site within the Belize Barrier Reef."
+      },
+      {
+        "name": "Caracol",
+        "description": "A major Maya city in the Chiquibul forest, with towering pyramids above the canopy."
+      },
+      {
+        "name": "Actun Tunichil Muknal",
+        "description": "A sacred cave holding Maya ceramics and skeletal remains in crystal-clear underground streams."
+      }
+    ],
+    "pexelsId": 753626
+  },
+  "BJ": {
+    "capital": "Porto-Novo",
+    "languages": [
+      "French"
+    ],
+    "currency": "West African CFA franc (XOF)",
+    "areaKm2": 112622,
+    "places": [
+      {
+        "name": "Pendjari National Park",
+        "description": "A West African wildlife reserve of savannah and gallery forest in the far northwest."
+      },
+      {
+        "name": "Royal Palaces of Abomey",
+        "description": "Earthen palace complexes that were the seat of the historic Kingdom of Dahomey."
+      },
+      {
+        "name": "Ganvie",
+        "description": "A lakeside stilt village on Lake Nokoue, often called the Venice of Africa."
+      }
+    ],
+    "pexelsId": 3183132
+  },
+  "BT": {
+    "capital": "Thimphu",
+    "languages": [
+      "Dzongkha"
+    ],
+    "currency": "Bhutanese ngultrum (BTN)",
+    "areaKm2": 38394,
+    "places": [
+      {
+        "name": "Paro Taktsang",
+        "description": "The cliffside Tiger's Nest monastery clinging to a sheer Himalayan face above Paro Valley."
+      },
+      {
+        "name": "Punakha Dzong",
+        "description": "A fortress-monastery at the confluence of two rivers, among Bhutan's most majestic dzongs."
+      },
+      {
+        "name": "Phobjikha Valley",
+        "description": "A glacial valley and wetland famed as a wintering ground for black-necked cranes."
+      }
+    ],
+    "pexelsId": 1659438
+  },
+  "BO": {
+    "capital": "Sucre",
+    "languages": [
+      "Spanish",
+      "Quechua",
+      "Aymara"
+    ],
+    "currency": "Bolivian boliviano (BOB)",
+    "areaKm2": 1098581,
+    "places": [
+      {
+        "name": "Salar de Uyuni",
+        "description": "The world's largest salt flat, a surreal white expanse that mirrors the sky after rains."
+      },
+      {
+        "name": "Lake Titicaca",
+        "description": "A high Andean lake shared with Peru, studded with islands and ancient shoreline cultures."
+      },
+      {
+        "name": "Tiwanaku",
+        "description": "A pre-Inca ceremonial city of megalithic gateways on the Altiplano near La Paz."
+      }
+    ],
+    "pexelsId": 1438761
+  },
+  "BA": {
+    "capital": "Sarajevo",
+    "languages": [
+      "Bosnian",
+      "Croatian",
+      "Serbian"
+    ],
+    "currency": "Bosnia and Herzegovina convertible mark (BAM)",
+    "areaKm2": 51209,
+    "places": [
+      {
+        "name": "Stari Most",
+        "description": "Mostar's iconic Ottoman bridge leaping a turquoise gorge of the Neretva River."
+      },
+      {
+        "name": "Bascarsija",
+        "description": "Sarajevo's old bazaar quarter, where Ottoman streets open onto mosques and copper workshops."
+      },
+      {
+        "name": "Una National Park",
+        "description": "Cascading emerald rivers and waterfalls in western Bosnia's karst country."
+      }
+    ],
+    "pexelsId": 301599
+  },
+  "BW": {
+    "capital": "Gaborone",
+    "languages": [
+      "English",
+      "Setswana"
+    ],
+    "currency": "Botswana pula (BWP)",
+    "areaKm2": 581730,
+    "places": [
+      {
+        "name": "Okavango Delta",
+        "description": "A vast inland delta where floodwaters create seasonal islands of wildlife-rich wetlands."
+      },
+      {
+        "name": "Chobe National Park",
+        "description": "Savannah and riverfront habitat renowned for large elephant herds along the Chobe River."
+      },
+      {
+        "name": "Makgadikgadi Pans",
+        "description": "Immense salt pans that shimmer under desert skies, remnants of an ancient lake."
+      }
+    ],
+    "pexelsId": 3889854
+  },
+  "BR": {
+    "capital": "Brasília",
+    "languages": [
+      "Portuguese"
+    ],
+    "currency": "Brazilian real (BRL)",
+    "areaKm2": 8515767,
+    "places": [
+      {
+        "name": "Amazon Rainforest",
+        "description": "The planet's largest tropical rainforest basin, threading Brazil's north with immense biodiversity."
+      },
+      {
+        "name": "Iguaçu Falls",
+        "description": "Thundering cataracts on the Argentina border, framed by mist and subtropical forest."
+      },
+      {
+        "name": "Christ the Redeemer",
+        "description": "The Art Deco statue overlooking Rio de Janeiro from Corcovado mountain."
+      }
+    ],
+    "pexelsId": 2404843
+  },
+  "BN": {
+    "capital": "Bandar Seri Begawan",
+    "languages": [
+      "Malay"
+    ],
+    "currency": "Brunei dollar (BND)",
+    "areaKm2": 5765,
+    "places": [
+      {
+        "name": "Sultan Omar Ali Saifuddien Mosque",
+        "description": "A golden-domed waterfront mosque that defines Brunei's skyline and ceremonial life."
+      },
+      {
+        "name": "Ulu Temburong National Park",
+        "description": "Primary rainforest in the Temburong enclave, reached by boat through mangrove channels."
+      },
+      {
+        "name": "Kampong Ayer",
+        "description": "A historic water village of stilt houses and boardwalks along the Brunei River."
+      }
+    ],
+    "pexelsId": 346885
+  },
+  "BG": {
+    "capital": "Sofia",
+    "languages": [
+      "Bulgarian"
+    ],
+    "currency": "Bulgarian lev (BGN)",
+    "areaKm2": 110879,
+    "places": [
+      {
+        "name": "Rila Monastery",
+        "description": "A vividly frescoed mountain monastery that is a spiritual landmark of Bulgarian Orthodoxy."
+      },
+      {
+        "name": "Old Town Plovdiv",
+        "description": "Roman theaters and Revival-era houses climbing a hill in one of Europe's oldest cities."
+      },
+      {
+        "name": "Seven Rila Lakes",
+        "description": "A chain of glacial alpine lakes stepped into the Rila Mountains."
+      }
+    ],
+    "pexelsId": 2404843
+  },
+  "BF": {
+    "capital": "Ouagadougou",
+    "languages": [
+      "French",
+      "Moore"
+    ],
+    "currency": "West African CFA franc (XOF)",
+    "areaKm2": 274200,
+    "places": [
+      {
+        "name": "Ruins of Loropeni",
+        "description": "Stone fortress ruins in the south, linked to long-distance gold trade routes."
+      },
+      {
+        "name": "Sindou Peaks",
+        "description": "Weirdly sculpted sandstone towers rising from the savannah near the Cascades region."
+      },
+      {
+        "name": "Nazinga Game Ranch",
+        "description": "A wildlife reserve where elephants and antelope roam wooded savannah."
+      }
+    ],
+    "pexelsId": 417074
+  },
+  "BI": {
+    "capital": "Gitega",
+    "languages": [
+      "Kirundi",
+      "French"
+    ],
+    "currency": "Burundian franc (BIF)",
+    "areaKm2": 27834,
+    "places": [
+      {
+        "name": "Lake Tanganyika",
+        "description": "One of the world's deepest freshwater lakes, forming Burundi's western shoreline."
+      },
+      {
+        "name": "Kibira National Park",
+        "description": "Montane rainforest along the Congo-Nile divide, a remnant of the once-vast Albertine forests."
+      },
+      {
+        "name": "Karera Falls",
+        "description": "A series of waterfalls cascading through forested hills in southern Burundi."
+      }
+    ],
+    "pexelsId": 3290068
+  },
+  "CV": {
+    "capital": "Praia",
+    "languages": [
+      "Portuguese",
+      "Cape Verdean Creole"
+    ],
+    "currency": "Cape Verdean escudo (CVE)",
+    "areaKm2": 4033,
+    "places": [
+      {
+        "name": "Cidade Velha",
+        "description": "The first European colonial city in the tropics, with a hillside fortress above the Atlantic."
+      },
+      {
+        "name": "Pico do Fogo",
+        "description": "An active volcanic peak rising from a dramatic caldera on Fogo Island."
+      },
+      {
+        "name": "Santa Maria Beach",
+        "description": "A long pale arc of sand on Sal Island, classic of Cape Verde's arid Atlantic shores."
+      }
+    ],
+    "pexelsId": 2387873
+  },
+  "KH": {
+    "capital": "Phnom Penh",
+    "languages": [
+      "Khmer"
+    ],
+    "currency": "Cambodian riel (KHR)",
+    "areaKm2": 181035,
+    "places": [
+      {
+        "name": "Angkor Wat",
+        "description": "The vast temple-mountain complex near Siem Reap, apex of Khmer imperial architecture."
+      },
+      {
+        "name": "Tonle Sap",
+        "description": "A seasonally expanding lake that pulses with Cambodia's monsoon rhythm and floating villages."
+      },
+      {
+        "name": "Bayon Temple",
+        "description": "A forest of smiling stone faces at the heart of Angkor Thom's ancient capital."
+      }
+    ],
+    "pexelsId": 2662116
+  },
+  "CM": {
+    "capital": "Yaounde",
+    "languages": [
+      "French",
+      "English"
+    ],
+    "currency": "Central African CFA franc (XAF)",
+    "areaKm2": 475442,
+    "places": [
+      {
+        "name": "Waza National Park",
+        "description": "Sahelian savannah in the far north, known for elephants and seasonal wetlands."
+      },
+      {
+        "name": "Mount Cameroon",
+        "description": "An active volcano near the coast, one of West Africa's highest peaks."
+      },
+      {
+        "name": "Dja Faunal Reserve",
+        "description": "A nearly intact rainforest reserve in the south, rich in primates and canopy life."
+      }
+    ],
+    "pexelsId": 346885
+  },
+  "CA": {
+    "capital": "Ottawa",
+    "languages": [
+      "English",
+      "French"
+    ],
+    "currency": "Canadian dollar (CAD)",
+    "areaKm2": 9984670,
+    "places": [
+      {
+        "name": "Niagara Falls",
+        "description": "Thundering cataracts on the Ontario-New York border, a continental natural spectacle."
+      },
+      {
+        "name": "Banff National Park",
+        "description": "Iconic Canadian Rockies landscapes of turquoise lakes and glaciated peaks."
+      },
+      {
+        "name": "Old Quebec",
+        "description": "A fortified riverside city core that preserves French colonial streetscapes in North America."
+      }
+    ],
+    "pexelsId": 3934015
+  },
+  "CF": {
+    "capital": "Bangui",
+    "languages": [
+      "French",
+      "Sango"
+    ],
+    "currency": "Central African CFA franc (XAF)",
+    "areaKm2": 622984,
+    "places": [
+      {
+        "name": "Dzanga-Sangha",
+        "description": "Rainforest and bai clearings in the southwest, renowned for forest elephants and lowland gorillas."
+      },
+      {
+        "name": "Boali Falls",
+        "description": "Broad cascades on the Mbali River northwest of Bangui, a classic Central African waterfall."
+      },
+      {
+        "name": "Manovo-Gounda St Floris",
+        "description": "A vast northern park of savannah, rivers, and wildlife corridors near the Chad border."
+      }
+    ],
+    "pexelsId": 2662116
+  },
+  "TD": {
+    "capital": "N'Djamena",
+    "languages": [
+      "French",
+      "Arabic"
+    ],
+    "currency": "Central African CFA franc (XAF)",
+    "areaKm2": 1284000,
+    "places": [
+      {
+        "name": "Ennedi Plateau",
+        "description": "A Sahara sandstone massif of arches, canyons, and rock art in northeastern Chad."
+      },
+      {
+        "name": "Lakes of Ounianga",
+        "description": "Desert lakes nestled among dunes, a UNESCO landscape of Saharan hydrology."
+      },
+      {
+        "name": "Zakouma National Park",
+        "description": "A recovering savannah reserve in the southeast, known for elephants and seasonal floods."
+      }
+    ],
+    "pexelsId": 1761279
+  },
+  "CL": {
+    "capital": "Santiago",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Chilean peso (CLP)",
+    "areaKm2": 756102,
+    "places": [
+      {
+        "name": "Torres del Paine",
+        "description": "Granite towers and glacial lakes defining Patagonia's most iconic national park."
+      },
+      {
+        "name": "Atacama Desert",
+        "description": "One of Earth's driest deserts, with salt flats, geysers, and crystalline night skies."
+      },
+      {
+        "name": "Easter Island",
+        "description": "Remote Pacific island of monumental moai statues carved by Rapa Nui culture."
+      }
+    ],
+    "pexelsId": 2880507
+  },
+  "CN": {
+    "capital": "Beijing",
+    "languages": [
+      "Mandarin Chinese"
+    ],
+    "currency": "Chinese yuan (CNY)",
+    "areaKm2": 9596961,
+    "places": [
+      {
+        "name": "Great Wall of China",
+        "description": "Vast fortification systems snaking across northern ridges, a symbol of imperial frontier defense."
+      },
+      {
+        "name": "Forbidden City",
+        "description": "The imperial palace complex at Beijing's center, a masterpiece of Ming and Qing architecture."
+      },
+      {
+        "name": "Guilin Karst",
+        "description": "Li River landscapes of limestone peaks rising from misty rice paddies and waterways."
+      }
+    ],
+    "pexelsId": 417074
+  },
+  "CO": {
+    "capital": "Bogota",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Colombian peso (COP)",
+    "areaKm2": 1141748,
+    "places": [
+      {
+        "name": "Cartagena Old Town",
+        "description": "Walled Caribbean streets of balconies and plazas, a jewel of Spanish colonial heritage."
+      },
+      {
+        "name": "Ciudad Perdida",
+        "description": "A stone-terraced Tayrona city hidden in Sierra Nevada rainforest above the Caribbean coast."
+      },
+      {
+        "name": "Cocora Valley",
+        "description": "Home of soaring wax palms in the Andean cloud forests of the Coffee Cultural Landscape."
+      }
+    ],
+    "pexelsId": 3408744
+  },
+  "KM": {
+    "capital": "Moroni",
+    "languages": [
+      "Comorian",
+      "Arabic",
+      "French"
+    ],
+    "currency": "Comorian franc (KMF)",
+    "areaKm2": 1862,
+    "places": [
+      {
+        "name": "Mount Karthala",
+        "description": "An active shield volcano on Grande Comore with one of the world's largest calderas."
+      },
+      {
+        "name": "Medina of Moroni",
+        "description": "Narrow lanes and coral-stone mosques in the capital of this Indian Ocean archipelago."
+      },
+      {
+        "name": "Moheli Marine Park",
+        "description": "Protected reefs and beaches known for green turtles and quiet island biodiversity."
+      }
+    ],
+    "pexelsId": 1285625
+  },
+  "CG": {
+    "capital": "Brazzaville",
+    "languages": [
+      "French"
+    ],
+    "currency": "Central African CFA franc (XAF)",
+    "areaKm2": 342000,
+    "places": [
+      {
+        "name": "Congo River",
+        "description": "One of Africa's great rivers, framing Brazzaville with broad channels and island vistas."
+      },
+      {
+        "name": "Lefini Reserve",
+        "description": "Savannah and gallery forest north of the capital, a refuge for reintroduced primates."
+      },
+      {
+        "name": "God's Bridge",
+        "description": "A natural stone arch near Loudima, a striking geological formation in the south."
+      }
+    ],
+    "pexelsId": 247824
+  },
+  "CD": {
+    "capital": "Kinshasa",
+    "languages": [
+      "French",
+      "Lingala",
+      "Swahili"
+    ],
+    "currency": "Congolese franc (CDF)",
+    "areaKm2": 2344858,
+    "places": [
+      {
+        "name": "Virunga National Park",
+        "description": "Africa's oldest national park, home to mountain gorillas, volcanoes, and rift lakes."
+      },
+      {
+        "name": "Boyoma Falls",
+        "description": "A series of cataracts on the Congo River near Kisangani, historically called Stanley Falls."
+      },
+      {
+        "name": "Okapi Wildlife Reserve",
+        "description": "Ituri rainforest protecting the elusive okapi and dense equatorial biodiversity."
+      }
+    ],
+    "pexelsId": 552779
+  },
+  "CR": {
+    "capital": "San Jose",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Costa Rican colon (CRC)",
+    "areaKm2": 51100,
+    "places": [
+      {
+        "name": "Arenal Volcano",
+        "description": "A conical stratovolcano above rainforests and hot springs in northern Costa Rica."
+      },
+      {
+        "name": "Monteverde Cloud Forest",
+        "description": "Misty highland forest famed for epiphytes, hanging bridges, and canopy biodiversity."
+      },
+      {
+        "name": "Manuel Antonio",
+        "description": "Pacific beaches backed by rainforest where wildlife and shoreline meet."
+      }
+    ],
+    "pexelsId": 1366919
+  },
+  "CI": {
+    "capital": "Yamoussoukro",
+    "languages": [
+      "French"
+    ],
+    "currency": "West African CFA franc (XOF)",
+    "areaKm2": 322463,
+    "places": [
+      {
+        "name": "Basilica of Our Lady of Peace",
+        "description": "An immense dome-crowned basilica in Yamoussoukro inspired by St. Peter's in Rome."
+      },
+      {
+        "name": "Tai National Park",
+        "description": "One of the last major blocks of primary West African rainforest."
+      },
+      {
+        "name": "Grand-Bassam",
+        "description": "A historic coastal town of colonial facades and Atlantic beaches near Abidjan."
+      }
+    ],
+    "pexelsId": 1586298
+  },
+  "HR": {
+    "capital": "Zagreb",
+    "languages": [
+      "Croatian"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 56594,
+    "places": [
+      {
+        "name": "Dubrovnik Old Town",
+        "description": "Marble streets and limestone walls rising above the Adriatic, a classic Dalmatian fortress city."
+      },
+      {
+        "name": "Plitvice Lakes",
+        "description": "Turquoise cascading lakes linked by travertine barriers in a forested karst basin."
+      },
+      {
+        "name": "Diocletian's Palace",
+        "description": "A living Roman palace quarter that forms the historic heart of Split."
+      }
+    ],
+    "pexelsId": 355465
+  },
+  "CU": {
+    "capital": "Havana",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Cuban peso (CUP)",
+    "areaKm2": 109884,
+    "places": [
+      {
+        "name": "Old Havana",
+        "description": "Colonial plazas, fortresses, and pastel facades along the harbor of Cuba's capital."
+      },
+      {
+        "name": "Vinales Valley",
+        "description": "Tobacco fields and limestone mogotes in western Cuba's rural heartland."
+      },
+      {
+        "name": "Trinidad",
+        "description": "A meticulously preserved Spanish colonial town near the Escambray Mountains."
+      }
+    ],
+    "pexelsId": 2901209
+  },
+  "CY": {
+    "capital": "Nicosia",
+    "languages": [
+      "Greek",
+      "Turkish"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 9251,
+    "places": [
+      {
+        "name": "Paphos Archaeological Park",
+        "description": "Mosaics and ruins of ancient villas beside the western Mediterranean shore."
+      },
+      {
+        "name": "Troodos Mountains",
+        "description": "Pine-clad peaks sheltering painted Byzantine churches and cool highland villages."
+      },
+      {
+        "name": "Kyrenia Harbour",
+        "description": "A horseshoe harbor beneath a medieval castle on the island's northern coast."
+      }
+    ],
+    "pexelsId": 291762
+  },
+  "CZ": {
+    "capital": "Prague",
+    "languages": [
+      "Czech"
+    ],
+    "currency": "Czech koruna (CZK)",
+    "areaKm2": 78867,
+    "places": [
+      {
+        "name": "Prague Castle",
+        "description": "A hilltop complex of palaces and the Gothic St. Vitus Cathedral above the Vltava."
+      },
+      {
+        "name": "Cesky Krumlov",
+        "description": "A riverside Renaissance town coiled around a castle bend in South Bohemia."
+      },
+      {
+        "name": "Bohemian Switzerland",
+        "description": "Sandstone towers and deep gorges along the Elbe in the north."
+      }
+    ],
+    "pexelsId": 2880507
+  },
+  "DK": {
+    "capital": "Copenhagen",
+    "languages": [
+      "Danish"
+    ],
+    "currency": "Danish krone (DKK)",
+    "areaKm2": 43094,
+    "places": [
+      {
+        "name": "Nyhavn",
+        "description": "Copenhagen's colorful canal front of gabled houses and historic sailing ships."
+      },
+      {
+        "name": "Kronborg Castle",
+        "description": "A Renaissance fortress at Helsingor guarding the Oresund strait."
+      },
+      {
+        "name": "Mons Klint",
+        "description": "Chalk cliffs plunging into the Baltic on the island of Mon."
+      }
+    ],
+    "pexelsId": 167699
+  },
+  "DJ": {
+    "capital": "Djibouti",
+    "languages": [
+      "French",
+      "Arabic",
+      "Somali",
+      "Afar"
+    ],
+    "currency": "Djiboutian franc (DJF)",
+    "areaKm2": 23200,
+    "places": [
+      {
+        "name": "Lake Assal",
+        "description": "A hypersaline crater lake below sea level, among Earth's saltiest bodies of water."
+      },
+      {
+        "name": "Lake Abbe",
+        "description": "Surreal limestone chimneys and flamingos at the Ethiopian border in the Afar Depression."
+      },
+      {
+        "name": "Day Forest",
+        "description": "A misty highland woodland on Goda Mountain, a rare green refuge in an arid land."
+      }
+    ],
+    "pexelsId": 3225517
+  },
+  "DM": {
+    "capital": "Roseau",
+    "languages": [
+      "English"
+    ],
+    "currency": "East Caribbean dollar (XCD)",
+    "areaKm2": 751,
+    "places": [
+      {
+        "name": "Boiling Lake",
+        "description": "A flooded fumarole in Morne Trois Pitons National Park, one of the world's largest hot lakes."
+      },
+      {
+        "name": "Emerald Pool",
+        "description": "A rainforest waterfall pool glowing green beneath the canopy."
+      },
+      {
+        "name": "Champagne Reef",
+        "description": "Coastal volcanic vents that send streams of bubbles through clear Caribbean water."
+      }
+    ],
+    "pexelsId": 346529
+  },
+  "DO": {
+    "capital": "Santo Domingo",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Dominican peso (DOP)",
+    "areaKm2": 48671,
+    "places": [
+      {
+        "name": "Colonial Zone",
+        "description": "The Americas' first European city core, with cathedrals and plazas in Santo Domingo."
+      },
+      {
+        "name": "Los Haitises",
+        "description": "Mangrove bays and limestone islets on the northeast coast, rich in caves and birdlife."
+      },
+      {
+        "name": "Pico Duarte",
+        "description": "The Caribbean's highest peak, rising from the Cordillera Central."
+      }
+    ],
+    "pexelsId": 4388167
+  },
+  "EC": {
+    "capital": "Quito",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "United States dollar (USD)",
+    "areaKm2": 283561,
+    "places": [
+      {
+        "name": "Galapagos Islands",
+        "description": "Volcanic islands where unique wildlife shaped Darwin's insights into evolution."
+      },
+      {
+        "name": "Historic Center of Quito",
+        "description": "A highland colonial core of churches and plazas high in the Andes."
+      },
+      {
+        "name": "Cotopaxi",
+        "description": "A nearly perfect snow-capped stratovolcano south of Quito."
+      }
+    ],
+    "pexelsId": 4101555
+  },
+  "EG": {
+    "capital": "Cairo",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Egyptian pound (EGP)",
+    "areaKm2": 1002450,
+    "places": [
+      {
+        "name": "Giza Pyramids",
+        "description": "Monumental Old Kingdom tombs on the desert edge of Cairo, among humanity's oldest wonders."
+      },
+      {
+        "name": "Valley of the Kings",
+        "description": "Rock-cut royal tombs across the Nile from Luxor in ancient Thebes."
+      },
+      {
+        "name": "Abu Simbel",
+        "description": "Colossal rock temples of Ramesses II overlooking Lake Nasser in Nubia."
+      }
+    ],
+    "pexelsId": 2583852
+  },
+  "SV": {
+    "capital": "San Salvador",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "United States dollar (USD)",
+    "areaKm2": 21041,
+    "places": [
+      {
+        "name": "Joyas de Ceren",
+        "description": "A Maya farming village preserved under volcanic ash, a Pompeii of the Americas."
+      },
+      {
+        "name": "Santa Ana Volcano",
+        "description": "A crater lake volcano overlooking western El Salvador's highlands."
+      },
+      {
+        "name": "Suchitoto",
+        "description": "A whitewashed colonial town above a reservoir, known for arts and cobbled streets."
+      }
+    ],
+    "pexelsId": 2325446
+  },
+  "GQ": {
+    "capital": "Malabo",
+    "languages": [
+      "Spanish",
+      "French",
+      "Portuguese"
+    ],
+    "currency": "Central African CFA franc (XAF)",
+    "areaKm2": 28051,
+    "places": [
+      {
+        "name": "Pico Basile",
+        "description": "The highest peak of Bioko Island, often cloaked in cloud forest above Malabo."
+      },
+      {
+        "name": "Monte Alen National Park",
+        "description": "Mainland rainforest protecting gorillas, elephants, and dense equatorial habitat."
+      },
+      {
+        "name": "Arena Blanca",
+        "description": "A pale volcanic beach on Bioko's southern shore amid rainforest and black-sand coasts."
+      }
+    ],
+    "pexelsId": 3310871
+  },
+  "ER": {
+    "capital": "Asmara",
+    "languages": [
+      "Tigrinya",
+      "Arabic",
+      "English"
+    ],
+    "currency": "Eritrean nakfa (ERN)",
+    "areaKm2": 117600,
+    "places": [
+      {
+        "name": "Asmara Modernist Architecture",
+        "description": "A remarkably intact ensemble of early-20th-century Futurist and Rationalist buildings."
+      },
+      {
+        "name": "Dahlak Archipelago",
+        "description": "Red Sea islands of coral reefs and quiet beaches off Massawa."
+      },
+      {
+        "name": "Qohaito",
+        "description": "Highland ruins of an ancient Aksumite-linked city with monumental stone remains."
+      }
+    ],
+    "pexelsId": 1659438
+  },
+  "EE": {
+    "capital": "Tallinn",
+    "languages": [
+      "Estonian"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 45228,
+    "places": [
+      {
+        "name": "Tallinn Old Town",
+        "description": "Intact medieval walls and spires around a hilltop upper town by the Baltic."
+      },
+      {
+        "name": "Lahemaa National Park",
+        "description": "Bogs, manor houses, and rocky Baltic shoreline east of Tallinn."
+      },
+      {
+        "name": "Saaremaa",
+        "description": "Estonia's largest island, known for windmills, juniper heaths, and meteor crater lakes."
+      }
+    ],
+    "pexelsId": 2422588
+  },
+  "SZ": {
+    "capital": "Mbabane",
+    "languages": [
+      "English",
+      "siSwati"
+    ],
+    "currency": "Swazi lilangeni (SZL)",
+    "areaKm2": 17364,
+    "places": [
+      {
+        "name": "Sibebe Rock",
+        "description": "A massive granite dome near Mbabane, among the world's largest exposed plutons."
+      },
+      {
+        "name": "Mlilwane Wildlife Sanctuary",
+        "description": "A pioneer conservation area of hills and wetlands in the Ezulwini Valley."
+      },
+      {
+        "name": "Malolotja Nature Reserve",
+        "description": "Highland grasslands and waterfalls along the northwestern escarpment."
+      }
+    ],
+    "pexelsId": 1450353
+  },
+  "ET": {
+    "capital": "Addis Ababa",
+    "languages": [
+      "Amharic"
+    ],
+    "currency": "Ethiopian birr (ETB)",
+    "areaKm2": 1104300,
+    "places": [
+      {
+        "name": "Lalibela",
+        "description": "Rock-hewn churches carved from living stone, a pilgrimage heart of Ethiopian Christianity."
+      },
+      {
+        "name": "Simien Mountains",
+        "description": "Jagged highland peaks and plateaus home to gelada monkeys and dramatic escarpments."
+      },
+      {
+        "name": "Danakil Depression",
+        "description": "A colorful volcanic and salt landscape among Earth's hottest and lowest places."
+      }
+    ],
+    "pexelsId": 210205
+  },
+  "FJ": {
+    "capital": "Suva",
+    "languages": [
+      "English",
+      "Fijian",
+      "Hindi"
+    ],
+    "currency": "Fijian dollar (FJD)",
+    "areaKm2": 18272,
+    "places": [
+      {
+        "name": "Bouma National Heritage Park",
+        "description": "Rainforest trails and coastal waterfalls on Taveuni, Fiji's Garden Island."
+      },
+      {
+        "name": "Sigatoka Sand Dunes",
+        "description": "Coastal dunes and archaeological layers on Viti Levu's Coral Coast."
+      },
+      {
+        "name": "Mamanuca Islands",
+        "description": "A scatter of reef-fringed islets west of Nadi, classic South Pacific scenery."
+      }
+    ],
+    "pexelsId": 2104152
+  },
+  "FI": {
+    "capital": "Helsinki",
+    "languages": [
+      "Finnish",
+      "Swedish"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 338145,
+    "places": [
+      {
+        "name": "Suomenlinna",
+        "description": "A sea fortress spread across islands at the mouth of Helsinki's harbor."
+      },
+      {
+        "name": "Lake Saimaa",
+        "description": "A labyrinthine freshwater system of islands and channels in eastern Finland."
+      },
+      {
+        "name": "Northern Lights Lapland",
+        "description": "Arctic skies and fell landscapes where aurora often dances in winter."
+      }
+    ],
+    "pexelsId": 2901209
+  },
+  "FR": {
+    "capital": "Paris",
+    "languages": [
+      "French"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 551695,
+    "places": [
+      {
+        "name": "Eiffel Tower",
+        "description": "Paris's iron lattice landmark and enduring symbol of French engineering and romance."
+      },
+      {
+        "name": "Mont Saint-Michel",
+        "description": "A tidal island abbey rising from Normandy's bay like a stone mirage."
+      },
+      {
+        "name": "French Alps",
+        "description": "High peaks centered on Mont Blanc, defining alpine culture and mountaineering."
+      }
+    ],
+    "pexelsId": 2782485
+  },
+  "GA": {
+    "capital": "Libreville",
+    "languages": [
+      "French"
+    ],
+    "currency": "Central African CFA franc (XAF)",
+    "areaKm2": 267668,
+    "places": [
+      {
+        "name": "Loango National Park",
+        "description": "Where forest elephants and hippos meet Atlantic surf along Gabon's coastline."
+      },
+      {
+        "name": "Ivindo National Park",
+        "description": "Rainforest and the Kongou Falls deep in Gabon's interior."
+      },
+      {
+        "name": "Lope National Park",
+        "description": "A mosaic of forest and savannah with ancient rock engravings along the Ogooue."
+      }
+    ],
+    "pexelsId": 346885
+  },
+  "GM": {
+    "capital": "Banjul",
+    "languages": [
+      "English"
+    ],
+    "currency": "Gambian dalasi (GMD)",
+    "areaKm2": 11295,
+    "places": [
+      {
+        "name": "Kunta Kinteh Island",
+        "description": "A UNESCO-listed river island fort tied to the history of the Atlantic slave trade."
+      },
+      {
+        "name": "River Gambia National Park",
+        "description": "Riverine islands protecting chimpanzees and gallery forest along the Gambia River."
+      },
+      {
+        "name": "Abuko Nature Reserve",
+        "description": "A compact woodland reserve near the coast, rich in birds and monkeys."
+      }
+    ],
+    "pexelsId": 208701
+  },
+  "GE": {
+    "capital": "Tbilisi",
+    "languages": [
+      "Georgian"
+    ],
+    "currency": "Georgian lari (GEL)",
+    "areaKm2": 69700,
+    "places": [
+      {
+        "name": "Old Tbilisi",
+        "description": "Sulfur baths, carved balconies, and cliffside churches along the Mtkvari River."
+      },
+      {
+        "name": "Gergeti Trinity Church",
+        "description": "A lone mountaintop church beneath the snowy cone of Mount Kazbek."
+      },
+      {
+        "name": "Ushguli",
+        "description": "High Svaneti villages of medieval stone towers in the Caucasus."
+      }
+    ],
+    "pexelsId": 572688
+  },
+  "DE": {
+    "capital": "Berlin",
+    "languages": [
+      "German"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 357022,
+    "places": [
+      {
+        "name": "Brandenburg Gate",
+        "description": "Berlin's neoclassical landmark and enduring symbol of German history."
+      },
+      {
+        "name": "Neuschwanstein Castle",
+        "description": "A romantic 19th-century palace above Bavarian Alps foothills."
+      },
+      {
+        "name": "Rhine Valley",
+        "description": "Castle-studded slopes and vineyards along Germany's legendary river gorge."
+      }
+    ],
+    "pexelsId": 3278215
+  },
+  "GH": {
+    "capital": "Accra",
+    "languages": [
+      "English"
+    ],
+    "currency": "Ghanaian cedi (GHS)",
+    "areaKm2": 238533,
+    "places": [
+      {
+        "name": "Cape Coast Castle",
+        "description": "A coastal fortress that stands as a solemn monument to the Atlantic slave trade."
+      },
+      {
+        "name": "Kakum National Park",
+        "description": "Rainforest canopy walkways above the Central Region's evergreen forest."
+      },
+      {
+        "name": "Mole National Park",
+        "description": "Savannah woodland in the north, Ghana's largest wildlife reserve."
+      }
+    ],
+    "pexelsId": 462162
+  },
+  "GR": {
+    "capital": "Athens",
+    "languages": [
+      "Greek"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 131957,
+    "places": [
+      {
+        "name": "Acropolis of Athens",
+        "description": "The Parthenon-crowned hill that defines classical Greek civilization."
+      },
+      {
+        "name": "Santorini Caldera",
+        "description": "White cliff villages overlooking a volcanic Aegean caldera of deep blue."
+      },
+      {
+        "name": "Meteora",
+        "description": "Monasteries perched on sandstone pillars above the Thessalian plain."
+      }
+    ],
+    "pexelsId": 1285625
+  },
+  "GD": {
+    "capital": "Saint George's",
+    "languages": [
+      "English"
+    ],
+    "currency": "East Caribbean dollar (XCD)",
+    "areaKm2": 344,
+    "places": [
+      {
+        "name": "Grand Anse Beach",
+        "description": "A long crescent of sand along Grenada's southwestern shore."
+      },
+      {
+        "name": "Fort George",
+        "description": "A hilltop fort overlooking the horseshoe harbor of Saint George's."
+      },
+      {
+        "name": "Grand Etang",
+        "description": "A crater lake in rainforest highlands at the island's volcanic heart."
+      }
+    ],
+    "pexelsId": 1179229
+  },
+  "GT": {
+    "capital": "Guatemala City",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Guatemalan quetzal (GTQ)",
+    "areaKm2": 108889,
+    "places": [
+      {
+        "name": "Tikal",
+        "description": "Towering Maya pyramids rising from Peten rainforest in northern Guatemala."
+      },
+      {
+        "name": "Antigua Guatemala",
+        "description": "A colonial city of volcano views, ruined churches, and cobbled streets."
+      },
+      {
+        "name": "Lake Atitlan",
+        "description": "A deep volcanic lake ringed by Maya towns and three towering cones."
+      }
+    ],
+    "pexelsId": 2782485
+  },
+  "GN": {
+    "capital": "Conakry",
+    "languages": [
+      "French"
+    ],
+    "currency": "Guinean franc (GNF)",
+    "areaKm2": 245857,
+    "places": [
+      {
+        "name": "Mount Nimba",
+        "description": "A cross-border mountain reserve of unique highland ecosystems in the southeast."
+      },
+      {
+        "name": "Fouta Djallon",
+        "description": "A highland plateau of waterfalls and rolling hills, source of West African rivers."
+      },
+      {
+        "name": "Iles de Loos",
+        "description": "A small archipelago of beaches and colonial traces offshore from Conakry."
+      }
+    ],
+    "pexelsId": 3183132
+  },
+  "GW": {
+    "capital": "Bissau",
+    "languages": [
+      "Portuguese"
+    ],
+    "currency": "West African CFA franc (XOF)",
+    "areaKm2": 36125,
+    "places": [
+      {
+        "name": "Bijagos Archipelago",
+        "description": "A maze of islands and mangroves renowned for rich marine and birdlife."
+      },
+      {
+        "name": "Orango National Park",
+        "description": "Saltwater hippos and coastal savannah on the Bijagos islands."
+      },
+      {
+        "name": "Fortaleza d'Amura",
+        "description": "A star-shaped fort in Bissau that anchors the capital's colonial shoreline."
+      }
+    ],
+    "pexelsId": 417074
+  },
+  "GY": {
+    "capital": "Georgetown",
+    "languages": [
+      "English"
+    ],
+    "currency": "Guyanese dollar (GYD)",
+    "areaKm2": 214969,
+    "places": [
+      {
+        "name": "Kaieteur Falls",
+        "description": "A towering single-drop waterfall plunging into rainforest on the Potaro River."
+      },
+      {
+        "name": "Iwokrama Forest",
+        "description": "A vast protected rainforest corridor at the Guiana Shield's heart."
+      },
+      {
+        "name": "Stabroek Market",
+        "description": "Georgetown's cast-iron market hall and riverside commercial hub."
+      }
+    ],
+    "pexelsId": 807598
+  },
+  "HT": {
+    "capital": "Port-au-Prince",
+    "languages": [
+      "French",
+      "Haitian Creole"
+    ],
+    "currency": "Haitian gourde (HTG)",
+    "areaKm2": 27750,
+    "places": [
+      {
+        "name": "Citadelle Laferriere",
+        "description": "A mountaintop fortress above Cap-Haitien, symbol of post-revolution sovereignty."
+      },
+      {
+        "name": "Sans-Souci Palace",
+        "description": "Ruins of King Henri Christophe's palace complex near Milot."
+      },
+      {
+        "name": "Jacmel",
+        "description": "A coastal town known for colorful gingerbread houses and carnival arts."
+      }
+    ],
+    "pexelsId": 167699
+  },
+  "HN": {
+    "capital": "Tegucigalpa",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Honduran lempira (HNL)",
+    "areaKm2": 112492,
+    "places": [
+      {
+        "name": "Copan",
+        "description": "A Maya city famed for intricate stelae and a hieroglyphic stairway in western Honduras."
+      },
+      {
+        "name": "Roatan",
+        "description": "A Bay Island of coral reefs along the Mesoamerican Barrier Reef."
+      },
+      {
+        "name": "Lake Yojoa",
+        "description": "A highland volcanic lake ringed by misty hills and coffee country."
+      }
+    ],
+    "pexelsId": 3278215
+  },
+  "HU": {
+    "capital": "Budapest",
+    "languages": [
+      "Hungarian"
+    ],
+    "currency": "Hungarian forint (HUF)",
+    "areaKm2": 93028,
+    "places": [
+      {
+        "name": "Buda Castle",
+        "description": "The historic palace hill overlooking the Danube and Pest's grand boulevards."
+      },
+      {
+        "name": "Parliament Building",
+        "description": "A Gothic Revival riverside landmark that anchors Budapest's skyline."
+      },
+      {
+        "name": "Lake Balaton",
+        "description": "Central Europe's largest lake, a summer landscape of reeds and vineyards."
+      }
+    ],
+    "pexelsId": 3408744
+  },
+  "IS": {
+    "capital": "Reykjavik",
+    "languages": [
+      "Icelandic"
+    ],
+    "currency": "Icelandic krona (ISK)",
+    "areaKm2": 103000,
+    "places": [
+      {
+        "name": "Blue Lagoon",
+        "description": "A geothermal spa set amid black lava fields on the Reykjanes Peninsula."
+      },
+      {
+        "name": "Gullfoss",
+        "description": "A powerful double waterfall thundering into a canyon on the Golden Circle."
+      },
+      {
+        "name": "Jokulsarlon",
+        "description": "A glacial lagoon filled with icebergs calved from Vatnajokull."
+      }
+    ],
+    "pexelsId": 346529
+  },
+  "IN": {
+    "capital": "New Delhi",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "currency": "Indian rupee (INR)",
+    "areaKm2": 3287263,
+    "places": [
+      {
+        "name": "Taj Mahal",
+        "description": "The white-marble mausoleum in Agra, a Mughal masterpiece of love and symmetry."
+      },
+      {
+        "name": "Himalayas",
+        "description": "Earth's highest mountain range, framing India's northern frontier with sacred peaks."
+      },
+      {
+        "name": "Kerala Backwaters",
+        "description": "A labyrinth of lagoons and canals along India's tropical southwest coast."
+      }
+    ],
+    "pexelsId": 210205
+  },
+  "ID": {
+    "capital": "Jakarta",
+    "languages": [
+      "Indonesian"
+    ],
+    "currency": "Indonesian rupiah (IDR)",
+    "areaKm2": 1904569,
+    "places": [
+      {
+        "name": "Borobudur",
+        "description": "The world's largest Buddhist temple, a stone mandala rising from Central Java."
+      },
+      {
+        "name": "Komodo National Park",
+        "description": "Volcanic islands home to the Komodo dragon and coral-rich seas."
+      },
+      {
+        "name": "Bali Terraces",
+        "description": "Emerald rice terraces and temple culture that define Bali's cultural landscape."
+      }
+    ],
+    "pexelsId": 1761279
+  },
+  "IR": {
+    "capital": "Tehran",
+    "languages": [
+      "Persian"
+    ],
+    "currency": "Iranian rial (IRR)",
+    "areaKm2": 1648195,
+    "places": [
+      {
+        "name": "Persepolis",
+        "description": "The ceremonial capital of the Achaemenid Empire, carved into Fars highland stone."
+      },
+      {
+        "name": "Isfahan Naqsh-e Jahan",
+        "description": "A grand Safavid square framed by mosques, palace, and bazaar."
+      },
+      {
+        "name": "Yazd Old City",
+        "description": "Wind towers and adobe lanes in a desert city of Zoroastrian heritage."
+      }
+    ],
+    "pexelsId": 534164
+  },
+  "IQ": {
+    "capital": "Baghdad",
+    "languages": [
+      "Arabic",
+      "Kurdish"
+    ],
+    "currency": "Iraqi dinar (IQD)",
+    "areaKm2": 438317,
+    "places": [
+      {
+        "name": "Ziggurat of Ur",
+        "description": "An ancient Mesopotamian temple platform rising from the southern plains."
+      },
+      {
+        "name": "Erbil Citadel",
+        "description": "A continuously inhabited mound city at the heart of Kurdistan's capital."
+      },
+      {
+        "name": "Hatra",
+        "description": "Parthian ruins of temples and walls in the desert northwest of Baghdad."
+      }
+    ],
+    "pexelsId": 1237119
+  },
+  "IE": {
+    "capital": "Dublin",
+    "languages": [
+      "Irish",
+      "English"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 70273,
+    "places": [
+      {
+        "name": "Cliffs of Moher",
+        "description": "Sheer Atlantic cliffs along County Clare, among Ireland's most dramatic coastlines."
+      },
+      {
+        "name": "Giant's Causeway",
+        "description": "Hexagonal basalt columns on the Antrim coast shaped by ancient lava flows."
+      },
+      {
+        "name": "Trinity College",
+        "description": "Dublin's historic university home to the Book of Kells and a landmark library."
+      }
+    ],
+    "pexelsId": 4388167
+  },
+  "IL": {
+    "capital": "Jerusalem",
+    "languages": [
+      "Hebrew",
+      "Arabic"
+    ],
+    "currency": "Israeli new shekel (ILS)",
+    "areaKm2": 22072,
+    "places": [
+      {
+        "name": "Old City of Jerusalem",
+        "description": "Sacred quarters and stone walls holy to Judaism, Christianity, and Islam."
+      },
+      {
+        "name": "Masada",
+        "description": "A desert mesa fortress above the Dead Sea, iconic in Jewish history."
+      },
+      {
+        "name": "Sea of Galilee",
+        "description": "A freshwater lake in the north, central to landscapes of biblical tradition."
+      }
+    ],
+    "pexelsId": 1450353
+  },
+  "IT": {
+    "capital": "Rome",
+    "languages": [
+      "Italian"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 301340,
+    "places": [
+      {
+        "name": "Colosseum",
+        "description": "Rome's vast amphitheater, emblem of imperial spectacle and engineering."
+      },
+      {
+        "name": "Venice",
+        "description": "A lagoon city of canals, bridges, and palazzi unlike any other urban landscape."
+      },
+      {
+        "name": "Amalfi Coast",
+        "description": "Cliffside towns and terraced lemon groves above the Tyrrhenian Sea."
+      }
+    ],
+    "pexelsId": 2739664
+  },
+  "JM": {
+    "capital": "Kingston",
+    "languages": [
+      "English"
+    ],
+    "currency": "Jamaican dollar (JMD)",
+    "areaKm2": 10991,
+    "places": [
+      {
+        "name": "Dunn's River Falls",
+        "description": "A terraced waterfall cascading toward the Caribbean near Ocho Rios."
+      },
+      {
+        "name": "Blue Mountains",
+        "description": "Misty peaks famous for coffee slopes and panoramic ridges above Kingston."
+      },
+      {
+        "name": "Negril Cliffs",
+        "description": "Limestone bluffs and sunset shores at Jamaica's western tip."
+      }
+    ],
+    "pexelsId": 2422588
+  },
+  "JP": {
+    "capital": "Tokyo",
+    "languages": [
+      "Japanese"
+    ],
+    "currency": "Japanese yen (JPY)",
+    "areaKm2": 377975,
+    "places": [
+      {
+        "name": "Mount Fuji",
+        "description": "Japan's sacred conical volcano, an enduring emblem of the nation's landscape."
+      },
+      {
+        "name": "Kyoto Temples",
+        "description": "Historic shrines and gardens that preserve classical Japanese aesthetics."
+      },
+      {
+        "name": "Hiroshima Peace Memorial",
+        "description": "The Genbaku Dome and park that commemorate peace after atomic destruction."
+      }
+    ],
+    "pexelsId": 2387873
+  },
+  "JO": {
+    "capital": "Amman",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Jordanian dinar (JOD)",
+    "areaKm2": 89342,
+    "places": [
+      {
+        "name": "Petra",
+        "description": "The rose-red Nabataean city carved into sandstone cliffs of southern Jordan."
+      },
+      {
+        "name": "Wadi Rum",
+        "description": "Vast desert canyons and red dunes long associated with Bedouin life and epic vistas."
+      },
+      {
+        "name": "Dead Sea",
+        "description": "Earth's lowest land shoreline, a hypersaline lake shared with Israel and Palestine."
+      }
+    ],
+    "pexelsId": 1271619
+  },
+  "KZ": {
+    "capital": "Astana",
+    "languages": [
+      "Kazakh",
+      "Russian"
+    ],
+    "currency": "Kazakhstani tenge (KZT)",
+    "areaKm2": 2724900,
+    "places": [
+      {
+        "name": "Charyn Canyon",
+        "description": "A colorful gorge often compared to a smaller Grand Canyon in southeastern Kazakhstan."
+      },
+      {
+        "name": "Lake Balkhash",
+        "description": "A vast semi-fresh, semi-saline lake unique in Central Asian hydrology."
+      },
+      {
+        "name": "Mausoleum of Khoja Ahmed Yasawi",
+        "description": "A Timurid masterpiece in Turkestan and a spiritual landmark of the steppe."
+      }
+    ],
+    "pexelsId": 2166553
+  },
+  "KE": {
+    "capital": "Nairobi",
+    "languages": [
+      "English",
+      "Swahili"
+    ],
+    "currency": "Kenyan shilling (KES)",
+    "areaKm2": 580367,
+    "places": [
+      {
+        "name": "Maasai Mara",
+        "description": "Iconic savannah where the Great Migration crosses into Kenya's southwest."
+      },
+      {
+        "name": "Mount Kenya",
+        "description": "An equatorial mountain of glaciers and alpine zones, Africa's second-highest peak."
+      },
+      {
+        "name": "Lamu Old Town",
+        "description": "A Swahili coastal town of coral-stone houses and dhow harbors."
+      }
+    ],
+    "pexelsId": 534164
+  },
+  "KI": {
+    "capital": "South Tarawa",
+    "languages": [
+      "English",
+      "Gilbertese"
+    ],
+    "currency": "Australian dollar (AUD)",
+    "areaKm2": 811,
+    "places": [
+      {
+        "name": "Christmas Island (Kiritimati)",
+        "description": "One of the world's largest coral atolls, rich in seabirds and lagoon life."
+      },
+      {
+        "name": "South Tarawa",
+        "description": "A densely inhabited atoll strip that is the political and cultural heart of Kiribati."
+      },
+      {
+        "name": "Phoenix Islands",
+        "description": "A remote protected atoll wilderness of reefs and seabird colonies."
+      }
+    ],
+    "pexelsId": 2440021
+  },
+  "KP": {
+    "capital": "Pyongyang",
+    "languages": [
+      "Korean"
+    ],
+    "currency": "North Korean won (KPW)",
+    "areaKm2": 120538,
+    "places": [
+      {
+        "name": "Mount Paektu",
+        "description": "A sacred volcanic mountain on the Chinese border, central to Korean national myth."
+      },
+      {
+        "name": "Kumsusan Palace of the Sun",
+        "description": "A monumental mausoleum complex in Pyongyang dedicated to the country's leaders."
+      },
+      {
+        "name": "West Sea Barrage",
+        "description": "A vast coastal dam and locks system near Nampo on the Yellow Sea."
+      }
+    ],
+    "pexelsId": 1586298
+  },
+  "KR": {
+    "capital": "Seoul",
+    "languages": [
+      "Korean"
+    ],
+    "currency": "South Korean won (KRW)",
+    "areaKm2": 100210,
+    "places": [
+      {
+        "name": "Gyeongbokgung Palace",
+        "description": "The grand Joseon palace at the heart of historic Seoul."
+      },
+      {
+        "name": "Jeju Island",
+        "description": "A volcanic island of lava tubes, waterfalls, and Hallasan peak."
+      },
+      {
+        "name": "Bulguksa",
+        "description": "A classical Buddhist temple complex near Gyeongju, capital of ancient Silla."
+      }
+    ],
+    "pexelsId": 208701
+  },
+  "KW": {
+    "capital": "Kuwait City",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Kuwaiti dinar (KWD)",
+    "areaKm2": 17818,
+    "places": [
+      {
+        "name": "Kuwait Towers",
+        "description": "Spheres of water and observation on the Gulf waterfront, icons of modern Kuwait."
+      },
+      {
+        "name": "Failaka Island",
+        "description": "An island of Dilmun and Hellenistic archaeological layers offshore from Kuwait City."
+      },
+      {
+        "name": "Grand Mosque",
+        "description": "Kuwait's principal mosque of white marble and expansive courtyards."
+      }
+    ],
+    "pexelsId": 1770809
+  },
+  "KG": {
+    "capital": "Bishkek",
+    "languages": [
+      "Kyrgyz",
+      "Russian"
+    ],
+    "currency": "Kyrgyzstani som (KGS)",
+    "areaKm2": 199951,
+    "places": [
+      {
+        "name": "Issyk-Kul",
+        "description": "A vast alpine lake ringed by snow peaks, among Central Asia's great natural wonders."
+      },
+      {
+        "name": "Tash Rabat",
+        "description": "A stone caravanserai high in the Tian Shan, remnant of Silk Road travel."
+      },
+      {
+        "name": "Ala Archa",
+        "description": "A mountain gorge and national park of glaciers and trails just south of Bishkek."
+      }
+    ],
+    "pexelsId": 1433052
+  },
+  "LA": {
+    "capital": "Vientiane",
+    "languages": [
+      "Lao"
+    ],
+    "currency": "Lao kip (LAK)",
+    "areaKm2": 236800,
+    "places": [
+      {
+        "name": "Luang Prabang",
+        "description": "A UNESCO town of temples and French colonial streets at a Mekong confluence."
+      },
+      {
+        "name": "Plain of Jars",
+        "description": "Mysterious megalithic stone jars scattered across Xieng Khouang's plateaus."
+      },
+      {
+        "name": "Kuang Si Falls",
+        "description": "Turquoise multi-tiered waterfalls in the forests near Luang Prabang."
+      }
+    ],
+    "pexelsId": 247824
+  },
+  "LV": {
+    "capital": "Riga",
+    "languages": [
+      "Latvian"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 64589,
+    "places": [
+      {
+        "name": "Riga Old Town",
+        "description": "Art Nouveau facades and medieval streets around the Daugava River."
+      },
+      {
+        "name": "Gauja National Park",
+        "description": "Sandstone cliffs, castles, and river valleys in Latvia's Livonian Switzerland."
+      },
+      {
+        "name": "Cape Kolka",
+        "description": "Where the Gulf of Riga meets the Baltic Sea at a windswept northern tip."
+      }
+    ],
+    "pexelsId": 2469122
+  },
+  "LB": {
+    "capital": "Beirut",
+    "languages": [
+      "Arabic",
+      "French"
+    ],
+    "currency": "Lebanese pound (LBP)",
+    "areaKm2": 10452,
+    "places": [
+      {
+        "name": "Jeita Grotto",
+        "description": "Spectacular limestone caves of stalactites near Beirut."
+      },
+      {
+        "name": "Baalbek",
+        "description": "Monumental Roman temple ruins on the Bekaa plain."
+      },
+      {
+        "name": "Byblos",
+        "description": "One of the world's oldest continuously inhabited cities, with a Crusader harbor."
+      }
+    ],
+    "pexelsId": 291762
+  },
+  "LS": {
+    "capital": "Maseru",
+    "languages": [
+      "English",
+      "Sesotho"
+    ],
+    "currency": "Lesotho loti (LSL)",
+    "areaKm2": 30355,
+    "places": [
+      {
+        "name": "Maloti Mountains",
+        "description": "Highlands that earn Lesotho the name Kingdom in the Sky."
+      },
+      {
+        "name": "Sani Pass",
+        "description": "A dramatic mountain pass linking Lesotho to South Africa's Drakensberg."
+      },
+      {
+        "name": "Thaba Bosiu",
+        "description": "A flat-topped mountain fortress central to Basotho nationhood."
+      }
+    ],
+    "pexelsId": 1271619
+  },
+  "LR": {
+    "capital": "Monrovia",
+    "languages": [
+      "English"
+    ],
+    "currency": "Liberian dollar (LRD)",
+    "areaKm2": 111369,
+    "places": [
+      {
+        "name": "Sapo National Park",
+        "description": "Primary rainforest in the southeast, Liberia's flagship biodiversity reserve."
+      },
+      {
+        "name": "Providence Island",
+        "description": "A historic island in Monrovia tied to the settlement of free African Americans."
+      },
+      {
+        "name": "Robertsport",
+        "description": "A surfing coastline of beaches and lagoons beneath Cape Mount."
+      }
+    ],
+    "pexelsId": 2387873
+  },
+  "LY": {
+    "capital": "Tripoli",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Libyan dinar (LYD)",
+    "areaKm2": 1759540,
+    "places": [
+      {
+        "name": "Leptis Magna",
+        "description": "Among the best-preserved Roman cities on the Mediterranean, near Khoms."
+      },
+      {
+        "name": "Acacus Mountains",
+        "description": "Saharan rock art and sandstone arches in southwestern Libya."
+      },
+      {
+        "name": "Cyrene",
+        "description": "Greco-Roman ruins on the Green Mountain overlooking the Mediterranean."
+      }
+    ],
+    "pexelsId": 3250613
+  },
+  "LI": {
+    "capital": "Vaduz",
+    "languages": [
+      "German"
+    ],
+    "currency": "Swiss franc (CHF)",
+    "areaKm2": 160,
+    "places": [
+      {
+        "name": "Vaduz Castle",
+        "description": "A hillside castle overlooking the capital of this Alpine principality."
+      },
+      {
+        "name": "Rhine Valley",
+        "description": "The river corridor that forms Liechtenstein's western border with Switzerland."
+      },
+      {
+        "name": "Malbun",
+        "description": "A high Alpine village and ski basin beneath jagged peaks."
+      }
+    ],
+    "pexelsId": 346885
+  },
+  "LT": {
+    "capital": "Vilnius",
+    "languages": [
+      "Lithuanian"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 65300,
+    "places": [
+      {
+        "name": "Vilnius Old Town",
+        "description": "Baroque churches and courtyards filling one of Europe's largest historic centers."
+      },
+      {
+        "name": "Trakai Island Castle",
+        "description": "A red-brick Gothic castle on a lake island west of Vilnius."
+      },
+      {
+        "name": "Curonian Spit",
+        "description": "A long sand-dune peninsula shared with Russia along the Baltic Sea."
+      }
+    ],
+    "pexelsId": 167699
+  },
+  "LU": {
+    "capital": "Luxembourg City",
+    "languages": [
+      "Luxembourgish",
+      "French",
+      "German"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 2586,
+    "places": [
+      {
+        "name": "Luxembourg Old Quarters",
+        "description": "Fortified cliffs and casemates above the Alzette and Petrusse rivers."
+      },
+      {
+        "name": "Vianden Castle",
+        "description": "A restored medieval fortress towering over a riverside town."
+      },
+      {
+        "name": "Mullerthal",
+        "description": "Sandstone gorges and forest trails known as Luxembourg's Little Switzerland."
+      }
+    ],
+    "pexelsId": 1645028
+  },
+  "MG": {
+    "capital": "Antananarivo",
+    "languages": [
+      "Malagasy",
+      "French"
+    ],
+    "currency": "Malagasy ariary (MGA)",
+    "areaKm2": 587041,
+    "places": [
+      {
+        "name": "Avenue of the Baobabs",
+        "description": "Iconic giant baobabs lining a dirt road in western Madagascar."
+      },
+      {
+        "name": "Isalo National Park",
+        "description": "Sandstone canyons and natural pools in the central south."
+      },
+      {
+        "name": "Andasibe-Mantadia",
+        "description": "Rainforest home of the indri lemur east of the capital."
+      }
+    ],
+    "pexelsId": 3290068
+  },
+  "MW": {
+    "capital": "Lilongwe",
+    "languages": [
+      "English",
+      "Chichewa"
+    ],
+    "currency": "Malawian kwacha (MWK)",
+    "areaKm2": 118484,
+    "places": [
+      {
+        "name": "Lake Malawi",
+        "description": "A vast rift lake of clear waters and extraordinary cichlid fish diversity."
+      },
+      {
+        "name": "Mount Mulanje",
+        "description": "A granite massif rising abruptly from tea-growing plains in the south."
+      },
+      {
+        "name": "Liwonde National Park",
+        "description": "Riverine wildlife reserve along the Shire River."
+      }
+    ],
+    "pexelsId": 1285625
+  },
+  "MY": {
+    "capital": "Kuala Lumpur",
+    "languages": [
+      "Malay"
+    ],
+    "currency": "Malaysian ringgit (MYR)",
+    "areaKm2": 330803,
+    "places": [
+      {
+        "name": "Petronas Towers",
+        "description": "Twin skyscrapers that became modern icons of Kuala Lumpur."
+      },
+      {
+        "name": "Gunung Mulu",
+        "description": "Vast caves and razor-edged karst pinnacles in Sarawak rainforest."
+      },
+      {
+        "name": "George Town",
+        "description": "A UNESCO historic city of shophouses and street culture on Penang Island."
+      }
+    ],
+    "pexelsId": 552779
+  },
+  "MV": {
+    "capital": "Male",
+    "languages": [
+      "Dhivehi"
+    ],
+    "currency": "Maldivian rufiyaa (MVR)",
+    "areaKm2": 298,
+    "places": [
+      {
+        "name": "Coral Atolls",
+        "description": "Ring-shaped reefs and turquoise lagoons that define the Maldives archipelago."
+      },
+      {
+        "name": "Hulhumale",
+        "description": "A planned island extension of Male, showcasing modern atoll urban life."
+      },
+      {
+        "name": "Addu Atoll",
+        "description": "The southernmost atoll, with unique equatorial reefs and bridged islands."
+      }
+    ],
+    "pexelsId": 807598
+  },
+  "ML": {
+    "capital": "Bamako",
+    "languages": [
+      "French"
+    ],
+    "currency": "West African CFA franc (XOF)",
+    "areaKm2": 1240192,
+    "places": [
+      {
+        "name": "Timbuktu",
+        "description": "A legendary Saharan city of ancient manuscript libraries and mud-brick mosques."
+      },
+      {
+        "name": "Dogon Country",
+        "description": "Cliffside villages and cultural landscapes along the Bandiagara Escarpment."
+      },
+      {
+        "name": "Djenne Great Mosque",
+        "description": "The world's largest mud-brick building, rebuilt annually by community plastering."
+      }
+    ],
+    "pexelsId": 1586298
+  },
+  "MT": {
+    "capital": "Valletta",
+    "languages": [
+      "Maltese",
+      "English"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 316,
+    "places": [
+      {
+        "name": "Valletta",
+        "description": "A fortified Baroque capital of limestone streets founded by the Knights of St. John."
+      },
+      {
+        "name": "Hal Saflieni Hypogeum",
+        "description": "A subterranean prehistoric temple complex carved into rock."
+      },
+      {
+        "name": "Gozo's Ggantija",
+        "description": "Megalithic temples among the oldest freestanding stone structures on Earth."
+      }
+    ],
+    "pexelsId": 2104152
+  },
+  "MH": {
+    "capital": "Majuro",
+    "languages": [
+      "Marshallese",
+      "English"
+    ],
+    "currency": "United States dollar (USD)",
+    "areaKm2": 181,
+    "places": [
+      {
+        "name": "Bikini Atoll",
+        "description": "A lagoon scarred by nuclear tests, now a quiet reef wilderness of history."
+      },
+      {
+        "name": "Majuro Lagoon",
+        "description": "The capital atoll's broad lagoon, lined with causeways and Pacific shoreline."
+      },
+      {
+        "name": "Arno Atoll",
+        "description": "A classic Marshallese atoll of outer-island villages and reef passes."
+      }
+    ],
+    "pexelsId": 301599
+  },
+  "MR": {
+    "capital": "Nouakchott",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Mauritanian ouguiya (MRU)",
+    "areaKm2": 1030700,
+    "places": [
+      {
+        "name": "Banc d'Arguin",
+        "description": "Coastal wetlands where Sahara dunes meet Atlantic bird colonies."
+      },
+      {
+        "name": "Chinguetti",
+        "description": "An ancient Saharan library town of stone streets and historic manuscripts."
+      },
+      {
+        "name": "Richat Structure",
+        "description": "The Eye of the Sahara, a vast circular geological dome in the Adrar."
+      }
+    ],
+    "pexelsId": 208701
+  },
+  "MU": {
+    "capital": "Port Louis",
+    "languages": [
+      "English",
+      "French",
+      "Mauritian Creole"
+    ],
+    "currency": "Mauritian rupee (MUR)",
+    "areaKm2": 2040,
+    "places": [
+      {
+        "name": "Black River Gorges",
+        "description": "Upland rainforest and viewpoints in Mauritius's southwest highlands."
+      },
+      {
+        "name": "Le Morne Brabant",
+        "description": "A dramatic peninsula mountain tied to maroon heritage and UNESCO status."
+      },
+      {
+        "name": "Chamarel",
+        "description": "Colored earth dunes and waterfalls in a volcanic highland landscape."
+      }
+    ],
+    "pexelsId": 3225517
+  },
+  "MX": {
+    "capital": "Mexico City",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Mexican peso (MXN)",
+    "areaKm2": 1964375,
+    "places": [
+      {
+        "name": "Chichen Itza",
+        "description": "The Maya pyramid of El Castillo and surrounding ceremonial city in Yucatan."
+      },
+      {
+        "name": "Teotihuacan",
+        "description": "Monumental Avenue of the Dead and pyramids northeast of Mexico City."
+      },
+      {
+        "name": "Copper Canyon",
+        "description": "A vast canyon system in the Sierra Madre Occidental, deeper than the Grand Canyon in places."
+      }
+    ],
+    "pexelsId": 1450353
+  },
+  "FM": {
+    "capital": "Palikir",
+    "languages": [
+      "English"
+    ],
+    "currency": "United States dollar (USD)",
+    "areaKm2": 702,
+    "places": [
+      {
+        "name": "Nan Madol",
+        "description": "Basalt islet ruins of a stone city off Pohnpei, often called the Venice of the Pacific."
+      },
+      {
+        "name": "Chuuk Lagoon",
+        "description": "A vast lagoon holding a famed World War II shipwreck fleet beneath clear water."
+      },
+      {
+        "name": "Yap Stone Money",
+        "description": "Massive limestone discs that remain a cultural currency of Yapese tradition."
+      }
+    ],
+    "pexelsId": 355465
+  },
+  "MD": {
+    "capital": "Chisinau",
+    "languages": [
+      "Romanian"
+    ],
+    "currency": "Moldovan leu (MDL)",
+    "areaKm2": 33846,
+    "places": [
+      {
+        "name": "Orheiul Vechi",
+        "description": "Cave monasteries and archaeological sites above a dramatic river bend."
+      },
+      {
+        "name": "Milestii Mici",
+        "description": "Vast underground wine cellars stretching for kilometers beneath the hills."
+      },
+      {
+        "name": "Soroca Fortress",
+        "description": "A medieval Dniester River fortress with circular towers."
+      }
+    ],
+    "pexelsId": 4101555
+  },
+  "MC": {
+    "capital": "Monaco",
+    "languages": [
+      "French"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 2,
+    "places": [
+      {
+        "name": "Monte Carlo Casino",
+        "description": "The Belle Epoque gambling palace that made Monaco synonymous with glamour."
+      },
+      {
+        "name": "Prince's Palace",
+        "description": "The Grimaldi residence crowning the Rock of Monaco above the harbor."
+      },
+      {
+        "name": "Port Hercules",
+        "description": "The historic harbor where superyachts gather beneath the cliffside city."
+      }
+    ],
+    "pexelsId": 1366919
+  },
+  "MN": {
+    "capital": "Ulaanbaatar",
+    "languages": [
+      "Mongolian"
+    ],
+    "currency": "Mongolian togrog (MNT)",
+    "areaKm2": 1564116,
+    "places": [
+      {
+        "name": "Gobi Desert",
+        "description": "A vast steppe-desert of dunes, canyons, and fossil beds across southern Mongolia."
+      },
+      {
+        "name": "Orkhon Valley",
+        "description": "A cultural landscape of pastures and ancient capitals of steppe empires."
+      },
+      {
+        "name": "Khovsgol Lake",
+        "description": "A deep alpine lake in the north, often called Mongolia's blue pearl."
+      }
+    ],
+    "pexelsId": 462162
+  },
+  "ME": {
+    "capital": "Podgorica",
+    "languages": [
+      "Montenegrin"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 13812,
+    "places": [
+      {
+        "name": "Bay of Kotor",
+        "description": "A fjord-like Adriatic inlet ringed by mountains and medieval fortified towns."
+      },
+      {
+        "name": "Durmitor",
+        "description": "Glacial peaks, black lakes, and deep canyons in northern Montenegro."
+      },
+      {
+        "name": "Ostrog Monastery",
+        "description": "A cliffside Orthodox monastery whitewashed into a sheer rock face."
+      }
+    ],
+    "pexelsId": 2440021
+  },
+  "MA": {
+    "capital": "Rabat",
+    "languages": [
+      "Arabic",
+      "Tamazight",
+      "French"
+    ],
+    "currency": "Moroccan dirham (MAD)",
+    "areaKm2": 446550,
+    "places": [
+      {
+        "name": "Medina of Fez",
+        "description": "A labyrinthine medieval city of tanneries, mosques, and craft streets."
+      },
+      {
+        "name": "Jemaa el-Fnaa",
+        "description": "Marrakech's storied square of storytellers, markets, and evening life."
+      },
+      {
+        "name": "Sahara Dunes of Merzouga",
+        "description": "Golden Erg Chebbi dunes rising at Morocco's southeastern edge."
+      }
+    ],
+    "pexelsId": 3601425
+  },
+  "MZ": {
+    "capital": "Maputo",
+    "languages": [
+      "Portuguese"
+    ],
+    "currency": "Mozambican metical (MZN)",
+    "areaKm2": 801590,
+    "places": [
+      {
+        "name": "Bazaruto Archipelago",
+        "description": "Sand islands and dugong-rich waters off the southern coast."
+      },
+      {
+        "name": "Gorongosa National Park",
+        "description": "A recovering wildlife paradise of floodplains and mountains."
+      },
+      {
+        "name": "Island of Mozambique",
+        "description": "A coral-stone historic island town that gave the country its name."
+      }
+    ],
+    "pexelsId": 1659438
+  },
+  "MM": {
+    "capital": "Naypyidaw",
+    "languages": [
+      "Burmese"
+    ],
+    "currency": "Myanmar kyat (MMK)",
+    "areaKm2": 676578,
+    "places": [
+      {
+        "name": "Bagan",
+        "description": "Thousands of brick temples and pagodas across a plain by the Irrawaddy."
+      },
+      {
+        "name": "Inle Lake",
+        "description": "A highland lake of floating gardens and stilt villages."
+      },
+      {
+        "name": "Shwedagon Pagoda",
+        "description": "Yangon's gilded stupa, the spiritual heart of Burmese Buddhism."
+      }
+    ],
+    "pexelsId": 1179229
+  },
+  "NA": {
+    "capital": "Windhoek",
+    "languages": [
+      "English"
+    ],
+    "currency": "Namibian dollar (NAD)",
+    "areaKm2": 825615,
+    "places": [
+      {
+        "name": "Sossusvlei",
+        "description": "Towering red dunes and clay pans in the Namib Desert."
+      },
+      {
+        "name": "Etosha Pan",
+        "description": "A vast salt pan ringed by wildlife waterholes in northern Namibia."
+      },
+      {
+        "name": "Fish River Canyon",
+        "description": "One of Africa's largest canyons, carved through southern desert rock."
+      }
+    ],
+    "pexelsId": 1770809
+  },
+  "NR": {
+    "capital": "Yaren",
+    "languages": [
+      "Nauruan",
+      "English"
+    ],
+    "currency": "Australian dollar (AUD)",
+    "areaKm2": 21,
+    "places": [
+      {
+        "name": "Buada Lagoon",
+        "description": "A freshwater lake in Nauru's inland depression, rare on this raised coral island."
+      },
+      {
+        "name": "Command Ridge",
+        "description": "A high point with World War II remnants overlooking the Pacific."
+      },
+      {
+        "name": "Anibare Bay",
+        "description": "Nauru's most open sandy coastline on the eastern shore."
+      }
+    ],
+    "pexelsId": 2166553
+  },
+  "NP": {
+    "capital": "Kathmandu",
+    "languages": [
+      "Nepali"
+    ],
+    "currency": "Nepalese rupee (NPR)",
+    "areaKm2": 147181,
+    "places": [
+      {
+        "name": "Everest Region",
+        "description": "Home of Earth's highest peak and Sherpa high-mountain culture."
+      },
+      {
+        "name": "Kathmandu Durbar Square",
+        "description": "Temples and palaces at the historic heart of the Kathmandu Valley."
+      },
+      {
+        "name": "Lumbini",
+        "description": "The birthplace of Buddha, marked by sacred gardens and monasteries."
+      }
+    ],
+    "pexelsId": 1285625
+  },
+  "NL": {
+    "capital": "Amsterdam",
+    "languages": [
+      "Dutch"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 41543,
+    "places": [
+      {
+        "name": "Amsterdam Canals",
+        "description": "A 17th-century ring of waterways lined with gabled merchant houses."
+      },
+      {
+        "name": "Kinderdijk",
+        "description": "Iconic windmills preserving Dutch water-management heritage."
+      },
+      {
+        "name": "Keukenhof Region",
+        "description": "Bulb fields that paint Holland's spring landscape in color."
+      }
+    ],
+    "pexelsId": 2325446
+  },
+  "NZ": {
+    "capital": "Wellington",
+    "languages": [
+      "English",
+      "Maori"
+    ],
+    "currency": "New Zealand dollar (NZD)",
+    "areaKm2": 268021,
+    "places": [
+      {
+        "name": "Milford Sound",
+        "description": "A dramatic fiord of cliffs and waterfalls in Fiordland."
+      },
+      {
+        "name": "Rotorua Geothermal",
+        "description": "Geysers, mud pools, and Maori cultural landscapes of the volcanic plateau."
+      },
+      {
+        "name": "Tongariro",
+        "description": "Volcanic cones sacred in Maori tradition and a classic alpine crossing."
+      }
+    ],
+    "pexelsId": 1237119
+  },
+  "NI": {
+    "capital": "Managua",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Nicaraguan cordoba (NIO)",
+    "areaKm2": 130373,
+    "places": [
+      {
+        "name": "Granada",
+        "description": "A colorful colonial city beside Lake Nicaragua and the Mombacho volcano."
+      },
+      {
+        "name": "Ometepe",
+        "description": "A dual-volcano island rising from Lake Nicaragua."
+      },
+      {
+        "name": "Masaya Volcano",
+        "description": "An active crater near Managua where lava glows within a smoking cone."
+      }
+    ],
+    "pexelsId": 753626
+  },
+  "NE": {
+    "capital": "Niamey",
+    "languages": [
+      "French"
+    ],
+    "currency": "West African CFA franc (XOF)",
+    "areaKm2": 1267000,
+    "places": [
+      {
+        "name": "Air Mountains",
+        "description": "A Saharan massif of granite peaks and oases in northern Niger."
+      },
+      {
+        "name": "W National Park",
+        "description": "A transboundary savannah park named for a W-shaped bend in the Niger River."
+      },
+      {
+        "name": "Agadez Grand Mosque",
+        "description": "A soaring mud-brick minaret in the historic desert city of Agadez."
+      }
+    ],
+    "pexelsId": 462162
+  },
+  "NG": {
+    "capital": "Abuja",
+    "languages": [
+      "English"
+    ],
+    "currency": "Nigerian naira (NGN)",
+    "areaKm2": 923768,
+    "places": [
+      {
+        "name": "Zuma Rock",
+        "description": "A monolithic inselberg rising beside the highway near Abuja."
+      },
+      {
+        "name": "Yankari National Park",
+        "description": "A major wildlife reserve of warm springs and savannah in Bauchi State."
+      },
+      {
+        "name": "Olumo Rock",
+        "description": "A historic granite outcrop and cultural landmark in Abeokuta."
+      }
+    ],
+    "pexelsId": 3183132
+  },
+  "MK": {
+    "capital": "Skopje",
+    "languages": [
+      "Macedonian",
+      "Albanian"
+    ],
+    "currency": "Macedonian denar (MKD)",
+    "areaKm2": 25713,
+    "places": [
+      {
+        "name": "Ohrid",
+        "description": "A lakeside UNESCO town of Byzantine churches on one of Europe's oldest lakes."
+      },
+      {
+        "name": "Matka Canyon",
+        "description": "Cliffs, caves, and a reservoir gorge near Skopje."
+      },
+      {
+        "name": "Stobi",
+        "description": "Roman and early Christian ruins in the Vardar Valley."
+      }
+    ],
+    "pexelsId": 301599
+  },
+  "NO": {
+    "capital": "Oslo",
+    "languages": [
+      "Norwegian"
+    ],
+    "currency": "Norwegian krone (NOK)",
+    "areaKm2": 323802,
+    "places": [
+      {
+        "name": "Geirangerfjord",
+        "description": "A UNESCO fjord of sheer walls and cascading waterfalls."
+      },
+      {
+        "name": "Lofoten Islands",
+        "description": "Arctic fishing villages beneath jagged peaks and northern lights."
+      },
+      {
+        "name": "Bryggen",
+        "description": "Colorful Hanseatic wharf houses along Bergen's harbor."
+      }
+    ],
+    "pexelsId": 2422588
+  },
+  "OM": {
+    "capital": "Muscat",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Omani rial (OMR)",
+    "areaKm2": 309500,
+    "places": [
+      {
+        "name": "Sultan Qaboos Grand Mosque",
+        "description": "A modern masterpiece of Islamic architecture in Muscat."
+      },
+      {
+        "name": "Wadi Shab",
+        "description": "A canyon oasis of emerald pools between coastal mountains."
+      },
+      {
+        "name": "Wahiba Sands",
+        "description": "Rolling dune seas of the Sharqiya desert."
+      }
+    ],
+    "pexelsId": 572688
+  },
+  "PK": {
+    "capital": "Islamabad",
+    "languages": [
+      "Urdu",
+      "English"
+    ],
+    "currency": "Pakistani rupee (PKR)",
+    "areaKm2": 881913,
+    "places": [
+      {
+        "name": "Badshahi Mosque",
+        "description": "A vast Mughal mosque of red sandstone and marble in Lahore."
+      },
+      {
+        "name": "K2 Region",
+        "description": "The Karakoram's extreme peaks around the world's second-highest mountain."
+      },
+      {
+        "name": "Mohenjo-daro",
+        "description": "Ruins of an Indus Valley Civilization city on the Sindh plains."
+      }
+    ],
+    "pexelsId": 3225517
+  },
+  "PW": {
+    "capital": "Ngerulmud",
+    "languages": [
+      "Palauan",
+      "English"
+    ],
+    "currency": "United States dollar (USD)",
+    "areaKm2": 459,
+    "places": [
+      {
+        "name": "Rock Islands",
+        "description": "Hundreds of limestone islets and turquoise lagoons south of Koror."
+      },
+      {
+        "name": "Jellyfish Lake",
+        "description": "A marine lake where millions of harmless jellyfish pulse through sunlit water."
+      },
+      {
+        "name": "Babeldaob",
+        "description": "Palau's largest island of forests, bais, and traditional village earthworks."
+      }
+    ],
+    "pexelsId": 2104152
+  },
+  "PS": {
+    "capital": "Ramallah",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Israeli new shekel (ILS)",
+    "areaKm2": 6020,
+    "places": [
+      {
+        "name": "Old City of Jerusalem (East)",
+        "description": "Sacred sites including the Al-Aqsa compound within ancient walls."
+      },
+      {
+        "name": "Church of the Nativity",
+        "description": "Bethlehem's basilica traditionally marking the birthplace of Jesus."
+      },
+      {
+        "name": "Dead Sea Shore",
+        "description": "The hypersaline shoreline at Earth's lowest land elevation."
+      }
+    ],
+    "pexelsId": 1237119
+  },
+  "PA": {
+    "capital": "Panama City",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "United States dollar (USD)",
+    "areaKm2": 75417,
+    "places": [
+      {
+        "name": "Panama Canal",
+        "description": "The engineering waterway linking Atlantic and Pacific across the isthmus."
+      },
+      {
+        "name": "Casco Viejo",
+        "description": "Panama City's restored historic quarter of plazas and colonial churches."
+      },
+      {
+        "name": "Bocas del Toro",
+        "description": "Caribbean islands of reefs, mangroves, and rainforest."
+      }
+    ],
+    "pexelsId": 1366919
+  },
+  "PG": {
+    "capital": "Port Moresby",
+    "languages": [
+      "English",
+      "Tok Pisin",
+      "Hiri Motu"
+    ],
+    "currency": "Papua New Guinean kina (PGK)",
+    "areaKm2": 462840,
+    "places": [
+      {
+        "name": "Kokoda Track",
+        "description": "A historic mountain trail across the Owen Stanley Range."
+      },
+      {
+        "name": "Sepik River",
+        "description": "A great river of swamp forests and rich indigenous artistic traditions."
+      },
+      {
+        "name": "Rabaul Volcanoes",
+        "description": "Caldera landscapes and smoking cones on New Britain."
+      }
+    ],
+    "pexelsId": 2440021
+  },
+  "PY": {
+    "capital": "Asuncion",
+    "languages": [
+      "Spanish",
+      "Guarani"
+    ],
+    "currency": "Paraguayan guarani (PYG)",
+    "areaKm2": 406752,
+    "places": [
+      {
+        "name": "Jesuit Missions of La Santisima Trinidad",
+        "description": "Baroque stone ruins of Guarani-Jesuit reductions in the south."
+      },
+      {
+        "name": "Itaipu Dam Region",
+        "description": "The Parana River gorge and reservoir shared with Brazil."
+      },
+      {
+        "name": "Pantanal Edge",
+        "description": "Wetland wildlife landscapes along Paraguay's western Chaco and river systems."
+      }
+    ],
+    "pexelsId": 1438761
+  },
+  "PE": {
+    "capital": "Lima",
+    "languages": [
+      "Spanish",
+      "Quechua"
+    ],
+    "currency": "Peruvian sol (PEN)",
+    "areaKm2": 1285216,
+    "places": [
+      {
+        "name": "Machu Picchu",
+        "description": "The Inca citadel of stone terraces high above the Urubamba River."
+      },
+      {
+        "name": "Lake Titicaca",
+        "description": "High Andean waters shared with Bolivia, cradle of island cultures."
+      },
+      {
+        "name": "Nazca Lines",
+        "description": "Enormous geoglyphs etched into the southern desert plain."
+      }
+    ],
+    "pexelsId": 2404843
+  },
+  "PH": {
+    "capital": "Manila",
+    "languages": [
+      "Filipino",
+      "English"
+    ],
+    "currency": "Philippine peso (PHP)",
+    "areaKm2": 300000,
+    "places": [
+      {
+        "name": "Chocolate Hills",
+        "description": "Hundreds of conical grassy mounds in Bohol that turn brown in dry season."
+      },
+      {
+        "name": "Palawan Lagoons",
+        "description": "Limestone cliffs and turquoise lagoons around El Nido and Coron."
+      },
+      {
+        "name": "Rice Terraces of Banaue",
+        "description": "Ancient Cordillera terraces carved into mountain slopes."
+      }
+    ],
+    "pexelsId": 346885
+  },
+  "PL": {
+    "capital": "Warsaw",
+    "languages": [
+      "Polish"
+    ],
+    "currency": "Polish zloty (PLN)",
+    "areaKm2": 312696,
+    "places": [
+      {
+        "name": "Krakow Old Town",
+        "description": "A medieval square and Wawel Castle that define Polish cultural heritage."
+      },
+      {
+        "name": "Wieliczka Salt Mine",
+        "description": "Underground chapels and chambers carved from centuries of salt mining."
+      },
+      {
+        "name": "Bialowieza Forest",
+        "description": "Europe's last lowland old-growth forest, shared with Belarus."
+      }
+    ],
+    "pexelsId": 2335126
+  },
+  "PT": {
+    "capital": "Lisbon",
+    "languages": [
+      "Portuguese"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 92212,
+    "places": [
+      {
+        "name": "Belem Tower",
+        "description": "A Manueline riverside fortress that once guarded Lisbon's harbor."
+      },
+      {
+        "name": "Douro Valley",
+        "description": "Terraced wine country along a winding river in northern Portugal."
+      },
+      {
+        "name": "Pena Palace",
+        "description": "A colorful Romantic palace crowning Sintra's misty hills."
+      }
+    ],
+    "pexelsId": 355465
+  },
+  "QA": {
+    "capital": "Doha",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Qatari riyal (QAR)",
+    "areaKm2": 11586,
+    "places": [
+      {
+        "name": "Museum of Islamic Art",
+        "description": "A waterfront museum of geometric modernism housing Islamic treasures."
+      },
+      {
+        "name": "Souq Waqif",
+        "description": "A restored traditional market of alleys, falcons, and spice stalls in Doha."
+      },
+      {
+        "name": "Inland Sea (Khor Al Adaid)",
+        "description": "Where desert dunes meet a tidal sea inlet on the Saudi border."
+      }
+    ],
+    "pexelsId": 1450353
+  },
+  "RO": {
+    "capital": "Bucharest",
+    "languages": [
+      "Romanian"
+    ],
+    "currency": "Romanian leu (RON)",
+    "areaKm2": 238397,
+    "places": [
+      {
+        "name": "Transfagarasan",
+        "description": "A dramatic mountain highway crossing the Fagaras range."
+      },
+      {
+        "name": "Painted Monasteries of Bucovina",
+        "description": "Exterior frescoed churches in northern Romania's forests."
+      },
+      {
+        "name": "Danube Delta",
+        "description": "Europe's most extensive remaining delta wilderness of reeds and channels."
+      }
+    ],
+    "pexelsId": 1438761
+  },
+  "RU": {
+    "capital": "Moscow",
+    "languages": [
+      "Russian"
+    ],
+    "currency": "Russian ruble (RUB)",
+    "areaKm2": 17098242,
+    "places": [
+      {
+        "name": "Red Square",
+        "description": "Moscow's ceremonial heart framed by the Kremlin and St. Basil's Cathedral."
+      },
+      {
+        "name": "Lake Baikal",
+        "description": "The world's deepest freshwater lake, a Siberian natural wonder."
+      },
+      {
+        "name": "Hermitage and Winter Palace",
+        "description": "St. Petersburg's imperial complex of art and Neva River grandeur."
+      }
+    ],
+    "pexelsId": 2404843
+  },
+  "RW": {
+    "capital": "Kigali",
+    "languages": [
+      "Kinyarwanda",
+      "English",
+      "French"
+    ],
+    "currency": "Rwandan franc (RWF)",
+    "areaKm2": 26338,
+    "places": [
+      {
+        "name": "Volcanoes National Park",
+        "description": "Misty Virunga slopes home to mountain gorillas."
+      },
+      {
+        "name": "Lake Kivu",
+        "description": "A great rift lake along Rwanda's western border with the DRC."
+      },
+      {
+        "name": "Nyungwe Forest",
+        "description": "A highland rainforest of canopy walks and chimpanzees in the southwest."
+      }
+    ],
+    "pexelsId": 210205
+  },
+  "KN": {
+    "capital": "Basseterre",
+    "languages": [
+      "English"
+    ],
+    "currency": "East Caribbean dollar (XCD)",
+    "areaKm2": 261,
+    "places": [
+      {
+        "name": "Brimstone Hill Fortress",
+        "description": "A UNESCO Gibraltar of the West Indies fortress on St. Kitts."
+      },
+      {
+        "name": "Mount Liamuiga",
+        "description": "A volcanic peak with a crater lake rising above St. Kitts."
+      },
+      {
+        "name": "Pinney's Beach",
+        "description": "A long palm-lined shore on Nevis facing the Caribbean Sea."
+      }
+    ],
+    "pexelsId": 2901209
+  },
+  "LC": {
+    "capital": "Castries",
+    "languages": [
+      "English"
+    ],
+    "currency": "East Caribbean dollar (XCD)",
+    "areaKm2": 616,
+    "places": [
+      {
+        "name": "Pitons",
+        "description": "Twin volcanic spires rising from the sea near Soufriere."
+      },
+      {
+        "name": "Sulphur Springs",
+        "description": "A volcanic geothermal area often called the world's drive-in volcano."
+      },
+      {
+        "name": "Marigot Bay",
+        "description": "A sheltered palm-fringed cove celebrated in Caribbean sailing lore."
+      }
+    ],
+    "pexelsId": 346529
+  },
+  "VC": {
+    "capital": "Kingstown",
+    "languages": [
+      "English"
+    ],
+    "currency": "East Caribbean dollar (XCD)",
+    "areaKm2": 389,
+    "places": [
+      {
+        "name": "La Soufriere",
+        "description": "The active volcano that shapes St. Vincent's highland skyline."
+      },
+      {
+        "name": "Tobago Cays",
+        "description": "Uninhabited reef islands in a marine park of turquoise shallows."
+      },
+      {
+        "name": "Botanical Gardens",
+        "description": "Kingstown's historic gardens, among the oldest in the Western Hemisphere."
+      }
+    ],
+    "pexelsId": 4388167
+  },
+  "WS": {
+    "capital": "Apia",
+    "languages": [
+      "Samoan",
+      "English"
+    ],
+    "currency": "Samoan tala (WST)",
+    "areaKm2": 2842,
+    "places": [
+      {
+        "name": "To Sua Ocean Trench",
+        "description": "A swimming hole in a collapsed lava tube on Upolu's south coast."
+      },
+      {
+        "name": "Robert Louis Stevenson Museum",
+        "description": "The writer's hillside home overlooking Apia."
+      },
+      {
+        "name": "Saleaula Lava Fields",
+        "description": "Black lava landscapes from historic eruptions on Savai'i."
+      }
+    ],
+    "pexelsId": 301599
+  },
+  "SM": {
+    "capital": "San Marino",
+    "languages": [
+      "Italian"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 61,
+    "places": [
+      {
+        "name": "Guaita Tower",
+        "description": "The first of three towers crowning Mount Titano above the republic."
+      },
+      {
+        "name": "Mount Titano",
+        "description": "The limestone ridge that cradles San Marino's historic capital."
+      },
+      {
+        "name": "Basilica of San Marino",
+        "description": "The neoclassical shrine of the republic's patron saint."
+      }
+    ],
+    "pexelsId": 2387873
+  },
+  "ST": {
+    "capital": "Sao Tome",
+    "languages": [
+      "Portuguese"
+    ],
+    "currency": "Sao Tome and Principe dobra (STN)",
+    "areaKm2": 964,
+    "places": [
+      {
+        "name": "Obo Natural Parks",
+        "description": "Rainforest and volcanic peaks protecting endemic island biodiversity."
+      },
+      {
+        "name": "Pico Cao Grande",
+        "description": "A dramatic volcanic plug piercing the southern skyline."
+      },
+      {
+        "name": "Roca Agostinho Neto",
+        "description": "A historic plantation complex reflecting cocoa-era island life."
+      }
+    ],
+    "pexelsId": 2662116
+  },
+  "SA": {
+    "capital": "Riyadh",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Saudi riyal (SAR)",
+    "areaKm2": 2149690,
+    "places": [
+      {
+        "name": "Al-Ula and Hegra",
+        "description": "Nabataean rock-cut tombs and desert canyons in northwestern Saudi Arabia."
+      },
+      {
+        "name": "Edge of the World",
+        "description": "Dramatic Tuwaiq Escarpment cliffs overlooking endless desert near Riyadh."
+      },
+      {
+        "name": "Masjid al-Haram",
+        "description": "Islam's holiest mosque surrounding the Kaaba in Mecca."
+      }
+    ],
+    "pexelsId": 1271619
+  },
+  "SN": {
+    "capital": "Dakar",
+    "languages": [
+      "French",
+      "Wolof"
+    ],
+    "currency": "West African CFA franc (XOF)",
+    "areaKm2": 196722,
+    "places": [
+      {
+        "name": "Goree Island",
+        "description": "A harbor island memorializing the Atlantic slave trade."
+      },
+      {
+        "name": "Djoudj National Bird Sanctuary",
+        "description": "A major West African wetland for migratory birds on the Senegal River."
+      },
+      {
+        "name": "Lake Retba",
+        "description": "The pink lake near Dakar, colored by salt-loving microorganisms."
+      }
+    ],
+    "pexelsId": 417074
+  },
+  "RS": {
+    "capital": "Belgrade",
+    "languages": [
+      "Serbian"
+    ],
+    "currency": "Serbian dinar (RSD)",
+    "areaKm2": 88361,
+    "places": [
+      {
+        "name": "Belgrade Fortress",
+        "description": "A hilltop citadel at the confluence of the Sava and Danube."
+      },
+      {
+        "name": "Studenica Monastery",
+        "description": "A medieval Orthodox monastery of white marble and frescoes."
+      },
+      {
+        "name": "Djavolja Varos",
+        "description": "Eerie earth pyramids and stone formations in southern Serbia."
+      }
+    ],
+    "pexelsId": 2739664
+  },
+  "SC": {
+    "capital": "Victoria",
+    "languages": [
+      "English",
+      "French",
+      "Seychellois Creole"
+    ],
+    "currency": "Seychellois rupee (SCR)",
+    "areaKm2": 455,
+    "places": [
+      {
+        "name": "Anse Source d'Argent",
+        "description": "Granite boulders and pale sand on La Digue, among the Indian Ocean's most photographed shores."
+      },
+      {
+        "name": "Vallee de Mai",
+        "description": "A UNESCO palm forest on Praslin sheltering the coco de mer."
+      },
+      {
+        "name": "Morne Seychellois",
+        "description": "The highest peak of Mahe, cloaked in mist forest above Victoria."
+      }
+    ],
+    "pexelsId": 534164
+  },
+  "SL": {
+    "capital": "Freetown",
+    "languages": [
+      "English"
+    ],
+    "currency": "Sierra Leonean leone (SLE)",
+    "areaKm2": 71740,
+    "places": [
+      {
+        "name": "Tiwai Island",
+        "description": "A rainforest wildlife sanctuary in the Moa River."
+      },
+      {
+        "name": "Bunce Island",
+        "description": "A historic slave-trade fort island in the Sierra Leone River."
+      },
+      {
+        "name": "Outamba-Kilimi",
+        "description": "Savannah and woodland parkland in the far north."
+      }
+    ],
+    "pexelsId": 2387873
+  },
+  "SG": {
+    "capital": "Singapore",
+    "languages": [
+      "English",
+      "Malay",
+      "Mandarin Chinese",
+      "Tamil"
+    ],
+    "currency": "Singapore dollar (SGD)",
+    "areaKm2": 728,
+    "places": [
+      {
+        "name": "Gardens by the Bay",
+        "description": "Futuristic supertrees and conservatories on Marina Bay."
+      },
+      {
+        "name": "Singapore Botanic Gardens",
+        "description": "A UNESCO historic tropical garden and orchid haven."
+      },
+      {
+        "name": "Chinatown and Civic District",
+        "description": "Heritage shophouses and colonial civic landmarks along the Singapore River."
+      }
+    ],
+    "pexelsId": 2662116
+  },
+  "SK": {
+    "capital": "Bratislava",
+    "languages": [
+      "Slovak"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 49035,
+    "places": [
+      {
+        "name": "Bratislava Castle",
+        "description": "A hilltop fortress overlooking the Danube and Austria beyond."
+      },
+      {
+        "name": "High Tatras",
+        "description": "Alpine peaks and glacial lakes along the Polish border."
+      },
+      {
+        "name": "Spis Castle",
+        "description": "One of Central Europe's largest castle ruins above the Spis region."
+      }
+    ],
+    "pexelsId": 2880507
+  },
+  "SI": {
+    "capital": "Ljubljana",
+    "languages": [
+      "Slovenian"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 20273,
+    "places": [
+      {
+        "name": "Lake Bled",
+        "description": "An alpine lake with an island church and clifftop castle."
+      },
+      {
+        "name": "Postojna Cave",
+        "description": "A vast karst cave system of tunnels and subterranean halls."
+      },
+      {
+        "name": "Triglav National Park",
+        "description": "The Julian Alps around Slovenia's highest peak."
+      }
+    ],
+    "pexelsId": 2104152
+  },
+  "SB": {
+    "capital": "Honiara",
+    "languages": [
+      "English"
+    ],
+    "currency": "Solomon Islands dollar (SBD)",
+    "areaKm2": 28896,
+    "places": [
+      {
+        "name": "Marovo Lagoon",
+        "description": "One of the world's largest saltwater lagoons, edged by reef and rainforest."
+      },
+      {
+        "name": "Tetepare Island",
+        "description": "An uninhabited conservation island of pristine Melanesian forest."
+      },
+      {
+        "name": "Guadalcanal Battlefields",
+        "description": "Historic WWII sites in the hills and shores around Honiara."
+      }
+    ],
+    "pexelsId": 355465
+  },
+  "SO": {
+    "capital": "Mogadishu",
+    "languages": [
+      "Somali",
+      "Arabic"
+    ],
+    "currency": "Somali shilling (SOS)",
+    "areaKm2": 637657,
+    "places": [
+      {
+        "name": "Laas Geel",
+        "description": "Neolithic rock paintings of cattle and humans in northern Somaliland's caves."
+      },
+      {
+        "name": "Lido Beach",
+        "description": "Mogadishu's long Indian Ocean shoreline of white sand."
+      },
+      {
+        "name": "Cal Madow",
+        "description": "A mountain range of escarpments and endemic flora in the northeast."
+      }
+    ],
+    "pexelsId": 3290068
+  },
+  "ZA": {
+    "capital": "Pretoria",
+    "languages": [
+      "English",
+      "Afrikaans",
+      "Zulu",
+      "Xhosa"
+    ],
+    "currency": "South African rand (ZAR)",
+    "areaKm2": 1221037,
+    "places": [
+      {
+        "name": "Table Mountain",
+        "description": "The flat-topped landmark rising above Cape Town and the Atlantic."
+      },
+      {
+        "name": "Kruger National Park",
+        "description": "A vast savannah reserve of Big Five wildlife in the northeast."
+      },
+      {
+        "name": "Drakensberg",
+        "description": "Basalt escarpments and San rock art in southern Africa's highest range."
+      }
+    ],
+    "pexelsId": 291762
+  },
+  "SS": {
+    "capital": "Juba",
+    "languages": [
+      "English"
+    ],
+    "currency": "South Sudanese pound (SSP)",
+    "areaKm2": 644329,
+    "places": [
+      {
+        "name": "Boma National Park",
+        "description": "Seasonal grasslands known for massive antelope migrations."
+      },
+      {
+        "name": "Sudd Wetlands",
+        "description": "One of the world's largest wetlands along the White Nile."
+      },
+      {
+        "name": "Nimule National Park",
+        "description": "Nile River scenery and wildlife near the Uganda border."
+      }
+    ],
+    "pexelsId": 1285625
+  },
+  "ES": {
+    "capital": "Madrid",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 505990,
+    "places": [
+      {
+        "name": "Alhambra",
+        "description": "Nasrid palaces and gardens overlooking Granada from red fortress walls."
+      },
+      {
+        "name": "Sagrada Familia",
+        "description": "Gaudi's unfinished basilica soaring above Barcelona."
+      },
+      {
+        "name": "Camino de Santiago",
+        "description": "Pilgrim routes converging on the cathedral city of Santiago de Compostela."
+      }
+    ],
+    "pexelsId": 2440021
+  },
+  "LK": {
+    "capital": "Sri Jayawardenepura Kotte",
+    "languages": [
+      "Sinhala",
+      "Tamil"
+    ],
+    "currency": "Sri Lankan rupee (LKR)",
+    "areaKm2": 65610,
+    "places": [
+      {
+        "name": "Sigiriya",
+        "description": "A lion-rock fortress and frescoed palace atop a sheer volcanic plug."
+      },
+      {
+        "name": "Temple of the Tooth",
+        "description": "Kandy's sacred Buddhist temple housing a relic of the Buddha."
+      },
+      {
+        "name": "Yala National Park",
+        "description": "Dry-zone wildlife reserve famous for leopards and coastal lagoons."
+      }
+    ],
+    "pexelsId": 1659438
+  },
+  "SD": {
+    "capital": "Khartoum",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "currency": "Sudanese pound (SDG)",
+    "areaKm2": 1861484,
+    "places": [
+      {
+        "name": "Pyramids of Meroe",
+        "description": "Nubian pyramids rising from desert near the Nile's ancient Kushite capitals."
+      },
+      {
+        "name": "Jebel Barkal",
+        "description": "A sacred sandstone butte and temple complex of Napata."
+      },
+      {
+        "name": "Sanganeb Reef",
+        "description": "A Red Sea coral atoll lighthouse reserve of clear diving waters."
+      }
+    ],
+    "pexelsId": 3225517
+  },
+  "SR": {
+    "capital": "Paramaribo",
+    "languages": [
+      "Dutch"
+    ],
+    "currency": "Surinamese dollar (SRD)",
+    "areaKm2": 163820,
+    "places": [
+      {
+        "name": "Historic Inner City of Paramaribo",
+        "description": "Wooden colonial architecture along the Suriname River."
+      },
+      {
+        "name": "Central Suriname Nature Reserve",
+        "description": "Vast Guiana Shield rainforest of pristine rivers and tepui foothills."
+      },
+      {
+        "name": "Galibi",
+        "description": "Turtle-nesting beaches at the Marowijne River mouth."
+      }
+    ],
+    "pexelsId": 2880507
+  },
+  "SE": {
+    "capital": "Stockholm",
+    "languages": [
+      "Swedish"
+    ],
+    "currency": "Swedish krona (SEK)",
+    "areaKm2": 450295,
+    "places": [
+      {
+        "name": "Gamla Stan",
+        "description": "Stockholm's island old town of cobbled lanes and royal palace."
+      },
+      {
+        "name": "Icehotel Region",
+        "description": "Arctic landscapes around Kiruna where ice architecture meets polar night."
+      },
+      {
+        "name": "Gotland",
+        "description": "A Baltic island of medieval Visby walls and limestone rauks."
+      }
+    ],
+    "pexelsId": 2901209
+  },
+  "CH": {
+    "capital": "Bern",
+    "languages": [
+      "German",
+      "French",
+      "Italian",
+      "Romansh"
+    ],
+    "currency": "Swiss franc (CHF)",
+    "areaKm2": 41285,
+    "places": [
+      {
+        "name": "Matterhorn",
+        "description": "The sharp pyramidal peak that has become Switzerland's alpine emblem."
+      },
+      {
+        "name": "Jungfrau Region",
+        "description": "High glaciers and trains to the Top of Europe above Interlaken."
+      },
+      {
+        "name": "Lake Geneva",
+        "description": "A crescent alpine lake shared with France, edged by vineyards and cities."
+      }
+    ],
+    "pexelsId": 2782485
+  },
+  "SY": {
+    "capital": "Damascus",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Syrian pound (SYP)",
+    "areaKm2": 185180,
+    "places": [
+      {
+        "name": "Old City of Damascus",
+        "description": "One of the world's oldest capitals, with the Umayyad Mosque at its heart."
+      },
+      {
+        "name": "Palmyra",
+        "description": "Greco-Roman ruins of a desert oasis city on ancient caravan routes."
+      },
+      {
+        "name": "Krak des Chevaliers",
+        "description": "A monumental Crusader castle commanding the Homs Gap."
+      }
+    ],
+    "pexelsId": 1770809
+  },
+  "TJ": {
+    "capital": "Dushanbe",
+    "languages": [
+      "Tajik"
+    ],
+    "currency": "Tajikistani somoni (TJS)",
+    "areaKm2": 143100,
+    "places": [
+      {
+        "name": "Pamir Highway",
+        "description": "One of the world's highest roads across the Roof of the World."
+      },
+      {
+        "name": "Iskanderkul",
+        "description": "A turquoise alpine lake named for Alexander the Great in the Fann Mountains."
+      },
+      {
+        "name": "Ancient Penjikent",
+        "description": "Sogdian ruins and murals near the Zeravshan Valley."
+      }
+    ],
+    "pexelsId": 1834399
+  },
+  "TZ": {
+    "capital": "Dodoma",
+    "languages": [
+      "Swahili",
+      "English"
+    ],
+    "currency": "Tanzanian shilling (TZS)",
+    "areaKm2": 945087,
+    "places": [
+      {
+        "name": "Serengeti",
+        "description": "Endless plains famous for the wildebeest migration and iconic savannah wildlife."
+      },
+      {
+        "name": "Kilimanjaro",
+        "description": "Africa's highest free-standing mountain, a snow-capped equatorial giant."
+      },
+      {
+        "name": "Zanzibar Stone Town",
+        "description": "A Swahili trading city of carved doors and spice-route heritage."
+      }
+    ],
+    "pexelsId": 3225517
+  },
+  "TH": {
+    "capital": "Bangkok",
+    "languages": [
+      "Thai"
+    ],
+    "currency": "Thai baht (THB)",
+    "areaKm2": 513120,
+    "places": [
+      {
+        "name": "Grand Palace and Wat Phra Kaew",
+        "description": "Bangkok's gilded royal and temple complex of Thai sacred architecture."
+      },
+      {
+        "name": "Ayutthaya",
+        "description": "River-island ruins of a former Siamese capital of towering prangs."
+      },
+      {
+        "name": "Phi Phi Islands",
+        "description": "Limestone karsts and turquoise bays in the Andaman Sea."
+      }
+    ],
+    "pexelsId": 1761279
+  },
+  "TL": {
+    "capital": "Dili",
+    "languages": [
+      "Tetum",
+      "Portuguese"
+    ],
+    "currency": "United States dollar (USD)",
+    "areaKm2": 14874,
+    "places": [
+      {
+        "name": "Christo Rei",
+        "description": "A seaside statue of Christ overlooking Dili from a cape."
+      },
+      {
+        "name": "Jaco Island",
+        "description": "A sacred uninhabited island of white sand at Timor's eastern tip."
+      },
+      {
+        "name": "Mount Ramelau",
+        "description": "The nation's highest peak, a pilgrimage summit with island-wide views."
+      }
+    ],
+    "pexelsId": 247824
+  },
+  "TG": {
+    "capital": "Lome",
+    "languages": [
+      "French"
+    ],
+    "currency": "West African CFA franc (XOF)",
+    "areaKm2": 56785,
+    "places": [
+      {
+        "name": "Koutammakou",
+        "description": "The earthen tower-house landscape of the Batammariba people."
+      },
+      {
+        "name": "Fazao-Malfakassa",
+        "description": "A major national park of savannah and forest in central Togo."
+      },
+      {
+        "name": "Lome Grand Market",
+        "description": "A bustling coastal market hub that animates the capital's commercial life."
+      }
+    ],
+    "pexelsId": 1586298
+  },
+  "TO": {
+    "capital": "Nuku'alofa",
+    "languages": [
+      "Tongan",
+      "English"
+    ],
+    "currency": "Tongan pa'anga (TOP)",
+    "areaKm2": 747,
+    "places": [
+      {
+        "name": "Ha'amonga 'a Maui",
+        "description": "A coral-stone trilithon gateway on Tongatapu, a Polynesian megalithic landmark."
+      },
+      {
+        "name": "Mapu'a 'a Vaea Blowholes",
+        "description": "Coastal lava tubes that shoot seawater skyward along the southern shore."
+      },
+      {
+        "name": "Vava'u Islands",
+        "description": "A northern archipelago of sheltered harbors and humpback whale waters."
+      }
+    ],
+    "pexelsId": 2662116
+  },
+  "TT": {
+    "capital": "Port of Spain",
+    "languages": [
+      "English"
+    ],
+    "currency": "Trinidad and Tobago dollar (TTD)",
+    "areaKm2": 5130,
+    "places": [
+      {
+        "name": "Maracas Bay",
+        "description": "A classic north-coast beach beneath Trinidad's Northern Range."
+      },
+      {
+        "name": "Tobago Main Ridge",
+        "description": "One of the oldest protected rainforests in the Western Hemisphere."
+      },
+      {
+        "name": "Pitch Lake",
+        "description": "The world's largest natural asphalt lake near La Brea."
+      }
+    ],
+    "pexelsId": 1179229
+  },
+  "TN": {
+    "capital": "Tunis",
+    "languages": [
+      "Arabic",
+      "French"
+    ],
+    "currency": "Tunisian dinar (TND)",
+    "areaKm2": 163610,
+    "places": [
+      {
+        "name": "Medina of Tunis",
+        "description": "A dense historic core of souks and mosques near the capital."
+      },
+      {
+        "name": "Carthage",
+        "description": "Ruins of the ancient Phoenician and Roman city on Tunis Bay."
+      },
+      {
+        "name": "Amphitheatre of El Jem",
+        "description": "A vast Roman amphitheater rising from the Tunisian plain."
+      }
+    ],
+    "pexelsId": 2832039
+  },
+  "TR": {
+    "capital": "Ankara",
+    "languages": [
+      "Turkish"
+    ],
+    "currency": "Turkish lira (TRY)",
+    "areaKm2": 783562,
+    "places": [
+      {
+        "name": "Hagia Sophia",
+        "description": "A monumental Byzantine church-turned-mosque defining Istanbul's skyline."
+      },
+      {
+        "name": "Cappadocia",
+        "description": "Fairy chimneys and cave dwellings carved into soft volcanic rock."
+      },
+      {
+        "name": "Ephesus",
+        "description": "One of the Mediterranean's greatest Greco-Roman archaeological cities."
+      }
+    ],
+    "pexelsId": 291762
+  },
+  "TM": {
+    "capital": "Ashgabat",
+    "languages": [
+      "Turkmen"
+    ],
+    "currency": "Turkmenistani manat (TMT)",
+    "areaKm2": 488100,
+    "places": [
+      {
+        "name": "Darvaza Gas Crater",
+        "description": "A glowing fiery pit in the Karakum Desert, often called the Door to Hell."
+      },
+      {
+        "name": "Ancient Merv",
+        "description": "Vast Silk Road ruins of successive oasis cities in Mary Province."
+      },
+      {
+        "name": "Yangykala Canyon",
+        "description": "Banded cliffs and desert badlands resembling another planet."
+      }
+    ],
+    "pexelsId": 457882
+  },
+  "TV": {
+    "capital": "Funafuti",
+    "languages": [
+      "Tuvaluan",
+      "English"
+    ],
+    "currency": "Australian dollar (AUD)",
+    "areaKm2": 26,
+    "places": [
+      {
+        "name": "Funafuti Lagoon",
+        "description": "The capital atoll's broad turquoise lagoon, heart of daily island life."
+      },
+      {
+        "name": "Conservation Area",
+        "description": "A protected reef and islet zone on Funafuti's ocean side."
+      },
+      {
+        "name": "Nanumea",
+        "description": "A northern atoll of traditional meeting houses and Polynesian village life."
+      }
+    ],
+    "pexelsId": 1237119
+  },
+  "UG": {
+    "capital": "Kampala",
+    "languages": [
+      "English",
+      "Swahili"
+    ],
+    "currency": "Ugandan shilling (UGX)",
+    "areaKm2": 241550,
+    "places": [
+      {
+        "name": "Bwindi Impenetrable Forest",
+        "description": "Mountain gorilla habitat in misty southwestern highlands."
+      },
+      {
+        "name": "Murchison Falls",
+        "description": "Where the Nile explodes through a narrow gorge in northwestern Uganda."
+      },
+      {
+        "name": "Ssese Islands",
+        "description": "A forested archipelago scattered across Lake Victoria."
+      }
+    ],
+    "pexelsId": 1659438
+  },
+  "UA": {
+    "capital": "Kyiv",
+    "languages": [
+      "Ukrainian"
+    ],
+    "currency": "Ukrainian hryvnia (UAH)",
+    "areaKm2": 603550,
+    "places": [
+      {
+        "name": "Saint Sophia Cathedral",
+        "description": "A Kyivan Rus masterpiece of mosaics and golden domes in Kyiv."
+      },
+      {
+        "name": "Carpathian Mountains",
+        "description": "Forested ridges and highland meadows in western Ukraine."
+      },
+      {
+        "name": "Kamianets-Podilskyi Castle",
+        "description": "A dramatic fortress rising above a canyon loop of the Smotrych River."
+      }
+    ],
+    "pexelsId": 3408744
+  },
+  "AE": {
+    "capital": "Abu Dhabi",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "United Arab Emirates dirham (AED)",
+    "areaKm2": 83600,
+    "places": [
+      {
+        "name": "Sheikh Zayed Grand Mosque",
+        "description": "A vast white marble mosque of domes and courtyards in Abu Dhabi."
+      },
+      {
+        "name": "Burj Khalifa",
+        "description": "Dubai's record-setting skyscraper defining the modern Gulf skyline."
+      },
+      {
+        "name": "Liwa Oasis",
+        "description": "Towering dunes of the Empty Quarter edge around historic date groves."
+      }
+    ],
+    "pexelsId": 572688
+  },
+  "GB": {
+    "capital": "London",
+    "languages": [
+      "English"
+    ],
+    "currency": "Pound sterling (GBP)",
+    "areaKm2": 242495,
+    "places": [
+      {
+        "name": "Tower of London",
+        "description": "A riverside fortress of nearly a thousand years of English royal history."
+      },
+      {
+        "name": "Stonehenge",
+        "description": "A prehistoric stone circle on Salisbury Plain, among the world's most enigmatic monuments."
+      },
+      {
+        "name": "Scottish Highlands",
+        "description": "Glens, lochs, and peaks that define Britain's wild northern landscapes."
+      }
+    ],
+    "pexelsId": 346529
+  },
+  "US": {
+    "capital": "Washington, D.C.",
+    "languages": [
+      "English"
+    ],
+    "currency": "United States dollar (USD)",
+    "areaKm2": 9833517,
+    "places": [
+      {
+        "name": "Grand Canyon",
+        "description": "A colossal Colorado River gorge revealing nearly two billion years of rock layers."
+      },
+      {
+        "name": "Statue of Liberty",
+        "description": "The harbor monument that has welcomed generations to New York."
+      },
+      {
+        "name": "Yellowstone",
+        "description": "The world's first national park, famed for geysers and geothermal basins."
+      }
+    ],
+    "pexelsId": 2166553
+  },
+  "UY": {
+    "capital": "Montevideo",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Uruguayan peso (UYU)",
+    "areaKm2": 176215,
+    "places": [
+      {
+        "name": "Colonia del Sacramento",
+        "description": "A riverside colonial town of cobbled lanes on the Rio de la Plata."
+      },
+      {
+        "name": "Punta del Este",
+        "description": "A peninsula of beaches and maritime light at Uruguay's Atlantic tip."
+      },
+      {
+        "name": "Cabo Polonio",
+        "description": "A remote dune and seal colony village without conventional grid power."
+      }
+    ],
+    "pexelsId": 3408744
+  },
+  "UZ": {
+    "capital": "Tashkent",
+    "languages": [
+      "Uzbek"
+    ],
+    "currency": "Uzbekistani som (UZS)",
+    "areaKm2": 447400,
+    "places": [
+      {
+        "name": "Registan of Samarkand",
+        "description": "Three towering madrasas framing Central Asia's most iconic square."
+      },
+      {
+        "name": "Historic Bukhara",
+        "description": "A dense Silk Road city of domes, minarets, and trading domes."
+      },
+      {
+        "name": "Khiva Itchan Kala",
+        "description": "A walled oasis city of turquoise tiles and mud-brick fortifications."
+      }
+    ],
+    "pexelsId": 672358
+  },
+  "VU": {
+    "capital": "Port Vila",
+    "languages": [
+      "Bislama",
+      "English",
+      "French"
+    ],
+    "currency": "Vanuatu vatu (VUV)",
+    "areaKm2": 12189,
+    "places": [
+      {
+        "name": "Mount Yasur",
+        "description": "An accessible active volcano on Tanna that glowers over ash plains."
+      },
+      {
+        "name": "Champagne Beach",
+        "description": "Pale sand and clear water on Espiritu Santo's eastern shore."
+      },
+      {
+        "name": "Chief Roi Mata's Domain",
+        "description": "A UNESCO cultural landscape tied to a legendary paramount chief."
+      }
+    ],
+    "pexelsId": 2104152
+  },
+  "VA": {
+    "capital": "Vatican City",
+    "languages": [
+      "Italian",
+      "Latin"
+    ],
+    "currency": "Euro (EUR)",
+    "areaKm2": 1,
+    "places": [
+      {
+        "name": "St. Peter's Basilica",
+        "description": "The vast Renaissance basilica at the heart of Catholicism."
+      },
+      {
+        "name": "Sistine Chapel",
+        "description": "Michelangelo's painted ceiling and Last Judgment within the Vatican Museums."
+      },
+      {
+        "name": "Vatican Gardens",
+        "description": "Landscaped grounds behind the Leonine Walls, a green core of the tiny state."
+      }
+    ],
+    "pexelsId": 301599
+  },
+  "VE": {
+    "capital": "Caracas",
+    "languages": [
+      "Spanish"
+    ],
+    "currency": "Venezuelan bolivar (VES)",
+    "areaKm2": 912050,
+    "places": [
+      {
+        "name": "Angel Falls",
+        "description": "The world's tallest uninterrupted waterfall, plunging from Auyantepui."
+      },
+      {
+        "name": "Los Roques",
+        "description": "A Caribbean archipelago of coral cays and turquoise lagoons."
+      },
+      {
+        "name": "Mount Roraima",
+        "description": "A sheer-walled tepui plateau on the borders with Brazil and Guyana."
+      }
+    ],
+    "pexelsId": 4101555
+  },
+  "VN": {
+    "capital": "Hanoi",
+    "languages": [
+      "Vietnamese"
+    ],
+    "currency": "Vietnamese dong (VND)",
+    "areaKm2": 331212,
+    "places": [
+      {
+        "name": "Ha Long Bay",
+        "description": "Thousands of limestone islets rising from emerald Gulf of Tonkin waters."
+      },
+      {
+        "name": "Hoi An Ancient Town",
+        "description": "A lantern-lit trading port of wooden shophouses and riverside bridges."
+      },
+      {
+        "name": "Imperial City of Hue",
+        "description": "Nguyen dynasty citadel and tombs along the Perfume River."
+      }
+    ],
+    "pexelsId": 552779
+  },
+  "YE": {
+    "capital": "Sana'a",
+    "languages": [
+      "Arabic"
+    ],
+    "currency": "Yemeni rial (YER)",
+    "areaKm2": 527968,
+    "places": [
+      {
+        "name": "Old City of Sana'a",
+        "description": "Tower houses of baked brick and white gypsum in a highland capital."
+      },
+      {
+        "name": "Shibam",
+        "description": "Mud-brick skyscrapers of Hadhramaut, often called the Manhattan of the Desert."
+      },
+      {
+        "name": "Socotra",
+        "description": "An Indian Ocean island of dragon's blood trees and unique biodiversity."
+      }
+    ],
+    "pexelsId": 1237119
+  },
+  "ZM": {
+    "capital": "Lusaka",
+    "languages": [
+      "English"
+    ],
+    "currency": "Zambian kwacha (ZMW)",
+    "areaKm2": 752612,
+    "places": [
+      {
+        "name": "Victoria Falls",
+        "description": "The smoke that thunders, a mile-wide curtain of water on the Zambezi."
+      },
+      {
+        "name": "South Luangwa",
+        "description": "A premier walking-safari valley of oxbow lagoons and wildlife."
+      },
+      {
+        "name": "Lower Zambezi",
+        "description": "Riverine floodplains and escarpment wilderness opposite Mana Pools."
+      }
+    ],
+    "pexelsId": 210205
+  },
+  "ZW": {
+    "capital": "Harare",
+    "languages": [
+      "English",
+      "Shona",
+      "Ndebele"
+    ],
+    "currency": "Zimbabwean ZiG (ZWG)",
+    "areaKm2": 390757,
+    "places": [
+      {
+        "name": "Victoria Falls",
+        "description": "The shared Zambezi cataract forming Zimbabwe's northwestern natural wonder."
+      },
+      {
+        "name": "Great Zimbabwe",
+        "description": "Medieval stone ruins of a powerful southern African kingdom."
+      },
+      {
+        "name": "Hwange National Park",
+        "description": "A vast wildlife reserve of elephants and waterholes in the northwest."
+      }
+    ],
+    "pexelsId": 534164
+  }
+}

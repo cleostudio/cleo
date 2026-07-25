@@ -1,82 +1,99 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# Cleo
 
-# This is NOT the Next.js you know
+This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
+portal starting with countries. The homepage is a neutral portal (country
+search, highlighted places, topic discovery). Explore field guides live at
+`/explore/[slug]`, the place Gallery at `/gallery`, Topics at `/topics`, Writing
+at `/blog` (future encyclopedia-like layer), and the AI agent at `/cleo`.
+`/photos` permanently redirects to `/gallery`; `/projects` permanently redirects
+to `/topics`. Projects UI, vinyl/bookshelf, and social card components remain in
+the repo for later reuse.
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+Country guide records live in `content/atlas.json` (one entry per Explore slug).
+Generate evergreen copy with `pnpm generate:atlas-content`, then import curated
+Pexels place photos into optimized local JPEG renditions with
+`pnpm import:atlas-photos`. Validate with `pnpm validate:atlas`. Originals stay
+in `.atlas-originals/` (gitignored); public assets are under
+`public/images/atlas/{slug}/` and are served as static files with browser
+`srcset` — no account, Pexels API, Bunny CDN, or `/_next/image` re-encode at
+runtime.
 
-## Cleo
+Picking up work? Read `docs/handoff.md` for site status, then this file for the
+Cleo agent surface.
 
-Cleo is a general-purpose AI agent, not a starter template.
+## Agent skills (site)
 
-### Product
+### Issue tracker / triage / design / domain
 
-- The "Ask anything" UI streams Markdown answers plus reasoning, web-search,
-  and image-generation activity. The collapsed activity row tracks the current
-  concrete step.
-- Users can attach PNG, JPEG, WEBP, or GIF images for vision; Cleo can also
-  generate images with the Responses API `image_generation` tool.
-- Stopping before any answer text or generated image abandons that turn so it
-  does not linger in the conversation sent on the next request.
-- Conversation state is browser-only and clears on reload.
-- There is no authentication, database, or separate backend service.
-- Refer to Cleo as an AI agent and keep product copy aligned with the app.
-- Cleo's voice is candid, conversational, and quietly playful. She uses one
-  fitting emoji for personal wins and often in light social exchanges, but none
-  for serious, high-stakes, factual, research, or technical responses.
-- Cleo addresses every explicit constraint, adapts depth to the task, checks
-  assumptions before answering, and favors primary, official, recent sources
-  when web evidence is needed.
+See the site guidance retained under `docs/agents/` and
+`docs/design-language.md` (homepage doorways: § Paper-artifact doorway
+vignettes). Multi-context map: `CONTEXT-MAP.md`.
 
-### Architecture
+## Cleo agent surface
 
-- `components/ask-form.tsx` owns messages, image attachments, cancellation, and
-  NDJSON stream consumption.
-- `app/api/responses/route.ts` validates messages (including image data URLs)
-  and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
+- UI: `components/cleo/ask-form.tsx` owns messages, image attachments,
+  cancellation, and NDJSON stream consumption. The page shell is
+  `app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
+  (`G` then `C`).
+- API: `app/api/responses/route.ts` validates messages (including image data
+  URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, reasoning summaries, streaming, and `store: false`.
-- `lib/cleo-instructions.ts` defines agent behavior.
-- `lib/stream.ts` defines the `text`, `activity`, `image`, and `error` events.
-  Activity items cover `reasoning`, `web_search`, and `image_generation`.
-  Update the route and client together when this protocol changes.
-- `lib/images.ts` shared image limits and data-URL validation.
-- `components/markdown.tsx` renders model output; `app/globals.css` defines the
-  visual system.
+- Behavior: `lib/cleo/instructions.ts`.
+- Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
+- Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`.
+- Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
+  the site dock via `--cleo-prompt-bottom`.
+
+Conversation state is browser-only and clears on reload. There is no
+authentication, database, media library, AMA booking, or analytics.
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and
 100,000 total, with a final `user` message. User and assistant messages may
 include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
 
-### Development rules
+## External APIs
 
-- Use `pnpm` only. Available scripts are `dev`, `build`, `start`, `lint`,
-  `typecheck`, and `format`; there is no `test` script.
-- Before changing framework code, read the relevant Next.js 16 guide in
-  `node_modules/next/dist/docs/`.
-- Use App Router conventions and Server Components by default. Keep OpenAI
-  calls and `OPENAI_API_KEY` on the server.
-- Use the OpenAI developer docs MCP server for API, SDK, model, tool, or prompt
-  work. Prefer its search and fetch tools over memory.
-- Keep model configuration in the route and behavior in
-  `lib/cleo-instructions.ts`.
-- Keep strict TypeScript, the `@/*` alias, and `.prettierrc` style. Reuse `cn`
-  and `components/ui/*`.
-- Preserve the accessible, responsive glass UI. Render model output through
-  Streamdown, never raw HTML.
-- Update `README.md` and this file when setup or behavior changes.
+**OpenAI is the only third-party API.** Configure `OPENAI_API_KEY`. Site URLs
+use `PUBLIC_SITE_URL` / `SITE_URL`. Do not reintroduce Clerk, Neon, Bunny,
+Stripe, Resend, Google, Tencent, Upstash, or Vercel Analytics without an
+explicit product decision.
 
-### Verification
+## Development rules
 
-- Code: `pnpm lint && pnpm typecheck && pnpm build`.
-- UI: manually verify the changed flow on desktop/mobile and light/dark.
-- Agent/API: verify multi-turn chat, reasoning activity, web search, image
-  attach/vision, image generation, streaming, cancellation, and relevant
-  errors.
-- Docs: `pnpm exec prettier --check README.md AGENTS.md` and compare claims
-  against the source.
+- Use `pnpm` only. Scripts include `dev`, `build`, `start`, `typecheck`, plus
+  unit/security/browser suites listed in `package.json`.
+- Before changing framework code, read the relevant Next.js guide in
+  `node_modules/next/dist/docs/` — this App Router stack has breaking changes
+  vs older Next.js.
+- Keep OpenAI calls and `OPENAI_API_KEY` on the server.
+- Path alias is `~/*`. Prefer existing `cn` helpers and `components/ui/*`.
+- Preserve the accessible, responsive glass/paper UI. Render model output
+  through Streamdown, never raw HTML.
+- Update `README.md` and this file when setup or Cleo behavior changes.
 
-### Cursor Cloud
+## Verification
 
-- `pnpm dev` starts the only service at `http://localhost:3000`.
-- `OPENAI_API_KEY` is injected. Without it, the API returns HTTP 503 while the
-  page remains available for UI work.
+- Code: `pnpm typecheck` (and `pnpm build` when changing routes/config).
+- Country media: `pnpm validate:atlas` before deploying image or manifest changes.
+- Site: relevant unit tests via `pnpm test:unit` / `pnpm test:security`.
+- Cleo: multi-turn chat, reasoning activity, web search, image attach/vision,
+  image generation, streaming, cancellation, and relevant errors.
+- UI: manually verify changed flows on desktop/mobile and light/dark.
+
+## Cursor Cloud / Previews
+
+- `pnpm dev` starts the only service (default Next port).
+- `OPENAI_API_KEY` is injected when available. Without it, `/api/responses`
+  returns HTTP 503 while the page remains available for UI work.
+- Previews do not need Neon/Bunny/Clerk. `scripts/ensure-preview-env.mjs`
+  stubs missing `SITE_URL` / `PUBLIC_SITE_URL` during `prebuild`.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
