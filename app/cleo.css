@@ -1,6 +1,6 @@
 /* Column geometry for the Cleo chat surface */
 :root {
-  --app-column-max: 37.5rem;
+  --app-column-max: 42rem;
   --app-column-gutter: 1.5rem;
   /* Site dock is 3.5rem tall at bottom 1.25rem; keep the prompt above it */
   --cleo-prompt-bottom: 5.75rem;
@@ -471,7 +471,6 @@ html[data-cleo-route] .site-chrome-main {
   padding-top: 0;
 }
 
-html[data-cleo-route] .column-guides,
 html[data-cleo-route] .column-rulers {
   display: none;
 }

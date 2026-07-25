@@ -40,8 +40,8 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
   const center = (topics.length - 1) / 2
 
   return (
-    <div className="mx-auto w-full max-w-[37.5rem] px-6">
-      <div className="enter max-w-[34rem]">
+    <div className="mx-auto w-full max-w-[42rem] px-6">
+      <div className="enter max-w-[38.5rem]">
         <div className="flex items-center gap-2">
           <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
           <PixelCluster variant={2} className="shrink-0" />

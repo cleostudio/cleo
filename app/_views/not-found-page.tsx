@@ -6,7 +6,7 @@ import { T } from '~/lib/i18n'
 
 export function NotFoundPageView() {
   return (
-    <div className="error-sheet mx-auto w-full max-w-[37.5rem] px-6">
+    <div className="error-sheet mx-auto w-full max-w-[42rem] px-6">
       <section className="error-proof" aria-labelledby="not-found-title">
         <div className="error-proof-meta" aria-hidden>
           <span>

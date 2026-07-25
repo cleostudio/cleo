@@ -33,9 +33,9 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
   const renditions = entry.photo.renditions.map((r) => ({ src: r.src, width: r.width }))
 
   return (
-    <article className="field-guide mx-auto w-full max-w-[37.5rem] px-6">
+    <article className="field-guide mx-auto w-full max-w-[42rem] px-6">
       <div className="flex items-start justify-between gap-4">
-        <header className="max-w-[34rem]">
+        <header className="max-w-[38.5rem]">
           <p className="page-eyebrow enter">
             <Link href="/explore" className="hover:text-foreground">
               Explore
@@ -71,10 +71,10 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
           width={entry.photo.width}
           height={entry.photo.height}
           className="photo-frame aspect-[3/2] w-full object-cover"
-          sizes="(max-width: 40rem) 100vw, 37.5rem"
+          sizes="(max-width: 40rem) 100vw, 42rem"
           renditions={renditions}
           expandedContent={
-            <div className="spec-plate mx-auto max-w-[37.5rem] px-6 text-sm text-[var(--paper)]">
+            <div className="spec-plate mx-auto max-w-[42rem] px-6 text-sm text-[var(--paper)]">
               <p className="font-medium">{entry.photo.caption}</p>
               <p className="mt-1 opacity-80">
                 Photo by {entry.photo.photographer} · {entry.photo.license}
