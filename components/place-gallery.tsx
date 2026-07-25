@@ -35,7 +35,7 @@ export function PlaceGallery({
                 photo={entry.photo}
                 width={640}
                 alt={entry.photo.alt}
-                className="photo-frame w-full object-cover transition-[filter] duration-200 group-hover:brightness-[1.03]"
+                className="photo-frame h-auto w-full object-cover transition-[filter] duration-200 group-hover:brightness-[1.03]"
                 sizes="(max-width: 40rem) 50vw, 12.5rem"
                 loading="lazy"
               />

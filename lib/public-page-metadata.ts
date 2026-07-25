@@ -1,8 +1,8 @@
 export const publicPageMetadata = {
   home: {
     title: 'Cleo',
-    description: 'A neutral knowledge portal — countries first, more topics next.',
-    ogDescription: 'A neutral knowledge portal — countries first, more topics next.',
+    description: '',
+    ogDescription: '',
   },
   blog: {
     title: 'Writing',
@@ -11,13 +11,11 @@ export const publicPageMetadata = {
   },
   gallery: {
     title: 'Gallery',
-    description:
-      'Curated photographs from Explore places and Space guides, filterable by collection.',
+    description: '',
   },
   topics: {
     title: 'Topics',
-    description:
-      'General-knowledge collections — starting with countries, growing into more topics over time.',
+    description: '',
   },
   /** Retained for preserved Projects UI / future portfolio surfaces. */
   projects: {
@@ -27,8 +25,7 @@ export const publicPageMetadata = {
   },
   explore: {
     title: 'Explore',
-    description:
-      'Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
+    description: '',
   },
   space: {
     title: 'Space',

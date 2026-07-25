@@ -42,7 +42,7 @@ export function PlaceGalleryToolbar({
   return (
     <div
       ref={rootRef}
-      className="gallery-toolbar sticky top-0 z-[2] -mx-6 mb-6 border-b border-[var(--border)] bg-[color-mix(in_oklab,var(--background)_92%,transparent)] px-6 py-3 backdrop-blur-md"
+      className="gallery-toolbar sticky top-0 z-[2] -mx-6 mb-4 border-b border-[var(--border)] bg-background px-6 py-3"
     >
       <div className="flex flex-col gap-3">
         <div className="min-w-0">

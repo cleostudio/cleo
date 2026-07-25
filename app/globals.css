@@ -222,6 +222,9 @@
     }
   html {
     @apply font-sans;
+    /* Keep the scrollbar track reserved so tall routes (Gallery) don't
+       shove content sideways when the bar appears or disappears. */
+    scrollbar-gutter: stable;
     }
 }
 /* ── Design-language tokens (docs/design-language.md) ─────────────── */

@@ -176,12 +176,14 @@ delays — ~100ms base, 35–65ms steps, total under ~600ms. Nothing slides;
 blur stands in for "not yet attended". Listing polaroids instead pop like
 prints dropped on the sheet (rotate from base+1.5°, `scale(0.85)`, 350ms),
 65ms apart — and are skipped after the first visit in the session
-(`html[data-visited]`, set pre-paint). Entrance and reveal animations use
-`animation-fill-mode: backwards` — a forwards fill would pin the keyframe
-value and dead-lock hover transitions on the same properties. Reduced
-motion disables every entrance. The staged post opening under Fluid page
-transitions is the one longer route-level sequence and follows that section's
-timing instead of this ordinary entrance budget.
+(`html[data-visited]`, set pre-paint). Ordinary and dock navigations also
+mark `data-visited` before the swap so destination `.enter` / `.enter-swing`
+choreography does not re-run on frequent routes (frequency principle). Entrance
+and reveal animations use `animation-fill-mode: backwards` — a forwards fill
+would pin the keyframe value and dead-lock hover transitions on the same
+properties. Reduced motion disables every entrance. The staged post opening
+under Fluid page transitions is the one longer route-level sequence and
+follows that section's timing instead of this ordinary entrance budget.
 
 ## Paper-artifact doorway vignettes
 
@@ -787,14 +789,20 @@ Photo tiles are quiet objects: no hover captions or overlays — location and
 capture data appear only in the lightbox details, and the only fine-pointer
 response is the calibration corner brackets.
 
-The Gallery keeps its title in the prefetched static shell and streams the
-filterable masonry (Explore places + Space bodies) behind a page-level
-boundary. While the catalog resolves, six quiet, nonanimated tiles reserve the
-two-column mobile or three-column desktop masonry. Placeholders use the final
-card radius, gutter, and neutral edge treatment so navigation responds
-immediately without introducing a second visual language or shifting the page
-header. Tile links disable prefetch to avoid a destination storm; the search /
-collection toolbar is a small client island over server-rendered tiles.
+The Gallery is a fully static Instant Navigation surface: the sync local
+catalog (Explore places + Space bodies) renders in the page shell with no
+Suspense fallback swap, so dock arrivals paint the real toolbar and masonry
+immediately. The page eyebrow skips entrance choreography (frequency: dock-
+frequent). Instant dock navigation also skips View Transition snapshots and
+destination enter/swing choreography so the tall masonry does not jank the
+swap. Tile links disable prefetch to avoid a destination storm; the search /
+collection toolbar is a small client island over server-rendered tiles. The
+sticky toolbar uses an opaque paper fill (no backdrop-blur) so long masonry
+scrolls stay calm. Dock links use `prefetch` so the full destination UI is
+warm before click. `scrollbar-gutter: stable` keeps the page from shifting
+sideways when the tall Gallery scrollbar appears.
+
+
 
 ## Frosted dock
 
@@ -832,7 +840,10 @@ title/post h1). The document root remains static; the named route-content group
 uses a 250ms fade + `blur(2px)` defocus and a 300ms focus-in. Shared groups use
 320ms `--ease-swift`. The shared h1 remains unanimated, metadata develops from
 320–570ms, and the prose starts at 520ms. This overlap hands the title card
-into reading without delaying navigation.
+into reading without delaying navigation. Instant dock/ordinary navigation
+keeps `<ViewTransition default="none">` so React skips snapshot capture on
+heavy routes (Gallery); only an armed post morph switches the boundary to
+`route-content`.
 
 ## Instant-photo cover treatment
 

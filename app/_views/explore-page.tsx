@@ -25,12 +25,6 @@ export function ExplorePageView() {
           <h1 className="page-eyebrow enter">
             <T zh="探索" en="Explore" />
           </h1>
-          <p
-            className="page-introduction enter mt-4 text-balance"
-            style={{ '--enter-delay': '70ms' } as React.CSSProperties}
-          >
-            {publicPageMetadata.explore.description}
-          </p>
         </header>
         <PixelCluster variant={4} className="enter shrink-0" />
       </div>
