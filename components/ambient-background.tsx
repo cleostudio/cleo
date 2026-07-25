@@ -3,7 +3,7 @@ import { ArcRulers } from '~/components/arc-rulers'
 // Paper grain + drafting-guide rules per the design language: the page reads
 // as a sheet of working paper, not a void. Both layers are inert and tuned
 // to be noticed on the second visit, not the first. Cleo hides the guides
-// with CSS (`body:has([data-cleo-surface])`) so the chat surface stays open.
+// with CSS (`html[data-cleo-route]`) so the chat surface stays open.
 export function AmbientBackground() {
   return (
     <>

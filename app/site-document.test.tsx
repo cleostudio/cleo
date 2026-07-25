@@ -13,6 +13,9 @@ vi.mock('react', async (importOriginal) => {
 vi.mock('~/components/ambient-background', () => ({
   AmbientBackground: () => null,
 }))
+vi.mock('~/components/cleo-route-attribute', () => ({
+  CleoRouteAttribute: () => null,
+}))
 vi.mock('~/components/dock', () => ({
   Dock: () => <span data-public-dock="" />,
   DockFallback: () => <span data-public-dock-fallback="" />,

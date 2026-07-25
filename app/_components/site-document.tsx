@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Suspense } from 'react'
 
 import { AmbientBackground } from '~/components/ambient-background'
+import { CleoRouteAttribute } from '~/components/cleo-route-attribute'
 import { Dock, DockFallback } from '~/components/dock'
 import { PreviewCardTimingProvider } from '~/components/preview-card-timing'
 import {
@@ -52,6 +53,7 @@ export async function SiteDocument({
         <ThemeProvider>
           <PreviewCardTimingProvider>
             <RouteMotionController />
+            <CleoRouteAttribute />
             <AmbientBackground />
             <SiteChrome
               footer={

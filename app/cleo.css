@@ -461,32 +461,33 @@
   pointer-events: none;
 }
 
-/* Cleo: hide drafting guides; empty prompt locks the viewport; once messages
-   exist the document scrolls (no nested chat scrollbar). */
-body:has([data-cleo-surface]) .site-chrome {
+/* Cleo layout flags live on <html> (see CleoRouteAttribute + AskForm) so a
+   leaving view-transition snapshot cannot keep body:has() locks on Home. */
+html[data-cleo-route] .site-chrome {
   padding-bottom: 0;
 }
 
-body:has([data-cleo-surface]) .site-chrome-main {
+html[data-cleo-route] .site-chrome-main {
   padding-top: 0;
 }
 
-body:has([data-cleo-surface]) .column-guides,
-body:has([data-cleo-surface]) .column-rulers {
+html[data-cleo-route] .column-guides,
+html[data-cleo-route] .column-rulers {
   display: none;
 }
 
-body:has([data-cleo-empty]) {
+html[data-cleo-route][data-cleo-empty],
+html[data-cleo-route][data-cleo-empty] body {
   overflow: hidden;
 }
 
-body:has([data-cleo-empty]) .site-chrome {
+html[data-cleo-route][data-cleo-empty] .site-chrome {
   height: 100svh;
   min-height: 0;
   overflow: hidden;
 }
 
-body:has([data-cleo-empty]) .site-chrome-main {
+html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   display: flex;
   min-height: 0;
   flex: 1;

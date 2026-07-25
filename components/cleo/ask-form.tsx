@@ -130,6 +130,18 @@ export function AskForm() {
     }
   }, [])
 
+  useEffect(() => {
+    const root = document.documentElement
+    if (hasMessages) {
+      root.removeAttribute('data-cleo-empty')
+    } else {
+      root.setAttribute('data-cleo-empty', '')
+    }
+    return () => {
+      root.removeAttribute('data-cleo-empty')
+    }
+  }, [hasMessages])
+
   function handleStop() {
     abortControllerRef.current?.abort()
   }
@@ -415,11 +427,7 @@ export function AskForm() {
   }
 
   return (
-    <div
-      className="app-column min-w-0"
-      data-cleo-empty={hasMessages ? undefined : ''}
-      data-cleo-surface=""
-    >
+    <div className="app-column min-w-0">
       {hasMessages ? (
         <div className="cleo-messages pt-8 sm:pt-10">
           <div className="flex flex-col gap-7">

@@ -1,9 +1,6 @@
 import type { ReactNode } from 'react'
 
-/**
- * Public page shell. Cleo styles itself via CSS `:has([data-cleo-surface])`
- * / `:has([data-cleo-empty])` so path-based wrappers never remount the chat.
- */
+/** Public page shell. Cleo layout overrides use html[data-cleo-route]. */
 export function SiteChrome({
   children,
   footer,
