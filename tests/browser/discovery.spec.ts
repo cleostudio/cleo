@@ -5,7 +5,7 @@ import { prepareBrowserPage, watchBrowserErrors } from './support'
 const expectedOrigin = (
   process.env.PUBLIC_SITE_URL ??
   process.env.PUBLIC_DISCOVERY_EXPECTED_ORIGIN ??
-  'https://your-domain.com'
+  'https://cleoalpha.vercel.app'
 ).replace(/\/$/, '')
 
 test('@hosted English metadata keeps its canonical locale contract', async ({

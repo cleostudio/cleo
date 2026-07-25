@@ -1,13 +1,11 @@
 import { publicPageMetadata } from './public-page-metadata'
 
 function publicSiteUrl() {
-  const configured = process.env.PUBLIC_SITE_URL?.trim()
   const raw =
-    configured ||
-    (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3199')
-  if (!raw) {
-    throw new Error('PUBLIC_SITE_URL must be set in production')
-  }
+    process.env.PUBLIC_SITE_URL?.trim() ||
+    (process.env.NODE_ENV === 'production'
+      ? 'https://cleoalpha.vercel.app'
+      : 'http://localhost:3199')
   let url: URL
   try {
     url = new URL(raw)

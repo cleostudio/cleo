@@ -9,7 +9,7 @@ import { openProductionServer } from './production-server.mjs'
 const productionOrigin =
   process.env.PUBLIC_DISCOVERY_EXPECTED_ORIGIN ??
   process.env.PUBLIC_SITE_URL ??
-  'https://your-domain.com'
+  'https://cleoalpha.vercel.app'
 
 function englishPage(pathname, copy, imageAlt) {
   return {

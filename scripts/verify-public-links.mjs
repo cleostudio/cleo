@@ -8,7 +8,7 @@ import { openProductionServer } from './production-server.mjs'
 const productionOrigin =
   process.env.PUBLIC_LINKS_EXPECTED_ORIGIN ??
   process.env.PUBLIC_SITE_URL ??
-  'https://your-domain.com'
+  'https://cleoalpha.vercel.app'
 const externalTimeoutMs = 12_000
 const externalConcurrency = 8
 const verifyExternal = process.env.VERIFY_EXTERNAL_LINKS === '1'
