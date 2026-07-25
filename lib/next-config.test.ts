@@ -31,6 +31,7 @@ describe('English-only redirects', () => {
         { source: '/en', destination: '/', permanent: true },
         { source: '/en/:path*', destination: '/:path*', permanent: true },
         { source: '/feed.en.xml', destination: '/feed.xml', permanent: true },
+        { source: '/ama', destination: '/explore', permanent: true },
       ]),
     )
   })

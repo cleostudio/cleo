@@ -728,8 +728,8 @@ export function BookingFlow() {
         <AlternateTimeRequestForm timeZone={timeZone} defaultName={name} defaultEmail={email} />
         <div>
           <Button asChild variant="ghost" size="lg" expandHitArea>
-            <Link href={localePath(locale, '/ama')}>
-              <T zh="返回介绍页" en="Back to the AMA page" />
+            <Link href={localePath(locale, '/explore')}>
+              <T zh="返回探索" en="Back to Explore" />
             </Link>
           </Button>
         </div>

@@ -1,7 +1,8 @@
 # Cleo
 
-This repository hosts the **Cleo** site (v3, English-only) with a general-purpose
-AI agent mounted as a public dock page at `/cleo`.
+This repository hosts the **Cleo** site (v3, English-only) with Explore country
+pages at `/explore`, and a general-purpose AI agent mounted as a public dock
+page at `/cleo`.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

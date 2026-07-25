@@ -37,8 +37,8 @@ const profiles = [
     reducedMotion: 'reduce' as const,
   },
   {
-    name: 'AMA on desktop',
-    path: '/ama',
+    name: 'Explore on desktop',
+    path: '/explore',
     viewport: { width: 1440, height: 900 },
     colorScheme: 'light' as const,
     reducedMotion: 'no-preference' as const,

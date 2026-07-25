@@ -16,7 +16,7 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - MDX posts under `content/blog/`; English-only public routes
 - Owner admin (Clerk + owner metadata), Bunny media library, AMA booking
 - Cleo agent: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
-- Bottom dock navigation includes Writing, Photos, Projects, AMA, and Cleo
+- Bottom dock navigation includes Writing, Photos, Projects, Explore, and Cleo
 
 Site, media, AMA, and security docs live under `docs/`. Cleo-specific agent
 notes live in [`AGENTS.md`](./AGENTS.md).

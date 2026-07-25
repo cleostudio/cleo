@@ -4,6 +4,7 @@ import { buildFeedXml } from './feed.xml/route'
 import robots from './robots'
 import sitemap from './sitemap'
 import { getAllPosts } from '~/lib/content'
+import { countrySlugs } from '~/lib/countries'
 import { archivedNewsletterIds } from '~/lib/newsletters'
 import { seo } from '~/lib/seo'
 
@@ -46,8 +47,9 @@ describe('discovery routes', () => {
       '/blog',
       '/photos',
       '/projects',
-      '/ama',
+      '/explore',
       '/cleo',
+      ...countrySlugs().map((slug) => `/explore/${slug}`),
       ...archivedNewsletterIds.map((id) => `/newsletters/${id}`),
       ...getAllPosts().map((post) => `/blog/${post.slug}`),
     ]

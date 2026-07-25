@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 import { getAllPosts } from '~/lib/content'
+import { countrySlugs } from '~/lib/countries'
 import { localeRoutePair } from '~/lib/locale-metadata'
 import { archivedNewsletterIds } from '~/lib/newsletters'
 
@@ -23,8 +24,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/blog', latest),
     entry('/photos', latest),
     entry('/projects', latest),
-    entry('/ama'),
+    entry('/explore'),
     entry('/cleo'),
+    ...countrySlugs().map((slug) => entry(`/explore/${slug}`)),
     ...archivedNewsletterIds.map((id) => entry(`/newsletters/${id}`)),
     ...posts.map((post) => entry(`/blog/${post.slug}`, post.publishedAt)),
   ]

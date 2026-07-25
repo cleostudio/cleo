@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import {
-  AmaIcon,
+  ExploreIcon,
   PhotosIcon,
   PreferencesIcon,
   ProjectsIcon,
@@ -29,7 +29,7 @@ const ITEMS = [
   { href: '/blog', zh: '写作', en: 'Writing', icon: WritingIcon },
   { href: '/photos', zh: '照片', en: 'Photos', icon: PhotosIcon },
   { href: '/projects', zh: '项目', en: 'Projects', icon: ProjectsIcon },
-  { href: '/ama', zh: '咨询', en: 'AMA', icon: AmaIcon },
+  { href: '/explore', zh: '探索', en: 'Explore', icon: ExploreIcon },
   { href: '/cleo', zh: 'Cleo', en: 'Cleo', icon: SayHiIcon },
 ] as const
 

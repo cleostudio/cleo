@@ -83,6 +83,25 @@ export function AmaIcon() {
   )
 }
 
+export function ExploreIcon() {
+  return (
+    <Base>
+      <circle
+        cx="9"
+        cy="9"
+        r="6.75"
+        fill="currentColor"
+        opacity=".3"
+        strokeWidth="0"
+        stroke="none"
+      />
+      <circle cx="9" cy="9" r="6.75" />
+      <ellipse cx="9" cy="9" rx="3" ry="6.75" />
+      <path d="M2.25 9h13.5" />
+    </Base>
+  )
+}
+
 export function SayHiIcon() {
   return (
     <Base>

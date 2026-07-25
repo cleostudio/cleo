@@ -26,10 +26,10 @@ describe('public page metadata copy', () => {
       description:
         'Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
     })
-    expect(publicPageMetadata.ama).toEqual({
-      title: 'AMA',
+    expect(publicPageMetadata.explore).toEqual({
+      title: 'Explore',
       description:
-        'A one-to-one conversation about AI-native work, product strategy, engineering, startups, career moves, and building products.',
+        'A guide to every country on Earth — open a page for each place and keep adding notes as you go.',
     })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',
@@ -39,7 +39,7 @@ describe('public page metadata copy', () => {
   })
 
   it('keeps section descriptions within social preview budgets', () => {
-    for (const section of ['blog', 'photos', 'projects', 'ama', 'cleo'] as const) {
+    for (const section of ['blog', 'photos', 'projects', 'explore', 'cleo'] as const) {
       expect(publicPageMetadata[section].description.length, section).toBeLessThanOrEqual(160)
     }
   })

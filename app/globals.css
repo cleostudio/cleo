@@ -541,6 +541,50 @@
   }
 }
 
+/* ── Explore country index ───────────────────────────────────────── */
+
+.country-row {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) minmax(0, 9rem);
+  align-items: baseline;
+  gap: 0.75rem 1rem;
+  min-height: 2.75rem;
+  padding-block: 0.7rem;
+  font-size: 0.875rem;
+}
+
+.country-row:focus-visible {
+  border-radius: 2px;
+  outline: 1px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.country-code {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.country-name {
+  min-width: 0;
+}
+
+.country-subregion {
+  min-width: 0;
+  text-align: right;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 639px) {
+  .country-row {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+  }
+
+  .country-subregion {
+    display: none;
+  }
+}
+
 /* ── Project index: compact artifacts with drafting crop marks ───── */
 
 .project-row {

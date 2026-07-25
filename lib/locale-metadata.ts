@@ -14,9 +14,9 @@ interface LocaleMetadataOptions {
 
 const SOCIAL_IMAGE_VERSION = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 12)
 const SECTION_IMAGE_PATHS = new Set([
-  '/ama',
   '/blog',
   '/cleo',
+  '/explore',
   '/photos',
   '/projects',
 ])

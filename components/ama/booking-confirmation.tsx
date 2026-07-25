@@ -269,7 +269,7 @@ export function BookingConfirmation() {
         </p>
         <p className="text-sm">
           <Link
-            href={localePath(locale, '/ama')}
+            href={localePath(locale, '/explore')}
             className="text-muted-foreground underline decoration-dotted underline-offset-4 transition-colors duration-150 hover:text-foreground"
           >
             <T zh="回到 AMA 介绍页" en="Back to the AMA page" />

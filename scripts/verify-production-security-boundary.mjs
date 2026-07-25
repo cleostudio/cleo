@@ -123,10 +123,10 @@ async function verifyPublicPages(baseUrl) {
     !inspectedBody.includes('security-boundary-session-must-not-render'),
   )
 
-  // The AMA service page is public and static; its booking mutations are
-  // checked in verifyPublicAmaApiBoundary.
-  const ama = await fetchBoundary(baseUrl, '/ama')
-  assert.equal(ama.response.status, 200)
+  // Explore is public and static; AMA booking mutations stay under /api/ama/*
+  // and are checked in verifyPublicAmaApiBoundary.
+  const explore = await fetchBoundary(baseUrl, '/explore')
+  assert.equal(explore.response.status, 200)
 }
 
 async function verifyAdminPages(baseUrl) {

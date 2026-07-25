@@ -120,6 +120,8 @@ const nextConfig: NextConfig = {
     { source: '/en', destination: '/', permanent: true },
     { source: '/en/:path*', destination: '/:path*', permanent: true },
     { source: '/feed.en.xml', destination: '/feed.xml', permanent: true },
+    // Marketing AMA page became Explore; booking/manage stay under /ama/*.
+    { source: '/ama', destination: '/explore', permanent: true },
     ...legacyRedirects,
   ],
 

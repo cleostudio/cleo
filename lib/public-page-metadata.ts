@@ -18,10 +18,10 @@ export const publicPageMetadata = {
     description:
       'Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
   },
-  ama: {
-    title: 'AMA',
+  explore: {
+    title: 'Explore',
     description:
-      'A one-to-one conversation about AI-native work, product strategy, engineering, startups, career moves, and building products.',
+      'A guide to every country on Earth — open a page for each place and keep adding notes as you go.',
   },
   cleo: {
     title: 'Cleo',

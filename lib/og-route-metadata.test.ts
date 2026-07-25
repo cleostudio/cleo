@@ -40,6 +40,11 @@ describe('social OG image metadata', () => {
       'Projects · Cleo. Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
     ],
     [
+      '/explore',
+      publicPageMetadata.explore,
+      'Explore · Cleo. A guide to every country on Earth — open a page for each place and keep adding notes as you go.',
+    ],
+    [
       '/cleo',
       publicPageMetadata.cleo,
       'Cleo. A general-purpose AI agent — chat, search the web, read images, and generate them.',

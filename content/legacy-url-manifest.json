@@ -333,13 +333,22 @@
       "status": 308
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/ama",
+      "destination": "/explore",
       "probes": [
         "/ama"
       ],
+      "status": 308
+    },
+    {
+      "kind": "page",
+      "source": "/explore",
+      "probes": [
+        "/explore"
+      ],
       "status": 200,
-      "contains": "AMA"
+      "contains": "Explore"
     },
     {
       "kind": "redirect",

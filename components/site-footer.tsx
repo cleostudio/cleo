@@ -95,8 +95,8 @@ export function SiteFooter({
             </Link>
           </li>
           <li>
-            <Link href={localePath(locale, '/ama')} className="footer-tree-link">
-              <T zh="一对一" en="AMA" />
+            <Link href={localePath(locale, '/explore')} className="footer-tree-link">
+              <T zh="探索" en="Explore" />
             </Link>
           </li>
           <li>

@@ -24,7 +24,9 @@ describe('DockFallback', () => {
     expect(screen.getByRole('link', { name: /Writing/ }).getAttribute('href')).toBe(
       '/blog',
     )
-    expect(screen.getByRole('link', { name: /AMA/ }).getAttribute('href')).toBe('/ama')
+    expect(screen.getByRole('link', { name: /Explore/ }).getAttribute('href')).toBe(
+      '/explore',
+    )
     expect(screen.getByRole('link', { name: /Cleo/ }).getAttribute('href')).toBe(
       '/cleo',
     )
