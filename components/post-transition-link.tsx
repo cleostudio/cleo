@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import type { MouseEvent, ReactNode } from 'react'
 
+import { armPostRouteMotion } from '~/components/route-motion-controller'
+
 export function PostTransitionLink({
   href,
   coverTransitionName,
@@ -38,7 +40,7 @@ export function PostTransitionLink({
       return
     }
 
-    root.removeAttribute('data-route-motion')
+    armPostRouteMotion()
     root.style.setProperty('--post-cover-transition-name', coverTransitionName)
     root.style.setProperty('--post-title-transition-name', titleTransitionName)
   }

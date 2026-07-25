@@ -30,6 +30,7 @@ vi.mock('react', async (importOriginal) => {
 })
 
 import {
+  armPostRouteMotion,
   RouteMotionController,
   RouteViewTransition,
 } from './route-motion-controller'
@@ -37,6 +38,7 @@ import {
 describe('RouteMotionController', () => {
   beforeEach(() => {
     document.documentElement.setAttribute('data-route-motion', 'none')
+    document.documentElement.removeAttribute('data-visited')
     viewTransitionHarness.defaultClass = undefined
     viewTransitionHarness.onUpdate = undefined
   })
@@ -44,6 +46,7 @@ describe('RouteMotionController', () => {
   afterEach(() => {
     cleanup()
     document.documentElement.removeAttribute('data-route-motion')
+    document.documentElement.removeAttribute('data-visited')
     vi.restoreAllMocks()
   })
 
@@ -111,6 +114,7 @@ describe('RouteMotionController', () => {
       )
 
       expect(document.documentElement.dataset.routeMotion).toBe('none')
+      expect(document.documentElement.hasAttribute('data-visited')).toBe(true)
     },
   )
 
@@ -121,6 +125,7 @@ describe('RouteMotionController', () => {
     fireEvent.keyDown(document, { key: 'Enter' })
 
     expect(document.documentElement.dataset.routeMotion).toBe('none')
+    expect(document.documentElement.hasAttribute('data-visited')).toBe(true)
   })
 
   it('restores instant route motion on browser history navigation', () => {
@@ -130,6 +135,7 @@ describe('RouteMotionController', () => {
     fireEvent.popState(window)
 
     expect(document.documentElement.dataset.routeMotion).toBe('none')
+    expect(document.documentElement.hasAttribute('data-visited')).toBe(true)
   })
 
   it('removes every input and history listener on unmount', () => {
@@ -170,15 +176,23 @@ describe('RouteMotionController', () => {
     )
   })
 
-  it('restores instant motion only after the final post transition finishes', () => {
+  it('uses ViewTransition none while instant, then route-content for post morph', () => {
     const { rerender } = render(
       <RouteViewTransition>
         <article data-post-loading-shell>Loading article</article>
       </RouteViewTransition>,
     )
-    document.documentElement.removeAttribute('data-route-motion')
 
+    expect(viewTransitionHarness.defaultClass).toBe('none')
+
+    armPostRouteMotion()
+    rerender(
+      <RouteViewTransition>
+        <article data-post-loading-shell>Loading article</article>
+      </RouteViewTransition>,
+    )
     expect(viewTransitionHarness.defaultClass).toBe('route-content')
+
     const finishShellTransition = viewTransitionHarness.onUpdate?.()
     expect(finishShellTransition).toBeTypeOf('function')
     finishShellTransition?.()
@@ -200,5 +214,13 @@ describe('RouteMotionController', () => {
     finishArticleTransition?.()
 
     expect(document.documentElement.dataset.routeMotion).toBe('none')
+    expect(document.documentElement.hasAttribute('data-visited')).toBe(true)
+
+    rerender(
+      <RouteViewTransition>
+        <article>Article content</article>
+      </RouteViewTransition>,
+    )
+    expect(viewTransitionHarness.defaultClass).toBe('none')
   })
 })
