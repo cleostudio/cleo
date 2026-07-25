@@ -10,7 +10,7 @@ import {
   RouteMotionController,
   RouteViewTransition,
 } from '~/components/route-motion-controller'
-import { SiteFooter } from '~/components/site-footer'
+import { SiteFooterSlot } from '~/components/site-footer-slot'
 import { ThemeProvider } from '~/components/theme-provider'
 import { PREPAINT_SCRIPT } from '~/lib/security/inline-scripts'
 import { seo } from '~/lib/seo'
@@ -57,7 +57,7 @@ export async function SiteDocument({
                     CSS-named list → loading shell → article groups active. */}
                 <RouteViewTransition>{children}</RouteViewTransition>
               </main>
-              <SiteFooter locale="en" />
+              <SiteFooterSlot />
             </div>
             <Suspense fallback={<DockFallback locale="en" />}>
               <Dock />
