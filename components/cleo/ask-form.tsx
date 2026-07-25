@@ -421,7 +421,7 @@ export function AskForm() {
       data-cleo-surface=""
     >
       {hasMessages ? (
-        <div className="cleo-messages pt-14 sm:pt-16">
+        <div className="cleo-messages pt-10 sm:pt-12">
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === 'user' ? (
