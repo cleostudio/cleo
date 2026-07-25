@@ -55,6 +55,18 @@ pnpm build
 Then manually verify `/cleo` chat, streaming, cancellation, attachments, and
 theme/dock coexistence.
 
+## Preview deploys
+
+This repo enables Vercel Git deployments for branch previews. Upstream cali.so
+kept Git deploys off (GitHub Actions + Neon owned Production); here the GitHub
+`Deploy Preview` workflow still targets only `CaliCastle/cali.so` and is
+skipped for `cleostudio/cleo`.
+
+`pnpm build` runs `scripts/ensure-preview-env.mjs` so a preview host that only
+has `OPENAI_API_KEY` can still compile: missing Neon/Clerk/Bunny pairs are
+stubbed for build, and those features fail closed at runtime until real
+credentials are configured.
+
 ## Attribution
 
 Site design system and application source originate from

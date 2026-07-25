@@ -56,6 +56,10 @@ include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
   image attach/vision, image generation, streaming, cancellation, and API
   errors. Without `OPENAI_API_KEY`, `/api/responses` returns HTTP 503 while
   the page remains available.
+- Previews: Vercel Git deploys are enabled. `Deploy Preview` GitHub Actions
+  stays gated to `CaliCastle/cali.so`. `scripts/ensure-preview-env.mjs` stubs
+  missing site credentials at build time so the public shell and `/cleo` can
+  ship without Neon/Bunny.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

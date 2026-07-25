@@ -15,7 +15,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-og-runtime-fonts.mjs",
+    "prebuild": "node scripts/ensure-preview-env.mjs && node scripts/generate-og-runtime-fonts.mjs",
     "audit:prod": "node scripts/audit-production-dependencies.mjs",
     "build": "next build",
     "db:generate": "drizzle-kit generate",
