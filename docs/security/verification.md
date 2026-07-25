@@ -59,14 +59,11 @@ Repository API checks refreshed on 2026-07-20 verified:
 - [x] Default Actions workflow permissions are read-only and workflows cannot
   approve pull requests.
 - [x] Actions must be pinned to a full commit SHA.
-- [x] The `dev` and `main` rulesets require pull requests, block force pushes
-  and branch deletion, and require the successful GitHub Actions checks named
-  `Quality` and `CodeQL`.
+- [ ] Confirm whether any branch ruleset still requires the retired `Quality`
+  or `CodeQL` check names; clear those requirements if present.
 - [x] Neither protected branch has a bypass actor. Branch protection and
   required checks are the human approval boundary before automatic Production
   deployment.
-- [x] CodeQL default setup is disabled so the committed advanced workflow is
-  the single analysis source.
 - [ ] Non-provider secret patterns and validity checks are unavailable in the
   repository's current GitHub product mode. Recheck after a product or plan
   change.
