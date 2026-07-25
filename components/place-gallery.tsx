@@ -29,6 +29,7 @@ export function PlaceGallery({
             <Link
               href={entry.href}
               prefetch={false}
+              aria-label={`${entry.title}, ${entry.subtitle}`}
               className="group block outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <AtlasImage
@@ -39,10 +40,6 @@ export function PlaceGallery({
                 sizes="(max-width: 40rem) 50vw, 12.5rem"
                 loading="lazy"
               />
-              <div className="mt-2 space-y-0.5 px-0.5">
-                <p className="text-sm font-medium text-foreground">{entry.title}</p>
-                <p className="text-xs text-muted-foreground">{entry.subtitle}</p>
-              </div>
             </Link>
           </li>
         ))}
