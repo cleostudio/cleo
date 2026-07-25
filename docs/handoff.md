@@ -32,6 +32,7 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
   `pnpm import:atlas-photos` → `pnpm validate:atlas`; Space via
   `pnpm import:space-photos` → `pnpm validate:space`
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
+  (instructions include Explore/Space catalog paths for guide deep-links)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

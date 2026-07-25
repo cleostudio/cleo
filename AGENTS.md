@@ -45,9 +45,12 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
 - API: `app/api/responses/route.ts` validates messages (including image data
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, reasoning summaries, streaming, and `store: false`.
-- Behavior: `lib/cleo/instructions.ts`.
+- Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
+  `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`.
+- Portal links UI: `lib/cleo/portal-links.ts` (extract guide links; empty-state
+  starters) consumed by `components/cleo/ask-form.tsx`.
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 

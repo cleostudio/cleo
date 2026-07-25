@@ -38,7 +38,7 @@ describe('social OG image metadata', () => {
     [
       '/cleo',
       publicPageMetadata.cleo,
-      'Cleo. A general-purpose AI agent — chat, search the web, read images, and generate them.',
+      'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',
     ],
   ] as const)('describes the %s artwork with its own content', (path, copy, expected) => {
     expect(imageAlt(metadataFor(path, copy.title, copy.description))).toBe(expected)

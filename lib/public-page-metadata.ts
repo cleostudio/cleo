@@ -35,7 +35,7 @@ export const publicPageMetadata = {
   cleo: {
     title: 'Cleo',
     description:
-      'A general-purpose AI agent — chat, search the web, read images, and generate them.',
+      'A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',
   },
 } as const
 
