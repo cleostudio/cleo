@@ -102,7 +102,7 @@ export function AskForm() {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
-  const messagesContainerRef = useRef<HTMLDivElement>(null)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
   const mountedRef = useRef(true)
 
   const hasMessages = messages.length > 0
@@ -110,10 +110,10 @@ export function AskForm() {
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
 
   useEffect(() => {
-    const container = messagesContainerRef.current
-    if (!container) return
-    container.scrollTop = container.scrollHeight
-  }, [messages])
+    if (!hasMessages) return
+    // Scroll the document, not a nested chat pane.
+    messagesEndRef.current?.scrollIntoView({ block: 'end' })
+  }, [hasMessages, messages])
 
   useEffect(() => {
     if (!isSubmitting && hasMessages) {
@@ -414,12 +414,13 @@ export function AskForm() {
   }
 
   return (
-    <div className="app-column flex h-full min-h-0 min-w-0 flex-col">
+    <div
+      className="app-column min-w-0"
+      data-cleo-empty={hasMessages ? undefined : ''}
+      data-cleo-surface=""
+    >
       {hasMessages ? (
-        <div
-          className="min-h-0 flex-1 overflow-y-auto pb-44 pt-2 sm:pb-48"
-          ref={messagesContainerRef}
-        >
+        <div className="pb-44 pt-6 sm:pb-48">
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === 'user' ? (
@@ -503,10 +504,9 @@ export function AskForm() {
               )
             )}
           </div>
+          <div aria-hidden="true" className="h-px" ref={messagesEndRef} />
         </div>
-      ) : (
-        <div aria-hidden="true" className="min-h-0 flex-1" />
-      )}
+      ) : null}
 
       <div
         className="prompt-dock-shell"

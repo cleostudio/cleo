@@ -451,29 +451,36 @@
   }
 }
 
-/* Lock the Cleo chat route to the viewport and hide drafting guides. */
-body:has([data-cleo-surface]) {
-  overflow: hidden;
-}
-
+/* Cleo: hide drafting guides; empty prompt locks the viewport; once messages
+   exist the document scrolls (no nested chat scrollbar). */
 body:has([data-cleo-surface]) .site-chrome {
-  height: 100svh;
-  min-height: 0;
-  overflow: hidden;
   padding-bottom: 0;
 }
 
 body:has([data-cleo-surface]) .site-chrome-main {
-  display: flex;
-  min-height: 0;
-  flex: 1;
-  flex-direction: column;
   padding-top: 0;
 }
 
 body:has([data-cleo-surface]) .column-guides,
 body:has([data-cleo-surface]) .column-rulers {
   display: none;
+}
+
+body:has([data-cleo-empty]) {
+  overflow: hidden;
+}
+
+body:has([data-cleo-empty]) .site-chrome {
+  height: 100svh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body:has([data-cleo-empty]) .site-chrome-main {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
 }
 
 /* the refraction layer — its backdrop-filter is set inline from the

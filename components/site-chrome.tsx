@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 
 /**
- * Public page shell. Cleo locks to the viewport via CSS `:has([data-cleo-surface])`
- * so path-based conditional wrappers never remount the chat tree mid-request.
+ * Public page shell. Cleo styles itself via CSS `:has([data-cleo-surface])`
+ * / `:has([data-cleo-empty])` so path-based wrappers never remount the chat.
  */
 export function SiteChrome({
   children,

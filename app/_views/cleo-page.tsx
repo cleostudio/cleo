@@ -4,10 +4,7 @@ import { AskForm } from '~/components/cleo/ask-form'
 
 export function CleoPageView() {
   return (
-    <div
-      className="flex min-h-0 w-full flex-1 flex-col"
-      data-cleo-surface=""
-    >
+    <div className="w-full">
       <AskForm />
     </div>
   )
