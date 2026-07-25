@@ -1,10 +1,10 @@
 'use client'
 
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 import {
   AmaIcon,
+  HomeIcon,
   MediaIcon,
   PhotosIcon,
   PreferencesIcon,
@@ -41,9 +41,7 @@ export function AdminDockFallback() {
         en="Overview"
         goKey={adminGoKeyFor('/admin')}
       >
-        <span className="dock-avatar">
-          <Image src="/images/avatar.png" alt="" width={26} height={26} />
-        </span>
+        <HomeIcon />
       </DockItem>
       <span className="dock-rule" aria-hidden />
       {ITEMS.map(({ href, zh, en, icon: Icon }) => (
@@ -81,7 +79,7 @@ export function AdminDockFallback() {
 }
 
 // The owner dock: the public dock's grammar — glass pill, sliding marker,
-// go-chords, tooltips — carrying the admin surfaces. The avatar is the
+// go-chords, tooltips — carrying the admin surfaces. HomeIcon is the
 // Overview, the return arrow leaves for the public site, and Preferences
 // gains the in-admin locale/theme/sound rows plus sign-out.
 export function AdminDock() {
@@ -118,9 +116,7 @@ export function AdminDock() {
         itemRef={(element) => registerItem('/admin', element)}
         onNavigate={handleNavigate}
       >
-        <span className="dock-avatar">
-          <Image src="/images/avatar.png" alt="" width={26} height={26} />
-        </span>
+        <HomeIcon />
       </DockItem>
       <span className="dock-rule" aria-hidden />
       {ITEMS.map(({ href, zh, en, icon: Icon }) => (

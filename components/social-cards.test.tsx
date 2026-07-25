@@ -17,12 +17,12 @@ vi.mock('next/image', () => ({
 afterEach(cleanup)
 
 describe('X hover card', () => {
-  it('renders the current profile description and both relationship counts', () => {
+  it('renders the monogram mark, profile description, and both relationship counts', () => {
     const { container } = render(<XCardBody data={social.x} />)
 
-    expect(container.textContent).toContain(
-      '爸爸、Agent 指挥官、设计工程师、@raycast 大使。',
-    )
+    const monogram = container.querySelector('.service-card-monogram')
+    expect(monogram?.textContent).toBe('C')
+    expect(container.querySelector('img.service-card-avatar')).toBeNull()
     expect(container.textContent).toContain(
       'a dad. an agent orchestrator. a design engineer. a @raycast ambassador.',
     )

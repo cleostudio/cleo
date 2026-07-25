@@ -2567,28 +2567,6 @@ img.tweet-card-avatar {
   }
 }
 
-/* ── Header avatar ────────────────────────────────────────────────── */
-
-.avatar-flip {
-  position: relative;
-  display: block;
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 999px;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px var(--border);
-  user-select: none;
-}
-
-.avatar-flip img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 999px;
-}
-
 /* ── Motion: entrances, reveals, page transitions ─────────────────── */
 
 /* blur = not yet in focus — entrances sharpen, they don't slide */
@@ -3305,164 +3283,6 @@ a:focus-visible .external-label .external-mark {
   overflow: hidden;
 }
 
-/* ── Halftone portrait (components/halftone-portrait.tsx) ─────────── */
-
-[data-halftone] {
-  display: block;
-  position: relative;
-  aspect-ratio: 1;
-  user-select: none;
-}
-
-.halftone-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  color: var(--foreground);
-  opacity: 0;
-}
-
-@keyframes halftone-reveal {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-[data-halftone][data-ready] .halftone-canvas {
-  animation: halftone-reveal 400ms var(--ease-swift) both;
-}
-
-/* The homepage portrait keeps its halftone print at rest. A bounded
-   topographic field develops behind it only after deliberate attention. */
-[data-portrait-stage] {
-  position: relative;
-  isolation: isolate;
-  display: block;
-  aspect-ratio: 1;
-}
-
-.portrait-hidden-stage-trigger {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 2px;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  cursor: default;
-  touch-action: manipulation;
-  appearance: none;
-}
-
-.portrait-hidden-stage-trigger:focus-visible {
-  outline: 1px solid var(--foreground);
-  outline-offset: 4px;
-}
-
-.portrait-hidden-stage-field {
-  position: absolute;
-  z-index: 0;
-  inset: -28% -36% -28% -20%;
-  contain: layout paint;
-  pointer-events: none;
-  user-select: none;
-  opacity: 0;
-  transform: scale(0.94);
-  mask-image: radial-gradient(
-    ellipse at 45% 49%,
-    transparent 0 25%,
-    rgb(0 0 0 / 0.38) 36%,
-    black 48%,
-    rgb(0 0 0 / 0.82) 61%,
-    transparent 78%
-  );
-  transition:
-    opacity 320ms var(--ease-swift),
-    transform 320ms var(--ease-swift);
-}
-
-[data-portrait-stage][data-motion='false'] .portrait-hidden-stage-field,
-[data-portrait-stage][data-motion='false'] .portrait-hidden-stage-shader-shell {
-  transition: none;
-}
-
-[data-portrait-stage][data-active='true'] .portrait-hidden-stage-field {
-  opacity: 1;
-  transform: scale(1);
-}
-
-[data-portrait-stage][data-motion='true'] .portrait-hidden-stage-field {
-  will-change: transform, opacity;
-}
-
-.portrait-hidden-stage-fallback,
-.portrait-hidden-stage-shader,
-.portrait-hidden-stage-shader-shell,
-.portrait-hidden-stage-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.portrait-hidden-stage-fallback {
-  overflow: visible;
-  color: var(--foreground);
-  opacity: 0.028;
-  transform: rotate(-5deg);
-}
-
-.portrait-hidden-stage-fallback path {
-  vector-effect: non-scaling-stroke;
-  stroke: currentColor;
-  stroke-width: 1.35;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.portrait-hidden-stage-shader {
-  opacity: 0.1;
-}
-
-.portrait-hidden-stage-shader-shell {
-  opacity: 0;
-  transition: opacity 180ms var(--ease-swift);
-}
-
-.portrait-hidden-stage-shader-shell[data-ready='true'] {
-  opacity: 1;
-}
-
-.dark .portrait-hidden-stage-fallback {
-  opacity: 0.026;
-}
-
-.dark .portrait-hidden-stage-shader {
-  opacity: 0.09;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [data-halftone][data-ready] .halftone-canvas {
-    animation: none;
-    opacity: 1;
-  }
-
-  .portrait-hidden-stage-field,
-  .portrait-hidden-stage-shader-shell {
-    transition: none;
-  }
-}
-
 /* center-out list reveal with a tiny swing (rotate −2° → 0) */
 @keyframes enter-swing {
   from {
@@ -3606,22 +3426,29 @@ a:focus-visible .external-label .external-mark {
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--paper-ink) 36%, transparent);
 }
 
-.email-envelope-stamp-portrait {
+.email-envelope-stamp-monogram {
   width: 3rem;
   height: 3.65rem;
   rotate: 2deg;
   background: color-mix(in oklab, var(--mail-red) 11%, var(--paper));
 }
 
-.email-envelope-stamp-portrait img {
-  display: block;
+.email-envelope-stamp-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 2rem;
   height: 2rem;
-  object-fit: cover;
-  filter: grayscale(1) contrast(1.08);
+  border-radius: 999px;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: color-mix(in oklab, var(--paper-ink) 78%, transparent);
+  background: color-mix(in oklab, var(--paper) 70%, transparent);
 }
 
-.email-envelope-stamp-portrait span,
+.email-envelope-stamp-monogram > span:last-child,
 .email-envelope-stamp-mark > span:last-child {
   margin-top: 0.2rem;
   font-size: 5px;
@@ -4523,11 +4350,23 @@ a:focus-visible .external-label .external-mark {
 }
 
 .service-card-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
+  flex-shrink: 0;
   border-radius: 999px;
-  object-fit: cover;
   box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.service-card-monogram {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--foreground);
+  background: color-mix(in oklab, var(--foreground) 6%, transparent);
 }
 
 .service-card-names {
@@ -5991,21 +5830,6 @@ a:focus-visible .external-label .external-mark {
 
 .dock-active-indicator[data-instant] {
   transition: none;
-}
-
-.dock-avatar {
-  display: block;
-  width: 1.625rem;
-  height: 1.625rem;
-  border-radius: 999px;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px var(--border);
-}
-
-.dock-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .dock-rule {

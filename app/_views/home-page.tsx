@@ -3,12 +3,10 @@ import { Suspense } from 'react'
 
 import { Bookshelf } from '~/components/bookshelf'
 import { ExternalLabel } from '~/components/external-mark'
-import { HalftonePortrait } from '~/components/halftone-portrait'
 import { HomeIntroduction } from '~/components/home-introduction'
 import { NavCards, PhotoNavCard } from '~/components/nav-cards'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { PostRow } from '~/components/post-row'
-import { PortraitHiddenStage } from '~/components/portrait-hidden-stage'
 import { VinylShelf } from '~/components/vinyl-shelf'
 import { getAllPosts } from '~/lib/content'
 import { T } from '~/lib/i18n'
@@ -54,27 +52,13 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 
   return (
     <div className="mx-auto w-full max-w-[37.5rem] px-6">
-      <div className="flex flex-col-reverse justify-between gap-10 sm:flex-row sm:items-start">
-        <div className="enter max-w-[19rem]">
-          <div className="flex items-center gap-2">
-            <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
-            <PixelCluster variant={2} className="shrink-0" />
-          </div>
-          <div className="mt-4">
-            <HomeIntroduction social={social.x} github={github} />
-          </div>
+      <div className="enter max-w-[19rem]">
+        <div className="flex items-center gap-2">
+          <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
+          <PixelCluster variant={2} className="shrink-0" />
         </div>
-        <div className="w-[9.35rem] shrink-0 sm:w-60">
-          <PortraitHiddenStage
-            label="Cleo's halftone portrait. Reveal the hidden topographic field"
-          >
-            <HalftonePortrait
-              srcLight="/images/headshot.jpg"
-              srcDark="/images/portrait-square.jpg"
-              alt="Cleo 的半调网点肖像"
-              altEn="Cleo's halftone portrait"
-            />
-          </PortraitHiddenStage>
+        <div className="mt-4">
+          <HomeIntroduction social={social.x} github={github} />
         </div>
       </div>
 

@@ -10,6 +10,23 @@ function Base({ children }: { children: React.ReactNode }) {
   )
 }
 
+/** Public dock home / admin overview: a simple house mark. */
+export function HomeIcon() {
+  return (
+    <Base>
+      <path
+        d="M2.75 8.25 9 2.75l6.25 5.5V14.25a1 1 0 0 1-1 1H3.75a1 1 0 0 1-1-1V8.25Z"
+        fill="currentColor"
+        opacity=".3"
+        strokeWidth="0"
+        stroke="none"
+      />
+      <path d="M2.75 8.25 9 2.75l6.25 5.5V14.25a1 1 0 0 1-1 1H3.75a1 1 0 0 1-1-1V8.25Z" />
+      <path d="M7 15.25v-4.5h4v4.5" />
+    </Base>
+  )
+}
+
 export function WritingIcon() {
   return (
     <Base>

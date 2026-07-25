@@ -190,13 +190,13 @@ Inline mentions of external presences (social profile, code, music)
 open rich hover cards. The contract:
 
 - **Per-service design.** Each card is composed for its service — no generic
-  "avatar + handle" template. The card's *content* also animates, not just
+  "monogram + handle" template. The card's *content* also animates, not just
   its container:
   - Code card: a real contribution graph (26 week columns — the recent
     ~180 days; the stat below still counts the past year, hairline 0.5px
     cell borders) whose cells **cascade in individually** — each cell rises
     from `translateY(4px) scale(0.92)` over ~0.48s with a per-cell stagger.
-  - Social card: avatar, name + verified mark, bio, follower and following stats in
+  - Social card: monogram mark, name + verified mark, bio, follower and following stats in
     `tabular-nums`.
   - Music card: current/last track with artwork.
 - **Behavior.** ~256px fixed-width card, 300ms open intent delay. One public
@@ -230,7 +230,7 @@ open rich hover cards. The contract:
   or ISR, never on hover; an open card never shows a network spinner.
 - All content animations inside cards respect `prefers-reduced-motion`.
 - **Implemented service cards** (`components/social-cards.tsx`, chrome
-  social links): the X card (avatar, name/@handle, bio, follower and following stats) and
+  social links): the X card (monogram mark, name/@handle, bio, follower and following stats) and
   the code card: a recent 26×7 contribution grid, 4px cells on 1px gaps,
   ink = foreground alpha ramp (7/30/52/74/100%), each cell cascading in
   (`translateY(4px) scale(0.92)`, 480ms, ~1.1ms/cell stagger). GitHub data
@@ -240,7 +240,7 @@ open rich hover cards. The contract:
   zero network work on hover. Touch follows the plain link.
 - **Homepage contact line.** X, GitHub, and email reuse the exact footer card
   bodies through alternate inline trigger labels. The Chinese-only
-  Xiaohongshu trigger opens a fixed-size service card with the local headshot,
+  Xiaohongshu trigger opens a fixed-size service card with a text monogram mark,
   Xiaohongshu's official text wordmark, profile name and account number,
   two-line bio, and follower/engagement snapshot; it links directly to
   `https://xhslink.com/m/7vluP5ANiNE`. Its
@@ -321,11 +321,11 @@ of enlarging the tile's selected source.
 
 ## Portrait & avatar
 
-The site carries its author: the bottom dock uses the portrait as its Home
-item. The home page opens with the halftone portrait hero (below).
-Illustration, photo, and print are three registers of the same person; use
-the illustration where chrome should stay quiet, the photo where a human
-moment is wanted, the print where the page itself should feel authored.
+The site no longer uses a face or portrait of the author. The bottom dock's
+Home item (and the admin Overview item) is a geometric `HomeIcon`. Social
+service cards use a text monogram mark ("C") instead of a photo avatar. The
+homepage hero is typography-only: the name, a PixelCluster accent, and the
+introduction — no portrait column.
 
 ## Technical print
 
@@ -335,26 +335,6 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
 
 - **Ink is always the foreground token** on transparent ground, never a
   boxed image — prints must dissolve into the paper in both themes.
-- **The halftone portrait hero** (`components/halftone-portrait.tsx`): the
-  home portrait rendered as a dot screen on canvas — dot radius ∝ auto-leveled
-  luminance (p5–p95 stretch), a denser 2px screen for the light-mode mobile
-  presentation and 3px cells everywhere else, dots taper through the outer 10%
-  and below a 6% floor so the figure emerges from nothing. A fine pointer swells
-  (+8%) and repels (≤3px) dots within ~150px, smoothed per-frame (0.16
-  lerp, rAF only while active). Touch and reduced motion get the static
-  print. The server-rendered shell is visually empty; once the client paints
-  the first valid dot field, the portrait fades in over 400ms. Reduced motion
-  reveals it instantly, while no-JS leaves the reserved square empty. Its
-  wrapper is 149.6px wide on mobile (15% below the original 176px
-  presentation) and returns to the fixed 240px size from the 40rem breakpoint
-  onward. The portrait also hides one bounded **topographic stage**: deliberate
-  hover, keyboard focus, or touch develops low-contrast contour lines behind
-  the print. Fine-pointer hover and touch use Shaders `ContourLines` over slowly
-  evolving `PerlinNoise`; it is never mounted at rest, unmounts after the field
-  recedes, and disables vendor telemetry. Keyboard focus, reduced motion, or
-  missing WebGPU reveals only the static hand-drawn contour plate, without a
-  transition. The portrait itself never moves and its reserved square never
-  changes size.
 - **Rulers**: measuring ticks (48px major / 12px minor) ride top and
   bottom as arcs of an enormous circle (fixed 40px rise at the viewport
   edge, so R = w²/8s at any width) — a bent steel rule whose ends bow away
@@ -404,7 +384,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
 - **Hover cards are informational only**: `.link-card` carries
   `pointer-events: none; user-select: none` — a card is a printed label,
   never a control. Email's card is a little paper ENVELOPE (folded flap,
-  perforated avatar stamp, mono address); the trigger opens mailto:.
+  perforated monogram stamp, mono address); the trigger opens mailto:.
 - **Room shelves** (`.room-shelf-plank`): records and books rest on the same
   material system: a 6px top plane above a 12px front face, low-contrast
   irregular longitudinal grain over an oak tone (walnut in dark), and a

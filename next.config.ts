@@ -41,7 +41,6 @@ const nextConfig: NextConfig = {
       ...ogRuntimeAssets,
       './content/blog/**/*',
       './content/newsletters/**/*',
-      './public/images/headshot.jpg',
     ],
     '/blog/**': ['./content/blog/**/*', ...ogRuntimeAssets],
     '/newsletters/**': ['./content/newsletters/**/*', ...ogRuntimeAssets],
@@ -66,7 +65,7 @@ const nextConfig: NextConfig = {
 
   images: {
     // Post images are served from content/ via app/content/[...path]/route.ts;
-    // site portraits/avatars live in public/images
+    // other static media live in public/images
     localPatterns: [
       { pathname: '/content/**' },
       { pathname: '/images/**' },

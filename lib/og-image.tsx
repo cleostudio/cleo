@@ -11,7 +11,6 @@ import {
   ogRuntimeFonts,
   OgPolaroid,
   OgSheet,
-  publicImageDataUri,
 } from './og'
 import { tiltFromSlug } from './polaroid'
 import {
@@ -24,11 +23,34 @@ const HOME_INTRODUCTION = publicPageMetadata.home.ogDescription
 
 const IMAGE_SIZE = { width: 1200, height: 630 } as const
 
+function OgHomeMark() {
+  const stroke = ogColors.paperInk
+  const faint = ogColors.border
+
+  return (
+    <svg
+      width="232"
+      height="232"
+      viewBox="0 0 232 232"
+      fill="none"
+      aria-hidden="true"
+    >
+      <g strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="116" cy="116" r="72" stroke={faint} strokeWidth="1.4" />
+        <circle cx="116" cy="116" r="72" stroke={stroke} strokeWidth="1.7" />
+        <path
+          d="M142 86c-10-12-26-18-42-14-22 5-36 26-34 48 2 24 22 42 46 40 16-1 30-10 38-22"
+          stroke={stroke}
+          strokeWidth="1.75"
+        />
+      </g>
+    </svg>
+  )
+}
+
 async function renderHomeOgImage(_locale: Locale = 'en') {
   'use cache'
   cacheLife('max')
-
-  const portrait = await publicImageDataUri('/images/headshot.jpg')
 
   return new ImageResponse(
     (
@@ -38,8 +60,8 @@ async function renderHomeOgImage(_locale: Locale = 'en') {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: 72,
-            padding: '0 112px',
+            gap: 64,
+            padding: '0 104px',
             width: '100%',
           }}
         >
@@ -48,13 +70,13 @@ async function renderHomeOgImage(_locale: Locale = 'en') {
               display: 'flex',
               flexDirection: 'column',
               gap: 28,
-              width: 680,
+              width: 720,
             }}
           >
             <div
               style={{
                 display: 'flex',
-                fontSize: 68,
+                fontSize: 70,
                 fontWeight: 600,
                 letterSpacing: '-0.02em',
                 color: ogColors.foreground,
@@ -65,33 +87,16 @@ async function renderHomeOgImage(_locale: Locale = 'en') {
             <div
               style={{
                 display: 'flex',
-                fontSize: 32,
-                lineHeight: 1.5,
+                fontSize: 29,
+                lineHeight: 1.48,
                 color: ogColors.mutedForeground,
               }}
             >
               {HOME_INTRODUCTION}
             </div>
           </div>
-          <div
-            style={{
-              display: 'flex',
-              flexShrink: 0,
-              padding: 8,
-              paddingBottom: 24,
-              backgroundColor: ogColors.paper,
-              boxShadow: '0 0 0 1px rgb(0 0 0 / 0.04), 0 8px 30px rgb(0 0 0 / 0.12)',
-              transform: 'rotate(2deg)',
-            }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={portrait}
-              alt=""
-              width={216}
-              height={198}
-              style={{ objectFit: 'cover', width: 216, height: 198 }}
-            />
+          <div style={{ display: 'flex', flexShrink: 0 }}>
+            <OgHomeMark />
           </div>
         </div>
       </OgSheet>

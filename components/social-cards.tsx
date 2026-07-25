@@ -92,25 +92,19 @@ function Card({
 
 function Identity({
   data,
-  avatar,
   service,
   withBio = true,
 }: {
   data: SocialSnapshot
-  avatar: string
   service: keyof typeof GLYPHS
   withBio?: boolean
 }) {
   return (
     <>
       <span className="service-card-head">
-        <Image
-          src={avatar}
-          alt=""
-          width={40}
-          height={40}
-          className="service-card-avatar"
-        />
+        <span className="service-card-avatar service-card-monogram" aria-hidden>
+          C
+        </span>
         <span className="service-card-names">
           <span className="service-card-name">{data.name}</span>
           <span className="service-card-sub">@{data.handle}</span>
@@ -134,11 +128,7 @@ function Identity({
 export function XCardBody({ data }: { data: SocialSnapshot }) {
   return (
     <>
-      <Identity
-        data={data}
-        avatar="/images/headshot.jpg"
-        service="x"
-      />
+      <Identity data={data} service="x" />
       {(data.followers || data.following) && (
         <span className="service-card-stat">
           {data.following && (
@@ -162,13 +152,9 @@ export function XiaohongshuCardBody() {
   return (
     <span className="xiaohongshu-card-content" data-profile-id="5cbba503000000001101b6a2">
       <span className="service-card-head">
-        <Image
-          src="/images/headshot.jpg"
-          alt=""
-          width={40}
-          height={40}
-          className="service-card-avatar"
-        />
+        <span className="service-card-avatar service-card-monogram" aria-hidden>
+          C
+        </span>
         <span className="service-card-names">
           <span className="service-card-name">Cleo</span>
           <span className="service-card-sub">小红书号 calicastle</span>
@@ -200,18 +186,13 @@ export function XiaohongshuCardBody() {
 }
 
 export function TelegramCardBody({ data }: { data: SocialSnapshot }) {
-  return <Identity data={data} avatar="/images/avatar.png" service="telegram" withBio={false} />
+  return <Identity data={data} service="telegram" withBio={false} />
 }
 
 export function YouTubeCardBody({ data }: { data: SocialSnapshot }) {
   return (
     <>
-      <Identity
-        data={data}
-        avatar="/images/headshot.jpg"
-        service="youtube"
-        withBio={false}
-      />
+      <Identity data={data} service="youtube" withBio={false} />
       {data.followers && (
         <span className="service-card-stat">
           <b>{data.followers}</b> <T zh="订阅者" en="subscribers" />
@@ -365,8 +346,10 @@ export function EmailCard({
             TAIPEI
           </span>
           <span className="email-envelope-stamps">
-            <span className="email-envelope-stamp email-envelope-stamp-portrait">
-              <Image src="/images/avatar.png" alt="" width={32} height={32} />
+            <span className="email-envelope-stamp email-envelope-stamp-monogram">
+              <span className="email-envelope-stamp-letter" aria-hidden>
+                C
+              </span>
               <span>CLEO · 20</span>
             </span>
             <span className="email-envelope-stamp email-envelope-stamp-mark">

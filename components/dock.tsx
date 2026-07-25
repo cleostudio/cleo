@@ -1,12 +1,12 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import {
   ExploreIcon,
+  HomeIcon,
   PhotosIcon,
   PreferencesIcon,
   ProjectsIcon,
@@ -141,9 +141,7 @@ export function DockFallback({ locale }: { locale: Locale }) {
         en="Home"
         goKey={dockGoKeyFor('/')}
       >
-        <span className="dock-avatar">
-          <Image src="/images/avatar.png" alt="" width={26} height={26} />
-        </span>
+        <HomeIcon />
       </DockItem>
       <span className="dock-rule" aria-hidden />
       {ITEMS.map(({ href, zh, en, icon: Icon }) => (
@@ -172,7 +170,7 @@ export function DockFallback({ locale }: { locale: Locale }) {
   )
 }
 
-// The global pill dock, bottom center — the avatar is home, everything
+// The global pill dock, bottom center — HomeIcon is home, everything
 // else an icon. Circles inside a pill keep the radii concentric by
 // construction.
 export function Dock() {
@@ -221,9 +219,7 @@ export function Dock() {
         itemRef={(element) => registerItem('/', element)}
         onNavigate={handleNavigate}
       >
-        <span className="dock-avatar">
-          <Image src="/images/avatar.png" alt="" width={26} height={26} />
-        </span>
+        <HomeIcon />
       </DockItem>
       <span className="dock-rule" aria-hidden />
       {ITEMS.map(({ href, zh, en, icon: Icon }) => (
