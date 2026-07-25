@@ -9,9 +9,10 @@
 import { existsSync, readFileSync, appendFileSync } from 'node:fs'
 
 const stubs = {
-  // Used when VERCEL_ENV is absent/local; Preview derives from VERCEL_URL.
-  SITE_URL: 'https://cali.so',
-  PUBLIC_SITE_URL: 'https://cali.so',
+  // Default alpha deploy origin when VERCEL_ENV is absent/local. Override in
+  // the deployment environment when the canonical host changes.
+  SITE_URL: 'https://cleoalpha.vercel.app',
+  PUBLIC_SITE_URL: 'https://cleoalpha.vercel.app',
 }
 
 const target = '.env.production.local'

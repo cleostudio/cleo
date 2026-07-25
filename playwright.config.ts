@@ -4,8 +4,8 @@ const hostedBaseUrl = process.env.PLAYWRIGHT_BASE_URL
 const baseURL = hostedBaseUrl ?? 'http://127.0.0.1:3210'
 const localServerEnv = {
   ...process.env,
-  SITE_URL: process.env.SITE_URL ?? 'https://cali.so',
-  PUBLIC_SITE_URL: process.env.PUBLIC_SITE_URL ?? 'https://cali.so',
+  SITE_URL: process.env.SITE_URL ?? 'https://cleoalpha.vercel.app',
+  PUBLIC_SITE_URL: process.env.PUBLIC_SITE_URL ?? 'https://cleoalpha.vercel.app',
 }
 
 export default defineConfig({

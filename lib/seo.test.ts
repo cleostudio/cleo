@@ -10,13 +10,14 @@ describe('public site origin', () => {
     vi.resetModules()
   })
 
-  it('keeps Staging discovery canonical to the public site', async () => {
+  it('defaults production discovery to the alpha deploy when unset', async () => {
     vi.stubEnv('NODE_ENV', 'production')
-    vi.stubEnv('SITE_URL', 'https://beta.cali.so')
+    vi.stubEnv('SITE_URL', 'https://staging.example.com')
+    vi.stubEnv('PUBLIC_SITE_URL', '')
 
     const { seo } = await import('./seo')
 
-    expect(seo.url.href).toBe('https://cali.so/')
+    expect(seo.url.href).toBe('https://cleoalpha.vercel.app/')
   })
 
   it('accepts an explicit public site origin independently of the runtime origin', async () => {

@@ -2,6 +2,12 @@ import { expect, test } from '@playwright/test'
 
 import { prepareBrowserPage, watchBrowserErrors } from './support'
 
+const expectedOrigin = (
+  process.env.PUBLIC_SITE_URL ??
+  process.env.PUBLIC_DISCOVERY_EXPECTED_ORIGIN ??
+  'https://cleoalpha.vercel.app'
+).replace(/\/$/, '')
+
 test('@hosted English metadata keeps its canonical locale contract', async ({
   page,
 }) => {
@@ -11,12 +17,12 @@ test('@hosted English metadata keeps its canonical locale contract', async ({
 
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     'href',
-    'https://cali.so/topics',
+    `${expectedOrigin}/topics`,
   )
   await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveCount(0)
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
     'href',
-    'https://cali.so/topics',
+    `${expectedOrigin}/topics`,
   )
   await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute(
     'content',
@@ -28,7 +34,7 @@ test('@hosted English metadata keeps its canonical locale contract', async ({
     .getAttribute('content')
   expect(socialImage).not.toBeNull()
   const socialImageUrl = new URL(socialImage!)
-  expect(socialImageUrl.origin).toBe('https://cali.so')
+  expect(socialImageUrl.origin).toBe(expectedOrigin)
   expect(socialImageUrl.pathname).toBe('/og')
   expect(socialImageUrl.searchParams.get('locale')).toBe('en')
   expect(socialImageUrl.searchParams.get('path')).toBe('/topics')
@@ -46,8 +52,9 @@ test('@hosted feed and social images return their public media contracts', async
 
   expect(feed.status()).toBe(200)
   expect(feed.headers()['content-type']).toContain('xml')
-  expect(await feed.text()).toContain('https://cali.so/blog/')
-  expect(await feed.text()).not.toContain('https://cali.so/en/blog/')
+  const feedBody = await feed.text()
+  expect(feedBody).toContain(`${expectedOrigin}/blog/`)
+  expect(feedBody).not.toContain(`${expectedOrigin}/en/blog/`)
 
   expect([301, 308]).toContain(englishFeedRedirect.status())
   expect(englishFeedRedirect.headers()['location']).toMatch(/\/feed\.xml$/)

@@ -12,7 +12,7 @@ if (!contributionResponse.ok) {
 }
 
 const userResponse = await fetch('https://api.github.com/users/CaliCastle', {
-  headers: { accept: 'application/vnd.github+json', 'user-agent': 'cali.so' },
+  headers: { accept: 'application/vnd.github+json', 'user-agent': 'cleo' },
 })
 if (!userResponse.ok) {
   throw new Error(`GitHub user refresh failed with HTTP ${userResponse.status}`)
