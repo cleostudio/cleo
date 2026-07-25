@@ -184,6 +184,49 @@ motion disables every entrance. The staged post opening under Fluid page
 transitions is the one longer route-level sequence and follows that section's
 timing instead of this ordinary entrance budget.
 
+## Paper-artifact doorway vignettes
+
+Reusable homepage doorway pattern (`.nav-card` + `.nc-vignette` in
+`components/nav-cards.tsx` / `app/globals.css`). Each doorway is a small stack
+of physical paper objects — not a flat icon in a rounded square — that fans
+open when the card is hovered (fine pointer) or `:focus-visible` (keyboard).
+
+### Contract
+
+- **Three layers.** Left, right, and front pieces rest loosely stacked at rest
+  and spread farther apart on attend. Prefer distinct artifact silhouettes over
+  three copies of the same sheet.
+- **Paper ink.** Build marks with `--paper` fills, `--paper-ink` hairlines /
+  washes, and the shared hairline shadow (`0 0 0 1px rgb(0 0 0 / 0.08),
+  0 1px 2px rgb(0 0 0 / 0.12)`). No app-icon chrome, filled brand glyphs, or
+  glow.
+- **Motion.** `transform` only, `300ms var(--ease-spring)`. Fan open on
+  `.nav-card:hover` inside `(hover: hover) and (pointer: fine)`, and always on
+  `.nav-card:focus-visible` so keyboard matches pointer. Touch stays at the
+  rested stack; `:active` may use the card's shared `scale(0.985)` press.
+- **Reduced motion.** Disable the layer transition; keep the rested
+  composition. Decorative layers stay `aria-hidden`; the link label carries
+  the accessible name.
+- **Scale.** Vignette height ~3.5rem (3.25rem on narrow). Layers should read
+  as objects, not UI controls — roughly 1.5–2.875rem per piece.
+
+### Current doorways
+
+- **Writing** (`.nc-sheets`): three ruled manuscript pages.
+- **Photos** (`.nc-polaroids`): three polaroid minis (`--i` fan), live
+  renditions when published, placeholders while pending.
+- **Explore** (`.nc-folio`): layered travel folio — circular passport stamp
+  (`.nc-folio-stamp`, hairline SVG rings on `--paper`), tall itinerary slip
+  (`.nc-folio-itinerary`, margin rule + schedule bars), folded map
+  (`.nc-folio-map`, graticule + crease).
+
+### Adding another doorway
+
+Reuse `.nav-card` / `.nc-vignette`, invent a new vignette class with three
+named layers, and copy the rested → fanned transform pairs from Writing or
+Explore. Keep count/subtitle copy in `.nc-label` / `.nc-sub`. Do not replace
+this pattern with a dock-style line icon for homepage doorways.
+
 ## Hover cards as craft objects
 
 Inline mentions of external presences (social profile, code, music)
@@ -741,13 +784,9 @@ copyright and clock occupy opposite halves of a two-column grid.
 
 ## Project index
 
-The homepage Projects doorway is one standalone monochrome 52×52px app icon.
-Its solid center axes, two diagonals, and circle are clipped by the icon's
-rounded square, with the crossed project mark centered above them. The whole
-icon lifts together by 2px over the 300ms physical-object spring while the mark
-retains its fine-pointer exploded-diagram response. Touch and reduced-motion
-presentations are static, and the Writing and Photos doorway vignettes remain
-independent.
+Homepage doorways no longer include Projects; Writing, Photos, and Explore use
+the paper-artifact vignette pattern above. Projects remain a dock destination
+and their own index page.
 
 The project page opens with a short bilingual note, then one intentionally
 ordered list. Each linked row is a compact artifact: a fixed 36px project icon,

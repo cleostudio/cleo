@@ -6090,75 +6090,173 @@ a:focus-visible .external-label .external-mark {
   content: '';
 }
 
-/* folded map sheets: three graticule cards, loosely stacked */
-.nc-maps span {
+/* travel folio: passport stamp, itinerary slip, folded map */
+.nc-folio > span {
   position: absolute;
-  width: 2.75rem;
-  height: 2.125rem;
   transition: transform 300ms var(--ease-spring);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08), 0 1px 2px rgb(0 0 0 / 0.12);
+}
+
+.nc-folio-stamp {
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: color-mix(in oklab, var(--paper-ink) 72%, transparent);
+  background: var(--paper);
+  transform: rotate(-12deg) translateX(-13px) translateY(3px);
+}
+
+.nc-folio-stamp svg {
+  display: block;
+  width: 1.625rem;
+  height: 1.625rem;
+  overflow: visible;
+}
+
+.nc-folio-itinerary {
+  z-index: 2;
+  width: 1.5rem;
+  height: 2.75rem;
   background:
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--paper-ink) 22%, var(--paper)) 0 0.5rem,
+      transparent 0.5rem
+    ),
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--paper-ink) 55%, transparent) 0 2px,
+      transparent 2px
+    ),
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--paper-ink) 45%, transparent) 0 70%,
+      transparent 70%
+    )
+    5px 12px / calc(100% - 7px) 1.5px no-repeat,
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--paper-ink) 40%, transparent) 0 55%,
+      transparent 55%
+    )
+    5px 17px / calc(100% - 7px) 1.5px no-repeat,
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--paper-ink) 40%, transparent) 0 82%,
+      transparent 82%
+    )
+    5px 22px / calc(100% - 7px) 1.5px no-repeat,
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--paper-ink) 36%, transparent) 0 48%,
+      transparent 48%
+    )
+    5px 27px / calc(100% - 7px) 1.5px no-repeat,
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--paper-ink) 36%, transparent) 0 64%,
+      transparent 64%
+    )
+    5px 32px / calc(100% - 7px) 1.5px no-repeat,
+    var(--paper);
+  transform: rotate(9deg) translateX(14px) translateY(1px);
+}
+
+.nc-folio-map {
+  z-index: 3;
+  width: 2.875rem;
+  height: 2.125rem;
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0 calc(50% - 0.45px),
+      color-mix(in oklab, var(--paper-ink) 28%, transparent) calc(50% - 0.45px)
+        calc(50% + 0.45px),
+      transparent calc(50% + 0.45px)
+    ),
     radial-gradient(
-      55% 45% at 32% 42%,
-      color-mix(in oklab, var(--paper-ink) 22%, transparent) 0 42%,
+      55% 45% at 30% 40%,
+      color-mix(in oklab, var(--paper-ink) 28%, transparent) 0 42%,
       transparent 43%
     ),
     radial-gradient(
-      40% 38% at 68% 58%,
-      color-mix(in oklab, var(--paper-ink) 18%, transparent) 0 38%,
+      42% 40% at 70% 60%,
+      color-mix(in oklab, var(--paper-ink) 22%, transparent) 0 38%,
       transparent 39%
     ),
     linear-gradient(
       to right,
       transparent 0 calc(50% - 0.35px),
-      color-mix(in oklab, var(--paper-ink) 28%, transparent) calc(50% - 0.35px)
+      color-mix(in oklab, var(--paper-ink) 34%, transparent) calc(50% - 0.35px)
         calc(50% + 0.35px),
       transparent calc(50% + 0.35px)
     ),
     linear-gradient(
       to bottom,
       transparent 0 calc(50% - 0.35px),
-      color-mix(in oklab, var(--paper-ink) 28%, transparent) calc(50% - 0.35px)
+      color-mix(in oklab, var(--paper-ink) 34%, transparent) calc(50% - 0.35px)
         calc(50% + 0.35px),
       transparent calc(50% + 0.35px)
     ),
     repeating-linear-gradient(
       to right,
-      transparent 0 7px,
-      color-mix(in oklab, var(--paper-ink) 14%, transparent) 7px 7.5px
+      transparent 0 6px,
+      color-mix(in oklab, var(--paper-ink) 18%, transparent) 6px 6.5px
     ),
     repeating-linear-gradient(
       to bottom,
-      transparent 0 7px,
-      color-mix(in oklab, var(--paper-ink) 14%, transparent) 7px 7.5px
+      transparent 0 6px,
+      color-mix(in oklab, var(--paper-ink) 18%, transparent) 6px 6.5px
     ),
     var(--paper);
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08), 0 1px 2px rgb(0 0 0 / 0.12);
-}
-
-.nc-maps span:nth-child(1) {
-  transform: rotate(-8deg) translateX(-10px) translateY(1px);
-}
-
-.nc-maps span:nth-child(2) {
-  transform: rotate(6deg) translateX(10px) translateY(1px);
-}
-
-.nc-maps span:nth-child(3) {
-  transform: rotate(-1deg) translateY(-2px);
+  transform: rotate(-2deg) translateY(-2px);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .nav-card:hover .nc-maps span:nth-child(1) {
-    transform: rotate(-14deg) translateX(-17px) translateY(-1px);
+  .nav-card:hover .nc-folio-stamp {
+    transform: rotate(-20deg) translateX(-22px) translateY(-2px);
   }
 
-  .nav-card:hover .nc-maps span:nth-child(2) {
-    transform: rotate(12deg) translateX(17px) translateY(-1px);
+  .nav-card:hover .nc-folio-itinerary {
+    transform: rotate(16deg) translateX(22px) translateY(-2px);
   }
 
-  .nav-card:hover .nc-maps span:nth-child(3) {
-    transform: rotate(-2deg) translateY(-5px);
+  .nav-card:hover .nc-folio-map {
+    transform: rotate(-3deg) translateY(-7px);
   }
+}
+
+/* Keyboard focus fans open even when fine-pointer hover media is off. */
+.nav-card:focus-visible .nc-sheets span:nth-child(1) {
+  transform: rotate(-13deg) translateX(-16px) translateY(-2px);
+}
+
+.nav-card:focus-visible .nc-sheets span:nth-child(2) {
+  transform: rotate(9deg) translateX(16px) translateY(-1px);
+}
+
+.nav-card:focus-visible .nc-sheets span:nth-child(3) {
+  transform: rotate(-2deg) translateY(-5px);
+}
+
+.nav-card:focus-visible .nc-polaroid {
+  transform: rotate(calc(var(--i) * 15deg - 15deg)) translateX(calc(var(--i) * 24px - 24px))
+    translateY(calc((1 - var(--i)) * (1 - var(--i)) * 2px - 3px));
+}
+
+.nav-card:focus-visible .nc-folio-stamp {
+  transform: rotate(-20deg) translateX(-22px) translateY(-2px);
+}
+
+.nav-card:focus-visible .nc-folio-itinerary {
+  transform: rotate(16deg) translateX(22px) translateY(-2px);
+}
+
+.nav-card:focus-visible .nc-folio-map {
+  transform: rotate(-3deg) translateY(-7px);
 }
 
 @media (max-width: 39.99rem) {
@@ -6204,7 +6302,7 @@ a:focus-visible .external-label .external-mark {
 @media (prefers-reduced-motion: reduce) {
   .nc-sheets span,
   .nc-polaroid,
-  .nc-maps span {
+  .nc-folio > span {
     transition: none;
   }
 }

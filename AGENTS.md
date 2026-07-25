@@ -12,7 +12,8 @@ Cleo agent surface.
 ### Issue tracker / triage / design / domain
 
 See the site guidance retained under `docs/agents/` and
-`docs/design-language.md`. Multi-context map: `CONTEXT-MAP.md`.
+`docs/design-language.md` (homepage doorways: § Paper-artifact doorway
+vignettes). Multi-context map: `CONTEXT-MAP.md`.
 
 ## Cleo agent surface
 
