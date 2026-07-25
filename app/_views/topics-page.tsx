@@ -29,12 +29,6 @@ export function TopicsPageView() {
           <h1 className="page-eyebrow enter">
             <T zh="主题" en="Topics" />
           </h1>
-          <p
-            className="page-introduction enter mt-4 text-balance"
-            style={{ '--enter-delay': '70ms' } as React.CSSProperties}
-          >
-            {publicPageMetadata.topics.description}
-          </p>
         </header>
         <PixelCluster variant={3} className="enter shrink-0" />
       </div>

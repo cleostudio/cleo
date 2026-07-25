@@ -27,9 +27,9 @@ const publicPages = [
     '/',
     {
       title: 'Cleo',
-      description: 'A neutral knowledge portal — countries first, more topics next.',
+      description: '',
     },
-    'Cleo. A neutral knowledge portal — countries first, more topics next.',
+    'Cleo',
   ),
   englishPage(
     '/blog',
@@ -44,28 +44,25 @@ const publicPages = [
     '/gallery',
     {
       title: 'Gallery',
-      description:
-        'Curated photographs from Explore places and Space guides, filterable by collection.',
+      description: '',
     },
-    'Gallery · Cleo. Curated photographs from Explore places and Space guides, filterable by collection.',
+    'Gallery · Cleo',
   ),
   englishPage(
     '/topics',
     {
       title: 'Topics',
-      description:
-        'General-knowledge collections — starting with countries, growing into more topics over time.',
+      description: '',
     },
-    'Topics · Cleo. General-knowledge collections — starting with countries, growing into more topics over time.',
+    'Topics · Cleo',
   ),
   englishPage(
     '/explore',
     {
       title: 'Explore',
-      description:
-        'Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
+      description: '',
     },
-    'Explore · Cleo. Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
+    'Explore · Cleo',
   ),
   englishPage(
     '/space',
@@ -134,14 +131,22 @@ async function verifyMetadata(baseUrl, page) {
     `${page.path} indexing`,
   )
   assert.equal(document.title, page.documentTitle, `${page.path} title`)
-  assert.equal(
-    requiredElement(
-      document,
-      'meta[name="description"]',
-      `${page.path} description`,
-    ).getAttribute('content'),
-    page.description,
-  )
+  const descriptionMeta = document.querySelector('meta[name="description"]')
+  if (page.description) {
+    assert.equal(
+      requiredElement(
+        document,
+        'meta[name="description"]',
+        `${page.path} description`,
+      ).getAttribute('content'),
+      page.description,
+    )
+  } else {
+    assert.ok(
+      !descriptionMeta || !descriptionMeta.getAttribute('content')?.trim(),
+      `${page.path} description should be absent or empty`,
+    )
+  }
   const canonical = requiredElement(
     document,
     'link[rel="canonical"]',
@@ -189,6 +194,14 @@ async function verifyMetadata(baseUrl, page) {
     ['meta[property="og:image:alt"]', page.imageAlt, 'OG image alt'],
     ['meta[name="twitter:image:alt"]', page.imageAlt, 'Twitter image alt'],
   ]) {
+    if (!expected && /description$/.test(description)) {
+      const element = document.querySelector(selector)
+      assert.ok(
+        !element || !element.getAttribute('content')?.trim(),
+        `${page.path} ${description} should be absent or empty`,
+      )
+      continue
+    }
     const element = requiredElement(
       document,
       selector,

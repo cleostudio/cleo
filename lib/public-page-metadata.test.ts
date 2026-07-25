@@ -3,11 +3,11 @@ import { describe, expect, it } from 'vitest'
 import { publicPageMetadata } from './public-page-metadata'
 
 describe('public page metadata copy', () => {
-  it('uses a timeless homepage title and OG description', () => {
+  it('uses a timeless homepage title without a portal blurb', () => {
     expect(publicPageMetadata.home).toEqual({
       title: 'Cleo',
-      description: 'A neutral knowledge portal — countries first, more topics next.',
-      ogDescription: 'A neutral knowledge portal — countries first, more topics next.',
+      description: '',
+      ogDescription: '',
     })
   })
 
@@ -19,18 +19,15 @@ describe('public page metadata copy', () => {
     })
     expect(publicPageMetadata.gallery).toEqual({
       title: 'Gallery',
-      description:
-        'Curated photographs from Explore places and Space guides, filterable by collection.',
+      description: '',
     })
     expect(publicPageMetadata.topics).toEqual({
       title: 'Topics',
-      description:
-        'General-knowledge collections — starting with countries, growing into more topics over time.',
+      description: '',
     })
     expect(publicPageMetadata.explore).toEqual({
       title: 'Explore',
-      description:
-        'Evergreen field guides for every country — orientation, three places, facts, and a photograph.',
+      description: '',
     })
     expect(publicPageMetadata.space).toEqual({
       title: 'Space',

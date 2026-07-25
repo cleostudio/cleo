@@ -7,7 +7,6 @@ import { PixelCluster } from '~/components/pixel-cluster'
 import { highlightedAtlasEntries } from '~/lib/atlas'
 import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
-import { publicPageMetadata } from '~/lib/public-page-metadata'
 import { allTopics } from '~/lib/topics'
 import type { Locale } from '~/lib/locale-route'
 
@@ -46,7 +45,6 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
           <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
           <PixelCluster variant={2} className="shrink-0" />
         </div>
-        <p className="mt-2 text-sm text-muted-foreground">{publicPageMetadata.home.description}</p>
         <div className="mt-4">
           <HomeIntroduction />
         </div>
