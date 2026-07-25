@@ -6090,21 +6090,75 @@ a:focus-visible .external-label .external-mark {
   content: '';
 }
 
-/* Explore doorway: a soft-framed globe mark */
-.nc-explore-icon {
+/* folded map sheets: three graticule cards, loosely stacked */
+.nc-maps span {
   position: absolute;
-  isolation: isolate;
-  width: 3.25rem;
-  height: 3.25rem;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-  border: var(--border-hairline) solid color-mix(in oklab, var(--foreground) 20%, var(--border));
-  border-radius: 0.75rem;
-  background: color-mix(in oklab, var(--foreground) 4%, var(--background));
-  box-shadow: var(--shadow-3);
+  width: 2.75rem;
+  height: 2.125rem;
   transition: transform 300ms var(--ease-spring);
+  background:
+    radial-gradient(
+      55% 45% at 32% 42%,
+      color-mix(in oklab, var(--paper-ink) 22%, transparent) 0 42%,
+      transparent 43%
+    ),
+    radial-gradient(
+      40% 38% at 68% 58%,
+      color-mix(in oklab, var(--paper-ink) 18%, transparent) 0 38%,
+      transparent 39%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0 calc(50% - 0.35px),
+      color-mix(in oklab, var(--paper-ink) 28%, transparent) calc(50% - 0.35px)
+        calc(50% + 0.35px),
+      transparent calc(50% + 0.35px)
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0 calc(50% - 0.35px),
+      color-mix(in oklab, var(--paper-ink) 28%, transparent) calc(50% - 0.35px)
+        calc(50% + 0.35px),
+      transparent calc(50% + 0.35px)
+    ),
+    repeating-linear-gradient(
+      to right,
+      transparent 0 7px,
+      color-mix(in oklab, var(--paper-ink) 14%, transparent) 7px 7.5px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 7px,
+      color-mix(in oklab, var(--paper-ink) 14%, transparent) 7px 7.5px
+    ),
+    var(--paper);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08), 0 1px 2px rgb(0 0 0 / 0.12);
+}
+
+.nc-maps span:nth-child(1) {
+  transform: rotate(-8deg) translateX(-10px) translateY(1px);
+}
+
+.nc-maps span:nth-child(2) {
+  transform: rotate(6deg) translateX(10px) translateY(1px);
+}
+
+.nc-maps span:nth-child(3) {
+  transform: rotate(-1deg) translateY(-2px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-card:hover .nc-maps span:nth-child(1) {
+    transform: rotate(-14deg) translateX(-17px) translateY(-1px);
+  }
+
+  .nav-card:hover .nc-maps span:nth-child(2) {
+    transform: rotate(12deg) translateX(17px) translateY(-1px);
+  }
+
+  .nav-card:hover .nc-maps span:nth-child(3) {
+    transform: rotate(-2deg) translateY(-5px);
+  }
 }
 
 @media (max-width: 39.99rem) {
@@ -6119,24 +6173,6 @@ a:focus-visible .external-label .external-mark {
     max-width: 100%;
     height: 3.25rem;
     margin-bottom: 0.25rem;
-  }
-}
-
-.nc-explore-mark {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  width: 30px;
-  height: 30px;
-  color: color-mix(in oklab, var(--foreground) 84%, var(--muted-foreground));
-  overflow: visible;
-  transform: translate(-50%, -50%);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .nav-card:hover .nc-explore-icon {
-    transform: translate(-50%, calc(-50% - 2px));
   }
 }
 
@@ -6168,12 +6204,8 @@ a:focus-visible .external-label .external-mark {
 @media (prefers-reduced-motion: reduce) {
   .nc-sheets span,
   .nc-polaroid,
-  .nc-explore-icon {
+  .nc-maps span {
     transition: none;
-  }
-
-  .nav-card:hover .nc-explore-icon {
-    transform: translate(-50%, -50%);
   }
 }
 

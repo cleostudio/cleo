@@ -6,7 +6,7 @@ import { localePath, type Locale } from '~/lib/locale-route'
 
 // The three doorways, greeting visitors who never look at the dock:
 // analog vignettes on soft neumorphic cards — manuscript pages for
-// writing, a polaroid fan for photos, a globe for Explore.
+// writing, a polaroid fan for photos, a map stack for Explore.
 export function NavCards({
   postCount,
   exploreCount,
@@ -45,31 +45,10 @@ export function NavCards({
         className="nav-card enter-swing"
         style={{ '--enter-delay': '240ms' } as React.CSSProperties}
       >
-        <span className="nc-vignette" aria-hidden>
-          <span className="nc-explore-icon">
-            <svg className="nc-explore-mark" viewBox="0 0 18 18" width="30" height="30">
-              <g
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-                stroke="currentColor"
-              >
-                <circle
-                  cx="9"
-                  cy="9"
-                  r="6.75"
-                  fill="currentColor"
-                  opacity=".3"
-                  strokeWidth="0"
-                  stroke="none"
-                />
-                <circle cx="9" cy="9" r="6.75" />
-                <ellipse cx="9" cy="9" rx="3" ry="6.75" />
-                <path d="M2.25 9h13.5" />
-              </g>
-            </svg>
-          </span>
+        <span className="nc-vignette nc-maps" aria-hidden>
+          <span />
+          <span />
+          <span />
         </span>
         <span className="nc-label">
           <T zh="探索" en="Explore" />
