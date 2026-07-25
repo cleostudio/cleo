@@ -1,13 +1,13 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import type { ReactNode } from 'react'
 
-import { SiteFooter } from '~/components/site-footer'
 import { unlocalizedPathname } from '~/lib/locale-route'
 
-/** Site footer for every public route except the full-bleed Cleo chat surface. */
-export function SiteFooterSlot() {
+/** Hides the site footer on the full-bleed Cleo chat surface. */
+export function SiteFooterSlot({ children }: { children: ReactNode }) {
   const pathname = usePathname()
   if (unlocalizedPathname(pathname) === '/cleo') return null
-  return <SiteFooter locale="en" />
+  return children
 }
