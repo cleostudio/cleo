@@ -80,12 +80,13 @@ async function readPublishedPhotoSelection() {
     ).getPublishedSelection()
   } catch (error) {
     // An error thrown inside the 'use cache' scope aborts a prerender even
-    // when the caller catches it. On Vercel that is deliberate: a deploy
-    // must fail loudly rather than silently ship an empty photos page. The
-    // documented local build (shaped but unreachable DATABASE_URL) renders
-    // the empty state instead. At runtime the rethrow lands in the caller's
-    // catch, so a request never 500s over this read.
-    if (process.env.VERCEL_ENV) throw error
+    // when the caller catches it. Production Vercel deploys still fail
+    // loudly so an empty photos page cannot ship unnoticed. Preview and
+    // local builds (stub / unreachable DATABASE_URL) render the empty
+    // state instead — this product repo often previews without Neon.
+    // At runtime the rethrow lands in the caller's catch, so a request
+    // never 500s over this read.
+    if (process.env.VERCEL_ENV === 'production') throw error
     logReadFailure('read', error)
     return null
   }

@@ -24,6 +24,9 @@ const stubs = {
   BUNNY_CDN_API_KEY: 'ci-cdn-api-key',
   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: 'pk_live_Y2xlcmsuY2FsaS5zbyQ',
   CLERK_SECRET_KEY: 'sk_live_ci_secret_not_real',
+  // Used when VERCEL_ENV is absent/local; Preview derives from VERCEL_URL.
+  SITE_URL: 'https://cali.so',
+  PUBLIC_SITE_URL: 'https://cali.so',
 }
 
 const target = '.env.production.local'

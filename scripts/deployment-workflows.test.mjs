@@ -30,9 +30,15 @@ function assertOrdered(steps, before, after) {
   assert.ok(beforeIndex < afterIndex, `${before} must run before ${after}`)
 }
 
-test('Vercel Git integration cannot race the deployment workflows', async () => {
+test('Vercel Git previews are allowed when Actions deploy is repo-gated', async () => {
   const config = JSON.parse(await text('vercel.json'))
-  assert.equal(config.git?.deploymentEnabled, false)
+  const preview = await workflow('deploy-preview')
+  // Upstream cali.so disables Vercel Git so Actions owns every deploy.
+  // This product repo gates Actions to CaliCastle/cali.so and keeps Vercel
+  // Git on for cleostudio/cleo previews, so deploymentEnabled must not be
+  // forced off here.
+  assert.match(preview.jobs.deploy.if, /CaliCastle\/cali\.so/)
+  assert.notEqual(config.git?.deploymentEnabled, false)
 })
 
 test('feature pushes branch from Staging, migrate, then deploy Preview', async () => {
