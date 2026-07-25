@@ -658,7 +658,7 @@ export function AskForm() {
               value={input}
             />
             <Button
-              aria-label={isSubmitting ? "Stop generating" : "Send message"}
+              aria-label={isSubmitting ? "Stop generating" : "Send"}
               className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
               disabled={!isSubmitting && !canSubmit}
               onClick={

@@ -21,12 +21,31 @@ function titleFromSlug(slug: string) {
     .join(' ')
 }
 
+/** Prefer a short guide name over noisy model link text. */
+export function cleanPortalGuideLabel(
+  label: string,
+  slug: string,
+): string {
+  const trimmed = label.trim()
+  if (!trimmed) {
+    return titleFromSlug(slug)
+  }
+
+  const cleaned = trimmed
+    .replace(/\s*(?:explore|space)?\s*(?:field\s*)?guides?\s*$/i, '')
+    .replace(/^(?:explore|space)\s*[·|:–-]\s*/i, '')
+    .replace(/^(?:the\s+)?(?:explore|space)\s+/i, '')
+    .trim()
+
+  return cleaned || titleFromSlug(slug)
+}
+
 /** Pull unique Explore/Space guide links from assistant Markdown. */
 export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
   const found = new Map<string, PortalGuideLink>()
 
   for (const match of markdown.matchAll(MARKDOWN_GUIDE_LINK)) {
-    const label = match[1]?.trim()
+    const rawLabel = match[1] ?? ''
     const href = match[2]
     const collection = match[3] as 'explore' | 'space'
     const slug = match[4]
@@ -38,7 +57,7 @@ export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
     found.set(href, {
       collection,
       href,
-      label: label || titleFromSlug(slug),
+      label: cleanPortalGuideLabel(rawLabel, slug),
       slug,
     })
   }

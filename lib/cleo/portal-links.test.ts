@@ -46,6 +46,27 @@ describe('extractPortalGuideLinks', () => {
       },
     ])
   })
+
+  it('strips noisy guide labels down to the subject name', () => {
+    expect(
+      extractPortalGuideLinks(
+        'Read the full [Europa Space guide](/space/europa) and the [Explore Japan field guide](/explore/japan).',
+      ),
+    ).toEqual([
+      {
+        collection: 'space',
+        href: '/space/europa',
+        label: 'Europa',
+        slug: 'europa',
+      },
+      {
+        collection: 'explore',
+        href: '/explore/japan',
+        label: 'Japan',
+        slug: 'japan',
+      },
+    ])
+  })
 })
 
 describe('CLEO_PORTAL_STARTERS', () => {
