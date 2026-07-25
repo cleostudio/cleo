@@ -25,9 +25,9 @@ const publicPages = [
     '/',
     {
       title: 'Cleo',
-      description: 'Design Engineer. Agent Orchestrator. Creative Director.',
+      description: 'A neutral knowledge portal — countries first, more topics next.',
     },
-    'Cleo. Design Engineer. Agent Orchestrator. Creative Director.',
+    'Cleo. A neutral knowledge portal — countries first, more topics next.',
   ),
   englishPage(
     '/blog',

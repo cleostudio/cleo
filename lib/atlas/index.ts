@@ -49,6 +49,35 @@ export function atlasPhotoPreview(limit = 3): AtlasEntry[] {
   return allAtlasEntries().slice(0, limit)
 }
 
+/** Curated homepage highlights — one place photo per country slug. */
+const HIGHLIGHT_SLUGS = [
+  'japan',
+  'greece',
+  'iceland',
+  'egypt',
+  'peru',
+  'italy',
+  'new-zealand',
+  'norway',
+] as const
+
+export function highlightedAtlasEntries(limit = 6): AtlasEntry[] {
+  const selected: AtlasEntry[] = []
+  for (const slug of HIGHLIGHT_SLUGS) {
+    const entry = bySlug.get(slug)
+    if (entry) selected.push(entry)
+    if (selected.length >= limit) break
+  }
+  if (selected.length < limit) {
+    for (const entry of allAtlasEntries()) {
+      if (selected.some((item) => item.slug === entry.slug)) continue
+      selected.push(entry)
+      if (selected.length >= limit) break
+    }
+  }
+  return selected
+}
+
 export function atlasRegions(): string[] {
   return atlasEntriesByRegion().map(([region]) => region)
 }

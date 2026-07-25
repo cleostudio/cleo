@@ -6,8 +6,8 @@ describe('public page metadata copy', () => {
   it('uses a timeless homepage title and OG description', () => {
     expect(publicPageMetadata.home).toEqual({
       title: 'Cleo',
-      description: 'Design Engineer. Agent Orchestrator. Creative Director.',
-      ogDescription: 'Design Engineer. Agent Orchestrator. Creative Director.',
+      description: 'A neutral knowledge portal — countries first, more topics next.',
+      ogDescription: 'A neutral knowledge portal — countries first, more topics next.',
     })
   })
 

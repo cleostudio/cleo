@@ -2,18 +2,10 @@ import { cacheLife } from 'next/cache'
 import Link from 'next/link'
 
 import { FooterClock } from '~/components/footer-clock'
-import {
-  EmailCard,
-  GitHubCard,
-  type GitHubSnapshot,
-  type SocialSnapshot,
-  TelegramCard,
-  XCard,
-  YouTubeCard,
-} from '~/components/social-cards'
 import { brailleText } from '~/lib/braille'
 import { T } from '~/lib/i18n'
 import { localePath, type Locale } from '~/lib/locale-route'
+import { allTopics } from '~/lib/topics'
 
 function Tree({
   zh,
@@ -42,35 +34,30 @@ async function CopyrightYear() {
 }
 
 // Swiss editorial footer, set as folder trees: each column is a directory
-// listing with box-drawing connectors; the controls in 偏好 fill the
-// column width (auto on mobile).
-export function SiteFooter({
-  social,
-  github,
-  locale = 'en',
-}: {
-  social: { x: SocialSnapshot; telegram: SocialSnapshot; youtube: SocialSnapshot }
-  github: GitHubSnapshot
-  locale?: Locale
-}) {
+// listing with box-drawing connectors.
+export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
+  const topics = allTopics()
+
   return (
     <footer className="mx-auto mt-24 w-full max-w-[37.5rem] px-6 pb-24 text-sm text-muted-foreground sm:pb-12">
       <div className="hairline-top grid grid-cols-2 gap-x-6 gap-y-8 pt-8 sm:grid-cols-3">
-        <Tree zh="联系" en="contact">
+        <Tree zh="主题" en="topics">
           <li>
-            <XCard data={social.x} />
+            <Link href={localePath(locale, '/topics')} className="footer-tree-link">
+              <T zh="全部主题" en="All topics" />
+            </Link>
           </li>
+          {topics.map((topic) => (
+            <li key={topic.slug}>
+              <Link href={localePath(locale, topic.href)} className="footer-tree-link">
+                {topic.name}
+              </Link>
+            </li>
+          ))}
           <li>
-            <TelegramCard data={social.telegram} />
-          </li>
-          <li>
-            <YouTubeCard data={social.youtube} />
-          </li>
-          <li>
-            <GitHubCard data={github} />
-          </li>
-          <li>
-            <EmailCard address="hi@cali.so" />
+            <Link href={localePath(locale, '/photos')} className="footer-tree-link">
+              <T zh="国家图集" en="Country atlas" />
+            </Link>
           </li>
         </Tree>
         <Tree zh="索引" en="index">
@@ -80,13 +67,8 @@ export function SiteFooter({
             </Link>
           </li>
           <li>
-            <Link href={localePath(locale, '/topics')} className="footer-tree-link">
-              <T zh="主题" en="Topics" />
-            </Link>
-          </li>
-          <li>
-            <Link href={localePath(locale, '/photos')} className="footer-tree-link">
-              <T zh="照片" en="Photos" />
+            <Link href={localePath(locale, '/explore')} className="footer-tree-link">
+              <T zh="探索" en="Explore" />
             </Link>
           </li>
           <li>
@@ -95,13 +77,8 @@ export function SiteFooter({
             </Link>
           </li>
           <li>
-            <Link href={localePath(locale, '/explore')} className="footer-tree-link">
-              <T zh="探索" en="Explore" />
-            </Link>
-          </li>
-          <li>
             <Link href={localePath(locale, '/cleo')} className="footer-tree-link">
-              <T zh="Cleo" en="Cleo" />
+              <T zh="询问" en="Ask" />
             </Link>
           </li>
           <li>
@@ -130,8 +107,8 @@ export function SiteFooter({
                 <path d="M1 10h18M1.9 6h16.2M1.9 14h16.2" />
               </svg>
               <span className="footer-geo-lines">
-                <span>22.4820° N</span>
-                <span>113.9247° E</span>
+                <span>Knowledge atlas</span>
+                <span>Evergreen guides</span>
               </span>
             </div>
           </div>

@@ -1,17 +1,15 @@
 import Link from 'next/link'
 
-import { Bookshelf } from '~/components/bookshelf'
+import { HomeCountrySearch } from '~/components/home-country-search'
+import { HomeHighlightedPlaces } from '~/components/home-highlighted-places'
 import { HomeIntroduction } from '~/components/home-introduction'
-import { NavCards, PhotoNavCard } from '~/components/nav-cards'
 import { PixelCluster } from '~/components/pixel-cluster'
-import { PostRow } from '~/components/post-row'
-import { VinylShelf } from '~/components/vinyl-shelf'
-import { getAllPosts } from '~/lib/content'
-import { T } from '~/lib/i18n'
-import { localePath, type Locale } from '~/lib/locale-route'
+import { highlightedAtlasEntries } from '~/lib/atlas'
 import { countries } from '~/lib/countries'
-import { books, records } from '~/lib/personal'
-import { getGitHub, getSocial } from '~/lib/social-live'
+import { T } from '~/lib/i18n'
+import { publicPageMetadata } from '~/lib/public-page-metadata'
+import { allTopics } from '~/lib/topics'
+import type { Locale } from '~/lib/locale-route'
 
 function SectionTitle({
   index,
@@ -36,84 +34,99 @@ function SectionTitle({
   )
 }
 
-export async function HomePageView({ locale }: { locale: Locale }) {
-  const [social, github] = await Promise.all([getSocial(), getGitHub()])
-  const posts = getAllPosts()
-  const latest = posts.slice(0, 5)
-  const center = (latest.length - 1) / 2
-
-  // section tags number in render order; conditional shelves never leave gaps
-  let sectionCount = 0
-  const nextSectionIndex = () => String(++sectionCount).padStart(2, '0')
+export async function HomePageView({ locale: _locale }: { locale: Locale }) {
+  const topics = allTopics()
+  const highlights = highlightedAtlasEntries(6)
+  const center = (topics.length - 1) / 2
 
   return (
     <div className="mx-auto w-full max-w-[37.5rem] px-6">
-      <div className="enter max-w-[19rem]">
+      <div className="enter max-w-[34rem]">
         <div className="flex items-center gap-2">
           <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
           <PixelCluster variant={2} className="shrink-0" />
         </div>
+        <p className="mt-2 text-sm text-muted-foreground">{publicPageMetadata.home.description}</p>
         <div className="mt-4">
-          <HomeIntroduction social={social.x} github={github} />
+          <HomeIntroduction />
         </div>
       </div>
 
-      <NavCards
-        postCount={posts.length}
-        exploreCount={countries.length}
-        locale={locale}
-        photoCard={<PhotoNavCard locale={locale} />}
-      />
+      <section className="mt-12" aria-labelledby="home-search-heading">
+        <SectionTitle index="01" delay={100}>
+          <span id="home-search-heading">
+            <T zh="国家检索" en="Country search" />
+          </span>
+        </SectionTitle>
+        <div className="enter mt-4" style={{ '--enter-delay': '130ms' } as React.CSSProperties}>
+          <HomeCountrySearch countries={countries} />
+        </div>
+      </section>
 
-      <section className="mt-16">
+      <section className="mt-16" aria-labelledby="home-places-heading">
         <div className="flex items-center justify-between gap-4">
-          <SectionTitle index={nextSectionIndex()} delay={120}>
-            <T zh="写作" en="Writing" />
+          <SectionTitle index="02" delay={160}>
+            <span id="home-places-heading">
+              <T zh="精选地点" en="Highlighted places" />
+            </span>
           </SectionTitle>
           <Link
-            href={localePath(locale, '/blog')}
+            href="/photos"
             className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
-            style={{ '--enter-delay': '120ms' } as React.CSSProperties}
+            style={{ '--enter-delay': '160ms' } as React.CSSProperties}
           >
-            <T zh="查看全部" en="View all" />
+            <T zh="全部图集" en="Full atlas" />
+          </Link>
+        </div>
+        <div className="enter mt-5" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
+          <HomeHighlightedPlaces entries={highlights} />
+        </div>
+      </section>
+
+      <section className="mt-16" aria-labelledby="home-topics-heading">
+        <div className="flex items-center justify-between gap-4">
+          <SectionTitle index="03" delay={220}>
+            <span id="home-topics-heading">
+              <T zh="主题发现" en="Topic discovery" />
+            </span>
+          </SectionTitle>
+          <Link
+            href="/topics"
+            className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+            style={{ '--enter-delay': '220ms' } as React.CSSProperties}
+          >
+            <T zh="全部主题" en="All topics" />
           </Link>
         </div>
         <ul className="focus-list mt-4 flex flex-col">
-          {latest.map((post, index) => (
+          {topics.map((topic, index) => (
             <li
-              key={post.slug}
+              key={topic.slug}
               className="enter-swing"
               style={
-                { '--enter-delay': `${160 + Math.abs(index - center) * 50}ms` } as React.CSSProperties
+                {
+                  '--enter-delay': `${250 + Math.abs(index - center) * 40}ms`,
+                } as React.CSSProperties
               }
             >
-              <PostRow post={post} headingLevel="h3" dateStyle="short" locale={locale} />
+              <Link href={topic.href} className="topic-row hairline-top group block">
+                <span className="topic-primary">
+                  <span className="topic-index tabular-nums text-muted-foreground" aria-hidden>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="topic-identity">
+                    <span className="topic-name font-medium text-foreground">{topic.name}</span>
+                    <span className="topic-tally text-muted-foreground">{topic.tally}</span>
+                  </span>
+                  <span className="topic-description text-muted-foreground">
+                    {topic.description}
+                  </span>
+                </span>
+              </Link>
             </li>
           ))}
         </ul>
       </section>
-
-      {records.length > 0 && (
-        <section className="mt-16">
-          <SectionTitle index={nextSectionIndex()} delay={320}>
-            <T zh="循环播放中" en="On rotation" />
-          </SectionTitle>
-          <div className="enter mt-5" style={{ '--enter-delay': '360ms' } as React.CSSProperties}>
-            <VinylShelf />
-          </div>
-        </section>
-      )}
-
-      {books.length > 0 && (
-        <section className="mt-16">
-          <SectionTitle index={nextSectionIndex()} delay={380}>
-            <T zh="珍藏书架" en="Books I Love" />
-          </SectionTitle>
-          <div className="enter mt-5" style={{ '--enter-delay': '420ms' } as React.CSSProperties}>
-            <Bookshelf />
-          </div>
-        </section>
-      )}
     </div>
   )
 }

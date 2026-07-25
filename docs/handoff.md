@@ -4,11 +4,12 @@ Current as of July 2026 (Cleo fork).
 
 ## Product
 
-English-only personal site with:
+English-only general-knowledge portal with:
 
+- Homepage: country search, highlighted places, topic discovery (no personal
+  contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
-  country field guides, Topics catalog (countries first; more topics later),
-  newsletters
+  country field guides, Topics catalog (countries first; more topics later)
 - Photos: filterable Country Atlas (`content/atlas.json` + optimized static
   JPEGs in `public/images/atlas/`) — one curated place photograph per country
 - Cleo AI agent at `/cleo` powered by **OpenAI only**

@@ -12,7 +12,6 @@ import {
 } from '~/components/route-motion-controller'
 import { SiteFooter } from '~/components/site-footer'
 import { ThemeProvider } from '~/components/theme-provider'
-import { getGitHub, getSocial } from '~/lib/social-live'
 import { PREPAINT_SCRIPT } from '~/lib/security/inline-scripts'
 import { seo } from '~/lib/seo'
 import { cn } from '~/lib/utils'
@@ -36,8 +35,6 @@ export async function SiteDocument({
   /** @deprecated Ignored; site is English-only. */
   restoreLocale?: boolean
 }>) {
-  const [social, github] = await Promise.all([getSocial(), getGitHub()])
-
   return (
     <html
       lang="en"
@@ -60,7 +57,7 @@ export async function SiteDocument({
                     CSS-named list → loading shell → article groups active. */}
                 <RouteViewTransition>{children}</RouteViewTransition>
               </main>
-              <SiteFooter social={social} github={github} locale="en" />
+              <SiteFooter locale="en" />
             </div>
             <Suspense fallback={<DockFallback locale="en" />}>
               <Dock />

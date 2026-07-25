@@ -1,18 +1,7 @@
-import { ExternalLink } from '~/components/external-link'
-import { HomeIntroReplay } from '~/components/home-intro-replay'
-import {
-  EmailCard,
-  GitHubCard,
-  type GitHubSnapshot,
-  type SocialSnapshot,
-  XCard,
-  XiaohongshuCard,
-} from '~/components/social-cards'
-import { T } from '~/lib/i18n'
-import { faviconUrl, getLinkPreview } from '~/lib/link-previews'
+import Link from 'next/link'
 
-const ZOLPLAY_URL = 'https://zolplay.com'
-const ZOLPLAY_FAVICON_SRC = faviconUrl(ZOLPLAY_URL)!
+import { HomeIntroReplay } from '~/components/home-intro-replay'
+import { T } from '~/lib/i18n'
 
 function DesignEngineerMark() {
   return (
@@ -139,53 +128,16 @@ function DetailsPhrase({ children }: { children: React.ReactNode }) {
   )
 }
 
-function ZolplayLink({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="home-zolplay-link">
-      <ExternalLink
-        href={ZOLPLAY_URL}
-        favicon={ZOLPLAY_FAVICON_SRC}
-        preview={getLinkPreview(ZOLPLAY_URL)}
-      >
-        {children}
-      </ExternalLink>
-    </span>
-  )
-}
-
-function HomeContact({ social, github }: { social: SocialSnapshot; github: GitHubSnapshot }) {
-  return (
-    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-      <T
-        zh={
-          <>
-            可以在 <XCard data={social} trigger="@calicastle" triggerClassName="home-contact-link" />、
-            <GitHubCard data={github} triggerClassName="home-contact-link" /> 和
-            <XiaohongshuCard triggerClassName="home-contact-link" />找到我，也可以发邮件到{' '}
-            <EmailCard address="hi@cali.so" trigger="hi@cali.so" triggerClassName="home-contact-link" />。
-          </>
-        }
-        en={
-          <>
-            Find me at <XCard data={social} trigger="@calicastle" triggerClassName="home-contact-link" />,{' '}
-            <GitHubCard data={github} triggerClassName="home-contact-link" /> and{' '}
-            <EmailCard address="hi@cali.so" trigger="hi@cali.so" triggerClassName="home-contact-link" />
-          </>
-        }
-      />
-    </p>
-  )
-}
-
-export function HomeIntroduction({ social, github }: { social: SocialSnapshot; github: GitHubSnapshot }) {
+export function HomeIntroduction() {
   return (
     <div className="home-introduction">
       <p className="text-sm leading-relaxed text-muted-foreground">
         <T
           zh={
             <>
-              我是 Cleo，两个孩子的爸爸，也是一名
-              <DesignEngineerPhrase>设计工程师</DesignEngineerPhrase>。我也是 Agent 指挥官，热爱把细节做到
+              Cleo 是一座中立的知识门户：从国家开始，再延展到更多主题。每个条目都以
+              <DesignEngineerPhrase>设计工程师</DesignEngineerPhrase>
+              的方式打磨，并坚持把细节做到
               <DetailsPhrase>
                 <span className="home-detail-units">
                   <span className="home-detail-unit">刚</span>
@@ -198,14 +150,13 @@ export function HomeIntroduction({ social, github }: { social: SocialSnapshot; g
           }
           en={
             <>
-              I’m Cleo, a father of two and a <DesignEngineerPhrase>design engineer</DesignEngineerPhrase>. I’m also an
-              agent orchestrator, and I love getting the{' '}
+              Cleo is a neutral knowledge portal — starting with countries, then expanding into more
+              topics. Every guide is shaped with <DesignEngineerPhrase>design engineer</DesignEngineerPhrase>{' '}
+              care, and a love of getting the{' '}
               <DetailsPhrase>
                 <span className="home-detail-units home-detail-words">
-                  <span className="home-detail-unit">details</span>
-                  {' '}
-                  <span className="home-detail-unit">just</span>
-                  {' '}
+                  <span className="home-detail-unit">details</span>{' '}
+                  <span className="home-detail-unit">just</span>{' '}
                   <span className="home-detail-unit">right</span>
                   <span className="home-detail-period">.</span>
                 </span>
@@ -216,26 +167,48 @@ export function HomeIntroduction({ social, github }: { social: SocialSnapshot; g
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         <T
-          zh={
-            <>
-              我创办了<ZolplayLink>佐玩</ZolplayLink>，一家打造产品、品牌与数字体验的 AI 原生设计工作室。
-            </>
-          }
-          en={
-            <>
-              I founded <ZolplayLink>Zolplay</ZolplayLink>, an AI-native design studio creating products, brands, and
-              digital experiences.
-            </>
-          }
+          zh="常青的国家导览、精选地点照片，以及可检索的主题目录。没有签证、安全或价格这类易变建议——只保留可靠的方向感。"
+          en="Evergreen country primers, curated place photographs, and a searchable topic catalog. No visas, safety bulletins, or prices — just durable orientation."
         />
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         <T
-          zh="我兴趣很杂，什么都爱试试。和团队一起做东西，我在意好点子、好细节，也在意玩得开心。"
-          en="Being a generalist is kind of my thing. I bring curiosity, craft, and a little fun to whatever the team is making."
+          zh={
+            <>
+              从{' '}
+              <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                主题
+              </Link>
+              、
+              <Link href="/explore" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                探索
+              </Link>
+              {' '}或{' '}
+              <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                询问 Cleo
+              </Link>
+              {' '}开始。
+            </>
+          }
+          en={
+            <>
+              Begin with{' '}
+              <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                Topics
+              </Link>
+              ,{' '}
+              <Link href="/explore" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                Explore
+              </Link>
+              , or{' '}
+              <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                Ask Cleo
+              </Link>
+              .
+            </>
+          }
         />
       </p>
-      <HomeContact social={social} github={github} />
     </div>
   )
 }

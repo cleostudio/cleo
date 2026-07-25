@@ -19,7 +19,7 @@ describe('social OG image metadata', () => {
     const home = publicPageMetadata.home
 
     expect(imageAlt(metadataFor('/', home.title, home.description))).toBe(
-      'Cleo. Design Engineer. Agent Orchestrator. Creative Director.',
+      'Cleo. A neutral knowledge portal — countries first, more topics next.',
     )
   })
 

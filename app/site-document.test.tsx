@@ -31,10 +31,6 @@ vi.mock('~/components/theme-provider', () => ({
 vi.mock('~/lib/security/inline-scripts', () => ({
   PREPAINT_SCRIPT: '',
 }))
-vi.mock('~/lib/social-live', () => ({
-  getGitHub: vi.fn().mockResolvedValue({}),
-  getSocial: vi.fn().mockResolvedValue({}),
-}))
 vi.mock('~/components/route-motion-controller', () => ({
   RouteMotionController: () => <span data-public-route-motion="" />,
   RouteViewTransition: ({ children }: { children: React.ReactNode }) => (
@@ -46,7 +42,6 @@ vi.mock('./fonts', () => ({
 }))
 
 import { SiteDocument } from './_components/site-document'
-import { getGitHub, getSocial } from '~/lib/social-live'
 
 beforeEach(() => {
   vi.clearAllMocks()
@@ -76,7 +71,5 @@ describe('SiteDocument', () => {
     expect(html).toContain('data-public-footer')
     expect(html).toContain('data-public-route-transition')
     expect(html).toContain('data-public-preview-cards')
-    expect(getSocial).toHaveBeenCalledOnce()
-    expect(getGitHub).toHaveBeenCalledOnce()
   })
 })

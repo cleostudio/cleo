@@ -1,11 +1,12 @@
 # Cleo
 
 This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
-app starting with countries. Explore field guides live at `/explore/[slug]`, the
-filterable Country Atlas at `/photos`, the Topics catalog at `/topics`, Writing
-at `/blog` (kept for a future encyclopedia-like layer), and the AI agent at
-`/cleo`. `/projects` permanently redirects to `/topics`; Projects UI remains in
-the repo for later reuse.
+portal starting with countries. The homepage is a neutral portal (country
+search, highlighted places, topic discovery). Explore field guides live at
+`/explore/[slug]`, the filterable Country Atlas at `/photos`, Topics at
+`/topics`, Writing at `/blog` (future encyclopedia-like layer), and the AI
+agent at `/cleo`. `/projects` permanently redirects to `/topics`; Projects UI,
+vinyl/bookshelf, and social card components remain in the repo for later reuse.
 
 Country atlas records live in `content/atlas.json` (one entry per Explore slug).
 Generate evergreen copy with `pnpm generate:atlas-content`, then import curated

@@ -4,7 +4,7 @@ import { HomePageView } from '../_views/home-page'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { seoEn } from '~/lib/seo'
 
-// The active photo publication streams into a prefetched homepage shell.
+// Knowledge portal homepage — prefetched for instant dock navigation.
 export const instant = true
 
 export const metadata: Metadata = {

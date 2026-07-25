@@ -1,12 +1,13 @@
 # Cleo
 
-**Cleo** is an English-only personal site with a general-purpose AI agent on the
+**Cleo** is an English-only general-knowledge portal with a chat agent on the
 dock at `/cleo`.
 
-The public site includes MDX writing, Explore country field guides, a
-filterable Country Atlas at `/photos`, a Topics catalog (countries first), and a
-browser-only chat agent with streamed Markdown, vision attachments, image
-generation, and live reasoning / web-search activity.
+The public site includes a homepage for country search, highlighted places, and
+topic discovery; Explore country field guides; a filterable Country Atlas at
+`/photos`; a Topics catalog; Writing (for a future encyclopedia layer); and a
+browser-only agent with streamed Markdown, vision, image generation, and live
+reasoning / web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 

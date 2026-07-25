@@ -1,8 +1,8 @@
 export const publicPageMetadata = {
   home: {
     title: 'Cleo',
-    description: 'Design Engineer. Agent Orchestrator. Creative Director.',
-    ogDescription: 'Design Engineer. Agent Orchestrator. Creative Director.',
+    description: 'A neutral knowledge portal — countries first, more topics next.',
+    ogDescription: 'A neutral knowledge portal — countries first, more topics next.',
   },
   blog: {
     title: 'Writing',

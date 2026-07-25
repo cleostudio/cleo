@@ -742,6 +742,24 @@
   }
 }
 
+/* ── Homepage knowledge portal ───────────────────────────────────── */
+
+.home-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 0.75rem;
+}
+
+@media (min-width: 40rem) {
+  .home-highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.home-country-search [type='search']::-webkit-search-cancel-button {
+  appearance: none;
+}
+
 /* ── Topics catalog: knowledge collections (reuses project stage UX) ─ */
 
 .topic-row {
