@@ -107,8 +107,8 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
                 <path d="M1 10h18M1.9 6h16.2M1.9 14h16.2" />
               </svg>
               <span className="footer-geo-lines">
-                <span>Knowledge atlas</span>
-                <span>Evergreen guides</span>
+                <span>22.4820° N</span>
+                <span>113.9247° E</span>
               </span>
             </div>
           </div>
