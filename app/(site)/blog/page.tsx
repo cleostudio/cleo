@@ -4,6 +4,9 @@ import { publicPageMetadata } from '~/lib/public-page-metadata'
 
 const copy = publicPageMetadata.blog
 
+// Prefetched Writing index — dock navigation should paint without blocking.
+export const instant = true
+
 export const metadata = localeMetadata({
   locale: 'en',
   path: '/blog',
