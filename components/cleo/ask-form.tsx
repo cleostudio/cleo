@@ -364,7 +364,9 @@ export function AskForm() {
         !receivedImages &&
         !abortController.signal.aborted
       ) {
-        throw new Error("The AI service returned an empty response.")
+        throw new Error(
+          "The AI service stopped before returning an answer. Try again."
+        )
       }
     } catch (requestError) {
       const aborted =
