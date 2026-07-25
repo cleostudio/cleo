@@ -1,39 +1,37 @@
 # Domain Docs
 
-How the engineering skills should consume this repo's domain documentation when exploring the codebase.
+How the engineering skills should consume this repo's domain documentation when
+exploring the codebase.
 
-## Layout: multi-context
+## Layout
 
-This repo uses the multi-context layout: `CONTEXT-MAP.md` at the root points at one `CONTEXT.md` per context. The v3 site is a ground-up rewrite, so contexts are added lazily as `/domain-modeling` resolves terms and decisions, not scaffolded upfront.
+Start from `CONTEXT-MAP.md` at the repo root, then `docs/handoff.md` for
+current site status. System-wide decisions live in `docs/adr/`. Per-context
+`CONTEXT.md` files are optional and created lazily when domain modeling needs
+them — do not scaffold them upfront.
 
 ## Before exploring, read these
 
-- **`CONTEXT-MAP.md`** at the repo root — it points at one `CONTEXT.md` per context. Read each one relevant to the topic.
-- **`docs/adr/`** — system-wide decisions. Also check each context's own `docs/adr/` for context-scoped decisions.
+- **`CONTEXT-MAP.md`** — active / removed / retained contexts
+- **`docs/handoff.md`** — product and architecture snapshot
+- **`docs/adr/`** — system-wide decisions
+- **`docs/design-language.md`** — visual and interaction contract
+- **`AGENTS.md`** — Cleo agent surface and verification
 
-If any of these files don't exist, **proceed silently**. Don't flag their absence; don't suggest creating them upfront. The `/domain-modeling` skill (reached via `/grill-with-docs` and `/improve-codebase-architecture`) creates them lazily when terms or decisions actually get resolved.
-
-## File structure
-
-```
-/
-├── CONTEXT-MAP.md
-├── docs/adr/                          ← system-wide decisions
-└── <context>/
-    ├── CONTEXT.md
-    └── docs/adr/                      ← context-specific decisions
-```
-
-Context directories are wherever the v3 architecture puts them; register each in `CONTEXT-MAP.md` when its `CONTEXT.md` is created.
+If a listed file doesn't exist, **proceed silently**. Don't flag its absence;
+don't suggest creating context docs upfront.
 
 ## Use the glossary's vocabulary
 
-When your output names a domain concept (in an issue title, a refactor proposal, a hypothesis, a test name), use the term as defined in the relevant `CONTEXT.md`. Don't drift to synonyms the glossary explicitly avoids.
+When a `CONTEXT.md` defines a term, use that term in issue titles, refactors,
+hypotheses, and tests. Don't drift to synonyms the glossary explicitly avoids.
 
-If the concept you need isn't in the glossary yet, that's a signal — either you're inventing language the project doesn't use (reconsider) or there's a real gap (note it for `/domain-modeling`).
+If the concept you need isn't defined yet, either reconsider invented language
+or note the gap for later domain modeling.
 
 ## Flag ADR conflicts
 
-If your output contradicts an existing ADR, surface it explicitly rather than silently overriding:
+If your output contradicts an existing ADR, surface it explicitly rather than
+silently overriding:
 
-> _Contradicts ADR-0007 (event-sourced orders) — but worth reopening because…_
+> _Contradicts ADR-0006 (motion is information) — but worth reopening because…_

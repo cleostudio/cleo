@@ -36,8 +36,9 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 ## Design
 
 Visual contract: `docs/design-language.md` (including § Paper-artifact doorway
-vignettes for homepage NavCards). Country pages use the warm-paper field-guide
-layout (passport labels, hairline rules, zoomable contact-print hero).
+vignettes — `NavCards` retained for reuse, not mounted on the current
+homepage). Country pages use the warm-paper field-guide layout (passport
+labels, hairline rules, zoomable contact-print hero).
 
 ## Local / Preview
 

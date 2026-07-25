@@ -1,9 +1,9 @@
 # v3 Design Language
 
-The visual and interaction spec for cali.so v3. It extends the component stack
-in ADR-0006 (motion is information, not decoration). Rules here are written to
-be buildable: when a value is stated, use it; when a component is described,
-its behavior spec is the contract.
+The visual and interaction spec for **Cleo** (v3). It extends the component
+stack in ADR-0006 (motion is information, not decoration). Rules here are
+written to be buildable: when a value is stated, use it; when a component is
+described, its behavior spec is the contract.
 
 The primary navigation is a fixed bottom-center pill dock at z `--z-nav`.
 Viewport-edge fades and the bent rulers remain ambient rather than navigation
@@ -100,12 +100,11 @@ Hard rules:
 ## Color, borders, dark mode
 
 - Grays are a numbered scale (`--gray-1` … `--gray-12`) that flips wholesale
-  in dark mode. The warm-paper scale is shared by the public site and the
-  owner admin (maintainer decision, July 2026); the neutral base ramp remains
-  only as the pre-hydration fallback. Headings use the strongest ink, body
-  copy steps down two levels, and metadata steps down again. Components
-  reference scale variables, never Tailwind `dark:` overrides — if a
-  component needs a `dark:` modifier, the token is wrong.
+  in dark mode. The warm-paper scale is the public site's paper; the neutral
+  base ramp remains only as the pre-hydration fallback. Headings use the
+  strongest ink, body copy steps down two levels, and metadata steps down
+  again. Components reference scale variables, never Tailwind `dark:`
+  overrides — if a component needs a `dark:` modifier, the token is wrong.
 - Text selection uses a translucent yellow-green highlighter token and never
   changes the selected text color. The dark token lowers opacity so it reads
   as marker on dark paper rather than a luminous block.
@@ -186,10 +185,12 @@ timing instead of this ordinary entrance budget.
 
 ## Paper-artifact doorway vignettes
 
-Reusable homepage doorway pattern (`.nav-card` + `.nc-vignette` in
-`components/nav-cards.tsx` / `app/globals.css`). Each doorway is a small stack
-of physical paper objects — not a flat icon in a rounded square — that fans
-open when the card is hovered (fine pointer) or `:focus-visible` (keyboard).
+Reusable doorway pattern (`.nav-card` + `.nc-vignette` in
+`components/nav-cards.tsx` / `app/globals.css`). The component is retained for
+reuse; the current homepage portal does not mount it. Each doorway is a small
+stack of physical paper objects — not a flat icon in a rounded square — that
+fans open when the card is hovered (fine pointer) or `:focus-visible`
+(keyboard).
 
 ### Contract
 
@@ -357,16 +358,17 @@ overlap the photograph and use no fade, scrim, or blend mode. Public capture
 dates are intentionally omitted. An available Location Label joins the plate
 as a labeled cell. Capture labels are 10px and values are 12px so the plate
 preserves room for the photograph. The plate stays 0.75rem plus the device safe
-area from the screen's bottom edge on every viewport. Published photo tiles use
-`next/image` with the immutable Bunny Renditions as a custom responsive source
-set; the lightbox preloads and displays the largest available Rendition instead
-of enlarging the tile's selected source.
+area from the screen's bottom edge on every viewport. Gallery place photos use
+optimized local JPEGs under `public/images/atlas/` with browser `srcset`
+(`AtlasImage` / unoptimized `ZoomImage`) — no image CDN or `/_next/image`
+re-encode at runtime. The lightbox shows the largest available local
+rendition instead of enlarging the tile's selected source.
 
 ## Portrait & avatar
 
 The site no longer uses a face or portrait of the author. The bottom dock's
-Home item (and the admin Overview item) is a geometric `HomeIcon`. Social
-service cards use a text monogram mark ("C") instead of a photo avatar. The
+Home item is a geometric `HomeIcon`. Social service cards (retained, not in
+public chrome) use a text monogram mark ("C") instead of a photo avatar. The
 homepage hero is typography-only: the name, a PixelCluster accent, and the
 introduction — no portrait column.
 
@@ -522,21 +524,22 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   empty. It is the site's recurring masthead stamp: exactly one per page,
   pinned top-right of the content column on the title/eyebrow line, and the
   single home of the signal accent (see Color). It appears on every public
-  view — the home masthead (as a wordmark mark beside the name), the
-  writing / projects / photos / AMA eyebrows, and the post title line. A
-  mark, never a control (`aria-hidden`, out of the accessibility tree). On
-  the projects page it sits over the faint ghost schematic, which stays
-  behind it as an ambient layer — the stamp is a mark, exempt from the
-  one-instrument rule that governs full rasters. The arrangement varies per
-  page (a `variant` picks which corner is lit and how the ink cells fall) so
-  no two stamps read identically; every variant still keeps exactly one lit
-  signal cell. Posts derive their variant from the slug, stable per post.
+  view — the home masthead (as a wordmark mark beside the name), index /
+  service eyebrows (Writing, Gallery, Explore, Topics, and retained
+  Projects), and the post title line. A mark, never a control
+  (`aria-hidden`, out of the accessibility tree). On the retained Projects
+  page it sits over the faint ghost schematic, which stays behind it as an
+  ambient layer — the stamp is a mark, exempt from the one-instrument rule
+  that governs full rasters. The arrangement varies per page (a `variant`
+  picks which corner is lit and how the ink cells fall) so no two stamps
+  read identically; every variant still keeps exactly one lit signal cell.
+  Posts derive their variant from the slug, stable per post.
 - **Page eyebrows** (`.page-eyebrow`): page h1s on the index and service
-  surfaces (writing, projects, photos, the AMA family) are set as mono
-  section marks — 12px, +0.08em tracking, uppercase Latin — prefixed by a
-  faded `//` drawn in CSS with empty alt text so it never reaches the
-  accessible name. Homepage section headers and in-page h2s keep the plain
-  14px treatment; the comment mark stays rare.
+  surfaces (Writing, Gallery, Explore, Topics, and retained Projects) are
+  set as mono section marks — 12px, +0.08em tracking, uppercase Latin —
+  prefixed by a faded `//` drawn in CSS with empty alt text so it never
+  reaches the accessible name. Homepage section headers and in-page h2s
+  keep the plain 14px treatment; the comment mark stays rare.
 - **Posts like this** (`.post-related`): the article foot carries up to
   three related posts as standard catalog rows — the blog-index row
   reused whole (dithered print thumb, title, dotted leader, tabular
@@ -549,41 +552,33 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   animation.
 - **Nameplate** (`.spec-nameplate`): the boxed variant of the spec plate —
   label and value cells separated by hairline rules inside a hairline
-  frame, like an equipment serial plate. Used where the data is a
-  product's own specification: the AMA session specs, the guest manage
-  page's booking details, and the owner Booking detail's data sections
-  (schedule, guest, payment, meeting) — booking data is the session's
-  spec sheet. Unlike the unboxed plates, nameplate content is real data:
-  it stays selectable, and links keep working inside value cells. Same mono
-  typography as the plate; labels uppercase at 11px, values tabular.
+  frame, like an equipment serial plate. Use where the data is a product's
+  own specification. Unlike the unboxed plates, nameplate content is real
+  data: it stays selectable, and links keep working inside value cells.
+  Same mono typography as the plate; labels uppercase at 11px, values
+  tabular.
 - **Status ladder** (`.status-ladder`): journey steps as mono rows —
   two-digit index, label, and a 5px state cell at the row's end. Done is
   filled ink, pending is a hairline outline, and the current step carries
   the lit signal cell. Decorative reinforcement only (`aria-hidden`): the
-  prose beside it always announces the same state. Lives on the AMA
-  confirmation's waiting and needs-reschedule states (the paid stage
-  carries the session nameplate instead) and on the admin Booking
-  detail's linear states, driven by the server's real state — a ladder
-  must never show state the page cannot prove.
+  prose beside it always announces the same state. Drive ladders only from
+  server-proven state — a ladder must never show state the page cannot
+  prove.
 - **Certification stamp** (`.cert-stamp`): a hairline-bordered mono
-  uppercase chip ("已确认 / Confirmed +") with the lit cell, for terminal
-  states. A stamp is applied once, at the end — never as a badge on lists
-  or previews, and never on a transient state. The paid confirmation
-  presses a stamp in the heading-ornament (section-tag) composition —
-  boxed lit signal cell, hazard-hatch chip, tracked mono "已确认 +" — at
-  −3° over its session plate's top rule (`.ama-plate-stamp`), confirmed
-  state only; finalizing stays unstamped.
-- **Section tags** (`.section-tag`): section h2s on the homepage and the
-  AMA page are set as index tags — a boxed two-digit number, a
-  hazard-hatch chip (fine diagonal strokes in a bordered cell), and a
-  tracked uppercase mono label. Numbering follows render order so
-  conditional sections never leave gaps; the number and hatch are
-  `aria-hidden`, so the accessible name is just the label. Prose h2s carry
-  the same tag as a leading ornament: a single `::before` draws the boxed
-  counter ordinal and hatch strip (one pseudo, layered backgrounds) while
-  the heading text keeps its editorial size — chrome labels join the
-  register wholesale, content headings only wear its mark. The ordinal is
-  excluded from the accessible name; h3s stay unmarked.
+  uppercase chip ("Confirmed +") with the lit cell, for terminal states. A
+  stamp is applied once, at the end — never as a badge on lists or
+  previews, and never on a transient state.
+- **Section tags** (`.section-tag`): section h2s on the homepage are set as
+  index tags — a boxed two-digit number, a hazard-hatch chip (fine
+  diagonal strokes in a bordered cell), and a tracked uppercase mono
+  label. Numbering follows render order so conditional sections never leave
+  gaps; the number and hatch are `aria-hidden`, so the accessible name is
+  just the label. Prose h2s carry the same tag as a leading ornament: a
+  single `::before` draws the boxed counter ordinal and hatch strip (one
+  pseudo, layered backgrounds) while the heading text keeps its editorial
+  size — chrome labels join the register wholesale, content headings only
+  wear its mark. The ordinal is excluded from the accessible name; h3s stay
+  unmarked.
 - **Boxed step ordinals** (`.step-index`): manual/how-it-works lists carry
   their two-digit ordinals in small hairline boxes, tying numbered prose
   steps to the nameplate register. Prose ordered lists share the same
@@ -634,10 +629,8 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
 - **Barcode** (`components/barcode.tsx`): a decorative label-graphic
   barcode whose bar widths derive deterministically from its code string
   (stable across SSR), with the human-readable code beneath. It scans as
-  ornament, not data (`aria-hidden`). One per surface: the error proof
-  sheets (`ERR-404-CLEO`, `ERR-500-CLEO`) at 38% ink, and the AMA
-  confirmation's proof-sheet foot (`AMA-<hold prefix>`) in the stage's
-  faded paper ink.
+  ornament, not data (`aria-hidden`). One per surface on the error proof
+  sheets (`ERR-404-CLEO`, `ERR-500-CLEO`) at 38% ink.
 - **Ghost folio numerals** (`.ghost-folio`): the writing index's year
   sections carry the year's last two digits as an oversized pixel-face
   numeral in `--ghost-ink`, top-right behind the rows — the folio-number
@@ -722,43 +715,14 @@ restores toggle focus. Keyboard actions and reduced motion cancel and settle
 the island, panel, nodes, tick, and icon before paint. Touch keeps the same
 directional timing, and no map motion changes width, height, or layout geometry.
 
-## Bilingual content
+## Language
 
-Interface strings render in both languages in the static DOM
-(`lib/i18n.tsx`'s `<T zh en>` + `<LocalDate>`), and CSS shows one based on
-the explicit route's `html[data-locale]`. Unprefixed public routes are Chinese;
-English uses the matching `/en` route. The preferences dock crosses that root
-layout boundary with a full navigation while preserving the current path,
-query, and fragment. Public localStorage remembers the selection but never
-overrides an explicit URL; only the isolated admin root retains in-place locale
-restoration. Locale-sensitive attributes derive from the route so accessible
-names never mix languages, and server metadata, canonical links, feeds, and OG
-images share the same route identity.
-
-On a public route, a saved site preference takes priority; without one, the
-first supported language in `navigator.languages` becomes the preference. If
-that resolved preference differs from the explicit route, one fixed instrument
-plate offers the equivalent route. Its ruled surface spans the full viewport
-width and clamps to the top edge instead of floating above the page; the hatch,
-two balanced screw heads, prompt, and actions stay aligned inside the centered
-42rem site grid. A full-height diagonal hatch in the existing section-tag
-register replaces the language label, while the center registration tick marks
-the plate below. The short human prompt speaks in the offered language; the
-shared pill buttons answer with localized Yes and No while retaining descriptive
-accessible labels. The choice preserves the path, query, and fragment and is
-explicit: switch, or stay in the current language. Either choice becomes the
-saved site preference; unsupported browser languages produce no prompt. The
-plate uses the surface ladder and `--z-toast`, with no drop shadow. It never
-redirects automatically, shifts layout, or steals focus, and disables its brief
-transform-and-opacity entrance under reduced motion. The plate has 10px of inner
-padding above and below its 24px shared small buttons, and uses no expanded hit
-areas; this is a maintainer-approved exception to the site's usual 44px
-touch-target minimum (July 2026).
-
-Each post keeps its Chinese source in `index.mdx` and a complete English
-translation in `index.en.mdx`. The matching route renders only that source and
-its document minimap; English heading IDs retain their `en-` prefix for stable
-links carried forward from the earlier dual-DOM implementation.
+Public routes are **English-only**. Legacy `/en/...` URLs permanently redirect
+to the matching unprefixed paths. Helpers in `lib/i18n.tsx` (`<T zh en>`,
+`<LocalDate>`) remain for retained bilingual strings and tests; the public
+chrome does not offer a language switcher. Server metadata, canonical links,
+feeds, and OG images share the English route identity. Writing posts live as
+English MDX under `content/blog/<slug>/`.
 
 ## Footer colophon
 
@@ -782,11 +746,11 @@ copyright and clock occupy opposite halves of a two-column grid.
 
 ## Project index
 
-Homepage doorways no longer include Projects; Writing, Gallery, and Explore use
-the paper-artifact vignette pattern above. Projects remain a dock destination
-and their own index page.
+Projects UI is retained for reuse; `/projects` permanently redirects to
+`/topics`. The paper-artifact vignette pattern above remains available for
+homepage doorways when remounted.
 
-The project page opens with a short bilingual note, then one intentionally
+The retained project page opens with a short note, then one intentionally
 ordered list. Each linked row is a compact artifact: a fixed 36px project icon,
 the project name and domain, then its description. Narrow screens keep the icon
 in the first column and stack all copy in the second, with natural wrapping and
@@ -811,173 +775,24 @@ plate, touch preserves direct first-tap navigation, and reduced motion,
 unavailable WebGPU, or initialization failure stay static. The field fades
 away and unmounts only after the pointer leaves the full list.
 
-## AMA introduction
+## AMA, owner admin, Media Library
 
-The public AMA route opens with one bounded **conversation field** behind its
-introduction and session specification. Two monochrome sine traces move slowly
-toward and through one another, reading as a conversation without becoming an
-illustration or previewing the paid confirmation treatment. The field is
-visible immediately at very low contrast and has no pointer interaction.
+**Removed.** `/ama` and `/admin` permanently redirect away. Do not restore AMA
+booking, owner admin (Clerk), or the Media Library without an explicit product
+decision. OpenAI is the only third-party API.
 
-The content keeps its normal editorial alignment and contrast while the field
-fades softly at its edges instead of becoming a card. A matching static pair
-of traces is present in the server-rendered page and fades out once the live
-canvas is ready, so the pair is replaced rather than doubled. The live canvas
-mounts only after WebGPU preflight, unmounts when the bounded field leaves the
-viewport, and returns when it re-enters. Reduced motion, unavailable WebGPU,
-or shader initialization failure retain only the static traces.
-
-## AMA confirmation
-
-The public confirmation route reserves its full celebration for a server-proven
-paid AMA Session whose Booking is `finalizing` or `confirmed`. The guest manage
-page shares the same dark stage shell (`AmaStage`: the shader field, static
-plate, and page tokens flipped to the stage's paper-on-dark set, including a
-solid surface ramp so ladder-riding sheets stay dark in either page theme)
-with left-aligned form content, but the celebration extras — confetti and the
-confirmation seal — remain exclusive to the paid confirmation. On the manage
-page the destructive doorway is centered and flanked by hazard tape, and its
-confirmation is a dialog wearing a hazard band along the top edge; the
-reschedule flow opens under a hatch-chip heading with mono, square-cornered
-time chips. Those two states
-become one full-viewport dark stage using the Shaders **Undertones 8** preset
-(`bb1fda80-5ce2-4072-b528-9837f6e7aff7`) as its background: `Swirl` and
-`ChromaFlow`, refracted once through `FlutedGlass`, with the preset's restrained
-`FilmGrain` finish. The four layers remain one canvas, use the exported preset
-values, disable vendor telemetry, and mount only after WebGPU preflight. A
-matching static plate remains underneath during initialization and on browsers
-without WebGPU. The field covers the full visual viewport behind the site
-chrome and confirmation copy; it is not framed as a card inside the content
-column.
-
-Two eighteen-piece registration-color confetti bursts launch once from the
-lower left and lower right corners and arc inward across the viewport with
-real ballistics — a decaying horizontal drive, a rise that decelerates into
-the apex and a fall that accelerates out of it, and a finite 3D tumble that
-flashes each paper's thin edge — fading while still falling, never hanging in
-air. Meanwhile the confirmation seal arrives over the field: a square
-hairline plate on the register's 2px corner, calibration brackets outside it,
-hazard-hatch bands along its top and bottom edges behind the check, stamped at
-a settled −4° — an inspection stamp in the stage's paper ink. Beneath the
-copy, the booked session prints as a spec nameplate (time in the guest's zone,
-length, meeting provider) from server-sent facts only — the page never
-fabricates plate content — and the foot carries an ornamental barcode derived
-from the hold id, so every confirmation prints its own label. Everything on
-the stage reads in paper ink regardless of page theme. The journey ladder
-remains on the waiting and needs-reschedule states, where position in the
-journey is the message; the paid stage carries the plate instead. The pieces use
-only transform and opacity and never loop. Reduced motion keeps the static dark
-plate and check mark but omits both the shader and confetti.
-`needs_reschedule` is deliberately not celebratory: payment landed, but the
-chosen time did not, so it retains the calm explanatory state with no success
-stage.
-
-## Photo index
+## Photo index / Gallery
 
 Photo tiles are quiet objects: no hover captions or overlays — location and
 capture data appear only in the lightbox details, and the only fine-pointer
 response is the calibration corner brackets.
 
-The photo route keeps its title in the prefetched static shell and streams the
-active Published Photo Selection into a page-level masonry boundary. While the
-selection resolves, six quiet, nonanimated tiles reserve the two-column mobile
-or three-column desktop masonry. The placeholder uses the final card radius,
-gutter, and neutral edge treatment so navigation responds immediately without
-introducing a second visual language or shifting the page header.
-
-## Owner admin
-
-**Removed.** Owner admin (Clerk), AMA, and Media Library were deleted; OpenAI
-is the only third-party API. Historical notes below are retained only as design
-archive and do not describe the running app.
-
-The admin is a desk in the same studio: it shares the warm paper, grain,
-bent rulers, and the 42rem center column, while staying outside
-public analytics, social reads, and route view transitions. Its contract:
-
-- **Owner dock** (`components/admin-dock.tsx`): the public dock's grammar —
-  glass pill, sliding marker, tooltips with chord hints — carrying the admin
-  surfaces. Avatar = Overview (`/admin`), then AMA / Media / Photos, a
-  divider, a return arrow to the public site, and Preferences. The admin
-  Preferences variant keeps language (in-place), theme, and sound, and adds
-  Sign out (a form POST; server-side session revocation).
-- **Chords**: inside the admin, G then O / A / M / P jumps between surfaces
-  and G then S returns to the site. On the public dock, G then D opens the
-  admin — armed only after the owner probe (`GET /api/admin/session`, called
-  when the Preferences panel opens; a remembered confirmation arms it
-  instantly on later visits). Visitors never see owner chrome and public
-  pages stay fully static.
-- **Depth over stacking.** A surface that holds more than one job is a
-  menu, not a scroll: `/admin/ama` lists Bookings and Settings as catalog
-  rows (`components/admin-nav.tsx` `AdminMenu`/`AdminMenuRow`, the
-  Overview's dotted-leader grammar) with each row's own summary as its
-  value, and each job owns a page. Every subpage opens with an
-  `AdminBackLink` — a mono back mark naming its parent — above the header.
-  The dock still points at the menu; the Overview deep-links past it to
-  the page that answers the row.
-- **Print headers.** Admin pages open in the technical-print register: the
-  h1 is a `.page-eyebrow` mono mark with the pixel-cluster masthead pinned
-  top-right on the eyebrow line — exactly one per page, rendered statically
-  (admin markup never takes the public `.enter` classes). Each surface owns
-  a fixed cluster variant (Overview, AMA, Media, Photos, Booking detail),
-  so the prefetched static shell and the streamed page carry the same
-  stamp. The tabular count line keeps its place under the eyebrow;
-  structure still comes from `hairline-top` separators and spacing, not
-  heavier type. Multi-section pages set their h2s as `.section-tag` index
-  tags numbered in render order; h3s and entity titles (a guest's name)
-  stay plain 14px.
-- **Protocol state.** The Booking detail reinforces its lifecycle with the
-  `.status-ladder` (finalizing → confirmed → session held), driven only by
-  server-confirmed status; diverged states (needs reschedule, cancelled)
-  show no ladder — a ladder never shows state the page cannot prove. The
-  `.cert-stamp` is applied once, at the terminal held state, when the
-  ladder has no current step — so a page carries the masthead cell plus at
-  most one lit protocol cell, the sanctioned coexistence defined in Color.
-  Status dots stay round, amber for in-flight, red only for broken or
-  destructive; they never become signal cells.
-- **Prints under the pointer.** Admin photo tiles (curation prints, the
-  media contact sheet) develop `.calibration-corners` under fine-pointer
-  hover or focus, exactly as public tiles do; touch and reduced motion stay
-  static. Admin ornament is limited to the print, plate, and mark registers
-  — no rasters, instruments, or ghost art in daily-use chrome. Machine text
-  (ids, emails, event codes, capture data) is mono; counts stay
-  `tabular-nums`.
-- **Surfaces.** Inspectors and pickers are dialogs on the surface ladder
-  (`Elevated` offset 4); popovers stay at offset 2. Never a native
-  `confirm()`/`prompt()`. Dialogs wear the printed-label chrome the hover
-  cards established: the register's 2px corner, a hairline frame, and
-  ruled full-bleed head/foot rows (`components/ui/dialog.tsx`). Transient
-  workflows use fixed viewport-bounded geometry; async state scrolls inside
-  the body and never resizes the page or the open sheet.
-- **Media workflow.** Transfers, the Media inspector, Transfer Discard, Purge,
-  the Photo Selection picker, and Publish are fixed-geometry dialogs. Transfer
-  Jobs persist when the dialog closes and after reload. Incomplete work stays
-  in Transfers with Retry and Discard, including while processing, and never
-  appears as an empty Media Asset in Library or Archived. Chunk rate limits
-  keep the row in place, follow the server's retry delay, and preserve the
-  same fixed dialog geometry.
-- **Confirmation grammar.** Archive is one action followed by a ten-second Undo
-  toast. Purge and Transfer Discard each use one fixed confirmation dialog with
-  one destructive confirmation button and no typed phrase. Publishing uses one
-  fixed dialog that summarizes the pending membership and order change before
-  one confirm. Other reversible-but-notable admin actions may retain their
-  two-step armed control where their own workflow specifies it.
-- **Reserved commands.** Photo Selection permanently reserves its command
-  region for selection controls, conflicts, eligibility, and publication
-  feedback. Loading shells reserve the same header, command, and grid geometry,
-  so selecting, publishing, and streaming owner data do not move the prints.
-- **No entrance animations** — the admin is daily-use chrome (frequency
-  principle). Status is a quiet dot: amber for in-flight, red only for
-  broken or destructive. Numbers are always `tabular-nums`.
-- **Instant shells.** Every admin surface partially prerenders: the paper,
-  column, dock, page header, and fixed-dimension skeleton placeholders are
-  the static shell (prefetched, so dock navigation is instant), and owner
-  data streams in behind each page's Suspense loader. Skeletons follow the
-  photo-index rule — quiet, nonanimated, final geometry, zero layout
-  shift. Only `/admin/login` (a pure redirect) stays a blocking route.
-- There is no step-up verification anywhere in the admin (July 2026
-  decision); owner authorization is the server-side Clerk `siteOwner`
-  check plus origin guards, rate limits, and audit events.
+The Gallery keeps its title in the prefetched static shell and renders curated
+place photographs from `content/atlas.json` as a filterable masonry. Quiet,
+nonanimated placeholders may reserve masonry geometry while images resolve.
+Placeholders use the final card radius, gutter, and neutral edge treatment so
+navigation responds immediately without introducing a second visual language
+or shifting the page header.
 
 ## Frosted dock
 
