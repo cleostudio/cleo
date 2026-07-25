@@ -1,12 +1,9 @@
-'use client'
-
-import { usePathname } from 'next/navigation'
 import type { ReactNode } from 'react'
 
-import { unlocalizedPathname } from '~/lib/locale-route'
-import { cn } from '~/lib/utils'
-
-/** Public page shell: full document scroll everywhere except the Cleo chat surface. */
+/**
+ * Public page shell. Cleo locks to the viewport via CSS `:has([data-cleo-surface])`
+ * so path-based conditional wrappers never remount the chat tree mid-request.
+ */
 export function SiteChrome({
   children,
   footer,
@@ -14,26 +11,9 @@ export function SiteChrome({
   children: ReactNode
   footer: ReactNode
 }) {
-  const isCleo = unlocalizedPathname(usePathname()) === '/cleo'
-
   return (
-    <div
-      className={cn(
-        'flex flex-col',
-        isCleo ? 'h-svh overflow-hidden' : 'min-h-screen pb-20',
-      )}
-    >
-      <main
-        className={cn(
-          isCleo ? 'relative min-h-0 flex-1' : 'flex-1 pt-14',
-        )}
-      >
-        {isCleo ? (
-          <div className="absolute inset-0 flex flex-col">{children}</div>
-        ) : (
-          children
-        )}
-      </main>
+    <div className="site-chrome flex min-h-screen flex-col pb-20">
+      <main className="site-chrome-main flex-1 pt-14">{children}</main>
       {footer}
     </div>
   )

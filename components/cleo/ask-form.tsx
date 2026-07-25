@@ -25,8 +25,6 @@ import {
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
-import { cn } from "~/lib/utils"
-
 const MAX_INPUT_LENGTH = 10_000
 
 type ResponsePayload = {
@@ -104,14 +102,17 @@ export function AskForm() {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
+  const mountedRef = useRef(true)
 
   const hasMessages = messages.length > 0
   const canSubmit =
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ block: "end" })
+    const container = messagesContainerRef.current
+    if (!container) return
+    container.scrollTop = container.scrollHeight
   }, [messages])
 
   useEffect(() => {
@@ -121,7 +122,9 @@ export function AskForm() {
   }, [hasMessages, isSubmitting])
 
   useEffect(() => {
+    mountedRef.current = true
     return () => {
+      mountedRef.current = false
       abortControllerRef.current?.abort()
     }
   }, [])
@@ -167,8 +170,9 @@ export function AskForm() {
     }
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+  async function handleSubmit(event?: FormEvent<HTMLFormElement>) {
+    event?.preventDefault()
+    event?.stopPropagation()
 
     const question = input.trim()
     const attachedImages = pendingImages
@@ -366,6 +370,12 @@ export function AskForm() {
       const aborted =
         isAbortError(requestError) || abortController.signal.aborted
 
+      // Ignore late aborts from an unmounted tree so a remounted empty shell
+      // is not the only surviving signal of a failed turn.
+      if (!mountedRef.current) {
+        return
+      }
+
       setMessages((currentMessages) => {
         // Stop before any answer text or image: abandon the whole turn so the
         // unanswered prompt does not leak into the next request.
@@ -395,14 +405,19 @@ export function AskForm() {
       if (abortControllerRef.current === abortController) {
         abortControllerRef.current = null
       }
-      setIsSubmitting(false)
+      if (mountedRef.current) {
+        setIsSubmitting(false)
+      }
     }
   }
 
   return (
     <div className="app-column flex h-full min-h-0 min-w-0 flex-col">
       {hasMessages ? (
-        <div className="min-h-0 flex-1 overflow-y-auto pb-44 pt-2 sm:pb-48">
+        <div
+          className="min-h-0 flex-1 overflow-y-auto pb-44 pt-2 sm:pb-48"
+          ref={messagesContainerRef}
+        >
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === 'user' ? (
@@ -486,130 +501,125 @@ export function AskForm() {
               )
             )}
           </div>
-          <div
-            aria-hidden="true"
-            className="scroll-mb-28"
-            ref={messagesEndRef}
-          />
         </div>
-      ) : null}
+      ) : (
+        <div aria-hidden="true" className="min-h-0 flex-1" />
+      )}
 
       <div
-        className={cn(
-          hasMessages
-            ? null
-            : 'flex min-h-0 flex-1 items-center justify-center pb-24',
-        )}
+        className="prompt-dock-shell"
+        data-docked={hasMessages || undefined}
       >
-        <div
-          className="prompt-dock-shell"
-          data-docked={hasMessages || undefined}
-        >
-          {error ? (
-            <p
-              className="mb-3 px-4 text-center text-sm text-destructive"
-              role="alert"
-            >
-              {error}
-            </p>
-          ) : null}
-
-          <form
-            aria-busy={isSubmitting}
-            className="glass-surface prompt-dock"
-            onSubmit={handleSubmit}
+        {error ? (
+          <p
+            className="mb-3 px-4 text-center text-sm text-destructive"
+            role="alert"
           >
-            <LiquidGlass />
-            {pendingImages.length > 0 ? (
-              <div className="prompt-dock-attachments">
-                {pendingImages.map((url, index) => (
-                  <div
-                    className="prompt-dock-attachment"
-                    key={`${url.slice(0, 48)}-${index}`}
+            {error}
+          </p>
+        ) : null}
+
+        <form
+          aria-busy={isSubmitting}
+          className="glass-surface prompt-dock"
+          onSubmit={handleSubmit}
+        >
+          <LiquidGlass />
+          {pendingImages.length > 0 ? (
+            <div className="prompt-dock-attachments">
+              {pendingImages.map((url, index) => (
+                <div
+                  className="prompt-dock-attachment"
+                  key={`${url.slice(0, 48)}-${index}`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element -- local preview data URLs */}
+                  <img
+                    alt={`Selected image ${index + 1}`}
+                    className="prompt-dock-attachment-image"
+                    src={url}
+                  />
+                  <button
+                    aria-label={`Remove image ${index + 1}`}
+                    className="prompt-dock-attachment-remove"
+                    disabled={isSubmitting}
+                    onClick={() => removePendingImage(index)}
+                    type="button"
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element -- local preview data URLs */}
-                    <img
-                      alt={`Selected image ${index + 1}`}
-                      className="prompt-dock-attachment-image"
-                      src={url}
-                    />
-                    <button
-                      aria-label={`Remove image ${index + 1}`}
-                      className="prompt-dock-attachment-remove"
-                      disabled={isSubmitting}
-                      onClick={() => removePendingImage(index)}
-                      type="button"
-                    >
-                      <X aria-hidden="true" className="size-3.5" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            ) : null}
-            <div className="prompt-dock-row">
-              <input
-                accept={IMAGE_ACCEPT}
-                className="sr-only"
-                disabled={isSubmitting}
-                multiple
-                onChange={handleImageSelection}
-                ref={fileInputRef}
-                type="file"
+                    <X aria-hidden="true" className="size-3.5" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          ) : null}
+          <div className="prompt-dock-row">
+            <input
+              accept={IMAGE_ACCEPT}
+              className="sr-only"
+              disabled={isSubmitting}
+              multiple
+              onChange={handleImageSelection}
+              ref={fileInputRef}
+              type="file"
+            />
+            <Button
+              aria-label="Attach images"
+              className="prompt-dock-attach size-11 shrink-0 rounded-full active:!translate-y-0"
+              disabled={
+                isSubmitting || pendingImages.length >= MAX_IMAGES_PER_MESSAGE
+              }
+              onClick={() => fileInputRef.current?.click()}
+              size="icon"
+              type="button"
+              variant="ghost"
+            >
+              <Plus
+                aria-hidden="true"
+                className="size-5"
+                strokeWidth={2.25}
               />
-              <Button
-                aria-label="Attach images"
-                className="prompt-dock-attach size-11 shrink-0 rounded-full active:!translate-y-0"
-                disabled={
-                  isSubmitting || pendingImages.length >= MAX_IMAGES_PER_MESSAGE
-                }
-                onClick={() => fileInputRef.current?.click()}
-                size="icon"
-                type="button"
-                variant="ghost"
-              >
-                <Plus
+            </Button>
+            <Input
+              aria-label="Message"
+              autoComplete="off"
+              className="prompt-dock-input md:text-base"
+              disabled={isSubmitting}
+              maxLength={MAX_INPUT_LENGTH}
+              name="message"
+              onChange={(event) => setInput(event.target.value)}
+              placeholder="Ask anything"
+              ref={inputRef}
+              required={!isSubmitting && pendingImages.length === 0}
+              value={input}
+            />
+            <Button
+              aria-label={isSubmitting ? "Stop generating" : "Send message"}
+              className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
+              disabled={!isSubmitting && !canSubmit}
+              onClick={
+                isSubmitting
+                  ? handleStop
+                  : () => {
+                      void handleSubmit()
+                    }
+              }
+              size="icon"
+              type="button"
+            >
+              {isSubmitting ? (
+                <Square
+                  aria-hidden="true"
+                  className="size-3.5 fill-current"
+                />
+              ) : (
+                <CornerRightUp
                   aria-hidden="true"
                   className="size-5"
                   strokeWidth={2.25}
                 />
-              </Button>
-              <Input
-                aria-label="Message"
-                autoComplete="off"
-                className="prompt-dock-input md:text-base"
-                disabled={isSubmitting}
-                maxLength={MAX_INPUT_LENGTH}
-                name="message"
-                onChange={(event) => setInput(event.target.value)}
-                placeholder="Ask anything"
-                ref={inputRef}
-                required={!isSubmitting && pendingImages.length === 0}
-                value={input}
-              />
-              <Button
-                aria-label={isSubmitting ? "Stop generating" : "Send message"}
-                className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
-                disabled={!isSubmitting && !canSubmit}
-                onClick={isSubmitting ? handleStop : undefined}
-                size="icon"
-                type={isSubmitting ? "button" : "submit"}
-              >
-                {isSubmitting ? (
-                  <Square
-                    aria-hidden="true"
-                    className="size-3.5 fill-current"
-                  />
-                ) : (
-                  <CornerRightUp
-                    aria-hidden="true"
-                    className="size-5"
-                    strokeWidth={2.25}
-                  />
-                )}
-              </Button>
-            </div>
-          </form>
-        </div>
+              )}
+            </Button>
+          </div>
+        </form>
       </div>
     </div>
   )

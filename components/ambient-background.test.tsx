@@ -1,20 +1,11 @@
 // @vitest-environment jsdom
 
 import { cleanup, render } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
-
-const usePathname = vi.fn(() => '/')
-
-vi.mock('next/navigation', () => ({
-  usePathname: () => usePathname(),
-}))
+import { afterEach, describe, expect, it } from 'vitest'
 
 import { AmbientBackground } from './ambient-background'
 
-afterEach(() => {
-  cleanup()
-  usePathname.mockReturnValue('/')
-})
+afterEach(cleanup)
 
 describe('AmbientBackground', () => {
   it('keeps edge fades outside Tailwind scroll utilities', () => {
@@ -24,12 +15,11 @@ describe('AmbientBackground', () => {
     expect(container.querySelector('[class*="scroll-fade"]')).toBeNull()
   })
 
-  it('hides drafting column guides on the Cleo chat surface', () => {
-    usePathname.mockReturnValue('/cleo')
+  it('still renders drafting guides for non-Cleo routes to hide via CSS', () => {
     const { container } = render(<AmbientBackground />)
 
-    expect(container.querySelector('.column-guides')).toBeNull()
-    expect(container.querySelector('.column-rulers')).toBeNull()
+    expect(container.querySelector('.column-guides')).not.toBeNull()
+    expect(container.querySelector('.column-rulers')).not.toBeNull()
     expect(container.querySelector('.paper-grain')).not.toBeNull()
   })
 })

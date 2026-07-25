@@ -27,6 +27,9 @@ const MAX_INPUT_LENGTH = 10_000
 const MAX_MESSAGES = 50
 const MAX_TOTAL_INPUT_LENGTH = 100_000
 
+/** Allow long tool-using turns on Vercel without cutting the NDJSON stream short. */
+export const maxDuration = 60
+
 type ConversationMessage = {
   content: string
   images?: MessageImage[]

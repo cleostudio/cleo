@@ -422,19 +422,26 @@
   margin-inline: auto;
 }
 
+/* Always fixed: empty state centers in the viewport, docked state sits
+   above the site dock. Keeping position:fixed stable avoids remounting the
+   focused form when the first message arrives (Safari would otherwise treat
+   the static→fixed jump like a navigation and abort the in-flight request). */
 .prompt-dock-shell {
-  width: 100%;
-}
-
-.prompt-dock-shell[data-docked] {
   position: fixed;
-  bottom: var(--cleo-prompt-bottom);
+  top: 50%;
+  bottom: auto;
   left: 50%;
   z-index: calc(var(--z-nav) - 1);
   width: min(
     calc(100% - (2 * var(--app-column-gutter))),
     var(--app-column-max)
   );
+  transform: translate(-50%, -50%);
+}
+
+.prompt-dock-shell[data-docked] {
+  top: auto;
+  bottom: var(--cleo-prompt-bottom);
   transform: translateX(-50%);
 }
 
@@ -442,6 +449,31 @@
   .prompt-dock-shell[data-docked] {
     bottom: var(--cleo-prompt-bottom-mobile);
   }
+}
+
+/* Lock the Cleo chat route to the viewport and hide drafting guides. */
+body:has([data-cleo-surface]) {
+  overflow: hidden;
+}
+
+body:has([data-cleo-surface]) .site-chrome {
+  height: 100svh;
+  min-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+body:has([data-cleo-surface]) .site-chrome-main {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  padding-top: 0;
+}
+
+body:has([data-cleo-surface]) .column-guides,
+body:has([data-cleo-surface]) .column-rulers {
+  display: none;
 }
 
 /* the refraction layer — its backdrop-filter is set inline from the
