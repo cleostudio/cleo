@@ -6,8 +6,17 @@ import { useEffect, useId, useRef, useState } from 'react'
 import { EarthGlobeLazy } from '~/components/maps/earth-globe-lazy'
 import { formatLatLng } from '~/lib/maps/geo'
 import { filterMapPlaces, getMapPlace, type MapPlace } from '~/lib/maps/places'
+import type { MapPlacePreviewCatalog } from '~/lib/maps/previews'
+import {
+  mapsCountryFromSearch,
+  replaceMapsCountryInUrl,
+} from '~/lib/maps/url-state'
 
-export function MapsExplorer() {
+export function MapsExplorer({
+  previews,
+}: {
+  previews: MapPlacePreviewCatalog
+}) {
   const searchId = useId()
   const listId = useId()
   const inputRef = useRef<HTMLInputElement>(null)
@@ -15,23 +24,46 @@ export function MapsExplorer() {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
   const [focusToken, setFocusToken] = useState(0)
   const [activeIndex, setActiveIndex] = useState(0)
+  // State (not a ref) so the URL-sync effect skips until after the first paint
+  // that applies ?c= — otherwise a mount sync with null would clear the param.
+  const [urlReady, setUrlReady] = useState(false)
 
   const hits = filterMapPlaces(query)
   const selected = selectedSlug ? getMapPlace(selectedSlug) : undefined
+  const preview = selectedSlug ? previews[selectedSlug] : undefined
+
+  // Hydrate from ?c= once, then keep the address bar in sync.
+  useEffect(() => {
+    const fromUrl = mapsCountryFromSearch(window.location.search)
+    if (fromUrl) {
+      setSelectedSlug(fromUrl)
+      setFocusToken((token) => token + 1)
+    }
+    setUrlReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (!urlReady) return
+    replaceMapsCountryInUrl(selectedSlug)
+  }, [selectedSlug, urlReady])
 
   useEffect(() => {
     setActiveIndex(0)
   }, [query])
 
+  function selectPlace(slug: string | null, { fly = true } = {}) {
+    setSelectedSlug(slug)
+    if (slug && fly) setFocusToken((token) => token + 1)
+  }
+
   function focusPlace(place: MapPlace) {
-    setSelectedSlug(place.slug)
-    setFocusToken((token) => token + 1)
+    selectPlace(place.slug)
     setQuery('')
     inputRef.current?.blur()
   }
 
   function clearSelection() {
-    setSelectedSlug(null)
+    selectPlace(null, { fly: false })
   }
 
   return (
@@ -118,29 +150,53 @@ export function MapsExplorer() {
 
         {selected ? (
           <aside className="maps-place-card" aria-live="polite">
-            <div className="maps-place-card-head">
-              <p className="maps-place-card-code">{selected.code}</p>
-              <button
-                type="button"
-                className="maps-place-card-close"
-                onClick={clearSelection}
-                aria-label={`Clear ${selected.name}`}
+            {preview ? (
+              <div className="maps-place-card-photo">
+                {/* eslint-disable-next-line @next/next/no-img-element -- static atlas JPEG under /images */}
+                <img
+                  src={preview.photoSrc}
+                  alt={preview.photoAlt}
+                  width={640}
+                  height={427}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            ) : null}
+            <div className="maps-place-card-body">
+              <div className="maps-place-card-head">
+                <p className="maps-place-card-code">{selected.code}</p>
+                <button
+                  type="button"
+                  className="maps-place-card-close"
+                  onClick={clearSelection}
+                  aria-label={`Clear ${selected.name}`}
+                >
+                  Close
+                </button>
+              </div>
+              <h2 className="maps-place-card-title">{selected.name}</h2>
+              <p className="maps-place-card-meta">
+                {preview?.capital ? (
+                  <>
+                    {preview.capital}
+                    <span aria-hidden> · </span>
+                  </>
+                ) : null}
+                {selected.subregion}
+                <span aria-hidden> · </span>
+                {formatLatLng(selected.latitude, selected.longitude)}
+              </p>
+              {preview?.placeName ? (
+                <p className="maps-place-card-place">{preview.placeName}</p>
+              ) : null}
+              <Link
+                href={`/explore/${selected.slug}`}
+                className="maps-place-card-link"
               >
-                Close
-              </button>
+                Open Explore guide
+              </Link>
             </div>
-            <h2 className="maps-place-card-title">{selected.name}</h2>
-            <p className="maps-place-card-meta">
-              {selected.subregion}
-              <span aria-hidden> · </span>
-              {formatLatLng(selected.latitude, selected.longitude)}
-            </p>
-            <Link
-              href={`/explore/${selected.slug}`}
-              className="maps-place-card-link"
-            >
-              Open Explore guide
-            </Link>
           </aside>
         ) : null}
       </div>
@@ -148,7 +204,7 @@ export function MapsExplorer() {
       <EarthGlobeLazy
         selectedSlug={selectedSlug}
         focusToken={focusToken}
-        onSelect={setSelectedSlug}
+        onSelect={(slug) => selectPlace(slug, { fly: Boolean(slug) })}
       />
     </div>
   )

@@ -247,7 +247,7 @@ html[data-maps-route] body {
 .maps-place-card {
   width: min(100%, 18.5rem);
   margin-left: auto;
-  padding: 0.85rem 0.95rem 1rem;
+  overflow: hidden;
   border: var(--border-hairline) solid var(--maps-glass-border);
   border-radius: var(--radius);
   background: var(--maps-glass);
@@ -256,6 +256,23 @@ html[data-maps-route] body {
   backdrop-filter: blur(16px) saturate(1.25);
   -webkit-backdrop-filter: blur(16px) saturate(1.25);
   animation: maps-card-enter 320ms var(--ease-spring) both;
+}
+
+.maps-place-card-photo {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: oklch(0.12 0.02 255);
+}
+
+.maps-place-card-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.maps-place-card-body {
+  padding: 0.85rem 0.95rem 1rem;
 }
 
 .maps-place-card-head {
@@ -303,6 +320,13 @@ html[data-maps-route] body {
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
   line-height: 1.4;
+}
+
+.maps-place-card-place {
+  margin: 0.45rem 0 0;
+  color: var(--maps-ink-muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
 }
 
 .maps-place-card-link {

@@ -3,6 +3,7 @@ import '~/app/maps.css'
 import { MapsExplorer } from '~/components/maps/maps-explorer'
 import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
+import { buildMapPlacePreviews } from '~/lib/maps/previews'
 import { EARTH_TEXTURE_CREDIT, SKY_TEXTURE_CREDIT } from '~/lib/maps/textures'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 
@@ -16,6 +17,8 @@ export function mapsPageMetadata() {
 }
 
 export function MapsPageView() {
+  const previews = buildMapPlacePreviews()
+
   return (
     <div className="maps-page">
       <div className="maps-page-sky" aria-hidden />
@@ -38,7 +41,7 @@ export function MapsPageView() {
           </a>
         </p>
       </header>
-      <MapsExplorer />
+      <MapsExplorer previews={previews} />
     </div>
   )
 }
