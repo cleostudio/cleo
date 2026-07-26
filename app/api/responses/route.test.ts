@@ -380,4 +380,50 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       )
     ).toEqual(["web_search", "image_generation"])
   })
+
+  it("grounds matching Explore guides into the request instructions", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "ok", type: "response.output_text.delta" }])
+    )
+
+    await POST(ask(question))
+
+    const instructions = openai.create.mock.calls[0]?.[0].instructions as string
+    expect(instructions).toContain("<cleo_guide_excerpts>")
+    expect(instructions).toContain("/explore/japan")
+    expect(instructions).toContain("Orientation:")
+  })
+
+  it("accepts focusGuides from Ask Cleo deep links", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "ok", type: "response.output_text.delta" }])
+    )
+
+    await POST(
+      ask({
+        messages: [{ content: "What stands out?", role: "user" }],
+        focusGuides: ["space/europa"],
+      })
+    )
+
+    const instructions = openai.create.mock.calls[0]?.[0].instructions as string
+    expect(instructions).toContain("/space/europa")
+    expect(instructions).toContain("### Europa — /space/europa")
+  })
+
+  it("rejects malformed focusGuides", async () => {
+    const response = await POST(
+      ask({
+        messages: [{ content: "Hello", role: "user" }],
+        focusGuides: ["not-a-guide"],
+      })
+    )
+
+    expect(response.status).toBe(400)
+    await expect(response.json()).resolves.toEqual({
+      error:
+        "focusGuides must be an array of explore/… or space/… paths (max 3).",
+    })
+    expect(openai.create).not.toHaveBeenCalled()
+  })
 })

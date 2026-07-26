@@ -8,6 +8,7 @@ import {
   useState,
 } from 'react'
 import { CornerRightUp, Plus, Square, X } from 'lucide-react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { ThinkingOrb } from 'thinking-orbs'
 
 import { ActivityPanel } from '~/components/cleo/activity-panel'
@@ -15,6 +16,11 @@ import { LiquidGlass } from '~/components/cleo/liquid-glass'
 import { Markdown } from '~/components/cleo/markdown'
 import { Button } from '~/components/cleo/ui/button'
 import { Input } from '~/components/cleo/ui/input'
+import {
+  formatGuideFocus,
+  type PortalGuideFocus,
+  parseGuideFocusList,
+} from "~/lib/cleo/ask-links"
 import {
   filesToMessageImages,
   IMAGE_ACCEPT,
@@ -94,11 +100,15 @@ function messageHasVisibleContent(message: Message) {
 }
 
 export function AskForm() {
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
+  const [focusGuides, setFocusGuides] = useState<PortalGuideFocus[]>([])
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -111,6 +121,22 @@ export function AskForm() {
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
 
   useEffect(() => {
+    const prompt = searchParams.get('q')?.trim() ?? ''
+    const guides = parseGuideFocusList(searchParams.getAll('g'))
+    if (!prompt && guides.length === 0) return
+
+    if (prompt) {
+      setInput(prompt.slice(0, MAX_INPUT_LENGTH))
+    }
+    if (guides.length > 0) {
+      setFocusGuides(guides)
+    }
+    setError(null)
+    // Drop consume-once params so refresh / New chat do not re-prefill.
+    router.replace(pathname, { scroll: false })
+  }, [pathname, router, searchParams])
+
+  useEffect(() => {
     if (!hasMessages) return
     // Scroll the document so the clearance spacer sits against the viewport
     // bottom — leaving the latest text above the fixed prompt.
@@ -118,10 +144,10 @@ export function AskForm() {
   }, [hasMessages, messages])
 
   useEffect(() => {
-    if (!isSubmitting && hasMessages) {
+    if (!isSubmitting && (hasMessages || input)) {
       inputRef.current?.focus()
     }
-  }, [hasMessages, isSubmitting])
+  }, [hasMessages, input, isSubmitting])
 
   useEffect(() => {
     mountedRef.current = true
@@ -248,7 +274,16 @@ export function AskForm() {
       const response = await fetch("/api/responses", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: conversation }),
+        body: JSON.stringify({
+          messages: conversation,
+          ...(focusGuides.length > 0
+            ? {
+                focusGuides: focusGuides.map((guide) =>
+                  formatGuideFocus(guide)
+                ),
+              }
+            : {}),
+        }),
         signal: abortController.signal,
       })
 

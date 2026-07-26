@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { GuideOrientation } from '~/components/guide-orientation'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
+import { cleoAskHref, cleoGuideAskPrompt } from '~/lib/cleo/ask-links'
 import {
   getSpaceSubject,
   spaceDescription,
@@ -221,8 +222,22 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
       </section>
 
       <p
-        className="enter mt-10 mb-4"
+        className="enter mt-10"
         style={{ '--enter-delay': '180ms' } as React.CSSProperties}
+      >
+        <Link
+          href={cleoAskHref({
+            prompt: cleoGuideAskPrompt(subject.name),
+            guide: { collection: 'space', slug: subject.slug },
+          })}
+          className="text-sm text-muted-foreground hover:text-foreground"
+        >
+          Ask Cleo about {subject.name} →
+        </Link>
+      </p>
+      <p
+        className="enter mt-3 mb-4"
+        style={{ '--enter-delay': '190ms' } as React.CSSProperties}
       >
         <Link href="/space" className="text-sm text-muted-foreground hover:text-foreground">
           ← All space guides

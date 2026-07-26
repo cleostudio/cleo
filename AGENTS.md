@@ -73,11 +73,17 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
   `image_generation`, reasoning summaries, streaming, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
   `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
+- Grounding: `lib/cleo/guide-grounding.ts` attaches curated Orientation / facts
+  / places-or-features excerpts for guides mentioned in the turn (or pinned via
+  Ask Cleo `focusGuides`). Pages never call a model; only `POST /api/responses`
+  reads stored prose.
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`.
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
   `components/cleo/ask-form.tsx`. Guide deep-links are inline Markdown in the
   reply (no separate chip row).
+- Ask-from-guide: `lib/cleo/ask-links.ts` builds `/cleo?q=&g=` links used on
+  Explore, Space, and Gallery pages; AskForm prefills `q` and pins `g`.
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 

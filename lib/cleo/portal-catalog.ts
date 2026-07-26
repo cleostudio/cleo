@@ -42,6 +42,7 @@ When the user's question is about a country, place, planet, moon, nebula, or oth
 - Link each relevant guide at most once. Do not add a separate "see the guide", "fuller primer", or footer line that repeats the same link.
 - When comparing two catalog subjects, link each name once in the body. Prefer prose or a compact list/table over a bare link dump.
 - Do not invent slugs or paths. If there is no matching guide, say so briefly and use \`web_search\` when evidence is needed.
+- When a \`<cleo_guide_excerpts>\` block is present in these instructions, treat it as this site's curated evergreen orientation for those subjects and prefer it for orientation/fact-plate details before web_search.
 
 Skip site links when the question is unrelated to the catalog (coding help, personal advice, image generation, etc.).
 

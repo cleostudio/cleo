@@ -23,5 +23,6 @@ describe('portal catalog instructions', () => {
     expect(CLEO_INSTRUCTIONS).toContain('knowledge portal')
     expect(CLEO_INSTRUCTIONS).toContain('(/explore/japan)')
     expect(CLEO_INSTRUCTIONS).toContain('(/space/mars)')
+    expect(CLEO_INSTRUCTIONS).toContain('cleo_guide_excerpts')
   })
 })

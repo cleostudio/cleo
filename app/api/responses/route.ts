@@ -7,12 +7,18 @@ import type {
   ResponseReasoningItem,
 } from "openai/resources/responses/responses"
 
-import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
+import {
+  buildGuideGroundingInstructions,
+  conversationGroundingText,
+  parseFocusGuideInput,
+  selectGroundedGuides,
+} from "~/lib/cleo/guide-grounding"
 import {
   MAX_IMAGES_PER_MESSAGE,
   parseImageDataUrl,
   toImageDataUrl,
 } from "~/lib/cleo/images"
+import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
   type ActivityItem,
   type ActivityStatus,
@@ -346,6 +352,30 @@ export async function POST(request: Request) {
     return parsed
   }
 
+  const focusGuides = parseFocusGuideInput(
+    typeof body === "object" &&
+      body !== null &&
+      "focusGuides" in body
+      ? body.focusGuides
+      : undefined
+  )
+
+  if (focusGuides === null) {
+    return errorResponse(
+      "focusGuides must be an array of explore/… or space/… paths (max 3).",
+      400
+    )
+  }
+
+  const groundedGuides = selectGroundedGuides({
+    focusGuides,
+    text: conversationGroundingText(parsed),
+  })
+  const grounding = buildGuideGroundingInstructions(groundedGuides)
+  const instructions = grounding
+    ? `${CLEO_INSTRUCTIONS}\n\n${grounding}`
+    : CLEO_INSTRUCTIONS
+
   const apiKey = process.env.OPENAI_API_KEY
 
   if (!apiKey) {
@@ -361,7 +391,7 @@ export async function POST(request: Request) {
       {
         model: MODEL,
         input,
-        instructions: CLEO_INSTRUCTIONS,
+        instructions,
         // Keep headroom for reasoning + tools + visible answer. Effort "max"
         // with a tight budget often ends incomplete with zero answer text.
         max_output_tokens: 16_384,

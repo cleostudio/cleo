@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { GuideOrientation } from '~/components/guide-orientation'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
+import { cleoAskHref, cleoGuideAskPrompt } from '~/lib/cleo/ask-links'
 import { countrySlugs, getCountry } from '~/lib/countries'
 import { atlasDescription, getAtlasEntry } from '~/lib/atlas'
 import { localeMetadata } from '~/lib/locale-metadata'
@@ -200,11 +201,22 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
+        <Link
+          href={cleoAskHref({
+            prompt: cleoGuideAskPrompt(entry.name),
+            guide: { collection: 'explore', slug: entry.slug },
+          })}
+          className="text-sm text-muted-foreground hover:text-foreground"
+        >
+          Ask Cleo about {entry.name} →
+        </Link>
+      </p>
+      <p className="enter mt-3" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
         <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
           Browse the gallery →
         </Link>
       </p>
-      <p className="enter mt-3 mb-4" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
+      <p className="enter mt-3 mb-4" style={{ '--enter-delay': '200ms' } as React.CSSProperties}>
         <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
           ← All countries
         </Link>
