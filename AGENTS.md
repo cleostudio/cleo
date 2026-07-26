@@ -108,7 +108,7 @@ Tencent, or Upstash without an explicit product decision.
 ## Development rules
 
 - Use `pnpm` only. Scripts include `dev`, `build`, `start`, `typecheck`, plus
-  unit/security/browser suites listed in `package.json`.
+  unit/security suites listed in `package.json`.
 - Before changing framework code, read the relevant Next.js guide in
   `node_modules/next/dist/docs/` — this App Router stack has breaking changes
   vs older Next.js.

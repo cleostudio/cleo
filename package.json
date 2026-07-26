@@ -18,8 +18,6 @@
     "prebuild": "node scripts/ensure-preview-env.mjs && node scripts/generate-og-runtime-fonts.mjs",
     "audit:prod": "node scripts/audit-production-dependencies.mjs",
     "build": "next build",
-    "test:browser": "playwright test",
-    "test:browser:hosted": "playwright test --project=chromium --grep @hosted",
     "start": "next start",
     "test:security": "vitest run lib/security",
     "test:unit": "vitest run app components lib --exclude='**/*.live.test.ts'",
@@ -72,8 +70,6 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@next/playwright": "16.3.0-preview.9",
-    "@playwright/test": "1.61.1",
     "@tailwindcss/postcss": "^4.3.3",
     "@testing-library/react": "^16.3.2",
     "@types/mdx": "^2.0.14",
