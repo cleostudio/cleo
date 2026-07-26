@@ -7,7 +7,7 @@
  *
  * Import-time only (no account/API key required at runtime):
  * 1. Download the curated JPEG/PNG once
- * 2. Strip metadata, write mozjpeg 640 / 1024 / 1600px files under
+ * 2. Strip metadata, write mozjpeg 640 / 1280 / 2048px files under
  *    public/images/atlas/{slug}/
  * 3. Merge credits + checksum + rendition metadata into content/atlas.json
  *
@@ -28,7 +28,7 @@ import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
-const WIDTHS = [640, 1024, 1600]
+const WIDTHS = [640, 1280, 2048]
 const ORIGINALS = join(root, '.atlas-originals')
 const PUBLIC_ATLAS = join(root, 'public/images/atlas')
 const UA = 'cleo-atlas-import/1.0 (https://github.com/cleostudio/cleo; knowledge portal photo import)'
@@ -99,6 +99,39 @@ async function downloadUrl(url, dest) {
   throw lastError ?? new Error(`Download failed for ${url}`)
 }
 
+/**
+ * Commons renders thumbnails on demand, so ask for one a little above the
+ * largest rendition instead of pulling a 235-megapixel original to make a
+ * 2048px JPEG. Only whitelisted sizes are served, and the filename appears
+ * twice in the path, so let the API build the URL rather than guessing it.
+ */
+async function commonsThumbUrl(commonsTitle, sourceWidth, target) {
+  if (!commonsTitle || !(sourceWidth > target)) return null
+
+  const params = new URLSearchParams({
+    action: 'query',
+    format: 'json',
+    iiprop: 'url',
+    iiurlwidth: String(target),
+    prop: 'imageinfo',
+    titles: commonsTitle,
+  })
+
+  try {
+    const res = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`, {
+      headers: { 'user-agent': UA, accept: 'application/json' },
+      signal: AbortSignal.timeout(20_000),
+    })
+    if (!res.ok) return null
+    const data = await res.json()
+    const page = Object.values(data.query?.pages ?? {})[0]
+
+    return page?.imageinfo?.[0]?.thumburl ?? null
+  } catch {
+    return null
+  }
+}
+
 async function downloadPexels(pexelsId, dest) {
   const url = `https://images.pexels.com/photos/${pexelsId}/pexels-photo-${pexelsId}.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=2000`
   return downloadUrl(url, dest)
@@ -124,7 +157,14 @@ async function buildRenditions(slug, originalBuffer) {
         withoutEnlargement: true,
         fit: 'inside',
       })
-      .jpeg({ quality: 82, mozjpeg: true, chromaSubsampling: '4:2:0' })
+      // The rendition that carries zoomed detail gets the higher quality.
+      // Full chroma costs ~40% more bytes and is invisible on a photograph at
+      // this size, so the extra budget goes into the quality factor instead.
+      .jpeg({
+        chromaSubsampling: '4:2:0',
+        mozjpeg: true,
+        quality: targetWidth >= 2048 ? 86 : 82,
+      })
       .withMetadata({ orientation: undefined })
       .toBuffer()
     writeFileSync(outPath, out)
@@ -189,7 +229,12 @@ for (const slug of slugs) {
       if (existsSync(originalPath) && readFileSync(originalPath).byteLength < 1000) {
         rmSync(originalPath)
       }
-      original = await downloadUrl(source.downloadUrl, originalPath)
+      const thumbUrl = await commonsThumbUrl(
+        source.commonsTitle,
+        source.width ?? 0,
+        2560,
+      )
+      original = await downloadUrl(thumbUrl ?? source.downloadUrl, originalPath)
       const checksum = createHash('sha256').update(original).digest('hex')
       const { width, height, renditions } = await buildRenditions(slug, original)
       const placeName = source.placeName || entry.featuredPlaceName

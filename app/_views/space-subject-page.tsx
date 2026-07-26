@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { GuideOrientation } from '~/components/guide-orientation'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
 import {
@@ -35,9 +36,9 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
   if (!subject) notFound()
 
   return (
-    <article className="field-guide mx-auto w-full max-w-[42rem] px-6">
+    <article className="field-guide mx-auto w-full max-w-content px-6">
       <div className="flex items-start justify-between gap-4">
-        <header className="max-w-[38.5rem]">
+        <header className="max-w-content-narrow">
           <p className="page-eyebrow enter">
             <Link href="/space" className="hover:text-foreground">
               Space
@@ -69,7 +70,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
       >
         <ZoomImage
           src={
-            (subject.photo.renditions.find((r) => r.width === 1024) ??
+            (subject.photo.renditions.find((r) => r.width === 1280) ??
               subject.photo.renditions[0])!.src
           }
           alt={subject.photo.alt}
@@ -82,7 +83,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
             width: r.width,
           }))}
           expandedContent={
-            <div className="spec-plate mx-auto max-w-[42rem] px-6 text-sm text-[var(--paper)]">
+            <div className="spec-plate mx-auto max-w-content px-6 text-sm text-foreground">
               <p className="font-medium">{subject.photo.caption}</p>
               <p className="mt-1 opacity-80">
                 {subject.photo.photographer} · {subject.photo.license}
@@ -114,9 +115,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         <h2 id="space-about" className="guide-label">
           Orientation
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-foreground/90 text-pretty">
-          {subject.about}
-        </p>
+        <GuideOrientation about={subject.about} />
       </section>
 
       <section
@@ -155,40 +154,41 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         <h2 id="space-facts" className="guide-label">
           Fact plate
         </h2>
-        <dl className="mt-3 grid gap-0 text-sm">
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Kind</dt>
-            <dd className="text-right">{subject.facts.kind}</dd>
-          </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">System</dt>
-            <dd className="text-right">{subject.facts.system}</dd>
-          </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Mean distance</dt>
-            <dd className="text-right">{subject.facts.meanDistance}</dd>
-          </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Equatorial radius</dt>
-            <dd className="text-right tabular-nums">
-              {formatRadius(subject.facts.radiusKm)}
+        <dl className="spec-plate spec-plate-guide mt-3">
+          <div>
+            <dt>Kind</dt>
+            <dd>
+              <span className="spec-signal" aria-hidden />
+              {subject.facts.kind}
             </dd>
           </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Orbital period</dt>
-            <dd className="text-right">{subject.facts.orbitalPeriod}</dd>
+          <div>
+            <dt>System</dt>
+            <dd>{subject.facts.system}</dd>
           </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Rotation</dt>
-            <dd className="text-right">{subject.facts.rotationPeriod}</dd>
+          <div>
+            <dt>Mean distance</dt>
+            <dd>{subject.facts.meanDistance}</dd>
           </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Companions</dt>
-            <dd className="text-right">{subject.facts.companions}</dd>
+          <div>
+            <dt>Equatorial radius</dt>
+            <dd>{formatRadius(subject.facts.radiusKm)}</dd>
           </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Catalog</dt>
-            <dd className="text-right font-mono tabular-nums">{subject.code}</dd>
+          <div>
+            <dt>Orbital period</dt>
+            <dd>{subject.facts.orbitalPeriod}</dd>
+          </div>
+          <div>
+            <dt>Rotation</dt>
+            <dd>{subject.facts.rotationPeriod}</dd>
+          </div>
+          <div>
+            <dt>Companions</dt>
+            <dd>{subject.facts.companions}</dd>
+          </div>
+          <div>
+            <dt>Catalog</dt>
+            <dd>{subject.code}</dd>
           </div>
         </dl>
       </section>

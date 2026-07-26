@@ -604,7 +604,14 @@ export async function POST(request: Request) {
 
           controller.close()
         } catch (streamError) {
-          if (!request.signal.aborted) {
+          if (request.signal.aborted) {
+            // The client is gone. End the stream rather than leaving it open.
+            try {
+              controller.close()
+            } catch {
+              // Already closed or errored by the runtime.
+            }
+          } else {
             console.error("OpenAI Responses API stream failed.", streamError)
 
             try {

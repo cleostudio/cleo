@@ -8,7 +8,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
-const WIDTHS = [640, 1024, 1600]
+const WIDTHS = [640, 1280, 2048]
 const photos = JSON.parse(
   readFileSync(join(root, 'content/space-photos.json'), 'utf8'),
 )

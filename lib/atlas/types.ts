@@ -1,6 +1,6 @@
 /** Country Atlas — evergreen field-guide records for every Explore slug. */
 
-export type AtlasRenditionWidth = 640 | 1024 | 1600
+export type AtlasRenditionWidth = 640 | 1280 | 2048
 
 export interface AtlasRendition {
   width: AtlasRenditionWidth

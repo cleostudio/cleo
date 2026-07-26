@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { GuideOrientation } from '~/components/guide-orientation'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
 import { countrySlugs, getCountry } from '~/lib/countries'
@@ -29,13 +30,13 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
   const entry = getAtlasEntry(slug)
   if (!entry) notFound()
 
-  const hero = entry.photo.renditions.find((r) => r.width === 1024) ?? entry.photo.renditions[0]!
+  const hero = entry.photo.renditions.find((r) => r.width === 1280) ?? entry.photo.renditions[0]!
   const renditions = entry.photo.renditions.map((r) => ({ src: r.src, width: r.width }))
 
   return (
-    <article className="field-guide mx-auto w-full max-w-[42rem] px-6">
+    <article className="field-guide mx-auto w-full max-w-content px-6">
       <div className="flex items-start justify-between gap-4">
-        <header className="max-w-[38.5rem]">
+        <header className="max-w-content-narrow">
           <p className="page-eyebrow enter">
             <Link href="/explore" className="hover:text-foreground">
               Explore
@@ -74,7 +75,7 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
           sizes="(max-width: 40rem) 100vw, 42rem"
           renditions={renditions}
           expandedContent={
-            <div className="spec-plate mx-auto max-w-[42rem] px-6 text-sm text-[var(--paper)]">
+            <div className="spec-plate mx-auto max-w-content px-6 text-sm text-foreground">
               <p className="font-medium">{entry.photo.caption}</p>
               <p className="mt-1 opacity-80">
                 Photo by {entry.photo.photographer} · {entry.photo.license}
@@ -106,9 +107,7 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         <h2 id="guide-about" className="guide-label">
           Orientation
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-foreground/90 text-pretty">
-          {entry.about}
-        </p>
+        <GuideOrientation about={entry.about} />
       </section>
 
       <section
@@ -142,32 +141,33 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         <h2 id="guide-facts" className="guide-label">
           Fact plate
         </h2>
-        <dl className="mt-3 grid gap-0 text-sm">
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Capital</dt>
-            <dd className="text-right">{entry.facts.capital}</dd>
-          </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Languages</dt>
-            <dd className="text-right">{entry.facts.languages.join(', ')}</dd>
-          </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Currency</dt>
-            <dd className="text-right">{entry.facts.currency}</dd>
-          </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Area</dt>
-            <dd className="text-right tabular-nums">
-              {entry.facts.areaKm2.toLocaleString('en-US')} km²
+        <dl className="spec-plate spec-plate-guide mt-3">
+          <div>
+            <dt>Capital</dt>
+            <dd>
+              <span className="spec-signal" aria-hidden />
+              {entry.facts.capital}
             </dd>
           </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Region</dt>
-            <dd className="text-right">{entry.facts.region}</dd>
+          <div>
+            <dt>Languages</dt>
+            <dd>{entry.facts.languages.join(', ')}</dd>
           </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">ISO 3166-1</dt>
-            <dd className="text-right font-mono tabular-nums">{entry.code}</dd>
+          <div>
+            <dt>Currency</dt>
+            <dd>{entry.facts.currency}</dd>
+          </div>
+          <div>
+            <dt>Area</dt>
+            <dd>{entry.facts.areaKm2.toLocaleString('en-US')} km²</dd>
+          </div>
+          <div>
+            <dt>Region</dt>
+            <dd>{entry.facts.region}</dd>
+          </div>
+          <div>
+            <dt>ISO 3166-1</dt>
+            <dd>{entry.code}</dd>
           </div>
         </dl>
       </section>

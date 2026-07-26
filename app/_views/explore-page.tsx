@@ -19,9 +19,9 @@ export function ExplorePageView() {
   const regions = countriesByRegion()
 
   return (
-    <div className="mx-auto w-full max-w-[42rem] px-6">
+    <div className="mx-auto w-full max-w-content px-6">
       <div className="flex items-start justify-between gap-4">
-        <header className="max-w-[38.5rem]">
+        <header className="max-w-content-narrow">
           <h1 className="page-eyebrow enter">
             <T zh="探索" en="Explore" />
           </h1>

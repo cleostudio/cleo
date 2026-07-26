@@ -10,7 +10,14 @@ layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
 vinyl/bookshelf, and social card components remain in the repo for later reuse.
 
 Country guide records live in `content/atlas.json` (one entry per Explore slug).
-Generate evergreen copy with `pnpm generate:atlas-content`, curate accurate
+Orientation prose is curated, not generated at build time. It lives in
+`scripts/atlas/atlas-about.json` and is written once by hand with
+`pnpm write:atlas-about` (needs `OPENAI_API_KEY`; every draft is checked for
+length, recycled phrasing, and volatile claims before it is kept). The site
+never calls a model to render a page. `lib/atlas/prose.test.ts` holds the
+corpus to that bar — no sentence may appear in two countries.
+
+Assemble the manifest with `pnpm generate:atlas-content`, curate accurate
 Wikimedia Commons place photos with `pnpm curate:atlas-photos`, then import
 optimized local JPEG renditions with `pnpm import:atlas-photos`. Validate with
 `pnpm validate:atlas`. Originals stay in `.atlas-originals/` (gitignored);
@@ -28,6 +35,24 @@ The Topics catalog in `lib/topics.ts` lists Countries and Space.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.
+
+## UI/UX theme preset
+
+The theme is inherited from [cali.so](https://github.com/CaliCastle/cali.so),
+which this repo forks. Treat it as upstream for anything visual.
+
+- Contract: `lib/theme-preset.ts` names every token the UI may depend on and
+ pins the values that define the look. `lib/theme-preset.test.ts` enforces it
+ against `app/globals.css`.
+- Rules and deviations: `docs/theme-preset.md`.
+- Full visual spec: `docs/design-language.md`.
+
+Before adding a color, duration, radius, or width, find the token. Semantic
+colors only — never a hex, never a raw `--gray-N` in a component. Two easings
+(`--ease-swift`, `--ease-spring`) and nothing else. The page column is
+`max-w-content` / `max-w-content-narrow`, never a literal. Departing from
+cali.so is a design decision: record it in both the deviations table and
+`presetDeviations`.
 
 ## Agent skills (site)
 

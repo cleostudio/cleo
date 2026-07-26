@@ -19,6 +19,13 @@ Cleo (v3) contexts. System-wide ADRs live in `docs/adr/`. Site status:
 - **Cleo agent** — OpenAI Responses API at `/cleo` and `/api/responses`
   (`lib/cleo/`, `components/cleo/`)
 
+## Design
+
+The UI/UX theme is inherited from
+[cali.so](https://github.com/CaliCastle/cali.so), which Cleo forks.
+`docs/theme-preset.md` is the enforced token contract, `lib/theme-preset.ts`
+holds it as data, and `docs/design-language.md` is the full visual spec.
+
 ## Removed contexts
 
 AMA Booking, Media Library, owner admin (Clerk), Neon/Postgres, rate-limit
