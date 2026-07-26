@@ -83,7 +83,7 @@ function BlogPostLoadingShell({ locale }: { locale: Locale }) {
     <article
       aria-busy="true"
       data-post-loading-shell
-      className="post-article mx-auto min-h-[calc(100svh-3.5rem)] w-full max-w-[42rem] px-6"
+      className="post-article mx-auto min-h-[calc(100svh-3.5rem)] w-full max-w-content px-6"
     >
       <div role="status" aria-label={label}>
         <span className="sr-only">{label}</span>
@@ -176,7 +176,7 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
   return (
     <>
       <PostToc nodes={rail} nodesEn={railEn} />
-      <article className="post-article mx-auto w-full max-w-[42rem] px-6">
+      <article className="post-article mx-auto w-full max-w-content px-6">
         <header>
           {post.cover && (
             <PolaroidCover

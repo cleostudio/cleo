@@ -29,6 +29,24 @@ The Topics catalog in `lib/topics.ts` lists Countries and Space.
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.
 
+## UI/UX theme preset
+
+The theme is inherited from [cali.so](https://github.com/CaliCastle/cali.so),
+which this repo forks. Treat it as upstream for anything visual.
+
+- Contract: `lib/theme-preset.ts` names every token the UI may depend on and
+ pins the values that define the look. `lib/theme-preset.test.ts` enforces it
+ against `app/globals.css`.
+- Rules and deviations: `docs/theme-preset.md`.
+- Full visual spec: `docs/design-language.md`.
+
+Before adding a color, duration, radius, or width, find the token. Semantic
+colors only — never a hex, never a raw `--gray-N` in a component. Two easings
+(`--ease-swift`, `--ease-spring`) and nothing else. The page column is
+`max-w-content` / `max-w-content-narrow`, never a literal. Departing from
+cali.so is a design decision: record it in both the deviations table and
+`presetDeviations`.
+
 ## Agent skills (site)
 
 ### Issue tracker / triage / design / domain

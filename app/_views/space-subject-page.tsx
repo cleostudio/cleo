@@ -35,9 +35,9 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
   if (!subject) notFound()
 
   return (
-    <article className="field-guide mx-auto w-full max-w-[42rem] px-6">
+    <article className="field-guide mx-auto w-full max-w-content px-6">
       <div className="flex items-start justify-between gap-4">
-        <header className="max-w-[38.5rem]">
+        <header className="max-w-content-narrow">
           <p className="page-eyebrow enter">
             <Link href="/space" className="hover:text-foreground">
               Space
@@ -82,7 +82,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
             width: r.width,
           }))}
           expandedContent={
-            <div className="spec-plate mx-auto max-w-[42rem] px-6 text-sm text-[var(--paper)]">
+            <div className="spec-plate mx-auto max-w-content px-6 text-sm text-[var(--paper)]">
               <p className="font-medium">{subject.photo.caption}</p>
               <p className="mt-1 opacity-80">
                 {subject.photo.photographer} · {subject.photo.license}

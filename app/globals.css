@@ -46,6 +46,8 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+    --container-content: var(--content-column);
+    --container-content-narrow: var(--content-column-narrow);
   @keyframes spinner-move {
   to {
     stroke-dashoffset: -100;
@@ -249,6 +251,12 @@
   --z-nav: 100;
   --z-card: 200;
   --z-toast: 300;
+
+  /* Page column. cali.so runs 37.5rem; Cleo opened this up when the drafting
+     guide borders came off. Everything that spans the column reads it from
+     here so the shell, the shelf frame, and the guides cannot drift apart. */
+  --content-column: 42rem;
+  --content-column-narrow: 38.5rem;
 
   --grain-opacity: 0.3;
   --guide-opacity: 0.5;
@@ -3797,7 +3805,7 @@ a:focus-visible .external-label .external-mark {
   --vinyl-shadow-rgb: var(--room-shelf-shadow-rgb);
 
   left: 50%;
-  width: min(42rem, calc(100vw - 2rem));
+  width: min(var(--content-column), calc(100vw - 2rem));
   isolation: isolate;
   transform: translateX(-50%);
 }
@@ -4740,7 +4748,7 @@ a:focus-visible .external-label .external-mark {
   display: grid;
   grid-template-columns: 0.75rem 3rem minmax(0, 1fr) auto 0.75rem;
   align-items: center;
-  width: min(42rem, calc(100vw - 1rem));
+  width: min(var(--content-column), calc(100vw - 1rem));
   min-height: 2.75rem;
   margin: 0 auto;
   border-right: var(--border-hairline) solid var(--border);

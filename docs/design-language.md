@@ -5,6 +5,11 @@ stack in ADR-0006 (motion is information, not decoration). Rules here are
 written to be buildable: when a value is stated, use it; when a component is
 described, its behavior spec is the contract.
 
+This system is inherited from [cali.so](https://github.com/CaliCastle/cali.so),
+which Cleo forks. [`theme-preset.md`](./theme-preset.md) is the shorter,
+enforced contract — the token list, the pinned values, and the deviations Cleo
+takes on purpose. Read that first; read this for how the tokens compose.
+
 The primary navigation is a fixed bottom-center pill dock at z `--z-nav`.
 Viewport-edge fades and the bent rulers remain ambient rather than navigation
 chrome. On desktop, the footer is a single Swiss grid with a quiet,
