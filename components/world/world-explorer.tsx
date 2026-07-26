@@ -82,14 +82,13 @@ function WorldExplorerInner({
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key !== 'Escape' || !selected) return
+      if (event.key !== 'Escape' || !searchParams.get('c')) return
       event.preventDefault()
-      syncUrl(null, null)
+      router.push(pathname, { scroll: false })
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-    // syncUrl closes over searchParams / pathname / router for history pushes.
-  }, [selected, searchParams, pathname, router])
+  }, [searchParams, pathname, router])
 
   const copyLink = async () => {
     if (!selected || typeof window === 'undefined') return
