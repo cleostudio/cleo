@@ -43,7 +43,7 @@ export function PostRow({
           >
             <DitheredImage
               src={post.cover.src}
-              alt=""
+              alt={post.cover.caption || post.titleEn}
               width={64}
               height={44}
               sizes="64px"

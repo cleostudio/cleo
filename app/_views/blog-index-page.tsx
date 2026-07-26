@@ -22,11 +22,19 @@ export function BlogIndexPageView({ locale }: { locale: Locale }) {
 
   return (
     <div className="mx-auto w-full max-w-content px-6">
-      <header className="enter flex items-center justify-between">
-        <h1 className="page-eyebrow">
-          <T zh="写作" en="Writing" />
-        </h1>
-        <PixelCluster variant={1} />
+      <header className="enter">
+        <div className="flex items-center justify-between">
+          <h1 className="page-eyebrow">
+            <T zh="写作" en="Writing" />
+          </h1>
+          <PixelCluster variant={1} />
+        </div>
+        <p className="mt-3 max-w-[36rem] text-sm leading-relaxed text-muted-foreground">
+          <T
+            zh="门户随笔与主题短文——国家与太空书架上的阅读。"
+            en="Portal essays and subject pieces from the country and space shelves."
+          />
+        </p>
       </header>
       <WritingInkStage className="mt-6" contentClassName="flex flex-col gap-8">
         {[...postsByYear].map(([year, yearPosts]) => {

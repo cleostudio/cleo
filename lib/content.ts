@@ -20,7 +20,11 @@ const frontmatterSchema = z.object({
   coverWidth: z.number().int().positive().optional(),
   coverHeight: z.number().int().positive().optional(),
   coverCaption: z.string().optional(),
+  /** Portal essays explain the site; subject essays deepen Explore/Space topics. */
+  kind: z.enum(['portal', 'subject']).default('portal'),
 })
+
+export type PostKind = 'portal' | 'subject'
 
 export interface PostCover {
   src: string
@@ -36,6 +40,7 @@ export interface Post {
   description?: string
   descriptionEn: string
   publishedAt: Date
+  kind: PostKind
   cover?: PostCover
   readingMinutes: number
   readingMinutesEn: number
@@ -167,6 +172,7 @@ export function getPost(slug: string): Post {
     description,
     descriptionEn: description,
     publishedAt: fm.publishedAt,
+    kind: fm.kind,
     cover,
     readingMinutes: stats.minutes,
     readingMinutesEn: stats.minutes,
@@ -243,7 +249,13 @@ export function getRelatedPosts(slug: string, limit = 3): Post[] {
 
   return posts
     .filter((post) => post.slug !== slug)
-    .map((post) => ({ post, score: similarity(target, postVector(post)) }))
+    .map((post) => {
+      const lexical = similarity(target, postVector(post))
+      // Prefer same-kind neighbors so subject essays cluster with subjects,
+      // and portal essays with portal essays, without maintaining tags.
+      const kindBonus = post.kind === current.kind ? 0.18 : 0
+      return { post, score: lexical + kindBonus }
+    })
     .sort(
       (a, b) =>
         b.score - a.score ||

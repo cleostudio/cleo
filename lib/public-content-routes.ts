@@ -11,6 +11,7 @@ export const publishedPostSlugs = [
   'photos-stay-local',
   'writing-comes-next',
   'icy-moons-europa-enceladus',
+  'reading-mars',
 ] as const
 
 export const archivedNewsletterIds = ['1'] as const

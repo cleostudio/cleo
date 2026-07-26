@@ -22,6 +22,8 @@ function postTransitionId(slug: string) {
       return 'p09'
     case 'icy-moons-europa-enceladus':
       return 'p10'
+    case 'reading-mars':
+      return 'p11'
     default:
       throw new Error('Unknown post view-transition slug')
   }

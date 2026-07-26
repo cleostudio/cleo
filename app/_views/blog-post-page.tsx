@@ -183,7 +183,7 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
               slug={post.slug}
               cover={post.cover}
               caption={post.cover.caption ?? <BrailleDate date={post.publishedAt} />}
-              alt=""
+              alt={post.cover.caption || post.titleEn}
               priority
               morph
               print="collage"
@@ -253,7 +253,7 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
             aria-labelledby="post-related-heading"
           >
             <h2 id="post-related-heading" className="post-related-label">
-              <T zh="相关阅读" en="Posts like this" />
+              <T zh="相关阅读" en="Related reading" />
             </h2>
             <ul className="focus-list mt-3 flex flex-col">
               {related.map((entry) => (

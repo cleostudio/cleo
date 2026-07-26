@@ -5,8 +5,9 @@ dock at `/cleo`.
 
 The public site includes a homepage for country search, highlighted places, and
 topic discovery; Explore country field guides; Space field guides at `/space`;
-a place Gallery at `/gallery`; a Topics catalog; Writing (for a future
-encyclopedia layer); and a browser-only agent with streamed Markdown, vision,
+a place Gallery at `/gallery`; a Topics catalog; Writing (portal essays and
+subject pieces toward a deeper knowledge layer); and a browser-only agent with
+streamed Markdown, vision,
 image generation, and live reasoning / web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.

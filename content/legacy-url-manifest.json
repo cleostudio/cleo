@@ -404,6 +404,23 @@
       ]
     },
     {
+      "kind": "page",
+      "source": "/blog/reading-mars",
+      "probes": [
+        "/blog/reading-mars"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/reading-mars",
+      "destination": "/blog/reading-mars",
+      "probes": [
+        "/en/blog/reading-mars"
+      ]
+    },
+    {
       "kind": "redirect",
       "source": "/blog/we-decided-to-stop-buying-saas",
       "destination": "/blog",

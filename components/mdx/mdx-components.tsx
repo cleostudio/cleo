@@ -20,10 +20,11 @@ function PostImage({ slug, src, alt, title }: { slug: string; src: string; alt?:
   const [, file, width, height] = match
   // deterministic scatter in [-1°, +1°] per file; hover straightens
   const tilt = tiltFromSlug(file) / 2
+  const resolvedAlt = (alt && alt.trim()) || title || ''
   const img = (
     <ZoomImage
       src={`/content/blog/${slug}/${file}`}
-      alt={alt ?? ''}
+      alt={resolvedAlt}
       width={+width}
       height={+height}
       sizes="(max-width: 704px) 100vw, 656px"

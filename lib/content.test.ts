@@ -11,7 +11,7 @@ describe('post slug allowlist', () => {
   })
 })
 
-describe('posts like this', () => {
+describe('related reading', () => {
   it('returns up to three published posts, never the post itself, deterministically', () => {
     for (const post of getAllPosts()) {
       const related = getRelatedPosts(post.slug)
@@ -27,6 +27,23 @@ describe('posts like this', () => {
     }
 
     expect(getRelatedPosts('not-a-published-post')).toEqual([])
+  })
+
+  it('prefers same-kind neighbors for subject essays', () => {
+    const related = getRelatedPosts('reading-mars')
+    expect(related.some((post) => post.kind === 'subject')).toBe(true)
+    expect(related.map((post) => post.slug)).toContain('icy-moons-europa-enceladus')
+  })
+})
+
+describe('post kind', () => {
+  it('marks subject essays and defaults portal essays', () => {
+    expect(getAllPosts().find((post) => post.slug === 'reading-mars')?.kind).toBe(
+      'subject',
+    )
+    expect(getAllPosts().find((post) => post.slug === 'welcome-to-cleo')?.kind).toBe(
+      'portal',
+    )
   })
 })
 
