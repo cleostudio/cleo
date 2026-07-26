@@ -26,8 +26,18 @@ export function allTopics(): Topic[] {
         'Evergreen field guides for every country — orientation, notable places, facts, sources, and one curated photograph.',
       tally: `${countryCount} guides`,
       href: '/explore',
-      secondaryHref: '/gallery',
-      secondaryLabel: 'Gallery',
+      secondaryHref: '/world',
+      secondaryLabel: 'World',
+    },
+    {
+      slug: 'world',
+      name: 'World',
+      description:
+        'Interactive 3D Earth — orbit the globe, find a country, and open its field guide.',
+      tally: '1 globe',
+      href: '/world',
+      secondaryHref: '/explore',
+      secondaryLabel: 'Explore',
     },
     {
       slug: 'space',

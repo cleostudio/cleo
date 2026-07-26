@@ -69,9 +69,9 @@ const publicPages = [
     {
       title: 'World',
       description:
-        'An interactive 3D Earth — orbit, zoom, and open country field guides from the globe.',
+        'An interactive 3D Earth — orbit, zoom, search, and open country field guides from the globe.',
     },
-    'World · Cleo. An interactive 3D Earth — orbit, zoom, and open country field guides from the globe.',
+    'World · Cleo. An interactive 3D Earth — orbit, zoom, search, and open country field guides from the globe.',
   ),
   englishPage(
     '/space',

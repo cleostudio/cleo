@@ -12,6 +12,7 @@ import {
   DirectionalLight,
   Group,
   Mesh,
+  MeshBasicMaterial,
   MeshPhongMaterial,
   PerspectiveCamera,
   Points,
@@ -28,6 +29,7 @@ import {
 } from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
+import { framingPosition, stepCameraToward } from '~/lib/world/camera'
 import {
   latLonToVector3,
   worldMarkers,
@@ -39,6 +41,8 @@ const EARTH_RADIUS = 1
 const CLOUD_RADIUS = 1.01
 const ATMOSPHERE_RADIUS = 1.045
 const MARKER_RADIUS = 1.018
+const FLY_DISTANCE = 1.95
+const FLY_MS = 900
 const SUN_DIRECTION = new Vector3(1.2, 0.35, 0.55).normalize()
 
 const atmosphereVertex = /* glsl */ `
@@ -61,6 +65,11 @@ type HoverState = {
   marker: WorldMarker
   x: number
   y: number
+}
+
+type GlobeApi = {
+  flyTo: (marker: WorldMarker) => void
+  setHighlight: (marker: WorldMarker | null) => void
 }
 
 function prefersReducedMotion() {
@@ -116,14 +125,25 @@ function createMarkerPoints(markers: WorldMarker[]) {
   return points
 }
 
-export function EarthGlobe() {
+export function EarthGlobe({
+  focusSlug = null,
+  onSelect,
+}: {
+  focusSlug?: string | null
+  onSelect?: (marker: WorldMarker | null) => void
+}) {
   const hostRef = useRef<HTMLDivElement>(null)
-  const tooltipRef = useRef<HTMLDivElement>(null)
+  const apiRef = useRef<GlobeApi | null>(null)
+  const onSelectRef = useRef(onSelect)
   const markers = useRef(worldMarkers()).current
+  const markersBySlug = useRef(
+    new Map(markers.map((marker) => [marker.slug, marker])),
+  ).current
   const [ready, setReady] = useState(false)
   const [failed, setFailed] = useState(false)
   const [hover, setHover] = useState<HoverState | null>(null)
-  const [selected, setSelected] = useState<WorldMarker | null>(null)
+
+  onSelectRef.current = onSelect
 
   useEffect(() => {
     const host = hostRef.current
@@ -133,17 +153,17 @@ export function EarthGlobe() {
     let frameId = 0
     let renderer: WebGLRenderer | undefined
     let controls: OrbitControls | undefined
-    let earth: Mesh | undefined
     let clouds: Mesh | undefined
-    let night: Mesh | undefined
-    let atmosphere: Mesh | undefined
     let markersPoints: Points | undefined
+    let highlight: Mesh | undefined
+    let root: Group | undefined
+    let camera: PerspectiveCamera | undefined
     const disposables: Array<{ dispose: () => void }> = []
 
     const scene = new Scene()
     scene.background = new Color('#03060d')
 
-    const camera = new PerspectiveCamera(
+    camera = new PerspectiveCamera(
       42,
       host.clientWidth / Math.max(host.clientHeight, 1),
       0.1,
@@ -189,7 +209,7 @@ export function EarthGlobe() {
     scene.add(stars)
     disposables.push(stars.geometry, stars.material as PointsMaterial)
 
-    const root = new Group()
+    root = new Group()
     scene.add(root)
 
     const sphere = new SphereGeometry(EARTH_RADIUS, 96, 96)
@@ -212,24 +232,65 @@ export function EarthGlobe() {
 
     const pointer = new Vector2()
     const raycaster = new Raycaster()
-    // Points need a generous threshold in world units at our scale.
     raycaster.params.Points = { threshold: 0.035 }
 
     let pointerDown = { x: 0, y: 0, t: 0 }
     let idleResume: number | null = null
+    let flight:
+      | {
+          from: Vector3
+          to: Vector3
+          started: number
+        }
+      | null = null
 
-    const pauseAutoRotate = () => {
+    const pauseAutoRotate = (resumeMs = 4500) => {
       if (!controls) return
       controls.autoRotate = false
       if (idleResume !== null) window.clearTimeout(idleResume)
       idleResume = window.setTimeout(() => {
-        if (!controls || prefersReducedMotion()) return
+        if (!controls || prefersReducedMotion() || flight) return
         controls.autoRotate = true
-      }, 4500)
+      }, resumeMs)
     }
 
+    const setHighlight = (marker: WorldMarker | null) => {
+      if (!highlight || !root) return
+      if (!marker) {
+        highlight.visible = false
+        return
+      }
+      const [x, y, z] = latLonToVector3(marker.lat, marker.lon, MARKER_RADIUS + 0.004)
+      highlight.position.set(x, y, z)
+      highlight.visible = true
+    }
+
+    const flyTo = (marker: WorldMarker) => {
+      if (!camera || !controls || !root) return
+      setHighlight(marker)
+      root.updateMatrixWorld(true)
+      const local = new Vector3(...latLonToVector3(marker.lat, marker.lon, 1))
+      const world = local.applyMatrix4(root.matrixWorld)
+      const [tx, ty, tz] = framingPosition(world, FLY_DISTANCE)
+      const to = new Vector3(tx, ty, tz)
+      if (prefersReducedMotion()) {
+        camera.position.copy(to)
+        controls.update()
+        flight = null
+        return
+      }
+      flight = {
+        from: camera.position.clone(),
+        to,
+        started: performance.now(),
+      }
+      pauseAutoRotate(FLY_MS + 5000)
+    }
+
+    apiRef.current = { flyTo, setHighlight }
+
     const onPointerMove = (event: PointerEvent) => {
-      if (!renderer || !markersPoints) return
+      if (!renderer || !markersPoints || !camera) return
       const rect = renderer.domElement.getBoundingClientRect()
       pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1
       pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1
@@ -252,8 +313,8 @@ export function EarthGlobe() {
     }
 
     const onPointerUp = (event: PointerEvent) => {
-      if (!renderer || !markersPoints) return
-      if (renderer) renderer.domElement.style.cursor = 'grab'
+      if (!renderer || !markersPoints || !camera) return
+      renderer.domElement.style.cursor = 'grab'
       const moved =
         Math.hypot(event.clientX - pointerDown.x, event.clientY - pointerDown.y) > 6
       const elapsed = performance.now() - pointerDown.t
@@ -265,14 +326,14 @@ export function EarthGlobe() {
       raycaster.setFromCamera(pointer, camera)
       const hits = raycaster.intersectObject(markersPoints, false)
       if (hits[0]?.index != null) {
-        setSelected(markers[hits[0].index])
+        onSelectRef.current?.(markers[hits[0].index])
       }
     }
 
     const onWheel = () => pauseAutoRotate()
 
     const onResize = () => {
-      if (!renderer || !host) return
+      if (!renderer || !host || !camera) return
       const width = host.clientWidth
       const height = Math.max(host.clientHeight, 1)
       camera.aspect = width / height
@@ -291,7 +352,7 @@ export function EarthGlobe() {
             loadTexture(WORLD_TEXTURES.specular),
           ])
 
-        if (disposed) {
+        if (disposed || !root) {
           for (const texture of [dayMap, nightMap, cloudMap, normalMap, specularMap]) {
             texture.dispose()
           }
@@ -308,8 +369,7 @@ export function EarthGlobe() {
           normalMap,
           normalScale: new Vector2(0.65, 0.65),
         })
-        earth = new Mesh(sphere, earthMaterial)
-        root.add(earth)
+        root.add(new Mesh(sphere, earthMaterial))
         disposables.push(earthMaterial)
 
         const nightMaterial = new MeshPhongMaterial({
@@ -322,7 +382,6 @@ export function EarthGlobe() {
           polygonOffset: true,
           polygonOffsetFactor: -1,
         })
-        // Hide city lights on the sunlit hemisphere via onBeforeCompile.
         nightMaterial.onBeforeCompile = (shader) => {
           shader.uniforms.uSunDirection = { value: SUN_DIRECTION.clone() }
           shader.vertexShader = shader.vertexShader
@@ -351,7 +410,7 @@ export function EarthGlobe() {
                #include <dithering_fragment>`,
             )
         }
-        night = new Mesh(sphere, nightMaterial)
+        const night = new Mesh(sphere, nightMaterial)
         night.renderOrder = 1
         root.add(night)
         disposables.push(nightMaterial)
@@ -375,7 +434,7 @@ export function EarthGlobe() {
           transparent: true,
           depthWrite: false,
         })
-        atmosphere = new Mesh(
+        const atmosphere = new Mesh(
           new SphereGeometry(ATMOSPHERE_RADIUS, 64, 64),
           atmosphereMaterial,
         )
@@ -389,8 +448,19 @@ export function EarthGlobe() {
           markersPoints.material as PointsMaterial,
         )
 
-        // Start over the Atlantic looking toward Europe / Africa — a familiar
-        // “blue marble” framing rather than a random pole.
+        const highlightMaterial = new MeshBasicMaterial({
+          color: new Color('#f4f1ea'),
+          transparent: true,
+          opacity: 0.95,
+          depthWrite: false,
+        })
+        highlight = new Mesh(new SphereGeometry(0.012, 16, 16), highlightMaterial)
+        highlight.visible = false
+        highlight.renderOrder = 2
+        root.add(highlight)
+        disposables.push(highlight.geometry, highlightMaterial)
+
+        // Start over the Atlantic looking toward Europe / Africa.
         root.rotation.y = -0.55
 
         setReady(true)
@@ -407,9 +477,18 @@ export function EarthGlobe() {
     window.addEventListener('resize', onResize)
 
     const tick = () => {
-      if (disposed || !renderer || !controls) return
+      if (disposed || !renderer || !controls || !camera) return
       frameId = window.requestAnimationFrame(tick)
       if (clouds) clouds.rotation.y += 0.00035
+      if (highlight?.visible) {
+        const pulse = 0.9 + Math.sin(performance.now() / 280) * 0.18
+        highlight.scale.setScalar(pulse)
+      }
+      if (flight) {
+        const t = (performance.now() - flight.started) / FLY_MS
+        stepCameraToward(camera, flight.from, flight.to, t)
+        if (t >= 1) flight = null
+      }
       controls.update()
       renderer.render(scene, camera)
     }
@@ -417,6 +496,7 @@ export function EarthGlobe() {
 
     return () => {
       disposed = true
+      apiRef.current = null
       window.cancelAnimationFrame(frameId)
       if (idleResume !== null) window.clearTimeout(idleResume)
       canvas.removeEventListener('pointermove', onPointerMove)
@@ -430,6 +510,17 @@ export function EarthGlobe() {
       if (canvas.parentElement === host) host.removeChild(canvas)
     }
   }, [markers])
+
+  useEffect(() => {
+    if (!ready) return
+    if (!focusSlug) {
+      apiRef.current?.setHighlight(null)
+      return
+    }
+    const marker = markersBySlug.get(focusSlug)
+    if (!marker) return
+    apiRef.current?.flyTo(marker)
+  }, [focusSlug, ready, markersBySlug])
 
   return (
     <div className="world-stage">
@@ -456,37 +547,12 @@ export function EarthGlobe() {
 
       {hover ? (
         <div
-          ref={tooltipRef}
           className="world-tooltip"
           style={{ left: hover.x, top: hover.y }}
           role="tooltip"
         >
           <span className="world-tooltip-name">{hover.marker.name}</span>
           <span className="world-tooltip-meta">{hover.marker.region}</span>
-        </div>
-      ) : null}
-
-      {selected ? (
-        <div className="world-selection" role="dialog" aria-label={selected.name}>
-          <div className="world-selection-copy">
-            <p className="world-selection-code">{selected.code}</p>
-            <h2 className="world-selection-name">{selected.name}</h2>
-            <p className="world-selection-meta">
-              {selected.subregion} · {selected.region}
-            </p>
-          </div>
-          <div className="world-selection-actions">
-            <Link href={`/explore/${selected.slug}`} className="world-selection-link">
-              Open field guide
-            </Link>
-            <button
-              type="button"
-              className="world-selection-dismiss"
-              onClick={() => setSelected(null)}
-            >
-              Dismiss
-            </button>
-          </div>
         </div>
       ) : null}
 

@@ -1,7 +1,7 @@
-import { EarthGlobeLazy } from '~/components/world/earth-globe-lazy'
-import { T } from '~/lib/i18n'
+import { WorldExplorer } from '~/components/world/world-explorer'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
+import { worldPhotoPreviews } from '~/lib/world/previews'
 
 export function worldPageMetadata() {
   const copy = publicPageMetadata.world
@@ -13,26 +13,6 @@ export function worldPageMetadata() {
 }
 
 export function WorldPageView() {
-  return (
-    <div className="world-page">
-      <header className="world-header">
-        <h1 className="page-eyebrow enter">
-          <T zh="世界" en="World" />
-        </h1>
-        <p
-          className="world-lead enter"
-          style={{ '--enter-delay': '70ms' } as React.CSSProperties}
-        >
-          {publicPageMetadata.world.description}
-        </p>
-        <p
-          className="world-hint enter"
-          style={{ '--enter-delay': '120ms' } as React.CSSProperties}
-        >
-          Drag to orbit · Scroll to zoom · Click a point for its field guide
-        </p>
-      </header>
-      <EarthGlobeLazy />
-    </div>
-  )
+  const previews = worldPhotoPreviews()
+  return <WorldExplorer previews={previews} />
 }
