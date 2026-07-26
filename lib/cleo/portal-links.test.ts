@@ -7,10 +7,11 @@ import {
 } from './portal-links'
 
 describe('extractPortalGuideLinks', () => {
-  it('collects unique Explore and Space Markdown links', () => {
+  it('collects unique Explore, Space, and Maps Markdown links', () => {
     const markdown = [
       'Start with [Japan](/explore/japan).',
       'Then compare [Mars](/space/mars) and [Earth](/space/earth).',
+      'Locate it on [Japan on Maps](/maps?c=japan).',
       'Repeat [Japan](/explore/japan) should dedupe.',
       'Ignore [docs](https://example.com/explore/japan) and `/explore/raw`.',
     ].join(' ')
@@ -33,6 +34,12 @@ describe('extractPortalGuideLinks', () => {
         href: '/space/earth',
         label: 'Earth',
         slug: 'earth',
+      },
+      {
+        collection: 'maps',
+        href: '/maps?c=japan',
+        label: 'Japan',
+        slug: 'japan',
       },
     ])
   })
@@ -103,6 +110,18 @@ describe('presentPortalGuideMarkdown', () => {
 
     expect(presentPortalGuideMarkdown(markdown)).toBe(
       'Compare [Earth](/space/earth) and [Mars](/space/mars).',
+    )
+  })
+
+  it('dedupes Maps deep-links and cleans “on Maps” labels', () => {
+    const markdown = [
+      'Find [Japan on Maps](/maps?c=japan) near Korea.',
+      '',
+      'Maps [Japan](/maps?c=japan)',
+    ].join('\n')
+
+    expect(presentPortalGuideMarkdown(markdown)).toBe(
+      'Find [Japan](/maps?c=japan) near Korea.',
     )
   })
 

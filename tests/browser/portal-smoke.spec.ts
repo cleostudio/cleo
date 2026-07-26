@@ -50,10 +50,15 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     ).toBeVisible()
     await expect(page.getByLabel('Find a country')).toBeVisible()
     await expect(page.getByRole('button', { name: 'Show graticule' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Reset view' })).toBeVisible()
+    await expect(page.getByRole('group', { name: 'Filter by region' })).toBeVisible()
     await expect(page.getByLabel(/Sun/i)).toBeVisible()
     await expect(
       page.getByRole('img', { name: 'Interactive 3D Earth' }),
     ).toBeVisible({ timeout: 20_000 })
+
+    await page.getByRole('button', { name: 'Asia', exact: true }).click()
+    await expect(page).toHaveURL(/[?&]r=Asia\b/)
 
     await page.getByLabel('Find a country').fill('Japan')
     await page.getByRole('option', { name: /Japan/i }).click()
@@ -64,6 +69,7 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(
       page.getByRole('link', { name: 'Open field guide' }),
     ).toHaveAttribute('href', '/explore/japan')
+    await expect(page.getByRole('button', { name: 'Copy link' })).toBeVisible()
     await expect(page.getByText(/More in /i)).toBeVisible()
 
     expect(browserErrors).toEqual([])

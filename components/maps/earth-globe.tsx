@@ -81,6 +81,8 @@ type GlobeApi = {
   flyTo: (marker: MapsMarker) => void
   setHighlight: (marker: MapsMarker | null) => void
   setGraticuleVisible: (visible: boolean) => void
+  setVisibleRegion: (region: string | null) => void
+  resetView: () => void
 }
 
 function prefersReducedMotion() {
@@ -142,6 +144,8 @@ export function EarthGlobe({
   onPickCoords,
   showGraticule = false,
   sunAt,
+  regionFilter = null,
+  resetSignal = 0,
 }: {
   focusSlug?: string | null
   onSelect?: (marker: MapsMarker | null) => void
@@ -149,6 +153,10 @@ export function EarthGlobe({
   showGraticule?: boolean
   /** Instant used for the day/night terminator; defaults to the live clock. */
   sunAt?: Date
+  /** When set, only country markers in this region are pickable/visible. */
+  regionFilter?: string | null
+  /** Increment to restore the default Atlantic framing. */
+  resetSignal?: number
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const apiRef = useRef<GlobeApi | null>(null)
@@ -275,6 +283,7 @@ export function EarthGlobe({
 
     let pointerDown = { x: 0, y: 0, t: 0 }
     let idleResume: number | null = null
+    let activeMarkers: MapsMarker[] = markers
     let flight:
       | {
           from: Vector3
@@ -291,6 +300,24 @@ export function EarthGlobe({
         if (!controls || prefersReducedMotion() || flight) return
         controls.autoRotate = true
       }, resumeMs)
+    }
+
+    const rebuildMarkerPoints = (next: MapsMarker[]) => {
+      activeMarkers = next
+      if (!markersPoints) return
+      const positions = new Float32Array(next.length * 3)
+      for (let i = 0; i < next.length; i += 1) {
+        const [x, y, z] = latLonToVector3(next[i].lat, next[i].lon, MARKER_RADIUS)
+        positions[i * 3] = x
+        positions[i * 3 + 1] = y
+        positions[i * 3 + 2] = z
+      }
+      const previous = markersPoints.geometry
+      const geometry = new BufferGeometry()
+      geometry.setAttribute('position', new BufferAttribute(positions, 3))
+      markersPoints.geometry = geometry
+      previous.dispose()
+      markersPoints.visible = next.length > 0
     }
 
     const setHighlight = (marker: MapsMarker | null) => {
@@ -330,7 +357,29 @@ export function EarthGlobe({
       if (graticule) graticule.visible = visible
     }
 
-    apiRef.current = { flyTo, setHighlight, setGraticuleVisible }
+    const setVisibleRegion = (region: string | null) => {
+      rebuildMarkerPoints(
+        region ? markers.filter((marker) => marker.region === region) : markers,
+      )
+    }
+
+    const resetView = () => {
+      if (!camera || !controls || !root) return
+      flight = null
+      camera.position.set(0.35, 0.55, 2.65)
+      controls.target.set(0, 0, 0)
+      root.rotation.y = -0.55
+      controls.update()
+      pauseAutoRotate(2500)
+    }
+
+    apiRef.current = {
+      flyTo,
+      setHighlight,
+      setGraticuleVisible,
+      setVisibleRegion,
+      resetView,
+    }
 
     const onPointerMove = (event: PointerEvent) => {
       if (!renderer || !markersPoints || !camera) return
@@ -340,7 +389,8 @@ export function EarthGlobe({
       raycaster.setFromCamera(pointer, camera)
       const hits = raycaster.intersectObject(markersPoints, false)
       if (hits[0]?.index != null) {
-        const marker = markers[hits[0].index]
+        const marker = activeMarkers[hits[0].index]
+        if (!marker) return
         setHover({ marker, x: event.clientX - rect.left, y: event.clientY - rect.top })
         renderer.domElement.style.cursor = 'pointer'
       } else {
@@ -369,9 +419,11 @@ export function EarthGlobe({
       raycaster.setFromCamera(pointer, camera)
       const markerHits = raycaster.intersectObject(markersPoints, false)
       if (markerHits[0]?.index != null) {
+        const marker = activeMarkers[markerHits[0].index]
+        if (!marker) return
         setPickedLabel(null)
         onPickCoordsRef.current?.(null)
-        onSelectRef.current?.(markers[markerHits[0].index])
+        onSelectRef.current?.(marker)
         return
       }
 
@@ -613,6 +665,16 @@ export function EarthGlobe({
     if (!ready) return
     apiRef.current?.setGraticuleVisible(showGraticule)
   }, [showGraticule, ready])
+
+  useEffect(() => {
+    if (!ready) return
+    apiRef.current?.setVisibleRegion(regionFilter)
+  }, [regionFilter, ready])
+
+  useEffect(() => {
+    if (!ready || resetSignal < 1) return
+    apiRef.current?.resetView()
+  }, [resetSignal, ready])
 
   return (
     <div className="maps-stage">

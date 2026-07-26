@@ -8,6 +8,8 @@ export interface GalleryItem {
   id: string
   collection: GalleryCollection
   href: string
+  /** Optional Maps deep-link for place photographs. */
+  mapsHref?: string
   /** Featured place / feature name on the tile. */
   title: string
   /** Country or space-subject name under the title. */
@@ -51,6 +53,7 @@ export function allGalleryItems(): GalleryItem[] {
     id: `places:${entry.slug}`,
     collection: 'places',
     href: `/explore/${entry.slug}`,
+    mapsHref: `/maps?c=${entry.slug}`,
     title: entry.photo.placeName,
     subtitle: entry.name,
     filterKey: entry.region,

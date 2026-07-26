@@ -4,14 +4,15 @@
  */
 
 export type PortalGuideLink = {
-  collection: 'explore' | 'space'
+  collection: 'explore' | 'space' | 'maps'
   href: string
   label: string
   slug: string
 }
 
-const MARKDOWN_GUIDE_LINK =
-  /\[([^\]]*)\]\((\/(explore|space)\/([a-z0-9-]+))\)/gi
+function portalLinkPattern() {
+  return /\[([^\]]*)\]\((\/explore\/([a-z0-9-]+)|\/space\/([a-z0-9-]+)|\/maps\?c=([a-z0-9-]+))\)/gi
+}
 
 function titleFromSlug(slug: string) {
   return slug
@@ -32,34 +33,63 @@ export function cleanPortalGuideLabel(
   }
 
   const cleaned = trimmed
+    .replace(/\s+on\s+maps\s*$/i, '')
     .replace(/\s*(?:explore|space)?\s*(?:field\s*)?guides?\s*$/i, '')
-    .replace(/^(?:explore|space)\s*[·|:–-]\s*/i, '')
-    .replace(/^(?:the\s+)?(?:explore|space)\s+/i, '')
+    .replace(/^(?:explore|space|maps)\s*[·|:–-]\s*/i, '')
+    .replace(/^(?:the\s+)?(?:explore|space|maps)\s+/i, '')
     .trim()
 
   return cleaned || titleFromSlug(slug)
 }
 
-/** Pull unique Explore/Space guide links from assistant Markdown. */
+function portalLinkFromParts(
+  rawLabel: string,
+  href: string,
+  exploreSlug?: string,
+  spaceSlug?: string,
+  mapsSlug?: string,
+): PortalGuideLink | null {
+  if (exploreSlug) {
+    return {
+      collection: 'explore',
+      href,
+      label: cleanPortalGuideLabel(rawLabel, exploreSlug),
+      slug: exploreSlug,
+    }
+  }
+  if (spaceSlug) {
+    return {
+      collection: 'space',
+      href,
+      label: cleanPortalGuideLabel(rawLabel, spaceSlug),
+      slug: spaceSlug,
+    }
+  }
+  if (mapsSlug) {
+    return {
+      collection: 'maps',
+      href,
+      label: cleanPortalGuideLabel(rawLabel, mapsSlug),
+      slug: mapsSlug,
+    }
+  }
+  return null
+}
+
+/** Pull unique Explore/Space/Maps links from assistant Markdown. */
 export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
   const found = new Map<string, PortalGuideLink>()
 
-  for (const match of markdown.matchAll(MARKDOWN_GUIDE_LINK)) {
-    const rawLabel = match[1] ?? ''
-    const href = match[2]
-    const collection = match[3] as 'explore' | 'space'
-    const slug = match[4]
-
-    if (!href || !collection || !slug || found.has(href)) {
-      continue
-    }
-
-    found.set(href, {
-      collection,
-      href,
-      label: cleanPortalGuideLabel(rawLabel, slug),
-      slug,
-    })
+  for (const match of markdown.matchAll(portalLinkPattern())) {
+    const link = portalLinkFromParts(
+      match[1] ?? '',
+      match[2] ?? '',
+      match[3],
+      match[4],
+      match[5],
+    )
+    if (!link || found.has(link.href)) continue
+    found.set(link.href, link)
   }
 
   return [...found.values()]
@@ -83,7 +113,7 @@ function stripLeadingGuideChrome(block: string) {
     remainder = remainder
       .replace(/^for a fuller primer,?\s*see\s+/i, '')
       .replace(/^see\s+(?:the\s+)?/i, '')
-      .replace(/^(?:explore|space)\s+/i, '')
+      .replace(/^(?:explore|space|maps)\s+/i, '')
       .trim()
   }
 
@@ -116,7 +146,7 @@ function isRedundantGuideFooter(
 }
 
 /**
- * Keep the first Markdown link per Explore/Space guide (short label), turn
+ * Keep the first Markdown link per Explore/Space/Maps path (short label), turn
  * later repeats into plain text, and drop redundant guide-only footer blocks.
  */
 export function presentPortalGuideMarkdown(markdown: string): string {
@@ -127,16 +157,30 @@ export function presentPortalGuideMarkdown(markdown: string): string {
 
   const rewriteLinks = (block: string) =>
     block.replace(
-      MARKDOWN_GUIDE_LINK,
-      (_full, rawLabel: string, href: string, _collection: string, slug: string) => {
-        const label = cleanPortalGuideLabel(rawLabel, slug)
-        const guideName = titleFromSlug(slug)
-        if (seenHrefs.has(href)) {
-          return label
+      portalLinkPattern(),
+      (
+        full,
+        rawLabel: string,
+        href: string,
+        exploreSlug: string | undefined,
+        spaceSlug: string | undefined,
+        mapsSlug: string | undefined,
+      ) => {
+        const link = portalLinkFromParts(
+          rawLabel,
+          href,
+          exploreSlug,
+          spaceSlug,
+          mapsSlug,
+        )
+        if (!link) return full
+        const guideName = titleFromSlug(link.slug)
+        if (seenHrefs.has(link.href)) {
+          return link.label
         }
-        seenHrefs.add(href)
+        seenHrefs.add(link.href)
         guideNames.add(guideName)
-        return `[${label}](${href})`
+        return `[${link.label}](${link.href})`
       },
     )
 
@@ -177,5 +221,10 @@ export const CLEO_PORTAL_STARTERS = [
     label: 'Compare Mars and Earth',
     prompt:
       'Compare Mars and Earth in a few sharp points. Deep-link each Space guide when you name the planets.',
+  },
+  {
+    label: 'Where is Japan?',
+    prompt:
+      'Where is Japan on Earth? Deep-link Maps with /maps?c=japan when you locate it.',
   },
 ] as const

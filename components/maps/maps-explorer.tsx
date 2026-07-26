@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, useEffect, useMemo, useState } from 'react'
 
 import { EarthGlobeLazy } from '~/components/maps/earth-globe-lazy'
 import { MapsSearch } from '~/components/maps/maps-search'
@@ -15,6 +15,10 @@ import {
 } from '~/lib/maps/markers'
 import { mapsRegionNeighbors } from '~/lib/maps/neighbors'
 import type { MapsCountryDossier } from '~/lib/maps/previews'
+import {
+  filterMapsMarkersByRegion,
+  mapsRegions,
+} from '~/lib/maps/regions'
 import { formatUtcHourLabel, mapsSunAt } from '~/lib/maps/sun-clock'
 
 function MapsExplorerInner({
@@ -26,30 +30,42 @@ function MapsExplorerInner({
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const markers = useMemo(() => mapsMarkers(), [])
+  const regions = useMemo(() => mapsRegions(markers), [markers])
   const markersBySlug = useMemo(
     () => new Map(markers.map((marker) => [marker.slug, marker])),
     [markers],
   )
 
   const querySlug = searchParams.get('c')
+  const queryRegion = searchParams.get('r')
   const [focusSlug, setFocusSlug] = useState<string | null>(null)
   const [selected, setSelected] = useState<MapsMarker | null>(null)
+  const [regionFilter, setRegionFilter] = useState<string | null>(null)
   const [showGraticule, setShowGraticule] = useState(false)
   const [pickedCoords, setPickedCoords] = useState<string | null>(null)
   const [sunMode, setSunMode] = useState<'live' | 'scrub'>('live')
   const [sunHour, setSunHour] = useState(() => new Date().getUTCHours())
   const [liveNow, setLiveNow] = useState(() => new Date())
-  const hydratedRef = useRef(false)
+  const [copied, setCopied] = useState(false)
+  const [resetSignal, setResetSignal] = useState(0)
 
   useEffect(() => {
-    if (hydratedRef.current) return
-    hydratedRef.current = true
     if (!querySlug) return
     const marker = markersBySlug.get(querySlug)
     if (!marker) return
     setFocusSlug(marker.slug)
     setSelected(marker)
   }, [querySlug, markersBySlug])
+
+  useEffect(() => {
+    if (!queryRegion) {
+      setRegionFilter(null)
+      return
+    }
+    if (regions.includes(queryRegion)) {
+      setRegionFilter(queryRegion)
+    }
+  }, [queryRegion, regions])
 
   useEffect(() => {
     if (sunMode !== 'live') return
@@ -82,10 +98,12 @@ function MapsExplorerInner({
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [pathname, router, searchParams])
 
-  const syncUrl = (slug: string | null) => {
+  const syncUrl = (slug: string | null, region: string | null = regionFilter) => {
     const params = new URLSearchParams(searchParams.toString())
     if (slug) params.set('c', slug)
     else params.delete('c')
+    if (region) params.set('r', region)
+    else params.delete('r')
     const query = params.toString()
     router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
   }
@@ -94,13 +112,13 @@ function MapsExplorerInner({
     setFocusSlug(marker.slug)
     setSelected(marker)
     setPickedCoords(null)
-    syncUrl(marker.slug)
+    syncUrl(marker.slug, regionFilter)
   }
 
   const clearCountry = () => {
     setFocusSlug(null)
     setSelected(null)
-    syncUrl(null)
+    syncUrl(null, regionFilter)
   }
 
   const dismiss = () => {
@@ -108,9 +126,37 @@ function MapsExplorerInner({
     setPickedCoords(null)
   }
 
+  const applyRegion = (region: string | null) => {
+    setRegionFilter(region)
+    if (selected && region && selected.region !== region) {
+      setFocusSlug(null)
+      setSelected(null)
+      syncUrl(null, region)
+      return
+    }
+    syncUrl(selected?.slug ?? null, region)
+  }
+
+  const copyMapsLink = async () => {
+    if (!selected || typeof window === 'undefined') return
+    const url = new URL(`/maps?c=${selected.slug}`, window.location.origin)
+    if (regionFilter) url.searchParams.set('r', regionFilter)
+    try {
+      await navigator.clipboard.writeText(url.toString())
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1600)
+    } catch {
+      setCopied(false)
+    }
+  }
+
   const dossier = selected ? dossiers[selected.slug] : undefined
+  const searchableMarkers = useMemo(
+    () => filterMapsMarkersByRegion(markers, regionFilter),
+    [markers, regionFilter],
+  )
   const neighbors = selected
-    ? mapsRegionNeighbors(selected, markers, 4)
+    ? mapsRegionNeighbors(selected, searchableMarkers, 4)
     : []
   const sunAt = mapsSunAt(sunMode, sunHour, liveNow)
 
@@ -134,7 +180,33 @@ function MapsExplorerInner({
           className="enter"
           style={{ '--enter-delay': '160ms' } as React.CSSProperties}
         >
-          <MapsSearch markers={markers} onPick={selectMarker} />
+          <MapsSearch markers={searchableMarkers} onPick={selectMarker} />
+        </div>
+        <div
+          className="maps-region-filters enter"
+          style={{ '--enter-delay': '180ms' } as React.CSSProperties}
+          role="group"
+          aria-label="Filter by region"
+        >
+          <button
+            type="button"
+            className="maps-region-chip"
+            aria-pressed={regionFilter === null}
+            onClick={() => applyRegion(null)}
+          >
+            All
+          </button>
+          {regions.map((region) => (
+            <button
+              key={region}
+              type="button"
+              className="maps-region-chip"
+              aria-pressed={regionFilter === region}
+              onClick={() => applyRegion(region)}
+            >
+              {region}
+            </button>
+          ))}
         </div>
         <div
           className="maps-toolbar enter"
@@ -159,6 +231,13 @@ function MapsExplorerInner({
             }}
           >
             Live sun
+          </button>
+          <button
+            type="button"
+            className="maps-toolbar-button"
+            onClick={() => setResetSignal((value) => value + 1)}
+          >
+            Reset view
           </button>
           {pickedCoords ? (
             <span className="maps-toolbar-meta" aria-live="polite">
@@ -198,6 +277,8 @@ function MapsExplorerInner({
         focusSlug={focusSlug}
         showGraticule={showGraticule}
         sunAt={sunAt}
+        regionFilter={regionFilter}
+        resetSignal={resetSignal}
         onPickCoords={(coords) => {
           if (!coords) {
             setPickedCoords(null)
@@ -278,6 +359,13 @@ function MapsExplorerInner({
             <Link href={`/explore/${selected.slug}`} className="maps-selection-link">
               Open field guide
             </Link>
+            <button
+              type="button"
+              className="maps-selection-dismiss"
+              onClick={() => void copyMapsLink()}
+            >
+              {copied ? 'Copied' : 'Copy link'}
+            </button>
             <button
               type="button"
               className="maps-selection-dismiss"

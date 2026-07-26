@@ -75,18 +75,29 @@ export function PlaceGallery({
               />
               <span className="calibration-corners" aria-hidden />
             </div>
-            <Link
-              href={entry.href}
-              prefetch={false}
-              className="mt-2 block px-0.5 outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              <span className="block text-sm font-medium text-foreground">
-                {entry.title}
-              </span>
-              <span className="block text-xs text-muted-foreground">
-                {entry.subtitle}
-              </span>
-            </Link>
+            <div className="mt-2 px-0.5">
+              <Link
+                href={entry.href}
+                prefetch={false}
+                className="block outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <span className="block text-sm font-medium text-foreground">
+                  {entry.title}
+                </span>
+                <span className="block text-xs text-muted-foreground">
+                  {entry.subtitle}
+                </span>
+              </Link>
+              {entry.mapsHref ? (
+                <Link
+                  href={entry.mapsHref}
+                  prefetch={false}
+                  className="mt-1 inline-block text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Maps →
+                </Link>
+              ) : null}
+            </div>
           </li>
         ))}
       </ul>
