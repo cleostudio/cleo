@@ -36,9 +36,9 @@ const publicPages = [
     {
       title: 'Writing',
       description:
-        'Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
+        'Essays about the Cleo knowledge portal — field guides, gallery, topics, and the agent that ties them together.',
     },
-    'Writing · Cleo. Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
+    'Writing · Cleo. Essays about the Cleo knowledge portal — field guides, gallery, topics, and the agent that ties them together.',
   ),
   englishPage(
     '/gallery',

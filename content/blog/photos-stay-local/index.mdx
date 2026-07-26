@@ -1,0 +1,39 @@
+---
+title: Photos stay local
+description: >-
+  Cleo serves Explore and Space photographs as static JPEG renditions with
+  browser srcset — no image CDN or runtime re-encode.
+publishedAt: '2026-07-12T13:15:00.000Z'
+cover: ./cover.png
+coverWidth: 1200
+coverHeight: 675
+---
+Photographs are half of a field guide. They also tend to become the most fragile
+dependency on a modern site. Cleo keeps them boring on purpose.
+
+## Pipeline
+
+Country photos are curated from Wikimedia Commons with relevance first, then
+imported as optimized local JPEGs. Space photos follow a NASA curation pass
+into the same kind of static tree.
+
+Public files live under:
+
+- `/images/atlas/{slug}/` for Explore places
+- `/images/space/{slug}/` for Space bodies
+
+Originals stay off the public tree. The browser picks a width from `srcset`.
+There is no account-gated image host and no `/_next/image` rewrite at request
+time.
+
+## Payoff
+
+Pages keep working in previews without extra services. Guides stay reviewable
+in git. The Gallery can unify both catalogs because both already speak the same
+file language.
+
+## Reading
+
+Zoom a contact print on an Explore page, wander the [Gallery](/gallery), or ask
+[Cleo](/cleo) about a subject that has a curated frame — the bytes are already
+on the site.

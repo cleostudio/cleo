@@ -2,23 +2,23 @@ export type PostTransitionElement = 'cover' | 'title'
 
 function postTransitionId(slug: string) {
   switch (slug) {
-    case '2023-year-in-review':
+    case 'welcome-to-cleo':
       return 'p01'
-    case '8-laws-to-a-successful-engineer':
+    case 'country-field-guides':
       return 'p02'
-    case 'an-ode-to-hao-chen':
+    case 'space-field-guides':
       return 'p03'
-    case 'do-buttons-need-pointer-cursors':
+    case 'places-and-sky':
       return 'p04'
-    case 'guide-for-cloning-my-site':
+    case 'ask-cleo':
       return 'p05'
-    case 'how-to-add-rss-to-your-nextjs-app-router':
+    case 'curated-not-generated':
       return 'p06'
-    case 'how-to-protect-your-site-with-upstash':
+    case 'topics-first':
       return 'p07'
-    case 'im-gonna-be-a-father':
+    case 'photos-stay-local':
       return 'p08'
-    case 'react-or-vue-my-take-on-web-dev':
+    case 'writing-comes-next':
       return 'p09'
     default:
       throw new Error('Unknown post view-transition slug')

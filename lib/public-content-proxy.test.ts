@@ -17,7 +17,7 @@ describe('public content proxy', () => {
   )
 
   it.each([
-    '/blog/how-to-add-rss-to-your-nextjs-app-router',
+    '/blog/welcome-to-cleo',
     '/newsletters/1',
   ])('passes through a published content route: %s', (pathname) => {
     const response = proxy(new NextRequest(`https://example.com${pathname}`))

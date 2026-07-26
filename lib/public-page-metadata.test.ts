@@ -15,7 +15,7 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.blog).toEqual({
       title: 'Writing',
       description:
-        'Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
+        'Essays about the Cleo knowledge portal — field guides, gallery, topics, and the agent that ties them together.',
     })
     expect(publicPageMetadata.gallery).toEqual({
       title: 'Gallery',

@@ -1,0 +1,41 @@
+---
+title: Space field guides
+description: >-
+  Space pages cover planets, major moons, the ISS, galaxies, and nebulae with
+  the same calm field-guide voice as Explore.
+publishedAt: '2026-07-22T15:30:00.000Z'
+cover: ./cover.png
+coverWidth: 1200
+coverHeight: 675
+---
+Space on Cleo is not a news ticker. It is a shelf of evergreen primers for
+bodies you can keep returning to — from Mercury to nearby deep space.
+
+![](./image-1.jpg#1280x1280 "A curated NASA photograph from the Mars guide")
+
+## Shelves
+
+The catalog groups into three shelves:
+
+- Solar System — planets and the Sun
+- Moons — major natural satellites, plus the ISS as a human outpost
+- Deep Space — nearby galaxies and nebulae
+
+Every subject renders at `/space/[slug]` with orientation, notable features,
+and a short fact plate. The goal is the same as Explore: leave you oriented,
+not overwhelmed.
+
+## Photos
+
+Space photographs come from curated NASA sources and ship as static files under
+`/images/space/`. Like the country atlas, they are imported ahead of time and
+served with browser `srcset` — no account, no CDN rewrite, no surprise
+re-encoding when you open a page.
+
+Start with [Mars](/space/mars), [Europa](/space/europa), or the
+[ISS](/space/iss). The full shelf lives at [Space](/space).
+
+## Asking
+
+Curious how two bodies compare? Ask [Cleo](/cleo). Matching turns can deep-link
+the guides and, when the subject matches, show a curated photo inline.

@@ -2,7 +2,7 @@ import { expect, type Page } from '@playwright/test'
 
 export const browserArticleFixture = {
   description: 'English article with a zoomable image and article map',
-  path: '/blog/how-to-protect-your-site-with-upstash',
+  path: '/blog/country-field-guides',
 } as const
 
 export async function prepareBrowserPage(page: Page) {

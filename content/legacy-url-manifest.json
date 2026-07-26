@@ -90,156 +90,300 @@
       "status": 308
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/2023-year-in-review",
+      "destination": "/blog",
       "probes": [
         "/blog/2023-year-in-review"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/2023-year-in-review",
-      "destination": "/blog/2023-year-in-review",
+      "destination": "/blog",
       "probes": [
         "/en/blog/2023-year-in-review"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/8-laws-to-a-successful-engineer",
+      "destination": "/blog",
       "probes": [
         "/blog/8-laws-to-a-successful-engineer"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/8-laws-to-a-successful-engineer",
-      "destination": "/blog/8-laws-to-a-successful-engineer",
+      "destination": "/blog",
       "probes": [
         "/en/blog/8-laws-to-a-successful-engineer"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/an-ode-to-hao-chen",
+      "destination": "/blog",
       "probes": [
         "/blog/an-ode-to-hao-chen"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/an-ode-to-hao-chen",
-      "destination": "/blog/an-ode-to-hao-chen",
+      "destination": "/blog",
       "probes": [
         "/en/blog/an-ode-to-hao-chen"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/do-buttons-need-pointer-cursors",
+      "destination": "/blog",
       "probes": [
         "/blog/do-buttons-need-pointer-cursors"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/do-buttons-need-pointer-cursors",
-      "destination": "/blog/do-buttons-need-pointer-cursors",
+      "destination": "/blog",
       "probes": [
         "/en/blog/do-buttons-need-pointer-cursors"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/guide-for-cloning-my-site",
+      "destination": "/blog",
       "probes": [
         "/blog/guide-for-cloning-my-site"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/guide-for-cloning-my-site",
-      "destination": "/blog/guide-for-cloning-my-site",
+      "destination": "/blog",
       "probes": [
         "/en/blog/guide-for-cloning-my-site"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/how-to-add-rss-to-your-nextjs-app-router",
+      "destination": "/blog",
       "probes": [
         "/blog/how-to-add-rss-to-your-nextjs-app-router"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/how-to-add-rss-to-your-nextjs-app-router",
-      "destination": "/blog/how-to-add-rss-to-your-nextjs-app-router",
+      "destination": "/blog",
       "probes": [
         "/en/blog/how-to-add-rss-to-your-nextjs-app-router"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/how-to-protect-your-site-with-upstash",
+      "destination": "/blog",
       "probes": [
         "/blog/how-to-protect-your-site-with-upstash"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/how-to-protect-your-site-with-upstash",
-      "destination": "/blog/how-to-protect-your-site-with-upstash",
+      "destination": "/blog",
       "probes": [
         "/en/blog/how-to-protect-your-site-with-upstash"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/im-gonna-be-a-father",
+      "destination": "/blog",
       "probes": [
         "/blog/im-gonna-be-a-father"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/im-gonna-be-a-father",
-      "destination": "/blog/im-gonna-be-a-father",
+      "destination": "/blog",
       "probes": [
         "/en/blog/im-gonna-be-a-father"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/react-or-vue-my-take-on-web-dev",
+      "destination": "/blog",
       "probes": [
         "/blog/react-or-vue-my-take-on-web-dev"
+      ]
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/react-or-vue-my-take-on-web-dev",
+      "destination": "/blog",
+      "probes": [
+        "/en/blog/react-or-vue-my-take-on-web-dev"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/welcome-to-cleo",
+      "probes": [
+        "/blog/welcome-to-cleo"
       ],
       "status": 200,
       "contains": "<article"
     },
     {
       "kind": "redirect",
-      "source": "/en/blog/react-or-vue-my-take-on-web-dev",
-      "destination": "/blog/react-or-vue-my-take-on-web-dev",
+      "source": "/en/blog/welcome-to-cleo",
+      "destination": "/blog/welcome-to-cleo",
       "probes": [
-        "/en/blog/react-or-vue-my-take-on-web-dev"
+        "/en/blog/welcome-to-cleo"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/country-field-guides",
+      "probes": [
+        "/blog/country-field-guides"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/country-field-guides",
+      "destination": "/blog/country-field-guides",
+      "probes": [
+        "/en/blog/country-field-guides"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/space-field-guides",
+      "probes": [
+        "/blog/space-field-guides"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/space-field-guides",
+      "destination": "/blog/space-field-guides",
+      "probes": [
+        "/en/blog/space-field-guides"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/places-and-sky",
+      "probes": [
+        "/blog/places-and-sky"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/places-and-sky",
+      "destination": "/blog/places-and-sky",
+      "probes": [
+        "/en/blog/places-and-sky"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/ask-cleo",
+      "probes": [
+        "/blog/ask-cleo"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/ask-cleo",
+      "destination": "/blog/ask-cleo",
+      "probes": [
+        "/en/blog/ask-cleo"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/curated-not-generated",
+      "probes": [
+        "/blog/curated-not-generated"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/curated-not-generated",
+      "destination": "/blog/curated-not-generated",
+      "probes": [
+        "/en/blog/curated-not-generated"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/topics-first",
+      "probes": [
+        "/blog/topics-first"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/topics-first",
+      "destination": "/blog/topics-first",
+      "probes": [
+        "/en/blog/topics-first"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/photos-stay-local",
+      "probes": [
+        "/blog/photos-stay-local"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/photos-stay-local",
+      "destination": "/blog/photos-stay-local",
+      "probes": [
+        "/en/blog/photos-stay-local"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/writing-comes-next",
+      "probes": [
+        "/blog/writing-comes-next"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/writing-comes-next",
+      "destination": "/blog/writing-comes-next",
+      "probes": [
+        "/en/blog/writing-comes-next"
       ]
     },
     {
