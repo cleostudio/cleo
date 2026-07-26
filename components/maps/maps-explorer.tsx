@@ -13,7 +13,9 @@ import {
   mapsMarkers,
   type MapsMarker,
 } from '~/lib/maps/markers'
+import { mapsRegionNeighbors } from '~/lib/maps/neighbors'
 import type { MapsCountryDossier } from '~/lib/maps/previews'
+import { formatUtcHourLabel, mapsSunAt } from '~/lib/maps/sun-clock'
 
 function MapsExplorerInner({
   dossiers,
@@ -34,6 +36,9 @@ function MapsExplorerInner({
   const [selected, setSelected] = useState<MapsMarker | null>(null)
   const [showGraticule, setShowGraticule] = useState(false)
   const [pickedCoords, setPickedCoords] = useState<string | null>(null)
+  const [sunMode, setSunMode] = useState<'live' | 'scrub'>('live')
+  const [sunHour, setSunHour] = useState(() => new Date().getUTCHours())
+  const [liveNow, setLiveNow] = useState(() => new Date())
   const hydratedRef = useRef(false)
 
   useEffect(() => {
@@ -45,6 +50,12 @@ function MapsExplorerInner({
     setFocusSlug(marker.slug)
     setSelected(marker)
   }, [querySlug, markersBySlug])
+
+  useEffect(() => {
+    if (sunMode !== 'live') return
+    const id = window.setInterval(() => setLiveNow(new Date()), 60_000)
+    return () => window.clearInterval(id)
+  }, [sunMode])
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -98,6 +109,10 @@ function MapsExplorerInner({
   }
 
   const dossier = selected ? dossiers[selected.slug] : undefined
+  const neighbors = selected
+    ? mapsRegionNeighbors(selected, markers, 4)
+    : []
+  const sunAt = mapsSunAt(sunMode, sunHour, liveNow)
 
   return (
     <div className="maps-page">
@@ -133,17 +148,56 @@ function MapsExplorerInner({
           >
             {showGraticule ? 'Hide graticule' : 'Show graticule'}
           </button>
+          <button
+            type="button"
+            className="maps-toolbar-button"
+            aria-pressed={sunMode === 'live'}
+            onClick={() => {
+              setSunMode('live')
+              setLiveNow(new Date())
+              setSunHour(new Date().getUTCHours())
+            }}
+          >
+            Live sun
+          </button>
           {pickedCoords ? (
             <span className="maps-toolbar-meta" aria-live="polite">
               Sample · {pickedCoords}
             </span>
           ) : null}
         </div>
+        <div
+          className="maps-sun-scrub enter"
+          style={{ '--enter-delay': '220ms' } as React.CSSProperties}
+        >
+          <label className="maps-sun-scrub-label" htmlFor="maps-sun-hour">
+            Sun · {sunMode === 'live' ? 'live UTC' : formatUtcHourLabel(sunHour)}
+          </label>
+          <input
+            id="maps-sun-hour"
+            className="maps-sun-scrub-input"
+            type="range"
+            min={0}
+            max={23}
+            step={1}
+            value={sunMode === 'live' ? liveNow.getUTCHours() : sunHour}
+            aria-valuetext={
+              sunMode === 'live'
+                ? `Live sun at ${formatUtcHourLabel(liveNow.getUTCHours())}`
+                : formatUtcHourLabel(sunHour)
+            }
+            onChange={(event) => {
+              setSunMode('scrub')
+              setSunHour(Number(event.target.value))
+            }}
+          />
+        </div>
       </header>
 
       <EarthGlobeLazy
         focusSlug={focusSlug}
         showGraticule={showGraticule}
+        sunAt={sunAt}
         onPickCoords={(coords) => {
           if (!coords) {
             setPickedCoords(null)
@@ -194,6 +248,30 @@ function MapsExplorerInner({
                   ))}
                 </ul>
               </>
+            ) : null}
+            {neighbors.length > 0 ? (
+              <div className="maps-selection-neighbors">
+                <p className="maps-selection-neighbors-label">
+                  {neighbors.every(
+                    (neighbor) => neighbor.subregion === selected.subregion,
+                  )
+                    ? `More in ${selected.subregion}`
+                    : `More in ${selected.region}`}
+                </p>
+                <ul className="maps-selection-neighbors-list">
+                  {neighbors.map((neighbor) => (
+                    <li key={neighbor.slug}>
+                      <button
+                        type="button"
+                        className="maps-selection-neighbor"
+                        onClick={() => selectMarker(neighbor)}
+                      >
+                        {neighbor.name}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ) : null}
           </div>
           <div className="maps-selection-actions">

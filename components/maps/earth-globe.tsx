@@ -141,16 +141,20 @@ export function EarthGlobe({
   onSelect,
   onPickCoords,
   showGraticule = false,
+  sunAt,
 }: {
   focusSlug?: string | null
   onSelect?: (marker: MapsMarker | null) => void
   onPickCoords?: (coords: MapsCoords | null) => void
   showGraticule?: boolean
+  /** Instant used for the day/night terminator; defaults to the live clock. */
+  sunAt?: Date
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const apiRef = useRef<GlobeApi | null>(null)
   const onSelectRef = useRef(onSelect)
   const onPickCoordsRef = useRef(onPickCoords)
+  const sunAtRef = useRef(sunAt ?? new Date())
   const markers = useRef(mapsMarkers()).current
   const markersBySlug = useRef(
     new Map(markers.map((marker) => [marker.slug, marker])),
@@ -162,6 +166,7 @@ export function EarthGlobe({
 
   onSelectRef.current = onSelect
   onPickCoordsRef.current = onPickCoords
+  sunAtRef.current = sunAt ?? new Date()
 
   useEffect(() => {
     const host = hostRef.current
@@ -232,7 +237,7 @@ export function EarthGlobe({
     root = new Group()
     scene.add(root)
 
-    const [sx, sy, sz] = sunDirectionAt(new Date())
+    const [sx, sy, sz] = sunDirectionAt(sunAtRef.current)
     sun = new DirectionalLight(0xfff2d6, 2.35)
     sun.position.set(sx * 8, sy * 8, sz * 8)
     // Parent under the globe so geographic sun directions stay on the texture
@@ -437,7 +442,7 @@ export function EarthGlobe({
         })
         nightMaterial.customProgramCacheKey = () => 'maps-night-terminator-v2'
         nightMaterial.onBeforeCompile = (shader) => {
-          const [dx, dy, dz] = sunDirectionAt(new Date())
+          const [dx, dy, dz] = sunDirectionAt(sunAtRef.current)
           shader.uniforms.uSunDirection = { value: new Vector3(dx, dy, dz) }
           nightSunUniform = shader.uniforms.uSunDirection
           shader.vertexShader = shader.vertexShader
@@ -566,7 +571,7 @@ export function EarthGlobe({
         if (t >= 1) flight = null
       }
 
-      const [dx, dy, dz] = sunDirectionAt(new Date())
+      const [dx, dy, dz] = sunDirectionAt(sunAtRef.current)
       if (sun) sun.position.set(dx * 8, dy * 8, dz * 8)
       if (nightSunUniform) nightSunUniform.value.set(dx, dy, dz)
 

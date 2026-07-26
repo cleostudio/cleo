@@ -49,6 +49,8 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       page.getByText(/Drag to orbit · Scroll to zoom/i),
     ).toBeVisible()
     await expect(page.getByLabel('Find a country')).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Show graticule' })).toBeVisible()
+    await expect(page.getByLabel(/Sun/i)).toBeVisible()
     await expect(
       page.getByRole('img', { name: 'Interactive 3D Earth' }),
     ).toBeVisible({ timeout: 20_000 })
@@ -62,8 +64,28 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(
       page.getByRole('link', { name: 'Open field guide' }),
     ).toHaveAttribute('href', '/explore/japan')
+    await expect(page.getByText(/More in /i)).toBeVisible()
 
     expect(browserErrors).toEqual([])
+  })
+
+  test('Explore country page deep-links to Maps', async ({ page }) => {
+    await prepareBrowserPage(page)
+
+    await expectHealthyPublicDocument(page, '/explore/japan')
+    await expect(page.getByRole('link', { name: 'View on Maps →' })).toHaveAttribute(
+      'href',
+      '/maps?c=japan',
+    )
+    await expect(
+      page.locator('a[href="/maps?c=japan"]').filter({ hasText: /°/ }),
+    ).toBeVisible()
+
+    await page.getByRole('link', { name: 'View on Maps →' }).click()
+    await expect(page).toHaveURL(/\/maps\?c=japan\b/)
+    await expect(
+      page.getByRole('dialog', { name: 'Japan' }),
+    ).toBeVisible({ timeout: 20_000 })
   })
 
   test('Cleo empty state starters fill the prompt', async ({ page }) => {

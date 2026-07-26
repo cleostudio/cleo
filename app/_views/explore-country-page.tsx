@@ -7,6 +7,7 @@ import { ZoomImage } from '~/components/zoom-image'
 import { countrySlugs, getCountry } from '~/lib/countries'
 import { atlasDescription, getAtlasEntry } from '~/lib/atlas'
 import { localeMetadata } from '~/lib/locale-metadata'
+import { formatLatLon, mapsMarkers } from '~/lib/maps/markers'
 
 export function exploreCountryStaticParams() {
   return countrySlugs().map((slug) => ({ slug }))
@@ -32,6 +33,8 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
 
   const hero = entry.photo.renditions.find((r) => r.width === 1280) ?? entry.photo.renditions[0]!
   const renditions = entry.photo.renditions.map((r) => ({ src: r.src, width: r.width }))
+  const mapMarker = mapsMarkers().find((marker) => marker.slug === country.slug)
+  const mapsHref = `/maps?c=${country.slug}`
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -165,6 +168,19 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
             <dt>Region</dt>
             <dd>{entry.facts.region}</dd>
           </div>
+          {mapMarker ? (
+            <div>
+              <dt>Coordinates</dt>
+              <dd>
+                <Link
+                  href={mapsHref}
+                  className="underline-offset-2 hover:underline"
+                >
+                  {formatLatLon(mapMarker.lat, mapMarker.lon)}
+                </Link>
+              </dd>
+            </div>
+          ) : null}
           <div>
             <dt>ISO 3166-1</dt>
             <dd>{entry.code}</dd>
@@ -200,6 +216,11 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
+        <Link href={mapsHref} className="text-sm text-muted-foreground hover:text-foreground">
+          View on Maps →
+        </Link>
+      </p>
+      <p className="enter mt-3" style={{ '--enter-delay': '185ms' } as React.CSSProperties}>
         <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
           Browse the gallery →
         </Link>

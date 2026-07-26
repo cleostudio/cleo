@@ -9,6 +9,7 @@ type EarthGlobeProps = {
   onSelect?: (marker: MapsMarker | null) => void
   onPickCoords?: (coords: MapsCoords | null) => void
   showGraticule?: boolean
+  sunAt?: Date
 }
 
 /** WebGL globe — client-only so SSR never touches the renderer. */

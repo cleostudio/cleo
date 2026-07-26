@@ -16,6 +16,8 @@ describe('portal catalog instructions', () => {
     expect(block).toContain('Mars (/space/mars)')
     expect(block).toContain('[Topics](/topics)')
     expect(block).toContain('[Maps](/maps)')
+    expect(block).toContain('/maps?c={slug}')
+    expect(block).toContain('[Japan on Maps](/maps?c=japan)')
     expect(block).not.toContain('/explore/not-a-real-country')
   })
 

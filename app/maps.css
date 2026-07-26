@@ -177,6 +177,27 @@ html[data-maps-route] .paper-grain {
   color: color-mix(in oklab, var(--maps-hud) 55%, transparent);
 }
 
+.maps-sun-scrub {
+  pointer-events: auto;
+  margin-top: 0.65rem;
+  max-width: 16rem;
+}
+
+.maps-sun-scrub-label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--maps-hud) 48%, transparent);
+}
+
+.maps-sun-scrub-input {
+  margin-top: 0.35rem;
+  width: 100%;
+  accent-color: color-mix(in oklab, var(--maps-hud) 72%, transparent);
+  cursor: pointer;
+}
+
 .maps-coords-hud {
   pointer-events: none;
   position: absolute;
@@ -441,6 +462,43 @@ html[data-maps-route] .paper-grain {
 
 .maps-selection-places li::marker {
   color: color-mix(in oklab, var(--maps-hud) 35%, transparent);
+}
+
+.maps-selection-neighbors {
+  margin-top: 0.75rem;
+  border-top: 1px solid color-mix(in oklab, var(--maps-hud) 12%, transparent);
+  padding-top: 0.65rem;
+}
+
+.maps-selection-neighbors-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--maps-hud) 48%, transparent);
+}
+
+.maps-selection-neighbors-list {
+  margin-top: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.maps-selection-neighbor {
+  border: 1px solid color-mix(in oklab, var(--maps-hud) 16%, transparent);
+  border-radius: 999px;
+  background: transparent;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.72rem;
+  color: color-mix(in oklab, var(--maps-hud) 78%, transparent);
+  cursor: pointer;
+}
+
+.maps-selection-neighbor:hover,
+.maps-selection-neighbor:focus-visible {
+  color: var(--maps-hud);
+  border-color: color-mix(in oklab, var(--maps-hud) 36%, transparent);
+  outline: none;
 }
 
 .maps-selection-actions {
