@@ -9,6 +9,9 @@ import {
   isArchivedNewsletterId,
 } from '~/lib/newsletters'
 
+// Closed archive set: only IDs from generateStaticParams are routable.
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return archivedNewsletterIds.map((id) => ({ id }))
 }
