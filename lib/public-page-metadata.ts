@@ -30,7 +30,7 @@ export const publicPageMetadata = {
   maps: {
     title: 'Maps',
     description:
-      'An interactive 3D Earth — orbit, zoom, search, and open country field guides from the globe.',
+      'An interactive 3D Earth with a live day/night terminator — orbit, sample coordinates, search countries, and open field guides.',
   },
   space: {
     title: 'Space',

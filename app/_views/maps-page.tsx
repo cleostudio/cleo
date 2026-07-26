@@ -1,7 +1,7 @@
 import { MapsExplorer } from '~/components/maps/maps-explorer'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
-import { mapsPhotoPreviews } from '~/lib/maps/previews'
+import { mapsCountryDossiers } from '~/lib/maps/previews'
 
 export function mapsPageMetadata() {
   const copy = publicPageMetadata.maps
@@ -13,6 +13,6 @@ export function mapsPageMetadata() {
 }
 
 export function MapsPageView() {
-  const previews = mapsPhotoPreviews()
-  return <MapsExplorer previews={previews} />
+  const dossiers = mapsCountryDossiers()
+  return <MapsExplorer dossiers={dossiers} />
 }

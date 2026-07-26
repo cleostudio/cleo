@@ -69,9 +69,9 @@ const publicPages = [
     {
       title: 'Maps',
       description:
-        'An interactive 3D Earth — orbit, zoom, search, and open country field guides from the globe.',
+        'An interactive 3D Earth with a live day/night terminator — orbit, sample coordinates, search countries, and open field guides.',
     },
-    'Maps · Cleo. An interactive 3D Earth — orbit, zoom, search, and open country field guides from the globe.',
+    'Maps · Cleo. An interactive 3D Earth with a live day/night terminator — orbit, sample coordinates, search countries, and open field guides.',
   ),
   englishPage(
     '/space',

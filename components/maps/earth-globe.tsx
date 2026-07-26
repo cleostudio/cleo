@@ -11,6 +11,8 @@ import {
   Color,
   DirectionalLight,
   Group,
+  LineBasicMaterial,
+  LineSegments,
   Mesh,
   MeshBasicMaterial,
   MeshPhongMaterial,
@@ -30,11 +32,16 @@ import {
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
 import { framingPosition, stepCameraToward } from '~/lib/maps/camera'
+import { createGraticuleGeometry } from '~/lib/maps/graticule'
 import {
+  formatLatLon,
   latLonToVector3,
   mapsMarkers,
+  vector3ToLatLon,
+  type MapsCoords,
   type MapsMarker,
 } from '~/lib/maps/markers'
+import { sunDirectionAt } from '~/lib/maps/sun'
 import { MAPS_TEXTURE_CREDIT, MAPS_TEXTURES } from '~/lib/maps/textures'
 
 const EARTH_RADIUS = 1
@@ -45,7 +52,6 @@ const FLY_DISTANCE = 1.95
 const FLY_MS = 900
 /** Obliquity of the ecliptic — Earth's axial tilt toward the ecliptic pole. */
 const AXIAL_TILT_RAD = (23.44 * Math.PI) / 180
-const SUN_DIRECTION = new Vector3(1.2, 0.35, 0.55).normalize()
 const SPHERE_WIDTH_SEGMENTS = 128
 const SPHERE_HEIGHT_SEGMENTS = 96
 
@@ -74,6 +80,7 @@ type HoverState = {
 type GlobeApi = {
   flyTo: (marker: MapsMarker) => void
   setHighlight: (marker: MapsMarker | null) => void
+  setGraticuleVisible: (visible: boolean) => void
 }
 
 function prefersReducedMotion() {
@@ -132,13 +139,18 @@ function createMarkerPoints(markers: MapsMarker[]) {
 export function EarthGlobe({
   focusSlug = null,
   onSelect,
+  onPickCoords,
+  showGraticule = false,
 }: {
   focusSlug?: string | null
   onSelect?: (marker: MapsMarker | null) => void
+  onPickCoords?: (coords: MapsCoords | null) => void
+  showGraticule?: boolean
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const apiRef = useRef<GlobeApi | null>(null)
   const onSelectRef = useRef(onSelect)
+  const onPickCoordsRef = useRef(onPickCoords)
   const markers = useRef(mapsMarkers()).current
   const markersBySlug = useRef(
     new Map(markers.map((marker) => [marker.slug, marker])),
@@ -146,8 +158,10 @@ export function EarthGlobe({
   const [ready, setReady] = useState(false)
   const [failed, setFailed] = useState(false)
   const [hover, setHover] = useState<HoverState | null>(null)
+  const [pickedLabel, setPickedLabel] = useState<string | null>(null)
 
   onSelectRef.current = onSelect
+  onPickCoordsRef.current = onPickCoords
 
   useEffect(() => {
     const host = hostRef.current
@@ -160,8 +174,12 @@ export function EarthGlobe({
     let clouds: Mesh | undefined
     let markersPoints: Points | undefined
     let highlight: Mesh | undefined
+    let earthMesh: Mesh | undefined
+    let graticule: LineSegments | undefined
     let root: Group | undefined
     let camera: PerspectiveCamera | undefined
+    let sun: DirectionalLight | undefined
+    let nightSunUniform: { value: Vector3 } | null = null
     const disposables: Array<{ dispose: () => void }> = []
 
     const scene = new Scene()
@@ -205,9 +223,7 @@ export function EarthGlobe({
     controls.target.set(0, 0, 0)
 
     const ambient = new AmbientLight(0x6d7a99, 0.55)
-    const sun = new DirectionalLight(0xfff2d6, 2.35)
-    sun.position.copy(SUN_DIRECTION.clone().multiplyScalar(8))
-    scene.add(ambient, sun)
+    scene.add(ambient)
 
     const stars = createStarfield()
     scene.add(stars)
@@ -216,6 +232,13 @@ export function EarthGlobe({
     root = new Group()
     scene.add(root)
 
+    const [sx, sy, sz] = sunDirectionAt(new Date())
+    sun = new DirectionalLight(0xfff2d6, 2.35)
+    sun.position.set(sx * 8, sy * 8, sz * 8)
+    // Parent under the globe so geographic sun directions stay on the texture
+    // while the axial tilt still leans the whole planet in view.
+    root.add(sun)
+
     const sphere = new SphereGeometry(
       EARTH_RADIUS,
       SPHERE_WIDTH_SEGMENTS,
@@ -223,7 +246,6 @@ export function EarthGlobe({
     )
     disposables.push(sphere)
 
-    // Geographic poles stay on ±Y; axial tilt leans the spinning Earth in Z.
     root.rotation.order = 'ZXY'
     root.rotation.z = AXIAL_TILT_RAD
 
@@ -299,7 +321,11 @@ export function EarthGlobe({
       pauseAutoRotate(FLY_MS + 5000)
     }
 
-    apiRef.current = { flyTo, setHighlight }
+    const setGraticuleVisible = (visible: boolean) => {
+      if (graticule) graticule.visible = visible
+    }
+
+    apiRef.current = { flyTo, setHighlight, setGraticuleVisible }
 
     const onPointerMove = (event: PointerEvent) => {
       if (!renderer || !markersPoints || !camera) return
@@ -336,10 +362,24 @@ export function EarthGlobe({
       pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1
       pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1
       raycaster.setFromCamera(pointer, camera)
-      const hits = raycaster.intersectObject(markersPoints, false)
-      if (hits[0]?.index != null) {
-        onSelectRef.current?.(markers[hits[0].index])
+      const markerHits = raycaster.intersectObject(markersPoints, false)
+      if (markerHits[0]?.index != null) {
+        setPickedLabel(null)
+        onPickCoordsRef.current?.(null)
+        onSelectRef.current?.(markers[markerHits[0].index])
+        return
       }
+
+      if (!earthMesh) return
+      const earthHits = raycaster.intersectObject(earthMesh, false)
+      const point = earthHits[0]?.point
+      if (!point || !root) return
+      // Convert world hit into the globe's local geographic frame.
+      const local = root.worldToLocal(point.clone())
+      const coords = vector3ToLatLon(local.x, local.y, local.z)
+      setPickedLabel(formatLatLon(coords.lat, coords.lon))
+      onPickCoordsRef.current?.(coords)
+      onSelectRef.current?.(null)
     }
 
     const onWheel = () => pauseAutoRotate()
@@ -381,7 +421,8 @@ export function EarthGlobe({
           normalMap,
           normalScale: new Vector2(0.65, 0.65),
         })
-        root.add(new Mesh(sphere, earthMaterial))
+        earthMesh = new Mesh(sphere, earthMaterial)
+        root.add(earthMesh)
         disposables.push(earthMaterial)
 
         const nightMaterial = new MeshPhongMaterial({
@@ -394,29 +435,32 @@ export function EarthGlobe({
           polygonOffset: true,
           polygonOffsetFactor: -1,
         })
+        nightMaterial.customProgramCacheKey = () => 'maps-night-terminator-v2'
         nightMaterial.onBeforeCompile = (shader) => {
-          shader.uniforms.uSunDirection = { value: SUN_DIRECTION.clone() }
+          const [dx, dy, dz] = sunDirectionAt(new Date())
+          shader.uniforms.uSunDirection = { value: new Vector3(dx, dy, dz) }
+          nightSunUniform = shader.uniforms.uSunDirection
           shader.vertexShader = shader.vertexShader
             .replace(
               '#include <common>',
               `#include <common>
-               varying vec3 vWorldNormal;`,
+               varying vec3 vObjectNormal;`,
             )
             .replace(
               '#include <beginnormal_vertex>',
               `#include <beginnormal_vertex>
-               vWorldNormal = normalize(mat3(modelMatrix) * objectNormal);`,
+               vObjectNormal = normalize(objectNormal);`,
             )
           shader.fragmentShader = shader.fragmentShader
             .replace(
               '#include <common>',
               `#include <common>
                uniform vec3 uSunDirection;
-               varying vec3 vWorldNormal;`,
+               varying vec3 vObjectNormal;`,
             )
             .replace(
               '#include <dithering_fragment>',
-              `float nightFactor = 1.0 - smoothstep(-0.05, 0.18, dot(normalize(vWorldNormal), normalize(uSunDirection)));
+              `float nightFactor = 1.0 - smoothstep(-0.05, 0.18, dot(normalize(vObjectNormal), normalize(uSunDirection)));
                gl_FragColor.rgb *= nightFactor;
                gl_FragColor.a *= nightFactor;
                #include <dithering_fragment>`,
@@ -459,6 +503,19 @@ export function EarthGlobe({
         )
         root.add(atmosphere)
         disposables.push(atmosphere.geometry, atmosphereMaterial)
+
+        const graticuleGeometry = createGraticuleGeometry(1.004, 30)
+        const graticuleMaterial = new LineBasicMaterial({
+          color: new Color('#d7e0f5'),
+          transparent: true,
+          opacity: 0.22,
+          depthWrite: false,
+        })
+        graticule = new LineSegments(graticuleGeometry, graticuleMaterial)
+        graticule.visible = false
+        graticule.renderOrder = 1
+        root.add(graticule)
+        disposables.push(graticuleGeometry, graticuleMaterial)
 
         markersPoints = createMarkerPoints(markers)
         root.add(markersPoints)
@@ -508,6 +565,11 @@ export function EarthGlobe({
         stepCameraToward(camera, flight.from, flight.to, t)
         if (t >= 1) flight = null
       }
+
+      const [dx, dy, dz] = sunDirectionAt(new Date())
+      if (sun) sun.position.set(dx * 8, dy * 8, dz * 8)
+      if (nightSunUniform) nightSunUniform.value.set(dx, dy, dz)
+
       controls.update()
       renderer.render(scene, camera)
     }
@@ -536,10 +598,16 @@ export function EarthGlobe({
       apiRef.current?.setHighlight(null)
       return
     }
+    setPickedLabel(null)
     const marker = markersBySlug.get(focusSlug)
     if (!marker) return
     apiRef.current?.flyTo(marker)
   }, [focusSlug, ready, markersBySlug])
+
+  useEffect(() => {
+    if (!ready) return
+    apiRef.current?.setGraticuleVisible(showGraticule)
+  }, [showGraticule, ready])
 
   return (
     <div className="maps-stage">
@@ -571,8 +639,16 @@ export function EarthGlobe({
           role="tooltip"
         >
           <span className="maps-tooltip-name">{hover.marker.name}</span>
-          <span className="maps-tooltip-meta">{hover.marker.region}</span>
+          <span className="maps-tooltip-meta">
+            {formatLatLon(hover.marker.lat, hover.marker.lon)} · {hover.marker.region}
+          </span>
         </div>
+      ) : null}
+
+      {pickedLabel ? (
+        <p className="maps-coords-hud" aria-live="polite">
+          {pickedLabel}
+        </p>
       ) : null}
 
       <p className="maps-credit">{MAPS_TEXTURE_CREDIT}</p>

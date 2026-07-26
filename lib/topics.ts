@@ -33,7 +33,7 @@ export function allTopics(): Topic[] {
       slug: 'maps',
       name: 'Maps',
       description:
-        'Interactive 3D Earth — orbit the globe, find a country, and open its field guide.',
+        'Interactive 3D Earth with a live day/night terminator — sample coordinates, find a country, and open its field guide.',
       tally: '1 globe',
       href: '/maps',
       secondaryHref: '/explore',

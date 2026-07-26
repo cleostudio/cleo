@@ -2,11 +2,13 @@
 
 import dynamic from 'next/dynamic'
 
-import type { MapsMarker } from '~/lib/maps/markers'
+import type { MapsCoords, MapsMarker } from '~/lib/maps/markers'
 
 type EarthGlobeProps = {
   focusSlug?: string | null
   onSelect?: (marker: MapsMarker | null) => void
+  onPickCoords?: (coords: MapsCoords | null) => void
+  showGraticule?: boolean
 }
 
 /** WebGL globe — client-only so SSR never touches the renderer. */
