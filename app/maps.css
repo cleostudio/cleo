@@ -170,6 +170,10 @@
   background: color-mix(in oklab, var(--muted) 42%, var(--foreground));
 }
 
+.earth-map[aria-busy='true'] .earth-map-canvas {
+  opacity: 0.92;
+}
+
 .earth-map-status {
   color: var(--muted-foreground);
   font-size: 0.75rem;
@@ -206,6 +210,10 @@
 .earth-map-canvas .maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,
 .earth-map-canvas .maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon {
   background-size: 18px 18px;
+}
+
+.dark .earth-map-canvas .maplibregl-ctrl button .maplibregl-ctrl-icon {
+  filter: invert(1);
 }
 
 .earth-map-canvas .maplibregl-ctrl-attrib {
@@ -343,6 +351,31 @@
 .earth-map-credit {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   letter-spacing: 0.03em;
+}
+
+@media (max-width: 40rem) {
+  .earth-map {
+    gap: 0.55rem;
+  }
+
+  .earth-map-canvas {
+    height: min(52vh, 28rem);
+    min-height: 16rem;
+  }
+
+  .earth-map-regions {
+    gap: 0.3rem;
+  }
+
+  .earth-map-region {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.48rem;
+  }
+
+  .earth-map-selection {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

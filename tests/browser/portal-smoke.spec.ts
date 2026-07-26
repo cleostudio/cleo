@@ -61,6 +61,9 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       'Europe',
     )
     await expect(page.getByText('Explore guides')).toBeVisible()
+    await expect(
+      page.getByRole('link', { name: 'Browse Explore guides →' }),
+    ).toHaveAttribute('href', '/explore#region-Europe')
 
     await page.goto('/maps?country=japan')
     await expect(page.getByRole('link', { name: /Open field guide/ })).toBeVisible({

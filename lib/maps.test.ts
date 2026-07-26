@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  exploreRegionHref,
   findMapCountryIndexEntry,
   findMapRegionCamera,
   formatMapCoords,
@@ -85,6 +86,9 @@ describe('maps helpers', () => {
     expect(mapRegionHref('Asia')).toBe('/maps?region=asia')
     expect(mapRegionHref('Oceania')).toBe('/maps?region=oceania')
     expect(mapRegionHref('not-a-region')).toBe('/maps')
+    expect(exploreRegionHref('asia')).toBe('/explore#region-Asia')
+    expect(exploreRegionHref('Americas')).toBe('/explore#region-Americas')
+    expect(exploreRegionHref('atlantis')).toBe('/explore')
     expect(parseMapCountryParam('japan')).toEqual({ kind: 'slug', value: 'japan' })
     expect(parseMapCountryParam('jp')).toEqual({ kind: 'code', value: 'JP' })
     expect(parseMapRegionParam('EUROPE')).toBe('europe')

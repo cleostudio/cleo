@@ -16,6 +16,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 
 import { ensureMapLibreWorker } from '~/lib/maplibre-worker'
 import {
+  exploreRegionHref,
   findMapCountryIndexEntry,
   findMapRegionCamera,
   formatMapCoords,
@@ -153,6 +154,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const regionsRef = useRef<MapRegionCamera[]>([])
   const suppressMapClickRef = useRef<() => void>(() => {})
   const indexReadyRef = useRef(false)
+  const selectionPanelRef = useRef<HTMLDivElement | null>(null)
 
   const [ready, setReady] = useState(false)
   const [coords, setCoords] = useState('—')
@@ -167,6 +169,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const [loadState, setLoadState] = useState<'loading' | 'ready' | 'degraded'>(
     'loading',
   )
+  const [focusAnnouncement, setFocusAnnouncement] = useState('')
 
   useEffect(() => {
     const container = containerRef.current
@@ -230,6 +233,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       activeRegionRef.current = null
       setCopyState('idle')
       if (hit) {
+        setFocusAnnouncement(`Selected ${hit.name}.`)
         syncMapFocusSearchParams({
           kind: 'country',
           value: hit.country?.slug ?? hit.code,
@@ -240,6 +244,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
           if (indexed) fitCountry(map, indexed)
         }
       } else {
+        setFocusAnnouncement('Selection cleared.')
         syncMapFocusSearchParams(null)
       }
     }
@@ -379,14 +384,20 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     if (!ready) return
     if (countryParam) {
       const entry = findMapCountryIndexEntry(indexRef.current, countryParam)
-      if (!entry) return
+      if (!entry) {
+        setFocusAnnouncement(`No country matched “${countryParam}”.`)
+        return
+      }
       if (selectedCodeRef.current === entry.code) return
       flyToCountry(entry, { syncUrl: false })
       return
     }
     if (regionParam) {
       const region = findMapRegionCamera(regionsRef.current, regionParam)
-      if (!region) return
+      if (!region) {
+        setFocusAnnouncement(`No region matched “${regionParam}”.`)
+        return
+      }
       if (activeRegionRef.current === region.id && !selectedCodeRef.current) return
       flyToRegion(region, { syncUrl: false })
     }
@@ -411,6 +422,19 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     setActiveSuggestion(0)
   }, [query, ready])
 
+  useEffect(() => {
+    if (!selected && !activeRegion) return
+    const panel = selectionPanelRef.current
+    if (!panel) return
+    const reduceMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    panel.scrollIntoView({
+      block: 'nearest',
+      behavior: reduceMotion ? 'auto' : 'smooth',
+    })
+  }, [selected?.code, activeRegion])
+
   function flyToCountry(
     entry: MapCountryIndexEntry,
     { syncUrl = true }: { syncUrl?: boolean } = {},
@@ -433,6 +457,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     setActiveRegion(null)
     activeRegionRef.current = null
     setCopyState('idle')
+    setFocusAnnouncement(`Selected ${hit.name}.`)
     if (syncUrl) {
       syncMapFocusSearchParams({
         kind: 'country',
@@ -458,6 +483,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     setActiveRegion(null)
     activeRegionRef.current = null
     setCopyState('idle')
+    setFocusAnnouncement('Map reset.')
     syncMapFocusSearchParams(null)
     map.easeTo({
       center: [10, 20],
@@ -486,6 +512,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     setCopyState('idle')
     setActiveRegion(region.id)
     activeRegionRef.current = region.id
+    setFocusAnnouncement(`Viewing ${region.label}.`)
     if (syncUrl) {
       syncMapFocusSearchParams({ kind: 'region', value: region.id })
     }
@@ -516,7 +543,10 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const photo = selected ? countryPhotos[selected.code] : undefined
 
   return (
-    <div className={cn('earth-map', className)}>
+    <div
+      className={cn('earth-map', className)}
+      aria-busy={loadState === 'loading' || undefined}
+    >
       <div className="earth-map-toolbar">
         <div className="earth-map-search">
           <label className="sr-only" htmlFor={`${reactId}-map-search`}>
@@ -528,6 +558,16 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
             role="combobox"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
+            onBlur={(event) => {
+              const next = event.relatedTarget
+              if (
+                next instanceof Node &&
+                event.currentTarget.parentElement?.contains(next)
+              ) {
+                return
+              }
+              setSuggestions([])
+            }}
             onKeyDown={(event) => {
               if (event.key === 'ArrowDown' && suggestions.length > 0) {
                 event.preventDefault()
@@ -544,9 +584,17 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
               if (event.key === 'Enter' && suggestions[activeSuggestion]) {
                 event.preventDefault()
                 flyToCountry(suggestions[activeSuggestion]!)
+                return
               }
               if (event.key === 'Escape') {
-                setSuggestions([])
+                if (suggestions.length > 0) {
+                  setSuggestions([])
+                  return
+                }
+                if (selected || activeRegion) {
+                  event.preventDefault()
+                  resetView()
+                }
               }
             }}
             placeholder={ready ? 'Find a country' : 'Loading map…'}
@@ -608,11 +656,16 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
         </p>
       ) : null}
       <p className="sr-only" aria-live="polite">
-        {copyState === 'copied'
-          ? 'Link copied to clipboard'
-          : copyState === 'failed'
-            ? 'Could not copy link'
-            : ''}
+        {[
+          focusAnnouncement,
+          copyState === 'copied'
+            ? 'Link copied to clipboard'
+            : copyState === 'failed'
+              ? 'Could not copy link'
+              : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
       </p>
 
       {regions.length > 0 ? (
@@ -623,6 +676,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
               type="button"
               className="earth-map-region"
               data-active={activeRegion === region.id || undefined}
+              aria-pressed={activeRegion === region.id}
               disabled={!ready}
               onClick={() => flyToRegion(region)}
             >
@@ -642,7 +696,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
 
       <div className="earth-map-footer">
         {selected ? (
-          <div className="earth-map-selection">
+          <div ref={selectionPanelRef} className="earth-map-selection">
             {photo ? (
               <Link href={photo.href} className="earth-map-photo">
                 {/* eslint-disable-next-line @next/next/no-img-element -- static atlas JPEG with known path */}
@@ -703,7 +757,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
             </div>
           </div>
         ) : activeRegionCamera ? (
-          <div className="earth-map-selection">
+          <div ref={selectionPanelRef} className="earth-map-selection">
             <div>
               <p className="earth-map-selection-code tabular-nums text-muted-foreground">
                 Region
@@ -714,6 +768,12 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
               </p>
             </div>
             <div className="earth-map-selection-actions">
+              <Link
+                href={exploreRegionHref(activeRegionCamera.id)}
+                className="earth-map-guide-link"
+              >
+                Browse Explore guides →
+              </Link>
               <button
                 type="button"
                 className="earth-map-copy"

@@ -112,6 +112,21 @@ export function mapRegionHref(regionId: string) {
   return `/maps?region=${encodeURIComponent(parsed)}`
 }
 
+const EXPLORE_REGION_LABELS: Record<MapRegionId, string> = {
+  africa: 'Africa',
+  americas: 'Americas',
+  asia: 'Asia',
+  europe: 'Europe',
+  oceania: 'Oceania',
+}
+
+/** Jump to the matching region heading on the Explore index. */
+export function exploreRegionHref(regionIdOrLabel: string) {
+  const parsed = parseMapRegionParam(regionIdOrLabel)
+  if (!parsed) return '/explore'
+  return `/explore#region-${EXPLORE_REGION_LABELS[parsed]}`
+}
+
 export function parseMapCountryParam(
   value: string | null | undefined,
 ): { kind: 'slug' | 'code'; value: string } | null {
