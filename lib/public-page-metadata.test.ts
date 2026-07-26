@@ -29,6 +29,11 @@ describe('public page metadata copy', () => {
       title: 'Explore',
       description: '',
     })
+    expect(publicPageMetadata.maps).toEqual({
+      title: 'Maps',
+      description:
+        'A realistic interactive map of Earth — NASA Blue Marble imagery, accurate country borders, and deep links into Explore field guides.',
+    })
     expect(publicPageMetadata.space).toEqual({
       title: 'Space',
       description:
@@ -47,6 +52,7 @@ describe('public page metadata copy', () => {
       'gallery',
       'topics',
       'explore',
+      'maps',
       'space',
       'cleo',
     ] as const) {

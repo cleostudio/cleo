@@ -31,6 +31,11 @@ describe('social OG image metadata', () => {
     ['/topics', publicPageMetadata.topics, 'Topics · Cleo'],
     ['/explore', publicPageMetadata.explore, 'Explore · Cleo'],
     [
+      '/maps',
+      publicPageMetadata.maps,
+      'Maps · Cleo. A realistic interactive map of Earth — NASA Blue Marble imagery, accurate country borders, and deep links into Explore field guides.',
+    ],
+    [
       '/space',
       publicPageMetadata.space,
       'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',

@@ -27,6 +27,11 @@ export const publicPageMetadata = {
     title: 'Explore',
     description: '',
   },
+  maps: {
+    title: 'Maps',
+    description:
+      'A realistic interactive map of Earth — NASA Blue Marble imagery, accurate country borders, and deep links into Explore field guides.',
+  },
   space: {
     title: 'Space',
     description:
