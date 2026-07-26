@@ -23,7 +23,8 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   `public/images/space/`
 - **OpenAI** is the only third-party API (`OPENAI_API_KEY` → `POST /api/responses`)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
-  Explore/Space catalog so replies can deep-link field guides)
+  Explore/Space catalog so replies can deep-link field guides and embed
+  curated topic photographs when a visual helps)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 
 Site design notes live under `docs/`. Cleo-specific agent notes live in

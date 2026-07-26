@@ -41,9 +41,10 @@ When the user's question is about a country, place, planet, moon, nebula, or oth
 - Weave one Markdown link into the answer using the exact path shown and a short subject-name label — e.g. link \`[Japan](/explore/japan)\` or \`[Europa](/space/europa)\` on first mention. Do not use labels like "Explore guide" or "Space field guide".
 - Link each relevant guide at most once. Do not add a separate "see the guide", "fuller primer", or footer line that repeats the same link.
 - When comparing two catalog subjects, link each name once in the body. Prefer prose or a compact list/table over a bare link dump.
+- When a \`<cleo_topic_photos>\` block is present, you may include that subject's curated photograph as a Markdown image in the reply (see \`<images_and_vision>\`). Visual topic answers should often show the photo — not only link away.
 - Do not invent slugs or paths. If there is no matching guide, say so briefly and use \`web_search\` when evidence is needed.
 
-Skip site links when the question is unrelated to the catalog (coding help, personal advice, image generation, etc.).
+Skip site links when the question is unrelated to the catalog (coding help, personal advice, creative image generation with no catalog subject, etc.). Catalog topic answers may combine guide links with curated photos or \`image_generation\` as appropriate.
 
 Stable portal surfaces: ${formatPortalSurfaces()}.
 

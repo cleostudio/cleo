@@ -3,7 +3,9 @@ import { describe, expect, it } from 'vitest'
 import {
   CLEO_PORTAL_STARTERS,
   extractPortalGuideLinks,
+  isCuratedTopicImageSrc,
   presentPortalGuideMarkdown,
+  presentTopicPhotoMarkdown,
 } from './portal-links'
 
 describe('extractPortalGuideLinks', () => {
@@ -128,6 +130,31 @@ describe('presentPortalGuideMarkdown', () => {
         'Space is hard.',
       ].join('\n'),
     )
+  })
+
+  it('keeps curated topic photographs in Markdown replies', () => {
+    const markdown = [
+      'Here is [Japan](/explore/japan).',
+      '',
+      '![Mount Fuji](/images/atlas/japan/w1280.jpg)',
+    ].join('\n')
+
+    expect(presentPortalGuideMarkdown(markdown)).toBe(markdown)
+  })
+})
+
+describe('presentTopicPhotoMarkdown', () => {
+  it('allows only curated atlas and space JPEG paths', () => {
+    expect(isCuratedTopicImageSrc('/images/atlas/japan/w1280.jpg')).toBe(true)
+    expect(isCuratedTopicImageSrc('/images/space/mars/w640.jpg')).toBe(true)
+    expect(isCuratedTopicImageSrc('https://evil.example/x.jpg')).toBe(false)
+    expect(isCuratedTopicImageSrc('/images/other/x.jpg')).toBe(false)
+
+    expect(
+      presentTopicPhotoMarkdown(
+        'Safe ![Mount Fuji](/images/atlas/japan/w1280.jpg) and bad ![x](https://evil.example/x.jpg).',
+      ),
+    ).toBe('Safe ![Mount Fuji](/images/atlas/japan/w1280.jpg) and bad x.')
   })
 })
 

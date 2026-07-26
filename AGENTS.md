@@ -74,7 +74,10 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
   `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
-- Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`.
+- Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
+  may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
+  grounds matching subjects on each turn); Streamdown only allows
+  `/images/atlas|space/...` paths.
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
   `components/cleo/ask-form.tsx`. Guide deep-links are inline Markdown in the
   reply (no separate chip row).

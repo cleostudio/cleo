@@ -380,4 +380,17 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       )
     ).toEqual(["web_search", "image_generation"])
   })
+
+  it("grounds topic photograph paths when the user asks about a catalog subject", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "ok", type: "response.output_text.delta" }])
+    )
+
+    await POST(ask(question))
+
+    const instructions = openai.create.mock.calls[0]?.[0].instructions as string
+    expect(instructions).toContain("<cleo_topic_photos>")
+    expect(instructions).toContain("![Mount Fuji](/images/atlas/japan/w1280.jpg)")
+    expect(instructions).toContain("You MAY and SHOULD include the curated photograph")
+  })
 })
