@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { useEffect, useId, useRef, useState } from 'react'
 import {
   AttributionControl,
@@ -15,40 +16,27 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 
 import { ensureMapLibreWorker } from '~/lib/maplibre-worker'
 import {
+  findMapCountryIndexEntry,
   formatMapCoords,
   MAP_COUNTRIES_URL,
+  MAP_COUNTRY_INDEX_URL,
   MAP_MAX_ZOOM,
   MAP_MIN_ZOOM,
   MAP_TILE_SIZE,
   MAP_TILE_URL,
   mapAttribution,
   resolveMapCountry,
+  syncMapCountrySearchParam,
   type MapCountryHit,
+  type MapCountryIndex,
+  type MapCountryIndexEntry,
+  type MapCountryPhoto,
 } from '~/lib/maps'
 import { cn } from '~/lib/utils'
 
-type CountryIndexEntry = {
-  code: string
-  name: string
-  bbox: [number, number, number, number]
-  center: [number, number]
-}
-
-type CountryFeatureCollection = {
-  type: 'FeatureCollection'
-  features: Array<{
-    type: 'Feature'
-    properties?: { code?: string; name?: string } | null
-    geometry: {
-      type: string
-      coordinates?: unknown
-      geometries?: Array<{ type: string; coordinates?: unknown }>
-    } | null
-  }>
-}
-
 type EarthMapProps = {
   className?: string
+  countryPhotos?: Record<string, MapCountryPhoto>
 }
 
 function basemapStyle(): StyleSpecification {
@@ -89,8 +77,6 @@ function addCountryLayers(map: MapLibreMap) {
     type: 'fill',
     source: 'countries',
     paint: {
-      // WebGL paint values cannot read CSS variables — fixed inks tuned
-      // for the Blue Marble basemap in both page themes.
       'fill-color': [
         'case',
         ['boolean', ['feature-state', 'selected'], false],
@@ -129,73 +115,33 @@ function addCountryLayers(map: MapLibreMap) {
   })
 }
 
-function bboxOfGeometry(geometry: {
-  type: string
-  coordinates?: unknown
-  geometries?: Array<{ type: string; coordinates?: unknown }>
-}): [number, number, number, number] | null {
-  let minX = Infinity
-  let minY = Infinity
-  let maxX = -Infinity
-  let maxY = -Infinity
-
-  const visit = (coords: unknown): void => {
-    if (!Array.isArray(coords) || coords.length === 0) return
-    if (typeof coords[0] === 'number') {
-      const [x, y] = coords as number[]
-      minX = Math.min(minX, x)
-      minY = Math.min(minY, y)
-      maxX = Math.max(maxX, x)
-      maxY = Math.max(maxY, y)
-      return
-    }
-    for (const child of coords) visit(child)
-  }
-
-  if (geometry.type === 'GeometryCollection') {
-    for (const child of geometry.geometries ?? []) visit(child.coordinates)
-  } else {
-    visit(geometry.coordinates)
-  }
-
-  if (!Number.isFinite(minX)) return null
-  return [minX, minY, maxX, maxY]
+function fitCountry(map: MapLibreMap, entry: MapCountryIndexEntry) {
+  map.fitBounds(entry.bounds, {
+    padding: { top: 72, bottom: 110, left: 48, right: 48 },
+    maxZoom: Math.min(entry.maxZoom, MAP_MAX_ZOOM + 1.25),
+    duration: 800,
+  })
 }
 
-function buildCountryIndex(collection: CountryFeatureCollection): CountryIndexEntry[] {
-  const entries: CountryIndexEntry[] = []
-  for (const feature of collection.features) {
-    if (!feature.geometry) continue
-    const code = String(feature.properties?.code ?? '')
-    if (!code) continue
-    const bbox = bboxOfGeometry(feature.geometry)
-    if (!bbox) continue
-    const resolved = resolveMapCountry(code, String(feature.properties?.name ?? code))
-    entries.push({
-      code: resolved.code,
-      name: resolved.name,
-      bbox,
-      center: [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2],
-    })
-  }
-  return entries.sort((a, b) => a.name.localeCompare(b.name, 'en'))
-}
-
-export function EarthMap({ className }: EarthMapProps) {
+export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const reactId = useId()
+  const searchParams = useSearchParams()
+  const countryParam = searchParams.get('country')
   const containerRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<MapLibreMap | null>(null)
   const hoveredCodeRef = useRef<string | null>(null)
   const selectedCodeRef = useRef<string | null>(null)
-  const indexRef = useRef<CountryIndexEntry[]>([])
+  const indexRef = useRef<MapCountryIndexEntry[]>([])
   const suppressMapClickRef = useRef<() => void>(() => {})
+  const indexReadyRef = useRef(false)
 
   const [ready, setReady] = useState(false)
   const [coords, setCoords] = useState('—')
   const [zoom, setZoom] = useState(MAP_MIN_ZOOM)
   const [selected, setSelected] = useState<MapCountryHit | null>(null)
   const [query, setQuery] = useState('')
-  const [suggestions, setSuggestions] = useState<CountryIndexEntry[]>([])
+  const [suggestions, setSuggestions] = useState<MapCountryIndexEntry[]>([])
+  const [activeSuggestion, setActiveSuggestion] = useState(0)
 
   useEffect(() => {
     const container = containerRef.current
@@ -243,7 +189,7 @@ export function EarthMap({ className }: EarthMapProps) {
       }
     }
 
-    const setSelection = (hit: MapCountryHit | null) => {
+    const setSelection = (hit: MapCountryHit | null, entry?: MapCountryIndexEntry) => {
       if (map.getSource('countries')) {
         const previous = selectedCodeRef.current
         if (previous && previous !== hit?.code) {
@@ -255,6 +201,16 @@ export function EarthMap({ className }: EarthMapProps) {
       }
       selectedCodeRef.current = hit?.code ?? null
       setSelected(hit)
+      if (hit) {
+        syncMapCountrySearchParam(hit.country?.slug ?? hit.code)
+        if (entry) fitCountry(map, entry)
+        else {
+          const indexed = indexRef.current.find((item) => item.code === hit.code)
+          if (indexed) fitCountry(map, indexed)
+        }
+      } else {
+        syncMapCountrySearchParam(null)
+      }
     }
 
     const onMove = () => {
@@ -264,8 +220,9 @@ export function EarthMap({ className }: EarthMapProps) {
     }
 
     let markedReady = false
-    const markReady = () => {
+    const markReady = ({ requireIndex = true }: { requireIndex?: boolean } = {}) => {
       if (markedReady) return
+      if (requireIndex && !indexReadyRef.current) return
       markedReady = true
       onMove()
       setReady(true)
@@ -299,14 +256,6 @@ export function EarthMap({ className }: EarthMapProps) {
         if (!code) return
         const hit = resolveMapCountry(code, String(feature.properties?.name ?? code))
         setSelection(hit)
-        const entry = indexRef.current.find((item) => item.code === hit.code)
-        if (entry) {
-          map.fitBounds(entry.bbox, {
-            padding: { top: 72, bottom: 96, left: 48, right: 48 },
-            maxZoom: Math.min(MAP_MAX_ZOOM + 0.75, 5.5),
-            duration: 700,
-          })
-        }
       })
 
       map.on('click', (event: MapMouseEvent) => {
@@ -328,19 +277,19 @@ export function EarthMap({ className }: EarthMapProps) {
 
     const hydrateCountries = async () => {
       try {
-        const response = await fetch(MAP_COUNTRIES_URL)
-        const collection = (await response.json()) as CountryFeatureCollection
-        indexRef.current = buildCountryIndex(collection)
+        ensureCountryLayers()
+        const indexResponse = await fetch(MAP_COUNTRY_INDEX_URL)
+        const index = (await indexResponse.json()) as MapCountryIndex
+        indexRef.current = index.countries
       } catch {
         indexRef.current = []
+        try {
+          ensureCountryLayers()
+        } catch {
+          // Idle retry below.
+        }
       }
-
-      if (!mapRef.current) return
-      try {
-        ensureCountryLayers()
-      } catch {
-        // Style may still be swapping; a later idle pass retries below.
-      }
+      indexReadyRef.current = true
       markReady()
     }
 
@@ -361,13 +310,13 @@ export function EarthMap({ className }: EarthMapProps) {
 
     map.on('error', (event) => {
       console.warn('[earth-map]', event.error?.message ?? event)
-      markReady()
+      // Allow the toolbar to unlock even if the index request fails.
+      indexReadyRef.current = true
+      markReady({ requireIndex: false })
     })
 
     map.on('move', onMove)
 
-    // Expose a short click-suppression window for toolbar interactions that
-    // sit above the canvas (search suggestions can overlap the map).
     suppressMapClickRef.current = () => {
       ignoreMapClicksUntil = performance.now() + 400
     }
@@ -386,23 +335,36 @@ export function EarthMap({ className }: EarthMapProps) {
   }, [])
 
   useEffect(() => {
+    if (!ready || !countryParam) return
+    const entry = findMapCountryIndexEntry(indexRef.current, countryParam)
+    if (!entry) return
+    if (selectedCodeRef.current === entry.code) return
+    flyToCountry(entry, { syncUrl: false })
+  }, [ready, countryParam])
+
+  useEffect(() => {
     const trimmed = query.trim().toLowerCase()
     if (!trimmed) {
       setSuggestions([])
+      setActiveSuggestion(0)
       return
     }
-    setSuggestions(
-      indexRef.current
-        .filter(
-          (entry) =>
-            entry.name.toLowerCase().includes(trimmed) ||
-            entry.code.toLowerCase() === trimmed,
-        )
-        .slice(0, 8),
-    )
+    const next = indexRef.current
+      .filter(
+        (entry) =>
+          entry.name.toLowerCase().includes(trimmed) ||
+          entry.code.toLowerCase() === trimmed ||
+          entry.slug?.toLowerCase() === trimmed,
+      )
+      .slice(0, 8)
+    setSuggestions(next)
+    setActiveSuggestion(0)
   }, [query, ready])
 
-  function flyToCountry(entry: CountryIndexEntry) {
+  function flyToCountry(
+    entry: MapCountryIndexEntry,
+    { syncUrl = true }: { syncUrl?: boolean } = {},
+  ) {
     const map = mapRef.current
     if (!map) return
     suppressMapClickRef.current()
@@ -418,30 +380,31 @@ export function EarthMap({ className }: EarthMapProps) {
     setSelected(hit)
     setQuery(entry.name)
     setSuggestions([])
-    map.fitBounds(entry.bbox, {
-      padding: { top: 72, bottom: 96, left: 48, right: 48 },
-      maxZoom: Math.min(MAP_MAX_ZOOM + 0.75, 5.5),
-      duration: 800,
-    })
+    if (syncUrl) {
+      syncMapCountrySearchParam(entry.slug ?? entry.code)
+    }
+    fitCountry(map, entry)
   }
 
   function resetView() {
     const map = mapRef.current
     if (!map) return
-    if (selectedCodeRef.current) {
+    if (selectedCodeRef.current && map.getSource('countries')) {
       map.setFeatureState(
         { source: 'countries', id: selectedCodeRef.current },
         { selected: false },
       )
-      selectedCodeRef.current = null
     }
+    selectedCodeRef.current = null
     setSelected(null)
     setQuery('')
     setSuggestions([])
+    syncMapCountrySearchParam(null)
     map.easeTo({ center: [10, 20], zoom: 1.2, duration: 600 })
   }
 
   const searchListId = `${reactId}-map-suggestions`
+  const photo = selected ? countryPhotos[selected.code] : undefined
 
   return (
     <div className={cn('earth-map', className)}>
@@ -456,9 +419,21 @@ export function EarthMap({ className }: EarthMapProps) {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             onKeyDown={(event) => {
-              if (event.key === 'Enter' && suggestions[0]) {
+              if (event.key === 'ArrowDown' && suggestions.length > 0) {
                 event.preventDefault()
-                flyToCountry(suggestions[0])
+                setActiveSuggestion((index) => (index + 1) % suggestions.length)
+                return
+              }
+              if (event.key === 'ArrowUp' && suggestions.length > 0) {
+                event.preventDefault()
+                setActiveSuggestion(
+                  (index) => (index - 1 + suggestions.length) % suggestions.length,
+                )
+                return
+              }
+              if (event.key === 'Enter' && suggestions[activeSuggestion]) {
+                event.preventDefault()
+                flyToCountry(suggestions[activeSuggestion]!)
               }
               if (event.key === 'Escape') {
                 setSuggestions([])
@@ -474,14 +449,14 @@ export function EarthMap({ className }: EarthMapProps) {
           />
           {suggestions.length > 0 ? (
             <ul id={searchListId} role="listbox" className="earth-map-suggestions">
-              {suggestions.map((entry) => (
+              {suggestions.map((entry, index) => (
                 <li key={entry.code}>
                   <button
                     type="button"
                     role="option"
+                    aria-selected={index === activeSuggestion}
+                    data-active={index === activeSuggestion || undefined}
                     onMouseDown={(event) => {
-                      // Prevent the map under the overlapping list from
-                      // receiving this pointer interaction as a country click.
                       event.preventDefault()
                       event.stopPropagation()
                       flyToCountry(entry)
@@ -515,12 +490,28 @@ export function EarthMap({ className }: EarthMapProps) {
       <div className="earth-map-footer">
         {selected ? (
           <div className="earth-map-selection">
-            <div>
-              <p className="earth-map-selection-code tabular-nums text-muted-foreground">
-                {selected.code}
-              </p>
-              <p className="earth-map-selection-name">{selected.name}</p>
-            </div>
+            {photo ? (
+              <Link href={photo.href} className="earth-map-photo">
+                {/* eslint-disable-next-line @next/next/no-img-element -- static atlas JPEG with known path */}
+                <img src={photo.src} alt={photo.alt} width={160} height={106} />
+                <span className="earth-map-photo-caption">
+                  <span className="earth-map-selection-code tabular-nums">
+                    {selected.code}
+                  </span>
+                  <span className="earth-map-selection-name">{selected.name}</span>
+                  <span className="earth-map-photo-place text-muted-foreground">
+                    {photo.placeName}
+                  </span>
+                </span>
+              </Link>
+            ) : (
+              <div>
+                <p className="earth-map-selection-code tabular-nums text-muted-foreground">
+                  {selected.code}
+                </p>
+                <p className="earth-map-selection-name">{selected.name}</p>
+              </div>
+            )}
             {selected.href ? (
               <Link href={selected.href} className="earth-map-guide-link">
                 Open field guide →

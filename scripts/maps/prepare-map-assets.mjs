@@ -147,7 +147,153 @@ async function writeCountries(sourcePath, outPaths) {
     await mkdir(path.dirname(outPath), { recursive: true })
     await writeFile(outPath, json, 'utf8')
   }
-  return collection.features.length
+  return collection
+}
+
+function wrapLng(lng) {
+  let value = lng
+  while (value > 180) value -= 360
+  while (value < -180) value += 360
+  return value
+}
+
+function ringArea(ring) {
+  let sum = 0
+  for (let i = 0; i < ring.length - 1; i++) {
+    sum += ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1]
+  }
+  return sum / 2
+}
+
+function ringCentroid(ring) {
+  let area = 0
+  let cx = 0
+  let cy = 0
+  for (let i = 0; i < ring.length - 1; i++) {
+    const cross = ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1]
+    area += cross
+    cx += (ring[i][0] + ring[i + 1][0]) * cross
+    cy += (ring[i][1] + ring[i + 1][1]) * cross
+  }
+  area *= 0.5
+  if (Math.abs(area) < 1e-12) {
+    let sx = 0
+    let sy = 0
+    for (const [x, y] of ring) {
+      sx += x
+      sy += y
+    }
+    return [sx / ring.length, sy / ring.length]
+  }
+  return [cx / (6 * area), cy / (6 * area)]
+}
+
+function polygonList(geometry) {
+  if (geometry.type === 'Polygon') return [geometry.coordinates]
+  if (geometry.type === 'MultiPolygon') return geometry.coordinates
+  return []
+}
+
+function unwrapLng(lng, refLng) {
+  let value = lng
+  while (value - refLng > 180) value -= 360
+  while (value - refLng < -180) value += 360
+  return value
+}
+
+function cameraFromGeometry(geometry) {
+  const polygons = polygonList(geometry)
+  if (polygons.length === 0) return null
+
+  let best = polygons[0]
+  let bestArea = Math.abs(ringArea(best[0] ?? []))
+  for (const polygon of polygons) {
+    const area = Math.abs(ringArea(polygon[0] ?? []))
+    if (area > bestArea) {
+      bestArea = area
+      best = polygon
+    }
+  }
+
+  const [refLng, refLat] = ringCentroid(best[0] ?? [[0, 0]])
+  const included = []
+  for (const polygon of polygons) {
+    const area = Math.abs(ringArea(polygon[0] ?? []))
+    const [lng] = ringCentroid(polygon[0] ?? [[refLng, refLat]])
+    const delta = Math.abs(unwrapLng(lng, refLng) - refLng)
+    // Keep the main landmass and nearby sizable pieces; drop far-flung
+    // overseas scraps that would otherwise explode the camera.
+    if (delta <= 40 || area >= bestArea * 0.15) included.push(polygon)
+  }
+  if (included.length === 0) included.push(best)
+
+  let minX = Infinity
+  let minY = Infinity
+  let maxX = -Infinity
+  let maxY = -Infinity
+  for (const polygon of included) {
+    for (const ring of polygon) {
+      for (const [lng, lat] of ring) {
+        const x = unwrapLng(lng, refLng)
+        minX = Math.min(minX, x)
+        minY = Math.min(minY, lat)
+        maxX = Math.max(maxX, x)
+        maxY = Math.max(maxY, lat)
+      }
+    }
+  }
+
+  if (!Number.isFinite(minX)) return null
+
+  const spanX = Math.max(maxX - minX, 0.35)
+  const spanY = Math.max(maxY - minY, 0.35)
+  const span = Math.max(spanX, spanY)
+  // Rough zoom so small islands open close and continents stay framed.
+  const maxZoom = Math.max(1.4, Math.min(5.4, Math.log2(360 / span) + 0.65))
+
+  return {
+    center: [wrapLng((minX + maxX) / 2), (minY + maxY) / 2],
+    bounds: [
+      [minX, minY],
+      [maxX, maxY],
+    ],
+    maxZoom: Number(maxZoom.toFixed(2)),
+  }
+}
+
+async function loadCountrySlugByCode() {
+  const src = await readFile(path.join(root, 'lib/countries.ts'), 'utf8')
+  const codes = [...src.matchAll(/"code":\s*"([A-Z]{2})"/g)].map((match) => match[1])
+  const slugs = [...src.matchAll(/"slug":\s*"([^"]+)"/g)].map((match) => match[1])
+  const map = new Map()
+  for (let i = 0; i < Math.min(codes.length, slugs.length); i++) {
+    map.set(codes[i], slugs[i])
+  }
+  return map
+}
+
+async function writeCountryIndex(collection, outPath) {
+  const slugByCode = await loadCountrySlugByCode()
+  const entries = []
+
+  for (const feature of collection.features) {
+    const code = feature.properties.code
+    const camera = cameraFromGeometry(feature.geometry)
+    if (!camera) continue
+    entries.push({
+      code,
+      name: feature.properties.name,
+      slug: slugByCode.get(code) ?? null,
+      center: camera.center,
+      bounds: camera.bounds,
+      maxZoom: camera.maxZoom,
+    })
+  }
+
+  entries.sort((a, b) => a.name.localeCompare(b.name, 'en'))
+  await mkdir(path.dirname(outPath), { recursive: true })
+  await writeFile(outPath, `${JSON.stringify({ countries: entries })}\n`, 'utf8')
+  return entries.length
 }
 
 function renderMercatorCanvas(source, srcWidth, srcHeight, size) {
@@ -250,6 +396,7 @@ async function copyMapLibreWorkers() {
 }
 
 async function main() {
+  const skipTiles = process.argv.includes('--skip-tiles')
   const blueMarble =
     argValue('--blue-marble') || path.join(root, 'public/images/maps/blue-marble.jpg')
   const countriesSrc =
@@ -257,6 +404,7 @@ async function main() {
     path.join('/tmp/maps-assets/ne_50m_admin_0_countries.geojson')
   const tilesDir = path.join(root, 'public/images/maps/tiles')
   const countriesPublic = path.join(root, 'public/maps/countries.geojson')
+  const indexPublic = path.join(root, 'public/maps/country-index.json')
   const attributionOut = path.join(root, 'content/maps/attribution.json')
 
   const publicBlueMarble = path.join(root, 'public/images/maps/blue-marble.jpg')
@@ -266,8 +414,26 @@ async function main() {
   }
 
   await copyMapLibreWorkers()
-  const featureCount = await writeCountries(countriesSrc, [countriesPublic])
-  const tileCount = await writeTiles(blueMarble, tilesDir)
+
+  let collection
+  try {
+    collection = await writeCountries(countriesSrc, [countriesPublic])
+  } catch {
+    collection = JSON.parse(await readFile(countriesPublic, 'utf8'))
+  }
+  const featureCount = collection.features.length
+  const indexCount = await writeCountryIndex(collection, indexPublic)
+
+  let tileCount = 0
+  if (skipTiles) {
+    try {
+      tileCount = JSON.parse(await readFile(attributionOut, 'utf8')).tiles?.count ?? 0
+    } catch {
+      tileCount = 0
+    }
+  } else {
+    tileCount = await writeTiles(blueMarble, tilesDir)
+  }
 
   await writeFile(
     attributionOut,
@@ -295,6 +461,7 @@ async function main() {
           count: tileCount,
         },
         featureCount,
+        indexCount,
       },
       null,
       2,
@@ -302,7 +469,8 @@ async function main() {
   )
 
   console.log(`countries: ${featureCount}`)
-  console.log(`tiles: ${tileCount}`)
+  console.log(`index: ${indexCount}`)
+  console.log(`tiles: ${tileCount}${skipTiles ? ' (skipped)' : ''}`)
   console.log('done')
 }
 
