@@ -20,7 +20,14 @@ function missingPublicContent(pathname: string) {
     : false
 }
 
-/** Public-content proxy: rewrite unknown blog/newsletter slugs to 404. */
+/**
+ * Public-content proxy: rewrite unknown blog/newsletter slugs to 404 before
+ * Cache Components streams a loading shell.
+ *
+ * `export const dynamicParams = false` would be the usual closed-set 404, but
+ * Next rejects that segment config when `cacheComponents` is enabled — so this
+ * edge rewrite stays required for an immediate 404 status.
+ */
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
