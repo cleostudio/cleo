@@ -409,6 +409,12 @@ function MapsExplorerInner({
             <Link href={`/explore/${selected.slug}`} className="maps-selection-link">
               Open field guide
             </Link>
+            <Link href="/gallery" className="maps-selection-dismiss">
+              Gallery
+            </Link>
+            <Link href="/cleo" className="maps-selection-dismiss">
+              Ask Cleo
+            </Link>
             <button
               type="button"
               className="maps-selection-dismiss"

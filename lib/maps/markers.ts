@@ -13,7 +13,11 @@ export type MapsCoords = {
   lon: number
 }
 
-/** One marker per Explore country, placed at the country's geographic lat/lng. */
+/**
+ * One marker per Explore country. Coordinates are Natural Earth admin-0
+ * mainland centroids (largest polygon), with Factbook fallbacks for a few
+ * microstates absent from the simplified boundary set.
+ */
 export function mapsMarkers(): MapsMarker[] {
   return countries.flatMap((country) => {
     const pair = coordinates[country.code as keyof typeof coordinates]
