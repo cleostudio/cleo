@@ -12,7 +12,7 @@ export interface GalleryItem {
   title: string
   /** Country or space-subject name under the title. */
   subtitle: string
-  /** Region (places) or category (space) used by the filter chips. */
+  /** Region (places) or category (space). */
   filterKey: string
   searchText: string
   photo: StaticPhoto

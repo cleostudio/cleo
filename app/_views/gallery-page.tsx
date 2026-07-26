@@ -1,6 +1,6 @@
 import { PlaceGallery } from '~/components/place-gallery'
 import { PixelCluster } from '~/components/pixel-cluster'
-import { allGalleryItems, galleryFilterKeys } from '~/lib/gallery'
+import { allGalleryItems } from '~/lib/gallery'
 import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
@@ -21,7 +21,6 @@ export function galleryPageMetadata() {
  */
 export function GalleryPageView() {
   const entries = allGalleryItems()
-  const filterKeys = galleryFilterKeys()
 
   return (
     <div className="mx-auto w-full max-w-content px-6">
@@ -35,7 +34,7 @@ export function GalleryPageView() {
       </div>
 
       <div className="mt-4">
-        <PlaceGallery entries={entries} filterKeys={filterKeys} />
+        <PlaceGallery entries={entries} />
       </div>
     </div>
   )
