@@ -9,8 +9,8 @@ English-only general-knowledge portal with:
 - Homepage: country search, highlighted places, topic discovery (no personal
   contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
-  country field guides, interactive 3D Earth at `/world`, Space field guides,
-  Topics catalog (countries and space first; more topics later)
+  country field guides, interactive 3D Earth at `/maps`, Space field guides,
+  Topics catalog (countries, maps, and space first; more topics later)
 - Gallery: filterable photographs from Explore places and Space guides
   (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
@@ -23,8 +23,8 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4, Base UI
 - Posts: `content/blog/<slug>/` via owned content route
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
-- World globe: `components/world/*`, `lib/world/*`, `/world` (three.js Earth
-  with local NASA / three.js planet textures under `public/images/world/`;
+- Maps globe: `components/maps/*`, `lib/maps/*`, `/maps` (three.js Earth
+  with local NASA / three.js planet textures under `public/images/maps/`;
   search + `?c=` deep-links fly to Explore countries)
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)

@@ -127,8 +127,8 @@ export const presetDeviations = [
   },
   {
     reason:
-      '/world is an orbital black stage for the 3D Earth; it uses local --world-* tokens instead of the paper ramp.',
-    token: '--world-space',
+      '/maps is an orbital black stage for the 3D Earth; it uses local --maps-* tokens instead of the paper ramp.',
+    token: '--maps-space',
     upstream: 'warm paper gray ramp on every public surface',
   },
 ] as const

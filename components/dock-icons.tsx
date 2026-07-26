@@ -143,8 +143,8 @@ export function ExploreIcon() {
   )
 }
 
-/** Interactive Earth globe on /world — continents as a filled landmass mark. */
-export function WorldIcon() {
+/** Interactive Earth globe on /maps — continents as a filled landmass mark. */
+export function MapsIcon() {
   return (
     <Base>
       <circle

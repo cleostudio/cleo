@@ -29,21 +29,25 @@ import {
 } from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
-import { framingPosition, stepCameraToward } from '~/lib/world/camera'
+import { framingPosition, stepCameraToward } from '~/lib/maps/camera'
 import {
   latLonToVector3,
-  worldMarkers,
-  type WorldMarker,
-} from '~/lib/world/markers'
-import { WORLD_TEXTURE_CREDIT, WORLD_TEXTURES } from '~/lib/world/textures'
+  mapsMarkers,
+  type MapsMarker,
+} from '~/lib/maps/markers'
+import { MAPS_TEXTURE_CREDIT, MAPS_TEXTURES } from '~/lib/maps/textures'
 
 const EARTH_RADIUS = 1
-const CLOUD_RADIUS = 1.01
-const ATMOSPHERE_RADIUS = 1.045
-const MARKER_RADIUS = 1.018
+const CLOUD_RADIUS = 1.012
+const ATMOSPHERE_RADIUS = 1.048
+const MARKER_RADIUS = 1.02
 const FLY_DISTANCE = 1.95
 const FLY_MS = 900
+/** Obliquity of the ecliptic — Earth's axial tilt toward the ecliptic pole. */
+const AXIAL_TILT_RAD = (23.44 * Math.PI) / 180
 const SUN_DIRECTION = new Vector3(1.2, 0.35, 0.55).normalize()
+const SPHERE_WIDTH_SEGMENTS = 128
+const SPHERE_HEIGHT_SEGMENTS = 96
 
 const atmosphereVertex = /* glsl */ `
   varying vec3 vNormal;
@@ -62,14 +66,14 @@ const atmosphereFragment = /* glsl */ `
 `
 
 type HoverState = {
-  marker: WorldMarker
+  marker: MapsMarker
   x: number
   y: number
 }
 
 type GlobeApi = {
-  flyTo: (marker: WorldMarker) => void
-  setHighlight: (marker: WorldMarker | null) => void
+  flyTo: (marker: MapsMarker) => void
+  setHighlight: (marker: MapsMarker | null) => void
 }
 
 function prefersReducedMotion() {
@@ -102,7 +106,7 @@ function createStarfield(count = 1800) {
   return new Points(geometry, material)
 }
 
-function createMarkerPoints(markers: WorldMarker[]) {
+function createMarkerPoints(markers: MapsMarker[]) {
   const positions = new Float32Array(markers.length * 3)
   for (let i = 0; i < markers.length; i += 1) {
     const [x, y, z] = latLonToVector3(markers[i].lat, markers[i].lon, MARKER_RADIUS)
@@ -130,12 +134,12 @@ export function EarthGlobe({
   onSelect,
 }: {
   focusSlug?: string | null
-  onSelect?: (marker: WorldMarker | null) => void
+  onSelect?: (marker: MapsMarker | null) => void
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const apiRef = useRef<GlobeApi | null>(null)
   const onSelectRef = useRef(onSelect)
-  const markers = useRef(worldMarkers()).current
+  const markers = useRef(mapsMarkers()).current
   const markersBySlug = useRef(
     new Map(markers.map((marker) => [marker.slug, marker])),
   ).current
@@ -186,7 +190,7 @@ export function EarthGlobe({
     renderer.setSize(host.clientWidth, host.clientHeight)
     renderer.outputColorSpace = SRGBColorSpace
     host.appendChild(renderer.domElement)
-    renderer.domElement.className = 'world-canvas'
+    renderer.domElement.className = 'maps-canvas'
     renderer.domElement.setAttribute('aria-label', 'Interactive 3D Earth')
     renderer.domElement.setAttribute('role', 'img')
 
@@ -212,8 +216,16 @@ export function EarthGlobe({
     root = new Group()
     scene.add(root)
 
-    const sphere = new SphereGeometry(EARTH_RADIUS, 96, 96)
+    const sphere = new SphereGeometry(
+      EARTH_RADIUS,
+      SPHERE_WIDTH_SEGMENTS,
+      SPHERE_HEIGHT_SEGMENTS,
+    )
     disposables.push(sphere)
+
+    // Geographic poles stay on ±Y; axial tilt leans the spinning Earth in Z.
+    root.rotation.order = 'ZXY'
+    root.rotation.z = AXIAL_TILT_RAD
 
     const loader = new TextureLoader()
     const loadTexture = (url: string) =>
@@ -254,7 +266,7 @@ export function EarthGlobe({
       }, resumeMs)
     }
 
-    const setHighlight = (marker: WorldMarker | null) => {
+    const setHighlight = (marker: MapsMarker | null) => {
       if (!highlight || !root) return
       if (!marker) {
         highlight.visible = false
@@ -265,7 +277,7 @@ export function EarthGlobe({
       highlight.visible = true
     }
 
-    const flyTo = (marker: WorldMarker) => {
+    const flyTo = (marker: MapsMarker) => {
       if (!camera || !controls || !root) return
       setHighlight(marker)
       root.updateMatrixWorld(true)
@@ -345,11 +357,11 @@ export function EarthGlobe({
       try {
         const [dayMap, nightMap, cloudMap, normalMap, specularMap] =
           await Promise.all([
-            loadTexture(WORLD_TEXTURES.day),
-            loadTexture(WORLD_TEXTURES.night),
-            loadTexture(WORLD_TEXTURES.clouds),
-            loadTexture(WORLD_TEXTURES.normal),
-            loadTexture(WORLD_TEXTURES.specular),
+            loadTexture(MAPS_TEXTURES.day),
+            loadTexture(MAPS_TEXTURES.night),
+            loadTexture(MAPS_TEXTURES.clouds),
+            loadTexture(MAPS_TEXTURES.normal),
+            loadTexture(MAPS_TEXTURES.specular),
           ])
 
         if (disposed || !root) {
@@ -422,7 +434,14 @@ export function EarthGlobe({
           depthWrite: false,
           specular: new Color(0x000000),
         })
-        clouds = new Mesh(new SphereGeometry(CLOUD_RADIUS, 96, 96), cloudMaterial)
+        clouds = new Mesh(
+          new SphereGeometry(
+            CLOUD_RADIUS,
+            SPHERE_WIDTH_SEGMENTS,
+            SPHERE_HEIGHT_SEGMENTS,
+          ),
+          cloudMaterial,
+        )
         root.add(clouds)
         disposables.push(clouds.geometry, cloudMaterial)
 
@@ -435,7 +454,7 @@ export function EarthGlobe({
           depthWrite: false,
         })
         const atmosphere = new Mesh(
-          new SphereGeometry(ATMOSPHERE_RADIUS, 64, 64),
+          new SphereGeometry(ATMOSPHERE_RADIUS, 80, 80),
           atmosphereMaterial,
         )
         root.add(atmosphere)
@@ -523,17 +542,17 @@ export function EarthGlobe({
   }, [focusSlug, ready, markersBySlug])
 
   return (
-    <div className="world-stage">
-      <div ref={hostRef} className="world-canvas-host" />
+    <div className="maps-stage">
+      <div ref={hostRef} className="maps-canvas-host" />
 
       {!ready && !failed ? (
-        <p className="world-status" role="status">
+        <p className="maps-status" role="status">
           Loading Earth…
         </p>
       ) : null}
 
       {failed ? (
-        <div className="world-fallback" role="alert">
+        <div className="maps-fallback" role="alert">
           <p>WebGL could not start on this device.</p>
           <p>
             Browse countries in{' '}
@@ -547,16 +566,16 @@ export function EarthGlobe({
 
       {hover ? (
         <div
-          className="world-tooltip"
+          className="maps-tooltip"
           style={{ left: hover.x, top: hover.y }}
           role="tooltip"
         >
-          <span className="world-tooltip-name">{hover.marker.name}</span>
-          <span className="world-tooltip-meta">{hover.marker.region}</span>
+          <span className="maps-tooltip-name">{hover.marker.name}</span>
+          <span className="maps-tooltip-meta">{hover.marker.region}</span>
         </div>
       ) : null}
 
-      <p className="world-credit">{WORLD_TEXTURE_CREDIT}</p>
+      <p className="maps-credit">{MAPS_TEXTURE_CREDIT}</p>
     </div>
   )
 }

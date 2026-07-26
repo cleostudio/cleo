@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import { easeOutCubic, framingPosition } from './camera'
 
-describe('world camera helpers', () => {
+describe('maps camera helpers', () => {
   it('eases out from zero to one', () => {
     expect(easeOutCubic(0)).toBe(0)
     expect(easeOutCubic(1)).toBe(1)

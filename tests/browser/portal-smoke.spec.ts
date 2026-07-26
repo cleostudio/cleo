@@ -39,12 +39,12 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page.getByText(/Europa/i).first()).toBeVisible()
   })
 
-  test('World page mounts the interactive Earth stage', async ({ page }) => {
+  test('Maps page mounts the interactive Earth stage', async ({ page }) => {
     await prepareBrowserPage(page)
     const browserErrors = watchBrowserErrors(page)
 
-    await expectHealthyPublicDocument(page, '/world')
-    await expect(page.getByRole('heading', { name: 'World' })).toBeVisible()
+    await expectHealthyPublicDocument(page, '/maps')
+    await expect(page.getByRole('heading', { name: 'Maps' })).toBeVisible()
     await expect(
       page.getByText(/Drag to orbit · Scroll to zoom/i),
     ).toBeVisible()

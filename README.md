@@ -5,7 +5,7 @@ dock at `/cleo`.
 
 The public site includes a homepage for country search, highlighted places, and
 topic discovery; Explore country field guides; an interactive 3D Earth at
-`/world`; Space field guides at `/space`; a place Gallery at `/gallery`; a
+`/maps`; Space field guides at `/space`; a place Gallery at `/gallery`; a
 Topics catalog; Writing (for a future encyclopedia layer); and a browser-only
 agent with streamed Markdown, vision, image generation, and live reasoning /
 web-search activity.
@@ -25,7 +25,7 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - **OpenAI** is the only third-party API (`OPENAI_API_KEY` → `POST /api/responses`)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides)
-- Bottom dock: Writing, Gallery, Explore, World, Topics, Cleo
+- Bottom dock: Writing, Gallery, Explore, Maps, Topics, Cleo
 
 Site design notes live under `docs/`. Cleo-specific agent notes live in
 [`AGENTS.md`](./AGENTS.md).

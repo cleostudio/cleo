@@ -65,13 +65,13 @@ const publicPages = [
     'Explore · Cleo',
   ),
   englishPage(
-    '/world',
+    '/maps',
     {
-      title: 'World',
+      title: 'Maps',
       description:
         'An interactive 3D Earth — orbit, zoom, search, and open country field guides from the globe.',
     },
-    'World · Cleo. An interactive 3D Earth — orbit, zoom, search, and open country field guides from the globe.',
+    'Maps · Cleo. An interactive 3D Earth — orbit, zoom, search, and open country field guides from the globe.',
   ),
   englishPage(
     '/space',

@@ -13,14 +13,15 @@ manual fixes in `atlas-photo-overrides.json`) and imported locally with
 `public/images/atlas/{slug}/`. Keep on-page photographer credit, license, and
 source link (typically CC BY / CC BY-SA / public domain).
 
-## World globe textures
+## Maps globe textures
 
-Equirectangular plates for the interactive Earth at `/world`, served from
-`public/images/world/` (day, night lights, clouds, normal, specular). Sourced
-from the three.js planet example textures, which redistribute NASA Blue Marble
-/ city-lights style imagery (public-domain U.S. government work). Country
-marker positions live in `content/world-coordinates.json` (geographic lat/lng
-per ISO code). Keep the short on-page credit in `lib/world/textures.ts`.
+Equirectangular plates for the interactive Earth at `/maps`, served from
+`public/images/maps/` (day, night lights, clouds, normal, specular). Day map:
+NASA Blue Marble: Next Generation (December 2004, topography + bathymetry,
+5400×2700). Night lights, clouds, normal, and specular plates follow the
+three.js planet examples (NASA / NOAA public-domain U.S. government work).
+Country marker positions live in `content/maps-coordinates.json` (geographic
+lat/lng per ISO code). Keep the short on-page credit in `lib/maps/textures.ts`.
 
 ## Space photographs
 

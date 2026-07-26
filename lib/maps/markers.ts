@@ -1,7 +1,7 @@
-import coordinates from '~/content/world-coordinates.json'
+import coordinates from '~/content/maps-coordinates.json'
 import { countries, type Country } from '~/lib/countries'
 
-export type WorldMarker = Country & {
+export type MapsMarker = Country & {
   /** Degrees north. */
   lat: number
   /** Degrees east. */
@@ -9,7 +9,7 @@ export type WorldMarker = Country & {
 }
 
 /** One marker per Explore country, placed at the country's geographic lat/lng. */
-export function worldMarkers(): WorldMarker[] {
+export function mapsMarkers(): MapsMarker[] {
   return countries.flatMap((country) => {
     const pair = coordinates[country.code as keyof typeof coordinates]
     if (!pair) return []

@@ -5,7 +5,7 @@ import { Suspense } from 'react'
 
 import { AmbientBackground } from '~/components/ambient-background'
 import { CleoRouteAttribute } from '~/components/cleo-route-attribute'
-import { WorldRouteAttribute } from '~/components/world-route-attribute'
+import { MapsRouteAttribute } from '~/components/maps-route-attribute'
 import { Dock, DockFallback } from '~/components/dock'
 import { PreviewCardTimingProvider } from '~/components/preview-card-timing'
 import {
@@ -55,7 +55,7 @@ export async function SiteDocument({
           <PreviewCardTimingProvider>
             <RouteMotionController />
             <CleoRouteAttribute />
-            <WorldRouteAttribute />
+            <MapsRouteAttribute />
             <AmbientBackground />
             <SiteChrome
               footer={

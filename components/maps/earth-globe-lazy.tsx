@@ -2,11 +2,11 @@
 
 import dynamic from 'next/dynamic'
 
-import type { WorldMarker } from '~/lib/world/markers'
+import type { MapsMarker } from '~/lib/maps/markers'
 
 type EarthGlobeProps = {
   focusSlug?: string | null
-  onSelect?: (marker: WorldMarker | null) => void
+  onSelect?: (marker: MapsMarker | null) => void
 }
 
 /** WebGL globe — client-only so SSR never touches the renderer. */
@@ -15,8 +15,8 @@ export const EarthGlobeLazy = dynamic<EarthGlobeProps>(
   {
     ssr: false,
     loading: () => (
-      <div className="world-stage">
-        <p className="world-status" role="status">
+      <div className="maps-stage">
+        <p className="maps-status" role="status">
           Loading Earth…
         </p>
       </div>

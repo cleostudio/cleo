@@ -1,62 +1,62 @@
-/* Full-bleed interactive Earth at /world — dark space stage above the dock.
+/* Full-bleed interactive Earth at /maps — dark space stage above the dock.
    Local tokens are intentional: the surface is orbital black, not paper. */
 
-html[data-world-route] {
-  --world-space: #03060d;
-  --world-space-mid: #0b1630;
-  --world-hud: #f4f1ea;
-  --world-hud-ink: #0a1020;
-  --world-atmosphere: #5970ff;
+html[data-maps-route] {
+  --maps-space: #03060d;
+  --maps-space-mid: #0b1630;
+  --maps-hud: #f4f1ea;
+  --maps-hud-ink: #0a1020;
+  --maps-atmosphere: #5970ff;
 }
 
-html[data-world-route] .site-chrome {
+html[data-maps-route] .site-chrome {
   padding-bottom: 0;
 }
 
-html[data-world-route] .site-chrome-main {
+html[data-maps-route] .site-chrome-main {
   padding-top: 0;
 }
 
-html[data-world-route] .column-rulers,
-html[data-world-route] .viewport-edge-fade {
+html[data-maps-route] .column-rulers,
+html[data-maps-route] .viewport-edge-fade {
   display: none;
 }
 
-html[data-world-route],
-html[data-world-route] body {
+html[data-maps-route],
+html[data-maps-route] body {
   overflow: hidden;
-  background: var(--world-space);
+  background: var(--maps-space);
 }
 
-html[data-world-route] .site-chrome {
+html[data-maps-route] .site-chrome {
   height: 100svh;
   min-height: 0;
   overflow: hidden;
-  background: var(--world-space);
+  background: var(--maps-space);
 }
 
-html[data-world-route] .site-chrome-main {
+html[data-maps-route] .site-chrome-main {
   display: flex;
   min-height: 0;
   flex: 1;
   flex-direction: column;
 }
 
-html[data-world-route] .paper-grain {
+html[data-maps-route] .paper-grain {
   opacity: 0.18;
   mix-blend-mode: soft-light;
 }
 
-.world-page {
+.maps-page {
   position: relative;
   display: flex;
   min-height: 100svh;
   flex: 1;
   flex-direction: column;
-  color: var(--world-hud);
+  color: var(--maps-hud);
 }
 
-.world-header {
+.maps-header {
   pointer-events: none;
   position: absolute;
   z-index: 2;
@@ -66,53 +66,53 @@ html[data-world-route] .paper-grain {
   max-width: 22rem;
 }
 
-.world-header .world-search {
+.maps-header .maps-search {
   pointer-events: auto;
   margin-top: 0.9rem;
 }
 
-.world-search-label {
+.maps-search-label {
   display: block;
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--world-hud) 48%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 48%, transparent);
 }
 
-.world-search-input {
+.maps-search-input {
   margin-top: 0.35rem;
   width: 100%;
-  border: 1px solid color-mix(in oklab, var(--world-hud) 18%, transparent);
+  border: 1px solid color-mix(in oklab, var(--maps-hud) 18%, transparent);
   border-radius: 2px;
-  background: color-mix(in oklab, var(--world-hud-ink) 55%, transparent);
+  background: color-mix(in oklab, var(--maps-hud-ink) 55%, transparent);
   padding: 0.55rem 0.7rem;
   font-size: 0.9rem;
-  color: var(--world-hud);
+  color: var(--maps-hud);
   outline: none;
   backdrop-filter: blur(10px) saturate(1.2);
   -webkit-backdrop-filter: blur(10px) saturate(1.2);
 }
 
-.world-search-input::placeholder {
-  color: color-mix(in oklab, var(--world-hud) 40%, transparent);
+.maps-search-input::placeholder {
+  color: color-mix(in oklab, var(--maps-hud) 40%, transparent);
 }
 
-.world-search-input:focus-visible {
-  border-color: color-mix(in oklab, var(--world-hud) 45%, transparent);
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--world-hud) 28%, transparent);
+.maps-search-input:focus-visible {
+  border-color: color-mix(in oklab, var(--maps-hud) 45%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--maps-hud) 28%, transparent);
 }
 
-.world-search-list {
+.maps-search-list {
   margin-top: 0.35rem;
   overflow: hidden;
-  border: 1px solid color-mix(in oklab, var(--world-hud) 16%, transparent);
+  border: 1px solid color-mix(in oklab, var(--maps-hud) 16%, transparent);
   border-radius: var(--radius);
-  background: color-mix(in oklab, var(--world-hud-ink) 82%, transparent);
+  background: color-mix(in oklab, var(--maps-hud-ink) 82%, transparent);
   backdrop-filter: blur(12px) saturate(1.25);
   -webkit-backdrop-filter: blur(12px) saturate(1.25);
 }
 
-.world-search-option {
+.maps-search-option {
   display: flex;
   width: 100%;
   cursor: pointer;
@@ -120,66 +120,66 @@ html[data-world-route] .paper-grain {
   justify-content: space-between;
   gap: 0.75rem;
   border: 0;
-  border-top: 1px solid color-mix(in oklab, var(--world-hud) 10%, transparent);
+  border-top: 1px solid color-mix(in oklab, var(--maps-hud) 10%, transparent);
   background: transparent;
   padding: 0.55rem 0.7rem;
   text-align: left;
-  color: var(--world-hud);
+  color: var(--maps-hud);
 }
 
-.world-search-list li:first-child .world-search-option {
+.maps-search-list li:first-child .maps-search-option {
   border-top: 0;
 }
 
-.world-search-option:hover,
-.world-search-option:focus-visible {
-  background: color-mix(in oklab, var(--world-hud) 8%, transparent);
+.maps-search-option:hover,
+.maps-search-option:focus-visible {
+  background: color-mix(in oklab, var(--maps-hud) 8%, transparent);
   outline: none;
 }
 
-.world-search-option-name {
+.maps-search-option-name {
   font-size: 0.85rem;
   font-weight: 500;
 }
 
-.world-search-option-meta {
+.maps-search-option-meta {
   flex-shrink: 0;
   font-size: 0.7rem;
   font-variant-numeric: tabular-nums;
-  color: color-mix(in oklab, var(--world-hud) 55%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 55%, transparent);
 }
 
-.world-search-empty {
+.maps-search-empty {
   margin-top: 0.4rem;
   font-size: 0.8rem;
-  color: color-mix(in oklab, var(--world-hud) 55%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 55%, transparent);
 }
 
-.world-header .page-eyebrow {
-  color: color-mix(in oklab, var(--world-hud) 72%, transparent);
+.maps-header .page-eyebrow {
+  color: color-mix(in oklab, var(--maps-hud) 72%, transparent);
 }
 
-.world-header .page-eyebrow::before {
-  background: color-mix(in oklab, var(--world-hud) 55%, transparent);
+.maps-header .page-eyebrow::before {
+  background: color-mix(in oklab, var(--maps-hud) 55%, transparent);
 }
 
-.world-lead {
+.maps-lead {
   margin-top: 0.75rem;
   max-width: 22rem;
   text-wrap: balance;
   font-size: 0.95rem;
   line-height: 1.45;
-  color: color-mix(in oklab, var(--world-hud) 82%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 82%, transparent);
 }
 
-.world-hint {
+.maps-hint {
   margin-top: 0.55rem;
   font-size: 0.75rem;
   letter-spacing: 0.02em;
-  color: color-mix(in oklab, var(--world-hud) 48%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 48%, transparent);
 }
 
-.world-stage {
+.maps-stage {
   position: relative;
   flex: 1;
   min-height: 100svh;
@@ -187,14 +187,14 @@ html[data-world-route] .paper-grain {
   background:
     radial-gradient(
       ellipse 70% 55% at 50% 45%,
-      var(--world-space-mid) 0%,
-      var(--world-space) 68%,
+      var(--maps-space-mid) 0%,
+      var(--maps-space) 68%,
       #02040a 100%
     );
 }
 
-.world-canvas-host,
-.world-canvas {
+.maps-canvas-host,
+.maps-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -204,8 +204,8 @@ html[data-world-route] .paper-grain {
   cursor: grab;
 }
 
-.world-status,
-.world-fallback {
+.maps-status,
+.maps-fallback {
   position: absolute;
   z-index: 2;
   inset: 0;
@@ -214,14 +214,14 @@ html[data-world-route] .paper-grain {
   gap: 0.35rem;
   padding: 1.5rem;
   text-align: center;
-  color: color-mix(in oklab, var(--world-hud) 70%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 70%, transparent);
 }
 
-.world-fallback a {
-  color: var(--world-hud);
+.maps-fallback a {
+  color: var(--maps-hud);
 }
 
-.world-tooltip {
+.maps-tooltip {
   pointer-events: none;
   position: absolute;
   z-index: 3;
@@ -230,27 +230,27 @@ html[data-world-route] .paper-grain {
   transform: translate(12px, -120%);
   flex-direction: column;
   gap: 0.1rem;
-  border: 1px solid color-mix(in oklab, var(--world-hud) 18%, transparent);
+  border: 1px solid color-mix(in oklab, var(--maps-hud) 18%, transparent);
   border-radius: var(--radius);
-  background: color-mix(in oklab, var(--world-hud-ink) 78%, transparent);
+  background: color-mix(in oklab, var(--maps-hud-ink) 78%, transparent);
   padding: 0.45rem 0.65rem;
   box-shadow: 0 10px 30px color-mix(in oklab, #000 45%, transparent);
   backdrop-filter: blur(10px) saturate(1.2);
   -webkit-backdrop-filter: blur(10px) saturate(1.2);
 }
 
-.world-tooltip-name {
+.maps-tooltip-name {
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--world-hud);
+  color: var(--maps-hud);
 }
 
-.world-tooltip-meta {
+.maps-tooltip-meta {
   font-size: 0.7rem;
-  color: color-mix(in oklab, var(--world-hud) 55%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 55%, transparent);
 }
 
-.world-selection {
+.maps-selection {
   position: absolute;
   z-index: 3;
   top: auto;
@@ -261,18 +261,18 @@ html[data-world-route] .paper-grain {
   max-width: 22rem;
   flex-direction: column;
   gap: 0.85rem;
-  border: 1px solid color-mix(in oklab, var(--world-hud) 16%, transparent);
+  border: 1px solid color-mix(in oklab, var(--maps-hud) 16%, transparent);
   border-radius: var(--radius);
-  background: color-mix(in oklab, var(--world-hud-ink) 82%, transparent);
+  background: color-mix(in oklab, var(--maps-hud-ink) 82%, transparent);
   padding: 1rem 1.1rem;
   box-shadow: 0 18px 50px color-mix(in oklab, #000 50%, transparent);
   backdrop-filter: blur(14px) saturate(1.25);
   -webkit-backdrop-filter: blur(14px) saturate(1.25);
-  animation: world-selection-in 280ms var(--ease-spring) both;
+  animation: maps-selection-in 280ms var(--ease-spring) both;
 }
 
 @media (min-width: 640px) {
-  .world-selection {
+  .maps-selection {
     top: 1.35rem;
     right: 1.5rem;
     bottom: auto;
@@ -282,7 +282,7 @@ html[data-world-route] .paper-grain {
 }
 
 @media (max-height: 640px) {
-  .world-selection {
+  .maps-selection {
     top: 1rem;
     right: 1rem;
     bottom: auto;
@@ -291,7 +291,7 @@ html[data-world-route] .paper-grain {
   }
 }
 
-@keyframes world-selection-in {
+@keyframes maps-selection-in {
   from {
     opacity: 0;
     transform: translateY(8px);
@@ -302,87 +302,87 @@ html[data-world-route] .paper-grain {
   }
 }
 
-.world-selection-photo {
+.maps-selection-photo {
   overflow: hidden;
   margin: -1rem -1.1rem 0.15rem;
-  border-bottom: 1px solid color-mix(in oklab, var(--world-hud) 12%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--maps-hud) 12%, transparent);
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-.world-selection-image {
+.maps-selection-image {
   display: block;
   width: 100%;
   height: 7.5rem;
   object-fit: cover;
 }
 
-.world-selection-place {
+.maps-selection-place {
   padding: 0.4rem 1.1rem 0.55rem;
   font-size: 0.7rem;
-  color: color-mix(in oklab, var(--world-hud) 58%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 58%, transparent);
 }
 
-.world-selection-code {
+.maps-selection-code {
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--world-hud) 50%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 50%, transparent);
 }
 
-.world-selection-name {
+.maps-selection-name {
   margin-top: 0.15rem;
   font-size: 1.2rem;
   font-weight: 550;
   letter-spacing: -0.02em;
-  color: var(--world-hud);
+  color: var(--maps-hud);
 }
 
-.world-selection-meta {
+.maps-selection-meta {
   margin-top: 0.2rem;
   font-size: 0.8rem;
-  color: color-mix(in oklab, var(--world-hud) 58%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 58%, transparent);
 }
 
-.world-selection-actions {
+.maps-selection-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.65rem;
 }
 
-.world-selection-link {
+.maps-selection-link {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  background: var(--world-hud);
+  background: var(--maps-hud);
   padding: 0.45rem 0.9rem;
   font-size: 0.8rem;
   font-weight: 550;
-  color: var(--world-hud-ink);
+  color: var(--maps-hud-ink);
   transition:
     transform 180ms var(--ease-swift),
     background-color 180ms var(--ease-swift);
 }
 
-.world-selection-link:hover {
+.maps-selection-link:hover {
   background: #ffffff;
   transform: translateY(-1px);
 }
 
-.world-selection-dismiss {
+.maps-selection-dismiss {
   border: 0;
   background: transparent;
   padding: 0.35rem 0.4rem;
   font-size: 0.8rem;
-  color: color-mix(in oklab, var(--world-hud) 62%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 62%, transparent);
   cursor: pointer;
 }
 
-.world-selection-dismiss:hover {
-  color: var(--world-hud);
+.maps-selection-dismiss:hover {
+  color: var(--maps-hud);
 }
 
-.world-credit {
+.maps-credit {
   pointer-events: none;
   position: absolute;
   z-index: 2;
@@ -392,17 +392,17 @@ html[data-world-route] .paper-grain {
   font-size: 0.65rem;
   line-height: 1.35;
   letter-spacing: 0.01em;
-  color: color-mix(in oklab, var(--world-hud) 34%, transparent);
+  color: color-mix(in oklab, var(--maps-hud) 34%, transparent);
 }
 
 @media (min-width: 640px) {
-  .world-credit {
+  .maps-credit {
     bottom: calc(1.35rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .world-selection {
+  .maps-selection {
     animation: none;
   }
 }

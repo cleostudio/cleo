@@ -27,8 +27,8 @@ export const publicPageMetadata = {
     title: 'Explore',
     description: '',
   },
-  world: {
-    title: 'World',
+  maps: {
+    title: 'Maps',
     description:
       'An interactive 3D Earth — orbit, zoom, search, and open country field guides from the globe.',
   },

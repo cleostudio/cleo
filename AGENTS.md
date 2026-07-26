@@ -3,7 +3,7 @@
 This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
 portal starting with countries and space. The homepage is a neutral portal
 (country search, highlighted places, topic discovery). Explore field guides live
-at `/explore/[slug]`, an interactive 3D Earth at `/world`, Space guides at
+at `/explore/[slug]`, an interactive 3D Earth at `/maps`, Space guides at
 `/space/[slug]`, the place Gallery at `/gallery`, Topics at `/topics`, Writing
 at `/blog` (future encyclopedia-like layer), and the AI agent at `/cleo`.
 `/photos` permanently redirects to `/gallery`; `/projects` permanently
@@ -32,7 +32,7 @@ planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 `pnpm import:space-photos` into `public/images/space/{slug}/` and
 `content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
 at `/gallery` shows both Explore place photos and Space body photos.
-The Topics catalog in `lib/topics.ts` lists Countries and Space.
+The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

@@ -2,11 +2,11 @@ import { describe, expect, it } from 'vitest'
 
 import { countries } from '~/lib/countries'
 
-import { latLonToVector3, worldMarkers } from './markers'
+import { latLonToVector3, mapsMarkers } from './markers'
 
-describe('worldMarkers', () => {
+describe('mapsMarkers', () => {
   it('covers every Explore country with finite coordinates', () => {
-    const markers = worldMarkers()
+    const markers = mapsMarkers()
     expect(markers).toHaveLength(countries.length)
 
     for (const marker of markers) {
