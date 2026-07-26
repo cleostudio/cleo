@@ -377,7 +377,10 @@ The site no longer uses a face or portrait of the author. The bottom dock's
 Home item is a geometric `HomeIcon`. Social service cards (retained, not in
 public chrome) use a text monogram mark ("C") instead of a photo avatar. The
 homepage hero is typography-only: the name, a PixelCluster accent, and the
-introduction — no portrait column.
+introduction — no portrait column. The app / favicon mark
+(`app/icon.tsx`, `app/apple-icon.tsx`) is that same homepage PixelCluster
+(`HOME_MASTHEAD_VARIANT`), scaled onto the dark sheet — not a
+letter monogram.
 
 ## Technical print
 

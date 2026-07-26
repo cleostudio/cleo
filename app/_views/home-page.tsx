@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { HomeCountrySearch } from '~/components/home-country-search'
 import { HomeHighlightedPlaces } from '~/components/home-highlighted-places'
 import { HomeIntroduction } from '~/components/home-introduction'
-import { PixelCluster } from '~/components/pixel-cluster'
+import { HOME_MASTHEAD_VARIANT, PixelCluster } from '~/components/pixel-cluster'
 import { highlightedAtlasEntries } from '~/lib/atlas'
 import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
@@ -43,7 +43,7 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
       <div className="enter max-w-content-narrow">
         <div className="flex items-center gap-2">
           <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
-          <PixelCluster variant={2} className="shrink-0" />
+          <PixelCluster variant={HOME_MASTHEAD_VARIANT} className="shrink-0" />
         </div>
         <div className="mt-4">
           <HomeIntroduction />
