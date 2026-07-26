@@ -15,17 +15,20 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 ## Architecture
 
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
+- Application code in `src/` (`app`, `components`, `lib`, `hooks`, `types`,
+  `proxy.ts`); path alias `~/*` → `src/*`. Content, scripts, docs, and
+  `public/` stay at the repo root.
 - Base UI primitives with the `@fluid` component registry
 - MDX posts under `content/blog/`; English-only public routes
 - Country guides: `content/atlas.json` + optimized static JPEGs in
   `public/images/atlas/` (no image CDN/account at runtime)
-- Space guides: `lib/space.ts` + `content/space-photos.json` + JPEGs in
+- Space guides: `src/lib/space.ts` + `content/space-photos.json` + JPEGs in
   `public/images/space/`
 - **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
   `POST /api/responses`)
 - Vercel Web Analytics + Speed Insights in the root document (enable both in
   the Vercel project dashboard)
-- Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
+- Cleo agent: `src/components/cleo/*`, `src/lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides and embed
   curated topic photographs when a visual helps)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo

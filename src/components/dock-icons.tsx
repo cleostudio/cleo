@@ -38,11 +38,6 @@ export function WritingIcon() {
   )
 }
 
-/** @deprecated Prefer GalleryIcon — Photos was renamed to Gallery. */
-export function PhotosIcon() {
-  return <GalleryIcon />
-}
-
 export function GalleryIcon() {
   return (
     <Base>

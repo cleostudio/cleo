@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 import subsetFont from 'subset-font'
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
-const fontsDirectory = path.join(root, 'app/_fonts')
+const fontsDirectory = path.join(root, 'src/app/_fonts')
 
 async function sourceFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true })
@@ -30,9 +30,9 @@ const contentFiles = (
 
 const copyFiles = [
   ...contentFiles,
-  path.join(root, 'lib/date.ts'),
-  path.join(root, 'lib/og-image.tsx'),
-  path.join(root, 'lib/public-page-metadata.ts'),
+  path.join(root, 'src/lib/date.ts'),
+  path.join(root, 'src/lib/og-image.tsx'),
+  path.join(root, 'src/lib/public-page-metadata.ts'),
 ]
 const sourceText = (
   await Promise.all(copyFiles.map((file) => readFile(file, 'utf8')))

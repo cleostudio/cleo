@@ -79,7 +79,7 @@ Hard rules:
 
 ## Typography
 
-- Stack: Geist (Latin) → Geist Mono → system, per `app/fonts.ts`.
+- Stack: Geist (Latin) → Geist Mono → system, per `src/app/fonts.ts`.
   Weights 400/500/600 only, as `--font-weight-{normal,medium,semibold}`
   variables. Weight never changes on hover or selection — state is shown with
   color, never with weight or size.
@@ -128,7 +128,7 @@ Hard rules:
 - 1px borders are the exception: prefer `box-shadow: 0 0 0 1px` for card
   edges (blends with any background) and hairline dividers via
   `--border-hairline` (0.5px on retina, 1px otherwise).
-- The surface ladder (`--surface-1…8`, `lib/surface-classes.ts`) is
+- The surface ladder (`--surface-1…8`, `src/lib/surface-classes.ts`) is
   warm-tuned on the public site so elevated sheets sit on the same paper
   as everything else; the neutral values remain only as the
   pre-hydration fallback. Code sheets rest on `--surface-1`.
@@ -192,7 +192,7 @@ follows that section's timing instead of this ordinary entrance budget.
 ## Paper-artifact doorway vignettes
 
 Reusable doorway pattern (`.nav-card` + `.nc-vignette` in
-`components/nav-cards.tsx` / `app/globals.css`). The component is retained for
+`src/components/nav-cards.tsx` / `src/app/globals.css`). The component is retained for
 reuse; the current homepage portal does not mount it. Each doorway is a small
 stack of physical paper objects — not a flat icon in a rounded square — that
 fans open when the card is hovered (fine pointer) or `:focus-visible`
@@ -279,7 +279,7 @@ open rich hover cards. The contract:
 - **Data before interaction.** Card data is fetched through static generation
   or ISR, never on hover; an open card never shows a network spinner.
 - All content animations inside cards respect `prefers-reduced-motion`.
-- **Implemented service cards** (`components/social-cards.tsx`, chrome
+- **Implemented service cards** (`src/components/social-cards.tsx`, chrome
   social links): the X card (monogram mark, name/@handle, bio, follower and following stats) and
   the code card: a recent 26×7 contribution grid, 4px cells on 1px gaps,
   ink = foreground alpha ramp (7/30/52/74/100%), each cell cascading in
@@ -301,7 +301,7 @@ open rich hover cards. The contract:
   requested against the link's root domain, never the deep URL, so a page
   that 404s or redirects can't fail the icon — and,
   when build-time metadata exists in `content/link-previews.json`, a preview
-  card on the shared hover-card primitive (`components/external-link.tsx`).
+  card on the shared hover-card primitive (`src/components/external-link.tsx`).
   The card is fixed-width; its height adapts to the content and never changes
   after open. Image-enabled cards reserve one fixed 16:9 slot for the proxied
   Open Graph image above the favicon, domain, and title — the image speaks
@@ -311,10 +311,10 @@ open rich hover cards. The contract:
   included); a failed favicon hides in place, keeping its slot and the
   link stable.
   Favicons and Open Graph images are served through the server-side cache at
-  `/link-media` (`app/link-media/[kind]/route.ts`), allowlisted against the
+  `/link-media` (`src/app/link-media/[kind]/route.ts`), allowlisted against the
   snapshot so the proxy can't be aimed at arbitrary hosts; targets not yet in
   the snapshot fall back to `og.zolplay.com` directly.
-  Favicon tone chips (`components/favicon-tone.ts`): the same-origin icon is
+  Favicon tone chips (`src/lib/favicon-tone.ts`): the same-origin icon is
   pixel-sampled once on load, and a glyph that would vanish into the theme
   background — white-on-transparent in light mode, black-on-transparent in
   dark — is set on a small `--primary` chip (2px inset padding, border-box,
@@ -348,7 +348,7 @@ through its return flight), so the sheet stays frozen underneath. Scrolls
 that bypass those gestures (keyboard, scrollbar drag) also dismiss, and
 closing re-measures the inline spot so the return flight always lands where
 the image actually is. The inline image keeps its spot (zero layout shift);
-reduced motion swaps instantly. `components/zoom-image.tsx`.
+reduced motion swaps instantly. `src/components/zoom-image.tsx`.
 
 When the lightbox carries a caption sheet (the photo details and their
 plate), its items are physical-object motion: each springs in from
@@ -377,7 +377,7 @@ Home item is a geometric `HomeIcon`. Social service cards (retained, not in
 public chrome) use a text monogram mark ("C") instead of a photo avatar. The
 homepage hero is typography-only: the name, a PixelCluster accent, and the
 introduction — no portrait column. The app / favicon mark
-(`app/icon.tsx`, `app/apple-icon.tsx`) is that same homepage PixelCluster
+(`src/app/icon.tsx`, `src/app/apple-icon.tsx`) is that same homepage PixelCluster
 (`HOME_MASTHEAD_VARIANT`), scaled onto the dark sheet — not a
 letter monogram.
 
@@ -393,10 +393,10 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   bottom as arcs of an enormous circle (fixed 40px rise at the viewport
   edge, so R = w²/8s at any width) — a bent steel rule whose ends bow away
   and leave the screen before the corners; the apex hugs the horizontal
-  guide. Ticks are dashes on the stroked path (`components/arc-rulers.tsx`),
+  guide. Ticks are dashes on the stroked path (`src/components/arc-rulers.tsx`),
   perpendicular to the curve for free. Same missability contract as the
   guides.
-- **Print veils** (`components/dither-veil.tsx`): cover images rest as
+- **Print veils** (`src/components/dither-veil.tsx`): cover images rest as
   ink-on-paper prints, identical in both themes (paper
   `oklch(0.98 0.004 95)`, ink `oklch(0.28 0.012 95)`), developing into the
   true photo on hover/focus (300ms). Two modes: pure ordered dither (4×4
@@ -413,9 +413,9 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   just turns it around from wherever it is. Works on touch; reduced motion
   swaps instantly. No hover behavior — the print answers to touch, like
   paper. Captions on covers are
-  braille numerals (`lib/braille.ts`); readable dates stay for assistive
+  braille numerals (`src/lib/braille.ts`); readable dates stay for assistive
   tech.
-- **Braille** (`lib/braille.ts`): the print's dot medium. Post covers caption
+- **Braille** (`src/lib/braille.ts`): the print's dot medium. Post covers caption
   their date in braille numerals (`brailleDate`); the footer colophon carries
   the name in braille cells (`brailleText`, `.footer-braille`) as a printer's
   mark beneath the copyright. Always decorative and `aria-hidden` — the
@@ -451,7 +451,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   Record and book spines use static cover-derived color and contrasting ink
   values stored with the shelf data, so SSR output is stable and no color is
   sampled at interaction time.
-- **Paper record sleeves** (`components/vinyl-shelf.tsx`): larger worn-paper
+- **Paper record sleeves** (`src/components/vinyl-shelf.tsx`): larger worn-paper
   sleeves form a horizontal cover stack with one active album enlarged in
   front. Sleeves on either side turn inward in 3D; rotation increases with
   distance so nearby albums retain more cover while distant albums read
@@ -486,7 +486,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   boundaries instead of on every movement. The frame is tuned for nine albums:
   one centered selection and four progressively turned sleeves on either side.
   Sleeves without art retain the word-raster fallback.
-- **Bookshelf** (`components/bookshelf.tsx`): one book opens at a time while
+- **Bookshelf** (`src/components/bookshelf.tsx`): one book opens at a time while
   the other books remain as tightly packed spines with 1px seams. The books are
   ordered by relevance to Cleo's work as a designer, developer, and founder,
   rather than alphabetically or by color. Active covers keep their intrinsic
@@ -524,7 +524,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   delayed 140ms so the pick-up lands first. Reduced motion renders them
   statically.   Registration crosses formerly rode each column guide; those guide borders
   were removed so the content column can open wider without a boxed frame.
-- **Ghost line art** (`components/ghost-schematic.tsx`): a single
+- **Ghost line art** (`src/components/ghost-schematic.tsx`): a single
   precise-stroke schematic drawn in `--ghost-ink` (5% foreground on light,
   6.5% on dark) — currently a drafting compass mid-arc behind the project
   index (hidden below 40rem). Unlike illustration accents, ghost drawings
@@ -533,7 +533,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   noticed on the second visit; never more than one per page, and never on
   a page already carrying a raster instrument.
 - **Pixel cluster / masthead stamp** (`.pixel-cluster`,
-  `components/pixel-cluster.tsx`): three 5px dither cells on a 1px seam —
+  `src/components/pixel-cluster.tsx`): three 5px dither cells on a 1px seam —
   one lit `--signal`, two in fading foreground ink, the fourth position
   empty. It is the site's recurring masthead stamp: exactly one per page,
   pinned top-right of the content column on the title/eyebrow line, and the
@@ -560,7 +560,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   date), shared morph elements and selective-focus dimming included —
   under a hairline-top mono plate label (相关阅读 / Posts like this).
   Relatedness is lexical similarity computed at build time
-  (`lib/content.ts` `getRelatedPosts`): CJK bigrams and Latin words over
+  (`src/lib/content.ts` `getRelatedPosts`): CJK bigrams and Latin words over
   title and body, title terms weighted triple, cosine-scored with recency
   breaking ties — no tags to maintain. Below-the-fold chrome: no entrance
   animation.
@@ -614,7 +614,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   radius. The sheet's background comes from the surface ladder
   (`--surface-1`), not the highlighter theme — shiki contributes token
   colors only. Horizontal overflow goes through the fluid scroll area
-  (`components/ui/scroll-area.tsx`): edge fades tinted with the sheet's
+  (`src/components/ui/scroll-area.tsx`): edge fades tinted with the sheet's
   own surface appear only while content continues in that direction,
   updated on scroll and resize — the fade is information, not
   decoration. Fade visibility is an opacity swap (150ms ease, instant
@@ -623,7 +623,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   hatch set vertically — a bordered 6px strip of fine diagonal strokes
   down the left edge. Quoted text keeps its muted ink; the strip marks it
   as material brought in from elsewhere.
-- **Archived-post card** (`.tweet-card`, `components/mdx/tweet.tsx`): the
+- **Archived-post card** (`.tweet-card`, `src/components/mdx/tweet.tsx`): the
   static social snapshot renders as a specimen label in the nameplate
   register — a hairline frame with ruled head/body/foot rows resting on
   `--surface-1` (a fine-pointer hover lifts it one step to
@@ -640,7 +640,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   inlines it as a data URI in the static HTML (bounded to 200KB,
   image content-types only). The visitor never contacts a third party,
   and a failed fetch degrades to the initial-letter tile.
-- **Barcode** (`components/barcode.tsx`): a decorative label-graphic
+- **Barcode** (`src/components/barcode.tsx`): a decorative label-graphic
   barcode whose bar widths derive deterministically from its code string
   (stable across SSR), with the human-readable code beneath. It scans as
   ornament, not data (`aria-hidden`). One per surface on the error proof
@@ -732,7 +732,7 @@ directional timing, and no map motion changes width, height, or layout geometry.
 ## Language
 
 Public routes are **English-only**. Legacy `/en/...` URLs permanently redirect
-to the matching unprefixed paths. Helpers in `lib/i18n.tsx` (`<T zh en>`,
+to the matching unprefixed paths. Helpers in `src/lib/i18n.tsx` (`<T zh en>`,
 `<LocalDate>`) remain for retained bilingual strings and tests; the public
 chrome does not offer a language switcher. Server metadata, canonical links,
 feeds, and OG images share the English route identity. Writing posts live as
@@ -832,7 +832,7 @@ every browser. An earlier SVG-refraction "liquid glass" treatment
 reference filters in `backdrop-filter` was too fragile (unclipped fog halo,
 milky pane) and the refraction never earned its complexity; don't reintroduce
 it. The `backdrop-filter` must stay inline on the `DockGlass` span
-(`components/dock.tsx`): LightningCSS strips the raw property from
+(`src/components/dock.tsx`): LightningCSS strips the raw property from
 stylesheets.
 
 When UI sound is enabled, moving to a different dock destination uses Cuelume's
@@ -908,7 +908,7 @@ The page reads as a sheet of working paper, not a void:
 Few interactions, disproportionate care:
 
 - Buttons are pills (`border-radius: 999px` / `rounded-full`) and kept
-  vertically compact — the shared `Button` (`components/ui/button.tsx`, on
+  vertically compact — the shared `Button` (`src/components/ui/button.tsx`, on
   the Base UI primitive) and the `.btn-cta` primary call-to-action share
   that shape. `transform: scale(0.97)` on `:active`, 100ms. 44px minimum hit
   area, restored with a pseudo-element when the visible pill is shorter (as

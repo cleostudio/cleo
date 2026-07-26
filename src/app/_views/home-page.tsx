@@ -4,6 +4,7 @@ import { HomeCountrySearch } from '~/components/home-country-search'
 import { HomeHighlightedPlaces } from '~/components/home-highlighted-places'
 import { HomeIntroduction } from '~/components/home-introduction'
 import { HOME_MASTHEAD_VARIANT, PixelCluster } from '~/components/pixel-cluster'
+import { SectionTag } from '~/components/section-tag'
 import { highlightedAtlasEntries } from '~/lib/atlas'
 import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
@@ -20,16 +21,13 @@ function SectionTitle({
   delay: number
 }) {
   return (
-    <h2
-      className="section-tag enter"
+    <SectionTag
+      index={index}
+      className="enter"
       style={{ '--enter-delay': `${delay}ms` } as React.CSSProperties}
     >
-      <span className="section-tag-index" aria-hidden>
-        {index}
-      </span>
-      <span className="section-tag-hatch" aria-hidden />
-      <span className="section-tag-label">{children}</span>
-    </h2>
+      {children}
+    </SectionTag>
   )
 }
 

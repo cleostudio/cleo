@@ -4,7 +4,7 @@
  * Cleo is a fork of cali.so and inherits its visual system wholesale. This
  * module is the machine-checkable half of `docs/theme-preset.md`: it names the
  * tokens the UI is allowed to depend on and pins the values that define the
- * look. `lib/theme-preset.test.ts` holds `app/globals.css` to it, so the
+ * look. `src/lib/theme-preset.test.ts` holds `src/app/globals.css` to it, so the
  * preset stays a contract rather than a description that drifts.
  *
  * Add a token here before using it in a component. Change a pinned value only

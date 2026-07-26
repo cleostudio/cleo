@@ -15,11 +15,11 @@ Three files carry the preset:
 
 | File | Role |
 | --- | --- |
-| `lib/theme-preset.ts` | The contract. Names every token the UI may depend on and pins the values that define the look. |
-| `lib/theme-preset.test.ts` | The enforcement. Holds `app/globals.css` to the contract and fails the build when something drifts. |
+| `src/lib/theme-preset.ts` | The contract. Names every token the UI may depend on and pins the values that define the look. |
+| `src/lib/theme-preset.test.ts` | The enforcement. Holds `src/app/globals.css` to the contract and fails the build when something drifts. |
 | [`design-language.md`](./design-language.md) | The prose spec. How the tokens compose into components and choreography. |
 
-`app/globals.css` is the implementation. It is the only place raw values
+`src/app/globals.css` is the implementation. It is the only place raw values
 belong.
 
 ## Token cascade
@@ -63,12 +63,12 @@ test suite rejects one.
 **Radius.** Everything scales from `--radius`. Print-register corners are a flat
 `2px`; pills are `999px`. Nothing in between.
 
-**Elevation.** Go through `lib/surface-classes.ts`. Card edges prefer
+**Elevation.** Go through `src/lib/surface-classes.ts`. Card edges prefer
 `box-shadow: 0 0 0 1px` over a border so they stay crisp at any density.
 
 ## Pinned values
 
-`lib/theme-preset.ts` is the source; these are the ones a change would be most
+`src/lib/theme-preset.ts` is the source; these are the ones a change would be most
 visible in.
 
 ```css
@@ -93,9 +93,9 @@ Everything else should match cali.so.
 
 ## Changing the preset
 
-1. Edit the pinned value in `lib/theme-preset.ts`.
-2. Edit `app/globals.css` to match.
+1. Edit the pinned value in `src/lib/theme-preset.ts`.
+2. Edit `src/app/globals.css` to match.
 3. Run `pnpm test:unit`. The preset test fails on any token it can no longer
    find or that no longer matches.
 4. If the change departs from cali.so, add a row to the deviations table above
-   and to `presetDeviations` in `lib/theme-preset.ts`.
+   and to `presetDeviations` in `src/lib/theme-preset.ts`.

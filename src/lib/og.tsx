@@ -4,7 +4,7 @@ import { cacheLife } from 'next/cache'
 
 // Design-language tokens resolved to sRGB for satori (no oklch support).
 // Sources: --paper / --paper-ink / --foreground / --muted-foreground /
-// --border in app/globals.css.
+// --border in src/app/globals.css.
 export const ogColors = {
   paper: '#f9f8f5',
   paperInk: '#6b6961',
@@ -13,7 +13,7 @@ export const ogColors = {
   border: '#e5e5e5',
 } as const
 
-const FONTS_DIR = path.join(process.cwd(), 'app/_fonts')
+const FONTS_DIR = path.join(process.cwd(), 'src/app/_fonts')
 
 export async function ogRuntimeFonts() {
   'use cache'

@@ -27,11 +27,11 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
 
 // Load countries from the compiled-ish TS source via a tiny JSON extract:
 // parse the exported array by evaluating through a generated snapshot.
-const countriesTs = readFileSync(join(root, 'lib/countries.ts'), 'utf8')
+const countriesTs = readFileSync(join(root, 'src/lib/countries.ts'), 'utf8')
 const countriesJsonMatch = countriesTs.match(
   /export const countries: Country\[\] = (\[[\s\S]*?\n\])/m,
 )
-if (!countriesJsonMatch) throw new Error('Could not parse countries from lib/countries.ts')
+if (!countriesJsonMatch) throw new Error('Could not parse countries from src/lib/countries.ts')
 const countries = Function(`"use strict"; return (${countriesJsonMatch[1]});`)()
 
 const facts = JSON.parse(

@@ -23,11 +23,14 @@ document (enable both products in the Vercel project dashboard).
 ## Architecture
 
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4, Base UI
+- Application code under `src/` (`app`, `components`, `lib`, `hooks`, `types`,
+  `proxy.ts`); `~/*` aliases to `src/*`. Content, scripts, docs, and `public/`
+  stay at the repo root.
 - Posts: `content/blog/<slug>/` via owned content route
-- Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
-- Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
+- Explore / Gallery: `src/lib/countries.ts`, `src/lib/atlas/*`, `/explore`, `/gallery`
+- Space: `src/lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
-- Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
+- Gallery: `src/lib/gallery.ts` unifies atlas + space photos for `/gallery`
 - Place images: import-time mozjpeg 640/1280/2048 under `public/images/atlas/`
   (Wikimedia Commons curation, relevance-first + assessments; hand-picks via
   `scripts/atlas/apply-handpicks.mjs` when scoring still misses) and
@@ -40,7 +43,7 @@ document (enable both products in the Vercel project dashboard).
 - Media workflow: `pnpm generate:atlas-content` → `pnpm curate:atlas-photos` →
   `pnpm import:atlas-photos` → `pnpm validate:atlas`; Space via
   `pnpm import:space-photos` → `pnpm validate:space`
-- Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
+- Cleo: `src/components/cleo/*`, `src/lib/cleo/*`, `POST /api/responses`
   (instructions include Explore/Space catalog paths for guide deep-links;
   matching turns also ground curated topic photo paths so replies can embed
   atlas/space JPEGs as Markdown images)

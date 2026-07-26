@@ -11,7 +11,7 @@ import {
   useState,
 } from 'react'
 
-import { useWebGpuCapability } from '~/components/use-webgpu-capability'
+import { useWebGpuCapability } from '~/hooks/use-webgpu-capability'
 
 const ProjectsBlueprintField = dynamic(
   () =>

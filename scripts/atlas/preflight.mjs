@@ -15,7 +15,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
 
 // Load the same validator the app uses (TypeScript via tsx).
 const { validateAtlasManifest } = await import(
-  pathToFileURL(join(root, 'lib/atlas/validate.ts')).href
+  pathToFileURL(join(root, 'src/lib/atlas/validate.ts')).href
 )
 
 const manifest = JSON.parse(readFileSync(join(root, 'content/atlas.json'), 'utf8'))

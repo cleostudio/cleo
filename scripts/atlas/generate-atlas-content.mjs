@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
-const { countries } = await import(join(root, 'lib/countries.ts'))
+const { countries } = await import(join(root, 'src/lib/countries.ts'))
 const factsByCode = JSON.parse(
   readFileSync(join(root, 'scripts/atlas/country-facts.json'), 'utf8'),
 )

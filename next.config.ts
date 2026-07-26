@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next'
 
 import legacyUrlManifest from './content/legacy-url-manifest.json'
-import { securityHeaders } from './lib/security/headers'
+import { securityHeaders } from './src/lib/security/headers'
 
 const legacyRedirects = legacyUrlManifest.entries.flatMap((entry) =>
   entry.kind === 'redirect' && typeof entry.destination === 'string'
@@ -22,7 +22,7 @@ const legacyRewrites = legacyUrlManifest.entries.flatMap((entry) =>
 )
 
 const ogRuntimeAssets = [
-  './app/_fonts/FrexSansGB-OG-*.ttf',
+  './src/app/_fonts/FrexSansGB-OG-*.ttf',
 ]
 
 const nextConfig: NextConfig = {

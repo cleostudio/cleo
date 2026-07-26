@@ -14,7 +14,7 @@ Orientation prose is curated, not generated at build time. It lives in
 `scripts/atlas/atlas-about.json` and is written once by hand with
 `pnpm write:atlas-about` (needs `OPENAI_API_KEY`; every draft is checked for
 length, recycled phrasing, and volatile claims before it is kept). The site
-never calls a model to render a page. `lib/atlas/prose.test.ts` holds the
+never calls a model to render a page. `src/lib/atlas/prose.test.ts` holds the
 corpus to that bar — no sentence may appear in two countries.
 
 Assemble the manifest with `pnpm generate:atlas-content`, curate accurate
@@ -25,13 +25,13 @@ public assets are under `public/images/atlas/{slug}/` and are served as static
 files with browser `srcset` — no account, CDN, or `/_next/image` re-encode at
 runtime.
 
-Space field guides live in `lib/space.ts` (Solar System, Moons, Deep Space —
+Space field guides live in `src/lib/space.ts` (Solar System, Moons, Deep Space —
 planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 `/space/[slug]`. Curated NASA photographs are imported with
 `pnpm import:space-photos` into `public/images/space/{slug}/` and
 `content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
 at `/gallery` shows both Explore place photos and Space body photos.
-The Topics catalog in `lib/topics.ts` lists Countries and Space.
+The Topics catalog in `src/lib/topics.ts` lists Countries and Space.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.
@@ -41,9 +41,9 @@ Cleo agent surface.
 The theme is inherited from [cali.so](https://github.com/CaliCastle/cali.so),
 which this repo forks. Treat it as upstream for anything visual.
 
-- Contract: `lib/theme-preset.ts` names every token the UI may depend on and
- pins the values that define the look. `lib/theme-preset.test.ts` enforces it
- against `app/globals.css`.
+- Contract: `src/lib/theme-preset.ts` names every token the UI may depend on and
+ pins the values that define the look. `src/lib/theme-preset.test.ts` enforces it
+ against `src/app/globals.css`.
 - Rules and deviations: `docs/theme-preset.md`.
 - Full visual spec: `docs/design-language.md`.
 
@@ -61,31 +61,31 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 
 ## Cleo agent surface
 
-- UI: `components/cleo/ask-form.tsx` owns messages, image attachments,
+- UI: `src/components/cleo/ask-form.tsx` owns messages, image attachments,
   cancellation, and NDJSON stream consumption. The page shell is
-  `app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
+  `src/app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
   (`G` then `C`).
-- API: `app/api/responses/route.ts` validates messages (including image data
+- API: `src/app/api/responses/route.ts` validates messages (including image data
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, reasoning summaries, streaming, and `store: false`.
-- Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
-  `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
-- Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
-- Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
-  may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
+- Behavior: `src/lib/cleo/instructions.ts` (base voice + portal catalog from
+  `src/lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
+- Protocol: `src/lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
+- Images: `src/lib/cleo/images.ts` and `src/lib/cleo/client-images.ts`. Topic answers
+  may embed curated Explore/Space JPEGs via Markdown (`src/lib/cleo/topic-photos.ts`
   grounds matching subjects on each turn); Streamdown only allows
   `/images/atlas|space/...` paths.
-- Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
-  `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
+- Portal starters: `src/lib/cleo/portal-links.ts` empty-state prompts consumed by
+  `src/components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).
-- Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
+- Styles: `src/app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 
 Conversation state is browser-only and clears on reload. There is no
 authentication, database, media library, or AMA booking.
 
 Vercel Web Analytics and Speed Insights are mounted in
-`app/_components/site-document.tsx` (`@vercel/analytics/next`,
+`src/app/_components/site-document.tsx` (`@vercel/analytics/next`,
 `@vercel/speed-insights/next`). Enable both in the Vercel project dashboard
 so the first-party `/_vercel/insights/*` and `/_vercel/speed-insights/*`
 endpoints are served after deploy.
@@ -110,7 +110,7 @@ Tencent, or Upstash without an explicit product decision.
   `node_modules/next/dist/docs/` — this App Router stack has breaking changes
   vs older Next.js.
 - Keep OpenAI calls and `OPENAI_API_KEY` on the server.
-- Path alias is `~/*`. Prefer existing `cn` helpers and `components/ui/*`.
+- Application code lives under `src/` (`app`, `components`, `lib`, `hooks`, `types`, `proxy.ts`). Path alias is `~/*` → `src/*`. Prefer existing `cn` helpers and `components/ui/*`.
 - Preserve the accessible, responsive glass/paper UI. Render model output
   through Streamdown, never raw HTML.
 - Update `README.md` and this file when setup or Cleo behavior changes.

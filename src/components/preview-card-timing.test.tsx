@@ -311,7 +311,7 @@ describe('preview card timing', () => {
   })
 
   it('keeps the pointer cascade but disables it for instant popup states', () => {
-    const stylesheet = readFileSync('app/globals.css', 'utf8')
+    const stylesheet = readFileSync('src/app/globals.css', 'utf8')
 
     expect(stylesheet).toMatch(
       /\.contrib-grid i \{[\s\S]*animation: contrib-cell-in 480ms/,

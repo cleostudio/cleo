@@ -1,6 +1,6 @@
 'use client'
 
-import { classifyFaviconTone } from '~/components/favicon-tone'
+import { classifyFaviconTone } from '~/lib/favicon-tone'
 
 function hideFailedImage(event: React.SyntheticEvent<HTMLImageElement>) {
   event.currentTarget.dataset.failed = 'true'

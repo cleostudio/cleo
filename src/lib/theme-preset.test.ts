@@ -16,7 +16,7 @@ import {
   typeWeightTokens,
 } from './theme-preset'
 
-const globals = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8')
+const globals = readFileSync(join(process.cwd(), 'src/app/globals.css'), 'utf8')
 
 /** Skips `@media` blocks so a responsive override cannot shadow a base value. */
 function withoutAtRules(css: string) {

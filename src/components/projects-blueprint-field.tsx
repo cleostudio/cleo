@@ -2,7 +2,7 @@
 
 import { FlowField, Grid, Shader } from 'shaders/react'
 
-import { useHiddenShaderField } from '~/components/use-hidden-shader-field'
+import { useHiddenShaderField } from '~/hooks/use-hidden-shader-field'
 
 export function ProjectsBlueprintField({
   onUnavailable,

@@ -5,7 +5,7 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 
-import { normalizeOgMetadata, ogZolplayUrl } from '../lib/og-zolplay.mjs'
+import { normalizeOgMetadata, ogZolplayUrl } from '../src/lib/og-zolplay.mjs'
 
 const POSTS_DIR = 'content/blog'
 const CACHE = 'content/link-previews.json'
