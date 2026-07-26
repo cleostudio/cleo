@@ -18,8 +18,7 @@ Vercel Web Analytics and Speed Insights only.
   OSV.
 - [x] Application security tests cover CSP and headers and related
   same-origin / route-limit controls under `lib/security`.
-- [ ] Re-run a full-history gitleaks scan before the next public release and
-  keep `.gitleaksignore` fingerprints current.
+- [ ] Re-run a full-history gitleaks scan before the next public release.
 
 Local recheck:
 
