@@ -75,7 +75,7 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
           sizes="(max-width: 40rem) 100vw, 42rem"
           renditions={renditions}
           expandedContent={
-            <div className="spec-plate mx-auto max-w-content px-6 text-sm text-[var(--paper)]">
+            <div className="spec-plate mx-auto max-w-content px-6 text-sm text-foreground">
               <p className="font-medium">{entry.photo.caption}</p>
               <p className="mt-1 opacity-80">
                 Photo by {entry.photo.photographer} · {entry.photo.license}

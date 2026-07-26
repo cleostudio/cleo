@@ -83,7 +83,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
             width: r.width,
           }))}
           expandedContent={
-            <div className="spec-plate mx-auto max-w-content px-6 text-sm text-[var(--paper)]">
+            <div className="spec-plate mx-auto max-w-content px-6 text-sm text-foreground">
               <p className="font-medium">{subject.photo.caption}</p>
               <p className="mt-1 opacity-80">
                 {subject.photo.photographer} · {subject.photo.license}

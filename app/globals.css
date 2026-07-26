@@ -5579,6 +5579,9 @@ a:focus-visible .external-label .external-mark {
 
 .zoom-overlay-details .spec-plate dt {
   font-size: 0.625rem;
+  /* The plate sits on the overlay rather than the page, so its labels take
+     their contrast from the ink instead of the page's muted register. */
+  color: color-mix(in oklab, var(--foreground) 58%, transparent);
 }
 
 .zoom-overlay-details .spec-plate dd {

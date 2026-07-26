@@ -22,7 +22,7 @@ function GalleryPhotoDetails({ entry }: { entry: GalleryItem }) {
   ]
 
   return (
-    <div className="mx-auto w-full max-w-content px-6 text-[var(--paper)]">
+    <div className="mx-auto w-full max-w-content px-6 text-foreground">
       <dl className="spec-plate spec-plate-flow zoom-detail-frame">
         {fields.map((field, index) => (
           <div
