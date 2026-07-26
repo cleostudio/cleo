@@ -21,7 +21,9 @@ corpus to that bar — no sentence may appear in two countries.
 Assemble the manifest with `pnpm generate:atlas-content`, curate accurate
 Wikimedia Commons place photos with `pnpm curate:atlas-photos`, then import
 optimized local JPEG renditions with `pnpm import:atlas-photos`. Validate with
-`pnpm validate:atlas`. Originals stay in `.atlas-originals/` (gitignored);
+`pnpm validate:atlas`. After atlas or space photo imports change caption or
+rendition metadata, refresh Cleo’s slim zoom index with
+`pnpm generate:cleo-topic-photo-zoom`. Originals stay in `.atlas-originals/` (gitignored);
 public assets are under `public/images/atlas/{slug}/` and are served as static
 files with browser `srcset` — no account, CDN, or `/_next/image` re-encode at
 runtime.
@@ -75,7 +77,11 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
   grounds matching subjects on each turn); Streamdown only allows
-  `/images/atlas|space/...` paths.
+  `/images/atlas|space/...` paths. Those Markdown photos (and attachment /
+  generated data-URL images) use the shared `ZoomImage` lightbox — curated
+  topic photos resolve Gallery-parity caption plates via
+  `content/cleo-topic-photo-zoom.json` (`pnpm generate:cleo-topic-photo-zoom`,
+  kept in sync by `lib/cleo/topic-photo-zoom.test.ts`).
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
   `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).

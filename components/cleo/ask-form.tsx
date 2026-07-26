@@ -15,6 +15,7 @@ import { LiquidGlass } from '~/components/cleo/liquid-glass'
 import { Markdown } from '~/components/cleo/markdown'
 import { Button } from '~/components/cleo/ui/button'
 import { Input } from '~/components/cleo/ui/input'
+import { ZoomableMessageImage } from '~/components/cleo/zoomable-message-image'
 import {
   filesToMessageImages,
   IMAGE_ACCEPT,
@@ -441,8 +442,7 @@ export function AskForm() {
                   {message.images && message.images.length > 0 ? (
                     <div className="user-message-images">
                       {message.images.map((image, index) => (
-                        // eslint-disable-next-line @next/next/no-img-element -- data URLs from the local conversation
-                        <img
+                        <ZoomableMessageImage
                           alt={
                             message.content
                               ? `Attachment ${index + 1}`
@@ -483,8 +483,7 @@ export function AskForm() {
                   {message.images && message.images.length > 0 ? (
                     <div className="assistant-message-images mb-3">
                       {message.images.map((image, index) => (
-                        // eslint-disable-next-line @next/next/no-img-element -- streamed data URLs from image generation
-                        <img
+                        <ZoomableMessageImage
                           alt={`Generated image ${index + 1}`}
                           className="message-image message-image-assistant"
                           key={image.id ?? `${message.id}-${index}`}
