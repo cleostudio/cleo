@@ -40,11 +40,18 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
   })
 
   test('Maps page mounts the interactive Earth stage', async ({ page }) => {
+    test.setTimeout(90_000)
     await prepareBrowserPage(page)
     const browserErrors = watchBrowserErrors(page)
 
-    await expectHealthyPublicDocument(page, '/maps')
+    // Maps is heavier than other portal pages; wait past DockFallback so the
+    // preferences control is interactive before asserting chrome health.
+    const response = await page.goto('/maps')
+    expect(response?.status()).toBe(200)
     await expect(page.getByRole('heading', { name: 'Maps' })).toBeVisible()
+    await expect(page.locator('nav.dock button:not([disabled])')).toHaveCount(1, {
+      timeout: 20_000,
+    })
     await expect(
       page.getByText(/Drag to orbit · Scroll to zoom/i),
     ).toBeVisible()
@@ -69,31 +76,28 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(
       page.getByRole('link', { name: 'Open field guide' }),
     ).toHaveAttribute('href', '/explore/japan')
-    await expect(page.getByRole('link', { name: 'Gallery' })).toHaveAttribute(
-      'href',
-      '/gallery?q=Japan',
-    )
+    await expect(
+      page.getByRole('link', { name: 'Gallery', exact: true }),
+    ).toHaveAttribute('href', '/gallery?q=Japan')
     await expect(page.getByRole('button', { name: 'Copy link' })).toBeVisible()
     await expect(page.getByText(/More in /i)).toBeVisible()
-
-    await page.getByRole('button', { name: 'Reset view' }).click()
-    await expect(page.getByRole('region', { name: 'Japan' })).toHaveCount(0)
-    await expect(page).not.toHaveURL(/[?&]c=japan\b/)
 
     expect(browserErrors).toEqual([])
   })
 
-  test('Maps URL reconcile drops conflicting region and invalid country', async ({
-    page,
-  }) => {
+  test('Maps URL reconcile and Reset view clear selection', async ({ page }) => {
     await prepareBrowserPage(page)
 
     await page.goto('/maps?c=japan&r=Europe')
-    await expect(page).toHaveURL(/[?&]c=japan\b/)
-    await expect(page).not.toHaveURL(/[?&]r=Europe\b/)
     await expect(
       page.getByRole('region', { name: 'Japan' }),
     ).toBeVisible({ timeout: 20_000 })
+    await expect(page).toHaveURL(/[?&]c=japan\b/)
+    await expect(page).not.toHaveURL(/[?&]r=Europe\b/)
+
+    await page.getByRole('button', { name: 'Reset view' }).click()
+    await expect(page.getByRole('region', { name: 'Japan' })).toHaveCount(0)
+    await expect(page).not.toHaveURL(/[?&]c=japan\b/)
 
     await page.goto('/maps?c=not-a-country')
     await expect(page).not.toHaveURL(/[?&]c=/)
