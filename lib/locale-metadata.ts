@@ -18,6 +18,8 @@ const SECTION_IMAGE_PATHS = new Set([
   '/cleo',
   '/explore',
   '/gallery',
+  '/oceans',
+  '/sky',
   '/space',
   '/topics',
   '/projects',

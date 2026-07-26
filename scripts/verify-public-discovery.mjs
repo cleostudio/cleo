@@ -74,6 +74,24 @@ const publicPages = [
     'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
   ),
   englishPage(
+    '/oceans',
+    {
+      title: 'Oceans',
+      description:
+        'Evergreen field guides for the World Ocean, major basins, and signature seas — orientation, features, and facts.',
+    },
+    'Oceans · Cleo. Evergreen field guides for the World Ocean, major basins, and signature seas — orientation, features, and facts.',
+  ),
+  englishPage(
+    '/sky',
+    {
+      title: 'Sky',
+      description:
+        'A static sky atlas plate with hotspots into Space field guides — nebulae, galaxies, and the Moon.',
+    },
+    'Sky · Cleo. A static sky atlas plate with hotspots into Space field guides — nebulae, galaxies, and the Moon.',
+  ),
+  englishPage(
     '/cleo',
     {
       title: 'Cleo',

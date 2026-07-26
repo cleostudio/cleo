@@ -22,10 +22,15 @@ export function PhotoZoomDetails({
   photographer: string
   license: string
 }) {
-  const isSpace = collection === 'space'
+  const labels =
+    collection === 'space'
+      ? { title: 'Feature', subtitle: 'Subject' }
+      : collection === 'oceans'
+        ? { title: 'Feature', subtitle: 'Water' }
+        : { title: 'Place', subtitle: 'Country' }
   const fields = [
-    { label: isSpace ? 'Feature' : 'Place', value: title },
-    { label: isSpace ? 'Subject' : 'Country', value: subtitle },
+    { label: labels.title, value: title },
+    { label: labels.subtitle, value: subtitle },
     { label: 'Photograph', value: photographer },
     { label: 'License', value: license },
   ]

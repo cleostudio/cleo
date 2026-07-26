@@ -1,4 +1,5 @@
 import { countries } from '~/lib/countries'
+import { oceanSubjects } from '~/lib/oceans'
 import { spaceSubjects } from '~/lib/space'
 
 /** Knowledge collections shown on /topics. Expand this list as new topics ship. */
@@ -18,6 +19,7 @@ export interface Topic {
 export function allTopics(): Topic[] {
   const countryCount = countries.length
   const spaceCount = spaceSubjects.length
+  const oceanCount = oceanSubjects.length
   return [
     {
       slug: 'countries',
@@ -36,6 +38,16 @@ export function allTopics(): Topic[] {
         'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, facts, a photograph, and sources.',
       tally: `${spaceCount} guides`,
       href: '/space',
+      secondaryHref: '/sky',
+      secondaryLabel: 'Sky atlas',
+    },
+    {
+      slug: 'oceans',
+      name: 'Oceans',
+      description:
+        'Evergreen field guides for the World Ocean, major basins, and signature seas — orientation, features, facts, a photograph, and sources.',
+      tally: `${oceanCount} guides`,
+      href: '/oceans',
       secondaryHref: '/gallery',
       secondaryLabel: 'Gallery',
     },

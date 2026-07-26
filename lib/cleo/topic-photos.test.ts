@@ -8,14 +8,15 @@ import {
 } from './topic-photos'
 
 describe('topic photos', () => {
-  it('resolves Explore and Space photographs with embeddable paths', () => {
+  it('resolves Explore, Space, and Oceans photographs with embeddable paths', () => {
     const photos = resolveTopicPhotos([
       { collection: 'explore', slug: 'japan' },
       { collection: 'space', slug: 'mars' },
+      { collection: 'oceans', slug: 'pacific' },
       { collection: 'explore', slug: 'not-a-country' },
     ])
 
-    expect(photos).toHaveLength(2)
+    expect(photos).toHaveLength(3)
     expect(photos[0]).toMatchObject({
       collection: 'explore',
       slug: 'japan',
@@ -31,16 +32,24 @@ describe('topic photos', () => {
       href: '/space/mars',
       src: '/images/space/mars/w1280.jpg',
     })
+    expect(photos[2]).toMatchObject({
+      collection: 'oceans',
+      slug: 'pacific',
+      name: 'Pacific Ocean',
+      href: '/oceans/pacific',
+      src: '/images/oceans/pacific/w1280.jpg',
+    })
   })
 
   it('matches catalog subjects by name and path in conversation text', () => {
     const photos = matchTopicPhotosInText(
-      'Tell me about Japan and also /space/europa — what do they look like?',
+      'Tell me about Japan and also /space/europa and /oceans/pacific — what do they look like?',
     )
 
     expect(photos.map((photo) => photo.slug).sort()).toEqual([
       'europa',
       'japan',
+      'pacific',
     ])
   })
 

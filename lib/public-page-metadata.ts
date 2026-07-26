@@ -32,6 +32,16 @@ export const publicPageMetadata = {
     description:
       'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
   },
+  oceans: {
+    title: 'Oceans',
+    description:
+      'Evergreen field guides for the World Ocean, major basins, and signature seas — orientation, features, and facts.',
+  },
+  sky: {
+    title: 'Sky',
+    description:
+      'A static sky atlas plate with hotspots into Space field guides — nebulae, galaxies, and the Moon.',
+  },
   cleo: {
     title: 'Cleo',
     description:

@@ -10,12 +10,15 @@ Cleo (v3) contexts. System-wide ADRs live in `docs/adr/`. Site status:
   archived newsletters under `content/newsletters/`
 - **Explore / Gallery** — Country field guides and place photographs from
   `content/atlas.json` + `public/images/atlas/`; Gallery also includes Space
-  photographs via `lib/gallery.ts`
-- **Topics** — Catalog starting with countries and space (`/topics`;
+  and Oceans photographs via `lib/gallery.ts`
+- **Topics** — Catalog of countries, space, and oceans (`/topics`;
   `/projects` redirects here)
 - **Space** — Solar System, Moons, and Deep Space field guides (`/space`,
   `/space/[slug]`) with NASA photos in `content/space-photos.json` +
-  `public/images/space/`
+  `public/images/space/`; Sky atlas companion at `/sky`
+- **Oceans** — World Ocean, basins, and seas field guides (`/oceans`,
+  `/oceans/[slug]`) with NASA photos in `content/ocean-photos.json` +
+  `public/images/oceans/`
 - **Cleo agent** — OpenAI Responses API at `/cleo` and `/api/responses`
   (`lib/cleo/`, `components/cleo/`)
 

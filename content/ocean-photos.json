@@ -1,0 +1,422 @@
+{
+  "world-ocean": {
+    "featureName": "Global ocean from deep space",
+    "alt": "Global ocean from deep space — world ocean",
+    "caption": "Global ocean from deep space",
+    "photographer": "NASA/JPL",
+    "sourceUrl": "https://images.nasa.gov/details/PIA00152",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA00152",
+    "provenance": "Curated from NASA image PIA00152; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f1716a84e56454b7ad1bc79a06cdd544d3e210bf43bcaa34ae3e6aca3245aa4f",
+    "width": 2048,
+    "height": 1700,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/world-ocean/w640.jpg",
+        "bytes": 47461
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/world-ocean/w1280.jpg",
+        "bytes": 165702
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/world-ocean/w2048.jpg",
+        "bytes": 489752
+      }
+    ]
+  },
+  "pacific": {
+    "featureName": "Pacific Ocean chlorophyll mosaic",
+    "alt": "Pacific Ocean chlorophyll mosaic — pacific",
+    "caption": "Pacific Ocean chlorophyll mosaic",
+    "photographer": "NASA/GSFC",
+    "sourceUrl": "https://images.nasa.gov/details/PIA18033",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA18033",
+    "provenance": "Curated from NASA image PIA18033; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ad615afaed5a3f91bee84381e569350f099cef246fe03a82ae3298bdc160518a",
+    "width": 1920,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/pacific/w640.jpg",
+        "bytes": 65093
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/pacific/w1280.jpg",
+        "bytes": 233868
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/pacific/w2048.jpg",
+        "bytes": 534808
+      }
+    ]
+  },
+  "atlantic": {
+    "featureName": "Atlantic surface winds",
+    "alt": "Atlantic surface winds — atlantic",
+    "caption": "Atlantic surface winds",
+    "photographer": "NASA/JPL",
+    "sourceUrl": "https://images.nasa.gov/details/PIA02455",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA02455",
+    "provenance": "Curated from NASA image PIA02455; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5d4e6d4bc8bdd2b6306d35a35c73fafb0195a6f2c5abbce75a9851226a15c54c",
+    "width": 1483,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/atlantic/w640.jpg",
+        "bytes": 101612
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/atlantic/w1280.jpg",
+        "bytes": 311055
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/atlantic/w2048.jpg",
+        "bytes": 428631
+      }
+    ]
+  },
+  "indian": {
+    "featureName": "Kerguelen in the southern Indian Ocean",
+    "alt": "Kerguelen in the southern Indian Ocean — indian",
+    "caption": "Kerguelen in the southern Indian Ocean",
+    "photographer": "NASA/GSFC/Jeff Schmaltz/MODIS Land Rapid Response Team",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001414",
+    "license": "Public Domain (NASA)",
+    "nasaId": "GSFC_20171208_Archive_e001414",
+    "provenance": "Curated from NASA image GSFC_20171208_Archive_e001414; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "02447579352833c060a90913c82ba9ba1c8134ce051cea01f0b9f15e38391048",
+    "width": 1440,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/indian/w640.jpg",
+        "bytes": 129337
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/indian/w1280.jpg",
+        "bytes": 545621
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/indian/w2048.jpg",
+        "bytes": 779637
+      }
+    ]
+  },
+  "southern": {
+    "featureName": "Southern Ocean ice edge",
+    "alt": "Southern Ocean ice edge — southern",
+    "caption": "Southern Ocean ice edge",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/iss065e214231",
+    "license": "Public Domain (NASA)",
+    "nasaId": "iss065e214231",
+    "provenance": "Curated from NASA image iss065e214231; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "00bc5139979119796e7e8c68645d26fb35a52286d90ca881d6c2f6d7a323dbe3",
+    "width": 1920,
+    "height": 1280,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/southern/w640.jpg",
+        "bytes": 20997
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/southern/w1280.jpg",
+        "bytes": 88019
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/southern/w2048.jpg",
+        "bytes": 266436
+      }
+    ]
+  },
+  "arctic": {
+    "featureName": "Warm rivers meeting Arctic sea ice",
+    "alt": "Warm rivers meeting Arctic sea ice — arctic",
+    "caption": "Warm rivers meeting Arctic sea ice",
+    "photographer": "NASA/JPL-Caltech/SSI",
+    "sourceUrl": "https://images.nasa.gov/details/PIA18034",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA18034",
+    "provenance": "Curated from NASA image PIA18034; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "456cac9ed0991fdd580565ccdbe7530ff07b00d7b5e57c23b8dd8dec56354652",
+    "width": 2410,
+    "height": 935,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/arctic/w640.jpg",
+        "bytes": 53374
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/arctic/w1280.jpg",
+        "bytes": 163496
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/arctic/w2048.jpg",
+        "bytes": 389610
+      }
+    ]
+  },
+  "mediterranean": {
+    "featureName": "Strait of Gibraltar and the Mediterranean",
+    "alt": "Strait of Gibraltar and the Mediterranean — mediterranean",
+    "caption": "Strait of Gibraltar and the Mediterranean",
+    "photographer": "NASA/Gemini 10",
+    "sourceUrl": "https://images.nasa.gov/details/s66-45749",
+    "license": "Public Domain (NASA)",
+    "nasaId": "s66-45749",
+    "provenance": "Curated from NASA image s66-45749; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c2363ae9fd492eef4af2f57999757c33812bf8267f2abbabad23ce824e2cca46",
+    "width": 1920,
+    "height": 1909,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/mediterranean/w640.jpg",
+        "bytes": 17051
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/mediterranean/w1280.jpg",
+        "bytes": 77624
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/mediterranean/w2048.jpg",
+        "bytes": 267940
+      }
+    ]
+  },
+  "caribbean": {
+    "featureName": "Caribbean Sea from orbit",
+    "alt": "Caribbean Sea from orbit — caribbean",
+    "caption": "Caribbean Sea from orbit",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/iss013e27590",
+    "license": "Public Domain (NASA)",
+    "nasaId": "iss013e27590",
+    "provenance": "Curated from NASA image iss013e27590; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "92bff9ebecf608bf33477b80e19768f0c13656d36aa4570690791f2de80fdd6c",
+    "width": 1920,
+    "height": 1307,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/caribbean/w640.jpg",
+        "bytes": 21850
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/caribbean/w1280.jpg",
+        "bytes": 128301
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/caribbean/w2048.jpg",
+        "bytes": 293381
+      }
+    ]
+  },
+  "red-sea": {
+    "featureName": "Sinai Peninsula and the Red Sea",
+    "alt": "Sinai Peninsula and the Red Sea — red sea",
+    "caption": "Sinai Peninsula and the Red Sea",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/41g-120-180",
+    "license": "Public Domain (NASA)",
+    "nasaId": "41g-120-180",
+    "provenance": "Curated from NASA image 41g-120-180; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5e25468bf5d544a7f388dde78089aee4e4b0d7bbd6039a2eec7cacc6a23e8e98",
+    "width": 1920,
+    "height": 1510,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/red-sea/w640.jpg",
+        "bytes": 37818
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/red-sea/w1280.jpg",
+        "bytes": 137247
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/red-sea/w2048.jpg",
+        "bytes": 344561
+      }
+    ]
+  },
+  "baltic": {
+    "featureName": "Baltic Sea winter ice",
+    "alt": "Baltic Sea winter ice — baltic",
+    "caption": "Baltic Sea winter ice",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/iss066e116300",
+    "license": "Public Domain (NASA)",
+    "nasaId": "iss066e116300",
+    "provenance": "Curated from NASA image iss066e116300; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "159efc8872cd6f84dd8114104466906130d6a70c8996955b129a250d019882fa",
+    "width": 1920,
+    "height": 1280,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/baltic/w640.jpg",
+        "bytes": 50783
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/baltic/w1280.jpg",
+        "bytes": 205263
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/baltic/w2048.jpg",
+        "bytes": 597132
+      }
+    ]
+  },
+  "bering": {
+    "featureName": "Turbulent Bering Sea",
+    "alt": "Turbulent Bering Sea — bering",
+    "caption": "Turbulent Bering Sea",
+    "photographer": "NASA/GSFC/Jeff Schmaltz/MODIS Land Rapid Response Team",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000948",
+    "license": "Public Domain (NASA)",
+    "nasaId": "GSFC_20171208_Archive_e000948",
+    "provenance": "Curated from NASA image GSFC_20171208_Archive_e000948; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "39fe98c2142b7bb46e2e6e1ff0072ebc90ef7763b860dca8d65985f3be05911f",
+    "width": 1920,
+    "height": 1384,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/bering/w640.jpg",
+        "bytes": 62974
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/bering/w1280.jpg",
+        "bytes": 252894
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/bering/w2048.jpg",
+        "bytes": 597526
+      }
+    ]
+  },
+  "south-china-sea": {
+    "featureName": "Internal waves, South China Sea",
+    "alt": "Internal waves, South China Sea — south china sea",
+    "caption": "Internal waves, South China Sea",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/s07-05-245",
+    "license": "Public Domain (NASA)",
+    "nasaId": "s07-05-245",
+    "provenance": "Curated from NASA image s07-05-245; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0a2d955e254d96f05a528e65f6b91fe950e7519247f4954068b61dc8ffb32467",
+    "width": 1907,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/south-china-sea/w640.jpg",
+        "bytes": 67800
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/south-china-sea/w1280.jpg",
+        "bytes": 230439
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/south-china-sea/w2048.jpg",
+        "bytes": 541590
+      }
+    ]
+  },
+  "gulf-of-mexico": {
+    "featureName": "Gulf of Mexico and Yucatán coast",
+    "alt": "Gulf of Mexico and Yucatán coast — gulf of mexico",
+    "caption": "Gulf of Mexico and Yucatán coast",
+    "photographer": "NASA/Apollo 7",
+    "sourceUrl": "https://images.nasa.gov/details/as07-05-1635",
+    "license": "Public Domain (NASA)",
+    "nasaId": "as07-05-1635",
+    "provenance": "Curated from NASA image as07-05-1635; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "181a83ab59ac9c2505f82e76fa1f2ffd3af292e8a78e976c9ac6d68f309b8c56",
+    "width": 1920,
+    "height": 1913,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/gulf-of-mexico/w640.jpg",
+        "bytes": 61272
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/gulf-of-mexico/w1280.jpg",
+        "bytes": 192541
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/gulf-of-mexico/w2048.jpg",
+        "bytes": 403646
+      }
+    ]
+  },
+  "coral-sea": {
+    "featureName": "Western Coral Sea and Great Barrier Reef",
+    "alt": "Western Coral Sea and Great Barrier Reef — coral sea",
+    "caption": "Western Coral Sea and Great Barrier Reef",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/S32-520-014",
+    "license": "Public Domain (NASA)",
+    "nasaId": "S32-520-014",
+    "provenance": "Curated from NASA image S32-520-014; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1ae4fbf944d572fb87e1187dbf9682a4fc749fa1915aa414b683640b27164d23",
+    "width": 1901,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/oceans/coral-sea/w640.jpg",
+        "bytes": 67645
+      },
+      {
+        "width": 1280,
+        "src": "/images/oceans/coral-sea/w1280.jpg",
+        "bytes": 241276
+      },
+      {
+        "width": 2048,
+        "src": "/images/oceans/coral-sea/w2048.jpg",
+        "bytes": 562726
+      }
+    ]
+  }
+}

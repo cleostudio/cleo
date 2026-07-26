@@ -2,6 +2,7 @@
 import { describe, expect, it } from 'vitest'
 import { allGalleryItems } from '~/lib/gallery'
 import { getAtlasEntry } from '~/lib/atlas'
+import { getOceanSubject } from '~/lib/oceans'
 import { getSpaceSubject } from '~/lib/space'
 
 describe('PhotoZoomDetails field parity', () => {
@@ -25,6 +26,20 @@ describe('PhotoZoomDetails field parity', () => {
     for (const item of space) {
       const slug = item.href.replace('/space/', '')
       const subject = getSpaceSubject(slug)
+      expect(subject, slug).toBeTruthy()
+      expect(item.title).toBe(subject!.photo.featureName)
+      expect(item.subtitle).toBe(subject!.name)
+      expect(item.photo.photographer).toBe(subject!.photo.photographer)
+      expect(item.photo.license).toBe(subject!.photo.license)
+    }
+  })
+
+  it('gallery ocean items match Oceans topic page fields', () => {
+    const oceans = allGalleryItems().filter((i) => i.collection === 'oceans')
+    expect(oceans.length).toBeGreaterThan(0)
+    for (const item of oceans) {
+      const slug = item.href.replace('/oceans/', '')
+      const subject = getOceanSubject(slug)
       expect(subject, slug).toBeTruthy()
       expect(item.title).toBe(subject!.photo.featureName)
       expect(item.subtitle).toBe(subject!.name)

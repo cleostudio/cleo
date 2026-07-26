@@ -4,18 +4,18 @@
  */
 
 export type PortalGuideLink = {
-  collection: 'explore' | 'space'
+  collection: 'explore' | 'space' | 'oceans'
   href: string
   label: string
   slug: string
 }
 
 const MARKDOWN_GUIDE_LINK =
-  /\[([^\]]*)\]\((\/(explore|space)\/([a-z0-9-]+))\)/gi
+  /\[([^\]]*)\]\((\/(explore|space|oceans)\/([a-z0-9-]+))\)/gi
 
 /** Curated static JPEGs under the site image roots. */
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space)\/[a-z0-9-]+\/w(640|1280|2048)\.jpg$/
+  /^\/images\/(atlas|space|oceans)\/[a-z0-9-]+\/w(640|1280|2048)\.jpg$/
 
 const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
@@ -57,9 +57,9 @@ export function cleanPortalGuideLabel(
   }
 
   const cleaned = trimmed
-    .replace(/\s*(?:explore|space)?\s*(?:field\s*)?guides?\s*$/i, '')
-    .replace(/^(?:explore|space)\s*[·|:–-]\s*/i, '')
-    .replace(/^(?:the\s+)?(?:explore|space)\s+/i, '')
+    .replace(/\s*(?:explore|space|oceans?)?\s*(?:field\s*)?guides?\s*$/i, '')
+    .replace(/^(?:explore|space|oceans)\s*[·|:–-]\s*/i, '')
+    .replace(/^(?:the\s+)?(?:explore|space|oceans)\s+/i, '')
     .trim()
 
   return cleaned || titleFromSlug(slug)
@@ -72,7 +72,7 @@ export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
   for (const match of markdown.matchAll(MARKDOWN_GUIDE_LINK)) {
     const rawLabel = match[1] ?? ''
     const href = match[2]
-    const collection = match[3] as 'explore' | 'space'
+    const collection = match[3] as 'explore' | 'space' | 'oceans'
     const slug = match[4]
 
     if (!href || !collection || !slug || found.has(href)) {
@@ -108,7 +108,7 @@ function stripLeadingGuideChrome(block: string) {
     remainder = remainder
       .replace(/^for a fuller primer,?\s*see\s+/i, '')
       .replace(/^see\s+(?:the\s+)?/i, '')
-      .replace(/^(?:explore|space)\s+/i, '')
+      .replace(/^(?:explore|space|oceans)\s+/i, '')
       .trim()
   }
 
@@ -199,8 +199,8 @@ export const CLEO_PORTAL_STARTERS = [
       'Why is Europa interesting as an ocean world? Deep-link the Space guide when you name it.',
   },
   {
-    label: 'Compare Mars and Earth',
+    label: 'Tell me about the Pacific',
     prompt:
-      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide when you name the planets.',
+      'Give me a quick orientation to the Pacific Ocean. Deep-link its Oceans field guide when you mention it.',
   },
 ] as const

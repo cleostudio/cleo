@@ -1,0 +1,114 @@
+{
+  "world-ocean": {
+    "featureName": "Global ocean from deep space",
+    "nasaId": "PIA00152",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA00152/PIA00152~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA00152",
+    "credit": "NASA/JPL",
+    "license": "Public Domain (NASA)"
+  },
+  "pacific": {
+    "featureName": "Pacific Ocean chlorophyll mosaic",
+    "nasaId": "PIA18033",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA18033/PIA18033~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA18033",
+    "credit": "NASA/GSFC",
+    "license": "Public Domain (NASA)"
+  },
+  "atlantic": {
+    "featureName": "Atlantic surface winds",
+    "nasaId": "PIA02455",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA02455/PIA02455~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA02455",
+    "credit": "NASA/JPL",
+    "license": "Public Domain (NASA)"
+  },
+  "indian": {
+    "featureName": "Kerguelen in the southern Indian Ocean",
+    "nasaId": "GSFC_20171208_Archive_e001414",
+    "downloadUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001414/GSFC_20171208_Archive_e001414~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001414",
+    "credit": "NASA/GSFC/Jeff Schmaltz/MODIS Land Rapid Response Team",
+    "license": "Public Domain (NASA)"
+  },
+  "southern": {
+    "featureName": "Southern Ocean ice edge",
+    "nasaId": "iss065e214231",
+    "downloadUrl": "https://images-assets.nasa.gov/image/iss065e214231/iss065e214231~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/iss065e214231",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "arctic": {
+    "featureName": "Warm rivers meeting Arctic sea ice",
+    "nasaId": "PIA18034",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA18034/PIA18034~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA18034",
+    "credit": "NASA/JPL-Caltech/SSI",
+    "license": "Public Domain (NASA)"
+  },
+  "mediterranean": {
+    "featureName": "Strait of Gibraltar and the Mediterranean",
+    "nasaId": "s66-45749",
+    "downloadUrl": "https://images-assets.nasa.gov/image/s66-45749/s66-45749~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/s66-45749",
+    "credit": "NASA/Gemini 10",
+    "license": "Public Domain (NASA)"
+  },
+  "caribbean": {
+    "featureName": "Caribbean Sea from orbit",
+    "nasaId": "iss013e27590",
+    "downloadUrl": "https://images-assets.nasa.gov/image/iss013e27590/iss013e27590~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/iss013e27590",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "red-sea": {
+    "featureName": "Sinai Peninsula and the Red Sea",
+    "nasaId": "41g-120-180",
+    "downloadUrl": "https://images-assets.nasa.gov/image/41g-120-180/41g-120-180~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/41g-120-180",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "baltic": {
+    "featureName": "Baltic Sea winter ice",
+    "nasaId": "iss066e116300",
+    "downloadUrl": "https://images-assets.nasa.gov/image/iss066e116300/iss066e116300~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/iss066e116300",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "bering": {
+    "featureName": "Turbulent Bering Sea",
+    "nasaId": "GSFC_20171208_Archive_e000948",
+    "downloadUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000948/GSFC_20171208_Archive_e000948~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000948",
+    "credit": "NASA/GSFC/Jeff Schmaltz/MODIS Land Rapid Response Team",
+    "license": "Public Domain (NASA)"
+  },
+  "south-china-sea": {
+    "featureName": "Internal waves, South China Sea",
+    "nasaId": "s07-05-245",
+    "downloadUrl": "https://images-assets.nasa.gov/image/s07-05-245/s07-05-245~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/s07-05-245",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "gulf-of-mexico": {
+    "featureName": "Gulf of Mexico and Yucatán coast",
+    "nasaId": "as07-05-1635",
+    "downloadUrl": "https://images-assets.nasa.gov/image/as07-05-1635/as07-05-1635~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/as07-05-1635",
+    "credit": "NASA/Apollo 7",
+    "license": "Public Domain (NASA)"
+  },
+  "coral-sea": {
+    "featureName": "Western Coral Sea and Great Barrier Reef",
+    "nasaId": "S32-520-014",
+    "downloadUrl": "https://images-assets.nasa.gov/image/S32-520-014/S32-520-014~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/S32-520-014",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  }
+}

@@ -1,13 +1,14 @@
 # Cleo
 
 This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
-portal starting with countries and space. The homepage is a neutral portal
-(country search, highlighted places, topic discovery). Explore field guides live
-at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
-`/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
-layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
-`/gallery`; `/projects` permanently redirects to `/topics`. Projects UI,
-vinyl/bookshelf, and social card components remain in the repo for later reuse.
+portal starting with countries, space, and oceans. The homepage is a neutral
+portal (country search, highlighted places, topic discovery). Explore field
+guides live at `/explore/[slug]`, Space guides at `/space/[slug]`, Oceans guides
+at `/oceans/[slug]`, the Sky atlas at `/sky`, the place Gallery at `/gallery`,
+Topics at `/topics`, Writing at `/blog` (future encyclopedia-like layer), and
+the AI agent at `/cleo`. `/photos` permanently redirects to `/gallery`;
+`/projects` permanently redirects to `/topics`. Projects UI, vinyl/bookshelf,
+and social card components remain in the repo for later reuse.
 
 Country guide records live in `content/atlas.json` (one entry per Explore slug).
 Orientation prose is curated, not generated at build time. It lives in
@@ -29,9 +30,17 @@ Space field guides live in `lib/space.ts` (Solar System, Moons, Deep Space —
 planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 `/space/[slug]`. Curated NASA photographs are imported with
 `pnpm import:space-photos` into `public/images/space/{slug}/` and
-`content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
-at `/gallery` shows both Explore place photos and Space body photos.
-The Topics catalog in `lib/topics.ts` lists Countries and Space.
+`content/space-photos.json`; validate with `pnpm validate:space`. The Sky atlas
+at `/sky` (`lib/sky.ts`) is a static plate with hotspots into Space guides.
+
+Oceans field guides live in `lib/oceans.ts` (World Ocean, ocean basins, seas &
+gulfs) and render at `/oceans` and `/oceans/[slug]`. Curated NASA photographs
+are imported with `pnpm import:ocean-photos` into `public/images/oceans/{slug}/`
+and `content/ocean-photos.json`; validate with `pnpm validate:oceans`.
+
+The Gallery at `/gallery` shows Explore place photos, Space body photos, and
+Oceans water photos. The Topics catalog in `lib/topics.ts` lists Countries,
+Space (with a Sky atlas secondary link), and Oceans.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.
@@ -72,12 +81,12 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, reasoning summaries, streaming, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
-  `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
+  `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space/Oceans guides).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
-  may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
-  grounds matching subjects on each turn); Streamdown only allows
-  `/images/atlas|space/...` paths.
+  may embed curated Explore/Space/Oceans JPEGs via Markdown
+  (`lib/cleo/topic-photos.ts` grounds matching subjects on each turn);
+  Streamdown only allows `/images/atlas|space|oceans/...` paths.
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
   `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).
@@ -115,6 +124,7 @@ explicit product decision.
 
 - Code: `pnpm typecheck` (and `pnpm build` when changing routes/config).
 - Country media: `pnpm validate:atlas` before deploying image or manifest changes.
+- Oceans media: `pnpm validate:oceans` before deploying ocean image or catalog changes.
 - Site: relevant unit tests via `pnpm test:unit` / `pnpm test:security`.
 - Cleo: multi-turn chat, reasoning activity, web search, image attach/vision,
   image generation, streaming, cancellation, and relevant errors.

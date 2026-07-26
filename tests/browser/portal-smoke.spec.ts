@@ -25,18 +25,39 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     expect(browserErrors).toEqual([])
   })
 
-  test('Topics reports 23 Space guides and Gallery exposes Moons', async ({
+  test('Topics reports Space and Oceans tallies; Gallery exposes Moons', async ({
     page,
   }) => {
     await prepareBrowserPage(page)
 
     await expectHealthyPublicDocument(page, '/topics')
     await expect(page.getByText('23 guides')).toBeVisible()
+    await expect(page.getByText('14 guides')).toBeVisible()
 
     await page.goto('/gallery')
     await expect(page.getByRole('radio', { name: 'Moons' })).toBeVisible()
     await page.getByRole('radio', { name: 'Moons' }).click()
     await expect(page.getByText(/Europa/i).first()).toBeVisible()
+  })
+
+  test('Oceans index lists basins and Mediterranean; Sky links Orion Nebula', async ({
+    page,
+  }) => {
+    await prepareBrowserPage(page)
+    const browserErrors = watchBrowserErrors(page)
+
+    await expectHealthyPublicDocument(page, '/oceans')
+    await expect(
+      page.getByRole('heading', { name: /^Ocean basins/ }),
+    ).toBeVisible()
+    await expect(page.locator('a[href="/oceans/pacific"]')).toBeVisible()
+    await expect(page.locator('a[href="/oceans/mediterranean"]')).toBeVisible()
+
+    await expectHealthyPublicDocument(page, '/sky')
+    await expect(page.locator('a[href="/space/orion-nebula"]')).toBeVisible()
+    await expect(page.locator('a[href="/space/andromeda"]')).toBeVisible()
+
+    expect(browserErrors).toEqual([])
   })
 
   test('Cleo empty state starters send the prompt', async ({ page }) => {

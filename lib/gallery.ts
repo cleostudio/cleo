@@ -1,8 +1,9 @@
 import { allAtlasEntries, atlasRegions } from '~/lib/atlas'
+import { oceanSubjects } from '~/lib/oceans'
 import type { StaticPhoto } from '~/lib/static-photo'
 import { spaceSubjects } from '~/lib/space'
 
-export type GalleryCollection = 'places' | 'space'
+export type GalleryCollection = 'places' | 'space' | 'oceans'
 
 export interface GalleryItem {
   id: string
@@ -84,7 +85,26 @@ export function allGalleryItems(): GalleryItem[] {
     photo: subject.photo,
   }))
 
-  return [...places, ...space]
+  const oceans: GalleryItem[] = oceanSubjects.map((subject) => ({
+    id: `oceans:${subject.slug}`,
+    collection: 'oceans',
+    href: `/oceans/${subject.slug}`,
+    title: subject.photo.featureName,
+    subtitle: subject.name,
+    filterKey: subject.category,
+    searchText: [
+      subject.name,
+      subject.photo.featureName,
+      subject.code,
+      subject.category,
+      subject.facts.kind,
+      'ocean',
+      'sea',
+    ].join(' '),
+    photo: subject.photo,
+  }))
+
+  return [...places, ...space, ...oceans]
 }
 
 export function galleryFilterKeys(): string[] {
@@ -92,9 +112,12 @@ export function galleryFilterKeys(): string[] {
   const spaceCategories = [
     ...new Set(spaceSubjects.map((subject) => subject.category)),
   ]
-  return [...placeRegions, ...spaceCategories]
+  const oceanCategories = [
+    ...new Set(oceanSubjects.map((subject) => subject.category)),
+  ]
+  return [...placeRegions, ...spaceCategories, ...oceanCategories]
 }
 
 export function galleryDescription(count: number): string {
-  return `${count} curated photographs — places from Explore and bodies from Space.`
+  return `${count} curated photographs — places from Explore, bodies from Space, and waters from Oceans.`
 }

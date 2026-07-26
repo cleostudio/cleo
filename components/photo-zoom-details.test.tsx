@@ -51,4 +51,23 @@ describe('PhotoZoomDetails', () => {
     expect(screen.queryByText('Place')).toBeNull()
     expect(screen.queryByText('Country')).toBeNull()
   })
+
+  it('shows water capture cells for Oceans photographs', () => {
+    render(
+      <PhotoZoomDetails
+        collection="oceans"
+        title="Pacific Ocean chlorophyll mosaic"
+        subtitle="Pacific Ocean"
+        photographer="NASA/GSFC"
+        license="Public Domain (NASA)"
+      />,
+    )
+
+    expect(screen.getByText('Feature')).toBeTruthy()
+    expect(screen.getByText('Pacific Ocean chlorophyll mosaic')).toBeTruthy()
+    expect(screen.getByText('Water')).toBeTruthy()
+    expect(screen.getByText('Pacific Ocean')).toBeTruthy()
+    expect(screen.queryByText('Subject')).toBeNull()
+    expect(screen.queryByText('Country')).toBeNull()
+  })
 })

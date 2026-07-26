@@ -9,10 +9,11 @@ English-only general-knowledge portal with:
 - Homepage: country search, highlighted places, topic discovery (no personal
   contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
-  country field guides, Space field guides, Topics catalog (countries and
-  space first; more topics later)
-- Gallery: filterable photographs from Explore places and Space guides
-  (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
+  country field guides, Space field guides, Oceans field guides, Sky atlas
+  companion at `/sky`, Topics catalog (countries, space, oceans)
+- Gallery: filterable photographs from Explore places, Space guides, and
+  Oceans guides (`content/atlas.json`, `content/space-photos.json`,
+  `content/ocean-photos.json`, optimized static JPEGs)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
 
 There is **no** Clerk auth, Neon/Postgres, Bunny media, AMA booking, Stripe,
@@ -25,13 +26,16 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
-- Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
+- Oceans: `lib/oceans.ts`, `content/ocean-photos.json`, `/oceans`, `/oceans/[slug]`
+  (World Ocean, ocean basins, seas & gulfs)
+- Sky: `lib/sky.ts`, `/sky` — static atlas plate hotspots into Space guides
+- Gallery: `lib/gallery.ts` unifies atlas + space + oceans photos for `/gallery`
 - Place images: import-time mozjpeg 640/1280/2048 under `public/images/atlas/`
   (Wikimedia Commons curation, relevance-first + assessments; hand-picks via
-  `scripts/atlas/apply-handpicks.mjs` when scoring still misses) and
-  `public/images/space/` (NASA); rendered with static `srcset`. No runtime
-  image account, API, or third-party fetch. Review aid:
-  `tsx scripts/atlas/contact-sheet.mjs --collection=places|space`.
+  `scripts/atlas/apply-handpicks.mjs` when scoring still misses),
+  `public/images/space/` (NASA), and `public/images/oceans/` (NASA); rendered
+  with static `srcset`. No runtime image account, API, or third-party fetch.
+  Review aid: `tsx scripts/atlas/contact-sheet.mjs --collection=places|space`.
 - Country prose: curated in `scripts/atlas/atlas-about.json` via
   `pnpm write:atlas-about` (one-time, needs `OPENAI_API_KEY`); never generated
   at build or request time

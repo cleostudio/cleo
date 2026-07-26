@@ -1,9 +1,10 @@
 /**
- * Compact Explore + Space catalog injected into Cleo's developer instructions
- * so the agent can deep-link to real field guides on this site.
+ * Compact Explore + Space + Oceans catalog injected into Cleo's developer
+ * instructions so the agent can deep-link to real field guides on this site.
  */
 
 import { countries } from '~/lib/countries'
+import { oceanSubjects } from '~/lib/oceans'
 import { spaceSubjects } from '~/lib/space'
 
 /** Site paths Cleo may cite besides individual guides. */
@@ -13,6 +14,8 @@ const PORTAL_SURFACES = [
   ['Gallery', '/gallery'],
   ['Explore', '/explore'],
   ['Space', '/space'],
+  ['Sky', '/sky'],
+  ['Oceans', '/oceans'],
 ] as const
 
 function formatExploreCatalog() {
@@ -27,6 +30,12 @@ function formatSpaceCatalog() {
     .join('; ')
 }
 
+function formatOceansCatalog() {
+  return oceanSubjects
+    .map((subject) => `${subject.name} (/oceans/${subject.slug})`)
+    .join('; ')
+}
+
 function formatPortalSurfaces() {
   return PORTAL_SURFACES.map(([name, href]) => `[${name}](${href})`).join(', ')
 }
@@ -34,11 +43,11 @@ function formatPortalSurfaces() {
 /** Markdown block appended to Cleo developer instructions. */
 export function buildPortalCatalogInstructions(): string {
   return `<cleo_site>
-You are the AI agent on the Cleo knowledge portal (this website): evergreen country field guides at \`/explore/[slug]\`, Space guides at \`/space/[slug]\`, a photograph Gallery, and a Topics catalog.
+You are the AI agent on the Cleo knowledge portal (this website): evergreen country field guides at \`/explore/[slug]\`, Space guides at \`/space/[slug]\`, Oceans guides at \`/oceans/[slug]\`, a Sky atlas at \`/sky\`, a photograph Gallery, and a Topics catalog.
 
-When the user's question is about a country, place, planet, moon, nebula, or other subject that has a guide in the lists below:
+When the user's question is about a country, place, planet, moon, nebula, ocean, sea, or other subject that has a guide in the lists below:
 - Answer helpfully in your normal voice (do not paste the guide).
-- Weave one Markdown link into the answer using the exact path shown and a short subject-name label — e.g. link \`[Japan](/explore/japan)\` or \`[Europa](/space/europa)\` on first mention. Do not use labels like "Explore guide" or "Space field guide".
+- Weave one Markdown link into the answer using the exact path shown and a short subject-name label — e.g. link \`[Japan](/explore/japan)\`, \`[Europa](/space/europa)\`, or \`[Pacific Ocean](/oceans/pacific)\` on first mention. Do not use labels like "Explore guide" or "Space field guide".
 - Link each relevant guide at most once. Do not add a separate "see the guide", "fuller primer", or footer line that repeats the same link.
 - When comparing two catalog subjects, link each name once in the body. Prefer prose or a compact list/table over a bare link dump.
 - When a \`<cleo_topic_photos>\` block is present, you may include that subject's curated photograph as a Markdown image in the reply (see \`<images_and_vision>\`). Visual topic answers should often show the photo — not only link away.
@@ -53,5 +62,8 @@ ${formatExploreCatalog()}
 
 Space guides (${spaceSubjects.length}):
 ${formatSpaceCatalog()}
+
+Oceans guides (${oceanSubjects.length}):
+${formatOceansCatalog()}
 </cleo_site>`
 }

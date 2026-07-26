@@ -215,6 +215,63 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'oceans') {
+    // Concentric wave arcs over a horizon.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="116" cy="116" r="72" stroke={faint} strokeWidth="1.4" />
+          <path
+            d="M44 128c22-18 44-18 66 0s44 18 66 0"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path
+            d="M50 148c20-14 40-14 60 0s40 14 60 0"
+            stroke={stroke}
+            strokeWidth="1.55"
+          />
+          <path
+            d="M58 168c16-10 32-10 48 0s32 10 48 0"
+            stroke={stroke}
+            strokeWidth="1.45"
+          />
+          <path d="M40 108h152" stroke={faint} strokeWidth="1.3" />
+        </g>
+      </svg>
+    )
+  }
+
+  if (section === 'sky') {
+    // Chart circle with a few starred targets.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="116" cy="116" r="72" stroke={faint} strokeWidth="1.4" />
+          <circle cx="116" cy="116" r="48" stroke={stroke} strokeWidth="1.55" />
+          <path d="M116 44v144M44 116h144" stroke={faint} strokeWidth="1.3" />
+          <path
+            d="M78 72l2.4 6.2 6.6.9-5.1 4.4 1.6 6.4L78 86.2l-5.5 3.7 1.6-6.4-5.1-4.4 6.6-.9zM156 96l2 5.2 5.4.8-4.2 3.6 1.4 5.2L156 108l-4.6 3.1 1.4-5.2-4.2-3.6 5.4-.8zM132 154l1.8 4.6 4.8.7-3.7 3.2 1.2 4.6L132 164.6l-4.1 2.7 1.2-4.6-3.7-3.2 4.8-.7z"
+            stroke={stroke}
+            strokeWidth="1.45"
+          />
+        </g>
+      </svg>
+    )
+  }
+
   if (section === 'gallery') {
     return (
       <svg

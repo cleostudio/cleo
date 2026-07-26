@@ -36,6 +36,16 @@ describe('social OG image metadata', () => {
       'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
     ],
     [
+      '/oceans',
+      publicPageMetadata.oceans,
+      'Oceans · Cleo. Evergreen field guides for the World Ocean, major basins, and signature seas — orientation, features, and facts.',
+    ],
+    [
+      '/sky',
+      publicPageMetadata.sky,
+      'Sky · Cleo. A static sky atlas plate with hotspots into Space field guides — nebulae, galaxies, and the Moon.',
+    ],
+    [
       '/cleo',
       publicPageMetadata.cleo,
       'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',

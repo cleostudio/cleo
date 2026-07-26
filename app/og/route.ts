@@ -17,6 +17,8 @@ const PUBLIC_SECTIONS = new Set<PublicSection>([
   'cleo',
   'explore',
   'gallery',
+  'oceans',
+  'sky',
   'space',
   'topics',
   'projects',

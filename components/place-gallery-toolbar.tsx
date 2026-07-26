@@ -54,7 +54,7 @@ export function PlaceGalleryToolbar({
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Country, place, or space body"
+            placeholder="Country, place, space body, or ocean"
             className="mt-1.5 w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground"
           />
         </div>

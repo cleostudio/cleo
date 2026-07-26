@@ -5,9 +5,10 @@ dock at `/cleo`.
 
 The public site includes a homepage for country search, highlighted places, and
 topic discovery; Explore country field guides; Space field guides at `/space`;
-a place Gallery at `/gallery`; a Topics catalog; Writing (for a future
-encyclopedia layer); and a browser-only agent with streamed Markdown, vision,
-image generation, and live reasoning / web-search activity.
+Oceans field guides at `/oceans`; a Sky atlas at `/sky`; a place Gallery at
+`/gallery`; a Topics catalog; Writing (for a future encyclopedia layer); and a
+browser-only agent with streamed Markdown, vision, image generation, and live
+reasoning / web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 `/photos` permanently redirects to `/gallery`.
@@ -20,10 +21,12 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Country guides: `content/atlas.json` + optimized static JPEGs in
   `public/images/atlas/` (no image CDN/account at runtime)
 - Space guides: `lib/space.ts` + `content/space-photos.json` + JPEGs in
-  `public/images/space/`
+  `public/images/space/`; Sky atlas companion at `/sky`
+- Oceans guides: `lib/oceans.ts` + `content/ocean-photos.json` + JPEGs in
+  `public/images/oceans/`
 - **OpenAI** is the only third-party API (`OPENAI_API_KEY` → `POST /api/responses`)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
-  Explore/Space catalog so replies can deep-link field guides and embed
+  Explore/Space/Oceans catalog so replies can deep-link field guides and embed
   curated topic photographs when a visual helps)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 

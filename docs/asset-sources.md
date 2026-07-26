@@ -48,6 +48,30 @@ otherwise — keep the on-page credit and source link.
 | `crab-nebula` | PIA03606 | Crab Nebula |
 | `carina-nebula` | GSFC_20171208_Archive_e002076 | Carina Nebula landscape |
 
+## Oceans photographs
+
+One curated NASA image per Oceans guide. Import-time only via
+`pnpm import:ocean-photos` (sources in `scripts/oceans/ocean-photo-sources.json`);
+runtime serves local JPEGs under `public/images/oceans/{slug}/`. Originals stay
+in `.ocean-originals/` (gitignored). Same NASA media guidelines as Space.
+
+| Slug | NASA id | Feature |
+| --- | --- | --- |
+| `world-ocean` | PIA00152 | Global ocean from deep space |
+| `pacific` | PIA18033 | Pacific Ocean chlorophyll mosaic |
+| `atlantic` | PIA02455 | Atlantic surface winds |
+| `indian` | GSFC_20171208_Archive_e001414 | Kerguelen in the southern Indian Ocean |
+| `southern` | iss065e214231 | Southern Ocean ice edge |
+| `arctic` | PIA18034 | Warm rivers meeting Arctic sea ice |
+| `mediterranean` | s66-45749 | Strait of Gibraltar and the Mediterranean |
+| `caribbean` | iss013e27590 | Caribbean Sea from orbit |
+| `red-sea` | 41g-120-180 | Sinai Peninsula and the Red Sea |
+| `baltic` | iss066e116300 | Baltic Sea winter ice |
+| `bering` | GSFC_20171208_Archive_e000948 | Turbulent Bering Sea |
+| `south-china-sea` | s07-05-245 | Internal waves, South China Sea |
+| `gulf-of-mexico` | as07-05-1635 | Gulf of Mexico and Yucatán coast |
+| `coral-sea` | S32-520-014 | Western Coral Sea and Great Barrier Reef |
+
 ## Taste shelf
 
 Source record for the album and book assets added in July 2026. Cover images

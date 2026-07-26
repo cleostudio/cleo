@@ -34,6 +34,16 @@ describe('public page metadata copy', () => {
       description:
         'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
     })
+    expect(publicPageMetadata.oceans).toEqual({
+      title: 'Oceans',
+      description:
+        'Evergreen field guides for the World Ocean, major basins, and signature seas — orientation, features, and facts.',
+    })
+    expect(publicPageMetadata.sky).toEqual({
+      title: 'Sky',
+      description:
+        'A static sky atlas plate with hotspots into Space field guides — nebulae, galaxies, and the Moon.',
+    })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',
       description:
@@ -48,9 +58,12 @@ describe('public page metadata copy', () => {
       'topics',
       'explore',
       'space',
+      'oceans',
+      'sky',
       'cleo',
     ] as const) {
       expect(publicPageMetadata[section].description.length, section).toBeLessThanOrEqual(160)
     }
   })
 })
+

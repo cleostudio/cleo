@@ -57,3 +57,6 @@ static/
 # Space photo import originals (never public)
 .space-originals/
 
+# Oceans photo import originals (never public)
+.ocean-originals/
+

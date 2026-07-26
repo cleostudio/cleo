@@ -31,6 +31,15 @@ export function SpacePageView() {
           >
             {publicPageMetadata.space.description}
           </p>
+          <p
+            className="enter mt-3 text-sm text-muted-foreground"
+            style={{ '--enter-delay': '90ms' } as React.CSSProperties}
+          >
+            <Link href="/sky" className="text-foreground underline-offset-2 hover:underline">
+              Open the Sky atlas
+            </Link>{' '}
+            for deep-sky hotspots into these guides.
+          </p>
         </header>
         <PixelCluster variant={6} className="enter shrink-0" />
       </div>
