@@ -371,6 +371,8 @@
 .user-message {
   display: block;
   max-width: 100%;
+  /* Match the multi-row prompt dock — 999px pills read as stadiums once text wraps. */
+  border-radius: 1.5rem;
   padding: 0.625rem 1.125rem;
   color: var(--foreground);
   font-size: 0.875rem;
