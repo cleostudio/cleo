@@ -4,6 +4,14 @@ export const MAX_IMAGES_PER_MESSAGE = 4
 export const MAX_IMAGE_BYTES = 4 * 1024 * 1024
 export const MAX_IMAGE_DIMENSION = 2048
 
+/**
+ * Whole-request ceilings. Per-message limits alone leave room for a 50-message
+ * conversation to carry hundreds of megabytes of vision input, which is billed
+ * on every turn. These bound that without constraining real conversations.
+ */
+export const MAX_IMAGES_PER_REQUEST = 16
+export const MAX_TOTAL_IMAGE_BYTES = 6 * 1024 * 1024
+
 export const ACCEPTED_IMAGE_MIME_TYPES = [
   "image/png",
   "image/jpeg",
@@ -25,6 +33,7 @@ export function isAcceptedImageMimeType(
 export function parseImageDataUrl(url: string): {
   mediaType: AcceptedImageMimeType
   base64: string
+  bytes: number
 } | null {
   const match = DATA_URL_PATTERN.exec(url.trim())
 
@@ -40,13 +49,13 @@ export function parseImageDataUrl(url: string): {
   }
 
   // Rough decoded size: 3/4 of base64 length.
-  const estimatedBytes = Math.floor((base64.length * 3) / 4)
+  const bytes = Math.floor((base64.length * 3) / 4)
 
-  if (estimatedBytes > MAX_IMAGE_BYTES) {
+  if (bytes > MAX_IMAGE_BYTES) {
     return null
   }
 
-  return { mediaType, base64 }
+  return { mediaType, base64, bytes }
 }
 
 export function toImageDataUrl(
