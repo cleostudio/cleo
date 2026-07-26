@@ -240,4 +240,28 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page).not.toHaveURL(/[?&]ask=/)
     await expect(page.getByText('Japan is an archipelago.')).toBeVisible()
   })
+
+  test('Maps Ask Cleo link client-navigates and seeds Cleo', async ({ page }) => {
+    test.setTimeout(60_000)
+    await prepareBrowserPage(page)
+    await page.route('**/api/responses', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/x-ndjson; charset=utf-8',
+        body: `${JSON.stringify({ type: 'text', delta: 'Japan is an archipelago.' })}\n`,
+      })
+    })
+
+    await page.goto('/maps?c=japan')
+    await expect(page.getByRole('region', { name: 'Japan' })).toBeVisible({
+      timeout: 20_000,
+    })
+    await page.getByRole('link', { name: 'Ask Cleo' }).click()
+    await expect(page).toHaveURL(/\/cleo/)
+    await expect(
+      page.getByText(/orientation to Japan.*Deep-link its field guide/i),
+    ).toBeVisible({ timeout: 15_000 })
+    await expect(page).not.toHaveURL(/[?&]ask=/)
+    await expect(page.getByText('Japan is an archipelago.')).toBeVisible()
+  })
 })
