@@ -5,6 +5,9 @@
 // Each cell is one of: 's' (lit signal), 'a' (strong ink), 'b' (faint ink),
 // or '' (empty). Every variant keeps exactly one 's', so the signal
 // discipline holds while the arrangement shifts page to page.
+
+export type PixelClusterCell = 's' | 'a' | 'b' | ''
+
 const VARIANTS = [
   ['', 's', 'a', 'b'],
   ['a', 's', '', 'b'],
@@ -18,7 +21,14 @@ const VARIANTS = [
   ['', 'b', 's', 'a'],
   ['a', '', 'b', 's'],
   ['s', 'b', '', 'a'],
-] as const
+] as const satisfies ReadonlyArray<ReadonlyArray<PixelClusterCell>>
+
+/** Homepage wordmark stamp — the canonical brand arrangement of the mark. */
+export const HOME_MASTHEAD_VARIANT = 2
+
+export function pixelClusterCells(variant = 0): ReadonlyArray<PixelClusterCell> {
+  return VARIANTS[((variant % VARIANTS.length) + VARIANTS.length) % VARIANTS.length]
+}
 
 export function PixelCluster({
   className,
@@ -27,7 +37,7 @@ export function PixelCluster({
   className?: string
   variant?: number
 }) {
-  const cells = VARIANTS[((variant % VARIANTS.length) + VARIANTS.length) % VARIANTS.length]
+  const cells = pixelClusterCells(variant)
   return (
     <span
       className={className ? `pixel-cluster ${className}` : 'pixel-cluster'}
