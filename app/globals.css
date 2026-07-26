@@ -1461,6 +1461,17 @@
   gap: 0.5rem 1.5rem;
 }
 
+/* Field-guide plates carry real values — language lists, currency names,
+   orbital periods — that will not hold one line across four columns, and that
+   a reader has reason to copy. */
+.spec-plate-guide {
+  user-select: text;
+}
+
+.spec-plate-guide dd {
+  white-space: normal;
+}
+
 /* ── Nameplate: the boxed data-plate variant ──────────────────────── */
 
 .spec-nameplate {
@@ -5573,6 +5584,12 @@ a:focus-visible .external-label .external-mark {
 .zoom-overlay-details .spec-plate dd {
   margin-top: 0.125rem;
   font-size: 0.75rem;
+  /* Wikimedia credit lines run long. The overlay reserves a fixed strip, so a
+     cell that wraps would ride up over the photograph; the field guide behind
+     the caption carries the full credit. */
+  max-width: 16rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* The caption sheet follows the print: items spring in one by one once the

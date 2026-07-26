@@ -52,7 +52,7 @@ async function commonsSearch(query, limit = 12) {
     gsrnamespace: '6',
     gsrlimit: String(limit),
     prop: 'imageinfo',
-    iiprop: 'url|size|mime|extmetadata|canonicaltitle',
+    iiprop: 'url|size|mime|extmetadata|canonicaltitle|user',
     format: 'json',
     origin: '*',
   })
@@ -76,12 +76,29 @@ function licenseOf(info) {
   ).trim()
 }
 
+/**
+ * Some Commons files put a file note ("NOTE: This image is a panorama…") in
+ * the Artist field, or leave it as "Own work". Neither credits anyone, so fall
+ * through to the uploader rather than shipping a note as the photographer.
+ */
+function isCredit(value) {
+  if (!value) return false
+  if (value.length > 120) return false
+  return !/^\s*(note|warning|this (image|file|photo)|own work)\b/i.test(value)
+}
+
 function artistOf(info) {
   const meta = info.extmetadata ?? {}
-  const raw = stripHtml(meta.Artist?.value || meta.Credit?.value || '')
-  if (!raw) return 'Wikimedia Commons contributor'
-  // Keep short credit lines.
-  return raw.length > 120 ? `${raw.slice(0, 117)}…` : raw
+  const candidates = [
+    stripHtml(meta.Artist?.value || ''),
+    stripHtml(meta.Credit?.value || ''),
+    info.user || '',
+  ]
+
+  return (
+    candidates.map((value) => value.trim()).find(isCredit) ||
+    'Wikimedia Commons contributor'
+  )
 }
 
 function scoreCandidate(page, placeName, countryName, usedUrls) {

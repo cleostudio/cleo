@@ -141,32 +141,33 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         <h2 id="guide-facts" className="guide-label">
           Fact plate
         </h2>
-        <dl className="mt-3 grid gap-0 text-sm">
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Capital</dt>
-            <dd className="text-right">{entry.facts.capital}</dd>
-          </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Languages</dt>
-            <dd className="text-right">{entry.facts.languages.join(', ')}</dd>
-          </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Currency</dt>
-            <dd className="text-right">{entry.facts.currency}</dd>
-          </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Area</dt>
-            <dd className="text-right tabular-nums">
-              {entry.facts.areaKm2.toLocaleString('en-US')} km²
+        <dl className="spec-plate spec-plate-guide mt-3">
+          <div>
+            <dt>Capital</dt>
+            <dd>
+              <span className="spec-signal" aria-hidden />
+              {entry.facts.capital}
             </dd>
           </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">Region</dt>
-            <dd className="text-right">{entry.facts.region}</dd>
+          <div>
+            <dt>Languages</dt>
+            <dd>{entry.facts.languages.join(', ')}</dd>
           </div>
-          <div className="hairline-top flex justify-between gap-6 py-3">
-            <dt className="text-muted-foreground">ISO 3166-1</dt>
-            <dd className="text-right font-mono tabular-nums">{entry.code}</dd>
+          <div>
+            <dt>Currency</dt>
+            <dd>{entry.facts.currency}</dd>
+          </div>
+          <div>
+            <dt>Area</dt>
+            <dd>{entry.facts.areaKm2.toLocaleString('en-US')} km²</dd>
+          </div>
+          <div>
+            <dt>Region</dt>
+            <dd>{entry.facts.region}</dd>
+          </div>
+          <div>
+            <dt>ISO 3166-1</dt>
+            <dd>{entry.code}</dd>
           </div>
         </dl>
       </section>
