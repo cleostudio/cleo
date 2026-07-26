@@ -37,12 +37,12 @@ The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
 Maps (`/maps`) is a first-party MapLibre globe plate: NASA Blue Marble
 Web-Mercator tiles under `public/images/maps/tiles/` and Natural Earth
 admin-0 borders at `public/maps/countries.geojson`, with a camera index at
-`public/maps/country-index.json`. Deep links use `/maps?country=[slug|iso]`.
-Explore guides link back with “View on map”. MapLibre’s module workers are
-vendored to `public/maplibre/` so Turbopack/Next can load them under the site
-CSP. Regenerate tiles, borders, index, and workers with `pnpm prepare:maps`
-(`--skip-tiles` refreshes vectors/index only); validate with
-`pnpm validate:maps`. No third-party tile CDN — assets stay on-origin.
+`public/maps/country-index.json`. Deep links use `/maps?country=[slug|iso]` or `/maps?region=[africa|americas|asia|europe|oceania]`.
+Explore guides link back with “View on map”; Cleo may cite the same map paths.
+MapLibre’s module workers are vendored to `public/maplibre/` so Turbopack/Next
+can load them under the site CSP. Regenerate tiles, borders, index, and workers
+with `pnpm prepare:maps` (`--skip-tiles` refreshes vectors/index only); validate
+with `pnpm validate:maps`. No third-party tile CDN — assets stay on-origin.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

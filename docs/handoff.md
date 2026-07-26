@@ -24,8 +24,8 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 - Posts: `content/blog/<slug>/` via owned content route
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
 - Maps: `lib/maps.ts`, `components/earth-map.tsx`, `/maps` (MapLibre + local
-  NASA Blue Marble tiles and Natural Earth borders; region cameras + deep
-  links; `pnpm prepare:maps` / `pnpm validate:maps`)
+  NASA Blue Marble tiles and Natural Earth borders; country/region deep links;
+  Cleo portal map grounding; `pnpm prepare:maps` / `pnpm validate:maps`)
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
 - Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`

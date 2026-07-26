@@ -382,7 +382,11 @@ async function writeCountryIndex(collection, outPath) {
   const regions = []
   for (const label of regionOrder) {
     const members = entries.filter((entry) => entry.region === label && entry.slug)
-    const camera = regionCamera(members)
+    // Russia is catalogued under Europe but stretches to the Pacific; keep it
+    // in the tally, frame the denser European landmass without it.
+    const cameraMembers =
+      label === 'Europe' ? members.filter((entry) => entry.code !== 'RU') : members
+    const camera = regionCamera(cameraMembers)
     if (!camera) continue
     regions.push({
       id: label.toLowerCase(),

@@ -17,6 +17,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { ensureMapLibreWorker } from '~/lib/maplibre-worker'
 import {
   findMapCountryIndexEntry,
+  findMapRegionCamera,
   formatMapCoords,
   MAP_COUNTRIES_URL,
   MAP_COUNTRY_INDEX_URL,
@@ -25,9 +26,10 @@ import {
   MAP_TILE_SIZE,
   MAP_TILE_URL,
   mapAttribution,
-  resolveMapCountry,
-  syncMapCountrySearchParam,
   mapCountryHref,
+  mapRegionHref,
+  resolveMapCountry,
+  syncMapFocusSearchParams,
   type MapCountryHit,
   type MapCountryIndex,
   type MapCountryIndexEntry,
@@ -74,6 +76,8 @@ function addCountryLayers(map: MapLibreMap) {
     promoteId: 'code',
   })
 
+  // WebGL paint values cannot read CSS variables; warm signal-adjacent oranges
+  // are fixed here to match --signal on the Blue Marble basemap.
   map.addLayer({
     id: 'country-fill',
     type: 'fill',
@@ -129,10 +133,12 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const reactId = useId()
   const searchParams = useSearchParams()
   const countryParam = searchParams.get('country')
+  const regionParam = searchParams.get('region')
   const containerRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<MapLibreMap | null>(null)
   const hoveredCodeRef = useRef<string | null>(null)
   const selectedCodeRef = useRef<string | null>(null)
+  const activeRegionRef = useRef<string | null>(null)
   const indexRef = useRef<MapCountryIndexEntry[]>([])
   const regionsRef = useRef<MapRegionCamera[]>([])
   const suppressMapClickRef = useRef<() => void>(() => {})
@@ -207,15 +213,21 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       }
       selectedCodeRef.current = hit?.code ?? null
       setSelected(hit)
+      setActiveRegion(null)
+      activeRegionRef.current = null
+      setCopyState('idle')
       if (hit) {
-        syncMapCountrySearchParam(hit.country?.slug ?? hit.code)
+        syncMapFocusSearchParams({
+          kind: 'country',
+          value: hit.country?.slug ?? hit.code,
+        })
         if (entry) fitCountry(map, entry)
         else {
           const indexed = indexRef.current.find((item) => item.code === hit.code)
           if (indexed) fitCountry(map, indexed)
         }
       } else {
-        syncMapCountrySearchParam(null)
+        syncMapFocusSearchParams(null)
       }
     }
 
@@ -345,12 +357,21 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   }, [])
 
   useEffect(() => {
-    if (!ready || !countryParam) return
-    const entry = findMapCountryIndexEntry(indexRef.current, countryParam)
-    if (!entry) return
-    if (selectedCodeRef.current === entry.code) return
-    flyToCountry(entry, { syncUrl: false })
-  }, [ready, countryParam])
+    if (!ready) return
+    if (countryParam) {
+      const entry = findMapCountryIndexEntry(indexRef.current, countryParam)
+      if (!entry) return
+      if (selectedCodeRef.current === entry.code) return
+      flyToCountry(entry, { syncUrl: false })
+      return
+    }
+    if (regionParam) {
+      const region = findMapRegionCamera(regionsRef.current, regionParam)
+      if (!region) return
+      if (activeRegionRef.current === region.id && !selectedCodeRef.current) return
+      flyToRegion(region, { syncUrl: false })
+    }
+  }, [ready, countryParam, regionParam])
 
   useEffect(() => {
     const trimmed = query.trim().toLowerCase()
@@ -391,9 +412,13 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     setQuery(entry.name)
     setSuggestions([])
     setActiveRegion(null)
+    activeRegionRef.current = null
     setCopyState('idle')
     if (syncUrl) {
-      syncMapCountrySearchParam(entry.slug ?? entry.code)
+      syncMapFocusSearchParams({
+        kind: 'country',
+        value: entry.slug ?? entry.code,
+      })
     }
     fitCountry(map, entry)
   }
@@ -412,12 +437,16 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     setQuery('')
     setSuggestions([])
     setActiveRegion(null)
+    activeRegionRef.current = null
     setCopyState('idle')
-    syncMapCountrySearchParam(null)
+    syncMapFocusSearchParams(null)
     map.easeTo({ center: [10, 20], zoom: 1.2, duration: 600 })
   }
 
-  function flyToRegion(region: MapRegionCamera) {
+  function flyToRegion(
+    region: MapRegionCamera,
+    { syncUrl = true }: { syncUrl?: boolean } = {},
+  ) {
     const map = mapRef.current
     if (!map) return
     suppressMapClickRef.current()
@@ -433,7 +462,10 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     setSuggestions([])
     setCopyState('idle')
     setActiveRegion(region.id)
-    syncMapCountrySearchParam(null)
+    activeRegionRef.current = region.id
+    if (syncUrl) {
+      syncMapFocusSearchParams({ kind: 'region', value: region.id })
+    }
     map.fitBounds(region.bounds, {
       padding: { top: 72, bottom: 96, left: 40, right: 40 },
       maxZoom: region.maxZoom,
@@ -441,9 +473,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     })
   }
 
-  async function copyDeepLink() {
-    if (!selected) return
-    const href = selected.mapHref ?? mapCountryHref(selected.code)
+  async function copyDeepLink(href: string) {
     const absolute = new URL(href, window.location.origin).href
     try {
       await navigator.clipboard.writeText(absolute)
@@ -454,6 +484,10 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       window.setTimeout(() => setCopyState('idle'), 1600)
     }
   }
+
+  const activeRegionCamera = activeRegion
+    ? regions.find((region) => region.id === activeRegion)
+    : undefined
 
   const searchListId = `${reactId}-map-suggestions`
   const photo = selected ? countryPhotos[selected.code] : undefined
@@ -569,9 +603,16 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                     {selected.code}
                   </span>
                   <span className="earth-map-selection-name">{selected.name}</span>
-                  <span className="earth-map-photo-place text-muted-foreground">
-                    {photo.placeName}
-                  </span>
+                  {selected.country?.region ? (
+                    <span className="earth-map-photo-place text-muted-foreground">
+                      {selected.country.region}
+                      {photo.placeName ? ` · ${photo.placeName}` : ''}
+                    </span>
+                  ) : (
+                    <span className="earth-map-photo-place text-muted-foreground">
+                      {photo.placeName}
+                    </span>
+                  )}
                 </span>
               </Link>
             ) : (
@@ -580,6 +621,11 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                   {selected.code}
                 </p>
                 <p className="earth-map-selection-name">{selected.name}</p>
+                {selected.country?.region ? (
+                  <p className="earth-map-photo-place text-muted-foreground">
+                    {selected.country.region}
+                  </p>
+                ) : null}
               </div>
             )}
             <div className="earth-map-selection-actions">
@@ -594,7 +640,36 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                 type="button"
                 className="earth-map-copy"
                 onClick={() => {
-                  void copyDeepLink()
+                  void copyDeepLink(
+                    selected.mapHref ?? mapCountryHref(selected.code),
+                  )
+                }}
+              >
+                {copyState === 'copied'
+                  ? 'Copied link'
+                  : copyState === 'failed'
+                    ? 'Copy failed'
+                    : 'Copy link'}
+              </button>
+            </div>
+          </div>
+        ) : activeRegionCamera ? (
+          <div className="earth-map-selection">
+            <div>
+              <p className="earth-map-selection-code tabular-nums text-muted-foreground">
+                Region
+              </p>
+              <p className="earth-map-selection-name">{activeRegionCamera.label}</p>
+              <p className="earth-map-photo-place text-muted-foreground">
+                {activeRegionCamera.tally} Explore guides
+              </p>
+            </div>
+            <div className="earth-map-selection-actions">
+              <button
+                type="button"
+                className="earth-map-copy"
+                onClick={() => {
+                  void copyDeepLink(mapRegionHref(activeRegionCamera.id))
                 }}
               >
                 {copyState === 'copied'

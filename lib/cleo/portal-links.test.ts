@@ -164,5 +164,8 @@ describe('CLEO_PORTAL_STARTERS', () => {
     expect(CLEO_PORTAL_STARTERS.every((starter) => starter.prompt.length > 20)).toBe(
       true,
     )
+    expect(
+      CLEO_PORTAL_STARTERS.some((starter) => /maps/i.test(starter.prompt)),
+    ).toBe(true)
   })
 })

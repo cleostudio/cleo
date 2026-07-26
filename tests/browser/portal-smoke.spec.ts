@@ -53,6 +53,20 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       page.getByRole('button', { name: /Asia/ }),
     ).toBeVisible({ timeout: 20_000 })
 
+    await page.goto('/maps?region=europe')
+    await expect(page.getByRole('button', { name: /Europe/ })).toBeVisible({
+      timeout: 20_000,
+    })
+    await expect(page.locator('.earth-map-region[data-active]')).toContainText(
+      'Europe',
+    )
+    await expect(page.getByText('Explore guides')).toBeVisible()
+
+    await page.goto('/maps?country=japan')
+    await expect(page.getByRole('link', { name: /Open field guide/ })).toBeVisible({
+      timeout: 20_000,
+    })
+
     await page.goto('/space/earth')
     await expect(
       page.getByRole('link', { name: 'Open the Earth map →' }),
