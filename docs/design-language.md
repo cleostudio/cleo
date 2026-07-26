@@ -1,9 +1,8 @@
 # v3 Design Language
 
-The visual and interaction spec for **Cleo** (v3). It extends the component
-stack in ADR-0006 (motion is information, not decoration). Rules here are
-written to be buildable: when a value is stated, use it; when a component is
-described, its behavior spec is the contract.
+The visual and interaction spec for **Cleo** (v3). Motion is information, not
+decoration. Rules here are written to be buildable: when a value is stated,
+use it; when a component is described, its behavior spec is the contract.
 
 This system is inherited from [cali.so](https://github.com/CaliCastle/cali.so),
 which Cleo forks. [`theme-preset.md`](./theme-preset.md) is the shorter,
