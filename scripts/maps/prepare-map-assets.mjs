@@ -10,7 +10,7 @@
  *     --countries=/tmp/maps-assets/ne_50m_admin_0_countries.geojson
  */
 
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -240,6 +240,15 @@ async function writeTiles(blueMarblePath, tilesDir) {
   return tileCount
 }
 
+async function copyMapLibreWorkers() {
+  const dist = path.join(root, 'node_modules/maplibre-gl/dist')
+  const outDir = path.join(root, 'public/maplibre')
+  await mkdir(outDir, { recursive: true })
+  for (const file of ['maplibre-gl-worker.mjs', 'maplibre-gl-shared.mjs']) {
+    await copyFile(path.join(dist, file), path.join(outDir, file))
+  }
+}
+
 async function main() {
   const blueMarble =
     argValue('--blue-marble') || path.join(root, 'public/images/maps/blue-marble.jpg')
@@ -256,6 +265,7 @@ async function main() {
     await writeFile(publicBlueMarble, await readFile(blueMarble))
   }
 
+  await copyMapLibreWorkers()
   const featureCount = await writeCountries(countriesSrc, [countriesPublic])
   const tileCount = await writeTiles(blueMarble, tilesDir)
 

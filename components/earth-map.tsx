@@ -13,6 +13,7 @@ import {
 } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 
+import { ensureMapLibreWorker } from '~/lib/maplibre-worker'
 import {
   formatMapCoords,
   MAP_COUNTRIES_URL,
@@ -50,7 +51,7 @@ type EarthMapProps = {
   className?: string
 }
 
-function emptyStyle(): StyleSpecification {
+function basemapStyle(): StyleSpecification {
   return {
     version: 8,
     sources: {
@@ -62,12 +63,6 @@ function emptyStyle(): StyleSpecification {
         maxzoom: MAP_MAX_ZOOM,
         attribution: mapAttribution.basemap.credit,
       },
-      countries: {
-        type: 'geojson',
-        data: MAP_COUNTRIES_URL,
-        attribution: mapAttribution.boundaries.credit,
-        promoteId: 'code',
-      },
     },
     layers: [
       {
@@ -75,50 +70,63 @@ function emptyStyle(): StyleSpecification {
         type: 'raster',
         source: 'blueMarble',
       },
-      {
-        id: 'country-fill',
-        type: 'fill',
-        source: 'countries',
-        paint: {
-          // WebGL paint values cannot read CSS variables — fixed inks tuned
-          // for the Blue Marble basemap in both page themes.
-          'fill-color': [
-            'case',
-            ['boolean', ['feature-state', 'selected'], false],
-            'rgba(232, 156, 74, 0.38)',
-            ['boolean', ['feature-state', 'hover'], false],
-            'rgba(255, 255, 255, 0.2)',
-            'rgba(0, 0, 0, 0)',
-          ],
-          'fill-opacity': 1,
-        },
-      },
-      {
-        id: 'country-line',
-        type: 'line',
-        source: 'countries',
-        paint: {
-          'line-color': [
-            'case',
-            ['boolean', ['feature-state', 'selected'], false],
-            'rgba(255, 196, 120, 0.95)',
-            ['boolean', ['feature-state', 'hover'], false],
-            'rgba(255, 255, 255, 0.92)',
-            'rgba(255, 255, 255, 0.42)',
-          ],
-          'line-width': [
-            'case',
-            ['boolean', ['feature-state', 'selected'], false],
-            1.6,
-            ['boolean', ['feature-state', 'hover'], false],
-            1.25,
-            0.6,
-          ],
-          'line-opacity': 0.95,
-        },
-      },
     ],
   }
+}
+
+function addCountryLayers(map: MapLibreMap) {
+  if (map.getSource('countries')) return
+
+  map.addSource('countries', {
+    type: 'geojson',
+    data: MAP_COUNTRIES_URL,
+    attribution: mapAttribution.boundaries.credit,
+    promoteId: 'code',
+  })
+
+  map.addLayer({
+    id: 'country-fill',
+    type: 'fill',
+    source: 'countries',
+    paint: {
+      // WebGL paint values cannot read CSS variables — fixed inks tuned
+      // for the Blue Marble basemap in both page themes.
+      'fill-color': [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false],
+        'rgba(232, 156, 74, 0.38)',
+        ['boolean', ['feature-state', 'hover'], false],
+        'rgba(255, 255, 255, 0.2)',
+        'rgba(0, 0, 0, 0)',
+      ],
+      'fill-opacity': 1,
+    },
+  })
+
+  map.addLayer({
+    id: 'country-line',
+    type: 'line',
+    source: 'countries',
+    paint: {
+      'line-color': [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false],
+        'rgba(255, 196, 120, 0.95)',
+        ['boolean', ['feature-state', 'hover'], false],
+        'rgba(255, 255, 255, 0.92)',
+        'rgba(255, 255, 255, 0.42)',
+      ],
+      'line-width': [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false],
+        1.6,
+        ['boolean', ['feature-state', 'hover'], false],
+        1.25,
+        0.6,
+      ],
+      'line-opacity': 0.95,
+    },
+  })
 }
 
 function bboxOfGeometry(geometry: {
@@ -180,6 +188,7 @@ export function EarthMap({ className }: EarthMapProps) {
   const hoveredCodeRef = useRef<string | null>(null)
   const selectedCodeRef = useRef<string | null>(null)
   const indexRef = useRef<CountryIndexEntry[]>([])
+  const suppressMapClickRef = useRef<() => void>(() => {})
 
   const [ready, setReady] = useState(false)
   const [coords, setCoords] = useState('—')
@@ -192,9 +201,11 @@ export function EarthMap({ className }: EarthMapProps) {
     const container = containerRef.current
     if (!container || mapRef.current) return
 
+    ensureMapLibreWorker()
+
     const map = new MapLibreMap({
       container,
-      style: emptyStyle(),
+      style: basemapStyle(),
       center: [10, 20],
       zoom: 1.2,
       minZoom: MAP_MIN_ZOOM,
@@ -216,6 +227,7 @@ export function EarthMap({ className }: EarthMapProps) {
     mapRef.current = map
 
     const setHover = (code: string | null) => {
+      if (!map.getSource('countries')) return
       if (hoveredCodeRef.current && hoveredCodeRef.current !== code) {
         map.setFeatureState(
           { source: 'countries', id: hoveredCodeRef.current },
@@ -232,14 +244,16 @@ export function EarthMap({ className }: EarthMapProps) {
     }
 
     const setSelection = (hit: MapCountryHit | null) => {
-      const previous = selectedCodeRef.current
-      if (previous && previous !== hit?.code) {
-        map.setFeatureState({ source: 'countries', id: previous }, { selected: false })
+      if (map.getSource('countries')) {
+        const previous = selectedCodeRef.current
+        if (previous && previous !== hit?.code) {
+          map.setFeatureState({ source: 'countries', id: previous }, { selected: false })
+        }
+        if (hit) {
+          map.setFeatureState({ source: 'countries', id: hit.code }, { selected: true })
+        }
       }
       selectedCodeRef.current = hit?.code ?? null
-      if (hit) {
-        map.setFeatureState({ source: 'countries', id: hit.code }, { selected: true })
-      }
       setSelected(hit)
     }
 
@@ -249,7 +263,70 @@ export function EarthMap({ className }: EarthMapProps) {
       setZoom(map.getZoom())
     }
 
-    map.on('load', async () => {
+    let markedReady = false
+    const markReady = () => {
+      if (markedReady) return
+      markedReady = true
+      onMove()
+      setReady(true)
+    }
+
+    let countryHandlersBound = false
+    let ignoreMapClicksUntil = 0
+
+    const bindCountryHandlers = () => {
+      if (countryHandlersBound || !map.getLayer('country-fill')) return
+      countryHandlersBound = true
+
+      map.on('mousemove', 'country-fill', (event: MapLayerMouseEvent) => {
+        const feature = event.features?.[0]
+        const code = feature ? String(feature.id ?? feature.properties?.code ?? '') : ''
+        setHover(code || null)
+        if (event.lngLat) {
+          setCoords(formatMapCoords(event.lngLat.lng, event.lngLat.lat))
+        }
+      })
+
+      map.on('mouseleave', 'country-fill', () => {
+        setHover(null)
+      })
+
+      map.on('click', 'country-fill', (event: MapLayerMouseEvent) => {
+        if (performance.now() < ignoreMapClicksUntil) return
+        const feature = event.features?.[0]
+        if (!feature) return
+        const code = String(feature.id ?? feature.properties?.code ?? '')
+        if (!code) return
+        const hit = resolveMapCountry(code, String(feature.properties?.name ?? code))
+        setSelection(hit)
+        const entry = indexRef.current.find((item) => item.code === hit.code)
+        if (entry) {
+          map.fitBounds(entry.bbox, {
+            padding: { top: 72, bottom: 96, left: 48, right: 48 },
+            maxZoom: Math.min(MAP_MAX_ZOOM + 0.75, 5.5),
+            duration: 700,
+          })
+        }
+      })
+
+      map.on('click', (event: MapMouseEvent) => {
+        if (performance.now() < ignoreMapClicksUntil) return
+        if (!map.getLayer('country-fill')) return
+        const hits = map.queryRenderedFeatures(event.point, {
+          layers: ['country-fill'],
+        })
+        if (hits.length === 0) setSelection(null)
+      })
+    }
+
+    const ensureCountryLayers = () => {
+      if (!map.getSource('countries')) {
+        addCountryLayers(map)
+      }
+      bindCountryHandlers()
+    }
+
+    const hydrateCountries = async () => {
       try {
         const response = await fetch(MAP_COUNTRIES_URL)
         const collection = (await response.json()) as CountryFeatureCollection
@@ -257,46 +334,43 @@ export function EarthMap({ className }: EarthMapProps) {
       } catch {
         indexRef.current = []
       }
-      onMove()
-      setReady(true)
-    })
 
-    map.on('mousemove', 'country-fill', (event: MapLayerMouseEvent) => {
-      const feature = event.features?.[0]
-      const code = feature ? String(feature.id ?? feature.properties?.code ?? '') : ''
-      setHover(code || null)
-      if (event.lngLat) {
-        setCoords(formatMapCoords(event.lngLat.lng, event.lngLat.lat))
+      if (!mapRef.current) return
+      try {
+        ensureCountryLayers()
+      } catch {
+        // Style may still be swapping; a later idle pass retries below.
       }
+      markReady()
+    }
+
+    map.on('load', () => {
+      void hydrateCountries()
     })
 
-    map.on('mouseleave', 'country-fill', () => {
-      setHover(null)
-    })
-
-    map.on('click', 'country-fill', (event: MapLayerMouseEvent) => {
-      const feature = event.features?.[0]
-      if (!feature) return
-      const code = String(feature.id ?? feature.properties?.code ?? '')
-      if (!code) return
-      const hit = resolveMapCountry(code, String(feature.properties?.name ?? code))
-      setSelection(hit)
-      const entry = indexRef.current.find((item) => item.code === hit.code)
-      if (entry) {
-        map.fitBounds(entry.bbox, {
-          padding: { top: 72, bottom: 96, left: 48, right: 48 },
-          maxZoom: Math.min(MAP_MAX_ZOOM + 0.75, 5.5),
-          duration: 700,
-        })
+    map.on('idle', () => {
+      if (!map.getSource('countries') || !countryHandlersBound) {
+        try {
+          ensureCountryLayers()
+        } catch {
+          // Keep waiting for a clean style state.
+        }
       }
+      if (map.loaded()) markReady()
     })
 
-    map.on('click', (event: MapMouseEvent) => {
-      const hits = map.queryRenderedFeatures(event.point, { layers: ['country-fill'] })
-      if (hits.length === 0) setSelection(null)
+    map.on('error', (event) => {
+      console.warn('[earth-map]', event.error?.message ?? event)
+      markReady()
     })
 
     map.on('move', onMove)
+
+    // Expose a short click-suppression window for toolbar interactions that
+    // sit above the canvas (search suggestions can overlap the map).
+    suppressMapClickRef.current = () => {
+      ignoreMapClicksUntil = performance.now() + 400
+    }
 
     const observer = new ResizeObserver(() => {
       map.resize()
@@ -331,13 +405,16 @@ export function EarthMap({ className }: EarthMapProps) {
   function flyToCountry(entry: CountryIndexEntry) {
     const map = mapRef.current
     if (!map) return
+    suppressMapClickRef.current()
     const hit = resolveMapCountry(entry.code, entry.name)
     const previous = selectedCodeRef.current
-    if (previous && previous !== hit.code) {
-      map.setFeatureState({ source: 'countries', id: previous }, { selected: false })
+    if (map.getSource('countries')) {
+      if (previous && previous !== hit.code) {
+        map.setFeatureState({ source: 'countries', id: previous }, { selected: false })
+      }
+      map.setFeatureState({ source: 'countries', id: hit.code }, { selected: true })
     }
     selectedCodeRef.current = hit.code
-    map.setFeatureState({ source: 'countries', id: hit.code }, { selected: true })
     setSelected(hit)
     setQuery(entry.name)
     setSuggestions([])
@@ -402,7 +479,13 @@ export function EarthMap({ className }: EarthMapProps) {
                   <button
                     type="button"
                     role="option"
-                    onClick={() => flyToCountry(entry)}
+                    onMouseDown={(event) => {
+                      // Prevent the map under the overlapping list from
+                      // receiving this pointer interaction as a country click.
+                      event.preventDefault()
+                      event.stopPropagation()
+                      flyToCountry(entry)
+                    }}
                   >
                     <span>{entry.name}</span>
                     <span className="tabular-nums text-muted-foreground">{entry.code}</span>
