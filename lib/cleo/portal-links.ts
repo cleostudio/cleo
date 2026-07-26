@@ -3,6 +3,8 @@
  * Kept free of heavy catalog imports so the ask-form bundle stays light.
  */
 
+import { isKnownGuideHref } from '~/lib/cleo/portal-guide-slugs'
+
 export type PortalGuideLink = {
   collection: 'explore' | 'space'
   href: string
@@ -51,6 +53,10 @@ export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
     const slug = match[4]
 
     if (!href || !collection || !slug || found.has(href)) {
+      continue
+    }
+
+    if (!isKnownGuideHref(href)) {
       continue
     }
 
@@ -116,8 +122,9 @@ function isRedundantGuideFooter(
 }
 
 /**
- * Keep the first Markdown link per Explore/Space guide (short label), turn
- * later repeats into plain text, and drop redundant guide-only footer blocks.
+ * Keep the first Markdown link per *known* Explore/Space guide (short label),
+ * turn later repeats and invented slugs into plain text, and drop redundant
+ * guide-only footer blocks.
  */
 export function presentPortalGuideMarkdown(markdown: string): string {
   const seenHrefs = new Set<string>()
@@ -130,6 +137,9 @@ export function presentPortalGuideMarkdown(markdown: string): string {
       MARKDOWN_GUIDE_LINK,
       (_full, rawLabel: string, href: string, _collection: string, slug: string) => {
         const label = cleanPortalGuideLabel(rawLabel, slug)
+        if (!isKnownGuideHref(href)) {
+          return label
+        }
         const guideName = titleFromSlug(slug)
         if (seenHrefs.has(href)) {
           return label

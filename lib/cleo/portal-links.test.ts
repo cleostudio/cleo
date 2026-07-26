@@ -68,6 +68,21 @@ describe('extractPortalGuideLinks', () => {
       },
     ])
   })
+
+  it('ignores invented guide slugs', () => {
+    expect(
+      extractPortalGuideLinks(
+        'See [Atlantis](/explore/atlantis) and [Japan](/explore/japan).',
+      ),
+    ).toEqual([
+      {
+        collection: 'explore',
+        href: '/explore/japan',
+        label: 'Japan',
+        slug: 'japan',
+      },
+    ])
+  })
 })
 
 describe('presentPortalGuideMarkdown', () => {
@@ -127,6 +142,15 @@ describe('presentPortalGuideMarkdown', () => {
         '',
         'Space is hard.',
       ].join('\n'),
+    )
+  })
+
+  it('strips invented Explore/Space guide links to plain text', () => {
+    const markdown =
+      'Try [Japan](/explore/japan) then skip [Atlantis](/explore/atlantis) and [Krypton](/space/krypton).'
+
+    expect(presentPortalGuideMarkdown(markdown)).toBe(
+      'Try [Japan](/explore/japan) then skip Atlantis and Krypton.',
     )
   })
 })

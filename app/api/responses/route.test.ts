@@ -387,6 +387,7 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       "image_generation",
       "code_interpreter",
       "lookup_guide",
+      "list_guides",
       "search_gallery",
     ])
     expect(openai.create.mock.calls[0]?.[0].include).toEqual([

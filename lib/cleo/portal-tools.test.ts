@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import {
   executePortalTool,
+  LIST_GUIDES_TOOL_NAME,
   LOOKUP_GUIDE_TOOL_NAME,
   SEARCH_GALLERY_TOOL_NAME,
 } from './portal-tools'
@@ -58,5 +59,27 @@ describe('executePortalTool', () => {
     ) as { ok: boolean }
 
     expect(result.ok).toBe(false)
+  })
+
+  it('lists Explore guides by region', () => {
+    const result = JSON.parse(
+      executePortalTool(
+        LIST_GUIDES_TOOL_NAME,
+        JSON.stringify({
+          collection: 'explore',
+          group: 'Asia',
+          query: 'japan',
+          limit: 5,
+        }),
+      ),
+    ) as {
+      ok: boolean
+      results: { href: string; name: string }[]
+    }
+
+    expect(result.ok).toBe(true)
+    expect(result.results.some((guide) => guide.href === '/explore/japan')).toBe(
+      true,
+    )
   })
 })

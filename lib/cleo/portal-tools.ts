@@ -10,10 +10,20 @@ import {
   loadGroundedGuideCompact,
   matchGuidesInText,
 } from '~/lib/cleo/guide-grounding'
+import { countries } from '~/lib/countries'
 import { allGalleryItems, gallerySearchHref } from '~/lib/gallery'
+import { spaceSubjects } from '~/lib/space'
 
 export const LOOKUP_GUIDE_TOOL_NAME = 'lookup_guide'
+export const LIST_GUIDES_TOOL_NAME = 'list_guides'
 export const SEARCH_GALLERY_TOOL_NAME = 'search_gallery'
+
+const EXPLORE_GROUPS = [
+  ...new Set(countries.map((country) => country.region)),
+].sort()
+const SPACE_GROUPS = [
+  ...new Set(spaceSubjects.map((subject) => subject.category)),
+]
 
 export const PORTAL_FUNCTION_TOOLS: FunctionTool[] = [
   {
@@ -46,6 +56,40 @@ export const PORTAL_FUNCTION_TOOLS: FunctionTool[] = [
   },
   {
     type: 'function',
+    name: LIST_GUIDES_TOOL_NAME,
+    description:
+      'Browse or filter the site’s Explore country guides and Space field guides. Use to discover subjects by region/category or name before recommending a reading path; prefer lookup_guide for full orientation on a chosen pick.',
+    strict: true,
+    parameters: {
+      type: 'object',
+      additionalProperties: false,
+      properties: {
+        collection: {
+          type: ['string', 'null'],
+          enum: ['explore', 'space', null],
+          description:
+            'Which catalog to browse. Null returns both (compact).',
+        },
+        group: {
+          type: ['string', 'null'],
+          description:
+            'Explore region (Africa, Americas, Asia, Europe, Oceania) or Space category (Solar System, Moons, Deep Space). Null for any.',
+        },
+        query: {
+          type: ['string', 'null'],
+          description:
+            'Optional name/slug substring filter, e.g. japan, nebula, europe.',
+        },
+        limit: {
+          type: ['integer', 'null'],
+          description: 'Max guides to return (1–24). Null defaults to 12.',
+        },
+      },
+      required: ['collection', 'group', 'query', 'limit'],
+    },
+  },
+  {
+    type: 'function',
     name: SEARCH_GALLERY_TOOL_NAME,
     description:
       'Search curated Gallery photographs (Explore places and Space bodies) by country, place, region, or space subject. Returns titles, captions, field-guide hrefs, and Gallery deep links.',
@@ -68,11 +112,116 @@ export const PORTAL_FUNCTION_TOOLS: FunctionTool[] = [
   },
 ]
 
-function clampLimit(value: unknown, fallback = 5) {
+function clampLimit(value: unknown, fallback = 5, max = 8) {
   if (typeof value !== 'number' || !Number.isFinite(value)) {
     return fallback
   }
-  return Math.max(1, Math.min(8, Math.trunc(value)))
+  return Math.max(1, Math.min(max, Math.trunc(value)))
+}
+
+type ListedGuide = {
+  collection: 'explore' | 'space'
+  group: string
+  href: string
+  name: string
+  slug: string
+  subtitle?: string
+}
+
+function normalizeGroupKey(value: string) {
+  return value.trim().toLowerCase()
+}
+
+function listGuidesFromArgs(args: Record<string, unknown>): unknown {
+  const collection =
+    args.collection === 'explore' || args.collection === 'space'
+      ? args.collection
+      : null
+  const group =
+    typeof args.group === 'string' && args.group.trim()
+      ? args.group.trim()
+      : null
+  const query =
+    typeof args.query === 'string' && args.query.trim()
+      ? args.query.trim().toLowerCase()
+      : null
+  const limit = clampLimit(args.limit, 12, 24)
+
+  const explore: ListedGuide[] = countries.map((country) => ({
+    collection: 'explore',
+    group: country.region,
+    href: `/explore/${country.slug}`,
+    name: country.name,
+    slug: country.slug,
+    subtitle: country.subregion,
+  }))
+
+  const space: ListedGuide[] = spaceSubjects.map((subject) => ({
+    collection: 'space',
+    group: subject.category,
+    href: `/space/${subject.slug}`,
+    name: subject.name,
+    slug: subject.slug,
+    subtitle: subject.subtitle,
+  }))
+
+  let pool =
+    collection === 'explore'
+      ? explore
+      : collection === 'space'
+        ? space
+        : [...explore, ...space]
+
+  if (group) {
+    const needle = normalizeGroupKey(group)
+    const filtered = pool.filter(
+      (guide) => normalizeGroupKey(guide.group) === needle,
+    )
+    if (filtered.length === 0) {
+      return {
+        ok: false,
+        error: `Unknown group “${group}”.`,
+        exploreGroups: EXPLORE_GROUPS,
+        spaceGroups: SPACE_GROUPS,
+      }
+    }
+    pool = filtered
+  }
+
+  if (query) {
+    pool = pool.filter((guide) => {
+      const haystack = [
+        guide.name,
+        guide.slug,
+        guide.group,
+        guide.subtitle ?? '',
+      ]
+        .join(' ')
+        .toLowerCase()
+      return haystack.includes(query)
+    })
+  }
+
+  const results = pool.slice(0, limit).map((guide) => ({
+    collection: guide.collection,
+    group: guide.group,
+    href: guide.href,
+    name: guide.name,
+    slug: guide.slug,
+    ...(guide.subtitle ? { subtitle: guide.subtitle } : {}),
+  }))
+
+  return {
+    ok: true,
+    collection: collection ?? 'all',
+    group,
+    query,
+    count: results.length,
+    totalMatched: pool.length,
+    exploreGroups: EXPLORE_GROUPS,
+    spaceGroups: SPACE_GROUPS,
+    results,
+  }
 }
 
 function lookupGuideFromArgs(args: Record<string, unknown>): unknown {
@@ -165,6 +314,9 @@ export function executePortalTool(name: string, argumentsJson: string): string {
     if (name === LOOKUP_GUIDE_TOOL_NAME) {
       return JSON.stringify(lookupGuideFromArgs(args))
     }
+    if (name === LIST_GUIDES_TOOL_NAME) {
+      return JSON.stringify(listGuidesFromArgs(args))
+    }
     if (name === SEARCH_GALLERY_TOOL_NAME) {
       return JSON.stringify(searchGalleryFromArgs(args))
     }
@@ -190,6 +342,17 @@ export function portalToolActivitySummary(
         (typeof args.slug === 'string' && args.slug.trim()) ||
         'guide'
       return `Looking up ${label}`
+    }
+    if (name === LIST_GUIDES_TOOL_NAME) {
+      const group = typeof args.group === 'string' ? args.group.trim() : ''
+      const query = typeof args.query === 'string' ? args.query.trim() : ''
+      const collection =
+        args.collection === 'explore' || args.collection === 'space'
+          ? args.collection
+          : 'guides'
+      if (group) return `Browsing ${group}`
+      if (query) return `Listing guides for “${query}”`
+      return `Listing ${collection}`
     }
     if (name === SEARCH_GALLERY_TOOL_NAME) {
       const query = typeof args.query === 'string' ? args.query.trim() : ''

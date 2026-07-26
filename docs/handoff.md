@@ -42,7 +42,8 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
   (instructions include Explore/Space catalog paths for guide deep-links;
   matching turns also receive curated guide excerpts and Gallery photo links;
   Responses tools include web_search, image_generation, code_interpreter, and
-  portal lookup_guide/search_gallery with adaptive reasoning effort;
+  portal list_guides/lookup_guide/search_gallery with adaptive reasoning effort;
+  assistant Markdown strips invented Explore/Space slugs;
   Explore/Space/Gallery link into `/cleo?q=&g=`; Gallery accepts `?q=` /
   `?filter=` deep links; chat thread persists in `sessionStorage` until New
   chat, an Ask-from-guide deep link, or the tab closes)
