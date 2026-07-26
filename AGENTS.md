@@ -34,7 +34,9 @@ planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 at `/gallery` shows both Explore place photos and Space body photos.
 Maps (`/maps`) renders a WebGL Earth with local day/night/clouds/specular/normal
 maps under `public/images/maps/`, a live solar terminator (`lib/maps/sun.ts`),
-and orbit controls (`components/maps/earth-globe.tsx`).
+orbit controls, country markers from `content/maps-coordinates.json`, and
+Explore deep-links (`components/maps/maps-explorer.tsx`). Regenerate centers
+with `pnpm generate:maps-coordinates`.
 The Topics catalog in `lib/topics.ts` lists Countries and Space.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the

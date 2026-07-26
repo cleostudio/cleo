@@ -1,6 +1,6 @@
 import '~/app/maps.css'
 
-import { EarthGlobeLazy } from '~/components/maps/earth-globe-lazy'
+import { MapsExplorer } from '~/components/maps/maps-explorer'
 import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { EARTH_TEXTURE_CREDIT } from '~/lib/maps/textures'
@@ -35,7 +35,7 @@ export function MapsPageView() {
           {EARTH_TEXTURE_CREDIT.license}
         </p>
       </header>
-      <EarthGlobeLazy />
+      <MapsExplorer />
     </div>
   )
 }

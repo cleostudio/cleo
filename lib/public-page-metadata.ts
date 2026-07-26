@@ -30,7 +30,7 @@ export const publicPageMetadata = {
   maps: {
     title: 'Maps',
     description:
-      'A live 3D Earth — real day and night, axial seasons, and drag-to-explore geography.',
+      'A live 3D Earth — real day and night, click a country, and open its Explore guide.',
   },
   space: {
     title: 'Space',

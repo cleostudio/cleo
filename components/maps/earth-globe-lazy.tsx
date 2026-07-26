@@ -1,6 +1,9 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import type { ComponentType } from 'react'
+
+import type { EarthGlobeProps } from './earth-globe'
 
 /** Client-only WebGL globe — keep three.js out of the server bundle. */
 export const EarthGlobeLazy = dynamic(
@@ -15,4 +18,4 @@ export const EarthGlobeLazy = dynamic(
       </div>
     ),
   },
-)
+) as ComponentType<EarthGlobeProps>

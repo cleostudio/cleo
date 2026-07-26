@@ -33,7 +33,7 @@ describe('social OG image metadata', () => {
     [
       '/maps',
       publicPageMetadata.maps,
-      'Maps · Cleo. A live 3D Earth — real day and night, axial seasons, and drag-to-explore geography.',
+      'Maps · Cleo. A live 3D Earth — real day and night, click a country, and open its Explore guide.',
     ],
     [
       '/space',

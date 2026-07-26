@@ -116,6 +116,203 @@ html[data-maps-route] .paper-grain {
   color: var(--foreground);
 }
 
+.maps-explorer {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  flex-direction: column;
+}
+
+.maps-explorer-chrome {
+  position: absolute;
+  z-index: 3;
+  top: 5.75rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.maps-search {
+  position: relative;
+  width: min(100%, 20rem);
+  pointer-events: auto;
+}
+
+.maps-search-input {
+  width: 100%;
+  margin: 0;
+  padding: 0.55rem 0.8rem;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  background: color-mix(in oklab, var(--background) 78%, transparent);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  line-height: 1.35;
+  outline: none;
+  backdrop-filter: blur(10px) saturate(1.15);
+  -webkit-backdrop-filter: blur(10px) saturate(1.15);
+  transition:
+    border-color 160ms var(--ease-swift),
+    background-color 160ms var(--ease-swift);
+}
+
+.maps-search-input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.maps-search-input:focus-visible {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--focus-ring) 55%, transparent);
+}
+
+.maps-search-results {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  right: 0;
+  z-index: 4;
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  background: color-mix(in oklab, var(--background) 88%, transparent);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  max-height: min(16rem, 42svh);
+  overflow: auto;
+}
+
+.maps-search-option {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.45rem 0.55rem;
+  border: 0;
+  border-radius: calc(var(--radius) - 4px);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.maps-search-option[data-active],
+.maps-search-option:hover {
+  background: color-mix(in oklab, var(--accent) 70%, transparent);
+}
+
+.maps-search-option-code {
+  color: var(--muted-foreground);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.maps-search-option-name {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.maps-search-option-region {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.maps-place-card {
+  width: min(100%, 18.5rem);
+  margin-left: auto;
+  padding: 0.85rem 0.95rem 1rem;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+  pointer-events: auto;
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  animation: maps-card-enter 320ms var(--ease-spring) both;
+}
+
+.maps-place-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.maps-place-card-code {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.maps-place-card-close {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 160ms var(--ease-swift);
+}
+
+.maps-place-card-close:hover {
+  color: var(--foreground);
+}
+
+.maps-place-card-title {
+  margin: 0.35rem 0 0;
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.maps-place-card-meta {
+  margin: 0.35rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
+
+.maps-place-card-link {
+  display: inline-flex;
+  margin-top: 0.85rem;
+  color: var(--signal);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: opacity 160ms var(--ease-swift);
+}
+
+.maps-place-card-link:hover {
+  opacity: 0.82;
+}
+
+@keyframes maps-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .maps-globe {
   position: relative;
   flex: 1;
@@ -172,8 +369,23 @@ html[data-maps-route] .paper-grain {
   -webkit-backdrop-filter: blur(10px) saturate(1.15);
 }
 
+@media (max-width: 640px) {
+  .maps-explorer-chrome {
+    top: 6.5rem;
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .maps-place-card {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .maps-globe-readout {
+  .maps-globe-readout,
+  .maps-place-card {
+    animation: none;
     transition: none;
   }
 }

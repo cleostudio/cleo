@@ -32,7 +32,7 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.maps).toEqual({
       title: 'Maps',
       description:
-        'A live 3D Earth — real day and night, axial seasons, and drag-to-explore geography.',
+        'A live 3D Earth — real day and night, click a country, and open its Explore guide.',
     })
     expect(publicPageMetadata.space).toEqual({
       title: 'Space',
