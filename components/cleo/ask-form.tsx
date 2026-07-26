@@ -526,26 +526,6 @@ export function AskForm() {
         className="prompt-dock-shell"
         data-docked={hasMessages || undefined}
       >
-        {!hasMessages ? (
-          <div className="cleo-starters" role="group" aria-label="Suggestions">
-            {CLEO_PORTAL_STARTERS.map((starter) => (
-              <button
-                className="cleo-starter"
-                disabled={isSubmitting}
-                key={starter.label}
-                onClick={() => {
-                  setInput(starter.prompt)
-                  setError(null)
-                  inputRef.current?.focus()
-                }}
-                type="button"
-              >
-                {starter.label}
-              </button>
-            ))}
-          </div>
-        ) : null}
-
         {error ? (
           <p
             className="mb-3 px-4 text-center text-sm text-destructive"
@@ -656,6 +636,26 @@ export function AskForm() {
             </Button>
           </div>
         </form>
+
+        {!hasMessages ? (
+          <div className="cleo-starters" role="group" aria-label="Suggestions">
+            {CLEO_PORTAL_STARTERS.map((starter) => (
+              <button
+                className="cleo-starter"
+                disabled={isSubmitting}
+                key={starter.label}
+                onClick={() => {
+                  setInput(starter.prompt)
+                  setError(null)
+                  inputRef.current?.focus()
+                }}
+                type="button"
+              >
+                {starter.label}
+              </button>
+            ))}
+          </div>
+        ) : null}
       </div>
     </div>
   )
