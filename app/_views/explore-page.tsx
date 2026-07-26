@@ -43,15 +43,23 @@ export function ExplorePageView() {
 
           return (
             <section key={region} aria-labelledby={`region-${region}`}>
-              <h2
-                id={`region-${region}`}
-                className="enter text-sm font-medium text-muted-foreground"
-              >
-                {region}
-                <span className="ml-2 tabular-nums text-muted-foreground/70">
-                  {regionCountries.length}
-                </span>
-              </h2>
+              <div className="enter flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                <h2
+                  id={`region-${region}`}
+                  className="text-sm font-medium text-muted-foreground"
+                >
+                  {region}
+                  <span className="ml-2 tabular-nums text-muted-foreground/70">
+                    {regionCountries.length}
+                  </span>
+                </h2>
+                <Link
+                  href={`/world?r=${encodeURIComponent(region)}`}
+                  className="text-xs text-muted-foreground hover:text-foreground"
+                >
+                  View on World →
+                </Link>
+              </div>
               <ul className="focus-list mt-2 flex flex-col">
                 {regionCountries.map((country, index) => (
                   <li

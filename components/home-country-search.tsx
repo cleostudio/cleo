@@ -70,7 +70,11 @@ export function HomeCountrySearch({ countries }: { countries: Country[] }) {
         )
       ) : (
         <p className="mt-2 text-xs text-muted-foreground">
-          {countries.length} field guides — type to jump straight in, or open World.
+          {countries.length} field guides — type to jump straight in, or open{' '}
+          <Link href="/world" className="underline-offset-2 hover:text-foreground hover:underline">
+            World
+          </Link>
+          .
         </p>
       )}
     </div>

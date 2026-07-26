@@ -382,6 +382,14 @@ html[data-world-route] .paper-grain {
   color: color-mix(in oklab, var(--world-hud) 58%, transparent);
 }
 
+.world-selection-teaser {
+  margin-top: 0.55rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+  color: color-mix(in oklab, var(--world-hud) 68%, transparent);
+}
+
 .world-selection-actions {
   display: flex;
   flex-wrap: wrap;

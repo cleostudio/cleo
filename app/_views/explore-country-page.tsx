@@ -57,6 +57,15 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
             style={{ '--enter-delay': '55ms' } as React.CSSProperties}
           >
             {entry.subregion} · {entry.region}
+            <span aria-hidden className="mx-2 text-muted-foreground/40">
+              ·
+            </span>
+            <Link
+              href={`/world?c=${entry.slug}`}
+              className="hover:text-foreground"
+            >
+              Locate on World
+            </Link>
           </p>
         </header>
         <PixelCluster variant={5} className="enter shrink-0" />

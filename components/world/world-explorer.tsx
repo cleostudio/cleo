@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, useEffect, useMemo, useState } from 'react'
 
 import { EarthGlobeLazy } from '~/components/world/earth-globe-lazy'
 import { WorldSearch } from '~/components/world/world-search'
@@ -15,6 +15,13 @@ import {
   WORLD_REGIONS,
   type WorldRegion,
 } from '~/lib/world/regions'
+
+function parseRegion(value: string | null): WorldRegion | null {
+  if (!value) return null
+  return (WORLD_REGIONS as readonly string[]).includes(value)
+    ? (value as WorldRegion)
+    : null
+}
 
 function WorldExplorerInner({
   previews,
@@ -31,87 +38,58 @@ function WorldExplorerInner({
   )
 
   const querySlug = searchParams.get('c')
-  const queryRegion = searchParams.get('r')
-  const initialRegion =
-    queryRegion && (WORLD_REGIONS as readonly string[]).includes(queryRegion)
-      ? (queryRegion as WorldRegion)
-      : null
+  const focusSlug =
+    querySlug && markersBySlug.has(querySlug) ? querySlug : null
+  const selected = focusSlug ? (markersBySlug.get(focusSlug) ?? null) : null
+  const region = focusSlug ? null : parseRegion(searchParams.get('r'))
+  const lookAt = useMemo(
+    () => (region ? regionLookAt(region) : null),
+    [region],
+  )
 
-  const [focusSlug, setFocusSlug] = useState<string | null>(null)
-  const [selected, setSelected] = useState<WorldMarker | null>(null)
-  const [region, setRegion] = useState<WorldRegion | null>(initialRegion)
-  const [lookAt, setLookAt] = useState<{ lat: number; lon: number } | null>(null)
   const [copied, setCopied] = useState(false)
-  const hydratedRef = useRef(false)
-
-  useEffect(() => {
-    if (hydratedRef.current) return
-    hydratedRef.current = true
-    if (querySlug) {
-      const marker = markersBySlug.get(querySlug)
-      if (marker) {
-        setFocusSlug(marker.slug)
-        setSelected(marker)
-        setRegion(null)
-        setLookAt(null)
-        return
-      }
-    }
-    if (initialRegion) {
-      const point = regionLookAt(initialRegion)
-      if (point) setLookAt(point)
-    }
-  }, [querySlug, markersBySlug, initialRegion])
 
   const syncUrl = (slug: string | null, nextRegion: WorldRegion | null) => {
+    const currentSlug = searchParams.get('c')
+    const currentRegion = searchParams.get('r')
+    if (slug) {
+      if (currentSlug === slug) return
+    } else if (nextRegion) {
+      if (!currentSlug && currentRegion === nextRegion) return
+    } else if (!currentSlug && !currentRegion) {
+      return
+    }
+
     const params = new URLSearchParams()
     if (slug) params.set('c', slug)
     else if (nextRegion) params.set('r', nextRegion)
     const query = params.toString()
-    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
+    // Push so Back/Forward restore country and region deep-links.
+    router.push(query ? `${pathname}?${query}` : pathname, { scroll: false })
   }
 
   const selectMarker = (marker: WorldMarker) => {
-    setFocusSlug(marker.slug)
-    setSelected(marker)
-    setRegion(null)
-    setLookAt(null)
     syncUrl(marker.slug, null)
   }
 
   const selectRegion = (next: WorldRegion | null) => {
-    setRegion(next)
-    setFocusSlug(null)
-    setSelected(null)
-    if (!next) {
-      setLookAt(null)
-      syncUrl(null, null)
-      return
-    }
-    const point = regionLookAt(next)
-    setLookAt(point)
     syncUrl(null, next)
   }
 
   const dismiss = () => {
-    setFocusSlug(null)
-    setSelected(null)
-    setLookAt(null)
-    syncUrl(null, region)
+    syncUrl(null, null)
   }
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key !== 'Escape' || !selected) return
       event.preventDefault()
-      setFocusSlug(null)
-      setSelected(null)
-      setLookAt(null)
-      syncUrl(null, region)
+      syncUrl(null, null)
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [selected, region, pathname, router])
+    // syncUrl closes over searchParams / pathname / router for history pushes.
+  }, [selected, searchParams, pathname, router])
 
   const copyLink = async () => {
     if (!selected || typeof window === 'undefined') return
@@ -214,6 +192,9 @@ function WorldExplorerInner({
             <p className="world-selection-meta">
               {selected.subregion} · {selected.region}
             </p>
+            {preview?.teaser ? (
+              <p className="world-selection-teaser">{preview.teaser}</p>
+            ) : null}
           </div>
           <div className="world-selection-actions">
             <Link href={`/explore/${selected.slug}`} className="world-selection-link">
