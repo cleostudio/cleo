@@ -42,9 +42,10 @@ document (enable both products in the Vercel project dashboard).
   `pnpm import:atlas-photos` → `pnpm validate:atlas`; Space via
   `pnpm import:space-photos` → `pnpm validate:space`
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
-  (instructions include Explore/Space catalog paths for guide deep-links;
-  matching turns also ground curated topic photo paths so replies can embed
-  atlas/space JPEGs as Markdown images)
+  (portal function tools for guide search/lookup/photos; adaptive reasoning;
+  browser `localStorage` session restore + New chat; matching turns also ground
+  curated topic photo paths so replies can embed atlas/space JPEGs as Markdown
+  images)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

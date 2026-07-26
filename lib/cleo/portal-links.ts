@@ -1,6 +1,9 @@
 /**
  * Client-safe helpers for Cleo ↔ portal guide deep links and topic photos.
  * Kept free of heavy catalog imports so the ask-form bundle stays light.
+ *
+ * Catalog existence checks for invented paths live in `guardrails.ts` (server /
+ * unit tests). The client still strips non-curated image srcs here.
  */
 
 export type PortalGuideLink = {
@@ -186,21 +189,21 @@ export function presentPortalGuideMarkdown(markdown: string): string {
   return kept.join('\n\n')
 }
 
-/** Empty-state prompts that exercise portal grounding. */
+/** Empty-state prompts that exercise portal grounding and tool use. */
 export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Orient me to Japan',
     prompt:
-      'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
+      'Give me a quick orientation to Japan — look up its field guide and show the curated photo if it helps.',
   },
   {
     label: 'Why is Europa interesting?',
     prompt:
-      'Why is Europa interesting as an ocean world? Deep-link the Space guide when you name it.',
+      'Why is Europa interesting as an ocean world? Use the Space guide and include a photo if useful.',
   },
   {
     label: 'Compare Mars and Earth',
     prompt:
-      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide when you name the planets.',
+      'Compare Mars and Earth in a few sharp points. Look up both Space guides and deep-link each planet.',
   },
 ] as const

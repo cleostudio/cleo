@@ -17,10 +17,20 @@ export type WebSearchAction =
 export type ActivityStatus =
   "in_progress" | "searching" | "generating" | "completed" | "failed"
 
-export type ActivityKind = "web_search" | "reasoning" | "image_generation"
+export type ActivityKind =
+  | "web_search"
+  | "reasoning"
+  | "image_generation"
+  | "portal_tool"
+
+export type PortalToolAction = {
+  type: "portal_tool"
+  name: string
+  label?: string
+}
 
 export type ActivityItem = {
-  action?: WebSearchAction
+  action?: WebSearchAction | PortalToolAction
   id: string
   kind: ActivityKind
   status: ActivityStatus
@@ -73,7 +83,8 @@ function isActivityKind(value: unknown): value is ActivityKind {
   return (
     value === "web_search" ||
     value === "reasoning" ||
-    value === "image_generation"
+    value === "image_generation" ||
+    value === "portal_tool"
   )
 }
 
@@ -116,7 +127,7 @@ function parseActivityItem(value: unknown): ActivityItem | null {
       return null
     }
 
-    activity.action = value.action as WebSearchAction
+    activity.action = value.action as WebSearchAction | PortalToolAction
   }
 
   return activity
