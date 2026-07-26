@@ -25,7 +25,7 @@ describe('social OG image metadata', () => {
     [
       '/blog',
       publicPageMetadata.blog,
-      'Writing · Cleo. Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
+      'Writing · Cleo. Creative essays about Earth, the ocean, deep time, and the wider universe — place, scale, and what endures.',
     ],
     ['/gallery', publicPageMetadata.gallery, 'Gallery · Cleo'],
     ['/topics', publicPageMetadata.topics, 'Topics · Cleo'],
@@ -48,12 +48,12 @@ describe('social OG image metadata', () => {
     expect(
       imageAlt(
         metadataFor(
-          '/blog/do-buttons-need-pointer-cursors',
-          'Do buttons need pointer cursors?',
+          '/blog/pale-blue-marble',
+          'Pale Blue Marble',
           'Article summary',
         ),
       ),
-    ).toBe('Do buttons need pointer cursors? · Cleo')
+    ).toBe('Pale Blue Marble · Cleo')
     expect(
       imageAlt(
         metadataFor(

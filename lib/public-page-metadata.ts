@@ -7,7 +7,7 @@ export const publicPageMetadata = {
   blog: {
     title: 'Writing',
     description:
-      'Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
+      'Creative essays about Earth, the ocean, deep time, and the wider universe — place, scale, and what endures.',
   },
   gallery: {
     title: 'Gallery',
