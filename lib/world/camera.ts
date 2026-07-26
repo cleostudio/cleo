@@ -1,5 +1,10 @@
 import type { PerspectiveCamera, Vector3 } from 'three'
 
+/** Close framing for a single country marker. */
+export const FLY_DISTANCE_COUNTRY = 1.95
+/** Wider framing when orbiting a whole region. */
+export const FLY_DISTANCE_REGION = 2.9
+
 /** Ease-out cubic — physical deceleration for camera flights. */
 export function easeOutCubic(t: number): number {
   const x = Math.min(1, Math.max(0, t))

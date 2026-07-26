@@ -169,6 +169,11 @@ export const CLEO_PORTAL_STARTERS = [
       'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
   },
   {
+    label: 'Show Japan on the globe',
+    prompt:
+      'Locate Japan on the World globe and give a two-sentence orientation. Deep-link `/world?c=japan` and the Explore field guide.',
+  },
+  {
     label: 'Why is Europa interesting?',
     prompt:
       'Why is Europa interesting as an ocean world? Deep-link the Space guide when you name it.',

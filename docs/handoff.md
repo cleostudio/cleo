@@ -25,9 +25,10 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
 - World globe: `components/world/*`, `lib/world/*`, `/world` (three.js Earth
   with local NASA / three.js planet textures under `public/images/world/`;
-  search, region framing via `?r=`, country deep-links via `?c=` with history
-  Back/Forward; selection chip shows orientation teaser; Explore regions /
-  country guides, Home search, and Space Earth link back into World)
+  search with keyboard pick, region framing via `?r=` with wider camera +
+  dimmed out-of-region markers, country deep-links via `?c=` with history
+  Back/Forward; empty-globe tap / Escape clear framing; selection region with
+  orientation teaser; Explore / Home / Space Earth / Cleo starters link in)
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
 - Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`

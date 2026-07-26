@@ -56,18 +56,35 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
 
     await page.getByRole('button', { name: 'Asia' }).click()
     await expect(page).toHaveURL(/[?&]r=Asia\b/)
+    await expect(page.getByRole('button', { name: 'Asia' })).toHaveAttribute(
+      'data-active',
+      '',
+    )
 
-    await page.getByLabel('Find a country').fill('Japan')
-    await page.getByRole('option', { name: /Japan/i }).click()
+    const search = page.getByLabel('Find a country')
+    await search.fill('Japan')
+    await search.press('Enter')
     await expect(page).toHaveURL(/[?&]c=japan\b/)
     await expect(page).not.toHaveURL(/[?&]r=/)
+    await expect(page.getByRole('button', { name: 'Asia' })).toHaveAttribute(
+      'data-active',
+      '',
+    )
     await expect(
-      page.getByRole('dialog', { name: 'Japan' }),
+      page.getByRole('region', { name: 'Japan' }),
     ).toBeVisible({ timeout: 10_000 })
     await expect(
       page.getByRole('link', { name: 'Open field guide' }),
     ).toHaveAttribute('href', '/explore/japan')
     await expect(page.getByRole('button', { name: 'Copy link' })).toBeVisible()
+
+    await page.keyboard.press('Escape')
+    await expect(page).toHaveURL(/\/world\/?$/)
+    await expect(page.getByRole('region', { name: 'Japan' })).toHaveCount(0)
+
+    await page.goto('/world?c=not-a-country&r=Asia')
+    await expect(page).toHaveURL(/[?&]r=Asia\b/)
+    await expect(page).not.toHaveURL(/[?&]c=/)
 
     expect(browserErrors).toEqual([])
   })
@@ -82,6 +99,11 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await page.getByRole('button', { name: 'Orient me to Japan' }).click()
     await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue(
       /orientation to Japan.*Deep-link its field guide/i,
+    )
+
+    await page.getByRole('button', { name: 'Show Japan on the globe' }).click()
+    await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue(
+      /\/world\?c=japan/i,
     )
   })
 })

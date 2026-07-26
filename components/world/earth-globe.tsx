@@ -29,21 +29,28 @@ import {
 } from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
-import { framingPosition, stepCameraToward } from '~/lib/world/camera'
+import {
+  FLY_DISTANCE_COUNTRY,
+  FLY_DISTANCE_REGION,
+  framingPosition,
+  stepCameraToward,
+} from '~/lib/world/camera'
 import {
   latLonToVector3,
   worldMarkers,
   type WorldMarker,
 } from '~/lib/world/markers'
+import type { WorldRegion } from '~/lib/world/regions'
 import { WORLD_TEXTURE_CREDIT, WORLD_TEXTURES } from '~/lib/world/textures'
 
 const EARTH_RADIUS = 1
 const CLOUD_RADIUS = 1.01
 const ATMOSPHERE_RADIUS = 1.045
 const MARKER_RADIUS = 1.018
-const FLY_DISTANCE = 1.95
 const FLY_MS = 900
 const SUN_DIRECTION = new Vector3(1.2, 0.35, 0.55).normalize()
+const MARKER_COLOR_ACTIVE = new Color('#f4f1ea')
+const MARKER_COLOR_DIM = new Color('#3d465c')
 
 const atmosphereVertex = /* glsl */ `
   varying vec3 vNormal;
@@ -67,10 +74,16 @@ type HoverState = {
   y: number
 }
 
+type FlyOptions = {
+  highlight?: boolean
+  distance?: number
+}
+
 type GlobeApi = {
   flyTo: (marker: WorldMarker) => void
-  flyToLatLon: (lat: number, lon: number, highlight?: boolean) => void
+  flyToLatLon: (lat: number, lon: number, options?: FlyOptions) => void
   setHighlight: (marker: WorldMarker | null) => void
+  setRegionFocus: (region: WorldRegion | null) => void
 }
 
 function prefersReducedMotion() {
@@ -105,34 +118,60 @@ function createStarfield(count = 1800) {
 
 function createMarkerPoints(markers: WorldMarker[]) {
   const positions = new Float32Array(markers.length * 3)
+  const colors = new Float32Array(markers.length * 3)
   for (let i = 0; i < markers.length; i += 1) {
     const [x, y, z] = latLonToVector3(markers[i].lat, markers[i].lon, MARKER_RADIUS)
     positions[i * 3] = x
     positions[i * 3 + 1] = y
     positions[i * 3 + 2] = z
+    colors[i * 3] = MARKER_COLOR_ACTIVE.r
+    colors[i * 3 + 1] = MARKER_COLOR_ACTIVE.g
+    colors[i * 3 + 2] = MARKER_COLOR_ACTIVE.b
   }
   const geometry = new BufferGeometry()
   geometry.setAttribute('position', new BufferAttribute(positions, 3))
+  geometry.setAttribute('color', new BufferAttribute(colors, 3))
   const material = new PointsMaterial({
-    color: new Color('#f4f1ea'),
     size: 0.018,
     sizeAttenuation: true,
     transparent: true,
     opacity: 0.92,
     depthWrite: false,
+    vertexColors: true,
   })
   const points = new Points(geometry, material)
   points.name = 'country-markers'
   return points
 }
 
+function applyRegionMarkerColors(
+  points: Points,
+  markers: WorldMarker[],
+  region: WorldRegion | null,
+) {
+  const attribute = points.geometry.getAttribute('color')
+  if (!attribute) return
+  for (let i = 0; i < markers.length; i += 1) {
+    const color =
+      !region || markers[i].region === region
+        ? MARKER_COLOR_ACTIVE
+        : MARKER_COLOR_DIM
+    attribute.setXYZ(i, color.r, color.g, color.b)
+  }
+  attribute.needsUpdate = true
+  const material = points.material as PointsMaterial
+  material.opacity = region ? 0.88 : 0.92
+}
+
 export function EarthGlobe({
   focusSlug = null,
   lookAt = null,
+  highlightRegion = null,
   onSelect,
 }: {
   focusSlug?: string | null
   lookAt?: { lat: number; lon: number } | null
+  highlightRegion?: WorldRegion | null
   onSelect?: (marker: WorldMarker | null) => void
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
@@ -268,8 +307,14 @@ export function EarthGlobe({
       highlight.visible = true
     }
 
-    const flyToLatLon = (lat: number, lon: number, showHighlight = false) => {
+    const flyToLatLon = (
+      lat: number,
+      lon: number,
+      options: FlyOptions = {},
+    ) => {
       if (!camera || !controls || !root) return
+      const showHighlight = options.highlight ?? false
+      const distance = options.distance ?? FLY_DISTANCE_COUNTRY
       if (showHighlight) {
         const [x, y, z] = latLonToVector3(lat, lon, MARKER_RADIUS + 0.004)
         if (highlight) {
@@ -282,7 +327,7 @@ export function EarthGlobe({
       root.updateMatrixWorld(true)
       const local = new Vector3(...latLonToVector3(lat, lon, 1))
       const world = local.applyMatrix4(root.matrixWorld)
-      const [tx, ty, tz] = framingPosition(world, FLY_DISTANCE)
+      const [tx, ty, tz] = framingPosition(world, distance)
       const to = new Vector3(tx, ty, tz)
       if (prefersReducedMotion()) {
         camera.position.copy(to)
@@ -299,10 +344,18 @@ export function EarthGlobe({
     }
 
     const flyTo = (marker: WorldMarker) => {
-      flyToLatLon(marker.lat, marker.lon, true)
+      flyToLatLon(marker.lat, marker.lon, {
+        highlight: true,
+        distance: FLY_DISTANCE_COUNTRY,
+      })
     }
 
-    apiRef.current = { flyTo, flyToLatLon, setHighlight }
+    const setRegionFocus = (region: WorldRegion | null) => {
+      if (!markersPoints) return
+      applyRegionMarkerColors(markersPoints, markers, region)
+    }
+
+    apiRef.current = { flyTo, flyToLatLon, setHighlight, setRegionFocus }
 
     const onPointerMove = (event: PointerEvent) => {
       if (!renderer || !markersPoints || !camera) return
@@ -342,6 +395,8 @@ export function EarthGlobe({
       const hits = raycaster.intersectObject(markersPoints, false)
       if (hits[0]?.index != null) {
         onSelectRef.current?.(markers[hits[0].index])
+      } else {
+        onSelectRef.current?.(null)
       }
     }
 
@@ -491,13 +546,18 @@ export function EarthGlobe({
     canvas.addEventListener('wheel', onWheel, { passive: true })
     window.addEventListener('resize', onResize)
 
+    const reduceMotion = prefersReducedMotion()
     const tick = () => {
       if (disposed || !renderer || !controls || !camera) return
       frameId = window.requestAnimationFrame(tick)
-      if (clouds) clouds.rotation.y += 0.00035
+      if (clouds && !reduceMotion) clouds.rotation.y += 0.00035
       if (highlight?.visible) {
-        const pulse = 0.9 + Math.sin(performance.now() / 280) * 0.18
-        highlight.scale.setScalar(pulse)
+        if (reduceMotion) {
+          highlight.scale.setScalar(1)
+        } else {
+          const pulse = 0.9 + Math.sin(performance.now() / 280) * 0.18
+          highlight.scale.setScalar(pulse)
+        }
       }
       if (flight) {
         const t = (performance.now() - flight.started) / FLY_MS
@@ -528,6 +588,11 @@ export function EarthGlobe({
 
   useEffect(() => {
     if (!ready) return
+    apiRef.current?.setRegionFocus(highlightRegion)
+  }, [highlightRegion, ready])
+
+  useEffect(() => {
+    if (!ready) return
     if (focusSlug) {
       const marker = markersBySlug.get(focusSlug)
       if (!marker) return
@@ -535,7 +600,10 @@ export function EarthGlobe({
       return
     }
     if (lookAt) {
-      apiRef.current?.flyToLatLon(lookAt.lat, lookAt.lon, false)
+      apiRef.current?.flyToLatLon(lookAt.lat, lookAt.lon, {
+        highlight: false,
+        distance: FLY_DISTANCE_REGION,
+      })
       return
     }
     apiRef.current?.setHighlight(null)

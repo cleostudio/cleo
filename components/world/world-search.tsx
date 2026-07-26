@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useId, useMemo, useState } from 'react'
 
 import type { WorldMarker } from '~/lib/world/markers'
 import type { WorldRegion } from '~/lib/world/regions'
@@ -14,7 +14,9 @@ export function WorldSearch({
   region?: WorldRegion | null
   onPick: (marker: WorldMarker) => void
 }) {
+  const listId = useId()
   const [query, setQuery] = useState('')
+  const [activeIndex, setActiveIndex] = useState(0)
 
   const matches = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -31,6 +33,16 @@ export function WorldSearch({
       .slice(0, 7)
   }, [markers, query, region])
 
+  useEffect(() => {
+    setActiveIndex(0)
+  }, [query, region])
+
+  const pick = (marker: WorldMarker) => {
+    onPick(marker)
+    setQuery('')
+    setActiveIndex(0)
+  }
+
   return (
     <div className="world-search">
       <label className="world-search-label" htmlFor="world-country-search">
@@ -41,23 +53,59 @@ export function WorldSearch({
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
+        onKeyDown={(event) => {
+          if (!query.trim() || matches.length === 0) return
+          if (event.key === 'ArrowDown') {
+            event.preventDefault()
+            setActiveIndex((index) => (index + 1) % matches.length)
+            return
+          }
+          if (event.key === 'ArrowUp') {
+            event.preventDefault()
+            setActiveIndex((index) => (index - 1 + matches.length) % matches.length)
+            return
+          }
+          if (event.key === 'Enter') {
+            event.preventDefault()
+            const marker = matches[activeIndex] ?? matches[0]
+            if (marker) pick(marker)
+            return
+          }
+          if (event.key === 'Escape') {
+            event.preventDefault()
+            setQuery('')
+          }
+        }}
         placeholder={region ? `In ${region}…` : 'Name, code, or region'}
         autoComplete="off"
         className="world-search-input"
+        role="combobox"
+        aria-autocomplete="list"
+        aria-expanded={query.trim().length > 0 && matches.length > 0}
+        aria-controls={listId}
+        aria-activedescendant={
+          matches[activeIndex] ? `${listId}-${matches[activeIndex].slug}` : undefined
+        }
       />
       {query.trim() ? (
         matches.length > 0 ? (
-          <ul className="world-search-list" role="listbox" aria-label="Country matches">
-            {matches.map((marker) => (
+          <ul
+            id={listId}
+            className="world-search-list"
+            role="listbox"
+            aria-label="Country matches"
+          >
+            {matches.map((marker, index) => (
               <li key={marker.slug}>
                 <button
                   type="button"
+                  id={`${listId}-${marker.slug}`}
                   role="option"
+                  aria-selected={index === activeIndex}
                   className="world-search-option"
-                  onClick={() => {
-                    onPick(marker)
-                    setQuery('')
-                  }}
+                  data-active={index === activeIndex || undefined}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onClick={() => pick(marker)}
                 >
                   <span className="world-search-option-name">{marker.name}</span>
                   <span className="world-search-option-meta">

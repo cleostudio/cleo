@@ -3,10 +3,13 @@
 import dynamic from 'next/dynamic'
 
 import type { WorldMarker } from '~/lib/world/markers'
+import type { WorldRegion } from '~/lib/world/regions'
 
 type EarthGlobeProps = {
   focusSlug?: string | null
   lookAt?: { lat: number; lon: number } | null
+  /** Dim markers outside this UN-style region when set. */
+  highlightRegion?: WorldRegion | null
   onSelect?: (marker: WorldMarker | null) => void
 }
 

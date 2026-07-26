@@ -23,6 +23,11 @@ function parseRegion(value: string | null): WorldRegion | null {
     : null
 }
 
+function regionOfMarker(marker: WorldMarker | null): WorldRegion | null {
+  if (!marker) return null
+  return parseRegion(marker.region)
+}
+
 function WorldExplorerInner({
   previews,
 }: {
@@ -38,13 +43,16 @@ function WorldExplorerInner({
   )
 
   const querySlug = searchParams.get('c')
+  const queryRegion = searchParams.get('r')
   const focusSlug =
     querySlug && markersBySlug.has(querySlug) ? querySlug : null
   const selected = focusSlug ? (markersBySlug.get(focusSlug) ?? null) : null
-  const region = focusSlug ? null : parseRegion(searchParams.get('r'))
+  const urlRegion = focusSlug ? null : parseRegion(queryRegion)
+  /** Chip / dimming region — follows the selected country when one is focused. */
+  const framedRegion = selected ? regionOfMarker(selected) : urlRegion
   const lookAt = useMemo(
-    () => (region ? regionLookAt(region) : null),
-    [region],
+    () => (urlRegion ? regionLookAt(urlRegion) : null),
+    [urlRegion],
   )
 
   const [copied, setCopied] = useState(false)
@@ -80,9 +88,38 @@ function WorldExplorerInner({
     syncUrl(null, null)
   }
 
+  // Drop unknown ?c= slugs without adding a history entry.
+  useEffect(() => {
+    if (!querySlug || markersBySlug.has(querySlug)) return
+    const keepRegion = parseRegion(queryRegion)
+    const params = new URLSearchParams()
+    if (keepRegion) params.set('r', keepRegion)
+    const query = params.toString()
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
+  }, [querySlug, queryRegion, markersBySlug, pathname, router])
+
+  // Drop unknown ?r= values (keep a valid country deep-link if present).
+  useEffect(() => {
+    if (!queryRegion || parseRegion(queryRegion)) return
+    const params = new URLSearchParams()
+    if (focusSlug) params.set('c', focusSlug)
+    const query = params.toString()
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
+  }, [queryRegion, focusSlug, pathname, router])
+
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key !== 'Escape' || !searchParams.get('c')) return
+      if (event.key !== 'Escape') return
+      if (!searchParams.get('c') && !searchParams.get('r')) return
+      // Let the search combobox clear its query first when focused.
+      const target = event.target
+      if (
+        target instanceof HTMLElement &&
+        target.closest('.world-search') &&
+        (target as HTMLInputElement).value
+      ) {
+        return
+      }
       event.preventDefault()
       router.push(pathname, { scroll: false })
     }
@@ -129,7 +166,7 @@ function WorldExplorerInner({
           <button
             type="button"
             className="world-region-chip"
-            data-active={region === null || undefined}
+            data-active={framedRegion === null || undefined}
             onClick={() => selectRegion(null)}
           >
             All
@@ -139,7 +176,7 @@ function WorldExplorerInner({
               key={name}
               type="button"
               className="world-region-chip"
-              data-active={region === name || undefined}
+              data-active={framedRegion === name || undefined}
               onClick={() => selectRegion(name)}
             >
               {name}
@@ -152,7 +189,7 @@ function WorldExplorerInner({
         >
           <WorldSearch
             markers={markers}
-            region={region}
+            region={framedRegion}
             onPick={selectMarker}
           />
         </div>
@@ -161,6 +198,7 @@ function WorldExplorerInner({
       <EarthGlobeLazy
         focusSlug={focusSlug}
         lookAt={focusSlug ? null : lookAt}
+        highlightRegion={framedRegion}
         onSelect={(marker) => {
           if (!marker) {
             dismiss()
@@ -171,7 +209,11 @@ function WorldExplorerInner({
       />
 
       {selected ? (
-        <div className="world-selection" role="dialog" aria-label={selected.name}>
+        <aside
+          className="world-selection"
+          role="region"
+          aria-labelledby="world-selection-title"
+        >
           {preview ? (
             <div className="world-selection-photo">
               <Image
@@ -187,7 +229,9 @@ function WorldExplorerInner({
           ) : null}
           <div className="world-selection-copy">
             <p className="world-selection-code">{selected.code}</p>
-            <h2 className="world-selection-name">{selected.name}</h2>
+            <h2 id="world-selection-title" className="world-selection-name">
+              {selected.name}
+            </h2>
             <p className="world-selection-meta">
               {selected.subregion} · {selected.region}
             </p>
@@ -214,7 +258,7 @@ function WorldExplorerInner({
               Dismiss
             </button>
           </div>
-        </div>
+        </aside>
       ) : null}
     </div>
   )

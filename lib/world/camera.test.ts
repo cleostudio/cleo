@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest'
 
-import { easeOutCubic, framingPosition } from './camera'
+import {
+  easeOutCubic,
+  FLY_DISTANCE_COUNTRY,
+  FLY_DISTANCE_REGION,
+  framingPosition,
+} from './camera'
 
 describe('world camera helpers', () => {
   it('eases out from zero to one', () => {
@@ -14,5 +19,9 @@ describe('world camera helpers', () => {
     expect(x).toBeCloseTo(0)
     expect(y).toBeCloseTo(2)
     expect(z).toBeCloseTo(0)
+  })
+
+  it('frames regions farther out than countries', () => {
+    expect(FLY_DISTANCE_REGION).toBeGreaterThan(FLY_DISTANCE_COUNTRY)
   })
 })

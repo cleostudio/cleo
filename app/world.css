@@ -7,6 +7,8 @@ html[data-world-route] {
   --world-hud: #f4f1ea;
   --world-hud-ink: #0a1020;
   --world-atmosphere: #5970ff;
+  --world-dock-clearance: calc(5.75rem + env(safe-area-inset-bottom, 0px));
+  --world-credit-clearance: calc(5.1rem + env(safe-area-inset-bottom, 0px));
 }
 
 html[data-world-route] .site-chrome {
@@ -66,9 +68,28 @@ html[data-world-route] .paper-grain {
   max-width: 22rem;
 }
 
+.world-header .page-eyebrow,
+.world-header .world-lead,
+.world-header .world-hint,
 .world-header .world-search,
 .world-header .world-regions {
   pointer-events: auto;
+}
+
+@media (max-width: 639px), (max-height: 720px) {
+  .world-hint {
+    display: none;
+  }
+}
+
+@media (max-height: 640px) {
+  .world-lead {
+    display: none;
+  }
+
+  .world-regions {
+    margin-top: 0.55rem;
+  }
 }
 
 .world-regions {
@@ -171,7 +192,8 @@ html[data-world-route] .paper-grain {
 }
 
 .world-search-option:hover,
-.world-search-option:focus-visible {
+.world-search-option:focus-visible,
+.world-search-option[data-active] {
   background: color-mix(in oklab, var(--world-hud) 8%, transparent);
   outline: none;
 }
@@ -294,7 +316,7 @@ html[data-world-route] .paper-grain {
   z-index: 3;
   top: auto;
   right: 1.1rem;
-  bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
+  bottom: var(--world-dock-clearance);
   left: 1.1rem;
   display: flex;
   max-width: 22rem;
@@ -416,6 +438,11 @@ html[data-world-route] .paper-grain {
   transform: translateY(-1px);
 }
 
+.world-selection-link:focus-visible {
+  outline: 1px solid var(--world-hud);
+  outline-offset: 2px;
+}
+
 .world-selection-dismiss {
   border: 0;
   background: transparent;
@@ -429,11 +456,17 @@ html[data-world-route] .paper-grain {
   color: var(--world-hud);
 }
 
+.world-selection-dismiss:focus-visible {
+  color: var(--world-hud);
+  outline: 1px solid color-mix(in oklab, var(--world-hud) 45%, transparent);
+  outline-offset: 2px;
+}
+
 .world-credit {
   pointer-events: none;
   position: absolute;
   z-index: 2;
-  bottom: calc(5.1rem + env(safe-area-inset-bottom, 0px));
+  bottom: var(--world-credit-clearance);
   left: 1.25rem;
   max-width: min(22rem, calc(100% - 2.5rem));
   font-size: 0.65rem;
