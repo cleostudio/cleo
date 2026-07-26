@@ -171,13 +171,19 @@ export function conversationTopicText(
   return userTexts.join('\n')
 }
 
+/** Keep Markdown image alts from breaking on rare `]` / newline titles. */
+function markdownImageAlt(value: string) {
+  return value.replace(/[\[\]\r\n]+/g, ' ').replace(/\s+/g, ' ').trim() || 'Photograph'
+}
+
 function formatTopicPhoto(photo: TopicPhoto): string {
+  const alt = markdownImageAlt(photo.title)
   return [
     `### ${photo.name} — ${photo.href}`,
     `Photograph title: ${photo.title}`,
     `Alt text: ${photo.alt}`,
     `Caption: ${photo.caption}`,
-    `Embed with Markdown image (required path): ![${photo.title}](${photo.src})`,
+    `Embed with Markdown image (required path): ![${alt}](${photo.src})`,
   ].join('\n')
 }
 

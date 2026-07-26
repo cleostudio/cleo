@@ -60,6 +60,18 @@ describe('topic photos', () => {
     expect(buildTopicPhotoInstructions([])).toBe('')
   })
 
+  it('keeps parenthetical photo titles usable as Markdown image alts', () => {
+    const photos = resolveTopicPhotos([
+      { collection: 'explore', slug: 'palestine' },
+    ])
+    const block = buildTopicPhotoInstructions(photos)
+
+    expect(photos[0]?.title).toContain('(')
+    expect(block).toContain(
+      `![${photos[0]!.title}](/images/atlas/palestine/w1280.jpg)`,
+    )
+  })
+
   it('grounds from the latest user turns', () => {
     expect(
       conversationTopicText([
