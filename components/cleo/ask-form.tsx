@@ -103,7 +103,6 @@ export function AskForm({
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const initialAskRef = useRef(initialAsk?.trim() || null)
   const didSeedAskRef = useRef(false)
   const [messages, setMessages] = useState<Message[]>([])
   const abortControllerRef = useRef<AbortController | null>(null)
@@ -438,7 +437,7 @@ export function AskForm({
   }
 
   useEffect(() => {
-    const seed = initialAskRef.current
+    const seed = initialAsk?.trim()
     if (!seed || didSeedAskRef.current) return
     didSeedAskRef.current = true
     if (typeof window !== 'undefined') {
@@ -450,9 +449,10 @@ export function AskForm({
       }
     }
     void handleSubmit(undefined, seed)
-    // One-shot mount seed from `/cleo?ask=` — do not re-run on later renders.
+    // One-shot seed when `?ask=` becomes available (client nav may resolve
+    // searchParams after the first paint).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [initialAsk])
 
   return (
     <div className="app-column min-w-0">
