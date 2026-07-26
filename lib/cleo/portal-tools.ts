@@ -16,7 +16,30 @@ import { spaceSubjects } from '~/lib/space'
 
 export const LOOKUP_GUIDE_TOOL_NAME = 'lookup_guide'
 export const LIST_GUIDES_TOOL_NAME = 'list_guides'
+export const COMPARE_GUIDES_TOOL_NAME = 'compare_guides'
 export const SEARCH_GALLERY_TOOL_NAME = 'search_gallery'
+
+const GUIDE_SUBJECT_PARAMS = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    collection: {
+      type: ['string', 'null'],
+      enum: ['explore', 'space', null],
+      description:
+        'Guide collection when known. Null to resolve from name alone.',
+    },
+    slug: {
+      type: ['string', 'null'],
+      description: 'Canonical slug such as japan or europa. Null if unknown.',
+    },
+    name: {
+      type: ['string', 'null'],
+      description: 'Subject display name such as Japan or Europa.',
+    },
+  },
+  required: ['collection', 'slug', 'name'],
+} as const
 
 const EXPLORE_GROUPS = [
   ...new Set(countries.map((country) => country.region)),
@@ -86,6 +109,22 @@ export const PORTAL_FUNCTION_TOOLS: FunctionTool[] = [
         },
       },
       required: ['collection', 'group', 'query', 'limit'],
+    },
+  },
+  {
+    type: 'function',
+    name: COMPARE_GUIDES_TOOL_NAME,
+    description:
+      'Load two curated Explore/Space field guides side by side (orientation, facts, highlights, Gallery links). Prefer this over two separate lookup_guide calls when comparing subjects or building a two-stop path.',
+    strict: true,
+    parameters: {
+      type: 'object',
+      additionalProperties: false,
+      properties: {
+        left: GUIDE_SUBJECT_PARAMS,
+        right: GUIDE_SUBJECT_PARAMS,
+      },
+      required: ['left', 'right'],
     },
   },
   {
@@ -224,7 +263,7 @@ function listGuidesFromArgs(args: Record<string, unknown>): unknown {
   }
 }
 
-function lookupGuideFromArgs(args: Record<string, unknown>): unknown {
+function resolveGuideFromSubjectArgs(args: Record<string, unknown>) {
   const collection =
     args.collection === 'explore' || args.collection === 'space'
       ? args.collection
@@ -236,7 +275,7 @@ function lookupGuideFromArgs(args: Record<string, unknown>): unknown {
     const focus = parseGuideFocus(`${collection}/${slug}`)
     if (focus) {
       const guide = loadGroundedGuideCompact(focus)
-      if (guide) return { ok: true, guide }
+      if (guide) return { ok: true as const, guide }
     }
   }
 
@@ -249,17 +288,73 @@ function lookupGuideFromArgs(args: Record<string, unknown>): unknown {
 
   if (!preferred) {
     return {
-      ok: false,
+      ok: false as const,
       error: 'No matching Explore or Space guide on this site.',
+    }
+  }
+
+  const guide = loadGroundedGuideCompact({
+    collection: preferred.collection,
+    slug: preferred.slug,
+  })
+
+  if (!guide) {
+    return {
+      ok: false as const,
+      error: 'No matching Explore or Space guide on this site.',
+    }
+  }
+
+  return { ok: true as const, guide }
+}
+
+function lookupGuideFromArgs(args: Record<string, unknown>): unknown {
+  return resolveGuideFromSubjectArgs(args)
+}
+
+function asSubjectArgs(value: unknown): Record<string, unknown> | null {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+    return null
+  }
+  return value as Record<string, unknown>
+}
+
+function compareGuidesFromArgs(args: Record<string, unknown>): unknown {
+  const leftArgs = asSubjectArgs(args.left)
+  const rightArgs = asSubjectArgs(args.right)
+
+  if (!leftArgs || !rightArgs) {
+    return {
+      ok: false,
+      error: 'Both left and right guide subjects are required.',
+    }
+  }
+
+  const left = resolveGuideFromSubjectArgs(leftArgs)
+  const right = resolveGuideFromSubjectArgs(rightArgs)
+
+  if (!left.ok || !right.ok) {
+    return {
+      ok: false,
+      error: 'Could not resolve both guides for comparison.',
+      left: left.ok ? { ok: true, guide: left.guide } : left,
+      right: right.ok ? { ok: true, guide: right.guide } : right,
+    }
+  }
+
+  if (left.guide.href === right.guide.href) {
+    return {
+      ok: false,
+      error: 'Choose two different guides to compare.',
+      left: { ok: true, guide: left.guide },
+      right: { ok: true, guide: right.guide },
     }
   }
 
   return {
     ok: true,
-    guide: loadGroundedGuideCompact({
-      collection: preferred.collection,
-      slug: preferred.slug,
-    }),
+    left: left.guide,
+    right: right.guide,
   }
 }
 
@@ -317,6 +412,9 @@ export function executePortalTool(name: string, argumentsJson: string): string {
     if (name === LIST_GUIDES_TOOL_NAME) {
       return JSON.stringify(listGuidesFromArgs(args))
     }
+    if (name === COMPARE_GUIDES_TOOL_NAME) {
+      return JSON.stringify(compareGuidesFromArgs(args))
+    }
     if (name === SEARCH_GALLERY_TOOL_NAME) {
       return JSON.stringify(searchGalleryFromArgs(args))
     }
@@ -353,6 +451,19 @@ export function portalToolActivitySummary(
       if (group) return `Browsing ${group}`
       if (query) return `Listing guides for “${query}”`
       return `Listing ${collection}`
+    }
+    if (name === COMPARE_GUIDES_TOOL_NAME) {
+      const left = asSubjectArgs(args.left)
+      const right = asSubjectArgs(args.right)
+      const leftLabel =
+        (typeof left?.name === 'string' && left.name.trim()) ||
+        (typeof left?.slug === 'string' && left.slug.trim()) ||
+        'guide'
+      const rightLabel =
+        (typeof right?.name === 'string' && right.name.trim()) ||
+        (typeof right?.slug === 'string' && right.slug.trim()) ||
+        'guide'
+      return `Comparing ${leftLabel} and ${rightLabel}`
     }
     if (name === SEARCH_GALLERY_TOOL_NAME) {
       const query = typeof args.query === 'string' ? args.query.trim() : ''

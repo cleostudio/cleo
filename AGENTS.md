@@ -71,18 +71,19 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
 - API: `app/api/responses/route.ts` validates messages (including image data
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, `code_interpreter`, custom `list_guides` /
-  `lookup_guide` / `search_gallery` tools (agentic loop), adaptive reasoning
-  effort, streaming, and `store: false`.
+  `lookup_guide` / `compare_guides` / `search_gallery` tools (agentic loop),
+  adaptive reasoning effort, streaming, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
   `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides;
-  reading-path guidance for plan → browse → lookup → synthesize).
+  reading-path guidance for plan → browse → lookup/compare → synthesize).
 - Grounding: `lib/cleo/guide-grounding.ts` attaches curated Orientation / facts
   / places-or-features excerpts for guides mentioned in the turn (or pinned via
-  Ask Cleo `focusGuides`). Portal tools in `lib/cleo/portal-tools.ts` can browse
-  and fetch guides on demand. Client Markdown presentation verifies guide slugs
-  (`lib/cleo/portal-guide-slugs.ts`) so invented `/explore`/`/space` links become
-  plain text. Pages never call a model; only `POST /api/responses` reads stored
-  prose.
+  Ask Cleo `focusGuides`). Portal tools in `lib/cleo/portal-tools.ts` can browse,
+  compare, and fetch guides on demand. Guide slug verification runs in the UI
+  (`lib/cleo/portal-guide-slugs.ts`) and again on the server via a final
+  `text_replace` stream event so invented `/explore`/`/space` links do not land
+  in session history. Pages never call a model; only `POST /api/responses` reads
+  stored prose.
 - Effort: `lib/cleo/reasoning-effort.ts` picks `low` / `medium` / `high` from
   the latest user turn (greetings stay cheap; research goes high).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).

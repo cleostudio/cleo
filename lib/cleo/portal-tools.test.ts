@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  COMPARE_GUIDES_TOOL_NAME,
   executePortalTool,
   LIST_GUIDES_TOOL_NAME,
   LOOKUP_GUIDE_TOOL_NAME,
@@ -81,5 +82,25 @@ describe('executePortalTool', () => {
     expect(result.results.some((guide) => guide.href === '/explore/japan')).toBe(
       true,
     )
+  })
+
+  it('compares Earth and Mars side by side', () => {
+    const result = JSON.parse(
+      executePortalTool(
+        COMPARE_GUIDES_TOOL_NAME,
+        JSON.stringify({
+          left: { collection: 'space', slug: 'earth', name: 'Earth' },
+          right: { collection: 'space', slug: 'mars', name: 'Mars' },
+        }),
+      ),
+    ) as {
+      ok: boolean
+      left?: { href: string; name: string }
+      right?: { href: string; name: string }
+    }
+
+    expect(result.ok).toBe(true)
+    expect(result.left?.href).toBe('/space/earth')
+    expect(result.right?.name).toBe('Mars')
   })
 })

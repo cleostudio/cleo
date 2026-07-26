@@ -11,6 +11,7 @@ import {
   presentPortalGuideMarkdown,
 } from './portal-links'
 import {
+  COMPARE_GUIDES_TOOL_NAME,
   executePortalTool,
   LIST_GUIDES_TOOL_NAME,
   LOOKUP_GUIDE_TOOL_NAME,
@@ -20,10 +21,11 @@ import {
 } from './portal-tools'
 
 describe('portal agentic eval harness', () => {
-  it('exposes list_guides, lookup_guide, and search_gallery tools', () => {
+  it('exposes list, lookup, compare, and gallery portal tools', () => {
     expect(PORTAL_FUNCTION_TOOLS.map((tool) => tool.name)).toEqual([
       LOOKUP_GUIDE_TOOL_NAME,
       LIST_GUIDES_TOOL_NAME,
+      COMPARE_GUIDES_TOOL_NAME,
       SEARCH_GALLERY_TOOL_NAME,
     ])
   })
@@ -112,9 +114,30 @@ describe('portal agentic eval harness', () => {
     )
   })
 
+  it('compares two guides in one tool call', () => {
+    const result = JSON.parse(
+      executePortalTool(
+        COMPARE_GUIDES_TOOL_NAME,
+        JSON.stringify({
+          left: { collection: 'space', slug: 'earth', name: null },
+          right: { collection: 'space', slug: 'mars', name: null },
+        }),
+      ),
+    ) as {
+      ok: boolean
+      left?: { href: string }
+      right?: { href: string }
+    }
+
+    expect(result.ok).toBe(true)
+    expect(result.left?.href).toBe('/space/earth')
+    expect(result.right?.href).toBe('/space/mars')
+  })
+
   it('ships reading-path and portal-tool guidance in instructions', () => {
     expect(CLEO_INSTRUCTIONS).toContain('list_guides')
     expect(CLEO_INSTRUCTIONS).toContain('lookup_guide')
+    expect(CLEO_INSTRUCTIONS).toContain('compare_guides')
     expect(CLEO_INSTRUCTIONS).toContain('search_gallery')
     expect(CLEO_INSTRUCTIONS).toContain('<reading_paths>')
     expect(CLEO_INSTRUCTIONS).toContain('Never invent')

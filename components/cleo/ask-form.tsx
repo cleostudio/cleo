@@ -367,6 +367,18 @@ export function AskForm() {
         )
       }
 
+      const applyTextReplace = (content: string) => {
+        if (!isCurrentSession()) return
+        output = content
+        setMessages((currentMessages) =>
+          currentMessages.map((message) =>
+            message.id === assistantMessage.id
+              ? { ...message, content }
+              : message
+          )
+        )
+      }
+
       const applyActivity = (activity: ActivityItem) => {
         if (!isCurrentSession()) return
         setMessages((currentMessages) =>
@@ -422,6 +434,11 @@ export function AskForm() {
             continue
           }
 
+          if (event.type === "text_replace") {
+            applyTextReplace(event.content)
+            continue
+          }
+
           if (event.type === "activity") {
             applyActivity(event.activity)
             continue
@@ -449,6 +466,8 @@ export function AskForm() {
 
         if (event?.type === "text") {
           applyTextDelta(event.delta)
+        } else if (event?.type === "text_replace") {
+          applyTextReplace(event.content)
         } else if (event?.type === "activity") {
           applyActivity(event.activity)
         } else if (event?.type === "image") {

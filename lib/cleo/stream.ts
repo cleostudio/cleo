@@ -44,6 +44,12 @@ export type StreamTextEvent = {
   type: "text"
 }
 
+/** Full assistant text after server-side portal link verification. */
+export type StreamTextReplaceEvent = {
+  content: string
+  type: "text_replace"
+}
+
 export type StreamActivityEvent = {
   activity: ActivityItem
   type: "activity"
@@ -62,7 +68,11 @@ export type StreamErrorEvent = {
 }
 
 export type ClientStreamEvent =
-  StreamTextEvent | StreamActivityEvent | StreamImageEvent | StreamErrorEvent
+  | StreamTextEvent
+  | StreamTextReplaceEvent
+  | StreamActivityEvent
+  | StreamImageEvent
+  | StreamErrorEvent
 
 function isActivityStatus(value: unknown): value is ActivityStatus {
   return (
@@ -158,6 +168,14 @@ export function parseStreamLine(line: string): ClientStreamEvent | null {
       }
 
       return { type: "text", delta: parsed.delta }
+    }
+
+    if (parsed.type === "text_replace") {
+      if (!("content" in parsed) || typeof parsed.content !== "string") {
+        return null
+      }
+
+      return { type: "text_replace", content: parsed.content }
     }
 
     if (parsed.type === "activity") {

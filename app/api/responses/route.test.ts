@@ -268,9 +268,32 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       { delta: "Japan ", type: "text" },
       { delta: "is an island country.", type: "text" },
     ])
-    expect(events.at(-3)).toEqual({
+    expect(events.filter((event) => event.type === "activity").at(-1)).toEqual({
       activity: { id: "ws_1", kind: "web_search", status: "completed" },
       type: "activity",
+    })
+    expect(events.at(-1)).toEqual({
+      type: "text_replace",
+      content: "Japan is an island country.",
+    })
+  })
+
+  it("replaces streamed text so invented guide links are not kept", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        {
+          delta: "See [Japan](/explore/japan) and [Atlantis](/explore/atlantis).",
+          type: "response.output_text.delta",
+        },
+        { type: "response.completed", response: { output: [] } },
+      ])
+    )
+
+    const events = await ndjson(await POST(ask(question)))
+
+    expect(events.at(-1)).toEqual({
+      type: "text_replace",
+      content: "See [Japan](/explore/japan) and Atlantis.",
     })
   })
 
@@ -388,6 +411,7 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       "code_interpreter",
       "lookup_guide",
       "list_guides",
+      "compare_guides",
       "search_gallery",
     ])
     expect(openai.create.mock.calls[0]?.[0].include).toEqual([

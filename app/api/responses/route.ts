@@ -26,6 +26,7 @@ import {
   toImageDataUrl,
 } from "~/lib/cleo/images"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
+import { presentPortalGuideMarkdown } from "~/lib/cleo/portal-links"
 import {
   executePortalTool,
   portalToolActivitySummary,
@@ -437,6 +438,7 @@ export async function POST(request: Request) {
     const encoder = new TextEncoder()
     const activities = new Map<string, ActivityItem>()
     const reasoningParts = new Map<string, Map<number, string>>()
+    let assistantText = ""
     let activeStream: { controller: { abort: () => void } } | null =
       firstResponseStream
 
@@ -500,6 +502,7 @@ export async function POST(request: Request) {
 
             for await (const event of responseStream) {
               if (event.type === "response.output_text.delta") {
+                assistantText += event.delta
                 enqueue(controller, { type: "text", delta: event.delta })
                 continue
               }
@@ -764,6 +767,15 @@ export async function POST(request: Request) {
               ...(completedOutput ?? []),
               ...toolOutputs,
             ] as ResponseInput
+          }
+
+          if (assistantText) {
+            // Canonicalize portal Markdown so invented guide slugs never
+            // persist in the client session history.
+            enqueue(controller, {
+              type: "text_replace",
+              content: presentPortalGuideMarkdown(assistantText),
+            })
           }
 
           controller.close()
