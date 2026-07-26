@@ -48,7 +48,7 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     ).toBeVisible()
     await page.getByRole('button', { name: 'Orient me to Japan' }).click()
     await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue(
-      /orientation to Japan.*Explore field guide/i,
+      /orientation to Japan.*Deep-link its field guide/i,
     )
   })
 })
