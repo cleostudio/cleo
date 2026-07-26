@@ -26,7 +26,8 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - **OpenAI** is the only third-party API (`OPENAI_API_KEY` → `POST /api/responses`)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides; turns about
-  catalog subjects also receive curated guide excerpts)
+  catalog subjects also receive curated guide excerpts; portal tools can
+  browse/list guides and invented guide slugs are stripped in the UI)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 
 Site design notes live under `docs/`. Cleo-specific agent notes live in
