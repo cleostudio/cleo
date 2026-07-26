@@ -1,0 +1,286 @@
+/* Full-bleed interactive Earth at /world — dark space stage above the dock.
+   Local tokens are intentional: the surface is orbital black, not paper. */
+
+html[data-world-route] {
+  --world-space: #03060d;
+  --world-space-mid: #0b1630;
+  --world-hud: #f4f1ea;
+  --world-hud-ink: #0a1020;
+  --world-atmosphere: #5970ff;
+}
+
+html[data-world-route] .site-chrome {
+  padding-bottom: 0;
+}
+
+html[data-world-route] .site-chrome-main {
+  padding-top: 0;
+}
+
+html[data-world-route] .column-rulers,
+html[data-world-route] .viewport-edge-fade {
+  display: none;
+}
+
+html[data-world-route],
+html[data-world-route] body {
+  overflow: hidden;
+  background: var(--world-space);
+}
+
+html[data-world-route] .site-chrome {
+  height: 100svh;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--world-space);
+}
+
+html[data-world-route] .site-chrome-main {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+html[data-world-route] .paper-grain {
+  opacity: 0.18;
+  mix-blend-mode: soft-light;
+}
+
+.world-page {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  flex: 1;
+  flex-direction: column;
+  color: var(--world-hud);
+}
+
+.world-header {
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+  top: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  max-width: 22rem;
+}
+
+.world-header .page-eyebrow {
+  color: color-mix(in oklab, var(--world-hud) 72%, transparent);
+}
+
+.world-header .page-eyebrow::before {
+  background: color-mix(in oklab, var(--world-hud) 55%, transparent);
+}
+
+.world-lead {
+  margin-top: 0.75rem;
+  max-width: 22rem;
+  text-wrap: balance;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: color-mix(in oklab, var(--world-hud) 82%, transparent);
+}
+
+.world-hint {
+  margin-top: 0.55rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: color-mix(in oklab, var(--world-hud) 48%, transparent);
+}
+
+.world-stage {
+  position: relative;
+  flex: 1;
+  min-height: 100svh;
+  width: 100%;
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 50% 45%,
+      var(--world-space-mid) 0%,
+      var(--world-space) 68%,
+      #02040a 100%
+    );
+}
+
+.world-canvas-host,
+.world-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+}
+
+.world-status,
+.world-fallback {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.35rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: color-mix(in oklab, var(--world-hud) 70%, transparent);
+}
+
+.world-fallback a {
+  color: var(--world-hud);
+}
+
+.world-tooltip {
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  min-width: 7rem;
+  transform: translate(12px, -120%);
+  flex-direction: column;
+  gap: 0.1rem;
+  border: 1px solid color-mix(in oklab, var(--world-hud) 18%, transparent);
+  border-radius: var(--radius);
+  background: color-mix(in oklab, var(--world-hud-ink) 78%, transparent);
+  padding: 0.45rem 0.65rem;
+  box-shadow: 0 10px 30px color-mix(in oklab, #000 45%, transparent);
+  backdrop-filter: blur(10px) saturate(1.2);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+}
+
+.world-tooltip-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--world-hud);
+}
+
+.world-tooltip-meta {
+  font-size: 0.7rem;
+  color: color-mix(in oklab, var(--world-hud) 55%, transparent);
+}
+
+.world-selection {
+  position: absolute;
+  z-index: 3;
+  right: 1.1rem;
+  bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  left: 1.1rem;
+  display: flex;
+  max-width: 22rem;
+  flex-direction: column;
+  gap: 0.85rem;
+  border: 1px solid color-mix(in oklab, var(--world-hud) 16%, transparent);
+  border-radius: var(--radius);
+  background: color-mix(in oklab, var(--world-hud-ink) 82%, transparent);
+  padding: 1rem 1.1rem;
+  box-shadow: 0 18px 50px color-mix(in oklab, #000 50%, transparent);
+  backdrop-filter: blur(14px) saturate(1.25);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  animation: world-selection-in 280ms var(--ease-spring) both;
+}
+
+@media (min-width: 640px) {
+  .world-selection {
+    right: 1.5rem;
+    left: auto;
+    width: 22rem;
+  }
+}
+
+@keyframes world-selection-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.world-selection-code {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--world-hud) 50%, transparent);
+}
+
+.world-selection-name {
+  margin-top: 0.15rem;
+  font-size: 1.2rem;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  color: var(--world-hud);
+}
+
+.world-selection-meta {
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  color: color-mix(in oklab, var(--world-hud) 58%, transparent);
+}
+
+.world-selection-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.world-selection-link {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--world-hud);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 550;
+  color: var(--world-hud-ink);
+  transition:
+    transform 180ms var(--ease-swift),
+    background-color 180ms var(--ease-swift);
+}
+
+.world-selection-link:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.world-selection-dismiss {
+  border: 0;
+  background: transparent;
+  padding: 0.35rem 0.4rem;
+  font-size: 0.8rem;
+  color: color-mix(in oklab, var(--world-hud) 62%, transparent);
+  cursor: pointer;
+}
+
+.world-selection-dismiss:hover {
+  color: var(--world-hud);
+}
+
+.world-credit {
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+  bottom: calc(5.1rem + env(safe-area-inset-bottom, 0px));
+  left: 1.25rem;
+  max-width: min(22rem, calc(100% - 2.5rem));
+  font-size: 0.65rem;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: color-mix(in oklab, var(--world-hud) 34%, transparent);
+}
+
+@media (min-width: 640px) {
+  .world-credit {
+    bottom: calc(1.35rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .world-selection {
+    animation: none;
+  }
+}

@@ -125,4 +125,10 @@ export const presetDeviations = [
     token: '--content-column',
     upstream: '37.5rem',
   },
+  {
+    reason:
+      '/world is an orbital black stage for the 3D Earth; it uses local --world-* tokens instead of the paper ramp.',
+    token: '--world-space',
+    upstream: 'warm paper gray ramp on every public surface',
+  },
 ] as const

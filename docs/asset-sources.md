@@ -13,6 +13,15 @@ manual fixes in `atlas-photo-overrides.json`) and imported locally with
 `public/images/atlas/{slug}/`. Keep on-page photographer credit, license, and
 source link (typically CC BY / CC BY-SA / public domain).
 
+## World globe textures
+
+Equirectangular plates for the interactive Earth at `/world`, served from
+`public/images/world/` (day, night lights, clouds, normal, specular). Sourced
+from the three.js planet example textures, which redistribute NASA Blue Marble
+/ city-lights style imagery (public-domain U.S. government work). Country
+marker positions live in `content/world-coordinates.json` (geographic lat/lng
+per ISO code). Keep the short on-page credit in `lib/world/textures.ts`.
+
 ## Space photographs
 
 One curated NASA image per Space guide. Import-time only via

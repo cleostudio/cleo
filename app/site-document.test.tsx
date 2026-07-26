@@ -16,6 +16,9 @@ vi.mock('~/components/ambient-background', () => ({
 vi.mock('~/components/cleo-route-attribute', () => ({
   CleoRouteAttribute: () => null,
 }))
+vi.mock('~/components/world-route-attribute', () => ({
+  WorldRouteAttribute: () => null,
+}))
 vi.mock('~/components/dock', () => ({
   Dock: () => <span data-public-dock="" />,
   DockFallback: () => <span data-public-dock-fallback="" />,

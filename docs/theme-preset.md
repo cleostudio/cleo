@@ -90,6 +90,7 @@ Everything else should match cali.so.
 | --- | --- | --- | --- |
 | `--font-sans` | Geist, then Frex Sans GB for CJK | Geist only | Cleo is English-only, so the CJK face is dead weight. |
 | `--content-column` | `37.5rem` | `42rem` | The drafting guide borders came off, so the column can open wider without reading as a boxed frame. |
+| `--world-space` | warm paper ramp on every public surface | orbital black stage tokens | `/world` is a full-bleed 3D Earth view; paper gray would flatten the globe. |
 
 ## Changing the preset
 

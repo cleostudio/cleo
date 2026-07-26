@@ -39,6 +39,22 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page.getByText(/Europa/i).first()).toBeVisible()
   })
 
+  test('World page mounts the interactive Earth stage', async ({ page }) => {
+    await prepareBrowserPage(page)
+    const browserErrors = watchBrowserErrors(page)
+
+    await expectHealthyPublicDocument(page, '/world')
+    await expect(page.getByRole('heading', { name: 'World' })).toBeVisible()
+    await expect(
+      page.getByText(/Drag to orbit · Scroll to zoom/i),
+    ).toBeVisible()
+    await expect(
+      page.getByRole('img', { name: 'Interactive 3D Earth' }),
+    ).toBeVisible({ timeout: 20_000 })
+
+    expect(browserErrors).toEqual([])
+  })
+
   test('Cleo empty state starters fill the prompt', async ({ page }) => {
     await prepareBrowserPage(page)
     await page.goto('/cleo')
