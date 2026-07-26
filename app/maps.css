@@ -100,6 +100,46 @@
   letter-spacing: 0.04em;
 }
 
+.earth-map-regions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.earth-map-region {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  background: color-mix(in oklab, var(--background) 88%, var(--card));
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  padding: 0.35rem 0.55rem;
+  transition:
+    background-color 150ms var(--ease-swift),
+    border-color 150ms var(--ease-swift),
+    color 150ms var(--ease-swift);
+}
+
+.earth-map-region:hover:not(:disabled),
+.earth-map-region[data-active] {
+  border-color: color-mix(in oklab, var(--signal) 45%, var(--border));
+  color: var(--signal);
+}
+
+.earth-map-region:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.earth-map-region:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
 .earth-map-reset {
   border: var(--border-hairline) solid var(--border);
   border-radius: calc(var(--radius) - 4px);
@@ -240,6 +280,13 @@
   letter-spacing: -0.01em;
 }
 
+.earth-map-selection-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.9rem;
+}
+
 .earth-map-guide-link {
   color: var(--foreground);
   font-size: 0.875rem;
@@ -250,6 +297,30 @@
 .earth-map-guide-link:hover {
   color: var(--signal);
   text-decoration: underline;
+}
+
+.earth-map-copy {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.875rem;
+  padding: 0;
+  text-underline-offset: 2px;
+  transition: color 150ms ease;
+}
+
+.earth-map-copy:hover {
+  color: var(--signal);
+  text-decoration: underline;
+}
+
+.earth-map-copy:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 0.2rem;
 }
 
 .earth-map-hint,
@@ -268,7 +339,9 @@
   .earth-map-search input,
   .earth-map-suggestions button,
   .earth-map-reset,
-  .earth-map-guide-link {
+  .earth-map-region,
+  .earth-map-guide-link,
+  .earth-map-copy {
     transition: none;
   }
 }

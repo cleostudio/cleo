@@ -41,8 +41,8 @@ admin-0 borders at `public/maps/countries.geojson`, with a camera index at
 Explore guides link back with “View on map”. MapLibre’s module workers are
 vendored to `public/maplibre/` so Turbopack/Next can load them under the site
 CSP. Regenerate tiles, borders, index, and workers with `pnpm prepare:maps`
-(`--skip-tiles` refreshes vectors/index only). No third-party tile CDN —
-assets stay on-origin.
+(`--skip-tiles` refreshes vectors/index only); validate with
+`pnpm validate:maps`. No third-party tile CDN — assets stay on-origin.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

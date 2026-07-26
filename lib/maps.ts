@@ -37,13 +37,23 @@ export type MapCountryIndexEntry = {
   code: string
   name: string
   slug: string | null
+  region: string | null
   center: [number, number]
   bounds: [[number, number], [number, number]]
   maxZoom: number
 }
 
+export type MapRegionCamera = {
+  id: string
+  label: string
+  bounds: [[number, number], [number, number]]
+  maxZoom: number
+  tally: number
+}
+
 export type MapCountryIndex = {
   countries: MapCountryIndexEntry[]
+  regions: MapRegionCamera[]
 }
 
 export type MapCountryPhoto = {

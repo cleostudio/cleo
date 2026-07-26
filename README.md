@@ -23,7 +23,7 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Space guides: `lib/space.ts` + `content/space-photos.json` + JPEGs in
   `public/images/space/`
 - Maps: MapLibre at `/maps` with first-party NASA Blue Marble tiles and
-  Natural Earth borders (`pnpm prepare:maps`)
+  Natural Earth borders (`pnpm prepare:maps`, `pnpm validate:maps`)
 - **OpenAI** is the only third-party API (`OPENAI_API_KEY` → `POST /api/responses`)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides and embed

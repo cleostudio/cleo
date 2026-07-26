@@ -35,6 +35,7 @@
     "import:space-photos": "node scripts/space/import-space-photos.mjs",
     "validate:space": "node scripts/space/preflight.mjs",
     "prepare:maps": "node scripts/maps/prepare-map-assets.mjs",
+    "validate:maps": "node scripts/maps/preflight.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

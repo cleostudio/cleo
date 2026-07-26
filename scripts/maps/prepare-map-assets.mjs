@@ -91,6 +91,59 @@ function isoCode(properties) {
   return null
 }
 
+/**
+ * Natural Earth 50m omits a few Explore microstates. Inject small clickable
+ * squares so search, borders, and deep links stay complete under CSP.
+ * Coordinates are approximate geographic centers (degrees).
+ */
+const MISSING_EXPLORE_MARKERS = [
+  { code: 'MC', name: 'Monaco', lng: 7.424, lat: 43.738 },
+  { code: 'MV', name: 'Maldives', lng: 73.509, lat: 4.175 },
+  { code: 'NR', name: 'Nauru', lng: 166.931, lat: -0.522 },
+  { code: 'TV', name: 'Tuvalu', lng: 179.199, lat: -8.521 },
+  { code: 'VA', name: 'Vatican City', lng: 12.453, lat: 41.902 },
+]
+
+function markerPolygon(lng, lat, halfSpan = 0.22) {
+  const west = lng - halfSpan
+  const east = lng + halfSpan
+  const south = lat - halfSpan
+  const north = lat + halfSpan
+  return {
+    type: 'Polygon',
+    coordinates: [
+      [
+        [west, south],
+        [east, south],
+        [east, north],
+        [west, north],
+        [west, south],
+      ],
+    ],
+  }
+}
+
+function ensureExploreMarkers(collection) {
+  const present = new Set(collection.features.map((feature) => feature.properties.code))
+  let added = 0
+  for (const marker of MISSING_EXPLORE_MARKERS) {
+    if (present.has(marker.code)) continue
+    collection.features.push({
+      type: 'Feature',
+      properties: { code: marker.code, name: marker.name },
+      geometry: markerPolygon(marker.lng, marker.lat),
+    })
+    present.add(marker.code)
+    added++
+  }
+  if (added > 0) {
+    collection.features.sort((a, b) =>
+      a.properties.code.localeCompare(b.properties.code),
+    )
+  }
+  return added
+}
+
 async function writeCountries(sourcePath, outPaths) {
   const raw = JSON.parse(await readFile(sourcePath, 'utf8'))
   const byCode = new Map()
@@ -141,6 +194,7 @@ async function writeCountries(sourcePath, outPaths) {
       a.properties.code.localeCompare(b.properties.code),
     ),
   }
+  ensureExploreMarkers(collection)
 
   const json = `${JSON.stringify(collection)}\n`
   for (const outPath of outPaths) {
@@ -261,29 +315,61 @@ function cameraFromGeometry(geometry) {
   }
 }
 
-async function loadCountrySlugByCode() {
+async function loadCountryMetaByCode() {
   const src = await readFile(path.join(root, 'lib/countries.ts'), 'utf8')
   const codes = [...src.matchAll(/"code":\s*"([A-Z]{2})"/g)].map((match) => match[1])
   const slugs = [...src.matchAll(/"slug":\s*"([^"]+)"/g)].map((match) => match[1])
+  const regions = [...src.matchAll(/"region":\s*"([^"]+)"/g)].map((match) => match[1])
+  if (codes.length !== slugs.length || codes.length !== regions.length) {
+    throw new Error(
+      `countries.ts parse mismatch: codes=${codes.length} slugs=${slugs.length} regions=${regions.length}`,
+    )
+  }
   const map = new Map()
-  for (let i = 0; i < Math.min(codes.length, slugs.length); i++) {
-    map.set(codes[i], slugs[i])
+  for (let i = 0; i < codes.length; i++) {
+    map.set(codes[i], { slug: slugs[i], region: regions[i] })
   }
   return map
 }
 
+function regionCamera(entries) {
+  let minX = Infinity
+  let minY = Infinity
+  let maxX = -Infinity
+  let maxY = -Infinity
+  for (const entry of entries) {
+    const [[west, south], [east, north]] = entry.bounds
+    minX = Math.min(minX, west)
+    minY = Math.min(minY, south)
+    maxX = Math.max(maxX, east)
+    maxY = Math.max(maxY, north)
+  }
+  if (!Number.isFinite(minX)) return null
+  const span = Math.max(maxX - minX, maxY - minY, 1)
+  const maxZoom = Math.max(1.2, Math.min(3.4, Math.log2(360 / span) + 0.35))
+  return {
+    bounds: [
+      [minX, minY],
+      [maxX, maxY],
+    ],
+    maxZoom: Number(maxZoom.toFixed(2)),
+  }
+}
+
 async function writeCountryIndex(collection, outPath) {
-  const slugByCode = await loadCountrySlugByCode()
+  const metaByCode = await loadCountryMetaByCode()
   const entries = []
 
   for (const feature of collection.features) {
     const code = feature.properties.code
     const camera = cameraFromGeometry(feature.geometry)
     if (!camera) continue
+    const meta = metaByCode.get(code)
     entries.push({
       code,
       name: feature.properties.name,
-      slug: slugByCode.get(code) ?? null,
+      slug: meta?.slug ?? null,
+      region: meta?.region ?? null,
       center: camera.center,
       bounds: camera.bounds,
       maxZoom: camera.maxZoom,
@@ -291,9 +377,29 @@ async function writeCountryIndex(collection, outPath) {
   }
 
   entries.sort((a, b) => a.name.localeCompare(b.name, 'en'))
+
+  const regionOrder = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
+  const regions = []
+  for (const label of regionOrder) {
+    const members = entries.filter((entry) => entry.region === label && entry.slug)
+    const camera = regionCamera(members)
+    if (!camera) continue
+    regions.push({
+      id: label.toLowerCase(),
+      label,
+      bounds: camera.bounds,
+      maxZoom: camera.maxZoom,
+      tally: members.length,
+    })
+  }
+
   await mkdir(path.dirname(outPath), { recursive: true })
-  await writeFile(outPath, `${JSON.stringify({ countries: entries })}\n`, 'utf8')
-  return entries.length
+  await writeFile(
+    outPath,
+    `${JSON.stringify({ countries: entries, regions })}\n`,
+    'utf8',
+  )
+  return { countryCount: entries.length, regionCount: regions.length }
 }
 
 function renderMercatorCanvas(source, srcWidth, srcHeight, size) {
@@ -420,9 +526,12 @@ async function main() {
     collection = await writeCountries(countriesSrc, [countriesPublic])
   } catch {
     collection = JSON.parse(await readFile(countriesPublic, 'utf8'))
+    ensureExploreMarkers(collection)
+    await writeFile(countriesPublic, `${JSON.stringify(collection)}\n`, 'utf8')
   }
   const featureCount = collection.features.length
-  const indexCount = await writeCountryIndex(collection, indexPublic)
+  const { countryCount: indexCount, regionCount } =
+    await writeCountryIndex(collection, indexPublic)
 
   let tileCount = 0
   if (skipTiles) {
@@ -462,6 +571,7 @@ async function main() {
         },
         featureCount,
         indexCount,
+        regionCount,
       },
       null,
       2,
@@ -470,6 +580,7 @@ async function main() {
 
   console.log(`countries: ${featureCount}`)
   console.log(`index: ${indexCount}`)
+  console.log(`regions: ${regionCount}`)
   console.log(`tiles: ${tileCount}${skipTiles ? ' (skipped)' : ''}`)
   console.log('done')
 }

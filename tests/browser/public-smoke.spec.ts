@@ -44,6 +44,13 @@ const profiles = [
     reducedMotion: 'no-preference' as const,
   },
   {
+    name: 'Maps on desktop',
+    path: '/maps',
+    viewport: { width: 1440, height: 900 },
+    colorScheme: 'light' as const,
+    reducedMotion: 'no-preference' as const,
+  },
+  {
     name: 'Article on desktop',
     path: browserArticleFixture.path,
     viewport: { width: 1440, height: 900 },

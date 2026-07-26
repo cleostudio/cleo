@@ -27,10 +27,12 @@ import {
   mapAttribution,
   resolveMapCountry,
   syncMapCountrySearchParam,
+  mapCountryHref,
   type MapCountryHit,
   type MapCountryIndex,
   type MapCountryIndexEntry,
   type MapCountryPhoto,
+  type MapRegionCamera,
 } from '~/lib/maps'
 import { cn } from '~/lib/utils'
 
@@ -132,6 +134,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const hoveredCodeRef = useRef<string | null>(null)
   const selectedCodeRef = useRef<string | null>(null)
   const indexRef = useRef<MapCountryIndexEntry[]>([])
+  const regionsRef = useRef<MapRegionCamera[]>([])
   const suppressMapClickRef = useRef<() => void>(() => {})
   const indexReadyRef = useRef(false)
 
@@ -142,6 +145,9 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const [query, setQuery] = useState('')
   const [suggestions, setSuggestions] = useState<MapCountryIndexEntry[]>([])
   const [activeSuggestion, setActiveSuggestion] = useState(0)
+  const [regions, setRegions] = useState<MapRegionCamera[]>([])
+  const [activeRegion, setActiveRegion] = useState<string | null>(null)
+  const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle')
 
   useEffect(() => {
     const container = containerRef.current
@@ -281,8 +287,12 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
         const indexResponse = await fetch(MAP_COUNTRY_INDEX_URL)
         const index = (await indexResponse.json()) as MapCountryIndex
         indexRef.current = index.countries
+        regionsRef.current = index.regions ?? []
+        setRegions(regionsRef.current)
       } catch {
         indexRef.current = []
+        regionsRef.current = []
+        setRegions([])
         try {
           ensureCountryLayers()
         } catch {
@@ -380,6 +390,8 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     setSelected(hit)
     setQuery(entry.name)
     setSuggestions([])
+    setActiveRegion(null)
+    setCopyState('idle')
     if (syncUrl) {
       syncMapCountrySearchParam(entry.slug ?? entry.code)
     }
@@ -399,8 +411,48 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     setSelected(null)
     setQuery('')
     setSuggestions([])
+    setActiveRegion(null)
+    setCopyState('idle')
     syncMapCountrySearchParam(null)
     map.easeTo({ center: [10, 20], zoom: 1.2, duration: 600 })
+  }
+
+  function flyToRegion(region: MapRegionCamera) {
+    const map = mapRef.current
+    if (!map) return
+    suppressMapClickRef.current()
+    if (selectedCodeRef.current && map.getSource('countries')) {
+      map.setFeatureState(
+        { source: 'countries', id: selectedCodeRef.current },
+        { selected: false },
+      )
+    }
+    selectedCodeRef.current = null
+    setSelected(null)
+    setQuery('')
+    setSuggestions([])
+    setCopyState('idle')
+    setActiveRegion(region.id)
+    syncMapCountrySearchParam(null)
+    map.fitBounds(region.bounds, {
+      padding: { top: 72, bottom: 96, left: 40, right: 40 },
+      maxZoom: region.maxZoom,
+      duration: 800,
+    })
+  }
+
+  async function copyDeepLink() {
+    if (!selected) return
+    const href = selected.mapHref ?? mapCountryHref(selected.code)
+    const absolute = new URL(href, window.location.origin).href
+    try {
+      await navigator.clipboard.writeText(absolute)
+      setCopyState('copied')
+      window.setTimeout(() => setCopyState('idle'), 1600)
+    } catch {
+      setCopyState('failed')
+      window.setTimeout(() => setCopyState('idle'), 1600)
+    }
   }
 
   const searchListId = `${reactId}-map-suggestions`
@@ -480,6 +532,24 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
         </div>
       </div>
 
+      {regions.length > 0 ? (
+        <div className="earth-map-regions" role="group" aria-label="Jump to region">
+          {regions.map((region) => (
+            <button
+              key={region.id}
+              type="button"
+              className="earth-map-region"
+              data-active={activeRegion === region.id || undefined}
+              disabled={!ready}
+              onClick={() => flyToRegion(region)}
+            >
+              <span>{region.label}</span>
+              <span className="tabular-nums text-muted-foreground">{region.tally}</span>
+            </button>
+          ))}
+        </div>
+      ) : null}
+
       <div
         ref={containerRef}
         className="earth-map-canvas"
@@ -512,18 +582,33 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                 <p className="earth-map-selection-name">{selected.name}</p>
               </div>
             )}
-            {selected.href ? (
-              <Link href={selected.href} className="earth-map-guide-link">
-                Open field guide →
-              </Link>
-            ) : (
-              <p className="text-sm text-muted-foreground">No Explore guide yet</p>
-            )}
+            <div className="earth-map-selection-actions">
+              {selected.href ? (
+                <Link href={selected.href} className="earth-map-guide-link">
+                  Open field guide →
+                </Link>
+              ) : (
+                <p className="text-sm text-muted-foreground">No Explore guide yet</p>
+              )}
+              <button
+                type="button"
+                className="earth-map-copy"
+                onClick={() => {
+                  void copyDeepLink()
+                }}
+              >
+                {copyState === 'copied'
+                  ? 'Copied link'
+                  : copyState === 'failed'
+                    ? 'Copy failed'
+                    : 'Copy link'}
+              </button>
+            </div>
           </div>
         ) : (
           <p className="earth-map-hint text-muted-foreground">
-            Pan and zoom the NASA Blue Marble basemap. Click a country for its
-            boundary and Explore field guide.
+            Pan and zoom the NASA Blue Marble basemap, jump by region, or click a
+            country for its boundary and Explore field guide.
           </p>
         )}
         <p className="earth-map-credit text-muted-foreground">

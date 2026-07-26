@@ -19,6 +19,7 @@
     "tileSize": 256,
     "count": 341
   },
-  "featureCount": 228,
-  "indexCount": 228
+  "featureCount": 233,
+  "indexCount": 233,
+  "regionCount": 5
 }

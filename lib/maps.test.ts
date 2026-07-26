@@ -19,6 +19,7 @@ const sampleIndex: MapCountryIndexEntry[] = [
     code: 'JP',
     name: 'Japan',
     slug: 'japan',
+    region: 'Asia',
     center: [138, 36],
     bounds: [
       [123, 24],
@@ -30,6 +31,7 @@ const sampleIndex: MapCountryIndexEntry[] = [
     code: 'US',
     name: 'United States of America',
     slug: 'united-states',
+    region: 'Americas',
     center: [-98, 39],
     bounds: [
       [-125, 24],

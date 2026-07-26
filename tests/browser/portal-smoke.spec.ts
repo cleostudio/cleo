@@ -39,6 +39,28 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page.getByText(/Europa/i).first()).toBeVisible()
   })
 
+  test('Maps page unlocks region jumps and Space Earth links back', async ({
+    page,
+  }) => {
+    await prepareBrowserPage(page)
+    const browserErrors = watchBrowserErrors(page)
+
+    await expectHealthyPublicDocument(page, '/maps')
+    await expect(
+      page.getByRole('application', { name: 'Interactive map of Earth' }),
+    ).toBeVisible()
+    await expect(
+      page.getByRole('button', { name: /Asia/ }),
+    ).toBeVisible({ timeout: 20_000 })
+
+    await page.goto('/space/earth')
+    await expect(
+      page.getByRole('link', { name: 'Open the Earth map →' }),
+    ).toBeVisible()
+
+    expect(browserErrors).toEqual([])
+  })
+
   test('Cleo empty state starters fill the prompt', async ({ page }) => {
     await prepareBrowserPage(page)
     await page.goto('/cleo')
