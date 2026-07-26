@@ -14,6 +14,11 @@ import {
   toImageDataUrl,
 } from "~/lib/cleo/images"
 import {
+  buildTopicPhotoInstructions,
+  conversationTopicText,
+  matchTopicPhotosInText,
+} from "~/lib/cleo/topic-photos"
+import {
   type ActivityItem,
   type ActivityStatus,
   type ClientStreamEvent,
@@ -355,13 +360,18 @@ export async function POST(request: Request) {
 
   const client = new OpenAI({ apiKey })
   const input = toApiInput(parsed)
+  const topicPhotos = matchTopicPhotosInText(conversationTopicText(parsed))
+  const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
+  const instructions = topicPhotoInstructions
+    ? `${CLEO_INSTRUCTIONS}\n\n${topicPhotoInstructions}`
+    : CLEO_INSTRUCTIONS
 
   try {
     const responseStream = await client.responses.create(
       {
         model: MODEL,
         input,
-        instructions: CLEO_INSTRUCTIONS,
+        instructions,
         // Keep headroom for reasoning + tools + visible answer. Effort "max"
         // with a tight budget often ends incomplete with zero answer text.
         max_output_tokens: 16_384,
