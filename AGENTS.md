@@ -33,8 +33,9 @@ planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 `content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
 at `/gallery` shows both Explore place photos and Space body photos.
 Maps (`/maps`) renders a WebGL Earth with local 8K day/night maps, 4K
-clouds/specular/normal, and a Milky Way skybox under `public/images/maps/`, a
-live solar terminator (`lib/maps/sun.ts`), orbit controls, country markers from
+clouds/specular/normal (Solar System Scope), and a NASA SVS Deep Star Maps
+2020 skybox under `public/images/maps/`, a live solar terminator
+(`lib/maps/sun.ts`), orbit controls, country markers from
 `content/maps-coordinates.json`, and Explore deep-links
 (`components/maps/maps-explorer.tsx`). Regenerate centers with
 `pnpm generate:maps-coordinates`.

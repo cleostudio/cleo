@@ -238,9 +238,9 @@ const skyFragment = /* glsl */ `
   varying vec2 vUv;
   void main() {
     vec3 color = texture2D(skyMap, vUv).rgb;
-    // Source plates are very dark; lift the galactic dust without clipping cores.
-    color = pow(max(color, 0.0), vec3(0.78)) * 1.65;
-    color += vec3(0.01, 0.012, 0.02);
+    // NASA Deep Star Maps are linear-ish HDR baked to 8-bit; a mild lift
+    // keeps the Milky Way dust visible without washing out star cores.
+    color = pow(max(color, 0.0), vec3(0.9)) * 1.25;
     gl_FragColor = vec4(color, 1.0);
   }
 `

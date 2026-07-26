@@ -30,9 +30,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   Explore/Space catalog so replies can deep-link field guides and embed
   curated topic photographs when a visual helps)
 - Maps globe: `components/maps/*`, `lib/maps/*`, local textures in
-  `public/images/maps/` (Solar System Scope 8K Earth + Milky Way sky, CC BY 4.0);
-  country centers in `content/maps-coordinates.json`
-  (`pnpm generate:maps-coordinates`)
+  `public/images/maps/` (Solar System Scope 8K Earth, CC BY 4.0; NASA SVS
+  Deep Star Maps 2020 sky); country centers in
+  `content/maps-coordinates.json` (`pnpm generate:maps-coordinates`)
 - Bottom dock: Writing, Gallery, Explore, Maps, Topics, Cleo
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
