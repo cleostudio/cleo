@@ -6,14 +6,14 @@ import {
   pixelClusterCells,
 } from '~/components/pixel-cluster'
 
-// sRGB stand-ins for the public-site light theme (satori has no oklch /
+// sRGB stand-ins for the public-site dark theme (satori has no oklch /
 // color-mix). Signal and ink alphas match `.pixel-cluster` in globals.css;
-// the sheet uses the warm paper page rather than a dark monogram tile.
+// the tile uses the dark sheet so the stamp reads on browser chrome.
 const COLORS = {
-  paper: '#fcfcfb',
-  signal: '#d55c13',
-  inkA: 'rgba(30, 29, 27, 0.26)',
-  inkB: 'rgba(30, 29, 27, 0.11)',
+  paper: '#0f0d0a',
+  signal: '#f0772d',
+  inkA: 'rgba(236, 235, 231, 0.26)',
+  inkB: 'rgba(236, 235, 231, 0.11)',
 } as const
 
 function cellColor(cell: PixelClusterCell): string | null {
