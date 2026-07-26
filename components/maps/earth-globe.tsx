@@ -152,6 +152,7 @@ export function EarthGlobe({
   sunAt,
   regionFilter = null,
   resetSignal = 0,
+  clearSampleSignal = 0,
 }: {
   focusSlug?: string | null
   onSelect?: (marker: MapsMarker | null) => void
@@ -163,6 +164,8 @@ export function EarthGlobe({
   regionFilter?: string | null
   /** Increment to restore the default Atlantic framing. */
   resetSignal?: number
+  /** Increment to clear the coordinate sample HUD. */
+  clearSampleSignal?: number
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const apiRef = useRef<GlobeApi | null>(null)
@@ -711,6 +714,11 @@ export function EarthGlobe({
     if (!ready || resetSignal < 1) return
     apiRef.current?.resetView()
   }, [resetSignal, ready])
+
+  useEffect(() => {
+    if (clearSampleSignal < 1) return
+    setPickedLabel(null)
+  }, [clearSampleSignal])
 
   return (
     <div className="maps-stage">

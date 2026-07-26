@@ -99,9 +99,20 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page).toHaveURL(/[?&]c=japan\b/)
     await expect(page).not.toHaveURL(/[?&]r=Europe\b/)
 
+    await page.getByRole('button', { name: 'Asia', exact: true }).click()
+    await expect(page).toHaveURL(/[?&]r=Asia\b/)
+
+    await page.getByLabel(/Season/i).fill('79')
+    await expect(page.getByText(/Season · Mar 20/i)).toBeVisible()
+
     await page.getByRole('button', { name: 'Reset view' }).click()
     await expect(page.getByRole('region', { name: 'Japan' })).toHaveCount(0)
     await expect(page).not.toHaveURL(/[?&]c=japan\b/)
+    await expect(page).not.toHaveURL(/[?&]r=/)
+    await expect(page.getByRole('button', { name: 'All', exact: true })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
 
     await page.goto('/maps?c=not-a-country')
     await expect(page).not.toHaveURL(/[?&]c=/)
@@ -137,6 +148,11 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await page.getByRole('button', { name: 'Orient me to Japan' }).click()
     await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue(
       /orientation to Japan.*Deep-link its field guide/i,
+    )
+
+    await page.getByRole('button', { name: 'Where is Japan?' }).click()
+    await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue(
+      /Where is Japan on Earth.*\/maps\?c=japan/i,
     )
   })
 })

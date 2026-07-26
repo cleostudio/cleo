@@ -31,8 +31,14 @@ import {
   filterMapsMarkersByRegion,
   mapsRegions,
 } from '~/lib/maps/regions'
+import { copyTextToClipboard } from '~/lib/maps/clipboard'
 import { mapsSearchDocs } from '~/lib/maps/search'
-import { formatUtcHourLabel, mapsSunAt } from '~/lib/maps/sun-clock'
+import {
+  formatUtcDayLabel,
+  formatUtcHourLabel,
+  mapsSunAt,
+  utcDayOfYear,
+} from '~/lib/maps/sun-clock'
 import { resolveMapsUrlState } from '~/lib/maps/url-state'
 
 function MapsExplorerInner({
@@ -62,12 +68,22 @@ function MapsExplorerInner({
   } | null>(null)
   const [sunMode, setSunMode] = useState<'live' | 'scrub'>('live')
   const [sunHour, setSunHour] = useState(() => new Date().getUTCHours())
+  const [sunDay, setSunDay] = useState(() => utcDayOfYear(new Date()))
   const [liveNow, setLiveNow] = useState(() => new Date())
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>(
     'idle',
   )
   const [resetSignal, setResetSignal] = useState(0)
+  const [clearSampleSignal, setClearSampleSignal] = useState(0)
+  const [selectionAnnouncement, setSelectionAnnouncement] = useState('')
   const regionChipRefs = useRef<Array<HTMLButtonElement | null>>([])
+  const guideLinkRef = useRef<HTMLAnchorElement>(null)
+  const focusGuideAfterPick = useRef(false)
+
+  const clearSample = () => {
+    setPickedSample(null)
+    setClearSampleSignal((value) => value + 1)
+  }
 
   useEffect(() => {
     const resolved = resolveMapsUrlState({
@@ -98,9 +114,25 @@ function MapsExplorerInner({
 
   useEffect(() => {
     if (sunMode !== 'live') return
-    const id = window.setInterval(() => setLiveNow(new Date()), 60_000)
+    const id = window.setInterval(() => {
+      const next = new Date()
+      setLiveNow(next)
+      setSunHour(next.getUTCHours())
+      setSunDay(utcDayOfYear(next))
+    }, 60_000)
     return () => window.clearInterval(id)
   }, [sunMode])
+
+  useEffect(() => {
+    if (!selected) {
+      setSelectionAnnouncement('')
+      return
+    }
+    setSelectionAnnouncement(`${selected.name} selected on Maps`)
+    if (!focusGuideAfterPick.current) return
+    focusGuideAfterPick.current = false
+    guideLinkRef.current?.focus()
+  }, [selected])
 
   const syncUrl = (slug: string | null, region: string | null = regionFilter) => {
     const params = new URLSearchParams(searchParams.toString())
@@ -112,10 +144,11 @@ function MapsExplorerInner({
     router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
   }
 
-  const selectMarker = (marker: MapsMarker) => {
+  const selectMarker = (marker: MapsMarker, fromSearch = false) => {
+    focusGuideAfterPick.current = fromSearch
     setFocusSlug(marker.slug)
     setSelected(marker)
-    setPickedSample(null)
+    clearSample()
     setCopyStatus('idle')
     syncUrl(marker.slug, regionFilter)
   }
@@ -123,7 +156,7 @@ function MapsExplorerInner({
   const dismissSelection = () => {
     setFocusSlug(null)
     setSelected(null)
-    setPickedSample(null)
+    clearSample()
     setCopyStatus('idle')
     syncUrl(null, regionFilter)
   }
@@ -142,7 +175,7 @@ function MapsExplorerInner({
       }
       setFocusSlug(null)
       setSelected(null)
-      setPickedSample(null)
+      clearSample()
       setCopyStatus('idle')
       const params = new URLSearchParams(searchParams.toString())
       if (!params.has('c')) return
@@ -168,21 +201,27 @@ function MapsExplorerInner({
 
   const resetView = () => {
     setResetSignal((value) => value + 1)
-    dismissSelection()
+    setFocusSlug(null)
+    setSelected(null)
+    clearSample()
+    setCopyStatus('idle')
+    setRegionFilter(null)
+    setShowGraticule(false)
+    setSunMode('live')
+    const now = new Date()
+    setLiveNow(now)
+    setSunHour(now.getUTCHours())
+    setSunDay(utcDayOfYear(now))
+    syncUrl(null, null)
   }
 
   const copyMapsLink = async () => {
     if (!selected || typeof window === 'undefined') return
     const url = new URL(`/maps?c=${selected.slug}`, window.location.origin)
     if (regionFilter) url.searchParams.set('r', regionFilter)
-    try {
-      await navigator.clipboard.writeText(url.toString())
-      setCopyStatus('copied')
-      window.setTimeout(() => setCopyStatus('idle'), 1600)
-    } catch {
-      setCopyStatus('failed')
-      window.setTimeout(() => setCopyStatus('idle'), 2200)
-    }
+    const ok = await copyTextToClipboard(url.toString())
+    setCopyStatus(ok ? 'copied' : 'failed')
+    window.setTimeout(() => setCopyStatus('idle'), ok ? 1600 : 2200)
   }
 
   const onRegionChipKeyDown = (
@@ -212,11 +251,20 @@ function MapsExplorerInner({
   const neighbors = selected
     ? mapsRegionNeighbors(selected, searchableMarkers, 4)
     : []
-  const sunAt = mapsSunAt(sunMode, sunHour, liveNow)
+  const sunAt = mapsSunAt(
+    sunMode,
+    sunHour,
+    liveNow,
+    sunMode === 'scrub' ? sunDay : null,
+  )
   const regionOptions = [null, ...regions] as const
+  const activeSunDay = sunMode === 'live' ? utcDayOfYear(liveNow) : sunDay
 
   return (
-    <div className="maps-page">
+    <div
+      className="maps-page"
+      data-has-selection={selected ? 'true' : undefined}
+    >
       <header className="maps-header">
         <h1 className="page-eyebrow enter">Maps</h1>
         <p
@@ -236,7 +284,10 @@ function MapsExplorerInner({
           className="enter"
           style={{ '--enter-delay': '160ms' } as React.CSSProperties}
         >
-          <MapsSearch docs={searchDocs} onPick={selectMarker} />
+          <MapsSearch
+            docs={searchDocs}
+            onPick={(marker) => selectMarker(marker, true)}
+          />
         </div>
         <div
           className="maps-region-filters enter"
@@ -277,9 +328,11 @@ function MapsExplorerInner({
             className="maps-toolbar-button"
             aria-pressed={sunMode === 'live'}
             onClick={() => {
+              const now = new Date()
               setSunMode('live')
-              setLiveNow(new Date())
-              setSunHour(new Date().getUTCHours())
+              setLiveNow(now)
+              setSunHour(now.getUTCHours())
+              setSunDay(utcDayOfYear(now))
             }}
           >
             Live sun
@@ -309,7 +362,10 @@ function MapsExplorerInner({
           style={{ '--enter-delay': '220ms' } as React.CSSProperties}
         >
           <label className="maps-sun-scrub-label" htmlFor="maps-sun-hour">
-            Sun · {sunMode === 'live' ? 'live UTC' : formatUtcHourLabel(sunHour)}
+            Sun ·{' '}
+            {sunMode === 'live'
+              ? 'live UTC'
+              : `${formatUtcHourLabel(sunHour)} · ${formatUtcDayLabel(sunDay, liveNow.getUTCFullYear())}`}
           </label>
           <input
             id="maps-sun-hour"
@@ -329,6 +385,26 @@ function MapsExplorerInner({
               setSunHour(Number(event.target.value))
             }}
           />
+          <label className="maps-sun-scrub-label" htmlFor="maps-sun-day">
+            Season · {formatUtcDayLabel(activeSunDay, liveNow.getUTCFullYear())}
+          </label>
+          <input
+            id="maps-sun-day"
+            className="maps-sun-scrub-input"
+            type="range"
+            min={1}
+            max={365}
+            step={1}
+            value={activeSunDay}
+            aria-valuetext={formatUtcDayLabel(
+              activeSunDay,
+              liveNow.getUTCFullYear(),
+            )}
+            onChange={(event) => {
+              setSunMode('scrub')
+              setSunDay(Number(event.target.value))
+            }}
+          />
         </div>
       </header>
 
@@ -338,9 +414,10 @@ function MapsExplorerInner({
         sunAt={sunAt}
         regionFilter={regionFilter}
         resetSignal={resetSignal}
+        clearSampleSignal={clearSampleSignal}
         onPickCoords={(coords) => {
           if (!coords) {
-            setPickedSample(null)
+            clearSample()
             return
           }
           setPickedSample({
@@ -428,7 +505,11 @@ function MapsExplorerInner({
             ) : null}
           </div>
           <div className="maps-selection-actions">
-            <Link href={`/explore/${selected.slug}`} className="maps-selection-link">
+            <Link
+              ref={guideLinkRef}
+              href={`/explore/${selected.slug}`}
+              className="maps-selection-link"
+            >
               Open field guide
             </Link>
             <Link
@@ -456,15 +537,16 @@ function MapsExplorerInner({
               Dismiss
             </button>
           </div>
-          <p className="sr-only" aria-live="polite">
-            {copyStatus === 'copied'
-              ? 'Maps link copied to clipboard'
-              : copyStatus === 'failed'
-                ? 'Could not copy Maps link'
-                : ''}
-          </p>
         </div>
       ) : null}
+
+      <p className="sr-only" aria-live="polite">
+        {copyStatus === 'copied'
+          ? 'Maps link copied to clipboard'
+          : copyStatus === 'failed'
+            ? 'Could not copy Maps link'
+            : selectionAnnouncement}
+      </p>
     </div>
   )
 }

@@ -75,6 +75,23 @@ html[data-maps-route] .paper-grain {
   .maps-header .maps-search {
     margin-top: 0.55rem;
   }
+
+  .maps-page[data-has-selection='true'] .maps-sun-scrub,
+  .maps-page[data-has-selection='true'] .maps-region-filters {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .maps-page[data-has-selection='true'] .maps-lead,
+  .maps-page[data-has-selection='true'] .maps-hint,
+  .maps-page[data-has-selection='true'] .maps-sun-scrub {
+    display: none;
+  }
+
+  .maps-coords-hud {
+    bottom: calc(11rem + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 .maps-header .maps-search {
@@ -245,6 +262,10 @@ html[data-maps-route] .paper-grain {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: color-mix(in oklab, var(--maps-hud) 48%, transparent);
+}
+
+.maps-sun-scrub-label + .maps-sun-scrub-input + .maps-sun-scrub-label {
+  margin-top: 0.55rem;
 }
 
 .maps-sun-scrub-input {

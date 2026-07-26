@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest'
 
-import { formatUtcHourLabel, mapsSunAt } from './sun-clock'
+import {
+  formatUtcDayLabel,
+  formatUtcHourLabel,
+  mapsSunAt,
+  utcDayOfYear,
+} from './sun-clock'
+import { solarDeclinationDegrees } from './sun'
 
 describe('mapsSunAt', () => {
   it('returns the live clock in live mode', () => {
@@ -15,8 +21,21 @@ describe('mapsSunAt', () => {
     )
   })
 
-  it('formats UTC hour labels', () => {
+  it('scrubs a seasonal day-of-year for axial tilt', () => {
+    const now = new Date('2026-07-26T15:30:00Z')
+    // 2026-03-20 is day 79
+    const equinox = mapsSunAt('scrub', 12, now, 79)
+    expect(equinox.toISOString()).toBe('2026-03-20T12:00:00.000Z')
+    expect(Math.abs(solarDeclinationDegrees(equinox))).toBeLessThan(2.5)
+
+    const juneSolstice = mapsSunAt('scrub', 12, now, 172)
+    expect(solarDeclinationDegrees(juneSolstice)).toBeGreaterThan(20)
+  })
+
+  it('formats UTC hour and day labels', () => {
     expect(formatUtcHourLabel(0)).toBe('00:00 UTC')
     expect(formatUtcHourLabel(14)).toBe('14:00 UTC')
+    expect(formatUtcDayLabel(79, 2026)).toBe('Mar 20')
+    expect(utcDayOfYear(new Date('2026-07-26T15:30:00Z'))).toBe(207)
   })
 })

@@ -43,8 +43,11 @@ The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
 - Deep-links: `?c={explore-slug}` selects a country; `?r={Region}` filters
   markers and reframes the camera (e.g. `Asia`). Search matches name, ISO
   code, capital, and notable places. Land/sea clicks sample coordinates and
-  offer **Nearest** country. Explore / Gallery / Space Earth link into Maps;
-  the selection chip links out to `/explore/[slug]` and `/gallery?q={name}`.
+  offer **Nearest** country. Sun scrubber controls UTC hour **and** season
+  (day-of-year) for the terminator. **Reset view** clears selection, region,
+  sample HUD, graticule, and sun scrub. Explore / Gallery / Space Earth link
+  into Maps; the selection chip links out to `/explore/[slug]` and
+  `/gallery?q={name}`.
 - Cleo may cite `/maps?c={slug}` for location questions (`lib/cleo/portal-links.ts`).
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
