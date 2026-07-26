@@ -33,6 +33,11 @@ import {
 } from "~/lib/cleo/portal-tools"
 import { selectReasoningEffort } from "~/lib/cleo/reasoning-effort"
 import {
+  buildTopicPhotoInstructions,
+  conversationTopicText,
+  matchTopicPhotosInText,
+} from "~/lib/cleo/topic-photos"
+import {
   type ActivityItem,
   type ActivityStatus,
   type ClientStreamEvent,
@@ -397,8 +402,11 @@ export async function POST(request: Request) {
     text: conversationGroundingText(parsed),
   })
   const grounding = buildGuideGroundingInstructions(groundedGuides)
-  const instructions = grounding
-    ? `${CLEO_INSTRUCTIONS}\n\n${grounding}`
+  const topicPhotos = matchTopicPhotosInText(conversationTopicText(parsed))
+  const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
+  const instructionExtras = [grounding, topicPhotoInstructions].filter(Boolean)
+  const instructions = instructionExtras.length
+    ? `${CLEO_INSTRUCTIONS}\n\n${instructionExtras.join("\n\n")}`
     : CLEO_INSTRUCTIONS
 
   const apiKey = process.env.OPENAI_API_KEY

@@ -188,6 +188,24 @@
   transition: text-decoration-color 150ms ease;
 }
 
+.ai-response [data-streamdown="image"],
+.ai-response .cleo-topic-photo {
+  display: block;
+  width: 100%;
+  max-width: min(100%, 36rem);
+  height: auto;
+  margin-block: 0.75rem;
+  border-radius: calc(var(--radius) + 2px);
+  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+  background: var(--muted);
+  object-fit: cover;
+}
+
+.dark .ai-response [data-streamdown="image"],
+.dark .ai-response .cleo-topic-photo {
+  border-color: color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
 .ai-response [data-streamdown="link"]:hover {
   text-decoration-color: var(--foreground);
 }

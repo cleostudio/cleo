@@ -40,7 +40,8 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
   `pnpm import:space-photos` → `pnpm validate:space`
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
   (instructions include Explore/Space catalog paths for guide deep-links;
-  matching turns also receive curated guide excerpts and Gallery photo links;
+  matching turns also receive curated guide excerpts, Gallery photo links, and
+  topic photo paths so replies can embed atlas/space JPEGs as Markdown images;
   Responses tools include web_search, image_generation, code_interpreter, and
   portal list_guides/lookup_guide/compare_guides/search_gallery with adaptive
   reasoning effort; assistant Markdown strips invented Explore/Space slugs

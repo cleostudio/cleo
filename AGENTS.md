@@ -86,8 +86,12 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
   stored prose.
 - Effort: `lib/cleo/reasoning-effort.ts` picks `low` / `medium` / `high` from
   the latest user turn (greetings stay cheap; research goes high).
-- Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
-- Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`.
+- Protocol: `lib/cleo/stream.ts` (`text`, `text_replace`, `activity`, `image`,
+  `error`).
+- Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
+  may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
+  grounds matching subjects on each turn); Streamdown only allows
+  `/images/atlas|space/...` paths.
 - Portal starters: `lib/cleo/portal-starters.ts` rotates a topic-diverse empty
   state (Explore, Space, Gallery, Topics, compare, next-read, photo) consumed by
   `components/cleo/ask-form.tsx`. Guide and Gallery deep-links are inline

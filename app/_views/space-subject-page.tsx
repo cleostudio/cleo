@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { GuideOrientation } from '~/components/guide-orientation'
+import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
 import { cleoAskHref, cleoGuideAskPrompt } from '~/lib/cleo/ask-links'
@@ -84,12 +85,13 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
             width: r.width,
           }))}
           expandedContent={
-            <div className="spec-plate mx-auto max-w-content px-6 text-sm text-foreground">
-              <p className="font-medium">{subject.photo.caption}</p>
-              <p className="mt-1 opacity-80">
-                {subject.photo.photographer} · {subject.photo.license}
-              </p>
-            </div>
+            <PhotoZoomDetails
+              collection="space"
+              title={subject.photo.featureName}
+              subtitle={subject.name}
+              photographer={subject.photo.photographer}
+              license={subject.photo.license}
+            />
           }
         />
         <figcaption className="guide-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
