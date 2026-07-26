@@ -125,4 +125,10 @@ export const presetDeviations = [
     token: '--content-column',
     upstream: '37.5rem',
   },
+  {
+    reason:
+      'Maps immerses the globe in a deep-space void instead of the warm paper page background.',
+    token: '--background',
+    upstream: 'warm paper gray-1 on every public surface',
+  },
 ] as const

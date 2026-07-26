@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react'
 import {
+  AdditiveBlending,
   AmbientLight,
   BackSide,
   BufferGeometry,
-  Clock,
   Color,
   DirectionalLight,
   Float32BufferAttribute,
+  FrontSide,
   Group,
   Mesh,
   MeshBasicMaterial,
@@ -39,9 +40,10 @@ import { sunDirectionScene } from '~/lib/maps/sun'
 import { EARTH_TEXTURES } from '~/lib/maps/textures'
 
 const EARTH_RADIUS = 1
-const CLOUD_RADIUS = 1.008
-const ATMOSPHERE_RADIUS = 1.045
-const MARKER_RADIUS = 1.012
+const CLOUD_RADIUS = 1.01
+const ATMOSPHERE_INNER = 1.018
+const ATMOSPHERE_OUTER = 1.08
+const MARKER_RADIUS = 1.014
 const MIN_POLAR = 0.12
 const MAX_POLAR = Math.PI - 0.12
 const CLICK_SLOP_PX = 5
@@ -75,7 +77,7 @@ const earthFragment = /* glsl */ `
 
   vec3 perturbNormal(vec3 normal, vec3 position, vec2 uv) {
     vec3 mapN = texture2D(normalMap, uv).xyz * 2.0 - 1.0;
-    mapN.xy *= 0.55;
+    mapN.xy *= 0.7;
 
     vec3 q0 = dFdx(position);
     vec3 q1 = dFdy(position);
@@ -98,21 +100,43 @@ const earthFragment = /* glsl */ `
 
     vec3 normal = perturbNormal(vNormalW, vPositionW, vUv);
     vec3 sun = normalize(sunDirection);
-    float ndotl = dot(normal, sun);
-
-    float dayAmount = smoothstep(-0.12, 0.22, ndotl);
-    float cityLights = smoothstep(0.15, 0.0, ndotl);
-
-    vec3 color = mix(night * 0.55, day, dayAmount);
-    color += night * cityLights * 1.35;
-
     vec3 viewDir = normalize(cameraPositionW - vPositionW);
-    vec3 halfDir = normalize(sun + viewDir);
-    float specular = pow(max(dot(normal, halfDir), 0.0), 48.0) * ocean * dayAmount;
-    color += vec3(0.55, 0.7, 0.85) * specular * 0.65;
+    float ndotl = dot(normal, sun);
+    float ndotv = max(dot(normal, viewDir), 0.0);
 
-    float fresnel = pow(1.0 - max(dot(normal, viewDir), 0.0), 2.2);
-    color += vec3(0.15, 0.35, 0.7) * fresnel * 0.12 * dayAmount;
+    // Soft terminator with Earthshine on the night side.
+    float dayAmount = smoothstep(-0.18, 0.28, ndotl);
+    float twilight = smoothstep(-0.22, 0.08, ndotl) * (1.0 - smoothstep(0.05, 0.42, ndotl));
+    float cityLights = pow(smoothstep(0.18, -0.05, ndotl), 1.35);
+
+    // Slight haze on sunlit land/ocean before night mix.
+    vec3 dayLit = day * (0.22 + 0.88 * dayAmount);
+    dayLit *= mix(vec3(1.0), vec3(1.05, 1.02, 0.96), ocean * 0.25);
+
+    vec3 color = mix(night * 0.35, dayLit, dayAmount);
+    // City lights — warm, only where the night map carries energy.
+    color += night * cityLights * vec3(1.35, 1.15, 0.85) * 1.55;
+    // Earthshine fill so the dark limb is not pure black.
+    color += day * 0.035 * (1.0 - dayAmount);
+
+    // Sunset band along the terminator.
+    vec3 sunset = vec3(1.0, 0.42, 0.12);
+    color = mix(color, color * vec3(1.15, 0.85, 0.55) + sunset * 0.18, twilight * 0.85);
+
+    // Ocean specular glint.
+    vec3 halfDir = normalize(sun + viewDir);
+    float spec = pow(max(dot(normal, halfDir), 0.0), 72.0) * ocean * dayAmount;
+    float fresnelWater = pow(1.0 - ndotv, 3.5);
+    color += vec3(0.75, 0.88, 1.0) * spec * (0.55 + fresnelWater * 0.8);
+
+    // Rayleigh-ish limb on the day side.
+    float rim = pow(1.0 - ndotv, 2.6);
+    color += vec3(0.18, 0.42, 0.95) * rim * dayAmount * 0.22;
+    color += sunset * rim * twilight * 0.35;
+
+    // Gentle filmic roll-off.
+    color = color / (color + vec3(0.85));
+    color = pow(color, vec3(0.95));
 
     gl_FragColor = vec4(color, 1.0);
   }
@@ -130,7 +154,7 @@ const atmosphereVertex = /* glsl */ `
   }
 `
 
-const atmosphereFragment = /* glsl */ `
+const atmosphereOuterFragment = /* glsl */ `
   uniform vec3 sunDirection;
   varying vec3 vNormalW;
   varying vec3 vPositionW;
@@ -138,11 +162,32 @@ const atmosphereFragment = /* glsl */ `
   void main() {
     vec3 viewDir = normalize(cameraPosition - vPositionW);
     vec3 normal = normalize(vNormalW);
-    float fresnel = pow(1.0 - max(dot(viewDir, normal), 0.0), 2.8);
-    float sunFacing = smoothstep(-0.3, 0.65, dot(normal, normalize(sunDirection)));
-    vec3 glow = mix(vec3(0.15, 0.35, 0.85), vec3(0.45, 0.75, 1.0), sunFacing);
-    float alpha = fresnel * (0.35 + 0.55 * sunFacing);
+    // Back-face shell: rim seen from outside.
+    float fresnel = pow(1.0 - max(dot(viewDir, -normal), 0.0), 2.4);
+    float sunFacing = smoothstep(-0.45, 0.75, dot(normal, normalize(sunDirection)));
+    float twilight = smoothstep(-0.35, 0.1, sunFacing) * (1.0 - smoothstep(0.25, 0.85, sunFacing));
+    vec3 dayGlow = vec3(0.28, 0.55, 1.0);
+    vec3 sunset = vec3(1.0, 0.38, 0.1);
+    vec3 glow = mix(dayGlow * 0.35, dayGlow, sunFacing);
+    glow = mix(glow, sunset, twilight * 0.85);
+    float alpha = fresnel * (0.28 + 0.72 * sunFacing) * 0.95;
     gl_FragColor = vec4(glow, alpha);
+  }
+`
+
+const atmosphereInnerFragment = /* glsl */ `
+  uniform vec3 sunDirection;
+  varying vec3 vNormalW;
+  varying vec3 vPositionW;
+
+  void main() {
+    vec3 viewDir = normalize(cameraPosition - vPositionW);
+    vec3 normal = normalize(vNormalW);
+    float fresnel = pow(1.0 - max(dot(viewDir, normal), 0.0), 3.2);
+    float sunFacing = smoothstep(-0.2, 0.7, dot(normal, normalize(sunDirection)));
+    vec3 haze = mix(vec3(0.2, 0.35, 0.7), vec3(0.45, 0.72, 1.0), sunFacing);
+    float alpha = fresnel * sunFacing * 0.22;
+    gl_FragColor = vec4(haze, alpha);
   }
 `
 
@@ -165,11 +210,40 @@ const cloudFragment = /* glsl */ `
 
   void main() {
     vec4 clouds = texture2D(cloudMap, vUv);
-    float cover = max(clouds.r, max(clouds.g, clouds.b));
-    float light = smoothstep(-0.2, 0.55, dot(normalize(vNormalW), normalize(sunDirection)));
-    float alpha = cover * (0.22 + 0.55 * light);
-    vec3 color = mix(vec3(0.45, 0.5, 0.6), vec3(1.0), light);
-    gl_FragColor = vec4(color, alpha * 0.85);
+    float cover = pow(max(clouds.r, max(clouds.g, clouds.b)), 1.15);
+    float ndotl = dot(normalize(vNormalW), normalize(sunDirection));
+    float light = smoothstep(-0.25, 0.65, ndotl);
+    float twilight = smoothstep(-0.3, 0.05, ndotl) * (1.0 - smoothstep(0.05, 0.4, ndotl));
+    vec3 color = mix(vec3(0.25, 0.28, 0.35), vec3(1.0, 0.99, 0.97), light);
+    color = mix(color, vec3(1.0, 0.72, 0.45), twilight * 0.55);
+    float alpha = cover * mix(0.08, 0.78, light);
+    gl_FragColor = vec4(color, alpha);
+  }
+`
+
+const starVertex = /* glsl */ `
+  attribute float aSize;
+  attribute float aBright;
+  varying float vBright;
+  void main() {
+    vBright = aBright;
+    vec4 mv = modelViewMatrix * vec4(position, 1.0);
+    gl_PointSize = aSize * (280.0 / max(-mv.z, 0.001));
+    gl_Position = projectionMatrix * mv;
+  }
+`
+
+const starFragment = /* glsl */ `
+  varying float vBright;
+  void main() {
+    vec2 uv = gl_PointCoord * 2.0 - 1.0;
+    float d = dot(uv, uv);
+    if (d > 1.0) discard;
+    float core = exp(-d * 4.2);
+    float halo = exp(-d * 1.4) * 0.35;
+    float alpha = (core + halo) * vBright;
+    vec3 color = mix(vec3(0.72, 0.82, 1.0), vec3(1.0, 0.96, 0.88), vBright);
+    gl_FragColor = vec4(color, alpha);
   }
 `
 
@@ -229,25 +303,26 @@ export function EarthGlobe({
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.outputColorSpace = SRGBColorSpace
-    renderer.setClearColor(0x000000, 0)
+    renderer.setClearColor(0x02040c, 1)
     host.appendChild(renderer.domElement)
     renderer.domElement.className = 'maps-canvas'
     renderer.domElement.setAttribute('aria-hidden', 'true')
 
     const scene = new Scene()
-    const camera = new PerspectiveCamera(42, 1, 0.1, 100)
-    camera.position.set(0.35, 0.55, 2.65)
+    const camera = new PerspectiveCamera(40, 1, 0.1, 120)
+    camera.position.set(0.45, 0.42, 2.55)
 
-    const ambient = new AmbientLight(0x6a7a9a, 0.18)
-    const sunLight = new DirectionalLight(0xfff4e5, 1.35)
+    const ambient = new AmbientLight(0x1a2238, 0.08)
+    const sunLight = new DirectionalLight(0xfff1dd, 0.15)
     scene.add(ambient, sunLight)
 
     const root = new Group()
     scene.add(root)
 
-    const earthGeometry = new SphereGeometry(EARTH_RADIUS, 96, 64)
-    const cloudGeometry = new SphereGeometry(CLOUD_RADIUS, 96, 64)
-    const atmosphereGeometry = new SphereGeometry(ATMOSPHERE_RADIUS, 64, 48)
+    const earthGeometry = new SphereGeometry(EARTH_RADIUS, 128, 96)
+    const cloudGeometry = new SphereGeometry(CLOUD_RADIUS, 128, 96)
+    const atmosphereInnerGeometry = new SphereGeometry(ATMOSPHERE_INNER, 96, 64)
+    const atmosphereOuterGeometry = new SphereGeometry(ATMOSPHERE_OUTER, 96, 64)
 
     const sunDirection = new Vector3(1, 0, 0)
     const cameraPositionW = new Vector3()
@@ -263,32 +338,41 @@ export function EarthGlobe({
       },
       vertexShader: earthVertex,
       fragmentShader: earthFragment,
+      toneMapped: false,
     })
 
     const starGeometry = new BufferGeometry()
-    const starCount = 1400
+    const starCount = 4200
     const starPositions = new Float32Array(starCount * 3)
+    const starSizes = new Float32Array(starCount)
+    const starBright = new Float32Array(starCount)
     for (let i = 0; i < starCount; i += 1) {
-      const radius = 28 + Math.random() * 16
+      // Bias a soft galactic band around the equator of the sky sphere.
+      const band = Math.random() < 0.42
+      const radius = 36 + Math.random() * 28
       const theta = Math.random() * Math.PI * 2
-      const phi = Math.acos(2 * Math.random() - 1)
+      const phi = band
+        ? Math.PI * 0.5 + (Math.random() - 0.5) * 0.55
+        : Math.acos(2 * Math.random() - 1)
       const sinPhi = Math.sin(phi)
       starPositions[i * 3] = radius * sinPhi * Math.cos(theta)
       starPositions[i * 3 + 1] = radius * Math.cos(phi)
       starPositions[i * 3 + 2] = radius * sinPhi * Math.sin(theta)
+      starSizes[i] = band ? 1.2 + Math.random() * 2.4 : 0.7 + Math.random() * 1.8
+      starBright[i] = band ? 0.45 + Math.random() * 0.55 : 0.2 + Math.random() * 0.55
     }
     starGeometry.setAttribute('position', new Float32BufferAttribute(starPositions, 3))
-    const stars = new Points(
-      starGeometry,
-      new PointsMaterial({
-        color: 0xb8c4d8,
-        size: 0.045,
-        sizeAttenuation: true,
-        transparent: true,
-        opacity: 0.85,
-        depthWrite: false,
-      }),
-    )
+    starGeometry.setAttribute('aSize', new Float32BufferAttribute(starSizes, 1))
+    starGeometry.setAttribute('aBright', new Float32BufferAttribute(starBright, 1))
+    const starMaterial = new ShaderMaterial({
+      vertexShader: starVertex,
+      fragmentShader: starFragment,
+      transparent: true,
+      depthWrite: false,
+      blending: AdditiveBlending,
+      toneMapped: false,
+    })
+    const stars = new Points(starGeometry, starMaterial)
     scene.add(stars)
 
     const cloudMaterial = new ShaderMaterial({
@@ -300,23 +384,40 @@ export function EarthGlobe({
       fragmentShader: cloudFragment,
       transparent: true,
       depthWrite: false,
+      toneMapped: false,
     })
 
-    const atmosphereMaterial = new ShaderMaterial({
+    const atmosphereOuterMaterial = new ShaderMaterial({
       uniforms: {
         sunDirection: { value: sunDirection },
       },
       vertexShader: atmosphereVertex,
-      fragmentShader: atmosphereFragment,
+      fragmentShader: atmosphereOuterFragment,
       transparent: true,
       depthWrite: false,
       side: BackSide,
+      blending: AdditiveBlending,
+      toneMapped: false,
+    })
+
+    const atmosphereInnerMaterial = new ShaderMaterial({
+      uniforms: {
+        sunDirection: { value: sunDirection },
+      },
+      vertexShader: atmosphereVertex,
+      fragmentShader: atmosphereInnerFragment,
+      transparent: true,
+      depthWrite: false,
+      side: FrontSide,
+      blending: AdditiveBlending,
+      toneMapped: false,
     })
 
     const earth = new Mesh(earthGeometry, earthMaterial)
     const clouds = new Mesh(cloudGeometry, cloudMaterial)
-    const atmosphere = new Mesh(atmosphereGeometry, atmosphereMaterial)
-    root.add(earth, clouds, atmosphere)
+    const atmosphereInner = new Mesh(atmosphereInnerGeometry, atmosphereInnerMaterial)
+    const atmosphereOuter = new Mesh(atmosphereOuterGeometry, atmosphereOuterMaterial)
+    root.add(earth, clouds, atmosphereInner, atmosphereOuter)
 
     // Country markers — one Points cloud for every Explore guide.
     const markerPositions = new Float32Array(mapPlaces.length * 3)
@@ -332,30 +433,20 @@ export function EarthGlobe({
       new Float32BufferAttribute(markerPositions, 3),
     )
     const markerMaterial = new PointsMaterial({
-      color: new Color('#c96442'),
-      size: 0.018,
+      color: new Color('#8ec8ff'),
+      size: 0.014,
       sizeAttenuation: true,
       transparent: true,
-      opacity: 0.72,
+      opacity: 0.55,
       depthWrite: false,
+      blending: AdditiveBlending,
     })
-    // Prefer the live --signal token when the theme exposes a parseable color.
-    const signal = getComputedStyle(document.documentElement)
-      .getPropertyValue('--signal')
-      .trim()
-    if (signal) {
-      try {
-        markerMaterial.color.set(signal)
-      } catch {
-        // Keep the terracotta fallback when the token is an unsupported format.
-      }
-    }
     const markers = new Points(markerGeometry, markerMaterial)
     root.add(markers)
 
-    const selectionGeometry = new SphereGeometry(0.018, 16, 12)
+    const selectionGeometry = new SphereGeometry(0.016, 16, 12)
     const selectionMaterial = new MeshBasicMaterial({
-      color: markerMaterial.color.clone(),
+      color: new Color('#d8ecff'),
       transparent: true,
       opacity: 0.95,
       depthWrite: false,
@@ -377,13 +468,13 @@ export function EarthGlobe({
     controls.rotateSpeed = 0.55
     controls.zoomSpeed = 0.7
 
-    const clock = new Clock()
     const pointer = new Vector2(2, 2)
     const hitPoint = new Vector3()
     let frameId = 0
     let disposed = false
     let pointerOver = false
     let pointerDown: { x: number; y: number } | null = null
+    let lastFrameAt = performance.now()
     let flight:
       | {
           from: [number, number, number]
@@ -560,7 +651,9 @@ export function EarthGlobe({
     const tick = () => {
       if (disposed) return
       frameId = window.requestAnimationFrame(tick)
-      const delta = clock.getDelta()
+      const now = performance.now()
+      const delta = Math.min(0.05, (now - lastFrameAt) / 1000)
+      lastFrameAt = now
       applySun(new Date())
       camera.getWorldPosition(cameraPositionW)
 
@@ -572,7 +665,7 @@ export function EarthGlobe({
       }
 
       if (flight) {
-        const t = (performance.now() - flight.startedAt) / FLIGHT_MS
+        const t = (now - flight.startedAt) / FLIGHT_MS
         const position = slerpCameraPositions(flight.from, flight.to, t)
         camera.position.set(...position)
         controls.target.set(0, 0, 0)
@@ -581,6 +674,7 @@ export function EarthGlobe({
 
       if (!reducedMotion) {
         clouds.rotation.y += delta * 0.012
+        stars.rotation.y += delta * 0.0018
       }
       controls.update()
       updateReadout()
@@ -636,16 +730,18 @@ export function EarthGlobe({
       controls.dispose()
       earthGeometry.dispose()
       cloudGeometry.dispose()
-      atmosphereGeometry.dispose()
+      atmosphereInnerGeometry.dispose()
+      atmosphereOuterGeometry.dispose()
       starGeometry.dispose()
       markerGeometry.dispose()
       selectionGeometry.dispose()
-      ;(stars.material as PointsMaterial).dispose()
+      starMaterial.dispose()
       markerMaterial.dispose()
       selectionMaterial.dispose()
       earthMaterial.dispose()
       cloudMaterial.dispose()
-      atmosphereMaterial.dispose()
+      atmosphereInnerMaterial.dispose()
+      atmosphereOuterMaterial.dispose()
       for (const material of [earthMaterial, cloudMaterial]) {
         for (const uniform of Object.values(material.uniforms)) {
           const value = uniform.value

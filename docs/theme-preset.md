@@ -90,6 +90,7 @@ Everything else should match cali.so.
 | --- | --- | --- | --- |
 | `--font-sans` | Geist, then Frex Sans GB for CJK | Geist only | Cleo is English-only, so the CJK face is dead weight. |
 | `--content-column` | `37.5rem` | `42rem` | The drafting guide borders came off, so the column can open wider without reading as a boxed frame. |
+| `--background` (Maps) | warm paper gray-1 on every public surface | deep-space void on `/maps` only | The globe needs night sky, not a paper sheet; chrome uses a scoped `--maps-*` palette. |
 
 ## Changing the preset
 
