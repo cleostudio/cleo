@@ -43,6 +43,7 @@ describe('discovery routes', () => {
       '/blog',
       '/gallery',
       '/topics',
+      '/ideas',
       '/explore',
       '/space',
       '/cleo',

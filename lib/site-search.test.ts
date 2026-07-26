@@ -19,6 +19,7 @@ describe('site search catalog', () => {
     expect(hits.some((hit) => hit.href === '/gallery')).toBe(true)
     expect(hits.some((hit) => hit.href === '/cleo')).toBe(true)
     expect(hits.some((hit) => hit.href === '/blog')).toBe(true)
+    expect(hits.some((hit) => hit.href === '/ideas')).toBe(true)
   })
 
   it('keeps hits lean for the client (no guide prose fields)', () => {

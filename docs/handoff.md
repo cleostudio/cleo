@@ -14,6 +14,7 @@ English-only general-knowledge portal with:
   space first; more topics later)
 - Gallery: filterable photographs from Explore places and Space guides
   (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
+- Ideas scratchpad at `/ideas` (browser-only localStorage; no account or sync)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
 
 There is **no** Clerk auth, Neon/Postgres, Bunny media, AMA booking, Stripe,

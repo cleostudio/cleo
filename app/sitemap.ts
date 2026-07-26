@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/blog', latest),
     entry('/gallery', latest),
     entry('/topics', latest),
+    entry('/ideas'),
     entry('/explore'),
     entry('/space'),
     entry('/cleo'),

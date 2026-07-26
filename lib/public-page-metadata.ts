@@ -17,6 +17,11 @@ export const publicPageMetadata = {
     title: 'Topics',
     description: '',
   },
+  ideas: {
+    title: 'Ideas',
+    description:
+      'A private scratchpad for planning new essays, topics, and experiments — saved in this browser only.',
+  },
   /** Retained for preserved Projects UI / future portfolio surfaces. */
   projects: {
     title: 'Projects',

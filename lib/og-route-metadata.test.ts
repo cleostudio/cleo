@@ -29,6 +29,11 @@ describe('social OG image metadata', () => {
     ],
     ['/gallery', publicPageMetadata.gallery, 'Gallery · Cleo'],
     ['/topics', publicPageMetadata.topics, 'Topics · Cleo'],
+    [
+      '/ideas',
+      publicPageMetadata.ideas,
+      'Ideas · Cleo. A private scratchpad for planning new essays, topics, and experiments — saved in this browser only.',
+    ],
     ['/explore', publicPageMetadata.explore, 'Explore · Cleo'],
     [
       '/space',

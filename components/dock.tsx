@@ -7,6 +7,7 @@ import {
   ExploreIcon,
   HomeIcon,
   GalleryIcon,
+  IdeasIcon,
   PreferencesIcon,
   SayHiIcon,
   TopicsIcon,
@@ -29,6 +30,7 @@ const ITEMS = [
   { href: '/gallery', zh: '图库', en: 'Gallery', icon: GalleryIcon },
   { href: '/explore', zh: '探索', en: 'Explore', icon: ExploreIcon },
   { href: '/topics', zh: '主题', en: 'Topics', icon: TopicsIcon },
+  { href: '/ideas', zh: '想法', en: 'Ideas', icon: IdeasIcon },
   { href: '/cleo', zh: 'Cleo', en: 'Cleo', icon: SayHiIcon },
 ] as const
 

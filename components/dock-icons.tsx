@@ -108,6 +108,24 @@ export function TopicsIcon() {
   )
 }
 
+/** Ideas scratchpad: a lightbulb mark. */
+export function IdeasIcon() {
+  return (
+    <Base>
+      <path
+        d="M9 1.75a4.75 4.75 0 0 0-2.55 8.75c.34.2.55.55.55.94v.31h4v-.31c0-.39.21-.74.55-.94A4.75 4.75 0 0 0 9 1.75Z"
+        fill="currentColor"
+        opacity=".3"
+        strokeWidth="0"
+        stroke="none"
+      />
+      <path d="M9 1.75a4.75 4.75 0 0 0-2.55 8.75c.34.2.55.55.55.94v.31h4v-.31c0-.39.21-.74.55-.94A4.75 4.75 0 0 0 9 1.75Z" />
+      <path d="M7.25 13.5h3.5" />
+      <path d="M7.75 15.25h2.5" />
+    </Base>
+  )
+}
+
 export function AmaIcon() {
   return (
     <Base>

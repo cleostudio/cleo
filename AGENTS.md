@@ -5,7 +5,8 @@ portal starting with countries and space. The homepage is a neutral portal
 (unified topic search, highlighted places, topic discovery, recent Writing
 posts). Explore field guides live
 at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
-`/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
+`/gallery`, Topics at `/topics`, Ideas scratchpad at `/ideas` (browser-only
+localStorage planning list), Writing at `/blog` (future encyclopedia-like
 layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
 `/gallery`; `/projects` permanently redirects to `/topics`. Projects UI,
 vinyl/bookshelf, and social card components remain in the repo for later reuse.

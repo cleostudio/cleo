@@ -15,6 +15,7 @@ describe('portal catalog instructions', () => {
     expect(block).toContain('Japan (/explore/japan)')
     expect(block).toContain('Mars (/space/mars)')
     expect(block).toContain('[Topics](/topics)')
+    expect(block).toContain('[Ideas](/ideas)')
     expect(block).toContain('<cleo_topic_photos>')
     expect(block).toContain('curated photograph as a Markdown image')
     expect(block).not.toContain('/explore/not-a-real-country')

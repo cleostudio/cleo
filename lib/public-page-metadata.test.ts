@@ -25,6 +25,11 @@ describe('public page metadata copy', () => {
       title: 'Topics',
       description: '',
     })
+    expect(publicPageMetadata.ideas).toEqual({
+      title: 'Ideas',
+      description:
+        'A private scratchpad for planning new essays, topics, and experiments — saved in this browser only.',
+    })
     expect(publicPageMetadata.explore).toEqual({
       title: 'Explore',
       description: '',
@@ -46,6 +51,7 @@ describe('public page metadata copy', () => {
       'blog',
       'gallery',
       'topics',
+      'ideas',
       'explore',
       'space',
       'cleo',

@@ -77,6 +77,11 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
             </Link>
           </li>
           <li>
+            <Link href={localePath(locale, '/ideas')} className="footer-tree-link">
+              <T zh="想法" en="Ideas" />
+            </Link>
+          </li>
+          <li>
             <Link href={localePath(locale, '/cleo')} className="footer-tree-link">
               <T zh="询问" en="Ask" />
             </Link>

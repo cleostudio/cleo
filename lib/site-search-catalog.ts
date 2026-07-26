@@ -27,6 +27,12 @@ const PORTAL_SURFACES: Omit<SiteSearchHit, 'id' | 'searchText'>[] = [
     subtitle: 'Essays',
     href: '/blog',
   },
+  {
+    kind: 'surface',
+    title: 'Ideas',
+    subtitle: 'Planning scratchpad',
+    href: '/ideas',
+  },
 ]
 
 function haystack(...parts: string[]): string {

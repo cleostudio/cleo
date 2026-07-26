@@ -7,8 +7,9 @@ The public site includes a homepage with unified topic search (countries, space,
 collections), highlighted places, topic discovery, and recent Writing posts;
 Explore country field
 guides; Space field guides at `/space`; a place Gallery at `/gallery`; a Topics
-catalog; Writing (for a future encyclopedia layer); and a browser-only agent
-with streamed Markdown, vision, image generation, and live reasoning /
+catalog; an Ideas scratchpad at `/ideas` for planning new work (browser-only);
+Writing (for a future encyclopedia layer); and a browser-only agent with
+streamed Markdown, vision, image generation, and live reasoning /
 web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
@@ -30,7 +31,7 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides and embed
   curated topic photographs when a visual helps)
-- Bottom dock: Writing, Gallery, Explore, Topics, Cleo
+- Bottom dock: Writing, Gallery, Explore, Topics, Ideas, Cleo
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
 [`docs/design-language.md`](./docs/design-language.md). Site status:

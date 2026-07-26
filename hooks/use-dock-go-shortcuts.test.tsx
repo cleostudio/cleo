@@ -67,6 +67,7 @@ describe('useDockGoShortcuts', () => {
     { key: 'w', href: '/blog' },
     { key: 'p', href: '/gallery' },
     { key: 't', href: '/topics' },
+    { key: 'i', href: '/ideas' },
     { key: 'e', href: '/explore' },
     { key: 'c', href: '/cleo' },
   ] as const)('maps G then $key to $href', ({ key, href }) => {

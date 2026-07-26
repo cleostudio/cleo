@@ -10,6 +10,7 @@ import { spaceSubjects } from '~/lib/space'
 const PORTAL_SURFACES = [
   ['Home', '/'],
   ['Topics', '/topics'],
+  ['Ideas', '/ideas'],
   ['Gallery', '/gallery'],
   ['Explore', '/explore'],
   ['Space', '/space'],
