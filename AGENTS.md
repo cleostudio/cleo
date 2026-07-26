@@ -4,8 +4,9 @@ This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
 portal starting with countries and space. The homepage is a neutral portal
 (country search, highlighted places, topic discovery). Explore field guides live
 at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
-`/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
-layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
+`/gallery`, Topics at `/topics`, Writing at `/blog` (portal essays and subject
+pieces toward a deeper knowledge layer), and the AI agent at `/cleo`. `/photos`
+permanently redirects to
 `/gallery`; `/projects` permanently redirects to `/topics`. Projects UI,
 vinyl/bookshelf, and social card components remain in the repo for later reuse.
 
