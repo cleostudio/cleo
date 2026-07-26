@@ -1,5 +1,5 @@
 // The personal registry — the one file to edit when life moves on.
-// Sources: legacy site resume data + posts; see docs/handoff.md.
+// Sources: legacy site resume data + posts.
 
 export interface Record_ {
   artist: string

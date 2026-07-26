@@ -54,13 +54,10 @@ colors only — never a hex, never a raw `--gray-N` in a component. Two easings
 cali.so is a design decision: record it in both the deviations table and
 `presetDeviations`.
 
-## Agent skills (site)
+## Design notes
 
-### Issue tracker / triage / design / domain
-
-See the site guidance retained under `docs/agents/` and
-`docs/design-language.md` (homepage doorways: § Paper-artifact doorway
-vignettes). Multi-context map: `CONTEXT-MAP.md`.
+Homepage doorway vignettes: `docs/design-language.md` § Paper-artifact doorway
+vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 
 ## Cleo agent surface
 

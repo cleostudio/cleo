@@ -30,7 +30,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   curated topic photographs when a visual helps)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 
-Site design notes live under `docs/`. Cleo-specific agent notes live in
+Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
+[`docs/design-language.md`](./docs/design-language.md). Site status:
+[`docs/handoff.md`](./docs/handoff.md). Agent notes:
 [`AGENTS.md`](./AGENTS.md).
 
 ## Local development
