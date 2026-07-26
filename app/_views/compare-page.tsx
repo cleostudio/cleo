@@ -109,10 +109,12 @@ export function ComparePageView({
                 <li key={starter.label} className="hairline-top">
                   <Link
                     href={`/compare?a=${encodeURIComponent(starter.a)}&b=${encodeURIComponent(starter.b)}`}
-                    className="country-row group"
+                    className="group flex items-baseline justify-between gap-4 py-3 text-sm outline-none focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
                   >
-                    <span className="country-name font-medium">{starter.label}</span>
-                    <span className="country-subregion text-muted-foreground tabular-nums">
+                    <span className="font-medium text-foreground group-hover:underline underline-offset-2">
+                      {starter.label}
+                    </span>
+                    <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
                       {starter.a.split(':')[0]}
                     </span>
                   </Link>
