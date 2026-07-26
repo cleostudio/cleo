@@ -51,13 +51,13 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <section className="mt-8" aria-label="Search">
+      <section className="mt-6" aria-label="Search">
         <div className="enter" style={{ '--enter-delay': '100ms' } as React.CSSProperties}>
           <HomeSiteSearch hits={searchHits} />
         </div>
       </section>
 
-      <section className="mt-10" aria-labelledby="home-places-heading">
+      <section className="mt-8" aria-labelledby="home-places-heading">
         <div className="flex items-center justify-between gap-4">
           <SectionTitle index="01" delay={160}>
             <span id="home-places-heading">
