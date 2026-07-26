@@ -108,8 +108,8 @@ html[data-maps-route] .paper-grain {
 }
 
 .maps-search-input:focus-visible {
-  border-color: color-mix(in oklab, var(--maps-hud) 45%, transparent);
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--maps-hud) 55%, transparent);
+  border-color: var(--maps-hud);
+  box-shadow: 0 0 0 1px var(--maps-hud);
 }
 
 .maps-search-list {
