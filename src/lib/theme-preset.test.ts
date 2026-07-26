@@ -206,7 +206,7 @@ describe('theme preset: conformance', () => {
 })
 
 function componentSources() {
-  return ['app', 'components'].flatMap((directory) =>
+  return ['src/app', 'src/components'].flatMap((directory) =>
     readdirSync(join(process.cwd(), directory), { recursive: true })
       .map(String)
       .filter((name) => name.endsWith('.tsx') && !name.includes('.test.'))
