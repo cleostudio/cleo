@@ -52,6 +52,9 @@ Open [http://localhost:3000](http://localhost:3000). Cleo is on the dock (or
 
 ```bash
 pnpm typecheck
+pnpm validate:atlas
+pnpm validate:space
+pnpm validate:maps
 pnpm build
 ```
 
