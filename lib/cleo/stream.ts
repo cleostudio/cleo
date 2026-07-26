@@ -15,13 +15,19 @@ export type WebSearchAction =
     }
 
 export type ActivityStatus =
-  "in_progress" | "searching" | "generating" | "completed" | "failed"
+  | "in_progress"
+  | "searching"
+  | "generating"
+  | "interpreting"
+  | "completed"
+  | "failed"
 
 export type ActivityKind =
   | "web_search"
   | "reasoning"
   | "image_generation"
   | "portal_tool"
+  | "code_interpreter"
 
 export type PortalToolAction = {
   type: "portal_tool"
@@ -74,6 +80,7 @@ function isActivityStatus(value: unknown): value is ActivityStatus {
     value === "in_progress" ||
     value === "searching" ||
     value === "generating" ||
+    value === "interpreting" ||
     value === "completed" ||
     value === "failed"
   )
@@ -84,7 +91,8 @@ function isActivityKind(value: unknown): value is ActivityKind {
     value === "web_search" ||
     value === "reasoning" ||
     value === "image_generation" ||
-    value === "portal_tool"
+    value === "portal_tool" ||
+    value === "code_interpreter"
   )
 }
 

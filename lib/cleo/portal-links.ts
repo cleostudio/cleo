@@ -197,13 +197,18 @@ export const CLEO_PORTAL_STARTERS = [
       'Give me a quick orientation to Japan — look up its field guide and show the curated photo if it helps.',
   },
   {
-    label: 'Why is Europa interesting?',
-    prompt:
-      'Why is Europa interesting as an ocean world? Use the Space guide and include a photo if useful.',
-  },
-  {
     label: 'Compare Mars and Earth',
     prompt:
       'Compare Mars and Earth in a few sharp points. Look up both Space guides and deep-link each planet.',
+  },
+  {
+    label: 'Fact-check the ISS orbit',
+    prompt:
+      'Fact-check this claim with sources: the International Space Station orbits Earth about every 90 minutes. Use the Space guide if one exists.',
+  },
+  {
+    label: 'Find nebula photos',
+    prompt:
+      'Search the Gallery for nebula photographs and show one or two with short captions, linking each Space guide.',
   },
 ] as const

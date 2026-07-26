@@ -7,11 +7,14 @@ import {
 } from './portal-tools'
 
 describe('portal tools', () => {
-  it('exposes strict function tools for search, lookup, and photos', () => {
+  it('exposes strict function tools for guides, gallery, and writing', () => {
     expect(PORTAL_FUNCTION_TOOLS.map((tool) => tool.name)).toEqual([
       'search_portal_topics',
       'lookup_guide',
       'get_topic_photos',
+      'search_gallery',
+      'search_writing',
+      'lookup_writing',
     ])
     for (const tool of PORTAL_FUNCTION_TOOLS) {
       expect(tool.type).toBe('function')
@@ -86,6 +89,38 @@ describe('portal tools', () => {
     expect(payload.found).toBe(false)
   })
 
+  it('searches Gallery photographs', () => {
+    const payload = JSON.parse(
+      executePortalTool(
+        'search_gallery',
+        JSON.stringify({ query: 'fuji', limit: 4 }),
+      ),
+    ) as { count: number; photos: { src: string; href: string }[] }
+
+    expect(payload.count).toBeGreaterThan(0)
+    expect(payload.photos[0]?.src).toContain('/images/')
+    expect(payload.photos[0]?.href).toMatch(/^\/(explore|space)\//)
+  })
+
+  it('searches and looks up Writing essays', () => {
+    const search = JSON.parse(
+      executePortalTool(
+        'search_writing',
+        JSON.stringify({ query: 'marble', limit: 4 }),
+      ),
+    ) as { results: { slug: string; href: string }[] }
+
+    expect(search.results.length).toBeGreaterThan(0)
+    const slug = search.results[0]!.slug
+    const lookup = JSON.parse(
+      executePortalTool('lookup_writing', JSON.stringify({ slug })),
+    ) as { found: boolean; href: string; excerpt: string }
+
+    expect(lookup.found).toBe(true)
+    expect(lookup.href).toBe(`/blog/${slug}`)
+    expect(lookup.excerpt.length).toBeGreaterThan(40)
+  })
+
   it('labels portal tool activity for the panel', () => {
     expect(
       portalToolActivityLabel(
@@ -102,5 +137,13 @@ describe('portal tools', () => {
         'completed',
       ),
     ).toBe('Opened guide “europa”')
+
+    expect(
+      portalToolActivityLabel(
+        'search_gallery',
+        JSON.stringify({ query: 'nebula', limit: 3 }),
+        'completed',
+      ),
+    ).toBe('Searched Gallery for “nebula”')
   })
 })

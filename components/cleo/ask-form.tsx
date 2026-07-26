@@ -23,6 +23,11 @@ import {
 } from "~/lib/cleo/client-images"
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
 import {
+  CLEO_MODE_OPTIONS,
+  type CleoMode,
+  parseCleoMode,
+} from "~/lib/cleo/mode"
+import {
   clearCleoSession,
   loadCleoSession,
   saveCleoSession,
@@ -32,6 +37,8 @@ import {
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
+
+const CLEO_MODE_STORAGE_KEY = "cleo:mode:v1"
 
 const MAX_INPUT_LENGTH = 10_000
 
@@ -106,6 +113,7 @@ export function AskForm() {
   const [pendingImages, setPendingImages] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
+  const [mode, setMode] = useState<CleoMode>("auto")
   const [sessionReady, setSessionReady] = useState(false)
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -124,8 +132,22 @@ export function AskForm() {
       setMessages(restored.messages)
       messageIdRef.current = restored.nextId
     }
+    try {
+      setMode(parseCleoMode(window.localStorage.getItem(CLEO_MODE_STORAGE_KEY)))
+    } catch {
+      setMode("auto")
+    }
     setSessionReady(true)
   }, [])
+
+  useEffect(() => {
+    if (!sessionReady) return
+    try {
+      window.localStorage.setItem(CLEO_MODE_STORAGE_KEY, mode)
+    } catch {
+      // Privacy mode / quota — ignore.
+    }
+  }, [mode, sessionReady])
 
   useEffect(() => {
     if (!sessionReady || isSubmitting) return
@@ -286,7 +308,7 @@ export function AskForm() {
       const response = await fetch("/api/responses", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: conversation }),
+        body: JSON.stringify({ messages: conversation, mode }),
         signal: abortController.signal,
       })
 
@@ -580,6 +602,27 @@ export function AskForm() {
             {error}
           </p>
         ) : null}
+
+        <div
+          aria-label="Response mode"
+          className="cleo-mode-row"
+          role="radiogroup"
+        >
+          {CLEO_MODE_OPTIONS.map((option) => (
+            <button
+              aria-checked={mode === option.id}
+              className="cleo-mode"
+              data-active={mode === option.id || undefined}
+              disabled={isSubmitting}
+              key={option.id}
+              onClick={() => setMode(option.id)}
+              role="radio"
+              type="button"
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
 
         <form
           aria-busy={isSubmitting}

@@ -7,7 +7,9 @@
 import type { FunctionTool } from 'openai/resources/responses/responses'
 
 import { atlasRendition, getAtlasEntry } from '~/lib/atlas'
+import { getAllPosts, getPost, isPostSlug } from '~/lib/content'
 import { countries } from '~/lib/countries'
+import { allGalleryItems } from '~/lib/gallery'
 import { filterSiteSearchHits, type SiteSearchHit } from '~/lib/site-search'
 import { getSpaceSubject, spaceSubjects } from '~/lib/space'
 import { staticRendition } from '~/lib/static-photo'
@@ -21,6 +23,9 @@ export const PORTAL_TOOL_NAMES = [
   'search_portal_topics',
   'lookup_guide',
   'get_topic_photos',
+  'search_gallery',
+  'search_writing',
+  'lookup_writing',
 ] as const
 
 export type PortalToolName = (typeof PORTAL_TOOL_NAMES)[number]
@@ -158,6 +163,68 @@ export const PORTAL_FUNCTION_TOOLS: FunctionTool[] = [
       additionalProperties: false,
     },
   },
+  {
+    type: 'function',
+    name: 'search_gallery',
+    description:
+      'Search curated Gallery photographs (Explore places and Space bodies) by place name, feature, country, or keyword. Returns embeddable JPEG paths.',
+    strict: true,
+    parameters: {
+      type: 'object',
+      properties: {
+        query: {
+          type: 'string',
+          description: 'Photo search query (place, feature, country, body).',
+        },
+        limit: {
+          type: 'integer',
+          description: 'Max photos to return (1–8). Defaults to 4.',
+        },
+      },
+      required: ['query', 'limit'],
+      additionalProperties: false,
+    },
+  },
+  {
+    type: 'function',
+    name: 'search_writing',
+    description:
+      'Search Writing essays on this site by title or description keywords. Use before linking a blog post.',
+    strict: true,
+    parameters: {
+      type: 'object',
+      properties: {
+        query: {
+          type: 'string',
+          description: 'Search query for Writing posts.',
+        },
+        limit: {
+          type: 'integer',
+          description: 'Max posts to return (1–8). Defaults to 4.',
+        },
+      },
+      required: ['query', 'limit'],
+      additionalProperties: false,
+    },
+  },
+  {
+    type: 'function',
+    name: 'lookup_writing',
+    description:
+      'Load one Writing essay by slug: title, description, path, and a short excerpt for orientation (not the full essay).',
+    strict: true,
+    parameters: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Exact Writing post slug.',
+        },
+      },
+      required: ['slug'],
+      additionalProperties: false,
+    },
+  },
 ]
 
 function searchPortalTopics(query: string, limit: number) {
@@ -262,6 +329,119 @@ function getTopicPhotosPayload(
   }
 }
 
+function searchGallery(query: string, limit: number) {
+  const capped = Math.min(8, Math.max(1, Number.isFinite(limit) ? limit : 4))
+  const q = query.trim().toLowerCase()
+  if (!q) {
+    return { query, count: 0, photos: [] as const }
+  }
+
+  const ranked = allGalleryItems()
+    .flatMap((item) => {
+      const hay =
+        `${item.searchText} ${item.title} ${item.subtitle} ${item.photo.caption}`.toLowerCase()
+      let rank = 5
+      if (item.title.toLowerCase() === q || item.subtitle.toLowerCase() === q) {
+        rank = 0
+      } else if (item.title.toLowerCase().startsWith(q)) {
+        rank = 1
+      } else if (hay.includes(q)) {
+        rank = 2
+      } else {
+        return []
+      }
+      return [{ item, rank }]
+    })
+    .sort(
+      (a, b) =>
+        a.rank - b.rank || a.item.title.localeCompare(b.item.title),
+    )
+    .slice(0, capped)
+
+  return {
+    query,
+    count: ranked.length,
+    photos: ranked.map(({ item }) => {
+      const src = staticRendition(item.photo, 1280).src
+      const title = item.title.replace(/[\[\]\r\n]+/g, ' ').trim()
+      return {
+        collection: item.collection,
+        title: item.title,
+        subtitle: item.subtitle,
+        href: item.href,
+        galleryHref: '/gallery',
+        alt: item.photo.alt,
+        caption: item.photo.caption,
+        src,
+        markdownImage: `![${title}](${src})`,
+      }
+    }),
+  }
+}
+
+function writingCatalog(): SiteSearchHit[] {
+  return getAllPosts().map((post) => ({
+    id: `writing:${post.slug}`,
+    kind: 'surface' as const,
+    title: post.title,
+    subtitle: 'Writing',
+    href: `/blog/${post.slug}`,
+    searchText: haystack(post.title, post.description ?? '', post.slug, 'writing', 'essay'),
+  }))
+}
+
+function searchWriting(query: string, limit: number) {
+  const capped = Math.min(8, Math.max(1, Number.isFinite(limit) ? limit : 4))
+  const hits = filterSiteSearchHits(writingCatalog(), query, capped)
+  return {
+    query,
+    count: hits.length,
+    results: hits.map((hit) => ({
+      slug: hit.href.replace(/^\/blog\//, ''),
+      title: hit.title,
+      href: hit.href,
+      markdownLink: `[${hit.title}](${hit.href})`,
+    })),
+  }
+}
+
+function stripMdxNoise(body: string) {
+  return body
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/import\s+.+from\s+['"][^'"]+['"]\s*;?/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function lookupWriting(slug: string) {
+  const normalized = slug.trim().toLowerCase()
+  if (!isPostSlug(normalized)) {
+    return { found: false, slug: normalized }
+  }
+
+  const post = getPost(normalized)
+  const excerpt = clipAbout(stripMdxNoise(post.body), 640)
+
+  return {
+    found: true,
+    slug: post.slug,
+    title: post.title,
+    description: post.description ?? '',
+    href: `/blog/${post.slug}`,
+    publishedAt: post.publishedAt.toISOString().slice(0, 10),
+    readingMinutes: post.readingMinutes,
+    excerpt,
+    markdownLink: `[${post.title}](/blog/${post.slug})`,
+  }
+}
+
+function readLimit(args: Record<string, unknown>, fallback: number) {
+  if (typeof args.limit === 'number') return args.limit
+  if (typeof args.limit === 'string') return Number(args.limit)
+  return fallback
+}
+
 function parseJsonObject(raw: string): Record<string, unknown> | null {
   try {
     const parsed: unknown = JSON.parse(raw)
@@ -288,12 +468,7 @@ export function executePortalTool(name: string, argumentsJson: string): string {
   try {
     if (name === 'search_portal_topics') {
       const query = typeof args.query === 'string' ? args.query : ''
-      const limit =
-        typeof args.limit === 'number'
-          ? args.limit
-          : typeof args.limit === 'string'
-            ? Number(args.limit)
-            : 6
+      const limit = readLimit(args, 6)
       if (!query.trim()) {
         return JSON.stringify({ error: 'query is required.', results: [] })
       }
@@ -312,27 +487,51 @@ export function executePortalTool(name: string, argumentsJson: string): string {
       return JSON.stringify(lookupGuide(collection, slug))
     }
 
-    const topicsRaw = args.topics
-    if (!Array.isArray(topicsRaw)) {
-      return JSON.stringify({ error: 'topics must be an array.', photos: [] })
-    }
-
-    const topics: { collection: 'explore' | 'space'; slug: string }[] = []
-    for (const item of topicsRaw) {
-      if (typeof item !== 'object' || item === null) continue
-      const record = item as Record<string, unknown>
-      const collection = record.collection
-      const slug = record.slug
-      if (
-        (collection === 'explore' || collection === 'space') &&
-        typeof slug === 'string' &&
-        slug.trim()
-      ) {
-        topics.push({ collection, slug })
+    if (name === 'get_topic_photos') {
+      const topicsRaw = args.topics
+      if (!Array.isArray(topicsRaw)) {
+        return JSON.stringify({ error: 'topics must be an array.', photos: [] })
       }
+
+      const topics: { collection: 'explore' | 'space'; slug: string }[] = []
+      for (const item of topicsRaw) {
+        if (typeof item !== 'object' || item === null) continue
+        const record = item as Record<string, unknown>
+        const collection = record.collection
+        const slug = record.slug
+        if (
+          (collection === 'explore' || collection === 'space') &&
+          typeof slug === 'string' &&
+          slug.trim()
+        ) {
+          topics.push({ collection, slug })
+        }
+      }
+
+      return JSON.stringify(getTopicPhotosPayload(topics))
     }
 
-    return JSON.stringify(getTopicPhotosPayload(topics))
+    if (name === 'search_gallery') {
+      const query = typeof args.query === 'string' ? args.query : ''
+      if (!query.trim()) {
+        return JSON.stringify({ error: 'query is required.', photos: [] })
+      }
+      return JSON.stringify(searchGallery(query, readLimit(args, 4)))
+    }
+
+    if (name === 'search_writing') {
+      const query = typeof args.query === 'string' ? args.query : ''
+      if (!query.trim()) {
+        return JSON.stringify({ error: 'query is required.', results: [] })
+      }
+      return JSON.stringify(searchWriting(query, readLimit(args, 4)))
+    }
+
+    const slug = typeof args.slug === 'string' ? args.slug : ''
+    if (!slug.trim()) {
+      return JSON.stringify({ error: 'slug is required.', found: false })
+    }
+    return JSON.stringify(lookupWriting(slug))
   } catch (error) {
     return JSON.stringify({
       error:
@@ -370,6 +569,30 @@ export function portalToolActivityLabel(
       return 'Fetched topic photographs'
     }
     return 'Fetching topic photographs'
+  }
+
+  if (name === 'search_gallery') {
+    const query = typeof args.query === 'string' ? args.query.trim() : ''
+    if (status === 'completed') {
+      return query ? `Searched Gallery for “${query}”` : 'Searched the Gallery'
+    }
+    return query ? `Searching Gallery for “${query}”` : 'Searching the Gallery'
+  }
+
+  if (name === 'search_writing') {
+    const query = typeof args.query === 'string' ? args.query.trim() : ''
+    if (status === 'completed') {
+      return query ? `Searched Writing for “${query}”` : 'Searched Writing'
+    }
+    return query ? `Searching Writing for “${query}”` : 'Searching Writing'
+  }
+
+  if (name === 'lookup_writing') {
+    const slug = typeof args.slug === 'string' ? args.slug.trim() : ''
+    if (status === 'completed') {
+      return slug ? `Opened Writing “${slug}”` : 'Opened a Writing essay'
+    }
+    return slug ? `Opening Writing “${slug}”` : 'Opening a Writing essay'
   }
 
   return status === 'completed' ? 'Used a portal tool' : 'Using a portal tool'

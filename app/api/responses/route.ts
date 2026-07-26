@@ -19,6 +19,14 @@ import {
   toImageDataUrl,
 } from "~/lib/cleo/images"
 import {
+  applyModeReasoningEffort,
+  buildModeInstructions,
+  modeAllowsCodeInterpreter,
+  modeTextVerbosity,
+  parseCleoMode,
+  type CleoMode,
+} from "~/lib/cleo/mode"
+import {
   executePortalTool,
   isPortalToolName,
   PORTAL_FUNCTION_TOOLS,
@@ -45,17 +53,30 @@ const MAX_MESSAGES = 50
 const MAX_TOTAL_INPUT_LENGTH = 100_000
 const MAX_TOOL_ROUNDS = 4
 
-const CLEO_TOOLS: Tool[] = [
-  { type: "web_search" },
-  {
-    type: "image_generation",
-    partial_images: 2,
-    quality: "auto",
-    size: "auto",
-    output_format: "png",
-  },
-  ...PORTAL_FUNCTION_TOOLS,
-]
+const CODE_INTERPRETER_TOOL: Tool = {
+  type: "code_interpreter",
+  container: { type: "auto" },
+}
+
+function buildCleoTools(mode: CleoMode): Tool[] {
+  const tools: Tool[] = [
+    { type: "web_search" },
+    {
+      type: "image_generation",
+      partial_images: 2,
+      quality: "auto",
+      size: "auto",
+      output_format: "png",
+    },
+    ...PORTAL_FUNCTION_TOOLS,
+  ]
+
+  if (modeAllowsCodeInterpreter(mode)) {
+    tools.push(CODE_INTERPRETER_TOOL)
+  }
+
+  return tools
+}
 
 /** Allow long tool-using turns on Vercel without cutting the NDJSON stream short. */
 export const maxDuration = 60
@@ -140,7 +161,9 @@ function parseMessageImages(value: unknown): MessageImage[] | Response {
   return images
 }
 
-function parseMessages(body: unknown): ConversationMessage[] | Response {
+function parseRequestBody(
+  body: unknown
+): { messages: ConversationMessage[]; mode: CleoMode } | Response {
   if (typeof body !== "object" || body === null) {
     return errorResponse("The request body must be a JSON object.", 400)
   }
@@ -148,6 +171,11 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
   if (!("messages" in body) || !Array.isArray(body.messages)) {
     return errorResponse("A messages array is required.", 400)
   }
+
+  const mode =
+    "mode" in body && body.mode !== undefined
+      ? parseCleoMode(body.mode)
+      : "auto"
 
   if (body.messages.length === 0) {
     return errorResponse("Enter a question before sending.", 400)
@@ -223,7 +251,7 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
     return errorResponse("The last message must come from the user.", 400)
   }
 
-  return messages
+  return { messages, mode }
 }
 
 function toUserContent(
@@ -377,11 +405,13 @@ export async function POST(request: Request) {
     return errorResponse("The request body must be valid JSON.", 400)
   }
 
-  const parsed = parseMessages(body)
+  const parsed = parseRequestBody(body)
 
   if (parsed instanceof Response) {
     return parsed
   }
+
+  const { messages: conversation, mode } = parsed
 
   const apiKey = process.env.OPENAI_API_KEY
 
@@ -391,17 +421,29 @@ export async function POST(request: Request) {
   }
 
   const client = new OpenAI({ apiKey })
-  let input: AgentInput = toApiInput(parsed)
-  const latestUserText = [...parsed]
+  let input: AgentInput = toApiInput(conversation)
+  const latestUserText = [...conversation]
     .reverse()
     .find((message) => message.role === "user")
     ?.content ?? ""
-  const reasoningEffort = selectReasoningEffort(latestUserText)
-  const topicPhotos = matchTopicPhotosInText(conversationTopicText(parsed))
+  const reasoningEffort = applyModeReasoningEffort(
+    mode,
+    selectReasoningEffort(latestUserText)
+  )
+  const topicPhotos = matchTopicPhotosInText(
+    conversationTopicText(conversation)
+  )
   const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
-  const instructions = topicPhotoInstructions
-    ? `${CLEO_INSTRUCTIONS}\n\n${topicPhotoInstructions}`
-    : CLEO_INSTRUCTIONS
+  const modeInstructions = buildModeInstructions(mode)
+  const instructions = [
+    CLEO_INSTRUCTIONS,
+    modeInstructions,
+    topicPhotoInstructions,
+  ]
+    .filter(Boolean)
+    .join("\n\n")
+  const tools = buildCleoTools(mode)
+  const verbosity = modeTextVerbosity(mode)
 
   const createStream = () =>
     client.responses.create(
@@ -415,8 +457,8 @@ export async function POST(request: Request) {
         max_output_tokens: 16_384,
         reasoning: { effort: reasoningEffort, summary: "auto" },
         stream: true,
-        text: { verbosity: "medium" },
-        tools: CLEO_TOOLS,
+        text: { verbosity },
+        tools,
         store: false,
       },
       { signal: request.signal }
@@ -513,6 +555,12 @@ export async function POST(request: Request) {
                     controller,
                     activityFromImageGeneration(event.item, "in_progress")
                   )
+                } else if (event.item.type === "code_interpreter_call") {
+                  emitActivity(controller, {
+                    id: event.item.id,
+                    kind: "code_interpreter",
+                    status: "in_progress",
+                  })
                 } else if (event.item.type === "function_call") {
                   const name = event.item.name
                   const args = event.item.arguments ?? ""
@@ -595,6 +643,33 @@ export async function POST(request: Request) {
                 continue
               }
 
+              if (event.type === "response.code_interpreter_call.in_progress") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "code_interpreter",
+                  status: "in_progress",
+                })
+                continue
+              }
+
+              if (event.type === "response.code_interpreter_call.interpreting") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "code_interpreter",
+                  status: "interpreting",
+                })
+                continue
+              }
+
+              if (event.type === "response.code_interpreter_call.completed") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "code_interpreter",
+                  status: "completed",
+                })
+                continue
+              }
+
               if (event.type === "response.image_generation_call.partial_image") {
                 emitActivity(controller, {
                   id: event.item_id,
@@ -647,6 +722,13 @@ export async function POST(request: Request) {
                       imageUrl: toImageDataUrl("image/png", event.item.result),
                     })
                   }
+                } else if (event.item.type === "code_interpreter_call") {
+                  emitActivity(controller, {
+                    id: event.item.id,
+                    kind: "code_interpreter",
+                    status:
+                      event.item.status === "failed" ? "failed" : "completed",
+                  })
                 } else if (event.item.type === "function_call") {
                   const name = event.item.name
                   const args = event.item.arguments ?? ""

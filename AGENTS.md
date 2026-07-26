@@ -70,16 +70,18 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   (`G` then `C`).
 - API: `app/api/responses/route.ts` validates messages (including image data
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
-  `image_generation`, portal function tools (`search_portal_topics`,
-  `lookup_guide`, `get_topic_photos`), adaptive reasoning effort, streaming,
-  a small tool-call loop, and `store: false`.
+  `image_generation`, `code_interpreter` (auto/research modes), portal function
+  tools (`search_portal_topics`, `lookup_guide`, `get_topic_photos`,
+  `search_gallery`, `search_writing`, `lookup_writing`), mode-aware reasoning /
+  verbosity, streaming, a small tool-call loop, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + research policy + portal
-  surface guidance from `lib/cleo/portal-catalog.ts`). Guide paths/photos come
-  from portal tools (and optional per-turn topic-photo grounding), not a
-  stuffed full-catalog prompt.
+  surface guidance from `lib/cleo/portal-catalog.ts`). Guide/Writing/Gallery
+  paths come from portal tools (and optional per-turn topic-photo grounding),
+  not a stuffed full-catalog prompt. UI modes: Quick / Auto / Research
+  (`lib/cleo/mode.ts`).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`);
-  activities include `web_search`, `reasoning`, `image_generation`, and
-  `portal_tool`.
+  activities include `web_search`, `reasoning`, `image_generation`,
+  `portal_tool`, and `code_interpreter`.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
   grounds matching subjects on each turn; tools can also supply paths);

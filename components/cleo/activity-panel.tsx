@@ -42,7 +42,8 @@ function isActiveStatus(status: ActivityItem["status"]) {
   return (
     status === "in_progress" ||
     status === "searching" ||
-    status === "generating"
+    status === "generating" ||
+    status === "interpreting"
   )
 }
 
@@ -116,6 +117,19 @@ function activityLabel(activity: ActivityItem) {
     return "Using a portal tool"
   }
 
+  if (activity.kind === "code_interpreter") {
+    if (activity.status === "completed") {
+      return "Ran python"
+    }
+    if (activity.status === "failed") {
+      return "Python tool failed"
+    }
+    if (activity.status === "interpreting") {
+      return "Running python"
+    }
+    return "Preparing python"
+  }
+
   const action = activity.action
 
   if (!action || action.type === "portal_tool") {
@@ -182,7 +196,11 @@ function hasSpecificCollapsedDetail(activity: ActivityItem) {
     return Boolean(activity.summary?.trim())
   }
 
-  if (activity.kind === "image_generation" || activity.kind === "portal_tool") {
+  if (
+    activity.kind === "image_generation" ||
+    activity.kind === "portal_tool" ||
+    activity.kind === "code_interpreter"
+  ) {
     return true
   }
 
@@ -284,6 +302,10 @@ function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
     (activity) =>
       activity.kind === "portal_tool" && isActiveStatus(activity.status)
   )
+  const hasActiveCodeInterpreter = activities.some(
+    (activity) =>
+      activity.kind === "code_interpreter" && isActiveStatus(activity.status)
+  )
   const hasActiveReasoning = activities.some(
     (activity) =>
       activity.kind === "reasoning" && isActiveStatus(activity.status)
@@ -296,7 +318,12 @@ function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
     return "searching"
   }
 
-  if (isLive && (hasActiveImageGeneration || hasActivePortalTool)) {
+  if (
+    isLive &&
+    (hasActiveImageGeneration ||
+      hasActivePortalTool ||
+      hasActiveCodeInterpreter)
+  ) {
     return "composing"
   }
 

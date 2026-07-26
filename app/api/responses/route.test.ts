@@ -395,7 +395,54 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       "search_portal_topics",
       "lookup_guide",
       "get_topic_photos",
+      "search_gallery",
+      "search_writing",
+      "lookup_writing",
+      "code_interpreter",
     ])
+  })
+
+  it("omits code interpreter and lowers verbosity in quick mode", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
+    )
+
+    await POST(
+      ask({
+        mode: "quick",
+        messages: [{ content: "Tell me about Japan", role: "user" }],
+      })
+    )
+
+    const call = openai.create.mock.calls[0]?.[0]
+    expect(call.text.verbosity).toBe("low")
+    expect(call.reasoning.effort).toBe("low")
+    expect(
+      call.tools.map((tool: { type: string }) => tool.type)
+    ).not.toContain("code_interpreter")
+    expect(call.instructions).toContain("Mode: quick")
+  })
+
+  it("forces high reasoning in research mode", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
+    )
+
+    await POST(
+      ask({
+        mode: "research",
+        messages: [{ content: "hi", role: "user" }],
+      })
+    )
+
+    expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("high")
+    expect(openai.create.mock.calls[0]?.[0].text.verbosity).toBe("high")
   })
 
   it("raises reasoning effort for comparison prompts", async () => {
