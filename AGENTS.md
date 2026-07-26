@@ -41,13 +41,13 @@ The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
 - Data: `lib/maps/*`, country centroids in `content/maps-coordinates.json`,
   textures under `public/images/maps/` (NASA Blue Marble + planet plates).
 - Deep-links: `?c={explore-slug}` selects a country; `?r={Region}` filters
-  markers and reframes the camera (e.g. `Asia`). Search matches name, ISO
-  code, capital, and notable places. Land/sea clicks sample coordinates and
-  offer **Nearest** country. Sun scrubber controls UTC hour **and** season
-  (day-of-year) for the terminator. **Reset view** clears selection, region,
-  sample HUD, graticule, and sun scrub. Explore / Gallery / Space Earth link
-  into Maps; the selection chip links out to `/explore/[slug]` and
-  `/gallery?q={name}`.
+  markers and reframes the camera (e.g. `Asia`); `?h=` / `?d=` scrub sun hour
+  and day-of-year (omitted when live). Search matches name, ISO code, capital,
+  and notable places. Land/sea clicks open a sample HUD with **Nearest**
+  country. **Reset view** clears selection, region, sample, graticule, and sun
+  scrub. Explore / Gallery / Space Earth link into Maps; the selection chip
+  links places/capital/photo out to `/gallery?q=…` and the guide to
+  `/explore/[slug]`.
 - Cleo may cite `/maps?c={slug}` for location questions (`lib/cleo/portal-links.ts`).
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
@@ -89,7 +89,7 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, reasoning summaries, streaming, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
-  `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
+  `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space/Maps guides).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`

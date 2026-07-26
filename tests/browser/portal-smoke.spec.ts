@@ -84,10 +84,28 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(
       page.getByRole('link', { name: 'Gallery', exact: true }),
     ).toHaveAttribute('href', '/gallery?q=Japan')
+    await expect(page.getByRole('link', { name: 'Tokyo' })).toHaveAttribute(
+      'href',
+      '/gallery?q=Tokyo',
+    )
+    await expect(
+      page.locator('.maps-selection-places a', { hasText: 'Mount Fuji' }),
+    ).toHaveAttribute('href', '/gallery?q=Mount%20Fuji')
     await expect(page.getByRole('button', { name: 'Copy link' })).toBeVisible()
     await expect(page.getByText(/More in /i)).toBeVisible()
 
     expect(browserErrors).toEqual([])
+  })
+
+  test('Maps sun scrub deep-link restores hour and season', async ({ page }) => {
+    await prepareBrowserPage(page)
+    await page.goto('/maps?h=6&d=79')
+    await expect(page.getByText(/Season · Mar 20/i)).toBeVisible({
+      timeout: 20_000,
+    })
+    await expect(page.getByLabel(/Sun/i)).toHaveValue('6')
+    await expect(page).toHaveURL(/[?&]h=6\b/)
+    await expect(page).toHaveURL(/[?&]d=79\b/)
   })
 
   test('Maps URL reconcile and Reset view clear selection', async ({ page }) => {
@@ -116,11 +134,14 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       input.dispatchEvent(new Event('change', { bubbles: true }))
     })
     await expect(page.getByText(/Season · Mar 20/i)).toBeVisible()
+    await expect(page).toHaveURL(/[?&]d=79\b/)
+    await expect(page).toHaveURL(/[?&]h=\d+\b/)
 
     await page.getByRole('button', { name: 'Reset view' }).click()
     await expect(page.getByRole('region', { name: 'Japan' })).toHaveCount(0)
     await expect(page).not.toHaveURL(/[?&]c=japan\b/)
     await expect(page).not.toHaveURL(/[?&]r=/)
+    await expect(page).not.toHaveURL(/[?&][hd]=/)
     await expect(page.getByRole('button', { name: 'All', exact: true })).toHaveAttribute(
       'aria-pressed',
       'true',

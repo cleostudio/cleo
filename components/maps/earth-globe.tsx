@@ -152,7 +152,6 @@ export function EarthGlobe({
   sunAt,
   regionFilter = null,
   resetSignal = 0,
-  clearSampleSignal = 0,
 }: {
   focusSlug?: string | null
   onSelect?: (marker: MapsMarker | null) => void
@@ -164,8 +163,6 @@ export function EarthGlobe({
   regionFilter?: string | null
   /** Increment to restore the default Atlantic framing. */
   resetSignal?: number
-  /** Increment to clear the coordinate sample HUD. */
-  clearSampleSignal?: number
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const apiRef = useRef<GlobeApi | null>(null)
@@ -179,7 +176,6 @@ export function EarthGlobe({
   const [ready, setReady] = useState(false)
   const [failed, setFailed] = useState(false)
   const [hover, setHover] = useState<HoverState | null>(null)
-  const [pickedLabel, setPickedLabel] = useState<string | null>(null)
 
   onSelectRef.current = onSelect
   onPickCoordsRef.current = onPickCoords
@@ -456,7 +452,6 @@ export function EarthGlobe({
       if (markerHits[0]?.index != null) {
         const marker = activeMarkers[markerHits[0].index]
         if (!marker) return
-        setPickedLabel(null)
         onPickCoordsRef.current?.(null)
         onSelectRef.current?.(marker)
         return
@@ -469,7 +464,6 @@ export function EarthGlobe({
       // Convert world hit into the globe's local geographic frame.
       const local = root.worldToLocal(point.clone())
       const coords = vector3ToLatLon(local.x, local.y, local.z)
-      setPickedLabel(formatLatLon(coords.lat, coords.lon))
       onPickCoordsRef.current?.(coords)
       onSelectRef.current?.(null)
     }
@@ -690,7 +684,6 @@ export function EarthGlobe({
       apiRef.current?.setHighlight(null)
       return
     }
-    setPickedLabel(null)
     const marker = markersBySlug.get(focusSlug)
     if (!marker) return
     apiRef.current?.flyTo(marker)
@@ -714,11 +707,6 @@ export function EarthGlobe({
     if (!ready || resetSignal < 1) return
     apiRef.current?.resetView()
   }, [resetSignal, ready])
-
-  useEffect(() => {
-    if (clearSampleSignal < 1) return
-    setPickedLabel(null)
-  }, [clearSampleSignal])
 
   return (
     <div className="maps-stage">
@@ -754,12 +742,6 @@ export function EarthGlobe({
             {formatLatLon(hover.marker.lat, hover.marker.lon)} · {hover.marker.region}
           </span>
         </div>
-      ) : null}
-
-      {pickedLabel ? (
-        <p className="maps-coords-hud" aria-live="polite">
-          {pickedLabel}
-        </p>
       ) : null}
 
       <p className="maps-credit">{MAPS_TEXTURE_CREDIT}</p>

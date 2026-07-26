@@ -39,7 +39,11 @@ import {
   mapsSunAt,
   utcDayOfYear,
 } from '~/lib/maps/sun-clock'
-import { resolveMapsUrlState } from '~/lib/maps/url-state'
+import {
+  applyMapsUrlCanonical,
+  resolveMapsUrlState,
+  type MapsUrlCanonical,
+} from '~/lib/maps/url-state'
 
 function MapsExplorerInner({
   dossiers,
@@ -58,6 +62,8 @@ function MapsExplorerInner({
 
   const querySlug = searchParams.get('c')
   const queryRegion = searchParams.get('r')
+  const queryHour = searchParams.get('h')
+  const queryDay = searchParams.get('d')
   const [focusSlug, setFocusSlug] = useState<string | null>(null)
   const [selected, setSelected] = useState<MapsMarker | null>(null)
   const [regionFilter, setRegionFilter] = useState<string | null>(null)
@@ -74,7 +80,6 @@ function MapsExplorerInner({
     'idle',
   )
   const [resetSignal, setResetSignal] = useState(0)
-  const [clearSampleSignal, setClearSampleSignal] = useState(0)
   const [selectionAnnouncement, setSelectionAnnouncement] = useState('')
   const regionChipRefs = useRef<Array<HTMLButtonElement | null>>([])
   const guideLinkRef = useRef<HTMLAnchorElement>(null)
@@ -82,15 +87,29 @@ function MapsExplorerInner({
 
   const clearSample = () => {
     setPickedSample(null)
-    setClearSampleSignal((value) => value + 1)
+  }
+
+  const sunCanonical = (mode: 'live' | 'scrub', hour: number, day: number) =>
+    mode === 'scrub'
+      ? { h: String(hour), d: String(day) }
+      : { h: null, d: null }
+
+  const writeUrl = (canonical: MapsUrlCanonical) => {
+    const params = new URLSearchParams(searchParams.toString())
+    applyMapsUrlCanonical(params, canonical)
+    const query = params.toString()
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
   }
 
   useEffect(() => {
     const resolved = resolveMapsUrlState({
       c: querySlug,
       r: queryRegion,
+      h: queryHour,
+      d: queryDay,
       markersBySlug,
       regions,
+      now: liveNow,
     })
 
     setRegionFilter(resolved.region)
@@ -102,15 +121,13 @@ function MapsExplorerInner({
       setSelected(null)
     }
 
+    setSunMode(resolved.sunMode)
+    setSunHour(resolved.sunHour)
+    setSunDay(resolved.sunDay)
+
     if (!resolved.dirty) return
-    const params = new URLSearchParams(searchParams.toString())
-    if (resolved.canonical.c) params.set('c', resolved.canonical.c)
-    else params.delete('c')
-    if (resolved.canonical.r) params.set('r', resolved.canonical.r)
-    else params.delete('r')
-    const query = params.toString()
-    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
-  }, [querySlug, queryRegion, markersBySlug, regions, pathname, router, searchParams])
+    writeUrl(resolved.canonical)
+  }, [querySlug, queryRegion, queryHour, queryDay, markersBySlug, regions, pathname, router, searchParams])
 
   useEffect(() => {
     if (sunMode !== 'live') return
@@ -138,14 +155,20 @@ function MapsExplorerInner({
     return () => window.cancelAnimationFrame(id)
   }, [selected?.slug, selected?.name])
 
-  const syncUrl = (slug: string | null, region: string | null = regionFilter) => {
-    const params = new URLSearchParams(searchParams.toString())
-    if (slug) params.set('c', slug)
-    else params.delete('c')
-    if (region) params.set('r', region)
-    else params.delete('r')
-    const query = params.toString()
-    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
+  const syncUrl = (
+    slug: string | null,
+    region: string | null = regionFilter,
+    sun: { mode: 'live' | 'scrub'; hour: number; day: number } = {
+      mode: sunMode,
+      hour: sunHour,
+      day: sunDay,
+    },
+  ) => {
+    writeUrl({
+      c: slug,
+      r: region,
+      ...sunCanonical(sun.mode, sun.hour, sun.day),
+    })
   }
 
   const selectMarker = (marker: MapsMarker, fromSearch = false) => {
@@ -177,6 +200,10 @@ function MapsExplorerInner({
       ) {
         return
       }
+      if (pickedSample && !selected) {
+        clearSample()
+        return
+      }
       setFocusSlug(null)
       setSelected(null)
       clearSample()
@@ -189,7 +216,7 @@ function MapsExplorerInner({
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [pathname, router, searchParams])
+  }, [pathname, router, searchParams, pickedSample, selected])
 
   const applyRegion = (region: string | null) => {
     setRegionFilter(region)
@@ -203,6 +230,39 @@ function MapsExplorerInner({
     syncUrl(selected?.slug ?? null, region)
   }
 
+  const setLiveSun = () => {
+    const now = new Date()
+    setSunMode('live')
+    setLiveNow(now)
+    setSunHour(now.getUTCHours())
+    setSunDay(utcDayOfYear(now))
+    syncUrl(selected?.slug ?? null, regionFilter, {
+      mode: 'live',
+      hour: now.getUTCHours(),
+      day: utcDayOfYear(now),
+    })
+  }
+
+  const scrubSunHour = (hour: number) => {
+    setSunMode('scrub')
+    setSunHour(hour)
+    syncUrl(selected?.slug ?? null, regionFilter, {
+      mode: 'scrub',
+      hour,
+      day: sunDay,
+    })
+  }
+
+  const scrubSunDay = (day: number) => {
+    setSunMode('scrub')
+    setSunDay(day)
+    syncUrl(selected?.slug ?? null, regionFilter, {
+      mode: 'scrub',
+      hour: sunHour,
+      day,
+    })
+  }
+
   const resetView = () => {
     setResetSignal((value) => value + 1)
     setFocusSlug(null)
@@ -211,18 +271,26 @@ function MapsExplorerInner({
     setCopyStatus('idle')
     setRegionFilter(null)
     setShowGraticule(false)
-    setSunMode('live')
     const now = new Date()
+    setSunMode('live')
     setLiveNow(now)
     setSunHour(now.getUTCHours())
     setSunDay(utcDayOfYear(now))
-    syncUrl(null, null)
+    syncUrl(null, null, {
+      mode: 'live',
+      hour: now.getUTCHours(),
+      day: utcDayOfYear(now),
+    })
   }
 
   const copyMapsLink = async () => {
     if (!selected || typeof window === 'undefined') return
     const url = new URL(`/maps?c=${selected.slug}`, window.location.origin)
     if (regionFilter) url.searchParams.set('r', regionFilter)
+    if (sunMode === 'scrub') {
+      url.searchParams.set('h', String(sunHour))
+      url.searchParams.set('d', String(sunDay))
+    }
     const ok = await copyTextToClipboard(url.toString())
     setCopyStatus(ok ? 'copied' : 'failed')
     window.setTimeout(() => setCopyStatus('idle'), ok ? 1600 : 2200)
@@ -331,13 +399,7 @@ function MapsExplorerInner({
             type="button"
             className="maps-toolbar-button"
             aria-pressed={sunMode === 'live'}
-            onClick={() => {
-              const now = new Date()
-              setSunMode('live')
-              setLiveNow(now)
-              setSunHour(now.getUTCHours())
-              setSunDay(utcDayOfYear(now))
-            }}
+            onClick={setLiveSun}
           >
             Live sun
           </button>
@@ -348,18 +410,6 @@ function MapsExplorerInner({
           >
             Reset view
           </button>
-          {nearestSample ? (
-            <button
-              type="button"
-              className="maps-toolbar-button maps-toolbar-nearest"
-              onClick={() => selectMarker(nearestSample.marker)}
-            >
-              Nearest · {nearestSample.marker.name}
-              <span className="maps-toolbar-nearest-meta">
-                {formatDistanceKm(nearestSample.distanceKm)}
-              </span>
-            </button>
-          ) : null}
         </div>
         <div
           className="maps-sun-scrub enter"
@@ -385,8 +435,7 @@ function MapsExplorerInner({
                 : formatUtcHourLabel(sunHour)
             }
             onChange={(event) => {
-              setSunMode('scrub')
-              setSunHour(Number(event.target.value))
+              scrubSunHour(Number(event.target.value))
             }}
           />
           <label className="maps-sun-scrub-label" htmlFor="maps-sun-day">
@@ -405,8 +454,7 @@ function MapsExplorerInner({
               liveNow.getUTCFullYear(),
             )}
             onChange={(event) => {
-              setSunMode('scrub')
-              setSunDay(Number(event.target.value))
+              scrubSunDay(Number(event.target.value))
             }}
           />
         </div>
@@ -418,7 +466,6 @@ function MapsExplorerInner({
         sunAt={sunAt}
         regionFilter={regionFilter}
         resetSignal={resetSignal}
-        clearSampleSignal={clearSampleSignal}
         onPickCoords={(coords) => {
           if (!coords) {
             clearSample()
@@ -431,7 +478,7 @@ function MapsExplorerInner({
         }}
         onSelect={(marker) => {
           if (!marker) {
-            // Land/sea sample clears the country chip but keeps the coordinate HUD.
+            // Land/sea sample clears the country chip but keeps the sample HUD.
             setFocusSlug(null)
             setSelected(null)
             setCopyStatus('idle')
@@ -441,6 +488,29 @@ function MapsExplorerInner({
           selectMarker(marker)
         }}
       />
+
+      {pickedSample && nearestSample ? (
+        <div className="maps-sample-hud" role="region" aria-label="Coordinate sample">
+          <p className="maps-sample-coords">{pickedSample.label}</p>
+          <button
+            type="button"
+            className="maps-sample-nearest"
+            onClick={() => selectMarker(nearestSample.marker, true)}
+          >
+            Nearest · {nearestSample.marker.name}
+            <span className="maps-sample-distance">
+              {formatDistanceKm(nearestSample.distanceKm)}
+            </span>
+          </button>
+          <button
+            type="button"
+            className="maps-sample-clear"
+            onClick={clearSample}
+          >
+            Clear
+          </button>
+        </div>
+      ) : null}
 
       {selected ? (
         <div
@@ -458,7 +528,12 @@ function MapsExplorerInner({
                 className="maps-selection-image"
                 sizes="22rem"
               />
-              <p className="maps-selection-place">{dossier.place}</p>
+              <Link
+                href={`/gallery?q=${encodeURIComponent(dossier.place)}`}
+                className="maps-selection-place"
+              >
+                {dossier.place}
+              </Link>
             </div>
           ) : null}
           <div className="maps-selection-copy">
@@ -474,11 +549,24 @@ function MapsExplorerInner({
                 <p className="maps-selection-coords">{dossier.coordsLabel}</p>
                 <p className="maps-selection-about">{dossier.about}</p>
                 <p className="maps-selection-facts">
-                  Capital · {dossier.capital}
+                  Capital ·{' '}
+                  <Link
+                    href={`/gallery?q=${encodeURIComponent(dossier.capital)}`}
+                    className="maps-selection-inline-link"
+                  >
+                    {dossier.capital}
+                  </Link>
                 </p>
                 <ul className="maps-selection-places">
                   {dossier.places.map((place) => (
-                    <li key={place}>{place}</li>
+                    <li key={place}>
+                      <Link
+                        href={`/gallery?q=${encodeURIComponent(place)}`}
+                        className="maps-selection-inline-link"
+                      >
+                        {place}
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               </>
@@ -565,11 +653,7 @@ export function MapsExplorer({
     <Suspense
       fallback={
         <div className="maps-page">
-          <div className="maps-stage">
-            <p className="maps-status" role="status">
-              Loading Earth…
-            </p>
-          </div>
+          <div className="maps-stage" aria-hidden />
         </div>
       }
     >

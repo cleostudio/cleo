@@ -12,7 +12,6 @@ type EarthGlobeProps = {
   sunAt?: Date
   regionFilter?: string | null
   resetSignal?: number
-  clearSampleSignal?: number
 }
 
 /** WebGL globe — client-only so SSR never touches the renderer. */
