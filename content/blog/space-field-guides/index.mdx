@@ -9,7 +9,13 @@ coverWidth: 1200
 coverHeight: 675
 ---
 Space on Cleo is not a news ticker. It is a shelf of evergreen primers for
-bodies you can keep returning to — from Mercury to nearby deep space.
+bodies you can keep returning to — from Mercury to nearby deep space. The
+voice matches Explore on purpose: calm orientation, stable features, curated
+photographs, and no obligation to refresh the prose every time a mission
+makes headlines.
+
+We want a Space page to feel like a field notebook you could pack beside a
+country guide. Same English-only portal, same editorial bar, different shelf.
 
 ![](./image-1.jpg#1280x1280 "A curated NASA photograph from the Mars guide")
 
@@ -25,12 +31,30 @@ Every subject renders at `/space/[slug]` with orientation, notable features,
 and a short fact plate. The goal is the same as Explore: leave you oriented,
 not overwhelmed.
 
+The shelves are a reading aid, not a bureaucracy. Planets sit where you expect
+them. Moons gather the satellites worth a primer of their own. Deep space
+holds the nearby galaxies and nebulae that still feel within reach of a short
+guide. The ISS belongs with moons in the catalog sense — a human outpost you
+can treat as a subject — even though it is not a natural satellite.
+
+Topics lists Space beside Countries as one of the two doors that open the
+portal today. From [Topics](/topics) or the homepage you can step into the
+full shelf at [Space](/space), then drill into a single body when you are
+ready to read.
+
 ## Photos
 
 Space photographs come from curated NASA sources and ship as static files under
 `/images/space/`. Like the country atlas, they are imported ahead of time and
 served with browser `srcset` — no account, no CDN rewrite, no surprise
 re-encoding when you open a page.
+
+Curation happens before publish. We pick frames that actually show the
+subject, import optimized JPEG renditions, and validate the tree so a missing
+file cannot silently ship. Originals stay off the public path. [Gallery](/gallery)
+pulls these same frames onto one wall with Explore place photos, so a Mars
+print and a Kenya landscape can share a browsing mood without sharing a guide
+template.
 
 Start with [Mars](/space/mars), [Europa](/space/europa), or the
 [ISS](/space/iss). The full shelf lives at [Space](/space).
@@ -39,3 +63,14 @@ Start with [Mars](/space/mars), [Europa](/space/europa), or the
 
 Curious how two bodies compare? Ask [Cleo](/cleo). Matching turns can deep-link
 the guides and, when the subject matches, show a curated photo inline.
+
+The agent is the right place for “how does Europa’s ice differ from what we
+see on Mars?” or “what am I looking at in this ISS frame?” Field guides stay
+durable; conversation can chase the tangent. When a subject has a page here,
+Cleo should name the real path instead of inventing one — the same contract
+Explore enjoys for countries.
+
+If you are new to the shelf, pick one Solar System body, one moon, and one
+deep-space subject. Read them slowly. Then open Gallery and filter to Space,
+or ask the agent to walk a comparison. The sky on Cleo is meant to stay
+small enough to finish — and rich enough to revisit.

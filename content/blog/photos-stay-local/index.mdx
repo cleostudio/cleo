@@ -11,6 +11,11 @@ coverHeight: 675
 Photographs are half of a field guide. They also tend to become the most fragile
 dependency on a modern site. Cleo keeps them boring on purpose.
 
+We want a country page and a Space page to keep working in a preview, in a
+local build, and on a quiet Sunday when no third-party image account feels
+like answering. That means the bytes live in the repo’s public tree, the
+browser chooses a width, and runtime stays out of the image business.
+
 ## Pipeline
 
 Country photos are curated from Wikimedia Commons with relevance first, then
@@ -26,14 +31,45 @@ Originals stay off the public tree. The browser picks a width from `srcset`.
 There is no account-gated image host and no `/_next/image` rewrite at request
 time.
 
+Relevance beats decoration. A landmark should belong to the country on the
+page; a Space frame should show the body you opened. Curation and hand-picks
+happen before import. Import writes mozjpeg renditions at a few widths so a
+phone and a wide monitor can each fetch something sensible. Validation scripts
+catch missing files before deploy. The Gallery and the guides speak the same
+paths, so a frame is never “in the CMS” in one place and “on a CDN” in
+another.
+
+Writing essays may include their own local images beside the post. That is a
+separate folder under the MDX entry. The atlas and Space trees remain the
+system of record for field-guide photography — the pictures [Explore](/explore)
+and [Space](/space) zoom, and the pictures [Gallery](/gallery) unifies.
+
 ## Payoff
 
 Pages keep working in previews without extra services. Guides stay reviewable
 in git. The Gallery can unify both catalogs because both already speak the same
 file language.
 
+Boring infrastructure is a product choice. Without a runtime image pipeline,
+we also skip a class of surprises: broken tokens, surprise re-encodes, and
+layouts that shift when a remote host is slow. Diffs show when a photograph
+changes. Contact sheets can be generated offline for review. The agent at
+[Cleo](/cleo) can embed a matching curated path as Markdown because those
+paths are already allowlisted site URLs — not scraped hotlinks.
+
+OpenAI is the only third-party API this portal depends on, and it belongs to
+conversation, not to every `<img>`. Site URLs and the model key stay in
+environment config. Photographs do not need either one to render.
+
 ## Reading
 
 Zoom a contact print on an Explore page, wander the [Gallery](/gallery), or ask
 [Cleo](/cleo) about a subject that has a curated frame — the bytes are already
 on the site.
+
+Try it as a loop. Open [Japan](/explore/japan) or [Mars](/space/mars), zoom
+until the print feels close, then switch to Gallery and filter by origin. When
+a question forms — what am I seeing, what else is nearby, how does this compare
+to [Europa](/space/europa) — take it to the agent. The photograph does not have
+to travel through another vendor to finish that sentence. It was local the
+whole time.

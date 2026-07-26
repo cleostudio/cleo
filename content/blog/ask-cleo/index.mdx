@@ -10,7 +10,13 @@ coverHeight: 675
 ---
 [Cleo](/cleo) is the AI agent that lives on this portal. It is not a separate
 product bolted on the side — it knows the same catalogs the rest of the site
-publishes.
+publishes. When you ask about a country or a moon, the reply can point you
+back into the real field guides instead of inventing a parallel universe of
+links.
+
+We treat the agent as a companion to curated pages, not a replacement for
+them. Explore and Space stay stable. Conversation is where freshness,
+comparison, and follow-up belong.
 
 ## What it does
 
@@ -23,8 +29,22 @@ In one conversation you can:
 - Receive Markdown links straight into Explore and Space guides
 - See curated atlas or space photographs when a topic matches
 
+The model stack is intentionally narrow: OpenAI only, with web search, image
+generation, reasoning summaries, and streaming. There is no second provider
+hiding behind a router, and no server-side store of your chat. Messages stream
+as a simple NDJSON protocol — text, activity, image, error — so the UI can
+show thinking without turning the page into a dashboard.
+
 Conversation state stays in the browser. Reload clears it. There is no login,
-no saved history, and no analytics trail.
+no saved history, and no analytics trail. Attachments are ordinary image data
+URLs in the request; the API validates size and count so a single turn cannot
+swallow the wire. If the key is missing in a preview environment, the page
+still loads and the API answers honestly with a service error — the rest of
+the portal keeps working.
+
+Starter prompts on the empty state point into the portal. After the first
+reply, you just keep asking. Cancellation is first-class: stop a stream when
+you have seen enough.
 
 ## How it fits
 
@@ -34,9 +54,28 @@ guide deliberately does not cover.
 
 When a subject has a page here, Cleo should name it and link the real path —
 `[Japan](/explore/japan)`, `[Europa](/space/europa)` — instead of inventing a
-URL.
+URL. Matching turns can also ground curated topic photos so a reply embeds an
+Explore or Space JPEG as Markdown. Streamdown only allows those site paths;
+the agent cannot launder arbitrary remote images into the transcript.
+
+That design keeps trust in the right places. Bookmark an Explore guide and it
+will still say the same thing next month. Ask Cleo about today’s news and it
+can search. Ask about a photograph you attached and it can look. Ask for a
+sketch of a concept and it can generate one. None of that requires the field
+guides to regenerate underneath you.
+
+Topics currently open with Countries and Space. As the catalog grows, the
+agent’s portal catalog grows with it — always deep-linking routes that
+actually exist on the site.
 
 ## Open it
 
 From the bottom dock, open Cleo (`G` then `C`), or go directly to [/cleo](/cleo).
 Starter prompts on the empty state point into the portal; after that, just ask.
+
+Try a concrete loop: open [Mars](/space/mars) or [Japan](/explore/japan), read
+until a question forms, then bring that question to the agent. Ask it to
+compare [Europa](/space/europa) with another moon, or to notice what a Kenya
+landscape photograph is showing. When the durable answer already lives in a
+guide, you should get a link home. When it does not, you get a conversation —
+and a clean slate the next time you reload.
