@@ -1,7 +1,13 @@
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+/** @vitest-environment jsdom */
+
+import { cleanup, render, screen } from '@testing-library/react'
+import { afterEach, describe, expect, it } from 'vitest'
 
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
+
+afterEach(() => {
+  cleanup()
+})
 
 describe('PhotoZoomDetails', () => {
   it('shows place capture cells for Explore photographs', () => {
