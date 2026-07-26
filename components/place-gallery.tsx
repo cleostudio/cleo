@@ -8,16 +8,10 @@ import { staticRendition } from '~/lib/static-photo'
 
 const LOADING_ASPECT_RATIOS = ['4 / 3', '3 / 4', '1 / 1', '3 / 4', '4 / 3', '1 / 1']
 
-export function PlaceGallery({
-  entries,
-  filterKeys,
-}: {
-  entries: GalleryItem[]
-  filterKeys: string[]
-}) {
+export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
   return (
     <div className="place-gallery" data-place-gallery>
-      <PlaceGalleryToolbar filterKeys={filterKeys} totalCount={entries.length} />
+      <PlaceGalleryToolbar />
 
       <ul className="photo-masonry">
         {entries.map((entry) => (
@@ -25,7 +19,6 @@ export function PlaceGallery({
             key={entry.id}
             className="photo-item"
             data-gallery-item
-            data-filter-key={entry.filterKey}
             data-search-text={entry.searchText}
           >
             <div className="photo-frame relative overflow-hidden">
@@ -69,7 +62,7 @@ export function PlaceGallery({
       </ul>
 
       <p className="text-sm text-muted-foreground" data-gallery-empty hidden>
-        No photographs match that filter.
+        No photographs match that search.
       </p>
     </div>
   )
