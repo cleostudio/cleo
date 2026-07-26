@@ -603,6 +603,39 @@ html[data-maps-route] .paper-grain {
   }
 }
 
+/* Narrow phones: keep the globe the hero — collapse prose chrome. */
+@media (max-width: 639px) {
+  .maps-header {
+    top: 0.85rem;
+    left: 0.85rem;
+    right: 0.85rem;
+    max-width: none;
+  }
+
+  .maps-lead,
+  .maps-hint {
+    display: none;
+  }
+
+  .maps-header .maps-search {
+    margin-top: 0.55rem;
+  }
+
+  .maps-region-filters,
+  .maps-toolbar {
+    margin-top: 0.45rem;
+  }
+
+  .maps-sun-scrub {
+    margin-top: 0.4rem;
+    max-width: none;
+  }
+
+  .maps-toolbar-button {
+    padding: 0.3rem 0.65rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .maps-selection {
     animation: none;

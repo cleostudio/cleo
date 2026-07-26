@@ -208,13 +208,12 @@ export function EarthGlobe({
     const scene = new Scene()
     scene.background = new Color('#03060d')
 
-    camera = new PerspectiveCamera(
-      42,
-      host.clientWidth / Math.max(host.clientHeight, 1),
-      0.1,
-      200,
-    )
-    camera.position.set(0.35, 0.55, 2.65)
+    const aspect = host.clientWidth / Math.max(host.clientHeight, 1)
+    // Tall/narrow viewports: lift the camera so Earth sits in the clear lower
+    // half beneath the absolute Maps HUD.
+    const narrow = aspect < 0.75
+    camera = new PerspectiveCamera(narrow ? 48 : 42, aspect, 0.1, 200)
+    camera.position.set(0.35, narrow ? 0.95 : 0.55, narrow ? 2.9 : 2.65)
 
     try {
       renderer = new WebGLRenderer({
@@ -379,9 +378,13 @@ export function EarthGlobe({
     }
 
     const resetView = () => {
-      if (!camera || !controls || !root) return
+      if (!camera || !controls || !root || !host) return
       flight = null
-      camera.position.set(0.35, 0.55, 2.65)
+      const nextAspect = host.clientWidth / Math.max(host.clientHeight, 1)
+      const nextNarrow = nextAspect < 0.75
+      camera.fov = nextNarrow ? 48 : 42
+      camera.position.set(0.35, nextNarrow ? 0.95 : 0.55, nextNarrow ? 2.9 : 2.65)
+      camera.updateProjectionMatrix()
       controls.target.set(0, 0, 0)
       root.rotation.y = -0.55
       controls.update()
@@ -612,6 +615,8 @@ export function EarthGlobe({
         // Start over the Atlantic looking toward Europe / Africa.
         root.rotation.y = -0.55
 
+        // Re-measure after layout settles (mobile device chrome / dock).
+        onResize()
         setReady(true)
       } catch {
         if (!disposed) setFailed(true)
