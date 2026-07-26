@@ -65,6 +65,15 @@ const publicPages = [
     'Explore · Cleo',
   ),
   englishPage(
+    '/maps',
+    {
+      title: 'Maps',
+      description:
+        'An interactive 3D Earth with a live day/night terminator — orbit, sample coordinates, search countries, and open field guides.',
+    },
+    'Maps · Cleo. An interactive 3D Earth with a live day/night terminator — orbit, sample coordinates, search countries, and open field guides.',
+  ),
+  englishPage(
     '/space',
     {
       title: 'Space',

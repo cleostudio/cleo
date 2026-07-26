@@ -19,6 +19,7 @@ const PUBLIC_SECTIONS = new Set<PublicSection>([
   'gallery',
   'space',
   'topics',
+  'maps',
   'projects',
 ])
 

@@ -183,6 +183,10 @@ export function HomeIntroduction() {
               <Link href="/explore" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 探索
               </Link>
+              、
+              <Link href="/maps" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                地图
+              </Link>
               {' '}或{' '}
               <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 询问 Cleo
@@ -199,6 +203,10 @@ export function HomeIntroduction() {
               ,{' '}
               <Link href="/explore" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 Explore
+              </Link>
+              ,{' '}
+              <Link href="/maps" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                Maps
               </Link>
               , or{' '}
               <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">

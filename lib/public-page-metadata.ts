@@ -27,6 +27,11 @@ export const publicPageMetadata = {
     title: 'Explore',
     description: '',
   },
+  maps: {
+    title: 'Maps',
+    description:
+      'An interactive 3D Earth with a live day/night terminator — orbit, sample coordinates, search countries, and open field guides.',
+  },
   space: {
     title: 'Space',
     description:
