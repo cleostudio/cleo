@@ -110,7 +110,10 @@ Tencent, or Upstash without an explicit product decision.
   `node_modules/next/dist/docs/` — this App Router stack has breaking changes
   vs older Next.js.
 - Keep OpenAI calls and `OPENAI_API_KEY` on the server.
-- Application code lives under `src/` (`app`, `components`, `lib`, `hooks`, `types`, `proxy.ts`). Path alias is `~/*` → `src/*`. Prefer existing `cn` helpers and `components/ui/*`.
+- Application code lives under `src/` (`app`, `components`, `lib`, `hooks`,
+  `types`, `proxy.ts`). Path alias `~/*` resolves `src/*` then the repo root
+  (so `~/content/...` still works). Prefer existing `cn` helpers and
+  `components/ui/*`.
 - Preserve the accessible, responsive glass/paper UI. Render model output
   through Streamdown, never raw HTML.
 - Update `README.md` and this file when setup or Cleo behavior changes.
