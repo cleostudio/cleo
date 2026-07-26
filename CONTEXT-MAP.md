@@ -1,7 +1,7 @@
 # Context Map
 
 Cleo (v3) contexts. System-wide ADRs live in `docs/adr/`. Site status:
-`docs/handoff.md`.
+`docs/handoff.md`. Candidate next shelves/surfaces: `docs/concepts.md`.
 
 ## Active contexts
 

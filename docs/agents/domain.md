@@ -14,6 +14,7 @@ them — do not scaffold them upfront.
 
 - **`CONTEXT-MAP.md`** — active / removed / retained contexts
 - **`docs/handoff.md`** — product and architecture snapshot
+- **`docs/concepts.md`** — candidate topic shelves and portal surfaces
 - **`docs/adr/`** — system-wide decisions
 - **`docs/design-language.md`** — visual and interaction contract
 - **`AGENTS.md`** — Cleo agent surface and verification
