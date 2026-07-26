@@ -2,7 +2,8 @@
 
 This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
 portal starting with countries and space. The homepage is a neutral portal
-(unified topic search, highlighted places, topic discovery). Explore field guides live
+(unified topic search, highlighted places, topic discovery, recent Writing
+posts). Explore field guides live
 at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
 `/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
 layer), and the AI agent at `/cleo`. `/photos` permanently redirects to

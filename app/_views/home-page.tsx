@@ -4,11 +4,15 @@ import { HomeHighlightedPlaces } from '~/components/home-highlighted-places'
 import { HomeIntroduction } from '~/components/home-introduction'
 import { HomeSiteSearch } from '~/components/home-site-search'
 import { HOME_MASTHEAD_VARIANT, PixelCluster } from '~/components/pixel-cluster'
+import { PostRow } from '~/components/post-row'
 import { highlightedAtlasEntries } from '~/lib/atlas'
+import { getAllPosts } from '~/lib/content'
 import { T } from '~/lib/i18n'
 import type { Locale } from '~/lib/locale-route'
 import { buildSiteSearchHits } from '~/lib/site-search-catalog'
 import { allTopics } from '~/lib/topics'
+
+const HOME_WRITING_POST_COUNT = 5
 
 function SectionTitle({
   index,
@@ -33,11 +37,13 @@ function SectionTitle({
   )
 }
 
-export async function HomePageView({ locale: _locale }: { locale: Locale }) {
+export async function HomePageView({ locale }: { locale: Locale }) {
   const topics = allTopics()
   const highlights = highlightedAtlasEntries(6)
+  const writingPosts = getAllPosts().slice(0, HOME_WRITING_POST_COUNT)
   const searchHits = buildSiteSearchHits()
-  const center = (topics.length - 1) / 2
+  const topicCenter = (topics.length - 1) / 2
+  const writingCenter = (writingPosts.length - 1) / 2
 
   return (
     <div className="mx-auto w-full max-w-content px-6">
@@ -99,7 +105,7 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
               className="enter-swing"
               style={
                 {
-                  '--enter-delay': `${250 + Math.abs(index - center) * 40}ms`,
+                  '--enter-delay': `${250 + Math.abs(index - topicCenter) * 40}ms`,
                 } as React.CSSProperties
               }
             >
@@ -121,6 +127,45 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
           ))}
         </ul>
       </section>
+
+      {writingPosts.length > 0 && (
+        <section className="mt-16" aria-labelledby="home-writing-heading">
+          <div className="flex items-center justify-between gap-4">
+            <SectionTitle index="03" delay={300}>
+              <span id="home-writing-heading">
+                <T zh="写作" en="Writing" />
+              </span>
+            </SectionTitle>
+            <Link
+              href="/blog"
+              className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+              style={{ '--enter-delay': '300ms' } as React.CSSProperties}
+            >
+              <T zh="全部写作" en="All writing" />
+            </Link>
+          </div>
+          <ul className="focus-list mt-4 flex flex-col">
+            {writingPosts.map((post, index) => (
+              <li
+                key={post.slug}
+                className="enter-swing"
+                style={
+                  {
+                    '--enter-delay': `${330 + Math.abs(index - writingCenter) * 40}ms`,
+                  } as React.CSSProperties
+                }
+              >
+                <PostRow
+                  post={post}
+                  headingLevel="h3"
+                  dateStyle="short"
+                  locale={locale}
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   )
 }
