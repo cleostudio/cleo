@@ -421,6 +421,23 @@
       ]
     },
     {
+      "kind": "page",
+      "source": "/blog/japan-and-iceland",
+      "probes": [
+        "/blog/japan-and-iceland"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/japan-and-iceland",
+      "destination": "/blog/japan-and-iceland",
+      "probes": [
+        "/en/blog/japan-and-iceland"
+      ]
+    },
+    {
       "kind": "redirect",
       "source": "/blog/we-decided-to-stop-buying-saas",
       "destination": "/blog",

@@ -8,10 +8,10 @@ English-only general-knowledge portal with:
 
 - Homepage: country search, highlighted places, topic discovery (no personal
   contact / music / books / photo-wall sections)
-- MDX Writing at `/blog` (portal essays plus subject pieces such as
-  Europa/Enceladus and Mars; growing toward a deeper knowledge layer), Explore
-  country field guides, Space field guides, Topics catalog (countries and space
-  first; more topics later)
+- MDX Writing at `/blog` (portal essays plus subject pieces across Explore and
+  Space — e.g. Japan/Iceland, Europa/Enceladus, Mars; growing toward a deeper
+  knowledge layer), Explore country field guides, Space field guides, Topics
+  catalog (countries and space first; more topics later)
 - Gallery: filterable photographs from Explore places and Space guides
   (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**

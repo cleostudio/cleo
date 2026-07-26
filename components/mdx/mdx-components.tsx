@@ -4,8 +4,6 @@ import { CodeBlockPre } from './code-block'
 import { InlineProductName } from './inline-product-name'
 import { MermaidDiagram } from './mermaid-diagram'
 import { PhotoStack, PhotoStackCaption, PhotoStackFrames } from './photo-stack'
-import { TimeAllocationChart } from './time-allocation-chart'
-import { Tweet } from './tweet'
 import { ExternalLink } from '~/components/external-link'
 import { ZoomImage } from '~/components/zoom-image'
 import { faviconUrl, getLinkPreview } from '~/lib/link-previews'
@@ -52,8 +50,6 @@ export function mdxComponents(slug: string, locale: Locale = 'en'): MDXComponent
     PhotoStack,
     PhotoStackCaption,
     PhotoStackFrames,
-    TimeAllocationChart: () => <TimeAllocationChart locale={locale} />,
-    Tweet: ({ id }: { id: string }) => <Tweet slug={slug} id={id} />,
     img: (props) => (
       <PostImage slug={slug} src={props.src as string} alt={props.alt} title={props.title} />
     ),

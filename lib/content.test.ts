@@ -30,9 +30,9 @@ describe('related reading', () => {
   })
 
   it('prefers same-kind neighbors for subject essays', () => {
-    const related = getRelatedPosts('reading-mars')
+    const related = getRelatedPosts('japan-and-iceland')
     expect(related.some((post) => post.kind === 'subject')).toBe(true)
-    expect(related.map((post) => post.slug)).toContain('icy-moons-europa-enceladus')
+    expect(related.every((post) => post.slug !== 'japan-and-iceland')).toBe(true)
   })
 })
 

@@ -12,6 +12,7 @@ export const publishedPostSlugs = [
   'writing-comes-next',
   'icy-moons-europa-enceladus',
   'reading-mars',
+  'japan-and-iceland',
 ] as const
 
 export const archivedNewsletterIds = ['1'] as const

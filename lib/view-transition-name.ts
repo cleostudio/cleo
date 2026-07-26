@@ -24,6 +24,8 @@ function postTransitionId(slug: string) {
       return 'p10'
     case 'reading-mars':
       return 'p11'
+    case 'japan-and-iceland':
+      return 'p12'
     default:
       throw new Error('Unknown post view-transition slug')
   }

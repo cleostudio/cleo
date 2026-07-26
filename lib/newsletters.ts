@@ -24,6 +24,9 @@ export const archivedNewsletterImages = {
   '/content/newsletters/1/post-welcome.jpg': { width: 1200, height: 675 },
   '/content/newsletters/1/post-country.jpg': { width: 1200, height: 675 },
   '/content/newsletters/1/post-ask.jpg': { width: 1200, height: 675 },
+  '/content/newsletters/1/post-japan.jpg': { width: 1200, height: 675 },
+  '/content/newsletters/1/post-europa.jpg': { width: 1200, height: 675 },
+  '/content/newsletters/1/post-mars.jpg': { width: 1200, height: 675 },
 } as const
 
 export type ArchivedNewsletter = {
