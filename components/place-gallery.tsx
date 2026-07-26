@@ -11,7 +11,7 @@ const LOADING_ASPECT_RATIOS = ['4 / 3', '3 / 4', '1 / 1', '3 / 4', '4 / 3', '1 /
 export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
   return (
     <div className="place-gallery" data-place-gallery>
-      <PlaceGalleryToolbar totalCount={entries.length} />
+      <PlaceGalleryToolbar />
 
       <ul className="photo-masonry">
         {entries.map((entry) => (

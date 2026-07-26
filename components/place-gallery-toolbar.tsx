@@ -2,11 +2,10 @@
 
 import { useEffect, useId, useRef, useState } from 'react'
 
-export function PlaceGalleryToolbar({ totalCount }: { totalCount: number }) {
+export function PlaceGalleryToolbar() {
   const searchId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
   const [query, setQuery] = useState('')
-  const [visibleCount, setVisibleCount] = useState(totalCount)
 
   useEffect(() => {
     const root = rootRef.current?.closest<HTMLElement>('[data-place-gallery]')
@@ -26,13 +25,12 @@ export function PlaceGalleryToolbar({ totalCount }: { totalCount: number }) {
     }
 
     if (empty) empty.hidden = nextVisible !== 0
-    setVisibleCount(nextVisible)
   }, [query])
 
   return (
     <div
       ref={rootRef}
-      className="gallery-toolbar sticky top-0 z-[2] -mx-6 mb-4 border-b border-[var(--border)] bg-background px-6 py-3"
+      className="gallery-toolbar sticky top-0 z-[2] -mx-6 mb-4 bg-background px-6 py-3"
     >
       <input
         id={searchId}
@@ -43,9 +41,6 @@ export function PlaceGalleryToolbar({ totalCount }: { totalCount: number }) {
         aria-label="Search photographs"
         className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground"
       />
-      <p className="mt-2 text-xs tabular-nums text-muted-foreground" aria-live="polite">
-        {visibleCount} {visibleCount === 1 ? 'photograph' : 'photographs'}
-      </p>
     </div>
   )
 }

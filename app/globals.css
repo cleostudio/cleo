@@ -5555,10 +5555,6 @@ a:focus-visible .external-label .external-mark {
   box-shadow: 0 0 0 1px var(--border);
 }
 
-.gallery-toolbar {
-  border-color: color-mix(in oklab, var(--border) 85%, transparent);
-}
-
 .place-gallery .photo-item a:focus-visible .photo-frame {
   outline: 1px solid var(--foreground);
   outline-offset: 2px;

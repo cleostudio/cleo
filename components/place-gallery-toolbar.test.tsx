@@ -13,7 +13,7 @@ describe('PlaceGalleryToolbar', () => {
   it('filters server-rendered gallery items by search without remounting the masonry', () => {
     render(
       <div data-place-gallery>
-        <PlaceGalleryToolbar totalCount={2} />
+        <PlaceGalleryToolbar />
         <ul>
           <li data-gallery-item data-search-text="France Paris place">
             France
@@ -28,11 +28,10 @@ describe('PlaceGalleryToolbar', () => {
       </div>,
     )
 
-    expect(screen.getByText('2 photographs')).toBeTruthy()
     expect(screen.getByLabelText('Search photographs')).toBeTruthy()
+    expect(screen.queryByText(/^\d+ photographs?$/)).toBeNull()
     expect(screen.queryByText('Search')).toBeNull()
     expect(screen.queryByText('Collection')).toBeNull()
-    expect(screen.queryByRole('radio', { name: 'Europe' })).toBeNull()
 
     fireEvent.change(screen.getByRole('searchbox'), {
       target: { value: 'mars' },
@@ -46,7 +45,6 @@ describe('PlaceGalleryToolbar', () => {
       .closest('[data-gallery-item]') as HTMLElement | null
     expect(france?.hidden).toBe(true)
     expect(mars?.hidden).toBe(false)
-    expect(screen.getByText('1 photograph')).toBeTruthy()
 
     fireEvent.change(screen.getByRole('searchbox'), {
       target: { value: 'nowhere' },
@@ -54,7 +52,6 @@ describe('PlaceGalleryToolbar', () => {
 
     expect(france?.hidden).toBe(true)
     expect(mars?.hidden).toBe(true)
-    expect(screen.getByText('0 photographs')).toBeTruthy()
     expect(
       screen.getByText('No photographs match that search.').hidden,
     ).toBe(false)
