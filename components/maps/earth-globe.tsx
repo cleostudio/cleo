@@ -44,7 +44,11 @@ import {
   type MapsMarker,
 } from '~/lib/maps/markers'
 import { sunDirectionAt } from '~/lib/maps/sun'
-import { MAPS_TEXTURE_CREDIT, MAPS_TEXTURES } from '~/lib/maps/textures'
+import {
+  MAPS_TEXTURE_CREDIT,
+  MAPS_TEXTURES,
+  MAPS_THEME,
+} from '~/lib/maps/textures'
 
 const EARTH_RADIUS = 1
 const CLOUD_RADIUS = 1.012
@@ -136,7 +140,7 @@ function createMarkerPoints(markers: MapsMarker[]) {
   const geometry = new BufferGeometry()
   geometry.setAttribute('position', new BufferAttribute(positions, 3))
   const material = new PointsMaterial({
-    color: new Color('#f4f1ea'),
+    color: new Color(MAPS_THEME.hud),
     size: 0.018,
     sizeAttenuation: true,
     transparent: true,
@@ -206,7 +210,7 @@ export function EarthGlobe({
     const disposables: Array<{ dispose: () => void }> = []
 
     const scene = new Scene()
-    scene.background = new Color('#03060d')
+    scene.background = new Color(MAPS_THEME.space)
 
     camera = new PerspectiveCamera(
       42,
@@ -579,7 +583,7 @@ export function EarthGlobe({
 
         const graticuleGeometry = createGraticuleGeometry(1.004, 30)
         const graticuleMaterial = new LineBasicMaterial({
-          color: new Color('#d7e0f5'),
+          color: new Color(MAPS_THEME.graticule),
           transparent: true,
           opacity: 0.22,
           depthWrite: false,
@@ -598,7 +602,7 @@ export function EarthGlobe({
         )
 
         const highlightMaterial = new MeshBasicMaterial({
-          color: new Color('#f4f1ea'),
+          color: new Color(MAPS_THEME.hud),
           transparent: true,
           opacity: 0.95,
           depthWrite: false,

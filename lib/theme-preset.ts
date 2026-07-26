@@ -127,7 +127,7 @@ export const presetDeviations = [
   },
   {
     reason:
-      '/maps is an orbital black stage for the 3D Earth; it uses local --maps-* tokens instead of the paper ramp.',
+      '/maps is an orbital black stage for the 3D Earth; it uses local --maps-* tokens (--maps-space, --maps-space-mid, --maps-space-deep, --maps-hud, --maps-hud-ink) instead of the paper ramp. HUD chrome still follows hairline, 2px/999px radius, mono eyebrows, focus rings, and --ease-swift.',
     token: '--maps-space',
     upstream: 'warm paper gray ramp on every public surface',
   },

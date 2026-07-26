@@ -822,6 +822,20 @@ sideways when the tall Gallery scrollbar appears.
 
 
 
+## Maps orbital stage
+
+`/maps` is a full-bleed 3D Earth. The page paints local `--maps-*` stage
+tokens (void black + cream HUD ink) instead of the warm paper ramp — recorded
+as a theme-preset deviation. The globe stays edge-to-edge; paper rulers and the
+viewport edge fade are suppressed.
+
+HUD chrome on top of that stage still follows the rest of the site: Geist Mono
+eyebrows / guide labels, print-register `2px` filters and sheets (pills only
+for dock-like tool toggles), `var(--border-hairline)` / `0 0 0 1px` edges,
+visible `:focus-visible` rings, and `--ease-swift` for panel entrance. Do not
+spend a second accent on Maps chrome; keep the cream HUD ink as the sole lift
+against the void.
+
 ## Frosted dock
 
 The dock pill is a plain frosted pane: `backdrop-filter: blur(12px)

@@ -90,7 +90,7 @@ Everything else should match cali.so.
 | --- | --- | --- | --- |
 | `--font-sans` | Geist, then Frex Sans GB for CJK | Geist only | Cleo is English-only, so the CJK face is dead weight. |
 | `--content-column` | `37.5rem` | `42rem` | The drafting guide borders came off, so the column can open wider without reading as a boxed frame. |
-| `--maps-space` | warm paper ramp on every public surface | orbital black stage tokens | `/maps` is a full-bleed 3D Earth view; paper gray would flatten the globe. |
+| `--maps-*` | warm paper ramp on every public surface | orbital stage: `--maps-space`, `--maps-space-mid`, `--maps-space-deep`, `--maps-hud`, `--maps-hud-ink` | `/maps` is a full-bleed 3D Earth; paper gray would flatten the globe. HUD chrome still follows hairline / 2px·999px / mono eyebrows / focus rings / `--ease-swift`. |
 
 ## Changing the preset
 
