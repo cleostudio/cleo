@@ -19,6 +19,8 @@ Cleo (v3) contexts. System-wide ADRs live in `docs/adr/`. Site status:
 - **Oceans** — World Ocean, basins, and seas field guides (`/oceans`,
   `/oceans/[slug]`) with NASA photos in `content/ocean-photos.json` +
   `public/images/oceans/`
+- **Biomes** — Major Earth biome field guides (`/biomes`, `/biomes/[slug]`)
+  with NASA photos in `content/biome-photos.json` + `public/images/biomes/`
 - **Compare** — Side-by-side fact plates for two countries or two planets
   (`/compare?a=&b=`)
 - **Cleo agent** — OpenAI Responses API at `/cleo` and `/api/responses`

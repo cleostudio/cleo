@@ -1,9 +1,10 @@
 import { allAtlasEntries, atlasRegions } from '~/lib/atlas'
+import { biomeSubjects } from '~/lib/biomes'
 import { oceanSubjects } from '~/lib/oceans'
 import type { StaticPhoto } from '~/lib/static-photo'
 import { spaceSubjects } from '~/lib/space'
 
-export type GalleryCollection = 'places' | 'space' | 'oceans'
+export type GalleryCollection = 'places' | 'space' | 'oceans' | 'biomes'
 
 export interface GalleryItem {
   id: string
@@ -104,7 +105,26 @@ export function allGalleryItems(): GalleryItem[] {
     photo: subject.photo,
   }))
 
-  return [...places, ...space, ...oceans]
+  const biomes: GalleryItem[] = biomeSubjects.map((subject) => ({
+    id: `biomes:${subject.slug}`,
+    collection: 'biomes',
+    href: `/biomes/${subject.slug}`,
+    title: subject.photo.featureName,
+    subtitle: subject.name,
+    filterKey: subject.category,
+    searchText: [
+      subject.name,
+      subject.photo.featureName,
+      subject.code,
+      subject.category,
+      subject.facts.kind,
+      'biome',
+      'climate',
+    ].join(' '),
+    photo: subject.photo,
+  }))
+
+  return [...places, ...space, ...oceans, ...biomes]
 }
 
 export function galleryFilterKeys(): string[] {
@@ -115,9 +135,12 @@ export function galleryFilterKeys(): string[] {
   const oceanCategories = [
     ...new Set(oceanSubjects.map((subject) => subject.category)),
   ]
-  return [...placeRegions, ...spaceCategories, ...oceanCategories]
+  const biomeCategories = [
+    ...new Set(biomeSubjects.map((subject) => subject.category)),
+  ]
+  return [...placeRegions, ...spaceCategories, ...oceanCategories, ...biomeCategories]
 }
 
 export function galleryDescription(count: number): string {
-  return `${count} curated photographs — places from Explore, bodies from Space, and waters from Oceans.`
+  return `${count} curated photographs — places from Explore, bodies from Space, waters from Oceans, and biomes.`
 }

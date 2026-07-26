@@ -1,0 +1,98 @@
+{
+  "tundra": {
+    "featureName": "Teshekpuk Lake, Arctic Alaska",
+    "nasaId": "PIA01909",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA01909/PIA01909~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA01909",
+    "credit": "NASA/JPL/NIMA",
+    "license": "Public Domain (NASA)"
+  },
+  "boreal-forest": {
+    "featureName": "Boreal forest near Prince Albert, Canada",
+    "nasaId": "PIA01732",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA01732/PIA01732~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA01732",
+    "credit": "NASA/JPL",
+    "license": "Public Domain (NASA)"
+  },
+  "temperate-forest": {
+    "featureName": "Eastern North American forest from orbit",
+    "nasaId": "sts059-225-072",
+    "downloadUrl": "https://images-assets.nasa.gov/image/sts059-225-072/sts059-225-072~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/sts059-225-072",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "grassland": {
+    "featureName": "Great Plains cropland mosaic",
+    "nasaId": "iss067e123189",
+    "downloadUrl": "https://images-assets.nasa.gov/image/iss067e123189/iss067e123189~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/iss067e123189",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "desert": {
+    "featureName": "Namib Desert dunes",
+    "nasaId": "PIA17632",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA17632/PIA17632~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA17632",
+    "credit": "NASA/JPL-Caltech/USGS",
+    "license": "Public Domain (NASA)"
+  },
+  "savanna": {
+    "featureName": "African savanna from orbit",
+    "nasaId": "iss028e006830",
+    "downloadUrl": "https://images-assets.nasa.gov/image/iss028e006830/iss028e006830~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/iss028e006830",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "tropical-rainforest": {
+    "featureName": "Ucayali River, Amazon rainforest",
+    "nasaId": "iss074e0492148",
+    "downloadUrl": "https://images-assets.nasa.gov/image/iss074e0492148/iss074e0492148~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/iss074e0492148",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "mediterranean-shrubland": {
+    "featureName": "California and Baja coastal ranges",
+    "nasaId": "s31-78-017",
+    "downloadUrl": "https://images-assets.nasa.gov/image/s31-78-017/s31-78-017~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/s31-78-017",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "wetland": {
+    "featureName": "Okavango Delta",
+    "nasaId": "STS066-122-091",
+    "downloadUrl": "https://images-assets.nasa.gov/image/STS066-122-091/STS066-122-091~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/STS066-122-091",
+    "credit": "NASA",
+    "license": "Public Domain (NASA)"
+  },
+  "montane": {
+    "featureName": "Rocky Mountains and Great Plains",
+    "nasaId": "sl4-138-3875",
+    "downloadUrl": "https://images-assets.nasa.gov/image/sl4-138-3875/sl4-138-3875~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/sl4-138-3875",
+    "credit": "NASA/Skylab 4",
+    "license": "Public Domain (NASA)"
+  },
+  "coral-reef": {
+    "featureName": "Australia Great Barrier Reef",
+    "nasaId": "PIA03401",
+    "downloadUrl": "https://images-assets.nasa.gov/image/PIA03401/PIA03401~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA03401",
+    "credit": "NASA/GSFC/LaRC/JPL, MISR Team",
+    "license": "Public Domain (NASA)"
+  },
+  "ice-sheet": {
+    "featureName": "Thurston Island, Antarctica",
+    "nasaId": "GSFC_20171208_Archive_e000908",
+    "downloadUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000908/GSFC_20171208_Archive_e000908~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000908",
+    "credit": "NASA/GSFC/Jeff Schmaltz/MODIS Land Rapid Response Team",
+    "license": "Public Domain (NASA)"
+  }
+}

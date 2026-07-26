@@ -5,6 +5,7 @@
  */
 
 import { atlasRendition, getAtlasEntry } from '~/lib/atlas'
+import { getBiomeSubject, biomeSubjects } from '~/lib/biomes'
 import { countries } from '~/lib/countries'
 import { getOceanSubject, oceanSubjects } from '~/lib/oceans'
 import { getSpaceSubject, spaceSubjects } from '~/lib/space'
@@ -13,7 +14,7 @@ import { staticRendition } from '~/lib/static-photo'
 export const MAX_TOPIC_PHOTOS = 3
 
 export type TopicPhoto = {
-  collection: 'explore' | 'space' | 'oceans'
+  collection: 'explore' | 'space' | 'oceans' | 'biomes'
   slug: string
   name: string
   href: string
@@ -26,7 +27,7 @@ export type TopicPhoto = {
 }
 
 type TopicCandidate = {
-  collection: 'explore' | 'space' | 'oceans'
+  collection: 'explore' | 'space' | 'oceans' | 'biomes'
   slug: string
   name: string
 }
@@ -48,6 +49,11 @@ function allCandidates(): TopicCandidate[] {
     })),
     ...oceanSubjects.map((subject) => ({
       collection: 'oceans' as const,
+      slug: subject.slug,
+      name: subject.name,
+    })),
+    ...biomeSubjects.map((subject) => ({
+      collection: 'biomes' as const,
       slug: subject.slug,
       name: subject.name,
     })),
@@ -85,6 +91,21 @@ function loadTopicPhoto(
       slug: subject.slug,
       name: subject.name,
       href: `/oceans/${subject.slug}`,
+      title: subject.photo.featureName,
+      alt: subject.photo.alt,
+      caption: subject.photo.caption,
+      src: staticRendition(subject.photo, 1280).src,
+    }
+  }
+
+  if (topic.collection === 'biomes') {
+    const subject = getBiomeSubject(topic.slug)
+    if (!subject) return null
+    return {
+      collection: 'biomes',
+      slug: subject.slug,
+      name: subject.name,
+      href: `/biomes/${subject.slug}`,
       title: subject.photo.featureName,
       alt: subject.photo.alt,
       caption: subject.photo.caption,
@@ -151,9 +172,9 @@ export function matchTopicPhotosInText(text: string): TopicPhoto[] {
   }
 
   const pathPattern =
-    /(?:^|[^A-Za-z0-9])\/(explore|space|oceans)\/([a-z0-9-]+)(?![a-z0-9-])/gi
+    /(?:^|[^A-Za-z0-9])\/(explore|space|oceans|biomes)\/([a-z0-9-]+)(?![a-z0-9-])/gi
   for (const match of haystack.matchAll(pathPattern)) {
-    const collection = match[1] as 'explore' | 'space' | 'oceans'
+    const collection = match[1] as 'explore' | 'space' | 'oceans' | 'biomes'
     const slug = match[2]!
     const token = match[0]!
     const path = `/${collection}/${slug}`
@@ -220,11 +241,11 @@ export function buildTopicPhotoInstructions(
   const blocks = photos.map(formatTopicPhoto).join('\n\n')
 
   return `<cleo_topic_photos>
-The following curated photographs are from this website's Explore, Space, and Oceans topics. When the user's question is about these subjects:
+The following curated photographs are from this website's Explore, Space, Oceans, and Biomes topics. When the user's question is about these subjects:
 - You MAY and SHOULD include the curated photograph in your reply when appearance, landscape, what something looks like, or a visual orientation would help — or when the user asks to see a photo/image.
 - Embed with exactly one Markdown image per subject using the path shown: \`![title](/images/...)\`. Do not invent or alter image paths.
-- Still weave one Markdown deep link to the field guide (\`[Name](/explore/…)\`, \`[Name](/space/…)\`, or \`[Name](/oceans/…)\`) on first mention.
-- Prefer these curated photos over \`image_generation\` for real places, space bodies, and ocean waters. Use \`image_generation\` only if the user asks you to create, draw, redesign, or invent a visual the curated photo cannot cover (diagram, stylized illustration, edit).
+- Still weave one Markdown deep link to the field guide (\`[Name](/explore/…)\`, \`[Name](/space/…)\`, \`[Name](/oceans/…)\`, or \`[Name](/biomes/…)\`) on first mention.
+- Prefer these curated photos over \`image_generation\` for real places, space bodies, ocean waters, and biomes. Use \`image_generation\` only if the user asks you to create, draw, redesign, or invent a visual the curated photo cannot cover (diagram, stylized illustration, edit).
 - Do not dump every photo unprompted for a pure text fact question (e.g. capital city only). One well-chosen image is enough when a visual helps.
 - Never claim a photo is yours or generated when you used a curated site path.
 

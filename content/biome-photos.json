@@ -1,0 +1,362 @@
+{
+  "tundra": {
+    "featureName": "Teshekpuk Lake, Arctic Alaska",
+    "alt": "Teshekpuk Lake, Arctic Alaska — tundra",
+    "caption": "Teshekpuk Lake, Arctic Alaska",
+    "photographer": "NASA/JPL/NIMA",
+    "sourceUrl": "https://images.nasa.gov/details/PIA01909",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA01909",
+    "provenance": "Curated from NASA image PIA01909; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "43e9b4791f1a2b92c89e1b273b6ae78d9246e329971116981e10b8f3572eb6e1",
+    "width": 1253,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/tundra/w640.jpg",
+        "bytes": 145518
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/tundra/w1280.jpg",
+        "bytes": 456981
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/tundra/w2048.jpg",
+        "bytes": 502205
+      }
+    ]
+  },
+  "boreal-forest": {
+    "featureName": "Boreal forest near Prince Albert, Canada",
+    "alt": "Boreal forest near Prince Albert, Canada — boreal forest",
+    "caption": "Boreal forest near Prince Albert, Canada",
+    "photographer": "NASA/JPL",
+    "sourceUrl": "https://images.nasa.gov/details/PIA01732",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA01732",
+    "provenance": "Curated from NASA image PIA01732; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d35dd718613ac01e5bbd839ec1e949a022afe89137a6592617ec9595ac67e112",
+    "width": 1211,
+    "height": 1025,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/boreal-forest/w640.jpg",
+        "bytes": 144305
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/boreal-forest/w1280.jpg",
+        "bytes": 580990
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/boreal-forest/w2048.jpg",
+        "bytes": 648062
+      }
+    ]
+  },
+  "temperate-forest": {
+    "featureName": "Eastern North American forest from orbit",
+    "alt": "Eastern North American forest from orbit — temperate forest",
+    "caption": "Eastern North American forest from orbit",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/sts059-225-072",
+    "license": "Public Domain (NASA)",
+    "nasaId": "sts059-225-072",
+    "provenance": "Curated from NASA image sts059-225-072; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e1bf6fc6fc68ecfbaf140205be15b6c432d2d2638c8501e6d134eca30d2c8c7a",
+    "width": 1920,
+    "height": 1917,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/temperate-forest/w640.jpg",
+        "bytes": 78750
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/temperate-forest/w1280.jpg",
+        "bytes": 269482
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/temperate-forest/w2048.jpg",
+        "bytes": 570671
+      }
+    ]
+  },
+  "grassland": {
+    "featureName": "Great Plains cropland mosaic",
+    "alt": "Great Plains cropland mosaic — grassland",
+    "caption": "Great Plains cropland mosaic",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/iss067e123189",
+    "license": "Public Domain (NASA)",
+    "nasaId": "iss067e123189",
+    "provenance": "Curated from NASA image iss067e123189; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ca112bd276c822e0bd49cb848957405f9b2c482863dda84f8a16d183bfa4773d",
+    "width": 1920,
+    "height": 1078,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/grassland/w640.jpg",
+        "bytes": 50120
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/grassland/w1280.jpg",
+        "bytes": 161527
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/grassland/w2048.jpg",
+        "bytes": 331353
+      }
+    ]
+  },
+  "desert": {
+    "featureName": "Namib Desert dunes",
+    "alt": "Namib Desert dunes — desert",
+    "caption": "Namib Desert dunes",
+    "photographer": "NASA/JPL-Caltech/USGS",
+    "sourceUrl": "https://images.nasa.gov/details/PIA17632",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA17632",
+    "provenance": "Curated from NASA image PIA17632; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "668adedeb3d280c88689295fa73b353f6f79705eec33441b7c2ac74c17d5531d",
+    "width": 1871,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/desert/w640.jpg",
+        "bytes": 59682
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/desert/w1280.jpg",
+        "bytes": 275328
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/desert/w2048.jpg",
+        "bytes": 657642
+      }
+    ]
+  },
+  "savanna": {
+    "featureName": "African savanna from orbit",
+    "alt": "African savanna from orbit — savanna",
+    "caption": "African savanna from orbit",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/iss028e006830",
+    "license": "Public Domain (NASA)",
+    "nasaId": "iss028e006830",
+    "provenance": "Curated from NASA image iss028e006830; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "048fac0ef015bd68a9eb03f89ce5ede88078cd3aec76f79a1745ba4699396911",
+    "width": 1920,
+    "height": 1275,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/savanna/w640.jpg",
+        "bytes": 34451
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/savanna/w1280.jpg",
+        "bytes": 130182
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/savanna/w2048.jpg",
+        "bytes": 311869
+      }
+    ]
+  },
+  "tropical-rainforest": {
+    "featureName": "Ucayali River, Amazon rainforest",
+    "alt": "Ucayali River, Amazon rainforest — tropical rainforest",
+    "caption": "Ucayali River, Amazon rainforest",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/iss074e0492148",
+    "license": "Public Domain (NASA)",
+    "nasaId": "iss074e0492148",
+    "provenance": "Curated from NASA image iss074e0492148; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ba9f4b4deb91db3447373b6e89f1d1618e6a6435d5dc5905193b95542c9b95b1",
+    "width": 1920,
+    "height": 1280,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/tropical-rainforest/w640.jpg",
+        "bytes": 38913
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/tropical-rainforest/w1280.jpg",
+        "bytes": 126159
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/tropical-rainforest/w2048.jpg",
+        "bytes": 287134
+      }
+    ]
+  },
+  "mediterranean-shrubland": {
+    "featureName": "California and Baja coastal ranges",
+    "alt": "California and Baja coastal ranges — mediterranean shrubland",
+    "caption": "California and Baja coastal ranges",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/s31-78-017",
+    "license": "Public Domain (NASA)",
+    "nasaId": "s31-78-017",
+    "provenance": "Curated from NASA image s31-78-017; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "356c97677f905c8977ba1ecb24168560f327c4089bc2ea3bfdef59229922b731",
+    "width": 1919,
+    "height": 1919,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/mediterranean-shrubland/w640.jpg",
+        "bytes": 57395
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/mediterranean-shrubland/w1280.jpg",
+        "bytes": 216840
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/mediterranean-shrubland/w2048.jpg",
+        "bytes": 491587
+      }
+    ]
+  },
+  "wetland": {
+    "featureName": "Okavango Delta",
+    "alt": "Okavango Delta — wetland",
+    "caption": "Okavango Delta",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/STS066-122-091",
+    "license": "Public Domain (NASA)",
+    "nasaId": "STS066-122-091",
+    "provenance": "Curated from NASA image STS066-122-091; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3cbb46c7a0a20bcf7ea70a2549e0dca8d7f31fec90873395a83f1d8836852d54",
+    "width": 1920,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/wetland/w640.jpg",
+        "bytes": 61200
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/wetland/w1280.jpg",
+        "bytes": 216034
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/wetland/w2048.jpg",
+        "bytes": 491042
+      }
+    ]
+  },
+  "montane": {
+    "featureName": "Rocky Mountains and Great Plains",
+    "alt": "Rocky Mountains and Great Plains — montane",
+    "caption": "Rocky Mountains and Great Plains",
+    "photographer": "NASA/Skylab 4",
+    "sourceUrl": "https://images.nasa.gov/details/sl4-138-3875",
+    "license": "Public Domain (NASA)",
+    "nasaId": "sl4-138-3875",
+    "provenance": "Curated from NASA image sl4-138-3875; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "31aea8014c511ef08eff2fcd77440d4c0ecb14a51d688b12baa245cf640a54e7",
+    "width": 1920,
+    "height": 1897,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/montane/w640.jpg",
+        "bytes": 75522
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/montane/w1280.jpg",
+        "bytes": 299023
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/montane/w2048.jpg",
+        "bytes": 692956
+      }
+    ]
+  },
+  "coral-reef": {
+    "featureName": "Australia Great Barrier Reef",
+    "alt": "Australia Great Barrier Reef — coral reef",
+    "caption": "Australia Great Barrier Reef",
+    "photographer": "NASA/GSFC/LaRC/JPL, MISR Team",
+    "sourceUrl": "https://images.nasa.gov/details/PIA03401",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA03401",
+    "provenance": "Curated from NASA image PIA03401; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "274541ee4e576be2a43f9b53c9e307650d58210050bd463d0d4e203cffa50409",
+    "width": 1629,
+    "height": 1816,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/coral-reef/w640.jpg",
+        "bytes": 74635
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/coral-reef/w1280.jpg",
+        "bytes": 255910
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/coral-reef/w2048.jpg",
+        "bytes": 448040
+      }
+    ]
+  },
+  "ice-sheet": {
+    "featureName": "Thurston Island, Antarctica",
+    "alt": "Thurston Island, Antarctica — ice sheet",
+    "caption": "Thurston Island, Antarctica",
+    "photographer": "NASA/GSFC/Jeff Schmaltz/MODIS Land Rapid Response Team",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000908",
+    "license": "Public Domain (NASA)",
+    "nasaId": "GSFC_20171208_Archive_e000908",
+    "provenance": "Curated from NASA image GSFC_20171208_Archive_e000908; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8a9fc608351acd0bc42815165e8d9b7cc7e14f11ae1dd187aa5ee37dbc51838f",
+    "width": 1920,
+    "height": 1440,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/biomes/ice-sheet/w640.jpg",
+        "bytes": 17522
+      },
+      {
+        "width": 1280,
+        "src": "/images/biomes/ice-sheet/w1280.jpg",
+        "bytes": 49778
+      },
+      {
+        "width": 2048,
+        "src": "/images/biomes/ice-sheet/w2048.jpg",
+        "bytes": 118835
+      }
+    ]
+  }
+}

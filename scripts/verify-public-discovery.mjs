@@ -101,6 +101,15 @@ const publicPages = [
     'Compare · Cleo. Side-by-side fact plates for two countries or two planets — shareable pairs from the field guides.',
   ),
   englishPage(
+    '/biomes',
+    {
+      title: 'Biomes',
+      description:
+        'Evergreen field guides for Earth’s major biomes — climate, range, cover, exemplars, and facts.',
+    },
+    'Biomes · Cleo. Evergreen field guides for Earth’s major biomes — climate, range, cover, exemplars, and facts.',
+  ),
+  englishPage(
     '/cleo',
     {
       title: 'Cleo',

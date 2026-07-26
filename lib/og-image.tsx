@@ -306,6 +306,39 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'biomes') {
+    // Layered canopy / ground bands.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="116" cy="116" r="72" stroke={faint} strokeWidth="1.4" />
+          <path
+            d="M52 150c18-28 36-42 64-42s46 14 64 42"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path
+            d="M64 128c14-18 28-28 52-28s38 10 52 28"
+            stroke={stroke}
+            strokeWidth="1.55"
+          />
+          <path d="M78 168h76" stroke={faint} strokeWidth="1.4" />
+          <path
+            d="M96 108c6-14 14-22 20-22s14 8 20 22"
+            stroke={stroke}
+            strokeWidth="1.45"
+          />
+        </g>
+      </svg>
+    )
+  }
+
   if (section === 'gallery') {
     return (
       <svg

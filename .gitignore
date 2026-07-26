@@ -60,3 +60,6 @@ static/
 # Oceans photo import originals (never public)
 .ocean-originals/
 
+
+# Biome photo import originals (never public)
+.biome-originals/

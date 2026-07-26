@@ -51,6 +51,11 @@ describe('social OG image metadata', () => {
       'Compare · Cleo. Side-by-side fact plates for two countries or two planets — shareable pairs from the field guides.',
     ],
     [
+      '/biomes',
+      publicPageMetadata.biomes,
+      'Biomes · Cleo. Evergreen field guides for Earth’s major biomes — climate, range, cover, exemplars, and facts.',
+    ],
+    [
       '/cleo',
       publicPageMetadata.cleo,
       'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',

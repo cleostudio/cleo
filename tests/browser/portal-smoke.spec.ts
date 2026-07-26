@@ -87,6 +87,18 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page.getByText('Japan is a good place to start.')).toBeVisible()
   })
 
+  test('Biomes index lists Forests and Tundra', async ({ page }) => {
+    await prepareBrowserPage(page)
+    const browserErrors = watchBrowserErrors(page)
+
+    await expectHealthyPublicDocument(page, '/biomes')
+    await expect(page.getByRole('heading', { name: /^Forests/ })).toBeVisible()
+    await expect(page.locator('a[href="/biomes/tundra"]')).toBeVisible()
+    await expect(page.locator('a[href="/biomes/desert"]')).toBeVisible()
+
+    expect(browserErrors).toEqual([])
+  })
+
   test('Compare plate shows Japan and France capitals', async ({ page }) => {
     await prepareBrowserPage(page)
     const browserErrors = watchBrowserErrors(page)

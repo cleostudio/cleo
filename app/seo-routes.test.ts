@@ -7,6 +7,7 @@ import { getAllPosts } from '~/lib/content'
 import { countrySlugs } from '~/lib/countries'
 import { archivedNewsletterIds } from '~/lib/newsletters'
 import { seo } from '~/lib/seo'
+import { biomeSubjectSlugs } from '~/lib/biomes'
 import { oceanSubjectSlugs } from '~/lib/oceans'
 import { spaceSubjectSlugs } from '~/lib/space'
 
@@ -48,11 +49,13 @@ describe('discovery routes', () => {
       '/space',
       '/sky',
       '/oceans',
+      '/biomes',
       '/compare',
       '/cleo',
       ...countrySlugs().map((slug) => `/explore/${slug}`),
       ...spaceSubjectSlugs().map((slug) => `/space/${slug}`),
       ...oceanSubjectSlugs().map((slug) => `/oceans/${slug}`),
+      ...biomeSubjectSlugs().map((slug) => `/biomes/${slug}`),
       ...archivedNewsletterIds.map((id) => `/newsletters/${id}`),
       ...getAllPosts().map((post) => `/blog/${post.slug}`),
     ]

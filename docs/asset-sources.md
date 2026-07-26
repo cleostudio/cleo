@@ -72,6 +72,28 @@ in `.ocean-originals/` (gitignored). Same NASA media guidelines as Space.
 | `gulf-of-mexico` | as07-05-1635 | Gulf of Mexico and Yucatán coast |
 | `coral-sea` | S32-520-014 | Western Coral Sea and Great Barrier Reef |
 
+## Biomes photographs
+
+One curated NASA image per Biomes guide. Import-time only via
+`pnpm import:biome-photos` (sources in `scripts/biomes/biome-photo-sources.json`);
+runtime serves local JPEGs under `public/images/biomes/{slug}/`. Originals stay
+in `.biome-originals/` (gitignored). Same NASA media guidelines as Space.
+
+| Slug | NASA id | Feature |
+| --- | --- | --- |
+| `tundra` | PIA01909 | Teshekpuk Lake, Arctic Alaska |
+| `boreal-forest` | PIA01732 | Boreal forest near Prince Albert, Canada |
+| `temperate-forest` | sts059-225-072 | Eastern North American forest from orbit |
+| `grassland` | iss067e123189 | Great Plains cropland mosaic |
+| `desert` | PIA17632 | Namib Desert dunes |
+| `savanna` | iss028e006830 | African savanna from orbit |
+| `tropical-rainforest` | iss074e0492148 | Ucayali River, Amazon rainforest |
+| `mediterranean-shrubland` | s31-78-017 | California and Baja coastal ranges |
+| `wetland` | STS066-122-091 | Okavango Delta |
+| `montane` | sl4-138-3875 | Rocky Mountains and Great Plains |
+| `coral-reef` | PIA03401 | Australia Great Barrier Reef |
+| `ice-sheet` | GSFC_20171208_Archive_e000908 | Thurston Island, Antarctica |
+
 ## Taste shelf
 
 Source record for the album and book assets added in July 2026. Cover images

@@ -1,18 +1,20 @@
 import { describe, expect, it } from 'vitest'
 
+import { biomeSubjects } from './biomes'
 import { countries } from './countries'
 import { oceanSubjects } from './oceans'
 import { spaceSubjects } from './space'
 import { allTopics } from './topics'
 
 describe('topics catalog', () => {
-  it('lists countries, space, and oceans as knowledge collections', () => {
+  it('lists countries, space, oceans, and biomes as knowledge collections', () => {
     const topics = allTopics()
 
     expect(topics.map((topic) => topic.slug)).toEqual([
       'countries',
       'space',
       'oceans',
+      'biomes',
     ])
     expect(topics[0]).toMatchObject({
       href: '/explore',
@@ -30,6 +32,12 @@ describe('topics catalog', () => {
       secondaryHref: '/gallery',
       tally: `${oceanSubjects.length} guides`,
     })
+    expect(topics[3]).toMatchObject({
+      href: '/biomes',
+      secondaryHref: '/gallery',
+      tally: `${biomeSubjects.length} guides`,
+    })
   })
 })
+
 

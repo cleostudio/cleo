@@ -27,7 +27,9 @@ export function PhotoZoomDetails({
       ? { title: 'Feature', subtitle: 'Subject' }
       : collection === 'oceans'
         ? { title: 'Feature', subtitle: 'Water' }
-        : { title: 'Place', subtitle: 'Country' }
+        : collection === 'biomes'
+          ? { title: 'Feature', subtitle: 'Biome' }
+          : { title: 'Place', subtitle: 'Country' }
   const fields = [
     { label: labels.title, value: title },
     { label: labels.subtitle, value: subtitle },
