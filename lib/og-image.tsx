@@ -272,6 +272,40 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'compare') {
+    // Two upright plates sharing a baseline.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="116" cy="116" r="72" stroke={faint} strokeWidth="1.4" />
+          <rect
+            x="58"
+            y="72"
+            width="48"
+            height="88"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <rect
+            x="126"
+            y="72"
+            width="48"
+            height="88"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path d="M58 100h48M126 100h48M58 128h48M126 128h48" stroke={faint} strokeWidth="1.3" />
+        </g>
+      </svg>
+    )
+  }
+
   if (section === 'gallery') {
     return (
       <svg

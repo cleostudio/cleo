@@ -46,6 +46,11 @@ describe('social OG image metadata', () => {
       'Sky · Cleo. A static sky atlas plate with hotspots into Space field guides — nebulae, galaxies, and the Moon.',
     ],
     [
+      '/compare',
+      publicPageMetadata.compare,
+      'Compare · Cleo. Side-by-side fact plates for two countries or two planets — shareable pairs from the field guides.',
+    ],
+    [
       '/cleo',
       publicPageMetadata.cleo,
       'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',

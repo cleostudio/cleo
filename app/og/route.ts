@@ -15,6 +15,7 @@ import type { PublicSection } from '~/lib/public-page-metadata'
 const PUBLIC_SECTIONS = new Set<PublicSection>([
   'blog',
   'cleo',
+  'compare',
   'explore',
   'gallery',
   'oceans',

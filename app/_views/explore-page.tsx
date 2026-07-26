@@ -25,6 +25,18 @@ export function ExplorePageView() {
           <h1 className="page-eyebrow enter">
             <T zh="探索" en="Explore" />
           </h1>
+          <p
+            className="enter mt-3 text-sm text-muted-foreground"
+            style={{ '--enter-delay': '70ms' } as React.CSSProperties}
+          >
+            <Link
+              href="/compare?a=explore:japan&b=explore:france"
+              className="text-foreground underline-offset-2 hover:underline"
+            >
+              Compare two countries
+            </Link>{' '}
+            side by side.
+          </p>
         </header>
         <PixelCluster variant={4} className="enter shrink-0" />
       </div>

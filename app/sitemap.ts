@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/space'),
     entry('/sky'),
     entry('/oceans'),
+    entry('/compare'),
     entry('/cleo'),
     ...countrySlugs().map((slug) => entry(`/explore/${slug}`)),
     ...spaceSubjectSlugs().map((slug) => entry(`/space/${slug}`)),

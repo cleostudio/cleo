@@ -92,6 +92,15 @@ const publicPages = [
     'Sky · Cleo. A static sky atlas plate with hotspots into Space field guides — nebulae, galaxies, and the Moon.',
   ),
   englishPage(
+    '/compare',
+    {
+      title: 'Compare',
+      description:
+        'Side-by-side fact plates for two countries or two planets — shareable pairs from the field guides.',
+    },
+    'Compare · Cleo. Side-by-side fact plates for two countries or two planets — shareable pairs from the field guides.',
+  ),
+  englishPage(
     '/cleo',
     {
       title: 'Cleo',

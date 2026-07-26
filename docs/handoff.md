@@ -29,6 +29,8 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 - Oceans: `lib/oceans.ts`, `content/ocean-photos.json`, `/oceans`, `/oceans/[slug]`
   (World Ocean, ocean basins, seas & gulfs)
 - Sky: `lib/sky.ts`, `/sky` — static atlas plate hotspots into Space guides
+- Compare: `lib/compare.ts`, `/compare?a=&b=` — country–country and planet–planet
+  fact plates (namespaced refs like `explore:japan`, `space:mars`)
 - Gallery: `lib/gallery.ts` unifies atlas + space + oceans photos for `/gallery`
 - Place images: import-time mozjpeg 640/1280/2048 under `public/images/atlas/`
   (Wikimedia Commons curation, relevance-first + assessments; hand-picks via

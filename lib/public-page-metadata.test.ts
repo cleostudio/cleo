@@ -44,6 +44,11 @@ describe('public page metadata copy', () => {
       description:
         'A static sky atlas plate with hotspots into Space field guides — nebulae, galaxies, and the Moon.',
     })
+    expect(publicPageMetadata.compare).toEqual({
+      title: 'Compare',
+      description:
+        'Side-by-side fact plates for two countries or two planets — shareable pairs from the field guides.',
+    })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',
       description:
@@ -60,6 +65,7 @@ describe('public page metadata copy', () => {
       'space',
       'oceans',
       'sky',
+      'compare',
       'cleo',
     ] as const) {
       expect(publicPageMetadata[section].description.length, section).toBeLessThanOrEqual(160)

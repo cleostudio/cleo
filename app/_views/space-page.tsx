@@ -38,7 +38,11 @@ export function SpacePageView() {
             <Link href="/sky" className="text-foreground underline-offset-2 hover:underline">
               Open the Sky atlas
             </Link>{' '}
-            for deep-sky hotspots into these guides.
+            for deep-sky hotspots, or{' '}
+            <Link href="/compare?a=space:earth&b=space:mars" className="text-foreground underline-offset-2 hover:underline">
+              compare two planets
+            </Link>
+            .
           </p>
         </header>
         <PixelCluster variant={6} className="enter shrink-0" />

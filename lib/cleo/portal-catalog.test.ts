@@ -19,6 +19,8 @@ describe('portal catalog instructions', () => {
     expect(block).toContain('Pacific Ocean (/oceans/pacific)')
     expect(block).toContain('[Topics](/topics)')
     expect(block).toContain('[Sky](/sky)')
+    expect(block).toContain('[Compare](/compare)')
+    expect(block).toContain('/compare?a=explore:japan&b=explore:france')
     expect(block).toContain('<cleo_topic_photos>')
     expect(block).toContain('curated photograph as a Markdown image')
     expect(block).not.toContain('/explore/not-a-real-country')

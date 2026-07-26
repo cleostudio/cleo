@@ -42,6 +42,11 @@ export const publicPageMetadata = {
     description:
       'A static sky atlas plate with hotspots into Space field guides — nebulae, galaxies, and the Moon.',
   },
+  compare: {
+    title: 'Compare',
+    description:
+      'Side-by-side fact plates for two countries or two planets — shareable pairs from the field guides.',
+  },
   cleo: {
     title: 'Cleo',
     description:

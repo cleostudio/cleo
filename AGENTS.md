@@ -4,11 +4,12 @@ This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
 portal starting with countries, space, and oceans. The homepage is a neutral
 portal (country search, highlighted places, topic discovery). Explore field
 guides live at `/explore/[slug]`, Space guides at `/space/[slug]`, Oceans guides
-at `/oceans/[slug]`, the Sky atlas at `/sky`, the place Gallery at `/gallery`,
-Topics at `/topics`, Writing at `/blog` (future encyclopedia-like layer), and
-the AI agent at `/cleo`. `/photos` permanently redirects to `/gallery`;
-`/projects` permanently redirects to `/topics`. Projects UI, vinyl/bookshelf,
-and social card components remain in the repo for later reuse.
+at `/oceans/[slug]`, the Sky atlas at `/sky`, Compare at `/compare`, the place
+Gallery at `/gallery`, Topics at `/topics`, Writing at `/blog` (future
+encyclopedia-like layer), and the AI agent at `/cleo`. `/photos` permanently
+redirects to `/gallery`; `/projects` permanently redirects to `/topics`.
+Projects UI, vinyl/bookshelf, and social card components remain in the repo for
+later reuse.
 
 Country guide records live in `content/atlas.json` (one entry per Explore slug).
 Orientation prose is curated, not generated at build time. It lives in
@@ -40,7 +41,9 @@ and `content/ocean-photos.json`; validate with `pnpm validate:oceans`.
 
 The Gallery at `/gallery` shows Explore place photos, Space body photos, and
 Oceans water photos. The Topics catalog in `lib/topics.ts` lists Countries,
-Space (with a Sky atlas secondary link), and Oceans.
+Space (with a Sky atlas secondary link), and Oceans. Compare
+(`lib/compare.ts`, `/compare?a=&b=`) pairs two countries or two planets from
+existing fact plates — no new corpus.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

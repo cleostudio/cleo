@@ -48,6 +48,7 @@ describe('discovery routes', () => {
       '/space',
       '/sky',
       '/oceans',
+      '/compare',
       '/cleo',
       ...countrySlugs().map((slug) => `/explore/${slug}`),
       ...spaceSubjectSlugs().map((slug) => `/space/${slug}`),

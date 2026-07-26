@@ -86,4 +86,20 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     ).toHaveCount(0)
     await expect(page.getByText('Japan is a good place to start.')).toBeVisible()
   })
+
+  test('Compare plate shows Japan and France capitals', async ({ page }) => {
+    await prepareBrowserPage(page)
+    const browserErrors = watchBrowserErrors(page)
+
+    await expectHealthyPublicDocument(
+      page,
+      '/compare?a=explore:japan&b=explore:france',
+    )
+    await expect(page.getByRole('heading', { name: /Japan.*France/i })).toBeVisible()
+    await expect(page.getByText('Capital')).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Japan' }).first()).toBeVisible()
+    await expect(page.getByRole('link', { name: 'France' }).first()).toBeVisible()
+
+    expect(browserErrors).toEqual([])
+  })
 })
