@@ -1,80 +1,52 @@
 ---
 title: Country field guides
 description: >-
-  Explore pages are passport-style primers — orientation, facts, and curated
-  place photos for every country in the atlas.
+  Explore pages are passport-style primers — orientation, steady facts, and
+  curated place photographs for every country in the atlas.
 publishedAt: '2026-07-24T14:00:00.000Z'
-cover: ./cover.png
+cover: ./cover.jpg
 coverWidth: 1200
 coverHeight: 675
 ---
-Each Explore guide is a field notebook for one country: enough orientation to
-stand on solid ground, then curated photographs of real places. The pages are
-English-only, evergreen, and meant to be bookmarked — not regenerated when you
-refresh.
+An Explore page is a field notebook for one country: enough orientation to stand
+somewhere, then photographs of places that actually belong there.
 
-We reach for a passport metaphor on purpose. Labels, hairline rules, and a
-warm paper layout signal that you opened a guide, not a news CMS. The job is
-orientation first; headlines can wait elsewhere.
-
-![](./image-1.jpg#1280x853 "A curated place photograph from the Japan guide")
+![](./image-1.jpg#1280x853 "New Zealand, from the Explore atlas")
 
 ## Format
 
-Open any country at `/explore/[slug]`. The layout borrows passport labels and
-hairline rules on purpose. You should feel like you opened a warm paper guide,
-not a CMS article.
+Open any country at `/explore/[slug]`. Warm paper, passport labels, and hairline
+rules are intentional. You should feel a guide in hand, not a CMS article.
 
-What you get on a typical page:
+A typical page gives you:
 
-- A short orientation that sets place, climate, and character
-- Stable facts that do not chase daily headlines
-- A contact-print style photo sequence you can zoom
+- A short orientation — place, climate, character
+- Facts chosen to age slowly
+- A contact-print sequence you can zoom
 
-Orientation prose is curated in a maintained corpus, written once and checked
-for length, recycled phrasing, and claims that go stale quickly. No sentence
-may appear in two countries. The site never calls a model to render an Explore
-page. That is the line between guides and conversation: the guide stays put;
-[Cleo](/cleo) handles the live questions.
-
-Facts stay conservative on purpose. Population figures and political weather
-change; the field guide prefers character you can still trust next season. If
-you need a fresher answer, the agent can search. If you need the durable
-primer, the page you bookmarked is still the page.
+Orientation is curated in a maintained corpus. Drafts are checked so no sentence
+appears in two countries, and claims that spoil in weeks stay out. The site
+never asks a model to render Explore. Freshness belongs to [Cleo](/cleo); the
+guide stays put.
 
 ## Atlas
 
-Country records live in the site atlas. Photos are chosen for relevance first —
-landmarks and landscapes that actually belong to the place — then imported as
-local JPEG renditions. The page never fetches a third-party image host at
-runtime.
+Country records live in the site atlas. Photographs are chosen for relevance
+first, then imported as local JPEGs under `/images/atlas/`. Pages do not fetch a
+third-party image host at runtime. [Gallery](/gallery) reuses the same frames
+beside Space photographs, so looking and reading stay one portal.
 
-The pipeline is deliberate: assemble the manifest, curate Wikimedia Commons
-candidates with relevance first, import optimized JPEGs under
-`/images/atlas/{slug}/`, then validate before deploy. Originals remain off the
-public tree. The browser picks a width from `srcset`. [Gallery](/gallery)
-reuses those same place frames beside Space photographs, so looking and
-reading stay on one site.
-
-Try a few starting points: [Japan](/explore/japan), [Iceland](/explore/iceland),
-or [Kenya](/explore/kenya). Or search from the [homepage](/).
-
-From [Topics](/topics) the Countries door opens the same atlas. Former
-`/projects` URLs redirect there; Explore remains the reading surface for each
-slug.
+Start with [Japan](/explore/japan), [Iceland](/explore/iceland), or
+[Kenya](/explore/kenya) — or search from the [homepage](/). From
+[Topics](/topics), the Countries door opens the same shelf.
 
 ## Companion
 
-When a guide answers the first questions and you still want more, ask
-[Cleo](/cleo). The agent knows the Explore catalog and can deep-link the right
-guide instead of inventing a path.
+When the primer answers the first questions and you still want more, ask
+[Cleo](/cleo). The agent knows the Explore catalog and should deep-link a real
+path instead of inventing one. Matching turns can show a curated atlas
+photograph inline.
 
-A natural loop is read, look, ask: finish the orientation, zoom a contact
-print, wander Gallery if you want neighbors, then bring a comparison to the
-agent — Japan beside Iceland, or a Kenya landscape beside a question the fact
-plate does not cover. Matching turns may embed a curated atlas JPEG inline as
-Markdown. The bytes were already on the site; the agent is only pointing at
-them.
-
-Explore is the country half of Cleo’s first chapter. Space is the other shelf.
-Together they are enough to start — and steady enough to grow from.
+Read, look, ask: finish the orientation, zoom a print, then bring a comparison
+to the agent. Explore is the country half of Cleo’s first chapter. Space is the
+other shelf.
