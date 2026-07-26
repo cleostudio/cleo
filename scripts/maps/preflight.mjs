@@ -81,6 +81,26 @@ async function main() {
     )
   }
 
+  // Natural Earth 50m omits these Explore microstates; prepare:maps injects
+  // clickable marker polygons so deep links and search stay complete.
+  const microstates = ['MC', 'MV', 'NR', 'TV', 'VA']
+  const featureCodes = new Set(
+    countries.features.map((feature) => feature.properties?.code),
+  )
+  const indexCodes = new Set(index.countries.map((entry) => entry.code))
+  for (const code of microstates) {
+    if (!featureCodes.has(code)) {
+      throw new Error(`Missing microstate border marker for ${code}`)
+    }
+    if (!indexCodes.has(code)) {
+      throw new Error(`Missing microstate camera index for ${code}`)
+    }
+    const entry = index.countries.find((item) => item.code === code)
+    if (!entry?.slug) {
+      throw new Error(`Microstate ${code} should map to an Explore slug`)
+    }
+  }
+
   const maxZoom = attribution.tiles?.maxZoom ?? 0
   for (let z = 0; z <= maxZoom; z++) {
     const n = 2 ** z

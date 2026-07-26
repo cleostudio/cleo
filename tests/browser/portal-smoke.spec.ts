@@ -70,6 +70,14 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       timeout: 20_000,
     })
 
+    await page.goto('/maps?country=not-a-real-country')
+    await expect(
+      page.getByText(/No country matched .*not-a-real-country/i),
+    ).toBeAttached({ timeout: 20_000 })
+    await expect(
+      page.getByRole('application', { name: 'Interactive map of Earth' }),
+    ).toBeVisible()
+
     await page.goto('/space/earth')
     await expect(
       page.getByRole('link', { name: 'Open the Earth map →' }),

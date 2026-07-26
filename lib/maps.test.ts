@@ -1,4 +1,6 @@
-import { describe, expect, it } from 'vitest'
+/** @vitest-environment jsdom */
+
+import { afterEach, describe, expect, it } from 'vitest'
 
 import {
   exploreRegionHref,
@@ -15,6 +17,7 @@ import {
   parseMapCountryParam,
   parseMapRegionParam,
   resolveMapCountry,
+  syncMapFocusSearchParams,
   type MapCountryIndexEntry,
   type MapRegionCamera,
 } from './maps'
@@ -111,4 +114,24 @@ describe('maps helpers', () => {
     expect(mapAttribution.basemap.name).toContain('Blue Marble')
     expect(mapAttribution.boundaries.name).toContain('Natural Earth')
   })
+
+  it('keeps country and region query params mutually exclusive', () => {
+    window.history.replaceState({}, '', '/maps?country=japan&region=asia#globe')
+
+    syncMapFocusSearchParams({ kind: 'region', value: 'Europe' })
+    expect(window.location.pathname).toBe('/maps')
+    expect(window.location.search).toBe('?region=europe')
+    expect(window.location.hash).toBe('#globe')
+
+    syncMapFocusSearchParams({ kind: 'country', value: 'JP' })
+    expect(window.location.search).toBe('?country=jp')
+
+    syncMapFocusSearchParams(null)
+    expect(window.location.search).toBe('')
+    expect(window.location.hash).toBe('#globe')
+  })
+})
+
+afterEach(() => {
+  window.history.replaceState({}, '', '/')
 })

@@ -126,6 +126,8 @@ explicit product decision.
 
 - Code: `pnpm typecheck` (and `pnpm build` when changing routes/config).
 - Country media: `pnpm validate:atlas` before deploying image or manifest changes.
+- Space media: `pnpm validate:space` before deploying Space photo changes.
+- Maps media: `pnpm validate:maps` before deploying tiles, borders, or index changes.
 - Site: relevant unit tests via `pnpm test:unit` / `pnpm test:security`.
 - Cleo: multi-turn chat, reasoning activity, web search, image attach/vision,
   image generation, streaming, cancellation, and relevant errors.

@@ -13,6 +13,23 @@ manual fixes in `atlas-photo-overrides.json`) and imported locally with
 `public/images/atlas/{slug}/`. Keep on-page photographer credit, license, and
 source link (typically CC BY / CC BY-SA / public domain).
 
+## Maps basemap and borders
+
+Interactive Earth map at `/maps` serves first-party assets only (CSP-safe; no
+tile CDN):
+
+| Asset | Source | Local path | License |
+| --- | --- | --- | --- |
+| Blue Marble basemap tiles | NASA Earth Observatory Blue Marble Next Generation, reprojected to Web Mercator JPEG tiles (`pnpm prepare:maps`) | `public/images/maps/tiles/{z}/{x}/{y}.jpg` (z0–z4) | Public domain (U.S. government work) |
+| Country borders | Natural Earth Admin 0 Countries (1:50m), simplified + keyed by ISO A2 | `public/maps/countries.geojson` | Public domain |
+| Camera index | Derived from borders + Explore metadata in `lib/countries.ts` | `public/maps/country-index.json` | Derived |
+| MapLibre workers | Vendored from `maplibre-gl` dist for Turbopack/CSP | `public/maplibre/` | MapLibre license |
+
+Attribution details live in `content/maps/attribution.json`. A few Explore
+microstates omitted by Natural Earth 50m (Monaco, Maldives, Nauru, Tuvalu,
+Vatican City) are injected as small clickable marker polygons during
+`pnpm prepare:maps`. Validate with `pnpm validate:maps`.
+
 ## Space photographs
 
 One curated NASA image per Space guide. Import-time only via

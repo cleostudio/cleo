@@ -65,6 +65,8 @@ labels, hairline rules, zoomable contact-print hero).
 pnpm install
 cp .env.example .env.local   # set OPENAI_API_KEY
 pnpm validate:atlas
+pnpm validate:space
+pnpm validate:maps
 pnpm dev
 pnpm typecheck && pnpm build
 ```
