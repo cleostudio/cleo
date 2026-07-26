@@ -17,6 +17,9 @@ auth, database, media library, AMA booking, or analytics stack.
   OSV.
 - [x] Application security tests cover CSP and headers and related
   same-origin / route-limit controls under `lib/security`.
+- [x] `POST /api/responses` is screened by `lib/security/api-guard.ts` for
+  origin, body size, per-client throttling, and stream concurrency, with the
+  route's validation and error mapping covered by tests.
 - [ ] Re-run a full-history gitleaks scan before the next public release and
   keep `.gitleaksignore` fingerprints current.
 
@@ -58,3 +61,13 @@ Hosted settings (verify in the GitHub UI; not encoded in this repo):
   production secrets.
 - [ ] Confirm log access, retention, and that no unexpected drains or
   third-party analytics integrations were reintroduced.
+- [ ] Add a WAF rate limit on `/api/responses`. The in-process guard cannot see
+  a caller who rotates addresses across instances; only an edge rule counts
+  requests before they reach a function.
+
+## OpenAI
+
+- [ ] Set a hard monthly spend cap and a usage alert on the project that issues
+  `OPENAI_API_KEY`. This is the last backstop if the endpoint is abused faster
+  than the guard and the WAF can absorb.
+- [ ] Scope the key to the Responses API and rotate it on suspected exposure.

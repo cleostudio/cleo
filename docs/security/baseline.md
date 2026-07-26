@@ -26,6 +26,41 @@ Upstash, or Vercel Analytics without an explicit product decision.
 - Rotate on suspected exposure and remove old credentials after a verified
   cutover.
 
+## Public endpoint abuse and cost controls
+
+`POST /api/responses` is the one route where an anonymous caller can spend
+money. It is unauthenticated by design, and every accepted call bills OpenAI for
+a reasoning model with web search, image generation, and a 16,384-token output
+ceiling. Because the repository is public, the absence of a limit is
+discoverable rather than obscure.
+
+`lib/security/api-guard.ts` screens each request before the body is read:
+
+| Control | Response | Bounds |
+| --- | --- | --- |
+| Origin, from `Sec-Fetch-Site` with `Origin` as fallback | 403 | Requests a browser on this deployment could not have made |
+| Declared body size | 413 | Payloads too large to be a real conversation |
+| Per-client throttle, burst and hourly | 429 with `Retry-After` | Sustained spend from one caller |
+| Simultaneous upstream streams | 503 with `Retry-After` | Peak spend rate per instance |
+
+Whole-conversation image count and decoded bytes are capped in
+`app/api/responses/route.ts`, because per-message limits alone allow a
+50-message conversation to carry hundreds of megabytes of billed vision input.
+
+Counters live in the running serverless instance. That is a deliberate
+trade-off: hosted rate limiting can only be configured in a dashboard, and a
+control that is not committed here cannot be reviewed or verified from the
+repository. Warm instance reuse means sustained abuse from one caller still
+converges on the limit, and the concurrency gate bounds spend per instance
+regardless of how keys are rotated. A caller who rotates addresses across many
+instances is the residual gap; close it with a hosted WAF rate limit and an
+OpenAI spend cap, and track both in [verification.md](./verification.md).
+
+Limits are read from the environment at runtime — `CLEO_RATE_LIMIT_BURST`,
+`CLEO_RATE_LIMIT_BURST_WINDOW_SECONDS`, `CLEO_RATE_LIMIT_HOURLY`, and
+`CLEO_MAX_CONCURRENT_STREAMS` — so they can be tightened during an incident
+without a deploy.
+
 ## Logging
 
 Application logs must not contain API tokens, authorization headers, full
