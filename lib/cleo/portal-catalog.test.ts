@@ -18,6 +18,8 @@ describe('portal catalog instructions', () => {
     expect(block).toContain('[Maps](/maps)')
     expect(block).toContain('/maps?c={slug}')
     expect(block).toContain('[Japan on Maps](/maps?c=japan)')
+    expect(block).toContain('<cleo_topic_photos>')
+    expect(block).toContain('curated photograph as a Markdown image')
     expect(block).not.toContain('/explore/not-a-real-country')
   })
 

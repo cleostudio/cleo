@@ -5,7 +5,10 @@ import Link from "next/link"
 import { code } from "@streamdown/code"
 import { Streamdown } from "streamdown"
 
-import { presentPortalGuideMarkdown } from "~/lib/cleo/portal-links"
+import {
+  isCuratedTopicImageSrc,
+  presentPortalGuideMarkdown,
+} from "~/lib/cleo/portal-links"
 import { cn } from "~/lib/utils"
 
 type MarkdownProps = {
@@ -15,6 +18,10 @@ type MarkdownProps = {
 }
 
 type MarkdownAnchorProps = ComponentProps<"a"> & {
+  node?: unknown
+}
+
+type MarkdownImageProps = ComponentProps<"img"> & {
   node?: unknown
 }
 
@@ -53,6 +60,30 @@ function MarkdownLink({
   )
 }
 
+function MarkdownImage({
+  src,
+  alt,
+  className,
+  node: _node,
+  ...props
+}: MarkdownImageProps) {
+  if (typeof src !== "string" || !isCuratedTopicImageSrc(src)) {
+    return null
+  }
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element -- curated static atlas/space JPEGs
+    <img
+      {...props}
+      alt={alt ?? ""}
+      className={cn("cleo-topic-photo", className)}
+      data-streamdown="image"
+      loading="lazy"
+      src={src}
+    />
+  )
+}
+
 export function Markdown({
   children,
   className,
@@ -64,7 +95,7 @@ export function Markdown({
     <Streamdown
       caret={isAnimating ? "block" : undefined}
       className={cn("ai-response space-y-0", className)}
-      components={{ a: MarkdownLink }}
+      components={{ a: MarkdownLink, img: MarkdownImage }}
       isAnimating={isAnimating}
       // Same-site Explore/Space paths should navigate in-tab; keep external
       // citations as ordinary new-tab anchors instead of Streamdown's modal.

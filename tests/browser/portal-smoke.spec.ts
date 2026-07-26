@@ -154,21 +154,54 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     ).toBeVisible({ timeout: 20_000 })
   })
 
-  test('Cleo empty state starters fill the prompt', async ({ page }) => {
+  test('Cleo empty state starters send the prompt', async ({ page }) => {
     await prepareBrowserPage(page)
+    await page.route('**/api/responses', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/x-ndjson; charset=utf-8',
+        body:
+          `${JSON.stringify({ type: 'text', delta: 'Japan is a good place to start.' })}\n`,
+      })
+    })
     await page.goto('/cleo')
 
     await expect(
       page.getByRole('button', { name: 'Orient me to Japan' }),
     ).toBeVisible()
+    // Maps starter is present on the empty state (main sends starters; it does
+    // not only fill the prompt).
+    await expect(
+      page.getByRole('button', { name: 'Where is Japan?' }),
+    ).toBeVisible()
     await page.getByRole('button', { name: 'Orient me to Japan' }).click()
-    await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue(
-      /orientation to Japan.*Deep-link its field guide/i,
-    )
+
+    await expect(
+      page.getByText(/orientation to Japan.*Deep-link its field guide/i),
+    ).toBeVisible()
+    await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue('')
+    await expect(
+      page.getByRole('button', { name: 'Orient me to Japan' }),
+    ).toHaveCount(0)
+    await expect(page.getByText('Japan is a good place to start.')).toBeVisible()
+  })
+
+  test('Cleo Maps starter sends a Maps deep-link prompt', async ({ page }) => {
+    await prepareBrowserPage(page)
+    await page.route('**/api/responses', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/x-ndjson; charset=utf-8',
+        body: `${JSON.stringify({ type: 'text', delta: 'Japan is east of Korea.' })}\n`,
+      })
+    })
+    await page.goto('/cleo')
 
     await page.getByRole('button', { name: 'Where is Japan?' }).click()
-    await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue(
-      /Where is Japan on Earth.*\/maps\?c=japan/i,
-    )
+    await expect(
+      page.getByText(/Where is Japan on Earth.*\/maps\?c=japan/i),
+    ).toBeVisible()
+    await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue('')
+    await expect(page.getByText('Japan is east of Korea.')).toBeVisible()
   })
 })

@@ -1,43 +1,12 @@
 import Link from 'next/link'
 
+import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PlaceGalleryToolbar } from '~/components/place-gallery-toolbar'
 import { ZoomImage } from '~/components/zoom-image'
 import type { GalleryItem } from '~/lib/gallery'
 import { staticRendition } from '~/lib/static-photo'
 
 const LOADING_ASPECT_RATIOS = ['4 / 3', '3 / 4', '1 / 1', '3 / 4', '4 / 3', '1 / 1']
-
-/**
- * Capture data for the lightbox. The overlay is view-only
- * (`.zoom-overlay-details` is `pointer-events: none`), so the plate reads and
- * the caption beneath the tile carries the route into the field guide.
- */
-function GalleryPhotoDetails({ entry }: { entry: GalleryItem }) {
-  const isSpace = entry.collection === 'space'
-  const fields = [
-    { label: isSpace ? 'Feature' : 'Place', value: entry.title },
-    { label: isSpace ? 'Subject' : 'Country', value: entry.subtitle },
-    { label: 'Photograph', value: entry.photo.photographer },
-    { label: 'License', value: entry.photo.license },
-  ]
-
-  return (
-    <div className="mx-auto w-full max-w-content px-6 text-foreground">
-      <dl className="spec-plate spec-plate-flow zoom-detail-frame">
-        {fields.map((field, index) => (
-          <div
-            className="zoom-detail-item"
-            key={field.label}
-            style={{ '--detail-index': index } as React.CSSProperties}
-          >
-            <dt>{field.label}</dt>
-            <dd>{field.value}</dd>
-          </div>
-        ))}
-      </dl>
-    </div>
-  )
-}
 
 export function PlaceGallery({
   entries,
@@ -71,7 +40,15 @@ export function PlaceGallery({
                   src: rendition.src,
                   width: rendition.width,
                 }))}
-                expandedContent={<GalleryPhotoDetails entry={entry} />}
+                expandedContent={
+                  <PhotoZoomDetails
+                    collection={entry.collection}
+                    title={entry.title}
+                    subtitle={entry.subtitle}
+                    photographer={entry.photo.photographer}
+                    license={entry.photo.license}
+                  />
+                }
               />
               <span className="calibration-corners" aria-hidden />
             </div>

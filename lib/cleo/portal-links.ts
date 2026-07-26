@@ -1,5 +1,5 @@
 /**
- * Client-safe helpers for Cleo ↔ portal guide deep links.
+ * Client-safe helpers for Cleo ↔ portal guide deep links and topic photos.
  * Kept free of heavy catalog imports so the ask-form bundle stays light.
  */
 
@@ -12,6 +12,31 @@ export type PortalGuideLink = {
 
 function portalLinkPattern() {
   return /\[([^\]]*)\]\((\/explore\/([a-z0-9-]+)|\/space\/([a-z0-9-]+)|\/maps\?c=([a-z0-9-]+))\)/gi
+}
+
+/** Curated static JPEGs under the site image roots. */
+const CURATED_TOPIC_IMAGE_SRC =
+  /^\/images\/(atlas|space)\/[a-z0-9-]+\/w(640|1280|2048)\.jpg$/
+
+const MARKDOWN_IMAGE =
+  /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
+
+/** True when Markdown image src is a same-site curated atlas/space JPEG. */
+export function isCuratedTopicImageSrc(src: string): boolean {
+  return CURATED_TOPIC_IMAGE_SRC.test(src)
+}
+
+/**
+ * Keep curated topic photographs; drop other Markdown images so the model
+ * cannot inject arbitrary remote or data-URL images via text.
+ */
+export function presentTopicPhotoMarkdown(markdown: string): string {
+  return markdown.replace(MARKDOWN_IMAGE, (full, alt: string, src: string) => {
+    if (!isCuratedTopicImageSrc(src)) {
+      return alt.trim() || ''
+    }
+    return `![${alt}](${src})`
+  })
 }
 
 function titleFromSlug(slug: string) {
@@ -184,7 +209,7 @@ export function presentPortalGuideMarkdown(markdown: string): string {
       },
     )
 
-  const blocks = markdown.split(/\n{2,}/)
+  const blocks = presentTopicPhotoMarkdown(markdown).split(/\n{2,}/)
   const kept: string[] = []
 
   for (const block of blocks) {
