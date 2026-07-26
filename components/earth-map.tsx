@@ -121,11 +121,21 @@ function addCountryLayers(map: MapLibreMap) {
   })
 }
 
+function mapMotionMs(preferred: number) {
+  if (
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
+    return 0
+  }
+  return preferred
+}
+
 function fitCountry(map: MapLibreMap, entry: MapCountryIndexEntry) {
   map.fitBounds(entry.bounds, {
     padding: { top: 72, bottom: 110, left: 48, right: 48 },
     maxZoom: Math.min(entry.maxZoom, MAP_MAX_ZOOM + 1.25),
-    duration: 800,
+    duration: mapMotionMs(800),
   })
 }
 
@@ -154,6 +164,9 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const [regions, setRegions] = useState<MapRegionCamera[]>([])
   const [activeRegion, setActiveRegion] = useState<string | null>(null)
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle')
+  const [loadState, setLoadState] = useState<'loading' | 'ready' | 'degraded'>(
+    'loading',
+  )
 
   useEffect(() => {
     const container = containerRef.current
@@ -238,12 +251,14 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     }
 
     let markedReady = false
+    let indexFailed = false
     const markReady = ({ requireIndex = true }: { requireIndex?: boolean } = {}) => {
       if (markedReady) return
       if (requireIndex && !indexReadyRef.current) return
       markedReady = true
       onMove()
       setReady(true)
+      setLoadState(indexFailed ? 'degraded' : 'ready')
     }
 
     let countryHandlersBound = false
@@ -297,11 +312,15 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       try {
         ensureCountryLayers()
         const indexResponse = await fetch(MAP_COUNTRY_INDEX_URL)
+        if (!indexResponse.ok) {
+          throw new Error(`Index HTTP ${indexResponse.status}`)
+        }
         const index = (await indexResponse.json()) as MapCountryIndex
         indexRef.current = index.countries
         regionsRef.current = index.regions ?? []
         setRegions(regionsRef.current)
       } catch {
+        indexFailed = true
         indexRef.current = []
         regionsRef.current = []
         setRegions([])
@@ -440,7 +459,11 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     activeRegionRef.current = null
     setCopyState('idle')
     syncMapFocusSearchParams(null)
-    map.easeTo({ center: [10, 20], zoom: 1.2, duration: 600 })
+    map.easeTo({
+      center: [10, 20],
+      zoom: 1.2,
+      duration: mapMotionMs(600),
+    })
   }
 
   function flyToRegion(
@@ -469,7 +492,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     map.fitBounds(region.bounds, {
       padding: { top: 72, bottom: 96, left: 40, right: 40 },
       maxZoom: region.maxZoom,
-      duration: 800,
+      duration: mapMotionMs(800),
     })
   }
 
@@ -502,6 +525,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
           <input
             id={`${reactId}-map-search`}
             type="search"
+            role="combobox"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             onKeyDown={(event) => {
@@ -525,12 +549,17 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                 setSuggestions([])
               }
             }}
-            placeholder="Find a country"
+            placeholder={ready ? 'Find a country' : 'Loading map…'}
             autoComplete="off"
             spellCheck={false}
             aria-controls={searchListId}
             aria-expanded={suggestions.length > 0}
             aria-autocomplete="list"
+            aria-activedescendant={
+              suggestions[activeSuggestion]
+                ? `${reactId}-option-${suggestions[activeSuggestion]!.code}`
+                : undefined
+            }
             disabled={!ready}
           />
           {suggestions.length > 0 ? (
@@ -538,6 +567,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
               {suggestions.map((entry, index) => (
                 <li key={entry.code}>
                   <button
+                    id={`${reactId}-option-${entry.code}`}
                     type="button"
                     role="option"
                     aria-selected={index === activeSuggestion}
@@ -565,6 +595,25 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
           </button>
         </div>
       </div>
+
+      {loadState !== 'ready' ? (
+        <p
+          className="earth-map-status"
+          data-tone={loadState === 'degraded' ? 'warn' : undefined}
+          aria-live="polite"
+        >
+          {loadState === 'loading'
+            ? 'Loading Blue Marble basemap and country borders…'
+            : 'Basemap ready — country search is unavailable right now.'}
+        </p>
+      ) : null}
+      <p className="sr-only" aria-live="polite">
+        {copyState === 'copied'
+          ? 'Link copied to clipboard'
+          : copyState === 'failed'
+            ? 'Could not copy link'
+            : ''}
+      </p>
 
       {regions.length > 0 ? (
         <div className="earth-map-regions" role="group" aria-label="Jump to region">

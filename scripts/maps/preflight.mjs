@@ -40,6 +40,26 @@ async function main() {
   if (!Array.isArray(index.regions) || index.regions.length < 5) {
     throw new Error(`Expected 5 region cameras, got ${index.regions?.length}`)
   }
+  for (const region of index.regions) {
+    const [[west, south], [east, north]] = region.bounds
+    const spanX = east - west
+    if (!(spanX > 0) || spanX > 200) {
+      throw new Error(
+        `Region ${region.id} has implausible longitude span ${spanX.toFixed(1)}°`,
+      )
+    }
+    if (!(north > south)) {
+      throw new Error(`Region ${region.id} has inverted latitude bounds`)
+    }
+  }
+  const oceania = index.regions.find((region) => region.id === 'oceania')
+  if (!oceania || oceania.bounds[1][0] - oceania.bounds[0][0] > 140) {
+    throw new Error('Oceania region camera still looks antimeridian-broken')
+  }
+  const europe = index.regions.find((region) => region.id === 'europe')
+  if (!europe || europe.bounds[0][0] < -26 || europe.bounds[0][1] < 33) {
+    throw new Error('Europe region camera still pulled by Atlantic overseas scraps')
+  }
 
   const exploreCodes = new Set(
     [...(await readFile(path.join(root, 'lib/countries.ts'), 'utf8')).matchAll(/"code":\s*"([A-Z]{2})"/g)].map(

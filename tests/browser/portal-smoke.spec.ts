@@ -72,6 +72,11 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       page.getByRole('link', { name: 'Open the Earth map →' }),
     ).toBeVisible()
 
+    await page.goto('/explore')
+    await expect(
+      page.locator('a[href="/maps?region=oceania"]').first(),
+    ).toBeVisible()
+
     expect(browserErrors).toEqual([])
   })
 

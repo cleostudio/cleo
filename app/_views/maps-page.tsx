@@ -40,7 +40,14 @@ export function MapsPageView() {
         className="enter mt-6"
         style={{ '--enter-delay': '120ms' } as React.CSSProperties}
       >
-        <Suspense fallback={<div className="earth-map-canvas" aria-hidden />}>
+        <Suspense
+          fallback={
+            <div className="earth-map" aria-busy="true">
+              <p className="earth-map-status">Loading map…</p>
+              <div className="earth-map-canvas" aria-hidden />
+            </div>
+          }
+        >
           <EarthMap countryPhotos={countryPhotos} />
         </Suspense>
       </div>

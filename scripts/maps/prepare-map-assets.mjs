@@ -332,19 +332,33 @@ async function loadCountryMetaByCode() {
   return map
 }
 
-function regionCamera(entries) {
+/**
+ * Union country cameras into a region frame. Pass `refLng` when members mix
+ * antimeridian unwraps (Oceania); corners are re-unwrapped against that meridian
+ * so west/east don't span a full globe.
+ */
+function regionCamera(entries, { refLng = null, clamp = null } = {}) {
   let minX = Infinity
   let minY = Infinity
   let maxX = -Infinity
   let maxY = -Infinity
   for (const entry of entries) {
     const [[west, south], [east, north]] = entry.bounds
-    minX = Math.min(minX, west)
+    const left = refLng == null ? west : unwrapLng(west, refLng)
+    const right = refLng == null ? east : unwrapLng(east, refLng)
+    minX = Math.min(minX, left, right)
     minY = Math.min(minY, south)
-    maxX = Math.max(maxX, east)
+    maxX = Math.max(maxX, left, right)
     maxY = Math.max(maxY, north)
   }
   if (!Number.isFinite(minX)) return null
+  if (clamp) {
+    if (clamp.west != null) minX = Math.max(minX, clamp.west)
+    if (clamp.south != null) minY = Math.max(minY, clamp.south)
+    if (clamp.east != null) maxX = Math.min(maxX, clamp.east)
+    if (clamp.north != null) maxY = Math.min(maxY, clamp.north)
+  }
+  if (maxX <= minX || maxY <= minY) return null
   const span = Math.max(maxX - minX, maxY - minY, 1)
   const maxZoom = Math.max(1.2, Math.min(3.4, Math.log2(360 / span) + 0.35))
   return {
@@ -386,7 +400,17 @@ async function writeCountryIndex(collection, outPath) {
     // in the tally, frame the denser European landmass without it.
     const cameraMembers =
       label === 'Europe' ? members.filter((entry) => entry.code !== 'RU') : members
-    const camera = regionCamera(cameraMembers)
+    const cameraOptions =
+      label === 'Oceania'
+        ? { refLng: 170 }
+        : label === 'Europe'
+          ? {
+              // Keep Iceland (~-24.5°) and the Mediterranean; drop Azores /
+              // Canaries overseas scraps that pull the plate into the Atlantic.
+              clamp: { west: -25, south: 34 },
+            }
+          : {}
+    const camera = regionCamera(cameraMembers, cameraOptions)
     if (!camera) continue
     regions.push({
       id: label.toLowerCase(),

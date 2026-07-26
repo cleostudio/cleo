@@ -167,7 +167,17 @@
   overflow: hidden;
   border: var(--border-hairline) solid var(--border);
   border-radius: var(--radius);
-  background: color-mix(in oklab, var(--muted) 35%, var(--gray-12));
+  background: color-mix(in oklab, var(--muted) 42%, var(--foreground));
+}
+
+.earth-map-status {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.earth-map-status[data-tone='warn'] {
+  color: var(--destructive);
 }
 
 .earth-map-canvas .maplibregl-canvas {

@@ -83,6 +83,7 @@ describe('maps helpers', () => {
     expect(mapCountryHref('japan')).toBe('/maps?country=japan')
     expect(mapCountryHref('JP')).toBe('/maps?country=jp')
     expect(mapRegionHref('Asia')).toBe('/maps?region=asia')
+    expect(mapRegionHref('Oceania')).toBe('/maps?region=oceania')
     expect(mapRegionHref('not-a-region')).toBe('/maps')
     expect(parseMapCountryParam('japan')).toEqual({ kind: 'slug', value: 'japan' })
     expect(parseMapCountryParam('jp')).toEqual({ kind: 'code', value: 'JP' })
