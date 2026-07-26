@@ -234,10 +234,10 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
     )
     await page.goto(`/cleo?ask=${ask}`)
+    await expect(page).toHaveURL(/[?&]ask=/)
     await expect(
       page.getByText(/orientation to Japan.*Deep-link its field guide/i),
     ).toBeVisible()
-    await expect(page).not.toHaveURL(/[?&]ask=/)
     await expect(page.getByText('Japan is an archipelago.')).toBeVisible()
   })
 
@@ -257,11 +257,10 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       timeout: 20_000,
     })
     await page.getByRole('link', { name: 'Ask Cleo' }).click()
-    await expect(page).toHaveURL(/\/cleo/)
+    await expect(page).toHaveURL(/\/cleo\?ask=/)
     await expect(
       page.getByText(/orientation to Japan.*Deep-link its field guide/i),
     ).toBeVisible({ timeout: 15_000 })
-    await expect(page).not.toHaveURL(/[?&]ask=/)
     await expect(page.getByText('Japan is an archipelago.')).toBeVisible()
   })
 })

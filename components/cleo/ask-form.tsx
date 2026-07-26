@@ -440,14 +440,8 @@ export function AskForm({
     const seed = initialAsk?.trim()
     if (!seed || didSeedAskRef.current) return
     didSeedAskRef.current = true
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href)
-      if (url.searchParams.has('ask')) {
-        url.searchParams.delete('ask')
-        const next = `${url.pathname}${url.search}${url.hash}`
-        window.history.replaceState(null, '', next)
-      }
-    }
+    // Keep `?ask=` in the URL — stripping it via history.replaceState can
+    // remount the App Router tree and wipe the seeded turn mid-flight.
     void handleSubmit(undefined, seed)
     // One-shot seed when `?ask=` becomes available (client nav may resolve
     // searchParams after the first paint).
