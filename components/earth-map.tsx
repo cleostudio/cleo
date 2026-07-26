@@ -644,15 +644,23 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
         </div>
       </div>
 
-      {loadState !== 'ready' ? (
+      {loadState !== 'ready' ||
+      focusAnnouncement.startsWith('No country matched') ||
+      focusAnnouncement.startsWith('No region matched') ? (
         <p
           className="earth-map-status"
-          data-tone={loadState === 'degraded' ? 'warn' : undefined}
+          data-tone={
+            loadState === 'degraded' || focusAnnouncement.startsWith('No ')
+              ? 'warn'
+              : undefined
+          }
           aria-live="polite"
         >
           {loadState === 'loading'
             ? 'Loading Blue Marble basemap and country borders…'
-            : 'Basemap ready — country search is unavailable right now.'}
+            : loadState === 'degraded'
+              ? 'Basemap ready — country search is unavailable right now.'
+              : focusAnnouncement}
         </p>
       ) : null}
       <p className="sr-only" aria-live="polite">
