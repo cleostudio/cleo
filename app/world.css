@@ -164,8 +164,9 @@ html[data-world-route] .paper-grain {
 .world-selection {
   position: absolute;
   z-index: 3;
+  top: auto;
   right: 1.1rem;
-  bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
   left: 1.1rem;
   display: flex;
   max-width: 22rem;
@@ -183,16 +184,28 @@ html[data-world-route] .paper-grain {
 
 @media (min-width: 640px) {
   .world-selection {
+    top: 1.35rem;
     right: 1.5rem;
+    bottom: auto;
     left: auto;
     width: 22rem;
+  }
+}
+
+@media (max-height: 640px) {
+  .world-selection {
+    top: 1rem;
+    right: 1rem;
+    bottom: auto;
+    left: auto;
+    width: min(22rem, calc(100% - 2rem));
   }
 }
 
 @keyframes world-selection-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
