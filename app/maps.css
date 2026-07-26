@@ -89,8 +89,17 @@ html[data-maps-route] .paper-grain {
     display: none;
   }
 
+  /* Sample HUD clears when a dossier is open; otherwise sit above the dock. */
+  .maps-page[data-has-selection='true'] .maps-sample-hud {
+    display: none;
+  }
+
   .maps-sample-hud {
-    bottom: calc(11rem + env(safe-area-inset-bottom, 0px));
+    bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .maps-page[data-has-selection='true'] .maps-credit {
+    opacity: 0;
   }
 }
 

@@ -84,6 +84,10 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(
       page.getByRole('link', { name: 'Gallery', exact: true }),
     ).toHaveAttribute('href', '/gallery?q=Japan')
+    await expect(page.getByRole('link', { name: 'Ask Cleo' })).toHaveAttribute(
+      'href',
+      /\/cleo\?ask=.*orientation%20to%20Japan/i,
+    )
     await expect(page.getByRole('link', { name: 'Tokyo' })).toHaveAttribute(
       'href',
       '/gallery?q=Tokyo',
@@ -212,5 +216,28 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     ).toBeVisible()
     await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue('')
     await expect(page.getByText('Japan is east of Korea.')).toBeVisible()
+  })
+
+  test('Maps Ask Cleo deep-link seeds and sends an orientation prompt', async ({
+    page,
+  }) => {
+    await prepareBrowserPage(page)
+    await page.route('**/api/responses', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/x-ndjson; charset=utf-8',
+        body: `${JSON.stringify({ type: 'text', delta: 'Japan is an archipelago.' })}\n`,
+      })
+    })
+
+    const ask = encodeURIComponent(
+      'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
+    )
+    await page.goto(`/cleo?ask=${ask}`)
+    await expect(
+      page.getByText(/orientation to Japan.*Deep-link its field guide/i),
+    ).toBeVisible()
+    await expect(page).not.toHaveURL(/[?&]ask=/)
+    await expect(page.getByText('Japan is an archipelago.')).toBeVisible()
   })
 })

@@ -93,11 +93,18 @@ function messageHasVisibleContent(message: Message) {
   )
 }
 
-export function AskForm() {
+export function AskForm({
+  initialAsk = null,
+}: {
+  /** One-shot prompt from `/cleo?ask=` (Maps → Cleo and similar deep-links). */
+  initialAsk?: string | null
+} = {}) {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const initialAskRef = useRef(initialAsk?.trim() || null)
+  const didSeedAskRef = useRef(false)
   const [messages, setMessages] = useState<Message[]>([])
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -429,6 +436,23 @@ export function AskForm() {
       }
     }
   }
+
+  useEffect(() => {
+    const seed = initialAskRef.current
+    if (!seed || didSeedAskRef.current) return
+    didSeedAskRef.current = true
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href)
+      if (url.searchParams.has('ask')) {
+        url.searchParams.delete('ask')
+        const next = `${url.pathname}${url.search}${url.hash}`
+        window.history.replaceState(null, '', next)
+      }
+    }
+    void handleSubmit(undefined, seed)
+    // One-shot mount seed from `/cleo?ask=` — do not re-run on later renders.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="app-column min-w-0">

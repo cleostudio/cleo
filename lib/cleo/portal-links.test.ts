@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest'
 
 import {
   CLEO_PORTAL_STARTERS,
+  cleoAskHrefForCountry,
+  cleoOrientationPrompt,
   extractPortalGuideLinks,
   isCuratedTopicImageSrc,
   presentPortalGuideMarkdown,
@@ -182,6 +184,13 @@ describe('CLEO_PORTAL_STARTERS', () => {
     expect(CLEO_PORTAL_STARTERS.length).toBeGreaterThanOrEqual(3)
     expect(CLEO_PORTAL_STARTERS.every((starter) => starter.prompt.length > 20)).toBe(
       true,
+    )
+  })
+
+  it('builds Maps → Cleo ask deep-links from the orientation prompt', () => {
+    expect(cleoOrientationPrompt('Japan')).toBe(CLEO_PORTAL_STARTERS[0]?.prompt)
+    expect(cleoAskHrefForCountry('Japan')).toBe(
+      `/cleo?ask=${encodeURIComponent(cleoOrientationPrompt('Japan'))}`,
     )
   })
 })

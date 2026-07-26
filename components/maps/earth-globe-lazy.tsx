@@ -19,12 +19,15 @@ export const EarthGlobeLazy = dynamic<EarthGlobeProps>(
   () => import('./earth-globe').then((mod) => mod.EarthGlobe),
   {
     ssr: false,
+    // Visible status lives in EarthGlobe while textures load — keep the chunk
+    // shell quiet so "Loading Earth…" does not flash twice.
     loading: () => (
-      <div className="maps-stage">
-        <p className="maps-status" role="status">
-          Loading Earth…
-        </p>
-      </div>
+      <div
+        className="maps-stage"
+        role="status"
+        aria-busy="true"
+        aria-label="Loading Earth"
+      />
     ),
   },
 )

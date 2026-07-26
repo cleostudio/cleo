@@ -51,8 +51,10 @@ export function MapsSearch({
           if (event.key === 'Escape') {
             if (query) {
               event.preventDefault()
+              event.stopPropagation()
               setQuery('')
             }
+            // Empty query: let the window handler dismiss selection / sample.
             return
           }
           if (!matches.length) return

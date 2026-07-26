@@ -230,12 +230,25 @@ export function presentPortalGuideMarkdown(markdown: string): string {
   return kept.join('\n\n')
 }
 
+/** Orientation prompt used by Maps → Cleo and the Japan empty-state starter. */
+export function cleoOrientationPrompt(countryName: string): string {
+  return `Give me a quick orientation to ${countryName}. Deep-link its field guide when you mention the country.`
+}
+
+/** Deep-link into Cleo with a one-shot `?ask=` prompt (consumed on mount). */
+export function cleoAskHref(prompt: string): string {
+  return `/cleo?ask=${encodeURIComponent(prompt)}`
+}
+
+export function cleoAskHrefForCountry(countryName: string): string {
+  return cleoAskHref(cleoOrientationPrompt(countryName))
+}
+
 /** Empty-state prompts that exercise portal grounding. */
 export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Orient me to Japan',
-    prompt:
-      'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
+    prompt: cleoOrientationPrompt('Japan'),
   },
   {
     label: 'Why is Europa interesting?',

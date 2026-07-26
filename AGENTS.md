@@ -46,9 +46,10 @@ The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
   and notable places. Land/sea clicks open a sample HUD with **Nearest**
   country. **Reset view** clears selection, region, sample, graticule, and sun
   scrub. Explore / Gallery / Space Earth link into Maps; the selection chip
-  links places/capital/photo out to `/gallery?q=…` and the guide to
-  `/explore/[slug]`.
-- Cleo may cite `/maps?c={slug}` for location questions (`lib/cleo/portal-links.ts`).
+  links places/capital/photo out to `/gallery?q=…`, the guide to
+  `/explore/[slug]`, and **Ask Cleo** to `/cleo?ask=…`.
+- Cleo may cite `/maps?c={slug}` for location questions; Maps may deep-link
+  back via `cleoAskHrefForCountry` (`lib/cleo/portal-links.ts`).
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

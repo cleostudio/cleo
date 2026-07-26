@@ -31,6 +31,7 @@ import {
   filterMapsMarkersByRegion,
   mapsRegions,
 } from '~/lib/maps/regions'
+import { cleoAskHrefForCountry } from '~/lib/cleo/portal-links'
 import { copyTextToClipboard } from '~/lib/maps/clipboard'
 import { mapsSearchDocs } from '~/lib/maps/search'
 import {
@@ -95,6 +96,14 @@ function MapsExplorerInner({
       : { h: null, d: null }
 
   const writeUrl = (canonical: MapsUrlCanonical) => {
+    if (
+      (searchParams.get('c') ?? null) === canonical.c &&
+      (searchParams.get('r') ?? null) === canonical.r &&
+      (searchParams.get('h') ?? null) === canonical.h &&
+      (searchParams.get('d') ?? null) === canonical.d
+    ) {
+      return
+    }
     const params = new URLSearchParams(searchParams.toString())
     applyMapsUrlCanonical(params, canonical)
     const query = params.toString()
@@ -122,11 +131,16 @@ function MapsExplorerInner({
     }
 
     setSunMode(resolved.sunMode)
-    setSunHour(resolved.sunHour)
-    setSunDay(resolved.sunDay)
+    // Only stamp scrubbed peers from the URL — live hour/day follow the clock.
+    if (resolved.sunMode === 'scrub') {
+      setSunHour(resolved.sunHour)
+      setSunDay(resolved.sunDay)
+    }
 
     if (!resolved.dirty) return
     writeUrl(resolved.canonical)
+    // liveNow only defaults missing sun peers when the URL is dirty.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- URL is the source of truth
   }, [querySlug, queryRegion, queryHour, queryDay, markersBySlug, regions, pathname, router, searchParams])
 
   useEffect(() => {
@@ -192,31 +206,26 @@ function MapsExplorerInner({
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== 'Escape') return
       const target = event.target
-      if (
-        target instanceof HTMLElement &&
-        (target.tagName === 'INPUT' ||
-          target.tagName === 'TEXTAREA' ||
-          target.isContentEditable)
-      ) {
-        return
+      if (target instanceof HTMLElement) {
+        // Let fields with content clear themselves first (MapsSearch clears
+        // non-empty queries). Empty inputs should still dismiss Maps chrome.
+        if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+          const value = (target as HTMLInputElement | HTMLTextAreaElement).value
+          if (value.trim()) return
+        } else if (target.isContentEditable) {
+          return
+        }
       }
       if (pickedSample && !selected) {
         clearSample()
         return
       }
-      setFocusSlug(null)
-      setSelected(null)
-      clearSample()
-      setCopyStatus('idle')
-      const params = new URLSearchParams(searchParams.toString())
-      if (!params.has('c')) return
-      params.delete('c')
-      const query = params.toString()
-      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
+      if (!selected && !pickedSample) return
+      dismissSelection()
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [pathname, router, searchParams, pickedSample, selected])
+  }, [pickedSample, selected, regionFilter, sunMode, sunHour, sunDay, pathname, router, searchParams])
 
   const applyRegion = (region: string | null) => {
     setRegionFilter(region)
@@ -603,6 +612,12 @@ function MapsExplorerInner({
               className="maps-selection-link"
             >
               Open field guide
+            </Link>
+            <Link
+              href={cleoAskHrefForCountry(selected.name)}
+              className="maps-selection-dismiss"
+            >
+              Ask Cleo
             </Link>
             <Link
               href={`/gallery?q=${encodeURIComponent(selected.name)}`}
