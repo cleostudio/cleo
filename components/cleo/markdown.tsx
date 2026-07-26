@@ -5,10 +5,13 @@ import Link from "next/link"
 import { code } from "@streamdown/code"
 import { Streamdown } from "streamdown"
 
+import { PhotoZoomDetails } from "~/components/photo-zoom-details"
+import { ZoomImage } from "~/components/zoom-image"
 import {
   isCuratedTopicImageSrc,
   presentPortalGuideMarkdown,
 } from "~/lib/cleo/portal-links"
+import { topicPhotoZoomForSrc } from "~/lib/cleo/topic-photo-zoom"
 import { cn } from "~/lib/utils"
 
 type MarkdownProps = {
@@ -65,22 +68,37 @@ function MarkdownImage({
   alt,
   className,
   node: _node,
-  ...props
 }: MarkdownImageProps) {
   if (typeof src !== "string" || !isCuratedTopicImageSrc(src)) {
     return null
   }
 
+  const zoom = topicPhotoZoomForSrc(src)
+  if (!zoom) {
+    return null
+  }
+
   return (
-    // eslint-disable-next-line @next/next/no-img-element -- curated static atlas/space JPEGs
-    <img
-      {...props}
-      alt={alt ?? ""}
-      className={cn("cleo-topic-photo", className)}
-      data-streamdown="image"
-      loading="lazy"
-      src={src}
-    />
+    <span className="cleo-topic-photo-frame" data-streamdown="image">
+      <ZoomImage
+        src={src}
+        alt={alt?.trim() || zoom.alt}
+        width={zoom.width}
+        height={zoom.height}
+        className={cn("cleo-topic-photo", className)}
+        sizes="(max-width: 40rem) 100vw, 36rem"
+        renditions={zoom.renditions}
+        expandedContent={
+          <PhotoZoomDetails
+            collection={zoom.collection}
+            title={zoom.title}
+            subtitle={zoom.subtitle}
+            photographer={zoom.photographer}
+            license={zoom.license}
+          />
+        }
+      />
+    </span>
   )
 }
 

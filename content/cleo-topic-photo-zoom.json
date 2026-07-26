@@ -1,0 +1,5234 @@
+{
+  "atlas/afghanistan": {
+    "collection": "places",
+    "title": "Band-e Amir",
+    "subtitle": "Afghanistan",
+    "alt": "Band-e Amir in Afghanistan",
+    "photographer": "Afghanistan Matters from Brunssum, Netherlands",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "src": "/images/atlas/afghanistan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/afghanistan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/afghanistan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/albania": {
+    "collection": "places",
+    "title": "Butrint",
+    "subtitle": "Albania",
+    "alt": "Butrint in Albania",
+    "photographer": "Marcin Konsek",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/albania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/albania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/albania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/algeria": {
+    "collection": "places",
+    "title": "Casbah of Algiers",
+    "subtitle": "Algeria",
+    "alt": "Casbah of Algiers in Algeria",
+    "photographer": "RomanDeckert",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/algeria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/algeria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/algeria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/andorra": {
+    "collection": "places",
+    "title": "Madriu-Perafita-Claror Valley",
+    "subtitle": "Andorra",
+    "alt": "Madriu-Perafita-Claror Valley in Andorra",
+    "photographer": "Ferran Llorens",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/andorra/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/andorra/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/andorra/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/angola": {
+    "collection": "places",
+    "title": "Fortress of Sao Miguel",
+    "subtitle": "Angola",
+    "alt": "Fortress of Sao Miguel in Angola",
+    "photographer": "Xavier Lopes",
+    "license": "Public domain",
+    "width": 3437,
+    "height": 1542,
+    "renditions": [
+      {
+        "src": "/images/atlas/angola/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/angola/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/angola/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/antigua-and-barbuda": {
+    "collection": "places",
+    "title": "Shirley Heights",
+    "subtitle": "Antigua and Barbuda",
+    "alt": "Shirley Heights in Antigua and Barbuda",
+    "photographer": "Balou46",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2551,
+    "renditions": [
+      {
+        "src": "/images/atlas/antigua-and-barbuda/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/antigua-and-barbuda/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/antigua-and-barbuda/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/argentina": {
+    "collection": "places",
+    "title": "Iguazú Falls",
+    "subtitle": "Argentina",
+    "alt": "Iguazú Falls in Argentina",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2559,
+    "renditions": [
+      {
+        "src": "/images/atlas/argentina/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/argentina/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/argentina/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/armenia": {
+    "collection": "places",
+    "title": "Geghard Monastery",
+    "subtitle": "Armenia",
+    "alt": "Geghard Monastery in Armenia",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "src": "/images/atlas/armenia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/armenia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/armenia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/australia": {
+    "collection": "places",
+    "title": "Uluru",
+    "subtitle": "Australia",
+    "alt": "Uluru in Australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/australia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/australia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/australia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/austria": {
+    "collection": "places",
+    "title": "Schonbrunn Palace",
+    "subtitle": "Austria",
+    "alt": "Schonbrunn Palace in Austria",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2541,
+    "renditions": [
+      {
+        "src": "/images/atlas/austria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/austria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/austria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/azerbaijan": {
+    "collection": "places",
+    "title": "Old City of Baku",
+    "subtitle": "Azerbaijan",
+    "alt": "Old City of Baku in Azerbaijan",
+    "photographer": "Самый древний",
+    "license": "Public domain",
+    "width": 3072,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/atlas/azerbaijan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/azerbaijan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/azerbaijan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/bahamas": {
+    "collection": "places",
+    "title": "Exuma Cays",
+    "subtitle": "Bahamas",
+    "alt": "Exuma Cays in Bahamas",
+    "photographer": "Rüdiger Stehn from Kiel, Deutschland",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2516,
+    "renditions": [
+      {
+        "src": "/images/atlas/bahamas/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/bahamas/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/bahamas/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/bahrain": {
+    "collection": "places",
+    "title": "Bahrain Fort",
+    "subtitle": "Bahrain",
+    "alt": "Bahrain Fort in Bahrain",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2150,
+    "renditions": [
+      {
+        "src": "/images/atlas/bahrain/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/bahrain/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/bahrain/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/bangladesh": {
+    "collection": "places",
+    "title": "Lalbagh Fort",
+    "subtitle": "Bangladesh",
+    "alt": "Lalbagh Fort in Bangladesh",
+    "photographer": "Biswarup Ganguly",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "src": "/images/atlas/bangladesh/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/bangladesh/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/bangladesh/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/barbados": {
+    "collection": "places",
+    "title": "Harrison's Cave",
+    "subtitle": "Barbados",
+    "alt": "Harrison's Cave in Barbados",
+    "photographer": "Berit from Redhill/Surrey, UK",
+    "license": "CC BY 2.0",
+    "width": 3675,
+    "height": 2592,
+    "renditions": [
+      {
+        "src": "/images/atlas/barbados/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/barbados/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/barbados/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/belarus": {
+    "collection": "places",
+    "title": "Mir Castle",
+    "subtitle": "Belarus",
+    "alt": "Mir Castle in Belarus",
+    "photographer": "Alexxx1979",
+    "license": "CC BY-SA 4.0",
+    "width": 3129,
+    "height": 2085,
+    "renditions": [
+      {
+        "src": "/images/atlas/belarus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/belarus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/belarus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/belgium": {
+    "collection": "places",
+    "title": "Grand Place",
+    "subtitle": "Belgium",
+    "alt": "Grand Place in Belgium",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2568,
+    "renditions": [
+      {
+        "src": "/images/atlas/belgium/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/belgium/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/belgium/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/belize": {
+    "collection": "places",
+    "title": "Great Blue Hole",
+    "subtitle": "Belize",
+    "alt": "Great Blue Hole in Belize",
+    "photographer": "The TerraMar Project",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2657,
+    "renditions": [
+      {
+        "src": "/images/atlas/belize/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/belize/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/belize/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/benin": {
+    "collection": "places",
+    "title": "Pendjari National Park",
+    "subtitle": "Benin",
+    "alt": "Pendjari National Park in Benin",
+    "photographer": "Ji-Elle",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/benin/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/benin/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/benin/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/bhutan": {
+    "collection": "places",
+    "title": "Paro Taktsang",
+    "subtitle": "Bhutan",
+    "alt": "Paro Taktsang in Bhutan",
+    "photographer": "Original: Nina R from Africa Derivative work: UnpetitproleX",
+    "license": "CC BY 2.0",
+    "width": 3819,
+    "height": 2501,
+    "renditions": [
+      {
+        "src": "/images/atlas/bhutan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/bhutan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/bhutan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/bolivia": {
+    "collection": "places",
+    "title": "Salar de Uyuni",
+    "subtitle": "Bolivia",
+    "alt": "Salar de Uyuni in Bolivia",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/bolivia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/bolivia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/bolivia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/bosnia-and-herzegovina": {
+    "collection": "places",
+    "title": "Stari Most",
+    "subtitle": "Bosnia and Herzegovina",
+    "alt": "Stari Most in Bosnia and Herzegovina",
+    "photographer": "Berthold Werner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "src": "/images/atlas/bosnia-and-herzegovina/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/bosnia-and-herzegovina/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/bosnia-and-herzegovina/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/botswana": {
+    "collection": "places",
+    "title": "Okavango Delta",
+    "subtitle": "Botswana",
+    "alt": "Okavango Delta in Botswana",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/botswana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/botswana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/botswana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/brazil": {
+    "collection": "places",
+    "title": "Amazon Rainforest",
+    "subtitle": "Brazil",
+    "alt": "Amazon Rainforest in Brazil",
+    "photographer": "flowcomm",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "src": "/images/atlas/brazil/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/brazil/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/brazil/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/brunei": {
+    "collection": "places",
+    "title": "Sultan Omar Ali Saifuddien Mosque",
+    "subtitle": "Brunei",
+    "alt": "Sultan Omar Ali Saifuddien Mosque in Brunei",
+    "photographer": "Bernard Spragg. NZ from Christchurch, New Zealand",
+    "license": "CC0",
+    "width": 2400,
+    "height": 1701,
+    "renditions": [
+      {
+        "src": "/images/atlas/brunei/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/brunei/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/brunei/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/bulgaria": {
+    "collection": "places",
+    "title": "Rila Monastery",
+    "subtitle": "Bulgaria",
+    "alt": "Rila Monastery in Bulgaria",
+    "photographer": "Nenko Lazarov",
+    "license": "CC BY 2.5",
+    "width": 2592,
+    "height": 1944,
+    "renditions": [
+      {
+        "src": "/images/atlas/bulgaria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/bulgaria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/bulgaria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/burkina-faso": {
+    "collection": "places",
+    "title": "Sindou Peaks",
+    "subtitle": "Burkina Faso",
+    "alt": "Sindou Peaks in Burkina Faso",
+    "photographer": "Rwhaun",
+    "license": "CC BY-SA 4.0",
+    "width": 3200,
+    "height": 2398,
+    "renditions": [
+      {
+        "src": "/images/atlas/burkina-faso/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/burkina-faso/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/burkina-faso/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/burundi": {
+    "collection": "places",
+    "title": "Lake Tanganyika",
+    "subtitle": "Burundi",
+    "alt": "Lake Tanganyika in Burundi",
+    "photographer": "Andreas31",
+    "license": "CC BY-SA 3.0",
+    "width": 1991,
+    "height": 1496,
+    "renditions": [
+      {
+        "src": "/images/atlas/burundi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/burundi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/burundi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/cabo-verde": {
+    "collection": "places",
+    "title": "Cidade Velha",
+    "subtitle": "Cabo Verde",
+    "alt": "Cidade Velha in Cabo Verde",
+    "photographer": "Los viajeros 77",
+    "license": "CC BY-SA 4.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/atlas/cabo-verde/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/cabo-verde/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/cabo-verde/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/cambodia": {
+    "collection": "places",
+    "title": "Angkor Wat",
+    "subtitle": "Cambodia",
+    "alt": "Angkor Wat in Cambodia",
+    "photographer": "Satdeep Gill",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1935,
+    "renditions": [
+      {
+        "src": "/images/atlas/cambodia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/cambodia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/cambodia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/cameroon": {
+    "collection": "places",
+    "title": "Waza National Park",
+    "subtitle": "Cameroon",
+    "alt": "Waza National Park in Cameroon",
+    "photographer": "Albert Backer",
+    "license": "CC BY-SA 3.0",
+    "width": 2398,
+    "height": 1350,
+    "renditions": [
+      {
+        "src": "/images/atlas/cameroon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/cameroon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/cameroon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/canada": {
+    "collection": "places",
+    "title": "Niagara Falls",
+    "subtitle": "Canada",
+    "alt": "Niagara Falls in Canada",
+    "photographer": "Robert F. Tobler",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 960,
+    "renditions": [
+      {
+        "src": "/images/atlas/canada/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/canada/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/canada/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/central-african-republic": {
+    "collection": "places",
+    "title": "Dzanga-Sangha",
+    "subtitle": "Central African Republic",
+    "alt": "Dzanga-Sangha in Central African Republic",
+    "photographer": "JosepMGracia",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "src": "/images/atlas/central-african-republic/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/central-african-republic/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/central-african-republic/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/chad": {
+    "collection": "places",
+    "title": "Ennedi Plateau",
+    "subtitle": "Chad",
+    "alt": "Ennedi Plateau in Chad",
+    "photographer": "Sven.oehm",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/chad/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/chad/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/chad/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/chile": {
+    "collection": "places",
+    "title": "Torres del Paine",
+    "subtitle": "Chile",
+    "alt": "Torres del Paine in Chile",
+    "photographer": "Martin St-Amant ( S23678 )",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1364,
+    "renditions": [
+      {
+        "src": "/images/atlas/chile/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/chile/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/chile/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/china": {
+    "collection": "places",
+    "title": "Great Wall of China",
+    "subtitle": "China",
+    "alt": "Great Wall of China in China",
+    "photographer": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2460,
+    "renditions": [
+      {
+        "src": "/images/atlas/china/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/china/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/china/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/colombia": {
+    "collection": "places",
+    "title": "Cartagena Old Town",
+    "subtitle": "Colombia",
+    "alt": "Cartagena Old Town in Colombia",
+    "photographer": "ImagePerson",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 3037,
+    "renditions": [
+      {
+        "src": "/images/atlas/colombia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/colombia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/colombia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/comoros": {
+    "collection": "places",
+    "title": "Medina of Moroni",
+    "subtitle": "Comoros",
+    "alt": "Medina of Moroni in Comoros",
+    "photographer": "Radosław Botev",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/comoros/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/comoros/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/comoros/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/congo": {
+    "collection": "places",
+    "title": "Congo River",
+    "subtitle": "Congo",
+    "alt": "Congo River in Congo",
+    "photographer": "MONUSCO/Myriam Asmani",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2365,
+    "renditions": [
+      {
+        "src": "/images/atlas/congo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/congo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/congo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/congo-democratic-republic-of-the": {
+    "collection": "places",
+    "title": "Virunga National Park",
+    "subtitle": "Congo, Democratic Republic of the",
+    "alt": "Virunga National Park in Congo, Democratic Republic of the",
+    "photographer": "MONUSCO Photos",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/congo-democratic-republic-of-the/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/congo-democratic-republic-of-the/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/congo-democratic-republic-of-the/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/costa-rica": {
+    "collection": "places",
+    "title": "Arenal Volcano",
+    "subtitle": "Costa Rica",
+    "alt": "Arenal Volcano in Costa Rica",
+    "photographer": "Rhododendrites",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1609,
+    "renditions": [
+      {
+        "src": "/images/atlas/costa-rica/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/costa-rica/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/costa-rica/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/cote-divoire": {
+    "collection": "places",
+    "title": "Grand-Bassam",
+    "subtitle": "Côte d'Ivoire",
+    "alt": "Grand-Bassam in Côte d'Ivoire",
+    "photographer": "Adoscam",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/cote-divoire/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/cote-divoire/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/cote-divoire/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/croatia": {
+    "collection": "places",
+    "title": "Dubrovnik Old Town",
+    "subtitle": "Croatia",
+    "alt": "Dubrovnik Old Town in Croatia",
+    "photographer": "Jules Verne Times Two",
+    "license": "CC BY 4.0",
+    "width": 3528,
+    "height": 2486,
+    "renditions": [
+      {
+        "src": "/images/atlas/croatia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/croatia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/croatia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/cuba": {
+    "collection": "places",
+    "title": "Old Havana",
+    "subtitle": "Cuba",
+    "alt": "Old Havana in Cuba",
+    "photographer": "Pedro Szekely from Los Angeles, USA",
+    "license": "CC BY-SA 2.0",
+    "width": 2399,
+    "height": 1600,
+    "renditions": [
+      {
+        "src": "/images/atlas/cuba/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/cuba/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/cuba/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/cyprus": {
+    "collection": "places",
+    "title": "Paphos Archaeological Park",
+    "subtitle": "Cyprus",
+    "alt": "Paphos Archaeological Park in Cyprus",
+    "photographer": "Alexey V. Kurochkin",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 3840,
+    "renditions": [
+      {
+        "src": "/images/atlas/cyprus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/cyprus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/cyprus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/czechia": {
+    "collection": "places",
+    "title": "Prague Castle",
+    "subtitle": "Czechia",
+    "alt": "Prague Castle in Czechia",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1994,
+    "renditions": [
+      {
+        "src": "/images/atlas/czechia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/czechia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/czechia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/denmark": {
+    "collection": "places",
+    "title": "Nyhavn",
+    "subtitle": "Denmark",
+    "alt": "Nyhavn in Denmark",
+    "photographer": "Moahim",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2490,
+    "renditions": [
+      {
+        "src": "/images/atlas/denmark/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/denmark/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/denmark/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/djibouti": {
+    "collection": "places",
+    "title": "Lake Assal",
+    "subtitle": "Djibouti",
+    "alt": "Lake Assal in Djibouti",
+    "photographer": "Fishercd",
+    "license": "Public domain",
+    "width": 2816,
+    "height": 2112,
+    "renditions": [
+      {
+        "src": "/images/atlas/djibouti/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/djibouti/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/djibouti/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/dominica": {
+    "collection": "places",
+    "title": "Boiling Lake",
+    "subtitle": "Dominica",
+    "alt": "Boiling Lake in Dominica",
+    "photographer": "Bayukjdr",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/dominica/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/dominica/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/dominica/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/dominican-republic": {
+    "collection": "places",
+    "title": "Colonial Zone",
+    "subtitle": "Dominican Republic",
+    "alt": "Colonial Zone in Dominican Republic",
+    "photographer": "Arlene Campusano",
+    "license": "CC BY-SA 4.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/atlas/dominican-republic/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/dominican-republic/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/dominican-republic/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/ecuador": {
+    "collection": "places",
+    "title": "Galapagos Islands",
+    "subtitle": "Ecuador",
+    "alt": "Galapagos Islands in Ecuador",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1959,
+    "renditions": [
+      {
+        "src": "/images/atlas/ecuador/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/ecuador/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/ecuador/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/egypt": {
+    "collection": "places",
+    "title": "Giza Pyramids",
+    "subtitle": "Egypt",
+    "alt": "Giza Pyramids in Egypt",
+    "photographer": "Ricardo Liberato",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "src": "/images/atlas/egypt/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/egypt/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/egypt/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/el-salvador": {
+    "collection": "places",
+    "title": "Santa Ana Volcano",
+    "subtitle": "El Salvador",
+    "alt": "Santa Ana Volcano in El Salvador",
+    "photographer": "Emberlifi",
+    "license": "CC BY-SA 4.0",
+    "width": 2592,
+    "height": 1944,
+    "renditions": [
+      {
+        "src": "/images/atlas/el-salvador/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/el-salvador/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/el-salvador/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/equatorial-guinea": {
+    "collection": "places",
+    "title": "Monte Alen National Park",
+    "subtitle": "Equatorial Guinea",
+    "alt": "Monte Alen National Park in Equatorial Guinea",
+    "photographer": "Mehlauge",
+    "license": "CC BY-SA 4.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/atlas/equatorial-guinea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/equatorial-guinea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/equatorial-guinea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/eritrea": {
+    "collection": "places",
+    "title": "Dahlak Archipelago",
+    "subtitle": "Eritrea",
+    "alt": "Dahlak Archipelago in Eritrea",
+    "photographer": "Amod Photography",
+    "license": "CC BY-SA 4.0",
+    "width": 2048,
+    "height": 1360,
+    "renditions": [
+      {
+        "src": "/images/atlas/eritrea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/eritrea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/eritrea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/estonia": {
+    "collection": "places",
+    "title": "Tallinn Old Town",
+    "subtitle": "Estonia",
+    "alt": "Tallinn Old Town in Estonia",
+    "photographer": "Ivar Leidus ( Iifar )",
+    "license": "CC BY-SA 3.0 ee",
+    "width": 3840,
+    "height": 1544,
+    "renditions": [
+      {
+        "src": "/images/atlas/estonia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/estonia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/estonia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/eswatini": {
+    "collection": "places",
+    "title": "Malolotja Nature Reserve",
+    "subtitle": "Eswatini",
+    "alt": "Malolotja Nature Reserve in Eswatini",
+    "photographer": "Charles J. Sharp",
+    "license": "CC BY-SA 4.0",
+    "width": 1920,
+    "height": 1280,
+    "renditions": [
+      {
+        "src": "/images/atlas/eswatini/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/eswatini/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/eswatini/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/ethiopia": {
+    "collection": "places",
+    "title": "Lalibela",
+    "subtitle": "Ethiopia",
+    "alt": "Lalibela in Ethiopia",
+    "photographer": "Thomas Julin",
+    "license": "CC BY 3.0",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "src": "/images/atlas/ethiopia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/ethiopia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/ethiopia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/fiji": {
+    "collection": "places",
+    "title": "Mamanuca Islands",
+    "subtitle": "Fiji",
+    "alt": "Mamanuca Islands in Fiji",
+    "photographer": "svenimartini",
+    "license": "CC BY-SA 3.0",
+    "width": 2816,
+    "height": 1584,
+    "renditions": [
+      {
+        "src": "/images/atlas/fiji/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/fiji/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/fiji/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/finland": {
+    "collection": "places",
+    "title": "Suomenlinna",
+    "subtitle": "Finland",
+    "alt": "Suomenlinna in Finland",
+    "photographer": "Zache",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "src": "/images/atlas/finland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/finland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/finland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/france": {
+    "collection": "places",
+    "title": "Eiffel Tower",
+    "subtitle": "France",
+    "alt": "Eiffel Tower in France",
+    "photographer": "Benh LIEU SONG",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1212,
+    "renditions": [
+      {
+        "src": "/images/atlas/france/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/france/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/france/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/gabon": {
+    "collection": "places",
+    "title": "Loango National Park",
+    "subtitle": "Gabon",
+    "alt": "Loango National Park in Gabon",
+    "photographer": "Kurt Dundy at English Wikipedia",
+    "license": "CC BY 3.0",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "src": "/images/atlas/gabon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/gabon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/gabon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/gambia": {
+    "collection": "places",
+    "title": "Kunta Kinteh Island",
+    "subtitle": "Gambia",
+    "alt": "Kunta Kinteh Island in Gambia",
+    "photographer": "Tjeerd Wiersma from Amsterdam, The Netherlands",
+    "license": "CC BY 2.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/atlas/gambia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/gambia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/gambia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/georgia": {
+    "collection": "places",
+    "title": "Old Tbilisi",
+    "subtitle": "Georgia",
+    "alt": "Old Tbilisi in Georgia",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "src": "/images/atlas/georgia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/georgia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/georgia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/germany": {
+    "collection": "places",
+    "title": "Brandenburg Gate",
+    "subtitle": "Germany",
+    "alt": "Brandenburg Gate in Germany",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/germany/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/germany/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/germany/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/ghana": {
+    "collection": "places",
+    "title": "Cape Coast Castle",
+    "subtitle": "Ghana",
+    "alt": "Cape Coast Castle in Ghana",
+    "photographer": "Philip Nalangan",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "src": "/images/atlas/ghana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/ghana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/ghana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/greece": {
+    "collection": "places",
+    "title": "Acropolis of Athens",
+    "subtitle": "Greece",
+    "alt": "Acropolis of Athens in Greece",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3576,
+    "height": 3056,
+    "renditions": [
+      {
+        "src": "/images/atlas/greece/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/greece/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/greece/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/grenada": {
+    "collection": "places",
+    "title": "Grand Anse Beach",
+    "subtitle": "Grenada",
+    "alt": "Grand Anse Beach in Grenada",
+    "photographer": "Ian Gratton",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/grenada/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/grenada/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/grenada/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/guatemala": {
+    "collection": "places",
+    "title": "Tikal",
+    "subtitle": "Guatemala",
+    "alt": "Tikal in Guatemala",
+    "photographer": "Mike Vondran derivative work: MrPanyGoff",
+    "license": "CC BY 2.0",
+    "width": 2407,
+    "height": 2000,
+    "renditions": [
+      {
+        "src": "/images/atlas/guatemala/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/guatemala/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/guatemala/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/guinea": {
+    "collection": "places",
+    "title": "Mount Nimba",
+    "subtitle": "Guinea",
+    "alt": "Mount Nimba in Guinea",
+    "photographer": "Yakoo1986",
+    "license": "CC BY-SA 4.0",
+    "width": 2121,
+    "height": 1414,
+    "renditions": [
+      {
+        "src": "/images/atlas/guinea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/guinea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/guinea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/guinea-bissau": {
+    "collection": "places",
+    "title": "Orango National Park",
+    "subtitle": "Guinea-Bissau",
+    "alt": "Orango National Park in Guinea-Bissau",
+    "photographer": "Joehawkins",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/guinea-bissau/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/guinea-bissau/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/guinea-bissau/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/guyana": {
+    "collection": "places",
+    "title": "Kaieteur Falls",
+    "subtitle": "Guyana",
+    "alt": "Kaieteur Falls in Guyana",
+    "photographer": "Bill Cameron",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2018,
+    "renditions": [
+      {
+        "src": "/images/atlas/guyana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/guyana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/guyana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/haiti": {
+    "collection": "places",
+    "title": "Citadelle Laferriere",
+    "subtitle": "Haiti",
+    "alt": "Citadelle Laferriere in Haiti",
+    "photographer": "SPC Gibran Torres, United States Army",
+    "license": "Public domain",
+    "width": 3022,
+    "height": 2015,
+    "renditions": [
+      {
+        "src": "/images/atlas/haiti/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/haiti/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/haiti/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/honduras": {
+    "collection": "places",
+    "title": "Copan",
+    "subtitle": "Honduras",
+    "alt": "Copan in Honduras",
+    "photographer": "Mónica J. Mora",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/honduras/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/honduras/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/honduras/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/hungary": {
+    "collection": "places",
+    "title": "Buda Castle",
+    "subtitle": "Hungary",
+    "alt": "Buda Castle in Hungary",
+    "photographer": "Bahnfrend",
+    "license": "CC BY-SA 4.0",
+    "width": 2982,
+    "height": 1960,
+    "renditions": [
+      {
+        "src": "/images/atlas/hungary/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/hungary/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/hungary/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/iceland": {
+    "collection": "places",
+    "title": "Blue Lagoon",
+    "subtitle": "Iceland",
+    "alt": "Blue Lagoon in Iceland",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/atlas/iceland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/iceland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/iceland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/india": {
+    "collection": "places",
+    "title": "Taj Mahal",
+    "subtitle": "India",
+    "alt": "Taj Mahal in India",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3000,
+    "height": 2782,
+    "renditions": [
+      {
+        "src": "/images/atlas/india/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/india/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/india/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/indonesia": {
+    "collection": "places",
+    "title": "Borobudur",
+    "subtitle": "Indonesia",
+    "alt": "Borobudur in Indonesia",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "src": "/images/atlas/indonesia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/indonesia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/indonesia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/iran": {
+    "collection": "places",
+    "title": "Persepolis",
+    "subtitle": "Iran",
+    "alt": "Persepolis in Iran",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2256,
+    "renditions": [
+      {
+        "src": "/images/atlas/iran/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/iran/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/iran/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/iraq": {
+    "collection": "places",
+    "title": "Ziggurat of Ur",
+    "subtitle": "Iraq",
+    "alt": "Ziggurat of Ur in Iraq",
+    "photographer": "Alli Khalil",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/iraq/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/iraq/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/iraq/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/ireland": {
+    "collection": "places",
+    "title": "Cliffs of Moher",
+    "subtitle": "Ireland",
+    "alt": "Cliffs of Moher in Ireland",
+    "photographer": "Berthold Werner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/ireland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/ireland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/ireland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/israel": {
+    "collection": "places",
+    "title": "Old City of Jerusalem",
+    "subtitle": "Israel",
+    "alt": "Old City of Jerusalem in Israel",
+    "photographer": "Pudelek",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/israel/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/israel/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/israel/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/italy": {
+    "collection": "places",
+    "title": "Colosseum",
+    "subtitle": "Italy",
+    "alt": "Colosseum in Italy",
+    "photographer": "Wilfredor",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2417,
+    "renditions": [
+      {
+        "src": "/images/atlas/italy/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/italy/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/italy/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/jamaica": {
+    "collection": "places",
+    "title": "Dunn's River Falls",
+    "subtitle": "Jamaica",
+    "alt": "Dunn's River Falls in Jamaica",
+    "photographer": "Dr. Thomas Liptak",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/jamaica/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/jamaica/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/jamaica/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/japan": {
+    "collection": "places",
+    "title": "Mount Fuji",
+    "subtitle": "Japan",
+    "alt": "Mount Fuji in Japan",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "src": "/images/atlas/japan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/japan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/japan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/jordan": {
+    "collection": "places",
+    "title": "Petra",
+    "subtitle": "Jordan",
+    "alt": "Petra in Jordan",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3142,
+    "height": 2075,
+    "renditions": [
+      {
+        "src": "/images/atlas/jordan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/jordan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/jordan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/kazakhstan": {
+    "collection": "places",
+    "title": "Charyn Canyon",
+    "subtitle": "Kazakhstan",
+    "alt": "Charyn Canyon in Kazakhstan",
+    "photographer": "Bgag",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2155,
+    "renditions": [
+      {
+        "src": "/images/atlas/kazakhstan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/kazakhstan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/kazakhstan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/kenya": {
+    "collection": "places",
+    "title": "Maasai Mara",
+    "subtitle": "Kenya",
+    "alt": "Maasai Mara in Kenya",
+    "photographer": "Nina R from Africa",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2271,
+    "renditions": [
+      {
+        "src": "/images/atlas/kenya/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/kenya/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/kenya/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/kiribati": {
+    "collection": "places",
+    "title": "South Tarawa",
+    "subtitle": "Kiribati",
+    "alt": "South Tarawa in Kiribati",
+    "photographer": "Arorae",
+    "license": "CC BY-SA 4.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/atlas/kiribati/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/kiribati/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/kiribati/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/korea-north": {
+    "collection": "places",
+    "title": "Mount Paektu",
+    "subtitle": "Korea, North",
+    "alt": "Mount Paektu in Korea, North",
+    "photographer": "Mark Scott Johnson from Sydney, Australia",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/korea-north/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/korea-north/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/korea-north/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/korea-south": {
+    "collection": "places",
+    "title": "Gyeongbokgung Palace",
+    "subtitle": "Korea, South",
+    "alt": "Gyeongbokgung Palace in Korea, South",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/korea-south/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/korea-south/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/korea-south/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/kuwait": {
+    "collection": "places",
+    "title": "Kuwait Towers",
+    "subtitle": "Kuwait",
+    "alt": "Kuwait Towers in Kuwait",
+    "photographer": "Jaafar Alnasser",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 1877,
+    "renditions": [
+      {
+        "src": "/images/atlas/kuwait/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/kuwait/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/kuwait/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/kyrgyzstan": {
+    "collection": "places",
+    "title": "Issyk-Kul",
+    "subtitle": "Kyrgyzstan",
+    "alt": "Issyk-Kul in Kyrgyzstan",
+    "photographer": "Maryliflower",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/kyrgyzstan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/kyrgyzstan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/kyrgyzstan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/laos": {
+    "collection": "places",
+    "title": "Luang Prabang",
+    "subtitle": "Laos",
+    "alt": "Luang Prabang in Laos",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/laos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/laos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/laos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/latvia": {
+    "collection": "places",
+    "title": "Riga Old Town",
+    "subtitle": "Latvia",
+    "alt": "Riga Old Town in Latvia",
+    "photographer": "Richardmaackphotography",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2607,
+    "renditions": [
+      {
+        "src": "/images/atlas/latvia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/latvia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/latvia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/lebanon": {
+    "collection": "places",
+    "title": "Jeita Grotto",
+    "subtitle": "Lebanon",
+    "alt": "Jeita Grotto in Lebanon",
+    "photographer": "Dennis Chanter",
+    "license": "CC BY 4.0",
+    "width": 2400,
+    "height": 1600,
+    "renditions": [
+      {
+        "src": "/images/atlas/lebanon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/lebanon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/lebanon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/lesotho": {
+    "collection": "places",
+    "title": "Maloti Mountains",
+    "subtitle": "Lesotho",
+    "alt": "Maloti Mountains in Lesotho",
+    "photographer": "Paramente Phamotse",
+    "license": "CC BY-SA 3.0",
+    "width": 2590,
+    "height": 1942,
+    "renditions": [
+      {
+        "src": "/images/atlas/lesotho/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/lesotho/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/lesotho/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/liberia": {
+    "collection": "places",
+    "title": "Robertsport",
+    "subtitle": "Liberia",
+    "alt": "Robertsport in Liberia",
+    "photographer": "Mrmacca",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/liberia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/liberia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/liberia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/libya": {
+    "collection": "places",
+    "title": "Leptis Magna",
+    "subtitle": "Libya",
+    "alt": "Leptis Magna in Libya",
+    "photographer": "Syed Wali Peeran",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "src": "/images/atlas/libya/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/libya/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/libya/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/liechtenstein": {
+    "collection": "places",
+    "title": "Vaduz Castle",
+    "subtitle": "Liechtenstein",
+    "alt": "Vaduz Castle in Liechtenstein",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/atlas/liechtenstein/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/liechtenstein/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/liechtenstein/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/lithuania": {
+    "collection": "places",
+    "title": "Vilnius Old Town",
+    "subtitle": "Lithuania",
+    "alt": "Vilnius Old Town in Lithuania",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1609,
+    "renditions": [
+      {
+        "src": "/images/atlas/lithuania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/lithuania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/lithuania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/luxembourg": {
+    "collection": "places",
+    "title": "Luxembourg Old Quarters",
+    "subtitle": "Luxembourg",
+    "alt": "Luxembourg Old Quarters in Luxembourg",
+    "photographer": "Cayambe",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1955,
+    "renditions": [
+      {
+        "src": "/images/atlas/luxembourg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/luxembourg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/luxembourg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/madagascar": {
+    "collection": "places",
+    "title": "Avenue of the Baobabs",
+    "subtitle": "Madagascar",
+    "alt": "Avenue of the Baobabs in Madagascar",
+    "photographer": "Hanay",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/madagascar/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/madagascar/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/madagascar/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/malawi": {
+    "collection": "places",
+    "title": "Lake Malawi",
+    "subtitle": "Malawi",
+    "alt": "Lake Malawi in Malawi",
+    "photographer": "Ludger Heide",
+    "license": "CC BY-SA 2.0",
+    "width": 3445,
+    "height": 2295,
+    "renditions": [
+      {
+        "src": "/images/atlas/malawi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/malawi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/malawi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/malaysia": {
+    "collection": "places",
+    "title": "Petronas Towers",
+    "subtitle": "Malaysia",
+    "alt": "Petronas Towers in Malaysia",
+    "photographer": "James Kerwin from Tbilisi",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/malaysia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/malaysia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/malaysia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/maldives": {
+    "collection": "places",
+    "title": "Hulhumale",
+    "subtitle": "Maldives",
+    "alt": "Hulhumale in Maldives",
+    "photographer": "Shahee Ilyas",
+    "license": "CC BY-SA 3.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/atlas/maldives/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/maldives/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/maldives/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/mali": {
+    "collection": "places",
+    "title": "Timbuktu",
+    "subtitle": "Mali",
+    "alt": "Timbuktu in Mali",
+    "photographer": "Jeanne Menjoulet from Paris, France",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2598,
+    "renditions": [
+      {
+        "src": "/images/atlas/mali/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/mali/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/mali/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/malta": {
+    "collection": "places",
+    "title": "Valletta",
+    "subtitle": "Malta",
+    "alt": "Valletta in Malta",
+    "photographer": "Olga Prystai",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/malta/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/malta/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/malta/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/marshall-islands": {
+    "collection": "places",
+    "title": "Majuro Lagoon",
+    "subtitle": "Marshall Islands",
+    "alt": "Majuro Lagoon in Marshall Islands",
+    "photographer": "Mark Uriona",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/marshall-islands/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/marshall-islands/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/marshall-islands/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/mauritania": {
+    "collection": "places",
+    "title": "Banc d'Arguin",
+    "subtitle": "Mauritania",
+    "alt": "Banc d'Arguin in Mauritania",
+    "photographer": "Kokopelado",
+    "license": "CC BY-SA 4.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/atlas/mauritania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/mauritania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/mauritania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/mauritius": {
+    "collection": "places",
+    "title": "Black River Gorges",
+    "subtitle": "Mauritius",
+    "alt": "Black River Gorges in Mauritius",
+    "photographer": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/mauritius/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/mauritius/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/mauritius/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/mexico": {
+    "collection": "places",
+    "title": "Chichen Itza",
+    "subtitle": "Mexico",
+    "alt": "Chichen Itza in Mexico",
+    "photographer": "Daniel Schwen",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2042,
+    "renditions": [
+      {
+        "src": "/images/atlas/mexico/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/mexico/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/mexico/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/micronesia": {
+    "collection": "places",
+    "title": "Nan Madol",
+    "subtitle": "Micronesia",
+    "alt": "Nan Madol in Micronesia",
+    "photographer": "Patrick Nunn",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/micronesia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/micronesia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/micronesia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/moldova": {
+    "collection": "places",
+    "title": "Orheiul Vechi",
+    "subtitle": "Moldova",
+    "alt": "Orheiul Vechi in Moldova",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/moldova/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/moldova/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/moldova/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/monaco": {
+    "collection": "places",
+    "title": "Monte Carlo Casino",
+    "subtitle": "Monaco",
+    "alt": "Monte Carlo Casino in Monaco",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2692,
+    "renditions": [
+      {
+        "src": "/images/atlas/monaco/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/monaco/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/monaco/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/mongolia": {
+    "collection": "places",
+    "title": "Gobi Desert",
+    "subtitle": "Mongolia",
+    "alt": "Gobi Desert in Mongolia",
+    "photographer": "Marcin Konsek",
+    "license": "CC BY-SA 4.0",
+    "width": 2026,
+    "height": 2783,
+    "renditions": [
+      {
+        "src": "/images/atlas/mongolia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/mongolia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/mongolia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/montenegro": {
+    "collection": "places",
+    "title": "Bay of Kotor",
+    "subtitle": "Montenegro",
+    "alt": "Bay of Kotor in Montenegro",
+    "photographer": "Gzzz",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2521,
+    "renditions": [
+      {
+        "src": "/images/atlas/montenegro/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/montenegro/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/montenegro/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/morocco": {
+    "collection": "places",
+    "title": "Medina of Fez",
+    "subtitle": "Morocco",
+    "alt": "Medina of Fez in Morocco",
+    "photographer": "Saida Maknoun",
+    "license": "CC BY-SA 4.0",
+    "width": 2772,
+    "height": 3744,
+    "renditions": [
+      {
+        "src": "/images/atlas/morocco/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/morocco/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/morocco/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/mozambique": {
+    "collection": "places",
+    "title": "Gorongosa National Park",
+    "subtitle": "Mozambique",
+    "alt": "Gorongosa National Park in Mozambique",
+    "photographer": "Judy Gallagher",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2530,
+    "renditions": [
+      {
+        "src": "/images/atlas/mozambique/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/mozambique/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/mozambique/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/myanmar": {
+    "collection": "places",
+    "title": "Bagan",
+    "subtitle": "Myanmar",
+    "alt": "Bagan in Myanmar",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/myanmar/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/myanmar/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/myanmar/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/namibia": {
+    "collection": "places",
+    "title": "Sossusvlei",
+    "subtitle": "Namibia",
+    "alt": "Sossusvlei in Namibia",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2567,
+    "renditions": [
+      {
+        "src": "/images/atlas/namibia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/namibia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/namibia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/nauru": {
+    "collection": "places",
+    "title": "Buada Lagoon",
+    "subtitle": "Nauru",
+    "alt": "Buada Lagoon in Nauru",
+    "photographer": "Department of Foreign Affairs and Trade",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "src": "/images/atlas/nauru/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/nauru/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/nauru/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/nepal": {
+    "collection": "places",
+    "title": "Everest Region",
+    "subtitle": "Nepal",
+    "alt": "Everest Region in Nepal",
+    "photographer": "Sangita21957",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2492,
+    "renditions": [
+      {
+        "src": "/images/atlas/nepal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/nepal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/nepal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/netherlands": {
+    "collection": "places",
+    "title": "Amsterdam Canals",
+    "subtitle": "Netherlands",
+    "alt": "Amsterdam Canals in Netherlands",
+    "photographer": "Kája Kinová",
+    "license": "CC BY-SA 4.0",
+    "width": 1920,
+    "height": 1440,
+    "renditions": [
+      {
+        "src": "/images/atlas/netherlands/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/netherlands/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/netherlands/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/new-zealand": {
+    "collection": "places",
+    "title": "Milford Sound",
+    "subtitle": "New Zealand",
+    "alt": "Milford Sound in New Zealand",
+    "photographer": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "width": 3421,
+    "height": 2281,
+    "renditions": [
+      {
+        "src": "/images/atlas/new-zealand/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/new-zealand/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/new-zealand/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/nicaragua": {
+    "collection": "places",
+    "title": "Granada",
+    "subtitle": "Nicaragua",
+    "alt": "Granada in Nicaragua",
+    "photographer": "jeffr_travel",
+    "license": "CC BY-SA 2.0",
+    "width": 1600,
+    "height": 1200,
+    "renditions": [
+      {
+        "src": "/images/atlas/nicaragua/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/nicaragua/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/nicaragua/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/niger": {
+    "collection": "places",
+    "title": "W National Park",
+    "subtitle": "Niger",
+    "alt": "W National Park in Niger",
+    "photographer": "Marco Schmidt",
+    "license": "CC BY-SA 3.0",
+    "width": 3456,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/atlas/niger/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/niger/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/niger/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/nigeria": {
+    "collection": "places",
+    "title": "Zuma Rock",
+    "subtitle": "Nigeria",
+    "alt": "Zuma Rock in Nigeria",
+    "photographer": "Anass Sedrati",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/nigeria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/nigeria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/nigeria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/north-macedonia": {
+    "collection": "places",
+    "title": "Ohrid",
+    "subtitle": "North Macedonia",
+    "alt": "Ohrid in North Macedonia",
+    "photographer": "Petar Milošević",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2883,
+    "renditions": [
+      {
+        "src": "/images/atlas/north-macedonia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/north-macedonia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/north-macedonia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/norway": {
+    "collection": "places",
+    "title": "Geirangerfjord",
+    "subtitle": "Norway",
+    "alt": "Geirangerfjord in Norway",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2156,
+    "renditions": [
+      {
+        "src": "/images/atlas/norway/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/norway/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/norway/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/oman": {
+    "collection": "places",
+    "title": "Sultan Qaboos Grand Mosque",
+    "subtitle": "Oman",
+    "alt": "Sultan Qaboos Grand Mosque in Oman",
+    "photographer": "Mostafameraji",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/oman/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/oman/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/oman/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/pakistan": {
+    "collection": "places",
+    "title": "Badshahi Mosque",
+    "subtitle": "Pakistan",
+    "alt": "Badshahi Mosque in Pakistan",
+    "photographer": "Shahzaib Damn Cruze",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2747,
+    "renditions": [
+      {
+        "src": "/images/atlas/pakistan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/pakistan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/pakistan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/palau": {
+    "collection": "places",
+    "title": "Rock Islands",
+    "subtitle": "Palau",
+    "alt": "Rock Islands in Palau",
+    "photographer": "Luka Peternel",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2520,
+    "renditions": [
+      {
+        "src": "/images/atlas/palau/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/palau/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/palau/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/palestine": {
+    "collection": "places",
+    "title": "Old City of Jerusalem (East)",
+    "subtitle": "Palestine",
+    "alt": "Old City of Jerusalem (East) in Palestine",
+    "photographer": "Matson Collection",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2551,
+    "renditions": [
+      {
+        "src": "/images/atlas/palestine/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/palestine/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/palestine/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/panama": {
+    "collection": "places",
+    "title": "Panama Canal",
+    "subtitle": "Panama",
+    "alt": "Panama Canal in Panama",
+    "photographer": "John23Ms",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2876,
+    "renditions": [
+      {
+        "src": "/images/atlas/panama/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/panama/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/panama/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/papua-new-guinea": {
+    "collection": "places",
+    "title": "Kokoda Track",
+    "subtitle": "Papua New Guinea",
+    "alt": "Kokoda Track in Papua New Guinea",
+    "photographer": "Luke Brindley",
+    "license": "CC BY-SA 4.0",
+    "width": 2304,
+    "height": 1728,
+    "renditions": [
+      {
+        "src": "/images/atlas/papua-new-guinea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/papua-new-guinea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/papua-new-guinea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/paraguay": {
+    "collection": "places",
+    "title": "Jesuit Missions of La Santisima Trinidad",
+    "subtitle": "Paraguay",
+    "alt": "Jesuit Missions of La Santisima Trinidad in Paraguay",
+    "photographer": "ogwen",
+    "license": "CC BY-SA 3.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/atlas/paraguay/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/paraguay/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/paraguay/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/peru": {
+    "collection": "places",
+    "title": "Machu Picchu",
+    "subtitle": "Peru",
+    "alt": "Machu Picchu in Peru",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "src": "/images/atlas/peru/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/peru/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/peru/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/philippines": {
+    "collection": "places",
+    "title": "Chocolate Hills",
+    "subtitle": "Philippines",
+    "alt": "Chocolate Hills in Philippines",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/philippines/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/philippines/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/philippines/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/poland": {
+    "collection": "places",
+    "title": "Krakow Old Town",
+    "subtitle": "Poland",
+    "alt": "Krakow Old Town in Poland",
+    "photographer": "Scotch Mist",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2562,
+    "renditions": [
+      {
+        "src": "/images/atlas/poland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/poland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/poland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/portugal": {
+    "collection": "places",
+    "title": "Belem Tower",
+    "subtitle": "Portugal",
+    "alt": "Belem Tower in Portugal",
+    "photographer": "Lark Ascending",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2406,
+    "renditions": [
+      {
+        "src": "/images/atlas/portugal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/portugal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/portugal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/qatar": {
+    "collection": "places",
+    "title": "Museum of Islamic Art",
+    "subtitle": "Qatar",
+    "alt": "Museum of Islamic Art in Qatar",
+    "photographer": "Šarūnas Burdulis from Hanover, USA",
+    "license": "CC BY-SA 2.0",
+    "width": 3598,
+    "height": 2696,
+    "renditions": [
+      {
+        "src": "/images/atlas/qatar/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/qatar/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/qatar/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/romania": {
+    "collection": "places",
+    "title": "Transfagarasan",
+    "subtitle": "Romania",
+    "alt": "Transfagarasan in Romania",
+    "photographer": "Pudelek",
+    "license": "CC BY-SA 4.0",
+    "width": 3056,
+    "height": 2037,
+    "renditions": [
+      {
+        "src": "/images/atlas/romania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/romania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/romania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/russia": {
+    "collection": "places",
+    "title": "Red Square",
+    "subtitle": "Russia",
+    "alt": "Red Square in Russia",
+    "photographer": "Godot13",
+    "license": "CC BY-SA 4.0",
+    "width": 3727,
+    "height": 3830,
+    "renditions": [
+      {
+        "src": "/images/atlas/russia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/russia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/russia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/rwanda": {
+    "collection": "places",
+    "title": "Volcanoes National Park",
+    "subtitle": "Rwanda",
+    "alt": "Volcanoes National Park in Rwanda",
+    "photographer": "Nina R from Africa",
+    "license": "CC BY 2.0",
+    "width": 2826,
+    "height": 1769,
+    "renditions": [
+      {
+        "src": "/images/atlas/rwanda/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/rwanda/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/rwanda/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/saint-kitts-and-nevis": {
+    "collection": "places",
+    "title": "Brimstone Hill Fortress",
+    "subtitle": "Saint Kitts and Nevis",
+    "alt": "Brimstone Hill Fortress in Saint Kitts and Nevis",
+    "photographer": "Edgar El",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/saint-kitts-and-nevis/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/saint-kitts-and-nevis/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/saint-kitts-and-nevis/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/saint-lucia": {
+    "collection": "places",
+    "title": "Pitons",
+    "subtitle": "Saint Lucia",
+    "alt": "Pitons in Saint Lucia",
+    "photographer": "Jim Vajda",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/saint-lucia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/saint-lucia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/saint-lucia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/saint-vincent-and-the-grenadines": {
+    "collection": "places",
+    "title": "La Soufriere",
+    "subtitle": "Saint Vincent and the Grenadines",
+    "alt": "La Soufriere in Saint Vincent and the Grenadines",
+    "photographer": "Pierre Markuse from Hamm, Germany",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 3227,
+    "renditions": [
+      {
+        "src": "/images/atlas/saint-vincent-and-the-grenadines/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/saint-vincent-and-the-grenadines/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/saint-vincent-and-the-grenadines/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/samoa": {
+    "collection": "places",
+    "title": "To Sua Ocean Trench",
+    "subtitle": "Samoa",
+    "alt": "To Sua Ocean Trench in Samoa",
+    "photographer": "Gelu Purcelu",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/samoa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/samoa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/samoa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/san-marino": {
+    "collection": "places",
+    "title": "Guaita Tower",
+    "subtitle": "San Marino",
+    "alt": "Guaita Tower in San Marino",
+    "photographer": "Terragio67",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1757,
+    "renditions": [
+      {
+        "src": "/images/atlas/san-marino/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/san-marino/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/san-marino/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/sao-tome-and-principe": {
+    "collection": "places",
+    "title": "Roca Agostinho Neto",
+    "subtitle": "Sao Tome and Principe",
+    "alt": "Roca Agostinho Neto in Sao Tome and Principe",
+    "photographer": "Ji-Elle",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/sao-tome-and-principe/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/sao-tome-and-principe/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/sao-tome-and-principe/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/saudi-arabia": {
+    "collection": "places",
+    "title": "Al-Ula and Hegra",
+    "subtitle": "Saudi Arabia",
+    "alt": "Al-Ula and Hegra in Saudi Arabia",
+    "photographer": "Ali Lajami",
+    "license": "CC0",
+    "width": 2464,
+    "height": 1344,
+    "renditions": [
+      {
+        "src": "/images/atlas/saudi-arabia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/saudi-arabia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/saudi-arabia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/senegal": {
+    "collection": "places",
+    "title": "Goree Island",
+    "subtitle": "Senegal",
+    "alt": "Goree Island in Senegal",
+    "photographer": "Warren McKenzie",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2572,
+    "renditions": [
+      {
+        "src": "/images/atlas/senegal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/senegal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/senegal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/serbia": {
+    "collection": "places",
+    "title": "Belgrade Fortress",
+    "subtitle": "Serbia",
+    "alt": "Belgrade Fortress in Serbia",
+    "photographer": "Dennis G. Jarvis",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2624,
+    "renditions": [
+      {
+        "src": "/images/atlas/serbia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/serbia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/serbia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/seychelles": {
+    "collection": "places",
+    "title": "Anse Source d'Argent",
+    "subtitle": "Seychelles",
+    "alt": "Anse Source d'Argent in Seychelles",
+    "photographer": "Tobias Alt, Tobi 87",
+    "license": "CC BY-SA 4.0",
+    "width": 2000,
+    "height": 1435,
+    "renditions": [
+      {
+        "src": "/images/atlas/seychelles/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/seychelles/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/seychelles/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/sierra-leone": {
+    "collection": "places",
+    "title": "Bunce Island",
+    "subtitle": "Sierra Leone",
+    "alt": "Bunce Island in Sierra Leone",
+    "photographer": "Pierre Chrzanowski",
+    "license": "CC0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/atlas/sierra-leone/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/sierra-leone/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/sierra-leone/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/singapore": {
+    "collection": "places",
+    "title": "Gardens by the Bay",
+    "subtitle": "Singapore",
+    "alt": "Gardens by the Bay in Singapore",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 3840,
+    "renditions": [
+      {
+        "src": "/images/atlas/singapore/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/singapore/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/singapore/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/slovakia": {
+    "collection": "places",
+    "title": "Bratislava Castle",
+    "subtitle": "Slovakia",
+    "alt": "Bratislava Castle in Slovakia",
+    "photographer": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/slovakia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/slovakia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/slovakia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/slovenia": {
+    "collection": "places",
+    "title": "Lake Bled",
+    "subtitle": "Slovenia",
+    "alt": "Lake Bled in Slovenia",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/atlas/slovenia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/slovenia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/slovenia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/solomon-islands": {
+    "collection": "places",
+    "title": "Marovo Lagoon",
+    "subtitle": "Solomon Islands",
+    "alt": "Marovo Lagoon in Solomon Islands",
+    "photographer": "Xplore Dive from Mooloolaba, Australia",
+    "license": "CC BY 2.0",
+    "width": 2848,
+    "height": 4272,
+    "renditions": [
+      {
+        "src": "/images/atlas/solomon-islands/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/solomon-islands/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/solomon-islands/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/somalia": {
+    "collection": "places",
+    "title": "Lido Beach",
+    "subtitle": "Somalia",
+    "alt": "Lido Beach in Somalia",
+    "photographer": "WangaripatrickKE",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/somalia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/somalia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/somalia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/south-africa": {
+    "collection": "places",
+    "title": "Table Mountain",
+    "subtitle": "South Africa",
+    "alt": "Table Mountain in South Africa",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/south-africa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/south-africa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/south-africa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/south-sudan": {
+    "collection": "places",
+    "title": "Sudd Wetlands",
+    "subtitle": "South Sudan",
+    "alt": "Sudd Wetlands in South Sudan",
+    "photographer": "Coordenação-Geral de Observação da Terra/INPE",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2159,
+    "renditions": [
+      {
+        "src": "/images/atlas/south-sudan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/south-sudan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/south-sudan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/spain": {
+    "collection": "places",
+    "title": "Alhambra",
+    "subtitle": "Spain",
+    "alt": "Alhambra in Spain",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3019,
+    "height": 2053,
+    "renditions": [
+      {
+        "src": "/images/atlas/spain/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/spain/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/spain/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/sri-lanka": {
+    "collection": "places",
+    "title": "Sigiriya",
+    "subtitle": "Sri Lanka",
+    "alt": "Sigiriya in Sri Lanka",
+    "photographer": "Jaygayani",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/sri-lanka/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/sri-lanka/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/sri-lanka/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/sudan": {
+    "collection": "places",
+    "title": "Pyramids of Meroe",
+    "subtitle": "Sudan",
+    "alt": "Pyramids of Meroe in Sudan",
+    "photographer": "Ahmed Amir",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/sudan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/sudan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/sudan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/suriname": {
+    "collection": "places",
+    "title": "Paramaribo Historic Centre",
+    "subtitle": "Suriname",
+    "alt": "Paramaribo Historic Centre in Suriname",
+    "photographer": "Dan Lundberg",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/suriname/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/suriname/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/suriname/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/sweden": {
+    "collection": "places",
+    "title": "Gamla Stan",
+    "subtitle": "Sweden",
+    "alt": "Gamla Stan in Sweden",
+    "photographer": "Arild Vågen",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/atlas/sweden/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/sweden/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/sweden/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/switzerland": {
+    "collection": "places",
+    "title": "Matterhorn",
+    "subtitle": "Switzerland",
+    "alt": "Matterhorn in Switzerland",
+    "photographer": "Roy Egloff",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/switzerland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/switzerland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/switzerland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/syria": {
+    "collection": "places",
+    "title": "Old City of Damascus",
+    "subtitle": "Syria",
+    "alt": "Old City of Damascus in Syria",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/syria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/syria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/syria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/tajikistan": {
+    "collection": "places",
+    "title": "Pamir Highway",
+    "subtitle": "Tajikistan",
+    "alt": "Pamir Highway in Tajikistan",
+    "photographer": "Benoît Vicart",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/tajikistan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/tajikistan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/tajikistan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/tanzania": {
+    "collection": "places",
+    "title": "Serengeti",
+    "subtitle": "Tanzania",
+    "alt": "Serengeti in Tanzania",
+    "photographer": "Giles Laurent",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1227,
+    "renditions": [
+      {
+        "src": "/images/atlas/tanzania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/tanzania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/tanzania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/thailand": {
+    "collection": "places",
+    "title": "Grand Palace and Wat Phra Kaew",
+    "subtitle": "Thailand",
+    "alt": "Grand Palace and Wat Phra Kaew in Thailand",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/atlas/thailand/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/thailand/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/thailand/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/timor-leste": {
+    "collection": "places",
+    "title": "Jaco Island",
+    "subtitle": "Timor-Leste",
+    "alt": "Jaco Island in Timor-Leste",
+    "photographer": "JosepMGracia",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "src": "/images/atlas/timor-leste/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/timor-leste/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/timor-leste/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/togo": {
+    "collection": "places",
+    "title": "Koutammakou",
+    "subtitle": "Togo",
+    "alt": "Koutammakou in Togo",
+    "photographer": "Kalyss",
+    "license": "CC BY-SA 4.0",
+    "width": 3736,
+    "height": 2248,
+    "renditions": [
+      {
+        "src": "/images/atlas/togo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/togo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/togo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/tonga": {
+    "collection": "places",
+    "title": "Ha'amonga 'a Maui",
+    "subtitle": "Tonga",
+    "alt": "Ha'amonga 'a Maui in Tonga",
+    "photographer": "Miyasige Tosikazu",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2671,
+    "renditions": [
+      {
+        "src": "/images/atlas/tonga/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/tonga/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/tonga/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/trinidad-and-tobago": {
+    "collection": "places",
+    "title": "Maracas Bay",
+    "subtitle": "Trinidad and Tobago",
+    "alt": "Maracas Bay in Trinidad and Tobago",
+    "photographer": "Grueslayer",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/trinidad-and-tobago/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/trinidad-and-tobago/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/trinidad-and-tobago/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/tunisia": {
+    "collection": "places",
+    "title": "Medina of Tunis",
+    "subtitle": "Tunisia",
+    "alt": "Medina of Tunis in Tunisia",
+    "photographer": "Youssefbensaad",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/tunisia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/tunisia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/tunisia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/turkiye": {
+    "collection": "places",
+    "title": "Hagia Sophia",
+    "subtitle": "Türkiye",
+    "alt": "Hagia Sophia in Türkiye",
+    "photographer": "Arild Vågen",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/atlas/turkiye/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/turkiye/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/turkiye/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/turkmenistan": {
+    "collection": "places",
+    "title": "Darvaza Gas Crater",
+    "subtitle": "Turkmenistan",
+    "alt": "Darvaza Gas Crater in Turkmenistan",
+    "photographer": "Benjamin Goetzinger",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/turkmenistan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/turkmenistan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/turkmenistan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/tuvalu": {
+    "collection": "places",
+    "title": "Funafuti Lagoon",
+    "subtitle": "Tuvalu",
+    "alt": "Funafuti Lagoon in Tuvalu",
+    "photographer": "Stefan Lins",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2576,
+    "renditions": [
+      {
+        "src": "/images/atlas/tuvalu/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/tuvalu/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/tuvalu/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/uganda": {
+    "collection": "places",
+    "title": "Bwindi Impenetrable Forest",
+    "subtitle": "Uganda",
+    "alt": "Bwindi Impenetrable Forest in Uganda",
+    "photographer": "Thomas Fuhrmann",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/uganda/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/uganda/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/uganda/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/ukraine": {
+    "collection": "places",
+    "title": "Saint Sophia Cathedral",
+    "subtitle": "Ukraine",
+    "alt": "Saint Sophia Cathedral in Ukraine",
+    "photographer": "Rbrechko",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2619,
+    "renditions": [
+      {
+        "src": "/images/atlas/ukraine/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/ukraine/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/ukraine/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/united-arab-emirates": {
+    "collection": "places",
+    "title": "Sheikh Zayed Grand Mosque",
+    "subtitle": "United Arab Emirates",
+    "alt": "Sheikh Zayed Grand Mosque in United Arab Emirates",
+    "photographer": "PotatoWitch",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/atlas/united-arab-emirates/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/united-arab-emirates/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/united-arab-emirates/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/united-kingdom": {
+    "collection": "places",
+    "title": "Tower of London",
+    "subtitle": "United Kingdom",
+    "alt": "Tower of London in United Kingdom",
+    "photographer": "Bob Collowan",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2411,
+    "renditions": [
+      {
+        "src": "/images/atlas/united-kingdom/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/united-kingdom/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/united-kingdom/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/united-states": {
+    "collection": "places",
+    "title": "Grand Canyon",
+    "subtitle": "United States",
+    "alt": "Grand Canyon in United States",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/united-states/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/united-states/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/united-states/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/uruguay": {
+    "collection": "places",
+    "title": "Colonia del Sacramento",
+    "subtitle": "Uruguay",
+    "alt": "Colonia del Sacramento in Uruguay",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/uruguay/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/uruguay/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/uruguay/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/uzbekistan": {
+    "collection": "places",
+    "title": "Registan of Samarkand",
+    "subtitle": "Uzbekistan",
+    "alt": "Registan of Samarkand in Uzbekistan",
+    "photographer": "Benjamin Goetzinger",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/uzbekistan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/uzbekistan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/uzbekistan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/vanuatu": {
+    "collection": "places",
+    "title": "Mount Yasur",
+    "subtitle": "Vanuatu",
+    "alt": "Mount Yasur in Vanuatu",
+    "photographer": "Romain Pontida",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/atlas/vanuatu/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/vanuatu/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/vanuatu/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/vatican-city": {
+    "collection": "places",
+    "title": "St. Peter's Basilica",
+    "subtitle": "Vatican City",
+    "alt": "St. Peter's Basilica in Vatican City",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3530,
+    "height": 2514,
+    "renditions": [
+      {
+        "src": "/images/atlas/vatican-city/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/vatican-city/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/vatican-city/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/venezuela": {
+    "collection": "places",
+    "title": "Angel Falls",
+    "subtitle": "Venezuela",
+    "alt": "Angel Falls in Venezuela",
+    "photographer": "Diego Delso",
+    "license": "CC BY 3.0",
+    "width": 2560,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/atlas/venezuela/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/venezuela/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/venezuela/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/vietnam": {
+    "collection": "places",
+    "title": "Ha Long Bay",
+    "subtitle": "Vietnam",
+    "alt": "Ha Long Bay in Vietnam",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/atlas/vietnam/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/vietnam/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/vietnam/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/yemen": {
+    "collection": "places",
+    "title": "Old City of Sana'a",
+    "subtitle": "Yemen",
+    "alt": "Old City of Sana'a in Yemen",
+    "photographer": "Rod Waddington from Kergunyah, Australia",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/atlas/yemen/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/yemen/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/yemen/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/zambia": {
+    "collection": "places",
+    "title": "Victoria Falls",
+    "subtitle": "Zambia",
+    "alt": "Victoria Falls in Zambia",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 5966,
+    "renditions": [
+      {
+        "src": "/images/atlas/zambia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/zambia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/zambia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "atlas/zimbabwe": {
+    "collection": "places",
+    "title": "Victoria Falls",
+    "subtitle": "Zimbabwe",
+    "alt": "Victoria Falls in Zimbabwe",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/atlas/zimbabwe/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/atlas/zimbabwe/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/atlas/zimbabwe/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/sun": {
+    "collection": "space",
+    "title": "Full-disk Sun",
+    "subtitle": "Sun",
+    "alt": "Full-disk Sun — sun",
+    "photographer": "NASA/SDO/AIA",
+    "license": "Public Domain (NASA)",
+    "width": 1024,
+    "height": 1024,
+    "renditions": [
+      {
+        "src": "/images/space/sun/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/sun/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/sun/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/mercury": {
+    "collection": "space",
+    "title": "Mercury in enhanced colour",
+    "subtitle": "Mercury",
+    "alt": "Mercury in enhanced colour — mercury",
+    "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
+    "license": "Public Domain (NASA)",
+    "width": 1920,
+    "height": 1080,
+    "renditions": [
+      {
+        "src": "/images/space/mercury/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/mercury/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/mercury/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/venus": {
+    "collection": "space",
+    "title": "Venus hemisphere",
+    "subtitle": "Venus",
+    "alt": "Venus hemisphere — venus",
+    "photographer": "NASA/JPL/USGS",
+    "license": "Public Domain (NASA)",
+    "width": 4064,
+    "height": 4064,
+    "renditions": [
+      {
+        "src": "/images/space/venus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/venus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/venus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/earth": {
+    "collection": "space",
+    "title": "Blue Marble",
+    "subtitle": "Earth",
+    "alt": "Blue Marble — earth",
+    "photographer": "NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring",
+    "license": "Public Domain (NASA)",
+    "width": 1920,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/space/earth/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/earth/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/earth/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/moon": {
+    "collection": "space",
+    "title": "Full Moon",
+    "subtitle": "Moon",
+    "alt": "Full Moon — moon",
+    "photographer": "NASA/Apollo 11",
+    "license": "Public Domain (NASA)",
+    "width": 1920,
+    "height": 1930,
+    "renditions": [
+      {
+        "src": "/images/space/moon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/moon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/moon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/mars": {
+    "collection": "space",
+    "title": "Global color view",
+    "subtitle": "Mars",
+    "alt": "Global color view — mars",
+    "photographer": "NASA/JPL/USGS",
+    "license": "Public Domain (NASA)",
+    "width": 6787,
+    "height": 6787,
+    "renditions": [
+      {
+        "src": "/images/space/mars/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/mars/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/mars/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/jupiter": {
+    "collection": "space",
+    "title": "Great Red Spot",
+    "subtitle": "Jupiter",
+    "alt": "Great Red Spot — jupiter",
+    "photographer": "NASA/JPL-Caltech/SwRI/MSSS/Gerald Eichstädt/Seán Doran",
+    "license": "Public Domain (NASA)",
+    "width": 1620,
+    "height": 1440,
+    "renditions": [
+      {
+        "src": "/images/space/jupiter/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/jupiter/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/jupiter/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/saturn": {
+    "collection": "space",
+    "title": "The Day the Earth Smiled",
+    "subtitle": "Saturn",
+    "alt": "The Day the Earth Smiled — saturn",
+    "photographer": "NASA/JPL-Caltech/Space Science Institute",
+    "license": "Public Domain (NASA)",
+    "width": 9000,
+    "height": 3500,
+    "renditions": [
+      {
+        "src": "/images/space/saturn/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/saturn/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/saturn/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/uranus": {
+    "collection": "space",
+    "title": "Uranus from Voyager 2",
+    "subtitle": "Uranus",
+    "alt": "Uranus from Voyager 2 — uranus",
+    "photographer": "NASA/JPL-Caltech",
+    "license": "Public Domain (NASA)",
+    "width": 1720,
+    "height": 1720,
+    "renditions": [
+      {
+        "src": "/images/space/uranus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/uranus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/uranus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/neptune": {
+    "collection": "space",
+    "title": "Neptune full disk",
+    "subtitle": "Neptune",
+    "alt": "Neptune full disk — neptune",
+    "photographer": "NASA/JPL",
+    "license": "Public Domain (NASA)",
+    "width": 2188,
+    "height": 2185,
+    "renditions": [
+      {
+        "src": "/images/space/neptune/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/neptune/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/neptune/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/pluto": {
+    "collection": "space",
+    "title": "Pluto in true color",
+    "subtitle": "Pluto",
+    "alt": "Pluto in true color — pluto",
+    "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute",
+    "license": "Public Domain (NASA)",
+    "width": 8000,
+    "height": 8000,
+    "renditions": [
+      {
+        "src": "/images/space/pluto/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/pluto/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/pluto/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/asteroid-belt": {
+    "collection": "space",
+    "title": "Vesta from Dawn",
+    "subtitle": "Asteroid Belt",
+    "alt": "Vesta from Dawn — asteroid belt",
+    "photographer": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
+    "license": "Public Domain (NASA)",
+    "width": 1237,
+    "height": 1212,
+    "renditions": [
+      {
+        "src": "/images/space/asteroid-belt/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/asteroid-belt/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/asteroid-belt/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/iss": {
+    "collection": "space",
+    "title": "ISS flyaround",
+    "subtitle": "International Space Station",
+    "alt": "ISS flyaround — iss",
+    "photographer": "NASA",
+    "license": "Public Domain (NASA)",
+    "width": 2976,
+    "height": 1984,
+    "renditions": [
+      {
+        "src": "/images/space/iss/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/iss/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/iss/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/io": {
+    "collection": "space",
+    "title": "Global view of Io",
+    "subtitle": "Io",
+    "alt": "Global view of Io — io",
+    "photographer": "NASA/JPL/University of Arizona",
+    "license": "Public Domain (NASA)",
+    "width": 1817,
+    "height": 1817,
+    "renditions": [
+      {
+        "src": "/images/space/io/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/io/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/io/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/europa": {
+    "collection": "space",
+    "title": "Europa's icy surface",
+    "subtitle": "Europa",
+    "alt": "Europa's icy surface — europa",
+    "photographer": "NASA/JPL-Caltech/SETI Institute",
+    "license": "Public Domain (NASA)",
+    "width": 2300,
+    "height": 1700,
+    "renditions": [
+      {
+        "src": "/images/space/europa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/europa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/europa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/ganymede": {
+    "collection": "space",
+    "title": "Ganymede in color",
+    "subtitle": "Ganymede",
+    "alt": "Ganymede in color — ganymede",
+    "photographer": "NASA/JPL",
+    "license": "Public Domain (NASA)",
+    "width": 800,
+    "height": 800,
+    "renditions": [
+      {
+        "src": "/images/space/ganymede/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/ganymede/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/ganymede/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/titan": {
+    "collection": "space",
+    "title": "Titan's orange and blue hazes",
+    "subtitle": "Titan",
+    "alt": "Titan's orange and blue hazes — titan",
+    "photographer": "NASA/JPL-Caltech/Space Science Institute",
+    "license": "Public Domain (NASA)",
+    "width": 924,
+    "height": 657,
+    "renditions": [
+      {
+        "src": "/images/space/titan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/titan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/titan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/enceladus": {
+    "collection": "space",
+    "title": "Approaching Enceladus",
+    "subtitle": "Enceladus",
+    "alt": "Approaching Enceladus — enceladus",
+    "photographer": "NASA/JPL-Caltech/Space Science Institute",
+    "license": "Public Domain (NASA)",
+    "width": 1020,
+    "height": 1020,
+    "renditions": [
+      {
+        "src": "/images/space/enceladus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/enceladus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/enceladus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/milky-way": {
+    "collection": "space",
+    "title": "Galactic center",
+    "subtitle": "Milky Way",
+    "alt": "Galactic center — milky way",
+    "photographer": "NASA/JPL-Caltech/ESA/CXC/STScI",
+    "license": "Public Domain (NASA)",
+    "width": 7002,
+    "height": 5050,
+    "renditions": [
+      {
+        "src": "/images/space/milky-way/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/milky-way/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/milky-way/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/andromeda": {
+    "collection": "space",
+    "title": "The Andromeda Galaxy",
+    "subtitle": "Andromeda",
+    "alt": "The Andromeda Galaxy — andromeda",
+    "photographer": "NASA/JPL-Caltech",
+    "license": "Public Domain (NASA)",
+    "width": 9400,
+    "height": 7000,
+    "renditions": [
+      {
+        "src": "/images/space/andromeda/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/andromeda/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/andromeda/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/orion-nebula": {
+    "collection": "space",
+    "title": "Heart of the Orion Nebula",
+    "subtitle": "Orion Nebula",
+    "alt": "Heart of the Orion Nebula — orion nebula",
+    "photographer": "NASA/JPL-Caltech/STScI",
+    "license": "Public Domain (NASA)",
+    "width": 6000,
+    "height": 6000,
+    "renditions": [
+      {
+        "src": "/images/space/orion-nebula/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/orion-nebula/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/orion-nebula/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/crab-nebula": {
+    "collection": "space",
+    "title": "Crab Nebula",
+    "subtitle": "Crab Nebula",
+    "alt": "Crab Nebula — crab nebula",
+    "photographer": "NASA/ESA/JPL/Arizona State University",
+    "license": "Public Domain (NASA)",
+    "width": 3864,
+    "height": 3864,
+    "renditions": [
+      {
+        "src": "/images/space/crab-nebula/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/crab-nebula/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/crab-nebula/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/carina-nebula": {
+    "collection": "space",
+    "title": "Carina Nebula landscape",
+    "subtitle": "Carina Nebula",
+    "alt": "Carina Nebula landscape — carina nebula",
+    "photographer": "NASA/ESA/M. Livio / Hubble Heritage Team",
+    "license": "Public Domain (NASA)",
+    "width": 4003,
+    "height": 2719,
+    "renditions": [
+      {
+        "src": "/images/space/carina-nebula/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/carina-nebula/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/carina-nebula/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  }
+}
