@@ -1,5 +1,6 @@
 import { biomeSubjects } from '~/lib/biomes'
 import { countries } from '~/lib/countries'
+import { elementSubjects } from '~/lib/elements'
 import { oceanSubjects } from '~/lib/oceans'
 import { spaceSubjects } from '~/lib/space'
 
@@ -22,6 +23,7 @@ export function allTopics(): Topic[] {
   const spaceCount = spaceSubjects.length
   const oceanCount = oceanSubjects.length
   const biomeCount = biomeSubjects.length
+  const elementCount = elementSubjects.length
   return [
     {
       slug: 'countries',
@@ -60,6 +62,16 @@ export function allTopics(): Topic[] {
         'Evergreen field guides for Earth’s major biomes — climate, range, cover, exemplars, facts, a photograph, and sources.',
       tally: `${biomeCount} guides`,
       href: '/biomes',
+      secondaryHref: '/gallery',
+      secondaryLabel: 'Gallery',
+    },
+    {
+      slug: 'elements',
+      name: 'Elements',
+      description:
+        'Evergreen field guides for high-signal chemical elements — atomic facts, features, a specimen photograph, and sources.',
+      tally: `${elementCount} guides`,
+      href: '/elements',
       secondaryHref: '/gallery',
       secondaryLabel: 'Gallery',
     },

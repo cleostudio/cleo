@@ -63,3 +63,6 @@ static/
 
 # Biome photo import originals (never public)
 .biome-originals/
+
+# Element photo import originals (never public)
+.element-originals/

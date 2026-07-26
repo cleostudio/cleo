@@ -8,6 +8,7 @@ import { countrySlugs } from '~/lib/countries'
 import { archivedNewsletterIds } from '~/lib/newsletters'
 import { seo } from '~/lib/seo'
 import { biomeSubjectSlugs } from '~/lib/biomes'
+import { elementSubjectSlugs } from '~/lib/elements'
 import { oceanSubjectSlugs } from '~/lib/oceans'
 import { spaceSubjectSlugs } from '~/lib/space'
 
@@ -50,12 +51,14 @@ describe('discovery routes', () => {
       '/sky',
       '/oceans',
       '/biomes',
+      '/elements',
       '/compare',
       '/cleo',
       ...countrySlugs().map((slug) => `/explore/${slug}`),
       ...spaceSubjectSlugs().map((slug) => `/space/${slug}`),
       ...oceanSubjectSlugs().map((slug) => `/oceans/${slug}`),
       ...biomeSubjectSlugs().map((slug) => `/biomes/${slug}`),
+      ...elementSubjectSlugs().map((slug) => `/elements/${slug}`),
       ...archivedNewsletterIds.map((id) => `/newsletters/${id}`),
       ...getAllPosts().map((post) => `/blog/${post.slug}`),
     ]

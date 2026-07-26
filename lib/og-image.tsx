@@ -339,6 +339,33 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'elements') {
+    // Periodic cell with atomic number / symbol marks.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="116" cy="116" r="72" stroke={faint} strokeWidth="1.4" />
+          <rect
+            x="68"
+            y="68"
+            width="96"
+            height="96"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path d="M84 92h28M84 116h64M84 140h44" stroke={faint} strokeWidth="1.35" />
+          <circle cx="148" cy="92" r="6" stroke={stroke} strokeWidth="1.45" />
+        </g>
+      </svg>
+    )
+  }
+
   if (section === 'gallery') {
     return (
       <svg

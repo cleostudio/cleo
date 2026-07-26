@@ -18,6 +18,7 @@ const SECTION_IMAGE_PATHS = new Set([
   '/biomes',
   '/cleo',
   '/compare',
+  '/elements',
   '/explore',
   '/gallery',
   '/oceans',

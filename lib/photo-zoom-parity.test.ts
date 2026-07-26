@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { allGalleryItems } from '~/lib/gallery'
 import { getAtlasEntry } from '~/lib/atlas'
 import { getBiomeSubject } from '~/lib/biomes'
+import { getElementSubject } from '~/lib/elements'
 import { getOceanSubject } from '~/lib/oceans'
 import { getSpaceSubject } from '~/lib/space'
 
@@ -55,6 +56,20 @@ describe('PhotoZoomDetails field parity', () => {
     for (const item of biomes) {
       const slug = item.href.replace('/biomes/', '')
       const subject = getBiomeSubject(slug)
+      expect(subject, slug).toBeTruthy()
+      expect(item.title).toBe(subject!.photo.featureName)
+      expect(item.subtitle).toBe(subject!.name)
+      expect(item.photo.photographer).toBe(subject!.photo.photographer)
+      expect(item.photo.license).toBe(subject!.photo.license)
+    }
+  })
+
+  it('gallery element items match Elements topic page fields', () => {
+    const elements = allGalleryItems().filter((i) => i.collection === 'elements')
+    expect(elements.length).toBeGreaterThan(0)
+    for (const item of elements) {
+      const slug = item.href.replace('/elements/', '')
+      const subject = getElementSubject(slug)
       expect(subject, slug).toBeTruthy()
       expect(item.title).toBe(subject!.photo.featureName)
       expect(item.subtitle).toBe(subject!.name)

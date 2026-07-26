@@ -9,10 +9,10 @@ Cleo (v3) contexts. System-wide ADRs live in `docs/adr/`. Site status:
 - **Content** — MDX Writing under `content/blog/` (future encyclopedia layer);
   archived newsletters under `content/newsletters/`
 - **Explore / Gallery** — Country field guides and place photographs from
-  `content/atlas.json` + `public/images/atlas/`; Gallery also includes Space
-  and Oceans photographs via `lib/gallery.ts`
-- **Topics** — Catalog of countries, space, and oceans (`/topics`;
-  `/projects` redirects here)
+  `content/atlas.json` + `public/images/atlas/`; Gallery also includes Space,
+  Oceans, Biomes, and Elements photographs via `lib/gallery.ts`
+- **Topics** — Catalog of countries, space, oceans, biomes, and elements
+  (`/topics`; `/projects` redirects here)
 - **Space** — Solar System, Moons, and Deep Space field guides (`/space`,
   `/space/[slug]`) with NASA photos in `content/space-photos.json` +
   `public/images/space/`; Sky atlas companion at `/sky`
@@ -21,6 +21,9 @@ Cleo (v3) contexts. System-wide ADRs live in `docs/adr/`. Site status:
   `public/images/oceans/`
 - **Biomes** — Major Earth biome field guides (`/biomes`, `/biomes/[slug]`)
   with NASA photos in `content/biome-photos.json` + `public/images/biomes/`
+- **Elements** — High-signal chemical element field guides (`/elements`,
+  `/elements/[slug]`) with Wikimedia Commons specimen photos in
+  `content/element-photos.json` + `public/images/elements/`
 - **Compare** — Side-by-side fact plates for two countries or two planets
   (`/compare?a=&b=`)
 - **Cleo agent** — OpenAI Responses API at `/cleo` and `/api/responses`

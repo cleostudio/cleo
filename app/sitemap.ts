@@ -5,6 +5,7 @@ import { countrySlugs } from '~/lib/countries'
 import { localeRoutePair } from '~/lib/locale-metadata'
 import { archivedNewsletterIds } from '~/lib/newsletters'
 import { biomeSubjectSlugs } from '~/lib/biomes'
+import { elementSubjectSlugs } from '~/lib/elements'
 import { oceanSubjectSlugs } from '~/lib/oceans'
 import { spaceSubjectSlugs } from '~/lib/space'
 
@@ -32,12 +33,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/sky'),
     entry('/oceans'),
     entry('/biomes'),
+    entry('/elements'),
     entry('/compare'),
     entry('/cleo'),
     ...countrySlugs().map((slug) => entry(`/explore/${slug}`)),
     ...spaceSubjectSlugs().map((slug) => entry(`/space/${slug}`)),
     ...oceanSubjectSlugs().map((slug) => entry(`/oceans/${slug}`)),
     ...biomeSubjectSlugs().map((slug) => entry(`/biomes/${slug}`)),
+    ...elementSubjectSlugs().map((slug) => entry(`/elements/${slug}`)),
     ...archivedNewsletterIds.map((id) => entry(`/newsletters/${id}`)),
     ...posts.map((post) => entry(`/blog/${post.slug}`, post.publishedAt)),
   ]

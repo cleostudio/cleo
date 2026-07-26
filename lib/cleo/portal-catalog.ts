@@ -5,6 +5,7 @@
 
 import { biomeSubjects } from '~/lib/biomes'
 import { countries } from '~/lib/countries'
+import { elementSubjects } from '~/lib/elements'
 import { oceanSubjects } from '~/lib/oceans'
 import { spaceSubjects } from '~/lib/space'
 
@@ -18,6 +19,7 @@ const PORTAL_SURFACES = [
   ['Sky', '/sky'],
   ['Oceans', '/oceans'],
   ['Biomes', '/biomes'],
+  ['Elements', '/elements'],
   ['Compare', '/compare'],
 ] as const
 
@@ -45,6 +47,12 @@ function formatBiomesCatalog() {
     .join('; ')
 }
 
+function formatElementsCatalog() {
+  return elementSubjects
+    .map((subject) => `${subject.name} (/elements/${subject.slug})`)
+    .join('; ')
+}
+
 function formatPortalSurfaces() {
   return PORTAL_SURFACES.map(([name, href]) => `[${name}](${href})`).join(', ')
 }
@@ -52,11 +60,11 @@ function formatPortalSurfaces() {
 /** Markdown block appended to Cleo developer instructions. */
 export function buildPortalCatalogInstructions(): string {
   return `<cleo_site>
-You are the AI agent on the Cleo knowledge portal (this website): evergreen country field guides at \`/explore/[slug]\`, Space guides at \`/space/[slug]\`, Oceans guides at \`/oceans/[slug]\`, Biomes guides at \`/biomes/[slug]\`, a Sky atlas at \`/sky\`, a photograph Gallery, and a Topics catalog.
+You are the AI agent on the Cleo knowledge portal (this website): evergreen country field guides at \`/explore/[slug]\`, Space guides at \`/space/[slug]\`, Oceans guides at \`/oceans/[slug]\`, Biomes guides at \`/biomes/[slug]\`, Elements guides at \`/elements/[slug]\`, a Sky atlas at \`/sky\`, a photograph Gallery, and a Topics catalog.
 
-When the user's question is about a country, place, planet, moon, nebula, ocean, sea, biome, or other subject that has a guide in the lists below:
+When the user's question is about a country, place, planet, moon, nebula, ocean, sea, biome, chemical element, or other subject that has a guide in the lists below:
 - Answer helpfully in your normal voice (do not paste the guide).
-- Weave one Markdown link into the answer using the exact path shown and a short subject-name label — e.g. link \`[Japan](/explore/japan)\`, \`[Europa](/space/europa)\`, \`[Pacific Ocean](/oceans/pacific)\`, or \`[Tundra](/biomes/tundra)\` on first mention. Do not use labels like "Explore guide" or "Space field guide".
+- Weave one Markdown link into the answer using the exact path shown and a short subject-name label — e.g. link \`[Japan](/explore/japan)\`, \`[Europa](/space/europa)\`, \`[Pacific Ocean](/oceans/pacific)\`, \`[Tundra](/biomes/tundra)\`, or \`[Iron](/elements/iron)\` on first mention. Do not use labels like "Explore guide" or "Space field guide".
 - Link each relevant guide at most once. Do not add a separate "see the guide", "fuller primer", or footer line that repeats the same link.
 - When comparing two catalog subjects, link each name once in the body. Prefer prose or a compact list/table over a bare link dump. For two countries or two planets, you may also offer a shareable Compare plate such as \`[/compare?a=explore:japan&b=explore:france](/compare?a=explore:japan&b=explore:france)\` or \`[/compare?a=space:earth&b=space:mars](/compare?a=space:earth&b=space:mars)\` — use exact \`explore:\` / \`space:\` refs, never invent slugs.
 - When a \`<cleo_topic_photos>\` block is present, you may include that subject's curated photograph as a Markdown image in the reply (see \`<images_and_vision>\`). Visual topic answers should often show the photo — not only link away.
@@ -77,5 +85,8 @@ ${formatOceansCatalog()}
 
 Biomes guides (${biomeSubjects.length}):
 ${formatBiomesCatalog()}
+
+Elements guides (${elementSubjects.length}):
+${formatElementsCatalog()}
 </cleo_site>`
 }

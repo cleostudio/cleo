@@ -1,10 +1,16 @@
 import { allAtlasEntries, atlasRegions } from '~/lib/atlas'
 import { biomeSubjects } from '~/lib/biomes'
+import { elementSubjects } from '~/lib/elements'
 import { oceanSubjects } from '~/lib/oceans'
 import type { StaticPhoto } from '~/lib/static-photo'
 import { spaceSubjects } from '~/lib/space'
 
-export type GalleryCollection = 'places' | 'space' | 'oceans' | 'biomes'
+export type GalleryCollection =
+  | 'places'
+  | 'space'
+  | 'oceans'
+  | 'biomes'
+  | 'elements'
 
 export interface GalleryItem {
   id: string
@@ -124,7 +130,26 @@ export function allGalleryItems(): GalleryItem[] {
     photo: subject.photo,
   }))
 
-  return [...places, ...space, ...oceans, ...biomes]
+  const elements: GalleryItem[] = elementSubjects.map((subject) => ({
+    id: `elements:${subject.slug}`,
+    collection: 'elements',
+    href: `/elements/${subject.slug}`,
+    title: subject.photo.featureName,
+    subtitle: subject.name,
+    filterKey: subject.category,
+    searchText: [
+      subject.name,
+      subject.photo.featureName,
+      subject.code,
+      subject.category,
+      subject.facts.symbol,
+      'element',
+      'chemistry',
+    ].join(' '),
+    photo: subject.photo,
+  }))
+
+  return [...places, ...space, ...oceans, ...biomes, ...elements]
 }
 
 export function galleryFilterKeys(): string[] {
@@ -138,9 +163,18 @@ export function galleryFilterKeys(): string[] {
   const biomeCategories = [
     ...new Set(biomeSubjects.map((subject) => subject.category)),
   ]
-  return [...placeRegions, ...spaceCategories, ...oceanCategories, ...biomeCategories]
+  const elementCategories = [
+    ...new Set(elementSubjects.map((subject) => subject.category)),
+  ]
+  return [
+    ...placeRegions,
+    ...spaceCategories,
+    ...oceanCategories,
+    ...biomeCategories,
+    ...elementCategories,
+  ]
 }
 
 export function galleryDescription(count: number): string {
-  return `${count} curated photographs — places from Explore, bodies from Space, waters from Oceans, and biomes.`
+  return `${count} curated photographs — places from Explore, bodies from Space, waters from Oceans, biomes, and elements.`
 }

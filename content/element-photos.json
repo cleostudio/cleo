@@ -1,0 +1,602 @@
+{
+  "hydrogen": {
+    "featureName": "Hydrogen discharge tube",
+    "alt": "Hydrogen discharge tube — hydrogen",
+    "caption": "Hydrogen discharge tube",
+    "photographer": "Heinrich Pniok (alchemist-hp)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHydrogen_discharge_tube_cropped.jpg",
+    "license": "FAL",
+    "commonsFile": "Hydrogen discharge tube cropped.jpg",
+    "provenance": "Curated from Wikimedia Commons file Hydrogen discharge tube cropped.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3cf324bca8b0927d5ed05d892bc1e98991375ed59fb9540bc70f9353b74f4650",
+    "width": 900,
+    "height": 600,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/hydrogen/w640.jpg",
+        "bytes": 14167
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/hydrogen/w1280.jpg",
+        "bytes": 22773
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/hydrogen/w2048.jpg",
+        "bytes": 28424
+      }
+    ]
+  },
+  "carbon": {
+    "featureName": "Graphite cube and glassy carbon",
+    "alt": "Graphite cube and glassy carbon — carbon",
+    "caption": "Graphite cube and glassy carbon",
+    "photographer": "Alchemist-hp (talk) (www.pse-mendelejew.de)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGlassy_carbon_and_a_1cm3_graphite_cube_HP68-79.jpg",
+    "license": "FAL",
+    "commonsFile": "Glassy carbon and a 1cm3 graphite cube HP68-79.jpg",
+    "provenance": "Curated from Wikimedia Commons file Glassy carbon and a 1cm3 graphite cube HP68-79.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a5521f0e8c51bb1f4d45cf811527ba9d042e24ec927cdf759ebe8e353d4cf5dd",
+    "width": 3840,
+    "height": 3183,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/carbon/w640.jpg",
+        "bytes": 40069
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/carbon/w1280.jpg",
+        "bytes": 136884
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/carbon/w2048.jpg",
+        "bytes": 390746
+      }
+    ]
+  },
+  "oxygen": {
+    "featureName": "Liquid oxygen in a beaker",
+    "alt": "Liquid oxygen in a beaker — oxygen",
+    "caption": "Liquid oxygen in a beaker",
+    "photographer": "Staff Sgt. Nika Glover, U.S. Air Force",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALiquid_oxygen_in_a_beaker_%28cropped_and_retouched%29.jpg",
+    "license": "Public domain",
+    "commonsFile": "Liquid oxygen in a beaker (cropped and retouched).jpg",
+    "provenance": "Curated from Wikimedia Commons file Liquid oxygen in a beaker (cropped and retouched).jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d17ed42f65daf0b3043f217dee0cf6e3a85861565307645e20c24fe69abe70ff",
+    "width": 1024,
+    "height": 1280,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/oxygen/w640.jpg",
+        "bytes": 39356
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/oxygen/w1280.jpg",
+        "bytes": 75816
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/oxygen/w2048.jpg",
+        "bytes": 95572
+      }
+    ]
+  },
+  "mercury": {
+    "featureName": "Cinnabar on dolomite",
+    "alt": "Cinnabar on dolomite — mercury",
+    "caption": "Cinnabar on dolomite",
+    "photographer": "JJ Harrison (https://www.jjharrison.com.au/)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACinnabar_on_Dolomite.jpg",
+    "license": "CC BY-SA 3.0",
+    "commonsFile": "Cinnabar on Dolomite.jpg",
+    "provenance": "Curated from Wikimedia Commons file Cinnabar on Dolomite.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c3271426913b99c5e7d5e42c5c013a611b010c86c11e9b91ab4287868e97806e",
+    "width": 1763,
+    "height": 1254,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/mercury/w640.jpg",
+        "bytes": 48680
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/mercury/w1280.jpg",
+        "bytes": 129205
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/mercury/w2048.jpg",
+        "bytes": 264583
+      }
+    ]
+  },
+  "nitrogen": {
+    "featureName": "Liquid nitrogen",
+    "alt": "Liquid nitrogen — nitrogen",
+    "caption": "Liquid nitrogen",
+    "photographer": "Robin Müller",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFluessiger_Stickstoff.jpg",
+    "license": "CC BY-SA 3.0",
+    "commonsFile": "Fluessiger Stickstoff.jpg",
+    "provenance": "Curated from Wikimedia Commons file Fluessiger Stickstoff.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1132e36cd5650d2777cb4d1996f85f274458a3be74774f535fc53f56f2d975f5",
+    "width": 2336,
+    "height": 3504,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/nitrogen/w640.jpg",
+        "bytes": 58791
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/nitrogen/w1280.jpg",
+        "bytes": 151656
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/nitrogen/w2048.jpg",
+        "bytes": 424885
+      }
+    ]
+  },
+  "sodium": {
+    "featureName": "Halite crystal",
+    "alt": "Halite crystal — sodium",
+    "caption": "Halite crystal",
+    "photographer": "Photograph by Andrew Silver",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHalite-Egypt.jpg",
+    "license": "Public domain",
+    "commonsFile": "Halite-Egypt.jpg",
+    "provenance": "Curated from Wikimedia Commons file Halite-Egypt.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "968d119f72d5290f4fb97d605e7c4051b77efc673649e55117d0d9e28692d54b",
+    "width": 1400,
+    "height": 1262,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/sodium/w640.jpg",
+        "bytes": 71479
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/sodium/w1280.jpg",
+        "bytes": 161229
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/sodium/w2048.jpg",
+        "bytes": 210806
+      }
+    ]
+  },
+  "magnesium": {
+    "featureName": "Burning magnesium ribbon",
+    "alt": "Burning magnesium ribbon — magnesium",
+    "caption": "Burning magnesium ribbon",
+    "photographer": "Capt. John Yossarian",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMagnesium_ribbon_burning.jpg",
+    "license": "CC BY-SA 3.0",
+    "commonsFile": "Magnesium ribbon burning.jpg",
+    "provenance": "Curated from Wikimedia Commons file Magnesium ribbon burning.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "64d05d17a001854977cd59b222798c0e4e2f8ec7eef0560afc6d5ac62c503dee",
+    "width": 2699,
+    "height": 1799,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/magnesium/w640.jpg",
+        "bytes": 27512
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/magnesium/w1280.jpg",
+        "bytes": 50173
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/magnesium/w2048.jpg",
+        "bytes": 105203
+      }
+    ]
+  },
+  "aluminum": {
+    "featureName": "Pisolitic bauxite",
+    "alt": "Pisolitic bauxite — aluminum",
+    "caption": "Pisolitic bauxite",
+    "photographer": "James St. John",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APisolitic_bauxite_%28Alcoa_Bauxite_Mine%2C_Arkansas%2C_USA%29_5.jpg",
+    "license": "CC BY 2.0",
+    "commonsFile": "Pisolitic bauxite (Alcoa Bauxite Mine, Arkansas, USA) 5.jpg",
+    "provenance": "Curated from Wikimedia Commons file Pisolitic bauxite (Alcoa Bauxite Mine, Arkansas, USA) 5.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "28251dde112b291b2cfef3a7b66fe7b5e0334a3fc6120df3ac299dc1022a114f",
+    "width": 3840,
+    "height": 2447,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/aluminum/w640.jpg",
+        "bytes": 46621
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/aluminum/w1280.jpg",
+        "bytes": 156239
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/aluminum/w2048.jpg",
+        "bytes": 417475
+      }
+    ]
+  },
+  "silicon": {
+    "featureName": "Silicon single crystal",
+    "alt": "Silicon single crystal — silicon",
+    "caption": "Silicon single crystal",
+    "photographer": "Mojmir Churavy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFZU_AV_CR_Silicon_Single_Crystal_D.jpg",
+    "license": "CC BY-SA 4.0",
+    "commonsFile": "FZU AV CR Silicon Single Crystal D.jpg",
+    "provenance": "Curated from Wikimedia Commons file FZU AV CR Silicon Single Crystal D.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "208fadc9f3a00eb047a75cdd0005aea307e1c18d867db1910414a8ca9c09c931",
+    "width": 3072,
+    "height": 2304,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/silicon/w640.jpg",
+        "bytes": 62264
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/silicon/w1280.jpg",
+        "bytes": 211905
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/silicon/w2048.jpg",
+        "bytes": 600419
+      }
+    ]
+  },
+  "phosphorus": {
+    "featureName": "Red phosphorus powder",
+    "alt": "Red phosphorus powder — phosphorus",
+    "caption": "Red phosphorus powder",
+    "photographer": "Hi-Res Images of Chemical Elements",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARed_phosphorus_as_powder.jpg",
+    "license": "CC BY 3.0",
+    "commonsFile": "Red phosphorus as powder.jpg",
+    "provenance": "Curated from Wikimedia Commons file Red phosphorus as powder.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9448bb460e175eddec241e7e4e97f02cbd6698ba5a6482dda25cad07f60dc71a",
+    "width": 940,
+    "height": 940,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/phosphorus/w640.jpg",
+        "bytes": 77880
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/phosphorus/w1280.jpg",
+        "bytes": 108528
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/phosphorus/w2048.jpg",
+        "bytes": 122616
+      }
+    ]
+  },
+  "sulfur": {
+    "featureName": "Crystalline sulfur",
+    "alt": "Crystalline sulfur — sulfur",
+    "caption": "Crystalline sulfur",
+    "photographer": "AlexmarPhoto",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACrystals_growing_from_melted_sulfur.jpg",
+    "license": "CC BY 4.0",
+    "commonsFile": "Crystals growing from melted sulfur.jpg",
+    "provenance": "Curated from Wikimedia Commons file Crystals growing from melted sulfur.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6237935b0ebc5e131fdfc621cf60d4dbf7d398e4598e2d09e243213629331317",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/sulfur/w640.jpg",
+        "bytes": 59710
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/sulfur/w1280.jpg",
+        "bytes": 185456
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/sulfur/w2048.jpg",
+        "bytes": 467654
+      }
+    ]
+  },
+  "chlorine": {
+    "featureName": "Liquid chlorine in an ampoule",
+    "alt": "Liquid chlorine in an ampoule — chlorine",
+    "caption": "Liquid chlorine in an ampoule",
+    "photographer": "Alchemist-hp (talk) (www.pse-mendelejew.de)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChlorine_liquid_in_an_ampoule.jpg",
+    "license": "FAL",
+    "commonsFile": "Chlorine liquid in an ampoule.jpg",
+    "provenance": "Curated from Wikimedia Commons file Chlorine liquid in an ampoule.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cbc01e86a68e964796d52489f1728634555af2741713cc8eb571394011a81243",
+    "width": 3513,
+    "height": 3442,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/chlorine/w640.jpg",
+        "bytes": 28356
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/chlorine/w1280.jpg",
+        "bytes": 64278
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/chlorine/w2048.jpg",
+        "bytes": 170063
+      }
+    ]
+  },
+  "potassium": {
+    "featureName": "Potash mineral sample",
+    "alt": "Potash mineral sample — potassium",
+    "caption": "Potash mineral sample",
+    "photographer": "Georgialh",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASampling_Potash_Minerals.jpg",
+    "license": "CC BY-SA 4.0",
+    "commonsFile": "Sampling Potash Minerals.jpg",
+    "provenance": "Curated from Wikimedia Commons file Sampling Potash Minerals.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8c0b550dde5685bb9ad4a5935370f7a492436c982460408632f87593501a5eb9",
+    "width": 1712,
+    "height": 2288,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/potassium/w640.jpg",
+        "bytes": 64361
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/potassium/w1280.jpg",
+        "bytes": 229404
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/potassium/w2048.jpg",
+        "bytes": 480462
+      }
+    ]
+  },
+  "calcium": {
+    "featureName": "Calcite crystal",
+    "alt": "Calcite crystal — calcium",
+    "caption": "Calcite crystal",
+    "photographer": "Sailko",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACalcite%2C_da_dalnegonsk%2C_siberia%2C_russia.JPG",
+    "license": "CC BY 3.0",
+    "commonsFile": "Calcite, da dalnegonsk, siberia, russia.JPG",
+    "provenance": "Curated from Wikimedia Commons file Calcite, da dalnegonsk, siberia, russia.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2e8fcb875d7034d4f33e4cb246147e33748a96bc338fef926c135b69d85bcf18",
+    "width": 3840,
+    "height": 3550,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/calcium/w640.jpg",
+        "bytes": 25735
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/calcium/w1280.jpg",
+        "bytes": 72970
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/calcium/w2048.jpg",
+        "bytes": 204425
+      }
+    ]
+  },
+  "iron": {
+    "featureName": "Campo del Cielo iron meteorite",
+    "alt": "Campo del Cielo iron meteorite — iron",
+    "caption": "Campo del Cielo iron meteorite",
+    "photographer": "Geo Lightspeed7",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACampo_del_Cielo_Meteorite_17g.jpg",
+    "license": "CC BY-SA 4.0",
+    "commonsFile": "Campo del Cielo Meteorite 17g.jpg",
+    "provenance": "Curated from Wikimedia Commons file Campo del Cielo Meteorite 17g.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8929fde7263149fe40b5993903edeca6602d13284846810b51c0985ba46433da",
+    "width": 1627,
+    "height": 1079,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/iron/w640.jpg",
+        "bytes": 49902
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/iron/w1280.jpg",
+        "bytes": 131359
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/iron/w2048.jpg",
+        "bytes": 231947
+      }
+    ]
+  },
+  "copper": {
+    "featureName": "Native copper",
+    "alt": "Native copper — copper",
+    "caption": "Native copper",
+    "photographer": "Didier Descouens",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACuivre_Michigan.jpg",
+    "license": "CC BY-SA 4.0",
+    "commonsFile": "Cuivre Michigan.jpg",
+    "provenance": "Curated from Wikimedia Commons file Cuivre Michigan.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2eb6fb9b470941b594aeef01e8bccab82fc7778de2fd6dcd1b9a29ca7b7aa3b2",
+    "width": 3840,
+    "height": 2644,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/copper/w640.jpg",
+        "bytes": 40554
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/copper/w1280.jpg",
+        "bytes": 139630
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/copper/w2048.jpg",
+        "bytes": 366248
+      }
+    ]
+  },
+  "silver": {
+    "featureName": "Native silver crystal",
+    "alt": "Native silver crystal — silver",
+    "caption": "Native silver crystal",
+    "photographer": "Alchemist-hp (talk) (www.pse-mendelejew.de)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASilver_crystal.jpg",
+    "license": "CC BY-SA 3.0 de",
+    "commonsFile": "Silver crystal.jpg",
+    "provenance": "Curated from Wikimedia Commons file Silver crystal.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1913b42265702d73cce40ffb6cb4c76f0a27e2d8ce2d9ea1414cd5cf6360b06d",
+    "width": 3840,
+    "height": 3011,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/silver/w640.jpg",
+        "bytes": 43995
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/silver/w1280.jpg",
+        "bytes": 145814
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/silver/w2048.jpg",
+        "bytes": 381996
+      }
+    ]
+  },
+  "gold": {
+    "featureName": "Australian gold nugget",
+    "alt": "Australian gold nugget — gold",
+    "caption": "Australian gold nugget",
+    "photographer": "James St. John",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGold_nugget_%28Australia%29_4_%2816848647509%29.jpg",
+    "license": "CC BY 2.0",
+    "commonsFile": "Gold nugget (Australia) 4 (16848647509).jpg",
+    "provenance": "Curated from Wikimedia Commons file Gold nugget (Australia) 4 (16848647509).jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c9611a839b9e1d90dfea413697c12b5bc9be62944ea33d936b56434e8a0d6a38",
+    "width": 3531,
+    "height": 2278,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/gold/w640.jpg",
+        "bytes": 74925
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/gold/w1280.jpg",
+        "bytes": 212793
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/gold/w2048.jpg",
+        "bytes": 557109
+      }
+    ]
+  },
+  "lead": {
+    "featureName": "Galena crystal",
+    "alt": "Galena crystal — lead",
+    "caption": "Galena crystal",
+    "photographer": "Ivar Leidus",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGalena_-_Huallanca%2C_Bologesi%2C_Ancash%2C_Peru.jpg",
+    "license": "CC BY-SA 4.0",
+    "commonsFile": "Galena - Huallanca, Bologesi, Ancash, Peru.jpg",
+    "provenance": "Curated from Wikimedia Commons file Galena - Huallanca, Bologesi, Ancash, Peru.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "be9565478b7ba42e26ed27cfdccf250c033bc6b333eee27d16dd765b6fa5ec47",
+    "width": 3840,
+    "height": 3200,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/lead/w640.jpg",
+        "bytes": 44376
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/lead/w1280.jpg",
+        "bytes": 159019
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/lead/w2048.jpg",
+        "bytes": 464936
+      }
+    ]
+  },
+  "uranium": {
+    "featureName": "Uraninite",
+    "alt": "Uraninite — uranium",
+    "caption": "Uraninite",
+    "photographer": "Weirdmeister",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AUraninite_miceeye.jpg",
+    "license": "CC BY-SA 3.0",
+    "commonsFile": "Uraninite miceeye.jpg",
+    "provenance": "Curated from Wikimedia Commons file Uraninite miceeye.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b7551d531f942a3e22c9be7fa6df1c4e06faa12044ca84cfe29a66e1e86bfe45",
+    "width": 1280,
+    "height": 853,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/elements/uranium/w640.jpg",
+        "bytes": 41235
+      },
+      {
+        "width": 1280,
+        "src": "/images/elements/uranium/w1280.jpg",
+        "bytes": 101428
+      },
+      {
+        "width": 2048,
+        "src": "/images/elements/uranium/w2048.jpg",
+        "bytes": 121631
+      }
+    ]
+  }
+}

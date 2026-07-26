@@ -17,6 +17,7 @@ const PUBLIC_SECTIONS = new Set<PublicSection>([
   'biomes',
   'cleo',
   'compare',
+  'elements',
   'explore',
   'gallery',
   'oceans',

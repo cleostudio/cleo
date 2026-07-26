@@ -144,11 +144,12 @@ describe('presentPortalGuideMarkdown', () => {
 })
 
 describe('presentTopicPhotoMarkdown', () => {
-  it('allows only curated atlas, space, oceans, and biomes JPEG paths', () => {
+  it('allows only curated atlas, space, oceans, biomes, and elements JPEG paths', () => {
     expect(isCuratedTopicImageSrc('/images/atlas/japan/w1280.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('/images/space/mars/w640.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('/images/oceans/pacific/w1280.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('/images/biomes/tundra/w1280.jpg')).toBe(true)
+    expect(isCuratedTopicImageSrc('/images/elements/iron/w1280.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('https://evil.example/x.jpg')).toBe(false)
     expect(isCuratedTopicImageSrc('/images/other/x.jpg')).toBe(false)
 

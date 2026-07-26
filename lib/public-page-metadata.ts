@@ -52,6 +52,11 @@ export const publicPageMetadata = {
     description:
       'Evergreen field guides for Earth’s major biomes — climate, range, cover, exemplars, and facts.',
   },
+  elements: {
+    title: 'Elements',
+    description:
+      'Evergreen field guides for high-signal chemical elements — atomic facts, features, and specimen photographs.',
+  },
   cleo: {
     title: 'Cleo',
     description:

@@ -56,6 +56,11 @@ describe('social OG image metadata', () => {
       'Biomes · Cleo. Evergreen field guides for Earth’s major biomes — climate, range, cover, exemplars, and facts.',
     ],
     [
+      '/elements',
+      publicPageMetadata.elements,
+      'Elements · Cleo. Evergreen field guides for high-signal chemical elements — atomic facts, features, and specimen photographs.',
+    ],
+    [
       '/cleo',
       publicPageMetadata.cleo,
       'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',

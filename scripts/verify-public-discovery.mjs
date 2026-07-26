@@ -110,6 +110,15 @@ const publicPages = [
     'Biomes · Cleo. Evergreen field guides for Earth’s major biomes — climate, range, cover, exemplars, and facts.',
   ),
   englishPage(
+    '/elements',
+    {
+      title: 'Elements',
+      description:
+        'Evergreen field guides for high-signal chemical elements — atomic facts, features, and specimen photographs.',
+    },
+    'Elements · Cleo. Evergreen field guides for high-signal chemical elements — atomic facts, features, and specimen photographs.',
+  ),
+  englishPage(
     '/cleo',
     {
       title: 'Cleo',

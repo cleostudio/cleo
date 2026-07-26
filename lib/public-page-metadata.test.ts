@@ -54,6 +54,11 @@ describe('public page metadata copy', () => {
       description:
         'Evergreen field guides for Earth’s major biomes — climate, range, cover, exemplars, and facts.',
     })
+    expect(publicPageMetadata.elements).toEqual({
+      title: 'Elements',
+      description:
+        'Evergreen field guides for high-signal chemical elements — atomic facts, features, and specimen photographs.',
+    })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',
       description:
@@ -72,6 +77,7 @@ describe('public page metadata copy', () => {
       'sky',
       'compare',
       'biomes',
+      'elements',
       'cleo',
     ] as const) {
       expect(publicPageMetadata[section].description.length, section).toBeLessThanOrEqual(160)

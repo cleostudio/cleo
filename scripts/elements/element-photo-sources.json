@@ -1,0 +1,162 @@
+{
+  "hydrogen": {
+    "featureName": "Hydrogen discharge tube",
+    "commonsFile": "Hydrogen discharge tube cropped.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Hydrogen_discharge_tube_cropped.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHydrogen_discharge_tube_cropped.jpg",
+    "credit": "Heinrich Pniok (alchemist-hp)",
+    "license": "FAL"
+  },
+  "carbon": {
+    "featureName": "Graphite cube and glassy carbon",
+    "commonsFile": "Glassy carbon and a 1cm3 graphite cube HP68-79.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Glassy_carbon_and_a_1cm3_graphite_cube_HP68-79.jpg/3840px-Glassy_carbon_and_a_1cm3_graphite_cube_HP68-79.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGlassy_carbon_and_a_1cm3_graphite_cube_HP68-79.jpg",
+    "credit": "Alchemist-hp (talk) (www.pse-mendelejew.de)",
+    "license": "FAL"
+  },
+  "nitrogen": {
+    "featureName": "Liquid nitrogen",
+    "commonsFile": "Fluessiger Stickstoff.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Fluessiger_Stickstoff.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFluessiger_Stickstoff.jpg",
+    "credit": "Robin M\u00fcller",
+    "license": "CC BY-SA 3.0"
+  },
+  "oxygen": {
+    "featureName": "Liquid oxygen in a beaker",
+    "commonsFile": "Liquid oxygen in a beaker (cropped and retouched).jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Liquid_oxygen_in_a_beaker_%28cropped_and_retouched%29.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALiquid_oxygen_in_a_beaker_%28cropped_and_retouched%29.jpg",
+    "credit": "Staff Sgt. Nika Glover, U.S. Air Force",
+    "license": "Public domain"
+  },
+  "sodium": {
+    "featureName": "Halite crystal",
+    "commonsFile": "Halite-Egypt.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Halite-Egypt.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHalite-Egypt.jpg",
+    "credit": "Photograph by Andrew Silver",
+    "license": "Public domain"
+  },
+  "magnesium": {
+    "featureName": "Burning magnesium ribbon",
+    "commonsFile": "Magnesium ribbon burning.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Magnesium_ribbon_burning.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMagnesium_ribbon_burning.jpg",
+    "credit": "Capt. John Yossarian",
+    "license": "CC BY-SA 3.0"
+  },
+  "aluminum": {
+    "featureName": "Pisolitic bauxite",
+    "commonsFile": "Pisolitic bauxite (Alcoa Bauxite Mine, Arkansas, USA) 5.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Pisolitic_bauxite_%28Alcoa_Bauxite_Mine%2C_Arkansas%2C_USA%29_5.jpg/3840px-Pisolitic_bauxite_%28Alcoa_Bauxite_Mine%2C_Arkansas%2C_USA%29_5.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APisolitic_bauxite_%28Alcoa_Bauxite_Mine%2C_Arkansas%2C_USA%29_5.jpg",
+    "credit": "James St. John",
+    "license": "CC BY 2.0"
+  },
+  "silicon": {
+    "featureName": "Silicon single crystal",
+    "commonsFile": "FZU AV CR Silicon Single Crystal D.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/FZU_AV_CR_Silicon_Single_Crystal_D.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFZU_AV_CR_Silicon_Single_Crystal_D.jpg",
+    "credit": "Mojmir Churavy",
+    "license": "CC BY-SA 4.0"
+  },
+  "phosphorus": {
+    "featureName": "Red phosphorus powder",
+    "commonsFile": "Red phosphorus as powder.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Red_phosphorus_as_powder.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARed_phosphorus_as_powder.jpg",
+    "credit": "Hi-Res Images of Chemical Elements",
+    "license": "CC BY 3.0"
+  },
+  "sulfur": {
+    "featureName": "Crystalline sulfur",
+    "commonsFile": "Crystals growing from melted sulfur.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Crystals_growing_from_melted_sulfur.jpg/3840px-Crystals_growing_from_melted_sulfur.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACrystals_growing_from_melted_sulfur.jpg",
+    "credit": "AlexmarPhoto",
+    "license": "CC BY 4.0"
+  },
+  "chlorine": {
+    "featureName": "Liquid chlorine in an ampoule",
+    "commonsFile": "Chlorine liquid in an ampoule.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Chlorine_liquid_in_an_ampoule.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChlorine_liquid_in_an_ampoule.jpg",
+    "credit": "Alchemist-hp (talk) (www.pse-mendelejew.de)",
+    "license": "FAL"
+  },
+  "potassium": {
+    "featureName": "Potash mineral sample",
+    "commonsFile": "Sampling Potash Minerals.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Sampling_Potash_Minerals.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASampling_Potash_Minerals.jpg",
+    "credit": "Georgialh",
+    "license": "CC BY-SA 4.0"
+  },
+  "calcium": {
+    "featureName": "Calcite crystal",
+    "commonsFile": "Calcite, da dalnegonsk, siberia, russia.JPG",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Calcite%2C_da_dalnegonsk%2C_siberia%2C_russia.JPG/3840px-Calcite%2C_da_dalnegonsk%2C_siberia%2C_russia.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACalcite%2C_da_dalnegonsk%2C_siberia%2C_russia.JPG",
+    "credit": "Sailko",
+    "license": "CC BY 3.0"
+  },
+  "iron": {
+    "featureName": "Campo del Cielo iron meteorite",
+    "commonsFile": "Campo del Cielo Meteorite 17g.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Campo_del_Cielo_Meteorite_17g.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACampo_del_Cielo_Meteorite_17g.jpg",
+    "credit": "Geo Lightspeed7",
+    "license": "CC BY-SA 4.0"
+  },
+  "copper": {
+    "featureName": "Native copper",
+    "commonsFile": "Cuivre Michigan.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cuivre_Michigan.jpg/3840px-Cuivre_Michigan.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACuivre_Michigan.jpg",
+    "credit": "Didier Descouens",
+    "license": "CC BY-SA 4.0"
+  },
+  "silver": {
+    "featureName": "Native silver crystal",
+    "commonsFile": "Silver crystal.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Silver_crystal.jpg/3840px-Silver_crystal.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASilver_crystal.jpg",
+    "credit": "Alchemist-hp (talk) (www.pse-mendelejew.de)",
+    "license": "CC BY-SA 3.0 de"
+  },
+  "gold": {
+    "featureName": "Australian gold nugget",
+    "commonsFile": "Gold nugget (Australia) 4 (16848647509).jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Gold_nugget_%28Australia%29_4_%2816848647509%29.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGold_nugget_%28Australia%29_4_%2816848647509%29.jpg",
+    "credit": "James St. John",
+    "license": "CC BY 2.0"
+  },
+  "mercury": {
+    "featureName": "Cinnabar on dolomite",
+    "commonsFile": "Cinnabar on Dolomite.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Cinnabar_on_Dolomite.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACinnabar_on_Dolomite.jpg",
+    "credit": "JJ Harrison (https://www.jjharrison.com.au/)",
+    "license": "CC BY-SA 3.0"
+  },
+  "lead": {
+    "featureName": "Galena crystal",
+    "commonsFile": "Galena - Huallanca, Bologesi, Ancash, Peru.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Galena_-_Huallanca%2C_Bologesi%2C_Ancash%2C_Peru.jpg/3840px-Galena_-_Huallanca%2C_Bologesi%2C_Ancash%2C_Peru.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGalena_-_Huallanca%2C_Bologesi%2C_Ancash%2C_Peru.jpg",
+    "credit": "Ivar Leidus",
+    "license": "CC BY-SA 4.0"
+  },
+  "uranium": {
+    "featureName": "Uraninite",
+    "commonsFile": "Uraninite miceeye.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Uraninite_miceeye.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AUraninite_miceeye.jpg",
+    "credit": "Weirdmeister",
+    "license": "CC BY-SA 3.0"
+  }
+}

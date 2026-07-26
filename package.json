@@ -38,6 +38,8 @@
     "validate:oceans": "node scripts/oceans/preflight.mjs",
     "import:biome-photos": "node scripts/biomes/import-biome-photos.mjs",
     "validate:biomes": "node scripts/biomes/preflight.mjs",
+    "import:element-photos": "node scripts/elements/import-element-photos.mjs",
+    "validate:elements": "node scripts/elements/preflight.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

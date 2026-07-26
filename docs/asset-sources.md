@@ -94,6 +94,38 @@ in `.biome-originals/` (gitignored). Same NASA media guidelines as Space.
 | `coral-reef` | PIA03401 | Australia Great Barrier Reef |
 | `ice-sheet` | GSFC_20171208_Archive_e000908 | Thurston Island, Antarctica |
 
+## Elements photographs
+
+One curated Wikimedia Commons specimen (or discharge-tube) image per Elements
+guide. Import-time only via `pnpm import:element-photos` (sources in
+`scripts/elements/element-photo-sources.json`); runtime serves local JPEGs under
+`public/images/elements/{slug}/`. Originals stay in `.element-originals/`
+(gitignored). Licenses vary by file (PD, CC BY, CC BY-SA, FAL, etc.); credit
+links point at the Commons file page.
+
+| Slug | Commons file | Feature |
+| --- | --- | --- |
+| `hydrogen` | Hydrogen discharge tube cropped.jpg | Discharge tube |
+| `carbon` | Glassy carbon and a 1cm3 graphite cube HP68-79.jpg | Graphite / glassy carbon |
+| `nitrogen` | Fluessiger Stickstoff.jpg | Liquid nitrogen |
+| `oxygen` | Liquid oxygen in a beaker (cropped and retouched).jpg | Liquid oxygen |
+| `sodium` | Halite-Egypt.jpg | Halite crystal |
+| `magnesium` | Magnesium ribbon burning.jpg | Burning magnesium |
+| `aluminum` | Pisolitic bauxite (Alcoa Bauxite Mine, Arkansas, USA) 5.jpg | Bauxite |
+| `silicon` | FZU AV CR Silicon Single Crystal D.jpg | Silicon crystal |
+| `phosphorus` | Red phosphorus as powder.jpg | Red phosphorus |
+| `sulfur` | Crystals growing from melted sulfur.jpg | Crystalline sulfur |
+| `chlorine` | Chlorine liquid in an ampoule.jpg | Liquid chlorine |
+| `potassium` | Sampling Potash Minerals.jpg | Potash minerals |
+| `calcium` | Calcite, da dalnegonsk, siberia, russia.JPG | Calcite |
+| `iron` | Campo del Cielo Meteorite 17g.jpg | Iron meteorite |
+| `copper` | Cuivre Michigan.jpg | Native copper |
+| `silver` | Silver crystal.jpg | Silver crystal |
+| `gold` | Gold nugget (Australia) 4 (16848647509).jpg | Gold nugget |
+| `mercury` | Cinnabar on Dolomite.jpg | Cinnabar |
+| `lead` | Galena - Huallanca, Bologesi, Ancash, Peru.jpg | Galena |
+| `uranium` | Uraninite miceeye.jpg | Uraninite |
+
 ## Taste shelf
 
 Source record for the album and book assets added in July 2026. Cover images
