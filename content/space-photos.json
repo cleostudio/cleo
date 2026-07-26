@@ -418,5 +418,275 @@
         "bytes": 99147
       }
     ]
+  },
+  "io": {
+    "featureName": "Global view of Io",
+    "alt": "Global view of Io — io",
+    "caption": "Global view of Io",
+    "photographer": "NASA/JPL/University of Arizona",
+    "sourceUrl": "https://images.nasa.gov/details/PIA00583",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA00583",
+    "provenance": "Curated from NASA image PIA00583; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f67a4ff8c5ba4942b91cab411c865750af106159b13cbd7aa367aad2e5b37930",
+    "width": 1817,
+    "height": 1817,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/io/w640.jpg",
+        "bytes": 74719
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/io/w1024.jpg",
+        "bytes": 157796
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/io/w1600.jpg",
+        "bytes": 318615
+      }
+    ]
+  },
+  "europa": {
+    "featureName": "Europa's icy surface",
+    "alt": "Europa's icy surface — europa",
+    "caption": "Europa's icy surface",
+    "photographer": "NASA/JPL-Caltech/SETI Institute",
+    "sourceUrl": "https://images.nasa.gov/details/PIA19048",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA19048",
+    "provenance": "Curated from NASA image PIA19048; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f020c034750675cb0ace6c3164b18151746bfa28405e888d810312cd563d650d",
+    "width": 2300,
+    "height": 1700,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/europa/w640.jpg",
+        "bytes": 39511
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/europa/w1024.jpg",
+        "bytes": 87971
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/europa/w1600.jpg",
+        "bytes": 190347
+      }
+    ]
+  },
+  "ganymede": {
+    "featureName": "Ganymede in color",
+    "alt": "Ganymede in color — ganymede",
+    "caption": "Ganymede in color",
+    "photographer": "NASA/JPL",
+    "sourceUrl": "https://images.nasa.gov/details/PIA00716",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA00716",
+    "provenance": "Curated from NASA image PIA00716; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6382510b125173a0490b281a1168f4bbc63d9cbf2fcabcfbb892135bb1b2c093",
+    "width": 800,
+    "height": 800,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/ganymede/w640.jpg",
+        "bytes": 36976
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/ganymede/w1024.jpg",
+        "bytes": 49185
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/ganymede/w1600.jpg",
+        "bytes": 49185
+      }
+    ]
+  },
+  "titan": {
+    "featureName": "Titan's orange and blue hazes",
+    "alt": "Titan's orange and blue hazes — titan",
+    "caption": "Titan's orange and blue hazes",
+    "photographer": "NASA/JPL-Caltech/Space Science Institute",
+    "sourceUrl": "https://images.nasa.gov/details/PIA14913",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA14913",
+    "provenance": "Curated from NASA image PIA14913; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b7a0598bbb08e7b1c9fbefce9c1c9a78b34a338c291c2826569c0224fb36adb8",
+    "width": 924,
+    "height": 657,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/titan/w640.jpg",
+        "bytes": 11694
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/titan/w1024.jpg",
+        "bytes": 15266
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/titan/w1600.jpg",
+        "bytes": 15266
+      }
+    ]
+  },
+  "enceladus": {
+    "featureName": "Approaching Enceladus",
+    "alt": "Approaching Enceladus — enceladus",
+    "caption": "Approaching Enceladus",
+    "photographer": "NASA/JPL-Caltech/Space Science Institute",
+    "sourceUrl": "https://images.nasa.gov/details/PIA17202",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA17202",
+    "provenance": "Curated from NASA image PIA17202; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2ef0a3e897ec47694252deef78383dda24e775ed7be173a69b77aeceb00baecf",
+    "width": 1020,
+    "height": 1020,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/enceladus/w640.jpg",
+        "bytes": 43010
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/enceladus/w1024.jpg",
+        "bytes": 91817
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/enceladus/w1600.jpg",
+        "bytes": 91817
+      }
+    ]
+  },
+  "iss": {
+    "featureName": "ISS flyaround",
+    "alt": "ISS flyaround — iss",
+    "caption": "ISS flyaround",
+    "photographer": "NASA",
+    "sourceUrl": "https://images.nasa.gov/details/iss01-389-023",
+    "license": "Public Domain (NASA)",
+    "nasaId": "iss01-389-023",
+    "provenance": "Curated from NASA image iss01-389-023; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ce3764279f3d0567a13a7df6a37853d913e4b3077a8fe3ca2b00c35a97878f6c",
+    "width": 2976,
+    "height": 1984,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/iss/w640.jpg",
+        "bytes": 33049
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/iss/w1024.jpg",
+        "bytes": 67438
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/iss/w1600.jpg",
+        "bytes": 138935
+      }
+    ]
+  },
+  "orion-nebula": {
+    "featureName": "Heart of the Orion Nebula",
+    "alt": "Heart of the Orion Nebula — orion nebula",
+    "caption": "Heart of the Orion Nebula",
+    "photographer": "NASA/JPL-Caltech/STScI",
+    "sourceUrl": "https://images.nasa.gov/details/PIA01322",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA01322",
+    "provenance": "Curated from NASA image PIA01322; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "866c955ad3ee2b5306777aff3b51c22940278355646e7b35a7ba519e82a26a0f",
+    "width": 6000,
+    "height": 6000,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/orion-nebula/w640.jpg",
+        "bytes": 53356
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/orion-nebula/w1024.jpg",
+        "bytes": 105583
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/orion-nebula/w1600.jpg",
+        "bytes": 200398
+      }
+    ]
+  },
+  "crab-nebula": {
+    "featureName": "Crab Nebula",
+    "alt": "Crab Nebula — crab nebula",
+    "caption": "Crab Nebula",
+    "photographer": "NASA/ESA/JPL/Arizona State University",
+    "sourceUrl": "https://images.nasa.gov/details/PIA03606",
+    "license": "Public Domain (NASA)",
+    "nasaId": "PIA03606",
+    "provenance": "Curated from NASA image PIA03606; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c9ff0251e925902c9aeffd9c92fefd06b97b9a99bc24c0c11ce5b60ef3a2906e",
+    "width": 3864,
+    "height": 3864,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/crab-nebula/w640.jpg",
+        "bytes": 78894
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/crab-nebula/w1024.jpg",
+        "bytes": 174977
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/crab-nebula/w1600.jpg",
+        "bytes": 385393
+      }
+    ]
+  },
+  "carina-nebula": {
+    "featureName": "Carina Nebula landscape",
+    "alt": "Carina Nebula landscape — carina nebula",
+    "caption": "Carina Nebula landscape",
+    "photographer": "NASA/ESA/M. Livio / Hubble Heritage Team",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002076",
+    "license": "Public Domain (NASA)",
+    "nasaId": "GSFC_20171208_Archive_e002076",
+    "provenance": "Curated from NASA image GSFC_20171208_Archive_e002076; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "60969104a771b76eef7fdf600e1ab21b888cd9fab5fecc8df64a3dc30e394a16",
+    "width": 4003,
+    "height": 2719,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/space/carina-nebula/w640.jpg",
+        "bytes": 96935
+      },
+      {
+        "width": 1024,
+        "src": "/images/space/carina-nebula/w1024.jpg",
+        "bytes": 144172
+      },
+      {
+        "width": 1600,
+        "src": "/images/space/carina-nebula/w1600.jpg",
+        "bytes": 245015
+      }
+    ]
   }
 }

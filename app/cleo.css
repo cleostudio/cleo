@@ -368,6 +368,13 @@
   margin-left: auto;
 }
 
+.glass-surface.user-message {
+  /* Soft rectangle, not a pill — 999px from .glass-surface becomes a stadium
+     once the bubble wraps. Stay well under half the single-line height so
+     even short wrapped bubbles keep flat sides. */
+  border-radius: 1rem;
+}
+
 .user-message {
   display: block;
   max-width: 100%;
@@ -435,11 +442,54 @@
   bottom: auto;
   left: 50%;
   z-index: calc(var(--z-nav) - 1);
+  display: flex;
   width: min(
     calc(100% - (2 * var(--app-column-gutter))),
     var(--app-column-max)
   );
+  flex-direction: column;
+  gap: 0.85rem;
   transform: translate(-50%, -50%);
+}
+
+.cleo-starters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem 0.9rem;
+  padding-inline: 0.25rem;
+}
+
+.cleo-starter {
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 0.925rem;
+  line-height: 1.35;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--muted-foreground) 35%, transparent);
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.cleo-starter:hover:not(:disabled) {
+  color: var(--foreground);
+  text-decoration-color: color-mix(in oklab, var(--foreground) 45%, transparent);
+}
+
+.cleo-starter:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.cleo-starter:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .prompt-dock-shell[data-docked] {

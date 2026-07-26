@@ -69,18 +69,18 @@ const publicPages = [
     {
       title: 'Space',
       description:
-        'Evergreen field guides for the Solar System and nearby deep space — orientation, features, and facts.',
+        'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
     },
-    'Space · Cleo. Evergreen field guides for the Solar System and nearby deep space — orientation, features, and facts.',
+    'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
   ),
   englishPage(
     '/cleo',
     {
       title: 'Cleo',
       description:
-        'A general-purpose AI agent — chat, search the web, read images, and generate them.',
+        'A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',
     },
-    'Cleo. A general-purpose AI agent — chat, search the web, read images, and generate them.',
+    'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',
   ),
 ]
 

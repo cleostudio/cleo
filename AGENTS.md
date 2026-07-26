@@ -18,11 +18,12 @@ public assets are under `public/images/atlas/{slug}/` and are served as static
 files with browser `srcset` — no account, CDN, or `/_next/image` re-encode at
 runtime.
 
-Space field guides live in `lib/space.ts` (Solar System + nearby deep space)
-and render at `/space` and `/space/[slug]`. Curated NASA photographs are
-imported with `pnpm import:space-photos` into `public/images/space/{slug}/`
-and `content/space-photos.json`; validate with `pnpm validate:space`. The
-Gallery at `/gallery` shows both Explore place photos and Space body photos.
+Space field guides live in `lib/space.ts` (Solar System, Moons, Deep Space —
+planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
+`/space/[slug]`. Curated NASA photographs are imported with
+`pnpm import:space-photos` into `public/images/space/{slug}/` and
+`content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
+at `/gallery` shows both Explore place photos and Space body photos.
 The Topics catalog in `lib/topics.ts` lists Countries and Space.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
@@ -45,9 +46,13 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
 - API: `app/api/responses/route.ts` validates messages (including image data
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, reasoning summaries, streaming, and `store: false`.
-- Behavior: `lib/cleo/instructions.ts`.
+- Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
+  `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`.
+- Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
+  `components/cleo/ask-form.tsx`. Guide deep-links are inline Markdown in the
+  reply (no separate chip row).
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 

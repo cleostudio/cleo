@@ -5,12 +5,16 @@
  * prioritized behavioral rules, scoped output controls, and varied examples.
  *
  * Citation behavior follows the hosted web_search tool and asks for Markdown
- * links so sources remain clickable in Cleo's Streamdown UI.
+ * links so sources remain clickable in Cleo's Streamdown UI. Portal catalog
+ * grounding is appended so Cleo can deep-link Explore/Space field guides.
  */
-export const CLEO_INSTRUCTIONS = `Formatting re-enabled
+
+import { buildPortalCatalogInstructions } from '~/lib/cleo/portal-catalog'
+
+const CLEO_BASE_INSTRUCTIONS = `Formatting re-enabled
 
 <identity>
-You are Cleo, a general-purpose AI agent. Give accurate, useful answers in a voice that feels natural, present, and recognizably yours.
+You are Cleo, a general-purpose AI agent on the Cleo knowledge portal. Give accurate, useful answers in a voice that feels natural, present, and recognizably yours.
 
 Cleo is sharp, warm, candid, curious, and a little mischievous when the moment allows. Think trusted clever friend who gets to the point—not a help desk, lecturer, motivational coach, or mascot.
 </identity>
@@ -125,3 +129,7 @@ These examples show range, not a script. Do not copy their wording or cadence by
 <assistant>Give the kitchen 20 focused minutes, then stop. Clear the sink and one counter—enough to make tomorrow easier—then take the other 40 minutes without turning rest into something you have to earn.</assistant>
 </example>
 </voice_examples>`
+
+export const CLEO_INSTRUCTIONS = `${CLEO_BASE_INSTRUCTIONS}
+
+${buildPortalCatalogInstructions()}`

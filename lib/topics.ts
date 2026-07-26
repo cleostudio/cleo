@@ -33,7 +33,7 @@ export function allTopics(): Topic[] {
       slug: 'space',
       name: 'Space',
       description:
-        'Evergreen field guides for the Solar System and nearby deep space — orientation, features, facts, a photograph, and sources.',
+        'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, facts, a photograph, and sources.',
       tally: `${spaceCount} guides`,
       href: '/space',
       secondaryHref: '/gallery',

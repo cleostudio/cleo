@@ -20,6 +20,7 @@ import {
   IMAGE_ACCEPT,
   MAX_IMAGES_PER_MESSAGE,
 } from "~/lib/cleo/client-images"
+import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
 import {
   type ActivityItem,
   type MessageImage,
@@ -525,6 +526,26 @@ export function AskForm() {
         className="prompt-dock-shell"
         data-docked={hasMessages || undefined}
       >
+        {!hasMessages ? (
+          <div className="cleo-starters" role="group" aria-label="Suggestions">
+            {CLEO_PORTAL_STARTERS.map((starter) => (
+              <button
+                className="cleo-starter"
+                disabled={isSubmitting}
+                key={starter.label}
+                onClick={() => {
+                  setInput(starter.prompt)
+                  setError(null)
+                  inputRef.current?.focus()
+                }}
+                type="button"
+              >
+                {starter.label}
+              </button>
+            ))}
+          </div>
+        ) : null}
+
         {error ? (
           <p
             className="mb-3 px-4 text-center text-sm text-destructive"
@@ -607,7 +628,7 @@ export function AskForm() {
               value={input}
             />
             <Button
-              aria-label={isSubmitting ? "Stop generating" : "Send message"}
+              aria-label={isSubmitting ? "Stop generating" : "Send"}
               className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
               disabled={!isSubmitting && !canSubmit}
               onClick={
