@@ -4,10 +4,11 @@
 dock at `/cleo`.
 
 The public site includes a homepage for country search, highlighted places, and
-topic discovery; Explore country field guides; Space field guides at `/space`;
-a place Gallery at `/gallery`; a Topics catalog; Writing (for a future
-encyclopedia layer); and a browser-only agent with streamed Markdown, vision,
-image generation, and live reasoning / web-search activity.
+topic discovery; Explore country field guides; an interactive 3D Earth at
+`/maps`; Space field guides at `/space`; a place Gallery at `/gallery`; a
+Topics catalog; Writing (for a future encyclopedia layer); and a browser-only
+agent with streamed Markdown, vision, image generation, and live reasoning /
+web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 `/photos` permanently redirects to `/gallery`.
@@ -27,8 +28,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   the Vercel project dashboard)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides and embed
-  curated topic photographs when a visual helps)
-- Bottom dock: Writing, Gallery, Explore, Topics, Cleo
+  curated topic photographs when a visual helps; Maps deep-links for
+  location questions)
+- Bottom dock: Writing, Gallery, Explore, Maps, Topics, Cleo
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
 [`docs/design-language.md`](./docs/design-language.md). Site status:

@@ -222,8 +222,25 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         </ul>
       </section>
 
+      {subject.slug === 'earth' ? (
+        <p
+          className="enter mt-10"
+          style={{ '--enter-delay': '175ms' } as React.CSSProperties}
+        >
+          <Link
+            href="/maps"
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
+            View on Maps →
+          </Link>
+        </p>
+      ) : null}
       <p
-        className="enter mt-10 mb-4"
+        className={
+          subject.slug === 'earth'
+            ? 'enter mt-3 mb-4'
+            : 'enter mt-10 mb-4'
+        }
         style={{ '--enter-delay': '180ms' } as React.CSSProperties}
       >
         <Link href="/space" className="text-sm text-muted-foreground hover:text-foreground">

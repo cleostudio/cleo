@@ -143,6 +143,27 @@ export function ExploreIcon() {
   )
 }
 
+/** Interactive Earth globe on /maps — continents as a filled landmass mark. */
+export function MapsIcon() {
+  return (
+    <Base>
+      <circle
+        cx="9"
+        cy="9"
+        r="6.75"
+        fill="currentColor"
+        opacity=".3"
+        strokeWidth="0"
+        stroke="none"
+      />
+      <circle cx="9" cy="9" r="6.75" />
+      <path d="M3.1 7.4c1.1-.35 2.2-.2 3.1.45 1 .72 1.55.55 2.45-.15.85-.65 1.9-1 3-.7" />
+      <path d="M5.2 11.6c.85.55 1.9.85 2.95.55 1.05-.3 1.7.1 2.55.75" />
+      <path d="M9.6 3.1c.35 1.1.15 2.2-.55 3.05-.55.7-.45 1.35.2 2.05" />
+    </Base>
+  )
+}
+
 export function SayHiIcon() {
   return (
     <Base>

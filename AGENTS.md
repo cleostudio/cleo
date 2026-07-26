@@ -3,11 +3,12 @@
 This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
 portal starting with countries and space. The homepage is a neutral portal
 (country search, highlighted places, topic discovery). Explore field guides live
-at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
-`/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
-layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
-`/gallery`; `/projects` permanently redirects to `/topics`. Projects UI,
-vinyl/bookshelf, and social card components remain in the repo for later reuse.
+at `/explore/[slug]`, an interactive 3D Earth at `/maps`, Space guides at
+`/space/[slug]`, the place Gallery at `/gallery`, Topics at `/topics`, Writing
+at `/blog` (future encyclopedia-like layer), and the AI agent at `/cleo`.
+`/photos` permanently redirects to `/gallery`; `/projects` permanently
+redirects to `/topics`. Projects UI, vinyl/bookshelf, and social card
+components remain in the repo for later reuse.
 
 Country guide records live in `content/atlas.json` (one entry per Explore slug).
 Orientation prose is curated, not generated at build time. It lives in
@@ -31,7 +32,17 @@ planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 `pnpm import:space-photos` into `public/images/space/{slug}/` and
 `content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
 at `/gallery` shows both Explore place photos and Space body photos.
-The Topics catalog in `lib/topics.ts` lists Countries and Space.
+The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
+
+## Maps surface
+
+- Route: `/maps` (full-bleed 3D Earth). Dock chord **G then M**.
+- UI: `components/maps/*` — globe, search, region chips, sun scrubber, dossier.
+- Data: `lib/maps/*`, country centroids in `content/maps-coordinates.json`,
+  textures under `public/images/maps/` (NASA Blue Marble + planet plates).
+- Deep-links: `?c={explore-slug}` selects a country; `?r={Region}` filters
+  markers (e.g. `Asia`). Explore / Gallery / Space Earth link into Maps.
+- Cleo may cite `/maps?c={slug}` for location questions (`lib/cleo/portal-links.ts`).
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.
