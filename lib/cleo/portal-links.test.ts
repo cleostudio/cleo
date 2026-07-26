@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import {
   CLEO_PORTAL_STARTERS,
   extractPortalGuideLinks,
+  presentPortalGuideMarkdown,
 } from './portal-links'
 
 describe('extractPortalGuideLinks', () => {
@@ -66,6 +67,43 @@ describe('extractPortalGuideLinks', () => {
         slug: 'japan',
       },
     ])
+  })
+})
+
+describe('presentPortalGuideMarkdown', () => {
+  it('keeps the first guide link and drops redundant footers', () => {
+    const markdown = [
+      'Japan is an archipelago. Start with [Japan](/explore/japan).',
+      '',
+      'For a fuller primer, see [Japan](/explore/japan).',
+      '',
+      'Explore [Japan](/explore/japan)',
+    ].join('\n')
+
+    expect(presentPortalGuideMarkdown(markdown)).toBe(
+      'Japan is an archipelago. Start with [Japan](/explore/japan).',
+    )
+  })
+
+  it('dedupes repeated Space links and cleans noisy labels', () => {
+    const markdown = [
+      'Europa hides a [global ocean](/space/europa) under ice.',
+      '',
+      'Space [Europa field guide](/space/europa)',
+    ].join('\n')
+
+    expect(presentPortalGuideMarkdown(markdown)).toBe(
+      'Europa hides a [global ocean](/space/europa) under ice.',
+    )
+  })
+
+  it('keeps one link each when comparing two guides', () => {
+    const markdown =
+      'Compare [Earth](/space/earth) and [Mars](/space/mars).\n\nEarth · Mars'
+
+    expect(presentPortalGuideMarkdown(markdown)).toBe(
+      'Compare [Earth](/space/earth) and [Mars](/space/mars).',
+    )
   })
 })
 
