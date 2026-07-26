@@ -90,8 +90,8 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
   grounds matching subjects on each turn); Streamdown only allows
   `/images/atlas|space/...` paths.
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
-  `components/cleo/ask-form.tsx`. Guide deep-links are inline Markdown in the
-  reply (no separate chip row).
+  `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
+  are inline Markdown in the reply (no separate chip row).
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 
