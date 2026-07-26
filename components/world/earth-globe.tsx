@@ -352,8 +352,6 @@ export function EarthGlobe() {
             )
         }
         night = new Mesh(sphere, nightMaterial)
-        night.material.polygonOffset = true
-        night.material.polygonOffsetFactor = -1
         night.renderOrder = 1
         root.add(night)
         disposables.push(nightMaterial)
