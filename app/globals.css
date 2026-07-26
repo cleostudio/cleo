@@ -767,7 +767,7 @@
   }
 }
 
-.home-country-search [type='search']::-webkit-search-cancel-button {
+.home-site-search [type='search']::-webkit-search-cancel-button {
   appearance: none;
 }
 
