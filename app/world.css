@@ -66,9 +66,48 @@ html[data-world-route] .paper-grain {
   max-width: 22rem;
 }
 
-.world-header .world-search {
+.world-header .world-search,
+.world-header .world-regions {
   pointer-events: auto;
-  margin-top: 0.9rem;
+}
+
+.world-regions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.85rem;
+}
+
+.world-region-chip {
+  cursor: pointer;
+  border: 1px solid color-mix(in oklab, var(--world-hud) 16%, transparent);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--world-hud-ink) 45%, transparent);
+  padding: 0.28rem 0.65rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: color-mix(in oklab, var(--world-hud) 72%, transparent);
+  transition:
+    background-color 160ms var(--ease-swift),
+    color 160ms var(--ease-swift),
+    border-color 160ms var(--ease-swift);
+}
+
+.world-region-chip:hover,
+.world-region-chip:focus-visible {
+  color: var(--world-hud);
+  border-color: color-mix(in oklab, var(--world-hud) 34%, transparent);
+  outline: none;
+}
+
+.world-region-chip[data-active] {
+  background: color-mix(in oklab, var(--world-hud) 14%, transparent);
+  border-color: color-mix(in oklab, var(--world-hud) 42%, transparent);
+  color: var(--world-hud);
+}
+
+.world-header .world-search {
+  margin-top: 0.75rem;
 }
 
 .world-search-label {

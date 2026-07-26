@@ -41,16 +41,25 @@ export function HomeCountrySearch({ countries }: { countries: Country[] }) {
           <ul className="mt-2 border border-[var(--border)]" role="listbox" aria-label="Country matches">
             {matches.map((country) => (
               <li key={country.slug} className="hairline-top first:border-0">
-                <Link
-                  href={`/explore/${country.slug}`}
-                  role="option"
-                  className="flex items-baseline justify-between gap-3 px-3 py-2.5 text-sm outline-none hover:bg-[color-mix(in_oklab,var(--foreground)_4%,transparent)] focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-foreground"
-                >
-                  <span className="font-medium text-foreground">{country.name}</span>
-                  <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
-                    {country.code} · {country.region}
-                  </span>
-                </Link>
+                <div className="flex items-center gap-2 px-3 py-2.5">
+                  <Link
+                    href={`/explore/${country.slug}`}
+                    role="option"
+                    className="flex min-w-0 flex-1 items-baseline justify-between gap-3 text-sm outline-none hover:text-foreground focus-visible:rounded-sm focus-visible:ring-1 focus-visible:ring-foreground"
+                  >
+                    <span className="font-medium text-foreground">{country.name}</span>
+                    <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
+                      {country.code} · {country.region}
+                    </span>
+                  </Link>
+                  <Link
+                    href={`/world?c=${country.slug}`}
+                    className="shrink-0 text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2"
+                    aria-label={`View ${country.name} on World`}
+                  >
+                    World
+                  </Link>
+                </div>
               </li>
             ))}
           </ul>
@@ -61,7 +70,7 @@ export function HomeCountrySearch({ countries }: { countries: Country[] }) {
         )
       ) : (
         <p className="mt-2 text-xs text-muted-foreground">
-          {countries.length} field guides — type to jump straight in.
+          {countries.length} field guides — type to jump straight in, or open World.
         </p>
       )}
     </div>

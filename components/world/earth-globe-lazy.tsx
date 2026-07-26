@@ -6,6 +6,7 @@ import type { WorldMarker } from '~/lib/world/markers'
 
 type EarthGlobeProps = {
   focusSlug?: string | null
+  lookAt?: { lat: number; lon: number } | null
   onSelect?: (marker: WorldMarker | null) => void
 }
 

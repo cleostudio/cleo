@@ -3,12 +3,15 @@
 import { useMemo, useState } from 'react'
 
 import type { WorldMarker } from '~/lib/world/markers'
+import type { WorldRegion } from '~/lib/world/regions'
 
 export function WorldSearch({
   markers,
+  region = null,
   onPick,
 }: {
   markers: WorldMarker[]
+  region?: WorldRegion | null
   onPick: (marker: WorldMarker) => void
 }) {
   const [query, setQuery] = useState('')
@@ -17,6 +20,7 @@ export function WorldSearch({
     const q = query.trim().toLowerCase()
     if (!q) return []
     return markers
+      .filter((marker) => (region ? marker.region === region : true))
       .filter(
         (marker) =>
           marker.name.toLowerCase().includes(q) ||
@@ -25,7 +29,7 @@ export function WorldSearch({
           marker.subregion.toLowerCase().includes(q),
       )
       .slice(0, 7)
-  }, [markers, query])
+  }, [markers, query, region])
 
   return (
     <div className="world-search">
@@ -37,7 +41,7 @@ export function WorldSearch({
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Name, code, or region"
+        placeholder={region ? `In ${region}…` : 'Name, code, or region'}
         autoComplete="off"
         className="world-search-input"
       />
@@ -65,7 +69,8 @@ export function WorldSearch({
           </ul>
         ) : (
           <p className="world-search-empty" aria-live="polite">
-            No countries match “{query.trim()}”.
+            No countries match “{query.trim()}”
+            {region ? ` in ${region}` : ''}.
           </p>
         )
       ) : null}

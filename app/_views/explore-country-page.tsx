@@ -200,6 +200,14 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
+        <Link
+          href={`/world?c=${entry.slug}`}
+          className="text-sm text-muted-foreground hover:text-foreground"
+        >
+          View on World →
+        </Link>
+      </p>
+      <p className="enter mt-3" style={{ '--enter-delay': '185ms' } as React.CSSProperties}>
         <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
           Browse the gallery →
         </Link>

@@ -69,6 +69,7 @@ type HoverState = {
 
 type GlobeApi = {
   flyTo: (marker: WorldMarker) => void
+  flyToLatLon: (lat: number, lon: number, highlight?: boolean) => void
   setHighlight: (marker: WorldMarker | null) => void
 }
 
@@ -127,9 +128,11 @@ function createMarkerPoints(markers: WorldMarker[]) {
 
 export function EarthGlobe({
   focusSlug = null,
+  lookAt = null,
   onSelect,
 }: {
   focusSlug?: string | null
+  lookAt?: { lat: number; lon: number } | null
   onSelect?: (marker: WorldMarker | null) => void
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
@@ -265,11 +268,19 @@ export function EarthGlobe({
       highlight.visible = true
     }
 
-    const flyTo = (marker: WorldMarker) => {
+    const flyToLatLon = (lat: number, lon: number, showHighlight = false) => {
       if (!camera || !controls || !root) return
-      setHighlight(marker)
+      if (showHighlight) {
+        const [x, y, z] = latLonToVector3(lat, lon, MARKER_RADIUS + 0.004)
+        if (highlight) {
+          highlight.position.set(x, y, z)
+          highlight.visible = true
+        }
+      } else if (highlight) {
+        highlight.visible = false
+      }
       root.updateMatrixWorld(true)
-      const local = new Vector3(...latLonToVector3(marker.lat, marker.lon, 1))
+      const local = new Vector3(...latLonToVector3(lat, lon, 1))
       const world = local.applyMatrix4(root.matrixWorld)
       const [tx, ty, tz] = framingPosition(world, FLY_DISTANCE)
       const to = new Vector3(tx, ty, tz)
@@ -287,7 +298,11 @@ export function EarthGlobe({
       pauseAutoRotate(FLY_MS + 5000)
     }
 
-    apiRef.current = { flyTo, setHighlight }
+    const flyTo = (marker: WorldMarker) => {
+      flyToLatLon(marker.lat, marker.lon, true)
+    }
+
+    apiRef.current = { flyTo, flyToLatLon, setHighlight }
 
     const onPointerMove = (event: PointerEvent) => {
       if (!renderer || !markersPoints || !camera) return
@@ -513,14 +528,18 @@ export function EarthGlobe({
 
   useEffect(() => {
     if (!ready) return
-    if (!focusSlug) {
-      apiRef.current?.setHighlight(null)
+    if (focusSlug) {
+      const marker = markersBySlug.get(focusSlug)
+      if (!marker) return
+      apiRef.current?.flyTo(marker)
       return
     }
-    const marker = markersBySlug.get(focusSlug)
-    if (!marker) return
-    apiRef.current?.flyTo(marker)
-  }, [focusSlug, ready, markersBySlug])
+    if (lookAt) {
+      apiRef.current?.flyToLatLon(lookAt.lat, lookAt.lon, false)
+      return
+    }
+    apiRef.current?.setHighlight(null)
+  }, [focusSlug, lookAt, ready, markersBySlug])
 
   return (
     <div className="world-stage">

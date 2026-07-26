@@ -25,6 +25,14 @@ export function ExplorePageView() {
           <h1 className="page-eyebrow enter">
             <T zh="探索" en="Explore" />
           </h1>
+          <p
+            className="enter mt-3 text-sm text-muted-foreground"
+            style={{ '--enter-delay': '50ms' } as React.CSSProperties}
+          >
+            <Link href="/world" className="hover:text-foreground">
+              Open the interactive World globe →
+            </Link>
+          </p>
         </header>
         <PixelCluster variant={4} className="enter shrink-0" />
       </div>
