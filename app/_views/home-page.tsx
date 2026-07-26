@@ -1,14 +1,14 @@
 import Link from 'next/link'
 
-import { HomeCountrySearch } from '~/components/home-country-search'
 import { HomeHighlightedPlaces } from '~/components/home-highlighted-places'
 import { HomeIntroduction } from '~/components/home-introduction'
+import { HomeSiteSearch } from '~/components/home-site-search'
 import { HOME_MASTHEAD_VARIANT, PixelCluster } from '~/components/pixel-cluster'
 import { highlightedAtlasEntries } from '~/lib/atlas'
-import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
-import { allTopics } from '~/lib/topics'
 import type { Locale } from '~/lib/locale-route'
+import { buildSiteSearchHits } from '~/lib/site-search-catalog'
+import { allTopics } from '~/lib/topics'
 
 function SectionTitle({
   index,
@@ -36,6 +36,7 @@ function SectionTitle({
 export async function HomePageView({ locale: _locale }: { locale: Locale }) {
   const topics = allTopics()
   const highlights = highlightedAtlasEntries(6)
+  const searchHits = buildSiteSearchHits()
   const center = (topics.length - 1) / 2
 
   return (
@@ -53,11 +54,11 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
       <section className="mt-12" aria-labelledby="home-search-heading">
         <SectionTitle index="01" delay={100}>
           <span id="home-search-heading">
-            <T zh="国家检索" en="Country search" />
+            <T zh="主题检索" en="Search" />
           </span>
         </SectionTitle>
         <div className="enter mt-4" style={{ '--enter-delay': '130ms' } as React.CSSProperties}>
-          <HomeCountrySearch countries={countries} />
+          <HomeSiteSearch hits={searchHits} />
         </div>
       </section>
 

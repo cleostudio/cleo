@@ -3,11 +3,12 @@
 **Cleo** is an English-only general-knowledge portal with a chat agent on the
 dock at `/cleo`.
 
-The public site includes a homepage for country search, highlighted places, and
-topic discovery; Explore country field guides; Space field guides at `/space`;
-a place Gallery at `/gallery`; a Topics catalog; Writing (for a future
-encyclopedia layer); and a browser-only agent with streamed Markdown, vision,
-image generation, and live reasoning / web-search activity.
+The public site includes a homepage with unified topic search (countries, space,
+collections), highlighted places, and topic discovery; Explore country field
+guides; Space field guides at `/space`; a place Gallery at `/gallery`; a Topics
+catalog; Writing (for a future encyclopedia layer); and a browser-only agent
+with streamed Markdown, vision, image generation, and live reasoning /
+web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 `/photos` permanently redirects to `/gallery`.
