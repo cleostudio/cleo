@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import type { MapsMarker } from '~/lib/maps/markers'
+import { filterMapsMarkersByQuery } from '~/lib/maps/search'
 
 export function MapsSearch({
   markers,
@@ -14,19 +15,10 @@ export function MapsSearch({
   const [query, setQuery] = useState('')
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const matches = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    if (!q) return []
-    return markers
-      .filter(
-        (marker) =>
-          marker.name.toLowerCase().includes(q) ||
-          marker.code.toLowerCase().includes(q) ||
-          marker.region.toLowerCase().includes(q) ||
-          marker.subregion.toLowerCase().includes(q),
-      )
-      .slice(0, 7)
-  }, [markers, query])
+  const matches = useMemo(
+    () => filterMapsMarkersByQuery(markers, query, 7),
+    [markers, query],
+  )
 
   useEffect(() => {
     setActiveIndex(0)

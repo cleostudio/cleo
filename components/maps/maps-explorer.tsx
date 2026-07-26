@@ -3,7 +3,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { Suspense, useEffect, useMemo, useState } from 'react'
+import {
+  Suspense,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type KeyboardEvent as ReactKeyboardEvent,
+} from 'react'
 
 import { EarthGlobeLazy } from '~/components/maps/earth-globe-lazy'
 import { MapsSearch } from '~/components/maps/maps-search'
@@ -20,6 +27,7 @@ import {
   mapsRegions,
 } from '~/lib/maps/regions'
 import { formatUtcHourLabel, mapsSunAt } from '~/lib/maps/sun-clock'
+import { resolveMapsUrlState } from '~/lib/maps/url-state'
 
 function MapsExplorerInner({
   dossiers,
@@ -46,32 +54,76 @@ function MapsExplorerInner({
   const [sunMode, setSunMode] = useState<'live' | 'scrub'>('live')
   const [sunHour, setSunHour] = useState(() => new Date().getUTCHours())
   const [liveNow, setLiveNow] = useState(() => new Date())
-  const [copied, setCopied] = useState(false)
+  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>(
+    'idle',
+  )
   const [resetSignal, setResetSignal] = useState(0)
+  const selectionRef = useRef<HTMLDivElement>(null)
+  const regionChipRefs = useRef<Array<HTMLButtonElement | null>>([])
 
   useEffect(() => {
-    if (!querySlug) return
-    const marker = markersBySlug.get(querySlug)
-    if (!marker) return
-    setFocusSlug(marker.slug)
-    setSelected(marker)
-  }, [querySlug, markersBySlug])
+    const resolved = resolveMapsUrlState({
+      c: querySlug,
+      r: queryRegion,
+      markersBySlug,
+      regions,
+    })
 
-  useEffect(() => {
-    if (!queryRegion) {
-      setRegionFilter(null)
-      return
+    setRegionFilter(resolved.region)
+    if (resolved.marker) {
+      setFocusSlug(resolved.marker.slug)
+      setSelected(resolved.marker)
+    } else {
+      setFocusSlug(null)
+      setSelected(null)
     }
-    if (regions.includes(queryRegion)) {
-      setRegionFilter(queryRegion)
-    }
-  }, [queryRegion, regions])
+
+    if (!resolved.dirty) return
+    const params = new URLSearchParams(searchParams.toString())
+    if (resolved.canonical.c) params.set('c', resolved.canonical.c)
+    else params.delete('c')
+    if (resolved.canonical.r) params.set('r', resolved.canonical.r)
+    else params.delete('r')
+    const query = params.toString()
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
+  }, [querySlug, queryRegion, markersBySlug, regions, pathname, router, searchParams])
 
   useEffect(() => {
     if (sunMode !== 'live') return
     const id = window.setInterval(() => setLiveNow(new Date()), 60_000)
     return () => window.clearInterval(id)
   }, [sunMode])
+
+  useEffect(() => {
+    if (!selected) return
+    selectionRef.current?.focus()
+  }, [selected?.slug])
+
+  const syncUrl = (slug: string | null, region: string | null = regionFilter) => {
+    const params = new URLSearchParams(searchParams.toString())
+    if (slug) params.set('c', slug)
+    else params.delete('c')
+    if (region) params.set('r', region)
+    else params.delete('r')
+    const query = params.toString()
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
+  }
+
+  const selectMarker = (marker: MapsMarker) => {
+    setFocusSlug(marker.slug)
+    setSelected(marker)
+    setPickedCoords(null)
+    setCopyStatus('idle')
+    syncUrl(marker.slug, regionFilter)
+  }
+
+  const dismissSelection = () => {
+    setFocusSlug(null)
+    setSelected(null)
+    setPickedCoords(null)
+    setCopyStatus('idle')
+    syncUrl(null, regionFilter)
+  }
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -88,6 +140,7 @@ function MapsExplorerInner({
       setFocusSlug(null)
       setSelected(null)
       setPickedCoords(null)
+      setCopyStatus('idle')
       const params = new URLSearchParams(searchParams.toString())
       if (!params.has('c')) return
       params.delete('c')
@@ -98,43 +151,21 @@ function MapsExplorerInner({
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [pathname, router, searchParams])
 
-  const syncUrl = (slug: string | null, region: string | null = regionFilter) => {
-    const params = new URLSearchParams(searchParams.toString())
-    if (slug) params.set('c', slug)
-    else params.delete('c')
-    if (region) params.set('r', region)
-    else params.delete('r')
-    const query = params.toString()
-    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
-  }
-
-  const selectMarker = (marker: MapsMarker) => {
-    setFocusSlug(marker.slug)
-    setSelected(marker)
-    setPickedCoords(null)
-    syncUrl(marker.slug, regionFilter)
-  }
-
-  const clearCountry = () => {
-    setFocusSlug(null)
-    setSelected(null)
-    syncUrl(null, regionFilter)
-  }
-
-  const dismiss = () => {
-    clearCountry()
-    setPickedCoords(null)
-  }
-
   const applyRegion = (region: string | null) => {
     setRegionFilter(region)
     if (selected && region && selected.region !== region) {
       setFocusSlug(null)
       setSelected(null)
+      setCopyStatus('idle')
       syncUrl(null, region)
       return
     }
     syncUrl(selected?.slug ?? null, region)
+  }
+
+  const resetView = () => {
+    setResetSignal((value) => value + 1)
+    dismissSelection()
   }
 
   const copyMapsLink = async () => {
@@ -143,11 +174,24 @@ function MapsExplorerInner({
     if (regionFilter) url.searchParams.set('r', regionFilter)
     try {
       await navigator.clipboard.writeText(url.toString())
-      setCopied(true)
-      window.setTimeout(() => setCopied(false), 1600)
+      setCopyStatus('copied')
+      window.setTimeout(() => setCopyStatus('idle'), 1600)
     } catch {
-      setCopied(false)
+      setCopyStatus('failed')
+      window.setTimeout(() => setCopyStatus('idle'), 2200)
     }
+  }
+
+  const onRegionChipKeyDown = (
+    event: ReactKeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return
+    event.preventDefault()
+    const count = regions.length + 1
+    const delta = event.key === 'ArrowRight' ? 1 : -1
+    const next = (index + delta + count) % count
+    regionChipRefs.current[next]?.focus()
   }
 
   const dossier = selected ? dossiers[selected.slug] : undefined
@@ -159,6 +203,7 @@ function MapsExplorerInner({
     ? mapsRegionNeighbors(selected, searchableMarkers, 4)
     : []
   const sunAt = mapsSunAt(sunMode, sunHour, liveNow)
+  const regionOptions = [null, ...regions] as const
 
   return (
     <div className="maps-page">
@@ -185,26 +230,22 @@ function MapsExplorerInner({
         <div
           className="maps-region-filters enter"
           style={{ '--enter-delay': '180ms' } as React.CSSProperties}
-          role="group"
+          role="toolbar"
           aria-label="Filter by region"
         >
-          <button
-            type="button"
-            className="maps-region-chip"
-            aria-pressed={regionFilter === null}
-            onClick={() => applyRegion(null)}
-          >
-            All
-          </button>
-          {regions.map((region) => (
+          {regionOptions.map((region, index) => (
             <button
-              key={region}
+              key={region ?? 'all'}
               type="button"
+              ref={(element) => {
+                regionChipRefs.current[index] = element
+              }}
               className="maps-region-chip"
               aria-pressed={regionFilter === region}
               onClick={() => applyRegion(region)}
+              onKeyDown={(event) => onRegionChipKeyDown(event, index)}
             >
-              {region}
+              {region ?? 'All'}
             </button>
           ))}
         </div>
@@ -235,7 +276,7 @@ function MapsExplorerInner({
           <button
             type="button"
             className="maps-toolbar-button"
-            onClick={() => setResetSignal((value) => value + 1)}
+            onClick={resetView}
           >
             Reset view
           </button>
@@ -288,7 +329,7 @@ function MapsExplorerInner({
         }}
         onSelect={(marker) => {
           if (!marker) {
-            clearCountry()
+            dismissSelection()
             return
           }
           selectMarker(marker)
@@ -296,7 +337,14 @@ function MapsExplorerInner({
       />
 
       {selected ? (
-        <div className="maps-selection" role="dialog" aria-label={selected.name}>
+        <div
+          ref={selectionRef}
+          className="maps-selection"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="maps-selection-name"
+          tabIndex={-1}
+        >
           {dossier ? (
             <div className="maps-selection-photo">
               <Image
@@ -312,7 +360,9 @@ function MapsExplorerInner({
           ) : null}
           <div className="maps-selection-copy">
             <p className="maps-selection-code">{selected.code}</p>
-            <h2 className="maps-selection-name">{selected.name}</h2>
+            <h2 id="maps-selection-name" className="maps-selection-name">
+              {selected.name}
+            </h2>
             <p className="maps-selection-meta">
               {selected.subregion} · {selected.region}
             </p>
@@ -364,16 +414,27 @@ function MapsExplorerInner({
               className="maps-selection-dismiss"
               onClick={() => void copyMapsLink()}
             >
-              {copied ? 'Copied' : 'Copy link'}
+              {copyStatus === 'copied'
+                ? 'Copied'
+                : copyStatus === 'failed'
+                  ? 'Copy failed'
+                  : 'Copy link'}
             </button>
             <button
               type="button"
               className="maps-selection-dismiss"
-              onClick={dismiss}
+              onClick={dismissSelection}
             >
               Dismiss
             </button>
           </div>
+          <p className="sr-only" aria-live="polite">
+            {copyStatus === 'copied'
+              ? 'Maps link copied to clipboard'
+              : copyStatus === 'failed'
+                ? 'Could not copy Maps link'
+                : ''}
+          </p>
         </div>
       ) : null}
     </div>

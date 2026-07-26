@@ -51,7 +51,7 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page.getByLabel('Find a country')).toBeVisible()
     await expect(page.getByRole('button', { name: 'Show graticule' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'Reset view' })).toBeVisible()
-    await expect(page.getByRole('group', { name: 'Filter by region' })).toBeVisible()
+    await expect(page.getByRole('toolbar', { name: 'Filter by region' })).toBeVisible()
     await expect(page.getByLabel(/Sun/i)).toBeVisible()
     await expect(
       page.getByRole('img', { name: 'Interactive 3D Earth' }),

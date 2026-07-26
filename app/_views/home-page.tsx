@@ -107,8 +107,8 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
                 } as React.CSSProperties
               }
             >
-              <Link href={topic.href} className="topic-row hairline-top group block">
-                <span className="topic-primary">
+              <div className="topic-row hairline-top">
+                <Link href={topic.href} className="topic-primary group">
                   <span className="topic-index tabular-nums text-muted-foreground" aria-hidden>
                     {String(index + 1).padStart(2, '0')}
                   </span>
@@ -119,8 +119,18 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
                   <span className="topic-description text-muted-foreground">
                     {topic.description}
                   </span>
-                </span>
-              </Link>
+                </Link>
+                {topic.secondaryHref && topic.secondaryLabel ? (
+                  <p className="topic-secondary">
+                    <Link
+                      href={topic.secondaryHref}
+                      className="text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+                    >
+                      {topic.secondaryLabel} →
+                    </Link>
+                  </p>
+                ) : null}
+              </div>
             </li>
           ))}
         </ul>

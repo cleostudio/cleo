@@ -34,6 +34,16 @@ planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 at `/gallery` shows both Explore place photos and Space body photos.
 The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
 
+## Maps surface
+
+- Route: `/maps` (full-bleed 3D Earth). Dock chord **G then M**.
+- UI: `components/maps/*` — globe, search, region chips, sun scrubber, dossier.
+- Data: `lib/maps/*`, country centroids in `content/maps-coordinates.json`,
+  textures under `public/images/maps/` (NASA Blue Marble + planet plates).
+- Deep-links: `?c={explore-slug}` selects a country; `?r={Region}` filters
+  markers (e.g. `Asia`). Explore / Gallery / Space Earth link into Maps.
+- Cleo may cite `/maps?c={slug}` for location questions (`lib/cleo/portal-links.ts`).
+
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.
 
