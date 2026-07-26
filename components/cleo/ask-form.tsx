@@ -184,11 +184,14 @@ export function AskForm() {
     }
   }
 
-  async function handleSubmit(event?: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(
+    event?: FormEvent<HTMLFormElement>,
+    promptOverride?: string
+  ) {
     event?.preventDefault()
     event?.stopPropagation()
 
-    const question = input.trim()
+    const question = (promptOverride ?? input).trim()
     const attachedImages = pendingImages
 
     if ((!question && attachedImages.length === 0) || isSubmitting) {
@@ -645,9 +648,7 @@ export function AskForm() {
                 disabled={isSubmitting}
                 key={starter.label}
                 onClick={() => {
-                  setInput(starter.prompt)
-                  setError(null)
-                  inputRef.current?.focus()
+                  void handleSubmit(undefined, starter.prompt)
                 }}
                 type="button"
               >

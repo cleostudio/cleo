@@ -39,16 +39,30 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page.getByText(/Europa/i).first()).toBeVisible()
   })
 
-  test('Cleo empty state starters fill the prompt', async ({ page }) => {
+  test('Cleo empty state starters send the prompt', async ({ page }) => {
     await prepareBrowserPage(page)
+    await page.route('**/api/responses', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/x-ndjson; charset=utf-8',
+        body:
+          `${JSON.stringify({ type: 'text', delta: 'Japan is a good place to start.' })}\n`,
+      })
+    })
     await page.goto('/cleo')
 
     await expect(
       page.getByRole('button', { name: 'Orient me to Japan' }),
     ).toBeVisible()
     await page.getByRole('button', { name: 'Orient me to Japan' }).click()
-    await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue(
-      /orientation to Japan.*Deep-link its field guide/i,
-    )
+
+    await expect(
+      page.getByText(/orientation to Japan.*Deep-link its field guide/i),
+    ).toBeVisible()
+    await expect(page.getByRole('textbox', { name: 'Message' })).toHaveValue('')
+    await expect(
+      page.getByRole('button', { name: 'Orient me to Japan' }),
+    ).toHaveCount(0)
+    await expect(page.getByText('Japan is a good place to start.')).toBeVisible()
   })
 })
