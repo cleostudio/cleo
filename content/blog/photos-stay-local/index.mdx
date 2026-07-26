@@ -10,52 +10,40 @@ coverHeight: 675
 ---
 Photographs are half of a field guide. They are also where modern sites often
 grow fragile. Cleo keeps them boring on purpose: the bytes live on the site,
-and runtime stays out of the image business.
+and opening a page does not depend on a remote image account.
 
-![](./image-1.jpg#1280x851 "Peru, from the Explore atlas")
+![](./image-1.jpg#1280x851 "Machu Picchu, Peru")
 
-![](./image-2.jpg#1280x720 "Saturn, from the Space catalog")
+![](./image-2.jpg#1280x720 "Saturn, backlit by the Sun")
 
-## Pipeline
+## Choice
 
-Country photographs are curated for relevance, then imported as optimized local
-JPEGs. Space photographs follow a NASA curation pass into the same kind of
-static tree.
-
-Public files live under:
-
-- `/images/atlas/{slug}/` for Explore places
-- `/images/space/{slug}/` for Space bodies
-
-Originals stay off the public tree. The browser chooses a width. There is no
-account-gated image host and no request-time re-encode.
+Country photographs are curated for relevance, then published with the Explore
+guides. Space photographs follow a NASA curation pass into the same kind of
+static library. [Gallery](/gallery) and the field guides speak one set of files,
+so a frame is never “in the CMS” in one place and “on a CDN” in another.
 
 Relevance beats decoration. A landmark should belong to the country on the
-page; a Space frame should show the body you opened. [Gallery](/gallery) and
-the guides speak the same paths, so a frame is never “in the CMS” in one place
-and “on a CDN” in another.
+page; a Space frame should show the body you opened. The browser picks a width.
+Runtime stays out of the image business.
 
 ## Payoff
 
-Pages keep working in previews without extra services. Guides stay reviewable
-in git. The Gallery can unify both catalogs because both already speak one file
-language.
+Pages keep working in quiet previews. Guides stay reviewable as ordinary files.
+The Gallery can unify places and sky because both catalogs already share a
+format.
 
 Boring infrastructure is a product choice. It skips broken tokens, surprise
-re-encodes, and layouts that wait on a remote host. Diffs show when a
-photograph changes. [Cleo](/cleo) can embed a matching curated path as Markdown
-because those paths are already site URLs — not scraped hotlinks.
+re-encodes, and layouts that wait on a remote host. When [Cleo](/cleo) embeds a
+matching photograph in a reply, it points at a site path that was already
+allowlisted — not a scraped hotlink.
 
-OpenAI remains the only third-party API this portal depends on, and it belongs
-to conversation, not to every image.
-
-## Reading
+## Loop
 
 Zoom a contact print on [Explore](/explore), wander [Gallery](/gallery), or ask
-[Cleo](/cleo) about a subject that has a curated frame. The bytes were already
-here.
+[Cleo](/cleo) about a subject that has a curated frame.
 
-Try the loop: open [Japan](/explore/japan) or [Mars](/space/mars), zoom until
-the print feels close, filter Gallery by origin, then ask how the frame compares
-to [Europa](/space/europa). The photograph does not need another vendor to
-finish that sentence.
+Try it: open [Peru](/explore/peru) or [Saturn](/space/saturn), zoom until the
+print feels close, filter Gallery by origin, then ask how the frame compares to
+[Europa](/space/europa). The photograph does not need another vendor to finish
+that sentence.
