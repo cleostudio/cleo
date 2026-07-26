@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import {
+  ACESFilmicToneMapping,
   AdditiveBlending,
   AmbientLight,
   BackSide,
@@ -16,6 +17,7 @@ import {
   Mesh,
   MeshBasicMaterial,
   MeshPhongMaterial,
+  NoColorSpace,
   PerspectiveCamera,
   Points,
   PointsMaterial,
@@ -57,17 +59,25 @@ const SPHERE_HEIGHT_SEGMENTS = 96
 
 const atmosphereVertex = /* glsl */ `
   varying vec3 vNormal;
+  varying vec3 vWorldPosition;
   void main() {
     vNormal = normalize(normalMatrix * normal);
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    vec4 worldPosition = modelMatrix * vec4(position, 1.0);
+    vWorldPosition = worldPosition.xyz;
+    gl_Position = projectionMatrix * viewMatrix * worldPosition;
   }
 `
 
 const atmosphereFragment = /* glsl */ `
   varying vec3 vNormal;
+  varying vec3 vWorldPosition;
   void main() {
-    float intensity = pow(0.62 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.2);
-    gl_FragColor = vec4(0.35, 0.55, 1.0, 1.0) * intensity;
+    vec3 viewDirection = normalize(cameraPosition - vWorldPosition);
+    float fresnel = pow(1.0 - max(dot(vNormal, viewDirection), 0.0), 2.4);
+    float rim = pow(0.68 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.35);
+    float intensity = clamp(max(fresnel * 0.85, rim), 0.0, 1.0);
+    vec3 atmosphere = mix(vec3(0.28, 0.48, 0.95), vec3(0.55, 0.78, 1.0), fresnel);
+    gl_FragColor = vec4(atmosphere * intensity, 1.0);
   }
 `
 
@@ -220,6 +230,8 @@ export function EarthGlobe({
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setSize(host.clientWidth, host.clientHeight)
     renderer.outputColorSpace = SRGBColorSpace
+    renderer.toneMapping = ACESFilmicToneMapping
+    renderer.toneMappingExposure = 1.12
     host.appendChild(renderer.domElement)
     renderer.domElement.className = 'maps-canvas'
     renderer.domElement.setAttribute('aria-label', 'Interactive 3D Earth')
@@ -235,7 +247,7 @@ export function EarthGlobe({
     controls.autoRotateSpeed = 0.28
     controls.target.set(0, 0, 0)
 
-    const ambient = new AmbientLight(0x6d7a99, 0.55)
+    const ambient = new AmbientLight(0x6d7a99, 0.32)
     scene.add(ambient)
 
     const stars = createStarfield()
@@ -246,7 +258,7 @@ export function EarthGlobe({
     scene.add(root)
 
     const [sx, sy, sz] = sunDirectionAt(sunAtRef.current)
-    sun = new DirectionalLight(0xfff2d6, 2.35)
+    sun = new DirectionalLight(0xfff1d4, 2.85)
     sun.position.set(sx * 8, sy * 8, sz * 8)
     // Parent under the globe so geographic sun directions stay on the texture
     // while the axial tilt still leans the whole planet in view.
@@ -263,12 +275,15 @@ export function EarthGlobe({
     root.rotation.z = AXIAL_TILT_RAD
 
     const loader = new TextureLoader()
-    const loadTexture = (url: string) =>
+    const loadTexture = (
+      url: string,
+      colorSpace: typeof SRGBColorSpace | typeof NoColorSpace = SRGBColorSpace,
+    ) =>
       new Promise<Awaited<ReturnType<typeof loader.loadAsync>>>((resolve, reject) => {
         loader.load(
           url,
           (texture) => {
-            texture.colorSpace = SRGBColorSpace
+            texture.colorSpace = colorSpace
             texture.anisotropy = renderer?.capabilities.getMaxAnisotropy() ?? 1
             resolve(texture)
           },
@@ -457,8 +472,9 @@ export function EarthGlobe({
             loadTexture(MAPS_TEXTURES.day),
             loadTexture(MAPS_TEXTURES.night),
             loadTexture(MAPS_TEXTURES.clouds),
-            loadTexture(MAPS_TEXTURES.normal),
-            loadTexture(MAPS_TEXTURES.specular),
+            // Data maps stay linear so relief and ocean specular stay accurate.
+            loadTexture(MAPS_TEXTURES.normal, NoColorSpace),
+            loadTexture(MAPS_TEXTURES.specular, NoColorSpace),
           ])
 
         if (disposed || !root) {
@@ -473,10 +489,10 @@ export function EarthGlobe({
         const earthMaterial = new MeshPhongMaterial({
           map: dayMap,
           specularMap,
-          specular: new Color(0x222222),
-          shininess: 18,
+          specular: new Color(0x334455),
+          shininess: 28,
           normalMap,
-          normalScale: new Vector2(0.65, 0.65),
+          normalScale: new Vector2(0.85, 0.85),
         })
         earthMesh = new Mesh(sphere, earthMaterial)
         root.add(earthMesh)
