@@ -364,7 +364,10 @@ describe("POST /api/responses: streaming and upstream errors", () => {
 
   it("keeps the model, tools, and privacy settings the surface depends on", async () => {
     openai.create.mockResolvedValueOnce(
-      responseStream([{ delta: "ok", type: "response.output_text.delta" }])
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        { type: "response.completed", response: { output: [] } },
+      ])
     )
 
     await POST(ask(question))
@@ -373,12 +376,120 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       model: "gpt-5.6-terra",
       store: false,
       stream: true,
+      reasoning: { effort: "medium", summary: "auto" },
     })
     expect(
       openai.create.mock.calls[0]?.[0].tools.map(
-        (tool: { type: string }) => tool.type
+        (tool: { type: string; name?: string }) => tool.name ?? tool.type
       )
-    ).toEqual(["web_search", "image_generation"])
+    ).toEqual([
+      "web_search",
+      "image_generation",
+      "code_interpreter",
+      "lookup_guide",
+      "search_gallery",
+    ])
+    expect(openai.create.mock.calls[0]?.[0].include).toEqual([
+      "reasoning.encrypted_content",
+      "code_interpreter_call.outputs",
+    ])
+  })
+
+  it("uses low reasoning effort for short greetings", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "Hi!", type: "response.output_text.delta" },
+        { type: "response.completed", response: { output: [] } },
+      ])
+    )
+
+    await POST(ask({ messages: [{ content: "Hey", role: "user" }] }))
+
+    expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("low")
+  })
+
+  it("runs portal function tools and continues the Responses loop", async () => {
+    openai.create
+      .mockResolvedValueOnce(
+        responseStream([
+          {
+            type: "response.output_item.added",
+            item: {
+              type: "function_call",
+              id: "fc_1",
+              call_id: "call_1",
+              name: "lookup_guide",
+              arguments: "",
+            },
+          },
+          {
+            type: "response.output_item.done",
+            item: {
+              type: "function_call",
+              id: "fc_1",
+              call_id: "call_1",
+              name: "lookup_guide",
+              arguments: JSON.stringify({
+                collection: "explore",
+                slug: "japan",
+                name: null,
+              }),
+            },
+          },
+          {
+            type: "response.completed",
+            response: {
+              output: [
+                {
+                  type: "function_call",
+                  id: "fc_1",
+                  call_id: "call_1",
+                  name: "lookup_guide",
+                  arguments: JSON.stringify({
+                    collection: "explore",
+                    slug: "japan",
+                    name: null,
+                  }),
+                },
+              ],
+            },
+          },
+        ])
+      )
+      .mockResolvedValueOnce(
+        responseStream([
+          { delta: "Japan awaits.", type: "response.output_text.delta" },
+          { type: "response.completed", response: { output: [] } },
+        ])
+      )
+
+    const response = await POST(
+      ask({
+        messages: [{ content: "Look up the Japan guide in depth.", role: "user" }],
+      })
+    )
+    const events = await ndjson(response)
+
+    expect(openai.create).toHaveBeenCalledTimes(2)
+    const secondInput = openai.create.mock.calls[1]?.[0].input as unknown[]
+    expect(
+      secondInput.some(
+        (item) =>
+          typeof item === "object" &&
+          item !== null &&
+          "type" in item &&
+          item.type === "function_call_output"
+      )
+    ).toBe(true)
+    expect(events).toContainEqual({ type: "text", delta: "Japan awaits." })
+    expect(
+      events.some(
+        (event) =>
+          event.type === "activity" &&
+          event.activity?.kind === "portal_lookup" &&
+          event.activity?.status === "completed"
+      )
+    ).toBe(true)
   })
 
   it("grounds matching Explore guides into the request instructions", async () => {

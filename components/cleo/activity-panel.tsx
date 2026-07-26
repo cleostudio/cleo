@@ -102,6 +102,23 @@ function activityLabel(activity: ActivityItem) {
     return "Generating an image"
   }
 
+  if (activity.kind === "code_interpreter") {
+    if (activity.status === "completed") {
+      return activity.summary?.trim() || "Ran Python"
+    }
+    if (activity.status === "failed") {
+      return "Code interpreter failed"
+    }
+    return activity.summary?.trim() || "Running Python"
+  }
+
+  if (activity.kind === "portal_lookup") {
+    if (activity.status === "completed") {
+      return activity.summary?.trim() || "Looked up a guide"
+    }
+    return activity.summary?.trim() || "Looking up portal content"
+  }
+
   const action = activity.action
 
   if (!action) {
@@ -164,7 +181,11 @@ function hasSpecificCollapsedDetail(activity: ActivityItem) {
     return Boolean(activity.summary?.trim())
   }
 
-  if (activity.kind === "image_generation") {
+  if (
+    activity.kind === "image_generation" ||
+    activity.kind === "code_interpreter" ||
+    activity.kind === "portal_lookup"
+  ) {
     return true
   }
 
@@ -262,6 +283,14 @@ function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
     (activity) =>
       activity.kind === "image_generation" && isActiveStatus(activity.status)
   )
+  const hasActiveCode = activities.some(
+    (activity) =>
+      activity.kind === "code_interpreter" && isActiveStatus(activity.status)
+  )
+  const hasActiveLookup = activities.some(
+    (activity) =>
+      activity.kind === "portal_lookup" && isActiveStatus(activity.status)
+  )
   const hasActiveReasoning = activities.some(
     (activity) =>
       activity.kind === "reasoning" && isActiveStatus(activity.status)
@@ -274,7 +303,7 @@ function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
     return "searching"
   }
 
-  if (isLive && hasActiveImageGeneration) {
+  if (isLive && (hasActiveImageGeneration || hasActiveCode || hasActiveLookup)) {
     return "composing"
   }
 

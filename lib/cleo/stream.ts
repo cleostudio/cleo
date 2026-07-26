@@ -17,7 +17,12 @@ export type WebSearchAction =
 export type ActivityStatus =
   "in_progress" | "searching" | "generating" | "completed" | "failed"
 
-export type ActivityKind = "web_search" | "reasoning" | "image_generation"
+export type ActivityKind =
+  | "web_search"
+  | "reasoning"
+  | "image_generation"
+  | "code_interpreter"
+  | "portal_lookup"
 
 export type ActivityItem = {
   action?: WebSearchAction
@@ -73,7 +78,9 @@ function isActivityKind(value: unknown): value is ActivityKind {
   return (
     value === "web_search" ||
     value === "reasoning" ||
-    value === "image_generation"
+    value === "image_generation" ||
+    value === "code_interpreter" ||
+    value === "portal_lookup"
   )
 }
 

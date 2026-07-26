@@ -70,13 +70,18 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
   (`G` then `C`).
 - API: `app/api/responses/route.ts` validates messages (including image data
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
-  `image_generation`, reasoning summaries, streaming, and `store: false`.
+  `image_generation`, `code_interpreter`, custom `lookup_guide` /
+  `search_gallery` tools (agentic loop), adaptive reasoning effort, streaming,
+  and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
   `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
 - Grounding: `lib/cleo/guide-grounding.ts` attaches curated Orientation / facts
   / places-or-features excerpts for guides mentioned in the turn (or pinned via
-  Ask Cleo `focusGuides`). Pages never call a model; only `POST /api/responses`
-  reads stored prose.
+  Ask Cleo `focusGuides`). Portal tools in `lib/cleo/portal-tools.ts` can fetch
+  more on demand. Pages never call a model; only `POST /api/responses` reads
+  stored prose.
+- Effort: `lib/cleo/reasoning-effort.ts` picks `low` / `medium` / `high` from
+  the latest user turn (greetings stay cheap; research goes high).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`.
 - Portal starters: `lib/cleo/portal-starters.ts` rotates a topic-diverse empty

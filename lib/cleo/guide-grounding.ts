@@ -64,7 +64,7 @@ function allCandidates(): GuideCandidate[] {
   ]
 }
 
-function loadGroundedGuide(
+export function loadGroundedGuide(
   focus: PortalGuideFocus,
 ): GroundedGuide | null {
   if (focus.collection === 'explore') {
@@ -126,6 +126,28 @@ function loadGroundedGuide(
     photoSrc: staticRendition(subject.photo, 1280).src,
     galleryHref: gallerySearchHref(subject.name),
     galleryFilterHref: galleryFilterHref(subject.category),
+  }
+}
+
+/** Compact JSON-friendly guide payload for function-tool results. */
+export function loadGroundedGuideCompact(focus: PortalGuideFocus) {
+  const guide = loadGroundedGuide(focus)
+  if (!guide) return null
+  return {
+    collection: guide.collection,
+    slug: guide.slug,
+    name: guide.name,
+    href: guide.href,
+    about: guide.about,
+    facts: guide.factsLine,
+    highlights: guide.highlights,
+    photo: {
+      title: guide.photoTitle,
+      caption: guide.photoCaption,
+      src: guide.photoSrc,
+      galleryHref: guide.galleryHref,
+      galleryFilterHref: guide.galleryFilterHref,
+    },
   }
 }
 

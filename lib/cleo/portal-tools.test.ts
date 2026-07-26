@@ -1,0 +1,62 @@
+import { describe, expect, it } from 'vitest'
+
+import {
+  executePortalTool,
+  LOOKUP_GUIDE_TOOL_NAME,
+  SEARCH_GALLERY_TOOL_NAME,
+} from './portal-tools'
+
+describe('executePortalTool', () => {
+  it('looks up an Explore guide by slug', () => {
+    const result = JSON.parse(
+      executePortalTool(
+        LOOKUP_GUIDE_TOOL_NAME,
+        JSON.stringify({
+          collection: 'explore',
+          slug: 'japan',
+          name: null,
+        }),
+      ),
+    ) as {
+      ok: boolean
+      guide?: { href: string; photo?: { galleryHref: string } }
+    }
+
+    expect(result.ok).toBe(true)
+    expect(result.guide?.href).toBe('/explore/japan')
+    expect(result.guide?.photo?.galleryHref).toBe('/gallery?q=Japan')
+  })
+
+  it('searches gallery photographs', () => {
+    const result = JSON.parse(
+      executePortalTool(
+        SEARCH_GALLERY_TOOL_NAME,
+        JSON.stringify({ query: 'Europa', limit: 3 }),
+      ),
+    ) as {
+      ok: boolean
+      count: number
+      results: { subtitle: string; galleryHref: string }[]
+    }
+
+    expect(result.ok).toBe(true)
+    expect(result.count).toBeGreaterThan(0)
+    expect(result.results[0]?.subtitle).toMatch(/Europa/i)
+    expect(result.results[0]?.galleryHref).toContain('/gallery?q=')
+  })
+
+  it('returns a structured miss for unknown guides', () => {
+    const result = JSON.parse(
+      executePortalTool(
+        LOOKUP_GUIDE_TOOL_NAME,
+        JSON.stringify({
+          collection: 'explore',
+          slug: 'not-a-real-place',
+          name: null,
+        }),
+      ),
+    ) as { ok: boolean }
+
+    expect(result.ok).toBe(false)
+  })
+})

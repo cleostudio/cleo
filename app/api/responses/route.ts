@@ -1,12 +1,19 @@
 import OpenAI, { APIError } from "openai"
 import type {
   EasyInputMessage,
+  ResponseFunctionToolCall,
   ResponseFunctionWebSearch,
+  ResponseInput,
   ResponseInputMessageContentList,
   ResponseOutputItem,
   ResponseReasoningItem,
 } from "openai/resources/responses/responses"
 
+import {
+  CLEO_RESPONSE_INCLUDE,
+  CLEO_RESPONSE_TOOLS,
+  MAX_PORTAL_TOOL_ROUNDS,
+} from "~/lib/cleo/cleo-tools"
 import {
   buildGuideGroundingInstructions,
   conversationGroundingText,
@@ -19,6 +26,11 @@ import {
   toImageDataUrl,
 } from "~/lib/cleo/images"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
+import {
+  executePortalTool,
+  portalToolActivitySummary,
+} from "~/lib/cleo/portal-tools"
+import { selectReasoningEffort } from "~/lib/cleo/reasoning-effort"
 import {
   type ActivityItem,
   type ActivityStatus,
@@ -329,6 +341,18 @@ function activityFromReasoning(
   }
 }
 
+function activityFromFunctionCall(
+  item: ResponseFunctionToolCall,
+  status: ActivityStatus
+): ActivityItem {
+  return {
+    id: item.id ?? item.call_id,
+    kind: "portal_lookup",
+    status,
+    summary: portalToolActivitySummary(item.name, item.arguments),
+  }
+}
+
 function joinReasoningParts(parts: Map<number, string>) {
   return [...parts.entries()]
     .sort(([left], [right]) => left - right)
@@ -384,37 +408,37 @@ export async function POST(request: Request) {
   }
 
   const client = new OpenAI({ apiKey })
-  const input = toApiInput(parsed)
+  const reasoningEffort = selectReasoningEffort(parsed)
+  let modelInput: ResponseInput = toApiInput(parsed)
+
+  const createResponseParams = () => ({
+    model: MODEL,
+    input: modelInput,
+    instructions,
+    // Keep headroom for reasoning + tools + visible answer. Effort "max"
+    // with a tight budget often ends incomplete with zero answer text.
+    max_output_tokens: 16_384,
+    reasoning: { effort: reasoningEffort, summary: "auto" as const },
+    stream: true as const,
+    text: { verbosity: "medium" as const },
+    tools: CLEO_RESPONSE_TOOLS,
+    store: false as const,
+    include: [...CLEO_RESPONSE_INCLUDE],
+  })
 
   try {
-    const responseStream = await client.responses.create(
-      {
-        model: MODEL,
-        input,
-        instructions,
-        // Keep headroom for reasoning + tools + visible answer. Effort "max"
-        // with a tight budget often ends incomplete with zero answer text.
-        max_output_tokens: 16_384,
-        reasoning: { effort: "medium", summary: "auto" },
-        stream: true,
-        text: { verbosity: "medium" },
-        tools: [
-          { type: "web_search" },
-          {
-            type: "image_generation",
-            partial_images: 2,
-            quality: "auto",
-            size: "auto",
-            output_format: "png",
-          },
-        ],
-        store: false,
-      },
+    // First create stays outside the NDJSON body so upstream 429/400/503 map
+    // to HTTP status codes. Later tool-loop rounds stream errors instead.
+    const firstResponseStream = await client.responses.create(
+      createResponseParams(),
       { signal: request.signal }
     )
+
     const encoder = new TextEncoder()
     const activities = new Map<string, ActivityItem>()
     const reasoningParts = new Map<string, Map<number, string>>()
+    let activeStream: { controller: { abort: () => void } } | null =
+      firstResponseStream
 
     const enqueue = (
       controller: ReadableStreamDefaultController<Uint8Array>,
@@ -461,175 +485,285 @@ export async function POST(request: Request) {
     const outputStream = new ReadableStream<Uint8Array>({
       async start(controller) {
         try {
-          for await (const event of responseStream) {
-            if (event.type === "response.output_text.delta") {
-              enqueue(controller, { type: "text", delta: event.delta })
-              continue
+          let responseStream = firstResponseStream
+
+          for (let round = 0; round < MAX_PORTAL_TOOL_ROUNDS; round += 1) {
+            if (round > 0) {
+              responseStream = await client.responses.create(
+                createResponseParams(),
+                { signal: request.signal }
+              )
+              activeStream = responseStream
             }
 
-            if (event.type === "response.output_item.added") {
-              if (event.item.type === "web_search_call") {
-                emitActivity(
-                  controller,
-                  activityFromWebSearch(event.item, "in_progress")
-                )
-              } else if (event.item.type === "reasoning") {
-                emitActivity(
-                  controller,
-                  activityFromReasoning(event.item, "in_progress")
-                )
-              } else if (event.item.type === "image_generation_call") {
-                emitActivity(
-                  controller,
-                  activityFromImageGeneration(event.item, "in_progress")
-                )
+            let completedOutput: ResponseOutputItem[] | null = null
+
+            for await (const event of responseStream) {
+              if (event.type === "response.output_text.delta") {
+                enqueue(controller, { type: "text", delta: event.delta })
+                continue
               }
-              continue
-            }
 
-            if (event.type === "response.reasoning_summary_text.delta") {
-              const parts =
-                reasoningParts.get(event.item_id) ?? new Map<number, string>()
-              const previous = parts.get(event.summary_index) ?? ""
-              emitReasoningSummary(
-                controller,
-                event.item_id,
-                event.summary_index,
-                previous + event.delta
-              )
-              continue
-            }
-
-            if (event.type === "response.reasoning_summary_text.done") {
-              emitReasoningSummary(
-                controller,
-                event.item_id,
-                event.summary_index,
-                event.text
-              )
-              continue
-            }
-
-            if (event.type === "response.web_search_call.in_progress") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "web_search",
-                status: "in_progress",
-              })
-              continue
-            }
-
-            if (event.type === "response.web_search_call.searching") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "web_search",
-                status: "searching",
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.in_progress") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "in_progress",
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.generating") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "generating",
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.partial_image") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "generating",
-              })
-              enqueue(controller, {
-                type: "image",
-                id: event.item_id,
-                imageUrl: toImageDataUrl("image/png", event.partial_image_b64),
-                partial: true,
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.completed") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "completed",
-              })
-              continue
-            }
-
-            if (event.type === "response.output_item.done") {
-              if (event.item.type === "web_search_call") {
-                emitActivity(controller, activityFromWebSearch(event.item))
-              } else if (event.item.type === "reasoning") {
-                const summary =
-                  summaryFromReasoning(event.item) ||
-                  joinReasoningParts(
-                    reasoningParts.get(event.item.id) ?? new Map()
-                  ) ||
-                  undefined
-
-                emitActivity(controller, {
-                  ...activityFromReasoning(event.item, "completed"),
-                  summary,
-                })
-              } else if (event.item.type === "image_generation_call") {
-                emitActivity(
-                  controller,
-                  activityFromImageGeneration(event.item, "completed")
-                )
-
-                if (event.item.result) {
-                  enqueue(controller, {
-                    type: "image",
+              if (event.type === "response.output_item.added") {
+                if (event.item.type === "web_search_call") {
+                  emitActivity(
+                    controller,
+                    activityFromWebSearch(event.item, "in_progress")
+                  )
+                } else if (event.item.type === "reasoning") {
+                  emitActivity(
+                    controller,
+                    activityFromReasoning(event.item, "in_progress")
+                  )
+                } else if (event.item.type === "image_generation_call") {
+                  emitActivity(
+                    controller,
+                    activityFromImageGeneration(event.item, "in_progress")
+                  )
+                } else if (event.item.type === "code_interpreter_call") {
+                  emitActivity(controller, {
                     id: event.item.id,
-                    imageUrl: toImageDataUrl("image/png", event.item.result),
+                    kind: "code_interpreter",
+                    status: "in_progress",
+                    summary: "Running Python",
                   })
+                } else if (event.item.type === "function_call") {
+                  emitActivity(
+                    controller,
+                    activityFromFunctionCall(event.item, "in_progress")
+                  )
                 }
+                continue
               }
-              continue
+
+              if (event.type === "response.reasoning_summary_text.delta") {
+                const parts =
+                  reasoningParts.get(event.item_id) ?? new Map<number, string>()
+                const previous = parts.get(event.summary_index) ?? ""
+                emitReasoningSummary(
+                  controller,
+                  event.item_id,
+                  event.summary_index,
+                  previous + event.delta
+                )
+                continue
+              }
+
+              if (event.type === "response.reasoning_summary_text.done") {
+                emitReasoningSummary(
+                  controller,
+                  event.item_id,
+                  event.summary_index,
+                  event.text
+                )
+                continue
+              }
+
+              if (event.type === "response.web_search_call.in_progress") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "web_search",
+                  status: "in_progress",
+                })
+                continue
+              }
+
+              if (event.type === "response.web_search_call.searching") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "web_search",
+                  status: "searching",
+                })
+                continue
+              }
+
+              if (event.type === "response.image_generation_call.in_progress") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "image_generation",
+                  status: "in_progress",
+                })
+                continue
+              }
+
+              if (event.type === "response.image_generation_call.generating") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "image_generation",
+                  status: "generating",
+                })
+                continue
+              }
+
+              if (event.type === "response.image_generation_call.partial_image") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "image_generation",
+                  status: "generating",
+                })
+                enqueue(controller, {
+                  type: "image",
+                  id: event.item_id,
+                  imageUrl: toImageDataUrl("image/png", event.partial_image_b64),
+                  partial: true,
+                })
+                continue
+              }
+
+              if (event.type === "response.image_generation_call.completed") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "image_generation",
+                  status: "completed",
+                })
+                continue
+              }
+
+              if (event.type === "response.code_interpreter_call.in_progress") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "code_interpreter",
+                  status: "in_progress",
+                  summary: "Running Python",
+                })
+                continue
+              }
+
+              if (event.type === "response.code_interpreter_call.interpreting") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "code_interpreter",
+                  status: "generating",
+                  summary: "Interpreting code",
+                })
+                continue
+              }
+
+              if (event.type === "response.code_interpreter_call.completed") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "code_interpreter",
+                  status: "completed",
+                  summary: "Ran Python",
+                })
+                continue
+              }
+
+              if (event.type === "response.output_item.done") {
+                if (event.item.type === "web_search_call") {
+                  emitActivity(controller, activityFromWebSearch(event.item))
+                } else if (event.item.type === "reasoning") {
+                  const summary =
+                    summaryFromReasoning(event.item) ||
+                    joinReasoningParts(
+                      reasoningParts.get(event.item.id) ?? new Map()
+                    ) ||
+                    undefined
+
+                  emitActivity(controller, {
+                    ...activityFromReasoning(event.item, "completed"),
+                    summary,
+                  })
+                } else if (event.item.type === "image_generation_call") {
+                  emitActivity(
+                    controller,
+                    activityFromImageGeneration(event.item, "completed")
+                  )
+
+                  if (event.item.result) {
+                    enqueue(controller, {
+                      type: "image",
+                      id: event.item.id,
+                      imageUrl: toImageDataUrl("image/png", event.item.result),
+                    })
+                  }
+                } else if (event.item.type === "code_interpreter_call") {
+                  emitActivity(controller, {
+                    id: event.item.id,
+                    kind: "code_interpreter",
+                    status: "completed",
+                    summary: "Ran Python",
+                  })
+                } else if (event.item.type === "function_call") {
+                  emitActivity(
+                    controller,
+                    activityFromFunctionCall(event.item, "in_progress")
+                  )
+                }
+                continue
+              }
+
+              if (event.type === "response.web_search_call.completed") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "web_search",
+                  status: "completed",
+                })
+                continue
+              }
+
+              if (event.type === "response.completed") {
+                completedOutput = event.response.output
+                continue
+              }
+
+              if (event.type === "error") {
+                throw new Error(event.message)
+              }
+
+              if (event.type === "response.failed") {
+                throw new Error(
+                  event.response.error?.message ??
+                    "The AI service could not complete the request."
+                )
+              }
+
+              if (event.type === "response.incomplete") {
+                const reason = event.response.incomplete_details?.reason
+                throw new Error(
+                  reason === "max_output_tokens"
+                    ? "The AI service ran out of room before finishing an answer. Try a shorter question."
+                    : "The AI service stopped before finishing an answer. Try again."
+                )
+              }
             }
 
-            if (event.type === "response.web_search_call.completed") {
+            activeStream = null
+
+            const functionCalls = (completedOutput ?? []).filter(
+              (item): item is ResponseFunctionToolCall =>
+                item.type === "function_call"
+            )
+
+            if (functionCalls.length === 0) {
+              break
+            }
+
+            const priorInput = Array.isArray(modelInput)
+              ? modelInput
+              : [modelInput]
+            const toolOutputs = functionCalls.map((call) => {
+              const output = executePortalTool(call.name, call.arguments)
               emitActivity(controller, {
-                id: event.item_id,
-                kind: "web_search",
-                status: "completed",
+                ...activityFromFunctionCall(call, "completed"),
+                summary:
+                  portalToolActivitySummary(call.name, call.arguments) ??
+                  `Looked up via ${call.name}`,
               })
-              continue
-            }
+              return {
+                type: "function_call_output" as const,
+                call_id: call.call_id,
+                output,
+              }
+            })
 
-            if (event.type === "error") {
-              throw new Error(event.message)
-            }
-
-            if (event.type === "response.failed") {
-              throw new Error(
-                event.response.error?.message ??
-                  "The AI service could not complete the request."
-              )
-            }
-
-            if (event.type === "response.incomplete") {
-              const reason = event.response.incomplete_details?.reason
-              throw new Error(
-                reason === "max_output_tokens"
-                  ? "The AI service ran out of room before finishing an answer. Try a shorter question."
-                  : "The AI service stopped before finishing an answer. Try again."
-              )
-            }
+            // Response output items are valid next-turn input for the tool loop
+            // (including encrypted reasoning when store is false).
+            modelInput = [
+              ...priorInput,
+              ...(completedOutput ?? []),
+              ...toolOutputs,
+            ] as ResponseInput
           }
 
           controller.close()
@@ -660,7 +794,7 @@ export async function POST(request: Request) {
         }
       },
       cancel() {
-        responseStream.controller.abort()
+        activeStream?.controller.abort()
       },
     })
 
