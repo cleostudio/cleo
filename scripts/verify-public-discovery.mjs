@@ -65,6 +65,15 @@ const publicPages = [
     'Explore · Cleo',
   ),
   englishPage(
+    '/maps',
+    {
+      title: 'Maps',
+      description:
+        'A live 3D Earth — real day and night, axial seasons, and drag-to-explore geography.',
+    },
+    'Maps · Cleo. A live 3D Earth — real day and night, axial seasons, and drag-to-explore geography.',
+  ),
+  englishPage(
     '/space',
     {
       title: 'Space',

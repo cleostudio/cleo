@@ -27,6 +27,11 @@ export const publicPageMetadata = {
     title: 'Explore',
     description: '',
   },
+  maps: {
+    title: 'Maps',
+    description:
+      'A live 3D Earth — real day and night, axial seasons, and drag-to-explore geography.',
+  },
   space: {
     title: 'Space',
     description:

@@ -143,6 +143,23 @@ export function ExploreIcon() {
   )
 }
 
+/** Folded chart — distinct from Explore’s globe mark. */
+export function MapsIcon() {
+  return (
+    <Base>
+      <path
+        d="M2.75 4.25 6.5 3.25 11.5 4.75 15.25 3.25v10.5L11.5 15.25 6.5 13.75 2.75 14.75Z"
+        fill="currentColor"
+        opacity=".3"
+        strokeWidth="0"
+        stroke="none"
+      />
+      <path d="M2.75 4.25 6.5 3.25 11.5 4.75 15.25 3.25v10.5L11.5 15.25 6.5 13.75 2.75 14.75Z" />
+      <path d="M6.5 3.25v10.5M11.5 4.75v10.5" />
+    </Base>
+  )
+}
+
 export function SayHiIcon() {
   return (
     <Base>

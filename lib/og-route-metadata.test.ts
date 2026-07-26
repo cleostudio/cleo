@@ -31,6 +31,11 @@ describe('social OG image metadata', () => {
     ['/topics', publicPageMetadata.topics, 'Topics · Cleo'],
     ['/explore', publicPageMetadata.explore, 'Explore · Cleo'],
     [
+      '/maps',
+      publicPageMetadata.maps,
+      'Maps · Cleo. A live 3D Earth — real day and night, axial seasons, and drag-to-explore geography.',
+    ],
+    [
       '/space',
       publicPageMetadata.space,
       'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',

@@ -255,6 +255,42 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'maps') {
+    // Folded chart panels — distinct from Explore’s globe mark.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <path
+            d="M42 58 88 42 144 68 190 46v118L144 186 88 160 42 178Z"
+            stroke={faint}
+            strokeWidth="1.4"
+          />
+          <path
+            d="M42 58 88 42 144 68 190 46v118L144 186 88 160 42 178Z"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path
+            d="M88 42v118M144 68v118"
+            stroke={stroke}
+            strokeWidth="1.55"
+          />
+          <path
+            d="M58 96c18-10 34-8 48 2M108 118c16-12 30-8 44 4M64 132c14-6 28-4 40 6"
+            stroke={stroke}
+            strokeWidth="1.45"
+          />
+        </g>
+      </svg>
+    )
+  }
+
   return (
     <svg
       width="232"

@@ -17,6 +17,12 @@ const PORTAL_SURFACES: Omit<SiteSearchHit, 'id' | 'searchText'>[] = [
   },
   {
     kind: 'surface',
+    title: 'Maps',
+    subtitle: '3D Earth',
+    href: '/maps',
+  },
+  {
+    kind: 'surface',
     title: 'Ask Cleo',
     subtitle: 'AI agent',
     href: '/cleo',
