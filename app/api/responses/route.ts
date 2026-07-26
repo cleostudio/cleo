@@ -10,8 +10,6 @@ import type {
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
   MAX_IMAGES_PER_MESSAGE,
-  MAX_IMAGES_PER_REQUEST,
-  MAX_TOTAL_IMAGE_BYTES,
   parseImageDataUrl,
   toImageDataUrl,
 } from "~/lib/cleo/images"
@@ -23,7 +21,6 @@ import {
   type MessageImage,
   type WebSearchAction,
 } from "~/lib/cleo/stream"
-import { cleoApiGuard } from "~/lib/security/api-guard"
 
 const MODEL = "gpt-5.6-terra"
 const MAX_INPUT_LENGTH = 10_000
@@ -39,17 +36,11 @@ type ConversationMessage = {
   role: "assistant" | "user"
 }
 
-function errorResponse(error: string, status: number, headers?: HeadersInit) {
-  return Response.json({ error }, { headers, status })
+function errorResponse(error: string, status: number) {
+  return Response.json({ error }, { status })
 }
 
-/** Running totals so whole-conversation image cost stays bounded. */
-type ImageBudget = { bytes: number; count: number }
-
-function parseMessageImages(
-  value: unknown,
-  budget: ImageBudget
-): MessageImage[] | Response {
+function parseMessageImages(value: unknown): MessageImage[] | Response {
   if (value === undefined) {
     return []
   }
@@ -87,23 +78,6 @@ function parseMessageImages(
     if (!parsed) {
       return errorResponse(
         "Images must be PNG, JPEG, WEBP, or GIF data URLs within the size limit.",
-        400
-      )
-    }
-
-    budget.count += 1
-    budget.bytes += parsed.bytes
-
-    if (budget.count > MAX_IMAGES_PER_REQUEST) {
-      return errorResponse(
-        `Conversations must carry ${MAX_IMAGES_PER_REQUEST} images or fewer.`,
-        400
-      )
-    }
-
-    if (budget.bytes > MAX_TOTAL_IMAGE_BYTES) {
-      return errorResponse(
-        `Conversation images must total ${Math.floor(MAX_TOTAL_IMAGE_BYTES / (1024 * 1024))}MB or less.`,
         400
       )
     }
@@ -150,7 +124,6 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
   }
 
   const messages: ConversationMessage[] = []
-  const imageBudget: ImageBudget = { bytes: 0, count: 0 }
   let totalLength = 0
 
   for (const item of body.messages) {
@@ -170,8 +143,7 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
 
     const content = item.content.trim()
     const imagesResult = parseMessageImages(
-      "images" in item ? item.images : undefined,
-      imageBudget
+      "images" in item ? item.images : undefined
     )
 
     if (imagesResult instanceof Response) {
@@ -360,13 +332,6 @@ function joinReasoningParts(parts: Map<number, string>) {
 }
 
 export async function POST(request: Request) {
-  const guard = cleoApiGuard()
-  const screened = guard.screen(request)
-
-  if (screened) {
-    return screened
-  }
-
   let body: unknown
 
   try {
@@ -386,18 +351,6 @@ export async function POST(request: Request) {
   if (!apiKey) {
     console.error("OPENAI_API_KEY is not configured.")
     return errorResponse("The AI service is not configured.", 503)
-  }
-
-  // Held until the stream ends, so one instance cannot fan out to OpenAI
-  // faster than it can finish the turns it already started.
-  const releaseSlot = guard.acquireSlot()
-
-  if (!releaseSlot) {
-    return errorResponse(
-      "Cleo is answering as many questions as it can right now. Try again in a moment.",
-      503,
-      { "Retry-After": "10" }
-    )
   }
 
   const client = new OpenAI({ apiKey })
@@ -674,13 +627,10 @@ export async function POST(request: Request) {
               controller.error(streamError)
             }
           }
-        } finally {
-          releaseSlot()
         }
       },
       cancel() {
         responseStream.controller.abort()
-        releaseSlot()
       },
     })
 
@@ -693,7 +643,6 @@ export async function POST(request: Request) {
       },
     })
   } catch (error) {
-    releaseSlot()
     console.error("OpenAI Responses API request failed.", error)
 
     if (error instanceof APIError && error.status === 429) {

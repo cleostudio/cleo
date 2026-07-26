@@ -43,11 +43,6 @@ Open [http://localhost:3000](http://localhost:3000). Cleo is on the dock (or
 `/cleo`). The OpenAI key stays server-side; never expose it through
 `NEXT_PUBLIC_` or commit `.env.local`.
 
-`POST /api/responses` is throttled per client and only answers requests a
-browser on the deployment could have made. The defaults in `.env.example` leave
-plenty of room for a person in conversation; raise them there if a local flow
-needs more.
-
 ## Validation
 
 ```bash

@@ -48,8 +48,6 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
   `image_generation`, reasoning summaries, streaming, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
   `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
-- Abuse and cost controls: `lib/security/api-guard.ts` screens every request
-  before the body is read. Keep new paid work behind it.
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`.
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
@@ -63,15 +61,7 @@ authentication, database, media library, AMA booking, or analytics.
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and
 100,000 total, with a final `user` message. User and assistant messages may
-include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF), capped at 16
-images and 6MB decoded across the whole conversation.
-
-The endpoint is unauthenticated and bills OpenAI per call, so
-`lib/security/api-guard.ts` rejects cross-origin posts (403) and oversized
-bodies (413), throttles per client address (429 with `Retry-After`), and caps
-simultaneous upstream streams per instance (503). Tune the limits with
-`CLEO_RATE_LIMIT_BURST`, `CLEO_RATE_LIMIT_BURST_WINDOW_SECONDS`,
-`CLEO_RATE_LIMIT_HOURLY`, and `CLEO_MAX_CONCURRENT_STREAMS`.
+include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
 
 ## External APIs
 
