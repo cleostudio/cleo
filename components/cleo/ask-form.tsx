@@ -7,7 +7,6 @@ import {
   useRef,
   useState,
 } from 'react'
-import Link from 'next/link'
 import { CornerRightUp, Plus, Square, X } from 'lucide-react'
 import { ThinkingOrb } from 'thinking-orbs'
 
@@ -21,10 +20,7 @@ import {
   IMAGE_ACCEPT,
   MAX_IMAGES_PER_MESSAGE,
 } from "~/lib/cleo/client-images"
-import {
-  CLEO_PORTAL_STARTERS,
-  extractPortalGuideLinks,
-} from "~/lib/cleo/portal-links"
+import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
 import {
   type ActivityItem,
   type MessageImage,
@@ -94,29 +90,6 @@ function messageHasVisibleContent(message: Message) {
     Boolean(message.content.trim()) ||
     Boolean(message.images?.length) ||
     Boolean(message.activities?.length)
-  )
-}
-
-function PortalGuideLinks({ markdown }: { markdown: string }) {
-  const guides = extractPortalGuideLinks(markdown)
-
-  if (guides.length === 0) {
-    return null
-  }
-
-  return (
-    <ul aria-label="Field guides" className="cleo-guide-links">
-      {guides.map((guide) => (
-        <li key={guide.href}>
-          <Link className="cleo-guide-link" href={guide.href}>
-            <span className="cleo-guide-link-kind">
-              {guide.collection === 'explore' ? 'Explore' : 'Space'}
-            </span>
-            <span className="cleo-guide-link-name">{guide.label}</span>
-          </Link>
-        </li>
-      ))}
-    </ul>
   )
 }
 
@@ -519,16 +492,13 @@ export function AskForm() {
                   ) : null}
 
                   {message.content ? (
-                    <>
-                      <Markdown
-                        isAnimating={
-                          isSubmitting && message.id === messages.at(-1)?.id
-                        }
-                      >
-                        {message.content}
-                      </Markdown>
-                      <PortalGuideLinks markdown={message.content} />
-                    </>
+                    <Markdown
+                      isAnimating={
+                        isSubmitting && message.id === messages.at(-1)?.id
+                      }
+                    >
+                      {message.content}
+                    </Markdown>
                   ) : isSubmitting &&
                     message.id === messages.at(-1)?.id &&
                     !(message.activities && message.activities.length > 0) &&

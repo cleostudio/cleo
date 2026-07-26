@@ -50,8 +50,9 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
   `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`.
-- Portal links UI: `lib/cleo/portal-links.ts` (extract guide links; empty-state
-  starters) consumed by `components/cleo/ask-form.tsx`.
+- Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
+  `components/cleo/ask-form.tsx`. Guide deep-links are inline Markdown in the
+  reply (no separate chip row).
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 

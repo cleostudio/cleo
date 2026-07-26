@@ -370,9 +370,9 @@
 
 .glass-surface.user-message {
   /* Soft rectangle, not a pill — 999px from .glass-surface becomes a stadium
-     once the bubble wraps to multiple lines. Keep corners near the prompt
-     dock’s short-edge curve without inheriting the capsule. */
-  border-radius: 1.25rem;
+     once the bubble wraps. Stay well under half the single-line height so
+     even short wrapped bubbles keep flat sides. */
+  border-radius: 1rem;
 }
 
 .user-message {
@@ -490,48 +490,6 @@
 .cleo-starter:disabled {
   cursor: not-allowed;
   opacity: 0.55;
-}
-
-.cleo-guide-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem 0.85rem;
-  margin: 0.85rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.cleo-guide-link {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.4rem;
-  color: var(--foreground);
-  font-size: 0.925rem;
-  line-height: 1.35;
-  text-decoration: none;
-  transition: opacity 160ms ease;
-}
-
-.cleo-guide-link:hover {
-  opacity: 0.72;
-}
-
-.cleo-guide-link:focus-visible {
-  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-.cleo-guide-link-kind {
-  color: var(--muted-foreground);
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-}
-
-.cleo-guide-link-name {
-  text-decoration: underline;
-  text-decoration-color: color-mix(in oklab, var(--foreground) 28%, transparent);
-  text-underline-offset: 0.16em;
 }
 
 .prompt-dock-shell[data-docked] {

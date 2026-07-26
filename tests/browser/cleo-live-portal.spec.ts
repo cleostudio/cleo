@@ -7,7 +7,7 @@ const hasOpenAI = Boolean(process.env.OPENAI_API_KEY?.trim())
 test.describe('@smoke @hosted Cleo live portal grounding', () => {
   test.skip(!hasOpenAI, 'OPENAI_API_KEY required for live Cleo grounding')
 
-  test('Japan starter produces an Explore Japan guide chip that navigates', async ({
+  test('Japan starter deep-links Explore Japan inline and navigates', async ({
     page,
   }) => {
     test.setTimeout(180_000)
@@ -18,11 +18,13 @@ test.describe('@smoke @hosted Cleo live portal grounding', () => {
     await page.getByRole('button', { name: 'Orient me to Japan' }).click()
     await page.getByRole('button', { name: 'Send' }).click()
 
-    const guideChip = page.locator('a.cleo-guide-link[href="/explore/japan"]')
-    await expect(guideChip).toBeVisible({ timeout: 120_000 })
-    await expect(guideChip).toContainText(/Japan/i)
+    const guideLink = page.locator('.ai-response a[href="/explore/japan"]')
+    await expect(guideLink.first()).toBeVisible({ timeout: 120_000 })
+    // One inline guide link — no duplicate chip row under the answer.
+    await expect(guideLink).toHaveCount(1)
+    await expect(page.locator('a.cleo-guide-link')).toHaveCount(0)
 
-    await guideChip.click()
+    await guideLink.first().click()
     await expect(page).toHaveURL(/\/explore\/japan$/)
     await expect(page.locator('main h1')).toContainText(/Japan/i)
 
