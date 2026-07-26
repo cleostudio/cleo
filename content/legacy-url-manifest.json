@@ -91,153 +91,297 @@
     },
     {
       "kind": "page",
-      "source": "/blog/2023-year-in-review",
+      "source": "/blog/a-brief-history-of-dawn",
       "probes": [
-        "/blog/2023-year-in-review"
+        "/blog/a-brief-history-of-dawn"
       ],
       "status": 200,
       "contains": "<article"
     },
     {
       "kind": "redirect",
+      "source": "/en/blog/a-brief-history-of-dawn",
+      "destination": "/blog/a-brief-history-of-dawn",
+      "probes": [
+        "/en/blog/a-brief-history-of-dawn"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/how-rivers-draw-nations",
+      "probes": [
+        "/blog/how-rivers-draw-nations"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/how-rivers-draw-nations",
+      "destination": "/blog/how-rivers-draw-nations",
+      "probes": [
+        "/en/blog/how-rivers-draw-nations"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/letters-from-low-earth-orbit",
+      "probes": [
+        "/blog/letters-from-low-earth-orbit"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/letters-from-low-earth-orbit",
+      "destination": "/blog/letters-from-low-earth-orbit",
+      "probes": [
+        "/en/blog/letters-from-low-earth-orbit"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/pale-blue-marble",
+      "probes": [
+        "/blog/pale-blue-marble"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/pale-blue-marble",
+      "destination": "/blog/pale-blue-marble",
+      "probes": [
+        "/en/blog/pale-blue-marble"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/silence-between-galaxies",
+      "probes": [
+        "/blog/silence-between-galaxies"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/silence-between-galaxies",
+      "destination": "/blog/silence-between-galaxies",
+      "probes": [
+        "/en/blog/silence-between-galaxies"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/the-atlas-of-vanishing-things",
+      "probes": [
+        "/blog/the-atlas-of-vanishing-things"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/the-atlas-of-vanishing-things",
+      "destination": "/blog/the-atlas-of-vanishing-things",
+      "probes": [
+        "/en/blog/the-atlas-of-vanishing-things"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/the-long-night-of-enceladus",
+      "probes": [
+        "/blog/the-long-night-of-enceladus"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/the-long-night-of-enceladus",
+      "destination": "/blog/the-long-night-of-enceladus",
+      "probes": [
+        "/en/blog/the-long-night-of-enceladus"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/what-the-equator-remembers",
+      "probes": [
+        "/blog/what-the-equator-remembers"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/what-the-equator-remembers",
+      "destination": "/blog/what-the-equator-remembers",
+      "probes": [
+        "/en/blog/what-the-equator-remembers"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/when-the-sahara-was-green",
+      "probes": [
+        "/blog/when-the-sahara-was-green"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/when-the-sahara-was-green",
+      "destination": "/blog/when-the-sahara-was-green",
+      "probes": [
+        "/en/blog/when-the-sahara-was-green"
+      ]
+    },
+    {
+      "kind": "redirect",
+      "source": "/blog/2023-year-in-review",
+      "destination": "/blog",
+      "probes": [
+        "/blog/2023-year-in-review"
+      ]
+    },
+    {
+      "kind": "redirect",
       "source": "/en/blog/2023-year-in-review",
-      "destination": "/blog/2023-year-in-review",
+      "destination": "/blog",
       "probes": [
         "/en/blog/2023-year-in-review"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/8-laws-to-a-successful-engineer",
+      "destination": "/blog",
       "probes": [
         "/blog/8-laws-to-a-successful-engineer"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/8-laws-to-a-successful-engineer",
-      "destination": "/blog/8-laws-to-a-successful-engineer",
+      "destination": "/blog",
       "probes": [
         "/en/blog/8-laws-to-a-successful-engineer"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/an-ode-to-hao-chen",
+      "destination": "/blog",
       "probes": [
         "/blog/an-ode-to-hao-chen"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/an-ode-to-hao-chen",
-      "destination": "/blog/an-ode-to-hao-chen",
+      "destination": "/blog",
       "probes": [
         "/en/blog/an-ode-to-hao-chen"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/do-buttons-need-pointer-cursors",
+      "destination": "/blog",
       "probes": [
         "/blog/do-buttons-need-pointer-cursors"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/do-buttons-need-pointer-cursors",
-      "destination": "/blog/do-buttons-need-pointer-cursors",
+      "destination": "/blog",
       "probes": [
         "/en/blog/do-buttons-need-pointer-cursors"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/guide-for-cloning-my-site",
+      "destination": "/blog",
       "probes": [
         "/blog/guide-for-cloning-my-site"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/guide-for-cloning-my-site",
-      "destination": "/blog/guide-for-cloning-my-site",
+      "destination": "/blog",
       "probes": [
         "/en/blog/guide-for-cloning-my-site"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/how-to-add-rss-to-your-nextjs-app-router",
+      "destination": "/blog",
       "probes": [
         "/blog/how-to-add-rss-to-your-nextjs-app-router"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/how-to-add-rss-to-your-nextjs-app-router",
-      "destination": "/blog/how-to-add-rss-to-your-nextjs-app-router",
+      "destination": "/blog",
       "probes": [
         "/en/blog/how-to-add-rss-to-your-nextjs-app-router"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/how-to-protect-your-site-with-upstash",
+      "destination": "/blog",
       "probes": [
         "/blog/how-to-protect-your-site-with-upstash"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/how-to-protect-your-site-with-upstash",
-      "destination": "/blog/how-to-protect-your-site-with-upstash",
+      "destination": "/blog",
       "probes": [
         "/en/blog/how-to-protect-your-site-with-upstash"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/im-gonna-be-a-father",
+      "destination": "/blog",
       "probes": [
         "/blog/im-gonna-be-a-father"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/im-gonna-be-a-father",
-      "destination": "/blog/im-gonna-be-a-father",
+      "destination": "/blog",
       "probes": [
         "/en/blog/im-gonna-be-a-father"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/react-or-vue-my-take-on-web-dev",
+      "destination": "/blog",
       "probes": [
         "/blog/react-or-vue-my-take-on-web-dev"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/react-or-vue-my-take-on-web-dev",
-      "destination": "/blog/react-or-vue-my-take-on-web-dev",
+      "destination": "/blog",
       "probes": [
         "/en/blog/react-or-vue-my-take-on-web-dev"
       ]
