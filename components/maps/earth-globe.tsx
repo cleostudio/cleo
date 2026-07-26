@@ -152,6 +152,7 @@ export function EarthGlobe({
   sunAt,
   regionFilter = null,
   resetSignal = 0,
+  focusSignal = 0,
 }: {
   focusSlug?: string | null
   onSelect?: (marker: MapsMarker | null) => void
@@ -163,6 +164,8 @@ export function EarthGlobe({
   regionFilter?: string | null
   /** Increment to restore the default Atlantic framing. */
   resetSignal?: number
+  /** Increment to re-fly to the current focus slug after the camera drifts. */
+  focusSignal?: number
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const apiRef = useRef<GlobeApi | null>(null)
@@ -688,6 +691,15 @@ export function EarthGlobe({
     if (!marker) return
     apiRef.current?.flyTo(marker)
   }, [focusSlug, ready, markersBySlug])
+
+  useEffect(() => {
+    // Re-fly when the dossier Recenter control bumps focusSignal — focusSlug
+    // alone would not re-run after the user orbited away from the marker.
+    if (!ready || focusSignal < 1 || !focusSlug) return
+    const marker = markersBySlug.get(focusSlug)
+    if (!marker) return
+    apiRef.current?.flyTo(marker)
+  }, [focusSignal, focusSlug, ready, markersBySlug])
 
   useEffect(() => {
     if (!ready) return

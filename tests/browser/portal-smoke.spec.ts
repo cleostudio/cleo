@@ -53,7 +53,7 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       timeout: 20_000,
     })
     await expect(
-      page.getByText(/Drag to orbit · Scroll to zoom · Click land or sea/i),
+      page.getByText(/Drag to orbit · Scroll to zoom · \[ \] sun hour/i),
     ).toBeVisible()
     await expect(page.getByLabel('Find a country')).toBeVisible()
     await expect(page.getByRole('button', { name: 'Show graticule' })).toBeVisible()
@@ -96,9 +96,32 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       page.locator('.maps-selection-places a', { hasText: 'Mount Fuji' }),
     ).toHaveAttribute('href', '/gallery?q=Mount%20Fuji')
     await expect(page.getByRole('button', { name: 'Copy link' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Recenter' })).toBeVisible()
+    await page.getByRole('button', { name: 'Recenter' }).click()
+    await expect(page.getByRole('region', { name: 'Japan' })).toBeVisible()
     await expect(page.getByText(/More in /i)).toBeVisible()
 
     expect(browserErrors).toEqual([])
+  })
+
+  test('Maps keyboard sun nudge enters scrub and Copy sun link', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000)
+    await prepareBrowserPage(page)
+    await page.goto('/maps')
+    await expect(
+      page.getByRole('img', { name: 'Interactive 3D Earth' }),
+    ).toBeVisible({ timeout: 20_000 })
+
+    // Focus the document chrome so `[` / `]` are not swallowed by an input.
+    await page.getByRole('heading', { name: 'Maps' }).click()
+    await page.keyboard.press(']')
+    await expect(page).toHaveURL(/[?&]h=\d+\b/, { timeout: 10_000 })
+    await expect(page).toHaveURL(/[?&]d=\d+\b/)
+    await expect(
+      page.getByRole('button', { name: 'Copy sun link' }),
+    ).toBeVisible()
   })
 
   test('Maps sun scrub deep-link restores hour and season', async ({ page }) => {

@@ -12,6 +12,8 @@ type EarthGlobeProps = {
   sunAt?: Date
   regionFilter?: string | null
   resetSignal?: number
+  /** Increment with a focus slug to re-fly when the camera was drifted. */
+  focusSignal?: number
 }
 
 /** WebGL globe — client-only so SSR never touches the renderer. */

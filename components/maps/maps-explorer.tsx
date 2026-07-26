@@ -81,6 +81,7 @@ function MapsExplorerInner({
     'idle',
   )
   const [resetSignal, setResetSignal] = useState(0)
+  const [focusSignal, setFocusSignal] = useState(0)
   const [selectionAnnouncement, setSelectionAnnouncement] = useState('')
   const regionChipRefs = useRef<Array<HTMLButtonElement | null>>([])
   const guideLinkRef = useRef<HTMLAnchorElement>(null)
@@ -202,30 +203,11 @@ function MapsExplorerInner({
     syncUrl(null, regionFilter)
   }
 
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape') return
-      const target = event.target
-      if (target instanceof HTMLElement) {
-        // Let fields with content clear themselves first (MapsSearch clears
-        // non-empty queries). Empty inputs should still dismiss Maps chrome.
-        if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
-          const value = (target as HTMLInputElement | HTMLTextAreaElement).value
-          if (value.trim()) return
-        } else if (target.isContentEditable) {
-          return
-        }
-      }
-      if (pickedSample && !selected) {
-        clearSample()
-        return
-      }
-      if (!selected && !pickedSample) return
-      dismissSelection()
-    }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [pickedSample, selected, regionFilter, sunMode, sunHour, sunDay, pathname, router, searchParams])
+  const recenterSelection = () => {
+    if (!selected) return
+    setFocusSlug(selected.slug)
+    setFocusSignal((value) => value + 1)
+  }
 
   const applyRegion = (region: string | null) => {
     setRegionFilter(region)
@@ -272,6 +254,76 @@ function MapsExplorerInner({
     })
   }
 
+  useEffect(() => {
+    const typingInField = (target: EventTarget | null) => {
+      if (!(target instanceof HTMLElement)) return false
+      if (target.isContentEditable) return true
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+        return true
+      }
+      return false
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === '[' || event.key === ']') {
+        if (typingInField(event.target)) return
+        event.preventDefault()
+        const base = sunMode === 'live' ? liveNow.getUTCHours() : sunHour
+        const next =
+          event.key === ']' ? (base + 1) % 24 : (base + 23) % 24
+        scrubSunHour(next)
+        return
+      }
+      if (event.key === '{' || event.key === '}') {
+        if (typingInField(event.target)) return
+        event.preventDefault()
+        const base = sunMode === 'live' ? utcDayOfYear(liveNow) : sunDay
+        const next =
+          event.key === '}'
+            ? base >= 365
+              ? 1
+              : base + 1
+            : base <= 1
+              ? 365
+              : base - 1
+        scrubSunDay(next)
+        return
+      }
+
+      if (event.key !== 'Escape') return
+      const target = event.target
+      if (target instanceof HTMLElement) {
+        // Let fields with content clear themselves first (MapsSearch clears
+        // non-empty queries). Empty inputs should still dismiss Maps chrome.
+        if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+          const value = (target as HTMLInputElement | HTMLTextAreaElement).value
+          if (value.trim()) return
+        } else if (target.isContentEditable) {
+          return
+        }
+      }
+      if (pickedSample && !selected) {
+        clearSample()
+        return
+      }
+      if (!selected && !pickedSample) return
+      dismissSelection()
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [
+    pickedSample,
+    selected,
+    regionFilter,
+    sunMode,
+    sunHour,
+    sunDay,
+    liveNow,
+    pathname,
+    router,
+    searchParams,
+  ])
+
   const resetView = () => {
     setResetSignal((value) => value + 1)
     setFocusSlug(null)
@@ -300,6 +352,17 @@ function MapsExplorerInner({
       url.searchParams.set('h', String(sunHour))
       url.searchParams.set('d', String(sunDay))
     }
+    const ok = await copyTextToClipboard(url.toString())
+    setCopyStatus(ok ? 'copied' : 'failed')
+    window.setTimeout(() => setCopyStatus('idle'), ok ? 1600 : 2200)
+  }
+
+  const copySunLink = async () => {
+    if (sunMode !== 'scrub' || typeof window === 'undefined') return
+    const url = new URL('/maps', window.location.origin)
+    if (regionFilter) url.searchParams.set('r', regionFilter)
+    url.searchParams.set('h', String(sunHour))
+    url.searchParams.set('d', String(sunDay))
     const ok = await copyTextToClipboard(url.toString())
     setCopyStatus(ok ? 'copied' : 'failed')
     window.setTimeout(() => setCopyStatus('idle'), ok ? 1600 : 2200)
@@ -358,8 +421,8 @@ function MapsExplorerInner({
           className="maps-hint enter"
           style={{ '--enter-delay': '120ms' } as React.CSSProperties}
         >
-          Drag to orbit · Scroll to zoom · Click land or sea to sample, then open
-          the nearest country
+          Drag to orbit · Scroll to zoom · [ ] sun hour · {'{ }'} season · Click
+          land or sea to sample, then open the nearest country
         </p>
         <div
           className="enter"
@@ -419,6 +482,19 @@ function MapsExplorerInner({
           >
             Reset view
           </button>
+          {sunMode === 'scrub' ? (
+            <button
+              type="button"
+              className="maps-toolbar-button"
+              onClick={() => void copySunLink()}
+            >
+              {copyStatus === 'copied'
+                ? 'Copied'
+                : copyStatus === 'failed'
+                  ? 'Copy failed'
+                  : 'Copy sun link'}
+            </button>
+          ) : null}
         </div>
         <div
           className="maps-sun-scrub enter"
@@ -475,6 +551,7 @@ function MapsExplorerInner({
         sunAt={sunAt}
         regionFilter={regionFilter}
         resetSignal={resetSignal}
+        focusSignal={focusSignal}
         onPickCoords={(coords) => {
           if (!coords) {
             clearSample()
@@ -635,6 +712,13 @@ function MapsExplorerInner({
                 : copyStatus === 'failed'
                   ? 'Copy failed'
                   : 'Copy link'}
+            </button>
+            <button
+              type="button"
+              className="maps-selection-dismiss"
+              onClick={recenterSelection}
+            >
+              Recenter
             </button>
             <button
               type="button"

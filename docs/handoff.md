@@ -27,9 +27,10 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
   with local NASA / three.js planet textures under `public/images/maps/`;
   live/scrubbed sun terminator, region filter `?r=`, graticule, coordinate
   sampling HUD with nearest-country action, capital/place search, region
-  camera framing, seasonal sun scrub (`?h=`/`?d=`), fuller Reset,
-  `?c=` / `?r=` deep-links; Explore/Gallery/Space-Earth link in; selection
-  chip links places + field guide + Gallery `?q=`)
+  camera framing, seasonal sun scrub (`?h=`/`?d=`, `[`/`]`/`{`/`}` nudges,
+  Copy sun link), fuller Reset, selection Recenter, `?c=` / `?r=` deep-links;
+  Explore/Gallery/Space-Earth link in; selection chip links places + field
+  guide + Gallery `?q=` + Ask Cleo)
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
 - Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
