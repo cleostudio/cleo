@@ -7,8 +7,8 @@ Current as of July 2026 (Cleo fork).
 English-only general-knowledge portal with:
 
 - Homepage: unified topic search (countries, space, collections, portal
-  surfaces), highlighted places, topic discovery (no personal contact / music /
-  books / photo-wall sections)
+  surfaces), highlighted places, topic discovery, recent Writing posts (no
+  personal contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
   country field guides, Space field guides, Topics catalog (countries and
   space first; more topics later)

@@ -4,7 +4,8 @@
 dock at `/cleo`.
 
 The public site includes a homepage with unified topic search (countries, space,
-collections), highlighted places, and topic discovery; Explore country field
+collections), highlighted places, topic discovery, and recent Writing posts;
+Explore country field
 guides; Space field guides at `/space`; a place Gallery at `/gallery`; a Topics
 catalog; Writing (for a future encyclopedia layer); and a browser-only agent
 with streamed Markdown, vision, image generation, and live reasoning /
