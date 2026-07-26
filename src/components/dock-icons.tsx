@@ -103,22 +103,6 @@ export function TopicsIcon() {
   )
 }
 
-export function AmaIcon() {
-  return (
-    <Base>
-      <path
-        d="M9 2.25c-3.728 0-6.75 2.798-6.75 6.25 0 1.603.652 3.064 1.723 4.17L3.25 15.75l3.397-1.13c.74.278 1.533.43 2.353.43 3.728 0 6.75-2.798 6.75-6.25S12.728 2.25 9 2.25Z"
-        fill="currentColor"
-        opacity=".3"
-        strokeWidth="0"
-        stroke="none"
-      />
-      <path d="M9 2.25c-3.728 0-6.75 2.798-6.75 6.25 0 1.603.652 3.064 1.723 4.17L3.25 15.75l3.397-1.13c.74.278 1.533.43 2.353.43 3.728 0 6.75-2.798 6.75-6.25S12.728 2.25 9 2.25Z" />
-      <path d="M9 5.75V8.5l1.875 1.375" />
-    </Base>
-  )
-}
-
 export function ExploreIcon() {
   return (
     <Base>
@@ -153,37 +137,6 @@ export function SayHiIcon() {
       <path d="m4.5053,5.798c-.4879-.4879-1.2827-.4851-1.7678,0s-.4879,1.2799,0,1.7678l2.8284,2.8284" />
       <path d="m3.7975,8.6271c-.4879-.4879-1.2827-.4851-1.7678,0s-.4879,1.2799,0,1.7678l4.2433,4.2433c1.9523,1.9523,5.1187,1.9523,7.0711,0l1.2339-1.2339c1.4354-1.4354,2.0478-3.5002,1.6263-5.4871l-.7453-3.5171c-.1633-.7191-.7085-1.1738-1.3902-1.0918s-1.1745.705-1.0918,1.3902l.3422,2.8426-5.2786-5.2786c-.4879-.4879-1.2827-.4851-1.7678,0s-.4879,1.2799,0,1.7678" />
       <path d="m13.3194,7.541c-1.684.6567-2.4676,1.8203-2.3507,3.4902" />
-    </Base>
-  )
-}
-
-// Owner-dock icons, drawn in the same duotone grammar as the set above.
-
-/** Media archive: an inbox tray receiving a file. */
-export function MediaIcon() {
-  return (
-    <Base>
-      <path
-        d="M16.25 10.75V13.25C16.25 14.3546 15.3546 15.25 14.25 15.25H3.75C2.64543 15.25 1.75 14.3546 1.75 13.25V10.75H6.25L7 12.25H11L11.75 10.75H16.25Z"
-        fill="currentColor"
-        fillOpacity="0.3"
-        stroke="none"
-      />
-      <path d="M1.75 10.75H6.25L7 12.25H11L11.75 10.75H16.25" />
-      <path d="M16.25 10.75V13.25C16.25 14.3546 15.3546 15.25 14.25 15.25H3.75C2.64543 15.25 1.75 14.3546 1.75 13.25V10.75" />
-      <path d="M9 2.5V8" />
-      <path d="M6.75 5.75 9 8L11.25 5.75" />
-    </Base>
-  )
-}
-
-/** Back to the public site: a return arrow leaving the admin. */
-export function SiteReturnIcon() {
-  return (
-    <Base>
-      <circle cx="12.5" cy="11.5" r="3.75" fill="currentColor" opacity=".3" strokeWidth="0" stroke="none" />
-      <path d="M6 3.25 2.75 6.5 6 9.75" />
-      <path d="M2.75 6.5H11.5a3.75 3.75 0 0 1 3.75 3.75v.5A3.75 3.75 0 0 1 11.5 14.5H8.75" />
     </Base>
   )
 }

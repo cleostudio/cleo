@@ -113,7 +113,7 @@ Tencent, or Upstash without an explicit product decision.
 - Application code lives under `src/` (`app`, `components`, `lib`, `hooks`,
   `types`, `proxy.ts`). Path alias `~/*` resolves `src/*` then the repo root
   (so `~/content/...` still works). Prefer existing `cn` helpers and
-  `components/ui/*`.
+  `src/components/ui/*`.
 - Preserve the accessible, responsive glass/paper UI. Render model output
   through Streamdown, never raw HTML.
 - Update `README.md` and this file when setup or Cleo behavior changes.

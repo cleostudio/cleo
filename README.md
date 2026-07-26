@@ -16,8 +16,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
 - Application code in `src/` (`app`, `components`, `lib`, `hooks`, `types`,
-  `proxy.ts`); path alias `~/*` → `src/*`. Content, scripts, docs, and
-  `public/` stay at the repo root.
+  `proxy.ts`); path alias `~/*` resolves `src/*` then the repo root (so
+  `~/content/...` still works). Content, scripts, docs, and `public/` stay
+  at the repo root.
 - Base UI primitives with the `@fluid` component registry
 - MDX posts under `content/blog/`; English-only public routes
 - Country guides: `content/atlas.json` + optimized static JPEGs in

@@ -59,7 +59,7 @@ const nextConfig: NextConfig = {
   },
 
   images: {
-    // Post images are served from content/ via app/content/[...path]/route.ts;
+    // Post images are served from content/ via src/app/content/[...path]/route.ts;
     // country place photos and other static media live under public/images.
     localPatterns: [
       { pathname: '/content/**' },

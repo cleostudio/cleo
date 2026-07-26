@@ -276,7 +276,9 @@ async function verifyDiscoveryFiles(baseUrl) {
     new RegExp(`Sitemap: ${new URL('/sitemap.xml', productionOrigin).href}`),
   )
 
-  const icon = await fetch(new URL('/icon.png', baseUrl))
+  // Generated app/icon.tsx is served at /icon (extensionless), matching the
+  // <link rel="icon" href="/icon?..."> tags Next injects into the document.
+  const icon = await fetch(new URL('/icon', baseUrl))
   assert.equal(icon.status, 200)
   assert.match(icon.headers.get('content-type') ?? '', /^image\/png/)
   const iconBytes = new Uint8Array(await icon.arrayBuffer())

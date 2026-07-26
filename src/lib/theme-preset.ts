@@ -63,7 +63,7 @@ export const editorialTokens = [
   '--paper-ink',
 ] as const
 
-/** Eight-step elevation ladder, consumed through `lib/surface-classes.ts`. */
+/** Eight-step elevation ladder, consumed through `src/lib/surface-classes.ts`. */
 export const surfaceLadder = Array.from(
   { length: 8 },
   (_, index) => `--surface-${index + 1}` as const,

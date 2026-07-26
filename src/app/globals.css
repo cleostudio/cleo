@@ -2051,7 +2051,7 @@ figure[data-rehype-pretty-code-figure] {
   line-height: 1.6;
 }
 
-/* ── Fluid horizontal scroll area (components/ui/scroll-area.tsx) ── */
+/* ── Fluid horizontal scroll area (src/components/ui/scroll-area.tsx) ── */
 
 .scroll-area-x {
   position: relative;
@@ -2329,7 +2329,7 @@ pre[data-theme],
   color: var(--foreground);
 }
 
-/* ── Tweet cards (static snapshots, no embeds — components/mdx/tweet.tsx) */
+/* ── Tweet cards (static snapshots, no embeds — src/components/mdx/tweet.tsx) */
 
 /* the archived snapshot as a specimen label: a hairline nameplate frame
    with ruled head / body / foot rows */
@@ -2460,52 +2460,7 @@ img.tweet-card-avatar {
   }
 }
 
-/* ── Theme tri-toggle (footer chrome — components/theme-toggle.tsx) ── */
-
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  padding: 2px;
-  border-radius: 999px;
-  box-shadow: 0 0 0 1px var(--border);
-}
-
-.theme-toggle button {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 999px;
-  color: var(--muted-foreground);
-  transition: color 150ms ease, background-color 150ms ease;
-}
-
-/* extend the hit area vertically; horizontal stays button-width so
-   neighbors remain distinguishable */
-.theme-toggle button::after {
-  content: '';
-  position: absolute;
-  inset: -0.625rem 0;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .theme-toggle button:hover {
-    color: var(--foreground);
-  }
-}
-
-.theme-toggle button:active {
-  transform: scale(0.97);
-}
-
-.theme-toggle button[data-active] {
-  color: var(--foreground);
-  background: color-mix(in oklab, var(--foreground) 8%, transparent);
-}
-
-/* ── Image lightbox (components/zoom-image.tsx) ───────────────────── */
+/* ── Image lightbox (src/components/zoom-image.tsx) ───────────────────── */
 
 .zoom-trigger {
   display: block;
@@ -3184,7 +3139,7 @@ a:focus-visible .external-label .external-mark {
   visibility: hidden;
 }
 
-/* Favicon tone treatment (lib/favicon-tone.ts): a pale glyph on
+/* Favicon tone treatment (src/lib/favicon-tone.ts): a pale glyph on
    the light theme — or a dark one in dark mode — would vanish into the
    page. Grayscale marks simply invert to the theme's ink, like native
    icons; marks with brand color instead sit on a quiet chip (--primary
@@ -3317,7 +3272,7 @@ a:focus-visible .external-label .external-mark {
   mix-blend-mode: difference;
 }
 
-/* bent-rule arcs (components/arc-rulers.tsx) — tick inks live there */
+/* bent-rule arcs (src/components/arc-rulers.tsx) — tick inks live there */
 .column-ruler-arc {
   position: absolute;
   left: 0;
@@ -3734,7 +3689,7 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
-/* ── Vinyl shelf (components/vinyl-shelf.tsx) ─────────────────────── */
+/* ── Vinyl shelf (src/components/vinyl-shelf.tsx) ─────────────────────── */
 
 .vinyl-room {
   --vinyl-depth: 3px;
@@ -4092,7 +4047,7 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
-/* ── Bookshelf: 3D accordion (components/bookshelf.tsx) ───────────── */
+/* ── Bookshelf: 3D accordion (src/components/bookshelf.tsx) ───────────── */
 
 .bookshelf-viewport {
   position: relative;
@@ -4282,7 +4237,7 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
-/* ── Per-service hover cards (components/social-cards.tsx) ────────── */
+/* ── Per-service hover cards (src/components/social-cards.tsx) ────────── */
 
 .service-card {
   gap: 0.5rem;
@@ -5750,7 +5705,7 @@ a:focus-visible .external-label .external-mark {
   white-space: nowrap;
 }
 
-/* ── Global pill dock (components/dock.tsx) ───────────────────────── */
+/* ── Global pill dock (src/components/dock.tsx) ───────────────────────── */
 
 .dock {
   position: fixed;
@@ -5920,7 +5875,7 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
-/* ── Preferences panel (components/preferences.tsx) ───────────────── */
+/* ── Preferences panel (src/components/preferences.tsx) ───────────────── */
 
 .prefs-panel {
   display: flex;
