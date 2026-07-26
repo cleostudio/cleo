@@ -58,7 +58,6 @@ function MapsExplorerInner({
     'idle',
   )
   const [resetSignal, setResetSignal] = useState(0)
-  const selectionRef = useRef<HTMLDivElement>(null)
   const regionChipRefs = useRef<Array<HTMLButtonElement | null>>([])
 
   useEffect(() => {
@@ -93,11 +92,6 @@ function MapsExplorerInner({
     const id = window.setInterval(() => setLiveNow(new Date()), 60_000)
     return () => window.clearInterval(id)
   }, [sunMode])
-
-  useEffect(() => {
-    if (!selected) return
-    selectionRef.current?.focus()
-  }, [selected?.slug])
 
   const syncUrl = (slug: string | null, region: string | null = regionFilter) => {
     const params = new URLSearchParams(searchParams.toString())
@@ -338,12 +332,9 @@ function MapsExplorerInner({
 
       {selected ? (
         <div
-          ref={selectionRef}
           className="maps-selection"
-          role="dialog"
-          aria-modal="true"
+          role="region"
           aria-labelledby="maps-selection-name"
-          tabIndex={-1}
         >
           {dossier ? (
             <div className="maps-selection-photo">
@@ -408,6 +399,12 @@ function MapsExplorerInner({
           <div className="maps-selection-actions">
             <Link href={`/explore/${selected.slug}`} className="maps-selection-link">
               Open field guide
+            </Link>
+            <Link
+              href={`/gallery?q=${encodeURIComponent(selected.name)}`}
+              className="maps-selection-dismiss"
+            >
+              Gallery
             </Link>
             <button
               type="button"

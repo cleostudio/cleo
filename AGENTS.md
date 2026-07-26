@@ -41,7 +41,8 @@ The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
 - Data: `lib/maps/*`, country centroids in `content/maps-coordinates.json`,
   textures under `public/images/maps/` (NASA Blue Marble + planet plates).
 - Deep-links: `?c={explore-slug}` selects a country; `?r={Region}` filters
-  markers (e.g. `Asia`). Explore / Gallery / Space Earth link into Maps.
+  markers (e.g. `Asia`). Explore / Gallery / Space Earth link into Maps;
+  the selection chip links out to `/explore/[slug]` and `/gallery?q={name}`.
 - Cleo may cite `/maps?c={slug}` for location questions (`lib/cleo/portal-links.ts`).
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the

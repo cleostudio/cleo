@@ -576,10 +576,9 @@ export function EarthGlobe({
 
         markersPoints = createMarkerPoints(markers)
         root.add(markersPoints)
-        disposables.push(
-          markersPoints.geometry,
-          markersPoints.material as PointsMaterial,
-        )
+        // Geometry is swapped by region filters — dispose the live buffer on
+        // teardown instead of tracking the first geometry in `disposables`.
+        disposables.push(markersPoints.material as PointsMaterial)
 
         const highlightMaterial = new MeshBasicMaterial({
           color: new Color('#f4f1ea'),
@@ -643,6 +642,7 @@ export function EarthGlobe({
       canvas.removeEventListener('wheel', onWheel)
       window.removeEventListener('resize', onResize)
       controls?.dispose()
+      markersPoints?.geometry.dispose()
       for (const item of disposables) item.dispose()
       renderer?.dispose()
       if (canvas.parentElement === host) host.removeChild(canvas)

@@ -15,6 +15,12 @@ export function PlaceGalleryToolbar({
   const [query, setQuery] = useState('')
   const [visibleCount, setVisibleCount] = useState(totalCount)
 
+  // Seed from `?q=` without useSearchParams so the gallery page stays static.
+  useEffect(() => {
+    const seeded = new URLSearchParams(window.location.search).get('q')
+    if (seeded) setQuery(seeded)
+  }, [])
+
   useEffect(() => {
     const root = rootRef.current?.closest<HTMLElement>('[data-place-gallery]')
     if (!root) return

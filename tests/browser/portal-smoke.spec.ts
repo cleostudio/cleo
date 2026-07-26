@@ -64,15 +64,40 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await page.getByRole('option', { name: /Japan/i }).click()
     await expect(page).toHaveURL(/[?&]c=japan\b/)
     await expect(
-      page.getByRole('dialog', { name: 'Japan' }),
+      page.getByRole('region', { name: 'Japan' }),
     ).toBeVisible({ timeout: 10_000 })
     await expect(
       page.getByRole('link', { name: 'Open field guide' }),
     ).toHaveAttribute('href', '/explore/japan')
+    await expect(page.getByRole('link', { name: 'Gallery' })).toHaveAttribute(
+      'href',
+      '/gallery?q=Japan',
+    )
     await expect(page.getByRole('button', { name: 'Copy link' })).toBeVisible()
     await expect(page.getByText(/More in /i)).toBeVisible()
 
+    await page.getByRole('button', { name: 'Reset view' }).click()
+    await expect(page.getByRole('region', { name: 'Japan' })).toHaveCount(0)
+    await expect(page).not.toHaveURL(/[?&]c=japan\b/)
+
     expect(browserErrors).toEqual([])
+  })
+
+  test('Maps URL reconcile drops conflicting region and invalid country', async ({
+    page,
+  }) => {
+    await prepareBrowserPage(page)
+
+    await page.goto('/maps?c=japan&r=Europe')
+    await expect(page).toHaveURL(/[?&]c=japan\b/)
+    await expect(page).not.toHaveURL(/[?&]r=Europe\b/)
+    await expect(
+      page.getByRole('region', { name: 'Japan' }),
+    ).toBeVisible({ timeout: 20_000 })
+
+    await page.goto('/maps?c=not-a-country')
+    await expect(page).not.toHaveURL(/[?&]c=/)
+    await expect(page.getByRole('region', { name: 'Japan' })).toHaveCount(0)
   })
 
   test('Explore country page deep-links to Maps', async ({ page }) => {
@@ -90,7 +115,7 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await page.getByRole('link', { name: 'View on Maps →' }).click()
     await expect(page).toHaveURL(/\/maps\?c=japan\b/)
     await expect(
-      page.getByRole('dialog', { name: 'Japan' }),
+      page.getByRole('region', { name: 'Japan' }),
     ).toBeVisible({ timeout: 20_000 })
   })
 
