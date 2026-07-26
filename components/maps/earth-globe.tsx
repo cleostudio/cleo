@@ -40,10 +40,11 @@ import { sunDirectionScene } from '~/lib/maps/sun'
 import { EARTH_TEXTURES } from '~/lib/maps/textures'
 
 const EARTH_RADIUS = 1
-const CLOUD_RADIUS = 1.01
-const ATMOSPHERE_INNER = 1.018
-const ATMOSPHERE_OUTER = 1.08
-const MARKER_RADIUS = 1.014
+const CLOUD_RADIUS = 1.012
+const ATMOSPHERE_INNER = 1.02
+const ATMOSPHERE_OUTER = 1.085
+const MARKER_RADIUS = 1.016
+const SKY_RADIUS = 90
 const MIN_POLAR = 0.12
 const MAX_POLAR = Math.PI - 0.12
 const CLICK_SLOP_PX = 5
@@ -105,38 +106,40 @@ const earthFragment = /* glsl */ `
     float ndotv = max(dot(normal, viewDir), 0.0);
 
     // Soft terminator with Earthshine on the night side.
-    float dayAmount = smoothstep(-0.18, 0.28, ndotl);
-    float twilight = smoothstep(-0.22, 0.08, ndotl) * (1.0 - smoothstep(0.05, 0.42, ndotl));
-    float cityLights = pow(smoothstep(0.18, -0.05, ndotl), 1.35);
+    float dayAmount = smoothstep(-0.16, 0.32, ndotl);
+    float twilight = smoothstep(-0.2, 0.1, ndotl) * (1.0 - smoothstep(0.08, 0.45, ndotl));
+    float cityLights = pow(smoothstep(0.2, -0.08, ndotl), 1.4);
 
-    // Slight haze on sunlit land/ocean before night mix.
-    vec3 dayLit = day * (0.22 + 0.88 * dayAmount);
-    dayLit *= mix(vec3(1.0), vec3(1.05, 1.02, 0.96), ocean * 0.25);
+    // Preserve 8K albedo detail; lift midtones slightly on the day side.
+    vec3 dayLit = day * mix(0.18, 1.08, dayAmount);
+    dayLit *= mix(vec3(1.0), vec3(1.04, 1.02, 0.98), ocean * 0.3);
 
-    vec3 color = mix(night * 0.35, dayLit, dayAmount);
+    vec3 color = mix(night * 0.28, dayLit, dayAmount);
     // City lights — warm, only where the night map carries energy.
-    color += night * cityLights * vec3(1.35, 1.15, 0.85) * 1.55;
+    color += night * cityLights * vec3(1.45, 1.18, 0.82) * 1.75;
     // Earthshine fill so the dark limb is not pure black.
-    color += day * 0.035 * (1.0 - dayAmount);
+    color += day * 0.028 * (1.0 - dayAmount);
 
     // Sunset band along the terminator.
-    vec3 sunset = vec3(1.0, 0.42, 0.12);
-    color = mix(color, color * vec3(1.15, 0.85, 0.55) + sunset * 0.18, twilight * 0.85);
+    vec3 sunset = vec3(1.0, 0.4, 0.1);
+    color = mix(color, color * vec3(1.18, 0.82, 0.52) + sunset * 0.22, twilight * 0.9);
 
-    // Ocean specular glint.
+    // Ocean specular glint — tight hot spot + broad fresnel.
     vec3 halfDir = normalize(sun + viewDir);
-    float spec = pow(max(dot(normal, halfDir), 0.0), 72.0) * ocean * dayAmount;
-    float fresnelWater = pow(1.0 - ndotv, 3.5);
-    color += vec3(0.75, 0.88, 1.0) * spec * (0.55 + fresnelWater * 0.8);
+    float specTight = pow(max(dot(normal, halfDir), 0.0), 96.0);
+    float specBroad = pow(max(dot(normal, halfDir), 0.0), 24.0);
+    float fresnelWater = pow(1.0 - ndotv, 4.0);
+    color += vec3(0.78, 0.9, 1.0) * ocean * dayAmount *
+      (specTight * 0.85 + specBroad * 0.18 + fresnelWater * 0.08);
 
     // Rayleigh-ish limb on the day side.
-    float rim = pow(1.0 - ndotv, 2.6);
-    color += vec3(0.18, 0.42, 0.95) * rim * dayAmount * 0.22;
-    color += sunset * rim * twilight * 0.35;
+    float rim = pow(1.0 - ndotv, 2.8);
+    color += vec3(0.2, 0.45, 0.98) * rim * dayAmount * 0.26;
+    color += sunset * rim * twilight * 0.4;
 
-    // Gentle filmic roll-off.
-    color = color / (color + vec3(0.85));
-    color = pow(color, vec3(0.95));
+    // Gentle filmic roll-off that keeps continent contrast.
+    color = color / (color + vec3(0.78));
+    color = pow(max(color, 0.0), vec3(0.92));
 
     gl_FragColor = vec4(color, 1.0);
   }
@@ -221,6 +224,26 @@ const cloudFragment = /* glsl */ `
   }
 `
 
+const skyVertex = /* glsl */ `
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    vec4 world = modelMatrix * vec4(position, 1.0);
+    gl_Position = projectionMatrix * viewMatrix * world;
+  }
+`
+
+const skyFragment = /* glsl */ `
+  uniform sampler2D skyMap;
+  varying vec2 vUv;
+  void main() {
+    vec3 color = texture2D(skyMap, vUv).rgb;
+    // Keep the galactic plane luminous without crushing faint stars.
+    color = pow(color, vec3(0.92)) * 1.15;
+    gl_FragColor = vec4(color, 1.0);
+  }
+`
+
 const starVertex = /* glsl */ `
   attribute float aSize;
   attribute float aBright;
@@ -228,7 +251,7 @@ const starVertex = /* glsl */ `
   void main() {
     vBright = aBright;
     vec4 mv = modelViewMatrix * vec4(position, 1.0);
-    gl_PointSize = aSize * (280.0 / max(-mv.z, 0.001));
+    gl_PointSize = aSize * (300.0 / max(-mv.z, 0.001));
     gl_Position = projectionMatrix * mv;
   }
 `
@@ -239,10 +262,10 @@ const starFragment = /* glsl */ `
     vec2 uv = gl_PointCoord * 2.0 - 1.0;
     float d = dot(uv, uv);
     if (d > 1.0) discard;
-    float core = exp(-d * 4.2);
-    float halo = exp(-d * 1.4) * 0.35;
+    float core = exp(-d * 5.5);
+    float halo = exp(-d * 1.6) * 0.28;
     float alpha = (core + halo) * vBright;
-    vec3 color = mix(vec3(0.72, 0.82, 1.0), vec3(1.0, 0.96, 0.88), vBright);
+    vec3 color = mix(vec3(0.7, 0.84, 1.0), vec3(1.0, 0.95, 0.86), vBright);
     gl_FragColor = vec4(color, alpha);
   }
 `
@@ -303,26 +326,27 @@ export function EarthGlobe({
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.outputColorSpace = SRGBColorSpace
-    renderer.setClearColor(0x02040c, 1)
+    renderer.setClearColor(0x010208, 1)
     host.appendChild(renderer.domElement)
     renderer.domElement.className = 'maps-canvas'
     renderer.domElement.setAttribute('aria-hidden', 'true')
 
     const scene = new Scene()
-    const camera = new PerspectiveCamera(40, 1, 0.1, 120)
-    camera.position.set(0.45, 0.42, 2.55)
+    const camera = new PerspectiveCamera(38, 1, 0.1, 200)
+    camera.position.set(0.4, 0.38, 2.45)
 
-    const ambient = new AmbientLight(0x1a2238, 0.08)
-    const sunLight = new DirectionalLight(0xfff1dd, 0.15)
+    const ambient = new AmbientLight(0x101628, 0.06)
+    const sunLight = new DirectionalLight(0xfff1dd, 0.12)
     scene.add(ambient, sunLight)
 
     const root = new Group()
     scene.add(root)
 
-    const earthGeometry = new SphereGeometry(EARTH_RADIUS, 128, 96)
-    const cloudGeometry = new SphereGeometry(CLOUD_RADIUS, 128, 96)
-    const atmosphereInnerGeometry = new SphereGeometry(ATMOSPHERE_INNER, 96, 64)
-    const atmosphereOuterGeometry = new SphereGeometry(ATMOSPHERE_OUTER, 96, 64)
+    const earthGeometry = new SphereGeometry(EARTH_RADIUS, 192, 128)
+    const cloudGeometry = new SphereGeometry(CLOUD_RADIUS, 160, 112)
+    const atmosphereInnerGeometry = new SphereGeometry(ATMOSPHERE_INNER, 128, 96)
+    const atmosphereOuterGeometry = new SphereGeometry(ATMOSPHERE_OUTER, 128, 96)
+    const skyGeometry = new SphereGeometry(SKY_RADIUS, 64, 48)
 
     const sunDirection = new Vector3(1, 0, 0)
     const cameraPositionW = new Vector3()
@@ -341,25 +365,35 @@ export function EarthGlobe({
       toneMapped: false,
     })
 
+    const skyMaterial = new ShaderMaterial({
+      uniforms: {
+        skyMap: { value: null },
+      },
+      vertexShader: skyVertex,
+      fragmentShader: skyFragment,
+      side: BackSide,
+      depthWrite: false,
+      toneMapped: false,
+    })
+    const sky = new Mesh(skyGeometry, skyMaterial)
+    scene.add(sky)
+
+    // Sparse bright point stars over the Milky Way plate for depth.
     const starGeometry = new BufferGeometry()
-    const starCount = 4200
+    const starCount = 1800
     const starPositions = new Float32Array(starCount * 3)
     const starSizes = new Float32Array(starCount)
     const starBright = new Float32Array(starCount)
     for (let i = 0; i < starCount; i += 1) {
-      // Bias a soft galactic band around the equator of the sky sphere.
-      const band = Math.random() < 0.42
-      const radius = 36 + Math.random() * 28
+      const radius = 42 + Math.random() * 30
       const theta = Math.random() * Math.PI * 2
-      const phi = band
-        ? Math.PI * 0.5 + (Math.random() - 0.5) * 0.55
-        : Math.acos(2 * Math.random() - 1)
+      const phi = Math.acos(2 * Math.random() - 1)
       const sinPhi = Math.sin(phi)
       starPositions[i * 3] = radius * sinPhi * Math.cos(theta)
       starPositions[i * 3 + 1] = radius * Math.cos(phi)
       starPositions[i * 3 + 2] = radius * sinPhi * Math.sin(theta)
-      starSizes[i] = band ? 1.2 + Math.random() * 2.4 : 0.7 + Math.random() * 1.8
-      starBright[i] = band ? 0.45 + Math.random() * 0.55 : 0.2 + Math.random() * 0.55
+      starSizes[i] = 0.9 + Math.random() * 2.6
+      starBright[i] = 0.35 + Math.random() * 0.65
     }
     starGeometry.setAttribute('position', new Float32BufferAttribute(starPositions, 3))
     starGeometry.setAttribute('aSize', new Float32BufferAttribute(starSizes, 1))
@@ -494,7 +528,8 @@ export function EarthGlobe({
           url,
           (texture) => {
             texture.colorSpace = colorSpace
-            texture.anisotropy = renderer.capabilities.getMaxAnisotropy()
+            texture.anisotropy = Math.min(16, renderer.capabilities.getMaxAnisotropy())
+            texture.generateMipmaps = true
             resolve(texture)
           },
           undefined,
@@ -673,8 +708,9 @@ export function EarthGlobe({
       }
 
       if (!reducedMotion) {
-        clouds.rotation.y += delta * 0.012
-        stars.rotation.y += delta * 0.0018
+        clouds.rotation.y += delta * 0.01
+        sky.rotation.y += delta * 0.0009
+        stars.rotation.y += delta * 0.0012
       }
       controls.update()
       updateReadout()
@@ -683,13 +719,14 @@ export function EarthGlobe({
 
     void (async () => {
       try {
-        const [dayMap, nightMap, specularMap, normalMap, cloudMap] =
+        const [dayMap, nightMap, specularMap, normalMap, cloudMap, skyMap] =
           await Promise.all([
             loadTexture(EARTH_TEXTURES.day, SRGBColorSpace),
             loadTexture(EARTH_TEXTURES.night, SRGBColorSpace),
             loadTexture(EARTH_TEXTURES.specular, NoColorSpace),
             loadTexture(EARTH_TEXTURES.normal, NoColorSpace),
             loadTexture(EARTH_TEXTURES.clouds, SRGBColorSpace),
+            loadTexture(EARTH_TEXTURES.sky, SRGBColorSpace),
           ])
 
         if (disposed) {
@@ -699,6 +736,7 @@ export function EarthGlobe({
             specularMap,
             normalMap,
             cloudMap,
+            skyMap,
           ]) {
             texture.dispose()
           }
@@ -710,6 +748,7 @@ export function EarthGlobe({
         earthMaterial.uniforms.specularMap.value = specularMap
         earthMaterial.uniforms.normalMap.value = normalMap
         cloudMaterial.uniforms.cloudMap.value = cloudMap
+        skyMaterial.uniforms.skyMap.value = skyMap
 
         applySun(new Date())
         setStatus('ready')
@@ -732,17 +771,19 @@ export function EarthGlobe({
       cloudGeometry.dispose()
       atmosphereInnerGeometry.dispose()
       atmosphereOuterGeometry.dispose()
+      skyGeometry.dispose()
       starGeometry.dispose()
       markerGeometry.dispose()
       selectionGeometry.dispose()
       starMaterial.dispose()
+      skyMaterial.dispose()
       markerMaterial.dispose()
       selectionMaterial.dispose()
       earthMaterial.dispose()
       cloudMaterial.dispose()
       atmosphereInnerMaterial.dispose()
       atmosphereOuterMaterial.dispose()
-      for (const material of [earthMaterial, cloudMaterial]) {
+      for (const material of [earthMaterial, cloudMaterial, skyMaterial]) {
         for (const uniform of Object.values(material.uniforms)) {
           const value = uniform.value
           if (value && typeof value === 'object' && 'dispose' in value) {

@@ -27,7 +27,7 @@ export function MapsPageView() {
           <p>{publicPageMetadata.maps.description}</p>
         </div>
         <p className="maps-page-credit">
-          Textures{' '}
+          Earth &amp; sky{' '}
           <a href={EARTH_TEXTURE_CREDIT.href} rel="noreferrer" target="_blank">
             {EARTH_TEXTURE_CREDIT.label}
           </a>
