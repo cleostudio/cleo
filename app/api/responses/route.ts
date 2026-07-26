@@ -420,7 +420,7 @@ export async function POST(request: Request) {
   const reasoningEffort = selectReasoningEffort(parsed)
   let modelInput: ResponseInput = toApiInput(parsed)
 
-  const createResponseParams = () => ({
+  const createResponseParams = (options?: { toolChoice?: "auto" | "none" }) => ({
     model: MODEL,
     input: modelInput,
     instructions,
@@ -431,6 +431,7 @@ export async function POST(request: Request) {
     stream: true as const,
     text: { verbosity: "medium" as const },
     tools: CLEO_RESPONSE_TOOLS,
+    tool_choice: options?.toolChoice ?? ("auto" as const),
     store: false as const,
     include: [...CLEO_RESPONSE_INCLUDE],
   })
@@ -496,19 +497,14 @@ export async function POST(request: Request) {
       async start(controller) {
         try {
           let responseStream = firstResponseStream
+          let usedPortalTools = false
 
-          for (let round = 0; round < MAX_PORTAL_TOOL_ROUNDS; round += 1) {
-            if (round > 0) {
-              responseStream = await client.responses.create(
-                createResponseParams(),
-                { signal: request.signal }
-              )
-              activeStream = responseStream
-            }
-
+          const pumpResponseStream = async (
+            stream: typeof firstResponseStream
+          ): Promise<ResponseOutputItem[] | null> => {
             let completedOutput: ResponseOutputItem[] | null = null
 
-            for await (const event of responseStream) {
+            for await (const event of stream) {
               if (event.type === "response.output_text.delta") {
                 assistantText += event.delta
                 enqueue(controller, { type: "text", delta: event.delta })
@@ -739,6 +735,19 @@ export async function POST(request: Request) {
               }
             }
 
+            return completedOutput
+          }
+
+          for (let round = 0; round < MAX_PORTAL_TOOL_ROUNDS; round += 1) {
+            if (round > 0) {
+              responseStream = await client.responses.create(
+                createResponseParams(),
+                { signal: request.signal }
+              )
+              activeStream = responseStream
+            }
+
+            const completedOutput = await pumpResponseStream(responseStream)
             activeStream = null
 
             const functionCalls = (completedOutput ?? []).filter(
@@ -750,6 +759,7 @@ export async function POST(request: Request) {
               break
             }
 
+            usedPortalTools = true
             const priorInput = Array.isArray(modelInput)
               ? modelInput
               : [modelInput]
@@ -775,6 +785,18 @@ export async function POST(request: Request) {
               ...(completedOutput ?? []),
               ...toolOutputs,
             ] as ResponseInput
+          }
+
+          // If tools ran but the model never wrote an answer (common when the
+          // round budget is spent on lookups), force one synthesis turn.
+          if (usedPortalTools && !assistantText.trim()) {
+            responseStream = await client.responses.create(
+              createResponseParams({ toolChoice: "none" }),
+              { signal: request.signal }
+            )
+            activeStream = responseStream
+            await pumpResponseStream(responseStream)
+            activeStream = null
           }
 
           if (assistantText) {

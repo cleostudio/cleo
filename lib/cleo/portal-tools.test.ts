@@ -5,6 +5,7 @@ import {
   executePortalTool,
   LIST_GUIDES_TOOL_NAME,
   LOOKUP_GUIDE_TOOL_NAME,
+  PLAN_READING_PATH_TOOL_NAME,
   SEARCH_GALLERY_TOOL_NAME,
 } from './portal-tools'
 
@@ -102,5 +103,32 @@ describe('executePortalTool', () => {
     expect(result.ok).toBe(true)
     expect(result.left?.href).toBe('/space/earth')
     expect(result.right?.name).toBe('Mars')
+  })
+
+  it('plans a multi-stop Space reading path from a theme', () => {
+    const result = JSON.parse(
+      executePortalTool(
+        PLAN_READING_PATH_TOOL_NAME,
+        JSON.stringify({
+          theme: 'three-stop Deep Space intro',
+          collection: 'space',
+          stops: 3,
+        }),
+      ),
+    ) as {
+      ok: boolean
+      count: number
+      stops: { href: string; role: string; galleryHref?: string }[]
+    }
+
+    expect(result.ok).toBe(true)
+    expect(result.count).toBe(3)
+    expect(result.stops[0]?.role).toBe('starter')
+    expect(result.stops.every((stop) => stop.href.startsWith('/space/'))).toBe(
+      true,
+    )
+    expect(result.stops.some((stop) => stop.galleryHref?.includes('/gallery?q='))).toBe(
+      true,
+    )
   })
 })

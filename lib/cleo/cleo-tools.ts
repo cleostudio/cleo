@@ -24,4 +24,5 @@ export const CLEO_RESPONSE_INCLUDE = [
   'code_interpreter_call.outputs',
 ] as const
 
+/** Max tool-capable Responses rounds before a forced `tool_choice: "none"` synthesis. */
 export const MAX_PORTAL_TOOL_ROUNDS = 5

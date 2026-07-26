@@ -17,6 +17,7 @@ import { spaceSubjects } from '~/lib/space'
 export const LOOKUP_GUIDE_TOOL_NAME = 'lookup_guide'
 export const LIST_GUIDES_TOOL_NAME = 'list_guides'
 export const COMPARE_GUIDES_TOOL_NAME = 'compare_guides'
+export const PLAN_READING_PATH_TOOL_NAME = 'plan_reading_path'
 export const SEARCH_GALLERY_TOOL_NAME = 'search_gallery'
 
 const GUIDE_SUBJECT_PARAMS = {
@@ -125,6 +126,34 @@ export const PORTAL_FUNCTION_TOOLS: FunctionTool[] = [
         right: GUIDE_SUBJECT_PARAMS,
       },
       required: ['left', 'right'],
+    },
+  },
+  {
+    type: 'function',
+    name: PLAN_READING_PATH_TOOL_NAME,
+    description:
+      'Build a 2–4 stop reading path of real Explore/Space guides for a theme (e.g. moons, Deep Space intro, Asia islands). Returns ordered stops with hrefs, short orientation, and Gallery links so you can synthesize a path without inventing slugs.',
+    strict: true,
+    parameters: {
+      type: 'object',
+      additionalProperties: false,
+      properties: {
+        theme: {
+          type: 'string',
+          description:
+            'Path theme or goal, e.g. three-stop Space intro, icy moons, Southeast Asia.',
+        },
+        collection: {
+          type: ['string', 'null'],
+          enum: ['explore', 'space', null],
+          description: 'Prefer one catalog when known. Null to infer from theme.',
+        },
+        stops: {
+          type: ['integer', 'null'],
+          description: 'Number of stops (2–4). Null defaults to 3.',
+        },
+      },
+      required: ['theme', 'collection', 'stops'],
     },
   },
   {
@@ -319,6 +348,155 @@ function asSubjectArgs(value: unknown): Record<string, unknown> | null {
   return value as Record<string, unknown>
 }
 
+const PATH_ROLES = ['starter', 'stretch', 'payoff', 'encore'] as const
+
+function firstSentence(text: string, maxLength = 180) {
+  const trimmed = text.trim()
+  if (!trimmed) return ''
+  const match = trimmed.match(/^.*?[.!?](?:\s|$)/)
+  const sentence = (match?.[0] ?? trimmed).trim()
+  if (sentence.length <= maxLength) return sentence
+  return `${sentence.slice(0, maxLength - 1).trimEnd()}…`
+}
+
+function inferPathCollection(
+  theme: string,
+  collection: 'explore' | 'space' | null,
+): 'explore' | 'space' | null {
+  if (collection) return collection
+  const lower = theme.toLowerCase()
+  if (
+    /\b(moon|planet|nebula|galaxy|solar|space|mars|jupiter|earth|europa)\b/.test(
+      lower,
+    )
+  ) {
+    return 'space'
+  }
+  if (
+    /\b(country|countries|asia|africa|europe|americas|oceania|island|travel)\b/.test(
+      lower,
+    )
+  ) {
+    return 'explore'
+  }
+  return null
+}
+
+function inferPathGroup(theme: string, collection: 'explore' | 'space' | null) {
+  const lower = theme.toLowerCase()
+  if (collection === 'space' || !collection) {
+    if (/\bmoons?\b/.test(lower)) return 'Moons'
+    if (/\bdeep\s*space\b|\bnebula|\bgalaxy\b/.test(lower)) return 'Deep Space'
+    if (/\bsolar\s*system\b|\bplanet/.test(lower)) return 'Solar System'
+  }
+  if (collection === 'explore' || !collection) {
+    for (const region of EXPLORE_GROUPS) {
+      if (lower.includes(region.toLowerCase())) return region
+    }
+  }
+  return null
+}
+
+function pickPathCandidates<T>(items: T[], count: number): T[] {
+  if (items.length <= count) return items.slice()
+  if (count === 1) return [items[0]!]
+  if (count === 2) return [items[0]!, items[items.length - 1]!]
+
+  const last = items.length - 1
+  const mid = Math.floor(last / 2)
+  const third = Math.floor((last * 2) / 3)
+  const indexes =
+    count === 3 ? [0, mid, last] : [0, Math.floor(last / 3), third, last]
+  return [...new Set(indexes)].slice(0, count).map((index) => items[index]!)
+}
+
+function planReadingPathFromArgs(args: Record<string, unknown>): unknown {
+  const theme = typeof args.theme === 'string' ? args.theme.trim() : ''
+  if (!theme) {
+    return { ok: false, error: 'A non-empty theme is required.' }
+  }
+
+  const collection =
+    args.collection === 'explore' || args.collection === 'space'
+      ? args.collection
+      : null
+  const stopCount = clampLimit(args.stops, 3, 4)
+  const inferredCollection = inferPathCollection(theme, collection)
+  const group = inferPathGroup(theme, inferredCollection)
+
+  const listed = listGuidesFromArgs({
+    collection: inferredCollection,
+    group,
+    query: group ? null : theme,
+    limit: 24,
+  }) as {
+    ok: boolean
+    results?: ListedGuide[]
+    error?: string
+  }
+
+  let candidates = listed.ok ? (listed.results ?? []) : []
+
+  if (candidates.length < stopCount) {
+    const broader = listGuidesFromArgs({
+      collection: inferredCollection,
+      group: null,
+      query: null,
+      limit: 24,
+    }) as { ok: boolean; results?: ListedGuide[] }
+    if (broader.ok && broader.results?.length) {
+      candidates = broader.results
+    }
+  }
+
+  if (candidates.length === 0) {
+    return {
+      ok: false,
+      error: 'No matching guides for that reading-path theme.',
+      theme,
+    }
+  }
+
+  const picked = pickPathCandidates(candidates, Math.min(stopCount, candidates.length))
+  const stops = picked.map((item, index) => {
+    const resolved = resolveGuideFromSubjectArgs({
+      collection: item.collection,
+      slug: item.slug,
+      name: item.name,
+    })
+    const role = PATH_ROLES[Math.min(index, PATH_ROLES.length - 1)]!
+    if (!resolved.ok) {
+      return {
+        role,
+        href: item.href,
+        name: item.name,
+        slug: item.slug,
+        collection: item.collection,
+      }
+    }
+    return {
+      role,
+      href: resolved.guide.href,
+      name: resolved.guide.name,
+      slug: resolved.guide.slug,
+      collection: resolved.guide.collection,
+      orientation: firstSentence(resolved.guide.about),
+      galleryHref: resolved.guide.photo?.galleryHref,
+      photoTitle: resolved.guide.photo?.title,
+    }
+  })
+
+  return {
+    ok: true,
+    theme,
+    collection: inferredCollection ?? 'all',
+    group,
+    count: stops.length,
+    stops,
+    note: 'Synthesize a readable path in your voice using these exact hrefs; do not invent additional guide slugs.',
+  }
+}
+
 function compareGuidesFromArgs(args: Record<string, unknown>): unknown {
   const leftArgs = asSubjectArgs(args.left)
   const rightArgs = asSubjectArgs(args.right)
@@ -415,6 +593,9 @@ export function executePortalTool(name: string, argumentsJson: string): string {
     if (name === COMPARE_GUIDES_TOOL_NAME) {
       return JSON.stringify(compareGuidesFromArgs(args))
     }
+    if (name === PLAN_READING_PATH_TOOL_NAME) {
+      return JSON.stringify(planReadingPathFromArgs(args))
+    }
     if (name === SEARCH_GALLERY_TOOL_NAME) {
       return JSON.stringify(searchGalleryFromArgs(args))
     }
@@ -464,6 +645,12 @@ export function portalToolActivitySummary(
         (typeof right?.slug === 'string' && right.slug.trim()) ||
         'guide'
       return `Comparing ${leftLabel} and ${rightLabel}`
+    }
+    if (name === PLAN_READING_PATH_TOOL_NAME) {
+      const theme = typeof args.theme === 'string' ? args.theme.trim() : ''
+      return theme
+        ? `Planning a path for “${theme}”`
+        : 'Planning a reading path'
     }
     if (name === SEARCH_GALLERY_TOOL_NAME) {
       const query = typeof args.query === 'string' ? args.query.trim() : ''

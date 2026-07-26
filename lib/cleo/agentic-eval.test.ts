@@ -15,17 +15,19 @@ import {
   executePortalTool,
   LIST_GUIDES_TOOL_NAME,
   LOOKUP_GUIDE_TOOL_NAME,
+  PLAN_READING_PATH_TOOL_NAME,
   PORTAL_FUNCTION_TOOLS,
   SEARCH_GALLERY_TOOL_NAME,
   portalToolActivitySummary,
 } from './portal-tools'
 
 describe('portal agentic eval harness', () => {
-  it('exposes list, lookup, compare, and gallery portal tools', () => {
+  it('exposes list, lookup, compare, plan, and gallery portal tools', () => {
     expect(PORTAL_FUNCTION_TOOLS.map((tool) => tool.name)).toEqual([
       LOOKUP_GUIDE_TOOL_NAME,
       LIST_GUIDES_TOOL_NAME,
       COMPARE_GUIDES_TOOL_NAME,
+      PLAN_READING_PATH_TOOL_NAME,
       SEARCH_GALLERY_TOOL_NAME,
     ])
   })
@@ -134,12 +136,48 @@ describe('portal agentic eval harness', () => {
     expect(result.right?.href).toBe('/space/mars')
   })
 
+  it('plans then presents a reading path without invented slugs', () => {
+    const planned = JSON.parse(
+      executePortalTool(
+        PLAN_READING_PATH_TOOL_NAME,
+        JSON.stringify({
+          theme: 'icy moons',
+          collection: 'space',
+          stops: 3,
+        }),
+      ),
+    ) as {
+      ok: boolean
+      stops: { name: string; href: string; galleryHref?: string }[]
+    }
+
+    expect(planned.ok).toBe(true)
+    expect(planned.stops.length).toBeGreaterThanOrEqual(2)
+
+    const body = planned.stops
+      .map(
+        (stop, index) =>
+          `${index + 1}. [${stop.name}](${stop.href})${
+            stop.galleryHref ? ` — [photo](${stop.galleryHref})` : ''
+          }`,
+      )
+      .join('\n\n')
+    const presented = presentPortalGuideMarkdown(
+      `${body}\n\nSkip [Krypton](/space/krypton).`,
+    )
+
+    expect(presented).not.toContain('/space/krypton')
+    expect(extractPortalGuideLinks(presented).length).toBe(planned.stops.length)
+  })
+
   it('ships reading-path and portal-tool guidance in instructions', () => {
+    expect(CLEO_INSTRUCTIONS).toContain('plan_reading_path')
     expect(CLEO_INSTRUCTIONS).toContain('list_guides')
     expect(CLEO_INSTRUCTIONS).toContain('lookup_guide')
     expect(CLEO_INSTRUCTIONS).toContain('compare_guides')
     expect(CLEO_INSTRUCTIONS).toContain('search_gallery')
     expect(CLEO_INSTRUCTIONS).toContain('<reading_paths>')
+    expect(CLEO_INSTRUCTIONS).toContain('Do not stop after tool JSON')
     expect(CLEO_INSTRUCTIONS).toContain('Never invent')
   })
 

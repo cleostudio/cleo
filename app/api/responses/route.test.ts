@@ -412,12 +412,14 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       "lookup_guide",
       "list_guides",
       "compare_guides",
+      "plan_reading_path",
       "search_gallery",
     ])
     expect(openai.create.mock.calls[0]?.[0].include).toEqual([
       "reasoning.encrypted_content",
       "code_interpreter_call.outputs",
     ])
+    expect(openai.create.mock.calls[0]?.[0].tool_choice).toBe("auto")
   })
 
   it("uses low reasoning effort for short greetings", async () => {
@@ -515,6 +517,65 @@ describe("POST /api/responses: streaming and upstream errors", () => {
           event.activity?.status === "completed"
       )
     ).toBe(true)
+  })
+
+  it("forces a tool_choice none synthesis when tools ran without answer text", async () => {
+    openai.create
+      .mockResolvedValueOnce(
+        responseStream([
+          {
+            type: "response.completed",
+            response: {
+              output: [
+                {
+                  type: "function_call",
+                  id: "fc_1",
+                  call_id: "call_1",
+                  name: "lookup_guide",
+                  arguments: JSON.stringify({
+                    collection: "explore",
+                    slug: "japan",
+                    name: null,
+                  }),
+                },
+              ],
+            },
+          },
+        ])
+      )
+      // Next tool-capable round returns neither text nor more tools.
+      .mockResolvedValueOnce(
+        responseStream([
+          { type: "response.completed", response: { output: [] } },
+        ])
+      )
+      .mockResolvedValueOnce(
+        responseStream([
+          {
+            delta: "Japan from the forced synthesis.",
+            type: "response.output_text.delta",
+          },
+          { type: "response.completed", response: { output: [] } },
+        ])
+      )
+
+    const events = await ndjson(
+      await POST(
+        ask({
+          messages: [
+            { content: "Look up the Japan guide in depth.", role: "user" },
+          ],
+        })
+      )
+    )
+
+    expect(openai.create).toHaveBeenCalledTimes(3)
+    expect(openai.create.mock.calls[1]?.[0].tool_choice).toBe("auto")
+    expect(openai.create.mock.calls[2]?.[0].tool_choice).toBe("none")
+    expect(events).toContainEqual({
+      type: "text",
+      delta: "Japan from the forced synthesis.",
+    })
   })
 
   it("grounds matching Explore guides into the request instructions", async () => {

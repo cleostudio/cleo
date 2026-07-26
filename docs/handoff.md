@@ -43,8 +43,9 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
   matching turns also receive curated guide excerpts, Gallery photo links, and
   topic photo paths so replies can embed atlas/space JPEGs as Markdown images;
   Responses tools include web_search, image_generation, code_interpreter, and
-  portal list_guides/lookup_guide/compare_guides/search_gallery with adaptive
-  reasoning effort; assistant Markdown strips invented Explore/Space slugs
+  portal plan_reading_path/list_guides/lookup_guide/compare_guides/search_gallery
+  with adaptive reasoning effort and a forced synthesis turn when tools yield
+  no answer text; assistant Markdown strips invented Explore/Space slugs
   (client + final `text_replace`);
   Explore/Space/Gallery link into `/cleo?q=&g=`; Gallery accepts `?q=` /
   `?filter=` deep links; chat thread persists in `sessionStorage` until New
