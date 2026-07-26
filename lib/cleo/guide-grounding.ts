@@ -6,11 +6,13 @@
  * mentions — without stuffing all 195 country abouts into every request.
  */
 
-import { getAtlasEntry } from '~/lib/atlas'
+import { atlasRendition, getAtlasEntry } from '~/lib/atlas'
 import type { PortalGuideFocus } from '~/lib/cleo/ask-links'
 import { formatGuideFocus, parseGuideFocus } from '~/lib/cleo/ask-links'
 import { countries } from '~/lib/countries'
+import { galleryFilterHref, gallerySearchHref } from '~/lib/gallery'
 import { getSpaceSubject, spaceSubjects } from '~/lib/space'
+import { staticRendition } from '~/lib/static-photo'
 
 export const MAX_GROUNDED_GUIDES = 3
 
@@ -23,6 +25,14 @@ export type GroundedGuide = {
   factsLine: string
   highlights: { name: string; description: string }[]
   photoCaption: string
+  /** Featured place or feature name shown on the Gallery tile. */
+  photoTitle: string
+  /** Mid-size static JPEG path for the curated photograph. */
+  photoSrc: string
+  /** Gallery search that surfaces this subject's photograph. */
+  galleryHref: string
+  /** Gallery collection chip for the subject's region/category. */
+  galleryFilterHref: string
 }
 
 type GuideCandidate = {
@@ -78,6 +88,10 @@ function loadGroundedGuide(
         description: place.description,
       })),
       photoCaption: entry.photo.caption,
+      photoTitle: entry.photo.placeName,
+      photoSrc: atlasRendition(entry.photo, 1280).src,
+      galleryHref: gallerySearchHref(entry.name),
+      galleryFilterHref: galleryFilterHref(entry.region),
     }
   }
 
@@ -108,6 +122,10 @@ function loadGroundedGuide(
       description: feature.description,
     })),
     photoCaption: subject.photo.caption,
+    photoTitle: subject.photo.featureName,
+    photoSrc: staticRendition(subject.photo, 1280).src,
+    galleryHref: gallerySearchHref(subject.name),
+    galleryFilterHref: galleryFilterHref(subject.category),
   }
 }
 
@@ -231,7 +249,10 @@ function formatGuideExcerpt(guide: GroundedGuide): string {
     `${highlightLabel}:`,
     highlights,
     '',
-    `Photo on site: ${guide.photoCaption} (also in [Gallery](/gallery))`,
+    `Curated photograph: "${guide.photoTitle}" — ${guide.photoCaption}`,
+    `Gallery search (preferred photo link): ${guide.galleryHref}`,
+    `Gallery collection filter: ${guide.galleryFilterHref}`,
+    `Static JPEG path (only if the user asks for the asset file): ${guide.photoSrc}`,
   ].join('\n')
 }
 
@@ -247,7 +268,8 @@ export function buildGuideGroundingInstructions(
 The following curated field-guide excerpts are from this website. For evergreen orientation, places/features, and fact-plate details about these subjects:
 - Prefer these excerpts over memory or web_search.
 - Paraphrase in your normal voice — do not paste the Orientation block verbatim.
-- Still weave one Markdown deep link using the exact path shown (short subject-name label).
+- Still weave one Markdown deep link to the field guide using the exact path shown (short subject-name label).
+- When the look of a place or body matters — or the user asks about a photograph — also weave one Markdown link to the Gallery search URL shown (short photo/subject label). Prefer Gallery search over the collection filter; use the filter when talking about a whole region or Space category. Do not invent image URLs. Do not link the static JPEG path unless the user asks for the file.
 - Use web_search for current events, live data, or claims these excerpts do not cover.
 - If the user asks about something outside these excerpts, answer normally (catalog paths still apply).
 

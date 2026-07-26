@@ -79,9 +79,10 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
   reads stored prose.
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`.
-- Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
-  `components/cleo/ask-form.tsx`. Guide deep-links are inline Markdown in the
-  reply (no separate chip row).
+- Portal starters: `lib/cleo/portal-starters.ts` rotates a topic-diverse empty
+  state (Explore, Space, Gallery, Topics, compare, next-read, photo) consumed by
+  `components/cleo/ask-form.tsx`. Guide and Gallery deep-links are inline
+  Markdown in the reply (no separate chip row).
 - Ask-from-guide: `lib/cleo/ask-links.ts` builds `/cleo?q=&g=` links used on
   Explore, Space, and Gallery pages; AskForm prefills `q` and pins `g`.
 - Session: `lib/cleo/session.ts` persists the thread in `sessionStorage`

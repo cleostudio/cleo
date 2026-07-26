@@ -26,7 +26,10 @@ import {
   IMAGE_ACCEPT,
   MAX_IMAGES_PER_MESSAGE,
 } from "~/lib/cleo/client-images"
-import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
+import {
+  portalStarterDayKey,
+  selectPortalStarters,
+} from "~/lib/cleo/portal-starters"
 import {
   clearCleoSession,
   loadCleoSession,
@@ -110,6 +113,9 @@ export function AskForm() {
   const [messages, setMessages] = useState<Message[]>([])
   const [focusGuides, setFocusGuides] = useState<PortalGuideFocus[]>([])
   const [sessionReady, setSessionReady] = useState(false)
+  const [starters] = useState(() =>
+    selectPortalStarters(portalStarterDayKey(), 3)
+  )
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -615,11 +621,11 @@ export function AskForm() {
       >
         {!hasMessages ? (
           <div className="cleo-starters" role="group" aria-label="Suggestions">
-            {CLEO_PORTAL_STARTERS.map((starter) => (
+            {starters.map((starter) => (
               <button
                 className="cleo-starter"
                 disabled={isSubmitting}
-                key={starter.label}
+                key={`${starter.topic}:${starter.label}`}
                 onClick={() => {
                   setInput(starter.prompt)
                   setError(null)

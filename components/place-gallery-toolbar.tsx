@@ -1,6 +1,26 @@
 'use client'
 
 import { useEffect, useId, useRef, useState } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+
+function readGalleryParams(
+  searchParams: URLSearchParams,
+  filterKeys: readonly string[],
+) {
+  const filterParam = searchParams.get('filter')?.trim() ?? ''
+  const filter =
+    filterParam && filterKeys.includes(filterParam) ? filterParam : 'all'
+  const query = searchParams.get('q')?.trim() ?? ''
+  return { filter, query }
+}
+
+function galleryParamsString(filter: string, query: string) {
+  const params = new URLSearchParams()
+  if (filter !== 'all') params.set('filter', filter)
+  const trimmedQuery = query.trim()
+  if (trimmedQuery) params.set('q', trimmedQuery)
+  return params.toString()
+}
 
 export function PlaceGalleryToolbar({
   filterKeys,
@@ -11,9 +31,38 @@ export function PlaceGalleryToolbar({
 }) {
   const searchId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
-  const [filter, setFilter] = useState('all')
-  const [query, setQuery] = useState('')
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const initial = readGalleryParams(searchParams, filterKeys)
+  const [filter, setFilter] = useState(initial.filter)
+  const [query, setQuery] = useState(initial.query)
   const [visibleCount, setVisibleCount] = useState(totalCount)
+  const skipUrlWriteRef = useRef(true)
+
+  useEffect(() => {
+    const next = readGalleryParams(searchParams, filterKeys)
+    setFilter((current) => (current === next.filter ? current : next.filter))
+    setQuery((current) => (current === next.query ? current : next.query))
+  }, [filterKeys, searchParams])
+
+  useEffect(() => {
+    if (skipUrlWriteRef.current) {
+      skipUrlWriteRef.current = false
+      return
+    }
+
+    const next = galleryParamsString(filter, query)
+    const current = galleryParamsString(
+      searchParams.get('filter')?.trim() &&
+        filterKeys.includes(searchParams.get('filter')!.trim())
+        ? searchParams.get('filter')!.trim()
+        : 'all',
+      searchParams.get('q')?.trim() ?? '',
+    )
+    if (next === current) return
+    router.replace(next ? `${pathname}?${next}` : pathname, { scroll: false })
+  }, [filter, filterKeys, pathname, query, router, searchParams])
 
   useEffect(() => {
     const root = rootRef.current?.closest<HTMLElement>('[data-place-gallery]')

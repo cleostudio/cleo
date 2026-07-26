@@ -132,8 +132,8 @@ describe('presentPortalGuideMarkdown', () => {
 })
 
 describe('CLEO_PORTAL_STARTERS', () => {
-  it('ships a small set of portal-oriented prompts', () => {
-    expect(CLEO_PORTAL_STARTERS.length).toBeGreaterThanOrEqual(3)
+  it('re-exports a daily starter slice for compatibility', () => {
+    expect(CLEO_PORTAL_STARTERS.length).toBe(3)
     expect(CLEO_PORTAL_STARTERS.every((starter) => starter.prompt.length > 20)).toBe(
       true,
     )

@@ -69,18 +69,22 @@ describe('buildGuideGroundingInstructions', () => {
     expect(buildGuideGroundingInstructions([])).toBe('')
   })
 
-  it('includes orientation and deep-link path for a real guide', () => {
+  it('includes orientation, guide path, and Gallery photo links', () => {
     const [japan] = selectGroundedGuides({
       focusGuides: [{ collection: 'explore', slug: 'japan' }],
       text: '',
     })
     expect(japan).toBeDefined()
+    expect(japan!.galleryHref).toBe('/gallery?q=Japan')
+    expect(japan!.photoSrc).toMatch(/^\/images\/atlas\/japan\//)
     const block = buildGuideGroundingInstructions([japan!])
     expect(block).toContain('<cleo_guide_excerpts>')
     expect(block).toContain('/explore/japan')
+    expect(block).toContain('/gallery?q=Japan')
     expect(block).toContain('Orientation:')
     expect(block).toContain(japan!.about.slice(0, 40))
     expect(block).toContain('do not paste the Orientation block verbatim')
+    expect(block).toContain('Prefer Gallery search')
   })
 })
 

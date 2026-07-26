@@ -161,21 +161,11 @@ export function presentPortalGuideMarkdown(markdown: string): string {
   return kept.join('\n\n')
 }
 
-/** Empty-state prompts that exercise portal grounding. */
-export const CLEO_PORTAL_STARTERS = [
-  {
-    label: 'Orient me to Japan',
-    prompt:
-      'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
-  },
-  {
-    label: 'Why is Europa interesting?',
-    prompt:
-      'Why is Europa interesting as an ocean world? Deep-link the Space guide when you name it.',
-  },
-  {
-    label: 'Compare Mars and Earth',
-    prompt:
-      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide when you name the planets.',
-  },
-] as const
+export {
+  CLEO_PORTAL_STARTER_POOL,
+  CLEO_PORTAL_STARTERS,
+  portalStarterDayKey,
+  selectPortalStarters,
+  type PortalStarter,
+  type PortalStarterTopic,
+} from '~/lib/cleo/portal-starters'

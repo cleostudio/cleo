@@ -98,3 +98,17 @@ export function galleryFilterKeys(): string[] {
 export function galleryDescription(count: number): string {
   return `${count} curated photographs — places from Explore and bodies from Space.`
 }
+
+/** Gallery deep link that pre-fills the client search box. */
+export function gallerySearchHref(query: string): string {
+  const trimmed = query.trim()
+  if (!trimmed) return '/gallery'
+  return `/gallery?q=${encodeURIComponent(trimmed)}`
+}
+
+/** Gallery deep link that selects a collection chip when the key is known. */
+export function galleryFilterHref(filterKey: string): string {
+  const trimmed = filterKey.trim()
+  if (!trimmed || trimmed === 'all') return '/gallery'
+  return `/gallery?filter=${encodeURIComponent(trimmed)}`
+}

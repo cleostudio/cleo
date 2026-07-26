@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 import { PlaceGalleryToolbar } from '~/components/place-gallery-toolbar'
 import { ZoomImage } from '~/components/zoom-image'
@@ -48,7 +49,16 @@ export function PlaceGallery({
 }) {
   return (
     <div className="place-gallery" data-place-gallery>
-      <PlaceGalleryToolbar filterKeys={filterKeys} totalCount={entries.length} />
+      <Suspense
+        fallback={
+          <div
+            className="gallery-toolbar sticky top-0 z-[2] -mx-6 mb-4 border-b border-[var(--border)] bg-background px-6 py-3"
+            aria-hidden
+          />
+        }
+      >
+        <PlaceGalleryToolbar filterKeys={filterKeys} totalCount={entries.length} />
+      </Suspense>
 
       <ul className="photo-masonry">
         {entries.map((entry) => (

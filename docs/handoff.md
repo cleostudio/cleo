@@ -40,9 +40,10 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
   `pnpm import:space-photos` → `pnpm validate:space`
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
   (instructions include Explore/Space catalog paths for guide deep-links;
-  matching turns also receive curated guide excerpts; Explore/Space/Gallery
-  link into `/cleo?q=&g=`; chat thread persists in `sessionStorage` until
-  New chat, an Ask-from-guide deep link, or the tab closes)
+  matching turns also receive curated guide excerpts and Gallery photo links;
+  Explore/Space/Gallery link into `/cleo?q=&g=`; Gallery accepts `?q=` /
+  `?filter=` deep links; chat thread persists in `sessionStorage` until New
+  chat, an Ask-from-guide deep link, or the tab closes)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)
