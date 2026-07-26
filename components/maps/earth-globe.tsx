@@ -238,8 +238,9 @@ const skyFragment = /* glsl */ `
   varying vec2 vUv;
   void main() {
     vec3 color = texture2D(skyMap, vUv).rgb;
-    // Keep the galactic plane luminous without crushing faint stars.
-    color = pow(color, vec3(0.92)) * 1.15;
+    // Source plates are very dark; lift the galactic dust without clipping cores.
+    color = pow(max(color, 0.0), vec3(0.78)) * 1.65;
+    color += vec3(0.01, 0.012, 0.02);
     gl_FragColor = vec4(color, 1.0);
   }
 `
