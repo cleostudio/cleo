@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
+import { latLngToScene } from './geo'
 import {
   ecefToScene,
   julianDate,
@@ -28,6 +29,18 @@ describe('maps sun clock', () => {
     // Near noon at Greenwich the sun should be mostly +X (day over Africa/Atlantic).
     expect(x).toBeGreaterThan(0.9)
     expect(Math.abs(z)).toBeLessThan(0.15)
+  })
+
+  it('keeps South Asia in night at 21:00 UTC in July', () => {
+    const date = new Date('2026-07-26T21:00:00.000Z')
+    const sun = sunDirectionScene(date)
+    // Rough subsolar longitude ≈ 15° × (12 − UTC hour) → ~135°W (Pacific afternoon).
+    expect(sun[0]).toBeLessThan(-0.4)
+
+    const india = latLngToScene(13, 75)
+    const ndotl =
+      india[0] * sun[0] + india[1] * sun[1] + india[2] * sun[2]
+    expect(ndotl).toBeLessThan(0)
   })
 
   it('tilts north in June and south in December', () => {

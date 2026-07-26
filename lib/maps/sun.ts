@@ -51,9 +51,10 @@ export function sunEquatorial(date: Date): {
 export function sunDirectionEcef(date: Date): [number, number, number] {
   const { declination, greenwichHourAngle } = sunEquatorial(date)
   const cosDec = Math.cos(declination)
+  // GHA is measured westward from Greenwich, so +Y (90°E) uses −sin(GHA).
   return [
     cosDec * Math.cos(greenwichHourAngle),
-    cosDec * Math.sin(greenwichHourAngle),
+    cosDec * -Math.sin(greenwichHourAngle),
     Math.sin(declination),
   ]
 }
