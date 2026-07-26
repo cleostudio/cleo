@@ -7,7 +7,9 @@ The public site includes a homepage for country search, highlighted places, and
 topic discovery; Explore country field guides; Space field guides at `/space`;
 a place Gallery at `/gallery`; a Topics catalog; Writing (for a future
 encyclopedia layer); and a browser-only agent with streamed Markdown, vision,
-image generation, and live reasoning / web-search activity.
+image generation, live reasoning / web-search activity, curated guide
+grounding, Ask-from-guide entry points, and a tab-scoped session that
+survives reload until New chat.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 `/photos` permanently redirects to `/gallery`.

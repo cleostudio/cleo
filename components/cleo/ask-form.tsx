@@ -28,6 +28,12 @@ import {
 } from "~/lib/cleo/client-images"
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
 import {
+  clearCleoSession,
+  loadCleoSession,
+  type PersistedCleoMessage,
+  saveCleoSession,
+} from "~/lib/cleo/session"
+import {
   type ActivityItem,
   type MessageImage,
   parseStreamLine,
@@ -38,13 +44,7 @@ type ResponsePayload = {
   error?: string
 }
 
-type Message = {
-  activities?: ActivityItem[]
-  content: string
-  id: number
-  images?: MessageImage[]
-  role: "assistant" | "user"
-}
+type Message = PersistedCleoMessage
 
 function isAbortError(error: unknown) {
   return (
@@ -109,45 +109,69 @@ export function AskForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [focusGuides, setFocusGuides] = useState<PortalGuideFocus[]>([])
+  const [sessionReady, setSessionReady] = useState(false)
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const mountedRef = useRef(true)
+  const sessionEpochRef = useRef(0)
 
   const hasMessages = messages.length > 0
   const canSubmit =
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
 
   useEffect(() => {
+    const snapshot = loadCleoSession()
+    if (snapshot) {
+      setMessages(snapshot.messages)
+      messageIdRef.current = snapshot.nextMessageId
+    }
+    setSessionReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (!sessionReady) return
+
     const prompt = searchParams.get('q')?.trim() ?? ''
     const guides = parseGuideFocusList(searchParams.getAll('g'))
     if (!prompt && guides.length === 0) return
 
-    if (prompt) {
-      setInput(prompt.slice(0, MAX_INPUT_LENGTH))
-    }
-    if (guides.length > 0) {
-      setFocusGuides(guides)
-    }
+    // Ask-from-guide deep links start a fresh thread with pinned grounding.
+    sessionEpochRef.current += 1
+    abortControllerRef.current?.abort()
+    abortControllerRef.current = null
+    clearCleoSession()
+    setMessages([])
+    setPendingImages([])
+    setIsSubmitting(false)
+    messageIdRef.current = 0
+    setInput(prompt ? prompt.slice(0, MAX_INPUT_LENGTH) : '')
+    setFocusGuides(guides)
     setError(null)
     // Drop consume-once params so refresh / New chat do not re-prefill.
     router.replace(pathname, { scroll: false })
-  }, [pathname, router, searchParams])
+  }, [pathname, router, searchParams, sessionReady])
 
   useEffect(() => {
-    if (!hasMessages) return
+    if (!sessionReady) return
+    saveCleoSession(messages, messageIdRef.current)
+  }, [messages, sessionReady])
+
+  useEffect(() => {
+    if (!sessionReady || !hasMessages) return
     // Scroll the document so the clearance spacer sits against the viewport
     // bottom — leaving the latest text above the fixed prompt.
     messagesEndRef.current?.scrollIntoView({ block: 'end', behavior: 'instant' })
-  }, [hasMessages, messages])
+  }, [hasMessages, messages, sessionReady])
 
   useEffect(() => {
-    if (!isSubmitting && (hasMessages || input)) {
+    if (!sessionReady || isSubmitting) return
+    if (hasMessages || input) {
       inputRef.current?.focus()
     }
-  }, [hasMessages, input, isSubmitting])
+  }, [hasMessages, input, isSubmitting, sessionReady])
 
   useEffect(() => {
     mountedRef.current = true
@@ -158,6 +182,8 @@ export function AskForm() {
   }, [])
 
   useEffect(() => {
+    if (!sessionReady) return
+
     const root = document.documentElement
     if (hasMessages) {
       root.removeAttribute('data-cleo-empty')
@@ -167,10 +193,25 @@ export function AskForm() {
     return () => {
       root.removeAttribute('data-cleo-empty')
     }
-  }, [hasMessages])
+  }, [hasMessages, sessionReady])
 
   function handleStop() {
     abortControllerRef.current?.abort()
+  }
+
+  function handleNewChat() {
+    sessionEpochRef.current += 1
+    abortControllerRef.current?.abort()
+    abortControllerRef.current = null
+    setMessages([])
+    setInput("")
+    setPendingImages([])
+    setFocusGuides([])
+    setError(null)
+    setIsSubmitting(false)
+    messageIdRef.current = 0
+    clearCleoSession()
+    inputRef.current?.focus()
   }
 
   function removePendingImage(index: number) {
@@ -220,6 +261,10 @@ export function AskForm() {
     if ((!question && attachedImages.length === 0) || isSubmitting) {
       return
     }
+
+    const epoch = sessionEpochRef.current
+    const isCurrentSession = () =>
+      mountedRef.current && sessionEpochRef.current === epoch
 
     const userImages: MessageImage[] = attachedImages.map((url) => ({ url }))
     const userMessage: Message = {
@@ -305,6 +350,7 @@ export function AskForm() {
       let streamError: string | null = null
 
       const applyTextDelta = (delta: string) => {
+        if (!isCurrentSession()) return
         output += delta
         setMessages((currentMessages) =>
           currentMessages.map((message) =>
@@ -316,6 +362,7 @@ export function AskForm() {
       }
 
       const applyActivity = (activity: ActivityItem) => {
+        if (!isCurrentSession()) return
         setMessages((currentMessages) =>
           currentMessages.map((message) =>
             message.id === assistantMessage.id
@@ -329,6 +376,7 @@ export function AskForm() {
       }
 
       const applyImage = (id: string, imageUrl: string) => {
+        if (!isCurrentSession()) return
         receivedImages = true
         setMessages((currentMessages) =>
           currentMessages.map((message) =>
@@ -421,9 +469,9 @@ export function AskForm() {
       const aborted =
         isAbortError(requestError) || abortController.signal.aborted
 
-      // Ignore late aborts from an unmounted tree so a remounted empty shell
-      // is not the only surviving signal of a failed turn.
-      if (!mountedRef.current) {
+      // Ignore late aborts from an unmounted tree or a superseded chat so a
+      // remounted empty shell / New chat is not overwritten by the old turn.
+      if (!isCurrentSession()) {
         return
       }
 
@@ -456,10 +504,14 @@ export function AskForm() {
       if (abortControllerRef.current === abortController) {
         abortControllerRef.current = null
       }
-      if (mountedRef.current) {
+      if (isCurrentSession()) {
         setIsSubmitting(false)
       }
     }
+  }
+
+  if (!sessionReady) {
+    return <div className="app-column min-w-0" aria-busy="true" />
   }
 
   return (
@@ -579,7 +631,17 @@ export function AskForm() {
               </button>
             ))}
           </div>
-        ) : null}
+        ) : (
+          <div className="cleo-session-actions">
+            <button
+              className="cleo-new-chat"
+              onClick={handleNewChat}
+              type="button"
+            >
+              New chat
+            </button>
+          </div>
+        )}
 
         {error ? (
           <p
