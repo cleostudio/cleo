@@ -21,24 +21,17 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
 
   const matches = useMemo(() => filterSiteSearchHits(hits, query), [hits, query])
 
-  const guideCount = useMemo(
-    () => hits.filter((hit) => hit.kind === 'explore' || hit.kind === 'space').length,
-    [hits],
-  )
-
   return (
     <div className="home-site-search">
-      <label className="guide-label" htmlFor="home-site-search">
-        Find a guide
-      </label>
       <input
         id="home-site-search"
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Country, planet, moon, or topic"
+        aria-label="Search field guides"
         autoComplete="off"
-        className="mt-1.5 w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2.5 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground"
+        className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2.5 text-base text-foreground outline-none"
       />
       {query.trim() ? (
         matches.length > 0 ? (
@@ -54,11 +47,7 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
             No guides match “{query.trim()}”.
           </p>
         )
-      ) : (
-        <p className="mt-2 text-xs text-muted-foreground">
-          {guideCount} field guides across topics — type to jump straight in.
-        </p>
-      )}
+      ) : null}
     </div>
   )
 }

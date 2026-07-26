@@ -51,20 +51,15 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <section className="mt-12" aria-labelledby="home-search-heading">
-        <SectionTitle index="01" delay={100}>
-          <span id="home-search-heading">
-            <T zh="主题检索" en="Search" />
-          </span>
-        </SectionTitle>
-        <div className="enter mt-4" style={{ '--enter-delay': '130ms' } as React.CSSProperties}>
+      <section className="mt-6" aria-label="Search">
+        <div className="enter" style={{ '--enter-delay': '100ms' } as React.CSSProperties}>
           <HomeSiteSearch hits={searchHits} />
         </div>
       </section>
 
-      <section className="mt-16" aria-labelledby="home-places-heading">
+      <section className="mt-8" aria-labelledby="home-places-heading">
         <div className="flex items-center justify-between gap-4">
-          <SectionTitle index="02" delay={160}>
+          <SectionTitle index="01" delay={160}>
             <span id="home-places-heading">
               <T zh="精选地点" en="Highlighted places" />
             </span>
@@ -84,7 +79,7 @@ export async function HomePageView({ locale: _locale }: { locale: Locale }) {
 
       <section className="mt-16" aria-labelledby="home-topics-heading">
         <div className="flex items-center justify-between gap-4">
-          <SectionTitle index="03" delay={220}>
+          <SectionTitle index="02" delay={220}>
             <span id="home-topics-heading">
               <T zh="主题发现" en="Topic discovery" />
             </span>
