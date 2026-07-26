@@ -78,10 +78,13 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
   `components/cleo/ask-form.tsx`. Guide deep-links are inline Markdown in the
   reply (no separate chip row).
+- Session: `lib/cleo/session.ts` persists the thread in `sessionStorage`
+  (survives reload and same-tab navigation; cleared by New chat or closing the
+  tab). Quota overflows drop image payloads before giving up.
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 
-Conversation state is browser-only and clears on reload. There is no
+Conversation state is browser-only (`sessionStorage`). There is no
 authentication, database, media library, AMA booking, or analytics.
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and

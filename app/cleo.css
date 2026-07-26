@@ -492,6 +492,40 @@
   opacity: 0.55;
 }
 
+.cleo-session-actions {
+  display: flex;
+  justify-content: center;
+  padding-inline: 0.25rem;
+}
+
+.cleo-new-chat {
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--muted-foreground) 30%, transparent);
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+  transition: color 160ms var(--ease-swift), text-decoration-color 160ms var(--ease-swift);
+}
+
+.cleo-new-chat:hover {
+  color: var(--foreground);
+  text-decoration-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+}
+
+.cleo-new-chat:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 .prompt-dock-shell[data-docked] {
   top: auto;
   bottom: var(--cleo-prompt-bottom);
