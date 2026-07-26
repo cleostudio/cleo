@@ -1,7 +1,7 @@
 /** @vitest-environment jsdom */
 
-import { cleanup, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { Markdown } from './markdown'
 
@@ -24,8 +24,30 @@ vi.mock('~/lib/locale-client', () => ({
   useLocale: () => 'en',
 }))
 
+beforeEach(() => {
+  vi.stubGlobal(
+    'matchMedia',
+    vi.fn(() => ({ matches: true }) as MediaQueryList),
+  )
+  Object.defineProperty(window, 'innerWidth', { configurable: true, value: 1200 })
+  Object.defineProperty(window, 'innerHeight', { configurable: true, value: 900 })
+  vi.spyOn(HTMLImageElement.prototype, 'getBoundingClientRect').mockReturnValue({
+    bottom: 300,
+    height: 200,
+    left: 100,
+    right: 400,
+    top: 100,
+    width: 300,
+    x: 100,
+    y: 100,
+    toJSON: () => ({}),
+  })
+})
+
 afterEach(() => {
   cleanup()
+  vi.unstubAllGlobals()
+  vi.restoreAllMocks()
 })
 
 describe('Cleo Markdown topic photos', () => {
@@ -44,6 +66,28 @@ describe('Cleo Markdown topic photos', () => {
     expect(screen.getByAltText('Mount Fuji').getAttribute('src')).toBe(
       '/images/atlas/japan/w1280.jpg',
     )
+  })
+
+  it('opens the Gallery lightbox with Place/Country caption plate', () => {
+    render(
+      <Markdown>
+        {'![Mount Fuji](/images/atlas/japan/w1280.jpg)'}
+      </Markdown>,
+    )
+
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Zoom image: Mount Fuji' }),
+      { detail: 0 },
+    )
+
+    const dialog = screen.getByRole('dialog', { name: 'Mount Fuji' })
+    expect(dialog.getAttribute('data-state')).toBe('open')
+    expect(dialog.textContent).toContain('Place')
+    expect(dialog.textContent).toContain('Mount Fuji')
+    expect(dialog.textContent).toContain('Country')
+    expect(dialog.textContent).toContain('Japan')
+    expect(dialog.textContent).toContain('Photograph')
+    expect(dialog.textContent).toContain('License')
   })
 
   it('drops non-curated Markdown images', () => {
