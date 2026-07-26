@@ -25,7 +25,7 @@ describe('social OG image metadata', () => {
     [
       '/blog',
       publicPageMetadata.blog,
-      'Writing · Cleo. Essays about the Cleo knowledge portal — field guides, gallery, topics, and the agent that ties them together.',
+      'Writing · Cleo. Essays from the Cleo knowledge portal — field guides, subjects like ocean moons, and how the shelves fit together.',
     ],
     ['/gallery', publicPageMetadata.gallery, 'Gallery · Cleo'],
     ['/topics', publicPageMetadata.topics, 'Topics · Cleo'],
@@ -58,10 +58,10 @@ describe('social OG image metadata', () => {
       imageAlt(
         metadataFor(
           '/newsletters/1',
-          'Cleo Monthly Update Newsletter 01',
+          'Writing on the Cleo portal',
           'Archive summary',
         ),
       ),
-    ).toBe('Cleo Monthly Update Newsletter 01 · Cleo')
+    ).toBe('Writing on the Cleo portal · Cleo')
   })
 })

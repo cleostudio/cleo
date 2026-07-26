@@ -20,6 +20,8 @@ function postTransitionId(slug: string) {
       return 'p08'
     case 'writing-comes-next':
       return 'p09'
+    case 'icy-moons-europa-enceladus':
+      return 'p10'
     default:
       throw new Error('Unknown post view-transition slug')
   }

@@ -387,6 +387,23 @@
       ]
     },
     {
+      "kind": "page",
+      "source": "/blog/icy-moons-europa-enceladus",
+      "probes": [
+        "/blog/icy-moons-europa-enceladus"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/icy-moons-europa-enceladus",
+      "destination": "/blog/icy-moons-europa-enceladus",
+      "probes": [
+        "/en/blog/icy-moons-europa-enceladus"
+      ]
+    },
+    {
       "kind": "redirect",
       "source": "/blog/we-decided-to-stop-buying-saas",
       "destination": "/blog",

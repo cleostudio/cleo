@@ -20,7 +20,7 @@ function NewsletterImage({ src, alt }: { src?: string | Blob; alt?: string }) {
 
   const dimensions =
     archivedNewsletterImages[src as keyof typeof archivedNewsletterImages]
-  const isCover = src.endsWith('/cover.png')
+  const isCover = /\/cover\.(png|jpe?g)$/.test(src)
   return (
     <Image
       src={src}

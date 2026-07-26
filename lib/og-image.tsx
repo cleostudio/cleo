@@ -389,7 +389,7 @@ async function renderNewsletterOgImage(newsletter: NewsletterOgInput, _locale: L
   const description = newsletter.descriptionEn
   const archiveLabel = `Cleo · Archive ${newsletter.id.padStart(3, '0')}`
   const cover = await coverDataUri(
-    `/content/newsletters/${newsletter.id}/cover.png`,
+    `/content/newsletters/${newsletter.id}/cover.jpg`,
   )
 
   return new ImageResponse(

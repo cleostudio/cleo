@@ -36,9 +36,9 @@ const publicPages = [
     {
       title: 'Writing',
       description:
-        'Essays about the Cleo knowledge portal — field guides, gallery, topics, and the agent that ties them together.',
+        'Essays from the Cleo knowledge portal — field guides, subjects like ocean moons, and how the shelves fit together.',
     },
-    'Writing · Cleo. Essays about the Cleo knowledge portal — field guides, gallery, topics, and the agent that ties them together.',
+    'Writing · Cleo. Essays from the Cleo knowledge portal — field guides, subjects like ocean moons, and how the shelves fit together.',
   ),
   englishPage(
     '/gallery',
