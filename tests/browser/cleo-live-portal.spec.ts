@@ -16,7 +16,6 @@ test.describe('@smoke @hosted Cleo live portal grounding', () => {
 
     await page.goto('/cleo')
     await page.getByRole('button', { name: 'Orient me to Japan' }).click()
-    await page.getByRole('button', { name: 'Send' }).click()
 
     const guideLink = page.locator('.ai-response a[href="/explore/japan"]')
     await expect(guideLink.first()).toBeVisible({ timeout: 120_000 })

@@ -184,11 +184,14 @@ export function AskForm() {
     }
   }
 
-  async function handleSubmit(event?: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(
+    event?: FormEvent<HTMLFormElement>,
+    promptOverride?: string
+  ) {
     event?.preventDefault()
     event?.stopPropagation()
 
-    const question = input.trim()
+    const question = (promptOverride ?? input).trim()
     const attachedImages = pendingImages
 
     if ((!question && attachedImages.length === 0) || isSubmitting) {
@@ -526,26 +529,6 @@ export function AskForm() {
         className="prompt-dock-shell"
         data-docked={hasMessages || undefined}
       >
-        {!hasMessages ? (
-          <div className="cleo-starters" role="group" aria-label="Suggestions">
-            {CLEO_PORTAL_STARTERS.map((starter) => (
-              <button
-                className="cleo-starter"
-                disabled={isSubmitting}
-                key={starter.label}
-                onClick={() => {
-                  setInput(starter.prompt)
-                  setError(null)
-                  inputRef.current?.focus()
-                }}
-                type="button"
-              >
-                {starter.label}
-              </button>
-            ))}
-          </div>
-        ) : null}
-
         {error ? (
           <p
             className="mb-3 px-4 text-center text-sm text-destructive"
@@ -656,6 +639,24 @@ export function AskForm() {
             </Button>
           </div>
         </form>
+
+        {!hasMessages ? (
+          <div className="cleo-starters" role="group" aria-label="Suggestions">
+            {CLEO_PORTAL_STARTERS.map((starter) => (
+              <button
+                className="cleo-starter"
+                disabled={isSubmitting}
+                key={starter.label}
+                onClick={() => {
+                  void handleSubmit(undefined, starter.prompt)
+                }}
+                type="button"
+              >
+                {starter.label}
+              </button>
+            ))}
+          </div>
+        ) : null}
       </div>
     </div>
   )
