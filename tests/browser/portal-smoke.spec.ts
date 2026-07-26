@@ -114,8 +114,8 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       page.getByRole('img', { name: 'Interactive 3D Earth' }),
     ).toBeVisible({ timeout: 20_000 })
 
-    // Focus the document chrome so `[` / `]` are not swallowed by an input.
-    await page.getByRole('heading', { name: 'Maps' }).click()
+    // Focus a toolbar control so `[` / `]` are not swallowed by search.
+    await page.getByRole('button', { name: 'Live sun' }).focus()
     await page.keyboard.press(']')
     await expect(page).toHaveURL(/[?&]h=\d+\b/, { timeout: 10_000 })
     await expect(page).toHaveURL(/[?&]d=\d+\b/)
