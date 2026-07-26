@@ -105,6 +105,30 @@ describe('presentPortalGuideMarkdown', () => {
       'Compare [Earth](/space/earth) and [Mars](/space/mars).',
     )
   })
+
+  it('does not drop real short paragraphs that are not guide footers', () => {
+    const markdown = [
+      'Europa hides a [global ocean](/space/europa) under ice.',
+      '',
+      'Global ocean.',
+      '',
+      'See temples in Kyoto when you visit.',
+      '',
+      'Space is hard.',
+    ].join('\n')
+
+    expect(presentPortalGuideMarkdown(markdown)).toBe(
+      [
+        'Europa hides a [global ocean](/space/europa) under ice.',
+        '',
+        'Global ocean.',
+        '',
+        'See temples in Kyoto when you visit.',
+        '',
+        'Space is hard.',
+      ].join('\n'),
+    )
+  })
 })
 
 describe('CLEO_PORTAL_STARTERS', () => {

@@ -70,29 +70,45 @@ function escapeRegExp(value: string) {
 }
 
 /**
+ * Strip leading guide-callout chrome only ("Explore …", "See …",
+ * "For a fuller primer, see …") so real prose is not emptied by
+ * mid-sentence word removal.
+ */
+function stripLeadingGuideChrome(block: string) {
+  let remainder = block.trim()
+  let previous = ''
+
+  while (remainder !== previous) {
+    previous = remainder
+    remainder = remainder
+      .replace(/^for a fuller primer,?\s*see\s+/i, '')
+      .replace(/^see\s+(?:the\s+)?/i, '')
+      .replace(/^(?:explore|space)\s+/i, '')
+      .trim()
+  }
+
+  return remainder
+}
+
+/**
  * True when a block only restates guides already linked earlier (footer
  * callouts like "Explore Japan" or "For a fuller primer, see Japan.").
  */
 function isRedundantGuideFooter(
   block: string,
-  linkedLabels: ReadonlySet<string>,
+  guideNames: ReadonlySet<string>,
 ): boolean {
-  if (linkedLabels.size === 0) {
+  if (guideNames.size === 0) {
     return false
   }
 
-  let remainder = block.trim()
+  let remainder = stripLeadingGuideChrome(block)
   if (!remainder) {
     return false
   }
 
-  remainder = remainder
-    .replace(/\bfor a fuller primer,?\s*see\b/gi, ' ')
-    .replace(/\bsee\s+(?:the\s+)?/gi, ' ')
-    .replace(/\b(?:explore|space)\b/gi, ' ')
-
-  for (const label of linkedLabels) {
-    remainder = remainder.replace(new RegExp(escapeRegExp(label), 'gi'), ' ')
+  for (const name of guideNames) {
+    remainder = remainder.replace(new RegExp(escapeRegExp(name), 'gi'), ' ')
   }
 
   remainder = remainder.replace(/[\s·•|,.;:!?—–-]+/g, '')
@@ -105,19 +121,21 @@ function isRedundantGuideFooter(
  */
 export function presentPortalGuideMarkdown(markdown: string): string {
   const seenHrefs = new Set<string>()
-  const linkedLabels = new Set<string>()
+  // Footer matching uses guide subject names only (not arbitrary link text
+  // like "global ocean"), so short real paragraphs are not dropped.
+  const guideNames = new Set<string>()
 
   const rewriteLinks = (block: string) =>
     block.replace(
       MARKDOWN_GUIDE_LINK,
       (_full, rawLabel: string, href: string, _collection: string, slug: string) => {
         const label = cleanPortalGuideLabel(rawLabel, slug)
+        const guideName = titleFromSlug(slug)
         if (seenHrefs.has(href)) {
           return label
         }
         seenHrefs.add(href)
-        linkedLabels.add(label)
-        linkedLabels.add(titleFromSlug(slug))
+        guideNames.add(guideName)
         return `[${label}](${href})`
       },
     )
@@ -132,7 +150,7 @@ export function presentPortalGuideMarkdown(markdown: string): string {
     if (
       kept.length > 0 &&
       seenHrefs.size === hrefsBefore &&
-      isRedundantGuideFooter(rewritten, linkedLabels)
+      isRedundantGuideFooter(rewritten, guideNames)
     ) {
       continue
     }

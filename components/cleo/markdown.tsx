@@ -41,12 +41,12 @@ function MarkdownLink({
 
   return (
     <a
+      {...props}
       className={linkClassName}
       data-streamdown="link"
       href={href}
       rel="noreferrer"
       target="_blank"
-      {...props}
     >
       {children}
     </a>
