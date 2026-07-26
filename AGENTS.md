@@ -85,7 +85,13 @@ vignettes). Multi-context map: `CONTEXT-MAP.md`.
   the site dock via `--cleo-prompt-bottom`.
 
 Conversation state is browser-only and clears on reload. There is no
-authentication, database, media library, AMA booking, or analytics.
+authentication, database, media library, or AMA booking.
+
+Vercel Web Analytics and Speed Insights are mounted in
+`app/_components/site-document.tsx` (`@vercel/analytics/next`,
+`@vercel/speed-insights/next`). Enable both in the Vercel project dashboard
+so the first-party `/_vercel/insights/*` and `/_vercel/speed-insights/*`
+endpoints are served after deploy.
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and
 100,000 total, with a final `user` message. User and assistant messages may
@@ -93,10 +99,11 @@ include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
 
 ## External APIs
 
-**OpenAI is the only third-party API.** Configure `OPENAI_API_KEY`. Site URLs
-use `PUBLIC_SITE_URL` / `SITE_URL`. Do not reintroduce Clerk, Neon, Bunny,
-Stripe, Resend, Google, Tencent, Upstash, or Vercel Analytics without an
-explicit product decision.
+**OpenAI is the only third-party API** for application features. Configure
+`OPENAI_API_KEY`. Site URLs use `PUBLIC_SITE_URL` / `SITE_URL`. Platform
+observability uses Vercel Web Analytics and Speed Insights (no API keys in
+the app). Do not reintroduce Clerk, Neon, Bunny, Stripe, Resend, Google,
+Tencent, or Upstash without an explicit product decision.
 
 ## Development rules
 

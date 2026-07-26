@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 // Experimental React channel export — available because next.config.ts sets
 // experimental.viewTransition (see docs/design-language.md, page transitions)
 import { Suspense } from 'react'
@@ -69,6 +71,8 @@ export async function SiteDocument({
             <Suspense fallback={<DockFallback locale="en" />}>
               <Dock />
             </Suspense>
+            <Analytics />
+            <SpeedInsights />
           </PreviewCardTimingProvider>
         </ThemeProvider>
       </body>

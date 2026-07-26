@@ -16,7 +16,9 @@ English-only general-knowledge portal with:
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
 
 There is **no** Clerk auth, Neon/Postgres, Bunny media, AMA booking, Stripe,
-Resend, Google, Tencent, Upstash, or Vercel Analytics.
+Resend, Google, Tencent, or Upstash. Vercel Web Analytics and Speed Insights
+are enabled via `@vercel/analytics` / `@vercel/speed-insights` in the root
+document (enable both products in the Vercel project dashboard).
 
 ## Architecture
 

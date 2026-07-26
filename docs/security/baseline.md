@@ -4,10 +4,12 @@ The repository is public. Source code, route names, and client-visible
 configuration are not security boundaries. Controls must remain effective when
 an attacker can read the implementation.
 
-Cleo is an English-only knowledge portal. OpenAI is the only third-party API.
-There is no auth, database, media library, AMA booking, or analytics stack.
-Do not reintroduce Clerk, Neon, Bunny, Stripe, Resend, Google, Tencent,
-Upstash, or Vercel Analytics without an explicit product decision.
+Cleo is an English-only knowledge portal. OpenAI is the only third-party API
+for application features. There is no auth, database, media library, or AMA
+booking. Vercel Web Analytics and Speed Insights are the approved platform
+observability stack (same-origin `/_vercel/*` scripts; no app secrets).
+Do not reintroduce Clerk, Neon, Bunny, Stripe, Resend, Google, Tencent, or
+Upstash without an explicit product decision.
 
 ## Deployment and secret isolation
 
