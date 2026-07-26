@@ -9,6 +9,7 @@ import { filterMapPlaces, getMapPlace, type MapPlace } from '~/lib/maps/places'
 import type { MapPlacePreviewCatalog } from '~/lib/maps/previews'
 import {
   mapsCountryFromSearch,
+  mapsHref,
   replaceMapsCountryInUrl,
 } from '~/lib/maps/url-state'
 
@@ -24,6 +25,7 @@ export function MapsExplorer({
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
   const [focusToken, setFocusToken] = useState(0)
   const [activeIndex, setActiveIndex] = useState(0)
+  const [linkCopied, setLinkCopied] = useState(false)
   // State (not a ref) so the URL-sync effect skips until after the first paint
   // that applies ?c= — otherwise a mount sync with null would clear the param.
   const [urlReady, setUrlReady] = useState(false)
@@ -53,7 +55,9 @@ export function MapsExplorer({
 
   function selectPlace(slug: string | null, { fly = true } = {}) {
     setSelectedSlug(slug)
-    if (slug && fly) setFocusToken((token) => token + 1)
+    setLinkCopied(false)
+    // Bump the token on fly-to and on clear so the globe syncs the marker.
+    if ((slug && fly) || !slug) setFocusToken((token) => token + 1)
   }
 
   function focusPlace(place: MapPlace) {
@@ -64,6 +68,18 @@ export function MapsExplorer({
 
   function clearSelection() {
     selectPlace(null, { fly: false })
+  }
+
+  async function copyMapsLink() {
+    if (!selectedSlug) return
+    const url = new URL(mapsHref(selectedSlug), window.location.origin).href
+    try {
+      await navigator.clipboard.writeText(url)
+      setLinkCopied(true)
+      window.setTimeout(() => setLinkCopied(false), 1600)
+    } catch {
+      setLinkCopied(false)
+    }
   }
 
   return (
@@ -190,12 +206,23 @@ export function MapsExplorer({
               {preview?.placeName ? (
                 <p className="maps-place-card-place">{preview.placeName}</p>
               ) : null}
-              <Link
-                href={`/explore/${selected.slug}`}
-                className="maps-place-card-link"
-              >
-                Open Explore guide
-              </Link>
+              <div className="maps-place-card-actions">
+                <Link
+                  href={`/explore/${selected.slug}`}
+                  className="maps-place-card-link"
+                >
+                  Open Explore guide
+                </Link>
+                <button
+                  type="button"
+                  className="maps-place-card-copy"
+                  onClick={() => {
+                    void copyMapsLink()
+                  }}
+                >
+                  {linkCopied ? 'Copied' : 'Copy link'}
+                </button>
+              </div>
             </div>
           </aside>
         ) : null}

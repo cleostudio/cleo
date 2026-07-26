@@ -13,7 +13,8 @@ English-only general-knowledge portal with:
   country field guides, Space field guides, Topics catalog (countries and
   space first; more topics later)
 - Maps: immersive interactive 3D Earth at `/maps` (WebGL, local textures,
-  live day/night terminator, country search/pick → Explore guides)
+  live day/night terminator, country search/pick → Explore guides,
+  shareable `?c=<slug>`, Explore “View on Maps” deep-links)
 - Gallery: filterable photographs from Explore places and Space guides
   (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**

@@ -293,10 +293,12 @@ export function EarthGlobe({
   onSelectRef.current = onSelect
   selectedSlugRef.current = selectedSlug
 
-  // Imperative focus requests from React (search / card).
-  const focusRequestRef = useRef<{ slug: string; token: number } | null>(null)
+  // Imperative focus / clear requests from React (search / card / Close).
+  const focusRequestRef = useRef<{
+    slug: string | null
+    token: number
+  } | null>(null)
   useEffect(() => {
-    if (!selectedSlug) return
     focusRequestRef.current = { slug: selectedSlug, token: focusToken }
   }, [selectedSlug, focusToken])
 
@@ -490,6 +492,18 @@ export function EarthGlobe({
     selectionMarker.visible = false
     root.add(selectionMarker)
 
+    const selectionHaloGeometry = new SphereGeometry(0.03, 16, 12)
+    const selectionHaloMaterial = new MeshBasicMaterial({
+      color: new Color('#8ec8ff'),
+      transparent: true,
+      opacity: 0.28,
+      depthWrite: false,
+      blending: AdditiveBlending,
+    })
+    const selectionHalo = new Mesh(selectionHaloGeometry, selectionHaloMaterial)
+    selectionHalo.visible = false
+    root.add(selectionHalo)
+
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.enablePan = false
     controls.enableDamping = true
@@ -579,11 +593,16 @@ export function EarthGlobe({
       const place = slug ? getMapPlace(slug) : undefined
       if (!place) {
         selectionMarker.visible = false
+        selectionHalo.visible = false
+        if (!reducedMotion && !pointerOver) controls.autoRotate = true
         return
       }
       const [x, y, z] = place.direction
       selectionMarker.position.set(x * 1.02, y * 1.02, z * 1.02)
+      selectionHalo.position.copy(selectionMarker.position)
       selectionMarker.visible = true
+      selectionHalo.visible = true
+      controls.autoRotate = false
     }
 
     const beginFlightTo = (slug: string) => {
@@ -697,7 +716,7 @@ export function EarthGlobe({
       if (request && request.token !== lastFocusToken) {
         lastFocusToken = request.token
         placeSelectionMarker(request.slug)
-        beginFlightTo(request.slug)
+        if (request.slug) beginFlightTo(request.slug)
       }
 
       if (flight) {
@@ -706,6 +725,15 @@ export function EarthGlobe({
         camera.position.set(...position)
         controls.target.set(0, 0, 0)
         if (t >= 1) flight = null
+      }
+
+      if (selectionHalo.visible && !reducedMotion) {
+        const pulse = 1 + Math.sin(now * 0.004) * 0.32
+        selectionHalo.scale.setScalar(pulse)
+        selectionHaloMaterial.opacity = 0.14 + (1.32 - pulse) * 0.45
+      } else if (selectionHalo.visible) {
+        selectionHalo.scale.setScalar(1)
+        selectionHaloMaterial.opacity = 0.28
       }
 
       if (!reducedMotion) {
@@ -776,10 +804,12 @@ export function EarthGlobe({
       starGeometry.dispose()
       markerGeometry.dispose()
       selectionGeometry.dispose()
+      selectionHaloGeometry.dispose()
       starMaterial.dispose()
       skyMaterial.dispose()
       markerMaterial.dispose()
       selectionMaterial.dispose()
+      selectionHaloMaterial.dispose()
       earthMaterial.dispose()
       cloudMaterial.dispose()
       atmosphereInnerMaterial.dispose()
