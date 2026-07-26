@@ -31,7 +31,7 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
         placeholder="Country, planet, moon, or topic"
         aria-label="Search field guides"
         autoComplete="off"
-        className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2.5 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground"
+        className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2.5 text-base text-foreground outline-none"
       />
       {query.trim() ? (
         matches.length > 0 ? (
