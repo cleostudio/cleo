@@ -368,11 +368,16 @@
   margin-left: auto;
 }
 
+.glass-surface.user-message {
+  /* Soft rectangle, not a pill — 999px from .glass-surface becomes a stadium
+     once the bubble wraps to multiple lines. Keep corners near the prompt
+     dock’s short-edge curve without inheriting the capsule. */
+  border-radius: 1.25rem;
+}
+
 .user-message {
   display: block;
   max-width: 100%;
-  /* Match the multi-row prompt dock — 999px pills read as stadiums once text wraps. */
-  border-radius: 1.5rem;
   padding: 0.625rem 1.125rem;
   color: var(--foreground);
   font-size: 0.875rem;
