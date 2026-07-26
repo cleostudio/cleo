@@ -26,9 +26,12 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
 - Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
-- Place images: import-time mozjpeg 640/1024/1600 under `public/images/atlas/`
-  (Wikimedia Commons curation) and `public/images/space/` (NASA); rendered with
-  static `srcset`. No runtime image account, API, or third-party fetch.
+- Place images: import-time mozjpeg 640/1280/2048 under `public/images/atlas/`
+  (Wikimedia Commons curation, relevance-first + assessments; hand-picks via
+  `scripts/atlas/apply-handpicks.mjs` when scoring still misses) and
+  `public/images/space/` (NASA); rendered with static `srcset`. No runtime
+  image account, API, or third-party fetch. Review aid:
+  `tsx scripts/atlas/contact-sheet.mjs --collection=places|space`.
 - Country prose: curated in `scripts/atlas/atlas-about.json` via
   `pnpm write:atlas-about` (one-time, needs `OPENAI_API_KEY`); never generated
   at build or request time

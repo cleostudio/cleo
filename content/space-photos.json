@@ -18,44 +18,44 @@
         "bytes": 41852
       },
       {
-        "width": 1024,
-        "src": "/images/space/sun/w1024.jpg",
+        "width": 1280,
+        "src": "/images/space/sun/w1280.jpg",
         "bytes": 97266
       },
       {
-        "width": 1600,
-        "src": "/images/space/sun/w1600.jpg",
-        "bytes": 97266
+        "width": 2048,
+        "src": "/images/space/sun/w2048.jpg",
+        "bytes": 125493
       }
     ]
   },
   "mercury": {
-    "featureName": "Mercury in color",
-    "alt": "Mercury in color — mercury",
-    "caption": "Mercury in color",
+    "featureName": "Mercury in enhanced colour",
+    "alt": "Mercury in enhanced colour — mercury",
+    "caption": "Mercury in enhanced colour",
     "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
-    "sourceUrl": "https://images.nasa.gov/details/PIA13823",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001545",
     "license": "Public Domain (NASA)",
-    "nasaId": "PIA13823",
-    "provenance": "Curated from NASA image PIA13823; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "38be2a6880e312cd0bc00af16df49a4a31a78ae61a2e4cd3f8b8c315af5cdc5b",
-    "width": 4425,
-    "height": 1600,
+    "nasaId": "GSFC_20171208_Archive_e001545",
+    "provenance": "Curated from NASA image GSFC_20171208_Archive_e001545; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ea804fa2b08f26406edc081ba8421a131f3c92025b11ba800e7fdf6e8fb6aae9",
+    "width": 1920,
+    "height": 1080,
     "renditions": [
       {
         "width": 640,
         "src": "/images/space/mercury/w640.jpg",
-        "bytes": 34835
+        "bytes": 28382
       },
       {
-        "width": 1024,
-        "src": "/images/space/mercury/w1024.jpg",
-        "bytes": 79890
+        "width": 1280,
+        "src": "/images/space/mercury/w1280.jpg",
+        "bytes": 104112
       },
       {
-        "width": 1600,
-        "src": "/images/space/mercury/w1600.jpg",
-        "bytes": 179932
+        "width": 2048,
+        "src": "/images/space/mercury/w2048.jpg",
+        "bytes": 262410
       }
     ]
   },
@@ -78,14 +78,14 @@
         "bytes": 104219
       },
       {
-        "width": 1024,
-        "src": "/images/space/venus/w1024.jpg",
-        "bytes": 261151
+        "width": 1280,
+        "src": "/images/space/venus/w1280.jpg",
+        "bytes": 400307
       },
       {
-        "width": 1600,
-        "src": "/images/space/venus/w1600.jpg",
-        "bytes": 626563
+        "width": 2048,
+        "src": "/images/space/venus/w2048.jpg",
+        "bytes": 1178580
       }
     ]
   },
@@ -108,14 +108,14 @@
         "bytes": 65021
       },
       {
-        "width": 1024,
-        "src": "/images/space/earth/w1024.jpg",
-        "bytes": 155689
+        "width": 1280,
+        "src": "/images/space/earth/w1280.jpg",
+        "bytes": 233504
       },
       {
-        "width": 1600,
-        "src": "/images/space/earth/w1600.jpg",
-        "bytes": 349222
+        "width": 2048,
+        "src": "/images/space/earth/w2048.jpg",
+        "bytes": 533962
       }
     ]
   },
@@ -138,14 +138,14 @@
         "bytes": 37443
       },
       {
-        "width": 1024,
-        "src": "/images/space/moon/w1024.jpg",
-        "bytes": 97324
+        "width": 1280,
+        "src": "/images/space/moon/w1280.jpg",
+        "bytes": 150078
       },
       {
-        "width": 1600,
-        "src": "/images/space/moon/w1600.jpg",
-        "bytes": 228411
+        "width": 2048,
+        "src": "/images/space/moon/w2048.jpg",
+        "bytes": 382739
       }
     ]
   },
@@ -168,14 +168,14 @@
         "bytes": 54068
       },
       {
-        "width": 1024,
-        "src": "/images/space/mars/w1024.jpg",
-        "bytes": 123467
+        "width": 1280,
+        "src": "/images/space/mars/w1280.jpg",
+        "bytes": 181466
       },
       {
-        "width": 1600,
-        "src": "/images/space/mars/w1600.jpg",
-        "bytes": 276174
+        "width": 2048,
+        "src": "/images/space/mars/w2048.jpg",
+        "bytes": 516617
       }
     ]
   },
@@ -198,14 +198,14 @@
         "bytes": 20814
       },
       {
-        "width": 1024,
-        "src": "/images/space/jupiter/w1024.jpg",
-        "bytes": 46374
+        "width": 1280,
+        "src": "/images/space/jupiter/w1280.jpg",
+        "bytes": 69072
       },
       {
-        "width": 1600,
-        "src": "/images/space/jupiter/w1600.jpg",
-        "bytes": 101243
+        "width": 2048,
+        "src": "/images/space/jupiter/w2048.jpg",
+        "bytes": 126049
       }
     ]
   },
@@ -228,14 +228,14 @@
         "bytes": 14706
       },
       {
-        "width": 1024,
-        "src": "/images/space/saturn/w1024.jpg",
-        "bytes": 22893
+        "width": 1280,
+        "src": "/images/space/saturn/w1280.jpg",
+        "bytes": 29275
       },
       {
-        "width": 1600,
-        "src": "/images/space/saturn/w1600.jpg",
-        "bytes": 37806
+        "width": 2048,
+        "src": "/images/space/saturn/w2048.jpg",
+        "bytes": 67152
       }
     ]
   },
@@ -258,14 +258,14 @@
         "bytes": 16192
       },
       {
-        "width": 1024,
-        "src": "/images/space/uranus/w1024.jpg",
-        "bytes": 27238
+        "width": 1280,
+        "src": "/images/space/uranus/w1280.jpg",
+        "bytes": 36427
       },
       {
-        "width": 1600,
-        "src": "/images/space/uranus/w1600.jpg",
-        "bytes": 48597
+        "width": 2048,
+        "src": "/images/space/uranus/w2048.jpg",
+        "bytes": 61716
       }
     ]
   },
@@ -288,14 +288,14 @@
         "bytes": 17121
       },
       {
-        "width": 1024,
-        "src": "/images/space/neptune/w1024.jpg",
-        "bytes": 46479
+        "width": 1280,
+        "src": "/images/space/neptune/w1280.jpg",
+        "bytes": 74005
       },
       {
-        "width": 1600,
-        "src": "/images/space/neptune/w1600.jpg",
-        "bytes": 114252
+        "width": 2048,
+        "src": "/images/space/neptune/w2048.jpg",
+        "bytes": 229875
       }
     ]
   },
@@ -318,44 +318,44 @@
         "bytes": 42243
       },
       {
-        "width": 1024,
-        "src": "/images/space/pluto/w1024.jpg",
-        "bytes": 105515
+        "width": 1280,
+        "src": "/images/space/pluto/w1280.jpg",
+        "bytes": 161650
       },
       {
-        "width": 1600,
-        "src": "/images/space/pluto/w1600.jpg",
-        "bytes": 246507
+        "width": 2048,
+        "src": "/images/space/pluto/w2048.jpg",
+        "bytes": 485161
       }
     ]
   },
   "asteroid-belt": {
-    "featureName": "Ceres from Dawn",
-    "alt": "Ceres from Dawn — asteroid belt",
-    "caption": "Ceres from Dawn",
+    "featureName": "Vesta from Dawn",
+    "alt": "Vesta from Dawn — asteroid belt",
+    "caption": "Vesta from Dawn",
     "photographer": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
-    "sourceUrl": "https://images.nasa.gov/details/PIA20348",
+    "sourceUrl": "https://images.nasa.gov/details/PIA14894",
     "license": "Public Domain (NASA)",
-    "nasaId": "PIA20348",
-    "provenance": "Curated from NASA image PIA20348; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "55a8119fdec2b5d8e8c1195298f049eca410ea8c9a2db600ae84dd2830fcfc83",
-    "width": 2969,
-    "height": 3282,
+    "nasaId": "PIA14894",
+    "provenance": "Curated from NASA image PIA14894; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0e5c918d36a3760a789ead3426130dca3d4e12d28454cd79fc1314002bd87efe",
+    "width": 1237,
+    "height": 1212,
     "renditions": [
       {
         "width": 640,
         "src": "/images/space/asteroid-belt/w640.jpg",
-        "bytes": 67432
+        "bytes": 53301
       },
       {
-        "width": 1024,
-        "src": "/images/space/asteroid-belt/w1024.jpg",
-        "bytes": 154293
+        "width": 1280,
+        "src": "/images/space/asteroid-belt/w1280.jpg",
+        "bytes": 134903
       },
       {
-        "width": 1600,
-        "src": "/images/space/asteroid-belt/w1600.jpg",
-        "bytes": 335674
+        "width": 2048,
+        "src": "/images/space/asteroid-belt/w2048.jpg",
+        "bytes": 145142
       }
     ]
   },
@@ -378,44 +378,44 @@
         "bytes": 50908
       },
       {
-        "width": 1024,
-        "src": "/images/space/milky-way/w1024.jpg",
-        "bytes": 125078
+        "width": 1280,
+        "src": "/images/space/milky-way/w1280.jpg",
+        "bytes": 190900
       },
       {
-        "width": 1600,
-        "src": "/images/space/milky-way/w1600.jpg",
-        "bytes": 301399
+        "width": 2048,
+        "src": "/images/space/milky-way/w2048.jpg",
+        "bytes": 573780
       }
     ]
   },
   "andromeda": {
-    "featureName": "Andromeda panorama",
-    "alt": "Andromeda panorama — andromeda",
-    "caption": "Andromeda panorama",
-    "photographer": "NASA/ESA/J. Dalcanton (University of Washington)/R. Foley (UC Santa Cruz)/A. Rest (STScI)",
-    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000839",
+    "featureName": "The Andromeda Galaxy",
+    "alt": "The Andromeda Galaxy — andromeda",
+    "caption": "The Andromeda Galaxy",
+    "photographer": "NASA/JPL-Caltech",
+    "sourceUrl": "https://images.nasa.gov/details/PIA15416",
     "license": "Public Domain (NASA)",
-    "nasaId": "GSFC_20171208_Archive_e000839",
-    "provenance": "Curated from NASA image GSFC_20171208_Archive_e000839; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "1662867fd9eb42fe4e836550b4b3caef26f585e9a6a3ece24f5ee0b57bdcbe1b",
-    "width": 1165,
-    "height": 361,
+    "nasaId": "PIA15416",
+    "provenance": "Curated from NASA image PIA15416; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "88ed2cf29704895a32427c02be2daea6204f113e30f11aac4ff789c0de29a87d",
+    "width": 9400,
+    "height": 7000,
     "renditions": [
       {
         "width": 640,
         "src": "/images/space/andromeda/w640.jpg",
-        "bytes": 42852
+        "bytes": 57698
       },
       {
-        "width": 1024,
-        "src": "/images/space/andromeda/w1024.jpg",
-        "bytes": 79031
+        "width": 1280,
+        "src": "/images/space/andromeda/w1280.jpg",
+        "bytes": 224801
       },
       {
-        "width": 1600,
-        "src": "/images/space/andromeda/w1600.jpg",
-        "bytes": 99147
+        "width": 2048,
+        "src": "/images/space/andromeda/w2048.jpg",
+        "bytes": 647081
       }
     ]
   },
@@ -438,14 +438,14 @@
         "bytes": 74719
       },
       {
-        "width": 1024,
-        "src": "/images/space/io/w1024.jpg",
-        "bytes": 157796
+        "width": 1280,
+        "src": "/images/space/io/w1280.jpg",
+        "bytes": 225650
       },
       {
-        "width": 1600,
-        "src": "/images/space/io/w1600.jpg",
-        "bytes": 318615
+        "width": 2048,
+        "src": "/images/space/io/w2048.jpg",
+        "bytes": 427037
       }
     ]
   },
@@ -468,14 +468,14 @@
         "bytes": 39511
       },
       {
-        "width": 1024,
-        "src": "/images/space/europa/w1024.jpg",
-        "bytes": 87971
+        "width": 1280,
+        "src": "/images/space/europa/w1280.jpg",
+        "bytes": 129892
       },
       {
-        "width": 1600,
-        "src": "/images/space/europa/w1600.jpg",
-        "bytes": 190347
+        "width": 2048,
+        "src": "/images/space/europa/w2048.jpg",
+        "bytes": 332585
       }
     ]
   },
@@ -498,14 +498,14 @@
         "bytes": 36976
       },
       {
-        "width": 1024,
-        "src": "/images/space/ganymede/w1024.jpg",
+        "width": 1280,
+        "src": "/images/space/ganymede/w1280.jpg",
         "bytes": 49185
       },
       {
-        "width": 1600,
-        "src": "/images/space/ganymede/w1600.jpg",
-        "bytes": 49185
+        "width": 2048,
+        "src": "/images/space/ganymede/w2048.jpg",
+        "bytes": 52893
       }
     ]
   },
@@ -528,14 +528,14 @@
         "bytes": 11694
       },
       {
-        "width": 1024,
-        "src": "/images/space/titan/w1024.jpg",
+        "width": 1280,
+        "src": "/images/space/titan/w1280.jpg",
         "bytes": 15266
       },
       {
-        "width": 1600,
-        "src": "/images/space/titan/w1600.jpg",
-        "bytes": 15266
+        "width": 2048,
+        "src": "/images/space/titan/w2048.jpg",
+        "bytes": 15961
       }
     ]
   },
@@ -558,14 +558,14 @@
         "bytes": 43010
       },
       {
-        "width": 1024,
-        "src": "/images/space/enceladus/w1024.jpg",
+        "width": 1280,
+        "src": "/images/space/enceladus/w1280.jpg",
         "bytes": 91817
       },
       {
-        "width": 1600,
-        "src": "/images/space/enceladus/w1600.jpg",
-        "bytes": 91817
+        "width": 2048,
+        "src": "/images/space/enceladus/w2048.jpg",
+        "bytes": 99743
       }
     ]
   },
@@ -588,14 +588,14 @@
         "bytes": 33049
       },
       {
-        "width": 1024,
-        "src": "/images/space/iss/w1024.jpg",
-        "bytes": 67438
+        "width": 1280,
+        "src": "/images/space/iss/w1280.jpg",
+        "bytes": 96587
       },
       {
-        "width": 1600,
-        "src": "/images/space/iss/w1600.jpg",
-        "bytes": 138935
+        "width": 2048,
+        "src": "/images/space/iss/w2048.jpg",
+        "bytes": 247758
       }
     ]
   },
@@ -618,14 +618,14 @@
         "bytes": 53356
       },
       {
-        "width": 1024,
-        "src": "/images/space/orion-nebula/w1024.jpg",
-        "bytes": 105583
+        "width": 1280,
+        "src": "/images/space/orion-nebula/w1280.jpg",
+        "bytes": 145922
       },
       {
-        "width": 1600,
-        "src": "/images/space/orion-nebula/w1600.jpg",
-        "bytes": 200398
+        "width": 2048,
+        "src": "/images/space/orion-nebula/w2048.jpg",
+        "bytes": 348765
       }
     ]
   },
@@ -648,14 +648,14 @@
         "bytes": 78894
       },
       {
-        "width": 1024,
-        "src": "/images/space/crab-nebula/w1024.jpg",
-        "bytes": 174977
+        "width": 1280,
+        "src": "/images/space/crab-nebula/w1280.jpg",
+        "bytes": 256934
       },
       {
-        "width": 1600,
-        "src": "/images/space/crab-nebula/w1600.jpg",
-        "bytes": 385393
+        "width": 2048,
+        "src": "/images/space/crab-nebula/w2048.jpg",
+        "bytes": 714517
       }
     ]
   },
@@ -678,14 +678,14 @@
         "bytes": 96935
       },
       {
-        "width": 1024,
-        "src": "/images/space/carina-nebula/w1024.jpg",
-        "bytes": 144172
+        "width": 1280,
+        "src": "/images/space/carina-nebula/w1280.jpg",
+        "bytes": 183738
       },
       {
-        "width": 1600,
-        "src": "/images/space/carina-nebula/w1600.jpg",
-        "bytes": 245015
+        "width": 2048,
+        "src": "/images/space/carina-nebula/w2048.jpg",
+        "bytes": 421667
       }
     ]
   }

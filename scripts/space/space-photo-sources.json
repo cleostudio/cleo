@@ -8,10 +8,10 @@
     "license": "Public Domain (NASA)"
   },
   "mercury": {
-    "featureName": "Mercury in color",
-    "nasaId": "PIA13823",
-    "downloadUrl": "https://images-assets.nasa.gov/image/PIA13823/PIA13823~orig.jpg",
-    "sourceUrl": "https://images.nasa.gov/details/PIA13823",
+    "featureName": "Mercury in enhanced colour",
+    "nasaId": "GSFC_20171208_Archive_e001545",
+    "downloadUrl": "http://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001545/GSFC_20171208_Archive_e001545~orig.png",
+    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001545",
     "credit": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
     "license": "Public Domain (NASA)"
   },
@@ -52,7 +52,7 @@
     "nasaId": "PIA21775",
     "downloadUrl": "https://images-assets.nasa.gov/image/PIA21775/PIA21775~orig.jpg",
     "sourceUrl": "https://images.nasa.gov/details/PIA21775",
-    "credit": "NASA/JPL-Caltech/SwRI/MSSS/Gerald Eichstädt/Seán Doran",
+    "credit": "NASA/JPL-Caltech/SwRI/MSSS/Gerald Eichst\u00e4dt/Se\u00e1n Doran",
     "license": "Public Domain (NASA)"
   },
   "saturn": {
@@ -88,10 +88,10 @@
     "license": "Public Domain (NASA)"
   },
   "asteroid-belt": {
-    "featureName": "Ceres from Dawn",
-    "nasaId": "PIA20348",
-    "downloadUrl": "https://images-assets.nasa.gov/image/PIA20348/PIA20348~orig.jpg",
-    "sourceUrl": "https://images.nasa.gov/details/PIA20348",
+    "featureName": "Vesta from Dawn",
+    "nasaId": "PIA14894",
+    "downloadUrl": "http://images-assets.nasa.gov/image/PIA14894/PIA14894~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA14894",
     "credit": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
     "license": "Public Domain (NASA)"
   },
@@ -104,11 +104,11 @@
     "license": "Public Domain (NASA)"
   },
   "andromeda": {
-    "featureName": "Andromeda panorama",
-    "nasaId": "GSFC_20171208_Archive_e000839",
-    "downloadUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000839/GSFC_20171208_Archive_e000839~orig.jpg",
-    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000839",
-    "credit": "NASA/ESA/J. Dalcanton (University of Washington)/R. Foley (UC Santa Cruz)/A. Rest (STScI)",
+    "featureName": "The Andromeda Galaxy",
+    "nasaId": "PIA15416",
+    "downloadUrl": "http://images-assets.nasa.gov/image/PIA15416/PIA15416~orig.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/PIA15416",
+    "credit": "NASA/JPL-Caltech",
     "license": "Public Domain (NASA)"
   },
   "io": {

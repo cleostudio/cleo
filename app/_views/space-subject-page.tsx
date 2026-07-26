@@ -70,7 +70,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
       >
         <ZoomImage
           src={
-            (subject.photo.renditions.find((r) => r.width === 1024) ??
+            (subject.photo.renditions.find((r) => r.width === 1280) ??
               subject.photo.renditions[0])!.src
           }
           alt={subject.photo.alt}

@@ -30,7 +30,7 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
   const entry = getAtlasEntry(slug)
   if (!entry) notFound()
 
-  const hero = entry.photo.renditions.find((r) => r.width === 1024) ?? entry.photo.renditions[0]!
+  const hero = entry.photo.renditions.find((r) => r.width === 1280) ?? entry.photo.renditions[0]!
   const renditions = entry.photo.renditions.map((r) => ({ src: r.src, width: r.width }))
 
   return (

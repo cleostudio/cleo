@@ -4,7 +4,7 @@
  *
  * Import-time only (no account/API key required at runtime):
  * 1. Download each curated JPEG once
- * 2. Strip metadata, write mozjpeg 640 / 1024 / 1600px files under
+ * 2. Strip metadata, write mozjpeg 640 / 1280 / 2048px files under
  *    public/images/space/{slug}/
  * 3. Write credits + checksum + rendition metadata into content/space-photos.json
  *
@@ -25,7 +25,7 @@ import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
-const WIDTHS = [640, 1024, 1600]
+const WIDTHS = [640, 1280, 2048]
 const ORIGINALS = join(root, '.space-originals')
 const PUBLIC_SPACE = join(root, 'public/images/space')
 const sourcesPath = join(root, 'scripts/space/space-photo-sources.json')
@@ -78,7 +78,12 @@ async function buildRenditions(slug, originalBuffer) {
         withoutEnlargement: true,
         fit: 'inside',
       })
-      .jpeg({ quality: 82, mozjpeg: true, chromaSubsampling: '4:2:0' })
+      // The rendition that carries zoomed detail gets the higher quality.
+      .jpeg({
+        chromaSubsampling: '4:2:0',
+        mozjpeg: true,
+        quality: targetWidth >= 2048 ? 86 : 82,
+      })
       .withMetadata({ orientation: undefined })
       .toBuffer()
     writeFileSync(outPath, out)

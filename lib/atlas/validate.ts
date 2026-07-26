@@ -1,7 +1,7 @@
 import { countries } from '~/lib/countries'
 import type { AtlasEntry, AtlasManifest, AtlasRenditionWidth } from './types'
 
-const RENDITION_WIDTHS: AtlasRenditionWidth[] = [640, 1024, 1600]
+const RENDITION_WIDTHS: AtlasRenditionWidth[] = [640, 1280, 2048]
 const MIN_ABOUT_WORDS = 250
 const MAX_ABOUT_WORDS = 350
 
@@ -125,7 +125,7 @@ function validateEntry(entry: AtlasEntry, slug: string) {
     throw new AtlasValidationError(`${ctx}: photo dimensions invalid`)
   }
   if (photo.renditions.length !== 3) {
-    throw new AtlasValidationError(`${ctx}: photo needs 640/1024/1600 renditions`)
+    throw new AtlasValidationError(`${ctx}: photo needs 640/1280/2048 renditions`)
   }
   const widths = new Set(photo.renditions.map((r) => r.width))
   for (const width of RENDITION_WIDTHS) {
