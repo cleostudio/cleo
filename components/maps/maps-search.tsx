@@ -1,24 +1,30 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useId, useMemo, useState } from 'react'
 
 import type { MapsMarker } from '~/lib/maps/markers'
-import { filterMapsMarkersByQuery } from '~/lib/maps/search'
+import {
+  filterMapsMarkersByQuery,
+  type MapsSearchDoc,
+} from '~/lib/maps/search'
 
 export function MapsSearch({
-  markers,
+  docs,
   onPick,
 }: {
-  markers: MapsMarker[]
+  docs: MapsSearchDoc[]
   onPick: (marker: MapsMarker) => void
 }) {
+  const listId = useId()
+  const inputId = useId()
   const [query, setQuery] = useState('')
   const [activeIndex, setActiveIndex] = useState(0)
 
   const matches = useMemo(
-    () => filterMapsMarkersByQuery(markers, query, 7),
-    [markers, query],
+    () => filterMapsMarkersByQuery(docs, query, 7),
+    [docs, query],
   )
+  const expanded = query.trim().length > 0 && matches.length > 0
 
   useEffect(() => {
     setActiveIndex(0)
@@ -32,15 +38,23 @@ export function MapsSearch({
 
   return (
     <div className="maps-search">
-      <label className="maps-search-label" htmlFor="maps-country-search">
+      <label className="maps-search-label" htmlFor={inputId}>
         Find a country
       </label>
       <input
-        id="maps-country-search"
+        id={inputId}
         type="search"
+        role="combobox"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         onKeyDown={(event) => {
+          if (event.key === 'Escape') {
+            if (query) {
+              event.preventDefault()
+              setQuery('')
+            }
+            return
+          }
           if (!matches.length) return
           if (event.key === 'ArrowDown') {
             event.preventDefault()
@@ -50,45 +64,47 @@ export function MapsSearch({
             setActiveIndex((index) => Math.max(index - 1, 0))
           } else if (event.key === 'Enter') {
             event.preventDefault()
-            const marker = matches[activeIndex]
-            if (marker) pick(marker)
-          } else if (event.key === 'Escape') {
-            setQuery('')
+            const hit = matches[activeIndex]
+            if (hit) pick(hit.marker)
           }
         }}
-        placeholder="Name, code, or region"
+        placeholder="Name, capital, place, or code"
         autoComplete="off"
         className="maps-search-input"
         aria-autocomplete="list"
-        aria-controls="maps-country-results"
+        aria-expanded={expanded}
+        aria-controls={listId}
+        aria-haspopup="listbox"
         aria-activedescendant={
-          matches[activeIndex] ? `maps-option-${matches[activeIndex].slug}` : undefined
+          expanded && matches[activeIndex]
+            ? `${listId}-${matches[activeIndex].marker.slug}`
+            : undefined
         }
       />
       {query.trim() ? (
         matches.length > 0 ? (
           <ul
-            id="maps-country-results"
+            id={listId}
             className="maps-search-list"
             role="listbox"
             aria-label="Country matches"
           >
-            {matches.map((marker, index) => (
-              <li key={marker.slug}>
+            {matches.map((hit, index) => (
+              <li key={hit.marker.slug}>
                 <button
                   type="button"
-                  id={`maps-option-${marker.slug}`}
+                  id={`${listId}-${hit.marker.slug}`}
                   role="option"
                   aria-selected={index === activeIndex}
                   className="maps-search-option"
                   data-active={index === activeIndex ? 'true' : undefined}
                   onMouseEnter={() => setActiveIndex(index)}
-                  onClick={() => pick(marker)}
+                  onClick={() => pick(hit.marker)}
                 >
-                  <span className="maps-search-option-name">{marker.name}</span>
-                  <span className="maps-search-option-meta">
-                    {marker.code} · {marker.region}
+                  <span className="maps-search-option-name">
+                    {hit.marker.name}
                   </span>
+                  <span className="maps-search-option-meta">{hit.matchLabel}</span>
                 </button>
               </li>
             ))}

@@ -16,8 +16,13 @@ import { EarthGlobeLazy } from '~/components/maps/earth-globe-lazy'
 import { MapsSearch } from '~/components/maps/maps-search'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 import {
+  formatDistanceKm,
+  nearestMapsMarker,
+} from '~/lib/maps/geo'
+import {
   formatLatLon,
   mapsMarkers,
+  type MapsCoords,
   type MapsMarker,
 } from '~/lib/maps/markers'
 import { mapsRegionNeighbors } from '~/lib/maps/neighbors'
@@ -26,6 +31,7 @@ import {
   filterMapsMarkersByRegion,
   mapsRegions,
 } from '~/lib/maps/regions'
+import { mapsSearchDocs } from '~/lib/maps/search'
 import { formatUtcHourLabel, mapsSunAt } from '~/lib/maps/sun-clock'
 import { resolveMapsUrlState } from '~/lib/maps/url-state'
 
@@ -50,7 +56,10 @@ function MapsExplorerInner({
   const [selected, setSelected] = useState<MapsMarker | null>(null)
   const [regionFilter, setRegionFilter] = useState<string | null>(null)
   const [showGraticule, setShowGraticule] = useState(false)
-  const [pickedCoords, setPickedCoords] = useState<string | null>(null)
+  const [pickedSample, setPickedSample] = useState<{
+    coords: MapsCoords
+    label: string
+  } | null>(null)
   const [sunMode, setSunMode] = useState<'live' | 'scrub'>('live')
   const [sunHour, setSunHour] = useState(() => new Date().getUTCHours())
   const [liveNow, setLiveNow] = useState(() => new Date())
@@ -106,7 +115,7 @@ function MapsExplorerInner({
   const selectMarker = (marker: MapsMarker) => {
     setFocusSlug(marker.slug)
     setSelected(marker)
-    setPickedCoords(null)
+    setPickedSample(null)
     setCopyStatus('idle')
     syncUrl(marker.slug, regionFilter)
   }
@@ -114,7 +123,7 @@ function MapsExplorerInner({
   const dismissSelection = () => {
     setFocusSlug(null)
     setSelected(null)
-    setPickedCoords(null)
+    setPickedSample(null)
     setCopyStatus('idle')
     syncUrl(null, regionFilter)
   }
@@ -133,7 +142,7 @@ function MapsExplorerInner({
       }
       setFocusSlug(null)
       setSelected(null)
-      setPickedCoords(null)
+      setPickedSample(null)
       setCopyStatus('idle')
       const params = new URLSearchParams(searchParams.toString())
       if (!params.has('c')) return
@@ -193,6 +202,13 @@ function MapsExplorerInner({
     () => filterMapsMarkersByRegion(markers, regionFilter),
     [markers, regionFilter],
   )
+  const searchDocs = useMemo(
+    () => mapsSearchDocs(searchableMarkers, dossiers),
+    [searchableMarkers, dossiers],
+  )
+  const nearestSample = pickedSample
+    ? nearestMapsMarker(pickedSample.coords, searchableMarkers)
+    : null
   const neighbors = selected
     ? mapsRegionNeighbors(selected, searchableMarkers, 4)
     : []
@@ -213,13 +229,14 @@ function MapsExplorerInner({
           className="maps-hint enter"
           style={{ '--enter-delay': '120ms' } as React.CSSProperties}
         >
-          Drag to orbit · Scroll to zoom · Click land or sea for coordinates
+          Drag to orbit · Scroll to zoom · Click land or sea to sample, then open
+          the nearest country
         </p>
         <div
           className="enter"
           style={{ '--enter-delay': '160ms' } as React.CSSProperties}
         >
-          <MapsSearch markers={searchableMarkers} onPick={selectMarker} />
+          <MapsSearch docs={searchDocs} onPick={selectMarker} />
         </div>
         <div
           className="maps-region-filters enter"
@@ -274,10 +291,17 @@ function MapsExplorerInner({
           >
             Reset view
           </button>
-          {pickedCoords ? (
-            <span className="maps-toolbar-meta" aria-live="polite">
-              Sample · {pickedCoords}
-            </span>
+          {nearestSample ? (
+            <button
+              type="button"
+              className="maps-toolbar-button maps-toolbar-nearest"
+              onClick={() => selectMarker(nearestSample.marker)}
+            >
+              Nearest · {nearestSample.marker.name}
+              <span className="maps-toolbar-nearest-meta">
+                {formatDistanceKm(nearestSample.distanceKm)}
+              </span>
+            </button>
           ) : null}
         </div>
         <div
@@ -316,14 +340,21 @@ function MapsExplorerInner({
         resetSignal={resetSignal}
         onPickCoords={(coords) => {
           if (!coords) {
-            setPickedCoords(null)
+            setPickedSample(null)
             return
           }
-          setPickedCoords(formatLatLon(coords.lat, coords.lon))
+          setPickedSample({
+            coords,
+            label: formatLatLon(coords.lat, coords.lon),
+          })
         }}
         onSelect={(marker) => {
           if (!marker) {
-            dismissSelection()
+            // Land/sea sample clears the country chip but keeps the coordinate HUD.
+            setFocusSlug(null)
+            setSelected(null)
+            setCopyStatus('idle')
+            syncUrl(null, regionFilter)
             return
           }
           selectMarker(marker)

@@ -66,6 +66,17 @@ html[data-maps-route] .paper-grain {
   max-width: 22rem;
 }
 
+@media (max-height: 740px) {
+  .maps-lead,
+  .maps-hint {
+    display: none;
+  }
+
+  .maps-header .maps-search {
+    margin-top: 0.55rem;
+  }
+}
+
 .maps-header .maps-search {
   pointer-events: auto;
   margin-top: 0.9rem;
@@ -205,6 +216,19 @@ html[data-maps-route] .paper-grain {
 
 .maps-toolbar-meta {
   font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  color: color-mix(in oklab, var(--maps-hud) 55%, transparent);
+}
+
+.maps-toolbar-nearest {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-color: color-mix(in oklab, var(--maps-hud) 32%, transparent);
+  color: var(--maps-hud);
+}
+
+.maps-toolbar-nearest-meta {
   font-variant-numeric: tabular-nums;
   color: color-mix(in oklab, var(--maps-hud) 55%, transparent);
 }
@@ -567,7 +591,7 @@ html[data-maps-route] .paper-grain {
 }
 
 .maps-selection-link:hover {
-  background: #ffffff;
+  background: color-mix(in oklab, var(--maps-hud) 92%, white);
   transform: translateY(-1px);
 }
 

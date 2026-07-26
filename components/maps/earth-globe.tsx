@@ -31,7 +31,13 @@ import {
 } from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
-import { framingPosition, stepCameraToward } from '~/lib/maps/camera'
+import {
+  framingPosition,
+  MAPS_COUNTRY_FLY_DISTANCE,
+  MAPS_REGION_FLY_DISTANCE,
+  stepCameraToward,
+} from '~/lib/maps/camera'
+import { regionMarkerCentroid } from '~/lib/maps/geo'
 import { createGraticuleGeometry } from '~/lib/maps/graticule'
 import {
   formatLatLon,
@@ -48,7 +54,6 @@ const EARTH_RADIUS = 1
 const CLOUD_RADIUS = 1.012
 const ATMOSPHERE_RADIUS = 1.048
 const MARKER_RADIUS = 1.02
-const FLY_DISTANCE = 1.95
 const FLY_MS = 900
 /** Obliquity of the ecliptic — Earth's axial tilt toward the ecliptic pole. */
 const AXIAL_TILT_RAD = (23.44 * Math.PI) / 180
@@ -79,6 +84,7 @@ type HoverState = {
 
 type GlobeApi = {
   flyTo: (marker: MapsMarker) => void
+  frameRegion: (region: string) => void
   setHighlight: (marker: MapsMarker | null) => void
   setGraticuleVisible: (visible: boolean) => void
   setVisibleRegion: (region: string | null) => void
@@ -331,13 +337,18 @@ export function EarthGlobe({
       highlight.visible = true
     }
 
-    const flyTo = (marker: MapsMarker) => {
+    const flyToLatLon = (
+      lat: number,
+      lon: number,
+      distance: number,
+      highlightMarker: MapsMarker | null,
+    ) => {
       if (!camera || !controls || !root) return
-      setHighlight(marker)
+      setHighlight(highlightMarker)
       root.updateMatrixWorld(true)
-      const local = new Vector3(...latLonToVector3(marker.lat, marker.lon, 1))
+      const local = new Vector3(...latLonToVector3(lat, lon, 1))
       const world = local.applyMatrix4(root.matrixWorld)
-      const [tx, ty, tz] = framingPosition(world, FLY_DISTANCE)
+      const [tx, ty, tz] = framingPosition(world, distance)
       const to = new Vector3(tx, ty, tz)
       if (prefersReducedMotion()) {
         camera.position.copy(to)
@@ -351,6 +362,26 @@ export function EarthGlobe({
         started: performance.now(),
       }
       pauseAutoRotate(FLY_MS + 5000)
+    }
+
+    const flyTo = (marker: MapsMarker) => {
+      flyToLatLon(
+        marker.lat,
+        marker.lon,
+        MAPS_COUNTRY_FLY_DISTANCE,
+        marker,
+      )
+    }
+
+    const frameRegion = (region: string) => {
+      const centroid = regionMarkerCentroid(markers, region)
+      if (!centroid) return
+      flyToLatLon(
+        centroid.lat,
+        centroid.lon,
+        MAPS_REGION_FLY_DISTANCE,
+        null,
+      )
     }
 
     const setGraticuleVisible = (visible: boolean) => {
@@ -375,6 +406,7 @@ export function EarthGlobe({
 
     apiRef.current = {
       flyTo,
+      frameRegion,
       setHighlight,
       setGraticuleVisible,
       setVisibleRegion,
@@ -669,7 +701,11 @@ export function EarthGlobe({
   useEffect(() => {
     if (!ready) return
     apiRef.current?.setVisibleRegion(regionFilter)
-  }, [regionFilter, ready])
+    // Reframe toward the filtered region unless a country fly-to owns the camera.
+    if (regionFilter && !focusSlug) {
+      apiRef.current?.frameRegion(regionFilter)
+    }
+  }, [regionFilter, ready, focusSlug])
 
   useEffect(() => {
     if (!ready || resetSignal < 1) return

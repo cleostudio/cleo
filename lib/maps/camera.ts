@@ -1,5 +1,10 @@
 import type { PerspectiveCamera, Vector3 } from 'three'
 
+/** Default fly-to distance for a selected country. */
+export const MAPS_COUNTRY_FLY_DISTANCE = 1.95
+/** Slightly farther framing so a whole region reads at once. */
+export const MAPS_REGION_FLY_DISTANCE = 2.55
+
 /** Ease-out cubic — physical deceleration for camera flights. */
 export function easeOutCubic(t: number): number {
   const x = Math.min(1, Math.max(0, t))

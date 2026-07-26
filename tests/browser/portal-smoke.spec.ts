@@ -53,7 +53,7 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       timeout: 20_000,
     })
     await expect(
-      page.getByText(/Drag to orbit · Scroll to zoom/i),
+      page.getByText(/Drag to orbit · Scroll to zoom · Click land or sea/i),
     ).toBeVisible()
     await expect(page.getByLabel('Find a country')).toBeVisible()
     await expect(page.getByRole('button', { name: 'Show graticule' })).toBeVisible()
@@ -67,7 +67,11 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await page.getByRole('button', { name: 'Asia', exact: true }).click()
     await expect(page).toHaveURL(/[?&]r=Asia\b/)
 
-    await page.getByLabel('Find a country').fill('Japan')
+    await page.getByLabel('Find a country').fill('Tokyo')
+    await expect(
+      page.getByRole('option', { name: /Japan/i }),
+    ).toBeVisible()
+    await expect(page.getByText(/Capital · Tokyo/i)).toBeVisible()
     await page.getByRole('option', { name: /Japan/i }).click()
     await expect(page).toHaveURL(/[?&]c=japan\b/)
     await expect(
