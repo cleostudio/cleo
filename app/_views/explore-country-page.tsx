@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { GuideOrientation } from '~/components/guide-orientation'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
 import { countrySlugs, getCountry } from '~/lib/countries'
@@ -106,9 +107,7 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         <h2 id="guide-about" className="guide-label">
           Orientation
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-foreground/90 text-pretty">
-          {entry.about}
-        </p>
+        <GuideOrientation about={entry.about} />
       </section>
 
       <section

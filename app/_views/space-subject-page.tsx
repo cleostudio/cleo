@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { GuideOrientation } from '~/components/guide-orientation'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
 import {
@@ -114,9 +115,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         <h2 id="space-about" className="guide-label">
           Orientation
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-foreground/90 text-pretty">
-          {subject.about}
-        </p>
+        <GuideOrientation about={subject.about} />
       </section>
 
       <section

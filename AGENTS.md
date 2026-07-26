@@ -10,7 +10,14 @@ layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
 vinyl/bookshelf, and social card components remain in the repo for later reuse.
 
 Country guide records live in `content/atlas.json` (one entry per Explore slug).
-Generate evergreen copy with `pnpm generate:atlas-content`, curate accurate
+Orientation prose is curated, not generated at build time. It lives in
+`scripts/atlas/atlas-about.json` and is written once by hand with
+`pnpm write:atlas-about` (needs `OPENAI_API_KEY`; every draft is checked for
+length, recycled phrasing, and volatile claims before it is kept). The site
+never calls a model to render a page. `lib/atlas/prose.test.ts` holds the
+corpus to that bar — no sentence may appear in two countries.
+
+Assemble the manifest with `pnpm generate:atlas-content`, curate accurate
 Wikimedia Commons place photos with `pnpm curate:atlas-photos`, then import
 optimized local JPEG renditions with `pnpm import:atlas-photos`. Validate with
 `pnpm validate:atlas`. Originals stay in `.atlas-originals/` (gitignored);

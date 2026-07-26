@@ -28,6 +28,7 @@
     "verify:links": "node scripts/verify-public-links.mjs",
     "verify:public-discovery": "node scripts/verify-public-discovery.mjs",
     "generate:atlas-content": "tsx scripts/atlas/generate-atlas-content.mjs",
+    "write:atlas-about": "tsx scripts/atlas/write-atlas-about.mjs",
     "curate:atlas-photos": "node scripts/atlas/curate-commons-photos.mjs",
     "import:atlas-photos": "node scripts/atlas/import-atlas-photos.mjs",
     "validate:atlas": "tsx scripts/atlas/preflight.mjs",

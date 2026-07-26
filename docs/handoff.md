@@ -29,6 +29,9 @@ Resend, Google, Tencent, Upstash, or Vercel Analytics.
 - Place images: import-time mozjpeg 640/1024/1600 under `public/images/atlas/`
   (Wikimedia Commons curation) and `public/images/space/` (NASA); rendered with
   static `srcset`. No runtime image account, API, or third-party fetch.
+- Country prose: curated in `scripts/atlas/atlas-about.json` via
+  `pnpm write:atlas-about` (one-time, needs `OPENAI_API_KEY`); never generated
+  at build or request time
 - Media workflow: `pnpm generate:atlas-content` → `pnpm curate:atlas-photos` →
   `pnpm import:atlas-photos` → `pnpm validate:atlas`; Space via
   `pnpm import:space-photos` → `pnpm validate:space`
