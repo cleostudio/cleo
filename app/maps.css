@@ -152,7 +152,7 @@ html[data-maps-route] .paper-grain {
 
 .maps-search-option:focus-visible {
   background: color-mix(in oklab, var(--maps-hud) 10%, transparent);
-  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--maps-hud) 55%, transparent);
+  box-shadow: inset 0 0 0 1px var(--maps-hud);
 }
 
 .maps-region-filters {
@@ -189,7 +189,8 @@ html[data-maps-route] .paper-grain {
 }
 
 .maps-region-chip:focus-visible {
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--maps-hud) 70%, transparent);
+  outline: 1px solid var(--maps-hud);
+  outline-offset: 2px;
   color: var(--maps-hud);
 }
 
@@ -227,7 +228,8 @@ html[data-maps-route] .paper-grain {
 }
 
 .maps-toolbar-button:focus-visible {
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--maps-hud) 70%, transparent);
+  outline: 1px solid var(--maps-hud);
+  outline-offset: 2px;
   color: var(--maps-hud);
 }
 
@@ -584,7 +586,8 @@ html[data-maps-route] .paper-grain {
 }
 
 .maps-selection-neighbor:focus-visible {
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--maps-hud) 70%, transparent);
+  outline: 1px solid var(--maps-hud);
+  outline-offset: 2px;
   color: var(--maps-hud);
 }
 
@@ -614,7 +617,8 @@ html[data-maps-route] .paper-grain {
 }
 
 .maps-selection-link:focus-visible {
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--maps-hud) 85%, transparent);
+  outline: 1px solid var(--maps-hud);
+  outline-offset: 2px;
 }
 
 .maps-selection-dismiss {
@@ -634,7 +638,8 @@ html[data-maps-route] .paper-grain {
 }
 
 .maps-selection-dismiss:focus-visible {
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--maps-hud) 70%, transparent);
+  outline: 1px solid var(--maps-hud);
+  outline-offset: 2px;
   color: var(--maps-hud);
 }
 
