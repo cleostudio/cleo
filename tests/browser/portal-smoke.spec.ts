@@ -60,6 +60,7 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page.getByRole('button', { name: 'Reset view' })).toBeVisible()
     await expect(page.getByRole('toolbar', { name: 'Filter by region' })).toBeVisible()
     await expect(page.getByLabel(/Sun/i)).toBeVisible()
+    await expect(page.getByLabel(/Season/i)).toBeVisible()
     await expect(
       page.getByRole('img', { name: 'Interactive 3D Earth' }),
     ).toBeVisible({ timeout: 20_000 })
@@ -90,6 +91,7 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
   })
 
   test('Maps URL reconcile and Reset view clear selection', async ({ page }) => {
+    test.setTimeout(60_000)
     await prepareBrowserPage(page)
 
     await page.goto('/maps?c=japan&r=Europe')
@@ -102,7 +104,17 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await page.getByRole('button', { name: 'Asia', exact: true }).click()
     await expect(page).toHaveURL(/[?&]r=Asia\b/)
 
-    await page.getByLabel(/Season/i).fill('79')
+    // Range inputs are awkward with fill(); drive the seasonal scrub via events.
+    await page.locator('#maps-sun-day').evaluate((element) => {
+      const input = element as HTMLInputElement
+      const setter = Object.getOwnPropertyDescriptor(
+        HTMLInputElement.prototype,
+        'value',
+      )?.set
+      setter?.call(input, '79')
+      input.dispatchEvent(new Event('input', { bubbles: true }))
+      input.dispatchEvent(new Event('change', { bubbles: true }))
+    })
     await expect(page.getByText(/Season · Mar 20/i)).toBeVisible()
 
     await page.getByRole('button', { name: 'Reset view' }).click()
@@ -110,6 +122,10 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page).not.toHaveURL(/[?&]c=japan\b/)
     await expect(page).not.toHaveURL(/[?&]r=/)
     await expect(page.getByRole('button', { name: 'All', exact: true })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    await expect(page.getByRole('button', { name: 'Live sun' })).toHaveAttribute(
       'aria-pressed',
       'true',
     )

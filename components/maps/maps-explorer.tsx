@@ -131,8 +131,12 @@ function MapsExplorerInner({
     setSelectionAnnouncement(`${selected.name} selected on Maps`)
     if (!focusGuideAfterPick.current) return
     focusGuideAfterPick.current = false
-    guideLinkRef.current?.focus()
-  }, [selected])
+    // Wait for the selection chip to commit before moving keyboard focus.
+    const id = window.requestAnimationFrame(() => {
+      guideLinkRef.current?.focus()
+    })
+    return () => window.cancelAnimationFrame(id)
+  }, [selected?.slug, selected?.name])
 
   const syncUrl = (slug: string | null, region: string | null = regionFilter) => {
     const params = new URLSearchParams(searchParams.toString())
