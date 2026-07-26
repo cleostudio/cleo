@@ -9,6 +9,9 @@ const CSP_FALLBACK_WARNING =
   'This environment does not allow eval - using default writer as fallback'
 
 it('warns only once when TypeGPU falls back under a strict CSP', () => {
+  // Drop this test (and patches/typegpu@0.11.9.patch) once upstream ships
+  // warn-once: https://github.com/software-mansion/TypeGPU/issues/2758
+  //
   // Locate typegpu through its dependent: typegpu is a transitive
   // dependency of shaders, so the copy pnpm links next to shaders is the
   // one the app actually loads — with the warn-once patch applied.
