@@ -46,10 +46,13 @@ The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
   and notable places. Land/sea clicks open a sample HUD with **Nearest**
   country. **Reset view** clears selection, region, sample, graticule, and sun
   scrub. `[` / `]` nudge sun hour and `{` / `}` nudge season (enter scrub);
-  scrub mode exposes **Copy sun link**. Selection **Recenter** re-flies the
-  camera to the country. Explore / Gallery / Space Earth link into Maps; the
-  selection chip links places/capital/photo out to `/gallery?q=…`, the guide
-  to `/explore/[slug]`, and **Ask Cleo** to `/cleo?ask=…`.
+  scrub mode exposes **Copy sun link** (`mapsSharePath`). Selection shows a
+  Daylight/Night readout for the current sun, **Recenter** re-flies the
+  camera, and on narrow/short viewports the dossier embeds sun scrub controls
+  (header scrub hides while a selection is open). Explore / Gallery / Space
+  Earth link into Maps; the selection chip links places/capital/photo out to
+  `/gallery?q=…`, the guide to `/explore/[slug]`, and **Ask Cleo** to
+  `/cleo?ask=…`.
 - Cleo may cite `/maps?c={slug}` for location questions; Maps may deep-link
   back via `cleoAskHrefForCountry` (`lib/cleo/portal-links.ts`).
 

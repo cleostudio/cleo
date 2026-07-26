@@ -34,6 +34,7 @@ import {
 import { cleoAskHrefForCountry } from '~/lib/cleo/portal-links'
 import { copyTextToClipboard } from '~/lib/maps/clipboard'
 import { mapsSearchDocs } from '~/lib/maps/search'
+import { daylightLabelAt } from '~/lib/maps/sun'
 import {
   formatUtcDayLabel,
   formatUtcHourLabel,
@@ -42,6 +43,7 @@ import {
 } from '~/lib/maps/sun-clock'
 import {
   applyMapsUrlCanonical,
+  mapsSharePath,
   resolveMapsUrlState,
   type MapsUrlCanonical,
 } from '~/lib/maps/url-state'
@@ -344,26 +346,30 @@ function MapsExplorerInner({
     })
   }
 
+  const currentShareCanonical = (
+    countrySlug: string | null = selected?.slug ?? null,
+  ): MapsUrlCanonical => ({
+    c: countrySlug,
+    r: regionFilter,
+    ...sunCanonical(sunMode, sunHour, sunDay),
+  })
+
   const copyMapsLink = async () => {
     if (!selected || typeof window === 'undefined') return
-    const url = new URL(`/maps?c=${selected.slug}`, window.location.origin)
-    if (regionFilter) url.searchParams.set('r', regionFilter)
-    if (sunMode === 'scrub') {
-      url.searchParams.set('h', String(sunHour))
-      url.searchParams.set('d', String(sunDay))
-    }
-    const ok = await copyTextToClipboard(url.toString())
+    const path = mapsSharePath(currentShareCanonical(selected.slug))
+    const ok = await copyTextToClipboard(
+      new URL(path, window.location.origin).toString(),
+    )
     setCopyStatus(ok ? 'copied' : 'failed')
     window.setTimeout(() => setCopyStatus('idle'), ok ? 1600 : 2200)
   }
 
   const copySunLink = async () => {
     if (sunMode !== 'scrub' || typeof window === 'undefined') return
-    const url = new URL('/maps', window.location.origin)
-    if (regionFilter) url.searchParams.set('r', regionFilter)
-    url.searchParams.set('h', String(sunHour))
-    url.searchParams.set('d', String(sunDay))
-    const ok = await copyTextToClipboard(url.toString())
+    const path = mapsSharePath(currentShareCanonical(null))
+    const ok = await copyTextToClipboard(
+      new URL(path, window.location.origin).toString(),
+    )
     setCopyStatus(ok ? 'copied' : 'failed')
     window.setTimeout(() => setCopyStatus('idle'), ok ? 1600 : 2200)
   }
@@ -403,6 +409,13 @@ function MapsExplorerInner({
   )
   const regionOptions = [null, ...regions] as const
   const activeSunDay = sunMode === 'live' ? utcDayOfYear(liveNow) : sunDay
+  const selectionDaylight = selected
+    ? daylightLabelAt(selected.lat, selected.lon, sunAt)
+    : null
+  const selectionSunLabel =
+    sunMode === 'live'
+      ? 'live UTC'
+      : `${formatUtcHourLabel(sunHour)} · ${formatUtcDayLabel(sunDay, liveNow.getUTCFullYear())}`
 
   return (
     <div
@@ -630,6 +643,74 @@ function MapsExplorerInner({
             <p className="maps-selection-meta">
               {selected.subregion} · {selected.region}
             </p>
+            {selectionDaylight ? (
+              <p className="maps-selection-daylight">
+                {selectionDaylight} · {selectionSunLabel}
+              </p>
+            ) : null}
+            <div
+              className="maps-selection-sun-controls"
+              role="group"
+              aria-label="Sun at selection"
+            >
+              <button
+                type="button"
+                className="maps-selection-sun-live"
+                aria-pressed={sunMode === 'live'}
+                onClick={setLiveSun}
+              >
+                Live sun
+              </button>
+              <label
+                className="maps-selection-sun-label"
+                htmlFor="maps-selection-sun-hour"
+              >
+                Hour ·{' '}
+                {sunMode === 'live'
+                  ? formatUtcHourLabel(liveNow.getUTCHours())
+                  : formatUtcHourLabel(sunHour)}
+              </label>
+              <input
+                id="maps-selection-sun-hour"
+                className="maps-sun-scrub-input"
+                type="range"
+                min={0}
+                max={23}
+                step={1}
+                value={sunMode === 'live' ? liveNow.getUTCHours() : sunHour}
+                aria-valuetext={
+                  sunMode === 'live'
+                    ? `Live sun at ${formatUtcHourLabel(liveNow.getUTCHours())}`
+                    : formatUtcHourLabel(sunHour)
+                }
+                onChange={(event) => {
+                  scrubSunHour(Number(event.target.value))
+                }}
+              />
+              <label
+                className="maps-selection-sun-label"
+                htmlFor="maps-selection-sun-day"
+              >
+                Season ·{' '}
+                {formatUtcDayLabel(activeSunDay, liveNow.getUTCFullYear())}
+              </label>
+              <input
+                id="maps-selection-sun-day"
+                className="maps-sun-scrub-input"
+                type="range"
+                min={1}
+                max={365}
+                step={1}
+                value={activeSunDay}
+                aria-valuetext={formatUtcDayLabel(
+                  activeSunDay,
+                  liveNow.getUTCFullYear(),
+                )}
+                onChange={(event) => {
+                  scrubSunDay(Number(event.target.value))
+                }}
+              />
+            </div>
             {dossier ? (
               <>
                 <p className="maps-selection-coords">{dossier.coordsLabel}</p>

@@ -570,6 +570,62 @@ html[data-maps-route] .paper-grain {
   color: var(--maps-hud);
 }
 
+.maps-selection-daylight {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--maps-hud) 62%, transparent);
+}
+
+.maps-selection-sun-controls {
+  display: none;
+}
+
+.maps-selection-sun-live {
+  align-self: flex-start;
+  margin-top: 0.35rem;
+  border: 1px solid color-mix(in oklab, var(--maps-hud) 22%, transparent);
+  border-radius: 999px;
+  background: transparent;
+  padding: 0.28rem 0.7rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--maps-hud) 72%, transparent);
+  cursor: pointer;
+}
+
+.maps-selection-sun-live[aria-pressed='true'] {
+  border-color: color-mix(in oklab, var(--maps-hud) 42%, transparent);
+  color: var(--maps-hud);
+}
+
+.maps-selection-sun-live:hover,
+.maps-selection-sun-live:focus-visible {
+  color: var(--maps-hud);
+  outline: none;
+}
+
+.maps-selection-sun-label {
+  margin: 0.45rem 0 0.15rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--maps-hud) 52%, transparent);
+}
+
+@media (max-width: 640px), (max-height: 640px) {
+  .maps-selection-sun-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-top: 0.35rem;
+    padding-top: 0.55rem;
+    border-top: 1px solid color-mix(in oklab, var(--maps-hud) 12%, transparent);
+  }
+}
+
 .maps-selection-meta {
   margin-top: 0.2rem;
   font-size: 0.8rem;

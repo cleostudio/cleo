@@ -2,7 +2,11 @@ import { describe, expect, it } from 'vitest'
 
 import { mapsMarkers } from './markers'
 import { mapsRegions } from './regions'
-import { applyMapsUrlCanonical, resolveMapsUrlState } from './url-state'
+import {
+  applyMapsUrlCanonical,
+  mapsSharePath,
+  resolveMapsUrlState,
+} from './url-state'
 
 describe('resolveMapsUrlState', () => {
   const markers = mapsMarkers()
@@ -133,5 +137,17 @@ describe('resolveMapsUrlState', () => {
       d: '79',
     })
     expect(params.toString()).toBe('c=japan&h=12&d=79')
+  })
+
+  it('builds share paths for country links and sun-only links', () => {
+    expect(
+      mapsSharePath({ c: 'japan', r: 'Asia', h: '6', d: '79' }),
+    ).toBe('/maps?c=japan&r=Asia&h=6&d=79')
+    expect(
+      mapsSharePath({ c: null, r: 'Asia', h: '6', d: '79' }),
+    ).toBe('/maps?r=Asia&h=6&d=79')
+    expect(
+      mapsSharePath({ c: null, r: null, h: null, d: null }),
+    ).toBe('/maps')
   })
 })

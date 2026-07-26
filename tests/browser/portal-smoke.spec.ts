@@ -115,7 +115,7 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     ).toBeVisible({ timeout: 20_000 })
 
     // Focus a toolbar control so `[` / `]` are not swallowed by search.
-    await page.getByRole('button', { name: 'Live sun' }).focus()
+    await page.locator('.maps-toolbar-button', { hasText: 'Live sun' }).focus()
     await page.keyboard.press(']')
     await expect(page).toHaveURL(/[?&]h=\d+\b/, { timeout: 10_000 })
     await expect(page).toHaveURL(/[?&]d=\d+\b/)
@@ -127,12 +127,42 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
   test('Maps sun scrub deep-link restores hour and season', async ({ page }) => {
     await prepareBrowserPage(page)
     await page.goto('/maps?h=6&d=79')
-    await expect(page.getByText(/Season · Mar 20/i)).toBeVisible({
+    await expect(page.getByText(/Season · Mar 20/i).first()).toBeVisible({
       timeout: 20_000,
     })
-    await expect(page.getByLabel(/Sun/i)).toHaveValue('6')
+    await expect(page.locator('#maps-sun-hour')).toHaveValue('6')
     await expect(page).toHaveURL(/[?&]h=6\b/)
     await expect(page).toHaveURL(/[?&]d=79\b/)
+  })
+
+  test('Maps dossier reports daylight for scrubbed sun', async ({ page }) => {
+    test.setTimeout(60_000)
+    await prepareBrowserPage(page)
+
+    await page.goto('/maps?c=japan&h=6&d=79')
+    await expect(page.getByRole('region', { name: 'Japan' })).toBeVisible({
+      timeout: 20_000,
+    })
+    await expect(page.getByText(/Daylight · 06:00 UTC · Mar 20/i)).toBeVisible()
+
+    await page.goto('/maps?c=japan&h=18&d=79')
+    await expect(page.getByRole('region', { name: 'Japan' })).toBeVisible({
+      timeout: 20_000,
+    })
+    await expect(page.getByText(/Night · 18:00 UTC · Mar 20/i)).toBeVisible()
+  })
+
+  test('Maps Escape dismisses the country selection', async ({ page }) => {
+    test.setTimeout(60_000)
+    await prepareBrowserPage(page)
+    await page.goto('/maps?c=japan')
+    await expect(page.getByRole('region', { name: 'Japan' })).toBeVisible({
+      timeout: 20_000,
+    })
+    await page.locator('.maps-toolbar-button', { hasText: 'Reset view' }).focus()
+    await page.keyboard.press('Escape')
+    await expect(page.getByRole('region', { name: 'Japan' })).toHaveCount(0)
+    await expect(page).not.toHaveURL(/[?&]c=japan\b/)
   })
 
   test('Maps URL reconcile and Reset view clear selection', async ({ page }) => {
@@ -147,7 +177,8 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page).not.toHaveURL(/[?&]r=Europe\b/)
     await expect(page).toHaveURL(/[?&]h=6\b/)
     await expect(page).toHaveURL(/[?&]d=79\b/)
-    await expect(page.getByText(/Season · Mar 20/i)).toBeVisible()
+    await expect(page.getByText(/Season · Mar 20/i).first()).toBeVisible()
+    await expect(page.getByText(/Daylight · 06:00 UTC · Mar 20/i)).toBeVisible()
 
     await page.getByRole('button', { name: 'Asia', exact: true }).click()
     await expect(page).toHaveURL(/[?&]r=Asia\b/)
@@ -161,10 +192,9 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
       'aria-pressed',
       'true',
     )
-    await expect(page.getByRole('button', { name: 'Live sun' })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    )
+    await expect(
+      page.locator('.maps-toolbar-button', { hasText: 'Live sun' }),
+    ).toHaveAttribute('aria-pressed', 'true')
 
     await page.goto('/maps?c=not-a-country')
     await expect(page).not.toHaveURL(/[?&]c=/)
@@ -187,6 +217,33 @@ test.describe('@smoke portal expansion and Cleo grounding', () => {
     await expect(page).toHaveURL(/\/maps\?c=japan\b/)
     await expect(
       page.getByRole('region', { name: 'Japan' }),
+    ).toBeVisible({ timeout: 20_000 })
+  })
+
+  test('Gallery and Space Earth deep-link into Maps', async ({ page }) => {
+    test.setTimeout(60_000)
+    await prepareBrowserPage(page)
+
+    await page.goto('/gallery?q=Japan')
+    await expect(page.getByRole('link', { name: 'Maps →' }).first()).toHaveAttribute(
+      'href',
+      '/maps?c=japan',
+    )
+    await page.getByRole('link', { name: 'Maps →' }).first().click()
+    await expect(page).toHaveURL(/\/maps\?c=japan\b/)
+    await expect(page.getByRole('region', { name: 'Japan' })).toBeVisible({
+      timeout: 20_000,
+    })
+
+    await page.goto('/space/earth')
+    await expect(page.getByRole('link', { name: 'View on Maps →' })).toHaveAttribute(
+      'href',
+      '/maps',
+    )
+    await page.getByRole('link', { name: 'View on Maps →' }).click()
+    await expect(page).toHaveURL(/\/maps\/?$/)
+    await expect(
+      page.getByRole('img', { name: 'Interactive 3D Earth' }),
     ).toBeVisible({ timeout: 20_000 })
   })
 

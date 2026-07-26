@@ -36,3 +36,23 @@ export function sunDirectionAt(date: Date): [number, number, number] {
   const length = Math.hypot(x, y, z) || 1
   return [x / length, y / length, z / length]
 }
+
+/**
+ * Whether a geographic point is on the lit side of the terminator at `date`.
+ * Uses the same sun model as the globe (dot of surface normal and sun dir).
+ */
+export function isDaylightAt(lat: number, lon: number, date: Date): boolean {
+  const [sx, sy, sz] = sunDirectionAt(date)
+  const [nx, ny, nz] = latLonToVector3(lat, lon, 1)
+  const length = Math.hypot(nx, ny, nz) || 1
+  return (nx / length) * sx + (ny / length) * sy + (nz / length) * sz > 0
+}
+
+/** Compact dossier label for the lit/dark side of the terminator. */
+export function daylightLabelAt(
+  lat: number,
+  lon: number,
+  date: Date,
+): 'Daylight' | 'Night' {
+  return isDaylightAt(lat, lon, date) ? 'Daylight' : 'Night'
+}

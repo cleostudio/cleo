@@ -119,3 +119,11 @@ export function applyMapsUrlCanonical(
   if (canonical.d) params.set('d', canonical.d)
   else params.delete('d')
 }
+
+/** Relative `/maps` path for Copy link / Copy sun link from canonical peers. */
+export function mapsSharePath(canonical: MapsUrlCanonical): string {
+  const params = new URLSearchParams()
+  applyMapsUrlCanonical(params, canonical)
+  const query = params.toString()
+  return query ? `/maps?${query}` : '/maps'
+}
