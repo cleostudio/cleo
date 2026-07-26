@@ -21,7 +21,10 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   `public/images/atlas/` (no image CDN/account at runtime)
 - Space guides: `lib/space.ts` + `content/space-photos.json` + JPEGs in
   `public/images/space/`
-- **OpenAI** is the only third-party API (`OPENAI_API_KEY` → `POST /api/responses`)
+- **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
+  `POST /api/responses`)
+- Vercel Web Analytics + Speed Insights in the root document (enable both in
+  the Vercel project dashboard)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides and embed
   curated topic photographs when a visual helps)

@@ -59,6 +59,12 @@ vi.mock('~/components/route-motion-controller', () => ({
     <div data-public-route-transition="">{children}</div>
   ),
 }))
+vi.mock('@vercel/analytics/next', () => ({
+  Analytics: () => <span data-vercel-analytics="" />,
+}))
+vi.mock('@vercel/speed-insights/next', () => ({
+  SpeedInsights: () => <span data-vercel-speed-insights="" />,
+}))
 vi.mock('./fonts', () => ({
   fontVariables: 'latin-font',
 }))
@@ -81,14 +87,15 @@ describe('SiteDocument', () => {
     expect(html).not.toContain('cjk-font')
   })
 
-  it('renders the public chrome without third-party analytics', async () => {
+  it('renders the public chrome with Vercel Analytics and Speed Insights', async () => {
     const html = renderToStaticMarkup(
       await SiteDocument({
         children: <p>Public page</p>,
       }),
     )
 
-    expect(html).not.toContain('data-vercel-analytics')
+    expect(html).toContain('data-vercel-analytics')
+    expect(html).toContain('data-vercel-speed-insights')
     expect(html).toContain('data-public-dock')
     expect(html).toContain('data-public-footer')
     expect(html).toContain('data-public-route-transition')

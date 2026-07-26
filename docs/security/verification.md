@@ -6,7 +6,8 @@ use GitHub private vulnerability reporting.
 
 Cleo is a public, English-only knowledge portal. The only third-party API is
 OpenAI (`OPENAI_API_KEY` on the server for `POST /api/responses`). There is no
-auth, database, media library, AMA booking, or analytics stack.
+auth, database, media library, or AMA booking. Platform observability is
+Vercel Web Analytics and Speed Insights only.
 
 ## Local repository
 
@@ -57,4 +58,6 @@ Hosted settings (verify in the GitHub UI; not encoded in this repo):
 - [ ] Git fork protection remains enabled so untrusted forks cannot receive
   production secrets.
 - [ ] Confirm log access, retention, and that no unexpected drains or
-  third-party analytics integrations were reintroduced.
+  non-Vercel third-party analytics integrations were reintroduced.
+- [ ] Web Analytics and Speed Insights are enabled for the Production
+  project in the Vercel dashboard (and Preview if desired).

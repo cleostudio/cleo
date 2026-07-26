@@ -8,10 +8,13 @@ export const browserArticleFixture = {
 export async function prepareBrowserPage(page: Page) {
   if (process.env.PLAYWRIGHT_BASE_URL) return
 
-  // Vercel serves this first-party endpoint only on hosted deployments.
+  // Vercel serves these first-party endpoints only on hosted deployments.
   // Keep local production-build checks focused on application errors while
-  // the hosted smoke suite verifies the real Insights script.
+  // the hosted smoke suite verifies the real Analytics / Speed Insights scripts.
   await page.route('**/_vercel/insights/script.js', (route) =>
+    route.fulfill({ body: '', contentType: 'application/javascript' }),
+  )
+  await page.route('**/_vercel/speed-insights/script.js', (route) =>
     route.fulfill({ body: '', contentType: 'application/javascript' }),
   )
 }
