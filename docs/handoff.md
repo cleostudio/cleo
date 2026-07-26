@@ -10,7 +10,7 @@ English-only general-knowledge portal with:
   contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
   country field guides, Space field guides, Topics catalog (countries and
-  space first; more topics later)
+  space first; next candidates in `docs/concepts.md`)
 - Gallery: filterable photographs from Explore places and Space guides
   (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
