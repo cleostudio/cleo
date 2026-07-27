@@ -23,6 +23,8 @@ import {
   curatedWidgetThumbSrc,
   formatScaleValue,
   isCleoWidgetHref,
+  resolveScaleMode,
+  scaleBarPercent,
 } from '~/lib/cleo/interactive'
 import { topicPhotoZoomForSrc } from '~/lib/cleo/topic-photo-zoom'
 import { cn } from '~/lib/utils'
@@ -99,7 +101,16 @@ function WidgetPhoto({
 }) {
   const zoom = topicPhotoZoomForSrc(src)
   if (!zoom) {
-    return null
+    return (
+      <div className={cn('cleo-widget-photo', className)}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- curated static JPEG fallback */}
+        <img
+          alt={alt.trim() || 'Photograph'}
+          className="cleo-widget-photo-image"
+          src={src}
+        />
+      </div>
+    )
   }
 
   return (
@@ -303,9 +314,7 @@ function FactsWidget({
   block: Extract<CleoInteractiveBlock, { type: 'facts' }>
 }) {
   const expandableIndexes = block.items
-    .map((item, index) =>
-      item.detail || item.href ? index : -1,
-    )
+    .map((item, index) => (item.detail ? index : -1))
     .filter((index) => index >= 0)
   const [open, setOpen] = useState<ReadonlySet<number>>(() => new Set())
   const allOpen =
@@ -331,7 +340,7 @@ function FactsWidget({
     >
       <div className="cleo-widget-facts">
         {block.items.map((item, index) => {
-          const expandable = Boolean(item.detail || item.href)
+          const expandable = Boolean(item.detail)
           const isOpen = open.has(index)
           return (
             <div
@@ -366,16 +375,16 @@ function FactsWidget({
                   </span>
                 </div>
               )}
-              {isOpen ? (
+              {isOpen && item.detail ? (
                 <div className="cleo-widget-fact-panel">
-                  {item.detail ? <WidgetProse text={item.detail} /> : null}
-                  {item.href ? (
-                    <Link className="cleo-widget-guide-link" href={item.href}>
-                      Open guide
-                      <ArrowUpRight aria-hidden="true" className="size-3.5" />
-                    </Link>
-                  ) : null}
+                  <WidgetProse text={item.detail} />
                 </div>
+              ) : null}
+              {item.href ? (
+                <Link className="cleo-widget-guide-link" href={item.href}>
+                  Open guide
+                  <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                </Link>
               ) : null}
             </div>
           )
@@ -452,6 +461,18 @@ function CompareWidget({
       <div className="cleo-widget-compare-scroll">
         <table className="cleo-widget-compare-table">
           <caption className="sr-only">{block.title ?? 'Comparison'}</caption>
+          <thead>
+            <tr>
+              <th scope="col">
+                <span className="sr-only">Attribute</span>
+              </th>
+              {block.columns.map((column) => (
+                <th scope="col" key={column}>
+                  {column}
+                </th>
+              ))}
+            </tr>
+          </thead>
           <tbody>
             {block.rows.map((row) => (
               <tr key={row.label}>
@@ -588,7 +609,7 @@ function CardsWidget({
   block: Extract<CleoInteractiveBlock, { type: 'cards' }>
 }) {
   const expandableIndexes = block.cards
-    .map((card, index) => (card.detail || card.href ? index : -1))
+    .map((card, index) => (card.detail ? index : -1))
     .filter((index) => index >= 0)
   const [open, setOpen] = useState<ReadonlySet<number>>(() => new Set())
   const allOpen =
@@ -614,7 +635,7 @@ function CardsWidget({
     >
       <div className="cleo-widget-cards">
         {block.cards.map((card, index) => {
-          const expandable = Boolean(card.detail || card.href)
+          const expandable = Boolean(card.detail)
           const isOpen = open.has(index)
           return (
             <article
@@ -652,16 +673,16 @@ function CardsWidget({
                   <span className="cleo-widget-card-summary">{card.summary}</span>
                 </div>
               )}
-              {isOpen ? (
+              {isOpen && card.detail ? (
                 <div className="cleo-widget-card-panel">
-                  {card.detail ? <WidgetProse text={card.detail} /> : null}
-                  {card.href ? (
-                    <Link className="cleo-widget-guide-link" href={card.href}>
-                      Open guide
-                      <ArrowUpRight aria-hidden="true" className="size-3.5" />
-                    </Link>
-                  ) : null}
+                  <WidgetProse text={card.detail} />
                 </div>
+              ) : null}
+              {card.href ? (
+                <Link className="cleo-widget-guide-link" href={card.href}>
+                  Open guide
+                  <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                </Link>
               ) : null}
             </article>
           )
@@ -886,7 +907,7 @@ function PathWidget({
             onClick={() => toggleDone(active)}
             type="button"
           >
-            {done.has(active) ? 'Mark unread' : 'Mark done'}
+            {done.has(active) ? 'Mark incomplete' : 'Mark done'}
           </button>
           <button
             className="cleo-widget-path-button"
@@ -920,6 +941,7 @@ function ScaleWidget({
 }) {
   const baseId = useId()
   const [focus, setFocus] = useState(0)
+  const mode = resolveScaleMode(block.items, block.mode)
   const max = Math.max(...block.items.map((item) => item.value))
   const current = block.items[focus] ?? block.items[0]
   const relative = Math.round((current.value / max) * 100)
@@ -937,7 +959,10 @@ function ScaleWidget({
 
   return (
     <WidgetShell title={block.title}>
-      <div className="cleo-widget-scale">
+      <div className="cleo-widget-scale" data-mode={mode}>
+        {mode === 'log' ? (
+          <p className="cleo-widget-scale-mode">Log scale</p>
+        ) : null}
         <div
           aria-label={block.title ?? 'Scale'}
           className="cleo-widget-scale-list"
@@ -946,7 +971,7 @@ function ScaleWidget({
         >
           {block.items.map((item, index) => {
             const selected = index === focus
-            const width = Math.max(4, (item.value / max) * 100)
+            const width = scaleBarPercent(item.value, block.items, mode)
             return (
               <button
                 aria-selected={selected}
@@ -989,6 +1014,7 @@ function ScaleWidget({
               <span className="cleo-widget-scale-relative">
                 {' '}
                 · {relative}% of largest
+                {mode === 'log' ? ' · bars are log-scaled' : ''}
               </span>
             ) : (
               <span className="cleo-widget-scale-relative"> · largest</span>
@@ -1087,7 +1113,108 @@ function LayersWidget({
   )
 }
 
-const PENDING_LABELS: Record<CleoWidgetType, string> = {
+function CycleWidget({
+  block,
+}: {
+  block: Extract<CleoInteractiveBlock, { type: 'cycle' }>
+}) {
+  const baseId = useId()
+  const [active, setActive] = useState(0)
+  const stage = block.stages[active] ?? block.stages[0]
+  const count = block.stages.length
+
+  function step(delta: number) {
+    setActive((current) => (current + delta + count) % count)
+  }
+
+  function onStagesKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+      event.preventDefault()
+      const next = (active + 1) % count
+      setActive(next)
+      document.getElementById(`${baseId}-stage-${next}`)?.focus()
+    } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+      event.preventDefault()
+      const next = (active - 1 + count) % count
+      setActive(next)
+      document.getElementById(`${baseId}-stage-${next}`)?.focus()
+    }
+  }
+
+  return (
+    <WidgetShell title={block.title}>
+      <div className="cleo-widget-cycle">
+        <p className="cleo-widget-cycle-meta">
+          Stage {active + 1} of {count} · cycles
+        </p>
+
+        <div
+          aria-label={block.title ?? 'Cycle'}
+          className="cleo-widget-cycle-stages"
+          onKeyDown={onStagesKeyDown}
+          role="listbox"
+        >
+          {block.stages.map((item, index) => {
+            const selected = index === active
+            return (
+              <button
+                aria-selected={selected}
+                className="cleo-widget-cycle-stage-chip"
+                data-active={selected || undefined}
+                id={`${baseId}-stage-${index}`}
+                key={`${item.label}-${index}`}
+                onClick={() => setActive(index)}
+                role="option"
+                tabIndex={selected ? 0 : -1}
+                type="button"
+              >
+                <span className="cleo-widget-cycle-index" aria-hidden="true">
+                  {index + 1}
+                </span>
+                <span className="cleo-widget-cycle-stage-label">
+                  {item.label}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+
+        <div className="cleo-widget-cycle-focus" key={active}>
+          <h4 className="cleo-widget-cycle-title">{stage.label}</h4>
+          <WidgetProse text={stage.body} />
+          {stage.href ? (
+            <Link className="cleo-widget-guide-link" href={stage.href}>
+              Open guide
+              <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            </Link>
+          ) : null}
+        </div>
+
+        <div className="cleo-widget-cycle-controls">
+          <button
+            className="cleo-widget-cycle-button"
+            onClick={() => step(-1)}
+            type="button"
+          >
+            <ChevronLeft aria-hidden="true" className="size-4" />
+            Previous
+          </button>
+          <button
+            className="cleo-widget-cycle-button"
+            data-primary=""
+            onClick={() => step(1)}
+            type="button"
+          >
+            Next
+            <ChevronRight aria-hidden="true" className="size-4" />
+          </button>
+        </div>
+      </div>
+    </WidgetShell>
+  )
+}
+
+const WIDGET_LABELS: Record<CleoWidgetType, string> = {
   tabs: 'Sections',
   timeline: 'Timeline',
   facts: 'Facts',
@@ -1098,6 +1225,7 @@ const PENDING_LABELS: Record<CleoWidgetType, string> = {
   path: 'Path',
   scale: 'Scale',
   layers: 'Layers',
+  cycle: 'Cycle',
 }
 
 export function PendingInteractive({
@@ -1107,7 +1235,7 @@ export function PendingInteractive({
   widgetType?: CleoWidgetType
   className?: string
 }) {
-  const label = widgetType ? PENDING_LABELS[widgetType] : 'Interactive'
+  const label = widgetType ? WIDGET_LABELS[widgetType] : 'Interactive'
   return (
     <div
       aria-busy="true"
@@ -1117,6 +1245,27 @@ export function PendingInteractive({
       <div className="cleo-widget cleo-widget-pending">
         <div className="cleo-widget-pending-pulse" aria-hidden="true" />
         <p className="cleo-widget-pending-label">Building {label.toLowerCase()}…</p>
+      </div>
+    </div>
+  )
+}
+
+export function UnavailableInteractive({
+  widgetType,
+  className,
+}: {
+  widgetType?: CleoWidgetType
+  className?: string
+}) {
+  const label = widgetType
+    ? WIDGET_LABELS[widgetType].toLowerCase()
+    : 'interactive block'
+  return (
+    <div className={cn('cleo-interactive', className)} role="status">
+      <div className="cleo-widget cleo-widget-unavailable">
+        <p className="cleo-widget-unavailable-label">
+          Couldn&apos;t render this {label}.
+        </p>
       </div>
     </div>
   )
@@ -1145,8 +1294,10 @@ export function InteractiveBlock({
       <PathWidget block={block} />
     ) : block.type === 'scale' ? (
       <ScaleWidget block={block} />
-    ) : (
+    ) : block.type === 'layers' ? (
       <LayersWidget block={block} />
+    ) : (
+      <CycleWidget block={block} />
     )
 
   return <div className={cn('cleo-interactive', className)}>{content}</div>

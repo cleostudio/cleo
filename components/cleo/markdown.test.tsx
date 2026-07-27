@@ -169,4 +169,23 @@ describe('Cleo Markdown generative widgets', () => {
     expect(container.textContent).not.toContain('```')
     expect(container.querySelector('[aria-busy="true"]')).toBeTruthy()
   })
+
+  it('shows an unavailable shell for invalid closed cleo fences', () => {
+    const markdown = [
+      'Prose first.',
+      '',
+      '```cleo',
+      JSON.stringify({
+        type: 'tabs',
+        tabs: [{ label: 'Only one', body: 'Invalid alone' }],
+      }),
+      '```',
+    ].join('\n')
+
+    const { container } = render(<Markdown>{markdown}</Markdown>)
+
+    expect(container.textContent).toContain('Prose first.')
+    expect(container.textContent).toContain("Couldn't render this sections")
+    expect(container.textContent).not.toContain('Invalid alone')
+  })
 })

@@ -191,7 +191,7 @@ export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Orient me to Japan',
     prompt:
-      'Give me a quick orientation to Japan. Deep-link its field guide, include a cleo path widget for how to read Japan, and a cleo gallery widget using the curated Japan photo path when available.',
+      'Give me a quick orientation to Japan. Deep-link its field guide, include a cleo cycle widget for Japan\'s seasons, and a cleo gallery widget using the curated Japan photo path when available.',
   },
   {
     label: 'Why is Europa interesting?',

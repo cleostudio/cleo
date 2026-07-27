@@ -7,6 +7,8 @@ import {
   normalizeCuratedWidgetImage,
   parseCleoInteractiveBlock,
   peekCleoWidgetType,
+  resolveScaleMode,
+  scaleBarPercent,
   segmentCleoMarkdown,
 } from './interactive'
 
@@ -61,6 +63,37 @@ describe('parseCleoInteractiveBlock', () => {
     })
   })
 
+  it('parses cycle widgets that loop', () => {
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'cycle',
+          title: "Japan's seasons",
+          stages: [
+            { label: 'Spring', body: 'Blossoms open the year.' },
+            { label: 'Summer', body: 'Humid heat.' },
+            { label: 'Autumn', body: 'Clear skies.' },
+          ],
+        }),
+      ),
+    ).toMatchObject({
+      type: 'cycle',
+      stages: [{ label: 'Spring' }, { label: 'Summer' }, { label: 'Autumn' }],
+    })
+
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'cycle',
+          stages: [
+            { label: 'A', body: 'One' },
+            { label: 'B', body: 'Two' },
+          ],
+        }),
+      ),
+    ).toBeNull()
+  })
+
   it('parses layers widgets outermost first', () => {
     expect(
       parseCleoInteractiveBlock(
@@ -100,6 +133,7 @@ describe('parseCleoInteractiveBlock', () => {
           type: 'scale',
           title: 'Mean diameter',
           unit: 'km',
+          mode: 'log',
           items: [
             {
               label: 'Earth',
@@ -115,6 +149,7 @@ describe('parseCleoInteractiveBlock', () => {
       type: 'scale',
       title: 'Mean diameter',
       unit: 'km',
+      mode: 'log',
       items: [
         {
           label: 'Earth',
@@ -274,6 +309,18 @@ describe('segmentCleoMarkdown', () => {
     ])
     expect(peekCleoWidgetType('{"type":"scale"')).toBe('scale')
   })
+
+  it('emits an unavailable shell for invalid closed fences', () => {
+    const markdown = [
+      '```cleo',
+      JSON.stringify({ type: 'tabs', tabs: [{ label: 'Only one', body: 'Nope' }] }),
+      '```',
+    ].join('\n')
+
+    expect(segmentCleoMarkdown(markdown)).toEqual([
+      { type: 'unavailable', widgetType: 'tabs' },
+    ])
+  })
 })
 
 describe('helpers', () => {
@@ -288,5 +335,16 @@ describe('helpers', () => {
     expect(isCleoWidgetHref('/cleo')).toBe(false)
     expect(formatScaleValue(12742)).toBe('12,742')
     expect(formatScaleValue(1_200_000)).toMatch(/1\.2/)
+  })
+
+  it('auto-selects log scale for wide magnitude ranges', () => {
+    const items = [
+      { label: 'Earth', value: 12_742 },
+      { label: 'Sun', value: 1_391_400 },
+    ]
+    expect(resolveScaleMode(items)).toBe('log')
+    expect(resolveScaleMode(items, 'linear')).toBe('linear')
+    expect(scaleBarPercent(12_742, items, 'log')).toBeGreaterThan(8)
+    expect(scaleBarPercent(1_391_400, items, 'log')).toBe(100)
   })
 })

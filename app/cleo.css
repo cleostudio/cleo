@@ -909,10 +909,19 @@
   vertical-align: top;
 }
 
-.cleo-widget-compare-table tr:first-child th,
-.cleo-widget-compare-table tr:first-child td {
+.cleo-widget-compare-table thead th {
   border-top: 0;
   padding-top: 0.15rem;
+  padding-bottom: 0.45rem;
+  color: var(--foreground);
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.cleo-widget-compare-table tbody tr:first-child th,
+.cleo-widget-compare-table tbody tr:first-child td {
+  border-top: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
 }
 
 .cleo-widget-compare-table tbody th {
@@ -1010,12 +1019,17 @@
   opacity: 0.72;
 }
 
+.cleo-widget-fact > .cleo-widget-guide-link,
+.cleo-widget-card > .cleo-widget-guide-link {
+  margin: 0.15rem 0.85rem 0.8rem;
+}
+
 .cleo-widget-fact-panel,
 .cleo-widget-card-panel {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  padding: 0 0.85rem 0.85rem;
+  padding: 0 0.85rem 0.45rem;
 }
 
 .cleo-widget-fact-panel .cleo-widget-prose,
@@ -1667,6 +1681,15 @@
   font-weight: 550;
 }
 
+.cleo-widget-scale-mode {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .cleo-widget-scale-focus {
   display: flex;
   flex-direction: column;
@@ -1792,12 +1815,165 @@
   animation: cleo-widget-pending-pulse 1.1s var(--ease-swift) infinite;
 }
 
-.cleo-widget-pending-label {
+.cleo-widget-pending-label,
+.cleo-widget-unavailable-label {
   margin: 0;
   color: var(--muted-foreground);
   font-size: 0.88rem;
   font-weight: 550;
   letter-spacing: -0.01em;
+}
+
+.cleo-widget-unavailable {
+  display: flex;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0.85rem 1rem;
+}
+
+.cleo-widget-cycle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cleo-widget-cycle-meta {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cleo-widget-cycle-stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cleo-widget-cycle-stage-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: calc(var(--radius) + 999px);
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+  padding: 0.35rem 0.7rem 0.35rem 0.4rem;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 550;
+  cursor: pointer;
+  transition:
+    background 160ms var(--ease-swift),
+    border-color 160ms var(--ease-swift),
+    transform 160ms var(--ease-spring);
+}
+
+.cleo-widget-cycle-stage-chip:hover {
+  border-color: color-mix(in oklab, var(--foreground) 16%, transparent);
+}
+
+.cleo-widget-cycle-stage-chip[data-active] {
+  border-color: color-mix(in oklab, var(--foreground) 28%, transparent);
+  background: color-mix(in oklab, var(--foreground) 8%, transparent);
+  transform: translateY(-1px);
+}
+
+.cleo-widget-cycle-stage-chip:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.cleo-widget-cycle-index {
+  display: inline-flex;
+  width: 1.3rem;
+  height: 1.3rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--foreground) 10%, transparent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.cleo-widget-cycle-stage-chip[data-active] .cleo-widget-cycle-index {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.cleo-widget-cycle-stage-label {
+  min-width: 0;
+}
+
+.cleo-widget-cycle-focus {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: calc(var(--radius) + 4px);
+  background: color-mix(in oklab, var(--background) 78%, transparent);
+  padding: 0.8rem 0.85rem;
+  animation: cleo-widget-fade 180ms var(--ease-swift);
+}
+
+.cleo-widget-cycle-title {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.98rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+.cleo-widget-cycle-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.55rem;
+}
+
+.cleo-widget-cycle-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+  padding: 0.45rem 0.75rem;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 550;
+  cursor: pointer;
+  transition:
+    background 160ms var(--ease-swift),
+    border-color 160ms var(--ease-swift);
+}
+
+.cleo-widget-cycle-button[data-primary] {
+  border-color: color-mix(in oklab, var(--foreground) 28%, transparent);
+  background: color-mix(in oklab, var(--foreground) 8%, transparent);
+}
+
+.cleo-widget-cycle-button:hover {
+  border-color: color-mix(in oklab, var(--foreground) 18%, transparent);
+  background: color-mix(in oklab, var(--foreground) 5%, transparent);
+}
+
+.cleo-widget-cycle-button:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.dark .cleo-widget-cycle-focus,
+.dark .cleo-widget-cycle-stage-chip,
+.dark .cleo-widget-cycle-button {
+  border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
 }
 
 @keyframes cleo-widget-pending-pulse {

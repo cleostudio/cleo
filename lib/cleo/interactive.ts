@@ -3,8 +3,8 @@
  *
  * The model embeds fenced `cleo` JSON in assistant Markdown. The client
  * parses those fences into typed widgets (tabs, timeline, facts, compare,
- * steps, cards, gallery, path, scale, layers) that the user interacts with in
- * place — part of the answer, not suggestion chips or quizzes.
+ * steps, cards, gallery, path, scale, layers, cycle) that the user interacts
+ * with in place — part of the answer, not suggestion chips or quizzes.
  */
 
 import { isCuratedTopicImageSrc } from '~/lib/cleo/portal-links'
@@ -71,6 +71,14 @@ export type CleoLayerItem = {
   label: string
 }
 
+export type CleoCycleStage = {
+  body: string
+  href?: string
+  label: string
+}
+
+export type CleoScaleMode = 'linear' | 'log'
+
 export type CleoTabsBlock = {
   tabs: CleoTabItem[]
   title?: string
@@ -123,6 +131,7 @@ export type CleoPathBlock = {
 
 export type CleoScaleBlock = {
   items: CleoScaleItem[]
+  mode?: CleoScaleMode
   title?: string
   type: 'scale'
   unit?: string
@@ -132,6 +141,12 @@ export type CleoLayersBlock = {
   layers: CleoLayerItem[]
   title?: string
   type: 'layers'
+}
+
+export type CleoCycleBlock = {
+  stages: CleoCycleStage[]
+  title?: string
+  type: 'cycle'
 }
 
 export type CleoInteractiveBlock =
@@ -145,6 +160,7 @@ export type CleoInteractiveBlock =
   | CleoPathBlock
   | CleoScaleBlock
   | CleoLayersBlock
+  | CleoCycleBlock
 
 export type CleoWidgetType = CleoInteractiveBlock['type']
 
@@ -159,6 +175,10 @@ export type CleoMarkdownSegment =
     }
   | {
       type: 'pending'
+      widgetType?: CleoWidgetType
+    }
+  | {
+      type: 'unavailable'
       widgetType?: CleoWidgetType
     }
 
@@ -178,11 +198,14 @@ const MAX_PATH_STOPS = 6
 const MAX_SCALE_ITEMS = 6
 const MAX_SCALE_VALUE = 1e15
 const MAX_LAYERS = 6
+const MAX_CYCLE_STAGES = 6
 const MAX_LABEL = 64
 const MAX_SHORT = 120
 const MAX_BODY = 700
 const MAX_HREF = 160
 const MAX_JSON = 8_000
+/** Prefer log bars when the largest item dwarfs the smallest. */
+const SCALE_LOG_RATIO = 100
 
 const WIDGET_TYPES = [
   'tabs',
@@ -195,6 +218,7 @@ const WIDGET_TYPES = [
   'path',
   'scale',
   'layers',
+  'cycle',
 ] as const satisfies readonly CleoWidgetType[]
 
 const WIDGET_TYPE_PATTERN = new RegExp(
@@ -677,6 +701,39 @@ export function formatScaleValue(value: number): string {
   }).format(value)
 }
 
+/** Resolve display mode; auto-log when the range spans orders of magnitude. */
+export function resolveScaleMode(
+  items: readonly CleoScaleItem[],
+  mode?: CleoScaleMode,
+): CleoScaleMode {
+  if (mode === 'linear' || mode === 'log') {
+    return mode
+  }
+  const values = items.map((item) => item.value)
+  const max = Math.max(...values)
+  const min = Math.min(...values)
+  return max / min >= SCALE_LOG_RATIO ? 'log' : 'linear'
+}
+
+/** Bar width percent for a scale item (keeps tiny log bars readable). */
+export function scaleBarPercent(
+  value: number,
+  items: readonly CleoScaleItem[],
+  mode: CleoScaleMode,
+): number {
+  const values = items.map((item) => item.value)
+  const max = Math.max(...values)
+  const min = Math.min(...values)
+  if (mode === 'linear' || max <= min) {
+    return Math.max(4, (value / max) * 100)
+  }
+
+  const logMin = Math.log10(min)
+  const logMax = Math.log10(max)
+  const t = (Math.log10(value) - logMin) / (logMax - logMin)
+  return Math.max(8, 8 + t * 92)
+}
+
 function parseScaleBlock(value: Record<string, unknown>): CleoScaleBlock | null {
   if (
     !Array.isArray(value.items) ||
@@ -730,12 +787,19 @@ function parseScaleBlock(value: Record<string, unknown>): CleoScaleBlock | null 
     unit = parsedUnit
   }
 
-  return withOptionalTitle(
-    unit
-      ? { type: 'scale', items, unit }
-      : { type: 'scale', items },
-    parseOptionalTitle(value),
-  )
+  let mode: CleoScaleMode | undefined
+  if ('mode' in value && value.mode !== undefined) {
+    if (value.mode !== 'linear' && value.mode !== 'log') {
+      return null
+    }
+    mode = value.mode
+  }
+
+  const block: CleoScaleBlock = { type: 'scale', items }
+  if (unit) block.unit = unit
+  if (mode) block.mode = mode
+
+  return withOptionalTitle(block, parseOptionalTitle(value))
 }
 
 function parseLayersBlock(
@@ -788,6 +852,47 @@ function parseLayersBlock(
   )
 }
 
+function parseCycleBlock(value: Record<string, unknown>): CleoCycleBlock | null {
+  if (
+    !Array.isArray(value.stages) ||
+    value.stages.length < 3 ||
+    value.stages.length > MAX_CYCLE_STAGES
+  ) {
+    return null
+  }
+
+  const stages: CleoCycleStage[] = []
+  for (const entry of value.stages) {
+    if (typeof entry !== 'object' || entry === null) {
+      return null
+    }
+    const label = trimString(
+      'label' in entry ? entry.label : undefined,
+      MAX_LABEL,
+    )
+    const body = trimString('body' in entry ? entry.body : undefined, MAX_BODY)
+    if (!label || !body) {
+      return null
+    }
+    const stage: CleoCycleStage = { label, body }
+    if ('href' in entry && entry.href !== undefined) {
+      const href = parseOptionalHref(entry.href)
+      if (href === null) {
+        return null
+      }
+      if (href !== undefined) {
+        stage.href = href
+      }
+    }
+    stages.push(stage)
+  }
+
+  return withOptionalTitle(
+    { type: 'cycle', stages },
+    parseOptionalTitle(value),
+  )
+}
+
 /** Parse and validate one fenced `cleo` JSON payload. */
 export function parseCleoInteractiveBlock(
   raw: string,
@@ -831,6 +936,8 @@ export function parseCleoInteractiveBlock(
       return parseScaleBlock(record)
     case 'layers':
       return parseLayersBlock(record)
+    case 'cycle':
+      return parseCycleBlock(record)
     default:
       return null
   }
@@ -905,6 +1012,13 @@ export function segmentCleoMarkdown(markdown: string): CleoMarkdownSegment[] {
     const block = parseCleoInteractiveBlock(fence.body)
     if (block) {
       segments.push({ type: 'interactive', block })
+    } else {
+      const widgetType = peekCleoWidgetType(fence.body)
+      segments.push(
+        widgetType
+          ? { type: 'unavailable', widgetType }
+          : { type: 'unavailable' },
+      )
     }
 
     cursor = fence.end

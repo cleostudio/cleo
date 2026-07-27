@@ -8,6 +8,7 @@ import { Streamdown } from "streamdown"
 import {
   InteractiveBlock,
   PendingInteractive,
+  UnavailableInteractive,
 } from "~/components/cleo/interactive"
 import { PhotoZoomDetails } from "~/components/photo-zoom-details"
 import { ZoomImage } from "~/components/zoom-image"
@@ -161,6 +162,15 @@ export function Markdown({
           return (
             <PendingInteractive
               key={`pending-${index}`}
+              widgetType={segment.widgetType}
+            />
+          )
+        }
+
+        if (segment.type === "unavailable") {
+          return (
+            <UnavailableInteractive
+              key={`unavailable-${index}`}
               widgetType={segment.widgetType}
             />
           )

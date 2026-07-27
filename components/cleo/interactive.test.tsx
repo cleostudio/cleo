@@ -154,6 +154,30 @@ describe('InteractiveBlock generative widgets', () => {
     ).toBe('Mount Fuji')
   })
 
+  it('rotates through a cycle and wraps', () => {
+    render(
+      <InteractiveBlock
+        block={{
+          type: 'cycle',
+          title: "Japan's seasons",
+          stages: [
+            { label: 'Spring', body: 'Blossoms open the year.' },
+            { label: 'Summer', body: 'Humid heat.' },
+            { label: 'Autumn', body: 'Clear skies.' },
+          ],
+        }}
+      />,
+    )
+
+    expect(screen.getByText('Blossoms open the year.')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /Next/i }))
+    expect(screen.getByText('Humid heat.')).toBeTruthy()
+    fireEvent.click(screen.getByRole('option', { name: /Autumn/i }))
+    expect(screen.getByText('Clear skies.')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /Next/i }))
+    expect(screen.getByText('Blossoms open the year.')).toBeTruthy()
+  })
+
   it('focuses cross-section layers', () => {
     render(
       <InteractiveBlock
@@ -188,6 +212,7 @@ describe('InteractiveBlock generative widgets', () => {
           type: 'scale',
           title: 'Mean diameter',
           unit: 'km',
+          mode: 'log',
           items: [
             {
               label: 'Earth',
@@ -196,26 +221,26 @@ describe('InteractiveBlock generative widgets', () => {
               href: '/space/earth',
             },
             {
-              label: 'Mars',
-              value: 6779,
-              note: 'About half Earth.',
-              href: '/space/mars',
+              label: 'Sun',
+              value: 1_391_400,
+              note: 'Orders larger.',
+              href: '/space/sun',
             },
           ],
         }}
       />,
     )
 
+    expect(screen.getByText('Log scale')).toBeTruthy()
     expect(screen.getByText(/largest/i)).toBeTruthy()
     expect(
       screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
     ).toBe('/space/earth')
-    fireEvent.click(screen.getByRole('option', { name: /Mars/i }))
-    expect(screen.getByText(/About half Earth/i)).toBeTruthy()
-    expect(screen.getByText(/% of largest/i)).toBeTruthy()
+    fireEvent.click(screen.getByRole('option', { name: /Sun/i }))
+    expect(screen.getByText(/Orders larger/i)).toBeTruthy()
     expect(
       screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
-    ).toBe('/space/mars')
+    ).toBe('/space/sun')
   })
 
   it('walks a reading path and marks stops done', () => {
