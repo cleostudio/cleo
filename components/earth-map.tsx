@@ -44,6 +44,29 @@ type EarthMapProps = {
   countryPhotos?: Record<string, MapCountryPhoto>
 }
 
+const MAPS_GLASS_STYLE = {
+  backdropFilter: 'blur(12px) saturate(1.25)',
+  WebkitBackdropFilter: 'blur(12px) saturate(1.25)',
+} as React.CSSProperties
+
+function MapsGlass() {
+  return <span className="earth-map-glass" aria-hidden style={MAPS_GLASS_STYLE} />
+}
+
+const MAP_FOCUS_PADDING = {
+  top: 150,
+  bottom: 170,
+  left: 48,
+  right: 48,
+} as const
+
+const MAP_REGION_PADDING = {
+  top: 120,
+  bottom: 140,
+  left: 40,
+  right: 40,
+} as const
+
 function basemapStyle(): StyleSpecification {
   return {
     version: 8,
@@ -134,7 +157,7 @@ function mapMotionMs(preferred: number) {
 
 function fitCountry(map: MapLibreMap, entry: MapCountryIndexEntry) {
   map.fitBounds(entry.bounds, {
-    padding: { top: 72, bottom: 110, left: 48, right: 48 },
+    padding: { ...MAP_FOCUS_PADDING },
     maxZoom: Math.min(entry.maxZoom, MAP_MAX_ZOOM + 1.25),
     duration: mapMotionMs(800),
   })
@@ -517,7 +540,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       syncMapFocusSearchParams({ kind: 'region', value: region.id })
     }
     map.fitBounds(region.bounds, {
-      padding: { top: 72, bottom: 96, left: 40, right: 40 },
+      padding: { ...MAP_REGION_PADDING },
       maxZoom: region.maxZoom,
       duration: mapMotionMs(800),
     })
@@ -542,127 +565,305 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const searchListId = `${reactId}-map-suggestions`
   const photo = selected ? countryPhotos[selected.code] : undefined
 
+  const showStatus =
+    loadState !== 'ready' ||
+    focusAnnouncement.startsWith('No country matched') ||
+    focusAnnouncement.startsWith('No region matched')
+
   return (
     <div
       className={cn('earth-map', className)}
       aria-busy={loadState === 'loading' || undefined}
     >
-      <div className="earth-map-toolbar">
-        <div className="earth-map-search">
-          <label className="sr-only" htmlFor={`${reactId}-map-search`}>
-            Find a country
-          </label>
-          <input
-            id={`${reactId}-map-search`}
-            type="search"
-            role="combobox"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            onBlur={(event) => {
-              const next = event.relatedTarget
-              if (
-                next instanceof Node &&
-                event.currentTarget.parentElement?.contains(next)
-              ) {
-                return
-              }
-              setSuggestions([])
-            }}
-            onKeyDown={(event) => {
-              if (event.key === 'ArrowDown' && suggestions.length > 0) {
-                event.preventDefault()
-                setActiveSuggestion((index) => (index + 1) % suggestions.length)
-                return
-              }
-              if (event.key === 'ArrowUp' && suggestions.length > 0) {
-                event.preventDefault()
-                setActiveSuggestion(
-                  (index) => (index - 1 + suggestions.length) % suggestions.length,
-                )
-                return
-              }
-              if (event.key === 'Enter' && suggestions[activeSuggestion]) {
-                event.preventDefault()
-                flyToCountry(suggestions[activeSuggestion]!)
-                return
-              }
-              if (event.key === 'Escape') {
-                if (suggestions.length > 0) {
-                  setSuggestions([])
+      <div
+        ref={containerRef}
+        className="earth-map-canvas"
+        role="application"
+        aria-label="Interactive map of Earth"
+      />
+
+      <div className="earth-map-hud">
+        <div className="earth-map-chrome earth-map-chrome-top">
+          <div className="earth-map-panel earth-map-brand">
+            <MapsGlass />
+            <h1 className="page-eyebrow">Maps</h1>
+            <p className="earth-map-lede">
+              NASA Blue Marble imagery with Natural Earth borders — find a
+              country or jump by region.
+            </p>
+          </div>
+
+          <div className="earth-map-panel earth-map-search">
+            <MapsGlass />
+            <label className="sr-only" htmlFor={`${reactId}-map-search`}>
+              Find a country
+            </label>
+            <input
+              id={`${reactId}-map-search`}
+              type="search"
+              role="combobox"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              onBlur={(event) => {
+                const next = event.relatedTarget
+                if (
+                  next instanceof Node &&
+                  event.currentTarget.parentElement?.contains(next)
+                ) {
                   return
                 }
-                if (selected || activeRegion) {
+                setSuggestions([])
+              }}
+              onKeyDown={(event) => {
+                if (event.key === 'ArrowDown' && suggestions.length > 0) {
                   event.preventDefault()
-                  resetView()
+                  setActiveSuggestion((index) => (index + 1) % suggestions.length)
+                  return
                 }
+                if (event.key === 'ArrowUp' && suggestions.length > 0) {
+                  event.preventDefault()
+                  setActiveSuggestion(
+                    (index) =>
+                      (index - 1 + suggestions.length) % suggestions.length,
+                  )
+                  return
+                }
+                if (event.key === 'Enter' && suggestions[activeSuggestion]) {
+                  event.preventDefault()
+                  flyToCountry(suggestions[activeSuggestion]!)
+                  return
+                }
+                if (event.key === 'Escape') {
+                  if (suggestions.length > 0) {
+                    setSuggestions([])
+                    return
+                  }
+                  if (selected || activeRegion) {
+                    event.preventDefault()
+                    resetView()
+                  }
+                }
+              }}
+              placeholder={ready ? 'Find a country' : 'Loading map…'}
+              autoComplete="off"
+              spellCheck={false}
+              aria-controls={searchListId}
+              aria-expanded={suggestions.length > 0}
+              aria-autocomplete="list"
+              aria-activedescendant={
+                suggestions[activeSuggestion]
+                  ? `${reactId}-option-${suggestions[activeSuggestion]!.code}`
+                  : undefined
               }
-            }}
-            placeholder={ready ? 'Find a country' : 'Loading map…'}
-            autoComplete="off"
-            spellCheck={false}
-            aria-controls={searchListId}
-            aria-expanded={suggestions.length > 0}
-            aria-autocomplete="list"
-            aria-activedescendant={
-              suggestions[activeSuggestion]
-                ? `${reactId}-option-${suggestions[activeSuggestion]!.code}`
-                : undefined
-            }
-            disabled={!ready}
-          />
-          {suggestions.length > 0 ? (
-            <ul id={searchListId} role="listbox" className="earth-map-suggestions">
-              {suggestions.map((entry, index) => (
-                <li key={entry.code}>
-                  <button
-                    id={`${reactId}-option-${entry.code}`}
-                    type="button"
-                    role="option"
-                    aria-selected={index === activeSuggestion}
-                    data-active={index === activeSuggestion || undefined}
-                    onMouseDown={(event) => {
-                      event.preventDefault()
-                      event.stopPropagation()
-                      flyToCountry(entry)
-                    }}
-                  >
-                    <span>{entry.name}</span>
-                    <span className="tabular-nums text-muted-foreground">{entry.code}</span>
-                  </button>
-                </li>
+              disabled={!ready}
+            />
+            {suggestions.length > 0 ? (
+              <ul
+                id={searchListId}
+                role="listbox"
+                className="earth-map-suggestions"
+              >
+                {suggestions.map((entry, index) => (
+                  <li key={entry.code}>
+                    <button
+                      id={`${reactId}-option-${entry.code}`}
+                      type="button"
+                      role="option"
+                      aria-selected={index === activeSuggestion}
+                      data-active={index === activeSuggestion || undefined}
+                      onMouseDown={(event) => {
+                        event.preventDefault()
+                        event.stopPropagation()
+                        flyToCountry(entry)
+                      }}
+                    >
+                      <span>{entry.name}</span>
+                      <span className="tabular-nums text-muted-foreground">
+                        {entry.code}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+
+          {regions.length > 0 ? (
+            <div
+              className="earth-map-regions"
+              role="group"
+              aria-label="Jump to region"
+            >
+              {regions.map((region) => (
+                <button
+                  key={region.id}
+                  type="button"
+                  className="earth-map-region"
+                  data-active={activeRegion === region.id || undefined}
+                  aria-pressed={activeRegion === region.id}
+                  disabled={!ready}
+                  onClick={() => flyToRegion(region)}
+                >
+                  <span>{region.label}</span>
+                  <span className="tabular-nums text-muted-foreground">
+                    {region.tally}
+                  </span>
+                </button>
               ))}
-            </ul>
+            </div>
+          ) : null}
+
+          {showStatus ? (
+            <div className="earth-map-panel earth-map-status-panel">
+              <MapsGlass />
+              <p
+                className="earth-map-status"
+                data-tone={
+                  loadState === 'degraded' || focusAnnouncement.startsWith('No ')
+                    ? 'warn'
+                    : undefined
+                }
+                aria-live="polite"
+              >
+                {loadState === 'loading'
+                  ? 'Loading Blue Marble basemap and country borders…'
+                  : loadState === 'degraded'
+                    ? 'Basemap ready — country search is unavailable right now.'
+                    : focusAnnouncement}
+              </p>
+            </div>
           ) : null}
         </div>
 
-        <div className="earth-map-meta" aria-live="polite">
-          <span>{coords}</span>
-          <span className="tabular-nums">z{zoom.toFixed(1)}</span>
-          <button type="button" className="earth-map-reset" onClick={resetView}>
-            Reset
-          </button>
+        <div className="earth-map-chrome earth-map-chrome-meta">
+          <div className="earth-map-panel earth-map-meta" aria-live="polite">
+            <MapsGlass />
+            <span>{coords}</span>
+            <span className="tabular-nums">z{zoom.toFixed(1)}</span>
+            <button type="button" className="earth-map-reset" onClick={resetView}>
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <div className="earth-map-chrome earth-map-chrome-bottom">
+          {selected ? (
+            <div
+              ref={selectionPanelRef}
+              className="earth-map-panel earth-map-selection"
+            >
+              <MapsGlass />
+              {photo ? (
+                <Link href={photo.href} className="earth-map-photo">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- static atlas JPEG with known path */}
+                  <img src={photo.src} alt={photo.alt} width={160} height={106} />
+                  <span className="earth-map-photo-caption">
+                    <span className="earth-map-selection-code tabular-nums">
+                      {selected.code}
+                    </span>
+                    <span className="earth-map-selection-name">{selected.name}</span>
+                    {selected.country?.region ? (
+                      <span className="earth-map-photo-place">
+                        {selected.country.region}
+                        {photo.placeName ? ` · ${photo.placeName}` : ''}
+                      </span>
+                    ) : (
+                      <span className="earth-map-photo-place">{photo.placeName}</span>
+                    )}
+                  </span>
+                </Link>
+              ) : (
+                <div>
+                  <p className="earth-map-selection-code tabular-nums">
+                    {selected.code}
+                  </p>
+                  <p className="earth-map-selection-name">{selected.name}</p>
+                  {selected.country?.region ? (
+                    <p className="earth-map-photo-place">
+                      {selected.country.region}
+                    </p>
+                  ) : null}
+                </div>
+              )}
+              <div className="earth-map-selection-actions">
+                {selected.href ? (
+                  <Link href={selected.href} className="earth-map-guide-link">
+                    Open field guide →
+                  </Link>
+                ) : (
+                  <p className="text-sm text-muted-foreground">
+                    No Explore guide yet
+                  </p>
+                )}
+                <button
+                  type="button"
+                  className="earth-map-copy"
+                  onClick={() => {
+                    void copyDeepLink(
+                      selected.mapHref ?? mapCountryHref(selected.code),
+                    )
+                  }}
+                >
+                  {copyState === 'copied'
+                    ? 'Copied link'
+                    : copyState === 'failed'
+                      ? 'Copy failed'
+                      : 'Copy link'}
+                </button>
+              </div>
+            </div>
+          ) : activeRegionCamera ? (
+            <div
+              ref={selectionPanelRef}
+              className="earth-map-panel earth-map-selection"
+            >
+              <MapsGlass />
+              <div>
+                <p className="earth-map-selection-code tabular-nums">Region</p>
+                <p className="earth-map-selection-name">
+                  {activeRegionCamera.label}
+                </p>
+                <p className="earth-map-photo-place">
+                  {activeRegionCamera.tally} Explore guides
+                </p>
+              </div>
+              <div className="earth-map-selection-actions">
+                <Link
+                  href={exploreRegionHref(activeRegionCamera.id)}
+                  className="earth-map-guide-link"
+                >
+                  Browse Explore guides →
+                </Link>
+                <button
+                  type="button"
+                  className="earth-map-copy"
+                  onClick={() => {
+                    void copyDeepLink(mapRegionHref(activeRegionCamera.id))
+                  }}
+                >
+                  {copyState === 'copied'
+                    ? 'Copied link'
+                    : copyState === 'failed'
+                      ? 'Copy failed'
+                      : 'Copy link'}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="earth-map-panel">
+              <MapsGlass />
+              <p className="earth-map-hint">
+                Pan and zoom the basemap, jump by region, or click a country for
+                its boundary and Explore field guide.
+              </p>
+            </div>
+          )}
+          <p className="earth-map-credit">
+            {mapAttribution.basemap.name} · {mapAttribution.boundaries.name}
+          </p>
         </div>
       </div>
 
-      {loadState !== 'ready' ||
-      focusAnnouncement.startsWith('No country matched') ||
-      focusAnnouncement.startsWith('No region matched') ? (
-        <p
-          className="earth-map-status"
-          data-tone={
-            loadState === 'degraded' || focusAnnouncement.startsWith('No ')
-              ? 'warn'
-              : undefined
-          }
-          aria-live="polite"
-        >
-          {loadState === 'loading'
-            ? 'Loading Blue Marble basemap and country borders…'
-            : loadState === 'degraded'
-              ? 'Basemap ready — country search is unavailable right now.'
-              : focusAnnouncement}
-        </p>
-      ) : null}
       <p className="sr-only" aria-live="polite">
         {[
           focusAnnouncement,
@@ -675,138 +876,6 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
           .filter(Boolean)
           .join(' ')}
       </p>
-
-      {regions.length > 0 ? (
-        <div className="earth-map-regions" role="group" aria-label="Jump to region">
-          {regions.map((region) => (
-            <button
-              key={region.id}
-              type="button"
-              className="earth-map-region"
-              data-active={activeRegion === region.id || undefined}
-              aria-pressed={activeRegion === region.id}
-              disabled={!ready}
-              onClick={() => flyToRegion(region)}
-            >
-              <span>{region.label}</span>
-              <span className="tabular-nums text-muted-foreground">{region.tally}</span>
-            </button>
-          ))}
-        </div>
-      ) : null}
-
-      <div
-        ref={containerRef}
-        className="earth-map-canvas"
-        role="application"
-        aria-label="Interactive map of Earth"
-      />
-
-      <div className="earth-map-footer">
-        {selected ? (
-          <div ref={selectionPanelRef} className="earth-map-selection">
-            {photo ? (
-              <Link href={photo.href} className="earth-map-photo">
-                {/* eslint-disable-next-line @next/next/no-img-element -- static atlas JPEG with known path */}
-                <img src={photo.src} alt={photo.alt} width={160} height={106} />
-                <span className="earth-map-photo-caption">
-                  <span className="earth-map-selection-code tabular-nums">
-                    {selected.code}
-                  </span>
-                  <span className="earth-map-selection-name">{selected.name}</span>
-                  {selected.country?.region ? (
-                    <span className="earth-map-photo-place text-muted-foreground">
-                      {selected.country.region}
-                      {photo.placeName ? ` · ${photo.placeName}` : ''}
-                    </span>
-                  ) : (
-                    <span className="earth-map-photo-place text-muted-foreground">
-                      {photo.placeName}
-                    </span>
-                  )}
-                </span>
-              </Link>
-            ) : (
-              <div>
-                <p className="earth-map-selection-code tabular-nums text-muted-foreground">
-                  {selected.code}
-                </p>
-                <p className="earth-map-selection-name">{selected.name}</p>
-                {selected.country?.region ? (
-                  <p className="earth-map-photo-place text-muted-foreground">
-                    {selected.country.region}
-                  </p>
-                ) : null}
-              </div>
-            )}
-            <div className="earth-map-selection-actions">
-              {selected.href ? (
-                <Link href={selected.href} className="earth-map-guide-link">
-                  Open field guide →
-                </Link>
-              ) : (
-                <p className="text-sm text-muted-foreground">No Explore guide yet</p>
-              )}
-              <button
-                type="button"
-                className="earth-map-copy"
-                onClick={() => {
-                  void copyDeepLink(
-                    selected.mapHref ?? mapCountryHref(selected.code),
-                  )
-                }}
-              >
-                {copyState === 'copied'
-                  ? 'Copied link'
-                  : copyState === 'failed'
-                    ? 'Copy failed'
-                    : 'Copy link'}
-              </button>
-            </div>
-          </div>
-        ) : activeRegionCamera ? (
-          <div ref={selectionPanelRef} className="earth-map-selection">
-            <div>
-              <p className="earth-map-selection-code tabular-nums text-muted-foreground">
-                Region
-              </p>
-              <p className="earth-map-selection-name">{activeRegionCamera.label}</p>
-              <p className="earth-map-photo-place text-muted-foreground">
-                {activeRegionCamera.tally} Explore guides
-              </p>
-            </div>
-            <div className="earth-map-selection-actions">
-              <Link
-                href={exploreRegionHref(activeRegionCamera.id)}
-                className="earth-map-guide-link"
-              >
-                Browse Explore guides →
-              </Link>
-              <button
-                type="button"
-                className="earth-map-copy"
-                onClick={() => {
-                  void copyDeepLink(mapRegionHref(activeRegionCamera.id))
-                }}
-              >
-                {copyState === 'copied'
-                  ? 'Copied link'
-                  : copyState === 'failed'
-                    ? 'Copy failed'
-                    : 'Copy link'}
-              </button>
-            </div>
-          </div>
-        ) : (
-          <p className="earth-map-hint text-muted-foreground">
-            Pan and zoom the NASA Blue Marble basemap, jump by region, or click a
-            country for its boundary and Explore field guide.
-          </p>
-        )}
-        <p className="earth-map-credit text-muted-foreground">
-          {mapAttribution.basemap.name} · {mapAttribution.boundaries.name}
-        </p>
-      </div>
     </div>
   )
 }

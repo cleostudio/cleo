@@ -3,8 +3,9 @@ import { ArcRulers } from '~/components/arc-rulers'
 // Paper grain + bent rulers per the design language: the page reads as a
 // sheet of working paper, not a void. Layers are inert and tuned to be
 // noticed on the second visit, not the first. Column-edge guide borders
-// were removed so the content column can breathe. Cleo hides the rulers
-// with CSS (`html[data-cleo-route]`) so the chat surface stays open.
+// were removed so the content column can breathe. Cleo and Maps hide the
+// rulers with CSS (`html[data-cleo-route|data-maps-route]`) so those
+// full-bleed surfaces stay open.
 export function AmbientBackground() {
   return (
     <>

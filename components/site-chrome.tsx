@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-/** Public page shell. Cleo layout overrides use html[data-cleo-route]. */
+/** Public page shell. Full-bleed overrides use html[data-cleo-route|data-maps-route]. */
 export function SiteChrome({
   children,
   footer,
