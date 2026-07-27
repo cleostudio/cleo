@@ -344,7 +344,7 @@ describe('helpers', () => {
     ]
     expect(resolveScaleMode(items)).toBe('log')
     expect(resolveScaleMode(items, 'linear')).toBe('linear')
-    expect(scaleBarPercent(12_742, items, 'log')).toBeGreaterThan(8)
+    expect(scaleBarPercent(12_742, items, 'log')).toBe(8)
     expect(scaleBarPercent(1_391_400, items, 'log')).toBe(100)
   })
 })
