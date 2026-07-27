@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import { GuideIndexFilter } from '~/components/guide-index-filter'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
@@ -35,50 +36,78 @@ export function SpacePageView() {
         <PixelCluster variant={6} className="enter shrink-0" />
       </div>
 
-      <div className="mt-10 flex flex-col gap-10">
-        {categories.map(([category, subjects]) => {
-          const center = (subjects.length - 1) / 2
+      <div className="mt-10" data-guide-index>
+        <GuideIndexFilter
+          label="Search space guides"
+          placeholder="Planet, moon, or deep-space body"
+        />
 
-          return (
-            <section key={category} aria-labelledby={`space-${category}`}>
-              <h2
-                id={`space-${category}`}
-                className="enter text-sm font-medium text-muted-foreground"
+        <div className="flex flex-col gap-10">
+          {categories.map(([category, subjects]) => {
+            const center = (subjects.length - 1) / 2
+
+            return (
+              <section
+                key={category}
+                aria-labelledby={`space-${category}`}
+                data-guide-section
               >
-                {category}
-                <span className="ml-2 tabular-nums text-muted-foreground/70">
-                  {subjects.length}
-                </span>
-              </h2>
-              <ul className="focus-list mt-2 flex flex-col">
-                {subjects.map((subject, index) => (
-                  <li
-                    key={subject.slug}
-                    className="enter-swing"
-                    style={
-                      {
-                        '--enter-delay': `${80 + Math.min(Math.abs(index - center), 12) * 18}ms`,
-                      } as React.CSSProperties
-                    }
-                  >
-                    <Link
-                      href={`/space/${subject.slug}`}
-                      className="country-row hairline-top group"
+                <h2
+                  id={`space-${category}`}
+                  className="enter text-sm font-medium text-muted-foreground"
+                >
+                  {category}
+                  <span className="ml-2 tabular-nums text-muted-foreground/70">
+                    {subjects.length}
+                  </span>
+                </h2>
+                <ul className="focus-list mt-2 flex flex-col">
+                  {subjects.map((subject, index) => (
+                    <li
+                      key={subject.slug}
+                      className="enter-swing"
+                      data-guide-item
+                      data-search-text={[
+                        subject.name,
+                        subject.code,
+                        subject.category,
+                        subject.facts.kind,
+                        subject.subtitle,
+                      ].join(' ')}
+                      style={
+                        {
+                          '--enter-delay': `${80 + Math.min(Math.abs(index - center), 12) * 18}ms`,
+                        } as React.CSSProperties
+                      }
                     >
-                      <span className="country-code text-muted-foreground tabular-nums">
-                        {subject.code}
-                      </span>
-                      <span className="country-name font-medium">{subject.name}</span>
-                      <span className="country-subregion text-muted-foreground">
-                        {subject.facts.kind}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )
-        })}
+                      <Link
+                        href={`/space/${subject.slug}`}
+                        className="country-row hairline-top group"
+                      >
+                        <span className="country-code text-muted-foreground tabular-nums">
+                          {subject.code}
+                        </span>
+                        <span className="country-name font-medium">{subject.name}</span>
+                        <span className="country-subregion text-muted-foreground">
+                          {subject.facts.kind}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )
+          })}
+        </div>
+
+        <p
+          className="mt-6 text-sm text-muted-foreground"
+          data-guide-empty
+          hidden
+          aria-live="polite"
+        >
+          No space guides match that search.
+        </p>
       </div>
     </div>
   )

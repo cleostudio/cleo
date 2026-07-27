@@ -40,6 +40,7 @@ type SitePreviewCardProps = {
   popupClassName: string
   side?: PreviewCardSide
   closeDelay: number
+  onNavigate?: (event: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
 const PreviewCardTimingContext = createContext<SharedPreviewCard | null>(null)
@@ -71,6 +72,7 @@ function PreviewTrigger({
   delay,
   handle,
   href,
+  onNavigate,
   payload,
   rel,
   target,
@@ -90,6 +92,7 @@ function PreviewTrigger({
       className={triggerClassName}
       delay={delay}
       closeDelay={closeDelay}
+      onClick={onNavigate}
     >
       {children}
     </PreviewCard.Trigger>

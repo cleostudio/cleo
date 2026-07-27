@@ -61,7 +61,12 @@ export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
         ))}
       </ul>
 
-      <p className="text-sm text-muted-foreground" data-gallery-empty hidden>
+      <p
+        className="text-sm text-muted-foreground"
+        data-gallery-empty
+        hidden
+        aria-live="polite"
+      >
         No photographs match that search.
       </p>
     </div>

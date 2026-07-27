@@ -11,11 +11,13 @@ export const publicPageMetadata = {
   },
   gallery: {
     title: 'Gallery',
-    description: '',
+    description:
+      'Curated photographs from Explore places and Space guides — searchable contact prints with source credit.',
   },
   topics: {
     title: 'Topics',
-    description: '',
+    description:
+      'Knowledge collections on Cleo — start with Countries and Space, then open field guides and the gallery.',
   },
   /** Retained for preserved Projects UI / future portfolio surfaces. */
   projects: {
@@ -25,7 +27,8 @@ export const publicPageMetadata = {
   },
   explore: {
     title: 'Explore',
-    description: '',
+    description:
+      'Evergreen country field guides — orientation, places, and facts for nations around the world.',
   },
   space: {
     title: 'Space',

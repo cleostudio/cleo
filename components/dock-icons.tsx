@@ -143,6 +143,27 @@ export function ExploreIcon() {
   )
 }
 
+/** Space topic: crescent moon with a companion star. */
+export function SpaceIcon() {
+  return (
+    <Base>
+      <path
+        d="M10.75 3.1A6.75 6.75 0 1 0 14.9 12.25 5.25 5.25 0 0 1 10.75 3.1Z"
+        fill="currentColor"
+        opacity=".3"
+        strokeWidth="0"
+        stroke="none"
+      />
+      <path d="M10.75 3.1A6.75 6.75 0 1 0 14.9 12.25 5.25 5.25 0 0 1 10.75 3.1Z" />
+      <path
+        d="M4.1 4.85 4.45 5.85 5.45 6.2 4.45 6.55 4.1 7.55 3.75 6.55 2.75 6.2 3.75 5.85Z"
+        fill="currentColor"
+        stroke="none"
+      />
+    </Base>
+  )
+}
+
 export function SayHiIcon() {
   return (
     <Base>

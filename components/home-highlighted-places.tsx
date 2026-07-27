@@ -1,15 +1,19 @@
 import Link from 'next/link'
 
 import { AtlasImage } from '~/components/atlas-image'
-import type { AtlasEntry } from '~/lib/atlas'
+import type { HomeHighlight } from '~/lib/home-highlights'
 
-export function HomeHighlightedPlaces({ entries }: { entries: AtlasEntry[] }) {
+export function HomeHighlightedPlaces({
+  entries,
+}: {
+  entries: HomeHighlight[]
+}) {
   return (
     <ul className="home-highlights">
       {entries.map((entry) => (
-        <li key={entry.slug}>
+        <li key={entry.id}>
           <Link
-            href={`/explore/${entry.slug}`}
+            href={entry.href}
             className="group block outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <div className="photo-frame relative overflow-hidden">
@@ -24,8 +28,8 @@ export function HomeHighlightedPlaces({ entries }: { entries: AtlasEntry[] }) {
               <span className="calibration-corners" aria-hidden />
             </div>
             <div className="mt-2 space-y-0.5 px-0.5">
-              <p className="text-sm font-medium text-foreground">{entry.photo.placeName}</p>
-              <p className="text-xs text-muted-foreground">{entry.name}</p>
+              <p className="text-sm font-medium text-foreground">{entry.title}</p>
+              <p className="text-xs text-muted-foreground">{entry.subtitle}</p>
             </div>
           </Link>
         </li>

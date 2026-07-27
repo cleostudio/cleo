@@ -13,8 +13,9 @@ export const DOCK_GO_SHORTCUTS: Record<string, string> = {
   h: '/',
   w: '/blog',
   p: '/gallery',
-  t: '/topics',
   e: '/explore',
+  s: '/space',
+  t: '/topics',
   c: '/cleo',
 }
 
@@ -141,9 +142,9 @@ function useGoChords({
 }
 
 /**
- * Global chord shortcuts for the public dock: press G, then H / W / P / J /
- * E / C within a short window to jump Home / Writing / Gallery / Topics /
- * Explore / Cleo.
+ * Global chord shortcuts for the public dock: press G, then H / W / P / E /
+ * S / T / C within a short window to jump Home / Writing / Gallery /
+ * Explore / Space / Topics / Cleo.
  */
 export function useDockGoShortcuts({
   locale,

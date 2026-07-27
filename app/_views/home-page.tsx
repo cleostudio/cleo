@@ -5,8 +5,8 @@ import { HomeIntroduction } from '~/components/home-introduction'
 import { HomeSiteSearch } from '~/components/home-site-search'
 import { HOME_MASTHEAD_VARIANT, PixelCluster } from '~/components/pixel-cluster'
 import { PostRow } from '~/components/post-row'
-import { highlightedAtlasEntries } from '~/lib/atlas'
 import { getAllPosts } from '~/lib/content'
+import { homeHighlights } from '~/lib/home-highlights'
 import { T } from '~/lib/i18n'
 import type { Locale } from '~/lib/locale-route'
 import { buildSiteSearchHits } from '~/lib/site-search-catalog'
@@ -39,7 +39,7 @@ function SectionTitle({
 
 export async function HomePageView({ locale }: { locale: Locale }) {
   const topics = allTopics()
-  const highlights = highlightedAtlasEntries(6)
+  const highlights = homeHighlights(6)
   const writingPosts = getAllPosts().slice(0, HOME_WRITING_POST_COUNT)
   const searchHits = buildSiteSearchHits()
   const topicCenter = (topics.length - 1) / 2
@@ -67,12 +67,12 @@ export async function HomePageView({ locale }: { locale: Locale }) {
         <div className="flex items-center justify-between gap-4">
           <SectionTitle index="01" delay={160}>
             <span id="home-places-heading">
-              <T zh="精选地点" en="Highlighted places" />
+              <T zh="精选指南" en="Highlighted guides" />
             </span>
           </SectionTitle>
           <Link
             href="/gallery"
-            className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+            className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[var(--ease-swift)] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
             style={{ '--enter-delay': '160ms' } as React.CSSProperties}
           >
             <T zh="全部图库" en="Full gallery" />
@@ -92,7 +92,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
           </SectionTitle>
           <Link
             href="/topics"
-            className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+            className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[var(--ease-swift)] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
             style={{ '--enter-delay': '220ms' } as React.CSSProperties}
           >
             <T zh="全部主题" en="All topics" />
@@ -138,7 +138,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
             </SectionTitle>
             <Link
               href="/blog"
-              className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+              className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[var(--ease-swift)] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
               style={{ '--enter-delay': '300ms' } as React.CSSProperties}
             >
               <T zh="全部写作" en="All writing" />

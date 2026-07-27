@@ -19,15 +19,18 @@ describe('public page metadata copy', () => {
     })
     expect(publicPageMetadata.gallery).toEqual({
       title: 'Gallery',
-      description: '',
+      description:
+        'Curated photographs from Explore places and Space guides — searchable contact prints with source credit.',
     })
     expect(publicPageMetadata.topics).toEqual({
       title: 'Topics',
-      description: '',
+      description:
+        'Knowledge collections on Cleo — start with Countries and Space, then open field guides and the gallery.',
     })
     expect(publicPageMetadata.explore).toEqual({
       title: 'Explore',
-      description: '',
+      description:
+        'Evergreen country field guides — orientation, places, and facts for nations around the world.',
     })
     expect(publicPageMetadata.space).toEqual({
       title: 'Space',

@@ -5,12 +5,14 @@ import { GuideOrientation } from '~/components/guide-orientation'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
+import { guideNeighbors } from '~/lib/guide-neighbors'
+import { localeMetadata } from '~/lib/locale-metadata'
 import {
   getSpaceSubject,
   spaceDescription,
   spaceSubjectSlugs,
+  spaceSubjectsByCategory,
 } from '~/lib/space'
-import { localeMetadata } from '~/lib/locale-metadata'
 
 export function spaceSubjectStaticParams() {
   return spaceSubjectSlugs().map((slug) => ({ slug }))
@@ -35,6 +37,13 @@ function formatRadius(radiusKm: number | null): string {
 export function SpaceSubjectPageView({ slug }: { slug: string }) {
   const subject = getSpaceSubject(slug)
   if (!subject) notFound()
+
+  const categorySubjects =
+    spaceSubjectsByCategory().find(
+      ([category]) => category === subject.category,
+    )?.[1] ?? []
+  const { previous, next } = guideNeighbors(categorySubjects, subject.slug)
+  const askHref = `/cleo?q=${encodeURIComponent(`Tell me about ${subject.name}`)}`
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -222,14 +231,37 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         </ul>
       </section>
 
-      <p
-        className="enter mt-10 mb-4"
-        style={{ '--enter-delay': '180ms' } as React.CSSProperties}
-      >
-        <Link href="/space" className="text-sm text-muted-foreground hover:text-foreground">
-          ← All space guides
+      <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
+        <Link href={askHref} className="text-sm text-muted-foreground hover:text-foreground">
+          Ask Cleo about {subject.name} →
         </Link>
       </p>
+      <p className="enter mt-3" style={{ '--enter-delay': '185ms' } as React.CSSProperties}>
+        <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
+          Browse the gallery →
+        </Link>
+      </p>
+      <nav
+        className="enter mt-6 mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground"
+        style={{ '--enter-delay': '190ms' } as React.CSSProperties}
+        aria-label="Nearby space guides"
+      >
+        {previous ? (
+          <Link href={`/space/${previous.slug}`} className="hover:text-foreground">
+            ← {previous.name}
+          </Link>
+        ) : (
+          <span aria-hidden />
+        )}
+        <Link href="/space" className="hover:text-foreground">
+          All space guides
+        </Link>
+        {next ? (
+          <Link href={`/space/${next.slug}`} className="hover:text-foreground">
+            {next.name} →
+          </Link>
+        ) : null}
+      </nav>
     </article>
   )
 }

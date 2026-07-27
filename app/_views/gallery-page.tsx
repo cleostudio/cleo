@@ -29,6 +29,9 @@ export function GalleryPageView() {
           <h1 className="page-eyebrow">
             <T zh="图库" en="Gallery" />
           </h1>
+          <p className="page-introduction mt-4 text-balance">
+            {publicPageMetadata.gallery.description}
+          </p>
         </header>
         <PixelCluster variant={4} className="shrink-0" />
       </div>

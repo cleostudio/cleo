@@ -27,9 +27,21 @@ describe('social OG image metadata', () => {
       publicPageMetadata.blog,
       'Writing · Cleo. Creative essays about Earth, the ocean, deep time, and the wider universe — place, scale, and what endures.',
     ],
-    ['/gallery', publicPageMetadata.gallery, 'Gallery · Cleo'],
-    ['/topics', publicPageMetadata.topics, 'Topics · Cleo'],
-    ['/explore', publicPageMetadata.explore, 'Explore · Cleo'],
+    [
+      '/gallery',
+      publicPageMetadata.gallery,
+      'Gallery · Cleo. Curated photographs from Explore places and Space guides — searchable contact prints with source credit.',
+    ],
+    [
+      '/topics',
+      publicPageMetadata.topics,
+      'Topics · Cleo. Knowledge collections on Cleo — start with Countries and Space, then open field guides and the gallery.',
+    ],
+    [
+      '/explore',
+      publicPageMetadata.explore,
+      'Explore · Cleo. Evergreen country field guides — orientation, places, and facts for nations around the world.',
+    ],
     [
       '/space',
       publicPageMetadata.space,

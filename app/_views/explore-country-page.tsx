@@ -5,8 +5,9 @@ import { GuideOrientation } from '~/components/guide-orientation'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
-import { countrySlugs, getCountry } from '~/lib/countries'
 import { atlasDescription, getAtlasEntry } from '~/lib/atlas'
+import { countriesByRegion, countrySlugs, getCountry } from '~/lib/countries'
+import { guideNeighbors } from '~/lib/guide-neighbors'
 import { localeMetadata } from '~/lib/locale-metadata'
 
 export function exploreCountryStaticParams() {
@@ -33,6 +34,10 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
 
   const hero = entry.photo.renditions.find((r) => r.width === 1280) ?? entry.photo.renditions[0]!
   const renditions = entry.photo.renditions.map((r) => ({ src: r.src, width: r.width }))
+  const regionCountries =
+    countriesByRegion().find(([region]) => region === country.region)?.[1] ?? []
+  const { previous, next } = guideNeighbors(regionCountries, country.slug)
+  const askHref = `/cleo?q=${encodeURIComponent(`Tell me about ${country.name}`)}`
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -202,15 +207,36 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
+        <Link href={askHref} className="text-sm text-muted-foreground hover:text-foreground">
+          Ask Cleo about {country.name} →
+        </Link>
+      </p>
+      <p className="enter mt-3" style={{ '--enter-delay': '185ms' } as React.CSSProperties}>
         <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
           Browse the gallery →
         </Link>
       </p>
-      <p className="enter mt-3 mb-4" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
-        <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
-          ← All countries
+      <nav
+        className="enter mt-6 mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground"
+        style={{ '--enter-delay': '190ms' } as React.CSSProperties}
+        aria-label="Nearby country guides"
+      >
+        {previous ? (
+          <Link href={`/explore/${previous.slug}`} className="hover:text-foreground">
+            ← {previous.name}
+          </Link>
+        ) : (
+          <span aria-hidden />
+        )}
+        <Link href="/explore" className="hover:text-foreground">
+          All countries
         </Link>
-      </p>
+        {next ? (
+          <Link href={`/explore/${next.slug}`} className="hover:text-foreground">
+            {next.name} →
+          </Link>
+        ) : null}
+      </nav>
     </article>
   )
 }

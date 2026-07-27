@@ -65,9 +65,10 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 ## Cleo agent surface
 
 - UI: `components/cleo/ask-form.tsx` owns messages, image attachments,
-  cancellation, and NDJSON stream consumption. The page shell is
-  `app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
-  (`G` then `C`).
+ cancellation, New chat, optional `?q=` bootstrap, and NDJSON stream
+ consumption. The page shell is `app/_views/cleo-page.tsx`, reached from
+ the bottom dock via `SayHiIcon` (`G` then `C`). Explore/Space guides can
+ deep-link with `/cleo?q=…`.
 - API: `app/api/responses/route.ts` validates messages (including image data
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, reasoning summaries, streaming, and `store: false`.

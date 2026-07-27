@@ -110,6 +110,7 @@ export function AskForm() {
   const hasMessages = messages.length > 0
   const canSubmit =
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
+  const bootstrapPromptRef = useRef<string | null>(null)
 
   useEffect(() => {
     if (!hasMessages) return
@@ -144,8 +145,31 @@ export function AskForm() {
     }
   }, [hasMessages])
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const prompt = params.get('q')?.trim()
+    if (!prompt) return
+
+    const url = new URL(window.location.href)
+    url.searchParams.delete('q')
+    window.history.replaceState({}, '', `${url.pathname}${url.hash}`)
+    bootstrapPromptRef.current = prompt
+  }, [])
+
   function handleStop() {
     abortControllerRef.current?.abort()
+  }
+
+  function handleNewChat() {
+    abortControllerRef.current?.abort()
+    abortControllerRef.current = null
+    setMessages([])
+    setInput('')
+    setPendingImages([])
+    setError(null)
+    setIsSubmitting(false)
+    messageIdRef.current = 0
+    inputRef.current?.focus()
   }
 
   function removePendingImage(index: number) {
@@ -431,10 +455,29 @@ export function AskForm() {
     }
   }
 
+  useEffect(() => {
+    const prompt = bootstrapPromptRef.current
+    if (!prompt) return
+    bootstrapPromptRef.current = null
+    void handleSubmit(undefined, prompt)
+    // Bootstrap once from ?q= after the URL has been cleaned.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <div className="app-column min-w-0">
+      <h1 className="sr-only">Cleo</h1>
       {hasMessages ? (
         <div className="cleo-messages pt-8 sm:pt-10">
+          <div className="mb-5 flex justify-end">
+            <button
+              type="button"
+              className="text-sm text-muted-foreground underline-offset-2 transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground hover:underline"
+              onClick={handleNewChat}
+            >
+              New chat
+            </button>
+          </div>
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === 'user' ? (
