@@ -5447,6 +5447,774 @@
       }
     ]
   },
+  "places/beijing": {
+    "collection": "places",
+    "title": "Beijing",
+    "subtitle": "Beijing",
+    "alt": "Beijing in China",
+    "photographer": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "width": 3648,
+    "height": 2491,
+    "renditions": [
+      {
+        "src": "/images/places/beijing/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/beijing/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/beijing/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bangkok": {
+    "collection": "places",
+    "title": "Bangkok",
+    "subtitle": "Bangkok",
+    "alt": "Bangkok in Thailand",
+    "photographer": "Dominic Nelson",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/bangkok/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bangkok/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bangkok/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/dubai": {
+    "collection": "places",
+    "title": "Dubai",
+    "subtitle": "Dubai",
+    "alt": "Dubai in United Arab Emirates",
+    "photographer": "Robert Haandrikman",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 1207,
+    "renditions": [
+      {
+        "src": "/images/places/dubai/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/dubai/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/dubai/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lisbon": {
+    "collection": "places",
+    "title": "Lisbon",
+    "subtitle": "Lisbon",
+    "alt": "Lisbon in Portugal",
+    "photographer": "Jules Verne Times Two",
+    "license": "CC BY-SA 4.0",
+    "width": 3201,
+    "height": 1905,
+    "renditions": [
+      {
+        "src": "/images/places/lisbon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lisbon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lisbon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/barcelona": {
+    "collection": "places",
+    "title": "Barcelona",
+    "subtitle": "Barcelona",
+    "alt": "Barcelona in Spain",
+    "photographer": "Luis Miguel Bugallo Sánchez (Lmbuga)",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/barcelona/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/barcelona/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/barcelona/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/amsterdam": {
+    "collection": "places",
+    "title": "Amsterdam",
+    "subtitle": "Amsterdam",
+    "alt": "Amsterdam in Netherlands",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 3072,
+    "renditions": [
+      {
+        "src": "/images/places/amsterdam/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/amsterdam/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/amsterdam/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/berlin": {
+    "collection": "places",
+    "title": "Berlin",
+    "subtitle": "Berlin",
+    "alt": "Berlin in Germany",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/berlin/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/berlin/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/berlin/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/vienna": {
+    "collection": "places",
+    "title": "Vienna",
+    "subtitle": "Vienna",
+    "alt": "Vienna in Austria",
+    "photographer": "Hubertl",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1990,
+    "renditions": [
+      {
+        "src": "/images/places/vienna/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/vienna/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/vienna/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/prague": {
+    "collection": "places",
+    "title": "Prague",
+    "subtitle": "Prague",
+    "alt": "Prague in Czechia",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 815,
+    "renditions": [
+      {
+        "src": "/images/places/prague/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/prague/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/prague/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/buenos-aires": {
+    "collection": "places",
+    "title": "Buenos Aires",
+    "subtitle": "Buenos Aires",
+    "alt": "Buenos Aires in Argentina",
+    "photographer": "Martin St-Amant ( S23678 )",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1550,
+    "renditions": [
+      {
+        "src": "/images/places/buenos-aires/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/buenos-aires/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/buenos-aires/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/seoul": {
+    "collection": "places",
+    "title": "Seoul",
+    "subtitle": "Seoul",
+    "alt": "Seoul in Korea, South",
+    "photographer": "Frank Schulenburg",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/seoul/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/seoul/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/seoul/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/havana": {
+    "collection": "places",
+    "title": "Havana",
+    "subtitle": "Havana",
+    "alt": "Havana in Cuba",
+    "photographer": "Yoeztudioz",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/havana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/havana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/havana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/alaska": {
+    "collection": "places",
+    "title": "Alaska",
+    "subtitle": "Alaska",
+    "alt": "Alaska in United States",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/alaska/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/alaska/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/alaska/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rajasthan": {
+    "collection": "places",
+    "title": "Rajasthan",
+    "subtitle": "Rajasthan",
+    "alt": "Rajasthan in India",
+    "photographer": "Sharvarism",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/rajasthan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rajasthan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rajasthan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/yunnan": {
+    "collection": "places",
+    "title": "Yunnan",
+    "subtitle": "Yunnan",
+    "alt": "Yunnan in China",
+    "photographer": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "width": 3597,
+    "height": 2698,
+    "renditions": [
+      {
+        "src": "/images/places/yunnan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/yunnan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/yunnan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/douro-valley": {
+    "collection": "places",
+    "title": "Douro",
+    "subtitle": "Douro Valley",
+    "alt": "Douro in Portugal",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2369,
+    "renditions": [
+      {
+        "src": "/images/places/douro-valley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/douro-valley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/douro-valley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/swiss-alps": {
+    "collection": "places",
+    "title": "Matterhorn",
+    "subtitle": "Swiss Alps",
+    "alt": "Matterhorn in Switzerland",
+    "photographer": "Roy Egloff",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/swiss-alps/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/swiss-alps/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/swiss-alps/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/dalmatia": {
+    "collection": "places",
+    "title": "Dubrovnik",
+    "subtitle": "Dalmatia",
+    "alt": "Dubrovnik in Croatia",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2470,
+    "renditions": [
+      {
+        "src": "/images/places/dalmatia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/dalmatia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/dalmatia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/atacama": {
+    "collection": "places",
+    "title": "Atacama Desert",
+    "subtitle": "Atacama",
+    "alt": "Atacama Desert in Chile",
+    "photographer": "Lucash",
+    "license": "CC BY-SA 3.0",
+    "width": 2973,
+    "height": 1558,
+    "renditions": [
+      {
+        "src": "/images/places/atacama/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/atacama/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/atacama/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/patagonia": {
+    "collection": "places",
+    "title": "Patagonia",
+    "subtitle": "Patagonia",
+    "alt": "Patagonia in Argentina",
+    "photographer": "Luca Galuzzi ( Lucag )",
+    "license": "CC BY-SA 2.5",
+    "width": 2000,
+    "height": 1333,
+    "renditions": [
+      {
+        "src": "/images/places/patagonia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/patagonia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/patagonia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/easter-island": {
+    "collection": "places",
+    "title": "Easter Island",
+    "subtitle": "Easter Island",
+    "alt": "Easter Island in Chile",
+    "photographer": "Phil Whitehouse from London, United Kingdom",
+    "license": "CC BY 2.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/easter-island/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/easter-island/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/easter-island/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/phi-phi": {
+    "collection": "places",
+    "title": "Phi Phi Islands",
+    "subtitle": "Phi Phi Islands",
+    "alt": "Phi Phi Islands in Thailand",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2365,
+    "renditions": [
+      {
+        "src": "/images/places/phi-phi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/phi-phi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/phi-phi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/palawan": {
+    "collection": "places",
+    "title": "Palawan",
+    "subtitle": "Palawan",
+    "alt": "Palawan in Philippines",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/palawan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/palawan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/palawan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/madeira": {
+    "collection": "places",
+    "title": "Madeira",
+    "subtitle": "Madeira",
+    "alt": "Madeira in Portugal",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/madeira/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/madeira/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/madeira/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lofoten": {
+    "collection": "places",
+    "title": "Lofoten Islands",
+    "subtitle": "Lofoten",
+    "alt": "Lofoten Islands in Norway",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2079,
+    "renditions": [
+      {
+        "src": "/images/places/lofoten/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lofoten/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lofoten/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/gotland": {
+    "collection": "places",
+    "title": "Gotland",
+    "subtitle": "Gotland",
+    "alt": "Gotland in Sweden",
+    "photographer": "Berit from Redhill/Surrey, UK",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "src": "/images/places/gotland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/gotland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/gotland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mamanuca": {
+    "collection": "places",
+    "title": "Mamanuca Islands",
+    "subtitle": "Mamanuca Islands",
+    "alt": "Mamanuca Islands in Fiji",
+    "photographer": "Isderion",
+    "license": "CC BY-SA 3.0 de",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/mamanuca/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mamanuca/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mamanuca/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/great-wall": {
+    "collection": "places",
+    "title": "Great Wall of China",
+    "subtitle": "Great Wall",
+    "alt": "Great Wall of China in China",
+    "photographer": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2460,
+    "renditions": [
+      {
+        "src": "/images/places/great-wall/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/great-wall/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/great-wall/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/taj-mahal": {
+    "collection": "places",
+    "title": "Taj Mahal",
+    "subtitle": "Taj Mahal",
+    "alt": "Taj Mahal in India",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3000,
+    "height": 2782,
+    "renditions": [
+      {
+        "src": "/images/places/taj-mahal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/taj-mahal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/taj-mahal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ha-long-bay": {
+    "collection": "places",
+    "title": "Ha Long Bay",
+    "subtitle": "Ha Long Bay",
+    "alt": "Ha Long Bay in Vietnam",
+    "photographer": "Trideep Dutta Photography",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1730,
+    "renditions": [
+      {
+        "src": "/images/places/ha-long-bay/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ha-long-bay/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ha-long-bay/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/milford-sound": {
+    "collection": "places",
+    "title": "Milford Sound",
+    "subtitle": "Milford Sound",
+    "alt": "Milford Sound in New Zealand",
+    "photographer": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "width": 3421,
+    "height": 2281,
+    "renditions": [
+      {
+        "src": "/images/places/milford-sound/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/milford-sound/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/milford-sound/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cliffs-of-moher": {
+    "collection": "places",
+    "title": "Cliffs of Moher",
+    "subtitle": "Cliffs of Moher",
+    "alt": "Cliffs of Moher in Ireland",
+    "photographer": "Berthold Werner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/cliffs-of-moher/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cliffs-of-moher/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cliffs-of-moher/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

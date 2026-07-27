@@ -926,5 +926,933 @@
         "bytes": 390831
       }
     ]
+  },
+  "beijing": {
+    "featureName": "Beijing",
+    "alt": "Beijing in China",
+    "caption": "Beijing, China",
+    "photographer": "Ermell",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beijing_forbidden_city_Belvedere_of_Embodying_Benevolence-20071018-RM-142403.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Beijing forbidden city Belvedere of Embodying Benevolence-20071018-RM-142403.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/19/Beijing_forbidden_city_Belvedere_of_Embodying_Benevolence-20071018-RM-142403.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c6055763f758f9f3949bdb11a10359d3abf9e020c6f22eb5e61827351b6fea18",
+    "width": 3648,
+    "height": 2491,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/beijing/w640.jpg",
+        "bytes": 100165
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/beijing/w1280.jpg",
+        "bytes": 265132
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/beijing/w2048.jpg",
+        "bytes": 656346
+      }
+    ]
+  },
+  "bangkok": {
+    "featureName": "Bangkok",
+    "alt": "Bangkok in Thailand",
+    "caption": "Bangkok, Thailand",
+    "photographer": "Dominic Nelson",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bangkok_-_Santichaiprakarn_Throne_Hall_at_golden_hour_Jan_2024.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bangkok - Santichaiprakarn Throne Hall at golden hour Jan 2024.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/71/Bangkok_-_Santichaiprakarn_Throne_Hall_at_golden_hour_Jan_2024.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c4ec286f12707661c88944a887648259bbbef5e16100e1a6920577189d2ccec0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bangkok/w640.jpg",
+        "bytes": 53901
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bangkok/w1280.jpg",
+        "bytes": 199195
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bangkok/w2048.jpg",
+        "bytes": 583929
+      }
+    ]
+  },
+  "dubai": {
+    "featureName": "Dubai",
+    "alt": "Dubai in United Arab Emirates",
+    "caption": "Dubai, United Arab Emirates",
+    "photographer": "Robert Haandrikman",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hatta_Dam_-_UAE.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Hatta Dam - UAE.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5c/Hatta_Dam_-_UAE.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b42b2f0dcb83bf7a82555da806200bee7617c525ac0ba048f506b7bdb2ac60c7",
+    "width": 3840,
+    "height": 1207,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/dubai/w640.jpg",
+        "bytes": 19725
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/dubai/w1280.jpg",
+        "bytes": 72873
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/dubai/w2048.jpg",
+        "bytes": 229910
+      }
+    ]
+  },
+  "lisbon": {
+    "featureName": "Lisbon",
+    "alt": "Lisbon in Portugal",
+    "caption": "Lisbon, Portugal",
+    "photographer": "Jules Verne Times Two",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Portuguese_cal%C3%A7ada,_Instituto_Superior_T%C3%A9cnico,_Lisbon,_Portugal_julesvernex2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Aerial view of Portuguese calçada, Instituto Superior Técnico, Lisbon, Portugal julesvernex2.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c9/Aerial_view_of_Portuguese_cal%C3%A7ada%2C_Instituto_Superior_T%C3%A9cnico%2C_Lisbon%2C_Portugal_julesvernex2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4545244f04b44131c78681b273a738c2d99baf5a3553d8af25e711d7a57916ea",
+    "width": 3201,
+    "height": 1905,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lisbon/w640.jpg",
+        "bytes": 135845
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lisbon/w1280.jpg",
+        "bytes": 364663
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lisbon/w2048.jpg",
+        "bytes": 950024
+      }
+    ]
+  },
+  "barcelona": {
+    "featureName": "Barcelona",
+    "alt": "Barcelona in Spain",
+    "caption": "Barcelona, Spain",
+    "photographer": "Luis Miguel Bugallo Sánchez (Lmbuga)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Simetr%C3%ADa_na_Sagrada_Familia._Barcelona_B30.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Simetría na Sagrada Familia. Barcelona B30.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d6/Simetr%C3%ADa_na_Sagrada_Familia._Barcelona_B30.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1424ee7a10f940db7258023d80cd82690790ab1d59555d41dd2fcd6ea98f12f7",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/barcelona/w640.jpg",
+        "bytes": 52782
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/barcelona/w1280.jpg",
+        "bytes": 181084
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/barcelona/w2048.jpg",
+        "bytes": 525845
+      }
+    ]
+  },
+  "amsterdam": {
+    "featureName": "Amsterdam",
+    "alt": "Amsterdam in Netherlands",
+    "caption": "Amsterdam, Netherlands",
+    "photographer": "Basile Morin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_canal_houses_at_blue_hour_in_Damrak_Amsterdam_the_Netherlands.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Water reflection of canal houses at blue hour in Damrak Amsterdam the Netherlands.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d3/Water_reflection_of_canal_houses_at_blue_hour_in_Damrak_Amsterdam_the_Netherlands.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d6e9bd485ff98e36368edd6cf1b3df58b21854facddf1da16c75671cc3c9a236",
+    "width": 3840,
+    "height": 3072,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/amsterdam/w640.jpg",
+        "bytes": 74792
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/amsterdam/w1280.jpg",
+        "bytes": 245103
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/amsterdam/w2048.jpg",
+        "bytes": 681938
+      }
+    ]
+  },
+  "berlin": {
+    "featureName": "Berlin",
+    "alt": "Berlin in Germany",
+    "caption": "Berlin, Germany",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reloj_Mundial,_Berl%C3%ADn,_Alemania,_2016-04-22,_DD_46-48_HDR.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Reloj Mundial, Berlín, Alemania, 2016-04-22, DD 46-48 HDR.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6f/Reloj_Mundial%2C_Berl%C3%ADn%2C_Alemania%2C_2016-04-22%2C_DD_46-48_HDR.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "337bf434249569ff909871192d37654e4037559c972fcc6a0eb331de819213be",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/berlin/w640.jpg",
+        "bytes": 42709
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/berlin/w1280.jpg",
+        "bytes": 154387
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/berlin/w2048.jpg",
+        "bytes": 469040
+      }
+    ]
+  },
+  "vienna": {
+    "featureName": "Vienna",
+    "alt": "Vienna in Austria",
+    "caption": "Vienna, Austria",
+    "photographer": "Hubertl",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2014-09-29_-_Reichsbr%C3%BCcke-Donau_City-Sunken_City.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:2014-09-29 - Reichsbrücke-Donau City-Sunken City.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c3/2014-09-29_-_Reichsbr%C3%BCcke-Donau_City-Sunken_City.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2b11fd15e54ece50d315ab2528c5d55f73fd51818a2f9da85737af04117910b9",
+    "width": 3840,
+    "height": 1990,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/vienna/w640.jpg",
+        "bytes": 29952
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/vienna/w1280.jpg",
+        "bytes": 101626
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/vienna/w2048.jpg",
+        "bytes": 299884
+      }
+    ]
+  },
+  "prague": {
+    "featureName": "Prague",
+    "alt": "Prague in Czechia",
+    "caption": "Prague, Czechia",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prague_Panorama_-_Oct_2010.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Prague Panorama - Oct 2010.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7b/Prague_Panorama_-_Oct_2010.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f52e73a4d48746db5c85dd6798c8e4362f79a158a91e81cd7feb41c998c13bc1",
+    "width": 3840,
+    "height": 815,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/prague/w640.jpg",
+        "bytes": 22674
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/prague/w1280.jpg",
+        "bytes": 84716
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/prague/w2048.jpg",
+        "bytes": 257522
+      }
+    ]
+  },
+  "buenos-aires": {
+    "featureName": "Buenos Aires",
+    "alt": "Buenos Aires in Argentina",
+    "caption": "Buenos Aires, Argentina",
+    "photographer": "Martin St-Amant ( S23678 )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:199_-_Buenos_Aires_-_A%C3%A9roport_international_Ezeiza_-_Janvier_2010.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:199 - Buenos Aires - Aéroport international Ezeiza - Janvier 2010.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a9/199_-_Buenos_Aires_-_A%C3%A9roport_international_Ezeiza_-_Janvier_2010.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7d0d5a07c7ddfcfc7ec496c77f08efa28eeabd077a2a31fffacec812a1567638",
+    "width": 3840,
+    "height": 1550,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/buenos-aires/w640.jpg",
+        "bytes": 43732
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/buenos-aires/w1280.jpg",
+        "bytes": 142258
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/buenos-aires/w2048.jpg",
+        "bytes": 371320
+      }
+    ]
+  },
+  "seoul": {
+    "featureName": "Seoul",
+    "alt": "Seoul in Korea, South",
+    "caption": "Seoul, Korea, South",
+    "photographer": "Frank Schulenburg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gyeonghoeru_(Royal_Banquet_Hall)_at_Gyeongbokgung_Palace,_Seoul.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Gyeonghoeru (Royal Banquet Hall) at Gyeongbokgung Palace, Seoul.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5d/Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "359d8e79d4b23aa79375365238beeffc949091f7fb0694a73130df531ba2cf8e",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/seoul/w640.jpg",
+        "bytes": 39811
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/seoul/w1280.jpg",
+        "bytes": 153797
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/seoul/w2048.jpg",
+        "bytes": 476388
+      }
+    ]
+  },
+  "havana": {
+    "featureName": "Havana",
+    "alt": "Havana in Cuba",
+    "caption": "Havana, Cuba",
+    "photographer": "Yoeztudioz",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plaza_de_la_Catedral,_Habana_Vieja,_La_Habana,_Cuba._Agosto_de_2016_03.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Plaza de la Catedral, Habana Vieja, La Habana, Cuba. Agosto de 2016 03.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/37/Plaza_de_la_Catedral%2C_Habana_Vieja%2C_La_Habana%2C_Cuba._Agosto_de_2016_03.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1c5ec6077e35898b88bb4e0be8e432c3aa9a6edd7d118761808ca5d324b704bd",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/havana/w640.jpg",
+        "bytes": 63703
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/havana/w1280.jpg",
+        "bytes": 253679
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/havana/w2048.jpg",
+        "bytes": 765538
+      }
+    ]
+  },
+  "alaska": {
+    "featureName": "Alaska",
+    "alt": "Alaska in United States",
+    "caption": "Alaska, United States",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parque_Eagle_River,_Anchorage,_Alaska,_Estados_Unidos,_2017-09-01,_DD_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Parque Eagle River, Anchorage, Alaska, Estados Unidos, 2017-09-01, DD 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/81/Parque_Eagle_River%2C_Anchorage%2C_Alaska%2C_Estados_Unidos%2C_2017-09-01%2C_DD_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0eca0faebecae3879cda38898a5fdd355ec27f2667f32661e7a9057ca5f9ff3b",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/alaska/w640.jpg",
+        "bytes": 68347
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/alaska/w1280.jpg",
+        "bytes": 272128
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/alaska/w2048.jpg",
+        "bytes": 826804
+      }
+    ]
+  },
+  "rajasthan": {
+    "featureName": "Rajasthan",
+    "alt": "Rajasthan in India",
+    "caption": "Rajasthan, India",
+    "photographer": "Sharvarism",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zanana_Kund_Aur_Galta_Ji_Ka_Mandir_-_edited.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Zanana Kund Aur Galta Ji Ka Mandir - edited.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4f/Zanana_Kund_Aur_Galta_Ji_Ka_Mandir_-_edited.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e127d1e05f9a2a0eea9f976a2836a8672cf1638cb4524e935acf6b7e1445f1d2",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rajasthan/w640.jpg",
+        "bytes": 84390
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rajasthan/w1280.jpg",
+        "bytes": 335018
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rajasthan/w2048.jpg",
+        "bytes": 1016860
+      }
+    ]
+  },
+  "yunnan": {
+    "featureName": "Yunnan",
+    "alt": "Yunnan in China",
+    "caption": "Yunnan, China",
+    "photographer": "CEphoto, Uwe Aranas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lijiang_Yunnan_China-Naxi-people-carrying-baskets-01.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lijiang Yunnan China-Naxi-people-carrying-baskets-01.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/15/Lijiang_Yunnan_China-Naxi-people-carrying-baskets-01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c665ec6a88afbab66dafc2f11010ccdf21f3e8abc1e1a69251871f696b6ef86e",
+    "width": 3597,
+    "height": 2698,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/yunnan/w640.jpg",
+        "bytes": 103208
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/yunnan/w1280.jpg",
+        "bytes": 245365
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/yunnan/w2048.jpg",
+        "bytes": 573781
+      }
+    ]
+  },
+  "douro-valley": {
+    "featureName": "Douro",
+    "alt": "Douro in Portugal",
+    "caption": "Douro, Portugal",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puente_Don_Luis_I,_Oporto,_Portugal,_2012-05-09,_DD_13.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Puente Don Luis I, Oporto, Portugal, 2012-05-09, DD 13.JPG); source https://upload.wikimedia.org/wikipedia/commons/e/e5/Puente_Don_Luis_I%2C_Oporto%2C_Portugal%2C_2012-05-09%2C_DD_13.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7aeded5fb932a90f53fa1ac084df453f437b7839b1913271f81c0e59ab3c72fb",
+    "width": 3840,
+    "height": 2369,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/douro-valley/w640.jpg",
+        "bytes": 55080
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/douro-valley/w1280.jpg",
+        "bytes": 208490
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/douro-valley/w2048.jpg",
+        "bytes": 639558
+      }
+    ]
+  },
+  "swiss-alps": {
+    "featureName": "Matterhorn",
+    "alt": "Matterhorn in Switzerland",
+    "caption": "Matterhorn, Switzerland",
+    "photographer": "Roy Egloff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CH.VS.Zermatt_Sunnegga_Grindjisee_Matterhorn_9034_16x9-R_16K.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:CH.VS.Zermatt Sunnegga Grindjisee Matterhorn 9034 16x9-R 16K.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5c/CH.VS.Zermatt_Sunnegga_Grindjisee_Matterhorn_9034_16x9-R_16K.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3c3c53d47f2d1ebe5501b39279bca98d60d94ce9bf0896baa6f2742e6a02f16e",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/swiss-alps/w640.jpg",
+        "bytes": 52285
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/swiss-alps/w1280.jpg",
+        "bytes": 216991
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/swiss-alps/w2048.jpg",
+        "bytes": 688196
+      }
+    ]
+  },
+  "dalmatia": {
+    "featureName": "Dubrovnik",
+    "alt": "Dubrovnik in Croatia",
+    "caption": "Dubrovnik, Croatia",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Casco_viejo_de_Dubrovnik,_Croacia,_2014-04-14,_DD_07.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Casco viejo de Dubrovnik, Croacia, 2014-04-14, DD 07.JPG); source https://upload.wikimedia.org/wikipedia/commons/4/40/Casco_viejo_de_Dubrovnik%2C_Croacia%2C_2014-04-14%2C_DD_07.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b9f8d89c5f5929859e370df44f0ec354dd0b6861985cf14cf8cdaad71d6612ab",
+    "width": 3840,
+    "height": 2470,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/dalmatia/w640.jpg",
+        "bytes": 47369
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/dalmatia/w1280.jpg",
+        "bytes": 175775
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/dalmatia/w2048.jpg",
+        "bytes": 538396
+      }
+    ]
+  },
+  "atacama": {
+    "featureName": "Atacama Desert",
+    "alt": "Atacama Desert in Chile",
+    "caption": "Atacama Desert, Chile",
+    "photographer": "Lucash",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laguna_Verde_atacama.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Laguna Verde atacama.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e6/Laguna_Verde_atacama.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "aab9c76a70211e164885422518162740204618e83451b5257ae0fa5695a97f81",
+    "width": 2973,
+    "height": 1558,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/atacama/w640.jpg",
+        "bytes": 32210
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/atacama/w1280.jpg",
+        "bytes": 94660
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/atacama/w2048.jpg",
+        "bytes": 261224
+      }
+    ]
+  },
+  "patagonia": {
+    "featureName": "Patagonia",
+    "alt": "Patagonia in Argentina",
+    "caption": "Patagonia, Argentina",
+    "photographer": "Luca Galuzzi ( Lucag )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.JPG",
+    "license": "CC BY-SA 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:Perito Moreno Glacier Patagonia Argentina Luca Galuzzi 2005.JPG); source https://upload.wikimedia.org/wikipedia/commons/5/5c/Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c08d01832f83ff6b85d12d2819d1799a96921306539f04125be0c7164857c5da",
+    "width": 2000,
+    "height": 1333,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/patagonia/w640.jpg",
+        "bytes": 95220
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/patagonia/w1280.jpg",
+        "bytes": 275161
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/patagonia/w2048.jpg",
+        "bytes": 656577
+      }
+    ]
+  },
+  "easter-island": {
+    "featureName": "Easter Island",
+    "alt": "Easter Island in Chile",
+    "caption": "Easter Island, Chile",
+    "photographer": "Phil Whitehouse from London, United Kingdom",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Row_(2051934571).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Row (2051934571).jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e5/Row_%282051934571%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c6b8cca8fe6800fb2789392a5945f967038a41d127aef22d1f7ae695c73e0f87",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/easter-island/w640.jpg",
+        "bytes": 68948
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/easter-island/w1280.jpg",
+        "bytes": 260208
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/easter-island/w2048.jpg",
+        "bytes": 653778
+      }
+    ]
+  },
+  "phi-phi": {
+    "featureName": "Phi Phi Islands",
+    "alt": "Phi Phi Islands in Thailand",
+    "caption": "Phi Phi Islands, Thailand",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Playa_Maya,_Ko_Phi_Phi,_Tailandia,_2013-08-19,_DD_13.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Playa Maya, Ko Phi Phi, Tailandia, 2013-08-19, DD 13.JPG); source https://upload.wikimedia.org/wikipedia/commons/9/97/Playa_Maya%2C_Ko_Phi_Phi%2C_Tailandia%2C_2013-08-19%2C_DD_13.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cfa793ffe5b0ce9227e8b4d5418b483cf539c88fec5e19c4983e667b52a6e4f2",
+    "width": 3840,
+    "height": 2365,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/phi-phi/w640.jpg",
+        "bytes": 47756
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/phi-phi/w1280.jpg",
+        "bytes": 167343
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/phi-phi/w2048.jpg",
+        "bytes": 483966
+      }
+    ]
+  },
+  "palawan": {
+    "featureName": "Palawan",
+    "alt": "Palawan in Philippines",
+    "caption": "Palawan, Philippines",
+    "photographer": "Vyacheslav Argenberg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limestone_island_in_Bacuit_Bay,_El_Nido,_Palawan,_Philippines.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Limestone island in Bacuit Bay, El Nido, Palawan, Philippines.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b8/Limestone_island_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a384f248eb36be2d7ff7c25d7dd21e20a10f725926ff2759a998fd04128bd71f",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/palawan/w640.jpg",
+        "bytes": 45034
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/palawan/w1280.jpg",
+        "bytes": 164182
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/palawan/w2048.jpg",
+        "bytes": 467118
+      }
+    ]
+  },
+  "madeira": {
+    "featureName": "Madeira",
+    "alt": "Madeira in Portugal",
+    "caption": "Madeira, Portugal",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A2mara_de_Lobos_(Madeira,_Portugal),_Ortsansicht_--_2025_--_1882.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Câmara de Lobos (Madeira, Portugal), Ortsansicht -- 2025 -- 1882.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/36/C%C3%A2mara_de_Lobos_%28Madeira%2C_Portugal%29%2C_Ortsansicht_--_2025_--_1882.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5949673510927dbe7d6ceb1b90174c1ffc7d648495f47a75eaea10b248b1f03c",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/madeira/w640.jpg",
+        "bytes": 55958
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/madeira/w1280.jpg",
+        "bytes": 198503
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/madeira/w2048.jpg",
+        "bytes": 571232
+      }
+    ]
+  },
+  "lofoten": {
+    "featureName": "Lofoten Islands",
+    "alt": "Lofoten Islands in Norway",
+    "caption": "Lofoten Islands, Norway",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cirrus_front_over_Austnesfjorden,_Austv%C3%A5g%C3%B8ya,_Lofoten,_Norway,_2015_April.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cirrus front over Austnesfjorden, Austvågøya, Lofoten, Norway, 2015 April.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f0/Cirrus_front_over_Austnesfjorden%2C_Austv%C3%A5g%C3%B8ya%2C_Lofoten%2C_Norway%2C_2015_April.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a4e035126446208523dda59fe8b462121ff1ae60bbd6cbc90cd49d8ff58a528f",
+    "width": 3840,
+    "height": 2079,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lofoten/w640.jpg",
+        "bytes": 30300
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lofoten/w1280.jpg",
+        "bytes": 104077
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lofoten/w2048.jpg",
+        "bytes": 311946
+      }
+    ]
+  },
+  "gotland": {
+    "featureName": "Gotland",
+    "alt": "Gotland in Sweden",
+    "caption": "Gotland, Sweden",
+    "photographer": "Berit from Redhill/Surrey, UK",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Visby,_Gotland,_Sweden_(6633336083).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Visby, Gotland, Sweden (6633336083).jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7f/Visby%2C_Gotland%2C_Sweden_%286633336083%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "86cd17c6aca191c2c0b503017d08a855e92733414895bad4becfc5d451767fca",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/gotland/w640.jpg",
+        "bytes": 25495
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/gotland/w1280.jpg",
+        "bytes": 92830
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/gotland/w2048.jpg",
+        "bytes": 277965
+      }
+    ]
+  },
+  "mamanuca": {
+    "featureName": "Mamanuca Islands",
+    "alt": "Mamanuca Islands in Fiji",
+    "caption": "Mamanuca Islands, Fiji",
+    "photographer": "Isderion",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mamanuca_island.jpg",
+    "license": "CC BY-SA 3.0 de",
+    "provenance": "Curated from Wikimedia Commons (File:Mamanuca island.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5c/Mamanuca_island.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "32c03d9657441a7f198c77cf0d55bd75b7af3a3dca9a2dd9b916a5c936e15c2a",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mamanuca/w640.jpg",
+        "bytes": 58239
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mamanuca/w1280.jpg",
+        "bytes": 160709
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mamanuca/w2048.jpg",
+        "bytes": 435507
+      }
+    ]
+  },
+  "great-wall": {
+    "featureName": "Great Wall of China",
+    "alt": "Great Wall of China in China",
+    "caption": "Great Wall of China, China",
+    "photographer": "CEphoto, Uwe Aranas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badaling_China_Great-Wall-of-China-01.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Badaling China Great-Wall-of-China-01.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/50/Badaling_China_Great-Wall-of-China-01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8ba7d545a686837217b76b82cd3e6295554dd8d30aa1656b9b7f3073217333a2",
+    "width": 3840,
+    "height": 2460,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/great-wall/w640.jpg",
+        "bytes": 69646
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/great-wall/w1280.jpg",
+        "bytes": 274388
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/great-wall/w2048.jpg",
+        "bytes": 818896
+      }
+    ]
+  },
+  "taj-mahal": {
+    "featureName": "Taj Mahal",
+    "alt": "Taj Mahal in India",
+    "caption": "Taj Mahal, India",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:El_Taj_Mahal-Agra_India0023.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:El Taj Mahal-Agra India0023.JPG); source https://upload.wikimedia.org/wikipedia/commons/c/c8/El_Taj_Mahal-Agra_India0023.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3b379bfc5bc2229ba09ea556d5d825fee70040bad1f155ad08fa2b794f562ead",
+    "width": 3000,
+    "height": 2782,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/taj-mahal/w640.jpg",
+        "bytes": 68477
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/taj-mahal/w1280.jpg",
+        "bytes": 193981
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/taj-mahal/w2048.jpg",
+        "bytes": 502169
+      }
+    ]
+  },
+  "ha-long-bay": {
+    "featureName": "Ha Long Bay",
+    "alt": "Ha Long Bay in Vietnam",
+    "caption": "Ha Long Bay, Vietnam",
+    "photographer": "Trideep Dutta Photography",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HALONG_BAY_.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:HALONG BAY .jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d4/HALONG_BAY_.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ecdd30f75e70eef3b8880b9e1cef823d4629b8f209827016402252b8b7cee907",
+    "width": 3840,
+    "height": 1730,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ha-long-bay/w640.jpg",
+        "bytes": 35970
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ha-long-bay/w1280.jpg",
+        "bytes": 128526
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ha-long-bay/w2048.jpg",
+        "bytes": 379571
+      }
+    ]
+  },
+  "milford-sound": {
+    "featureName": "Milford Sound",
+    "alt": "Milford Sound in New Zealand",
+    "caption": "Milford Sound, New Zealand",
+    "photographer": "Krzysztof Golik",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Milford_Sound_in_Fiordland_National_Park_05.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Milford Sound in Fiordland National Park 05.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d1/Milford_Sound_in_Fiordland_National_Park_05.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "005d738492771e2ee443059d7f441cf8aa89665a7db1d12c9fb92b5bd51859ae",
+    "width": 3421,
+    "height": 2281,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/milford-sound/w640.jpg",
+        "bytes": 83179
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/milford-sound/w1280.jpg",
+        "bytes": 224804
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/milford-sound/w2048.jpg",
+        "bytes": 610623
+      }
+    ]
+  },
+  "cliffs-of-moher": {
+    "featureName": "Cliffs of Moher",
+    "alt": "Cliffs of Moher in Ireland",
+    "caption": "Cliffs of Moher, Ireland",
+    "photographer": "Berthold Werner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ireland_Cliffs_of_Moher_BW_2025-09-11_14-27-51.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ireland Cliffs of Moher BW 2025-09-11 14-27-51.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/13/Ireland_Cliffs_of_Moher_BW_2025-09-11_14-27-51.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5a50cf06d568239025ce86ce722cfe7efd391de5495260296b297bf93820cf68",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cliffs-of-moher/w640.jpg",
+        "bytes": 32742
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cliffs-of-moher/w1280.jpg",
+        "bytes": 129016
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cliffs-of-moher/w2048.jpg",
+        "bytes": 428523
+      }
+    ]
   }
 }

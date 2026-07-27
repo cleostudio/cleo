@@ -1,0 +1,226 @@
+{
+  "beijing": {
+    "name": "Beijing",
+    "countrySlug": "china",
+    "countryName": "China",
+    "kind": "City",
+    "searchNames": ["Beijing", "Forbidden City", "Temple of Heaven"]
+  },
+  "bangkok": {
+    "name": "Bangkok",
+    "countrySlug": "thailand",
+    "countryName": "Thailand",
+    "kind": "City",
+    "searchNames": ["Bangkok", "Wat Phra Kaew", "Grand Palace"]
+  },
+  "dubai": {
+    "name": "Dubai",
+    "countrySlug": "united-arab-emirates",
+    "countryName": "United Arab Emirates",
+    "kind": "City",
+    "searchNames": ["Dubai", "Burj Khalifa", "Dubai Marina"]
+  },
+  "lisbon": {
+    "name": "Lisbon",
+    "countrySlug": "portugal",
+    "countryName": "Portugal",
+    "kind": "City",
+    "searchNames": ["Lisbon", "Belém Tower", "Belem Tower", "Alfama"]
+  },
+  "barcelona": {
+    "name": "Barcelona",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "City",
+    "searchNames": ["Barcelona", "Sagrada Familia"]
+  },
+  "amsterdam": {
+    "name": "Amsterdam",
+    "countrySlug": "netherlands",
+    "countryName": "Netherlands",
+    "kind": "City",
+    "searchNames": ["Amsterdam", "Amsterdam Canals"]
+  },
+  "berlin": {
+    "name": "Berlin",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "City",
+    "searchNames": ["Berlin", "Brandenburg Gate"]
+  },
+  "vienna": {
+    "name": "Vienna",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "City",
+    "searchNames": ["Vienna", "Schönbrunn", "Schonbrunn Palace"]
+  },
+  "prague": {
+    "name": "Prague",
+    "countrySlug": "czechia",
+    "countryName": "Czechia",
+    "kind": "City",
+    "searchNames": ["Prague", "Prague Castle"]
+  },
+  "buenos-aires": {
+    "name": "Buenos Aires",
+    "countrySlug": "argentina",
+    "countryName": "Argentina",
+    "kind": "City",
+    "searchNames": ["Buenos Aires", "Plaza de Mayo"]
+  },
+  "seoul": {
+    "name": "Seoul",
+    "countrySlug": "korea-south",
+    "countryName": "Korea, South",
+    "kind": "City",
+    "searchNames": ["Seoul", "Gyeongbokgung Palace", "Gyeongbokgung"]
+  },
+  "havana": {
+    "name": "Havana",
+    "countrySlug": "cuba",
+    "countryName": "Cuba",
+    "kind": "City",
+    "searchNames": ["Havana", "Old Havana"]
+  },
+  "alaska": {
+    "name": "Alaska",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": ["Alaska", "Denali", "Glacier Bay"]
+  },
+  "rajasthan": {
+    "name": "Rajasthan",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": ["Rajasthan", "Jaipur", "Jaisalmer"]
+  },
+  "yunnan": {
+    "name": "Yunnan",
+    "countrySlug": "china",
+    "countryName": "China",
+    "kind": "State",
+    "searchNames": ["Yunnan", "Lijiang", "Yuanyang"]
+  },
+  "douro-valley": {
+    "name": "Douro Valley",
+    "countrySlug": "portugal",
+    "countryName": "Portugal",
+    "kind": "Region",
+    "searchNames": ["Douro Valley", "Douro"]
+  },
+  "swiss-alps": {
+    "name": "Swiss Alps",
+    "countrySlug": "switzerland",
+    "countryName": "Switzerland",
+    "kind": "Region",
+    "searchNames": ["Swiss Alps", "Matterhorn", "Jungfrau"]
+  },
+  "dalmatia": {
+    "name": "Dalmatia",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "Region",
+    "searchNames": ["Dalmatia", "Dubrovnik Old Town", "Dubrovnik"]
+  },
+  "atacama": {
+    "name": "Atacama",
+    "countrySlug": "chile",
+    "countryName": "Chile",
+    "kind": "Region",
+    "searchNames": ["Atacama Desert", "Atacama", "Valle de la Luna"]
+  },
+  "patagonia": {
+    "name": "Patagonia",
+    "countrySlug": "argentina",
+    "countryName": "Argentina",
+    "kind": "Region",
+    "searchNames": ["Patagonia", "Perito Moreno Glacier", "Fitz Roy"]
+  },
+  "easter-island": {
+    "name": "Easter Island",
+    "countrySlug": "chile",
+    "countryName": "Chile",
+    "kind": "Island",
+    "searchNames": ["Easter Island", "Rapa Nui", "Moai"]
+  },
+  "phi-phi": {
+    "name": "Phi Phi Islands",
+    "countrySlug": "thailand",
+    "countryName": "Thailand",
+    "kind": "Island",
+    "searchNames": ["Phi Phi Islands", "Maya Bay", "Ko Phi Phi"]
+  },
+  "palawan": {
+    "name": "Palawan",
+    "countrySlug": "philippines",
+    "countryName": "Philippines",
+    "kind": "Island",
+    "searchNames": ["Palawan", "Palawan Lagoons", "El Nido", "Coron"]
+  },
+  "madeira": {
+    "name": "Madeira",
+    "countrySlug": "portugal",
+    "countryName": "Portugal",
+    "kind": "Island",
+    "searchNames": ["Madeira", "Funchal", "Pico do Arieiro"]
+  },
+  "lofoten": {
+    "name": "Lofoten",
+    "countrySlug": "norway",
+    "countryName": "Norway",
+    "kind": "Island",
+    "searchNames": ["Lofoten Islands", "Lofoten", "Reine"]
+  },
+  "gotland": {
+    "name": "Gotland",
+    "countrySlug": "sweden",
+    "countryName": "Sweden",
+    "kind": "Island",
+    "searchNames": ["Gotland", "Visby"]
+  },
+  "mamanuca": {
+    "name": "Mamanuca Islands",
+    "countrySlug": "fiji",
+    "countryName": "Fiji",
+    "kind": "Island",
+    "searchNames": ["Mamanuca Islands", "Mamanuca"]
+  },
+  "great-wall": {
+    "name": "Great Wall",
+    "countrySlug": "china",
+    "countryName": "China",
+    "kind": "Landmark",
+    "searchNames": ["Great Wall of China", "Great Wall", "Badaling", "Mutianyu"]
+  },
+  "taj-mahal": {
+    "name": "Taj Mahal",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "Landmark",
+    "searchNames": ["Taj Mahal"]
+  },
+  "ha-long-bay": {
+    "name": "Ha Long Bay",
+    "countrySlug": "vietnam",
+    "countryName": "Vietnam",
+    "kind": "Landmark",
+    "searchNames": ["Ha Long Bay", "Halong Bay"]
+  },
+  "milford-sound": {
+    "name": "Milford Sound",
+    "countrySlug": "new-zealand",
+    "countryName": "New Zealand",
+    "kind": "Landmark",
+    "searchNames": ["Milford Sound", "Piopiotahi"]
+  },
+  "cliffs-of-moher": {
+    "name": "Cliffs of Moher",
+    "countrySlug": "ireland",
+    "countryName": "Ireland",
+    "kind": "Landmark",
+    "searchNames": ["Cliffs of Moher"]
+  }
+}
