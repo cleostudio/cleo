@@ -579,6 +579,129 @@
   color: var(--foreground);
 }
 
+/* Shared meta labels (passport-style stamps). */
+.cleo-widget-meta {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Shared primary/secondary controls (steps, path, cycle, gallery). */
+.cleo-widget-steps-button,
+.cleo-widget-path-button,
+.cleo-widget-cycle-button,
+.cleo-widget-gallery-nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in oklab, var(--background) 88%, transparent);
+  padding: 0.45rem 0.75rem;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 160ms var(--ease-swift),
+    border-color 160ms var(--ease-swift),
+    box-shadow 160ms var(--ease-swift),
+    opacity 160ms var(--ease-swift);
+}
+
+.cleo-widget-steps-button[data-primary],
+.cleo-widget-path-button[data-primary],
+.cleo-widget-cycle-button[data-primary] {
+  border-color: transparent;
+  background: color-mix(in oklab, var(--background) 92%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--foreground) 10%, transparent),
+    0 1px 2px color-mix(in oklab, var(--foreground) 5%, transparent);
+}
+
+.cleo-widget-steps-button:hover:not(:disabled),
+.cleo-widget-path-button:hover:not(:disabled),
+.cleo-widget-cycle-button:hover,
+.cleo-widget-gallery-nav-button:hover {
+  border-color: color-mix(in oklab, var(--foreground) 16%, transparent);
+  background: color-mix(in oklab, var(--foreground) 4%, transparent);
+}
+
+.cleo-widget-steps-button:disabled,
+.cleo-widget-path-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.cleo-widget-steps-button:focus-visible,
+.cleo-widget-path-button:focus-visible,
+.cleo-widget-cycle-button:focus-visible,
+.cleo-widget-gallery-nav-button:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
+}
+
+/* Shared focus/detail plates. */
+.cleo-widget-compare-focus-panel,
+.cleo-widget-path-stage,
+.cleo-widget-scale-focus,
+.cleo-widget-cycle-focus,
+.cleo-widget-layers-focus,
+.cleo-widget-steps-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: calc(var(--radius) + 4px);
+  background: color-mix(in oklab, var(--background) 78%, transparent);
+  padding: 0.8rem 0.85rem;
+  animation: cleo-widget-fade 180ms var(--ease-swift);
+}
+
+.cleo-widget-fact-panel,
+.cleo-widget-card-panel,
+.cleo-widget-timeline-detail {
+  animation: cleo-widget-fade 180ms var(--ease-swift);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cleo-widget-tab-panel,
+  .cleo-widget-compare-focus-panel,
+  .cleo-widget-path-stage,
+  .cleo-widget-scale-focus,
+  .cleo-widget-cycle-focus,
+  .cleo-widget-layers-focus,
+  .cleo-widget-steps-stage,
+  .cleo-widget-gallery-stage,
+  .cleo-widget-fact-panel,
+  .cleo-widget-card-panel,
+  .cleo-widget-timeline-detail,
+  .cleo-widget-scale-fill,
+  .cleo-widget-steps-bar-fill,
+  .cleo-widget-path-bar-fill {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .cleo-widget-pending-pulse {
+    animation: none !important;
+    opacity: 0.7;
+  }
+
+  .cleo-widget-layers-band[data-active],
+  .cleo-widget-cycle-stage-chip[data-active],
+  .cleo-widget-steps-dot[data-active],
+  .cleo-widget-steps-dot[data-active]::before,
+  .cleo-widget-timeline-item[data-open] .cleo-widget-timeline-dot {
+    transform: none !important;
+  }
+}
+
 /* Tabs — segmented paper control */
 .cleo-widget-tabs {
   display: flex;
@@ -641,12 +764,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cleo-widget-tab-panel {
-    animation: none;
   }
 }
 
@@ -736,7 +853,7 @@
 .cleo-widget-timeline-when {
   color: var(--muted-foreground);
   font-size: 0.72rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.06em;
   line-height: 1.3;
   text-transform: uppercase;
@@ -820,7 +937,7 @@
 .cleo-widget-fact-label {
   color: var(--muted-foreground);
   font-size: 0.72rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -828,18 +945,9 @@
 .cleo-widget-fact-value {
   color: var(--foreground);
   font-size: 0.975rem;
-  font-weight: 550;
+  font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.35;
-}
-
-.cleo-widget-fact-detail {
-  margin: 0;
-  padding: 0 0.85rem 0.85rem;
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-  line-height: 1.55;
-  white-space: pre-wrap;
 }
 
 .cleo-widget-fact[data-open] {
@@ -915,7 +1023,7 @@
   padding-bottom: 0.45rem;
   color: var(--foreground);
   font-size: 0.82rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: -0.01em;
 }
 
@@ -928,7 +1036,7 @@
   width: 30%;
   color: var(--muted-foreground);
   font-size: 0.78rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -948,7 +1056,7 @@
 .cleo-widget-compare-table tbody td[data-focus] {
   opacity: 1;
   color: var(--foreground);
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .dark .cleo-widget {
@@ -990,7 +1098,7 @@
 
 .cleo-widget-inline-link {
   color: var(--foreground);
-  font-weight: 550;
+  font-weight: 500;
   text-decoration: underline;
   text-decoration-color: color-mix(in oklab, var(--foreground) 30%, transparent);
   text-underline-offset: 0.14em;
@@ -1048,45 +1156,51 @@
 }
 
 .cleo-widget-steps-dot {
-  width: 0.55rem;
-  height: 0.55rem;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
   margin: 0;
   border: 0;
   border-radius: 999px;
-  background: color-mix(in oklab, var(--foreground) 18%, transparent);
+  background: transparent;
   padding: 0;
   cursor: pointer;
+}
+
+.cleo-widget-steps-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--foreground) 18%, transparent);
+  transform: translate(-50%, -50%);
   transition:
     background-color 160ms var(--ease-swift),
     transform 160ms var(--ease-swift);
 }
 
-.cleo-widget-steps-dot[data-done] {
+.cleo-widget-steps-dot[data-done]::before {
   background: color-mix(in oklab, var(--foreground) 45%, transparent);
 }
 
-.cleo-widget-steps-dot[data-active] {
+.cleo-widget-steps-dot[data-active]::before {
   background: var(--foreground);
-  transform: scale(1.2);
+  transform: translate(-50%, -50%) scale(1.25);
 }
 
 .cleo-widget-steps-dot:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
-  outline-offset: 3px;
-}
-
-.cleo-widget-steps-stage {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  animation: cleo-widget-fade 180ms var(--ease-swift);
+  outline-offset: 2px;
 }
 
 .cleo-widget-steps-meta {
   margin: 0;
   color: var(--muted-foreground);
   font-size: 0.72rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -1104,47 +1218,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-}
-
-.cleo-widget-steps-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  margin: 0;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  border-radius: calc(var(--radius) + 2px);
-  background: color-mix(in oklab, var(--background) 78%, transparent);
-  padding: 0.55rem 0.8rem;
-  color: var(--foreground);
-  font: inherit;
-  font-size: 0.875rem;
-  font-weight: 550;
-  cursor: pointer;
-  transition:
-    background-color 160ms var(--ease-swift),
-    border-color 160ms var(--ease-swift),
-    opacity 160ms var(--ease-swift);
-}
-
-.cleo-widget-steps-button[data-primary] {
-  background: var(--muted);
-  border-color: color-mix(in oklab, var(--foreground) 16%, transparent);
-  font-weight: 600;
-}
-
-.cleo-widget-steps-button:hover:not(:disabled) {
-  border-color: color-mix(in oklab, var(--foreground) 18%, transparent);
-  background: var(--muted);
-}
-
-.cleo-widget-steps-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.4;
-}
-
-.cleo-widget-steps-button:focus-visible {
-  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
-  outline-offset: 2px;
 }
 
 /* Cards — expandable subject tiles */
@@ -1277,22 +1350,11 @@
   border-radius: 0;
 }
 
-.cleo-widget-compare-focus-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  border-radius: calc(var(--radius) + 4px);
-  background: color-mix(in oklab, var(--background) 78%, transparent);
-  padding: 0.8rem 0.85rem;
-  animation: cleo-widget-fade 180ms var(--ease-swift);
-}
-
 .cleo-widget-compare-focus-label {
   margin: 0;
   color: var(--foreground);
   font-size: 0.95rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: -0.015em;
 }
 
@@ -1312,7 +1374,7 @@
 .cleo-widget-compare-focus-row dt {
   color: var(--muted-foreground);
   font-size: 0.72rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -1321,7 +1383,7 @@
   margin: 0;
   color: var(--foreground);
   font-size: 0.925rem;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 .cleo-widget-steps-bar {
@@ -1365,7 +1427,7 @@
   margin: 0;
   color: var(--foreground);
   font-size: 0.925rem;
-  font-weight: 550;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
@@ -1380,7 +1442,7 @@
   margin: 0;
   color: var(--muted-foreground);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
 }
@@ -1389,35 +1451,6 @@
   display: flex;
   justify-content: space-between;
   gap: 0.55rem;
-}
-
-.cleo-widget-gallery-nav-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
-  margin: 0;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  border-radius: calc(var(--radius) + 2px);
-  background: color-mix(in oklab, var(--background) 82%, transparent);
-  padding: 0.4rem 0.7rem;
-  color: var(--foreground);
-  font: inherit;
-  font-size: 0.82rem;
-  font-weight: 550;
-  cursor: pointer;
-  transition:
-    background 160ms var(--ease-swift),
-    border-color 160ms var(--ease-swift);
-}
-
-.cleo-widget-gallery-nav-button:hover {
-  border-color: color-mix(in oklab, var(--foreground) 18%, transparent);
-  background: color-mix(in oklab, var(--foreground) 5%, transparent);
-}
-
-.cleo-widget-gallery-nav-button:focus-visible {
-  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
-  outline-offset: 2px;
 }
 
 .cleo-widget-gallery-thumbs {
@@ -1453,7 +1486,7 @@
   margin: 0;
   color: var(--muted-foreground);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -1512,7 +1545,7 @@
   border-radius: 999px;
   color: var(--muted-foreground);
   font-size: 0.72rem;
-  font-weight: 650;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1525,26 +1558,15 @@
 .cleo-widget-path-stop-title {
   min-width: 0;
   font-size: 0.9rem;
-  font-weight: 550;
+  font-weight: 500;
   letter-spacing: -0.01em;
-}
-
-.cleo-widget-path-stage {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  border-radius: calc(var(--radius) + 4px);
-  background: color-mix(in oklab, var(--background) 78%, transparent);
-  padding: 0.8rem 0.85rem;
-  animation: cleo-widget-fade 180ms var(--ease-swift);
 }
 
 .cleo-widget-path-title {
   margin: 0;
   color: var(--foreground);
   font-size: 0.98rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: -0.015em;
 }
 
@@ -1553,46 +1575,6 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.55rem;
-}
-
-.cleo-widget-path-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  margin: 0;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  border-radius: calc(var(--radius) + 2px);
-  background: color-mix(in oklab, var(--background) 82%, transparent);
-  padding: 0.45rem 0.75rem;
-  color: var(--foreground);
-  font: inherit;
-  font-size: 0.85rem;
-  font-weight: 550;
-  cursor: pointer;
-  transition:
-    background 160ms var(--ease-swift),
-    border-color 160ms var(--ease-swift),
-    opacity 160ms var(--ease-swift);
-}
-
-.cleo-widget-path-button[data-primary] {
-  border-color: color-mix(in oklab, var(--foreground) 28%, transparent);
-  background: color-mix(in oklab, var(--foreground) 8%, transparent);
-}
-
-.cleo-widget-path-button:hover:not(:disabled) {
-  border-color: color-mix(in oklab, var(--foreground) 18%, transparent);
-  background: color-mix(in oklab, var(--foreground) 5%, transparent);
-}
-
-.cleo-widget-path-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-.cleo-widget-path-button:focus-visible {
-  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
-  outline-offset: 2px;
 }
 
 .cleo-widget-scale {
@@ -1644,7 +1626,7 @@
 .cleo-widget-scale-label {
   min-width: 0;
   font-size: 0.88rem;
-  font-weight: 550;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
@@ -1672,40 +1654,29 @@
 .cleo-widget-scale-value {
   color: var(--muted-foreground);
   font-size: 0.78rem;
-  font-weight: 650;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
 .cleo-widget-scale-unit {
-  font-weight: 550;
+  font-weight: 500;
 }
 
 .cleo-widget-scale-mode {
   margin: 0;
   color: var(--muted-foreground);
   font-size: 0.72rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-}
-
-.cleo-widget-scale-focus {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  border-radius: calc(var(--radius) + 4px);
-  background: color-mix(in oklab, var(--background) 78%, transparent);
-  padding: 0.8rem 0.85rem;
-  animation: cleo-widget-fade 180ms var(--ease-swift);
 }
 
 .cleo-widget-scale-focus-label {
   margin: 0;
   color: var(--foreground);
   font-size: 0.95rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: -0.015em;
 }
 
@@ -1713,7 +1684,7 @@
   margin: 0;
   color: var(--foreground);
   font-size: 0.925rem;
-  font-weight: 550;
+  font-weight: 500;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1725,6 +1696,14 @@
 @media (max-width: 39.99rem) {
   .cleo-widget-compare-scroll {
     display: none;
+  }
+
+  .cleo-widget-gallery-nav {
+    display: none;
+  }
+
+  .cleo-widget-cards {
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
   }
 
   .cleo-widget-scale-row {
@@ -1792,12 +1771,6 @@
   border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
 }
 
-.cleo-widget-gallery:focus-visible {
-  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
-  outline-offset: 3px;
-  border-radius: calc(var(--radius) + 4px);
-}
-
 .cleo-widget-pending {
   display: flex;
   align-items: center;
@@ -1820,7 +1793,7 @@
   margin: 0;
   color: var(--muted-foreground);
   font-size: 0.88rem;
-  font-weight: 550;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
@@ -1841,7 +1814,7 @@
   margin: 0;
   color: var(--muted-foreground);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -1857,29 +1830,31 @@
   align-items: center;
   gap: 0.4rem;
   margin: 0;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  border-radius: calc(var(--radius) + 999px);
-  background: color-mix(in oklab, var(--background) 82%, transparent);
-  padding: 0.35rem 0.7rem 0.35rem 0.4rem;
-  color: var(--foreground);
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in oklab, var(--muted) 55%, transparent);
+  padding: 0.4rem 0.7rem 0.4rem 0.45rem;
+  color: var(--muted-foreground);
   font: inherit;
   font-size: 0.85rem;
-  font-weight: 550;
+  font-weight: 500;
   cursor: pointer;
   transition:
     background 160ms var(--ease-swift),
-    border-color 160ms var(--ease-swift),
-    transform 160ms var(--ease-spring);
+    color 160ms var(--ease-swift),
+    box-shadow 160ms var(--ease-swift);
 }
 
 .cleo-widget-cycle-stage-chip:hover {
-  border-color: color-mix(in oklab, var(--foreground) 16%, transparent);
+  color: var(--foreground);
 }
 
 .cleo-widget-cycle-stage-chip[data-active] {
-  border-color: color-mix(in oklab, var(--foreground) 28%, transparent);
-  background: color-mix(in oklab, var(--foreground) 8%, transparent);
-  transform: translateY(-1px);
+  background: color-mix(in oklab, var(--background) 92%, transparent);
+  color: var(--foreground);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--foreground) 8%, transparent),
+    0 1px 2px color-mix(in oklab, var(--foreground) 6%, transparent);
 }
 
 .cleo-widget-cycle-stage-chip:focus-visible {
@@ -1889,15 +1864,15 @@
 
 .cleo-widget-cycle-index {
   display: inline-flex;
-  width: 1.3rem;
-  height: 1.3rem;
+  width: 1.25rem;
+  height: 1.25rem;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
   background: color-mix(in oklab, var(--foreground) 10%, transparent);
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1910,22 +1885,11 @@
   min-width: 0;
 }
 
-.cleo-widget-cycle-focus {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  border-radius: calc(var(--radius) + 4px);
-  background: color-mix(in oklab, var(--background) 78%, transparent);
-  padding: 0.8rem 0.85rem;
-  animation: cleo-widget-fade 180ms var(--ease-swift);
-}
-
 .cleo-widget-cycle-title {
   margin: 0;
   color: var(--foreground);
   font-size: 0.98rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: -0.015em;
 }
 
@@ -1936,44 +1900,10 @@
   gap: 0.55rem;
 }
 
-.cleo-widget-cycle-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  margin: 0;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  border-radius: calc(var(--radius) + 2px);
-  background: color-mix(in oklab, var(--background) 82%, transparent);
-  padding: 0.45rem 0.75rem;
-  color: var(--foreground);
-  font: inherit;
-  font-size: 0.85rem;
-  font-weight: 550;
-  cursor: pointer;
-  transition:
-    background 160ms var(--ease-swift),
-    border-color 160ms var(--ease-swift);
-}
-
-.cleo-widget-cycle-button[data-primary] {
-  border-color: color-mix(in oklab, var(--foreground) 28%, transparent);
-  background: color-mix(in oklab, var(--foreground) 8%, transparent);
-}
-
-.cleo-widget-cycle-button:hover {
-  border-color: color-mix(in oklab, var(--foreground) 18%, transparent);
-  background: color-mix(in oklab, var(--foreground) 5%, transparent);
-}
-
-.cleo-widget-cycle-button:focus-visible {
-  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
-  outline-offset: 2px;
-}
-
-.dark .cleo-widget-cycle-focus,
-.dark .cleo-widget-cycle-stage-chip,
-.dark .cleo-widget-cycle-button {
-  border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
+.dark .cleo-widget-cycle-stage-chip[data-active] {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--foreground) 14%, transparent),
+    0 1px 2px color-mix(in oklab, var(--foreground) 8%, transparent);
 }
 
 @keyframes cleo-widget-pending-pulse {
@@ -2023,7 +1953,7 @@
   transition:
     background 160ms var(--ease-swift),
     border-color 160ms var(--ease-swift),
-    transform 160ms var(--ease-spring);
+    box-shadow 160ms var(--ease-swift);
 }
 
 .cleo-widget-layers-band:nth-child(odd) {
@@ -2037,7 +1967,7 @@
 .cleo-widget-layers-band[data-active] {
   border-color: color-mix(in oklab, var(--foreground) 22%, transparent);
   background: color-mix(in oklab, var(--background) 72%, transparent);
-  transform: scale(1.01);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--foreground) 6%, transparent);
 }
 
 .cleo-widget-layers-band:focus-visible {
@@ -2055,20 +1985,9 @@
 .cleo-widget-layers-band-depth {
   color: var(--muted-foreground);
   font-size: 0.72rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.03em;
   white-space: nowrap;
-}
-
-.cleo-widget-layers-focus {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  border-radius: calc(var(--radius) + 4px);
-  background: color-mix(in oklab, var(--background) 78%, transparent);
-  padding: 0.8rem 0.85rem;
-  animation: cleo-widget-fade 180ms var(--ease-swift);
 }
 
 .cleo-widget-layers-focus-header {
@@ -2083,7 +2002,7 @@
   margin: 0;
   color: var(--foreground);
   font-size: 0.95rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: -0.015em;
 }
 
@@ -2091,7 +2010,7 @@
   margin: 0;
   color: var(--muted-foreground);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }

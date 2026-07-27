@@ -47,7 +47,15 @@ function toggleIndex(open: ReadonlySet<number>, index: number) {
 }
 
 /** Plain widget copy with optional same-site Markdown links. */
-function WidgetProse({ text, className }: { text: string; className?: string }) {
+function WidgetProse({
+  text,
+  className,
+  id,
+}: {
+  text: string
+  className?: string
+  id?: string
+}) {
   const nodes: React.ReactNode[] = []
   let cursor = 0
   let match: RegExpExecArray | null
@@ -82,7 +90,7 @@ function WidgetProse({ text, className }: { text: string; className?: string }) 
   }
 
   return (
-    <div className={cn('cleo-widget-prose', className)}>
+    <div className={cn('cleo-widget-prose', className)} id={id}>
       {nodes.map((node, index) => (
         <Fragment key={index}>{node}</Fragment>
       ))}
@@ -171,13 +179,21 @@ function TabsWidget({
   const current = block.tabs[active] ?? block.tabs[0]
 
   function onTabListKeyDown(event: KeyboardEvent<HTMLDivElement>) {
-    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
+    let next: number | null = null
+    if (event.key === 'ArrowRight') {
+      next = (active + 1) % block.tabs.length
+    } else if (event.key === 'ArrowLeft') {
+      next = (active - 1 + block.tabs.length) % block.tabs.length
+    } else if (event.key === 'Home') {
+      next = 0
+    } else if (event.key === 'End') {
+      next = block.tabs.length - 1
+    }
+    if (next === null) {
       return
     }
 
     event.preventDefault()
-    const delta = event.key === 'ArrowRight' ? 1 : -1
-    const next = (active + delta + block.tabs.length) % block.tabs.length
     setActive(next)
     document.getElementById(`${baseId}-tab-${next}`)?.focus()
   }
@@ -228,6 +244,7 @@ function TimelineWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'timeline' }>
 }) {
+  const baseId = useId()
   const expandableIndexes = block.events
     .map((event, index) => (event.detail ? index : -1))
     .filter((index) => index >= 0)
@@ -257,6 +274,7 @@ function TimelineWidget({
         {block.events.map((event, index) => {
           const expandable = Boolean(event.detail)
           const isOpen = open.has(index)
+          const panelId = `${baseId}-panel-${index}`
           return (
             <li
               className="cleo-widget-timeline-item"
@@ -269,6 +287,7 @@ function TimelineWidget({
               </div>
               {expandable ? (
                 <button
+                  aria-controls={panelId}
                   aria-expanded={isOpen}
                   className="cleo-widget-timeline-card"
                   onClick={() =>
@@ -290,6 +309,7 @@ function TimelineWidget({
                   {isOpen && event.detail ? (
                     <WidgetProse
                       className="cleo-widget-timeline-detail"
+                      id={panelId}
                       text={event.detail}
                     />
                   ) : null}
@@ -313,6 +333,7 @@ function FactsWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'facts' }>
 }) {
+  const baseId = useId()
   const expandableIndexes = block.items
     .map((item, index) => (item.detail ? index : -1))
     .filter((index) => index >= 0)
@@ -342,6 +363,7 @@ function FactsWidget({
         {block.items.map((item, index) => {
           const expandable = Boolean(item.detail)
           const isOpen = open.has(index)
+          const panelId = `${baseId}-panel-${index}`
           return (
             <div
               className="cleo-widget-fact"
@@ -350,6 +372,7 @@ function FactsWidget({
             >
               {expandable ? (
                 <button
+                  aria-controls={panelId}
                   aria-expanded={isOpen}
                   className="cleo-widget-fact-row"
                   onClick={() =>
@@ -376,7 +399,7 @@ function FactsWidget({
                 </div>
               )}
               {isOpen && item.detail ? (
-                <div className="cleo-widget-fact-panel">
+                <div className="cleo-widget-fact-panel" id={panelId}>
                   <WidgetProse text={item.detail} />
                 </div>
               ) : null}
@@ -532,6 +555,7 @@ function StepsWidget({
     <WidgetShell title={block.title}>
       <div className="cleo-widget-steps" onKeyDown={onKeyDown}>
         <div
+          aria-label="Step progress"
           aria-valuemax={100}
           aria-valuemin={0}
           aria-valuenow={Math.round(progress)}
@@ -608,6 +632,7 @@ function CardsWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'cards' }>
 }) {
+  const baseId = useId()
   const expandableIndexes = block.cards
     .map((card, index) => (card.detail ? index : -1))
     .filter((index) => index >= 0)
@@ -637,6 +662,7 @@ function CardsWidget({
         {block.cards.map((card, index) => {
           const expandable = Boolean(card.detail)
           const isOpen = open.has(index)
+          const panelId = `${baseId}-panel-${index}`
           return (
             <article
               className="cleo-widget-card"
@@ -652,6 +678,7 @@ function CardsWidget({
               ) : null}
               {expandable ? (
                 <button
+                  aria-controls={panelId}
                   aria-expanded={isOpen}
                   className="cleo-widget-card-trigger"
                   onClick={() =>
@@ -674,7 +701,7 @@ function CardsWidget({
                 </div>
               )}
               {isOpen && card.detail ? (
-                <div className="cleo-widget-card-panel">
+                <div className="cleo-widget-card-panel" id={panelId}>
                   <WidgetProse text={card.detail} />
                 </div>
               ) : null}
@@ -697,35 +724,44 @@ function GalleryWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'gallery' }>
 }) {
+  const baseId = useId()
   const [active, setActive] = useState(0)
   const current = block.items[active] ?? block.items[0]
   const multi = block.items.length > 1
 
   function step(delta: number) {
-    setActive(
-      (currentIndex) =>
-        (currentIndex + delta + block.items.length) % block.items.length,
-    )
+    setActive((currentIndex) => {
+      const next =
+        (currentIndex + delta + block.items.length) % block.items.length
+      queueMicrotask(() => {
+        document.getElementById(`${baseId}-thumb-${next}`)?.focus()
+      })
+      return next
+    })
   }
 
-  function onGalleryKeyDown(event: KeyboardEvent<HTMLDivElement>) {
-    if (!multi) {
-      return
+  function onThumbsKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key === 'ArrowRight') {
+      event.preventDefault()
+      step(1)
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault()
+      step(-1)
+    } else if (event.key === 'Home') {
+      event.preventDefault()
+      setActive(0)
+      document.getElementById(`${baseId}-thumb-0`)?.focus()
+    } else if (event.key === 'End') {
+      event.preventDefault()
+      const last = block.items.length - 1
+      setActive(last)
+      document.getElementById(`${baseId}-thumb-${last}`)?.focus()
     }
-    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
-      return
-    }
-    event.preventDefault()
-    step(event.key === 'ArrowRight' ? 1 : -1)
   }
 
   return (
     <WidgetShell title={block.title}>
-      <div
-        className="cleo-widget-gallery"
-        onKeyDown={onGalleryKeyDown}
-        tabIndex={multi ? 0 : undefined}
-      >
+      <div className="cleo-widget-gallery">
         <div className="cleo-widget-gallery-stage" key={active}>
           <WidgetPhoto alt={current.caption} src={current.src} />
           <div className="cleo-widget-gallery-meta">
@@ -769,6 +805,7 @@ function GalleryWidget({
             <div
               aria-label="Photographs"
               className="cleo-widget-gallery-thumbs"
+              onKeyDown={onThumbsKeyDown}
               role="listbox"
             >
               {block.items.map((item, index) => {
@@ -780,9 +817,11 @@ function GalleryWidget({
                     aria-selected={selected}
                     className="cleo-widget-gallery-thumb"
                     data-active={selected || undefined}
+                    id={`${baseId}-thumb-${index}`}
                     key={`${item.src}-${index}`}
                     onClick={() => setActive(index)}
                     role="option"
+                    tabIndex={selected ? 0 : -1}
                     type="button"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element -- curated static JPEG thumbs */}
@@ -846,6 +885,7 @@ function PathWidget({
     <WidgetShell title={block.title}>
       <div className="cleo-widget-path" onKeyDown={onKeyDown}>
         <div
+          aria-label="Path progress"
           aria-valuemax={100}
           aria-valuemin={0}
           aria-valuenow={Math.round(progress)}
