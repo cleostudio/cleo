@@ -222,15 +222,15 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              这里有导览可读，有
+              可以翻看
               <PhotoPhrase>照片</PhotoPhrase>
-              可看，也能搜索主题目录。
+              、搜索主题目录，也可以打开国家或太空页面。
             </>
           }
           en={
             <>
-              You can read guides, browse <PhotoPhrase>photographs</PhotoPhrase>, and search the topic
-              catalog.
+              Browse <PhotoPhrase>photographs</PhotoPhrase>, search the topic catalog, or open a country
+              or space page.
             </>
           }
         />
