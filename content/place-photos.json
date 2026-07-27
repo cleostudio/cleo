@@ -14846,5 +14846,933 @@
         "bytes": 717985
       }
     ]
+  },
+  "rochester": {
+    "featureName": "Rochester New York",
+    "alt": "Rochester New York in United States",
+    "caption": "Rochester New York, United States",
+    "photographer": "Evilarry",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Highfallsrochester.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Highfallsrochester.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e4/Highfallsrochester.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8d3a8ed0bae265a4785edde77ada4ba24c8aeae088f0403bfdca7bde622f7eac",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rochester/w640.jpg",
+        "bytes": 41693
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rochester/w1280.jpg",
+        "bytes": 140848
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rochester/w2048.jpg",
+        "bytes": 403808
+      }
+    ]
+  },
+  "spokane": {
+    "featureName": "Spokane",
+    "alt": "Spokane in United States",
+    "caption": "Spokane, United States",
+    "photographer": "David Falconer",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:SPOKANE_RIVER_AND_FALLS_IN_DOWNTOWN_SPOKANE_-_NARA_-_548091.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:SPOKANE RIVER AND FALLS IN DOWNTOWN SPOKANE - NARA - 548091.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/06/SPOKANE_RIVER_AND_FALLS_IN_DOWNTOWN_SPOKANE_-_NARA_-_548091.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b5e5f2e834504d199a7823def9e3c53ef0fadfb6bbc58271c3a8b7f304458b6f",
+    "width": 2944,
+    "height": 1980,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/spokane/w640.jpg",
+        "bytes": 59697
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/spokane/w1280.jpg",
+        "bytes": 173353
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/spokane/w2048.jpg",
+        "bytes": 395453
+      }
+    ]
+  },
+  "tucson": {
+    "featureName": "Tucson",
+    "alt": "Tucson in United States",
+    "caption": "Tucson, United States",
+    "photographer": "Michelle Maria",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tuscon_Arizona_Desert_Sunset_Over_Mountains_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Tuscon Arizona Desert Sunset Over Mountains - panoramio.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/91/Tuscon_Arizona_Desert_Sunset_Over_Mountains_-_panoramio.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d196e88ae616472d375808bba5618587abb8395d89528343fff7575ef526c053",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tucson/w640.jpg",
+        "bytes": 14222
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tucson/w1280.jpg",
+        "bytes": 48972
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tucson/w2048.jpg",
+        "bytes": 165579
+      }
+    ]
+  },
+  "regina": {
+    "featureName": "Regina",
+    "alt": "Regina in Canada",
+    "caption": "Regina, Canada",
+    "photographer": "Haydn Blackey from Cardiff, Wales",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saskatchewan_Legislative_Assembly_across_Wascana_Lake_-_Regina_(30194746318).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Saskatchewan Legislative Assembly across Wascana Lake - Regina (30194746318).jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7a/Saskatchewan_Legislative_Assembly_across_Wascana_Lake_-_Regina_%2830194746318%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "120291b99c7d5afe8c4d5b522d1ca9be2a4e09f2968c88c0a7f26cb33cbce9bb",
+    "width": 3840,
+    "height": 2562,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/regina/w640.jpg",
+        "bytes": 24798
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/regina/w1280.jpg",
+        "bytes": 89813
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/regina/w2048.jpg",
+        "bytes": 275946
+      }
+    ]
+  },
+  "concepcion": {
+    "featureName": "Concepción",
+    "alt": "Concepción in Chile",
+    "caption": "Concepción, Chile",
+    "photographer": "Cris.tbl",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Universidad_de_Concepci%C3%B3n_2022.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Universidad de Concepción 2022.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d9/Universidad_de_Concepci%C3%B3n_2022.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c6f7f7d39c7f5d9bddef254296967ebebbfe6b9ef33c915804e2f546862edb1f",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/concepcion/w640.jpg",
+        "bytes": 63528
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/concepcion/w1280.jpg",
+        "bytes": 208249
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/concepcion/w2048.jpg",
+        "bytes": 524669
+      }
+    ]
+  },
+  "florianopolis": {
+    "featureName": "Florianópolis",
+    "alt": "Florianópolis in Brazil",
+    "caption": "Florianópolis, Brazil",
+    "photographer": "Lionel Baur",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Praia_do_Forte-Florianopolis-Brasil.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Praia do Forte-Florianopolis-Brasil.JPG); source https://upload.wikimedia.org/wikipedia/commons/0/05/Praia_do_Forte-Florianopolis-Brasil.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e01926fa1a41c094db0843a225976455f828d475a47a228e2f59c4be27250505",
+    "width": 3072,
+    "height": 2304,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/florianopolis/w640.jpg",
+        "bytes": 57505
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/florianopolis/w1280.jpg",
+        "bytes": 163138
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/florianopolis/w2048.jpg",
+        "bytes": 420537
+      }
+    ]
+  },
+  "zadar": {
+    "featureName": "Zadar",
+    "alt": "Zadar in Croatia",
+    "caption": "Zadar, Croatia",
+    "photographer": "Palauenc05",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roman_forum_zadar_croatia.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Roman forum zadar croatia.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d8/Roman_forum_zadar_croatia.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9ab6839fba523b7537bc8deb6f7cb7dfc8dc5e33345254398ee8209daea2ce1d",
+    "width": 3396,
+    "height": 2384,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/zadar/w640.jpg",
+        "bytes": 47077
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/zadar/w1280.jpg",
+        "bytes": 162523
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/zadar/w2048.jpg",
+        "bytes": 418835
+      }
+    ]
+  },
+  "bhopal": {
+    "featureName": "Bhopal",
+    "alt": "Bhopal in India",
+    "caption": "Bhopal, India",
+    "photographer": "Abhishek727 Abhishek Mishra",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taj_Ul_Masajid,_Bhopal.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Taj Ul Masajid, Bhopal.JPG); source https://upload.wikimedia.org/wikipedia/commons/e/e6/Taj_Ul_Masajid%2C_Bhopal.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6d6e5d310969a2e4a43a5caccae032de067cedf42efa93d9a12dfd9d399a54f2",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bhopal/w640.jpg",
+        "bytes": 54940
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bhopal/w1280.jpg",
+        "bytes": 167036
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bhopal/w2048.jpg",
+        "bytes": 440698
+      }
+    ]
+  },
+  "mechelen": {
+    "featureName": "Mechelen",
+    "alt": "Mechelen in Belgium",
+    "caption": "Mechelen, Belgium",
+    "photographer": "Ad Meskens",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Graote_Markt_en_Sint-Rombouts.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Graote Markt en Sint-Rombouts.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e1/Graote_Markt_en_Sint-Rombouts.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cd07c9cf9bf9fb590f7a78ded8d0b050b5f6a5b30977ff2399f69e63f33bd9da",
+    "width": 2296,
+    "height": 2126,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mechelen/w640.jpg",
+        "bytes": 81997
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mechelen/w1280.jpg",
+        "bytes": 229975
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mechelen/w2048.jpg",
+        "bytes": 577456
+      }
+    ]
+  },
+  "nagoya": {
+    "featureName": "Nagoya",
+    "alt": "Nagoya in Japan",
+    "caption": "Nagoya, Japan",
+    "photographer": "BobTanGo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Castle_aerial_panorama.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Nagoya Castle aerial panorama.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/00/Nagoya_Castle_aerial_panorama.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c7f452e7ac6031324be6d642b92628f6a9e82ca2114c5c2ff00fdb3703ad41b9",
+    "width": 3840,
+    "height": 1555,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nagoya/w640.jpg",
+        "bytes": 31365
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nagoya/w1280.jpg",
+        "bytes": 114129
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nagoya/w2048.jpg",
+        "bytes": 344995
+      }
+    ]
+  },
+  "chandigarh": {
+    "featureName": "Chandigarh",
+    "alt": "Chandigarh in India",
+    "caption": "Chandigarh, India",
+    "photographer": "UnpetitproleX",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gandhi_Bhawan,_Chandigarh.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Gandhi Bhawan, Chandigarh.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9f/Gandhi_Bhawan%2C_Chandigarh.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4c390ce2237d1413de027b4cd8f6ba3b7ea934436352be7e11c3366f2ffa8e72",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/chandigarh/w640.jpg",
+        "bytes": 33085
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/chandigarh/w1280.jpg",
+        "bytes": 118935
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/chandigarh/w2048.jpg",
+        "bytes": 374103
+      }
+    ]
+  },
+  "porto-alegre": {
+    "featureName": "Porto Alegre",
+    "alt": "Porto Alegre in Brazil",
+    "caption": "Porto Alegre, Brazil",
+    "photographer": "(WT-shared) Ricardo Rmx",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Porto_Alegre_Skyline.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Porto Alegre Skyline.JPG); source https://upload.wikimedia.org/wikipedia/commons/e/eb/Porto_Alegre_Skyline.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "636aaa26ffdfe80f1d438104c5d4e37548945a2dc00b7689dbaac2641c2ff9b7",
+    "width": 2045,
+    "height": 1040,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/porto-alegre/w640.jpg",
+        "bytes": 37986
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/porto-alegre/w1280.jpg",
+        "bytes": 107173
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/porto-alegre/w2048.jpg",
+        "bytes": 300762
+      }
+    ]
+  },
+  "iowa": {
+    "featureName": "Iowa",
+    "alt": "Iowa in United States",
+    "caption": "Iowa, United States",
+    "photographer": "Chris Light",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loess_Hills_I-80_Iowa_632.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Loess Hills I-80 Iowa 632.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f7/Loess_Hills_I-80_Iowa_632.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0de36f92b834c095749ed6537e5846b77a10c05e4547fbc9960f5a9c596a56d0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/iowa/w640.jpg",
+        "bytes": 25363
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/iowa/w1280.jpg",
+        "bytes": 86318
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/iowa/w2048.jpg",
+        "bytes": 274295
+      }
+    ]
+  },
+  "northwest-territories": {
+    "featureName": "Northwest Territories",
+    "alt": "Northwest Territories in Canada",
+    "caption": "Northwest Territories, Canada",
+    "photographer": "TravelingOtter from Houston, Texas, USA",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frozen_Great_Slave_Lake_-_Yellowknife,_Canada_(5325723220).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Frozen Great Slave Lake - Yellowknife, Canada (5325723220).jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0e/Frozen_Great_Slave_Lake_-_Yellowknife%2C_Canada_%285325723220%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a53771f2c7026900b62c82c0f98ce08a0dda489f5802fe04ef59b067f5fa8ac5",
+    "width": 3840,
+    "height": 2242,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/northwest-territories/w640.jpg",
+        "bytes": 23672
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/northwest-territories/w1280.jpg",
+        "bytes": 85783
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/northwest-territories/w2048.jpg",
+        "bytes": 261219
+      }
+    ]
+  },
+  "telangana": {
+    "featureName": "Telangana",
+    "alt": "Telangana in India",
+    "caption": "Telangana, India",
+    "photographer": "Bernard Gagnon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golconda_Fort_008.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Golconda Fort 008.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e5/Golconda_Fort_008.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "70a2db59661e4d7e27d59d62b79a7c20327eb21c08d6dc18151ac67402c8582f",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/telangana/w640.jpg",
+        "bytes": 57875
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/telangana/w1280.jpg",
+        "bytes": 236491
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/telangana/w2048.jpg",
+        "bytes": 746716
+      }
+    ]
+  },
+  "andros": {
+    "featureName": "Andros Greece",
+    "alt": "Andros Greece in Greece",
+    "caption": "Andros Greece, Greece",
+    "photographer": "Demetri Andriani",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_from_Andros,_Greece.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sunset from Andros, Greece.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0e/Sunset_from_Andros%2C_Greece.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "777cfb1952d4421deb26bc4774ef3348eeb13d69b5ab4d1015f2dc9aab1defe7",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/andros/w640.jpg",
+        "bytes": 25246
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/andros/w1280.jpg",
+        "bytes": 81727
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/andros/w2048.jpg",
+        "bytes": 211867
+      }
+    ]
+  },
+  "ikaria": {
+    "featureName": "Ikaria",
+    "alt": "Ikaria in Greece",
+    "caption": "Ikaria, Greece",
+    "photographer": "Jules Verne Times Two",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steep_rocky_path_with_the_south_Icarian_coastline_in_the_background,_Magganitis,_Ikaria,_Greece_julesvernex2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Steep rocky path with the south Icarian coastline in the background, Magganitis, Ikaria, Greece julesvernex2.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d8/Steep_rocky_path_with_the_south_Icarian_coastline_in_the_background%2C_Magganitis%2C_Ikaria%2C_Greece_julesvernex2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4b746afa95c5cc7cbca4b5d6d1c55df26af60af7ade5020158478a51c805d748",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ikaria/w640.jpg",
+        "bytes": 47434
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ikaria/w1280.jpg",
+        "bytes": 183269
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ikaria/w2048.jpg",
+        "bytes": 590427
+      }
+    ]
+  },
+  "barra": {
+    "featureName": "Isle of Barra",
+    "alt": "Isle of Barra in United Kingdom",
+    "caption": "Isle of Barra, United Kingdom",
+    "photographer": "Steve Houldsworth",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castlebay_Barra_-_geograph.org.uk_-_6886623.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Castlebay Barra - geograph.org.uk - 6886623.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1b/Castlebay_Barra_-_geograph.org.uk_-_6886623.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b63e293b323eca7a7ffff3f1c171444051c296b4085ca82114063f038929b91b",
+    "width": 3804,
+    "height": 2676,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/barra/w640.jpg",
+        "bytes": 84466
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/barra/w1280.jpg",
+        "bytes": 219423
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/barra/w2048.jpg",
+        "bytes": 542925
+      }
+    ]
+  },
+  "tiree": {
+    "featureName": "Tiree",
+    "alt": "Tiree in United Kingdom",
+    "caption": "Tiree, United Kingdom",
+    "photographer": "M J Richardson",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tiree_beach_-_geograph.org.uk_-_4763969.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Tiree beach - geograph.org.uk - 4763969.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c2/Tiree_beach_-_geograph.org.uk_-_4763969.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1ffe33b7511fb5db6d8c34defb7172062fc793e5e9dbe74f1518ed13903d1ae5",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tiree/w640.jpg",
+        "bytes": 22294
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tiree/w1280.jpg",
+        "bytes": 71884
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tiree/w2048.jpg",
+        "bytes": 250210
+      }
+    ]
+  },
+  "st-martin": {
+    "featureName": "Saint Martin",
+    "alt": "Saint Martin in France",
+    "caption": "Saint Martin, France",
+    "photographer": "David Broad",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shipwreck_in_Marigot_Bay,_Saint_Martin,_French_West_Indies_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Shipwreck in Marigot Bay, Saint Martin, French West Indies - panoramio.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3c/Shipwreck_in_Marigot_Bay%2C_Saint_Martin%2C_French_West_Indies_-_panoramio.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3fec86e8526d30d11cfd922ad12a3ac4093f0c0bc4313f71245e53b7bc807c0a",
+    "width": 3840,
+    "height": 1760,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/st-martin/w640.jpg",
+        "bytes": 24824
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/st-martin/w1280.jpg",
+        "bytes": 75746
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/st-martin/w2048.jpg",
+        "bytes": 204186
+      }
+    ]
+  },
+  "sint-maarten": {
+    "featureName": "Sint Maarten",
+    "alt": "Sint Maarten in Netherlands",
+    "caption": "Sint Maarten, Netherlands",
+    "photographer": "Dr. Thomas Liptak",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:St_Maarten_Philipsburg_Wathey_Square_Courthouse.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:St Maarten Philipsburg Wathey Square Courthouse.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/25/St_Maarten_Philipsburg_Wathey_Square_Courthouse.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c5c34d289078ddef31ea2d3d7e871c2366a885847678691f67c8714bd2f82a53",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sint-maarten/w640.jpg",
+        "bytes": 61397
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sint-maarten/w1280.jpg",
+        "bytes": 223573
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sint-maarten/w2048.jpg",
+        "bytes": 628318
+      }
+    ]
+  },
+  "veneto": {
+    "featureName": "Veneto",
+    "alt": "Veneto in Italy",
+    "caption": "Veneto, Italy",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:SP638_road_at_Passo_Giau_with_Marmolada_and_Monte_Pore,_Colle_Santa_Lucia,_Veneto,_Italy,_2025_October.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:SP638 road at Passo Giau with Marmolada and Monte Pore, Colle Santa Lucia, Veneto, Italy, 2025 October.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a3/SP638_road_at_Passo_Giau_with_Marmolada_and_Monte_Pore%2C_Colle_Santa_Lucia%2C_Veneto%2C_Italy%2C_2025_October.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8be5d44e191dd813f0431a2c28eb413a7c4d8aa7eb11f1caefc9a539f61fe182",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/veneto/w640.jpg",
+        "bytes": 68826
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/veneto/w1280.jpg",
+        "bytes": 281405
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/veneto/w2048.jpg",
+        "bytes": 930783
+      }
+    ]
+  },
+  "upper-austria": {
+    "featureName": "Upper Austria",
+    "alt": "Upper Austria in Austria",
+    "caption": "Upper Austria, Austria",
+    "photographer": "Isiwal",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Almsee_Nordbucht-4224.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Almsee Nordbucht-4224.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7d/Almsee_Nordbucht-4224.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e688b55aa1bbfdaad9daa7fed886216cd96a98ff8c3d3fc9f86959392f59394c",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/upper-austria/w640.jpg",
+        "bytes": 53929
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/upper-austria/w1280.jpg",
+        "bytes": 214907
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/upper-austria/w2048.jpg",
+        "bytes": 663457
+      }
+    ]
+  },
+  "eden-valley": {
+    "featureName": "Eden Valley",
+    "alt": "Eden Valley in Australia",
+    "caption": "Eden Valley, Australia",
+    "photographer": "Jeff Marquis",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eden_Valley_Lookout.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Eden Valley Lookout.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/31/Eden_Valley_Lookout.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9a69c329cc3d6fe9ea38ca1729b7a9ac994547fd433ea9785cd672e4fc10c0ba",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/eden-valley/w640.jpg",
+        "bytes": 84468
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/eden-valley/w1280.jpg",
+        "bytes": 278237
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/eden-valley/w2048.jpg",
+        "bytes": 687638
+      }
+    ]
+  },
+  "galicia": {
+    "featureName": "Galicia Spain",
+    "alt": "Galicia Spain in Spain",
+    "caption": "Galicia Spain, Spain",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Torre_de_San_Saturni%C3%B1o,_Cambados,_Pontevedra,_Espa%C3%B1a,_2015-09-23,_DD_29.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Torre de San Saturniño, Cambados, Pontevedra, España, 2015-09-23, DD 29.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c9/Torre_de_San_Saturni%C3%B1o%2C_Cambados%2C_Pontevedra%2C_Espa%C3%B1a%2C_2015-09-23%2C_DD_29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "75c9ffc3892996408c67dc4a7aa7d81fd4016472504cbe769b0aac73d6302ab7",
+    "width": 3840,
+    "height": 1966,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/galicia/w640.jpg",
+        "bytes": 30811
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/galicia/w1280.jpg",
+        "bytes": 112436
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/galicia/w2048.jpg",
+        "bytes": 347378
+      }
+    ]
+  },
+  "muntenia": {
+    "featureName": "Muntenia",
+    "alt": "Muntenia in Romania",
+    "caption": "Muntenia, Romania",
+    "photographer": "seisdeagosto",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucharest-Skyline-01.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bucharest-Skyline-01.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d3/Bucharest-Skyline-01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8a7023af2c631ac5f99f3bd827a00ef3adc2f9a5221c8744ceda5d5c98ef6de8",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/muntenia/w640.jpg",
+        "bytes": 69312
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/muntenia/w1280.jpg",
+        "bytes": 204473
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/muntenia/w2048.jpg",
+        "bytes": 527370
+      }
+    ]
+  },
+  "trafalgar-square": {
+    "featureName": "Trafalgar Square",
+    "alt": "Trafalgar Square in United Kingdom",
+    "caption": "Trafalgar Square, United Kingdom",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trafalgar_Square_LED_Fountains_-_June_2009.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Trafalgar Square LED Fountains - June 2009.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/67/Trafalgar_Square_LED_Fountains_-_June_2009.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7dd82d4bcde0fec674a9d8b9a71fde76fa77309a6c8c7234e1fca11d3c4abbca",
+    "width": 3210,
+    "height": 2144,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/trafalgar-square/w640.jpg",
+        "bytes": 51004
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/trafalgar-square/w1280.jpg",
+        "bytes": 126494
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/trafalgar-square/w2048.jpg",
+        "bytes": 323299
+      }
+    ]
+  },
+  "sainte-chapelle": {
+    "featureName": "Sainte-Chapelle",
+    "alt": "Sainte-Chapelle in France",
+    "caption": "Sainte-Chapelle, France",
+    "photographer": "Ulemas7",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Interior_de_la_Sainte_Chapelle.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Interior de la Sainte Chapelle.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e7/Interior_de_la_Sainte_Chapelle.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ae44ee1b2febc1138bf2c1c71613db55d0d8aa6d3e9414bbeea6d07689adb1dd",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sainte-chapelle/w640.jpg",
+        "bytes": 77406
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sainte-chapelle/w1280.jpg",
+        "bytes": 277956
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sainte-chapelle/w2048.jpg",
+        "bytes": 724506
+      }
+    ]
+  },
+  "glacier": {
+    "featureName": "Glacier",
+    "alt": "Glacier in United States",
+    "caption": "Glacier, United States",
+    "photographer": "Balon Greyjoy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20240913_Canon_R5_Saint_Mary_Lake-8480.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:20240913 Canon R5 Saint Mary Lake-8480.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3c/20240913_Canon_R5_Saint_Mary_Lake-8480.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "89b6500156005fc16e86155014d79ca56ffa0247f4013e1a81e62609722f093f",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/glacier/w640.jpg",
+        "bytes": 33317
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/glacier/w1280.jpg",
+        "bytes": 123268
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/glacier/w2048.jpg",
+        "bytes": 378163
+      }
+    ]
+  },
+  "olympic": {
+    "featureName": "Olympic National Park",
+    "alt": "Olympic National Park in United States",
+    "caption": "Olympic National Park, United States",
+    "photographer": "King of Hearts",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Second_Beach_Olympic_June_2018_008.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Second Beach Olympic June 2018 008.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/35/Second_Beach_Olympic_June_2018_008.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "506d14e96794868d3d9850f43bed6cd05cc2bf5b4779a7dceeb5baeb5db00b6d",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/olympic/w640.jpg",
+        "bytes": 54139
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/olympic/w1280.jpg",
+        "bytes": 197203
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/olympic/w2048.jpg",
+        "bytes": 576463
+      }
+    ]
+  },
+  "zwinger": {
+    "featureName": "Zwinger",
+    "alt": "Zwinger in Germany",
+    "caption": "Zwinger, Germany",
+    "photographer": "Txllxt TxllxT",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dresden_-_Zwingerteich_Park_-_Semperoper,_Zwingerteich_%26_Zwinger_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Dresden - Zwingerteich Park - Semperoper, Zwingerteich & Zwinger 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/77/Dresden_-_Zwingerteich_Park_-_Semperoper%2C_Zwingerteich_%26_Zwinger_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6364aeb04d4dfaac21614a78e8fdcd1b69b06aa387cb50a3be968ce40d3bb938",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/zwinger/w640.jpg",
+        "bytes": 50310
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/zwinger/w1280.jpg",
+        "bytes": 208702
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/zwinger/w2048.jpg",
+        "bytes": 686417
+      }
+    ]
+  },
+  "heidelberg-castle": {
+    "featureName": "Heidelberg Castle",
+    "alt": "Heidelberg Castle in Germany",
+    "caption": "Heidelberg Castle, Germany",
+    "photographer": "Stephan van Helden",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Die_Schloss_Heidelberg_vom_Neckarufer_n%C3%B6rdlich_der_Stadthalle_Heidelberg.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Die Schloss Heidelberg vom Neckarufer nördlich der Stadthalle Heidelberg.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a4/Die_Schloss_Heidelberg_vom_Neckarufer_n%C3%B6rdlich_der_Stadthalle_Heidelberg.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "79bfb2367b8a692e4f2321b9f9004d60bcd6faf1300d9a1b0145a4aa7bd44464",
+    "width": 3840,
+    "height": 2556,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/heidelberg-castle/w640.jpg",
+        "bytes": 75636
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/heidelberg-castle/w1280.jpg",
+        "bytes": 293143
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/heidelberg-castle/w2048.jpg",
+        "bytes": 897929
+      }
+    ]
   }
 }

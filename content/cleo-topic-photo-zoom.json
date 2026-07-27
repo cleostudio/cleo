@@ -16967,6 +16967,774 @@
       }
     ]
   },
+  "places/rochester": {
+    "collection": "places",
+    "title": "Rochester New York",
+    "subtitle": "Rochester",
+    "alt": "Rochester New York in United States",
+    "photographer": "Evilarry",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/rochester/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rochester/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rochester/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/spokane": {
+    "collection": "places",
+    "title": "Spokane",
+    "subtitle": "Spokane",
+    "alt": "Spokane in United States",
+    "photographer": "David Falconer",
+    "license": "Public domain",
+    "width": 2944,
+    "height": 1980,
+    "renditions": [
+      {
+        "src": "/images/places/spokane/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/spokane/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/spokane/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tucson": {
+    "collection": "places",
+    "title": "Tucson",
+    "subtitle": "Tucson",
+    "alt": "Tucson in United States",
+    "photographer": "Michelle Maria",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/tucson/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tucson/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tucson/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/regina": {
+    "collection": "places",
+    "title": "Regina",
+    "subtitle": "Regina",
+    "alt": "Regina in Canada",
+    "photographer": "Haydn Blackey from Cardiff, Wales",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2562,
+    "renditions": [
+      {
+        "src": "/images/places/regina/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/regina/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/regina/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/concepcion": {
+    "collection": "places",
+    "title": "Concepción",
+    "subtitle": "Concepción",
+    "alt": "Concepción in Chile",
+    "photographer": "Cris.tbl",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/concepcion/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/concepcion/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/concepcion/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/florianopolis": {
+    "collection": "places",
+    "title": "Florianópolis",
+    "subtitle": "Florianópolis",
+    "alt": "Florianópolis in Brazil",
+    "photographer": "Lionel Baur",
+    "license": "CC BY-SA 3.0",
+    "width": 3072,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/places/florianopolis/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/florianopolis/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/florianopolis/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/zadar": {
+    "collection": "places",
+    "title": "Zadar",
+    "subtitle": "Zadar",
+    "alt": "Zadar in Croatia",
+    "photographer": "Palauenc05",
+    "license": "CC BY-SA 4.0",
+    "width": 3396,
+    "height": 2384,
+    "renditions": [
+      {
+        "src": "/images/places/zadar/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/zadar/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/zadar/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bhopal": {
+    "collection": "places",
+    "title": "Bhopal",
+    "subtitle": "Bhopal",
+    "alt": "Bhopal in India",
+    "photographer": "Abhishek727 Abhishek Mishra",
+    "license": "CC BY-SA 3.0",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "src": "/images/places/bhopal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bhopal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bhopal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mechelen": {
+    "collection": "places",
+    "title": "Mechelen",
+    "subtitle": "Mechelen",
+    "alt": "Mechelen in Belgium",
+    "photographer": "Ad Meskens",
+    "license": "CC BY-SA 3.0",
+    "width": 2296,
+    "height": 2126,
+    "renditions": [
+      {
+        "src": "/images/places/mechelen/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mechelen/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mechelen/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nagoya": {
+    "collection": "places",
+    "title": "Nagoya",
+    "subtitle": "Nagoya",
+    "alt": "Nagoya in Japan",
+    "photographer": "BobTanGo",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 1555,
+    "renditions": [
+      {
+        "src": "/images/places/nagoya/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nagoya/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nagoya/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/chandigarh": {
+    "collection": "places",
+    "title": "Chandigarh",
+    "subtitle": "Chandigarh",
+    "alt": "Chandigarh in India",
+    "photographer": "UnpetitproleX",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/chandigarh/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/chandigarh/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/chandigarh/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/porto-alegre": {
+    "collection": "places",
+    "title": "Porto Alegre",
+    "subtitle": "Porto Alegre",
+    "alt": "Porto Alegre in Brazil",
+    "photographer": "(WT-shared) Ricardo Rmx",
+    "license": "CC BY-SA 3.0",
+    "width": 2045,
+    "height": 1040,
+    "renditions": [
+      {
+        "src": "/images/places/porto-alegre/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/porto-alegre/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/porto-alegre/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/iowa": {
+    "collection": "places",
+    "title": "Iowa",
+    "subtitle": "Iowa",
+    "alt": "Iowa in United States",
+    "photographer": "Chris Light",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/iowa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/iowa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/iowa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/northwest-territories": {
+    "collection": "places",
+    "title": "Northwest Territories",
+    "subtitle": "Northwest Territories",
+    "alt": "Northwest Territories in Canada",
+    "photographer": "TravelingOtter from Houston, Texas, USA",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2242,
+    "renditions": [
+      {
+        "src": "/images/places/northwest-territories/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/northwest-territories/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/northwest-territories/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/telangana": {
+    "collection": "places",
+    "title": "Telangana",
+    "subtitle": "Telangana",
+    "alt": "Telangana in India",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/telangana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/telangana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/telangana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/andros": {
+    "collection": "places",
+    "title": "Andros Greece",
+    "subtitle": "Andros",
+    "alt": "Andros Greece in Greece",
+    "photographer": "Demetri Andriani",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/andros/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/andros/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/andros/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ikaria": {
+    "collection": "places",
+    "title": "Ikaria",
+    "subtitle": "Ikaria",
+    "alt": "Ikaria in Greece",
+    "photographer": "Jules Verne Times Two",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/ikaria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ikaria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ikaria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/barra": {
+    "collection": "places",
+    "title": "Isle of Barra",
+    "subtitle": "Isle of Barra",
+    "alt": "Isle of Barra in United Kingdom",
+    "photographer": "Steve Houldsworth",
+    "license": "CC BY-SA 2.0",
+    "width": 3804,
+    "height": 2676,
+    "renditions": [
+      {
+        "src": "/images/places/barra/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/barra/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/barra/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tiree": {
+    "collection": "places",
+    "title": "Tiree",
+    "subtitle": "Tiree",
+    "alt": "Tiree in United Kingdom",
+    "photographer": "M J Richardson",
+    "license": "CC BY-SA 2.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/places/tiree/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tiree/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tiree/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/st-martin": {
+    "collection": "places",
+    "title": "Saint Martin",
+    "subtitle": "Saint Martin",
+    "alt": "Saint Martin in France",
+    "photographer": "David Broad",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 1760,
+    "renditions": [
+      {
+        "src": "/images/places/st-martin/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/st-martin/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/st-martin/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sint-maarten": {
+    "collection": "places",
+    "title": "Sint Maarten",
+    "subtitle": "Sint Maarten",
+    "alt": "Sint Maarten in Netherlands",
+    "photographer": "Dr. Thomas Liptak",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/sint-maarten/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sint-maarten/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sint-maarten/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/veneto": {
+    "collection": "places",
+    "title": "Veneto",
+    "subtitle": "Veneto",
+    "alt": "Veneto in Italy",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "src": "/images/places/veneto/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/veneto/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/veneto/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/upper-austria": {
+    "collection": "places",
+    "title": "Upper Austria",
+    "subtitle": "Upper Austria",
+    "alt": "Upper Austria in Austria",
+    "photographer": "Isiwal",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/upper-austria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/upper-austria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/upper-austria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/eden-valley": {
+    "collection": "places",
+    "title": "Eden Valley",
+    "subtitle": "Eden Valley",
+    "alt": "Eden Valley in Australia",
+    "photographer": "Jeff Marquis",
+    "license": "CC BY 2.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/eden-valley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/eden-valley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/eden-valley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/galicia": {
+    "collection": "places",
+    "title": "Galicia Spain",
+    "subtitle": "Galicia",
+    "alt": "Galicia Spain in Spain",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1966,
+    "renditions": [
+      {
+        "src": "/images/places/galicia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/galicia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/galicia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/muntenia": {
+    "collection": "places",
+    "title": "Muntenia",
+    "subtitle": "Muntenia",
+    "alt": "Muntenia in Romania",
+    "photographer": "seisdeagosto",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/muntenia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/muntenia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/muntenia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/trafalgar-square": {
+    "collection": "places",
+    "title": "Trafalgar Square",
+    "subtitle": "Trafalgar Square",
+    "alt": "Trafalgar Square in United Kingdom",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 3210,
+    "height": 2144,
+    "renditions": [
+      {
+        "src": "/images/places/trafalgar-square/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/trafalgar-square/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/trafalgar-square/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sainte-chapelle": {
+    "collection": "places",
+    "title": "Sainte-Chapelle",
+    "subtitle": "Sainte-Chapelle",
+    "alt": "Sainte-Chapelle in France",
+    "photographer": "Ulemas7",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/sainte-chapelle/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sainte-chapelle/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sainte-chapelle/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/glacier": {
+    "collection": "places",
+    "title": "Glacier",
+    "subtitle": "Glacier",
+    "alt": "Glacier in United States",
+    "photographer": "Balon Greyjoy",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "src": "/images/places/glacier/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/glacier/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/glacier/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/olympic": {
+    "collection": "places",
+    "title": "Olympic National Park",
+    "subtitle": "Olympic",
+    "alt": "Olympic National Park in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/olympic/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/olympic/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/olympic/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/zwinger": {
+    "collection": "places",
+    "title": "Zwinger",
+    "subtitle": "Zwinger",
+    "alt": "Zwinger in Germany",
+    "photographer": "Txllxt TxllxT",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/zwinger/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/zwinger/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/zwinger/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/heidelberg-castle": {
+    "collection": "places",
+    "title": "Heidelberg Castle",
+    "subtitle": "Heidelberg Castle",
+    "alt": "Heidelberg Castle in Germany",
+    "photographer": "Stephan van Helden",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2556,
+    "renditions": [
+      {
+        "src": "/images/places/heidelberg-castle/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/heidelberg-castle/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/heidelberg-castle/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

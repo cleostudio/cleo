@@ -14,7 +14,7 @@ import {
 
 describe('place guides', () => {
   it('ships a curated catalog with unique slugs and codes', () => {
-    expect(placeGuides.length).toBeGreaterThanOrEqual(512)
+    expect(placeGuides.length).toBeGreaterThanOrEqual(544)
 
     const slugs = placeGuides.map((place) => place.slug)
     const codes = placeGuides.map((place) => place.code)
@@ -255,6 +255,50 @@ describe('place guides', () => {
     expect(
       matchPlaceGuideForBlurb('united-states', 'Independence Hall')?.slug,
     ).toBe('independence-hall')
+    expect(matchPlaceGuideForBlurb('united-states', 'Rochester')?.slug).toBe(
+      'rochester',
+    )
+    expect(matchPlaceGuideForBlurb('united-states', 'Spokane')?.slug).toBe(
+      'spokane',
+    )
+    expect(matchPlaceGuideForBlurb('chile', 'Concepción')?.slug).toBe(
+      'concepcion',
+    )
+    expect(matchPlaceGuideForBlurb('brazil', 'Florianópolis')?.slug).toBe(
+      'florianopolis',
+    )
+    expect(matchPlaceGuideForBlurb('united-states', 'Iowa')?.slug).toBe('iowa')
+    expect(
+      matchPlaceGuideForBlurb('canada', 'Northwest Territories')?.slug,
+    ).toBe('northwest-territories')
+    expect(matchPlaceGuideForBlurb('greece', 'Icaria')?.slug).toBe('ikaria')
+    expect(matchPlaceGuideForBlurb('france', 'Saint Martin')?.slug).toBe(
+      'st-martin',
+    )
+    expect(matchPlaceGuideForBlurb('netherlands', 'Sint Maarten')?.slug).toBe(
+      'sint-maarten',
+    )
+    expect(matchPlaceGuideForBlurb('romania', 'Wallachia')?.slug).toBe(
+      'muntenia',
+    )
+    expect(
+      matchPlaceGuideForBlurb('united-kingdom', "Nelson's Column")?.slug,
+    ).toBe('trafalgar-square')
+    expect(matchPlaceGuideForBlurb('france', 'Sainte Chapelle')?.slug).toBe(
+      'sainte-chapelle',
+    )
+    expect(
+      matchPlaceGuideForBlurb('united-states', 'Glacier National Park')?.slug,
+    ).toBe('glacier')
+    expect(
+      matchPlaceGuideForBlurb('united-states', 'Olympic National Park')?.slug,
+    ).toBe('olympic')
+    expect(matchPlaceGuideForBlurb('germany', 'Dresden Zwinger')?.slug).toBe(
+      'zwinger',
+    )
+    expect(
+      matchPlaceGuideForBlurb('germany', 'Schloss Heidelberg')?.slug,
+    ).toBe('heidelberg-castle')
   })
 
   it('never reuses a sentence between place guides', () => {

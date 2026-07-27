@@ -1,0 +1,226 @@
+{
+  "rochester": {
+    "name": "Rochester",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Rochester New York", "Rochester NY skyline", "Rochester NY"]
+  },
+  "spokane": {
+    "name": "Spokane",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Spokane", "Spokane skyline", "Spokane Washington"]
+  },
+  "tucson": {
+    "name": "Tucson",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Tucson", "Tucson Arizona", "Tucson desert"]
+  },
+  "regina": {
+    "name": "Regina",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": ["Regina Saskatchewan", "Regina skyline", "Regina Canada"]
+  },
+  "concepcion": {
+    "name": "Concepción",
+    "countrySlug": "chile",
+    "countryName": "Chile",
+    "kind": "City",
+    "searchNames": ["Concepción Chile", "Concepcion Chile", "Concepción city"]
+  },
+  "florianopolis": {
+    "name": "Florianópolis",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": ["Florianópolis", "Florianopolis", "Florianópolis beach"]
+  },
+  "zadar": {
+    "name": "Zadar",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "City",
+    "searchNames": ["Zadar", "Zadar Croatia", "Zadar old town"]
+  },
+  "bhopal": {
+    "name": "Bhopal",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": ["Bhopal", "Bhopal India", "Bhopal lakes"]
+  },
+  "mechelen": {
+    "name": "Mechelen",
+    "countrySlug": "belgium",
+    "countryName": "Belgium",
+    "kind": "City",
+    "searchNames": ["Mechelen", "Mechelen Belgium", "Mechelen cathedral"]
+  },
+  "nagoya": {
+    "name": "Nagoya",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": ["Nagoya", "Nagoya Japan", "Nagoya castle"]
+  },
+  "chandigarh": {
+    "name": "Chandigarh",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": ["Chandigarh", "Chandigarh India", "Chandigarh Capitol"]
+  },
+  "porto-alegre": {
+    "name": "Porto Alegre",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": ["Porto Alegre", "Porto Alegre skyline", "Porto Alegre Brazil"]
+  },
+  "iowa": {
+    "name": "Iowa",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": ["Iowa", "Iowa farmland", "Iowa landscape"]
+  },
+  "northwest-territories": {
+    "name": "Northwest Territories",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": ["Northwest Territories", "Yellowknife", "Northwest Territories Canada"]
+  },
+  "telangana": {
+    "name": "Telangana",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": ["Telangana", "Telangana India", "Hyderabad Telangana"]
+  },
+  "andros": {
+    "name": "Andros",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Andros Greece", "Andros island", "Chora Andros"]
+  },
+  "ikaria": {
+    "name": "Ikaria",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Ikaria", "Icaria", "Ikaria Greece"]
+  },
+  "barra": {
+    "name": "Isle of Barra",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": ["Isle of Barra", "Barra Scotland", "Barra beach"]
+  },
+  "tiree": {
+    "name": "Tiree",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": ["Tiree", "Tiree Scotland", "Tiree beach"]
+  },
+  "st-martin": {
+    "name": "Saint Martin",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": ["Saint Martin", "St Martin Caribbean", "Marigot Saint Martin"]
+  },
+  "sint-maarten": {
+    "name": "Sint Maarten",
+    "countrySlug": "netherlands",
+    "countryName": "Netherlands",
+    "kind": "Island",
+    "searchNames": ["Sint Maarten", "St Maarten", "Philipsburg Sint Maarten"]
+  },
+  "veneto": {
+    "name": "Veneto",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": ["Veneto", "Veneto Italy", "Veneto vineyards"]
+  },
+  "upper-austria": {
+    "name": "Upper Austria",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "Region",
+    "searchNames": ["Upper Austria", "Oberösterreich", "Hallstatt Upper Austria"]
+  },
+  "eden-valley": {
+    "name": "Eden Valley",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Region",
+    "searchNames": ["Eden Valley", "Eden Valley vineyards", "Eden Valley South Australia"]
+  },
+  "galicia": {
+    "name": "Galicia",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": ["Galicia Spain", "Galicia coast", "Santiago de Compostela"]
+  },
+  "muntenia": {
+    "name": "Muntenia",
+    "countrySlug": "romania",
+    "countryName": "Romania",
+    "kind": "Region",
+    "searchNames": ["Muntenia", "Muntenia Romania", "Wallachia Muntenia"]
+  },
+  "trafalgar-square": {
+    "name": "Trafalgar Square",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": ["Trafalgar Square", "Trafalgar Square London", "Nelson's Column"]
+  },
+  "sainte-chapelle": {
+    "name": "Sainte-Chapelle",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": ["Sainte-Chapelle", "Sainte Chapelle", "Sainte-Chapelle Paris"]
+  },
+  "glacier": {
+    "name": "Glacier",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Glacier National Park", "Glacier Montana", "Going-to-the-Sun Road"]
+  },
+  "olympic": {
+    "name": "Olympic",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Olympic National Park", "Olympic Peninsula", "Hoh Rainforest"]
+  },
+  "zwinger": {
+    "name": "Zwinger",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Landmark",
+    "searchNames": ["Zwinger", "Zwinger Dresden", "Dresden Zwinger"]
+  },
+  "heidelberg-castle": {
+    "name": "Heidelberg Castle",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Landmark",
+    "searchNames": ["Heidelberg Castle", "Schloss Heidelberg", "Heidelberg ruin"]
+  }
+}
