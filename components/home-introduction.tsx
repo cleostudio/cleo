@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { HomeIntroReplay } from '~/components/home-intro-replay'
 import { T } from '~/lib/i18n'
 
-function DesignEngineerMark() {
+function CraftMark() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ function DesignEngineerMark() {
   )
 }
 
-function DetailsMark() {
+function HopMark() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -110,19 +110,21 @@ function DetailsMark() {
   )
 }
 
-function DesignEngineerPhrase({ children }: { children: React.ReactNode }) {
+/** Rainbow label + craft mark (hover / tap). */
+function CraftPhrase({ children }: { children: React.ReactNode }) {
   return (
     <HomeIntroReplay>
       <span className="home-design-label">{children}</span>
-      <DesignEngineerMark />
+      <CraftMark />
     </HomeIntroReplay>
   )
 }
 
-function DetailsPhrase({ children }: { children: React.ReactNode }) {
+/** Orbital mark + hopping units (hover / tap). */
+function HopPhrase({ children }: { children: React.ReactNode }) {
   return (
     <HomeIntroReplay>
-      <DetailsMark />
+      <HopMark />
       {children}
     </HomeIntroReplay>
   )
@@ -135,40 +137,39 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              Cleo 是面向国家与太空的知识门户，之后还会加入更多主题。每页都按
-              <DesignEngineerPhrase>设计工程师</DesignEngineerPhrase>
-              的标准来做：细节做到
-              <DetailsPhrase>
+              Cleo 汇集国家与太空的
+              <CraftPhrase>实地导览</CraftPhrase>
+              ，之后会有更多主题——做到
+              <HopPhrase>
                 <span className="home-detail-units">
-                  <span className="home-detail-unit">刚</span>
-                  <span className="home-detail-unit">刚</span>
-                  <span className="home-detail-unit">好</span>
+                  <span className="home-detail-unit">站</span>
+                  <span className="home-detail-unit">得</span>
+                  <span className="home-detail-unit">住</span>
                 </span>
-              </DetailsPhrase>
+              </HopPhrase>
               。
             </>
           }
           en={
             <>
-              Cleo is a knowledge portal for countries and space — with more topics on the way. A{' '}
-              <DesignEngineerPhrase>design engineer</DesignEngineerPhrase> standard runs through every
-              page:{' '}
-              <DetailsPhrase>
+              Cleo collects <CraftPhrase>field guides</CraftPhrase> for countries and space, with more
+              topics ahead —{' '}
+              <HopPhrase>
                 <span className="home-detail-units home-detail-words">
-                  <span className="home-detail-unit">details</span>{' '}
-                  <span className="home-detail-unit">just</span>{' '}
-                  <span className="home-detail-unit">right</span>
+                  <span className="home-detail-unit">built</span>{' '}
+                  <span className="home-detail-unit">to</span>{' '}
+                  <span className="home-detail-unit">last</span>
                   <span className="home-detail-period">.</span>
                 </span>
-              </DetailsPhrase>
+              </HopPhrase>
             </>
           }
         />
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         <T
-          zh="可浏览实地导览、精选照片和可检索目录。签证、安全提示与价格，请去别处找。"
-          en="Browse field guides, curated photographs, and a searchable catalog. Leave visas, safety bulletins, and prices for elsewhere."
+          zh="旁边是精选照片和可检索目录。签证、安全提示与价格，请去别处找。"
+          en="Alongside them: curated photographs and a searchable catalog. Visas, safety bulletins, and prices stay out."
         />
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
