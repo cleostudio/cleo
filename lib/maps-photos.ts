@@ -1,5 +1,6 @@
 import { allAtlasEntries } from '~/lib/atlas'
 import { atlasRendition } from '~/lib/atlas/static-image'
+import { galleryHref } from '~/lib/gallery'
 import { excerptMapAbout, type MapCountryPhoto } from '~/lib/maps'
 
 /** Atlas place thumbnails and selection-plate facts keyed by ISO code. */
@@ -16,6 +17,7 @@ export function mapCountryPhotos(): Record<string, MapCountryPhoto> {
       alt: entry.photo.alt,
       src: rendition.src,
       href: `/explore/${entry.slug}`,
+      galleryHref: galleryHref(entry.name),
       aboutExcerpt: excerptMapAbout(entry.about),
       places: entry.places.map((place) => place.name),
     }

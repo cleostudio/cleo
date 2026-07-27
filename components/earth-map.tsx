@@ -2040,7 +2040,11 @@ export function EarthMap({
             >
               <MapsGlass />
               {photo ? (
-                <Link href={photo.href} className="earth-map-photo">
+                <Link
+                  href={photo.galleryHref}
+                  className="earth-map-photo"
+                  title={`Photos of ${selected.name} in the Gallery`}
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element -- static atlas JPEG with known path */}
                   <img src={photo.src} alt={photo.alt} width={160} height={106} />
                   <span className="earth-map-photo-caption">
@@ -2123,6 +2127,11 @@ export function EarthMap({
                     Browse Explore →
                   </Link>
                 )}
+                {photo?.galleryHref ? (
+                  <Link href={photo.galleryHref} className="earth-map-guide-link">
+                    Photos →
+                  </Link>
+                ) : null}
                 {selectedEntry ? (
                   <button
                     type="button"

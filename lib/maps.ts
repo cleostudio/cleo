@@ -164,7 +164,10 @@ export type MapCountryPhoto = {
   placeName: string
   alt: string
   src: string
+  /** Explore field guide for this country. */
   href: string
+  /** Gallery deep link filtered to this country. */
+  galleryHref: string
   /** Short atlas orientation blurb for the selection plate. */
   aboutExcerpt: string
   /** Notable place names from the Explore field guide. */

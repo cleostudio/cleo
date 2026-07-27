@@ -15,6 +15,7 @@ describe('mapCountryPhotos', () => {
       name: 'Japan',
       capital: 'Tokyo',
       href: '/explore/japan',
+      galleryHref: '/gallery?q=Japan',
     })
     expect(japan.src).toMatch(/^\/images\/atlas\/japan\/w640\.jpg$/)
     expect(japan.aboutExcerpt.length).toBeGreaterThan(40)

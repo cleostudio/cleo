@@ -7,6 +7,7 @@ import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
 import { countrySlugs, getCountry } from '~/lib/countries'
 import { atlasDescription, getAtlasEntry } from '~/lib/atlas'
+import { galleryHref } from '~/lib/gallery'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { mapCountryHref } from '~/lib/maps'
 
@@ -175,21 +176,9 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         </dl>
       </section>
 
-      <p
-        className="enter mt-8"
-        style={{ '--enter-delay': '150ms' } as React.CSSProperties}
-      >
-        <Link
-          href={mapCountryHref(country.slug)}
-          className="text-sm text-foreground underline-offset-2 hover:underline"
-        >
-          View on map →
-        </Link>
-      </p>
-
       <section
         className="enter mt-12"
-        style={{ '--enter-delay': '160ms' } as React.CSSProperties}
+        style={{ '--enter-delay': '150ms' } as React.CSSProperties}
         aria-labelledby="guide-sources"
       >
         <h2 id="guide-sources" className="guide-label">
@@ -214,16 +203,30 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         </ul>
       </section>
 
-      <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
-        <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
-          Browse the gallery →
+      <nav
+        className="enter mt-10 mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm"
+        style={{ '--enter-delay': '170ms' } as React.CSSProperties}
+        aria-label="Continue"
+      >
+        <Link
+          href={mapCountryHref(country.slug)}
+          className="text-foreground underline-offset-2 hover:underline"
+        >
+          Map →
         </Link>
-      </p>
-      <p className="enter mt-3 mb-4" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
-        <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link
+          href={galleryHref(country.name)}
+          className="text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+        >
+          Photos →
+        </Link>
+        <Link
+          href="/explore"
+          className="text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+        >
           ← All countries
         </Link>
-      </p>
+      </nav>
     </article>
   )
 }

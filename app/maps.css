@@ -9,7 +9,8 @@ html[data-maps-route] {
 }
 
 html[data-maps-route] .earth-map[data-has-selection] {
-  --maps-dossier-lift: 8.75rem;
+  /* Match the scrollable dossier budget so scale/toast clear the plate. */
+  --maps-dossier-lift: min(14rem, 42vh);
 }
 
 html[data-maps-route] .site-chrome {
@@ -831,7 +832,7 @@ html[data-maps-route] body {
   }
 
   html[data-maps-route] .earth-map[data-has-selection] {
-    --maps-dossier-lift: 9.25rem;
+    --maps-dossier-lift: min(12rem, 36vh);
   }
 
   .earth-map-chrome-top {

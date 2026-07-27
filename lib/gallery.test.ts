@@ -5,6 +5,7 @@ import {
   allGalleryItems,
   galleryDescription,
   galleryFilterKeys,
+  galleryHref,
 } from './gallery'
 import { spaceSubjects } from './space'
 
@@ -16,6 +17,15 @@ describe('gallery catalog', () => {
     expect(items.some((item) => item.collection === 'space')).toBe(true)
     expect(items.some((item) => item.href === '/space/mars')).toBe(true)
     expect(items.every((item) => item.photo.renditions.length === 3)).toBe(true)
+    expect(
+      items.find((item) => item.href === '/explore/japan')?.mapHref,
+    ).toBe('/maps?country=japan')
+    expect(items.find((item) => item.href === '/space/earth')?.mapHref).toBe(
+      '/maps',
+    )
+    expect(items.find((item) => item.href === '/space/mars')?.mapHref).toBeUndefined()
+    expect(galleryHref('Japan')).toBe('/gallery?q=Japan')
+    expect(galleryHref('  ')).toBe('/gallery')
   })
 
   it('exposes place regions and space categories as filter keys', () => {

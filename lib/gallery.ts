@@ -1,4 +1,5 @@
 import { allAtlasEntries, atlasRegions } from '~/lib/atlas'
+import { mapCountryHref } from '~/lib/maps'
 import type { StaticPhoto } from '~/lib/static-photo'
 import { spaceSubjects } from '~/lib/space'
 
@@ -8,6 +9,8 @@ export interface GalleryItem {
   id: string
   collection: GalleryCollection
   href: string
+  /** Optional Maps deep link (places + Earth). */
+  mapHref?: string
   /** Featured place / feature name on the tile. */
   title: string
   /** Country or space-subject name under the title. */
@@ -16,6 +19,13 @@ export interface GalleryItem {
   filterKey: string
   searchText: string
   photo: StaticPhoto
+}
+
+/** Deep link into Gallery with an optional search query. */
+export function galleryHref(query?: string | null) {
+  const trimmed = query?.trim()
+  if (!trimmed) return '/gallery'
+  return `/gallery?q=${encodeURIComponent(trimmed)}`
 }
 
 function atlasPhotoToStatic(photo: {
@@ -51,6 +61,7 @@ export function allGalleryItems(): GalleryItem[] {
     id: `places:${entry.slug}`,
     collection: 'places',
     href: `/explore/${entry.slug}`,
+    mapHref: mapCountryHref(entry.slug),
     title: entry.photo.placeName,
     subtitle: entry.name,
     filterKey: entry.region,
@@ -70,6 +81,7 @@ export function allGalleryItems(): GalleryItem[] {
     id: `space:${subject.slug}`,
     collection: 'space',
     href: `/space/${subject.slug}`,
+    mapHref: subject.slug === 'earth' ? '/maps' : undefined,
     title: subject.photo.featureName,
     subtitle: subject.name,
     filterKey: subject.category,

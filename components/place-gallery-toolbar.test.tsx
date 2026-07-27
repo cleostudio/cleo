@@ -10,6 +10,10 @@ afterEach(() => {
 })
 
 describe('PlaceGalleryToolbar', () => {
+  afterEach(() => {
+    window.history.replaceState({}, '', '/gallery')
+  })
+
   it('filters server-rendered gallery items by search without remounting the masonry', () => {
     render(
       <div data-place-gallery>
@@ -45,6 +49,7 @@ describe('PlaceGalleryToolbar', () => {
       .closest('[data-gallery-item]') as HTMLElement | null
     expect(france?.hidden).toBe(true)
     expect(mars?.hidden).toBe(false)
+    expect(window.location.search).toBe('?q=mars')
 
     fireEvent.change(screen.getByRole('searchbox'), {
       target: { value: 'nowhere' },
@@ -55,5 +60,33 @@ describe('PlaceGalleryToolbar', () => {
     expect(
       screen.getByText('No photographs match that search.').hidden,
     ).toBe(false)
+  })
+
+  it('hydrates the search box from ?q= on load', () => {
+    window.history.replaceState({}, '', '/gallery?q=Japan')
+    render(
+      <div data-place-gallery>
+        <PlaceGalleryToolbar />
+        <ul>
+          <li data-gallery-item data-search-text="Japan Tokyo place">
+            Japan
+          </li>
+          <li data-gallery-item data-search-text="Mars space">
+            Mars
+          </li>
+        </ul>
+        <p data-gallery-empty hidden>
+          No photographs match that search.
+        </p>
+      </div>,
+    )
+
+    expect(screen.getByRole('searchbox')).toHaveProperty('value', 'Japan')
+    expect(
+      screen.getByText('Japan').closest('[data-gallery-item]') as HTMLElement,
+    ).toMatchObject({ hidden: false })
+    expect(
+      screen.getByText('Mars').closest('[data-gallery-item]') as HTMLElement,
+    ).toMatchObject({ hidden: true })
   })
 })

@@ -45,18 +45,31 @@ export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
               />
               <span className="calibration-corners" aria-hidden />
             </div>
-            <Link
-              href={entry.href}
-              prefetch={false}
-              className="mt-2 block px-0.5 outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              <span className="block text-sm font-medium text-foreground">
-                {entry.title}
-              </span>
-              <span className="block text-xs text-muted-foreground">
-                {entry.subtitle}
-              </span>
-            </Link>
+            <div className="mt-2 space-y-0.5 px-0.5">
+              <Link
+                href={entry.href}
+                prefetch={false}
+                className="block outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <span className="block text-sm font-medium text-foreground">
+                  {entry.title}
+                </span>
+                <span className="block text-xs text-muted-foreground">
+                  {entry.subtitle}
+                </span>
+              </Link>
+              {entry.mapHref ? (
+                <p className="pt-0.5">
+                  <Link
+                    href={entry.mapHref}
+                    prefetch={false}
+                    className="relative text-xs text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-1.5 after:-inset-y-2 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2"
+                  >
+                    View on map →
+                  </Link>
+                </p>
+              ) : null}
+            </div>
           </li>
         ))}
       </ul>

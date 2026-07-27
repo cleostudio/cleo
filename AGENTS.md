@@ -65,11 +65,12 @@ place/region (with live camera hash), region jump from territories, and
 `#zoom/lat/lng` keep that framing on open. Escape from the dossier or
 search refocuses the canvas; Escape on the map clears. Enter selects the
 place at center. The meta HUD shows a hover nameplate and Share view.
-Mobile dossiers scroll inside a height budget. Explore guides link back
-with “View on map”; homepage search/highlights deep-link into Maps;
-`?country=` / `?region=` set titles and canonicals (Maps OG + sitemap
-include region/country deep links); Cleo may cite the same map paths
-(including territory ISO links).
+Mobile dossiers scroll inside a height budget. Explore guides and Gallery
+tiles link with “View on map” / Photos (`/gallery?q=`); dossier thumbs and
+Photos actions open the filtered Gallery; homepage search/highlights
+deep-link into Maps; `?country=` / `?region=` set titles and canonicals
+(Maps OG + sitemap include region/country deep links); Cleo may cite the
+same map paths (including territory ISO links).
 MapLibre’s module workers are
 vendored to `public/maplibre/` so Turbopack/Next can load them under the site
 CSP. Regenerate from a local 21600 source with
