@@ -192,7 +192,7 @@ export function HomeIntroduction() {
             <>
               Cleo 是一座
               <CraftPhrase>知识门户</CraftPhrase>
-              ，目前覆盖
+              。从
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
                   <span className="home-detail-unit">国家</span>{' '}
@@ -200,12 +200,12 @@ export function HomeIntroduction() {
                   <span className="home-detail-unit">太空</span>
                 </span>
               </HopPhrase>
-              ，之后会有更多主题。
+              起步，之后会加入更多主题。
             </>
           }
           en={
             <>
-              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase> for{' '}
+              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase>. It starts with{' '}
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
                   <span className="home-detail-unit">countries</span>{' '}
@@ -213,7 +213,7 @@ export function HomeIntroduction() {
                   <span className="home-detail-unit">space</span>
                 </span>
               </HopPhrase>
-              . More topics later.
+              , then adds more topics.
             </>
           }
         />
@@ -222,15 +222,14 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              可读导览、可看
+              导览、
               <PhotoPhrase>照片</PhotoPhrase>
-              、可检索目录，也可以直接问 Cleo。
+              和可检索目录都在这里。
             </>
           }
           en={
             <>
-              Read guides, browse <PhotoPhrase>photographs</PhotoPhrase>, search the catalog, or ask
-              Cleo.
+              Guides, <PhotoPhrase>photographs</PhotoPhrase>, and a searchable catalog live here.
             </>
           }
         />
@@ -239,7 +238,7 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              前往{' '}
+              从{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 主题
               </Link>
@@ -251,12 +250,12 @@ export function HomeIntroduction() {
               <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 询问 Cleo
               </Link>
-              。
+              {' '}开始。
             </>
           }
           en={
             <>
-              Go to{' '}
+              Start with{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 Topics
               </Link>
