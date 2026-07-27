@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 
 import { Button } from '~/components/ui/button'
@@ -60,14 +61,12 @@ function initialTrailSlug(preferred?: string | null): string {
   return trailsForCollection('all')[0]?.slug ?? 'pacific-ring'
 }
 
-export function TrailExplorer({
-  initialTrail,
-}: {
-  initialTrail?: string | null
-}) {
+export function TrailExplorer() {
+  const searchParams = useSearchParams()
+  const queryTrail = searchParams.get('trail')
   const [collection, setCollection] = useState<TrailCollectionFilter>('all')
   const [trailSlug, setTrailSlug] = useState(() =>
-    initialTrailSlug(initialTrail),
+    initialTrailSlug(queryTrail),
   )
   const [progress, setProgress] = useState<TrailProgressMap>({})
   const [activeIndex, setActiveIndex] = useState(0)
@@ -96,6 +95,14 @@ export function TrailExplorer({
     setProgress(readStoredProgress())
     setHydrated(true)
   }, [])
+
+  useEffect(() => {
+    if (!queryTrail || !isTrailSlug(queryTrail)) return
+    setTrailSlug(queryTrail)
+    const match = getTrail(queryTrail)
+    if (match) setCollection(match.collection)
+    setActiveIndex(0)
+  }, [queryTrail])
 
   useEffect(() => {
     if (!hydrated) return

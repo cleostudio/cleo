@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+
 import { PixelCluster } from '~/components/pixel-cluster'
 import { TrailExplorer } from '~/components/trail-explorer'
 import { T } from '~/lib/i18n'
@@ -13,11 +15,15 @@ export function trailPageMetadata() {
   })
 }
 
-export function TrailPageView({
-  initialTrail,
-}: {
-  initialTrail?: string | null
-}) {
+function TrailExplorerFallback() {
+  return (
+    <p className="mt-10 text-sm text-muted-foreground" aria-busy="true">
+      Loading trails…
+    </p>
+  )
+}
+
+export function TrailPageView() {
   return (
     <div className="mx-auto w-full max-w-content px-6">
       <div className="flex items-start justify-between gap-4">
@@ -35,7 +41,9 @@ export function TrailPageView({
         <PixelCluster variant={2} className="enter shrink-0" />
       </div>
 
-      <TrailExplorer initialTrail={initialTrail} />
+      <Suspense fallback={<TrailExplorerFallback />}>
+        <TrailExplorer />
+      </Suspense>
     </div>
   )
 }

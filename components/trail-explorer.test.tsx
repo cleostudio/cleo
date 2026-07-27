@@ -1,7 +1,13 @@
 // @vitest-environment jsdom
 
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
+const searchParams = new URLSearchParams()
+
+vi.mock('next/navigation', () => ({
+  useSearchParams: () => searchParams,
+}))
 
 import { TrailExplorer } from './trail-explorer'
 import { TRAIL_PROGRESS_STORAGE_KEY } from '~/lib/trails'
@@ -9,15 +15,18 @@ import { TRAIL_PROGRESS_STORAGE_KEY } from '~/lib/trails'
 afterEach(() => {
   cleanup()
   window.sessionStorage.clear()
+  ;[...searchParams.keys()].forEach((key) => searchParams.delete(key))
 })
 
 beforeEach(() => {
   window.sessionStorage.clear()
+  ;[...searchParams.keys()].forEach((key) => searchParams.delete(key))
 })
 
 describe('TrailExplorer', () => {
   it('walks a trail with interactive checklist controls', () => {
-    render(<TrailExplorer initialTrail="pacific-ring" />)
+    searchParams.set('trail', 'pacific-ring')
+    render(<TrailExplorer />)
 
     expect(
       screen.getByRole('heading', { name: 'Pacific Ring', level: 2 }),
@@ -50,7 +59,8 @@ describe('TrailExplorer', () => {
   })
 
   it('hides completed checklist rows when the switch is on', () => {
-    render(<TrailExplorer initialTrail="nebulae-tour" />)
+    searchParams.set('trail', 'nebulae-tour')
+    render(<TrailExplorer />)
 
     fireEvent.click(
       screen.getByRole('checkbox', { name: /Orion Nebula/ }),
