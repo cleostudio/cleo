@@ -4614,28 +4614,28 @@
     "featureName": "Terracotta Army",
     "alt": "Terracotta Army in China",
     "caption": "Terracotta Army, China",
-    "photographer": "Gary Lee Todd, Ph.D.",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Qin_Terracotta_Army,_Pit_1_18.jpg",
-    "license": "CC0",
-    "provenance": "Curated from Wikimedia Commons (File:Qin Terracotta Army, Pit 1 18.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/28/Qin_Terracotta_Army%2C_Pit_1_18.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "a94e48f9268ccd12e1a75d4dce32625d5840b0d4471c19c3414d0142700786ca",
+    "photographer": "User:Bencmq",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Terracotta_Pit_1_Pano.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Terracotta Pit 1 Pano.JPG); source https://upload.wikimedia.org/wikipedia/commons/2/2c/Terracotta_Pit_1_Pano.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b458571eb58c338a5f2283454ac3973ad8566859f444bf14023d0fc8e7fd1ef1",
     "width": 3840,
-    "height": 2560,
+    "height": 1356,
     "renditions": [
       {
         "width": 640,
         "src": "/images/places/terracotta-army/w640.jpg",
-        "bytes": 33974
+        "bytes": 30385
       },
       {
         "width": 1280,
         "src": "/images/places/terracotta-army/w1280.jpg",
-        "bytes": 95562
+        "bytes": 107741
       },
       {
         "width": 2048,
         "src": "/images/places/terracotta-army/w2048.jpg",
-        "bytes": 291761
+        "bytes": 307955
       }
     ]
   }
