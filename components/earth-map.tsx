@@ -694,8 +694,11 @@ export function EarthMap({
   const layersRef = useRef<MapLayerVisibility>({ ...DEFAULT_MAP_LAYERS })
   const resetViewRef = useRef<() => void>(() => {})
   const cameraHashPausedRef = useRef(false)
+  const fittedFocusKeyRef = useRef<string | null>(null)
 
   const [ready, setReady] = useState(false)
+  /** Bumps when a MapLibre instance becomes ready so deep links re-apply after remounts. */
+  const [mapEpoch, setMapEpoch] = useState(0)
   const [coords, setCoords] = useState('—')
   const [zoom, setZoom] = useState(MAP_MIN_ZOOM)
   const [selected, setSelected] = useState<MapCountryHit | null>(null)
@@ -863,6 +866,8 @@ export function EarthMap({
       onMove()
       setReady(true)
       setLoadState(indexFailed ? 'degraded' : 'ready')
+      // Re-bind deep-link fitting even when `ready` was already true (Strict Mode).
+      setMapEpoch((epoch) => epoch + 1)
     }
 
     let countryHandlersBound = false
@@ -1047,19 +1052,26 @@ export function EarthMap({
       setHover(null)
       map.remove()
       mapRef.current = null
+      markedReady = false
+      setReady(false)
+      setLoadState('loading')
+      fittedFocusKeyRef.current = null
     }
   }, [])
 
   useEffect(() => {
-    if (!ready) return
+    if (!ready || mapEpoch === 0) return
     if (countryParam) {
       const entry = findMapCountryIndexEntry(indexRef.current, countryParam)
       if (!entry) {
         setFocusAnnouncement(`No country matched “${countryParam}”.`)
         syncMapFocusSearchParams(null)
+        fittedFocusKeyRef.current = null
         return
       }
-      if (selectedCodeRef.current === entry.code) return
+      const focusKey = `country:${entry.code}@${mapEpoch}`
+      if (fittedFocusKeyRef.current === focusKey) return
+      fittedFocusKeyRef.current = focusKey
       flyToCountry(entry, { syncUrl: false })
       return
     }
@@ -1068,12 +1080,17 @@ export function EarthMap({
       if (!region) {
         setFocusAnnouncement(`No region matched “${regionParam}”.`)
         syncMapFocusSearchParams(null)
+        fittedFocusKeyRef.current = null
         return
       }
-      if (activeRegionRef.current === region.id && !selectedCodeRef.current) return
+      const focusKey = `region:${region.id}@${mapEpoch}`
+      if (fittedFocusKeyRef.current === focusKey) return
+      fittedFocusKeyRef.current = focusKey
       flyToRegion(region, { syncUrl: false })
+      return
     }
-  }, [ready, countryParam, regionParam])
+    fittedFocusKeyRef.current = null
+  }, [ready, mapEpoch, countryParam, regionParam])
 
   useEffect(() => {
     if (!selected && !activeRegion) return
@@ -1245,7 +1262,7 @@ export function EarthMap({
     })
     if (result === 'aborted') return
     setCopyState(result)
-    window.setTimeout(() => setCopyState('idle'), 1600)
+    window.setTimeout(() => setCopyState('idle'), 2200)
   }
 
   async function shareCurrentView() {

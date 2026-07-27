@@ -320,6 +320,26 @@ describe('maps helpers', () => {
     )
   })
 
+  it('uses a legacy copy path when the Clipboard API is unavailable', async () => {
+    Object.defineProperty(navigator, 'share', {
+      configurable: true,
+      value: undefined,
+    })
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: undefined,
+    })
+    const execCommand = vi.fn().mockReturnValue(true)
+    Object.defineProperty(document, 'execCommand', {
+      configurable: true,
+      value: execCommand,
+    })
+    await expect(shareOrCopyMapLink('/maps?region=europe')).resolves.toBe(
+      'copied',
+    )
+    expect(execCommand).toHaveBeenCalledWith('copy')
+  })
+
   it('parses and formats MapLibre-style camera hashes', () => {
     expect(parseMapCameraHash('#5.2/35.68/139.691')).toEqual({
       center: [139.691, 35.68],

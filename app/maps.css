@@ -544,7 +544,7 @@ html[data-maps-route] body {
 .earth-map-toast {
   pointer-events: none;
   position: absolute;
-  z-index: 8;
+  z-index: 12;
   left: 50%;
   bottom: calc(
     var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.75rem
@@ -562,6 +562,18 @@ html[data-maps-route] body {
   font-size: 0.75rem;
   letter-spacing: -0.011em;
   line-height: 1.3;
+  animation: earth-map-toast-in 180ms var(--ease-swift) both;
+}
+
+@keyframes earth-map-toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .earth-map[data-has-selection] .earth-map-toast {
@@ -792,5 +804,9 @@ html[data-maps-route] body {
   .earth-map-copy,
   .earth-map-photo {
     transition: none;
+  }
+
+  .earth-map-toast {
+    animation: none;
   }
 }

@@ -621,7 +621,28 @@ export function excerptMapAbout(about: string, max = 170): string {
 
 export type MapShareResult = 'shared' | 'copied' | 'failed' | 'aborted'
 
-/** Prefer the Web Share API; fall back to clipboard. */
+function copyTextWithFallback(value: string): boolean {
+  try {
+    const input = document.createElement('textarea')
+    input.value = value
+    input.setAttribute('readonly', '')
+    input.style.position = 'fixed'
+    input.style.top = '0'
+    input.style.left = '0'
+    input.style.opacity = '0'
+    document.body.appendChild(input)
+    input.focus()
+    input.select()
+    input.setSelectionRange(0, value.length)
+    const ok = document.execCommand('copy')
+    document.body.removeChild(input)
+    return ok
+  } catch {
+    return false
+  }
+}
+
+/** Prefer the Web Share API; fall back to clipboard (async API, then execCommand). */
 export async function shareOrCopyMapLink(
   href: string,
   {
@@ -644,9 +665,13 @@ export async function shareOrCopyMapLink(
   }
 
   try {
-    await navigator.clipboard.writeText(absolute)
-    return 'copied'
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(absolute)
+      return 'copied'
+    }
   } catch {
-    return 'failed'
+    // Fall through to the legacy copy path.
   }
+
+  return copyTextWithFallback(absolute) ? 'copied' : 'failed'
 }
