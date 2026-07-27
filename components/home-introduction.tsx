@@ -110,6 +110,49 @@ function HopMark() {
   )
 }
 
+function PhotoMark() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      aria-hidden="true"
+      focusable="false"
+      className="home-photo-mark"
+    >
+      <g
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        stroke="currentColor"
+      >
+        <path d="M6.25 4.75h5.5l1 1.5H15a1.25 1.25 0 0 1 1.25 1.25v6.5A1.25 1.25 0 0 1 15 15.25H3A1.25 1.25 0 0 1 1.75 14V7.5A1.25 1.25 0 0 1 3 6.25h2.25l1-1.5Z" />
+        <circle
+          className="home-photo-lens-ring"
+          cx="9"
+          cy="10.25"
+          r="2.75"
+          fill="currentColor"
+          fillOpacity="0.3"
+          stroke="none"
+        />
+        <circle className="home-photo-lens" cx="9" cy="10.25" r="2.75" />
+        <circle
+          className="home-photo-lens-core"
+          cx="9"
+          cy="10.25"
+          r="1.1"
+          fill="currentColor"
+          stroke="none"
+        />
+        <path className="home-photo-flash" d="M12.75 7.75h1.75" />
+      </g>
+    </svg>
+  )
+}
+
 /** Rainbow label + craft mark (hover / tap). */
 function CraftPhrase({ children }: { children: React.ReactNode }) {
   return (
@@ -130,6 +173,16 @@ function HopPhrase({ children }: { children: React.ReactNode }) {
   )
 }
 
+/** Camera mark with shutter blink (hover / tap). */
+function PhotoPhrase({ children }: { children: React.ReactNode }) {
+  return (
+    <HomeIntroReplay>
+      <span className="home-photo-label">{children}</span>
+      <PhotoMark />
+    </HomeIntroReplay>
+  )
+}
+
 export function HomeIntroduction() {
   return (
     <div className="home-introduction">
@@ -137,9 +190,9 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              Cleo 汇集国家与太空的
-              <CraftPhrase>实地导览</CraftPhrase>
-              ，之后会有更多主题——做到
+              Cleo 整理国家与太空的
+              <CraftPhrase>实地笔记</CraftPhrase>
+              ，主题会继续增加——做到
               <HopPhrase>
                 <span className="home-detail-units">
                   <span className="home-detail-unit">站</span>
@@ -152,11 +205,11 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Cleo collects <CraftPhrase>field guides</CraftPhrase> for countries and space, with more
-              topics ahead —{' '}
+              Cleo keeps <CraftPhrase>field notes</CraftPhrase> on countries and space, and will keep
+              adding topics —{' '}
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
-                  <span className="home-detail-unit">built</span>{' '}
+                  <span className="home-detail-unit">meant</span>{' '}
                   <span className="home-detail-unit">to</span>{' '}
                   <span className="home-detail-unit">last</span>
                   <span className="home-detail-period">.</span>
@@ -168,8 +221,19 @@ export function HomeIntroduction() {
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         <T
-          zh="旁边是精选照片和可检索目录。签证、安全提示与价格，请去别处找。"
-          en="Alongside them: curated photographs and a searchable catalog. Visas, safety bulletins, and prices stay out."
+          zh={
+            <>
+              翻看
+              <PhotoPhrase>精选照片</PhotoPhrase>
+              ，或检索主题目录。签证、安全提示与价格不在此列。
+            </>
+          }
+          en={
+            <>
+              Browse <PhotoPhrase>photographs</PhotoPhrase>, or search the topic catalog. Visas, safety
+              bulletins, and prices stay out.
+            </>
+          }
         />
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

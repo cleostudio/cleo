@@ -145,27 +145,29 @@ are short, concrete, and conversational — "为什么按钮不需要手指光�
 
 ## Homepage introduction
 
-The homepage opens with three short bilingual paragraphs: Cleo collects field
-guides for countries and space (more topics later), built to last; curated
-photographs and a searchable catalog sit alongside them — visas, safety
-bulletins, and prices stay out; and a final line opens Topics, Explore, or Ask
-Cleo. Keep the voice plain and product-facing.
+The homepage opens with three short bilingual paragraphs: Cleo keeps field
+notes on countries and space (more topics later), meant to last; readers can
+browse photographs or search the topic catalog — visas, safety bulletins, and
+prices stay out; and a final line opens Topics, Explore, or Ask Cleo. Keep the
+voice plain and product-facing.
 
-The opening sentence carries two decorative 18px marks on product phrases (not
-personal-bio leftovers): the craft figure after "field guides" / 实地导览, and
-the orbital sparkle before "built to last" / 站得住. The orbital mark precedes
-its phrase in both locales. Inline text establishes the shared baseline while
-each mark centers against that text, so neither localized phrase shifts
-vertically. Hovering the associated phrase on a fine pointer, or pressing it on
-touch, produces one brief response with no looping or layout movement. On a
-fine-pointer hover, the craft labels pick up the same restrained, static
-rainbow gradient. The three characters in 站得住 and the three words in "built
-to last" rise in sequence to `translateY(-5px) scale(1.03)` over a one-second
-spring, staggered by 80ms, then settle back at their origin as the animation's
-end state. English punctuation stays inside the unbreakable phrase wrapper but
-outside the animated units, keeping its baseline and position stable.
-Decorative marks stay out of the accessibility tree, reduced motion keeps every
-mark and text unit static, and the text remains complete without them.
+Three decorative 18px marks sit on product phrases: the craft figure after
+"field notes" / 实地笔记, the orbital sparkle before "meant to last" / 站得住,
+and the camera after "photographs" / 精选照片. The orbital mark precedes its
+phrase in both locales; the craft and camera marks follow theirs. Inline text
+establishes the shared baseline while each mark centers against that text, so
+neither localized phrase shifts vertically. Hovering the associated phrase on a
+fine pointer, or pressing it on touch, produces one brief response with no
+looping or layout movement. On a fine-pointer hover, the craft labels pick up
+the same restrained, static rainbow gradient; the camera lens scales shut and
+the flash ticks once. The three characters in 站得住 and the three words in
+"meant to last" rise in sequence to `translateY(-5px) scale(1.03)` over a
+one-second spring, staggered by 80ms, then settle back at their origin as the
+animation's end state. English punctuation stays inside the unbreakable phrase
+wrapper but outside the animated units, keeping its baseline and position
+stable. Decorative marks stay out of the accessibility tree, reduced motion
+keeps every mark and text unit static, and the text remains complete without
+them.
 
 ## Entrance choreography
 

@@ -2933,7 +2933,8 @@ a:focus-visible .external-label .external-mark {
 }
 
 .home-design-mark,
-.home-details-mark {
+.home-details-mark,
+.home-photo-mark {
   display: inline-block;
   align-self: center;
   flex: none;
@@ -2947,6 +2948,9 @@ a:focus-visible .external-label .external-mark {
 
 .home-design-laptop,
 .home-design-sparkle,
+.home-photo-lens,
+.home-photo-lens-core,
+.home-photo-flash,
 .home-zolplay-link .external-link > img {
   transform-box: fill-box;
   transform-origin: center;
@@ -2955,6 +2959,14 @@ a:focus-visible .external-label .external-mark {
 .home-design-laptop,
 .home-zolplay-link .external-link > img {
   transition: transform 150ms var(--ease-swift);
+}
+
+.home-photo-lens-core {
+  opacity: 0.55;
+}
+
+.home-photo-flash {
+  opacity: 0.7;
 }
 
 .home-detail-units {
@@ -3005,6 +3017,18 @@ a:focus-visible .external-label .external-mark {
 
 .home-intro-trigger.home-intro-tap .home-detail-unit:nth-child(3) {
   animation-delay: 160ms;
+}
+
+.home-intro-trigger.home-intro-tap .home-photo-lens {
+  animation: home-photo-shutter 280ms var(--ease-swift);
+}
+
+.home-intro-trigger.home-intro-tap .home-photo-lens-core {
+  animation: home-photo-core 280ms var(--ease-swift);
+}
+
+.home-intro-trigger.home-intro-tap .home-photo-flash {
+  animation: home-photo-flash 220ms var(--ease-swift);
 }
 
 .home-zolplay-link {
@@ -3101,6 +3125,22 @@ a:focus-visible .external-label .external-mark {
     animation: home-intro-twinkle 180ms 90ms var(--ease-swift);
   }
 
+  .home-intro-trigger:hover .home-photo-label {
+    color: var(--foreground);
+  }
+
+  .home-intro-trigger:hover .home-photo-lens {
+    animation: home-photo-shutter 280ms var(--ease-swift);
+  }
+
+  .home-intro-trigger:hover .home-photo-lens-core {
+    animation: home-photo-core 280ms var(--ease-swift);
+  }
+
+  .home-intro-trigger:hover .home-photo-flash {
+    animation: home-photo-flash 220ms var(--ease-swift);
+  }
+
   .home-zolplay-link:hover .external-link > img {
     transform: translateY(-1px) rotate(-4deg);
   }
@@ -3145,6 +3185,41 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
+@keyframes home-photo-shutter {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(0.82);
+  }
+}
+
+@keyframes home-photo-core {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  40% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes home-photo-flash {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  35% {
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .external-label .external-mark {
     transition: none;
@@ -3157,6 +3232,9 @@ a:focus-visible .external-label .external-mark {
   .home-design-laptop,
   .home-design-sparkle,
   .home-detail-unit,
+  .home-photo-lens,
+  .home-photo-lens-core,
+  .home-photo-flash,
   .home-zolplay-link .external-link > img {
     animation: none;
     transition: none;
@@ -3166,9 +3244,15 @@ a:focus-visible .external-label .external-mark {
   .home-intro-trigger:is(:hover, :active) .home-design-laptop,
   .home-intro-trigger:is(:hover, :active) .home-design-sparkle,
   .home-intro-trigger:is(:hover, :active) .home-detail-unit,
+  .home-intro-trigger:is(:hover, :active) .home-photo-lens,
+  .home-intro-trigger:is(:hover, :active) .home-photo-lens-core,
+  .home-intro-trigger:is(:hover, :active) .home-photo-flash,
   .home-intro-trigger.home-intro-tap .home-design-laptop,
   .home-intro-trigger.home-intro-tap .home-design-sparkle,
   .home-intro-trigger.home-intro-tap .home-detail-unit,
+  .home-intro-trigger.home-intro-tap .home-photo-lens,
+  .home-intro-trigger.home-intro-tap .home-photo-lens-core,
+  .home-intro-trigger.home-intro-tap .home-photo-flash,
   .home-zolplay-link:is(:hover, :active) .external-link > img,
   .home-zolplay-link:is(:hover, :active) .external-mark {
     animation: none;
