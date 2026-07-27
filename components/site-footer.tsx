@@ -81,11 +81,6 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
               <T zh="询问" en="Ask" />
             </Link>
           </li>
-          <li>
-            <a href="/feed.xml" className="footer-tree-link">
-              RSS
-            </a>
-          </li>
         </Tree>
         <div className="footer-colophon col-span-2 sm:order-first sm:col-span-1">
           <div>

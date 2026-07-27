@@ -9,7 +9,7 @@ import { nonPublicRobots } from '~/lib/non-public-metadata'
 const retiredCopy = {
   title: 'Newsletter confirmation is retired',
   description:
-    'This old link no longer reads or updates subscriber information. The newsletter service has ended, but site updates remain available through RSS.',
+    'This old link no longer reads or updates subscriber information. The newsletter service has ended.',
 } as const
 
 export function newsletterRetiredMetadata(_locale: Locale = 'en'): Metadata {
@@ -56,12 +56,6 @@ export function NewsletterRetiredPageView({ locale }: { locale: Locale }) {
           className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm"
           aria-label="Newsletter options"
         >
-          <a
-            href="/feed.xml"
-            className="underline decoration-border underline-offset-4 hover:decoration-foreground"
-          >
-            <T zh="打开 RSS" en="Open RSS" />
-          </a>
           <Link
             href={localePath(locale, '/')}
             className="underline decoration-border underline-offset-4 hover:decoration-foreground"

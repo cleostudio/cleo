@@ -40,13 +40,13 @@ describe('remark-mermaid', () => {
   it('carries a caption from the fence meta', () => {
     const tree = transform({
       type: 'root',
-      children: [code('mermaid', 'flowchart LR\n  A --> B', 'caption="RSS 订阅流程"')],
+      children: [code('mermaid', 'flowchart LR\n  A --> B', 'caption="订阅流程"')],
     })
 
     expect(tree.children?.[0].attributes).toContainEqual({
       type: 'mdxJsxAttribute',
       name: 'caption',
-      value: 'RSS 订阅流程',
+      value: '订阅流程',
     })
   })
 

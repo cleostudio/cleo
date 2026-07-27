@@ -322,7 +322,7 @@ async function verifyNoIndexUtilities(baseUrl) {
       path: '/confirm/legacy-token',
       title: 'Newsletter confirmation is retired | Cleo',
       description:
-        'This old link no longer reads or updates subscriber information. The newsletter service has ended, but site updates remain available through RSS.',
+        'This old link no longer reads or updates subscriber information. The newsletter service has ended.',
     },
   ]
 

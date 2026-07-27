@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
 
-import { buildFeedXml } from './feed.xml/route'
 import robots from './robots'
 import sitemap from './sitemap'
 import { getAllPosts } from '~/lib/content'
@@ -20,20 +19,6 @@ describe('discovery routes', () => {
       sitemap: new URL('/sitemap.xml', seo.url).href,
       host: seo.url.origin,
     })
-  })
-
-  it('publishes English feed item URLs under unprefixed paths', () => {
-    const xml = buildFeedXml()
-
-    expect(xml).toContain(
-      `<atom:link href="${new URL('/feed.xml', seo.url).href}" rel="self"`,
-    )
-    expect(xml).toContain(`<link>${seo.url.href}</link>`)
-    for (const post of getAllPosts()) {
-      const url = new URL(`/blog/${post.slug}`, seo.url).href
-      expect(xml).toContain(`<guid isPermaLink="false">${url}</guid>`)
-      expect(xml).toContain(`<link>${url}</link>`)
-    }
   })
 
   it('publishes every public English route once', () => {

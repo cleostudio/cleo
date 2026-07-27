@@ -328,7 +328,7 @@ open rich hover cards. The contract:
   decoration to full ink. Dots reuse the catalog-leader and drafting
   vocabulary; list rows, cards, shelves, and navigation remain undecorated.
 - **External-link mark.** Text links that leave the site carry the shared
-  northeast arrow inline; internal links, RSS, and Email do not. Shelf covers
+  northeast arrow inline; internal links and Email do not. Shelf covers
   are selection controls only. Each shelf instead keeps one plain-text
   annotation below its plank; that annotation is the selected object's sole
   external-link surface and carries the northeast mark inline. The label text
