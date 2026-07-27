@@ -167,7 +167,8 @@ describe('CLEO_PORTAL_STARTERS', () => {
     const prompts = CLEO_PORTAL_STARTERS.map((starter) => starter.prompt).join(
       '\n',
     )
-    expect(prompts).toMatch(/tabs|facts|compare|steps|cards|gallery/)
+    expect(prompts).toMatch(/path|facts|compare|steps|cards|gallery/)
+    expect(prompts).toMatch(/hrefs/)
     expect(prompts).not.toMatch(/quiz/)
   })
 })
