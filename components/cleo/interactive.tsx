@@ -286,34 +286,39 @@ function TimelineWidget({
                 <span className="cleo-widget-timeline-line" />
               </div>
               {expandable ? (
-                <button
-                  aria-controls={panelId}
-                  aria-expanded={isOpen}
-                  className="cleo-widget-timeline-card"
-                  onClick={() =>
-                    setOpen((current) => toggleIndex(current, index))
-                  }
-                  type="button"
-                >
-                  <span className="cleo-widget-timeline-when">{event.when}</span>
-                  <span className="cleo-widget-timeline-title-row">
-                    <span className="cleo-widget-timeline-title">
-                      {event.title}
+                <div className="cleo-widget-timeline-body">
+                  <button
+                    aria-controls={panelId}
+                    aria-expanded={isOpen}
+                    className="cleo-widget-timeline-card"
+                    onClick={() =>
+                      setOpen((current) => toggleIndex(current, index))
+                    }
+                    type="button"
+                  >
+                    <span className="cleo-widget-timeline-when">
+                      {event.when}
                     </span>
-                    <ChevronDown
-                      aria-hidden="true"
-                      className="cleo-widget-chevron"
-                      data-open={isOpen || undefined}
-                    />
-                  </span>
+                    <span className="cleo-widget-timeline-title-row">
+                      <span className="cleo-widget-timeline-title">
+                        {event.title}
+                      </span>
+                      <ChevronDown
+                        aria-hidden="true"
+                        className="cleo-widget-chevron"
+                        data-open={isOpen || undefined}
+                      />
+                    </span>
+                  </button>
                   {isOpen && event.detail ? (
-                    <WidgetProse
-                      className="cleo-widget-timeline-detail"
-                      id={panelId}
-                      text={event.detail}
-                    />
+                    <div className="cleo-widget-timeline-panel" id={panelId}>
+                      <WidgetProse
+                        className="cleo-widget-timeline-detail"
+                        text={event.detail}
+                      />
+                    </div>
                   ) : null}
-                </button>
+                </div>
               ) : (
                 <div className="cleo-widget-timeline-card" data-static="">
                   <span className="cleo-widget-timeline-when">{event.when}</span>
@@ -489,9 +494,21 @@ function CompareWidget({
               <th scope="col">
                 <span className="sr-only">Attribute</span>
               </th>
-              {block.columns.map((column) => (
-                <th scope="col" key={column}>
-                  {column}
+              {block.columns.map((column, index) => (
+                <th
+                  aria-sort={focus === index ? 'other' : undefined}
+                  data-focus={focus === index || undefined}
+                  key={column}
+                  scope="col"
+                >
+                  <button
+                    className="cleo-widget-compare-col"
+                    data-active={focus === index || undefined}
+                    onClick={() => setFocus(index)}
+                    type="button"
+                  >
+                    {column}
+                  </button>
                 </th>
               ))}
             </tr>
@@ -506,7 +523,13 @@ function CompareWidget({
                     data-focus={focus === index || undefined}
                     key={`${row.label}-${block.columns[index]}`}
                   >
-                    {value}
+                    <button
+                      className="cleo-widget-compare-cell"
+                      onClick={() => setFocus(index)}
+                      type="button"
+                    >
+                      {value}
+                    </button>
                   </td>
                 ))}
               </tr>
@@ -523,12 +546,19 @@ function StepsWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'steps' }>
 }) {
+  const baseId = useId()
   const [active, setActive] = useState(0)
   const [done, setDone] = useState<ReadonlySet<number>>(() => new Set())
   const step = block.steps[active] ?? block.steps[0]
   const isLast = active === block.steps.length - 1
   const isDone = done.has(active)
+  const allDone = done.size === block.steps.length
   const progress = ((active + 1) / block.steps.length) * 100
+
+  function focusDot(next: number) {
+    setActive(next)
+    document.getElementById(`${baseId}-dot-${next}`)?.focus()
+  }
 
   function markDoneAndAdvance() {
     setDone((current) => {
@@ -537,23 +567,29 @@ function StepsWidget({
       return next
     })
     if (!isLast) {
-      setActive((current) => current + 1)
+      setActive(active + 1)
     }
   }
 
-  function onKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+  function onDotsKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (event.key === 'ArrowRight') {
       event.preventDefault()
-      setActive((current) => Math.min(block.steps.length - 1, current + 1))
+      focusDot(Math.min(block.steps.length - 1, active + 1))
     } else if (event.key === 'ArrowLeft') {
       event.preventDefault()
-      setActive((current) => Math.max(0, current - 1))
+      focusDot(Math.max(0, active - 1))
+    } else if (event.key === 'Home') {
+      event.preventDefault()
+      focusDot(0)
+    } else if (event.key === 'End') {
+      event.preventDefault()
+      focusDot(block.steps.length - 1)
     }
   }
 
   return (
     <WidgetShell title={block.title}>
-      <div className="cleo-widget-steps" onKeyDown={onKeyDown}>
+      <div className="cleo-widget-steps">
         <div
           aria-label="Step progress"
           aria-valuemax={100}
@@ -568,14 +604,22 @@ function StepsWidget({
           />
         </div>
 
-        <div className="cleo-widget-steps-progress">
+        <div
+          aria-label="Steps"
+          className="cleo-widget-steps-progress"
+          onKeyDown={onDotsKeyDown}
+          role="group"
+        >
           {block.steps.map((item, index) => (
             <button
+              aria-current={index === active ? 'step' : undefined}
               className="cleo-widget-steps-dot"
               data-active={index === active || undefined}
               data-done={done.has(index) || undefined}
+              id={`${baseId}-dot-${index}`}
               key={`${item.title}-${index}`}
               onClick={() => setActive(index)}
+              tabIndex={index === active ? 0 : -1}
               type="button"
             >
               <span className="sr-only">
@@ -586,8 +630,9 @@ function StepsWidget({
         </div>
 
         <div className="cleo-widget-steps-stage" key={active}>
-          <p className="cleo-widget-steps-meta">
+          <p className="cleo-widget-meta">
             Step {active + 1} of {block.steps.length}
+            {done.size > 0 ? ` · ${done.size} marked` : ''}
           </p>
           <h4 className="cleo-widget-steps-title">{step.title}</h4>
           <WidgetProse text={step.body} />
@@ -606,13 +651,14 @@ function StepsWidget({
           <button
             className="cleo-widget-steps-button"
             data-primary=""
+            disabled={isLast && isDone && allDone}
             onClick={markDoneAndAdvance}
             type="button"
           >
-            {isDone || isLast ? (
+            {isLast ? (
               <>
                 <Check aria-hidden="true" className="size-4" />
-                {isLast ? 'Done' : 'Continue'}
+                {isDone ? 'Complete' : 'Complete step'}
               </>
             ) : (
               <>
@@ -851,6 +897,7 @@ function PathWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'path' }>
 }) {
+  const baseId = useId()
   const [active, setActive] = useState(0)
   const [done, setDone] = useState<ReadonlySet<number>>(() => new Set())
   const stop = block.stops[active] ?? block.stops[0]
@@ -873,19 +920,30 @@ function PathWidget({
     }
   }
 
-  function onKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+  function focusStop(next: number) {
+    setActive(next)
+    document.getElementById(`${baseId}-stop-${next}`)?.focus()
+  }
+
+  function onStopsKeyDown(event: KeyboardEvent<HTMLOListElement>) {
     if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
       event.preventDefault()
-      setActive((current) => Math.min(block.stops.length - 1, current + 1))
+      focusStop(Math.min(block.stops.length - 1, active + 1))
     } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
       event.preventDefault()
-      setActive((current) => Math.max(0, current - 1))
+      focusStop(Math.max(0, active - 1))
+    } else if (event.key === 'Home') {
+      event.preventDefault()
+      focusStop(0)
+    } else if (event.key === 'End') {
+      event.preventDefault()
+      focusStop(block.stops.length - 1)
     }
   }
 
   return (
     <WidgetShell title={block.title}>
-      <div className="cleo-widget-path" onKeyDown={onKeyDown}>
+      <div className="cleo-widget-path">
         <div
           aria-label="Path progress"
           aria-valuemax={100}
@@ -900,13 +958,17 @@ function PathWidget({
           />
         </div>
 
-        <p className="cleo-widget-path-meta">
+        <p className="cleo-widget-meta">
           {allDone
             ? 'Path complete'
             : `${doneCount} of ${block.stops.length} complete`}
         </p>
 
-        <ol className="cleo-widget-path-stops">
+        <ol
+          aria-label="Path stops"
+          className="cleo-widget-path-stops"
+          onKeyDown={onStopsKeyDown}
+        >
           {block.stops.map((item, index) => {
             const isActive = index === active
             const isDone = done.has(index)
@@ -917,7 +979,9 @@ function PathWidget({
                   className="cleo-widget-path-stop"
                   data-active={isActive || undefined}
                   data-done={isDone || undefined}
+                  id={`${baseId}-stop-${index}`}
                   onClick={() => setActive(index)}
+                  tabIndex={isActive ? 0 : -1}
                   type="button"
                 >
                   <span className="cleo-widget-path-check" aria-hidden="true">
@@ -1003,7 +1067,7 @@ function ScaleWidget({
     <WidgetShell title={block.title}>
       <div className="cleo-widget-scale" data-mode={mode}>
         {mode === 'log' ? (
-          <p className="cleo-widget-scale-mode">Log scale</p>
+          <p className="cleo-widget-meta">Log scale</p>
         ) : null}
         <div
           aria-label={block.title ?? 'Scale'}
@@ -1186,7 +1250,7 @@ function CycleWidget({
   return (
     <WidgetShell title={block.title}>
       <div className="cleo-widget-cycle">
-        <p className="cleo-widget-cycle-meta">
+        <p className="cleo-widget-meta">
           Stage {active + 1} of {count} · cycles
         </p>
 

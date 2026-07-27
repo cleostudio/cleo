@@ -874,8 +874,18 @@
   line-height: 1.35;
 }
 
+.cleo-widget-timeline-body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cleo-widget-timeline-panel {
+  padding: 0 0.85rem 0.85rem;
+}
+
 .cleo-widget-timeline-detail {
-  margin-top: 0.25rem;
   color: var(--muted-foreground);
   font-size: 0.875rem;
   line-height: 1.55;
@@ -1019,12 +1029,44 @@
 
 .cleo-widget-compare-table thead th {
   border-top: 0;
-  padding-top: 0.15rem;
-  padding-bottom: 0.45rem;
+  padding: 0.15rem 0.2rem 0.45rem;
   color: var(--foreground);
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: -0.01em;
+}
+
+.cleo-widget-compare-col,
+.cleo-widget-compare-cell {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: calc(var(--radius) + 2px);
+  background: transparent;
+  padding: 0.2rem 0.25rem;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 160ms var(--ease-swift);
+}
+
+.cleo-widget-compare-col:hover,
+.cleo-widget-compare-cell:hover {
+  background: color-mix(in oklab, var(--foreground) 5%, transparent);
+}
+
+.cleo-widget-compare-col[data-active],
+.cleo-widget-compare-table thead th[data-focus] .cleo-widget-compare-col {
+  background: color-mix(in oklab, var(--foreground) 7%, transparent);
+}
+
+.cleo-widget-compare-col:focus-visible,
+.cleo-widget-compare-cell:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 1px;
 }
 
 .cleo-widget-compare-table tbody tr:first-child th,
@@ -1097,6 +1139,7 @@
 }
 
 .cleo-widget-inline-link {
+  border-radius: 2px;
   color: var(--foreground);
   font-weight: 500;
   text-decoration: underline;
@@ -1106,6 +1149,11 @@
 
 .cleo-widget-inline-link:hover {
   text-decoration-color: var(--foreground);
+}
+
+.cleo-widget-inline-link:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
 }
 
 .cleo-widget-guide-link {
@@ -1125,6 +1173,11 @@
 
 .cleo-widget-guide-link:hover {
   opacity: 0.72;
+}
+
+.cleo-widget-guide-link:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
 }
 
 .cleo-widget-fact > .cleo-widget-guide-link,
@@ -1194,15 +1247,6 @@
 .cleo-widget-steps-dot:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
   outline-offset: 2px;
-}
-
-.cleo-widget-steps-meta {
-  margin: 0;
-  color: var(--muted-foreground);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .cleo-widget-steps-title {
@@ -1315,8 +1359,9 @@
 .cleo-widget-header-action {
   margin: 0;
   border: 0;
+  border-radius: 2px;
   background: transparent;
-  padding: 0;
+  padding: 0.1rem 0.15rem;
   color: var(--muted-foreground);
   font: inherit;
   font-size: 0.75rem;
@@ -1331,6 +1376,11 @@
 .cleo-widget-header-action:hover {
   color: var(--foreground);
   text-decoration-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+}
+
+.cleo-widget-header-action:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
 }
 
 .cleo-widget-photo {
@@ -1480,15 +1530,6 @@
   border-radius: inherit;
   background: var(--foreground);
   transition: width 180ms var(--ease-swift);
-}
-
-.cleo-widget-path-meta {
-  margin: 0;
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .cleo-widget-path-stops {
@@ -1663,15 +1704,6 @@
   font-weight: 500;
 }
 
-.cleo-widget-scale-mode {
-  margin: 0;
-  color: var(--muted-foreground);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .cleo-widget-scale-focus-label {
   margin: 0;
   color: var(--foreground);
@@ -1808,15 +1840,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-}
-
-.cleo-widget-cycle-meta {
-  margin: 0;
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .cleo-widget-cycle-stages {

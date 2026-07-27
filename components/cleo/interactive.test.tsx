@@ -72,6 +72,9 @@ describe('InteractiveBlock generative widgets', () => {
     expect(screen.getByRole('progressbar').getAttribute('aria-valuenow')).toBe(
       '100',
     )
+    expect(screen.getByText(/1 marked/i)).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /Complete step/i }))
+    expect(screen.getByRole('button', { name: /^Complete$/i })).toBeTruthy()
   })
 
   it('shows a focused compare subject panel with guide href', () => {
@@ -88,12 +91,18 @@ describe('InteractiveBlock generative widgets', () => {
     )
 
     expect(
-      screen.getByRole('button', { name: 'Mars' }).getAttribute('aria-pressed'),
+      screen
+        .getByRole('button', { name: 'Mars', pressed: true })
+        .getAttribute('aria-pressed'),
     ).toBe('true')
     expect(
       screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
     ).toBe('/space/mars')
-    fireEvent.click(screen.getByRole('button', { name: 'Earth' }))
+    fireEvent.click(
+      screen.getByRole('columnheader', { name: 'Earth' }).querySelector(
+        'button',
+      )!,
+    )
     expect(
       document.querySelector('.cleo-widget-compare-focus-label')?.textContent,
     ).toBe('Earth')
