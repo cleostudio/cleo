@@ -176,6 +176,37 @@ export type MapFocus =
   | { kind: 'region'; value: string }
   | null
 
+export type MapHistoryMode = 'replace' | 'push'
+
+/** Stable key for focus equality (country slug/code or region id). */
+export function mapFocusKey(focus: MapFocus): string {
+  if (!focus) return ''
+  return `${focus.kind}:${focus.value.trim().toLowerCase()}`
+}
+
+/** Read mutually exclusive country/region focus from query params. */
+export function readMapFocusSearchParams(
+  params: Pick<URLSearchParams, 'get'>,
+): MapFocus {
+  const country = params.get('country')?.trim().toLowerCase()
+  if (country) return { kind: 'country', value: country }
+  const region = parseMapRegionParam(params.get('region'))
+  if (region) return { kind: 'region', value: region }
+  return null
+}
+
+/** Tab title for the current Maps focus (`Name · Maps`; root template adds `| Cleo`). */
+export function mapsFocusDocumentTitle(focus: {
+  countryName?: string | null
+  regionLabel?: string | null
+}): string {
+  const country = focus.countryName?.trim()
+  if (country) return `${country} · Maps`
+  const region = focus.regionLabel?.trim()
+  if (region) return `${region} · Maps`
+  return 'Maps'
+}
+
 export function resolveMapCountry(
   code: string,
   fallbackName?: string,
@@ -372,10 +403,18 @@ export function mapViewHref(camera?: MapCamera | null): string {
   return `${url.pathname}${url.search}${url.hash}`
 }
 
-/** Keep country and region query params mutually exclusive. */
-export function syncMapFocusSearchParams(focus: MapFocus) {
+/**
+ * Keep country and region query params mutually exclusive.
+ * Use `history: 'push'` for discrete selections so Back/Forward restore focus;
+ * camera hash and layer flags stay on `replace`.
+ */
+export function syncMapFocusSearchParams(
+  focus: MapFocus,
+  { history = 'replace' }: { history?: MapHistoryMode } = {},
+) {
   if (typeof window === 'undefined') return
   const url = new URL(window.location.href)
+  const previous = readMapFocusSearchParams(url.searchParams)
   url.searchParams.delete('country')
   url.searchParams.delete('region')
   if (focus?.kind === 'country') {
@@ -383,8 +422,13 @@ export function syncMapFocusSearchParams(focus: MapFocus) {
   } else if (focus?.kind === 'region') {
     url.searchParams.set('region', focus.value.toLowerCase())
   }
+  if (mapFocusKey(previous) === mapFocusKey(focus)) return
   const next = `${url.pathname}${url.search}${url.hash}`
-  window.history.replaceState(window.history.state, '', next)
+  if (history === 'push') {
+    window.history.pushState(window.history.state, '', next)
+  } else {
+    window.history.replaceState(window.history.state, '', next)
+  }
 }
 
 /** @deprecated Prefer syncMapFocusSearchParams — kept for call-site clarity. */
@@ -392,6 +436,37 @@ export function syncMapCountrySearchParam(slugOrCode: string | null) {
   syncMapFocusSearchParams(
     slugOrCode ? { kind: 'country', value: slugOrCode } : null,
   )
+}
+
+/** Server metadata copy for `/maps` and `/maps?country=` / `?region=` deep links. */
+export function mapsDeepLinkMetadata(
+  searchParams: Pick<URLSearchParams, 'get'> | null | undefined,
+  index: MapCountryIndex,
+): { title: string; description: string } {
+  const baseDescription =
+    'A realistic interactive map of Earth — NASA Blue Marble imagery, accurate country borders, and deep links into Explore field guides.'
+  const focus = searchParams ? readMapFocusSearchParams(searchParams) : null
+  if (focus?.kind === 'country') {
+    const entry = findMapCountryIndexEntry(index.countries, focus.value)
+    if (entry) {
+      return {
+        title: `${entry.name} · Maps`,
+        description: entry.slug
+          ? `View ${entry.name} on Cleo Maps — Blue Marble Earth with borders, and open the Explore field guide.`
+          : `View ${entry.name} on Cleo Maps — Blue Marble Earth with Natural Earth borders.`,
+      }
+    }
+  }
+  if (focus?.kind === 'region') {
+    const region = findMapRegionCamera(index.regions, focus.value)
+    if (region) {
+      return {
+        title: `${region.label} · Maps`,
+        description: `Frame ${region.label} on Cleo Maps — ${region.tally} Explore field guides in this region.`,
+      }
+    }
+  }
+  return { title: 'Maps', description: baseDescription }
 }
 
 export function boundsArea(

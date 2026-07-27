@@ -2,12 +2,34 @@ import { Suspense } from 'react'
 
 import { EarthMap } from '~/components/earth-map'
 import { localeMetadata } from '~/lib/locale-metadata'
+import { mapsDeepLinkMetadata } from '~/lib/maps'
 import { loadMapCountryIndex } from '~/lib/maps-index'
 import { mapCountryPhotos } from '~/lib/maps-photos'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 
-export function mapsPageMetadata() {
-  const copy = publicPageMetadata.maps
+function firstSearchValue(
+  value: string | string[] | undefined,
+): string | null {
+  if (typeof value === 'string') return value
+  if (Array.isArray(value)) return value[0] ?? null
+  return null
+}
+
+export function mapsPageMetadata(
+  searchParams?: Record<string, string | string[] | undefined>,
+) {
+  const index = loadMapCountryIndex()
+  const params = new URLSearchParams()
+  const country = firstSearchValue(searchParams?.country)
+  const region = firstSearchValue(searchParams?.region)
+  if (country) params.set('country', country)
+  if (region) params.set('region', region)
+  const copy = searchParams
+    ? mapsDeepLinkMetadata(params, index)
+    : {
+        title: publicPageMetadata.maps.title,
+        description: publicPageMetadata.maps.description,
+      }
   return localeMetadata({
     path: '/maps',
     title: copy.title,

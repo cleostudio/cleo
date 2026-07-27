@@ -43,6 +43,7 @@ import {
   mapCountrySuggestionMatchKind,
   mapHrefWithLayers,
   mapRegionHref,
+  mapsFocusDocumentTitle,
   mapViewHref,
   parseMapCameraHash,
   parseMapLayersSearchParams,
@@ -696,6 +697,7 @@ export function EarthMap({
   const resetViewRef = useRef<() => void>(() => {})
   const cameraHashPausedRef = useRef(false)
   const fittedFocusKeyRef = useRef<string | null>(null)
+  const mapEpochRef = useRef(0)
 
   const [ready, setReady] = useState(false)
   /** Bumps when a MapLibre instance becomes ready so deep links re-apply after remounts. */
@@ -703,6 +705,9 @@ export function EarthMap({
   const [coords, setCoords] = useState('—')
   const [zoom, setZoom] = useState(MAP_MIN_ZOOM)
   const [selected, setSelected] = useState<MapCountryHit | null>(null)
+  const [selectedEntry, setSelectedEntry] = useState<MapCountryIndexEntry | null>(
+    null,
+  )
   const [query, setQuery] = useState('')
   const [suggestionsOpen, setSuggestionsOpen] = useState(false)
   const [suggestions, setSuggestions] = useState<MapCountryIndexEntry[]>([])
@@ -720,6 +725,8 @@ export function EarthMap({
     'loading',
   )
   const [focusAnnouncement, setFocusAnnouncement] = useState('')
+  /** Bumps on popstate so Back/Forward re-apply focus from the URL. */
+  const [focusTick, setFocusTick] = useState(0)
 
   useEffect(() => {
     const stored = readStoredMapLayers()
@@ -735,6 +742,10 @@ export function EarthMap({
   useEffect(() => {
     suggestionsOpenRef.current = suggestionsOpen
   }, [suggestionsOpen])
+
+  useEffect(() => {
+    mapEpochRef.current = mapEpoch
+  }, [mapEpoch])
 
   useEffect(() => {
     if (!layersHydrated) return
@@ -830,16 +841,21 @@ export function EarthMap({
         setQuery(hit.name)
         const indexed =
           entry ?? indexRef.current.find((item) => item.code === hit.code)
+        setSelectedEntry(indexed ?? null)
+        fittedFocusKeyRef.current = `country:${hit.code}@${mapEpochRef.current}`
         const capitalName = indexed?.capitalName
         setFocusAnnouncement(
           preferCapital && capitalName
             ? `Selected ${hit.name}. Showing ${capitalName}.`
             : `Selected ${hit.name}.`,
         )
-        syncMapFocusSearchParams({
-          kind: 'country',
-          value: hit.country?.slug ?? hit.code,
-        })
+        syncMapFocusSearchParams(
+          {
+            kind: 'country',
+            value: hit.country?.slug ?? hit.code,
+          },
+          { history: 'push' },
+        )
         if (indexed) {
           withCameraHashPause(map, cameraHashPausedRef, () => {
             fitCountry(map, indexed, { preferCapital })
@@ -847,8 +863,10 @@ export function EarthMap({
         }
       } else {
         setQuery('')
+        setSelectedEntry(null)
+        fittedFocusKeyRef.current = `clear@${mapEpochRef.current}`
         setFocusAnnouncement('Selection cleared.')
-        syncMapFocusSearchParams(null)
+        syncMapFocusSearchParams(null, { history: 'push' })
       }
     }
 
@@ -1061,13 +1079,24 @@ export function EarthMap({
   }, [])
 
   useEffect(() => {
+    const onPopState = () => setFocusTick((tick) => tick + 1)
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
+  }, [])
+
+  useEffect(() => {
     if (!ready || mapEpoch === 0) return
     const map = mapRef.current
     if (!map) return
-    if (countryParam) {
-      const entry = findMapCountryIndexEntry(indexRef.current, countryParam)
+    // Prefer the live URL so pushState + Back/Forward stay authoritative even
+    // when Next's useSearchParams lags behind manual history writes.
+    const params = new URLSearchParams(window.location.search)
+    const country = params.get('country') ?? countryParam
+    const region = params.get('region') ?? regionParam
+    if (country) {
+      const entry = findMapCountryIndexEntry(indexRef.current, country)
       if (!entry) {
-        setFocusAnnouncement(`No country matched “${countryParam}”.`)
+        setFocusAnnouncement(`No country matched “${country}”.`)
         syncMapFocusSearchParams(null)
         fittedFocusKeyRef.current = null
         return
@@ -1078,22 +1107,40 @@ export function EarthMap({
       flyToCountry(entry, { syncUrl: false })
       return
     }
-    if (regionParam) {
-      const region = findMapRegionCamera(regionsRef.current, regionParam)
-      if (!region) {
-        setFocusAnnouncement(`No region matched “${regionParam}”.`)
+    if (region) {
+      const regionCamera = findMapRegionCamera(regionsRef.current, region)
+      if (!regionCamera) {
+        setFocusAnnouncement(`No region matched “${region}”.`)
         syncMapFocusSearchParams(null)
         fittedFocusKeyRef.current = null
         return
       }
-      const focusKey = `region:${region.id}@${mapEpoch}`
+      const focusKey = `region:${regionCamera.id}@${mapEpoch}`
       if (fittedFocusKeyRef.current === focusKey) return
       fittedFocusKeyRef.current = focusKey
-      flyToRegion(region, { syncUrl: false })
+      flyToRegion(regionCamera, { syncUrl: false })
+      return
+    }
+    if (selectedCodeRef.current || activeRegionRef.current) {
+      const clearKey = `clear@${mapEpoch}`
+      if (fittedFocusKeyRef.current === clearKey) return
+      fittedFocusKeyRef.current = clearKey
+      syncSelectionFeatureState(map, selectedCodeRef.current, null)
+      selectedCodeRef.current = null
+      setSelected(null)
+      setSelectedEntry(null)
+      setQuery('')
+      setSuggestionsOpen(false)
+      setSuggestions([])
+      setActiveRegion(null)
+      activeRegionRef.current = null
+      setCopyState('idle')
+      syncCapitalLayerPresentation(map, layersRef.current.labels, null)
+      setFocusAnnouncement('Selection cleared.')
       return
     }
     fittedFocusKeyRef.current = null
-  }, [ready, mapEpoch, countryParam, regionParam])
+  }, [ready, mapEpoch, countryParam, regionParam, focusTick])
 
   useEffect(() => {
     if (!selected && !activeRegion) return
@@ -1105,6 +1152,21 @@ export function EarthMap({
     })
     return () => window.cancelAnimationFrame(id)
   }, [selected?.code, activeRegion])
+
+  useEffect(() => {
+    document.title = `${mapsFocusDocumentTitle({
+      countryName: selected?.name,
+      regionLabel: activeRegion
+        ? regions.find((region) => region.id === activeRegion)?.label
+        : null,
+    })} | Cleo`
+  }, [selected?.name, activeRegion, regions])
+
+  useEffect(() => {
+    return () => {
+      document.title = 'Maps | Cleo'
+    }
+  }, [])
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -1153,6 +1215,7 @@ export function EarthMap({
     syncSelectionFeatureState(map, previous, hit.code)
     selectedCodeRef.current = hit.code
     setSelected(hit)
+    setSelectedEntry(entry)
     setQuery(entry.name)
     setSuggestionsOpen(false)
     setSuggestions([])
@@ -1170,11 +1233,15 @@ export function EarthMap({
         ? `Selected ${hit.name}. Showing ${capitalName}.`
         : `Selected ${hit.name}.`,
     )
+    fittedFocusKeyRef.current = `country:${entry.code}@${mapEpochRef.current}`
     if (syncUrl) {
-      syncMapFocusSearchParams({
-        kind: 'country',
-        value: entry.slug ?? entry.code,
-      })
+      syncMapFocusSearchParams(
+        {
+          kind: 'country',
+          value: entry.slug ?? entry.code,
+        },
+        { history: 'push' },
+      )
     }
     withCameraHashPause(map, cameraHashPausedRef, () => {
       fitCountry(map, entry, { preferCapital })
@@ -1196,6 +1263,7 @@ export function EarthMap({
     syncSelectionFeatureState(map, selectedCodeRef.current, null)
     selectedCodeRef.current = null
     setSelected(null)
+    setSelectedEntry(null)
     setQuery('')
     setSuggestionsOpen(false)
     setSuggestions([])
@@ -1204,7 +1272,8 @@ export function EarthMap({
     setCopyState('idle')
     syncCapitalLayerPresentation(map, layersRef.current.labels, null)
     setFocusAnnouncement('Map reset.')
-    syncMapFocusSearchParams(null)
+    syncMapFocusSearchParams(null, { history: 'push' })
+    fittedFocusKeyRef.current = `clear@${mapEpoch}`
     cameraHashPausedRef.current = true
     let settled = false
     const settle = () => {
@@ -1238,6 +1307,7 @@ export function EarthMap({
     syncSelectionFeatureState(map, selectedCodeRef.current, null)
     selectedCodeRef.current = null
     setSelected(null)
+    setSelectedEntry(null)
     setQuery('')
     setSuggestionsOpen(false)
     setSuggestions([])
@@ -1246,8 +1316,12 @@ export function EarthMap({
     setActiveRegion(region.id)
     activeRegionRef.current = region.id
     setFocusAnnouncement(`Viewing ${region.label}.`)
+    fittedFocusKeyRef.current = `region:${region.id}@${mapEpochRef.current}`
     if (syncUrl) {
-      syncMapFocusSearchParams({ kind: 'region', value: region.id })
+      syncMapFocusSearchParams(
+        { kind: 'region', value: region.id },
+        { history: 'push' },
+      )
     }
     withCameraHashPause(map, cameraHashPausedRef, () => {
       map.fitBounds(region.bounds, {
@@ -1598,15 +1672,25 @@ export function EarthMap({
                     {selected.code}
                   </p>
                   <p className="earth-map-selection-name">{selected.name}</p>
-                  {selected.country?.region ? (
-                    <p className="earth-map-photo-place">
-                      {selected.country.region}
-                    </p>
-                  ) : null}
+                  <p className="earth-map-photo-place">
+                    {[
+                      selectedEntry?.region ?? selected.country?.region,
+                      selectedEntry?.capitalName
+                        ? `Capital · ${selectedEntry.capitalName}`
+                        : null,
+                    ]
+                      .filter(Boolean)
+                      .join(' · ') || 'Territory on the map'}
+                  </p>
                 </div>
               )}
               {photo?.aboutExcerpt ? (
                 <p className="earth-map-selection-about">{photo.aboutExcerpt}</p>
+              ) : !selected.href ? (
+                <p className="earth-map-selection-about">
+                  Borders and place name from Natural Earth — no Explore field
+                  guide for this territory yet.
+                </p>
               ) : null}
               {photo?.places?.length ? (
                 <p className="earth-map-selection-places">
@@ -1619,9 +1703,9 @@ export function EarthMap({
                     Open field guide →
                   </Link>
                 ) : (
-                  <p className="text-sm text-muted-foreground">
-                    No Explore guide yet
-                  </p>
+                  <Link href="/explore" className="earth-map-guide-link">
+                    Browse Explore →
+                  </Link>
                 )}
                 <button
                   type="button"

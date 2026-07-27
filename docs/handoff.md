@@ -31,8 +31,10 @@ document (enable both products in the Vercel project dashboard).
   country/continent labels via vendored MapLibre glyphs; Admin-0 capital markers
   (clickable hit pads, selected capital stays visible when Labels are off);
   Borders/Labels/Graticule toggles with shareable layer query flags;
-  `#zoom/lat/lng` camera hash + Share view; capital-aware search + selection
-  dossier; homepage search/highlights deep-link into Maps; Cleo `/maps?`
+  `#zoom/lat/lng` camera hash + Share view; Back/Forward for country/region
+  focus (pushState); capital-aware search + selection dossier (clearer
+  no-guide territories); homepage search/highlights deep-link into Maps;
+  deep-link `<title>` / metadata for `?country=` / `?region=`; Cleo `/maps?`
   link presentation; paper/glass HUD via `html[data-maps-route]`;
   country/region deep links with antimeridian-aware Oceania and
   mainland-leaning Europe cameras; Explore ↔ Maps region round-trips;

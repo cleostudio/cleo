@@ -22,8 +22,11 @@ import {
   isDefaultMapCamera,
   mapCountryHref,
   mapCountrySuggestionMatchKind,
+  mapFocusKey,
   mapHrefWithLayers,
   mapRegionHref,
+  mapsDeepLinkMetadata,
+  mapsFocusDocumentTitle,
   mapViewHref,
   MAP_CAPITALS_URL,
   MAP_COUNTRIES_URL,
@@ -37,6 +40,7 @@ import {
   parseMapCountryParam,
   parseMapLayersSearchParams,
   parseMapRegionParam,
+  readMapFocusSearchParams,
   readStoredMapLayers,
   resolveMapCountry,
   resolveMapLayers,
@@ -45,6 +49,7 @@ import {
   syncMapFocusSearchParams,
   syncMapLayersSearchParams,
   writeStoredMapLayers,
+  type MapCountryIndex,
   type MapCountryIndexEntry,
   type MapRegionCamera,
 } from './maps'
@@ -404,6 +409,55 @@ describe('maps helpers', () => {
     )
     syncMapFocusSearchParams({ kind: 'region', value: 'asia' })
     expect(window.location.search).toBe('?borders=0&graticule=1&region=asia')
+  })
+
+  it('pushes discrete focus changes and skips no-op pushes', () => {
+    window.history.replaceState({}, '', '/maps')
+    const start = window.history.length
+
+    syncMapFocusSearchParams(
+      { kind: 'country', value: 'japan' },
+      { history: 'push' },
+    )
+    expect(window.location.search).toBe('?country=japan')
+    expect(window.history.length).toBeGreaterThanOrEqual(start)
+
+    const afterJapan = window.history.length
+    syncMapFocusSearchParams(
+      { kind: 'country', value: 'japan' },
+      { history: 'push' },
+    )
+    expect(window.history.length).toBe(afterJapan)
+
+    syncMapFocusSearchParams(
+      { kind: 'region', value: 'asia' },
+      { history: 'push' },
+    )
+    expect(window.location.search).toBe('?region=asia')
+    expect(readMapFocusSearchParams(new URLSearchParams(window.location.search))).toEqual({
+      kind: 'region',
+      value: 'asia',
+    })
+    expect(mapFocusKey({ kind: 'country', value: 'JP' })).toBe('country:jp')
+  })
+
+  it('builds deep-link metadata and document titles for Maps focus', () => {
+    const index: MapCountryIndex = {
+      countries: sampleIndex,
+      regions: sampleRegions,
+    }
+    expect(mapsDeepLinkMetadata(new URLSearchParams('country=japan'), index)).toEqual({
+      title: 'Japan · Maps',
+      description: expect.stringContaining('Explore field guide'),
+    })
+    expect(mapsDeepLinkMetadata(new URLSearchParams('region=asia'), index)).toEqual({
+      title: 'Asia · Maps',
+      description: expect.stringContaining('47 Explore'),
+    })
+    expect(mapsDeepLinkMetadata(new URLSearchParams(), index).title).toBe('Maps')
+    expect(mapsFocusDocumentTitle({ countryName: 'Japan' })).toBe('Japan · Maps')
+    expect(mapsFocusDocumentTitle({ regionLabel: 'Oceania' })).toBe('Oceania · Maps')
+    expect(mapsFocusDocumentTitle({})).toBe('Maps')
   })
 })
 
