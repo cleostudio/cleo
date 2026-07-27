@@ -21,7 +21,9 @@ import {
   buildCountryLabelCollection,
   buildGraticuleCollection,
   buildRegionLabelCollection,
+  DEFAULT_MAP_CENTER,
   DEFAULT_MAP_LAYERS,
+  DEFAULT_MAP_ZOOM,
   exploreRegionHref,
   filterMapCountrySuggestions,
   findMapCountryIndexEntry,
@@ -40,14 +42,18 @@ import {
   mapCountrySuggestionMatchKind,
   mapHrefWithLayers,
   mapRegionHref,
+  mapViewHref,
+  parseMapCameraHash,
   parseMapLayersSearchParams,
   readStoredMapLayers,
   resolveMapCountry,
   resolveMapLayers,
   shareOrCopyMapLink,
+  syncMapCameraHash,
   syncMapFocusSearchParams,
   syncMapLayersSearchParams,
   writeStoredMapLayers,
+  type MapCamera,
   type MapCountryHit,
   type MapCountryIndex,
   type MapCountryIndexEntry,
@@ -554,9 +560,42 @@ function applyLayerVisibility(
   syncCapitalLayerPresentation(map, layers.labels, selectedCode)
 }
 
+function readMapCamera(map: MapLibreMap): MapCamera {
+  const center = map.getCenter()
+  return {
+    center: [center.lng, center.lat],
+    zoom: map.getZoom(),
+  }
+}
+
+function writeCameraHashFromMap(map: MapLibreMap) {
+  syncMapCameraHash(readMapCamera(map))
+}
+
+/** Pause hash writes during programmatic flights; always settle afterward. */
+function withCameraHashPause(
+  map: MapLibreMap,
+  pausedRef: { current: boolean },
+  work: () => void,
+) {
+  pausedRef.current = true
+  let settled = false
+  const settle = () => {
+    if (settled) return
+    settled = true
+    pausedRef.current = false
+    writeCameraHashFromMap(map)
+  }
+  map.once('moveend', settle)
+  work()
+  // MapLibre may skip moveend when the camera is already at the target.
+  window.setTimeout(settle, mapMotionMs(850) + 80)
+}
+
 function handleMapCanvasKeyDown(
   event: React.KeyboardEvent<HTMLDivElement>,
   map: MapLibreMap | null,
+  onHome?: () => void,
 ) {
   if (!map) return
   const panPx = event.shiftKey ? 140 : 80
@@ -587,6 +626,12 @@ function handleMapCanvasKeyDown(
     case '_':
       event.preventDefault()
       map.zoomOut({ duration: mapMotionMs(220) })
+      break
+    case 'Home':
+      if (onHome) {
+        event.preventDefault()
+        onHome()
+      }
       break
     default:
       break
@@ -648,6 +693,7 @@ export function EarthMap({
   const suggestionsOpenRef = useRef(false)
   const layersRef = useRef<MapLayerVisibility>({ ...DEFAULT_MAP_LAYERS })
   const resetViewRef = useRef<() => void>(() => {})
+  const cameraHashPausedRef = useRef(false)
 
   const [ready, setReady] = useState(false)
   const [coords, setCoords] = useState('—')
@@ -706,8 +752,8 @@ export function EarthMap({
     const map = new MapLibreMap({
       container,
       style: basemapStyle(),
-      center: [10, 20],
-      zoom: 1.2,
+      center: DEFAULT_MAP_CENTER,
+      zoom: DEFAULT_MAP_ZOOM,
       minZoom: MAP_MIN_ZOOM,
       maxZoom: MAP_MAX_ZOOM + 0.85,
       maxPitch: 0,
@@ -726,8 +772,17 @@ export function EarthMap({
 
     map.getCanvas().setAttribute(
       'aria-label',
-      'Interactive map of Earth. Arrow keys pan, plus and minus zoom.',
+      'Interactive map of Earth. Arrow keys pan, plus and minus zoom, Home resets.',
     )
+
+    // Restore a shared camera when there is no country/region deep link.
+    const bootstrapParams = new URLSearchParams(window.location.search)
+    if (!bootstrapParams.get('country') && !bootstrapParams.get('region')) {
+      const bootCamera = parseMapCameraHash(window.location.hash)
+      if (bootCamera) {
+        map.jumpTo({ center: bootCamera.center, zoom: bootCamera.zoom })
+      }
+    }
 
     mapRef.current = map
 
@@ -781,7 +836,11 @@ export function EarthMap({
           kind: 'country',
           value: hit.country?.slug ?? hit.code,
         })
-        if (indexed) fitCountry(map, indexed, { preferCapital })
+        if (indexed) {
+          withCameraHashPause(map, cameraHashPausedRef, () => {
+            fitCountry(map, indexed, { preferCapital })
+          })
+        }
       } else {
         setQuery('')
         setFocusAnnouncement('Selection cleared.')
@@ -969,6 +1028,10 @@ export function EarthMap({
     })
 
     map.on('move', onMove)
+    map.on('moveend', () => {
+      if (cameraHashPausedRef.current) return
+      writeCameraHashFromMap(map)
+    })
 
     suppressMapClickRef.current = () => {
       ignoreMapClicksUntil = performance.now() + 400
@@ -1093,7 +1156,9 @@ export function EarthMap({
         value: entry.slug ?? entry.code,
       })
     }
-    fitCountry(map, entry, { preferCapital })
+    withCameraHashPause(map, cameraHashPausedRef, () => {
+      fitCountry(map, entry, { preferCapital })
+    })
   }
 
   function flyToCountryFromQuery(entry: MapCountryIndexEntry) {
@@ -1120,11 +1185,21 @@ export function EarthMap({
     syncCapitalLayerPresentation(map, layersRef.current.labels, null)
     setFocusAnnouncement('Map reset.')
     syncMapFocusSearchParams(null)
+    cameraHashPausedRef.current = true
+    let settled = false
+    const settle = () => {
+      if (settled) return
+      settled = true
+      cameraHashPausedRef.current = false
+      syncMapCameraHash(null)
+    }
+    map.once('moveend', settle)
     map.easeTo({
-      center: [10, 20],
-      zoom: 1.2,
+      center: DEFAULT_MAP_CENTER,
+      zoom: DEFAULT_MAP_ZOOM,
       duration: mapMotionMs(600),
     })
+    window.setTimeout(settle, mapMotionMs(650) + 80)
   }
 
   resetViewRef.current = resetView
@@ -1154,10 +1229,12 @@ export function EarthMap({
     if (syncUrl) {
       syncMapFocusSearchParams({ kind: 'region', value: region.id })
     }
-    map.fitBounds(region.bounds, {
-      padding: { ...MAP_REGION_PADDING },
-      maxZoom: region.maxZoom,
-      duration: mapMotionMs(800),
+    withCameraHashPause(map, cameraHashPausedRef, () => {
+      map.fitBounds(region.bounds, {
+        padding: { ...MAP_REGION_PADDING },
+        maxZoom: region.maxZoom,
+        duration: mapMotionMs(800),
+      })
     })
   }
 
@@ -1169,6 +1246,12 @@ export function EarthMap({
     if (result === 'aborted') return
     setCopyState(result)
     window.setTimeout(() => setCopyState('idle'), 1600)
+  }
+
+  async function shareCurrentView() {
+    const map = mapRef.current
+    if (map) writeCameraHashFromMap(map)
+    await shareDeepLink(mapViewHref(), 'Earth on Cleo Maps')
   }
 
   const activeRegionCamera = activeRegion
@@ -1199,9 +1282,9 @@ export function EarthMap({
         ref={containerRef}
         className="earth-map-canvas"
         role="application"
-        aria-label="Interactive map of Earth. Arrow keys pan, plus and minus zoom."
+        aria-label="Interactive map of Earth. Arrow keys pan, plus and minus zoom, Home resets."
         onKeyDown={(event) => {
-          handleMapCanvasKeyDown(event, mapRef.current)
+          handleMapCanvasKeyDown(event, mapRef.current, resetView)
         }}
       />
 
@@ -1426,7 +1509,29 @@ export function EarthMap({
             <MapsGlass />
             <span>{coords}</span>
             <span className="tabular-nums">z{zoom.toFixed(1)}</span>
-            <button type="button" className="earth-map-reset" onClick={resetView}>
+            <button
+              type="button"
+              className="earth-map-reset"
+              onClick={() => {
+                void shareCurrentView()
+              }}
+              disabled={!ready}
+              title="Share or copy a link to this exact map view"
+            >
+              {copyState === 'shared'
+                ? 'Shared'
+                : copyState === 'copied'
+                  ? 'Copied'
+                  : copyState === 'failed'
+                    ? 'Failed'
+                    : 'Share'}
+            </button>
+            <button
+              type="button"
+              className="earth-map-reset"
+              onClick={resetView}
+              title="Reset map view"
+            >
               Reset
             </button>
           </div>
@@ -1558,9 +1663,10 @@ export function EarthMap({
             <div className="earth-map-panel">
               <MapsGlass />
               <p className="earth-map-hint">
-                Pan and zoom (arrow keys when the map is focused), toggle
-                borders, labels, and graticule, jump by region, or click a
-                country or capital for its Explore field guide.
+                Pan and zoom (arrow keys when the map is focused; Home resets),
+                share the current view, toggle borders, labels, and graticule,
+                jump by region, or click a country or capital for its Explore
+                field guide.
               </p>
             </div>
           )}

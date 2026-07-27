@@ -51,8 +51,10 @@ labels (including capital dots/names), and a 30° graticule (session preference
 via `html[data-maps-route]` (same pattern as Cleo) so the basemap fills the
 viewport with paper/glass HUD chrome above the dock. Deep links use
 `/maps?country=[slug|iso]` or
-`/maps?region=[africa|americas|asia|europe|oceania]`. Search matches country
-name or capital (capital hits fly to the city); Explore guides link back with
+`/maps?region=[africa|americas|asia|europe|oceania]`. Pan/zoom also syncs a
+MapLibre-style camera hash (`#zoom/lat/lng`) so “Share” can copy the exact
+view; country/region params still win on load. Search matches country name or
+capital (capital hits fly to the city); Explore guides link back with
 “View on map”; Cleo may cite the same map paths. MapLibre’s module workers are
 vendored to `public/maplibre/` so Turbopack/Next can load them under the site
 CSP. Regenerate from a local 21600 source with

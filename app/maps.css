@@ -364,8 +364,13 @@ html[data-maps-route] body {
     color 150ms var(--ease-swift);
 }
 
-.earth-map-reset:hover {
+.earth-map-reset:hover:not(:disabled) {
   background: color-mix(in oklab, var(--muted) 55%, transparent);
+}
+
+.earth-map-reset:disabled {
+  cursor: wait;
+  opacity: 0.55;
 }
 
 .earth-map-reset:focus-visible {
@@ -712,13 +717,18 @@ html[data-maps-route] body {
     top: max(var(--maps-hud-inset), env(safe-area-inset-top, 0px));
     right: max(var(--maps-hud-inset), env(safe-area-inset-right, 0px));
     bottom: auto;
-    max-width: min(11.5rem, calc(100% - 2 * var(--maps-hud-inset)));
+    max-width: min(14.5rem, calc(100% - 2 * var(--maps-hud-inset)));
   }
 
   .earth-map-meta {
-    gap: 0.4rem 0.5rem;
+    gap: 0.35rem 0.45rem;
     padding: 0.38rem 0.5rem;
     font-size: 0.625rem;
+  }
+
+  .earth-map-reset {
+    padding: 0.16rem 0.34rem;
+    letter-spacing: 0.04em;
   }
 
   .earth-map-chrome-bottom {

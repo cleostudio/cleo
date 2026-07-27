@@ -48,7 +48,17 @@ export const DEFAULT_MAP_LAYERS: MapLayerVisibility = {
 
 export const MAP_LAYER_STORAGE_KEY = 'cleo.maps.layers'
 
+/** Default world camera used on first load and Reset. */
+export const DEFAULT_MAP_CENTER: [number, number] = [10, 20]
+export const DEFAULT_MAP_ZOOM = 1.2
+
 export const mapAttribution = attribution
+
+export type MapCamera = {
+  /** Longitude, latitude. */
+  center: [number, number]
+  zoom: number
+}
 
 export type MapCountryFeatureProperties = {
   code: string
@@ -205,6 +215,104 @@ export function formatMapCoords(lng: number, lat: number) {
   const latHemisphere = lat >= 0 ? 'N' : 'S'
   const lngHemisphere = lng >= 0 ? 'E' : 'W'
   return `${Math.abs(lat).toFixed(2)}°${latHemisphere} · ${Math.abs(lng).toFixed(2)}°${lngHemisphere}`
+}
+
+function wrapMapLongitude(lng: number) {
+  let wrapped = ((((lng + 180) % 360) + 360) % 360) - 180
+  // Keep +180 as -180 for a stable hash token.
+  if (wrapped === 180) wrapped = -180
+  return wrapped
+}
+
+function roundMapCameraCoord(value: number, digits: number) {
+  const factor = 10 ** digits
+  return Math.round(value * factor) / factor
+}
+
+/** Normalize a camera for hashing / equality (MapLibre-style precision). */
+export function normalizeMapCamera(camera: MapCamera): MapCamera {
+  return {
+    center: [
+      roundMapCameraCoord(wrapMapLongitude(camera.center[0]), 4),
+      roundMapCameraCoord(Math.max(-90, Math.min(90, camera.center[1])), 4),
+    ],
+    zoom: roundMapCameraCoord(camera.zoom, 2),
+  }
+}
+
+export function isDefaultMapCamera(camera: MapCamera): boolean {
+  const normalized = normalizeMapCamera(camera)
+  const defaults = normalizeMapCamera({
+    center: DEFAULT_MAP_CENTER,
+    zoom: DEFAULT_MAP_ZOOM,
+  })
+  return (
+    normalized.zoom === defaults.zoom &&
+    normalized.center[0] === defaults.center[0] &&
+    normalized.center[1] === defaults.center[1]
+  )
+}
+
+/**
+ * MapLibre-compatible camera fragment: `#zoom/lat/lng` (bearing/pitch ignored).
+ * Returns null for empty, unrelated, or out-of-range hashes.
+ */
+export function parseMapCameraHash(
+  hash: string | null | undefined,
+): MapCamera | null {
+  if (!hash) return null
+  const raw = hash.startsWith('#') ? hash.slice(1) : hash
+  if (!raw || raw.includes('=')) return null
+  const parts = raw.split('/')
+  if (parts.length < 3) return null
+  const zoom = Number(parts[0])
+  const lat = Number(parts[1])
+  const lng = Number(parts[2])
+  if (![zoom, lat, lng].every(Number.isFinite)) return null
+  if (zoom < MAP_MIN_ZOOM - 0.5 || zoom > MAP_MAX_ZOOM + 1.5) return null
+  if (lat < -90 || lat > 90 || lng < -180 || lng > 180) return null
+  return normalizeMapCamera({ center: [lng, lat], zoom })
+}
+
+/** Format a camera as `#zoom/lat/lng`. Defaults return an empty string. */
+export function formatMapCameraHash(camera: MapCamera): string {
+  if (isDefaultMapCamera(camera)) return ''
+  const normalized = normalizeMapCamera(camera)
+  return `#${normalized.zoom}/${normalized.center[1]}/${normalized.center[0]}`
+}
+
+/** Persist the current camera in the URL hash; clear it for the default view. */
+export function syncMapCameraHash(camera: MapCamera | null) {
+  if (typeof window === 'undefined') return
+  const url = new URL(window.location.href)
+  if (!camera || isDefaultMapCamera(camera)) {
+    if (!parseMapCameraHash(url.hash)) return
+    url.hash = ''
+  } else {
+    const nextHash = formatMapCameraHash(camera)
+    if (!nextHash) {
+      url.hash = ''
+    } else if (url.hash === nextHash) {
+      return
+    } else {
+      url.hash = nextHash
+    }
+  }
+  const next = `${url.pathname}${url.search}${url.hash}`
+  window.history.replaceState(window.history.state, '', next)
+}
+
+/** Current path + search + optional camera hash for sharing the exact view. */
+export function mapViewHref(camera?: MapCamera | null): string {
+  if (typeof window === 'undefined') {
+    return camera ? `/maps${formatMapCameraHash(camera)}` : '/maps'
+  }
+  const url = new URL(window.location.href)
+  if (camera) {
+    const hash = formatMapCameraHash(camera)
+    url.hash = hash ? hash.slice(1) : ''
+  }
+  return `${url.pathname}${url.search}${url.hash}`
 }
 
 /** Keep country and region query params mutually exclusive. */

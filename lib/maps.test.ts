@@ -8,18 +8,23 @@ import {
   buildCountryLabelCollection,
   buildGraticuleCollection,
   buildRegionLabelCollection,
+  DEFAULT_MAP_CENTER,
   DEFAULT_MAP_LAYERS,
+  DEFAULT_MAP_ZOOM,
   exploreRegionHref,
   filterMapCountrySuggestions,
   findMapCountryIndexEntry,
   findMapRegionCamera,
+  formatMapCameraHash,
   formatMapCoords,
   countryLabelMinZoom,
   excerptMapAbout,
+  isDefaultMapCamera,
   mapCountryHref,
   mapCountrySuggestionMatchKind,
   mapHrefWithLayers,
   mapRegionHref,
+  mapViewHref,
   MAP_CAPITALS_URL,
   MAP_COUNTRIES_URL,
   MAP_COUNTRY_INDEX_URL,
@@ -28,6 +33,7 @@ import {
   MAP_MAX_ZOOM,
   MAP_TILE_URL,
   mapAttribution,
+  parseMapCameraHash,
   parseMapCountryParam,
   parseMapLayersSearchParams,
   parseMapRegionParam,
@@ -35,6 +41,7 @@ import {
   resolveMapCountry,
   resolveMapLayers,
   shareOrCopyMapLink,
+  syncMapCameraHash,
   syncMapFocusSearchParams,
   syncMapLayersSearchParams,
   writeStoredMapLayers,
@@ -292,6 +299,65 @@ describe('maps helpers', () => {
     expect(writeText).toHaveBeenCalledWith(
       expect.stringContaining('/maps?region=asia'),
     )
+  })
+
+  it('falls back to clipboard when Web Share is cancelled', async () => {
+    const share = vi.fn().mockRejectedValue(new DOMException('Dismissed', 'AbortError'))
+    Object.defineProperty(navigator, 'share', {
+      configurable: true,
+      value: share,
+    })
+    const writeText = vi.fn().mockResolvedValue(undefined)
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: { writeText },
+    })
+    await expect(shareOrCopyMapLink('/maps#5/35.68/139.69')).resolves.toBe(
+      'copied',
+    )
+    expect(writeText).toHaveBeenCalledWith(
+      expect.stringContaining('/maps#5/35.68/139.69'),
+    )
+  })
+
+  it('parses and formats MapLibre-style camera hashes', () => {
+    expect(parseMapCameraHash('#5.2/35.68/139.691')).toEqual({
+      center: [139.691, 35.68],
+      zoom: 5.2,
+    })
+    expect(parseMapCameraHash('#5.2/35.68/139.691/-10/0')).toEqual({
+      center: [139.691, 35.68],
+      zoom: 5.2,
+    })
+    expect(parseMapCameraHash('#globe')).toBeNull()
+    expect(parseMapCameraHash('#map=5/35/139')).toBeNull()
+    expect(parseMapCameraHash('#99/0/0')).toBeNull()
+    expect(isDefaultMapCamera({ center: DEFAULT_MAP_CENTER, zoom: DEFAULT_MAP_ZOOM })).toBe(
+      true,
+    )
+    expect(formatMapCameraHash({ center: DEFAULT_MAP_CENTER, zoom: DEFAULT_MAP_ZOOM })).toBe(
+      '',
+    )
+    expect(formatMapCameraHash({ center: [139.6912, 35.6804], zoom: 5.21 })).toBe(
+      '#5.21/35.6804/139.6912',
+    )
+
+    window.history.replaceState({}, '', '/maps?country=japan#globe')
+    syncMapCameraHash({ center: [139.69, 35.68], zoom: 5 })
+    expect(window.location.search).toBe('?country=japan')
+    expect(window.location.hash).toBe('#5/35.68/139.69')
+
+    syncMapCameraHash({ center: DEFAULT_MAP_CENTER, zoom: DEFAULT_MAP_ZOOM })
+    expect(window.location.hash).toBe('')
+
+    window.history.replaceState({}, '', '/maps?labels=0#globe')
+    syncMapCameraHash(null)
+    expect(window.location.hash).toBe('#globe')
+
+    window.history.replaceState({}, '', '/maps?graticule=1')
+    expect(
+      mapViewHref({ center: [10, 20], zoom: 3.5 }),
+    ).toBe('/maps?graticule=1#3.5/20/10')
   })
 
   it('keeps country and region query params mutually exclusive', () => {

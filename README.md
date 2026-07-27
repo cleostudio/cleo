@@ -24,9 +24,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Space guides: `lib/space.ts` + `content/space-photos.json` + JPEGs in
   `public/images/space/`
 - Maps: MapLibre at `/maps` with first-party NASA BMNG 21600 tiles (z0–z6),
-  Natural Earth borders/capitals, and on-map country/continent labels
-  and Natural Earth borders (`pnpm prepare:maps`, `pnpm validate:maps`;
-  attribution in `content/maps/attribution.json`)
+  Natural Earth borders/capitals, on-map labels, layer query flags, and
+  shareable `#zoom/lat/lng` camera hashes (`pnpm prepare:maps`,
+  `pnpm validate:maps`; attribution in `content/maps/attribution.json`)
 - **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
   `POST /api/responses`)
 - Vercel Web Analytics + Speed Insights in the root document (enable both in
