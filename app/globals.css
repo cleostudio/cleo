@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
 @import './cleo.css';
+@import './maps.css';
 
 @custom-variant dark (&:is(.dark *));
 

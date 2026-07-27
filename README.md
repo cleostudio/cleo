@@ -5,10 +5,10 @@ dock at `/cleo`.
 
 The public site includes a homepage with unified topic search (countries, space,
 collections), highlighted places, topic discovery, and recent Writing posts;
-Explore country field
-guides; Space field guides at `/space`; a place Gallery at `/gallery`; a Topics
-catalog; Writing (for a future encyclopedia layer); and a browser-only agent
-with streamed Markdown, vision, image generation, and live reasoning /
+Explore country field guides; an interactive Earth map at `/maps`; Space field
+guides at `/space`; a place Gallery at `/gallery`; a Topics catalog; Writing
+(for a future encyclopedia layer); and a browser-only agent with streamed
+Markdown, vision, image generation, and live reasoning /
 web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
@@ -23,6 +23,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   `public/images/atlas/` (no image CDN/account at runtime)
 - Space guides: `lib/space.ts` + `content/space-photos.json` + JPEGs in
   `public/images/space/`
+- Maps: MapLibre at `/maps` with first-party NASA Blue Marble tiles and
+  Natural Earth borders (`pnpm prepare:maps`, `pnpm validate:maps`;
+  attribution in `content/maps/attribution.json`)
 - **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
   `POST /api/responses`)
 - Vercel Web Analytics + Speed Insights in the root document (enable both in
@@ -31,7 +34,7 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   Explore/Space catalog so replies can deep-link field guides and embed
   curated topic photographs when a visual helps; topic and chat images use
   the same click-to-zoom lightbox as Gallery)
-- Bottom dock: Writing, Gallery, Explore, Topics, Cleo
+- Bottom dock: Writing, Gallery, Explore, Maps, Topics, Cleo
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
 [`docs/design-language.md`](./docs/design-language.md). Site status:
@@ -56,6 +59,9 @@ Open [http://localhost:3000](http://localhost:3000). Cleo is on the dock (or
 
 ```bash
 pnpm typecheck
+pnpm validate:atlas
+pnpm validate:space
+pnpm validate:maps
 pnpm build
 ```
 

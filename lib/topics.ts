@@ -30,6 +30,16 @@ export function allTopics(): Topic[] {
       secondaryLabel: 'Gallery',
     },
     {
+      slug: 'maps',
+      name: 'Maps',
+      description:
+        'An interactive 2D map of Earth with NASA Blue Marble imagery and Natural Earth borders — pan, zoom, and open Explore guides.',
+      tally: 'Earth',
+      href: '/maps',
+      secondaryHref: '/explore',
+      secondaryLabel: 'Explore',
+    },
+    {
       slug: 'space',
       name: 'Space',
       description:

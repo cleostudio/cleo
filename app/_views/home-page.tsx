@@ -61,6 +61,17 @@ export async function HomePageView({ locale }: { locale: Locale }) {
         <div className="enter" style={{ '--enter-delay': '100ms' } as React.CSSProperties}>
           <HomeSiteSearch hits={searchHits} />
         </div>
+        <p
+          className="enter mt-3"
+          style={{ '--enter-delay': '150ms' } as React.CSSProperties}
+        >
+          <Link
+            href="/maps"
+            className="relative text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+          >
+            <T zh="打开地球地图" en="Open the Earth map →" />
+          </Link>
+        </p>
       </section>
 
       <section className="mt-8" aria-labelledby="home-places-heading">

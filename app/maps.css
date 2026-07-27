@@ -1,0 +1,390 @@
+/* Interactive Earth map (/maps) */
+
+.earth-map {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.earth-map-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+}
+
+.earth-map-search {
+  position: relative;
+  min-width: min(100%, 18rem);
+  flex: 1 1 16rem;
+  max-width: 24rem;
+}
+
+.earth-map-search input {
+  width: 100%;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  background: color-mix(in oklab, var(--background) 88%, var(--card));
+  color: var(--foreground);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  padding: 0.55rem 0.75rem;
+  outline: none;
+  transition:
+    border-color 150ms var(--ease-swift),
+    background-color 150ms var(--ease-swift);
+}
+
+.earth-map-search input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.earth-map-search input:focus-visible {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--focus-ring) 35%, transparent);
+}
+
+.earth-map-search input:disabled {
+  opacity: 0.6;
+}
+
+.earth-map-suggestions {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--popover);
+  color: var(--popover-foreground);
+  box-shadow: var(--shadow-tooltip);
+}
+
+.earth-map-suggestions button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 0;
+  border-radius: calc(var(--radius) - 4px);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+  transition: background-color 150ms var(--ease-swift);
+}
+
+.earth-map-suggestions button:hover,
+.earth-map-suggestions button:focus-visible,
+.earth-map-suggestions button[data-active] {
+  background: color-mix(in oklab, var(--accent) 70%, transparent);
+  outline: none;
+}
+
+.earth-map-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.9rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+}
+
+.earth-map-regions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.earth-map-region {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  background: color-mix(in oklab, var(--background) 88%, var(--card));
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  padding: 0.35rem 0.55rem;
+  transition:
+    background-color 150ms var(--ease-swift),
+    border-color 150ms var(--ease-swift),
+    color 150ms var(--ease-swift);
+}
+
+.earth-map-region:hover:not(:disabled),
+.earth-map-region[data-active] {
+  border-color: color-mix(in oklab, var(--signal) 45%, var(--border));
+  color: var(--signal);
+}
+
+.earth-map-region:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.earth-map-region:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.earth-map-reset {
+  border: var(--border-hairline) solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.45rem;
+  text-transform: uppercase;
+  transition:
+    background-color 150ms var(--ease-swift),
+    border-color 150ms var(--ease-swift);
+}
+
+.earth-map-reset:hover {
+  background: color-mix(in oklab, var(--muted) 55%, transparent);
+}
+
+.earth-map-canvas {
+  position: relative;
+  width: 100%;
+  height: min(70vh, 42rem);
+  min-height: 22rem;
+  overflow: hidden;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in oklab, var(--muted) 42%, var(--foreground));
+}
+
+.earth-map[aria-busy='true'] .earth-map-canvas {
+  opacity: 0.92;
+}
+
+.earth-map-status {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.earth-map-status[data-tone='warn'] {
+  color: var(--destructive);
+}
+
+.earth-map-canvas .maplibregl-canvas {
+  outline: none;
+}
+
+.earth-map-canvas .maplibregl-ctrl-group {
+  border: var(--border-hairline) solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+  box-shadow: var(--shadow-tooltip);
+  overflow: hidden;
+}
+
+.earth-map-canvas .maplibregl-ctrl-group button {
+  background: transparent;
+  border-color: var(--border);
+  width: 2rem;
+  height: 2rem;
+}
+
+.earth-map-canvas .maplibregl-ctrl-group button + button {
+  border-top-color: var(--border);
+}
+
+.earth-map-canvas .maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,
+.earth-map-canvas .maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon {
+  background-size: 18px 18px;
+}
+
+.dark .earth-map-canvas .maplibregl-ctrl button .maplibregl-ctrl-icon {
+  filter: invert(1);
+}
+
+.earth-map-canvas .maplibregl-ctrl-attrib {
+  background: color-mix(in oklab, var(--background) 78%, transparent);
+  color: var(--muted-foreground);
+  font-size: 0.625rem;
+  border-radius: calc(var(--radius) - 4px) 0 0 0;
+}
+
+.earth-map-canvas .maplibregl-ctrl-attrib a {
+  color: var(--foreground);
+}
+
+.earth-map-canvas .maplibregl-ctrl-scale {
+  border-color: color-mix(in oklab, var(--foreground) 55%, transparent);
+  color: var(--foreground);
+  background: color-mix(in oklab, var(--background) 55%, transparent);
+  font-size: 0.625rem;
+}
+
+.earth-map-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.earth-map-selection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  padding-top: 0.15rem;
+}
+
+.earth-map-photo {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+  min-width: min(100%, 18rem);
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 150ms var(--ease-swift);
+}
+
+.earth-map-photo:hover {
+  opacity: 0.92;
+}
+
+.earth-map-photo img {
+  width: 5.5rem;
+  height: 3.65rem;
+  object-fit: cover;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  background: var(--muted);
+}
+
+.earth-map-photo-caption {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.earth-map-photo-place {
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.earth-map-selection-code {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.earth-map-selection-name {
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.01em;
+}
+
+.earth-map-selection-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.9rem;
+}
+
+.earth-map-guide-link {
+  color: var(--foreground);
+  font-size: 0.875rem;
+  text-underline-offset: 2px;
+  transition: color 150ms var(--ease-swift);
+}
+
+.earth-map-guide-link:hover {
+  color: var(--signal);
+  text-decoration: underline;
+}
+
+.earth-map-copy {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.875rem;
+  padding: 0;
+  text-underline-offset: 2px;
+  transition: color 150ms var(--ease-swift);
+}
+
+.earth-map-copy:hover {
+  color: var(--signal);
+  text-decoration: underline;
+}
+
+.earth-map-copy:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 0.2rem;
+}
+
+.earth-map-hint,
+.earth-map-credit {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  max-width: var(--content-column-narrow);
+}
+
+.earth-map-credit {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 40rem) {
+  .earth-map {
+    gap: 0.55rem;
+  }
+
+  .earth-map-canvas {
+    height: min(52vh, 28rem);
+    min-height: 16rem;
+  }
+
+  .earth-map-regions {
+    gap: 0.3rem;
+  }
+
+  .earth-map-region {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.48rem;
+  }
+
+  .earth-map-selection {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .earth-map-search input,
+  .earth-map-suggestions button,
+  .earth-map-reset,
+  .earth-map-region,
+  .earth-map-guide-link,
+  .earth-map-copy {
+    transition: none;
+  }
+}

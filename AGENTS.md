@@ -4,11 +4,12 @@ This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
 portal starting with countries and space. The homepage is a neutral portal
 (unified topic search, highlighted places, topic discovery, recent Writing
 posts). Explore field guides live
-at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
-`/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
-layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
-`/gallery`; `/projects` permanently redirects to `/topics`. Projects UI,
-vinyl/bookshelf, and social card components remain in the repo for later reuse.
+at `/explore/[slug]`, an interactive Earth map at `/maps`, Space guides at
+`/space/[slug]`, the place Gallery at `/gallery`, Topics at `/topics`, Writing
+at `/blog` (future encyclopedia-like layer), and the AI agent at `/cleo`.
+`/photos` permanently redirects to `/gallery`; `/projects` permanently
+redirects to `/topics`. Projects UI, vinyl/bookshelf, and social card
+components remain in the repo for later reuse.
 
 Country guide records live in `content/atlas.json` (one entry per Explore slug).
 Orientation prose is curated, not generated at build time. It lives in
@@ -34,7 +35,17 @@ planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 `pnpm import:space-photos` into `public/images/space/{slug}/` and
 `content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
 at `/gallery` shows both Explore place photos and Space body photos.
-The Topics catalog in `lib/topics.ts` lists Countries and Space.
+The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
+
+Maps (`/maps`) is a first-party MapLibre globe plate: NASA Blue Marble
+Web-Mercator tiles under `public/images/maps/tiles/` and Natural Earth
+admin-0 borders at `public/maps/countries.geojson`, with a camera index at
+`public/maps/country-index.json`. Deep links use `/maps?country=[slug|iso]` or `/maps?region=[africa|americas|asia|europe|oceania]`.
+Explore guides link back with “View on map”; Cleo may cite the same map paths.
+MapLibre’s module workers are vendored to `public/maplibre/` so Turbopack/Next
+can load them under the site CSP. Regenerate tiles, borders, index, and workers
+with `pnpm prepare:maps` (`--skip-tiles` refreshes vectors/index only); validate
+with `pnpm validate:maps`. No third-party tile CDN — assets stay on-origin.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.
@@ -126,6 +137,8 @@ Tencent, or Upstash without an explicit product decision.
 
 - Code: `pnpm typecheck` (and `pnpm build` when changing routes/config).
 - Country media: `pnpm validate:atlas` before deploying image or manifest changes.
+- Space media: `pnpm validate:space` before deploying Space photo changes.
+- Maps media: `pnpm validate:maps` before deploying tiles, borders, or index changes.
 - Site: relevant unit tests via `pnpm test:unit` / `pnpm test:security`.
 - Cleo: multi-turn chat, reasoning activity, web search, image attach/vision,
   image generation, streaming, cancellation, and relevant errors.

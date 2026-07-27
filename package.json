@@ -32,6 +32,8 @@
     "validate:atlas": "tsx scripts/atlas/preflight.mjs",
     "import:space-photos": "node scripts/space/import-space-photos.mjs",
     "validate:space": "node scripts/space/preflight.mjs",
+    "prepare:maps": "node scripts/maps/prepare-map-assets.mjs",
+    "validate:maps": "node scripts/maps/preflight.mjs",
     "generate:cleo-topic-photo-zoom": "tsx scripts/cleo/generate-topic-photo-zoom.mjs",
     "typecheck": "tsc --noEmit"
   },
@@ -49,6 +51,7 @@
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.25.0",
+    "maplibre-gl": "^6.0.0",
     "motion": "^12.42.2",
     "next": "16.3.0-preview.9",
     "next-mdx-remote": "^6.0.0",
