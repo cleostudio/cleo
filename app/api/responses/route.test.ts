@@ -455,6 +455,9 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       type: "web_search",
       search_context_size: "high",
     })
+    expect(openai.create.mock.calls[0]?.[0].include).toEqual([
+      "web_search_call.action.sources",
+    ])
   })
 
   it("raises reasoning effort for comparison prompts", async () => {
@@ -485,16 +488,23 @@ describe("POST /api/responses: streaming and upstream errors", () => {
         responseStream([
           {
             item: {
-              arguments: JSON.stringify({
-                collection: "explore",
-                slug: "japan",
-              }),
+              arguments: "",
               call_id: "call_lookup_1",
               id: "fc_1",
               name: "lookup_guide",
               type: "function_call",
             },
             type: "response.output_item.added",
+          },
+          {
+            delta: '{"collection":"explore","slug":"japan"}',
+            item_id: "fc_1",
+            type: "response.function_call_arguments.delta",
+          },
+          {
+            arguments: '{"collection":"explore","slug":"japan"}',
+            item_id: "fc_1",
+            type: "response.function_call_arguments.done",
           },
           {
             item: {
@@ -539,14 +549,15 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     const events = await ndjson(await POST(ask(question)))
 
     expect(openai.create).toHaveBeenCalledTimes(2)
-    expect(
-      events.some(
+    const portalLabels = events
+      .filter(
         (event) =>
           event.type === "activity" &&
           event.activity?.kind === "portal_tool" &&
           event.activity?.action?.name === "lookup_guide"
       )
-    ).toBe(true)
+      .map((event) => event.activity?.action?.label)
+    expect(portalLabels.some((label) => label?.includes("japan"))).toBe(true)
     expect(events.filter((event) => event.type === "text")).toEqual([
       { delta: "Japan is an archipelago.", type: "text" },
     ])
@@ -561,6 +572,55 @@ describe("POST /api/responses: streaming and upstream errors", () => {
           item.type === "function_call_output"
       )
     ).toBe(true)
+  })
+
+  it("forwards web_search sources into activity when present", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        {
+          item: {
+            action: {
+              type: "search",
+              query: "ISS orbital period",
+              sources: [
+                { type: "url", url: "https://www.nasa.gov/iss/" },
+                { type: "url", url: "https://example.com/orbit" },
+              ],
+            },
+            id: "ws_src",
+            status: "completed",
+            type: "web_search_call",
+          },
+          type: "response.output_item.done",
+        },
+        { delta: "About 90 minutes.", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
+    )
+
+    const events = await ndjson(
+      await POST(
+        ask({
+          mode: "research",
+          messages: [{ content: "ISS orbit?", role: "user" }],
+        })
+      )
+    )
+
+    const searchActivity = events.find(
+      (event) =>
+        event.type === "activity" &&
+        event.activity?.id === "ws_src" &&
+        event.activity?.kind === "web_search"
+    )
+    expect(searchActivity?.activity?.action).toMatchObject({
+      type: "search",
+      query: "ISS orbital period",
+      sources: [
+        { type: "url", url: "https://www.nasa.gov/iss/" },
+        { type: "url", url: "https://example.com/orbit" },
+      ],
+    })
   })
 
   it("keeps a partial answer when the stream is incomplete after text", async () => {

@@ -319,10 +319,19 @@ function toWebSearchAction(
   }
 
   if (action.type === "search") {
+    const sources = action.sources
+      ?.filter(
+        (source): source is { type: "url"; url: string } =>
+          source?.type === "url" && typeof source.url === "string" && Boolean(source.url)
+      )
+      .slice(0, 8)
+      .map((source) => ({ type: "url" as const, url: source.url }))
+
     return {
       type: "search",
       queries: action.queries,
       query: action.query,
+      ...(sources && sources.length > 0 ? { sources } : {}),
     }
   }
 
@@ -445,6 +454,12 @@ export async function POST(request: Request) {
     .join("\n\n")
   const tools = buildCleoTools(mode)
   const verbosity = modeTextVerbosity(mode)
+  // Research mode asks the hosted web_search tool to return source URLs so the
+  // activity panel can surface what was consulted (OpenAI include guidance).
+  const include =
+    mode === "research"
+      ? (["web_search_call.action.sources"] as const)
+      : undefined
 
   const createStream = () =>
     client.responses.create(
@@ -461,6 +476,7 @@ export async function POST(request: Request) {
         text: { verbosity },
         tools,
         store: false,
+        ...(include ? { include: [...include] } : {}),
       },
       { signal: request.signal }
     ) as Promise<ResponseStream>
@@ -473,6 +489,11 @@ export async function POST(request: Request) {
     const encoder = new TextEncoder()
     const activities = new Map<string, ActivityItem>()
     const reasoningParts = new Map<string, Map<number, string>>()
+    /** Accumulate streamed function-call arguments for live activity labels. */
+    const portalToolCalls = new Map<
+      string,
+      { name: string; arguments: string }
+    >()
     let activeUpstream: { controller: { abort: () => void } } | null = null
 
     const enqueue = (
@@ -565,9 +586,11 @@ export async function POST(request: Request) {
                 } else if (event.item.type === "function_call") {
                   const name = event.item.name
                   const args = event.item.arguments ?? ""
+                  const itemId = event.item.id ?? event.item.call_id
                   if (isPortalToolName(name)) {
+                    portalToolCalls.set(itemId, { name, arguments: args })
                     emitActivity(controller, {
-                      id: event.item.id ?? event.item.call_id,
+                      id: itemId,
                       kind: "portal_tool",
                       status: "in_progress",
                       action: {
@@ -581,6 +604,50 @@ export async function POST(request: Request) {
                       },
                     })
                   }
+                }
+                continue
+              }
+
+              if (event.type === "response.function_call_arguments.delta") {
+                const tracked = portalToolCalls.get(event.item_id)
+                if (tracked) {
+                  tracked.arguments += event.delta
+                  emitActivity(controller, {
+                    id: event.item_id,
+                    kind: "portal_tool",
+                    status: "in_progress",
+                    action: {
+                      type: "portal_tool",
+                      name: tracked.name,
+                      label: portalToolActivityLabel(
+                        tracked.name,
+                        tracked.arguments,
+                        "in_progress"
+                      ),
+                    },
+                  })
+                }
+                continue
+              }
+
+              if (event.type === "response.function_call_arguments.done") {
+                const tracked = portalToolCalls.get(event.item_id)
+                if (tracked) {
+                  tracked.arguments = event.arguments
+                  emitActivity(controller, {
+                    id: event.item_id,
+                    kind: "portal_tool",
+                    status: "in_progress",
+                    action: {
+                      type: "portal_tool",
+                      name: tracked.name,
+                      label: portalToolActivityLabel(
+                        tracked.name,
+                        tracked.arguments,
+                        "in_progress"
+                      ),
+                    },
+                  })
                 }
                 continue
               }

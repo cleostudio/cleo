@@ -2,6 +2,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  isKnownPortalGuideSlug,
   topicPhotoZoomForSrc,
   topicPhotoZoomKeyFromSrc,
 } from '~/lib/cleo/topic-photo-zoom'
@@ -20,6 +21,14 @@ describe('topicPhotoZoomKeyFromSrc', () => {
   it('rejects non-curated paths', () => {
     expect(topicPhotoZoomKeyFromSrc('https://evil.example/x.jpg')).toBeNull()
     expect(topicPhotoZoomKeyFromSrc('/images/other/x.jpg')).toBeNull()
+  })
+})
+
+describe('isKnownPortalGuideSlug', () => {
+  it('recognizes catalog guides and rejects invented slugs', () => {
+    expect(isKnownPortalGuideSlug('explore', 'japan')).toBe(true)
+    expect(isKnownPortalGuideSlug('space', 'mars')).toBe(true)
+    expect(isKnownPortalGuideSlug('explore', 'atlantis-not-real')).toBe(false)
   })
 })
 

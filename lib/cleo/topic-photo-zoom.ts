@@ -39,3 +39,18 @@ export function topicPhotoZoomForSrc(
   if (!key) return null
   return index[key] ?? null
 }
+
+/**
+ * True when an Explore/Space guide slug has a curated photograph entry — used
+ * as a client-safe catalog existence check (same keys as the zoom index).
+ */
+export function isKnownPortalGuideSlug(
+  collection: 'explore' | 'space',
+  slug: string,
+): boolean {
+  const normalized = slug.trim().toLowerCase()
+  if (!normalized) return false
+  const key =
+    collection === 'explore' ? `atlas/${normalized}` : `space/${normalized}`
+  return key in index
+}

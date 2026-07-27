@@ -141,6 +141,14 @@ describe('presentPortalGuideMarkdown', () => {
 
     expect(presentPortalGuideMarkdown(markdown)).toBe(markdown)
   })
+
+  it('strips invented Explore/Space guide hrefs to plain labels', () => {
+    expect(
+      presentPortalGuideMarkdown(
+        'Visit [Atlantis](/explore/atlantis-not-real) and [Mars](/space/mars).',
+      ),
+    ).toBe('Visit Atlantis and [Mars](/space/mars).')
+  })
 })
 
 describe('presentTopicPhotoMarkdown', () => {

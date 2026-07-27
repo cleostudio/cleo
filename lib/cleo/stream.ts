@@ -1,8 +1,15 @@
+export type WebSearchSource = {
+  type: "url"
+  url: string
+}
+
 export type WebSearchAction =
   | {
       type: "search"
       queries?: string[]
       query?: string
+      /** Hosted web_search sources when requested via include. */
+      sources?: WebSearchSource[]
     }
   | {
       type: "open_page"

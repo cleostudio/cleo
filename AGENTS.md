@@ -82,7 +82,9 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   (`lib/cleo/mode.ts`).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`);
   activities include `web_search`, `reasoning`, `image_generation`,
-  `portal_tool`, and `code_interpreter`.
+  `portal_tool`, and `code_interpreter`. Portal tool labels update as
+  `function_call_arguments` stream in; Research mode includes
+  `web_search_call.action.sources` for the activity panel.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
   grounds matching subjects on each turn; tools can also supply paths);
@@ -91,8 +93,9 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   lightbox — curated topic photos resolve Gallery-parity caption plates via
   `content/cleo-topic-photo-zoom.json` (`pnpm generate:cleo-topic-photo-zoom`,
   kept in sync by `lib/cleo/topic-photo-zoom.test.ts`).
-- Guardrails: `lib/cleo/guardrails.ts` strips invented Explore/Space paths and
-  curated image URLs in unit-tested sanitization helpers.
+- Guardrails: `lib/cleo/guardrails.ts` (server/unit) and client Markdown via
+  `isKnownPortalGuideSlug` / curated image checks strip invented Explore/Space
+  paths before Streamdown renders.
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
   `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).

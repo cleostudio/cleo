@@ -142,9 +142,19 @@ function activityLabel(activity: ActivityItem) {
 
   if (action.type === "search") {
     const query = action.queries?.[0] ?? action.query
+    const sourceHosts = (action.sources ?? [])
+      .map((source) => hostnameFromUrl(source.url))
+      .filter(Boolean)
+      .slice(0, 3)
+    const sourcesSuffix =
+      activity.status === "completed" && sourceHosts.length > 0
+        ? ` · ${sourceHosts.join(", ")}`
+        : ""
 
     if (activity.status === "completed") {
-      return query ? `Searched “${query}”` : "Searched the web"
+      return query
+        ? `Searched “${query}”${sourcesSuffix}`
+        : `Searched the web${sourcesSuffix}`
     }
 
     return query ? `Searching “${query}”` : "Searching the web"
@@ -181,7 +191,9 @@ function hasActionDetail(activity: ActivityItem) {
   }
 
   if (action.type === "search") {
-    return Boolean(action.queries?.[0] ?? action.query)
+    return Boolean(
+      action.queries?.[0] ?? action.query ?? action.sources?.length
+    )
   }
 
   if (action.type === "open_page") {

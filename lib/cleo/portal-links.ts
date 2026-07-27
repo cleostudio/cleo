@@ -2,9 +2,12 @@
  * Client-safe helpers for Cleo ↔ portal guide deep links and topic photos.
  * Kept free of heavy catalog imports so the ask-form bundle stays light.
  *
- * Catalog existence checks for invented paths live in `guardrails.ts` (server /
- * unit tests). The client still strips non-curated image srcs here.
+ * Invented Explore/Space paths are stripped using the slim zoom index
+ * (`topic-photo-zoom.ts`). Server-side `guardrails.ts` covers the same bar
+ * with live atlas/space lookups for unit tests.
  */
+
+import { isKnownPortalGuideSlug } from '~/lib/cleo/topic-photo-zoom'
 
 export type PortalGuideLink = {
   collection: 'explore' | 'space'
@@ -156,8 +159,24 @@ export function presentPortalGuideMarkdown(markdown: string): string {
   const rewriteLinks = (block: string) =>
     block.replace(
       MARKDOWN_GUIDE_LINK,
-      (_full, rawLabel: string, href: string, _collection: string, slug: string) => {
+      (
+        _full,
+        rawLabel: string,
+        href: string,
+        collection: string,
+        slug: string,
+      ) => {
         const label = cleanPortalGuideLabel(rawLabel, slug)
+        if (
+          collection !== 'explore' &&
+          collection !== 'space'
+        ) {
+          return label
+        }
+        if (!isKnownPortalGuideSlug(collection, slug)) {
+          // Invented catalog path — keep the label, drop the href.
+          return label
+        }
         const guideName = titleFromSlug(slug)
         if (seenHrefs.has(href)) {
           return label
