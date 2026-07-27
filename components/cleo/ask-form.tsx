@@ -114,7 +114,6 @@ export function AskForm({ initialAsk = null }: AskFormProps = {}) {
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const mountedRef = useRef(true)
-  const deepLinkConsumedRef = useRef(false)
   const submitRef = useRef<
     (event?: FormEvent<HTMLFormElement>, promptOverride?: string) => Promise<void>
   >(async () => {})
@@ -446,18 +445,18 @@ export function AskForm({ initialAsk = null }: AskFormProps = {}) {
   submitRef.current = handleSubmit
 
   // Portal deep links (`/cleo?q=…&auto=1`) start a turn once on an empty chat.
-  // Clear the query string before submit so React Strict Mode remounts do not
-  // fire a second request from the same navigation.
+  // Defer submit past React Strict Mode's immediate unmount, and only clear the
+  // query string when the turn actually starts so a remount can still see `q`.
   useEffect(() => {
-    if (deepLinkConsumedRef.current || !initialAsk?.prompt) {
+    if (!initialAsk?.prompt) {
       return
     }
 
-    const url = new URL(window.location.href)
-    const hadQuery =
-      url.searchParams.has('q') || url.searchParams.has('auto')
-
-    if (hadQuery) {
+    const clearAskParams = () => {
+      const url = new URL(window.location.href)
+      if (!url.searchParams.has('q') && !url.searchParams.has('auto')) {
+        return false
+      }
       url.searchParams.delete('q')
       url.searchParams.delete('auto')
       window.history.replaceState(
@@ -465,21 +464,38 @@ export function AskForm({ initialAsk = null }: AskFormProps = {}) {
         '',
         `${url.pathname}${url.search}${url.hash}`,
       )
+      return true
     }
 
-    if (initialAsk.autoSubmit) {
-      if (!hadQuery) {
-        deepLinkConsumedRef.current = true
-        return
-      }
-      deepLinkConsumedRef.current = true
-      void submitRef.current(undefined, initialAsk.prompt)
+    const url = new URL(window.location.href)
+    const hadQuery =
+      url.searchParams.has('q') || url.searchParams.has('auto')
+    if (!hadQuery) {
       return
     }
 
-    deepLinkConsumedRef.current = true
-    setInput(initialAsk.prompt)
-    inputRef.current?.focus()
+    if (!initialAsk.autoSubmit) {
+      clearAskParams()
+      setInput(initialAsk.prompt)
+      inputRef.current?.focus()
+      return
+    }
+
+    let cancelled = false
+    const timer = window.setTimeout(() => {
+      if (cancelled) return
+      const stillPending =
+        new URL(window.location.href).searchParams.has('q') ||
+        new URL(window.location.href).searchParams.has('auto')
+      if (!stillPending) return
+      clearAskParams()
+      void submitRef.current(undefined, initialAsk.prompt)
+    }, 0)
+
+    return () => {
+      cancelled = true
+      window.clearTimeout(timer)
+    }
   }, [initialAsk])
 
   return (
