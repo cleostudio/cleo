@@ -184,6 +184,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const [zoom, setZoom] = useState(MAP_MIN_ZOOM)
   const [selected, setSelected] = useState<MapCountryHit | null>(null)
   const [query, setQuery] = useState('')
+  const [suggestionsOpen, setSuggestionsOpen] = useState(false)
   const [suggestions, setSuggestions] = useState<MapCountryIndexEntry[]>([])
   const [activeSuggestion, setActiveSuggestion] = useState(0)
   const [regions, setRegions] = useState<MapRegionCamera[]>([])
@@ -255,7 +256,10 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       setActiveRegion(null)
       activeRegionRef.current = null
       setCopyState('idle')
+      setSuggestionsOpen(false)
+      setSuggestions([])
       if (hit) {
+        setQuery(hit.name)
         setFocusAnnouncement(`Selected ${hit.name}.`)
         syncMapFocusSearchParams({
           kind: 'country',
@@ -267,6 +271,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
           if (indexed) fitCountry(map, indexed)
         }
       } else {
+        setQuery('')
         setFocusAnnouncement('Selection cleared.')
         syncMapFocusSearchParams(null)
       }
@@ -428,7 +433,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
 
   useEffect(() => {
     const trimmed = query.trim().toLowerCase()
-    if (!trimmed) {
+    if (!suggestionsOpen || !trimmed) {
       setSuggestions([])
       setActiveSuggestion(0)
       return
@@ -443,20 +448,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       .slice(0, 8)
     setSuggestions(next)
     setActiveSuggestion(0)
-  }, [query, ready])
-
-  useEffect(() => {
-    if (!selected && !activeRegion) return
-    const panel = selectionPanelRef.current
-    if (!panel) return
-    const reduceMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    panel.scrollIntoView({
-      block: 'nearest',
-      behavior: reduceMotion ? 'auto' : 'smooth',
-    })
-  }, [selected?.code, activeRegion])
+  }, [query, ready, suggestionsOpen])
 
   function flyToCountry(
     entry: MapCountryIndexEntry,
@@ -476,6 +468,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     selectedCodeRef.current = hit.code
     setSelected(hit)
     setQuery(entry.name)
+    setSuggestionsOpen(false)
     setSuggestions([])
     setActiveRegion(null)
     activeRegionRef.current = null
@@ -502,6 +495,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     selectedCodeRef.current = null
     setSelected(null)
     setQuery('')
+    setSuggestionsOpen(false)
     setSuggestions([])
     setActiveRegion(null)
     activeRegionRef.current = null
@@ -531,6 +525,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     selectedCodeRef.current = null
     setSelected(null)
     setQuery('')
+    setSuggestionsOpen(false)
     setSuggestions([])
     setCopyState('idle')
     setActiveRegion(region.id)
@@ -603,7 +598,13 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
               type="search"
               role="combobox"
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => {
+                setQuery(event.target.value)
+                setSuggestionsOpen(true)
+              }}
+              onFocus={() => {
+                if (query.trim()) setSuggestionsOpen(true)
+              }}
               onBlur={(event) => {
                 const next = event.relatedTarget
                 if (
@@ -612,6 +613,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                 ) {
                   return
                 }
+                setSuggestionsOpen(false)
                 setSuggestions([])
               }}
               onKeyDown={(event) => {
@@ -634,7 +636,8 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                   return
                 }
                 if (event.key === 'Escape') {
-                  if (suggestions.length > 0) {
+                  if (suggestions.length > 0 || suggestionsOpen) {
+                    setSuggestionsOpen(false)
                     setSuggestions([])
                     return
                   }

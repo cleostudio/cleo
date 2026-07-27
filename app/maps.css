@@ -533,12 +533,16 @@ html[data-maps-route] body {
   }
 
   .earth-map-chrome-meta {
-    top: auto;
+    top: max(var(--maps-hud-inset), env(safe-area-inset-top, 0px));
     right: max(var(--maps-hud-inset), env(safe-area-inset-right, 0px));
-    bottom: calc(
-      var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 4.6rem
-    );
-    max-width: none;
+    bottom: auto;
+    max-width: min(11.5rem, calc(100% - 2 * var(--maps-hud-inset)));
+  }
+
+  .earth-map-meta {
+    gap: 0.4rem 0.5rem;
+    padding: 0.38rem 0.5rem;
+    font-size: 0.625rem;
   }
 
   .earth-map-chrome-bottom {
