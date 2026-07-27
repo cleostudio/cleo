@@ -27,7 +27,7 @@ document (enable both products in the Vercel project dashboard).
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4, Base UI
 - Posts: `content/blog/<slug>/` via owned content route
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `lib/places.ts`
-  (160 nested city/state/island/region/landmark guides across batches 1–5),
+  (192 nested city/state/island/region/landmark guides across batches 1–6),
   `/explore`, `/explore/[country]/[place]`, `/gallery`
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)

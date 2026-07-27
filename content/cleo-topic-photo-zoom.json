@@ -8519,6 +8519,774 @@
       }
     ]
   },
+  "places/seattle": {
+    "collection": "places",
+    "title": "Seattle",
+    "subtitle": "Seattle",
+    "alt": "Seattle in United States",
+    "photographer": "Cacophony",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2301,
+    "renditions": [
+      {
+        "src": "/images/places/seattle/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/seattle/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/seattle/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/boston": {
+    "collection": "places",
+    "title": "Boston",
+    "subtitle": "Boston",
+    "alt": "Boston in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/boston/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/boston/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/boston/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/miami": {
+    "collection": "places",
+    "title": "Miami",
+    "subtitle": "Miami",
+    "alt": "Miami in United States",
+    "photographer": "Carol M. Highsmith",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2700,
+    "renditions": [
+      {
+        "src": "/images/places/miami/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/miami/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/miami/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kuala-lumpur": {
+    "collection": "places",
+    "title": "Kuala Lumpur",
+    "subtitle": "Kuala Lumpur",
+    "alt": "Kuala Lumpur in Malaysia",
+    "photographer": "James Kerwin from Tbilisi",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/kuala-lumpur/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kuala-lumpur/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kuala-lumpur/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ho-chi-minh": {
+    "collection": "places",
+    "title": "Ho Chi Minh City",
+    "subtitle": "Ho Chi Minh City",
+    "alt": "Ho Chi Minh City in Vietnam",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/ho-chi-minh/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ho-chi-minh/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ho-chi-minh/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/busan": {
+    "collection": "places",
+    "title": "Busan",
+    "subtitle": "Busan",
+    "alt": "Busan in Korea, South",
+    "photographer": "嘉銘 詹",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2559,
+    "renditions": [
+      {
+        "src": "/images/places/busan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/busan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/busan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/geneva": {
+    "collection": "places",
+    "title": "Geneva",
+    "subtitle": "Geneva",
+    "alt": "Geneva in Switzerland",
+    "photographer": "Graymo86",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1867,
+    "renditions": [
+      {
+        "src": "/images/places/geneva/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/geneva/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/geneva/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/zurich": {
+    "collection": "places",
+    "title": "Zurich",
+    "subtitle": "Zurich",
+    "alt": "Zurich in Switzerland",
+    "photographer": "Daniel Kraft",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1996,
+    "renditions": [
+      {
+        "src": "/images/places/zurich/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/zurich/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/zurich/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/krakow": {
+    "collection": "places",
+    "title": "Kraków",
+    "subtitle": "Kraków",
+    "alt": "Kraków in Poland",
+    "photographer": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2524,
+    "renditions": [
+      {
+        "src": "/images/places/krakow/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/krakow/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/krakow/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/naples": {
+    "collection": "places",
+    "title": "Naples",
+    "subtitle": "Naples",
+    "alt": "Naples in Italy",
+    "photographer": "Moroder",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/naples/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/naples/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/naples/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/casablanca": {
+    "collection": "places",
+    "title": "Casablanca",
+    "subtitle": "Casablanca",
+    "alt": "Casablanca in Morocco",
+    "photographer": "Fraguando",
+    "license": "CC BY-SA 4.0",
+    "width": 3632,
+    "height": 3632,
+    "renditions": [
+      {
+        "src": "/images/places/casablanca/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/casablanca/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/casablanca/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/wellington": {
+    "collection": "places",
+    "title": "Wellington",
+    "subtitle": "Wellington",
+    "alt": "Wellington in New Zealand",
+    "photographer": "Dean S. Pemberton",
+    "license": "CC BY-SA 2.5",
+    "width": 3840,
+    "height": 1480,
+    "renditions": [
+      {
+        "src": "/images/places/wellington/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/wellington/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/wellington/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/oregon": {
+    "collection": "places",
+    "title": "Oregon",
+    "subtitle": "Oregon",
+    "alt": "Oregon in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1024,
+    "renditions": [
+      {
+        "src": "/images/places/oregon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/oregon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/oregon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/british-columbia": {
+    "collection": "places",
+    "title": "British Columbia",
+    "subtitle": "British Columbia",
+    "alt": "British Columbia in Canada",
+    "photographer": "Florian Fuchs",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2543,
+    "renditions": [
+      {
+        "src": "/images/places/british-columbia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/british-columbia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/british-columbia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/new-south-wales": {
+    "collection": "places",
+    "title": "New South Wales",
+    "subtitle": "New South Wales",
+    "alt": "New South Wales in Australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 3980,
+    "renditions": [
+      {
+        "src": "/images/places/new-south-wales/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/new-south-wales/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/new-south-wales/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ibiza": {
+    "collection": "places",
+    "title": "Ibiza",
+    "subtitle": "Ibiza",
+    "alt": "Ibiza in Spain",
+    "photographer": "Joselodos",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/ibiza/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ibiza/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ibiza/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mykonos": {
+    "collection": "places",
+    "title": "Mykonos",
+    "subtitle": "Mykonos",
+    "alt": "Mykonos in Greece",
+    "photographer": "GattoCeliaco",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/mykonos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mykonos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mykonos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/gran-canaria": {
+    "collection": "places",
+    "title": "Gran Canaria",
+    "subtitle": "Gran Canaria",
+    "alt": "Gran Canaria in Spain",
+    "photographer": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1467,
+    "renditions": [
+      {
+        "src": "/images/places/gran-canaria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/gran-canaria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/gran-canaria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/oahu": {
+    "collection": "places",
+    "title": "Oʻahu",
+    "subtitle": "Oʻahu",
+    "alt": "Oʻahu in United States",
+    "photographer": "Daniel Ramirez from Honolulu, USA",
+    "license": "CC BY 2.0",
+    "width": 3768,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/oahu/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/oahu/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/oahu/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kauai": {
+    "collection": "places",
+    "title": "Kauai",
+    "subtitle": "Kauaʻi",
+    "alt": "Kauai in United States",
+    "photographer": "OKJaguar",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1291,
+    "renditions": [
+      {
+        "src": "/images/places/kauai/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kauai/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kauai/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/corfu": {
+    "collection": "places",
+    "title": "Corfu",
+    "subtitle": "Corfu",
+    "alt": "Corfu in Greece",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2018,
+    "renditions": [
+      {
+        "src": "/images/places/corfu/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/corfu/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/corfu/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/black-forest": {
+    "collection": "places",
+    "title": "Black Forest",
+    "subtitle": "Black Forest",
+    "alt": "Black Forest in Germany",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2620,
+    "renditions": [
+      {
+        "src": "/images/places/black-forest/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/black-forest/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/black-forest/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cotswolds": {
+    "collection": "places",
+    "title": "Cotswolds",
+    "subtitle": "Cotswolds",
+    "alt": "Cotswolds in United Kingdom",
+    "photographer": "Joecompan",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/cotswolds/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cotswolds/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cotswolds/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/pantanal": {
+    "collection": "places",
+    "title": "Pantanal",
+    "subtitle": "Pantanal",
+    "alt": "Pantanal in Brazil",
+    "photographer": "Stoni111121",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/pantanal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/pantanal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/pantanal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/wadi-rum": {
+    "collection": "places",
+    "title": "Wadi Rum",
+    "subtitle": "Wadi Rum",
+    "alt": "Wadi Rum in Jordan",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "width": 3453,
+    "height": 2100,
+    "renditions": [
+      {
+        "src": "/images/places/wadi-rum/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/wadi-rum/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/wadi-rum/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/brittany": {
+    "collection": "places",
+    "title": "Brittany",
+    "subtitle": "Brittany",
+    "alt": "Brittany in France",
+    "photographer": "Benh LIEU SONG",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1015,
+    "renditions": [
+      {
+        "src": "/images/places/brittany/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/brittany/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/brittany/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/christ-the-redeemer": {
+    "collection": "places",
+    "title": "Cristo Redentor",
+    "subtitle": "Christ the Redeemer",
+    "alt": "Cristo Redentor in Brazil",
+    "photographer": "Donatas Dabravolskas",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/christ-the-redeemer/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/christ-the-redeemer/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/christ-the-redeemer/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/burj-khalifa": {
+    "collection": "places",
+    "title": "Burj Khalifa",
+    "subtitle": "Burj Khalifa",
+    "alt": "Burj Khalifa in United Arab Emirates",
+    "photographer": "Laika ac",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/burj-khalifa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/burj-khalifa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/burj-khalifa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/antelope-canyon": {
+    "collection": "places",
+    "title": "Antelope Canyon",
+    "subtitle": "Antelope Canyon",
+    "alt": "Antelope Canyon in United States",
+    "photographer": "Mferbfriske",
+    "license": "CC BY-SA 2.0",
+    "width": 2400,
+    "height": 1697,
+    "renditions": [
+      {
+        "src": "/images/places/antelope-canyon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/antelope-canyon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/antelope-canyon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/table-mountain": {
+    "collection": "places",
+    "title": "Table Mountain",
+    "subtitle": "Table Mountain",
+    "alt": "Table Mountain in South Africa",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/table-mountain/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/table-mountain/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/table-mountain/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mount-cook": {
+    "collection": "places",
+    "title": "Aoraki / Mount Cook",
+    "subtitle": "Aoraki / Mount Cook",
+    "alt": "Aoraki / Mount Cook in New Zealand",
+    "photographer": "Bernard Spragg. NZ from Christchurch, New Zealand",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/mount-cook/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mount-cook/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mount-cook/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ephesus": {
+    "collection": "places",
+    "title": "Ephesus",
+    "subtitle": "Ephesus",
+    "alt": "Ephesus in Türkiye",
+    "photographer": "Benh LIEU SONG",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2975,
+    "renditions": [
+      {
+        "src": "/images/places/ephesus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ephesus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ephesus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

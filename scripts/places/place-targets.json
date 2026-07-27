@@ -1698,5 +1698,354 @@
       "Terracotta Army",
       "Terracotta Warriors Xi'an"
     ]
+  },
+  "seattle": {
+    "name": "Seattle",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Seattle",
+      "Seattle skyline",
+      "Space Needle"
+    ]
+  },
+  "boston": {
+    "name": "Boston",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Boston",
+      "Boston skyline",
+      "Boston Common"
+    ]
+  },
+  "miami": {
+    "name": "Miami",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Miami",
+      "Miami skyline",
+      "South Beach Miami"
+    ]
+  },
+  "kuala-lumpur": {
+    "name": "Kuala Lumpur",
+    "countrySlug": "malaysia",
+    "countryName": "Malaysia",
+    "kind": "City",
+    "searchNames": [
+      "Kuala Lumpur",
+      "Petronas Towers",
+      "KLCC"
+    ]
+  },
+  "ho-chi-minh": {
+    "name": "Ho Chi Minh City",
+    "countrySlug": "vietnam",
+    "countryName": "Vietnam",
+    "kind": "City",
+    "searchNames": [
+      "Ho Chi Minh City",
+      "Saigon",
+      "Bitexco"
+    ]
+  },
+  "busan": {
+    "name": "Busan",
+    "countrySlug": "korea-south",
+    "countryName": "Korea, South",
+    "kind": "City",
+    "searchNames": [
+      "Busan",
+      "Busan skyline",
+      "Haeundae"
+    ]
+  },
+  "geneva": {
+    "name": "Geneva",
+    "countrySlug": "switzerland",
+    "countryName": "Switzerland",
+    "kind": "City",
+    "searchNames": [
+      "Geneva",
+      "Jet d'Eau",
+      "Geneva lake"
+    ]
+  },
+  "zurich": {
+    "name": "Zurich",
+    "countrySlug": "switzerland",
+    "countryName": "Switzerland",
+    "kind": "City",
+    "searchNames": [
+      "Zurich",
+      "Zürich",
+      "Zurich old town"
+    ]
+  },
+  "krakow": {
+    "name": "Kraków",
+    "countrySlug": "poland",
+    "countryName": "Poland",
+    "kind": "City",
+    "searchNames": [
+      "Krakow",
+      "Kraków",
+      "Wawel",
+      "Main Square Krakow"
+    ]
+  },
+  "naples": {
+    "name": "Naples",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Naples",
+      "Napoli",
+      "Naples Bay Vesuvius"
+    ]
+  },
+  "casablanca": {
+    "name": "Casablanca",
+    "countrySlug": "morocco",
+    "countryName": "Morocco",
+    "kind": "City",
+    "searchNames": [
+      "Casablanca",
+      "Hassan II Mosque",
+      "Casablanca skyline"
+    ]
+  },
+  "wellington": {
+    "name": "Wellington",
+    "countrySlug": "new-zealand",
+    "countryName": "New Zealand",
+    "kind": "City",
+    "searchNames": [
+      "Wellington",
+      "Wellington harbour",
+      "Te Papa"
+    ]
+  },
+  "oregon": {
+    "name": "Oregon",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Oregon",
+      "Oregon coast",
+      "Crater Lake",
+      "Columbia River Gorge"
+    ]
+  },
+  "british-columbia": {
+    "name": "British Columbia",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": [
+      "British Columbia",
+      "BC Rockies",
+      "Pacific Coast BC"
+    ]
+  },
+  "new-south-wales": {
+    "name": "New South Wales",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "State",
+    "searchNames": [
+      "New South Wales",
+      "Blue Mountains",
+      "NSW coast"
+    ]
+  },
+  "ibiza": {
+    "name": "Ibiza",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": [
+      "Ibiza",
+      "Ibiza Old Town",
+      "Dalt Vila"
+    ]
+  },
+  "mykonos": {
+    "name": "Mykonos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Mykonos",
+      "Mykonos windmills",
+      "Little Venice Mykonos"
+    ]
+  },
+  "gran-canaria": {
+    "name": "Gran Canaria",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": [
+      "Gran Canaria",
+      "Roque Nublo",
+      "Maspalomas dunes"
+    ]
+  },
+  "oahu": {
+    "name": "Oʻahu",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Island",
+    "searchNames": [
+      "Oahu",
+      "Waikiki",
+      "Diamond Head",
+      "Honolulu"
+    ]
+  },
+  "kauai": {
+    "name": "Kauaʻi",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Island",
+    "searchNames": [
+      "Kauai",
+      "Na Pali Coast",
+      "Waimea Canyon"
+    ]
+  },
+  "corfu": {
+    "name": "Corfu",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Corfu",
+      "Kerkyra",
+      "Corfu Old Town"
+    ]
+  },
+  "black-forest": {
+    "name": "Black Forest",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Black Forest",
+      "Schwarzwald",
+      "Triberg"
+    ]
+  },
+  "cotswolds": {
+    "name": "Cotswolds",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Region",
+    "searchNames": [
+      "Cotswolds",
+      "Cotswold villages",
+      "Bibury"
+    ]
+  },
+  "pantanal": {
+    "name": "Pantanal",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "Region",
+    "searchNames": [
+      "Pantanal",
+      "Pantanal wetland"
+    ]
+  },
+  "wadi-rum": {
+    "name": "Wadi Rum",
+    "countrySlug": "jordan",
+    "countryName": "Jordan",
+    "kind": "Region",
+    "searchNames": [
+      "Wadi Rum",
+      "Wadi Rum desert"
+    ]
+  },
+  "brittany": {
+    "name": "Brittany",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Brittany",
+      "Bretagne",
+      "Brittany coast"
+    ]
+  },
+  "christ-the-redeemer": {
+    "name": "Christ the Redeemer",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "Landmark",
+    "searchNames": [
+      "Christ the Redeemer",
+      "Cristo Redentor"
+    ]
+  },
+  "burj-khalifa": {
+    "name": "Burj Khalifa",
+    "countrySlug": "united-arab-emirates",
+    "countryName": "United Arab Emirates",
+    "kind": "Landmark",
+    "searchNames": [
+      "Burj Khalifa",
+      "Burj Khalifa Dubai"
+    ]
+  },
+  "antelope-canyon": {
+    "name": "Antelope Canyon",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Antelope Canyon",
+      "Upper Antelope Canyon"
+    ]
+  },
+  "table-mountain": {
+    "name": "Table Mountain",
+    "countrySlug": "south-africa",
+    "countryName": "South Africa",
+    "kind": "Landmark",
+    "searchNames": [
+      "Table Mountain",
+      "Table Mountain Cape Town"
+    ]
+  },
+  "mount-cook": {
+    "name": "Aoraki / Mount Cook",
+    "countrySlug": "new-zealand",
+    "countryName": "New Zealand",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mount Cook",
+      "Aoraki",
+      "Aoraki Mount Cook"
+    ]
+  },
+  "ephesus": {
+    "name": "Ephesus",
+    "countrySlug": "turkiye",
+    "countryName": "Türkiye",
+    "kind": "Landmark",
+    "searchNames": [
+      "Ephesus",
+      "Library of Celsus",
+      "Ephesus ruins"
+    ]
   }
 }

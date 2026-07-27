@@ -4638,5 +4638,933 @@
         "bytes": 307955
       }
     ]
+  },
+  "seattle": {
+    "featureName": "Seattle",
+    "alt": "Seattle in United States",
+    "caption": "Seattle, United States",
+    "photographer": "Cacophony",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:SeattleI5Skyline.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:SeattleI5Skyline.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/36/SeattleI5Skyline.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d8d4aed96b5a9178bcc0d9da41a7195ca804736a5823b951ccc1ce62fc78f5aa",
+    "width": 3840,
+    "height": 2301,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/seattle/w640.jpg",
+        "bytes": 31118
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/seattle/w1280.jpg",
+        "bytes": 100178
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/seattle/w2048.jpg",
+        "bytes": 270086
+      }
+    ]
+  },
+  "boston": {
+    "featureName": "Boston",
+    "alt": "Boston in United States",
+    "caption": "Boston, United States",
+    "photographer": "King of Hearts",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boston_skyline_from_Longfellow_Bridge_September_2017_panorama_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Boston skyline from Longfellow Bridge September 2017 panorama 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/ca/Boston_skyline_from_Longfellow_Bridge_September_2017_panorama_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "487f871770b2b2d3e51f35973b47286eeadd4bb3c523ffac420589669052ff39",
+    "width": 3840,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/boston/w640.jpg",
+        "bytes": 31590
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/boston/w1280.jpg",
+        "bytes": 117401
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/boston/w2048.jpg",
+        "bytes": 351253
+      }
+    ]
+  },
+  "miami": {
+    "featureName": "Miami",
+    "alt": "Miami in United States",
+    "caption": "Miami, United States",
+    "photographer": "Carol M. Highsmith",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miami_skyline_from_Biscayne_Bay,_Florida_LCCN2011634548.tif",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Miami skyline from Biscayne Bay, Florida LCCN2011634548.tif); source https://upload.wikimedia.org/wikipedia/commons/8/88/Miami_skyline_from_Biscayne_Bay%2C_Florida_LCCN2011634548.tif; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "acb4cbaa9175a8bb4539d5e030384f81539863ed9277993f92e69ec9108a6255",
+    "width": 3840,
+    "height": 2700,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/miami/w640.jpg",
+        "bytes": 30516
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/miami/w1280.jpg",
+        "bytes": 108001
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/miami/w2048.jpg",
+        "bytes": 319091
+      }
+    ]
+  },
+  "kuala-lumpur": {
+    "featureName": "Kuala Lumpur",
+    "alt": "Kuala Lumpur in Malaysia",
+    "caption": "Kuala Lumpur, Malaysia",
+    "photographer": "James Kerwin from Tbilisi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Twins_SE_Asia_2019_(49171985716).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:The Twins SE Asia 2019 (49171985716).jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c8/The_Twins_SE_Asia_2019_%2849171985716%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "65b744903ad82a81fc9a0c81346a29eca128f0e139e3148fdf7655789609ac8d",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kuala-lumpur/w640.jpg",
+        "bytes": 52706
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kuala-lumpur/w1280.jpg",
+        "bytes": 197131
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kuala-lumpur/w2048.jpg",
+        "bytes": 577719
+      }
+    ]
+  },
+  "ho-chi-minh": {
+    "featureName": "Ho Chi Minh City",
+    "alt": "Ho Chi Minh City in Vietnam",
+    "caption": "Ho Chi Minh City, Vietnam",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vista_de_Ciudad_Ho_Chi_Minh_desde_Bitexco_Financial_Tower,_Vietnam,_2013-08-14,_DD_13.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vista de Ciudad Ho Chi Minh desde Bitexco Financial Tower, Vietnam, 2013-08-14, DD 13.JPG); source https://upload.wikimedia.org/wikipedia/commons/d/d9/Vista_de_Ciudad_Ho_Chi_Minh_desde_Bitexco_Financial_Tower%2C_Vietnam%2C_2013-08-14%2C_DD_13.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0607d8c48457e7a3a5af79ae0d5f677e8a77facc0251fd456a0e37e1c7916938",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ho-chi-minh/w640.jpg",
+        "bytes": 63112
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ho-chi-minh/w1280.jpg",
+        "bytes": 219968
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ho-chi-minh/w2048.jpg",
+        "bytes": 596431
+      }
+    ]
+  },
+  "busan": {
+    "featureName": "Busan",
+    "alt": "Busan in Korea, South",
+    "caption": "Busan, Korea, South",
+    "photographer": "嘉銘 詹",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skyline_of_Haeundae_at_Day.png",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Skyline of Haeundae at Day.png); source https://upload.wikimedia.org/wikipedia/commons/1/12/Skyline_of_Haeundae_at_Day.png; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4ae1f1dd2fd65138aef4aeb3873f076fc2578d508d7848e949c8d44e5c853e3a",
+    "width": 3840,
+    "height": 2559,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/busan/w640.jpg",
+        "bytes": 55185
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/busan/w1280.jpg",
+        "bytes": 193020
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/busan/w2048.jpg",
+        "bytes": 528301
+      }
+    ]
+  },
+  "geneva": {
+    "featureName": "Geneva",
+    "alt": "Geneva in Switzerland",
+    "caption": "Geneva, Switzerland",
+    "photographer": "Graymo86",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jet_dEau,_Rainbow.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Jet dEau, Rainbow.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/89/Jet_dEau%2C_Rainbow.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "72df18e32c9f55a2aca358a062f48dc40fba3faa02be431a0e8bded5803f6882",
+    "width": 3840,
+    "height": 1867,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/geneva/w640.jpg",
+        "bytes": 26187
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/geneva/w1280.jpg",
+        "bytes": 97704
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/geneva/w2048.jpg",
+        "bytes": 261621
+      }
+    ]
+  },
+  "zurich": {
+    "featureName": "Zurich",
+    "alt": "Zurich in Switzerland",
+    "caption": "Zurich, Switzerland",
+    "photographer": "Daniel Kraft",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_view_Quaibr%C3%BCcke_20200702.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Zürich view Quaibrücke 20200702.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f7/Z%C3%BCrich_view_Quaibr%C3%BCcke_20200702.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e7f2976d718234db07021d463c4d1dc367b59d8847100d741b516166b3f6a4cf",
+    "width": 3840,
+    "height": 1996,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/zurich/w640.jpg",
+        "bytes": 40319
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/zurich/w1280.jpg",
+        "bytes": 143065
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/zurich/w2048.jpg",
+        "bytes": 408972
+      }
+    ]
+  },
+  "krakow": {
+    "featureName": "Kraków",
+    "alt": "Kraków in Poland",
+    "caption": "Kraków, Poland",
+    "photographer": "Ingo Mehling",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Krakow_-_Cloth_Hall_from_Basilica_-_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Krakow - Cloth Hall from Basilica - 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/51/Krakow_-_Cloth_Hall_from_Basilica_-_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5011bc353bfb3f57aa9b59cf82f135f37ed0a3216bf21660202934667d563c46",
+    "width": 3840,
+    "height": 2524,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/krakow/w640.jpg",
+        "bytes": 58366
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/krakow/w1280.jpg",
+        "bytes": 204844
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/krakow/w2048.jpg",
+        "bytes": 585530
+      }
+    ]
+  },
+  "naples": {
+    "featureName": "Naples",
+    "alt": "Naples in Italy",
+    "caption": "Naples, Italy",
+    "photographer": "Moroder",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naples_from_the_Castello_Sant_Elmo_with_Abbazia_San_Martino_the_port_and_the_Vesuv.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Naples from the Castello Sant Elmo with Abbazia San Martino the port and the Vesuv.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6f/Naples_from_the_Castello_Sant_Elmo_with_Abbazia_San_Martino_the_port_and_the_Vesuv.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0293d994de6dd6b242dcbed53a97aa4637b9471c2d9997a9a3a7ff331de912a6",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/naples/w640.jpg",
+        "bytes": 55188
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/naples/w1280.jpg",
+        "bytes": 214392
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/naples/w2048.jpg",
+        "bytes": 653045
+      }
+    ]
+  },
+  "casablanca": {
+    "featureName": "Casablanca",
+    "alt": "Casablanca in Morocco",
+    "caption": "Casablanca, Morocco",
+    "photographer": "Fraguando",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mezquita_Hassan_II_(reflejo_en_agua).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Mezquita Hassan II (reflejo en agua).jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d0/Mezquita_Hassan_II_%28reflejo_en_agua%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8cf64c9fa283d1e06d22a12c87941c9518dbeff9044c61864c787b02ca53cc58",
+    "width": 3632,
+    "height": 3632,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/casablanca/w640.jpg",
+        "bytes": 162318
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/casablanca/w1280.jpg",
+        "bytes": 341560
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/casablanca/w2048.jpg",
+        "bytes": 704224
+      }
+    ]
+  },
+  "wellington": {
+    "featureName": "Wellington",
+    "alt": "Wellington in New Zealand",
+    "caption": "Wellington, New Zealand",
+    "photographer": "Dean S. Pemberton",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wellington_panorama_cropped.jpg",
+    "license": "CC BY-SA 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:Wellington panorama cropped.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f3/Wellington_panorama_cropped.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2f9eb98ed8dc30421569367e4a42ce8fafddc1bde05c40537d2ad432f1a27d8f",
+    "width": 3840,
+    "height": 1480,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/wellington/w640.jpg",
+        "bytes": 32234
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/wellington/w1280.jpg",
+        "bytes": 109570
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/wellington/w2048.jpg",
+        "bytes": 299307
+      }
+    ]
+  },
+  "oregon": {
+    "featureName": "Oregon",
+    "alt": "Oregon in United States",
+    "caption": "Oregon, United States",
+    "photographer": "King of Hearts",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portland_from_Pittock_Mansion_October_2019_panorama_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Portland from Pittock Mansion October 2019 panorama 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/da/Portland_from_Pittock_Mansion_October_2019_panorama_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "20b325823f1407f3f84f5da7bce60e57acc514f3b948b463f923f13d700b7912",
+    "width": 3840,
+    "height": 1024,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/oregon/w640.jpg",
+        "bytes": 23689
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/oregon/w1280.jpg",
+        "bytes": 91382
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/oregon/w2048.jpg",
+        "bytes": 287994
+      }
+    ]
+  },
+  "british-columbia": {
+    "featureName": "British Columbia",
+    "alt": "British Columbia in Canada",
+    "caption": "British Columbia, Canada",
+    "photographer": "Florian Fuchs",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Kinney_mit_Mount_Whitehorn.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake Kinney mit Mount Whitehorn.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/53/Lake_Kinney_mit_Mount_Whitehorn.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ae584171ed4e7275029bca28563de6698bbaeb42247d5b4e9ee27ebf8f4926f6",
+    "width": 3840,
+    "height": 2543,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/british-columbia/w640.jpg",
+        "bytes": 41625
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/british-columbia/w1280.jpg",
+        "bytes": 145746
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/british-columbia/w2048.jpg",
+        "bytes": 414586
+      }
+    ]
+  },
+  "new-south-wales": {
+    "featureName": "New South Wales",
+    "alt": "New South Wales in Australia",
+    "caption": "New South Wales, Australia",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Mountains_National_Park_(AU),_Three_Sisters_--_2019_--_1987-9.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Blue Mountains National Park (AU), Three Sisters -- 2019 -- 1987-9.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/de/Blue_Mountains_National_Park_%28AU%29%2C_Three_Sisters_--_2019_--_1987-9.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ef60c7ee25f1f57916af0d02519f7a4ac1cd4570faa00a9be04c2895a10283e3",
+    "width": 3840,
+    "height": 3980,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/new-south-wales/w640.jpg",
+        "bytes": 116984
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/new-south-wales/w1280.jpg",
+        "bytes": 492004
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/new-south-wales/w2048.jpg",
+        "bytes": 1504354
+      }
+    ]
+  },
+  "ibiza": {
+    "featureName": "Ibiza",
+    "alt": "Ibiza in Spain",
+    "caption": "Ibiza, Spain",
+    "photographer": "Joselodos",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cala_San_Vicente,_Ibiza,_Spain.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Cala San Vicente, Ibiza, Spain.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b8/Cala_San_Vicente%2C_Ibiza%2C_Spain.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8bf6a09a9e25957e6746a876130d50861ae33f9064b12c7bff10b7495d26dced",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ibiza/w640.jpg",
+        "bytes": 48874
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ibiza/w1280.jpg",
+        "bytes": 185333
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ibiza/w2048.jpg",
+        "bytes": 567824
+      }
+    ]
+  },
+  "mykonos": {
+    "featureName": "Mykonos",
+    "alt": "Mykonos in Greece",
+    "caption": "Mykonos, Greece",
+    "photographer": "GattoCeliaco",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mykonos_(2).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Mykonos (2).jpg); source https://upload.wikimedia.org/wikipedia/commons/6/62/Mykonos_%282%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "666c62934d2466281e308f421b35a37b4218f18e03519d56bffbcfa2da66ceaf",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mykonos/w640.jpg",
+        "bytes": 39223
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mykonos/w1280.jpg",
+        "bytes": 127332
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mykonos/w2048.jpg",
+        "bytes": 350643
+      }
+    ]
+  },
+  "gran-canaria": {
+    "featureName": "Gran Canaria",
+    "alt": "Gran Canaria in Spain",
+    "caption": "Gran Canaria, Spain",
+    "photographer": "H. Zell",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beach_-_San_Agust%C3%ADn.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Beach - San Agustín.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/80/Beach_-_San_Agust%C3%ADn.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "79b8a2be81cf0b59484b675744925ef7562136f0862fed8d5636ddd828d99128",
+    "width": 3840,
+    "height": 1467,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/gran-canaria/w640.jpg",
+        "bytes": 28581
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/gran-canaria/w1280.jpg",
+        "bytes": 101985
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/gran-canaria/w2048.jpg",
+        "bytes": 300349
+      }
+    ]
+  },
+  "oahu": {
+    "featureName": "Oʻahu",
+    "alt": "Oʻahu in United States",
+    "caption": "Oʻahu, United States",
+    "photographer": "Daniel Ramirez from Honolulu, USA",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_towards_Diamond_Head_from_Waikiki_(5216373638).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:View towards Diamond Head from Waikiki (5216373638).jpg); source https://upload.wikimedia.org/wikipedia/commons/b/ba/View_towards_Diamond_Head_from_Waikiki_%285216373638%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0cf916aaa80e222d03eccc47e0a2fc4bd20dcbdfa2637200d4f3b1d81694c013",
+    "width": 3768,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/oahu/w640.jpg",
+        "bytes": 51014
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/oahu/w1280.jpg",
+        "bytes": 159569
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/oahu/w2048.jpg",
+        "bytes": 421080
+      }
+    ]
+  },
+  "kauai": {
+    "featureName": "Kauai",
+    "alt": "Kauai in United States",
+    "caption": "Kauai, United States",
+    "photographer": "OKJaguar",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waimea_Canyon,_Kauai,_Hawaii.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Waimea Canyon, Kauai, Hawaii.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/07/Waimea_Canyon%2C_Kauai%2C_Hawaii.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f60ae880d132df3c11b6ed6653aeefd6755b78e74b9cbf62e9a01d8cab77d5be",
+    "width": 3840,
+    "height": 1291,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kauai/w640.jpg",
+        "bytes": 35238
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kauai/w1280.jpg",
+        "bytes": 140799
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kauai/w2048.jpg",
+        "bytes": 460108
+      }
+    ]
+  },
+  "corfu": {
+    "featureName": "Corfu",
+    "alt": "Corfu in Greece",
+    "caption": "Corfu, Greece",
+    "photographer": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Old_Fortress_and_the_Old_Town_of_Corfu_-_September_2017.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:The Old Fortress and the Old Town of Corfu - September 2017.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4a/The_Old_Fortress_and_the_Old_Town_of_Corfu_-_September_2017.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "13c53a098f68b84fc2dc75fe5fd0319714cfe5b80ce757154de23a5aabb76db8",
+    "width": 3840,
+    "height": 2018,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/corfu/w640.jpg",
+        "bytes": 47395
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/corfu/w1280.jpg",
+        "bytes": 185625
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/corfu/w2048.jpg",
+        "bytes": 589660
+      }
+    ]
+  },
+  "black-forest": {
+    "featureName": "Black Forest",
+    "alt": "Black Forest in Germany",
+    "caption": "Black Forest, Germany",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sch%C3%B6nwald_im_Schwarzwald,_Escheckstra%C3%9Fe_--_2025_--_0147.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Schönwald im Schwarzwald, Escheckstraße -- 2025 -- 0147.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/fc/Sch%C3%B6nwald_im_Schwarzwald%2C_Escheckstra%C3%9Fe_--_2025_--_0147.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "954007ea6bfd249421c77c21cebb8f238032f756341c7cfb6298ca017e0d54fe",
+    "width": 3840,
+    "height": 2620,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/black-forest/w640.jpg",
+        "bytes": 81619
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/black-forest/w1280.jpg",
+        "bytes": 371695
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/black-forest/w2048.jpg",
+        "bytes": 1226315
+      }
+    ]
+  },
+  "cotswolds": {
+    "featureName": "Cotswolds",
+    "alt": "Cotswolds in United Kingdom",
+    "caption": "Cotswolds, United Kingdom",
+    "photographer": "Joecompan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cottages_in_Bibury_Cotswolds.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cottages in Bibury Cotswolds.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/77/Cottages_in_Bibury_Cotswolds.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "37417632bce05aa5626b69a34592bbab6505563fb11fa465ea067640730ab1c2",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cotswolds/w640.jpg",
+        "bytes": 62443
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cotswolds/w1280.jpg",
+        "bytes": 251388
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cotswolds/w2048.jpg",
+        "bytes": 715670
+      }
+    ]
+  },
+  "pantanal": {
+    "featureName": "Pantanal",
+    "alt": "Pantanal in Brazil",
+    "caption": "Pantanal, Brazil",
+    "photographer": "Stoni111121",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Southern_Pantanal_wetlands.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Southern Pantanal wetlands.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/91/Southern_Pantanal_wetlands.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "353b3e82aaf15e5fcbec6204fa4263a180f44b7e7a8c925541747c098c8e0456",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/pantanal/w640.jpg",
+        "bytes": 73018
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/pantanal/w1280.jpg",
+        "bytes": 277607
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/pantanal/w2048.jpg",
+        "bytes": 723024
+      }
+    ]
+  },
+  "wadi-rum": {
+    "featureName": "Wadi Rum",
+    "alt": "Wadi Rum in Jordan",
+    "caption": "Wadi Rum, Jordan",
+    "photographer": "Bernard Gagnon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wadi_Rum_03.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Wadi Rum 03.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c1/Wadi_Rum_03.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "66541507ebc56ee94338284adcc2aae09675690c1429f2cb14e0aae701e5d37c",
+    "width": 3453,
+    "height": 2100,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/wadi-rum/w640.jpg",
+        "bytes": 63642
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/wadi-rum/w1280.jpg",
+        "bytes": 160102
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/wadi-rum/w2048.jpg",
+        "bytes": 399489
+      }
+    ]
+  },
+  "brittany": {
+    "featureName": "Brittany",
+    "alt": "Brittany in France",
+    "caption": "Brittany, France",
+    "photographer": "Benh LIEU SONG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cote_Granite_Rose_pano.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cote Granite Rose pano.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/38/Cote_Granite_Rose_pano.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5fd28dae15e3c7edb4c4ed803d248d66a4b9d9d1877e991fb582cc6aa7ae2f6d",
+    "width": 3840,
+    "height": 1015,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/brittany/w640.jpg",
+        "bytes": 26566
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/brittany/w1280.jpg",
+        "bytes": 97719
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/brittany/w2048.jpg",
+        "bytes": 299958
+      }
+    ]
+  },
+  "christ-the-redeemer": {
+    "featureName": "Cristo Redentor",
+    "alt": "Cristo Redentor in Brazil",
+    "caption": "Cristo Redentor, Brazil",
+    "photographer": "Donatas Dabravolskas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Redentor_Over_Clouds_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Redentor Over Clouds 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1b/Redentor_Over_Clouds_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "32b3e5e3b1b29a9b09c405ac352e7fcc450a2dfcdc907271c5e00d03a4f55eaa",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/christ-the-redeemer/w640.jpg",
+        "bytes": 27248
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/christ-the-redeemer/w1280.jpg",
+        "bytes": 79455
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/christ-the-redeemer/w2048.jpg",
+        "bytes": 224068
+      }
+    ]
+  },
+  "burj-khalifa": {
+    "featureName": "Burj Khalifa",
+    "alt": "Burj Khalifa in United Arab Emirates",
+    "caption": "Burj Khalifa, United Arab Emirates",
+    "photographer": "Laika ac",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Burj_Khalifa_(16260269606).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Burj Khalifa (16260269606).jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a6/Burj_Khalifa_%2816260269606%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "55f194a6e6dd6aa1afec72d41e5e170660c454f2676851c97948774a7fef90f4",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/burj-khalifa/w640.jpg",
+        "bytes": 30797
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/burj-khalifa/w1280.jpg",
+        "bytes": 104487
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/burj-khalifa/w2048.jpg",
+        "bytes": 303389
+      }
+    ]
+  },
+  "antelope-canyon": {
+    "featureName": "Antelope Canyon",
+    "alt": "Antelope Canyon in United States",
+    "caption": "Antelope Canyon, United States",
+    "photographer": "Mferbfriske",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Upper_antelope_canyon_light_beam_page_arizona_-_Flickr_-_Mferbfriske.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Upper antelope canyon light beam page arizona - Flickr - Mferbfriske.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/28/Upper_antelope_canyon_light_beam_page_arizona_-_Flickr_-_Mferbfriske.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b0448a8ae5707232af4d996f466b4fbcb3969260f79241801cafbf84cce17215",
+    "width": 2400,
+    "height": 1697,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/antelope-canyon/w640.jpg",
+        "bytes": 47013
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/antelope-canyon/w1280.jpg",
+        "bytes": 124800
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/antelope-canyon/w2048.jpg",
+        "bytes": 361195
+      }
+    ]
+  },
+  "table-mountain": {
+    "featureName": "Table Mountain",
+    "alt": "Table Mountain in South Africa",
+    "caption": "Table Mountain, South Africa",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Town_(ZA),_Table_Mountain,_Blick_auf_Camps_Bay_--_2024_--_2750.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cape Town (ZA), Table Mountain, Blick auf Camps Bay -- 2024 -- 2750.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6e/Cape_Town_%28ZA%29%2C_Table_Mountain%2C_Blick_auf_Camps_Bay_--_2024_--_2750.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b9911cf12d1542c261764c17b978f80d6dd67c0ec64672375f367bf2d4478e36",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/table-mountain/w640.jpg",
+        "bytes": 62434
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/table-mountain/w1280.jpg",
+        "bytes": 256684
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/table-mountain/w2048.jpg",
+        "bytes": 794664
+      }
+    ]
+  },
+  "mount-cook": {
+    "featureName": "Aoraki / Mount Cook",
+    "alt": "Aoraki / Mount Cook in New Zealand",
+    "caption": "Aoraki / Mount Cook, New Zealand",
+    "photographer": "Bernard Spragg. NZ from Christchurch, New Zealand",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aoraki_Mount_Cook._NZ_(32501595731).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Aoraki Mount Cook. NZ (32501595731).jpg); source https://upload.wikimedia.org/wikipedia/commons/9/91/Aoraki_Mount_Cook._NZ_%2832501595731%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8fe81b9b36403e1023b52fb22e9608a6edd872fe30199dddc9ca3fcdaffa6f36",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mount-cook/w640.jpg",
+        "bytes": 45026
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mount-cook/w1280.jpg",
+        "bytes": 167028
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mount-cook/w2048.jpg",
+        "bytes": 509301
+      }
+    ]
+  },
+  "ephesus": {
+    "featureName": "Ephesus",
+    "alt": "Ephesus in Türkiye",
+    "caption": "Ephesus, Türkiye",
+    "photographer": "Benh LIEU SONG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ephesus_Celsus_Library_Fa%C3%A7ade.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ephesus Celsus Library Façade.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/84/Ephesus_Celsus_Library_Fa%C3%A7ade.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e9ca5f390f3f8c619ef28b28361d910676ceceb229279f4ff16e0347625a295b",
+    "width": 3840,
+    "height": 2975,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ephesus/w640.jpg",
+        "bytes": 68580
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ephesus/w1280.jpg",
+        "bytes": 263614
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ephesus/w2048.jpg",
+        "bytes": 820004
+      }
+    ]
   }
 }
