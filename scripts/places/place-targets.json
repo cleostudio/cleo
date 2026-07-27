@@ -1351,5 +1351,352 @@
       "Great Barrier Reef",
       "Great Barrier Reef aerial"
     ]
+  },
+  "montreal": {
+    "name": "Montreal",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": [
+      "Montreal",
+      "Montreal skyline",
+      "Old Montreal"
+    ]
+  },
+  "toronto": {
+    "name": "Toronto",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": [
+      "Toronto",
+      "Toronto skyline",
+      "CN Tower"
+    ]
+  },
+  "san-francisco": {
+    "name": "San Francisco",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "San Francisco",
+      "Golden Gate Bridge",
+      "San Francisco skyline"
+    ]
+  },
+  "los-angeles": {
+    "name": "Los Angeles",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Los Angeles",
+      "Los Angeles skyline",
+      "Downtown Los Angeles"
+    ]
+  },
+  "munich": {
+    "name": "Munich",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "City",
+    "searchNames": [
+      "Munich",
+      "München",
+      "Marienplatz"
+    ]
+  },
+  "milan": {
+    "name": "Milan",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Milan",
+      "Milano",
+      "Milan Cathedral",
+      "Duomo di Milano"
+    ]
+  },
+  "florence": {
+    "name": "Florence",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Florence",
+      "Firenze",
+      "Duomo Florence",
+      "Ponte Vecchio"
+    ]
+  },
+  "brussels": {
+    "name": "Brussels",
+    "countrySlug": "belgium",
+    "countryName": "Belgium",
+    "kind": "City",
+    "searchNames": [
+      "Brussels",
+      "Grand Place Brussels",
+      "Bruxelles"
+    ]
+  },
+  "oslo": {
+    "name": "Oslo",
+    "countrySlug": "norway",
+    "countryName": "Norway",
+    "kind": "City",
+    "searchNames": [
+      "Oslo",
+      "Oslo Opera House",
+      "Oslo fjord"
+    ]
+  },
+  "jakarta": {
+    "name": "Jakarta",
+    "countrySlug": "indonesia",
+    "countryName": "Indonesia",
+    "kind": "City",
+    "searchNames": [
+      "Jakarta",
+      "Jakarta skyline",
+      "Monas Jakarta"
+    ]
+  },
+  "manila": {
+    "name": "Manila",
+    "countrySlug": "philippines",
+    "countryName": "Philippines",
+    "kind": "City",
+    "searchNames": [
+      "Manila",
+      "Manila Bay",
+      "Intramuros"
+    ]
+  },
+  "johannesburg": {
+    "name": "Johannesburg",
+    "countrySlug": "south-africa",
+    "countryName": "South Africa",
+    "kind": "City",
+    "searchNames": [
+      "Johannesburg",
+      "Johannesburg skyline",
+      "Sandton"
+    ]
+  },
+  "colorado": {
+    "name": "Colorado",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Colorado Rockies",
+      "Maroon Bells",
+      "Rocky Mountains Colorado"
+    ]
+  },
+  "arizona": {
+    "name": "Arizona",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Arizona desert",
+      "Sedona Arizona",
+      "Monument Valley Arizona"
+    ]
+  },
+  "queensland": {
+    "name": "Queensland",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "State",
+    "searchNames": [
+      "Queensland",
+      "Queensland coast",
+      "Daintree Queensland"
+    ]
+  },
+  "catalonia": {
+    "name": "Catalonia",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "State",
+    "searchNames": [
+      "Catalonia",
+      "Costa Brava",
+      "Montserrat Catalonia"
+    ]
+  },
+  "mallorca": {
+    "name": "Mallorca",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": [
+      "Mallorca",
+      "Majorca",
+      "Serra de Tramuntana"
+    ]
+  },
+  "tenerife": {
+    "name": "Tenerife",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": [
+      "Tenerife",
+      "Teide",
+      "Mount Teide"
+    ]
+  },
+  "tahiti": {
+    "name": "Tahiti",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": [
+      "Tahiti",
+      "Papeete",
+      "Tahiti lagoon"
+    ]
+  },
+  "maui": {
+    "name": "Maui",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Island",
+    "searchNames": [
+      "Maui",
+      "Haleakala",
+      "Road to Hana"
+    ]
+  },
+  "rhodes": {
+    "name": "Rhodes",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Rhodes",
+      "Rhodes Old Town",
+      "Lindos"
+    ]
+  },
+  "azores": {
+    "name": "Azores",
+    "countrySlug": "portugal",
+    "countryName": "Portugal",
+    "kind": "Island",
+    "searchNames": [
+      "Azores",
+      "São Miguel Azores",
+      "Sete Cidades"
+    ]
+  },
+  "cappadocia": {
+    "name": "Cappadocia",
+    "countrySlug": "turkiye",
+    "countryName": "Türkiye",
+    "kind": "Region",
+    "searchNames": [
+      "Cappadocia",
+      "Göreme",
+      "Cappadocia fairy chimneys"
+    ]
+  },
+  "okavango": {
+    "name": "Okavango",
+    "countrySlug": "botswana",
+    "countryName": "Botswana",
+    "kind": "Region",
+    "searchNames": [
+      "Okavango Delta",
+      "Okavango"
+    ]
+  },
+  "dolomites": {
+    "name": "Dolomites",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Dolomites",
+      "Dolomiti",
+      "Tre Cime"
+    ]
+  },
+  "loire-valley": {
+    "name": "Loire Valley",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Loire Valley",
+      "Châteaux of the Loire",
+      "Loire castles"
+    ]
+  },
+  "stonehenge": {
+    "name": "Stonehenge",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": [
+      "Stonehenge"
+    ]
+  },
+  "chichen-itza": {
+    "name": "Chichén Itzá",
+    "countrySlug": "mexico",
+    "countryName": "Mexico",
+    "kind": "Landmark",
+    "searchNames": [
+      "Chichen Itza",
+      "El Castillo Chichen Itza"
+    ]
+  },
+  "zion": {
+    "name": "Zion",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Zion National Park",
+      "Zion Canyon"
+    ]
+  },
+  "mont-blanc": {
+    "name": "Mont Blanc",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mont Blanc",
+      "Mont Blanc Chamonix"
+    ]
+  },
+  "pompeii": {
+    "name": "Pompeii",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": [
+      "Pompeii",
+      "Pompeii ruins",
+      "Forum Pompeii"
+    ]
+  },
+  "terracotta-army": {
+    "name": "Terracotta Army",
+    "countrySlug": "china",
+    "countryName": "China",
+    "kind": "Landmark",
+    "searchNames": [
+      "Terracotta Army",
+      "Terracotta Warriors Xi'an"
+    ]
   }
 }

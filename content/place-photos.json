@@ -3710,5 +3710,933 @@
         "bytes": 252495
       }
     ]
+  },
+  "montreal": {
+    "featureName": "Montreal",
+    "alt": "Montreal in Canada",
+    "caption": "Montreal, Canada",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vista_de_Montreal_desde_el_Monte_Royal,_Canad%C3%A1,_2017-08-12,_DD_126-137_HDR_PAN.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vista de Montreal desde el Monte Royal, Canadá, 2017-08-12, DD 126-137 HDR PAN.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7e/Vista_de_Montreal_desde_el_Monte_Royal%2C_Canad%C3%A1%2C_2017-08-12%2C_DD_126-137_HDR_PAN.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8cb987ff451b416d1ecd27573d2cac0d929bfaa454c46ddf8e028184f4c03481",
+    "width": 3840,
+    "height": 975,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/montreal/w640.jpg",
+        "bytes": 17245
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/montreal/w1280.jpg",
+        "bytes": 61579
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/montreal/w2048.jpg",
+        "bytes": 184160
+      }
+    ]
+  },
+  "toronto": {
+    "featureName": "Toronto",
+    "alt": "Toronto in Canada",
+    "caption": "Toronto, Canada",
+    "photographer": "Martin St-Amant ( S23678 )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:122_-_Toronto_-_Septembre_2009.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:122 - Toronto - Septembre 2009.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b6/122_-_Toronto_-_Septembre_2009.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "60a652dd5c7bcbdc156a59079f0fcab7fa0557995f59e10a22bd600fe22adde5",
+    "width": 3840,
+    "height": 1030,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/toronto/w640.jpg",
+        "bytes": 16691
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/toronto/w1280.jpg",
+        "bytes": 54348
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/toronto/w2048.jpg",
+        "bytes": 150811
+      }
+    ]
+  },
+  "san-francisco": {
+    "featureName": "San Francisco",
+    "alt": "San Francisco in United States",
+    "caption": "San Francisco, United States",
+    "photographer": "Frank Schulenburg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_as_seen_from_Marshall%E2%80%99s_Beach,_March_2018.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Golden Gate Bridge as seen from Marshall’s Beach, March 2018.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c7/Golden_Gate_Bridge_as_seen_from_Marshall%E2%80%99s_Beach%2C_March_2018.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3bac53b8820293e02d93244c1a0f893d07cf88b3a8e0d05d20cb461236b991b0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/san-francisco/w640.jpg",
+        "bytes": 41716
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/san-francisco/w1280.jpg",
+        "bytes": 148762
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/san-francisco/w2048.jpg",
+        "bytes": 438691
+      }
+    ]
+  },
+  "los-angeles": {
+    "featureName": "Los Angeles",
+    "alt": "Los Angeles in United States",
+    "caption": "Los Angeles, United States",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Los_Angeles_(California,_USA),_Santa_Monica_Beach_--_2012_--_5301.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Los Angeles (California, USA), Santa Monica Beach -- 2012 -- 5301.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7a/Los_Angeles_%28California%2C_USA%29%2C_Santa_Monica_Beach_--_2012_--_5301.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "db009004e1ddb749a4d0dcb0d334adfd13d36609469420be1d71e973b13f66c0",
+    "width": 3840,
+    "height": 2093,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/los-angeles/w640.jpg",
+        "bytes": 38474
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/los-angeles/w1280.jpg",
+        "bytes": 133818
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/los-angeles/w2048.jpg",
+        "bytes": 378098
+      }
+    ]
+  },
+  "munich": {
+    "featureName": "Munich",
+    "alt": "Munich in Germany",
+    "caption": "Munich, Germany",
+    "photographer": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frauenkirche_Munich_March_2013.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Frauenkirche Munich March 2013.JPG); source https://upload.wikimedia.org/wikipedia/commons/8/89/Frauenkirche_Munich_March_2013.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "dd826c6de08facbd216a0a34e5840a93e7d97d7ed7c5acd4c7ee43c4e89101c0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/munich/w640.jpg",
+        "bytes": 49450
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/munich/w1280.jpg",
+        "bytes": 170144
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/munich/w2048.jpg",
+        "bytes": 515001
+      }
+    ]
+  },
+  "milan": {
+    "featureName": "Milan",
+    "alt": "Milan in Italy",
+    "caption": "Milan, Italy",
+    "photographer": "Terragio67",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Milano_-_Duomo_di_Milano_-_Monumento_a_Vittorio_Emanuele_II_-_Museo_del_Novecento_-_2023-09-12_18-18-40_001.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Milano - Duomo di Milano - Monumento a Vittorio Emanuele II - Museo del Novecento - 2023-09-12 18-18-40 001.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9e/Milano_-_Duomo_di_Milano_-_Monumento_a_Vittorio_Emanuele_II_-_Museo_del_Novecento_-_2023-09-12_18-18-40_001.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6d2c66fda2301474545bfb378b5b8566b7f10d274655c1722f406c70a8e00493",
+    "width": 3840,
+    "height": 2724,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/milan/w640.jpg",
+        "bytes": 52631
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/milan/w1280.jpg",
+        "bytes": 190166
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/milan/w2048.jpg",
+        "bytes": 565592
+      }
+    ]
+  },
+  "florence": {
+    "featureName": "Florence",
+    "alt": "Florence in Italy",
+    "caption": "Florence, Italy",
+    "photographer": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fireworks_over_Ponte_Vecchio.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Fireworks over Ponte Vecchio.JPG); source https://upload.wikimedia.org/wikipedia/commons/1/1d/Fireworks_over_Ponte_Vecchio.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a1a534c5fcdcfe6b1558ae69d46e46a421720f76caa4116e8310365d594645ad",
+    "width": 3840,
+    "height": 2540,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/florence/w640.jpg",
+        "bytes": 43291
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/florence/w1280.jpg",
+        "bytes": 140039
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/florence/w2048.jpg",
+        "bytes": 378135
+      }
+    ]
+  },
+  "brussels": {
+    "featureName": "Brussels",
+    "alt": "Brussels in Belgium",
+    "caption": "Brussels, Belgium",
+    "photographer": "Trougnouf (Benoit Brummer)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Garden_of_Kunstberg_viewed_from_Mont_des_Arts_during_nautical_twilight_(DSCF1028).jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Garden of Kunstberg viewed from Mont des Arts during nautical twilight (DSCF1028).jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0b/Garden_of_Kunstberg_viewed_from_Mont_des_Arts_during_nautical_twilight_%28DSCF1028%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6fc01aa3c9d5fcaa214e2544f0a048b625f949b5240b55c15febaefd22ea9b53",
+    "width": 3840,
+    "height": 2566,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/brussels/w640.jpg",
+        "bytes": 43646
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/brussels/w1280.jpg",
+        "bytes": 156194
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/brussels/w2048.jpg",
+        "bytes": 471214
+      }
+    ]
+  },
+  "oslo": {
+    "featureName": "Oslo",
+    "alt": "Oslo in Norway",
+    "caption": "Oslo, Norway",
+    "photographer": "Christian David",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oslo_Opera_House_(Den_Norske_Opera_%26_Ballett),_Norway.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Oslo Opera House (Den Norske Opera & Ballett), Norway.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5a/Oslo_Opera_House_%28Den_Norske_Opera_%26_Ballett%29%2C_Norway.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7ad95adb67ffa53ed2519cf99504259fa9bd0c7cf83c86e1712a6e6e55e2efb6",
+    "width": 3840,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/oslo/w640.jpg",
+        "bytes": 33264
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/oslo/w1280.jpg",
+        "bytes": 119746
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/oslo/w2048.jpg",
+        "bytes": 362867
+      }
+    ]
+  },
+  "jakarta": {
+    "featureName": "Jakarta",
+    "alt": "Jakarta in Indonesia",
+    "caption": "Jakarta, Indonesia",
+    "photographer": "Ramayoni",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monumen_Nasional,_Jakarta,_Indonesia.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Monumen Nasional, Jakarta, Indonesia.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/49/Monumen_Nasional%2C_Jakarta%2C_Indonesia.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6a76f92ab00c364a24cc20a9dbd376a63905cc551d935292d18cfb14f1fbe238",
+    "width": 3840,
+    "height": 2171,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/jakarta/w640.jpg",
+        "bytes": 31095
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/jakarta/w1280.jpg",
+        "bytes": 112610
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/jakarta/w2048.jpg",
+        "bytes": 336184
+      }
+    ]
+  },
+  "manila": {
+    "featureName": "Manila",
+    "alt": "Manila in Philippines",
+    "caption": "Manila, Philippines",
+    "photographer": "Vyacheslav Argenberg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roxas_Boulevard,_sunset_time,_Manila,_Philippines.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Roxas Boulevard, sunset time, Manila, Philippines.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/16/Roxas_Boulevard%2C_sunset_time%2C_Manila%2C_Philippines.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b321fd50e0b02ef4f0f1839f1bd25fd18d68089fec73afe273ae2df128311a01",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/manila/w640.jpg",
+        "bytes": 86689
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/manila/w1280.jpg",
+        "bytes": 326875
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/manila/w2048.jpg",
+        "bytes": 909866
+      }
+    ]
+  },
+  "johannesburg": {
+    "featureName": "Johannesburg",
+    "alt": "Johannesburg in South Africa",
+    "caption": "Johannesburg, South Africa",
+    "photographer": "Khaanya96",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Johannesburg_skyline.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Johannesburg skyline.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c6/Johannesburg_skyline.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "11c9523be7dcd656c01c8acb1a124083f195031af49011d67cbc5f5f04cc23ce",
+    "width": 3840,
+    "height": 2166,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/johannesburg/w640.jpg",
+        "bytes": 33068
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/johannesburg/w1280.jpg",
+        "bytes": 108149
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/johannesburg/w2048.jpg",
+        "bytes": 319250
+      }
+    ]
+  },
+  "colorado": {
+    "featureName": "Maroon Bells",
+    "alt": "Maroon Bells in United States",
+    "caption": "Maroon Bells, United States",
+    "photographer": "Rhododendrites",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maroon_Bells_(11553)a.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Maroon Bells (11553)a.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/53/Maroon_Bells_%2811553%29a.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "dd14c9ef7beef4ecb8500eea1a7c0a5331513919f4058738034194898b93dfa3",
+    "width": 3840,
+    "height": 2218,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/colorado/w640.jpg",
+        "bytes": 51800
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/colorado/w1280.jpg",
+        "bytes": 198810
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/colorado/w2048.jpg",
+        "bytes": 621071
+      }
+    ]
+  },
+  "arizona": {
+    "featureName": "Sedona Arizona",
+    "alt": "Sedona Arizona in United States",
+    "caption": "Sedona Arizona, United States",
+    "photographer": "dconvertini",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sedona,_Bell_Rock,_Arizona,_USA_2024-5_9.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sedona, Bell Rock, Arizona, USA 2024-5 9.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/56/Sedona%2C_Bell_Rock%2C_Arizona%2C_USA_2024-5_9.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0a55dd5ca024e8c63a6e3dffa7a9e4ece02aad0015fad4567351e319da694d6f",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/arizona/w640.jpg",
+        "bytes": 71365
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/arizona/w1280.jpg",
+        "bytes": 263897
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/arizona/w2048.jpg",
+        "bytes": 772039
+      }
+    ]
+  },
+  "queensland": {
+    "featureName": "Queensland",
+    "alt": "Queensland in Australia",
+    "caption": "Queensland, Australia",
+    "photographer": "Alandean88",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glass_House_Mountains,_Queensland,_Australia.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Glass House Mountains, Queensland, Australia.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/41/Glass_House_Mountains%2C_Queensland%2C_Australia.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f2ce2e8e2accfeb8102875ba25a4f42f03f7b0436445f129050917bde158febb",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/queensland/w640.jpg",
+        "bytes": 20691
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/queensland/w1280.jpg",
+        "bytes": 75801
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/queensland/w2048.jpg",
+        "bytes": 261965
+      }
+    ]
+  },
+  "catalonia": {
+    "featureName": "Catalonia",
+    "alt": "Catalonia in Spain",
+    "caption": "Catalonia, Spain",
+    "photographer": "Moahim",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:WLM_-_2020_-_Castillo_de_Tosa_de_Mar.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:WLM - 2020 - Castillo de Tosa de Mar.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9d/WLM_-_2020_-_Castillo_de_Tosa_de_Mar.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "05136ff7d543d001b6a47d230002abb08e0b86f36277ed339bb05cd02b15e10d",
+    "width": 3840,
+    "height": 2251,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/catalonia/w640.jpg",
+        "bytes": 31862
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/catalonia/w1280.jpg",
+        "bytes": 124594
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/catalonia/w2048.jpg",
+        "bytes": 410266
+      }
+    ]
+  },
+  "mallorca": {
+    "featureName": "Mallorca",
+    "alt": "Mallorca in Spain",
+    "caption": "Mallorca, Spain",
+    "photographer": "Isiwal",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cala_Rajada_Punta_de_Capdepera_Faro-1623.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cala Rajada Punta de Capdepera Faro-1623.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/08/Cala_Rajada_Punta_de_Capdepera_Faro-1623.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d742ccd74e52be6d4d001557d0efd7f89c9d020ad973d687afbb5a34bace388f",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mallorca/w640.jpg",
+        "bytes": 47602
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mallorca/w1280.jpg",
+        "bytes": 181201
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mallorca/w2048.jpg",
+        "bytes": 575257
+      }
+    ]
+  },
+  "tenerife": {
+    "featureName": "Tenerife",
+    "alt": "Tenerife in Spain",
+    "caption": "Tenerife, Spain",
+    "photographer": "H. Zell",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Tarta_-_Tenerife_02.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:La Tarta - Tenerife 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/62/La_Tarta_-_Tenerife_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "81658ed0efac34bb46fc2406de45baa471795e8ba549bc24241361864e9bec2d",
+    "width": 3840,
+    "height": 2281,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tenerife/w640.jpg",
+        "bytes": 45950
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tenerife/w1280.jpg",
+        "bytes": 178776
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tenerife/w2048.jpg",
+        "bytes": 591099
+      }
+    ]
+  },
+  "tahiti": {
+    "featureName": "Tahiti",
+    "alt": "Tahiti in France",
+    "caption": "Tahiti, France",
+    "photographer": "Bernhardwalzl",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orohena,_Pito_Hiti_et_Aorai.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Orohena, Pito Hiti et Aorai.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/21/Orohena%2C_Pito_Hiti_et_Aorai.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "55c2973c8437f31c789f79011c5041d984a444114f1ef7865528f7fcf8db096e",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tahiti/w640.jpg",
+        "bytes": 40240
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tahiti/w1280.jpg",
+        "bytes": 132033
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tahiti/w2048.jpg",
+        "bytes": 378634
+      }
+    ]
+  },
+  "maui": {
+    "featureName": "Maui",
+    "alt": "Maui in United States",
+    "caption": "Maui, United States",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Summit_of_Mount_Haleakala_Crater_Maui_Hawaii_pano_(44826653255).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Summit of Mount Haleakala Crater Maui Hawaii pano (44826653255).jpg); source https://upload.wikimedia.org/wikipedia/commons/f/fd/Summit_of_Mount_Haleakala_Crater_Maui_Hawaii_pano_%2844826653255%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a16f5644612b7dfc5de88190ddea2e62340fe1d421a794b023341cdf73fa5a0e",
+    "width": 3840,
+    "height": 1073,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/maui/w640.jpg",
+        "bytes": 15871
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/maui/w1280.jpg",
+        "bytes": 52769
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/maui/w2048.jpg",
+        "bytes": 155992
+      }
+    ]
+  },
+  "rhodes": {
+    "featureName": "Rhodes",
+    "alt": "Rhodes in Greece",
+    "caption": "Rhodes, Greece",
+    "photographer": "Kognos",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_of_Rhodes_Harbour_and_Walls.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Panorama of Rhodes Harbour and Walls.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/42/Panorama_of_Rhodes_Harbour_and_Walls.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2e3c5d73ecaba1d6f6eab424ef6561eeecb8acb28147d5915a0a5d8b88dea0d9",
+    "width": 3840,
+    "height": 546,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rhodes/w640.jpg",
+        "bytes": 11166
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rhodes/w1280.jpg",
+        "bytes": 37527
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rhodes/w2048.jpg",
+        "bytes": 114920
+      }
+    ]
+  },
+  "azores": {
+    "featureName": "Azores",
+    "alt": "Azores in Portugal",
+    "caption": "Azores, Portugal",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vista_de_Horta_desde_Monte_da_Guia,_isla_de_Fayal,_Azores,_Portugal,_2020-07-27,_DD_07-18_HDR_PAN.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vista de Horta desde Monte da Guia, isla de Fayal, Azores, Portugal, 2020-07-27, DD 07-18 HDR PAN.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/fd/Vista_de_Horta_desde_Monte_da_Guia%2C_isla_de_Fayal%2C_Azores%2C_Portugal%2C_2020-07-27%2C_DD_07-18_HDR_PAN.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "823f256df9dab70f54c3610c3246574717ca738199bfcaf24f768106ea1a29b6",
+    "width": 3840,
+    "height": 1231,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/azores/w640.jpg",
+        "bytes": 22911
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/azores/w1280.jpg",
+        "bytes": 74746
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/azores/w2048.jpg",
+        "bytes": 206214
+      }
+    ]
+  },
+  "cappadocia": {
+    "featureName": "Cappadocia",
+    "alt": "Cappadocia in Türkiye",
+    "caption": "Cappadocia, Türkiye",
+    "photographer": "Brocken Inaglory",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cappadocia_March_2006.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cappadocia March 2006.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f3/Cappadocia_March_2006.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f7e9659f4af3ff440162e0e386a621a03fd4da2b2b04110b68b62aef9a714d63",
+    "width": 1807,
+    "height": 1527,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cappadocia/w640.jpg",
+        "bytes": 112661
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cappadocia/w1280.jpg",
+        "bytes": 328251
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cappadocia/w2048.jpg",
+        "bytes": 630915
+      }
+    ]
+  },
+  "okavango": {
+    "featureName": "Okavango Delta",
+    "alt": "Okavango Delta in Botswana",
+    "caption": "Okavango Delta, Botswana",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vista_a%C3%A9rea_del_delta_del_Okavango,_Botsuana,_2018-08-01,_DD_23.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vista aérea del delta del Okavango, Botsuana, 2018-08-01, DD 23.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/65/Vista_a%C3%A9rea_del_delta_del_Okavango%2C_Botsuana%2C_2018-08-01%2C_DD_23.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ab56c77fb188e619235cd971691651bfd5a4157dd62861ad6aff3c8e7bab030d",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/okavango/w640.jpg",
+        "bytes": 44969
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/okavango/w1280.jpg",
+        "bytes": 178513
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/okavango/w2048.jpg",
+        "bytes": 574927
+      }
+    ]
+  },
+  "dolomites": {
+    "featureName": "Dolomites",
+    "alt": "Dolomites in Italy",
+    "caption": "Dolomites, Italy",
+    "photographer": "Moroder",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frea_pass_Sella_group_Pisciadu_Dolomites_South_Tyrol.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Frea pass Sella group Pisciadu Dolomites South Tyrol.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f8/Frea_pass_Sella_group_Pisciadu_Dolomites_South_Tyrol.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "51c5fc9ffa1a7baeee6590561e0eada8113e988bba69165a97f8c23bba39e1aa",
+    "width": 3840,
+    "height": 2037,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/dolomites/w640.jpg",
+        "bytes": 41240
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/dolomites/w1280.jpg",
+        "bytes": 157157
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/dolomites/w2048.jpg",
+        "bytes": 499933
+      }
+    ]
+  },
+  "loire-valley": {
+    "featureName": "Loire Valley",
+    "alt": "Loire Valley in France",
+    "caption": "Loire Valley, France",
+    "photographer": "Suavemarimagno",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Montsoreau_France_Loire_Valley_Unesco_Woerld_Heritage.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Château de Montsoreau France Loire Valley Unesco Woerld Heritage.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/bb/Ch%C3%A2teau_de_Montsoreau_France_Loire_Valley_Unesco_Woerld_Heritage.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cb2779e23be1ccb463c2bfe9e615e20ade059dad35311a09213cc7c441e9e42e",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/loire-valley/w640.jpg",
+        "bytes": 35013
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/loire-valley/w1280.jpg",
+        "bytes": 100162
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/loire-valley/w2048.jpg",
+        "bytes": 264905
+      }
+    ]
+  },
+  "stonehenge": {
+    "featureName": "Stonehenge",
+    "alt": "Stonehenge in United Kingdom",
+    "caption": "Stonehenge, United Kingdom",
+    "photographer": "Sherpalibre",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stonehenge,_United_Kingdom..jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Stonehenge, United Kingdom..jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5a/Stonehenge%2C_United_Kingdom..jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "42c1080df37ad27d59782ec95c9ed052faf5eb925175456a18c7e4992c61242b",
+    "width": 3488,
+    "height": 1202,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/stonehenge/w640.jpg",
+        "bytes": 28863
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/stonehenge/w1280.jpg",
+        "bytes": 97351
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/stonehenge/w2048.jpg",
+        "bytes": 259820
+      }
+    ]
+  },
+  "chichen-itza": {
+    "featureName": "Chichen Itza",
+    "alt": "Chichen Itza in Mexico",
+    "caption": "Chichen Itza, Mexico",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Templo_el_Castillo_-_Chichen_Itza-Yucatan-Mexico0222.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Templo el Castillo - Chichen Itza-Yucatan-Mexico0222.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/02/Templo_el_Castillo_-_Chichen_Itza-Yucatan-Mexico0222.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1e4a86a07360ff0d9fb06ec07cf1b9d07911e482de246d2ee0c4bf09ea4bb926",
+    "width": 2464,
+    "height": 1848,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/chichen-itza/w640.jpg",
+        "bytes": 74361
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/chichen-itza/w1280.jpg",
+        "bytes": 234343
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/chichen-itza/w2048.jpg",
+        "bytes": 573605
+      }
+    ]
+  },
+  "zion": {
+    "featureName": "Zion National Park",
+    "alt": "Zion National Park in United States",
+    "caption": "Zion National Park, United States",
+    "photographer": "Tyson Dudley ty_dudley",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zion_National_Park,_United_States_(Unsplash_W76xyQjQOG0).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Zion National Park, United States (Unsplash W76xyQjQOG0).jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b3/Zion_National_Park%2C_United_States_%28Unsplash_W76xyQjQOG0%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f35c2fc3b625b8b6de07b721a95ec63797edb66ab7b5eb08f2b8b4e413590e43",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/zion/w640.jpg",
+        "bytes": 34284
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/zion/w1280.jpg",
+        "bytes": 124108
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/zion/w2048.jpg",
+        "bytes": 398986
+      }
+    ]
+  },
+  "mont-blanc": {
+    "featureName": "Mont Blanc",
+    "alt": "Mont Blanc in France",
+    "caption": "Mont Blanc, France",
+    "photographer": "Dmitry A. Mottl",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mont_Blanc_from_Les_Arcs_1950.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Mont Blanc from Les Arcs 1950.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7b/Mont_Blanc_from_Les_Arcs_1950.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d1904c86db716dfb090f7fe3419541964d760f2d3e0c250e904a77673c3f5eb9",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mont-blanc/w640.jpg",
+        "bytes": 36262
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mont-blanc/w1280.jpg",
+        "bytes": 123289
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mont-blanc/w2048.jpg",
+        "bytes": 352301
+      }
+    ]
+  },
+  "pompeii": {
+    "featureName": "Pompeii",
+    "alt": "Pompeii in Italy",
+    "caption": "Pompeii, Italy",
+    "photographer": "Jebulon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Composition_ruins_Pompeii.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Composition ruins Pompeii.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/39/Composition_ruins_Pompeii.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "579a1364f4a68c11946032a207a7aaf5abd491fbe0ddced05e6c9027edcb4777",
+    "width": 3840,
+    "height": 2556,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/pompeii/w640.jpg",
+        "bytes": 60564
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/pompeii/w1280.jpg",
+        "bytes": 246004
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/pompeii/w2048.jpg",
+        "bytes": 778665
+      }
+    ]
+  },
+  "terracotta-army": {
+    "featureName": "Terracotta Army",
+    "alt": "Terracotta Army in China",
+    "caption": "Terracotta Army, China",
+    "photographer": "Gary Lee Todd, Ph.D.",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Qin_Terracotta_Army,_Pit_1_18.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Qin Terracotta Army, Pit 1 18.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/28/Qin_Terracotta_Army%2C_Pit_1_18.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a94e48f9268ccd12e1a75d4dce32625d5840b0d4471c19c3414d0142700786ca",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/terracotta-army/w640.jpg",
+        "bytes": 33974
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/terracotta-army/w1280.jpg",
+        "bytes": 95562
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/terracotta-army/w2048.jpg",
+        "bytes": 291761
+      }
+    ]
   }
 }

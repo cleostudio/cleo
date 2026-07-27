@@ -7751,6 +7751,774 @@
       }
     ]
   },
+  "places/montreal": {
+    "collection": "places",
+    "title": "Montreal",
+    "subtitle": "Montreal",
+    "alt": "Montreal in Canada",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 975,
+    "renditions": [
+      {
+        "src": "/images/places/montreal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/montreal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/montreal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/toronto": {
+    "collection": "places",
+    "title": "Toronto",
+    "subtitle": "Toronto",
+    "alt": "Toronto in Canada",
+    "photographer": "Martin St-Amant ( S23678 )",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1030,
+    "renditions": [
+      {
+        "src": "/images/places/toronto/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/toronto/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/toronto/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/san-francisco": {
+    "collection": "places",
+    "title": "San Francisco",
+    "subtitle": "San Francisco",
+    "alt": "San Francisco in United States",
+    "photographer": "Frank Schulenburg",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/san-francisco/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/san-francisco/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/san-francisco/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/los-angeles": {
+    "collection": "places",
+    "title": "Los Angeles",
+    "subtitle": "Los Angeles",
+    "alt": "Los Angeles in United States",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2093,
+    "renditions": [
+      {
+        "src": "/images/places/los-angeles/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/los-angeles/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/los-angeles/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/munich": {
+    "collection": "places",
+    "title": "Munich",
+    "subtitle": "Munich",
+    "alt": "Munich in Germany",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/munich/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/munich/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/munich/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/milan": {
+    "collection": "places",
+    "title": "Milan",
+    "subtitle": "Milan",
+    "alt": "Milan in Italy",
+    "photographer": "Terragio67",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2724,
+    "renditions": [
+      {
+        "src": "/images/places/milan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/milan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/milan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/florence": {
+    "collection": "places",
+    "title": "Florence",
+    "subtitle": "Florence",
+    "alt": "Florence in Italy",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2540,
+    "renditions": [
+      {
+        "src": "/images/places/florence/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/florence/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/florence/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/brussels": {
+    "collection": "places",
+    "title": "Brussels",
+    "subtitle": "Brussels",
+    "alt": "Brussels in Belgium",
+    "photographer": "Trougnouf (Benoit Brummer)",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2566,
+    "renditions": [
+      {
+        "src": "/images/places/brussels/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/brussels/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/brussels/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/oslo": {
+    "collection": "places",
+    "title": "Oslo",
+    "subtitle": "Oslo",
+    "alt": "Oslo in Norway",
+    "photographer": "Christian David",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/places/oslo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/oslo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/oslo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/jakarta": {
+    "collection": "places",
+    "title": "Jakarta",
+    "subtitle": "Jakarta",
+    "alt": "Jakarta in Indonesia",
+    "photographer": "Ramayoni",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2171,
+    "renditions": [
+      {
+        "src": "/images/places/jakarta/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/jakarta/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/jakarta/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/manila": {
+    "collection": "places",
+    "title": "Manila",
+    "subtitle": "Manila",
+    "alt": "Manila in Philippines",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/manila/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/manila/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/manila/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/johannesburg": {
+    "collection": "places",
+    "title": "Johannesburg",
+    "subtitle": "Johannesburg",
+    "alt": "Johannesburg in South Africa",
+    "photographer": "Khaanya96",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2166,
+    "renditions": [
+      {
+        "src": "/images/places/johannesburg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/johannesburg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/johannesburg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/colorado": {
+    "collection": "places",
+    "title": "Maroon Bells",
+    "subtitle": "Colorado",
+    "alt": "Maroon Bells in United States",
+    "photographer": "Rhododendrites",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2218,
+    "renditions": [
+      {
+        "src": "/images/places/colorado/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/colorado/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/colorado/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/arizona": {
+    "collection": "places",
+    "title": "Sedona Arizona",
+    "subtitle": "Arizona",
+    "alt": "Sedona Arizona in United States",
+    "photographer": "dconvertini",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/arizona/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/arizona/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/arizona/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/queensland": {
+    "collection": "places",
+    "title": "Queensland",
+    "subtitle": "Queensland",
+    "alt": "Queensland in Australia",
+    "photographer": "Alandean88",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/queensland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/queensland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/queensland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/catalonia": {
+    "collection": "places",
+    "title": "Catalonia",
+    "subtitle": "Catalonia",
+    "alt": "Catalonia in Spain",
+    "photographer": "Moahim",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2251,
+    "renditions": [
+      {
+        "src": "/images/places/catalonia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/catalonia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/catalonia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mallorca": {
+    "collection": "places",
+    "title": "Mallorca",
+    "subtitle": "Mallorca",
+    "alt": "Mallorca in Spain",
+    "photographer": "Isiwal",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/mallorca/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mallorca/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mallorca/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tenerife": {
+    "collection": "places",
+    "title": "Tenerife",
+    "subtitle": "Tenerife",
+    "alt": "Tenerife in Spain",
+    "photographer": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2281,
+    "renditions": [
+      {
+        "src": "/images/places/tenerife/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tenerife/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tenerife/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tahiti": {
+    "collection": "places",
+    "title": "Tahiti",
+    "subtitle": "Tahiti",
+    "alt": "Tahiti in France",
+    "photographer": "Bernhardwalzl",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/tahiti/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tahiti/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tahiti/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/maui": {
+    "collection": "places",
+    "title": "Maui",
+    "subtitle": "Maui",
+    "alt": "Maui in United States",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 1073,
+    "renditions": [
+      {
+        "src": "/images/places/maui/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/maui/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/maui/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rhodes": {
+    "collection": "places",
+    "title": "Rhodes",
+    "subtitle": "Rhodes",
+    "alt": "Rhodes in Greece",
+    "photographer": "Kognos",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 546,
+    "renditions": [
+      {
+        "src": "/images/places/rhodes/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rhodes/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rhodes/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/azores": {
+    "collection": "places",
+    "title": "Azores",
+    "subtitle": "Azores",
+    "alt": "Azores in Portugal",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1231,
+    "renditions": [
+      {
+        "src": "/images/places/azores/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/azores/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/azores/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cappadocia": {
+    "collection": "places",
+    "title": "Cappadocia",
+    "subtitle": "Cappadocia",
+    "alt": "Cappadocia in Türkiye",
+    "photographer": "Brocken Inaglory",
+    "license": "CC BY-SA 3.0",
+    "width": 1807,
+    "height": 1527,
+    "renditions": [
+      {
+        "src": "/images/places/cappadocia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cappadocia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cappadocia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/okavango": {
+    "collection": "places",
+    "title": "Okavango Delta",
+    "subtitle": "Okavango",
+    "alt": "Okavango Delta in Botswana",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/okavango/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/okavango/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/okavango/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/dolomites": {
+    "collection": "places",
+    "title": "Dolomites",
+    "subtitle": "Dolomites",
+    "alt": "Dolomites in Italy",
+    "photographer": "Moroder",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2037,
+    "renditions": [
+      {
+        "src": "/images/places/dolomites/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/dolomites/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/dolomites/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/loire-valley": {
+    "collection": "places",
+    "title": "Loire Valley",
+    "subtitle": "Loire Valley",
+    "alt": "Loire Valley in France",
+    "photographer": "Suavemarimagno",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/loire-valley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/loire-valley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/loire-valley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/stonehenge": {
+    "collection": "places",
+    "title": "Stonehenge",
+    "subtitle": "Stonehenge",
+    "alt": "Stonehenge in United Kingdom",
+    "photographer": "Sherpalibre",
+    "license": "CC BY-SA 3.0",
+    "width": 3488,
+    "height": 1202,
+    "renditions": [
+      {
+        "src": "/images/places/stonehenge/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/stonehenge/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/stonehenge/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/chichen-itza": {
+    "collection": "places",
+    "title": "Chichen Itza",
+    "subtitle": "Chichén Itzá",
+    "alt": "Chichen Itza in Mexico",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 2464,
+    "height": 1848,
+    "renditions": [
+      {
+        "src": "/images/places/chichen-itza/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/chichen-itza/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/chichen-itza/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/zion": {
+    "collection": "places",
+    "title": "Zion National Park",
+    "subtitle": "Zion",
+    "alt": "Zion National Park in United States",
+    "photographer": "Tyson Dudley ty_dudley",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/zion/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/zion/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/zion/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mont-blanc": {
+    "collection": "places",
+    "title": "Mont Blanc",
+    "subtitle": "Mont Blanc",
+    "alt": "Mont Blanc in France",
+    "photographer": "Dmitry A. Mottl",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/mont-blanc/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mont-blanc/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mont-blanc/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/pompeii": {
+    "collection": "places",
+    "title": "Pompeii",
+    "subtitle": "Pompeii",
+    "alt": "Pompeii in Italy",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2556,
+    "renditions": [
+      {
+        "src": "/images/places/pompeii/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/pompeii/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/pompeii/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/terracotta-army": {
+    "collection": "places",
+    "title": "Terracotta Army",
+    "subtitle": "Terracotta Army",
+    "alt": "Terracotta Army in China",
+    "photographer": "Gary Lee Todd, Ph.D.",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/terracotta-army/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/terracotta-army/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/terracotta-army/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",
