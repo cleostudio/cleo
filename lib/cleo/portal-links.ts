@@ -8,6 +8,7 @@
  */
 
 import { isKnownPortalGuideSlug } from '~/lib/cleo/topic-photo-zoom'
+import { isPublishedPostSlug } from '~/lib/public-content-routes'
 
 export type PortalGuideLink = {
   collection: 'explore' | 'space'
@@ -18,6 +19,9 @@ export type PortalGuideLink = {
 
 const MARKDOWN_GUIDE_LINK =
   /\[([^\]]*)\]\((\/(explore|space)\/([a-z0-9-]+))\)/gi
+
+const MARKDOWN_WRITING_LINK =
+  /\[([^\]]*)\]\((\/blog\/([a-z0-9-]+))\)/gi
 
 /** Curated static JPEGs under the site image roots. */
 const CURATED_TOPIC_IMAGE_SRC =
@@ -149,6 +153,7 @@ function isRedundantGuideFooter(
 /**
  * Keep the first Markdown link per Explore/Space guide (short label), turn
  * later repeats into plain text, and drop redundant guide-only footer blocks.
+ * Invented Writing `/blog/...` hrefs become plain labels.
  */
 export function presentPortalGuideMarkdown(markdown: string): string {
   const seenHrefs = new Set<string>()
@@ -156,7 +161,7 @@ export function presentPortalGuideMarkdown(markdown: string): string {
   // like "global ocean"), so short real paragraphs are not dropped.
   const guideNames = new Set<string>()
 
-  const rewriteLinks = (block: string) =>
+  const rewriteGuideLinks = (block: string) =>
     block.replace(
       MARKDOWN_GUIDE_LINK,
       (
@@ -187,12 +192,28 @@ export function presentPortalGuideMarkdown(markdown: string): string {
       },
     )
 
+  const rewriteWritingLinks = (block: string) =>
+    block.replace(
+      MARKDOWN_WRITING_LINK,
+      (_full, rawLabel: string, href: string, slug: string) => {
+        const label = (rawLabel as string).trim() || titleFromSlug(slug)
+        if (!isPublishedPostSlug(slug)) {
+          return label
+        }
+        if (seenHrefs.has(href)) {
+          return label
+        }
+        seenHrefs.add(href)
+        return `[${label}](${href})`
+      },
+    )
+
   const blocks = presentTopicPhotoMarkdown(markdown).split(/\n{2,}/)
   const kept: string[] = []
 
   for (const block of blocks) {
     const hrefsBefore = seenHrefs.size
-    const rewritten = rewriteLinks(block)
+    const rewritten = rewriteWritingLinks(rewriteGuideLinks(block))
 
     if (
       kept.length > 0 &&
@@ -229,5 +250,10 @@ export const CLEO_PORTAL_STARTERS = [
     label: 'Find nebula photos',
     prompt:
       'Search the Gallery for nebula photographs and show one or two with short captions, linking each Space guide.',
+  },
+  {
+    label: 'Find a Writing essay',
+    prompt:
+      'Search Writing for an essay about Earth from space and deep-link the best match with a one-sentence tease.',
   },
 ] as const

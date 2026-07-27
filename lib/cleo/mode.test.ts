@@ -5,6 +5,8 @@ import {
   buildModeInstructions,
   buildModeWebSearchTool,
   modeAllowsCodeInterpreter,
+  modeParallelToolCalls,
+  modePromptCacheKey,
   modeWebSearchContextSize,
   parseCleoMode,
 } from './mode'
@@ -35,5 +37,12 @@ describe('cleo mode', () => {
       type: 'web_search',
       search_context_size: 'high',
     })
+  })
+
+  it('scopes prompt cache keys and parallel tool calls by mode', () => {
+    expect(modePromptCacheKey('auto')).toBe('cleo:agent:v1:auto')
+    expect(modePromptCacheKey('research')).toBe('cleo:agent:v1:research')
+    expect(modeParallelToolCalls('quick')).toBe(false)
+    expect(modeParallelToolCalls('auto')).toBe(true)
   })
 })

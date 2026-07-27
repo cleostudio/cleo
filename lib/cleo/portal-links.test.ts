@@ -149,6 +149,14 @@ describe('presentPortalGuideMarkdown', () => {
       ),
     ).toBe('Visit Atlantis and [Mars](/space/mars).')
   })
+
+  it('keeps published Writing links and strips invented blog paths', () => {
+    expect(
+      presentPortalGuideMarkdown(
+        'Read [Pale Blue Marble](/blog/pale-blue-marble) or [Fake](/blog/not-a-real-post).',
+      ),
+    ).toBe('Read [Pale Blue Marble](/blog/pale-blue-marble) or Fake.')
+  })
 })
 
 describe('presentTopicPhotoMarkdown', () => {

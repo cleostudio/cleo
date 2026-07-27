@@ -404,6 +404,10 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       type: "web_search",
       search_context_size: "medium",
     })
+    expect(openai.create.mock.calls[0]?.[0].prompt_cache_key).toBe(
+      "cleo:agent:v1:auto"
+    )
+    expect(openai.create.mock.calls[0]?.[0].parallel_tool_calls).toBe(true)
   })
 
   it("omits code interpreter and lowers verbosity in quick mode", async () => {
@@ -432,6 +436,8 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       search_context_size: "low",
     })
     expect(call.instructions).toContain("Mode: quick")
+    expect(call.prompt_cache_key).toBe("cleo:agent:v1:quick")
+    expect(call.parallel_tool_calls).toBe(false)
   })
 
   it("forces high reasoning in research mode", async () => {
@@ -644,7 +650,7 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     ])
   })
 
-  it("grounds topic photograph paths when the user asks about a catalog subject", async () => {
+  it("grounds topic photograph paths as a trailing developer message", async () => {
     openai.create.mockResolvedValueOnce(
       responseStream([
         { delta: "ok", type: "response.output_text.delta" },
@@ -654,9 +660,26 @@ describe("POST /api/responses: streaming and upstream errors", () => {
 
     await POST(ask(question))
 
-    const instructions = openai.create.mock.calls[0]?.[0].instructions as string
-    expect(instructions).toContain("<cleo_topic_photos>")
-    expect(instructions).toContain("![Mount Fuji](/images/atlas/japan/w1280.jpg)")
-    expect(instructions).toContain("You MAY and SHOULD include the curated photograph")
+    const call = openai.create.mock.calls[0]?.[0]
+    const instructions = call.instructions as string
+    expect(instructions).toContain("Mode: auto")
+    // Per-turn photo paths stay out of the static instruction prefix.
+    expect(instructions).not.toContain(
+      "![Mount Fuji](/images/atlas/japan/w1280.jpg)"
+    )
+
+    const input = call.input as Array<{ role?: string; content?: string }>
+    const topicMessage = input.find(
+      (item) =>
+        item.role === "developer" &&
+        typeof item.content === "string" &&
+        item.content.includes("<cleo_topic_photos>")
+    )
+    expect(topicMessage?.content).toContain(
+      "![Mount Fuji](/images/atlas/japan/w1280.jpg)"
+    )
+    expect(topicMessage?.content).toContain(
+      "You MAY and SHOULD include the curated photograph"
+    )
   })
 })

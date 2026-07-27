@@ -99,7 +99,29 @@ Mode: auto. Match depth to the request. Use portal tools for catalog subjects, \
 }
 
 export const CLEO_MODE_OPTIONS = [
-  { id: 'quick' as const, label: 'Quick' },
-  { id: 'auto' as const, label: 'Auto' },
-  { id: 'research' as const, label: 'Research' },
+  {
+    id: 'quick' as const,
+    label: 'Quick',
+    description: 'Short answers; fewer tools',
+  },
+  {
+    id: 'auto' as const,
+    label: 'Auto',
+    description: 'Balanced depth and tools',
+  },
+  {
+    id: 'research' as const,
+    label: 'Research',
+    description: 'Evidence-backed answers with sources',
+  },
 ]
+
+/** Stable OpenAI prompt_cache_key per mode (tools + instructions differ). */
+export function modePromptCacheKey(mode: CleoMode): string {
+  return `cleo:agent:v1:${mode}`
+}
+
+/** Allow parallel portal lookups in Auto/Research; keep Quick serial. */
+export function modeParallelToolCalls(mode: CleoMode): boolean {
+  return mode !== 'quick'
+}

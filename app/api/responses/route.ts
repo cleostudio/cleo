@@ -23,6 +23,8 @@ import {
   buildModeInstructions,
   buildModeWebSearchTool,
   modeAllowsCodeInterpreter,
+  modeParallelToolCalls,
+  modePromptCacheKey,
   modeTextVerbosity,
   parseCleoMode,
   type CleoMode,
@@ -444,16 +446,23 @@ export async function POST(request: Request) {
     conversationTopicText(conversation)
   )
   const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
+  // Keep per-turn topic photo grounding out of `instructions` so the static
+  // prefix (voice + mode + tools) can hit OpenAI prompt cache reliably.
+  if (topicPhotoInstructions) {
+    input = [
+      ...input,
+      {
+        role: "developer",
+        content: topicPhotoInstructions,
+      },
+    ]
+  }
   const modeInstructions = buildModeInstructions(mode)
-  const instructions = [
-    CLEO_INSTRUCTIONS,
-    modeInstructions,
-    topicPhotoInstructions,
-  ]
-    .filter(Boolean)
-    .join("\n\n")
+  const instructions = [CLEO_INSTRUCTIONS, modeInstructions].join("\n\n")
   const tools = buildCleoTools(mode)
   const verbosity = modeTextVerbosity(mode)
+  const promptCacheKey = modePromptCacheKey(mode)
+  const parallelToolCalls = modeParallelToolCalls(mode)
   // Research mode asks the hosted web_search tool to return source URLs so the
   // activity panel can surface what was consulted (OpenAI include guidance).
   const include =
@@ -475,6 +484,8 @@ export async function POST(request: Request) {
         stream: true,
         text: { verbosity },
         tools,
+        parallel_tool_calls: parallelToolCalls,
+        prompt_cache_key: promptCacheKey,
         store: false,
         ...(include ? { include: [...include] } : {}),
       },

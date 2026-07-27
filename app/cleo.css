@@ -682,7 +682,8 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
 .cleo-mode-row {
   display: flex;
   justify-content: center;
-  gap: 0.35rem;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.35rem;
   margin-bottom: 0.65rem;
 }
 
@@ -698,6 +699,19 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   letter-spacing: 0.02em;
   cursor: pointer;
   transition: color 160ms var(--ease-swift);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 39.99rem) {
+  .cleo-mode-row {
+    gap: 0.1rem 0.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cleo-mode {
+    padding: 0.25rem 0.45rem;
+    font-size: 0.6875rem;
+  }
 }
 
 .cleo-mode[data-active] {

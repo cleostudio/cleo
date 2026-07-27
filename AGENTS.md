@@ -73,8 +73,10 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `image_generation`, `code_interpreter` (auto/research modes), portal function
   tools (`search_portal_topics`, `lookup_guide`, `get_topic_photos`,
   `search_gallery`, `search_writing`, `lookup_writing`), mode-aware reasoning /
-  verbosity / `web_search.search_context_size`, streaming, a small tool-call
-  loop, and `store: false`.
+  verbosity / `web_search.search_context_size`, `prompt_cache_key` per mode,
+  streaming, a small tool-call loop, and `store: false`. Per-turn topic photo
+  grounding is a trailing developer message so the static instruction prefix
+  stays cacheable.
 - Behavior: `lib/cleo/instructions.ts` (base voice + research policy + portal
   surface guidance from `lib/cleo/portal-catalog.ts`). Guide/Writing/Gallery
   paths come from portal tools (and optional per-turn topic-photo grounding),

@@ -606,6 +606,36 @@ export function AskForm() {
         <div
           aria-label="Response mode"
           className="cleo-mode-row"
+          onKeyDown={(event) => {
+            if (isSubmitting) return
+            const currentIndex = CLEO_MODE_OPTIONS.findIndex(
+              (option) => option.id === mode
+            )
+            if (currentIndex < 0) return
+
+            let nextIndex = currentIndex
+            if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+              nextIndex = (currentIndex + 1) % CLEO_MODE_OPTIONS.length
+            } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+              nextIndex =
+                (currentIndex - 1 + CLEO_MODE_OPTIONS.length) %
+                CLEO_MODE_OPTIONS.length
+            } else if (event.key === "Home") {
+              nextIndex = 0
+            } else if (event.key === "End") {
+              nextIndex = CLEO_MODE_OPTIONS.length - 1
+            } else {
+              return
+            }
+
+            event.preventDefault()
+            const next = CLEO_MODE_OPTIONS[nextIndex]!
+            setMode(next.id)
+            const radios = event.currentTarget.querySelectorAll<HTMLElement>(
+              '[role="radio"]'
+            )
+            radios[nextIndex]?.focus()
+          }}
           role="radiogroup"
         >
           {CLEO_MODE_OPTIONS.map((option) => (
@@ -617,6 +647,8 @@ export function AskForm() {
               key={option.id}
               onClick={() => setMode(option.id)}
               role="radio"
+              tabIndex={mode === option.id ? 0 : -1}
+              title={option.description}
               type="button"
             >
               {option.label}
