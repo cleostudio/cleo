@@ -4,11 +4,12 @@ This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
 portal starting with countries and space. The homepage is a neutral portal
 (unified topic search, highlighted places, topic discovery, recent Writing
 posts). Explore field guides live
-at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
-`/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
-layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
-`/gallery`; `/projects` permanently redirects to `/topics`. Projects UI,
-vinyl/bookshelf, and social card components remain in the repo for later reuse.
+at `/explore/[slug]`, Space guides at `/space/[slug]`, curated knowledge Trails
+at `/trail`, the place Gallery at `/gallery`, Topics at `/topics`, Writing at
+`/blog` (future encyclopedia-like layer), and the AI agent at `/cleo`.
+`/photos` permanently redirects to `/gallery`; `/projects` permanently
+redirects to `/topics`. Projects UI, vinyl/bookshelf, and social card
+components remain in the repo for later reuse.
 
 Country guide records live in `content/atlas.json` (one entry per Explore slug).
 Orientation prose is curated, not generated at build time. It lives in
@@ -34,7 +35,10 @@ planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 `pnpm import:space-photos` into `public/images/space/{slug}/` and
 `content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
 at `/gallery` shows both Explore place photos and Space body photos.
-The Topics catalog in `lib/topics.ts` lists Countries and Space.
+The Topics catalog in `lib/topics.ts` lists Countries and Space. Curated
+knowledge Trails live in `lib/trails.ts` and render at `/trail` with
+interactive UI (`components/trail-explorer.tsx`: collection tabs, trail radio
+list, step controls, checklist, hide-completed switch, reset dialog).
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

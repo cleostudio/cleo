@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/gallery', latest),
     entry('/topics', latest),
     entry('/explore'),
+    entry('/trail'),
     entry('/space'),
     entry('/cleo'),
     ...countrySlugs().map((slug) => entry(`/explore/${slug}`)),

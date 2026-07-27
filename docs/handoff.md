@@ -7,11 +7,13 @@ Current as of July 2026 (Cleo fork).
 English-only general-knowledge portal with:
 
 - Homepage: unified topic search (countries, space, collections, portal
-  surfaces), highlighted places, topic discovery, recent Writing posts (no
-  personal contact / music / books / photo-wall sections)
+    surfaces), highlighted places, topic discovery, recent Writing posts (no
+    personal contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
   country field guides, Space field guides, Topics catalog (countries and
   space first; more topics later)
+- Trail: curated interactive routes through Explore/Space guides at `/trail`
+  (`lib/trails.ts`, checklist progress in `sessionStorage`)
 - Gallery: searchable photographs from Explore places and Space guides
   (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**

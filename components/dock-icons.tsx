@@ -143,6 +143,25 @@ export function ExploreIcon() {
   )
 }
 
+/** Curated knowledge routes: a winding path with two waypoints. */
+export function TrailIcon() {
+  return (
+    <Base>
+      <path
+        d="M3.25 13.25c1.75-2.5 3.25-3.5 5.25-3.5s3.5 1.5 5.25 3.5"
+        fill="currentColor"
+        opacity=".3"
+        strokeWidth="0"
+        stroke="none"
+      />
+      <path d="M3.25 13.25c1.75-2.5 3.25-3.5 5.25-3.5s3.5 1.5 5.25 3.5" />
+      <path d="M4.5 4.75c1.5 2.25 2.75 3.25 4.5 3.25s3-1.25 4.5-3.25" />
+      <circle cx="5.25" cy="5.5" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="12.75" cy="12.5" r="1.15" fill="currentColor" stroke="none" />
+    </Base>
+  )
+}
+
 export function SayHiIcon() {
   return (
     <Base>

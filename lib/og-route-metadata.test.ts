@@ -31,6 +31,11 @@ describe('social OG image metadata', () => {
     ['/topics', publicPageMetadata.topics, 'Topics · Cleo'],
     ['/explore', publicPageMetadata.explore, 'Explore · Cleo'],
     [
+      '/trail',
+      publicPageMetadata.trail,
+      'Trail · Cleo. Curated interactive routes through Explore and Space field guides — mark stops, switch collections, and open each primer as you go.',
+    ],
+    [
       '/space',
       publicPageMetadata.space,
       'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',

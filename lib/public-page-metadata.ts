@@ -27,6 +27,11 @@ export const publicPageMetadata = {
     title: 'Explore',
     description: '',
   },
+  trail: {
+    title: 'Trail',
+    description:
+      'Curated interactive routes through Explore and Space field guides — mark stops, switch collections, and open each primer as you go.',
+  },
   space: {
     title: 'Space',
     description:

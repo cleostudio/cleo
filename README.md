@@ -6,10 +6,10 @@ dock at `/cleo`.
 The public site includes a homepage with unified topic search (countries, space,
 collections), highlighted places, topic discovery, and recent Writing posts;
 Explore country field
-guides; Space field guides at `/space`; a place Gallery at `/gallery`; a Topics
-catalog; Writing (for a future encyclopedia layer); and a browser-only agent
-with streamed Markdown, vision, image generation, and live reasoning /
-web-search activity.
+guides; Space field guides at `/space`; curated knowledge Trails at `/trail`; a
+place Gallery at `/gallery`; a Topics catalog; Writing (for a future
+encyclopedia layer); and a browser-only agent with streamed Markdown, vision,
+image generation, and live reasoning / web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 `/photos` permanently redirects to `/gallery`.
@@ -31,7 +31,8 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   Explore/Space catalog so replies can deep-link field guides and embed
   curated topic photographs when a visual helps; topic and chat images use
   the same click-to-zoom lightbox as Gallery)
-- Bottom dock: Writing, Gallery, Explore, Topics, Cleo
+- Bottom dock: Writing, Gallery, Explore, Trail, Topics, Cleo
+- Trails: `lib/trails.ts` + interactive `components/trail-explorer.tsx`
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
 [`docs/design-language.md`](./docs/design-language.md). Site status:

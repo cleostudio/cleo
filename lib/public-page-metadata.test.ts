@@ -29,6 +29,11 @@ describe('public page metadata copy', () => {
       title: 'Explore',
       description: '',
     })
+    expect(publicPageMetadata.trail).toEqual({
+      title: 'Trail',
+      description:
+        'Curated interactive routes through Explore and Space field guides — mark stops, switch collections, and open each primer as you go.',
+    })
     expect(publicPageMetadata.space).toEqual({
       title: 'Space',
       description:
@@ -47,6 +52,7 @@ describe('public page metadata copy', () => {
       'gallery',
       'topics',
       'explore',
+      'trail',
       'space',
       'cleo',
     ] as const) {
