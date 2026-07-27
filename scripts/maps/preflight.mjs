@@ -103,6 +103,25 @@ async function main() {
     }
   }
 
+  const territoryRows = index.countries.filter((entry) => !entry.slug)
+  const territoryWithRegion = territoryRows.filter((entry) => entry.region)
+  if (territoryWithRegion.length < 30) {
+    throw new Error(
+      `Expected curated regions on ≥30 no-guide territories, got ${territoryWithRegion.length}`,
+    )
+  }
+  const territoryWithCapital = territoryRows.filter((entry) => entry.capitalName)
+  if (territoryWithCapital.length < 30) {
+    throw new Error(
+      `Expected curated capitals on ≥30 no-guide territories, got ${territoryWithCapital.length}`,
+    )
+  }
+  if (capitals.features.length < 220) {
+    throw new Error(
+      `Expected territory-enriched capitals (≥220), got ${capitals.features.length}`,
+    )
+  }
+
   // Natural Earth 50m omits these Explore microstates; prepare:maps injects
   // clickable marker polygons so deep links and search stay complete.
   const microstates = ['MC', 'MV', 'NR', 'TV', 'VA']

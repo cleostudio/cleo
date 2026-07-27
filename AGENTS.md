@@ -45,7 +45,8 @@ mozjpeg q90, 4:4:4) and Natural Earth admin-0 borders at
 `public/maps/country-index.json`. Country and continent symbol labels use
 first-party Open Sans SDF glyphs under `public/maplibre/fonts/`. Admin-0
 capital points live in `public/maps/capitals.geojson` (Natural Earth 10m,
-cross-checked against atlas capital names). HUD toggles show/hide borders,
+cross-checked against atlas capital names; curated territory capitals/regions
+in `scripts/maps/territory-meta.json`). HUD toggles show/hide borders,
 labels (including capital dots/names), and a 30° graticule (session preference
 + shareable `borders` / `labels` / `graticule` query flags). The shell unlocks
 via `html[data-maps-route]` (same pattern as Cleo) so the basemap fills the

@@ -30,7 +30,8 @@ document (enable both products in the Vercel project dashboard).
   + local NASA BMNG 21600 tiles z0–z6 / bilinear q90 and Natural Earth borders;
   country/continent labels via vendored MapLibre glyphs; Admin-0 capital markers
   (clickable hit pads, selected capital stays visible when Labels are off);
-  Borders/Labels/Graticule toggles with shareable layer query flags;
+  curated region/capital metadata for no-guide territories; Borders/Labels/
+  Graticule toggles with shareable layer query flags;
   `#zoom/lat/lng` camera hash + Share view; Back/Forward for country/region
   focus (pushState); capital-aware search + selection dossier (clearer
   no-guide territories); homepage search/highlights deep-link into Maps;

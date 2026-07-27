@@ -726,7 +726,8 @@ html[data-maps-route] body {
 
 @media (max-width: 40rem) {
   html[data-maps-route] {
-    --maps-dock-clearance: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+    /* Dock height only — bottom insets add safe-area separately. */
+    --maps-dock-clearance: 4.5rem;
     --maps-hud-inset: 0.75rem;
   }
 

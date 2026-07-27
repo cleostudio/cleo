@@ -45,4 +45,29 @@ describe('loadMapCountryIndex', () => {
       expect(fallback.label).toBe(prepared?.label)
     }
   })
+
+  it('curates region and capital metadata for no-guide territories', () => {
+    const territories = index.countries.filter((entry) => !entry.slug)
+    expect(territories.length).toBeGreaterThanOrEqual(40)
+    expect(territories.filter((entry) => entry.region).length).toBeGreaterThanOrEqual(
+      30,
+    )
+    expect(
+      territories.filter((entry) => entry.capitalName).length,
+    ).toBeGreaterThanOrEqual(30)
+
+    const hongKong = index.countries.find((entry) => entry.code === 'HK')
+    expect(hongKong).toMatchObject({
+      region: 'Asia',
+      capitalName: 'Hong Kong',
+    })
+    const greenland = index.countries.find((entry) => entry.code === 'GL')
+    expect(greenland).toMatchObject({
+      region: 'Americas',
+      capitalName: 'Nuuk',
+    })
+    // Territories must not widen Explore-only region cameras.
+    const europe = index.regions.find((region) => region.id === 'europe')
+    expect(europe?.bounds[0][0]).toBeGreaterThanOrEqual(-26)
+  })
 })

@@ -692,6 +692,7 @@ export function EarthMap({
   const suppressMapClickRef = useRef<() => void>(() => {})
   const indexReadyRef = useRef(Boolean(initialIndex?.countries.length))
   const selectionPanelRef = useRef<HTMLDivElement | null>(null)
+  const searchInputRef = useRef<HTMLInputElement | null>(null)
   const suggestionsOpenRef = useRef(false)
   const layersRef = useRef<MapLayerVisibility>({ ...DEFAULT_MAP_LAYERS })
   const resetViewRef = useRef<() => void>(() => {})
@@ -1170,6 +1171,22 @@ export function EarthMap({
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === '/' && !event.metaKey && !event.ctrlKey && !event.altKey) {
+        const target = event.target as HTMLElement | null
+        const tag = target?.tagName
+        if (
+          tag === 'INPUT' ||
+          tag === 'TEXTAREA' ||
+          tag === 'SELECT' ||
+          target?.isContentEditable
+        ) {
+          return
+        }
+        event.preventDefault()
+        searchInputRef.current?.focus()
+        if (query.trim()) setSuggestionsOpen(true)
+        return
+      }
       if (event.key !== 'Escape') return
       if (suggestionsOpenRef.current) return
       if (!selectedCodeRef.current && !activeRegionRef.current) return
@@ -1178,7 +1195,7 @@ export function EarthMap({
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
+  }, [query])
 
   useEffect(() => {
     const trimmed = query.trim()
@@ -1281,6 +1298,7 @@ export function EarthMap({
       settled = true
       cameraHashPausedRef.current = false
       syncMapCameraHash(null)
+      map.getCanvas().focus({ preventScroll: true })
     }
     map.once('moveend', settle)
     map.easeTo({
@@ -1378,7 +1396,7 @@ export function EarthMap({
         ref={containerRef}
         className="earth-map-canvas"
         role="application"
-        aria-label="Interactive map of Earth. Arrow keys pan, plus and minus zoom, Home resets."
+        aria-label="Interactive map of Earth. Press slash to search. Arrow keys pan, plus and minus zoom, Home resets."
         onKeyDown={(event) => {
           handleMapCanvasKeyDown(event, mapRef.current, resetView)
         }}
@@ -1398,6 +1416,7 @@ export function EarthMap({
                 Find a country
               </label>
               <input
+                ref={searchInputRef}
                 id={`${reactId}-map-search`}
                 type="search"
                 role="combobox"
@@ -1619,13 +1638,7 @@ export function EarthMap({
               disabled={!ready}
               title="Share or copy a link to this exact map view"
             >
-              {copyState === 'shared'
-                ? 'Shared'
-                : copyState === 'copied'
-                  ? 'Copied'
-                  : copyState === 'failed'
-                    ? 'Failed'
-                    : 'Share'}
+              Share
             </button>
             <button
               type="button"
@@ -1717,13 +1730,7 @@ export function EarthMap({
                     )
                   }}
                 >
-                  {copyState === 'shared'
-                    ? 'Shared'
-                    : copyState === 'copied'
-                      ? 'Copied link'
-                      : copyState === 'failed'
-                        ? 'Share failed'
-                        : 'Share link'}
+                  Share link
                 </button>
               </div>
             </div>
@@ -1760,13 +1767,7 @@ export function EarthMap({
                     )
                   }}
                 >
-                  {copyState === 'shared'
-                    ? 'Shared'
-                    : copyState === 'copied'
-                      ? 'Copied link'
-                      : copyState === 'failed'
-                        ? 'Share failed'
-                        : 'Share link'}
+                  Share link
                 </button>
               </div>
             </div>
@@ -1774,10 +1775,10 @@ export function EarthMap({
             <div className="earth-map-panel">
               <MapsGlass />
               <p className="earth-map-hint">
-                Pan and zoom (arrow keys when the map is focused; Home resets),
-                share the current view, toggle borders, labels, and graticule,
-                jump by region, or click a country or capital for its Explore
-                field guide.
+                Press / to search, arrow keys to pan when the map is focused
+                (Home resets), share the current view, toggle borders, labels,
+                and graticule, jump by region, or click a country or capital
+                for its Explore field guide.
               </p>
             </div>
           )}

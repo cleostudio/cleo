@@ -342,6 +342,83 @@ async function loadCountryMetaByCode() {
   return map
 }
 
+async function loadTerritoryMetaByCode() {
+  const raw = JSON.parse(
+    await readFile(path.join(root, 'scripts/maps/territory-meta.json'), 'utf8'),
+  )
+  const map = new Map()
+  for (const [code, meta] of Object.entries(raw)) {
+    if (!/^[A-Z]{2}$/.test(code)) continue
+    map.set(code, meta)
+  }
+  return map
+}
+
+/**
+ * Apply curated territory region/capital metadata for Admin-0 rows without an
+ * Explore guide. Region cameras still union slug-only members, so this never
+ * widens continent frames.
+ */
+async function applyTerritoryMeta(indexPath, capitalsPath) {
+  const territoryMeta = await loadTerritoryMetaByCode()
+  const index = JSON.parse(await readFile(indexPath, 'utf8'))
+  const capitals = JSON.parse(await readFile(capitalsPath, 'utf8'))
+  const byCode = new Map(
+    capitals.features.map((feature) => [feature.properties.code, feature]),
+  )
+
+  let regionHits = 0
+  let capitalHits = 0
+  for (const entry of index.countries) {
+    const meta = territoryMeta.get(entry.code)
+    if (!meta) continue
+
+    if (!entry.slug && meta.region && entry.region !== meta.region) {
+      entry.region = meta.region
+      regionHits += 1
+    }
+
+    if (
+      Array.isArray(meta.capital) &&
+      meta.capital.length === 2 &&
+      meta.capitalName &&
+      !entry.capital
+    ) {
+      entry.capital = meta.capital
+      entry.capitalName = meta.capitalName
+      capitalHits += 1
+      if (!byCode.has(entry.code)) {
+        const feature = {
+          type: 'Feature',
+          id: entry.code,
+          properties: {
+            code: entry.code,
+            name: meta.capitalName,
+            country: entry.name,
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: meta.capital,
+          },
+        }
+        capitals.features.push(feature)
+        byCode.set(entry.code, feature)
+      }
+    }
+  }
+
+  capitals.features.sort((a, b) =>
+    String(a.properties.code).localeCompare(String(b.properties.code), 'en'),
+  )
+  await writeFile(indexPath, `${JSON.stringify(index)}\n`, 'utf8')
+  await writeFile(capitalsPath, `${JSON.stringify(capitals)}\n`, 'utf8')
+  return {
+    regionHits,
+    capitalHits,
+    capitalCount: capitals.features.length,
+  }
+}
+
 /**
  * Union country cameras into a region frame. Pass `refLng` when members mix
  * antimeridian unwraps (Oceania); corners are re-unwrapped against that meridian
@@ -382,6 +459,7 @@ function regionCamera(entries, { refLng = null, clamp = null } = {}) {
 
 async function writeCountryIndex(collection, outPath) {
   const metaByCode = await loadCountryMetaByCode()
+  const territoryMeta = await loadTerritoryMetaByCode()
   const entries = []
 
   for (const feature of collection.features) {
@@ -389,15 +467,26 @@ async function writeCountryIndex(collection, outPath) {
     const camera = cameraFromGeometry(feature.geometry)
     if (!camera) continue
     const meta = metaByCode.get(code)
-    entries.push({
+    const territory = territoryMeta.get(code)
+    const entry = {
       code,
       name: feature.properties.name,
       slug: meta?.slug ?? null,
-      region: meta?.region ?? null,
+      region: meta?.region ?? territory?.region ?? null,
       center: camera.center,
       bounds: camera.bounds,
       maxZoom: camera.maxZoom,
-    })
+    }
+    if (
+      !entry.capital &&
+      Array.isArray(territory?.capital) &&
+      territory.capital.length === 2 &&
+      territory.capitalName
+    ) {
+      entry.capital = territory.capital
+      entry.capitalName = territory.capitalName
+    }
+    entries.push(entry)
   }
 
   entries.sort((a, b) => a.name.localeCompare(b.name, 'en'))
@@ -405,6 +494,7 @@ async function writeCountryIndex(collection, outPath) {
   const regionOrder = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
   const regions = []
   for (const label of regionOrder) {
+    // Only Explore guides frame continent cameras — territories must not widen them.
     const members = entries.filter((entry) => entry.region === label && entry.slug)
     // Russia is catalogued under Europe but stretches to the Pacific; keep it
     // in the tally, frame the denser European landmass without it.
@@ -635,6 +725,12 @@ async function main() {
       throw error
     }
   }
+
+  const territory = await applyTerritoryMeta(indexPublic, capitalsPublic)
+  capitalCount = territory.capitalCount
+  console.log(
+    `territories: +${territory.regionHits} regions, +${territory.capitalHits} capitals`,
+  )
 
   let tileCount = 0
   if (skipTiles) {
