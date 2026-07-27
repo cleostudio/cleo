@@ -9287,6 +9287,774 @@
       }
     ]
   },
+  "places/denver": {
+    "collection": "places",
+    "title": "Denver",
+    "subtitle": "Denver",
+    "alt": "Denver in United States",
+    "photographer": "Andrew Preble apreble",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "src": "/images/places/denver/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/denver/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/denver/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/philadelphia": {
+    "collection": "places",
+    "title": "Philadelphia",
+    "subtitle": "Philadelphia",
+    "alt": "Philadelphia in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1600,
+    "renditions": [
+      {
+        "src": "/images/places/philadelphia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/philadelphia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/philadelphia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/atlanta": {
+    "collection": "places",
+    "title": "Atlanta",
+    "subtitle": "Atlanta",
+    "alt": "Atlanta in United States",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 1896,
+    "height": 1428,
+    "renditions": [
+      {
+        "src": "/images/places/atlanta/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/atlanta/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/atlanta/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/houston": {
+    "collection": "places",
+    "title": "Houston",
+    "subtitle": "Houston",
+    "alt": "Houston in United States",
+    "photographer": "Ed Uthman , Houston, Texas, USA",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/houston/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/houston/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/houston/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/porto": {
+    "collection": "places",
+    "title": "Porto",
+    "subtitle": "Porto",
+    "alt": "Porto in Portugal",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2008,
+    "renditions": [
+      {
+        "src": "/images/places/porto/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/porto/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/porto/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/valencia": {
+    "collection": "places",
+    "title": "Valencia",
+    "subtitle": "Valencia",
+    "alt": "Valencia in Spain",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2049,
+    "renditions": [
+      {
+        "src": "/images/places/valencia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/valencia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/valencia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/seville": {
+    "collection": "places",
+    "title": "Seville",
+    "subtitle": "Seville",
+    "alt": "Seville in Spain",
+    "photographer": "Benjamin Smith",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2139,
+    "renditions": [
+      {
+        "src": "/images/places/seville/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/seville/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/seville/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lyon": {
+    "collection": "places",
+    "title": "Lyon",
+    "subtitle": "Lyon",
+    "alt": "Lyon in France",
+    "photographer": "Dennis G. Jarvis",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2597,
+    "renditions": [
+      {
+        "src": "/images/places/lyon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lyon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lyon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cologne": {
+    "collection": "places",
+    "title": "Cologne",
+    "subtitle": "Cologne",
+    "alt": "Cologne in Germany",
+    "photographer": "Jörg Braukmann",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2070,
+    "renditions": [
+      {
+        "src": "/images/places/cologne/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cologne/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cologne/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hamburg": {
+    "collection": "places",
+    "title": "Hamburg",
+    "subtitle": "Hamburg",
+    "alt": "Hamburg in Germany",
+    "photographer": "Frank Schulenburg",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/hamburg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hamburg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hamburg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tallinn": {
+    "collection": "places",
+    "title": "Tallinn",
+    "subtitle": "Tallinn",
+    "alt": "Tallinn in Estonia",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2694,
+    "renditions": [
+      {
+        "src": "/images/places/tallinn/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tallinn/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tallinn/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/accra": {
+    "collection": "places",
+    "title": "Accra",
+    "subtitle": "Accra",
+    "alt": "Accra in Ghana",
+    "photographer": "Matti Blume",
+    "license": "CC BY-SA",
+    "width": 3798,
+    "height": 2812,
+    "renditions": [
+      {
+        "src": "/images/places/accra/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/accra/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/accra/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/washington": {
+    "collection": "places",
+    "title": "Washington state",
+    "subtitle": "Washington",
+    "alt": "Washington state in United States",
+    "photographer": "Tagooty",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/washington/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/washington/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/washington/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/alberta": {
+    "collection": "places",
+    "title": "Alberta",
+    "subtitle": "Alberta",
+    "alt": "Alberta in Canada",
+    "photographer": "Tobias Alt, Tobi 87",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2283,
+    "renditions": [
+      {
+        "src": "/images/places/alberta/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/alberta/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/alberta/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/victoria-au": {
+    "collection": "places",
+    "title": "Victoria Australia",
+    "subtitle": "Victoria",
+    "alt": "Victoria Australia in Australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/victoria-au/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/victoria-au/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/victoria-au/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/naxos": {
+    "collection": "places",
+    "title": "Naxos",
+    "subtitle": "Naxos",
+    "alt": "Naxos in Greece",
+    "photographer": "Manfred Werner (Tsui)",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/naxos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/naxos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/naxos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/samos": {
+    "collection": "places",
+    "title": "Samos",
+    "subtitle": "Samos",
+    "alt": "Samos in Greece",
+    "photographer": "Keldhelbig",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2161,
+    "renditions": [
+      {
+        "src": "/images/places/samos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/samos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/samos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/elba": {
+    "collection": "places",
+    "title": "Portoferraio",
+    "subtitle": "Elba",
+    "alt": "Portoferraio in Italy",
+    "photographer": "karico",
+    "license": "CC BY-SA 3.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/elba/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/elba/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/elba/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/menorca": {
+    "collection": "places",
+    "title": "Menorca",
+    "subtitle": "Menorca",
+    "alt": "Menorca in Spain",
+    "photographer": "Marcelsala007",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/menorca/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/menorca/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/menorca/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/reunion": {
+    "collection": "places",
+    "title": "Piton de la Fournaise",
+    "subtitle": "Réunion",
+    "alt": "Piton de la Fournaise in France",
+    "photographer": "Rémih",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/reunion/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/reunion/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/reunion/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/guadeloupe": {
+    "collection": "places",
+    "title": "Guadeloupe",
+    "subtitle": "Guadeloupe",
+    "alt": "Guadeloupe in France",
+    "photographer": "Grook Da Oger",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1182,
+    "renditions": [
+      {
+        "src": "/images/places/guadeloupe/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/guadeloupe/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/guadeloupe/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/normandy": {
+    "collection": "places",
+    "title": "Normandie",
+    "subtitle": "Normandy",
+    "alt": "Normandie in France",
+    "photographer": "Frank Schulenburg",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "src": "/images/places/normandy/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/normandy/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/normandy/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/umbria": {
+    "collection": "places",
+    "title": "Umbria",
+    "subtitle": "Umbria",
+    "alt": "Umbria in Italy",
+    "photographer": "Tagooty",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "src": "/images/places/umbria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/umbria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/umbria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lake-como": {
+    "collection": "places",
+    "title": "Lake Como",
+    "subtitle": "Lake Como",
+    "alt": "Lake Como in Italy",
+    "photographer": "Daniel Case",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2438,
+    "renditions": [
+      {
+        "src": "/images/places/lake-como/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lake-como/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lake-como/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/masai-mara": {
+    "collection": "places",
+    "title": "Maasai Mara",
+    "subtitle": "Maasai Mara",
+    "alt": "Maasai Mara in Kenya",
+    "photographer": "Bjørn Christian Tørrissen",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2410,
+    "renditions": [
+      {
+        "src": "/images/places/masai-mara/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/masai-mara/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/masai-mara/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/gobi": {
+    "collection": "places",
+    "title": "Gobi",
+    "subtitle": "Gobi",
+    "alt": "Gobi in Mongolia",
+    "photographer": "Orgio89",
+    "license": "CC0",
+    "width": 3840,
+    "height": 897,
+    "renditions": [
+      {
+        "src": "/images/places/gobi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/gobi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/gobi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sagrada-familia": {
+    "collection": "places",
+    "title": "Sagrada Família",
+    "subtitle": "Sagrada Família",
+    "alt": "Sagrada Família in Spain",
+    "photographer": "Txllxt TxllxT",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/sagrada-familia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sagrada-familia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sagrada-familia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/forbidden-city": {
+    "collection": "places",
+    "title": "Forbidden City",
+    "subtitle": "Forbidden City",
+    "alt": "Forbidden City in China",
+    "photographer": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "width": 3590,
+    "height": 2693,
+    "renditions": [
+      {
+        "src": "/images/places/forbidden-city/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/forbidden-city/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/forbidden-city/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mount-etna": {
+    "collection": "places",
+    "title": "Mount Etna",
+    "subtitle": "Mount Etna",
+    "alt": "Mount Etna in Italy",
+    "photographer": "Ввласенко",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2352,
+    "renditions": [
+      {
+        "src": "/images/places/mount-etna/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mount-etna/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mount-etna/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/angel-falls": {
+    "collection": "places",
+    "title": "Angel Falls",
+    "subtitle": "Angel Falls",
+    "alt": "Angel Falls in Venezuela",
+    "photographer": "Diego Delso",
+    "license": "CC BY 3.0",
+    "width": 2560,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/places/angel-falls/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/angel-falls/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/angel-falls/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/twelve-apostles": {
+    "collection": "places",
+    "title": "Twelve Apostles",
+    "subtitle": "Twelve Apostles",
+    "alt": "Twelve Apostles in Australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/twelve-apostles/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/twelve-apostles/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/twelve-apostles/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/fushimi-inari": {
+    "collection": "places",
+    "title": "Fushimi Inari",
+    "subtitle": "Fushimi Inari",
+    "alt": "Fushimi Inari in Japan",
+    "photographer": "Paul Vlaar",
+    "license": "CC BY-SA 3.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/places/fushimi-inari/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/fushimi-inari/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/fushimi-inari/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

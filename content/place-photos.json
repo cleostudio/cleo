@@ -5566,5 +5566,933 @@
         "bytes": 820004
       }
     ]
+  },
+  "denver": {
+    "featureName": "Denver",
+    "alt": "Denver in United States",
+    "caption": "Denver, United States",
+    "photographer": "Andrew Preble apreble",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Denver,_United_States_(Unsplash_Pqv2FYU-Zlc).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Denver, United States (Unsplash Pqv2FYU-Zlc).jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e9/Denver%2C_United_States_%28Unsplash_Pqv2FYU-Zlc%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "464082d57d1f41c9e61486be79f06b1876fa6991a4390fc22aaf414a057e255a",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/denver/w640.jpg",
+        "bytes": 25833
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/denver/w1280.jpg",
+        "bytes": 96802
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/denver/w2048.jpg",
+        "bytes": 319436
+      }
+    ]
+  },
+  "philadelphia": {
+    "featureName": "Philadelphia",
+    "alt": "Philadelphia in United States",
+    "caption": "Philadelphia, United States",
+    "photographer": "King of Hearts",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Philadelphia_from_South_Street_Bridge_July_2016_panorama_1.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Philadelphia from South Street Bridge July 2016 panorama 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3d/Philadelphia_from_South_Street_Bridge_July_2016_panorama_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fb0b29f3adad6f200762c7d41df567566aee9f146588d55b8ee5cfc950c7b225",
+    "width": 3840,
+    "height": 1600,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/philadelphia/w640.jpg",
+        "bytes": 34499
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/philadelphia/w1280.jpg",
+        "bytes": 135254
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/philadelphia/w2048.jpg",
+        "bytes": 415253
+      }
+    ]
+  },
+  "atlanta": {
+    "featureName": "Atlanta",
+    "alt": "Atlanta in United States",
+    "caption": "Atlanta, United States",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:City_Center,_Atlanta,_USA1.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:City Center, Atlanta, USA1.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f8/City_Center%2C_Atlanta%2C_USA1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "800345d3ec4cc5cedd769ce5f84ead54cf1ee89fdb1b3b053e43ae9342f528b5",
+    "width": 1896,
+    "height": 1428,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/atlanta/w640.jpg",
+        "bytes": 60567
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/atlanta/w1280.jpg",
+        "bytes": 170661
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/atlanta/w2048.jpg",
+        "bytes": 368292
+      }
+    ]
+  },
+  "houston": {
+    "featureName": "Houston",
+    "alt": "Houston in United States",
+    "caption": "Houston, United States",
+    "photographer": "Ed Uthman , Houston, Texas, USA",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Houston_Downtown_Skyline_2010.JPG",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Houston Downtown Skyline 2010.JPG); source https://upload.wikimedia.org/wikipedia/commons/8/85/Houston_Downtown_Skyline_2010.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1491b9ec1ed0d5947891b864ee0de700311918ea56e83a5c637068234e537c13",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/houston/w640.jpg",
+        "bytes": 32265
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/houston/w1280.jpg",
+        "bytes": 124416
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/houston/w2048.jpg",
+        "bytes": 388855
+      }
+    ]
+  },
+  "porto": {
+    "featureName": "Porto",
+    "alt": "Porto in Portugal",
+    "caption": "Porto, Portugal",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rabelos_en_el_r%C3%ADo_Duero,_Vila_Nova_de_Gaia,_Portugal,_2012-05-09,_DD_14.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Rabelos en el río Duero, Vila Nova de Gaia, Portugal, 2012-05-09, DD 14.JPG); source https://upload.wikimedia.org/wikipedia/commons/a/a4/Rabelos_en_el_r%C3%ADo_Duero%2C_Vila_Nova_de_Gaia%2C_Portugal%2C_2012-05-09%2C_DD_14.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7e84a168541d26100953303ab03c99b4bd47aaeef92284a7b8e27946769dbdde",
+    "width": 3840,
+    "height": 2008,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/porto/w640.jpg",
+        "bytes": 42977
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/porto/w1280.jpg",
+        "bytes": 165061
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/porto/w2048.jpg",
+        "bytes": 510748
+      }
+    ]
+  },
+  "valencia": {
+    "featureName": "Valencia",
+    "alt": "Valencia in Spain",
+    "caption": "Valencia, Spain",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemispheric_Twilight_-_Valencia,_Spain_-_Jan_2007.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Hemispheric Twilight - Valencia, Spain - Jan 2007.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/40/Hemispheric_Twilight_-_Valencia%2C_Spain_-_Jan_2007.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9ab2021c49585f2e6c8457f8a04f8238ac9efa1654bbec6a08c7cc4acd731b7d",
+    "width": 3840,
+    "height": 2049,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/valencia/w640.jpg",
+        "bytes": 32770
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/valencia/w1280.jpg",
+        "bytes": 107438
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/valencia/w2048.jpg",
+        "bytes": 301498
+      }
+    ]
+  },
+  "seville": {
+    "featureName": "Seville",
+    "alt": "Seville in Spain",
+    "caption": "Seville, Spain",
+    "photographer": "Benjamin Smith",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sevilla_-_Plaza_de_Espa%C3%B1a_-_3.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sevilla - Plaza de España - 3.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0e/Sevilla_-_Plaza_de_Espa%C3%B1a_-_3.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fa853787391617ac7352774c3ada13fa328568f006b17e9fa2a6fe1dc304615a",
+    "width": 3840,
+    "height": 2139,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/seville/w640.jpg",
+        "bytes": 52338
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/seville/w1280.jpg",
+        "bytes": 197077
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/seville/w2048.jpg",
+        "bytes": 567875
+      }
+    ]
+  },
+  "lyon": {
+    "featureName": "Lyon",
+    "alt": "Lyon in France",
+    "caption": "Lyon, France",
+    "photographer": "Dennis G. Jarvis",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:France-003038_-_Basilica_of_Notre-Dame_de_Fourvi%C3%A8re_(15939822990).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:France-003038 - Basilica of Notre-Dame de Fourvière (15939822990).jpg); source https://upload.wikimedia.org/wikipedia/commons/6/61/France-003038_-_Basilica_of_Notre-Dame_de_Fourvi%C3%A8re_%2815939822990%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "af0667656f8864a4dae0c473c8dabf709d94e313dc727968ef1db4afc842a300",
+    "width": 3840,
+    "height": 2597,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lyon/w640.jpg",
+        "bytes": 49625
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lyon/w1280.jpg",
+        "bytes": 186546
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lyon/w2048.jpg",
+        "bytes": 561186
+      }
+    ]
+  },
+  "cologne": {
+    "featureName": "Cologne",
+    "alt": "Cologne in Germany",
+    "caption": "Cologne, Germany",
+    "photographer": "Jörg Braukmann",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dom_(Deutzer_Br%C3%BCcke).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Dom (Deutzer Brücke).jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9f/Dom_%28Deutzer_Br%C3%BCcke%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a5ac05718625d4dd4ad8769f298adf298e9b4cf40e0fdc2928c6b5e7d315e646",
+    "width": 3840,
+    "height": 2070,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cologne/w640.jpg",
+        "bytes": 43453
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cologne/w1280.jpg",
+        "bytes": 154571
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cologne/w2048.jpg",
+        "bytes": 446496
+      }
+    ]
+  },
+  "hamburg": {
+    "featureName": "Hamburg",
+    "alt": "Hamburg in Germany",
+    "caption": "Hamburg, Germany",
+    "photographer": "Frank Schulenburg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hamburg%E2%80%99s_Speicherstadt_at_night.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Hamburg’s Speicherstadt at night.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e8/Hamburg%E2%80%99s_Speicherstadt_at_night.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d473bc66fd4d2f57e41e0e1803cecaef0fe61e10c1ccf75d7b4e9808bbe347b2",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hamburg/w640.jpg",
+        "bytes": 52616
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hamburg/w1280.jpg",
+        "bytes": 192340
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hamburg/w2048.jpg",
+        "bytes": 565175
+      }
+    ]
+  },
+  "tallinn": {
+    "featureName": "Tallinn",
+    "alt": "Tallinn in Estonia",
+    "caption": "Tallinn, Estonia",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catedral_de_Alejandro_Nevsky,_Tallin,_Estonia,_2012-08-05,_DD_20.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Catedral de Alejandro Nevsky, Tallin, Estonia, 2012-08-05, DD 20.JPG); source https://upload.wikimedia.org/wikipedia/commons/c/ca/Catedral_de_Alejandro_Nevsky%2C_Tallin%2C_Estonia%2C_2012-08-05%2C_DD_20.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cf54cb61c0d258adfa6d9c4876201d6fc4ed2c1e8f0734f86288f4e725eb2735",
+    "width": 3840,
+    "height": 2694,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tallinn/w640.jpg",
+        "bytes": 62736
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tallinn/w1280.jpg",
+        "bytes": 207435
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tallinn/w2048.jpg",
+        "bytes": 550235
+      }
+    ]
+  },
+  "accra": {
+    "featureName": "Accra",
+    "alt": "Accra in Ghana",
+    "caption": "Accra, Ghana",
+    "photographer": "Matti Blume",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Independence_Square,_Korle-Klottey_(IMG_20230201_124359_1).jpg",
+    "license": "CC BY-SA",
+    "provenance": "Curated from Wikimedia Commons (File:Independence Square, Korle-Klottey (IMG 20230201 124359 1).jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a0/Independence_Square%2C_Korle-Klottey_%28IMG_20230201_124359_1%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "03ddc7659ba2ba2c16e64f5b94dfae3d5d8c3c11043f3dec0f1a70ac5be1178c",
+    "width": 3798,
+    "height": 2812,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/accra/w640.jpg",
+        "bytes": 64871
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/accra/w1280.jpg",
+        "bytes": 134928
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/accra/w2048.jpg",
+        "bytes": 337158
+      }
+    ]
+  },
+  "washington": {
+    "featureName": "Washington state",
+    "alt": "Washington state in United States",
+    "caption": "Washington state, United States",
+    "photographer": "Tagooty",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rainier_Aerial_West_Close_Washington_Mar23_R16_07149.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Rainier Aerial West Close Washington Mar23 R16 07149.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0a/Rainier_Aerial_West_Close_Washington_Mar23_R16_07149.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9236e54fe898d32ba40799d377461b0783851a4b2b06218fab0fb56afe3fed0a",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/washington/w640.jpg",
+        "bytes": 31513
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/washington/w1280.jpg",
+        "bytes": 95558
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/washington/w2048.jpg",
+        "bytes": 260350
+      }
+    ]
+  },
+  "alberta": {
+    "featureName": "Alberta",
+    "alt": "Alberta in Canada",
+    "caption": "Alberta, Canada",
+    "photographer": "Tobias Alt, Tobi 87",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peyto_Lake-Banff_NP-Canada.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Peyto Lake-Banff NP-Canada.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/91/Peyto_Lake-Banff_NP-Canada.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ef3533a49956e37358e5bdb8bd84c3dd7a1a14e4de2c72312547b56b5cdfa06e",
+    "width": 3840,
+    "height": 2283,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/alberta/w640.jpg",
+        "bytes": 49367
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/alberta/w1280.jpg",
+        "bytes": 196292
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/alberta/w2048.jpg",
+        "bytes": 614816
+      }
+    ]
+  },
+  "victoria-au": {
+    "featureName": "Victoria Australia",
+    "alt": "Victoria Australia in Australia",
+    "caption": "Victoria Australia, Australia",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peterborough_(AU),_Port_Campbell_National_Park,_Worm_Bay_--_2019_--_0863.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Peterborough (AU), Port Campbell National Park, Worm Bay -- 2019 -- 0863.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e2/Peterborough_%28AU%29%2C_Port_Campbell_National_Park%2C_Worm_Bay_--_2019_--_0863.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2289c6a5236445dc241addbf98cd6a1e4a4831ecc197ff3c205ed1a55a1d4488",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/victoria-au/w640.jpg",
+        "bytes": 39599
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/victoria-au/w1280.jpg",
+        "bytes": 147098
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/victoria-au/w2048.jpg",
+        "bytes": 466852
+      }
+    ]
+  },
+  "naxos": {
+    "featureName": "Naxos",
+    "alt": "Naxos in Greece",
+    "caption": "Naxos, Greece",
+    "photographer": "Manfred Werner (Tsui)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naxos_%CE%9D%CE%AC%CE%BE%CE%BF%CF%82_Chora_2020-08-20_28_Portara_%CE%A0%CE%BF%CF%81%CF%84%CE%AC%CF%81%CE%B1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Naxos Νάξος Chora 2020-08-20 28 Portara Πορτάρα.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/da/Naxos_%CE%9D%CE%AC%CE%BE%CE%BF%CF%82_Chora_2020-08-20_28_Portara_%CE%A0%CE%BF%CF%81%CF%84%CE%AC%CF%81%CE%B1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "19bf80c8aabb02dbc2a9c0ca29679b6e4696b54372f67e134fb131939b735250",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/naxos/w640.jpg",
+        "bytes": 56887
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/naxos/w1280.jpg",
+        "bytes": 196121
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/naxos/w2048.jpg",
+        "bytes": 518063
+      }
+    ]
+  },
+  "samos": {
+    "featureName": "Samos",
+    "alt": "Samos in Greece",
+    "caption": "Samos, Greece",
+    "photographer": "Keldhelbig",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manolates,_Samos,_Greece.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Manolates, Samos, Greece.JPG); source https://upload.wikimedia.org/wikipedia/commons/5/5f/Manolates%2C_Samos%2C_Greece.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "60f49a66ca8bb0951ad86664b47e58b7f8f09820b1d9c2a287a0882925ab59f6",
+    "width": 3840,
+    "height": 2161,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/samos/w640.jpg",
+        "bytes": 32919
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/samos/w1280.jpg",
+        "bytes": 123113
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/samos/w2048.jpg",
+        "bytes": 386200
+      }
+    ]
+  },
+  "elba": {
+    "featureName": "Portoferraio",
+    "alt": "Portoferraio in Italy",
+    "caption": "Portoferraio, Italy",
+    "photographer": "karico",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Calata_Italia,_45,_57037_Portoferraio_LI,_Italy_-_panoramio.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Calata Italia, 45, 57037 Portoferraio LI, Italy - panoramio.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f2/Calata_Italia%2C_45%2C_57037_Portoferraio_LI%2C_Italy_-_panoramio.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f4e57c7733f19e4fb4e606d50f2f8b65ce6a9ce5ec0b0fef348d3380493186a2",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/elba/w640.jpg",
+        "bytes": 40721
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/elba/w1280.jpg",
+        "bytes": 114464
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/elba/w2048.jpg",
+        "bytes": 303926
+      }
+    ]
+  },
+  "menorca": {
+    "featureName": "Menorca",
+    "alt": "Menorca in Spain",
+    "caption": "Menorca, Spain",
+    "photographer": "Marcelsala007",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cala_Macarella_2.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cala Macarella 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/26/Cala_Macarella_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4008c32b94a592ffdc41d26da5c1a82243450a3321776579ebbd21be09bf1841",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/menorca/w640.jpg",
+        "bytes": 52467
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/menorca/w1280.jpg",
+        "bytes": 189716
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/menorca/w2048.jpg",
+        "bytes": 564023
+      }
+    ]
+  },
+  "reunion": {
+    "featureName": "Piton de la Fournaise",
+    "alt": "Piton de la Fournaise in France",
+    "caption": "Piton de la Fournaise, France",
+    "photographer": "Rémih",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piton_de_la_Fournaise_night_@_Piton_des_Neiges.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Piton de la Fournaise night @ Piton des Neiges.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/96/Piton_de_la_Fournaise_night_%40_Piton_des_Neiges.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "09f0c78835913cbd6819e4bc51e18013582a321fc8e25f663a07b6e05e942762",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/reunion/w640.jpg",
+        "bytes": 5616
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/reunion/w1280.jpg",
+        "bytes": 14373
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/reunion/w2048.jpg",
+        "bytes": 51034
+      }
+    ]
+  },
+  "guadeloupe": {
+    "featureName": "Guadeloupe",
+    "alt": "Guadeloupe in France",
+    "caption": "Guadeloupe, France",
+    "photographer": "Grook Da Oger",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pano_sommet_Soufri%C3%A8re_(Guadeloupe).jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Pano sommet Soufrière (Guadeloupe).jpg); source https://upload.wikimedia.org/wikipedia/commons/4/44/Pano_sommet_Soufri%C3%A8re_%28Guadeloupe%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "46366de200d80e27037cb8e797b4ea3491660edb1770a6162d1a7e5cdf566e72",
+    "width": 3840,
+    "height": 1182,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/guadeloupe/w640.jpg",
+        "bytes": 27566
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/guadeloupe/w1280.jpg",
+        "bytes": 102410
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/guadeloupe/w2048.jpg",
+        "bytes": 289015
+      }
+    ]
+  },
+  "normandy": {
+    "featureName": "Normandie",
+    "alt": "Normandie in France",
+    "caption": "Normandie, France",
+    "photographer": "Frank Schulenburg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Miromesnil,_Tourville-sur-Arques-1000659.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Château de Miromesnil, Tourville-sur-Arques-1000659.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/67/Ch%C3%A2teau_de_Miromesnil%2C_Tourville-sur-Arques-1000659.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "06f38edd14adc2351cc6e6731f0a0556ad039f4c440985a6d6910249f680ec8d",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/normandy/w640.jpg",
+        "bytes": 55912
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/normandy/w1280.jpg",
+        "bytes": 217885
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/normandy/w2048.jpg",
+        "bytes": 690372
+      }
+    ]
+  },
+  "umbria": {
+    "featureName": "Umbria",
+    "alt": "Umbria in Italy",
+    "caption": "Umbria, Italy",
+    "photographer": "Tagooty",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:SW_Perugia_Plains_Assisi_Italy_crop_Sep23_A7C_07858.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:SW Perugia Plains Assisi Italy crop Sep23 A7C 07858.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3e/SW_Perugia_Plains_Assisi_Italy_crop_Sep23_A7C_07858.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "02002a8445039bbb7314cd64676fb78e60ec0a0edcaf93760434e97d98aee0a7",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/umbria/w640.jpg",
+        "bytes": 53862
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/umbria/w1280.jpg",
+        "bytes": 209184
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/umbria/w2048.jpg",
+        "bytes": 681600
+      }
+    ]
+  },
+  "lake-como": {
+    "featureName": "Lake Como",
+    "alt": "Lake Como in Italy",
+    "caption": "Lake Como, Italy",
+    "photographer": "Daniel Case",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colonno_from_Lake_Como_ferry.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Colonno from Lake Como ferry.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e3/Colonno_from_Lake_Como_ferry.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c1b60ce903101826866d9714d0b4c109e716d09388f48b98c2ba2b8d945a447b",
+    "width": 3840,
+    "height": 2438,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lake-como/w640.jpg",
+        "bytes": 66954
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lake-como/w1280.jpg",
+        "bytes": 244369
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lake-como/w2048.jpg",
+        "bytes": 693915
+      }
+    ]
+  },
+  "masai-mara": {
+    "featureName": "Maasai Mara",
+    "alt": "Maasai Mara in Kenya",
+    "caption": "Maasai Mara, Kenya",
+    "photographer": "Bjørn Christian Tørrissen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maasai-Mara-Typical-Scenery.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Maasai-Mara-Typical-Scenery.JPG); source https://upload.wikimedia.org/wikipedia/commons/b/bd/Maasai-Mara-Typical-Scenery.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3d974fcdb88320bb30988b5a9510143af264dc261a377de7e90e48623c13cbb2",
+    "width": 3840,
+    "height": 2410,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/masai-mara/w640.jpg",
+        "bytes": 30583
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/masai-mara/w1280.jpg",
+        "bytes": 94181
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/masai-mara/w2048.jpg",
+        "bytes": 269568
+      }
+    ]
+  },
+  "gobi": {
+    "featureName": "Gobi",
+    "alt": "Gobi in Mongolia",
+    "caption": "Gobi, Mongolia",
+    "photographer": "Orgio89",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mongolian_Gobi_desert_dune_(4).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Mongolian Gobi desert dune (4).jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d7/Mongolian_Gobi_desert_dune_%284%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "440ee3e1c031cac69c62c67a407b07fea9910c9ffdf539bd5e87b97f62369992",
+    "width": 3840,
+    "height": 897,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/gobi/w640.jpg",
+        "bytes": 7274
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/gobi/w1280.jpg",
+        "bytes": 23110
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/gobi/w2048.jpg",
+        "bytes": 70718
+      }
+    ]
+  },
+  "sagrada-familia": {
+    "featureName": "Sagrada Família",
+    "alt": "Sagrada Família in Spain",
+    "caption": "Sagrada Família, Spain",
+    "photographer": "Txllxt TxllxT",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barcelona_-_La_Sagrada_Fam%C3%ADlia_-_View_North_-_Passion_fa%C3%A7ade.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Barcelona - La Sagrada Família - View North - Passion façade.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4f/Barcelona_-_La_Sagrada_Fam%C3%ADlia_-_View_North_-_Passion_fa%C3%A7ade.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e50841468cc1f9cad008cbae20ce203b2748097a045b1b0e969a57c3dd2099dc",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sagrada-familia/w640.jpg",
+        "bytes": 65387
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sagrada-familia/w1280.jpg",
+        "bytes": 236473
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sagrada-familia/w2048.jpg",
+        "bytes": 667572
+      }
+    ]
+  },
+  "forbidden-city": {
+    "featureName": "Forbidden City",
+    "alt": "Forbidden City in China",
+    "caption": "Forbidden City, China",
+    "photographer": "Ermell",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peking_verbotene_Stadt-20071018-RM-162411.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Peking verbotene Stadt-20071018-RM-162411.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/51/Peking_verbotene_Stadt-20071018-RM-162411.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "28d30db28fbcf8415e438e54ff2bb218397ce9f069ae46f0bb3c690c8e7abfb5",
+    "width": 3590,
+    "height": 2693,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/forbidden-city/w640.jpg",
+        "bytes": 116690
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/forbidden-city/w1280.jpg",
+        "bytes": 326888
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/forbidden-city/w2048.jpg",
+        "bytes": 872532
+      }
+    ]
+  },
+  "mount-etna": {
+    "featureName": "Mount Etna",
+    "alt": "Mount Etna in Italy",
+    "caption": "Mount Etna, Italy",
+    "photographer": "Ввласенко",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Syracuse_and_Mount_Etna_from_Lungomare_Di_Levante_Ortigia._Sicily,_Italy.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:View of Syracuse and Mount Etna from Lungomare Di Levante Ortigia. Sicily, Italy.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e6/View_of_Syracuse_and_Mount_Etna_from_Lungomare_Di_Levante_Ortigia._Sicily%2C_Italy.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3fbd9a32bf2384d1c1f19442bf473a0ab4df8b578b72cb9ee59588fbdb671c80",
+    "width": 3840,
+    "height": 2352,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mount-etna/w640.jpg",
+        "bytes": 50873
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mount-etna/w1280.jpg",
+        "bytes": 206345
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mount-etna/w2048.jpg",
+        "bytes": 654794
+      }
+    ]
+  },
+  "angel-falls": {
+    "featureName": "Angel Falls",
+    "alt": "Angel Falls in Venezuela",
+    "caption": "Angel Falls, Venezuela",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salto_del_Angel-Canaima-Venezuela18.JPG",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Salto del Angel-Canaima-Venezuela18.JPG); source https://upload.wikimedia.org/wikipedia/commons/d/d5/Salto_del_Angel-Canaima-Venezuela18.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bf7daee40f33fe6586367e70bc1c197b5ff08675fe2b99c422a8d81d44d86e25",
+    "width": 2560,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/angel-falls/w640.jpg",
+        "bytes": 76620
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/angel-falls/w1280.jpg",
+        "bytes": 173114
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/angel-falls/w2048.jpg",
+        "bytes": 415569
+      }
+    ]
+  },
+  "twelve-apostles": {
+    "featureName": "Twelve Apostles",
+    "alt": "Twelve Apostles in Australia",
+    "caption": "Twelve Apostles, Australia",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Princetown_(AU),_Port_Campbell_National_Park,_Twelve_Apostles_--_2019_--_0930.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Princetown (AU), Port Campbell National Park, Twelve Apostles -- 2019 -- 0930.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7c/Princetown_%28AU%29%2C_Port_Campbell_National_Park%2C_Twelve_Apostles_--_2019_--_0930.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "aaf38c4f8d2a8e62d8c1a5768e6964c637f298c8dadb55de2f9356e9242ff674",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/twelve-apostles/w640.jpg",
+        "bytes": 46962
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/twelve-apostles/w1280.jpg",
+        "bytes": 176237
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/twelve-apostles/w2048.jpg",
+        "bytes": 537419
+      }
+    ]
+  },
+  "fushimi-inari": {
+    "featureName": "Fushimi Inari",
+    "alt": "Fushimi Inari in Japan",
+    "caption": "Fushimi Inari, Japan",
+    "photographer": "Paul Vlaar",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:KyotoFushimiInariLarge.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:KyotoFushimiInariLarge.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/16/KyotoFushimiInariLarge.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "971261ffd57c3a1ba9a024aa12f474fee294ada8cf6d4f51d3a74ab88e166426",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/fushimi-inari/w640.jpg",
+        "bytes": 57736
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/fushimi-inari/w1280.jpg",
+        "bytes": 160934
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/fushimi-inari/w2048.jpg",
+        "bytes": 395553
+      }
+    ]
   }
 }

@@ -1,0 +1,226 @@
+{
+  "denver": {
+    "name": "Denver",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Denver", "Denver skyline", "Denver Rockies"]
+  },
+  "philadelphia": {
+    "name": "Philadelphia",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Philadelphia", "Philadelphia skyline", "Independence Hall"]
+  },
+  "atlanta": {
+    "name": "Atlanta",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Atlanta", "Atlanta skyline"]
+  },
+  "houston": {
+    "name": "Houston",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Houston", "Houston skyline"]
+  },
+  "porto": {
+    "name": "Porto",
+    "countrySlug": "portugal",
+    "countryName": "Portugal",
+    "kind": "City",
+    "searchNames": ["Porto", "Porto Ribeira", "Dom Luís Bridge"]
+  },
+  "valencia": {
+    "name": "Valencia",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "City",
+    "searchNames": ["Valencia", "Valencia Spain", "City of Arts and Sciences"]
+  },
+  "seville": {
+    "name": "Seville",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "City",
+    "searchNames": ["Seville", "Sevilla", "Plaza de España Seville"]
+  },
+  "lyon": {
+    "name": "Lyon",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": ["Lyon", "Lyon France", "Basilica Fourvière"]
+  },
+  "cologne": {
+    "name": "Cologne",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "City",
+    "searchNames": ["Cologne", "Köln", "Cologne Cathedral"]
+  },
+  "hamburg": {
+    "name": "Hamburg",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "City",
+    "searchNames": ["Hamburg", "Hamburg harbour", "Elbphilharmonie"]
+  },
+  "tallinn": {
+    "name": "Tallinn",
+    "countrySlug": "estonia",
+    "countryName": "Estonia",
+    "kind": "City",
+    "searchNames": ["Tallinn", "Tallinn Old Town"]
+  },
+  "accra": {
+    "name": "Accra",
+    "countrySlug": "ghana",
+    "countryName": "Ghana",
+    "kind": "City",
+    "searchNames": ["Accra", "Accra skyline", "Independence Square Accra"]
+  },
+  "washington": {
+    "name": "Washington",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": ["Washington state", "Olympic Peninsula", "Mount Rainier", "Seattle Washington"]
+  },
+  "alberta": {
+    "name": "Alberta",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": ["Alberta", "Alberta Rockies", "Canadian Rockies Alberta"]
+  },
+  "victoria-au": {
+    "name": "Victoria",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "State",
+    "searchNames": ["Victoria Australia", "Great Ocean Road", "Victoria state"]
+  },
+  "naxos": {
+    "name": "Naxos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Naxos", "Naxos Portara", "Naxos Greece"]
+  },
+  "samos": {
+    "name": "Samos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Samos", "Samos Greece", "Pythagoreio"]
+  },
+  "elba": {
+    "name": "Elba",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Island",
+    "searchNames": ["Elba", "Elba Island", "Portoferraio"]
+  },
+  "menorca": {
+    "name": "Menorca",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": ["Menorca", "Minorca", "Ciutadella"]
+  },
+  "reunion": {
+    "name": "Réunion",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": ["Réunion", "Reunion Island", "Piton de la Fournaise"]
+  },
+  "guadeloupe": {
+    "name": "Guadeloupe",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": ["Guadeloupe", "Guadeloupe island", "La Soufrière Guadeloupe"]
+  },
+  "normandy": {
+    "name": "Normandy",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": ["Normandy", "Normandie", "Normandy coast"]
+  },
+  "umbria": {
+    "name": "Umbria",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": ["Umbria", "Assisi", "Perugia"]
+  },
+  "lake-como": {
+    "name": "Lake Como",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": ["Lake Como", "Lago di Como", "Bellagio"]
+  },
+  "masai-mara": {
+    "name": "Maasai Mara",
+    "countrySlug": "kenya",
+    "countryName": "Kenya",
+    "kind": "Region",
+    "searchNames": ["Maasai Mara", "Masai Mara", "Mara Reserve"]
+  },
+  "gobi": {
+    "name": "Gobi",
+    "countrySlug": "mongolia",
+    "countryName": "Mongolia",
+    "kind": "Region",
+    "searchNames": ["Gobi Desert", "Gobi Mongolia", "Khongoryn Els"]
+  },
+  "sagrada-familia": {
+    "name": "Sagrada Família",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Landmark",
+    "searchNames": ["Sagrada Familia", "Sagrada Família"]
+  },
+  "forbidden-city": {
+    "name": "Forbidden City",
+    "countrySlug": "china",
+    "countryName": "China",
+    "kind": "Landmark",
+    "searchNames": ["Forbidden City", "Palace Museum Beijing"]
+  },
+  "mount-etna": {
+    "name": "Mount Etna",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": ["Mount Etna", "Etna", "Etna volcano"]
+  },
+  "angel-falls": {
+    "name": "Angel Falls",
+    "countrySlug": "venezuela",
+    "countryName": "Venezuela",
+    "kind": "Landmark",
+    "searchNames": ["Angel Falls", "Salto Ángel"]
+  },
+  "twelve-apostles": {
+    "name": "Twelve Apostles",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Landmark",
+    "searchNames": ["Twelve Apostles", "Twelve Apostles Victoria"]
+  },
+  "fushimi-inari": {
+    "name": "Fushimi Inari",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Landmark",
+    "searchNames": ["Fushimi Inari", "Fushimi Inari Taisha", "Inari torii"]
+  }
+}

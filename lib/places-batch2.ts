@@ -231,7 +231,7 @@ export const placeGuideDraftsBatch2: PlaceGuideDraftBatch[] = [
     kind: 'City',
     countrySlug: 'spain',
     subtitle: 'City · Spain',
-    matchNames: ['Barcelona', 'Sagrada Familia'],
+    matchNames: ['Barcelona'],
     about:
       'Barcelona sits between Collserola’s hills and the Mediterranean, with a Roman core, a medieval Gothic Quarter, and Cerdà’s Eixample grid expanding inland. The seafront was remade for modern civic life; Modernisme facades punctuate ordered blocks. Catalan language and institutions shape public culture inside the Spanish state. Orientation runs from sea to mountain, with Las Ramblas and the Diagonal as major cuts through the plan. Barcelona’s primer is Mediterranean grid city — dense, walkable, and staged between water and ridge.',
     facts: {

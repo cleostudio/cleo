@@ -7,6 +7,7 @@ import { placeGuideDraftsBatch3 } from '~/lib/places-batch3'
 import { placeGuideDraftsBatch4 } from '~/lib/places-batch4'
 import { placeGuideDraftsBatch5 } from '~/lib/places-batch5'
 import { placeGuideDraftsBatch6 } from '~/lib/places-batch6'
+import { placeGuideDraftsBatch7 } from '~/lib/places-batch7'
 import type { StaticPhoto } from '~/lib/static-photo'
 
 export type PlaceKind = 'City' | 'State' | 'Island' | 'Region' | 'Landmark'
@@ -418,7 +419,7 @@ const placeGuideDrafts: PlaceGuideDraft[] = [
     kind: 'City',
     countrySlug: 'south-africa',
     subtitle: 'City · South Africa',
-    matchNames: ['Cape Town', 'Table Mountain'],
+    matchNames: ['Cape Town'],
     about:
       'Cape Town sits where the Atlantic meets the Cape Peninsula, with Table Mountain’s flat summit rising directly above the city bowl. Harbor docks face north; beaches and cliffs wrap west and south toward the peninsula’s tip; suburbs spread onto the Cape Flats inland. The mountain is not a distant backdrop but a wall that organizes wind, cloud, and settlement. Orientation uses the bowl, the Atlantic Seaboard, False Bay, and the peninsula spine. Colonial and Victorian street grids occupy the bowl floor; later growth follows transport corridors across flatter ground. Fynbos vegetation and marine climate give the setting a Mediterranean-seeming clarity without Mediterranean latitude. Cape Town’s primer is the meeting of mountain, two oceans’ approaches, and a harbor city still shaped by that topography every clear afternoon when the tablecloth cloud spills over the summit.',
     facts: {
@@ -1616,6 +1617,7 @@ const placeGuideDrafts: PlaceGuideDraft[] = [
   ...(placeGuideDraftsBatch4 as PlaceGuideDraft[]),
   ...(placeGuideDraftsBatch5 as PlaceGuideDraft[]),
   ...(placeGuideDraftsBatch6 as PlaceGuideDraft[]),
+  ...(placeGuideDraftsBatch7 as PlaceGuideDraft[]),
 ]
 
 export const placeGuides: PlaceGuide[] = placeGuideDrafts.map(withPhoto)
@@ -1650,16 +1652,22 @@ export function matchPlaceGuideForBlurb(
   blurbName: string,
 ): PlaceGuide | undefined {
   const folded = foldName(blurbName)
-  return placesForCountry(countrySlug).find((place) =>
-    [place.name, ...place.matchNames].some((name) => {
+  let best: { place: PlaceGuide; score: number } | undefined
+  for (const place of placesForCountry(countrySlug)) {
+    for (const name of [place.name, ...place.matchNames]) {
       const candidate = foldName(name)
-      return (
-        candidate === folded ||
-        folded.includes(candidate) ||
-        candidate.includes(folded)
-      )
-    }),
-  )
+      if (!candidate) continue
+      let score = 0
+      if (candidate === folded) score = 300 + candidate.length
+      else if (folded.includes(candidate) || candidate.includes(folded)) {
+        score = 100 + candidate.length
+      }
+      if (score > 0 && (!best || score > best.score)) {
+        best = { place, score }
+      }
+    }
+  }
+  return best?.place
 }
 
 export function placeHref(place: Pick<PlaceGuide, 'countrySlug' | 'slug'>): string {
