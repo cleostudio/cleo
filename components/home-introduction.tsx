@@ -135,9 +135,9 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              Cleo 是一座知识门户：从国家与太空起步，再延展到更多主题。每个导览都以
+              Cleo 是面向国家与太空的知识门户，之后还会加入更多主题。每页都按
               <DesignEngineerPhrase>设计工程师</DesignEngineerPhrase>
-              的标准打磨，把细节做到
+              的标准来做：细节做到
               <DetailsPhrase>
                 <span className="home-detail-units">
                   <span className="home-detail-unit">刚</span>
@@ -150,9 +150,9 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Cleo is a knowledge portal. Countries and space first; more topics as the catalog
-              grows. Guides are built with <DesignEngineerPhrase>design engineer</DesignEngineerPhrase>{' '}
-              care —{' '}
+              Cleo is a knowledge portal for countries and space — with more topics on the way. A{' '}
+              <DesignEngineerPhrase>design engineer</DesignEngineerPhrase> standard runs through every
+              page:{' '}
               <DetailsPhrase>
                 <span className="home-detail-units home-detail-words">
                   <span className="home-detail-unit">details</span>{' '}
@@ -167,15 +167,15 @@ export function HomeIntroduction() {
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         <T
-          zh="实地导览、精选照片，以及可检索的主题目录。不写签证、安全提示或价格这类易变建议。"
-          en="Field guides, curated photographs, and a searchable topic catalog. No visas, safety bulletins, or prices — advice that expires stays out."
+          zh="可浏览实地导览、精选照片和可检索目录。签证、安全提示与价格，请去别处找。"
+          en="Browse field guides, curated photographs, and a searchable catalog. Leave visas, safety bulletins, and prices for elsewhere."
         />
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         <T
           zh={
             <>
-              从{' '}
+              打开{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 主题
               </Link>
@@ -187,12 +187,12 @@ export function HomeIntroduction() {
               <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 询问 Cleo
               </Link>
-              {' '}开始。
+              。
             </>
           }
           en={
             <>
-              Start with{' '}
+              Open{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 Topics
               </Link>

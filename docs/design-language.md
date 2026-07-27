@@ -146,10 +146,10 @@ are short, concrete, and conversational — "为什么按钮不需要手指光�
 ## Homepage introduction
 
 The homepage opens with three short bilingual paragraphs: Cleo is a knowledge
-portal (countries and space first, more topics later); it offers field guides,
-curated photographs, and a searchable catalog without visas, safety bulletins,
-or prices; and a final line links into Topics, Explore, or Ask Cleo. Keep the
-voice plain and product-facing.
+portal for countries and space (more topics later), held to a design-engineer
+standard; readers can browse guides, photographs, and a searchable catalog —
+visas, safety bulletins, and prices stay elsewhere; and a final line opens
+Topics, Explore, or Ask Cleo. Keep the voice plain and product-facing.
 
 The opening sentence still carries two decorative 18px marks: the supplied
 design-engineer figure and the supplied orbital sparkle for getting details
