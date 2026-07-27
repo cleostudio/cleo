@@ -1061,6 +1061,8 @@ export function EarthMap({
 
   useEffect(() => {
     if (!ready || mapEpoch === 0) return
+    const map = mapRef.current
+    if (!map) return
     if (countryParam) {
       const entry = findMapCountryIndexEntry(indexRef.current, countryParam)
       if (!entry) {
