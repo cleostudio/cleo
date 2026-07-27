@@ -1,0 +1,226 @@
+{
+  "buffalo": {
+    "name": "Buffalo",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Buffalo New York", "Buffalo skyline", "Buffalo NY"]
+  },
+  "anchorage": {
+    "name": "Anchorage",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Anchorage", "Anchorage Alaska", "Anchorage skyline"]
+  },
+  "albuquerque": {
+    "name": "Albuquerque",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Albuquerque", "Albuquerque skyline", "Albuquerque New Mexico"]
+  },
+  "saskatoon": {
+    "name": "Saskatoon",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": ["Saskatoon", "Saskatoon skyline", "Saskatoon Saskatchewan"]
+  },
+  "ushuaia": {
+    "name": "Ushuaia",
+    "countrySlug": "argentina",
+    "countryName": "Argentina",
+    "kind": "City",
+    "searchNames": ["Ushuaia", "Ushuaia harbor", "Ushuaia Argentina"]
+  },
+  "la-serena": {
+    "name": "La Serena",
+    "countrySlug": "chile",
+    "countryName": "Chile",
+    "kind": "City",
+    "searchNames": ["La Serena Chile", "La Serena beach", "La Serena city"]
+  },
+  "belem": {
+    "name": "Belém",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": ["Belém Brazil", "Belem Para", "Belém Amazon"]
+  },
+  "rijeka": {
+    "name": "Rijeka",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "City",
+    "searchNames": ["Rijeka", "Rijeka harbor", "Rijeka Croatia"]
+  },
+  "podgorica": {
+    "name": "Podgorica",
+    "countrySlug": "montenegro",
+    "countryName": "Montenegro",
+    "kind": "City",
+    "searchNames": ["Podgorica", "Podgorica Montenegro", "Podgorica city"]
+  },
+  "indore": {
+    "name": "Indore",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": ["Indore", "Indore India", "Indore Madhya Pradesh"]
+  },
+  "nara": {
+    "name": "Nara",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": ["Nara Japan", "Nara park", "Nara temples"]
+  },
+  "mons": {
+    "name": "Mons",
+    "countrySlug": "belgium",
+    "countryName": "Belgium",
+    "kind": "City",
+    "searchNames": ["Mons Belgium", "Mons Grand Place", "Mons city"]
+  },
+  "missouri": {
+    "name": "Missouri",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": ["Missouri", "Missouri landscape", "Ozarks Missouri"]
+  },
+  "yukon": {
+    "name": "Yukon",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": ["Yukon", "Yukon Territory", "Yukon mountains"]
+  },
+  "odisha": {
+    "name": "Odisha",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": ["Odisha", "Odisha India", "Konark Odisha"]
+  },
+  "syros": {
+    "name": "Syros",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Syros", "Syros Greece", "Ermoupoli Syros"]
+  },
+  "lesbos": {
+    "name": "Lesbos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Lesbos", "Lesvos", "Mytilene Lesbos"]
+  },
+  "formentera": {
+    "name": "Formentera",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": ["Formentera", "Formentera beach", "Formentera Spain"]
+  },
+  "lewis": {
+    "name": "Isle of Lewis",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": ["Isle of Lewis", "Lewis Scotland", "Callanish Lewis"]
+  },
+  "les-saintes": {
+    "name": "Les Saintes",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": ["Les Saintes", "Terre-de-Haut", "Les Saintes Guadeloupe"]
+  },
+  "curacao": {
+    "name": "Curaçao",
+    "countrySlug": "netherlands",
+    "countryName": "Netherlands",
+    "kind": "Island",
+    "searchNames": ["Curaçao", "Curacao", "Willemstad Curacao"]
+  },
+  "lombardy": {
+    "name": "Lombardy",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": ["Lombardy", "Lombardia", "Lombardy lakes"]
+  },
+  "burgenland": {
+    "name": "Burgenland",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "Region",
+    "searchNames": ["Burgenland", "Burgenland Austria", "Neusiedler See"]
+  },
+  "clare-valley": {
+    "name": "Clare Valley",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Region",
+    "searchNames": ["Clare Valley", "Clare Valley vineyards", "Clare Valley South Australia"]
+  },
+  "navarre": {
+    "name": "Navarre",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": ["Navarre", "Navarra", "Pamplona Navarre"]
+  },
+  "oltenia": {
+    "name": "Oltenia",
+    "countrySlug": "romania",
+    "countryName": "Romania",
+    "kind": "Region",
+    "searchNames": ["Oltenia", "Oltenia Romania", "Craiova Oltenia"]
+  },
+  "westminster-palace": {
+    "name": "Palace of Westminster",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": ["Palace of Westminster", "Houses of Parliament", "Westminster Palace"]
+  },
+  "louvre": {
+    "name": "Louvre",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": ["Louvre", "Louvre Museum", "Louvre Pyramid"]
+  },
+  "everglades": {
+    "name": "Everglades",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Everglades", "Everglades National Park", "Florida Everglades"]
+  },
+  "sequoia": {
+    "name": "Sequoia",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Sequoia", "Sequoia National Park", "Giant Forest Sequoia"]
+  },
+  "cologne-cathedral": {
+    "name": "Cologne Cathedral",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Landmark",
+    "searchNames": ["Cologne Cathedral", "Kölner Dom", "Cologne Dom"]
+  },
+  "independence-hall": {
+    "name": "Independence Hall",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Independence Hall", "Independence Hall Philadelphia"]
+  }
+}

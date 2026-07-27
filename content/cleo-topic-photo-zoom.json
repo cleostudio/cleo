@@ -16199,6 +16199,774 @@
       }
     ]
   },
+  "places/buffalo": {
+    "collection": "places",
+    "title": "Buffalo",
+    "subtitle": "Buffalo",
+    "alt": "Buffalo in United States",
+    "photographer": "Andre Carrotflower",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/buffalo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/buffalo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/buffalo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/anchorage": {
+    "collection": "places",
+    "title": "Anchorage Alaska",
+    "subtitle": "Anchorage",
+    "alt": "Anchorage Alaska in United States",
+    "photographer": "Paxson Woelber",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/anchorage/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/anchorage/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/anchorage/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/albuquerque": {
+    "collection": "places",
+    "title": "Albuquerque",
+    "subtitle": "Albuquerque",
+    "alt": "Albuquerque in United States",
+    "photographer": "Daniel Schwen",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 554,
+    "renditions": [
+      {
+        "src": "/images/places/albuquerque/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/albuquerque/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/albuquerque/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/saskatoon": {
+    "collection": "places",
+    "title": "Saskatoon skyline",
+    "subtitle": "Saskatoon",
+    "alt": "Saskatoon skyline in Canada",
+    "photographer": "Natasha Yokoyama-Ramsay",
+    "license": "CC BY-SA 2.0",
+    "width": 2882,
+    "height": 1932,
+    "renditions": [
+      {
+        "src": "/images/places/saskatoon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/saskatoon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/saskatoon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ushuaia": {
+    "collection": "places",
+    "title": "Ushuaia",
+    "subtitle": "Ushuaia",
+    "alt": "Ushuaia in Argentina",
+    "photographer": "Liam Quinn from Canada",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/ushuaia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ushuaia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ushuaia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/la-serena": {
+    "collection": "places",
+    "title": "La Serena Chile",
+    "subtitle": "La Serena",
+    "alt": "La Serena Chile in Chile",
+    "photographer": "Rjcastillo",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1360,
+    "renditions": [
+      {
+        "src": "/images/places/la-serena/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/la-serena/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/la-serena/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/belem": {
+    "collection": "places",
+    "title": "Belém Brazil",
+    "subtitle": "Belém",
+    "alt": "Belém Brazil in Brazil",
+    "photographer": "Cayambe",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2576,
+    "renditions": [
+      {
+        "src": "/images/places/belem/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/belem/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/belem/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rijeka": {
+    "collection": "places",
+    "title": "Rijeka harbor",
+    "subtitle": "Rijeka",
+    "alt": "Rijeka harbor in Croatia",
+    "photographer": "DirektFlug",
+    "license": "CC BY-SA 4.0",
+    "width": 1920,
+    "height": 1280,
+    "renditions": [
+      {
+        "src": "/images/places/rijeka/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rijeka/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rijeka/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/podgorica": {
+    "collection": "places",
+    "title": "Podgorica",
+    "subtitle": "Podgorica",
+    "alt": "Podgorica in Montenegro",
+    "photographer": "CAPTAIN RAJU",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/podgorica/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/podgorica/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/podgorica/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/indore": {
+    "collection": "places",
+    "title": "Indore",
+    "subtitle": "Indore",
+    "alt": "Indore in India",
+    "photographer": "John Hoey from Framingham, MA, United States",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2549,
+    "renditions": [
+      {
+        "src": "/images/places/indore/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/indore/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/indore/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nara": {
+    "collection": "places",
+    "title": "Nara Japan",
+    "subtitle": "Nara",
+    "alt": "Nara Japan in Japan",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2432,
+    "renditions": [
+      {
+        "src": "/images/places/nara/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nara/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nara/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mons": {
+    "collection": "places",
+    "title": "Mons city",
+    "subtitle": "Mons",
+    "alt": "Mons city in Belgium",
+    "photographer": "Jean-Pol GRANDMONT",
+    "license": "CC BY-SA 3.0",
+    "width": 2272,
+    "height": 1704,
+    "renditions": [
+      {
+        "src": "/images/places/mons/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mons/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mons/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/missouri": {
+    "collection": "places",
+    "title": "Missouri",
+    "subtitle": "Missouri",
+    "alt": "Missouri in United States",
+    "photographer": "Chris Light",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1580,
+    "renditions": [
+      {
+        "src": "/images/places/missouri/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/missouri/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/missouri/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/yukon": {
+    "collection": "places",
+    "title": "Yukon",
+    "subtitle": "Yukon",
+    "alt": "Yukon in Canada",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1728,
+    "renditions": [
+      {
+        "src": "/images/places/yukon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/yukon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/yukon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/odisha": {
+    "collection": "places",
+    "title": "Odisha",
+    "subtitle": "Odisha",
+    "alt": "Odisha in India",
+    "photographer": "Joydeep Chakraborty",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2747,
+    "renditions": [
+      {
+        "src": "/images/places/odisha/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/odisha/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/odisha/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/syros": {
+    "collection": "places",
+    "title": "Syros",
+    "subtitle": "Syros",
+    "alt": "Syros in Greece",
+    "photographer": "Leeturtle",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2873,
+    "renditions": [
+      {
+        "src": "/images/places/syros/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/syros/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/syros/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lesbos": {
+    "collection": "places",
+    "title": "Lesbos",
+    "subtitle": "Lesbos",
+    "alt": "Lesbos in Greece",
+    "photographer": "Bouke ten Cate",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/lesbos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lesbos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lesbos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/formentera": {
+    "collection": "places",
+    "title": "Formentera",
+    "subtitle": "Formentera",
+    "alt": "Formentera in Spain",
+    "photographer": "acediscovery",
+    "license": "CC BY 4.0",
+    "width": 3200,
+    "height": 2400,
+    "renditions": [
+      {
+        "src": "/images/places/formentera/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/formentera/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/formentera/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lewis": {
+    "collection": "places",
+    "title": "Isle of Lewis",
+    "subtitle": "Isle of Lewis",
+    "alt": "Isle of Lewis in United Kingdom",
+    "photographer": "LornaMCampbell",
+    "license": "CC BY-SA 4.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/places/lewis/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lewis/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lewis/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/les-saintes": {
+    "collection": "places",
+    "title": "Les Saintes",
+    "subtitle": "Les Saintes",
+    "alt": "Les Saintes in France",
+    "photographer": "David Broad",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "src": "/images/places/les-saintes/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/les-saintes/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/les-saintes/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/curacao": {
+    "collection": "places",
+    "title": "Willemstad Curacao",
+    "subtitle": "Curaçao",
+    "alt": "Willemstad Curacao in Netherlands",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1770,
+    "renditions": [
+      {
+        "src": "/images/places/curacao/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/curacao/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/curacao/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lombardy": {
+    "collection": "places",
+    "title": "Lombardy",
+    "subtitle": "Lombardy",
+    "alt": "Lombardy in Italy",
+    "photographer": "Ray Swi-hymn from Sijhih-Taipei, Taiwan",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/lombardy/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lombardy/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lombardy/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/burgenland": {
+    "collection": "places",
+    "title": "Burgenland",
+    "subtitle": "Burgenland",
+    "alt": "Burgenland in Austria",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/burgenland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/burgenland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/burgenland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/clare-valley": {
+    "collection": "places",
+    "title": "Clare Valley",
+    "subtitle": "Clare Valley",
+    "alt": "Clare Valley in Australia",
+    "photographer": "Scott Davis",
+    "license": "CC BY-SA 3.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/clare-valley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/clare-valley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/clare-valley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/navarre": {
+    "collection": "places",
+    "title": "Navarre",
+    "subtitle": "Navarre",
+    "alt": "Navarre in Spain",
+    "photographer": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1299,
+    "renditions": [
+      {
+        "src": "/images/places/navarre/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/navarre/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/navarre/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/oltenia": {
+    "collection": "places",
+    "title": "Oltenia",
+    "subtitle": "Oltenia",
+    "alt": "Oltenia in Romania",
+    "photographer": "Sucidava ( talk )",
+    "license": "CC BY-SA 3.0",
+    "width": 2560,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/places/oltenia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/oltenia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/oltenia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/westminster-palace": {
+    "collection": "places",
+    "title": "Palace of Westminster",
+    "subtitle": "Palace of Westminster",
+    "alt": "Palace of Westminster in United Kingdom",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 2.5",
+    "width": 3200,
+    "height": 1261,
+    "renditions": [
+      {
+        "src": "/images/places/westminster-palace/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/westminster-palace/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/westminster-palace/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/louvre": {
+    "collection": "places",
+    "title": "Louvre",
+    "subtitle": "Louvre",
+    "alt": "Louvre in France",
+    "photographer": "Iron Pedreira Alves from Madrid, España",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/louvre/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/louvre/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/louvre/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/everglades": {
+    "collection": "places",
+    "title": "Everglades",
+    "subtitle": "Everglades",
+    "alt": "Everglades in United States",
+    "photographer": "Ken Lund from Reno, Nevada, USA",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/everglades/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/everglades/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/everglades/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sequoia": {
+    "collection": "places",
+    "title": "Sequoia",
+    "subtitle": "Sequoia",
+    "alt": "Sequoia in United States",
+    "photographer": "Tuxyso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2543,
+    "renditions": [
+      {
+        "src": "/images/places/sequoia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sequoia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sequoia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cologne-cathedral": {
+    "collection": "places",
+    "title": "Cologne Cathedral",
+    "subtitle": "Cologne Cathedral",
+    "alt": "Cologne Cathedral in Germany",
+    "photographer": "Gary Todd from Xinzheng, China",
+    "license": "CC0",
+    "width": 3462,
+    "height": 2468,
+    "renditions": [
+      {
+        "src": "/images/places/cologne-cathedral/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cologne-cathedral/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cologne-cathedral/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/independence-hall": {
+    "collection": "places",
+    "title": "Independence Hall",
+    "subtitle": "Independence Hall",
+    "alt": "Independence Hall in United States",
+    "photographer": "Andrew Rehbein",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/independence-hall/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/independence-hall/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/independence-hall/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

@@ -13918,5 +13918,933 @@
         "bytes": 322013
       }
     ]
+  },
+  "buffalo": {
+    "featureName": "Buffalo",
+    "alt": "Buffalo in United States",
+    "caption": "Buffalo, United States",
+    "photographer": "Andre Carrotflower",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_skyline_and_grain_elevators_as_seen_from_Buffalo_Harbor_State_Park,_Buffalo,_New_York_-_20190724.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown skyline and grain elevators as seen from Buffalo Harbor State Park, Buffalo, New York - 20190724.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1f/Downtown_skyline_and_grain_elevators_as_seen_from_Buffalo_Harbor_State_Park%2C_Buffalo%2C_New_York_-_20190724.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "432268695f186798a6c9ed621e74bada7c242324d42c73fb749493f394bcc56f",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/buffalo/w640.jpg",
+        "bytes": 46238
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/buffalo/w1280.jpg",
+        "bytes": 169138
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/buffalo/w2048.jpg",
+        "bytes": 489366
+      }
+    ]
+  },
+  "anchorage": {
+    "featureName": "Anchorage Alaska",
+    "alt": "Anchorage Alaska in United States",
+    "caption": "Anchorage Alaska, United States",
+    "photographer": "Paxson Woelber",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_in_Anchorage,_Alaska_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sunset in Anchorage, Alaska - panoramio.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a2/Sunset_in_Anchorage%2C_Alaska_-_panoramio.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "741fd25a6c695da139d9a11f795a605a338cf3ce53ea727ca78466f17469bb51",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/anchorage/w640.jpg",
+        "bytes": 33854
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/anchorage/w1280.jpg",
+        "bytes": 126326
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/anchorage/w2048.jpg",
+        "bytes": 389997
+      }
+    ]
+  },
+  "albuquerque": {
+    "featureName": "Albuquerque",
+    "alt": "Albuquerque in United States",
+    "caption": "Albuquerque, United States",
+    "photographer": "Daniel Schwen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Albuquerque_pano_sunset.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Albuquerque pano sunset.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/eb/Albuquerque_pano_sunset.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "944e27de3d18c8d04bfe23c7b83be983753cfe61234a98b8cff0a32607e91d1f",
+    "width": 3840,
+    "height": 554,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/albuquerque/w640.jpg",
+        "bytes": 10510
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/albuquerque/w1280.jpg",
+        "bytes": 32902
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/albuquerque/w2048.jpg",
+        "bytes": 89436
+      }
+    ]
+  },
+  "saskatoon": {
+    "featureName": "Saskatoon skyline",
+    "alt": "Saskatoon skyline in Canada",
+    "caption": "Saskatoon skyline, Canada",
+    "photographer": "Natasha Yokoyama-Ramsay",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saskatoon_skyline_at_night_(2009).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Saskatoon skyline at night (2009).jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d2/Saskatoon_skyline_at_night_%282009%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "53e8acc903f7a7c5e64e8e2ffc32997cd6bf4f874417a09e5c4624d98fac5a27",
+    "width": 2882,
+    "height": 1932,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/saskatoon/w640.jpg",
+        "bytes": 55080
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/saskatoon/w1280.jpg",
+        "bytes": 123800
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/saskatoon/w2048.jpg",
+        "bytes": 269235
+      }
+    ]
+  },
+  "ushuaia": {
+    "featureName": "Ushuaia",
+    "alt": "Ushuaia in Argentina",
+    "caption": "Ushuaia, Argentina",
+    "photographer": "Liam Quinn from Canada",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ushuaia_and_the_Beagle_Channel_(5525434752).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ushuaia and the Beagle Channel (5525434752).jpg); source https://upload.wikimedia.org/wikipedia/commons/5/59/Ushuaia_and_the_Beagle_Channel_%285525434752%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "39e0d17166a72a34033ef766a645436ca0e7bc16092fff83a703eaa9656cfb47",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ushuaia/w640.jpg",
+        "bytes": 36122
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ushuaia/w1280.jpg",
+        "bytes": 137066
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ushuaia/w2048.jpg",
+        "bytes": 413030
+      }
+    ]
+  },
+  "la-serena": {
+    "featureName": "La Serena Chile",
+    "alt": "La Serena Chile in Chile",
+    "caption": "La Serena Chile, Chile",
+    "photographer": "Rjcastillo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ocaso_en_la_Serena.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ocaso en la Serena.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d8/Ocaso_en_la_Serena.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "57488e1a2196e6169727b02ced02b71837ef9ef95bcc84cc649490b217a6966c",
+    "width": 3840,
+    "height": 1360,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/la-serena/w640.jpg",
+        "bytes": 16051
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/la-serena/w1280.jpg",
+        "bytes": 52081
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/la-serena/w2048.jpg",
+        "bytes": 153403
+      }
+    ]
+  },
+  "belem": {
+    "featureName": "Belém Brazil",
+    "alt": "Belém Brazil in Brazil",
+    "caption": "Belém Brazil, Brazil",
+    "photographer": "Cayambe",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brazil_Bel%C3%A9m_Las_Docas_02.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Brazil Belém Las Docas 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/70/Brazil_Bel%C3%A9m_Las_Docas_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4dd49db521a1b90a19e1c7bf8a6696f7d77c20231f95052d82578afb0ffd6b25",
+    "width": 3840,
+    "height": 2576,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/belem/w640.jpg",
+        "bytes": 76325
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/belem/w1280.jpg",
+        "bytes": 258342
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/belem/w2048.jpg",
+        "bytes": 658255
+      }
+    ]
+  },
+  "rijeka": {
+    "featureName": "Rijeka harbor",
+    "alt": "Rijeka harbor in Croatia",
+    "caption": "Rijeka harbor, Croatia",
+    "photographer": "DirektFlug",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rijeka_Harbor_Croatia_Ucka_Trsat.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Rijeka Harbor Croatia Ucka Trsat.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e3/Rijeka_Harbor_Croatia_Ucka_Trsat.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6c08a556de7f3fff6c778ef4f560fa1442dd303c8778f590ed870d57624c39c7",
+    "width": 1920,
+    "height": 1280,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rijeka/w640.jpg",
+        "bytes": 65072
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rijeka/w1280.jpg",
+        "bytes": 240604
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rijeka/w2048.jpg",
+        "bytes": 592327
+      }
+    ]
+  },
+  "podgorica": {
+    "featureName": "Podgorica",
+    "alt": "Podgorica in Montenegro",
+    "caption": "Podgorica, Montenegro",
+    "photographer": "CAPTAIN RAJU",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:City_of_Podgorica,Montenegro_in_2020.07.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:City of Podgorica,Montenegro in 2020.07.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d6/City_of_Podgorica%2CMontenegro_in_2020.07.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "058c733aa0b384485cf63b1246027e5bf9aec6dc2ee8858ca6033d612b094bf3",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/podgorica/w640.jpg",
+        "bytes": 43030
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/podgorica/w1280.jpg",
+        "bytes": 133025
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/podgorica/w2048.jpg",
+        "bytes": 356122
+      }
+    ]
+  },
+  "indore": {
+    "featureName": "Indore",
+    "alt": "Indore in India",
+    "caption": "Indore, India",
+    "photographer": "John Hoey from Framingham, MA, United States",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Evening_Over_Indore_(10521661584).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Evening Over Indore (10521661584).jpg); source https://upload.wikimedia.org/wikipedia/commons/9/90/Evening_Over_Indore_%2810521661584%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c24cb6df5297f7cb0a51af41004e620902c9d57529e78c43abb4b3ae438798d9",
+    "width": 3840,
+    "height": 2549,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/indore/w640.jpg",
+        "bytes": 57367
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/indore/w1280.jpg",
+        "bytes": 211476
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/indore/w2048.jpg",
+        "bytes": 671988
+      }
+    ]
+  },
+  "nara": {
+    "featureName": "Nara Japan",
+    "alt": "Nara Japan in Japan",
+    "caption": "Nara Japan, Japan",
+    "photographer": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sika_Deer_in_Nara,_Japan,_20240819_1546_4782.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sika Deer in Nara, Japan, 20240819 1546 4782.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b2/Sika_Deer_in_Nara%2C_Japan%2C_20240819_1546_4782.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1225c15b79952d1f340dd8f33d2dbf06eb9b631af7a5679d24370d9db005f55f",
+    "width": 3840,
+    "height": 2432,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nara/w640.jpg",
+        "bytes": 60022
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nara/w1280.jpg",
+        "bytes": 219833
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nara/w2048.jpg",
+        "bytes": 602853
+      }
+    ]
+  },
+  "mons": {
+    "featureName": "Mons city",
+    "alt": "Mons city in Belgium",
+    "caption": "Mons city, Belgium",
+    "photographer": "Jean-Pol GRANDMONT",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mons_050424_JPG106.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Mons 050424 JPG106.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/38/Mons_050424_JPG106.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b8f34fec03536e56aea41df454d6aa5456a0d66cb0fa546055cd3d04db3a8d9e",
+    "width": 2272,
+    "height": 1704,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mons/w640.jpg",
+        "bytes": 89172
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mons/w1280.jpg",
+        "bytes": 319642
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mons/w2048.jpg",
+        "bytes": 805681
+      }
+    ]
+  },
+  "missouri": {
+    "featureName": "Missouri",
+    "alt": "Missouri in United States",
+    "caption": "Missouri, United States",
+    "photographer": "Chris Light",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Missouri_River_Valley_and_bluff_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Missouri River Valley and bluff 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/42/Missouri_River_Valley_and_bluff_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "583a937ea87484ebff9935f9999c7b6354ecae18adeb4b80fbed427c18f57936",
+    "width": 3840,
+    "height": 1580,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/missouri/w640.jpg",
+        "bytes": 19344
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/missouri/w1280.jpg",
+        "bytes": 84523
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/missouri/w2048.jpg",
+        "bytes": 290202
+      }
+    ]
+  },
+  "yukon": {
+    "featureName": "Yukon",
+    "alt": "Yukon in Canada",
+    "caption": "Yukon, Canada",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ca%C3%B1%C3%B3n_Miles,_Yuk%C3%B3n,_Canad%C3%A1,_2017-08-26,_DD_130-132_PAN.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cañón Miles, Yukón, Canadá, 2017-08-26, DD 130-132 PAN.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/54/Ca%C3%B1%C3%B3n_Miles%2C_Yuk%C3%B3n%2C_Canad%C3%A1%2C_2017-08-26%2C_DD_130-132_PAN.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "183ab25e605509cb307a38e5050369adc24d6457059bead4a3e5f45bd9707c1a",
+    "width": 3840,
+    "height": 1728,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/yukon/w640.jpg",
+        "bytes": 45331
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/yukon/w1280.jpg",
+        "bytes": 187651
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/yukon/w2048.jpg",
+        "bytes": 609264
+      }
+    ]
+  },
+  "odisha": {
+    "featureName": "Odisha",
+    "alt": "Odisha in India",
+    "caption": "Odisha, India",
+    "photographer": "Joydeep Chakraborty",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Konark_Sun_Temple_Puri_district,_Odisha,_India_3.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Konark Sun Temple Puri district, Odisha, India 3.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6c/Konark_Sun_Temple_Puri_district%2C_Odisha%2C_India_3.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "92de14518b47e08286cf5e57b3980ec7f20dc9c4e9dc8676ec489a5d43dc5a57",
+    "width": 3840,
+    "height": 2747,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/odisha/w640.jpg",
+        "bytes": 59847
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/odisha/w1280.jpg",
+        "bytes": 236881
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/odisha/w2048.jpg",
+        "bytes": 737382
+      }
+    ]
+  },
+  "syros": {
+    "featureName": "Syros",
+    "alt": "Syros in Greece",
+    "caption": "Syros, Greece",
+    "photographer": "Leeturtle",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Ermoupoli_(Syros_island)_from_a_ferry_boat_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:View of Ermoupoli (Syros island) from a ferry boat 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/38/View_of_Ermoupoli_%28Syros_island%29_from_a_ferry_boat_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9c0d701c63ac3ee3ad152a757b7aa5669ce75b1880e5e02699f05f8bb9113c00",
+    "width": 3840,
+    "height": 2873,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/syros/w640.jpg",
+        "bytes": 49491
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/syros/w1280.jpg",
+        "bytes": 199886
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/syros/w2048.jpg",
+        "bytes": 589872
+      }
+    ]
+  },
+  "lesbos": {
+    "featureName": "Lesbos",
+    "alt": "Lesbos in Greece",
+    "caption": "Lesbos, Greece",
+    "photographer": "Bouke ten Cate",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lesbos_coastal_plain.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lesbos coastal plain.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/16/Lesbos_coastal_plain.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9c1fea3a3380153f04ca62b1b24d1dccfcf3d55791cdcf43657faae66bcca7d5",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lesbos/w640.jpg",
+        "bytes": 66620
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lesbos/w1280.jpg",
+        "bytes": 293877
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lesbos/w2048.jpg",
+        "bytes": 954078
+      }
+    ]
+  },
+  "formentera": {
+    "featureName": "Formentera",
+    "alt": "Formentera in Spain",
+    "caption": "Formentera, Spain",
+    "photographer": "acediscovery",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platje-de-Ses-Illetes_Formentera.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Platje-de-Ses-Illetes Formentera.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/fc/Platje-de-Ses-Illetes_Formentera.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8a52cff58025ca09ce9635ba1396084e2760cfedcd6ff6578395fb96f7b4cea4",
+    "width": 3200,
+    "height": 2400,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/formentera/w640.jpg",
+        "bytes": 37786
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/formentera/w1280.jpg",
+        "bytes": 108342
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/formentera/w2048.jpg",
+        "bytes": 317342
+      }
+    ]
+  },
+  "lewis": {
+    "featureName": "Isle of Lewis",
+    "alt": "Isle of Lewis in United Kingdom",
+    "caption": "Isle of Lewis, United Kingdom",
+    "photographer": "LornaMCampbell",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Callanish_Stones,_Isle_of_Lewis_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Callanish Stones, Isle of Lewis 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/52/Callanish_Stones%2C_Isle_of_Lewis_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "27ef4cc6e1886f6e7d5c806a6c77c6bfa0fc8fac6cd02e41e9e1b181c55bd500",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lewis/w640.jpg",
+        "bytes": 58194
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lewis/w1280.jpg",
+        "bytes": 195788
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lewis/w2048.jpg",
+        "bytes": 546986
+      }
+    ]
+  },
+  "les-saintes": {
+    "featureName": "Les Saintes",
+    "alt": "Les Saintes in France",
+    "caption": "Les Saintes, France",
+    "photographer": "David Broad",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Les_Saintes,_Marigot_harbor,_near_Guadaloupe_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Les Saintes, Marigot harbor, near Guadaloupe - panoramio.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ad/Les_Saintes%2C_Marigot_harbor%2C_near_Guadaloupe_-_panoramio.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8252e3bf5ab39d1e95b41e010753647243066c6b6c33fab207e5fce34349fb57",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/les-saintes/w640.jpg",
+        "bytes": 60356
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/les-saintes/w1280.jpg",
+        "bytes": 213919
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/les-saintes/w2048.jpg",
+        "bytes": 568730
+      }
+    ]
+  },
+  "curacao": {
+    "featureName": "Willemstad Curacao",
+    "alt": "Willemstad Curacao in Netherlands",
+    "caption": "Willemstad Curacao, Netherlands",
+    "photographer": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Facades_of_Handelskade,_Willemstad,_Cura%C3%A7ao_-_February_2020.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Facades of Handelskade, Willemstad, Curaçao - February 2020.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/59/Facades_of_Handelskade%2C_Willemstad%2C_Cura%C3%A7ao_-_February_2020.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9518d52b8d152936c1491802784a8c7e93fcc758e5e623f1c53e609fe65025ad",
+    "width": 3840,
+    "height": 1770,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/curacao/w640.jpg",
+        "bytes": 41840
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/curacao/w1280.jpg",
+        "bytes": 146784
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/curacao/w2048.jpg",
+        "bytes": 428536
+      }
+    ]
+  },
+  "lombardy": {
+    "featureName": "Lombardy",
+    "alt": "Lombardy in Italy",
+    "caption": "Lombardy, Italy",
+    "photographer": "Ray Swi-hymn from Sijhih-Taipei, Taiwan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Town_of_Bellagio_(Lake_Como)_seen_from_the_lake_(36722979021).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Town of Bellagio (Lake Como) seen from the lake (36722979021).jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e7/Town_of_Bellagio_%28Lake_Como%29_seen_from_the_lake_%2836722979021%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3a010bf291207e3d8508d09cbc3a8234167ad39ab8afeac1ce89e6afa4cc6ab0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lombardy/w640.jpg",
+        "bytes": 30415
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lombardy/w1280.jpg",
+        "bytes": 107185
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lombardy/w2048.jpg",
+        "bytes": 306649
+      }
+    ]
+  },
+  "burgenland": {
+    "featureName": "Burgenland",
+    "alt": "Burgenland in Austria",
+    "caption": "Burgenland, Austria",
+    "photographer": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Neusiedl,_Rust,_Burgenland,_sunrise,_20220428_0555_5690.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake Neusiedl, Rust, Burgenland, sunrise, 20220428 0555 5690.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/cb/Lake_Neusiedl%2C_Rust%2C_Burgenland%2C_sunrise%2C_20220428_0555_5690.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b262448d0b691ec4343dede4bc7dbaed29a2abcf608575856b29a674ca6a58d4",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/burgenland/w640.jpg",
+        "bytes": 47991
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/burgenland/w1280.jpg",
+        "bytes": 181281
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/burgenland/w2048.jpg",
+        "bytes": 535895
+      }
+    ]
+  },
+  "clare-valley": {
+    "featureName": "Clare Valley",
+    "alt": "Clare Valley in Australia",
+    "caption": "Clare Valley, Australia",
+    "photographer": "Scott Davis",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vines_in_Clare_Valley.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vines in Clare Valley.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/64/Vines_in_Clare_Valley.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ca878a37e97b12073b55161f27c5faaa8f4bf84a3ff143ae24f86dd30d9ef7ab",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/clare-valley/w640.jpg",
+        "bytes": 65478
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/clare-valley/w1280.jpg",
+        "bytes": 221223
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/clare-valley/w2048.jpg",
+        "bytes": 573116
+      }
+    ]
+  },
+  "navarre": {
+    "featureName": "Navarre",
+    "alt": "Navarre in Spain",
+    "caption": "Navarre, Spain",
+    "photographer": "Krzysztof Golik",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Pamplona_(1).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:View of Pamplona (1).jpg); source https://upload.wikimedia.org/wikipedia/commons/e/ea/View_of_Pamplona_%281%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "502c4550032eecff934d7b49d07a9984cd991d62f9b2501130158633f593671a",
+    "width": 3840,
+    "height": 1299,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/navarre/w640.jpg",
+        "bytes": 32706
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/navarre/w1280.jpg",
+        "bytes": 135748
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/navarre/w2048.jpg",
+        "bytes": 439686
+      }
+    ]
+  },
+  "oltenia": {
+    "featureName": "Oltenia",
+    "alt": "Oltenia in Romania",
+    "caption": "Oltenia, Romania",
+    "photographer": "Sucidava ( talk )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hurezi.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Hurezi.JPG); source https://upload.wikimedia.org/wikipedia/commons/2/20/Hurezi.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bbf99e766cc2a3ac389cf2d773812d3335320c5607c1f39adcf6b53eb5bc4f81",
+    "width": 2560,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/oltenia/w640.jpg",
+        "bytes": 60579
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/oltenia/w1280.jpg",
+        "bytes": 166628
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/oltenia/w2048.jpg",
+        "bytes": 416262
+      }
+    ]
+  },
+  "westminster-palace": {
+    "featureName": "Palace of Westminster",
+    "alt": "Palace of Westminster in United Kingdom",
+    "caption": "Palace of Westminster, United Kingdom",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palace_of_Westminster,_London_-_Feb_2007.jpg",
+    "license": "CC BY-SA 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:Palace of Westminster, London - Feb 2007.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/97/Palace_of_Westminster%2C_London_-_Feb_2007.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3a9b12931dc2cb6666f67baacc8d71bf551ad9dc29a0164c96fd573310a9d14c",
+    "width": 3200,
+    "height": 1261,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/westminster-palace/w640.jpg",
+        "bytes": 46237
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/westminster-palace/w1280.jpg",
+        "bytes": 100604
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/westminster-palace/w2048.jpg",
+        "bytes": 238026
+      }
+    ]
+  },
+  "louvre": {
+    "featureName": "Louvre",
+    "alt": "Louvre in France",
+    "caption": "Louvre, France",
+    "photographer": "Iron Pedreira Alves from Madrid, España",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Louvre_and_Pyramid,_Paris_January_2014_002.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Louvre and Pyramid, Paris January 2014 002.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/80/Louvre_and_Pyramid%2C_Paris_January_2014_002.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5365ec4da2d2ef77007f0c29feb60c4c92d2f58518589132029bc14b6e465052",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/louvre/w640.jpg",
+        "bytes": 72388
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/louvre/w1280.jpg",
+        "bytes": 245231
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/louvre/w2048.jpg",
+        "bytes": 745024
+      }
+    ]
+  },
+  "everglades": {
+    "featureName": "Everglades",
+    "alt": "Everglades in United States",
+    "caption": "Everglades, United States",
+    "photographer": "Ken Lund from Reno, Nevada, USA",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sawgrass,_Pa-hay-okee_Trail,_Everglades_National_Park,_Florida_(51130668684).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sawgrass, Pa-hay-okee Trail, Everglades National Park, Florida (51130668684).jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ad/Sawgrass%2C_Pa-hay-okee_Trail%2C_Everglades_National_Park%2C_Florida_%2851130668684%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "10d324e72b27cc5881777bc63d8f41d7dea05c700f7bb4998152a576d8d132bb",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/everglades/w640.jpg",
+        "bytes": 56734
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/everglades/w1280.jpg",
+        "bytes": 210735
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/everglades/w2048.jpg",
+        "bytes": 630473
+      }
+    ]
+  },
+  "sequoia": {
+    "featureName": "Sequoia",
+    "alt": "Sequoia in United States",
+    "caption": "Sequoia, United States",
+    "photographer": "Tuxyso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Giant_sequoias_in_Sequoia_National_Park_2013.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Giant sequoias in Sequoia National Park 2013.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7c/Giant_sequoias_in_Sequoia_National_Park_2013.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "97a2caea36a199bd1997460b0f61f4260e4dc206eebd996524015238df754440",
+    "width": 3840,
+    "height": 2543,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sequoia/w640.jpg",
+        "bytes": 87050
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sequoia/w1280.jpg",
+        "bytes": 346132
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sequoia/w2048.jpg",
+        "bytes": 1035742
+      }
+    ]
+  },
+  "cologne-cathedral": {
+    "featureName": "Cologne Cathedral",
+    "alt": "Cologne Cathedral in Germany",
+    "caption": "Cologne Cathedral, Germany",
+    "photographer": "Gary Todd from Xinzheng, China",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rhine_River_%26_Cologne_Cathedral_(9812095795).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Rhine River & Cologne Cathedral (9812095795).jpg); source https://upload.wikimedia.org/wikipedia/commons/5/53/Rhine_River_%26_Cologne_Cathedral_%289812095795%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "013f9bafa24515547080e279eb5a83c8a56996c81742075749c2a150bff9f1a4",
+    "width": 3462,
+    "height": 2468,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cologne-cathedral/w640.jpg",
+        "bytes": 38934
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cologne-cathedral/w1280.jpg",
+        "bytes": 108949
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cologne-cathedral/w2048.jpg",
+        "bytes": 299720
+      }
+    ]
+  },
+  "independence-hall": {
+    "featureName": "Independence Hall",
+    "alt": "Independence Hall in United States",
+    "caption": "Independence Hall, United States",
+    "photographer": "Andrew Rehbein",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Independence_Hall_Exterior_Front.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Independence Hall Exterior Front.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/92/Independence_Hall_Exterior_Front.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "db042e92c034456fd19fe0d2c25c85be86a4bfd04d95a582aa8654aef9e0c2e6",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/independence-hall/w640.jpg",
+        "bytes": 64863
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/independence-hall/w1280.jpg",
+        "bytes": 243019
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/independence-hall/w2048.jpg",
+        "bytes": 717985
+      }
+    ]
   }
 }
