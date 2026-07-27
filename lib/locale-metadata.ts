@@ -27,7 +27,9 @@ const SECTION_IMAGE_PATHS = new Set([
 export function socialImageUrl(_locale: Locale = 'en', path: string) {
   const url = new URL('/og', seo.url)
   url.searchParams.set('locale', 'en')
-  url.searchParams.set('path', path)
+  // Section artwork is pathname-keyed; strip focus/query fragments from deep links.
+  const pathname = path.split(/[?#]/, 1)[0] || path
+  url.searchParams.set('path', pathname)
   if (SOCIAL_IMAGE_VERSION) url.searchParams.set('v', SOCIAL_IMAGE_VERSION)
   return url
 }
@@ -56,16 +58,17 @@ export function localeMetadata({
   const canonical = pair.en
   const siteName = 'Cleo'
   const trimmedDescription = description.trim()
+  const pathname = path.split(/[?#]/, 1)[0] || path
   const image = {
-    url: socialImageUrl('en', path),
+    url: socialImageUrl('en', pathname),
     width: 1200,
     height: 630,
     alt:
-      path === '/' || title === siteName
+      pathname === '/' || title === siteName
         ? trimmedDescription
           ? `${title}. ${trimmedDescription}`
           : title
-        : SECTION_IMAGE_PATHS.has(path)
+        : SECTION_IMAGE_PATHS.has(pathname)
           ? trimmedDescription
             ? `${title} · ${siteName}. ${trimmedDescription}`
             : `${title} · ${siteName}`

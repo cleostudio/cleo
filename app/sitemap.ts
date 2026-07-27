@@ -3,6 +3,7 @@ import type { MetadataRoute } from 'next'
 import { getAllPosts } from '~/lib/content'
 import { countrySlugs } from '~/lib/countries'
 import { localeRoutePair } from '~/lib/locale-metadata'
+import { MAP_REGION_IDS } from '~/lib/maps'
 import { archivedNewsletterIds } from '~/lib/newsletters'
 import { spaceSubjectSlugs } from '~/lib/space'
 
@@ -27,6 +28,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/topics', latest),
     entry('/explore'),
     entry('/maps'),
+    ...MAP_REGION_IDS.map((region) => entry(`/maps?region=${region}`)),
+    ...countrySlugs().map((slug) => entry(`/maps?country=${slug}`)),
     entry('/space'),
     entry('/cleo'),
     ...countrySlugs().map((slug) => entry(`/explore/${slug}`)),

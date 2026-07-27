@@ -36,6 +36,11 @@ describe('social OG image metadata', () => {
       'Maps · Cleo. A realistic interactive map of Earth — NASA Blue Marble imagery, accurate country borders, capitals and territories, and deep links into Explore field guides.',
     ],
     [
+      '/maps?country=japan',
+      { title: 'Japan · Maps', description: publicPageMetadata.maps.description },
+      'Japan · Maps · Cleo. A realistic interactive map of Earth — NASA Blue Marble imagery, accurate country borders, capitals and territories, and deep links into Explore field guides.',
+    ],
+    [
       '/space',
       publicPageMetadata.space,
       'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',

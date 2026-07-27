@@ -30,8 +30,14 @@ export function mapsPageMetadata(
         title: publicPageMetadata.maps.title,
         description: publicPageMetadata.maps.description,
       }
+  const focusPath =
+    country != null && country.trim()
+      ? `/maps?country=${encodeURIComponent(country.trim().toLowerCase())}`
+      : region != null && region.trim()
+        ? `/maps?region=${encodeURIComponent(region.trim().toLowerCase())}`
+        : '/maps'
   return localeMetadata({
-    path: '/maps',
+    path: focusPath,
     title: copy.title,
     description: copy.description,
   })

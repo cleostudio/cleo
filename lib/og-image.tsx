@@ -183,6 +183,51 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'maps') {
+    // A flat map plate with graticule and a place pin — distinct from Explore's globe.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <rect
+            x="36"
+            y="58"
+            width="160"
+            height="116"
+            rx="10"
+            stroke={faint}
+            strokeWidth="1.4"
+          />
+          <rect
+            x="44"
+            y="66"
+            width="144"
+            height="100"
+            rx="6"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path
+            d="M68 91h96M68 116h96M68 141h96M92 74v84M116 74v84M140 74v84"
+            stroke={faint}
+            strokeWidth="1.35"
+          />
+          <path
+            d="M148 108c0-10.5-8.5-19-19-19s-19 8.5-19 19c0 14 19 33 19 33s19-19 19-33z"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <circle cx="129" cy="108" r="5.5" stroke={stroke} strokeWidth="1.55" />
+        </g>
+      </svg>
+    )
+  }
+
   if (section === 'space') {
     // A ringed planet with a few field-guide stars.
     return (

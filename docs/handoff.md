@@ -33,9 +33,11 @@ document (enable both products in the Vercel project dashboard).
   curated region/capital metadata for no-guide territories; homepage search
   finds territories and capitals; dossier Fit country / Show capital, Nearby
   and region Place chips, idle starters, hover nameplate, richer search rows,
-  Escape→map then clear, Enter selects center, Share view/place with camera,
-  mobile dossier height budget, recovery actions for bad links, and “Back to
-  map” focus; Back/`hashchange` restore camera hash;
+  Escape→map then clear, Enter selects center, Share view/place with camera
+  (deep links honor shared `#zoom/lat/lng`), Fit region / Share region,
+  territory→region jump, mobile dossier height budget, recovery for bad
+  links, Maps OG + sitemap deep links, and “Back to map” focus;
+  Back/`hashchange` restore camera hash;
   Borders/Labels/ Graticule toggles with shareable layer query flags;
   `#zoom/lat/lng` camera hash + Share view; Back/Forward for country/region
   focus (pushState); capital-aware search + selection dossier; deep-link

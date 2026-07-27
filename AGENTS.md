@@ -59,13 +59,16 @@ Back/Forward restores focus; clearing focus (or `hashchange` without a
 country/region) restores the camera hash. Search matches country name or
 capital (capital hits fly to the city; search ranks capital matches and labels
 territories). The idle plate offers starter chips; the selection dossier
-offers Nearby / region Place chips, “Fit country”, “Show capital”, Share
-place (with live camera hash), and “Back to map”. Escape from the dossier
-refocuses the canvas; a second Escape clears. Enter on the focused map
-selects the place at center. The meta HUD shows a hover nameplate and Share
-view. Mobile dossiers scroll inside a height budget. Explore guides link
-back with “View on map”; homepage search/highlights deep-link into Maps;
-`?country=` / `?region=` set page titles; Cleo may cite the same map paths
+offers Nearby / region Place chips, Fit country/region, Show capital, Share
+place/region (with live camera hash), region jump from territories, and
+“Back to map”. Shared `?country=` / `?region=` links that include
+`#zoom/lat/lng` keep that framing on open. Escape from the dossier or
+search refocuses the canvas; Escape on the map clears. Enter selects the
+place at center. The meta HUD shows a hover nameplate and Share view.
+Mobile dossiers scroll inside a height budget. Explore guides link back
+with “View on map”; homepage search/highlights deep-link into Maps;
+`?country=` / `?region=` set titles and canonicals (Maps OG + sitemap
+include region/country deep links); Cleo may cite the same map paths
 (including territory ISO links).
 MapLibre’s module workers are
 vendored to `public/maplibre/` so Turbopack/Next can load them under the site

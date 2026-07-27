@@ -51,6 +51,7 @@ import {
   normalizeMapCamera,
   parseMapCameraHash,
   parseMapLayersSearchParams,
+  parseMapRegionParam,
   readStoredMapLayers,
   resolveMapCountry,
   resolveMapIdleStarters,
@@ -1199,29 +1200,43 @@ export function EarthMap({
     if (country) {
       const entry = findMapCountryIndexEntry(indexRef.current, country)
       if (!entry) {
+        const failKey = `missing-country:${country}@${mapEpoch}`
+        if (fittedFocusKeyRef.current === failKey) return
+        fittedFocusKeyRef.current = failKey
         setFocusAnnouncement(`No country matched “${country}”.`)
-        syncMapFocusSearchParams(null)
-        fittedFocusKeyRef.current = null
         return
       }
-      const focusKey = `country:${entry.code}@${mapEpoch}`
+      const sharedCamera = parseMapCameraHash(window.location.hash)
+      const focusKey = sharedCamera
+        ? `country:${entry.code}@${mapEpoch}#shared`
+        : `country:${entry.code}@${mapEpoch}`
       if (fittedFocusKeyRef.current === focusKey) return
       fittedFocusKeyRef.current = focusKey
-      flyToCountry(entry, { syncUrl: false })
+      flyToCountry(entry, {
+        syncUrl: false,
+        camera: sharedCamera,
+      })
       return
     }
     if (region) {
       const regionCamera = findMapRegionCamera(regionsRef.current, region)
       if (!regionCamera) {
+        const failKey = `missing-region:${region}@${mapEpoch}`
+        if (fittedFocusKeyRef.current === failKey) return
+        fittedFocusKeyRef.current = failKey
         setFocusAnnouncement(`No region matched “${region}”.`)
-        syncMapFocusSearchParams(null)
-        fittedFocusKeyRef.current = null
         return
       }
-      const focusKey = `region:${regionCamera.id}@${mapEpoch}`
+      const sharedCamera = parseMapCameraHash(window.location.hash)
+      const focusKey = sharedCamera
+        ? `region:${regionCamera.id}@${mapEpoch}#shared`
+        : `region:${regionCamera.id}@${mapEpoch}`
       if (fittedFocusKeyRef.current === focusKey) return
       fittedFocusKeyRef.current = focusKey
-      flyToRegion(regionCamera, { syncUrl: false })
+      flyToRegion(regionCamera, {
+        syncUrl: false,
+        camera: sharedCamera,
+      })
       return
     }
     if (selectedCodeRef.current || activeRegionRef.current) {
@@ -1306,9 +1321,18 @@ export function EarthMap({
       }
       if (event.key !== 'Escape') return
       if (suggestionsOpenRef.current) return
+      const active = document.activeElement as HTMLElement | null
+      const tag = active?.tagName
+      if (
+        tag === 'INPUT' ||
+        tag === 'TEXTAREA' ||
+        tag === 'SELECT' ||
+        active?.isContentEditable
+      ) {
+        return
+      }
       if (!selectedCodeRef.current && !activeRegionRef.current) return
       event.preventDefault()
-      const active = document.activeElement
       const panel = selectionPanelRef.current
       const inPanel =
         panel != null &&
@@ -1348,7 +1372,13 @@ export function EarthMap({
     {
       syncUrl = true,
       preferCapital = false,
-    }: { syncUrl?: boolean; preferCapital?: boolean } = {},
+      camera = null,
+    }: {
+      syncUrl?: boolean
+      preferCapital?: boolean
+      /** When set (shared deep link), select the place but keep this framing. */
+      camera?: MapCamera | null
+    } = {},
   ) {
     const map = mapRef.current
     if (!map) return
@@ -1372,11 +1402,15 @@ export function EarthMap({
     )
     const capitalName = entry.capitalName ?? countryPhotos[entry.code]?.capital
     setFocusAnnouncement(
-      preferCapital && capitalName
-        ? `Selected ${hit.name}. Showing ${capitalName}.`
-        : `Selected ${hit.name}.`,
+      camera
+        ? `Selected ${hit.name}. Restored shared view.`
+        : preferCapital && capitalName
+          ? `Selected ${hit.name}. Showing ${capitalName}.`
+          : `Selected ${hit.name}.`,
     )
-    fittedFocusKeyRef.current = `country:${entry.code}@${mapEpochRef.current}`
+    fittedFocusKeyRef.current = camera
+      ? `country:${entry.code}@${mapEpochRef.current}#shared`
+      : `country:${entry.code}@${mapEpochRef.current}`
     if (syncUrl) {
       syncMapFocusSearchParams(
         {
@@ -1387,6 +1421,10 @@ export function EarthMap({
       )
     }
     withCameraHashPause(map, cameraHashPausedRef, () => {
+      if (camera) {
+        map.jumpTo({ center: camera.center, zoom: camera.zoom })
+        return
+      }
       fitCountry(map, entry, { preferCapital })
     })
   }
@@ -1454,13 +1492,33 @@ export function EarthMap({
     })
   }
 
+  function fitActiveRegion() {
+    const map = mapRef.current
+    const regionId = activeRegionRef.current
+    const region = regionId
+      ? regionsRef.current.find((entry) => entry.id === regionId)
+      : undefined
+    if (!map || !region) return
+    setFocusAnnouncement(`Fitting ${region.label}.`)
+    withCameraHashPause(map, cameraHashPausedRef, () => {
+      map.fitBounds(region.bounds, {
+        padding: mapRegionPadding(),
+        maxZoom: region.maxZoom,
+        duration: mapMotionMs(800),
+      })
+    })
+  }
+
   function toggleLayer(id: MapLayerId) {
     setLayers((current) => ({ ...current, [id]: !current[id] }))
   }
 
   function flyToRegion(
     region: MapRegionCamera,
-    { syncUrl = true }: { syncUrl?: boolean } = {},
+    {
+      syncUrl = true,
+      camera = null,
+    }: { syncUrl?: boolean; camera?: MapCamera | null } = {},
   ) {
     const map = mapRef.current
     if (!map) return
@@ -1476,8 +1534,14 @@ export function EarthMap({
     syncCapitalLayerPresentation(map, layersRef.current.labels, null)
     setActiveRegion(region.id)
     activeRegionRef.current = region.id
-    setFocusAnnouncement(`Viewing ${region.label}.`)
-    fittedFocusKeyRef.current = `region:${region.id}@${mapEpochRef.current}`
+    setFocusAnnouncement(
+      camera
+        ? `Viewing ${region.label}. Restored shared view.`
+        : `Viewing ${region.label}.`,
+    )
+    fittedFocusKeyRef.current = camera
+      ? `region:${region.id}@${mapEpochRef.current}#shared`
+      : `region:${region.id}@${mapEpochRef.current}`
     if (syncUrl) {
       syncMapFocusSearchParams(
         { kind: 'region', value: region.id },
@@ -1485,6 +1549,10 @@ export function EarthMap({
       )
     }
     withCameraHashPause(map, cameraHashPausedRef, () => {
+      if (camera) {
+        map.jumpTo({ center: camera.center, zoom: camera.zoom })
+        return
+      }
       map.fitBounds(region.bounds, {
         padding: mapRegionPadding(),
         maxZoom: region.maxZoom,
@@ -1520,8 +1588,11 @@ export function EarthMap({
 
   function clearInvalidFocusLink() {
     setFocusAnnouncement('')
-    syncMapFocusSearchParams(null, { history: 'push' })
+    syncMapFocusSearchParams(null, { history: 'replace' })
     fittedFocusKeyRef.current = null
+    setQuery('')
+    setSuggestionsOpen(false)
+    setSuggestions([])
     searchInputRef.current?.focus()
   }
 
@@ -1587,6 +1658,13 @@ export function EarthMap({
 
   const activeRegionCamera = activeRegion
     ? regions.find((region) => region.id === activeRegion)
+    : undefined
+  const selectedRegionId = selectedEntry?.region
+    ? parseMapRegionParam(selectedEntry.region)
+    : null
+  const selectedRegionCamera = selectedRegionId
+    ? regions.find((region) => region.id === selectedRegionId) ??
+      findMapRegionCamera(FALLBACK_MAP_REGIONS, selectedRegionId)
     : undefined
 
   const searchListId = `${reactId}-map-suggestions`
@@ -1716,15 +1794,13 @@ export function EarthMap({
                     return
                   }
                   if (event.key === 'Escape') {
+                    event.preventDefault()
                     if (suggestions.length > 0 || suggestionsOpen) {
                       setSuggestionsOpen(false)
                       setSuggestions([])
                       return
                     }
-                    if (selected || activeRegion) {
-                      event.preventDefault()
-                      resetView()
-                    }
+                    focusMapCanvas()
                   }
                 }}
                 placeholder={
@@ -2065,6 +2141,15 @@ export function EarthMap({
                     Show capital
                   </button>
                 ) : null}
+                {selectedRegionCamera ? (
+                  <button
+                    type="button"
+                    className="earth-map-copy"
+                    onClick={() => flyToRegion(selectedRegionCamera)}
+                  >
+                    {selectedRegionCamera.label}
+                  </button>
+                ) : null}
                 <button
                   type="button"
                   className="earth-map-copy"
@@ -2135,6 +2220,13 @@ export function EarthMap({
                 <button
                   type="button"
                   className="earth-map-copy"
+                  onClick={fitActiveRegion}
+                >
+                  Fit region
+                </button>
+                <button
+                  type="button"
+                  className="earth-map-copy"
                   onClick={() => {
                     void shareDeepLink(
                       mapRegionHref(activeRegionCamera.id),
@@ -2143,7 +2235,7 @@ export function EarthMap({
                     )
                   }}
                 >
-                  Share place
+                  Share region
                 </button>
                 <button
                   type="button"

@@ -17,6 +17,7 @@ const PUBLIC_SECTIONS = new Set<PublicSection>([
   'cleo',
   'explore',
   'gallery',
+  'maps',
   'space',
   'topics',
   'projects',
@@ -45,9 +46,12 @@ export async function GET(request: Request) {
     return new Response('Not found', { status: 404 })
   }
 
-  if (path === '/') return cachedImage(await createHomeOgImage(locale))
+  // Deep-link query strings are for canonical URLs; OG art keys off the pathname.
+  const pathname = path.split(/[?#]/, 1)[0] || path
 
-  const segments = path.split('/').filter(Boolean)
+  if (pathname === '/') return cachedImage(await createHomeOgImage(locale))
+
+  const segments = pathname.split('/').filter(Boolean)
   const section = segments[0]
 
   if (section === 'blog' && segments.length === 2 && isPostSlug(segments[1])) {
