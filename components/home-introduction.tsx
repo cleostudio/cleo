@@ -190,47 +190,30 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              Cleo 是
-              <HopPhrase>
-                <span className="home-detail-units">
-                  <span className="home-detail-unit">天</span>
-                  <span className="home-detail-unit">地</span>
-                  <span className="home-detail-unit">间</span>
-                </span>
-              </HopPhrase>
-              的
-              <CraftPhrase>阅览室</CraftPhrase>
-              。先从国家与太空开始。
-            </>
-          }
-          en={
-            <>
-              Cleo is a <CraftPhrase>reading room</CraftPhrase> for the{' '}
+              Cleo 是一座
+              <CraftPhrase>知识门户</CraftPhrase>
+              ，目前覆盖
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
-                  <span className="home-detail-unit">world</span>{' '}
-                  <span className="home-detail-unit">and</span>{' '}
-                  <span className="home-detail-unit">sky</span>
+                  <span className="home-detail-unit">国家</span>{' '}
+                  <span className="home-detail-unit">与</span>{' '}
+                  <span className="home-detail-unit">太空</span>
                 </span>
               </HopPhrase>
-              . Countries and space come first.
-            </>
-          }
-        />
-      </p>
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-        <T
-          zh={
-            <>
-              检索目录、打开一张
-              <PhotoPhrase>照片</PhotoPhrase>
-              ，不清楚时再问 Cleo。
+              ，之后会有更多主题。
             </>
           }
           en={
             <>
-              Search the catalog, open a <PhotoPhrase>photograph</PhotoPhrase>, or ask when something is
-              unclear.
+              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase> for{' '}
+              <HopPhrase>
+                <span className="home-detail-units home-detail-words">
+                  <span className="home-detail-unit">countries</span>{' '}
+                  <span className="home-detail-unit">and</span>{' '}
+                  <span className="home-detail-unit">space</span>
+                </span>
+              </HopPhrase>
+              . More topics later.
             </>
           }
         />
@@ -239,7 +222,24 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              试试{' '}
+              可读导览、可看
+              <PhotoPhrase>照片</PhotoPhrase>
+              、可检索目录，也可以直接问 Cleo。
+            </>
+          }
+          en={
+            <>
+              Read guides, browse <PhotoPhrase>photographs</PhotoPhrase>, search the catalog, or ask
+              Cleo.
+            </>
+          }
+        />
+      </p>
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        <T
+          zh={
+            <>
+              前往{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 主题
               </Link>
@@ -256,7 +256,7 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Try{' '}
+              Go to{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 Topics
               </Link>
