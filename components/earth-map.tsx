@@ -586,109 +586,109 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
               NASA Blue Marble imagery with Natural Earth borders — find a
               country or jump by region.
             </p>
-          </div>
-
-          <div className="earth-map-panel earth-map-search">
-            <MapsGlass />
-            <label className="sr-only" htmlFor={`${reactId}-map-search`}>
-              Find a country
-            </label>
-            <input
-              id={`${reactId}-map-search`}
-              type="search"
-              role="combobox"
-              value={query}
-              onChange={(event) => {
-                setQuery(event.target.value)
-                setSuggestionsOpen(true)
-              }}
-              onFocus={() => {
-                if (query.trim()) setSuggestionsOpen(true)
-              }}
-              onBlur={(event) => {
-                const next = event.relatedTarget
-                if (
-                  next instanceof Node &&
-                  event.currentTarget.parentElement?.contains(next)
-                ) {
-                  return
-                }
-                setSuggestionsOpen(false)
-                setSuggestions([])
-              }}
-              onKeyDown={(event) => {
-                if (event.key === 'ArrowDown' && suggestions.length > 0) {
-                  event.preventDefault()
-                  setActiveSuggestion((index) => (index + 1) % suggestions.length)
-                  return
-                }
-                if (event.key === 'ArrowUp' && suggestions.length > 0) {
-                  event.preventDefault()
-                  setActiveSuggestion(
-                    (index) =>
-                      (index - 1 + suggestions.length) % suggestions.length,
-                  )
-                  return
-                }
-                if (event.key === 'Enter' && suggestions[activeSuggestion]) {
-                  event.preventDefault()
-                  flyToCountry(suggestions[activeSuggestion]!)
-                  return
-                }
-                if (event.key === 'Escape') {
-                  if (suggestions.length > 0 || suggestionsOpen) {
-                    setSuggestionsOpen(false)
-                    setSuggestions([])
+            <div className="earth-map-search">
+              <label className="sr-only" htmlFor={`${reactId}-map-search`}>
+                Find a country
+              </label>
+              <input
+                id={`${reactId}-map-search`}
+                type="search"
+                role="combobox"
+                value={query}
+                onChange={(event) => {
+                  setQuery(event.target.value)
+                  setSuggestionsOpen(true)
+                }}
+                onFocus={() => {
+                  if (query.trim()) setSuggestionsOpen(true)
+                }}
+                onBlur={(event) => {
+                  const next = event.relatedTarget
+                  if (
+                    next instanceof Node &&
+                    event.currentTarget.parentElement?.contains(next)
+                  ) {
                     return
                   }
-                  if (selected || activeRegion) {
+                  setSuggestionsOpen(false)
+                  setSuggestions([])
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === 'ArrowDown' && suggestions.length > 0) {
                     event.preventDefault()
-                    resetView()
+                    setActiveSuggestion(
+                      (index) => (index + 1) % suggestions.length,
+                    )
+                    return
                   }
+                  if (event.key === 'ArrowUp' && suggestions.length > 0) {
+                    event.preventDefault()
+                    setActiveSuggestion(
+                      (index) =>
+                        (index - 1 + suggestions.length) % suggestions.length,
+                    )
+                    return
+                  }
+                  if (event.key === 'Enter' && suggestions[activeSuggestion]) {
+                    event.preventDefault()
+                    flyToCountry(suggestions[activeSuggestion]!)
+                    return
+                  }
+                  if (event.key === 'Escape') {
+                    if (suggestions.length > 0 || suggestionsOpen) {
+                      setSuggestionsOpen(false)
+                      setSuggestions([])
+                      return
+                    }
+                    if (selected || activeRegion) {
+                      event.preventDefault()
+                      resetView()
+                    }
+                  }
+                }}
+                placeholder={ready ? 'Find a country' : 'Loading map…'}
+                autoComplete="off"
+                spellCheck={false}
+                aria-controls={searchListId}
+                aria-expanded={suggestions.length > 0}
+                aria-autocomplete="list"
+                aria-activedescendant={
+                  suggestions[activeSuggestion]
+                    ? `${reactId}-option-${suggestions[activeSuggestion]!.code}`
+                    : undefined
                 }
-              }}
-              placeholder={ready ? 'Find a country' : 'Loading map…'}
-              autoComplete="off"
-              spellCheck={false}
-              aria-controls={searchListId}
-              aria-expanded={suggestions.length > 0}
-              aria-autocomplete="list"
-              aria-activedescendant={
-                suggestions[activeSuggestion]
-                  ? `${reactId}-option-${suggestions[activeSuggestion]!.code}`
-                  : undefined
-              }
-              disabled={!ready}
-            />
-            {suggestions.length > 0 ? (
-              <ul
-                id={searchListId}
-                role="listbox"
-                className="earth-map-suggestions"
-              >
-                {suggestions.map((entry, index) => (
-                  <li key={entry.code}>
-                    <button
-                      id={`${reactId}-option-${entry.code}`}
-                      type="button"
-                      role="option"
-                      aria-selected={index === activeSuggestion}
-                      data-active={index === activeSuggestion || undefined}
-                      onMouseDown={(event) => {
-                        event.preventDefault()
-                        event.stopPropagation()
-                        flyToCountry(entry)
-                      }}
-                    >
-                      <span>{entry.name}</span>
-                      <span className="tabular-nums text-muted-foreground">
-                        {entry.code}
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
+                disabled={!ready}
+              />
+              {suggestions.length > 0 ? (
+                <ul
+                  id={searchListId}
+                  role="listbox"
+                  className="earth-map-suggestions"
+                >
+                  {suggestions.map((entry, index) => (
+                    <li key={entry.code}>
+                      <button
+                        id={`${reactId}-option-${entry.code}`}
+                        type="button"
+                        role="option"
+                        aria-selected={index === activeSuggestion}
+                        data-active={index === activeSuggestion || undefined}
+                        onMouseDown={(event) => {
+                          event.preventDefault()
+                          event.stopPropagation()
+                          flyToCountry(entry)
+                        }}
+                      >
+                        <span>{entry.name}</span>
+                        <span className="tabular-nums text-muted-foreground">
+                          {entry.code}
+                        </span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
           </div>
 
           {regions.length > 0 ? (
