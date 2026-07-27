@@ -1,8 +1,13 @@
 /** @vitest-environment jsdom */
 
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import {
+  boundsArea,
+  boundsCenter,
+  buildCountryLabelCollection,
+  buildRegionLabelCollection,
+  DEFAULT_MAP_LAYERS,
   exploreRegionHref,
   findMapCountryIndexEntry,
   findMapRegionCamera,
@@ -11,13 +16,18 @@ import {
   mapRegionHref,
   MAP_COUNTRIES_URL,
   MAP_COUNTRY_INDEX_URL,
+  MAP_GLYPHS_URL,
+  MAP_LAYER_STORAGE_KEY,
   MAP_MAX_ZOOM,
   MAP_TILE_URL,
   mapAttribution,
   parseMapCountryParam,
   parseMapRegionParam,
+  readStoredMapLayers,
   resolveMapCountry,
+  shareOrCopyMapLink,
   syncMapFocusSearchParams,
+  writeStoredMapLayers,
   type MapCountryIndexEntry,
   type MapRegionCamera,
 } from './maps'
@@ -106,13 +116,85 @@ describe('maps helpers', () => {
     expect(formatMapCoords(-74.01, -34.6)).toBe('34.60°S · 74.01°W')
   })
 
-  it('points at first-party Blue Marble tiles and Natural Earth borders', () => {
+  it('points at first-party Blue Marble tiles, glyphs, and Natural Earth borders', () => {
     expect(MAP_TILE_URL).toBe('/images/maps/tiles/{z}/{x}/{y}.jpg')
     expect(MAP_COUNTRIES_URL).toBe('/maps/countries.geojson')
     expect(MAP_COUNTRY_INDEX_URL).toBe('/maps/country-index.json')
+    expect(MAP_GLYPHS_URL).toBe('/maplibre/fonts/{fontstack}/{range}.pbf')
     expect(MAP_MAX_ZOOM).toBe(6)
     expect(mapAttribution.basemap.name).toContain('Blue Marble')
     expect(mapAttribution.boundaries.name).toContain('Natural Earth')
+  })
+
+  it('builds ranked country and region label collections', () => {
+    const countries = buildCountryLabelCollection([
+      ...sampleIndex,
+      {
+        code: 'AQ',
+        name: 'Antarctica',
+        slug: null,
+        region: null,
+        center: [0, -80],
+        bounds: [
+          [-180, -90],
+          [180, -60],
+        ],
+        maxZoom: 2,
+      },
+    ])
+    expect(countries.features.map((feature) => feature.properties.code)).toEqual(
+      ['JP', 'US'],
+    )
+    expect(countries.features[1]?.properties.rank).toBeLessThan(
+      countries.features[0]?.properties.rank ?? 0,
+    )
+
+    const regions = buildRegionLabelCollection(sampleRegions)
+    expect(regions.features[0]).toMatchObject({
+      properties: { name: 'Asia', rank: -47 },
+      geometry: { type: 'Point', coordinates: boundsCenter(sampleRegions[0]!.bounds) },
+    })
+    expect(boundsArea(sampleIndex[1]!.bounds)).toBeGreaterThan(
+      boundsArea(sampleIndex[0]!.bounds),
+    )
+  })
+
+  it('persists layer visibility in sessionStorage', () => {
+    window.sessionStorage.clear()
+    expect(readStoredMapLayers()).toEqual(DEFAULT_MAP_LAYERS)
+    writeStoredMapLayers({ borders: false, labels: true })
+    expect(window.sessionStorage.getItem(MAP_LAYER_STORAGE_KEY)).toContain(
+      '"borders":false',
+    )
+    expect(readStoredMapLayers()).toEqual({ borders: false, labels: true })
+  })
+
+  it('shares map links when available and otherwise copies', async () => {
+    const share = vi.fn().mockResolvedValue(undefined)
+    Object.defineProperty(navigator, 'share', {
+      configurable: true,
+      value: share,
+    })
+    await expect(shareOrCopyMapLink('/maps?country=japan')).resolves.toBe(
+      'shared',
+    )
+    expect(share).toHaveBeenCalled()
+
+    Object.defineProperty(navigator, 'share', {
+      configurable: true,
+      value: undefined,
+    })
+    const writeText = vi.fn().mockResolvedValue(undefined)
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: { writeText },
+    })
+    await expect(shareOrCopyMapLink('/maps?region=asia')).resolves.toBe(
+      'copied',
+    )
+    expect(writeText).toHaveBeenCalledWith(
+      expect.stringContaining('/maps?region=asia'),
+    )
   })
 
   it('keeps country and region query params mutually exclusive', () => {
@@ -134,4 +216,5 @@ describe('maps helpers', () => {
 
 afterEach(() => {
   window.history.replaceState({}, '', '/')
+  window.sessionStorage.clear()
 })

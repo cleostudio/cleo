@@ -18,6 +18,9 @@ export const MAP_COUNTRIES_URL = '/maps/countries.geojson'
 /** Compact camera index for search, deep links, and antimeridian framing. */
 export const MAP_COUNTRY_INDEX_URL = '/maps/country-index.json'
 
+/** First-party MapLibre SDF glyphs (Open Sans Regular / Bold). */
+export const MAP_GLYPHS_URL = '/maplibre/fonts/{fontstack}/{range}.pbf'
+
 export const MAP_REGION_IDS = [
   'africa',
   'americas',
@@ -27,6 +30,19 @@ export const MAP_REGION_IDS = [
 ] as const
 
 export type MapRegionId = (typeof MAP_REGION_IDS)[number]
+
+export const MAP_LAYER_IDS = ['borders', 'labels'] as const
+
+export type MapLayerId = (typeof MAP_LAYER_IDS)[number]
+
+export type MapLayerVisibility = Record<MapLayerId, boolean>
+
+export const DEFAULT_MAP_LAYERS: MapLayerVisibility = {
+  borders: true,
+  labels: true,
+}
+
+export const MAP_LAYER_STORAGE_KEY = 'cleo.maps.layers'
 
 export const mapAttribution = attribution
 
@@ -199,4 +215,149 @@ export function syncMapCountrySearchParam(slugOrCode: string | null) {
   syncMapFocusSearchParams(
     slugOrCode ? { kind: 'country', value: slugOrCode } : null,
   )
+}
+
+export function boundsArea(
+  bounds: [[number, number], [number, number]],
+): number {
+  const [[west, south], [east, north]] = bounds
+  return Math.abs(east - west) * Math.abs(north - south)
+}
+
+/** Geographic midpoint of a camera bounds pair (handles dateline wraps). */
+export function boundsCenter(
+  bounds: [[number, number], [number, number]],
+): [number, number] {
+  const [[west, south], [east, north]] = bounds
+  let midLng = (west + east) / 2
+  if (east < west) {
+    midLng = ((west + east + 360) / 2) % 360
+    if (midLng > 180) midLng -= 360
+  }
+  return [midLng, (south + north) / 2]
+}
+
+export type MapLabelFeatureCollection = {
+  type: 'FeatureCollection'
+  features: Array<{
+    type: 'Feature'
+    id?: string
+    properties: {
+      name: string
+      code?: string
+      rank: number
+    }
+    geometry: {
+      type: 'Point'
+      coordinates: [number, number]
+    }
+  }>
+}
+
+/** Point labels at country index centers, ranked so large places win collisions. */
+export function buildCountryLabelCollection(
+  countries: readonly MapCountryIndexEntry[],
+): MapLabelFeatureCollection {
+  return {
+    type: 'FeatureCollection',
+    features: countries
+      .filter((entry) => entry.code !== 'AQ')
+      .map((entry) => ({
+        type: 'Feature' as const,
+        id: entry.code,
+        properties: {
+          name: entry.name,
+          code: entry.code,
+          // Lower sort-key → placed first in MapLibre.
+          rank: -Math.round(boundsArea(entry.bounds) * 100),
+        },
+        geometry: {
+          type: 'Point' as const,
+          coordinates: entry.center,
+        },
+      })),
+  }
+}
+
+/** Continent labels at region camera midpoints. */
+export function buildRegionLabelCollection(
+  regions: readonly MapRegionCamera[],
+): MapLabelFeatureCollection {
+  return {
+    type: 'FeatureCollection',
+    features: regions.map((region) => ({
+      type: 'Feature' as const,
+      id: region.id,
+      properties: {
+        name: region.label,
+        rank: -region.tally,
+      },
+      geometry: {
+        type: 'Point' as const,
+        coordinates: boundsCenter(region.bounds),
+      },
+    })),
+  }
+}
+
+export function readStoredMapLayers(): MapLayerVisibility {
+  if (typeof window === 'undefined') return { ...DEFAULT_MAP_LAYERS }
+  try {
+    const raw = window.sessionStorage.getItem(MAP_LAYER_STORAGE_KEY)
+    if (!raw) return { ...DEFAULT_MAP_LAYERS }
+    const parsed = JSON.parse(raw) as Partial<MapLayerVisibility>
+    return {
+      borders: parsed.borders !== false,
+      labels: parsed.labels !== false,
+    }
+  } catch {
+    return { ...DEFAULT_MAP_LAYERS }
+  }
+}
+
+export function writeStoredMapLayers(layers: MapLayerVisibility) {
+  if (typeof window === 'undefined') return
+  try {
+    window.sessionStorage.setItem(MAP_LAYER_STORAGE_KEY, JSON.stringify(layers))
+  } catch {
+    // Private mode / quota — preference is best-effort.
+  }
+}
+
+export type MapShareResult = 'shared' | 'copied' | 'failed' | 'aborted'
+
+/** Prefer the Web Share API; fall back to clipboard. */
+export async function shareOrCopyMapLink(
+  href: string,
+  {
+    title = 'Cleo Maps',
+    text,
+  }: { title?: string; text?: string } = {},
+): Promise<MapShareResult> {
+  const absolute =
+    typeof window === 'undefined'
+      ? href
+      : new URL(href, window.location.origin).href
+
+  if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
+    try {
+      await navigator.share({ title, text, url: absolute })
+      return 'shared'
+    } catch (error) {
+      if (
+        (error instanceof DOMException || error instanceof Error) &&
+        error.name === 'AbortError'
+      ) {
+        return 'aborted'
+      }
+      // Fall through to clipboard.
+    }
+  }
+
+  try {
+    await navigator.clipboard.writeText(absolute)
+    return 'copied'
+  } catch {
+    return 'failed'
+  }
 }

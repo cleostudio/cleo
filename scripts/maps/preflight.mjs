@@ -25,6 +25,8 @@ async function main() {
   const indexPath = await assertExists('public/maps/country-index.json')
   await assertExists('public/maplibre/maplibre-gl-worker.mjs')
   await assertExists('public/maplibre/maplibre-gl-shared.mjs')
+  await assertExists('public/maplibre/fonts/Open Sans Regular/0-255.pbf')
+  await assertExists('public/maplibre/fonts/Open Sans Bold/0-255.pbf')
   await assertExists('public/images/maps/tiles/0/0/0.jpg')
 
   const attribution = JSON.parse(await readFile(attributionPath, 'utf8'))

@@ -238,13 +238,15 @@ html[data-maps-route] body {
   outline: none;
 }
 
-.earth-map-regions {
+.earth-map-regions,
+.earth-map-layers {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
 }
 
-.earth-map-region {
+.earth-map-region,
+.earth-map-layer {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -265,17 +267,35 @@ html[data-maps-route] body {
 }
 
 .earth-map-region:hover:not(:disabled),
-.earth-map-region[data-active] {
+.earth-map-region[data-active],
+.earth-map-layer:hover:not(:disabled),
+.earth-map-layer[data-active] {
   color: var(--signal);
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--signal) 45%, var(--border));
 }
 
-.earth-map-region:disabled {
+.earth-map-layer:not([data-active]) {
+  color: var(--muted-foreground);
+  opacity: 0.85;
+}
+
+.earth-map-region:disabled,
+.earth-map-layer:disabled {
   cursor: wait;
   opacity: 0.6;
 }
 
-.earth-map-region:focus-visible {
+.earth-map-region:focus-visible,
+.earth-map-layer:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.earth-map-selection:focus {
+  outline: none;
+}
+
+.earth-map-selection:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }

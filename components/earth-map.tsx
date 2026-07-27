@@ -8,6 +8,7 @@ import {
   Map as MapLibreMap,
   NavigationControl,
   ScaleControl,
+  type GeoJSONSource,
   type MapLayerMouseEvent,
   type MapMouseEvent,
   type StyleSpecification,
@@ -16,12 +17,16 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 
 import { ensureMapLibreWorker } from '~/lib/maplibre-worker'
 import {
+  buildCountryLabelCollection,
+  buildRegionLabelCollection,
+  DEFAULT_MAP_LAYERS,
   exploreRegionHref,
   findMapCountryIndexEntry,
   findMapRegionCamera,
   formatMapCoords,
   MAP_COUNTRIES_URL,
   MAP_COUNTRY_INDEX_URL,
+  MAP_GLYPHS_URL,
   MAP_MAX_ZOOM,
   MAP_MIN_ZOOM,
   MAP_TILE_SIZE,
@@ -29,12 +34,17 @@ import {
   mapAttribution,
   mapCountryHref,
   mapRegionHref,
+  readStoredMapLayers,
   resolveMapCountry,
+  shareOrCopyMapLink,
   syncMapFocusSearchParams,
+  writeStoredMapLayers,
   type MapCountryHit,
   type MapCountryIndex,
   type MapCountryIndexEntry,
   type MapCountryPhoto,
+  type MapLayerId,
+  type MapLayerVisibility,
   type MapRegionCamera,
 } from '~/lib/maps'
 import { cn } from '~/lib/utils'
@@ -70,6 +80,7 @@ const MAP_REGION_PADDING = {
 function basemapStyle(): StyleSpecification {
   return {
     version: 8,
+    glyphs: MAP_GLYPHS_URL,
     sources: {
       blueMarble: {
         type: 'raster',
@@ -89,6 +100,9 @@ function basemapStyle(): StyleSpecification {
     ],
   }
 }
+
+const BORDER_LAYER_IDS = ['country-fill', 'country-line'] as const
+const LABEL_LAYER_IDS = ['region-labels', 'country-labels'] as const
 
 function addCountryLayers(map: MapLibreMap) {
   if (map.getSource('countries')) return
@@ -145,6 +159,137 @@ function addCountryLayers(map: MapLibreMap) {
   })
 }
 
+function upsertLabelLayers(
+  map: MapLibreMap,
+  countries: readonly MapCountryIndexEntry[],
+  regions: readonly MapRegionCamera[],
+) {
+  const countryData = buildCountryLabelCollection(countries)
+  const regionData = buildRegionLabelCollection(regions)
+
+  const countrySource = map.getSource('country-labels') as GeoJSONSource | undefined
+  if (countrySource) {
+    countrySource.setData(countryData)
+  } else {
+    map.addSource('country-labels', {
+      type: 'geojson',
+      data: countryData,
+    })
+  }
+
+  const regionSource = map.getSource('region-labels') as GeoJSONSource | undefined
+  if (regionSource) {
+    regionSource.setData(regionData)
+  } else {
+    map.addSource('region-labels', {
+      type: 'geojson',
+      data: regionData,
+    })
+  }
+
+  if (!map.getLayer('region-labels')) {
+    map.addLayer({
+      id: 'region-labels',
+      type: 'symbol',
+      source: 'region-labels',
+      maxzoom: 3.6,
+      layout: {
+        'text-field': ['get', 'name'],
+        'text-font': ['Open Sans Bold'],
+        'text-size': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          0,
+          11,
+          2,
+          14,
+          3.5,
+          16,
+        ],
+        'text-transform': 'uppercase',
+        'text-letter-spacing': 0.14,
+        'text-max-width': 8,
+        'text-padding': 12,
+        'text-allow-overlap': false,
+        'symbol-sort-key': ['get', 'rank'],
+      },
+      paint: {
+        'text-color': 'rgba(255, 255, 255, 0.9)',
+        'text-halo-color': 'rgba(8, 16, 28, 0.78)',
+        'text-halo-width': 1.4,
+        'text-opacity': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          0,
+          0.92,
+          2.4,
+          0.85,
+          3.5,
+          0,
+        ],
+      },
+    })
+  }
+
+  if (!map.getLayer('country-labels')) {
+    map.addLayer({
+      id: 'country-labels',
+      type: 'symbol',
+      source: 'country-labels',
+      minzoom: 2.1,
+      layout: {
+        'text-field': ['get', 'name'],
+        'text-font': ['Open Sans Regular'],
+        'text-size': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          2.1,
+          10,
+          4,
+          12,
+          6,
+          14,
+        ],
+        'text-max-width': 7,
+        'text-padding': 6,
+        'text-optional': true,
+        'text-allow-overlap': false,
+        'symbol-sort-key': ['get', 'rank'],
+      },
+      paint: {
+        'text-color': 'rgba(255, 252, 246, 0.94)',
+        'text-halo-color': 'rgba(10, 18, 30, 0.82)',
+        'text-halo-width': 1.15,
+        'text-opacity': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          2.1,
+          0,
+          2.6,
+          0.88,
+          6,
+          0.95,
+        ],
+      },
+    })
+  }
+}
+
+function applyLayerVisibility(map: MapLibreMap, layers: MapLayerVisibility) {
+  const borderVisibility = layers.borders ? 'visible' : 'none'
+  const labelVisibility = layers.labels ? 'visible' : 'none'
+  for (const id of BORDER_LAYER_IDS) {
+    if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', borderVisibility)
+  }
+  for (const id of LABEL_LAYER_IDS) {
+    if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', labelVisibility)
+  }
+}
+
 function mapMotionMs(preferred: number) {
   if (
     typeof window !== 'undefined' &&
@@ -178,6 +323,9 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const suppressMapClickRef = useRef<() => void>(() => {})
   const indexReadyRef = useRef(false)
   const selectionPanelRef = useRef<HTMLDivElement | null>(null)
+  const suggestionsOpenRef = useRef(false)
+  const layersRef = useRef<MapLayerVisibility>({ ...DEFAULT_MAP_LAYERS })
+  const resetViewRef = useRef<() => void>(() => {})
 
   const [ready, setReady] = useState(false)
   const [coords, setCoords] = useState('—')
@@ -189,11 +337,31 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const [activeSuggestion, setActiveSuggestion] = useState(0)
   const [regions, setRegions] = useState<MapRegionCamera[]>([])
   const [activeRegion, setActiveRegion] = useState<string | null>(null)
-  const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle')
+  const [layers, setLayers] = useState<MapLayerVisibility>(DEFAULT_MAP_LAYERS)
+  const [copyState, setCopyState] = useState<
+    'idle' | 'copied' | 'shared' | 'failed'
+  >('idle')
   const [loadState, setLoadState] = useState<'loading' | 'ready' | 'degraded'>(
     'loading',
   )
   const [focusAnnouncement, setFocusAnnouncement] = useState('')
+
+  useEffect(() => {
+    const stored = readStoredMapLayers()
+    layersRef.current = stored
+    setLayers(stored)
+  }, [])
+
+  useEffect(() => {
+    suggestionsOpenRef.current = suggestionsOpen
+  }, [suggestionsOpen])
+
+  useEffect(() => {
+    layersRef.current = layers
+    writeStoredMapLayers(layers)
+    const map = mapRef.current
+    if (map && ready) applyLayerVisibility(map, layers)
+  }, [layers, ready])
 
   useEffect(() => {
     const container = containerRef.current
@@ -338,6 +506,10 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       if (!map.getSource('countries')) {
         addCountryLayers(map)
       }
+      if (indexRef.current.length > 0 || regionsRef.current.length > 0) {
+        upsertLabelLayers(map, indexRef.current, regionsRef.current)
+      }
+      applyLayerVisibility(map, layersRef.current)
       bindCountryHandlers()
     }
 
@@ -352,6 +524,8 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
         indexRef.current = index.countries
         regionsRef.current = index.regions ?? []
         setRegions(regionsRef.current)
+        upsertLabelLayers(map, indexRef.current, regionsRef.current)
+        applyLayerVisibility(map, layersRef.current)
       } catch {
         indexFailed = true
         indexRef.current = []
@@ -414,6 +588,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       const entry = findMapCountryIndexEntry(indexRef.current, countryParam)
       if (!entry) {
         setFocusAnnouncement(`No country matched “${countryParam}”.`)
+        syncMapFocusSearchParams(null)
         return
       }
       if (selectedCodeRef.current === entry.code) return
@@ -424,12 +599,36 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       const region = findMapRegionCamera(regionsRef.current, regionParam)
       if (!region) {
         setFocusAnnouncement(`No region matched “${regionParam}”.`)
+        syncMapFocusSearchParams(null)
         return
       }
       if (activeRegionRef.current === region.id && !selectedCodeRef.current) return
       flyToRegion(region, { syncUrl: false })
     }
   }, [ready, countryParam, regionParam])
+
+  useEffect(() => {
+    if (!selected && !activeRegion) return
+    const panel = selectionPanelRef.current
+    if (!panel) return
+    // Defer so fitBounds / paint settle before moving focus.
+    const id = window.requestAnimationFrame(() => {
+      panel.focus({ preventScroll: true })
+    })
+    return () => window.cancelAnimationFrame(id)
+  }, [selected?.code, activeRegion])
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      if (suggestionsOpenRef.current) return
+      if (!selectedCodeRef.current && !activeRegionRef.current) return
+      event.preventDefault()
+      resetViewRef.current()
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   useEffect(() => {
     const trimmed = query.trim().toLowerCase()
@@ -509,6 +708,12 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     })
   }
 
+  resetViewRef.current = resetView
+
+  function toggleLayer(id: MapLayerId) {
+    setLayers((current) => ({ ...current, [id]: !current[id] }))
+  }
+
   function flyToRegion(
     region: MapRegionCamera,
     { syncUrl = true }: { syncUrl?: boolean } = {},
@@ -541,16 +746,14 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     })
   }
 
-  async function copyDeepLink(href: string) {
-    const absolute = new URL(href, window.location.origin).href
-    try {
-      await navigator.clipboard.writeText(absolute)
-      setCopyState('copied')
-      window.setTimeout(() => setCopyState('idle'), 1600)
-    } catch {
-      setCopyState('failed')
-      window.setTimeout(() => setCopyState('idle'), 1600)
-    }
+  async function shareDeepLink(href: string, text?: string) {
+    const result = await shareOrCopyMapLink(href, {
+      title: 'Cleo Maps',
+      text,
+    })
+    if (result === 'aborted') return
+    setCopyState(result)
+    window.setTimeout(() => setCopyState('idle'), 1600)
   }
 
   const activeRegionCamera = activeRegion
@@ -716,6 +919,33 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
             </div>
           ) : null}
 
+          <div
+            className="earth-map-layers"
+            role="group"
+            aria-label="Map layers"
+          >
+            <button
+              type="button"
+              className="earth-map-layer"
+              data-active={layers.borders || undefined}
+              aria-pressed={layers.borders}
+              disabled={!ready}
+              onClick={() => toggleLayer('borders')}
+            >
+              Borders
+            </button>
+            <button
+              type="button"
+              className="earth-map-layer"
+              data-active={layers.labels || undefined}
+              aria-pressed={layers.labels}
+              disabled={!ready}
+              onClick={() => toggleLayer('labels')}
+            >
+              Labels
+            </button>
+          </div>
+
           {showStatus ? (
             <div className="earth-map-panel earth-map-status-panel">
               <MapsGlass />
@@ -754,6 +984,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
             <div
               ref={selectionPanelRef}
               className="earth-map-panel earth-map-selection"
+              tabIndex={-1}
             >
               <MapsGlass />
               {photo ? (
@@ -802,16 +1033,19 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                   type="button"
                   className="earth-map-copy"
                   onClick={() => {
-                    void copyDeepLink(
+                    void shareDeepLink(
                       selected.mapHref ?? mapCountryHref(selected.code),
+                      selected.name,
                     )
                   }}
                 >
-                  {copyState === 'copied'
-                    ? 'Copied link'
-                    : copyState === 'failed'
-                      ? 'Copy failed'
-                      : 'Copy link'}
+                  {copyState === 'shared'
+                    ? 'Shared'
+                    : copyState === 'copied'
+                      ? 'Copied link'
+                      : copyState === 'failed'
+                        ? 'Share failed'
+                        : 'Share link'}
                 </button>
               </div>
             </div>
@@ -819,6 +1053,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
             <div
               ref={selectionPanelRef}
               className="earth-map-panel earth-map-selection"
+              tabIndex={-1}
             >
               <MapsGlass />
               <div>
@@ -841,14 +1076,19 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                   type="button"
                   className="earth-map-copy"
                   onClick={() => {
-                    void copyDeepLink(mapRegionHref(activeRegionCamera.id))
+                    void shareDeepLink(
+                      mapRegionHref(activeRegionCamera.id),
+                      activeRegionCamera.label,
+                    )
                   }}
                 >
-                  {copyState === 'copied'
-                    ? 'Copied link'
-                    : copyState === 'failed'
-                      ? 'Copy failed'
-                      : 'Copy link'}
+                  {copyState === 'shared'
+                    ? 'Shared'
+                    : copyState === 'copied'
+                      ? 'Copied link'
+                      : copyState === 'failed'
+                        ? 'Share failed'
+                        : 'Share link'}
                 </button>
               </div>
             </div>
@@ -856,8 +1096,8 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
             <div className="earth-map-panel">
               <MapsGlass />
               <p className="earth-map-hint">
-                Pan and zoom the basemap, jump by region, or click a country for
-                its boundary and Explore field guide.
+                Pan and zoom the basemap, toggle borders and labels, jump by
+                region, or click a country for its Explore field guide.
               </p>
             </div>
           )}
@@ -870,11 +1110,13 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       <p className="sr-only" aria-live="polite">
         {[
           focusAnnouncement,
-          copyState === 'copied'
-            ? 'Link copied to clipboard'
-            : copyState === 'failed'
-              ? 'Could not copy link'
-              : '',
+          copyState === 'shared'
+            ? 'Link shared'
+            : copyState === 'copied'
+              ? 'Link copied to clipboard'
+              : copyState === 'failed'
+                ? 'Could not share link'
+                : '',
         ]
           .filter(Boolean)
           .join(' ')}
