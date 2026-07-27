@@ -444,6 +444,7 @@ export function AskForm() {
 
     let output = ""
     let receivedImages = false
+    let receivedActivities = false
 
     try {
       const response = await fetch("/api/responses", {
@@ -482,6 +483,7 @@ export function AskForm() {
       }
 
       const applyActivity = (activity: ActivityItem) => {
+        receivedActivities = true
         setMessages((currentMessages) =>
           currentMessages.map((message) =>
             message.id === assistantMessage.id
@@ -625,7 +627,10 @@ export function AskForm() {
         return
       }
 
-      if (aborted && !output.trim() && !receivedImages) {
+      const hadVisibleDraft =
+        Boolean(output.trim()) || receivedImages || receivedActivities
+
+      if (aborted && !hadVisibleDraft) {
         // Empty Stop: drop the unfinished turn and put the prompt back.
         setMessages((currentMessages) =>
           currentMessages.filter(
@@ -639,7 +644,8 @@ export function AskForm() {
           setPendingImages(userImages.map((image) => image.url))
         }
       } else if (aborted) {
-        // Partial Stop: keep the draft and mark it so Continue/Retry appear.
+        // Partial Stop (text, images, or activity): keep the draft and mark
+        // it so Continue/Retry appear.
         setMessages((currentMessages) =>
           currentMessages
             .filter(
@@ -789,57 +795,13 @@ export function AskForm() {
                   ) : null}
 
                   {message.content ? (
-                    <>
-                      <Markdown
-                        isAnimating={
-                          isSubmitting && message.id === messages.at(-1)?.id
-                        }
-                      >
-                        {message.content}
-                      </Markdown>
-                      {!(
+                    <Markdown
+                      isAnimating={
                         isSubmitting && message.id === messages.at(-1)?.id
-                      ) ? (
-                        <div className="cleo-answer-actions">
-                          {message.incomplete ? (
-                            <p
-                              className="cleo-incomplete-note"
-                              id={incompleteNoteId}
-                              role="status"
-                            >
-                              {message.incomplete.message}
-                            </p>
-                          ) : null}
-                          <div className="cleo-answer-action-row">
-                            <CopyAnswerButton text={message.content} />
-                            {message.incomplete &&
-                            message.id === lastVisibleMessage?.id ? (
-                              <button
-                                aria-describedby={incompleteNoteId}
-                                aria-label="Continue this answer"
-                                className="cleo-answer-action"
-                                disabled={!canContinueIncomplete}
-                                onClick={handleContinue}
-                                type="button"
-                              >
-                                Continue
-                              </button>
-                            ) : null}
-                            {message.id === lastVisibleMessage?.id ? (
-                              <button
-                                aria-label="Retry the last question"
-                                className="cleo-answer-action"
-                                disabled={!canRetryLastTurn}
-                                onClick={handleRetry}
-                                type="button"
-                              >
-                                Retry
-                              </button>
-                            ) : null}
-                          </div>
-                        </div>
-                      ) : null}
-                    </>
+                      }
+                    >
+                      {message.content}
+                    </Markdown>
                   ) : isSubmitting &&
                     message.id === messages.at(-1)?.id &&
                     !(message.activities && message.activities.length > 0) &&
@@ -850,6 +812,50 @@ export function AskForm() {
                       size={20}
                       state="listening"
                     />
+                  ) : null}
+
+                  {!(isSubmitting && message.id === messages.at(-1)?.id) &&
+                  (message.content || message.incomplete) ? (
+                    <div className="cleo-answer-actions">
+                      {message.incomplete ? (
+                        <p
+                          className="cleo-incomplete-note"
+                          id={incompleteNoteId}
+                          role="status"
+                        >
+                          {message.incomplete.message}
+                        </p>
+                      ) : null}
+                      <div className="cleo-answer-action-row">
+                        {message.content ? (
+                          <CopyAnswerButton text={message.content} />
+                        ) : null}
+                        {message.incomplete &&
+                        message.id === lastVisibleMessage?.id ? (
+                          <button
+                            aria-describedby={incompleteNoteId}
+                            aria-label="Continue this answer"
+                            className="cleo-answer-action"
+                            disabled={!canContinueIncomplete}
+                            onClick={handleContinue}
+                            type="button"
+                          >
+                            Continue
+                          </button>
+                        ) : null}
+                        {message.id === lastVisibleMessage?.id ? (
+                          <button
+                            aria-label="Retry the last question"
+                            className="cleo-answer-action"
+                            disabled={!canRetryLastTurn}
+                            onClick={handleRetry}
+                            type="button"
+                          >
+                            Retry
+                          </button>
+                        ) : null}
+                      </div>
+                    </div>
                   ) : null}
                 </section>
               )
