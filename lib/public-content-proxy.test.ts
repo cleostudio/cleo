@@ -17,7 +17,7 @@ describe('public content proxy', () => {
   )
 
   it.each([
-    '/blog/pale-blue-marble',
+    '/blog/the-thin-blue-shell',
     '/newsletters/1',
   ])('passes through a published content route: %s', (pathname) => {
     const response = proxy(new NextRequest(`https://example.com${pathname}`))

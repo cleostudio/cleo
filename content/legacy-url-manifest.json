@@ -91,153 +91,297 @@
     },
     {
       "kind": "page",
-      "source": "/blog/a-brief-history-of-dawn",
+      "source": "/blog/a-library-written-in-ice",
       "probes": [
-        "/blog/a-brief-history-of-dawn"
+        "/blog/a-library-written-in-ice"
       ],
       "status": 200,
       "contains": "<article"
     },
     {
       "kind": "redirect",
+      "source": "/en/blog/a-library-written-in-ice",
+      "destination": "/blog/a-library-written-in-ice",
+      "probes": [
+        "/en/blog/a-library-written-in-ice"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/cities-waiting-for-the-tide",
+      "probes": [
+        "/blog/cities-waiting-for-the-tide"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/cities-waiting-for-the-tide",
+      "destination": "/blog/cities-waiting-for-the-tide",
+      "probes": [
+        "/en/blog/cities-waiting-for-the-tide"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/dust-that-feeds-a-forest",
+      "probes": [
+        "/blog/dust-that-feeds-a-forest"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/dust-that-feeds-a-forest",
+      "destination": "/blog/dust-that-feeds-a-forest",
+      "probes": [
+        "/en/blog/dust-that-feeds-a-forest"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/islands-that-arrive-overnight",
+      "probes": [
+        "/blog/islands-that-arrive-overnight"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/islands-that-arrive-overnight",
+      "destination": "/blog/islands-that-arrive-overnight",
+      "probes": [
+        "/en/blog/islands-that-arrive-overnight"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/listening-for-black-holes",
+      "probes": [
+        "/blog/listening-for-black-holes"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/listening-for-black-holes",
+      "destination": "/blog/listening-for-black-holes",
+      "probes": [
+        "/en/blog/listening-for-black-holes"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/the-invisible-border-wallace-drew",
+      "probes": [
+        "/blog/the-invisible-border-wallace-drew"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/the-invisible-border-wallace-drew",
+      "destination": "/blog/the-invisible-border-wallace-drew",
+      "probes": [
+        "/en/blog/the-invisible-border-wallace-drew"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/the-moon-that-steals-our-days",
+      "probes": [
+        "/blog/the-moon-that-steals-our-days"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/the-moon-that-steals-our-days",
+      "destination": "/blog/the-moon-that-steals-our-days",
+      "probes": [
+        "/en/blog/the-moon-that-steals-our-days"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/the-passport-of-a-raindrop",
+      "probes": [
+        "/blog/the-passport-of-a-raindrop"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/the-passport-of-a-raindrop",
+      "destination": "/blog/the-passport-of-a-raindrop",
+      "probes": [
+        "/en/blog/the-passport-of-a-raindrop"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/the-thin-blue-shell",
+      "probes": [
+        "/blog/the-thin-blue-shell"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/the-thin-blue-shell",
+      "destination": "/blog/the-thin-blue-shell",
+      "probes": [
+        "/en/blog/the-thin-blue-shell"
+      ]
+    },
+    {
+      "kind": "redirect",
+      "source": "/blog/a-brief-history-of-dawn",
+      "destination": "/blog",
+      "probes": [
+        "/blog/a-brief-history-of-dawn"
+      ]
+    },
+    {
+      "kind": "redirect",
       "source": "/en/blog/a-brief-history-of-dawn",
-      "destination": "/blog/a-brief-history-of-dawn",
+      "destination": "/blog",
       "probes": [
         "/en/blog/a-brief-history-of-dawn"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/how-rivers-draw-nations",
+      "destination": "/blog",
       "probes": [
         "/blog/how-rivers-draw-nations"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/how-rivers-draw-nations",
-      "destination": "/blog/how-rivers-draw-nations",
+      "destination": "/blog",
       "probes": [
         "/en/blog/how-rivers-draw-nations"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/letters-from-low-earth-orbit",
+      "destination": "/blog",
       "probes": [
         "/blog/letters-from-low-earth-orbit"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/letters-from-low-earth-orbit",
-      "destination": "/blog/letters-from-low-earth-orbit",
+      "destination": "/blog",
       "probes": [
         "/en/blog/letters-from-low-earth-orbit"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/pale-blue-marble",
+      "destination": "/blog",
       "probes": [
         "/blog/pale-blue-marble"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/pale-blue-marble",
-      "destination": "/blog/pale-blue-marble",
+      "destination": "/blog",
       "probes": [
         "/en/blog/pale-blue-marble"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/silence-between-galaxies",
+      "destination": "/blog",
       "probes": [
         "/blog/silence-between-galaxies"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/silence-between-galaxies",
-      "destination": "/blog/silence-between-galaxies",
+      "destination": "/blog",
       "probes": [
         "/en/blog/silence-between-galaxies"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/the-atlas-of-vanishing-things",
+      "destination": "/blog",
       "probes": [
         "/blog/the-atlas-of-vanishing-things"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/the-atlas-of-vanishing-things",
-      "destination": "/blog/the-atlas-of-vanishing-things",
+      "destination": "/blog",
       "probes": [
         "/en/blog/the-atlas-of-vanishing-things"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/the-long-night-of-enceladus",
+      "destination": "/blog",
       "probes": [
         "/blog/the-long-night-of-enceladus"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/the-long-night-of-enceladus",
-      "destination": "/blog/the-long-night-of-enceladus",
+      "destination": "/blog",
       "probes": [
         "/en/blog/the-long-night-of-enceladus"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/what-the-equator-remembers",
+      "destination": "/blog",
       "probes": [
         "/blog/what-the-equator-remembers"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/what-the-equator-remembers",
-      "destination": "/blog/what-the-equator-remembers",
+      "destination": "/blog",
       "probes": [
         "/en/blog/what-the-equator-remembers"
       ]
     },
     {
-      "kind": "page",
+      "kind": "redirect",
       "source": "/blog/when-the-sahara-was-green",
+      "destination": "/blog",
       "probes": [
         "/blog/when-the-sahara-was-green"
-      ],
-      "status": 200,
-      "contains": "<article"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/en/blog/when-the-sahara-was-green",
-      "destination": "/blog/when-the-sahara-was-green",
+      "destination": "/blog",
       "probes": [
         "/en/blog/when-the-sahara-was-green"
       ]

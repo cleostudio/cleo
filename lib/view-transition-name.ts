@@ -2,23 +2,23 @@ export type PostTransitionElement = 'cover' | 'title'
 
 function postTransitionId(slug: string) {
   switch (slug) {
-    case 'a-brief-history-of-dawn':
+    case 'a-library-written-in-ice':
       return 'p01'
-    case 'how-rivers-draw-nations':
+    case 'cities-waiting-for-the-tide':
       return 'p02'
-    case 'letters-from-low-earth-orbit':
+    case 'dust-that-feeds-a-forest':
       return 'p03'
-    case 'pale-blue-marble':
+    case 'islands-that-arrive-overnight':
       return 'p04'
-    case 'silence-between-galaxies':
+    case 'listening-for-black-holes':
       return 'p05'
-    case 'the-atlas-of-vanishing-things':
+    case 'the-invisible-border-wallace-drew':
       return 'p06'
-    case 'the-long-night-of-enceladus':
+    case 'the-moon-that-steals-our-days':
       return 'p07'
-    case 'what-the-equator-remembers':
+    case 'the-passport-of-a-raindrop':
       return 'p08'
-    case 'when-the-sahara-was-green':
+    case 'the-thin-blue-shell':
       return 'p09'
     default:
       throw new Error('Unknown post view-transition slug')

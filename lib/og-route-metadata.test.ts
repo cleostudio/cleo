@@ -48,12 +48,12 @@ describe('social OG image metadata', () => {
     expect(
       imageAlt(
         metadataFor(
-          '/blog/pale-blue-marble',
-          'Pale Blue Marble',
+          '/blog/the-thin-blue-shell',
+          'The Thin Blue Shell',
           'Article summary',
         ),
       ),
-    ).toBe('Pale Blue Marble · Cleo')
+    ).toBe('The Thin Blue Shell · Cleo')
     expect(
       imageAlt(
         metadataFor(

@@ -1,15 +1,15 @@
 // Publishing a post requires adding its directory slug here. The public-route
 // proxy, post index, feeds, and sitemap all consume this explicit allowlist.
 export const publishedPostSlugs = [
-  'a-brief-history-of-dawn',
-  'how-rivers-draw-nations',
-  'letters-from-low-earth-orbit',
-  'pale-blue-marble',
-  'silence-between-galaxies',
-  'the-atlas-of-vanishing-things',
-  'the-long-night-of-enceladus',
-  'what-the-equator-remembers',
-  'when-the-sahara-was-green',
+  'a-library-written-in-ice',
+  'cities-waiting-for-the-tide',
+  'dust-that-feeds-a-forest',
+  'islands-that-arrive-overnight',
+  'listening-for-black-holes',
+  'the-invisible-border-wallace-drew',
+  'the-moon-that-steals-our-days',
+  'the-passport-of-a-raindrop',
+  'the-thin-blue-shell',
 ] as const
 
 export const archivedNewsletterIds = ['1'] as const
