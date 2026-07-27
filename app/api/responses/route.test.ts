@@ -390,7 +390,10 @@ describe("POST /api/responses: streaming and upstream errors", () => {
         summary: "auto",
         context: "all_turns",
       },
-      include: ["reasoning.encrypted_content"],
+      include: [
+        "reasoning.encrypted_content",
+        "web_search_call.action.sources",
+      ],
     })
     expect(
       openai.create.mock.calls[0]?.[0].tools.map(

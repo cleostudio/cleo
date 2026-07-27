@@ -45,9 +45,9 @@ document (enable both products in the Vercel project dashboard).
   (portal tools for guides/Gallery/Writing; code interpreter in Auto/Research;
   Quick/Auto/Research modes; adaptive reasoning; browser `localStorage`
   session restore + New chat; encrypted reasoning replay for store:false
-  multi-turn; Retry / Continue for failed or truncated answers; matching turns
-  also ground curated topic photo paths so replies can embed atlas/space JPEGs
-  as Markdown images)
+  multi-turn; Retry / Continue for failed, stopped, or truncated answers;
+  clickable Auto/Research search sources; matching turns also ground curated
+  topic photo paths so replies can embed atlas/space JPEGs as Markdown images)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

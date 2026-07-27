@@ -90,8 +90,9 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `reasoning_items`, `status`, `error`); activities include `web_search`,
   `reasoning`, `image_generation`, `portal_tool`, and `code_interpreter`. Portal
   tool labels update as `function_call_arguments` stream in; Research mode
-  includes `web_search_call.action.sources` for the activity panel. Partial
-  incomplete answers emit `status: incomplete` so the UI can offer Continue /
+  includes `web_search_call.action.sources` for the activity panel (Auto and
+  Research); expanded search steps link source hosts. Partial incomplete
+  answers and user Stop emit / mark `incomplete` so the UI can offer Continue /
   Retry; hard failures show Retry in the dock.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`

@@ -242,6 +242,11 @@ export const CLEO_PORTAL_STARTERS = [
       'Compare Mars and Earth in a few sharp points. Look up both Space guides and deep-link each planet.',
   },
   {
+    label: 'Browse Topics',
+    prompt:
+      'What topics can I explore here? Point me to the Topics catalog at /topics and deep-link Countries and Space with a one-line tease for each.',
+  },
+  {
     label: 'Fact-check the ISS orbit',
     prompt:
       'Fact-check this claim with sources: the International Space Station orbits Earth about every 90 minutes. Use the Space guide if one exists.',

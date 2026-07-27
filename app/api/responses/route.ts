@@ -525,7 +525,8 @@ export async function POST(request: Request) {
   const include: Array<
     "reasoning.encrypted_content" | "web_search_call.action.sources"
   > = ["reasoning.encrypted_content"]
-  if (mode === "research") {
+  // Auto/Research surface consulted hosts in the activity panel.
+  if (mode !== "quick") {
     include.push("web_search_call.action.sources")
   }
 

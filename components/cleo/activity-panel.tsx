@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
 import { ThinkingOrb, type OrbState } from "thinking-orbs"
 
-import type { ActivityItem } from "~/lib/cleo/stream"
+import type { ActivityItem, WebSearchSource } from "~/lib/cleo/stream"
 import { cn } from "~/lib/utils"
 
 type ActivityPanelProps = {
@@ -142,19 +142,9 @@ function activityLabel(activity: ActivityItem) {
 
   if (action.type === "search") {
     const query = action.queries?.[0] ?? action.query
-    const sourceHosts = (action.sources ?? [])
-      .map((source) => hostnameFromUrl(source.url))
-      .filter(Boolean)
-      .slice(0, 3)
-    const sourcesSuffix =
-      activity.status === "completed" && sourceHosts.length > 0
-        ? ` · ${sourceHosts.join(", ")}`
-        : ""
 
     if (activity.status === "completed") {
-      return query
-        ? `Searched “${query}”${sourcesSuffix}`
-        : `Searched the web${sourcesSuffix}`
+      return query ? `Searched “${query}”` : "Searched the web"
     }
 
     return query ? `Searching “${query}”` : "Searching the web"
@@ -177,6 +167,14 @@ function activityLabel(activity: ActivityItem) {
   }
 
   return `Looking for “${action.pattern}” on ${host}`
+}
+
+function searchSources(activity: ActivityItem): WebSearchSource[] {
+  const action = activity.action
+  if (!action || action.type !== "search" || !action.sources) {
+    return []
+  }
+  return action.sources.filter((source) => Boolean(source.url)).slice(0, 5)
 }
 
 function hasActionDetail(activity: ActivityItem) {
@@ -430,6 +428,8 @@ export function ActivityPanel({
               const isReasoning = activity.kind === "reasoning"
               const shimmerActive =
                 activity.kind !== "reasoning" && isActive && isLive
+              const sources =
+                activity.status === "completed" ? searchSources(activity) : []
 
               return (
                 <li className="min-w-0" key={activity.id}>
@@ -443,6 +443,25 @@ export function ActivityPanel({
                   >
                     {detail}
                   </ShimmerText>
+                  {sources.length > 0 ? (
+                    <ul className="activity-sources">
+                      {sources.map((source) => {
+                        const host = hostnameFromUrl(source.url)
+                        return (
+                          <li key={source.url}>
+                            <a
+                              className="activity-source-link"
+                              href={source.url}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              {host || source.url}
+                            </a>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  ) : null}
                 </li>
               )
             })}

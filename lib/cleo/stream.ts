@@ -94,6 +94,7 @@ export type StreamReasoningItemsEvent = {
 export type IncompleteReason =
   | "max_output_tokens"
   | "content_filter"
+  | "stopped"
   | "other"
 
 export type StreamStatusEvent = {
@@ -114,7 +115,11 @@ export type ClientStreamEvent =
 export function incompleteReasonFromApi(
   reason: string | undefined
 ): IncompleteReason {
-  if (reason === "max_output_tokens" || reason === "content_filter") {
+  if (
+    reason === "max_output_tokens" ||
+    reason === "content_filter" ||
+    reason === "stopped"
+  ) {
     return reason
   }
   return "other"
@@ -126,6 +131,9 @@ export function incompleteStatusMessage(reason: IncompleteReason): string {
   }
   if (reason === "content_filter") {
     return "This answer stopped early because of a safety filter."
+  }
+  if (reason === "stopped") {
+    return "Stopped before finishing."
   }
   return "This answer stopped before it finished."
 }
@@ -308,6 +316,7 @@ export function parseStreamLine(line: string): ClientStreamEvent | null {
         "reason" in parsed &&
         (parsed.reason === "max_output_tokens" ||
           parsed.reason === "content_filter" ||
+          parsed.reason === "stopped" ||
           parsed.reason === "other")
       ) {
         event.reason = parsed.reason
