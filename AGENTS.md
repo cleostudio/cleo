@@ -55,7 +55,8 @@ viewport with paper/glass HUD chrome above the dock. Deep links use
 MapLibre-style camera hash (`#zoom/lat/lng`) so “Share” can copy the exact
 view; country/region params still win on load. Search matches country name or
 capital (capital hits fly to the city); Explore guides link back with
-“View on map”; Cleo may cite the same map paths. MapLibre’s module workers are
+“View on map”; homepage search/highlights deep-link into Maps; Cleo may cite
+the same map paths. MapLibre’s module workers are
 vendored to `public/maplibre/` so Turbopack/Next can load them under the site
 CSP. Regenerate from a local 21600 source with
 `pnpm prepare:maps -- --blue-marble=/path/to/21600.jpg` (`--skip-tiles`
