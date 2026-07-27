@@ -403,51 +403,44 @@
       ]
     },
     {
-      "kind": "feed",
+      "kind": "redirect",
       "source": "/feed.xml",
+      "destination": "/blog",
       "probes": [
         "/feed.xml"
-      ],
-      "status": 200,
-      "contains": "<rss"
+      ]
     },
     {
       "kind": "redirect",
       "source": "/feed.en.xml",
-      "destination": "/feed.xml",
+      "destination": "/blog",
       "probes": [
         "/feed.en.xml"
       ]
     },
     {
-      "kind": "rewrite",
+      "kind": "redirect",
       "source": "/feed",
-      "destination": "/feed.xml",
+      "destination": "/blog",
       "probes": [
         "/feed"
-      ],
-      "status": 200,
-      "contains": "<rss"
+      ]
     },
     {
-      "kind": "rewrite",
+      "kind": "redirect",
       "source": "/rss",
-      "destination": "/feed.xml",
+      "destination": "/blog",
       "probes": [
         "/rss"
-      ],
-      "status": 200,
-      "contains": "<rss"
+      ]
     },
     {
-      "kind": "rewrite",
+      "kind": "redirect",
       "source": "/rss.xml",
-      "destination": "/feed.xml",
+      "destination": "/blog",
       "probes": [
         "/rss.xml"
-      ],
-      "status": 200,
-      "contains": "<rss"
+      ]
     },
     {
       "kind": "page",

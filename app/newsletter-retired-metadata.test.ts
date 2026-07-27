@@ -9,7 +9,7 @@ describe('retired newsletter confirmation metadata', () => {
     expect(english).toMatchObject({
       title: 'Newsletter confirmation is retired',
       description:
-        'This old link no longer reads or updates subscriber information. The newsletter service has ended, but site updates remain available through RSS.',
+        'This old link no longer reads or updates subscriber information. The newsletter service has ended.',
       robots: { index: false, follow: false },
     })
   })

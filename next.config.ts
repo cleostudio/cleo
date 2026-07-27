@@ -15,12 +15,6 @@ const legacyRedirects = legacyUrlManifest.entries.flatMap((entry) =>
     : [],
 )
 
-const legacyRewrites = legacyUrlManifest.entries.flatMap((entry) =>
-  entry.kind === 'rewrite' && typeof entry.destination === 'string'
-    ? [{ source: entry.source, destination: entry.destination }]
-    : [],
-)
-
 const ogRuntimeAssets = [
   './app/_fonts/FrexSansGB-OG-*.ttf',
 ]
@@ -93,7 +87,6 @@ const nextConfig: NextConfig = {
   // former `/en` URLs permanently redirect to the unprefixed paths.
   redirects: async () => [
     { source: '/en', destination: '/', permanent: true },
-    { source: '/feed.en.xml', destination: '/feed.xml', permanent: true },
     // Former AMA marketing page; booking APIs were removed.
     { source: '/ama', destination: '/explore', permanent: true },
     { source: '/ama/:path*', destination: '/explore', permanent: true },
@@ -121,8 +114,6 @@ const nextConfig: NextConfig = {
     ...legacyRedirects,
     { source: '/en/:path*', destination: '/:path*', permanent: true },
   ],
-
-  rewrites: async () => legacyRewrites,
 }
 
 export default nextConfig

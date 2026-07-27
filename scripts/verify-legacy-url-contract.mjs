@@ -18,12 +18,12 @@ function validateManifest(manifest) {
     assert.equal(typeof entry.source, 'string')
     assert.match(entry.source, /^\/(?!\/)/)
     assert.ok(Array.isArray(entry.probes) && entry.probes.length > 0)
-    if (entry.status == null && (entry.kind === 'redirect' || entry.kind === 'rewrite')) {
+    if (entry.status == null && entry.kind === 'redirect') {
       entry.status = 308
     }
     assert.ok([200, 308].includes(entry.status))
     assert.equal(typeof entry.contains, entry.kind === 'redirect' ? 'undefined' : 'string')
-    if (entry.kind === 'redirect' || entry.kind === 'rewrite') {
+    if (entry.kind === 'redirect') {
       assert.equal(typeof entry.destination, 'string')
     }
     for (const probe of entry.probes) {
@@ -124,12 +124,6 @@ async function verifyEntry(baseUrl, entry, probe) {
     assert.ok(
       !visibleDocument.includes(forbidden),
       `${probe} exposed forbidden request data`,
-    )
-  }
-  if (entry.kind === 'feed' || entry.kind === 'rewrite') {
-    assert.match(
-      response.headers.get('content-type') ?? '',
-      /(?:application|text)\/xml/,
     )
   }
 }

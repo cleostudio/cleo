@@ -30,11 +30,15 @@ describe('English-only redirects', () => {
       expect.arrayContaining([
         { source: '/en', destination: '/', permanent: true },
         { source: '/en/:path*', destination: '/:path*', permanent: true },
-        { source: '/feed.en.xml', destination: '/feed.xml', permanent: true },
         { source: '/ama', destination: '/explore', permanent: true },
         { source: '/ama/:path*', destination: '/explore', permanent: true },
         { source: '/admin', destination: '/', permanent: true },
         { source: '/admin/:path*', destination: '/', permanent: true },
+        { source: '/feed.xml', destination: '/blog', permanent: true },
+        { source: '/feed.en.xml', destination: '/blog', permanent: true },
+        { source: '/feed', destination: '/blog', permanent: true },
+        { source: '/rss', destination: '/blog', permanent: true },
+        { source: '/rss.xml', destination: '/blog', permanent: true },
       ]),
     )
   })
