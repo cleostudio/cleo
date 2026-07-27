@@ -383,6 +383,8 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       model: "gpt-5.6-terra",
       store: false,
       stream: true,
+      truncation: "auto",
+      max_tool_calls: 16,
       reasoning: {
         effort: "medium",
         summary: "auto",
@@ -658,6 +660,12 @@ describe("POST /api/responses: streaming and upstream errors", () => {
 
     expect(events).toEqual([
       { delta: "Partial Japan note.", type: "text" },
+      {
+        message: "This answer was cut short before it finished.",
+        reason: "max_output_tokens",
+        status: "incomplete",
+        type: "status",
+      },
     ])
   })
 

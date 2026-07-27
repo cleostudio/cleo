@@ -7,7 +7,11 @@ import {
   sanitizeReasoningItems,
   type EncryptedReasoningItem,
 } from '~/lib/cleo/reasoning-items'
-import type { ActivityItem, MessageImage } from '~/lib/cleo/stream'
+import type {
+  ActivityItem,
+  IncompleteReason,
+  MessageImage,
+} from '~/lib/cleo/stream'
 
 export const CLEO_SESSION_STORAGE_KEY = 'cleo:conversation:v1'
 
@@ -15,11 +19,17 @@ export const CLEO_SESSION_STORAGE_KEY = 'cleo:conversation:v1'
 const MAX_PERSISTED_IMAGE_CHARS = 64_000
 const MAX_SESSION_CHARS = 4_000_000
 
+export type PersistedIncomplete = {
+  message: string
+  reason?: IncompleteReason
+}
+
 export type PersistedCleoMessage = {
   activities?: ActivityItem[]
   content: string
   id: number
   images?: MessageImage[]
+  incomplete?: PersistedIncomplete
   /** Opaque OpenAI encrypted reasoning for store:false multi-turn. */
   reasoningItems?: EncryptedReasoningItem[]
   role: 'assistant' | 'user'
@@ -59,6 +69,23 @@ function sanitizeImages(images: unknown): MessageImage[] | undefined {
   return kept.length > 0 ? kept : undefined
 }
 
+function sanitizeIncomplete(value: unknown): PersistedIncomplete | undefined {
+  if (typeof value !== 'object' || value === null) return undefined
+  const record = value as Record<string, unknown>
+  if (typeof record.message !== 'string' || !record.message) return undefined
+  const incomplete: PersistedIncomplete = {
+    message: record.message.slice(0, 280),
+  }
+  if (
+    record.reason === 'max_output_tokens' ||
+    record.reason === 'content_filter' ||
+    record.reason === 'other'
+  ) {
+    incomplete.reason = record.reason
+  }
+  return incomplete
+}
+
 function sanitizeMessage(value: unknown): PersistedCleoMessage | null {
   if (typeof value !== 'object' || value === null) return null
   const message = value as Record<string, unknown>
@@ -81,6 +108,10 @@ function sanitizeMessage(value: unknown): PersistedCleoMessage | null {
     message.role === 'assistant'
       ? sanitizeReasoningItems(message.reasoningItems)
       : undefined
+  const incomplete =
+    message.role === 'assistant'
+      ? sanitizeIncomplete(message.incomplete)
+      : undefined
 
   return {
     id: message.id,
@@ -89,6 +120,7 @@ function sanitizeMessage(value: unknown): PersistedCleoMessage | null {
     ...(activities && activities.length > 0 ? { activities } : {}),
     ...(images ? { images } : {}),
     ...(reasoningItems ? { reasoningItems } : {}),
+    ...(incomplete ? { incomplete } : {}),
   }
 }
 
@@ -142,6 +174,10 @@ export function serializeCleoSession(
       ...(message.role === 'assistant' &&
       sanitizeReasoningItems(message.reasoningItems)
         ? { reasoningItems: sanitizeReasoningItems(message.reasoningItems) }
+        : {}),
+      ...(message.role === 'assistant' &&
+      sanitizeIncomplete(message.incomplete)
+        ? { incomplete: sanitizeIncomplete(message.incomplete) }
         : {}),
     })),
     nextId,

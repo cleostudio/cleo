@@ -1,6 +1,7 @@
 import OpenAI, { APIError } from "openai"
 import type {
   EasyInputMessage,
+  ResponseCreateParamsStreaming,
   ResponseFunctionToolCall,
   ResponseFunctionWebSearch,
   ResponseInput,
@@ -11,6 +12,11 @@ import type {
   ResponseStreamEvent,
   Tool,
 } from "openai/resources/responses/responses"
+
+/** Create params plus API fields the installed SDK typings still omit. */
+type CleoResponseCreateParams = ResponseCreateParamsStreaming & {
+  max_tool_calls?: number | null
+}
 
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
@@ -23,6 +29,7 @@ import {
   buildModeInstructions,
   buildModeWebSearchTool,
   modeAllowsCodeInterpreter,
+  modeMaxToolCalls,
   modeParallelToolCalls,
   modePromptCacheKey,
   modeReasoningContext,
@@ -46,6 +53,9 @@ import {
   type ActivityStatus,
   type ClientStreamEvent,
   encodeStreamEvent,
+  incompleteReasonFromApi,
+  incompleteStatusMessage,
+  type IncompleteReason,
   type MessageImage,
   type WebSearchAction,
 } from "~/lib/cleo/stream"
@@ -509,6 +519,7 @@ export async function POST(request: Request) {
   const promptCacheKey = modePromptCacheKey(mode)
   const parallelToolCalls = modeParallelToolCalls(mode)
   const reasoningContext = modeReasoningContext(mode)
+  const maxToolCalls = modeMaxToolCalls(mode)
   // Always request encrypted reasoning for store:false multi-turn replay.
   // Research also asks hosted web_search for source URLs (activity panel).
   const include: Array<
@@ -518,31 +529,38 @@ export async function POST(request: Request) {
     include.push("web_search_call.action.sources")
   }
 
-  const createStream = () =>
-    client.responses.create(
-      {
-        model: MODEL,
-        // Output items are round-tripped per the function-calling guide; the
-        // SDK input type is slightly narrower than runtime-accepted output.
-        input: input as ResponseInput,
-        instructions,
-        // Keep headroom for reasoning + tools + visible answer.
-        max_output_tokens: 16_384,
-        reasoning: {
-          effort: reasoningEffort,
-          summary: "auto",
-          context: reasoningContext,
-        },
-        stream: true,
-        text: { verbosity },
-        tools,
-        parallel_tool_calls: parallelToolCalls,
-        prompt_cache_key: promptCacheKey,
-        store: false,
-        include,
+  const createStream = () => {
+    const params: CleoResponseCreateParams = {
+      model: MODEL,
+      // Output items are round-tripped per the function-calling guide; the
+      // SDK input type is slightly narrower than runtime-accepted output.
+      input: input as ResponseInput,
+      instructions,
+      // Keep headroom for reasoning + tools + visible answer.
+      max_output_tokens: 16_384,
+      // Cap hosted tool churn; portal function rounds still use MAX_TOOL_ROUNDS.
+      max_tool_calls: maxToolCalls,
+      // Long restored threads with encrypted reasoning can overflow; drop
+      // oldest items rather than failing the whole turn.
+      truncation: "auto",
+      reasoning: {
+        effort: reasoningEffort,
+        summary: "auto",
+        context: reasoningContext,
       },
-      { signal: request.signal }
-    ) as Promise<ResponseStream>
+      stream: true,
+      text: { verbosity },
+      tools,
+      parallel_tool_calls: parallelToolCalls,
+      prompt_cache_key: promptCacheKey,
+      store: false,
+      include,
+    }
+
+    return client.responses.create(params, {
+      signal: request.signal,
+    }) as Promise<ResponseStream>
+  }
 
   try {
     // Start the first upstream request before opening the NDJSON body so
@@ -607,6 +625,7 @@ export async function POST(request: Request) {
 
         try {
           let toolExecutions = 0
+          let incompleteNotice: IncompleteReason | null = null
 
           while (true) {
             const responseStream = pendingStream ?? (await createStream())
@@ -891,6 +910,7 @@ export async function POST(request: Request) {
               if (event.type === "response.completed") {
                 outputItems = event.response.output ?? []
                 sawCompleted = true
+                incompleteNotice = null
                 continue
               }
 
@@ -912,6 +932,7 @@ export async function POST(request: Request) {
                 if (streamedText.trim()) {
                   sawCompleted = true
                   incompleteError = null
+                  incompleteNotice = incompleteReasonFromApi(reason)
                 } else {
                   incompleteError = new Error(
                     reason === "max_output_tokens"
@@ -946,6 +967,14 @@ export async function POST(request: Request) {
                 enqueue(controller, {
                   type: "reasoning_items",
                   items: reasoningItems,
+                })
+              }
+              if (incompleteNotice) {
+                enqueue(controller, {
+                  type: "status",
+                  status: "incomplete",
+                  reason: incompleteNotice,
+                  message: incompleteStatusMessage(incompleteNotice),
                 })
               }
               break

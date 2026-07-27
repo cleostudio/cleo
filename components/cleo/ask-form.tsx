@@ -35,11 +35,13 @@ import {
 import type { EncryptedReasoningItem } from "~/lib/cleo/reasoning-items"
 import {
   type ActivityItem,
+  type IncompleteReason,
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
 
 const CLEO_MODE_STORAGE_KEY = "cleo:mode:v1"
+const CONTINUE_PROMPT = "Continue from where you left off."
 
 const MAX_INPUT_LENGTH = 10_000
 
@@ -47,13 +49,50 @@ type ResponsePayload = {
   error?: string
 }
 
+type MessageIncomplete = {
+  message: string
+  reason?: IncompleteReason
+}
+
 type Message = {
   activities?: ActivityItem[]
   content: string
   id: number
   images?: MessageImage[]
+  incomplete?: MessageIncomplete
   reasoningItems?: EncryptedReasoningItem[]
   role: "assistant" | "user"
+}
+
+type TurnRequest = {
+  history: Message[]
+  question: string
+  userImages: MessageImage[]
+}
+
+function lastUserMessageIndex(messages: readonly Message[]) {
+  for (let index = messages.length - 1; index >= 0; index -= 1) {
+    if (messages[index]?.role === "user") return index
+  }
+  return -1
+}
+
+function toApiMessages(messages: readonly Message[]) {
+  return messages
+    .filter(
+      (message) =>
+        Boolean(message.content.trim()) || Boolean(message.images?.length)
+    )
+    .map(({ role, content, images, reasoningItems }) => ({
+      role,
+      content,
+      ...(images && images.length > 0 ? { images } : {}),
+      ...(role === "assistant" &&
+      reasoningItems &&
+      reasoningItems.length > 0
+        ? { reasoningItems }
+        : {}),
+    }))
 }
 
 function CopyAnswerButton({ text }: { text: string }) {
@@ -186,6 +225,13 @@ export function AskForm() {
   const hasMessages = messages.length > 0
   const canSubmit =
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
+  const lastUserIndex = lastUserMessageIndex(messages)
+  const lastMessage = messages.at(-1)
+  const canRetryLastTurn = !isSubmitting && lastUserIndex >= 0
+  const canContinueIncomplete =
+    !isSubmitting &&
+    lastMessage?.role === "assistant" &&
+    Boolean(lastMessage.incomplete)
 
   useEffect(() => {
     const restored = loadCleoSession()
@@ -265,6 +311,27 @@ export function AskForm() {
     inputRef.current?.focus()
   }
 
+  function handleRetry() {
+    if (isSubmitting) return
+    const userIndex = lastUserMessageIndex(messages)
+    if (userIndex < 0) return
+    const lastUser = messages[userIndex]!
+    void sendTurn({
+      history: messages.slice(0, userIndex),
+      question: lastUser.content,
+      userImages: lastUser.images ?? [],
+    })
+  }
+
+  function handleContinue() {
+    if (isSubmitting) return
+    void sendTurn({
+      history: messages,
+      question: CONTINUE_PROMPT,
+      userImages: [],
+    })
+  }
+
   function removePendingImage(index: number) {
     setPendingImages((current) => current.filter((_, i) => i !== index))
   }
@@ -302,21 +369,11 @@ export function AskForm() {
     }
   }
 
-  async function handleSubmit(
-    event?: FormEvent<HTMLFormElement>,
-    promptOverride?: string
-  ) {
-    event?.preventDefault()
-    event?.stopPropagation()
-
-    const question = (promptOverride ?? input).trim()
-    const attachedImages = pendingImages
-
-    if ((!question && attachedImages.length === 0) || isSubmitting) {
+  async function sendTurn({ history, question, userImages }: TurnRequest) {
+    if ((!question && userImages.length === 0) || isSubmitting) {
       return
     }
 
-    const userImages: MessageImage[] = attachedImages.map((url) => ({ url }))
     const userMessage: Message = {
       content: question,
       id: messageIdRef.current++,
@@ -332,21 +389,7 @@ export function AskForm() {
     }
 
     const conversation = [
-      ...messages
-        .filter(
-          (message) =>
-            Boolean(message.content.trim()) || Boolean(message.images?.length)
-        )
-        .map(({ role, content, images, reasoningItems }) => ({
-          role,
-          content,
-          ...(images && images.length > 0 ? { images } : {}),
-          ...(role === "assistant" &&
-          reasoningItems &&
-          reasoningItems.length > 0
-            ? { reasoningItems }
-            : {}),
-        })),
+      ...toApiMessages(history),
       {
         role: "user" as const,
         content: question,
@@ -357,11 +400,7 @@ export function AskForm() {
     const abortController = new AbortController()
     abortControllerRef.current = abortController
 
-    setMessages((currentMessages) => [
-      ...currentMessages,
-      userMessage,
-      assistantMessage,
-    ])
+    setMessages([...history, userMessage, assistantMessage])
     setInput("")
     setPendingImages([])
     setError(null)
@@ -446,6 +485,47 @@ export function AskForm() {
         )
       }
 
+      const applyIncomplete = (incomplete: MessageIncomplete) => {
+        setMessages((currentMessages) =>
+          currentMessages.map((message) =>
+            message.id === assistantMessage.id
+              ? { ...message, incomplete }
+              : message
+          )
+        )
+      }
+
+      const applyStreamEvent = (
+        event: NonNullable<ReturnType<typeof parseStreamLine>>
+      ) => {
+        if (event.type === "text") {
+          applyTextDelta(event.delta)
+          return
+        }
+        if (event.type === "activity") {
+          applyActivity(event.activity)
+          return
+        }
+        if (event.type === "image") {
+          applyImage(event.id, event.imageUrl)
+          return
+        }
+        if (event.type === "reasoning_items") {
+          applyReasoningItems(event.items)
+          return
+        }
+        if (event.type === "status" && event.status === "incomplete") {
+          applyIncomplete({
+            message: event.message,
+            ...(event.reason ? { reason: event.reason } : {}),
+          })
+          return
+        }
+        if (event.type === "error") {
+          streamError = event.error
+        }
+      }
+
       while (true) {
         const { done, value } = await reader.read()
 
@@ -459,34 +539,7 @@ export function AskForm() {
 
         for (const line of lines) {
           const event = parseStreamLine(line)
-
-          if (!event) {
-            continue
-          }
-
-          if (event.type === "text") {
-            applyTextDelta(event.delta)
-            continue
-          }
-
-          if (event.type === "activity") {
-            applyActivity(event.activity)
-            continue
-          }
-
-          if (event.type === "image") {
-            applyImage(event.id, event.imageUrl)
-            continue
-          }
-
-          if (event.type === "reasoning_items") {
-            applyReasoningItems(event.items)
-            continue
-          }
-
-          if (event.type === "error") {
-            streamError = event.error
-          }
+          if (event) applyStreamEvent(event)
         }
       }
 
@@ -498,18 +551,7 @@ export function AskForm() {
 
       if (buffer.trim()) {
         const event = parseStreamLine(buffer)
-
-        if (event?.type === "text") {
-          applyTextDelta(event.delta)
-        } else if (event?.type === "activity") {
-          applyActivity(event.activity)
-        } else if (event?.type === "image") {
-          applyImage(event.id, event.imageUrl)
-        } else if (event?.type === "reasoning_items") {
-          applyReasoningItems(event.items)
-        } else if (event?.type === "error") {
-          streamError = event.error
-        }
+        if (event) applyStreamEvent(event)
       }
 
       if (streamError && !abortController.signal.aborted) {
@@ -570,6 +612,27 @@ export function AskForm() {
     }
   }
 
+  async function handleSubmit(
+    event?: FormEvent<HTMLFormElement>,
+    promptOverride?: string
+  ) {
+    event?.preventDefault()
+    event?.stopPropagation()
+
+    const question = (promptOverride ?? input).trim()
+    const attachedImages = pendingImages
+
+    if ((!question && attachedImages.length === 0) || isSubmitting) {
+      return
+    }
+
+    await sendTurn({
+      history: messages,
+      question,
+      userImages: attachedImages.map((url) => ({ url })),
+    })
+  }
+
   return (
     <div className="app-column min-w-0">
       {hasMessages ? (
@@ -577,7 +640,6 @@ export function AskForm() {
           <div className="mb-5 flex justify-end">
             <button
               className="cleo-new-chat"
-              disabled={isSubmitting}
               onClick={handleNewChat}
               type="button"
             >
@@ -655,7 +717,38 @@ export function AskForm() {
                         isSubmitting && message.id === messages.at(-1)?.id
                       ) ? (
                         <div className="cleo-answer-actions">
-                          <CopyAnswerButton text={message.content} />
+                          {message.incomplete ? (
+                            <p
+                              className="cleo-incomplete-note"
+                              role="status"
+                            >
+                              {message.incomplete.message}
+                            </p>
+                          ) : null}
+                          <div className="cleo-answer-action-row">
+                            <CopyAnswerButton text={message.content} />
+                            {message.incomplete &&
+                            message.id === lastMessage?.id ? (
+                              <button
+                                className="cleo-answer-action"
+                                disabled={!canContinueIncomplete}
+                                onClick={handleContinue}
+                                type="button"
+                              >
+                                Continue
+                              </button>
+                            ) : null}
+                            {message.id === lastMessage?.id ? (
+                              <button
+                                className="cleo-answer-action"
+                                disabled={!canRetryLastTurn}
+                                onClick={handleRetry}
+                                type="button"
+                              >
+                                Retry
+                              </button>
+                            ) : null}
+                          </div>
                         </div>
                       ) : null}
                     </>
@@ -687,12 +780,21 @@ export function AskForm() {
         data-docked={hasMessages || undefined}
       >
         {error ? (
-          <p
-            className="mb-3 px-4 text-center text-sm text-destructive"
+          <div
+            className="cleo-error-banner mb-3 px-4 text-center text-sm text-destructive"
             role="alert"
           >
-            {error}
-          </p>
+            <p>{error}</p>
+            {canRetryLastTurn ? (
+              <button
+                className="cleo-answer-action cleo-error-retry"
+                onClick={handleRetry}
+                type="button"
+              >
+                Retry
+              </button>
+            ) : null}
+          </div>
         ) : null}
 
         <div

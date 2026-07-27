@@ -5,6 +5,7 @@ import {
   buildModeInstructions,
   buildModeWebSearchTool,
   modeAllowsCodeInterpreter,
+  modeMaxToolCalls,
   modeParallelToolCalls,
   modePromptCacheKey,
   modeReasoningContext,
@@ -51,5 +52,11 @@ describe('cleo mode', () => {
     expect(modeReasoningContext('quick')).toBe('current_turn')
     expect(modeReasoningContext('auto')).toBe('all_turns')
     expect(modeReasoningContext('research')).toBe('all_turns')
+  })
+
+  it('caps max_tool_calls by mode', () => {
+    expect(modeMaxToolCalls('quick')).toBe(8)
+    expect(modeMaxToolCalls('auto')).toBe(16)
+    expect(modeMaxToolCalls('research')).toBe(24)
   })
 })

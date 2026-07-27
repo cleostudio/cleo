@@ -137,3 +137,13 @@ export function modeReasoningContext(mode: CleoMode): CleoReasoningContext {
   if (mode === 'quick') return 'current_turn'
   return 'all_turns'
 }
+
+/**
+ * Cap hosted + custom tool calls per response (OpenAI max_tool_calls).
+ * App-side portal loop still uses MAX_TOOL_ROUNDS separately.
+ */
+export function modeMaxToolCalls(mode: CleoMode): number {
+  if (mode === 'quick') return 8
+  if (mode === 'research') return 24
+  return 16
+}

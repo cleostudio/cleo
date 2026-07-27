@@ -82,4 +82,25 @@ describe('cleo session persistence', () => {
       'opaque-token',
     )
   })
+
+  it('round-trips incomplete answer markers', () => {
+    const raw = serializeCleoSession(
+      [
+        { id: 0, role: 'user', content: 'Long essay?' },
+        {
+          id: 1,
+          role: 'assistant',
+          content: 'Once upon a time…',
+          incomplete: {
+            reason: 'max_output_tokens',
+            message: 'This answer was cut short before it finished.',
+          },
+        },
+      ],
+      2,
+    )
+
+    const parsed = parseCleoSession(raw!)
+    expect(parsed?.messages[1]?.incomplete?.reason).toBe('max_output_tokens')
+  })
 })

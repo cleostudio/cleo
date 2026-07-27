@@ -91,12 +91,44 @@ export type StreamReasoningItemsEvent = {
   type: "reasoning_items"
 }
 
+export type IncompleteReason =
+  | "max_output_tokens"
+  | "content_filter"
+  | "other"
+
+export type StreamStatusEvent = {
+  message: string
+  reason?: IncompleteReason
+  status: "incomplete"
+  type: "status"
+}
+
 export type ClientStreamEvent =
   | StreamTextEvent
   | StreamActivityEvent
   | StreamImageEvent
   | StreamErrorEvent
   | StreamReasoningItemsEvent
+  | StreamStatusEvent
+
+export function incompleteReasonFromApi(
+  reason: string | undefined
+): IncompleteReason {
+  if (reason === "max_output_tokens" || reason === "content_filter") {
+    return reason
+  }
+  return "other"
+}
+
+export function incompleteStatusMessage(reason: IncompleteReason): string {
+  if (reason === "max_output_tokens") {
+    return "This answer was cut short before it finished."
+  }
+  if (reason === "content_filter") {
+    return "This answer stopped early because of a safety filter."
+  }
+  return "This answer stopped before it finished."
+}
 
 function isActivityStatus(value: unknown): value is ActivityStatus {
   return (
@@ -254,6 +286,34 @@ export function parseStreamLine(line: string): ClientStreamEvent | null {
       }
 
       return { type: "reasoning_items", items }
+    }
+
+    if (parsed.type === "status") {
+      if (
+        !("status" in parsed) ||
+        parsed.status !== "incomplete" ||
+        !("message" in parsed) ||
+        typeof parsed.message !== "string"
+      ) {
+        return null
+      }
+
+      const event: StreamStatusEvent = {
+        type: "status",
+        status: "incomplete",
+        message: parsed.message,
+      }
+
+      if (
+        "reason" in parsed &&
+        (parsed.reason === "max_output_tokens" ||
+          parsed.reason === "content_filter" ||
+          parsed.reason === "other")
+      ) {
+        event.reason = parsed.reason
+      }
+
+      return event
     }
 
     return null

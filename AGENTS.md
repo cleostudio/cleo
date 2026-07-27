@@ -74,7 +74,8 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   tools (`search_portal_topics`, `lookup_guide`, `get_topic_photos`,
   `search_gallery`, `search_writing`, `lookup_writing`), mode-aware reasoning /
   verbosity / `web_search.search_context_size` / `reasoning.context`,
-  `prompt_cache_key` per mode, streaming, a small tool-call loop, and
+  `prompt_cache_key` per mode, mode-aware `max_tool_calls`, `truncation: auto`
+  for long restored threads, streaming, a small tool-call loop, and
   `store: false`. Encrypted reasoning items (`include:
   reasoning.encrypted_content`) are streamed to the client, persisted in the
   browser session, and replayed on later turns so Auto/Research can use
@@ -86,10 +87,12 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   not a stuffed full-catalog prompt. UI modes: Quick / Auto / Research
   (`lib/cleo/mode.ts`).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`,
-  `reasoning_items`, `error`); activities include `web_search`, `reasoning`,
-  `image_generation`, `portal_tool`, and `code_interpreter`. Portal tool labels
-  update as `function_call_arguments` stream in; Research mode includes
-  `web_search_call.action.sources` for the activity panel.
+  `reasoning_items`, `status`, `error`); activities include `web_search`,
+  `reasoning`, `image_generation`, `portal_tool`, and `code_interpreter`. Portal
+  tool labels update as `function_call_arguments` stream in; Research mode
+  includes `web_search_call.action.sources` for the activity panel. Partial
+  incomplete answers emit `status: incomplete` so the UI can offer Continue /
+  Retry; hard failures show Retry in the dock.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
   grounds matching subjects on each turn; tools can also supply paths);
