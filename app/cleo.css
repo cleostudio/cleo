@@ -749,3 +749,4 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
 .cleo-new-chat:disabled {
   cursor: not-allowed;
   opacity: 0.55;
+}
