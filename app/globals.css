@@ -2934,7 +2934,8 @@ a:focus-visible .external-label .external-mark {
 
 .home-design-mark,
 .home-details-mark,
-.home-photo-mark {
+.home-photo-mark,
+.home-search-mark {
   display: inline-block;
   align-self: center;
   flex: none;
@@ -2951,6 +2952,8 @@ a:focus-visible .external-label .external-mark {
 .home-photo-lens,
 .home-photo-lens-core,
 .home-photo-flash,
+.home-search-glass,
+.home-search-handle,
 .home-zolplay-link .external-link > img {
   transform-box: fill-box;
   transform-origin: center;
@@ -3029,6 +3032,14 @@ a:focus-visible .external-label .external-mark {
 
 .home-intro-trigger.home-intro-tap .home-photo-flash {
   animation: home-photo-flash 220ms var(--ease-swift);
+}
+
+.home-intro-trigger.home-intro-tap .home-search-glass {
+  animation: home-search-glass 280ms var(--ease-spring);
+}
+
+.home-intro-trigger.home-intro-tap .home-search-handle {
+  animation: home-search-handle 280ms var(--ease-swift);
 }
 
 .home-zolplay-link {
@@ -3141,6 +3152,18 @@ a:focus-visible .external-label .external-mark {
     animation: home-photo-flash 220ms var(--ease-swift);
   }
 
+  .home-intro-trigger:hover .home-search-label {
+    color: var(--foreground);
+  }
+
+  .home-intro-trigger:hover .home-search-glass {
+    animation: home-search-glass 280ms var(--ease-spring);
+  }
+
+  .home-intro-trigger:hover .home-search-handle {
+    animation: home-search-handle 280ms var(--ease-swift);
+  }
+
   .home-zolplay-link:hover .external-link > img {
     transform: translateY(-1px) rotate(-4deg);
   }
@@ -3220,6 +3243,28 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
+@keyframes home-search-glass {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  45% {
+    transform: translate(-0.5px, -0.75px) scale(1.06);
+  }
+}
+
+@keyframes home-search-handle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  45% {
+    transform: rotate(12deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .external-label .external-mark {
     transition: none;
@@ -3235,6 +3280,8 @@ a:focus-visible .external-label .external-mark {
   .home-photo-lens,
   .home-photo-lens-core,
   .home-photo-flash,
+  .home-search-glass,
+  .home-search-handle,
   .home-zolplay-link .external-link > img {
     animation: none;
     transition: none;
@@ -3247,12 +3294,16 @@ a:focus-visible .external-label .external-mark {
   .home-intro-trigger:is(:hover, :active) .home-photo-lens,
   .home-intro-trigger:is(:hover, :active) .home-photo-lens-core,
   .home-intro-trigger:is(:hover, :active) .home-photo-flash,
+  .home-intro-trigger:is(:hover, :active) .home-search-glass,
+  .home-intro-trigger:is(:hover, :active) .home-search-handle,
   .home-intro-trigger.home-intro-tap .home-design-laptop,
   .home-intro-trigger.home-intro-tap .home-design-sparkle,
   .home-intro-trigger.home-intro-tap .home-detail-unit,
   .home-intro-trigger.home-intro-tap .home-photo-lens,
   .home-intro-trigger.home-intro-tap .home-photo-lens-core,
   .home-intro-trigger.home-intro-tap .home-photo-flash,
+  .home-intro-trigger.home-intro-tap .home-search-glass,
+  .home-intro-trigger.home-intro-tap .home-search-handle,
   .home-zolplay-link:is(:hover, :active) .external-link > img,
   .home-zolplay-link:is(:hover, :active) .external-mark {
     animation: none;

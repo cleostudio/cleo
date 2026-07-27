@@ -1,6 +1,5 @@
-import Link from 'next/link'
-
 import { HomeIntroReplay } from '~/components/home-intro-replay'
+import { SitePreviewCard } from '~/components/preview-card-timing'
 import { T } from '~/lib/i18n'
 
 function CraftMark() {
@@ -153,6 +152,39 @@ function PhotoMark() {
   )
 }
 
+function SearchMark() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      aria-hidden="true"
+      focusable="false"
+      className="home-search-mark"
+    >
+      <g
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        stroke="currentColor"
+      >
+        <circle
+          className="home-search-glass"
+          cx="7.75"
+          cy="7.75"
+          r="4.5"
+          fill="currentColor"
+          fillOpacity="0.3"
+        />
+        <circle className="home-search-glass" cx="7.75" cy="7.75" r="4.5" />
+        <path className="home-search-handle" d="M11.1 11.1 15.25 15.25" />
+      </g>
+    </svg>
+  )
+}
+
 /** Rainbow label + craft mark (hover / tap). */
 function CraftPhrase({ children }: { children: React.ReactNode }) {
   return (
@@ -183,6 +215,54 @@ function PhotoPhrase({ children }: { children: React.ReactNode }) {
   )
 }
 
+/** Magnifier mark that tips on hover / tap. */
+function SearchPhrase({ children }: { children: React.ReactNode }) {
+  return (
+    <HomeIntroReplay>
+      <span className="home-search-label">{children}</span>
+      <SearchMark />
+    </HomeIntroReplay>
+  )
+}
+
+function IntroPreviewCard({
+  href,
+  titleZh,
+  titleEn,
+  descriptionZh,
+  descriptionEn,
+  children,
+}: {
+  href: string
+  titleZh: string
+  titleEn: string
+  descriptionZh: string
+  descriptionEn: string
+  children: React.ReactNode
+}) {
+  return (
+    <SitePreviewCard
+      href={href}
+      triggerClassName="home-contact-link"
+      closeDelay={100}
+      side="top"
+      popupClassName="link-card"
+      popup={
+        <>
+          <span className="link-card-title">
+            <T zh={titleZh} en={titleEn} />
+          </span>
+          <span className="link-card-description">
+            <T zh={descriptionZh} en={descriptionEn} />
+          </span>
+        </>
+      }
+    >
+      {children}
+    </SitePreviewCard>
+  )
+}
+
 export function HomeIntroduction() {
   return (
     <div className="home-introduction">
@@ -192,7 +272,7 @@ export function HomeIntroduction() {
             <>
               Cleo 是一座
               <CraftPhrase>知识门户</CraftPhrase>
-              ，现在先做
+              。眼下先落在
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
                   <span className="home-detail-unit">国家</span>{' '}
@@ -200,12 +280,12 @@ export function HomeIntroduction() {
                   <span className="home-detail-unit">太空</span>
                 </span>
               </HopPhrase>
-              ，之后会按内容一点点往外扩。
+              ，之后会一点点往外扩。
             </>
           }
           en={
             <>
-              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase> that begins with{' '}
+              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase>. Right now the focus is{' '}
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
                   <span className="home-detail-unit">countries</span>{' '}
@@ -213,7 +293,7 @@ export function HomeIntroduction() {
                   <span className="home-detail-unit">space</span>
                 </span>
               </HopPhrase>
-              , and grows from there as more subjects arrive.
+              ; more subjects will land over time.
             </>
           }
         />
@@ -222,15 +302,52 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              想先看一眼，可以翻
-              <PhotoPhrase>照片</PhotoPhrase>
-              ；已经有目标的话，直接搜索目录就行。
+              想先有个印象，就翻翻
+              <IntroPreviewCard
+                href="/gallery"
+                titleZh="图库"
+                titleEn="Gallery"
+                descriptionZh="地点与太空的精选照片。"
+                descriptionEn="Curated place and space photographs."
+              >
+                <PhotoPhrase>照片</PhotoPhrase>
+              </IntroPreviewCard>
+              ；已经知道名字的话，直接搜
+              <IntroPreviewCard
+                href="#home-site-search"
+                titleZh="搜索"
+                titleEn="Search"
+                descriptionZh="按名字查找页面与内容。"
+                descriptionEn="Find pages and subjects by name."
+              >
+                <SearchPhrase>目录</SearchPhrase>
+              </IntroPreviewCard>
+              就行。
             </>
           }
           en={
             <>
-              Browse <PhotoPhrase>photographs</PhotoPhrase> for a quick look around, or search the
-              catalog when you already know the name.
+              Flip through{' '}
+              <IntroPreviewCard
+                href="/gallery"
+                titleZh="图库"
+                titleEn="Gallery"
+                descriptionZh="地点与太空的精选照片。"
+                descriptionEn="Curated place and space photographs."
+              >
+                <PhotoPhrase>photographs</PhotoPhrase>
+              </IntroPreviewCard>{' '}
+              when you want a sense of place, or search the{' '}
+              <IntroPreviewCard
+                href="#home-site-search"
+                titleZh="搜索"
+                titleEn="Search"
+                descriptionZh="按名字查找页面与内容。"
+                descriptionEn="Find pages and subjects by name."
+              >
+                <SearchPhrase>catalog</SearchPhrase>
+              </IntroPreviewCard>{' '}
+              by name.
             </>
           }
         />
@@ -240,34 +357,70 @@ export function HomeIntroduction() {
           zh={
             <>
               打开{' '}
-              <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+              <IntroPreviewCard
+                href="/topics"
+                titleZh="主题"
+                titleEn="Topics"
+                descriptionZh="国家、太空，以及后续会加入的内容。"
+                descriptionEn="Countries, space, and whatever comes next."
+              >
                 主题
-              </Link>
+              </IntroPreviewCard>
               、
-              <Link href="/explore" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+              <IntroPreviewCard
+                href="/explore"
+                titleZh="探索"
+                titleEn="Explore"
+                descriptionZh="按国家浏览页面与地点。"
+                descriptionEn="Browse country pages and places."
+              >
                 探索
-              </Link>
+              </IntroPreviewCard>
               {' '}或{' '}
-              <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+              <IntroPreviewCard
+                href="/cleo"
+                titleZh="询问 Cleo"
+                titleEn="Ask Cleo"
+                descriptionZh="用自然语言提问，获取方向。"
+                descriptionEn="Ask in plain language and get oriented."
+              >
                 询问 Cleo
-              </Link>
+              </IntroPreviewCard>
               。
             </>
           }
           en={
             <>
               Open{' '}
-              <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+              <IntroPreviewCard
+                href="/topics"
+                titleZh="主题"
+                titleEn="Topics"
+                descriptionZh="国家、太空，以及后续会加入的内容。"
+                descriptionEn="Countries, space, and whatever comes next."
+              >
                 Topics
-              </Link>
+              </IntroPreviewCard>
               ,{' '}
-              <Link href="/explore" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+              <IntroPreviewCard
+                href="/explore"
+                titleZh="探索"
+                titleEn="Explore"
+                descriptionZh="按国家浏览页面与地点。"
+                descriptionEn="Browse country pages and places."
+              >
                 Explore
-              </Link>
+              </IntroPreviewCard>
               , or{' '}
-              <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+              <IntroPreviewCard
+                href="/cleo"
+                titleZh="询问 Cleo"
+                titleEn="Ask Cleo"
+                descriptionZh="用自然语言提问，获取方向。"
+                descriptionEn="Ask in plain language and get oriented."
+              >
                 Ask Cleo
-              </Link>
+              </IntroPreviewCard>
               .
             </>
           }

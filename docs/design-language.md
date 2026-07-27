@@ -146,29 +146,28 @@ are short, concrete, and conversational — "为什么按钮不需要手指光�
 ## Homepage introduction
 
 The homepage opens with three short bilingual paragraphs: Cleo is a knowledge
-portal that begins with countries and space and grows as more subjects arrive;
-browse photographs for a quick look around, or search the catalog when you
-already know the name; and a final line opens Topics, Explore, or Ask Cleo.
-Keep the voice natural and product-facing — no metaphors, no exclusion lists,
-no craft-romance phrasing. Avoid the word “guides”. Do not repeat a subject
-across paragraphs: countries/space, topic/Topics, and Ask Cleo each appear once
-(Ask Cleo only in the linked CTA).
+portal focused on countries and space for now, with more subjects over time;
+flip through photographs for a sense of place, or search the catalog by name;
+and a final line opens Topics, Explore, or Ask Cleo. Keep the voice natural and
+product-facing — no craft-romance phrasing, no exclusion lists. Avoid the word
+“guides”. Do not repeat a subject across paragraphs: countries/space,
+topic/Topics, and Ask Cleo each appear once (Ask Cleo only in the linked CTA).
 
-Three decorative 18px marks sit on plain product phrases: the craft figure
-after "knowledge portal" / 知识门户, the orbital sparkle before "countries and
-space" / 国家 与 太空, and the camera after "photographs" / 照片. The orbital
-mark precedes its phrase in both locales; the craft and camera marks follow
-theirs. Inline text establishes the shared baseline while each mark centers
-against that text, so neither localized phrase shifts vertically. Hovering the
-associated phrase on a fine pointer, or pressing it on touch, produces one
-brief response with no looping or layout movement. On a fine-pointer hover, the
-craft labels pick up the same restrained, static rainbow gradient; the camera
-lens scales shut and the flash ticks once. The three hop units (国家 / 与 /
-太空 and "countries" / "and" / "space") rise in sequence to
-`translateY(-5px) scale(1.03)` over a one-second spring, staggered by 80ms,
-then settle back at their origin as the animation's end state. Decorative marks
-stay out of the accessibility tree, reduced motion keeps every mark and text
-unit static, and the text remains complete without them.
+Four decorative 18px marks sit on plain product phrases: the craft figure after
+"knowledge portal" / 知识门户, the orbital sparkle before "countries and space"
+/ 国家 和 太空, the camera after "photographs" / 照片, and the magnifier after
+"catalog" / 目录. The orbital mark precedes its phrase; the others follow.
+Inline text establishes the shared baseline while each mark centers against
+that text. Hovering a marked phrase on a fine pointer, or pressing it on touch,
+produces one brief response with no looping or layout movement: craft labels
+take a restrained rainbow gradient; hop units rise in sequence; the camera
+shutter blinks; the magnifier tips. Decorative marks stay out of the
+accessibility tree; reduced motion keeps every mark and text unit static.
+
+Linked phrases (photographs → Gallery, catalog → homepage search,
+Topics / Explore / Ask Cleo) use the shared `SitePreviewCard` hover dialog
+(`.link-card`). Fine-pointer hover shows a short title + description; touch
+falls back to the plain destination link. Cards are informational only.
 
 ## Entrance choreography
 
