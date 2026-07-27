@@ -28,6 +28,17 @@ describe('posts like this', () => {
 
     expect(getRelatedPosts('not-a-published-post')).toEqual([])
   })
+
+  it('keeps cosmos essays in a same-topic rail without Earth fillers', () => {
+    const related = getRelatedPosts('listening-for-black-holes').map(
+      (post) => post.slug,
+    )
+
+    expect(related).toEqual([
+      'the-thin-blue-shell',
+      'the-moon-that-steals-our-days',
+    ])
+  })
 })
 
 describe('public post metadata', () => {

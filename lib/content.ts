@@ -272,15 +272,30 @@ export function getRelatedPosts(slug: string, limit = 3): Post[] {
   const current = posts.find((post) => post.slug === slug)
   if (!current) return []
   const target = postVector(current)
+  const currentTopic = topicSeeds(slug)
 
-  return posts
+  const ranked = posts
     .filter((post) => post.slug !== slug)
-    .map((post) => ({ post, score: similarity(target, postVector(post)) }))
+    .map((post) => ({
+      post,
+      score: similarity(target, postVector(post)),
+      topic: topicSeeds(post.slug),
+    }))
     .sort(
       (a, b) =>
         b.score - a.score ||
         b.post.publishedAt.getTime() - a.post.publishedAt.getTime(),
     )
+
+  const sameTopic = currentTopic
+    ? ranked.filter((entry) => entry.topic === currentTopic)
+    : []
+  // Prefer a short same-topic rail over padding with unrelated fillers.
+  if (sameTopic.length >= 2) {
+    return sameTopic.slice(0, limit).map((entry) => entry.post)
+  }
+
+  return [...sameTopic, ...ranked.filter((entry) => entry.topic !== currentTopic)]
     .slice(0, limit)
     .map((entry) => entry.post)
 }
