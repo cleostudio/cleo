@@ -8,6 +8,7 @@ import { placeGuideDraftsBatch4 } from '~/lib/places-batch4'
 import { placeGuideDraftsBatch5 } from '~/lib/places-batch5'
 import { placeGuideDraftsBatch6 } from '~/lib/places-batch6'
 import { placeGuideDraftsBatch7 } from '~/lib/places-batch7'
+import { placeGuideDraftsBatch8 } from '~/lib/places-batch8'
 import type { StaticPhoto } from '~/lib/static-photo'
 
 export type PlaceKind = 'City' | 'State' | 'Island' | 'Region' | 'Landmark'
@@ -83,7 +84,7 @@ const placeGuideDrafts: PlaceGuideDraft[] = [
     kind: 'City',
     countrySlug: 'france',
     subtitle: 'City · France',
-    matchNames: ['Eiffel Tower', 'Paris'],
+    matchNames: ['Paris'],
     about:
       'Paris concentrates French urban life along a bend of the Seine, where islands, embankments, and axial boulevards organize a dense historic core. The Île de la Cité and neighboring banks hold medieval churches, royal squares, and river crossings that still structure daily movement. Nineteenth-century avenues cut clearer sightlines through older fabric, while arrondissements keep neighborhood grain at walking scale. Museums, ministries, and universities cluster near the river; markets and courtyards fill the blocks behind them. Westward, parks and exhibition grounds open the plan; eastward and northward, denser residential quarters continue the city’s ring logic. Orientation here is geographic and architectural rather than seasonal fashion: stone facades, zinc roofs, bridges as viewpoints, and a metro that stitches left bank to right. Paris is both capital and continuously inhabited city — a place where monument and street life share the same short blocks.',
     facts: {
@@ -227,7 +228,7 @@ const placeGuideDrafts: PlaceGuideDraft[] = [
     kind: 'City',
     countrySlug: 'italy',
     subtitle: 'City · Italy',
-    matchNames: ['Rome', 'Colosseum'],
+    matchNames: ['Rome'],
     about:
       'Rome spreads across hills above the Tiber, layering republican forums, imperial monuments, papal axes, and modern traffic into one continuous city. Ancient walls and gates still mark older limits; aqueduct arches and paved roads recall how engineering underwrote power. The historic center is a dense palimpsest: temples reused as churches, medieval lanes threading ruins, baroque piazzas staged for approach and spectacle. Outside the deepest core, residential quarters and tree-lined avenues continue the living capital. Orientation should privilege hills, river bends, and the Forum–Colosseum–Palatine cluster rather than a single boulevard. Rome’s primer is temporal geology as much as street plan — each era building with, against, or atop the last. Fountains, obelisks, and church facades punctuate walks; tram and metro lines stitch later suburbs to the center. The city remains Italy’s political seat while carrying an archaeological density unmatched in most capitals.',
     facts: {
@@ -1618,6 +1619,7 @@ const placeGuideDrafts: PlaceGuideDraft[] = [
   ...(placeGuideDraftsBatch5 as PlaceGuideDraft[]),
   ...(placeGuideDraftsBatch6 as PlaceGuideDraft[]),
   ...(placeGuideDraftsBatch7 as PlaceGuideDraft[]),
+  ...(placeGuideDraftsBatch8 as PlaceGuideDraft[]),
 ]
 
 export const placeGuides: PlaceGuide[] = placeGuideDrafts.map(withPhoto)

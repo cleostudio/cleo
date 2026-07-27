@@ -10055,6 +10055,774 @@
       }
     ]
   },
+  "places/minneapolis": {
+    "collection": "places",
+    "title": "Minneapolis",
+    "subtitle": "Minneapolis",
+    "alt": "Minneapolis in United States",
+    "photographer": "Mac H (media601)",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 1296,
+    "renditions": [
+      {
+        "src": "/images/places/minneapolis/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/minneapolis/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/minneapolis/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/detroit": {
+    "collection": "places",
+    "title": "Detroit",
+    "subtitle": "Detroit",
+    "alt": "Detroit in United States",
+    "photographer": "Crisco 1492",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2317,
+    "renditions": [
+      {
+        "src": "/images/places/detroit/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/detroit/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/detroit/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/phoenix": {
+    "collection": "places",
+    "title": "Phoenix",
+    "subtitle": "Phoenix",
+    "alt": "Phoenix in United States",
+    "photographer": "Alan Stark",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2449,
+    "renditions": [
+      {
+        "src": "/images/places/phoenix/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/phoenix/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/phoenix/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/las-vegas": {
+    "collection": "places",
+    "title": "Las Vegas",
+    "subtitle": "Las Vegas",
+    "alt": "Las Vegas in United States",
+    "photographer": "Carol M. Highsmith",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2462,
+    "renditions": [
+      {
+        "src": "/images/places/las-vegas/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/las-vegas/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/las-vegas/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/medellin": {
+    "collection": "places",
+    "title": "Medellin",
+    "subtitle": "Medellín",
+    "alt": "Medellin in Colombia",
+    "photographer": "Steffen Schmitz ( more photos )",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2540,
+    "renditions": [
+      {
+        "src": "/images/places/medellin/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/medellin/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/medellin/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/quito": {
+    "collection": "places",
+    "title": "Quito",
+    "subtitle": "Quito",
+    "alt": "Quito in Ecuador",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2350,
+    "renditions": [
+      {
+        "src": "/images/places/quito/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/quito/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/quito/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/salvador": {
+    "collection": "places",
+    "title": "Salvador Bahia",
+    "subtitle": "Salvador",
+    "alt": "Salvador Bahia in Brazil",
+    "photographer": "Paul R. Burley",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/salvador/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/salvador/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/salvador/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tunis": {
+    "collection": "places",
+    "title": "Tunis",
+    "subtitle": "Tunis",
+    "alt": "Tunis in Tunisia",
+    "photographer": "Smailtn",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2208,
+    "renditions": [
+      {
+        "src": "/images/places/tunis/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tunis/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tunis/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/dakar": {
+    "collection": "places",
+    "title": "Dakar",
+    "subtitle": "Dakar",
+    "alt": "Dakar in Senegal",
+    "photographer": "Fawaz.tairou",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/dakar/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/dakar/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/dakar/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bangalore": {
+    "collection": "places",
+    "title": "Bengaluru",
+    "subtitle": "Bengaluru",
+    "alt": "Bengaluru in India",
+    "photographer": "Vraj Acharya, WELL Labs",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/bangalore/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bangalore/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bangalore/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/chennai": {
+    "collection": "places",
+    "title": "Chennai",
+    "subtitle": "Chennai",
+    "alt": "Chennai in India",
+    "photographer": "Planemad",
+    "license": "CC BY-SA 2.5",
+    "width": 3840,
+    "height": 1738,
+    "renditions": [
+      {
+        "src": "/images/places/chennai/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/chennai/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/chennai/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hong-kong": {
+    "collection": "places",
+    "title": "Hong Kong",
+    "subtitle": "Hong Kong",
+    "alt": "Hong Kong in China",
+    "photographer": "Benh LIEU SONG ( Flickr )",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1816,
+    "renditions": [
+      {
+        "src": "/images/places/hong-kong/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hong-kong/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hong-kong/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/minnesota": {
+    "collection": "places",
+    "title": "Minnesota",
+    "subtitle": "Minnesota",
+    "alt": "Minnesota in United States",
+    "photographer": "Jim Sorbie",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "src": "/images/places/minnesota/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/minnesota/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/minnesota/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ontario": {
+    "collection": "places",
+    "title": "Ontario",
+    "subtitle": "Ontario",
+    "alt": "Ontario in Canada",
+    "photographer": "DXR",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/ontario/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ontario/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ontario/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/western-australia": {
+    "collection": "places",
+    "title": "Western Australia",
+    "subtitle": "Western Australia",
+    "alt": "Western Australia in Australia",
+    "photographer": "Dhx1",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/western-australia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/western-australia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/western-australia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/paros": {
+    "collection": "places",
+    "title": "Paros",
+    "subtitle": "Paros",
+    "alt": "Paros in Greece",
+    "photographer": "Tommybee89",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/paros/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/paros/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/paros/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ios": {
+    "collection": "places",
+    "title": "Ios",
+    "subtitle": "Ios",
+    "alt": "Ios in Greece",
+    "photographer": "Jan M",
+    "license": "CC BY-SA 3.0",
+    "width": 3072,
+    "height": 1728,
+    "renditions": [
+      {
+        "src": "/images/places/ios/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ios/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ios/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/moorea": {
+    "collection": "places",
+    "title": "Moorea",
+    "subtitle": "Moorea",
+    "alt": "Moorea in France",
+    "photographer": "Fanny98716",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/moorea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/moorea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/moorea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/jersey": {
+    "collection": "places",
+    "title": "Jersey",
+    "subtitle": "Jersey",
+    "alt": "Jersey in United Kingdom",
+    "photographer": "Photochrom Print Collection",
+    "license": "Public domain",
+    "width": 3742,
+    "height": 2790,
+    "renditions": [
+      {
+        "src": "/images/places/jersey/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/jersey/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/jersey/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/gozo": {
+    "collection": "places",
+    "title": "Gozo",
+    "subtitle": "Gozo",
+    "alt": "Gozo in Malta",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/gozo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/gozo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/gozo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hvar": {
+    "collection": "places",
+    "title": "Hvar",
+    "subtitle": "Hvar",
+    "alt": "Hvar in Croatia",
+    "photographer": "Jocelyn Erskine-Kellie from London, UK",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/hvar/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hvar/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hvar/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/scottish-highlands": {
+    "collection": "places",
+    "title": "Scottish Highlands",
+    "subtitle": "Scottish Highlands",
+    "alt": "Scottish Highlands in United Kingdom",
+    "photographer": "Michal Klajban",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 940,
+    "renditions": [
+      {
+        "src": "/images/places/scottish-highlands/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/scottish-highlands/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/scottish-highlands/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/danube-delta": {
+    "collection": "places",
+    "title": "Danube Delta",
+    "subtitle": "Danube Delta",
+    "alt": "Danube Delta in Romania",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2537,
+    "renditions": [
+      {
+        "src": "/images/places/danube-delta/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/danube-delta/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/danube-delta/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kimberley": {
+    "collection": "places",
+    "title": "Kimberley",
+    "subtitle": "Kimberley",
+    "alt": "Kimberley in Australia",
+    "photographer": "Maclearite",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/kimberley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kimberley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kimberley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/champagne": {
+    "collection": "places",
+    "title": "Champagne",
+    "subtitle": "Champagne",
+    "alt": "Champagne in France",
+    "photographer": "JLPC",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 925,
+    "renditions": [
+      {
+        "src": "/images/places/champagne/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/champagne/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/champagne/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/alentejo": {
+    "collection": "places",
+    "title": "Alentejo",
+    "subtitle": "Alentejo",
+    "alt": "Alentejo in Portugal",
+    "photographer": "Alvesgaspar",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 5782,
+    "renditions": [
+      {
+        "src": "/images/places/alentejo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/alentejo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/alentejo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/eiffel-tower": {
+    "collection": "places",
+    "title": "Eiffel Tower",
+    "subtitle": "Eiffel Tower",
+    "alt": "Eiffel Tower in France",
+    "photographer": "Benh LIEU SONG",
+    "license": "Public domain",
+    "width": 2900,
+    "height": 5367,
+    "renditions": [
+      {
+        "src": "/images/places/eiffel-tower/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/eiffel-tower/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/eiffel-tower/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/colosseum": {
+    "collection": "places",
+    "title": "Colosseum",
+    "subtitle": "Colosseum",
+    "alt": "Colosseum in Italy",
+    "photographer": "Wilfredor",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2417,
+    "renditions": [
+      {
+        "src": "/images/places/colosseum/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/colosseum/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/colosseum/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bryce-canyon": {
+    "collection": "places",
+    "title": "Bryce Canyon",
+    "subtitle": "Bryce Canyon",
+    "alt": "Bryce Canyon in United States",
+    "photographer": "“Jon Zander( digon3 )”",
+    "license": "CC BY-SA 3.0",
+    "width": 2272,
+    "height": 1704,
+    "renditions": [
+      {
+        "src": "/images/places/bryce-canyon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bryce-canyon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bryce-canyon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/monument-valley": {
+    "collection": "places",
+    "title": "Monument Valley",
+    "subtitle": "Monument Valley",
+    "alt": "Monument Valley in United States",
+    "photographer": "Tobi 87",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1209,
+    "renditions": [
+      {
+        "src": "/images/places/monument-valley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/monument-valley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/monument-valley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/potala-palace": {
+    "collection": "places",
+    "title": "Potala Palace",
+    "subtitle": "Potala Palace",
+    "alt": "Potala Palace in China",
+    "photographer": "Antoine Taveneaux",
+    "license": "CC BY-SA 3.0",
+    "width": 3504,
+    "height": 2268,
+    "renditions": [
+      {
+        "src": "/images/places/potala-palace/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/potala-palace/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/potala-palace/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/itsukushima": {
+    "collection": "places",
+    "title": "Itsukushima",
+    "subtitle": "Itsukushima",
+    "alt": "Itsukushima in Japan",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/itsukushima/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/itsukushima/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/itsukushima/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

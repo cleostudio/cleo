@@ -6494,5 +6494,933 @@
         "bytes": 395553
       }
     ]
+  },
+  "minneapolis": {
+    "featureName": "Minneapolis",
+    "alt": "Minneapolis in United States",
+    "caption": "Minneapolis, United States",
+    "photographer": "Mac H (media601)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_over_the_Minneapolis_skyline._(23906034652).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sunset over the Minneapolis skyline. (23906034652).jpg); source https://upload.wikimedia.org/wikipedia/commons/4/47/Sunset_over_the_Minneapolis_skyline._%2823906034652%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0104ed687eba8845c7ef090a05478503074a57e3fc21a189a03f22c89068d487",
+    "width": 3840,
+    "height": 1296,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/minneapolis/w640.jpg",
+        "bytes": 25820
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/minneapolis/w1280.jpg",
+        "bytes": 89343
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/minneapolis/w2048.jpg",
+        "bytes": 265021
+      }
+    ]
+  },
+  "detroit": {
+    "featureName": "Detroit",
+    "alt": "Detroit in United States",
+    "caption": "Detroit, United States",
+    "photographer": "Crisco 1492",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Detroit_Financial_District_by_night_from_Windsor,_Ontario,_2025-06-28.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Detroit Financial District by night from Windsor, Ontario, 2025-06-28.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/04/Detroit_Financial_District_by_night_from_Windsor%2C_Ontario%2C_2025-06-28.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "eced9beecf3cdfff5be39cb7ed4d62139ebf457d8a6f2071d943ddf40d0adbb2",
+    "width": 3840,
+    "height": 2317,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/detroit/w640.jpg",
+        "bytes": 39303
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/detroit/w1280.jpg",
+        "bytes": 137979
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/detroit/w2048.jpg",
+        "bytes": 400582
+      }
+    ]
+  },
+  "phoenix": {
+    "featureName": "Phoenix",
+    "alt": "Phoenix in United States",
+    "caption": "Phoenix, United States",
+    "photographer": "Alan Stark",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Phoenix_Skyline_at_Night.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown Phoenix Skyline at Night.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ac/Downtown_Phoenix_Skyline_at_Night.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "54cc012fc745d336b560bfe713b872a10beb6d0dc3ea13511012018dc29c0ffa",
+    "width": 3840,
+    "height": 2449,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/phoenix/w640.jpg",
+        "bytes": 51895
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/phoenix/w1280.jpg",
+        "bytes": 179147
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/phoenix/w2048.jpg",
+        "bytes": 484950
+      }
+    ]
+  },
+  "las-vegas": {
+    "featureName": "Las Vegas",
+    "alt": "Las Vegas in United States",
+    "caption": "Las Vegas, United States",
+    "photographer": "Carol M. Highsmith",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_showing_the_Las_Vegas_Strip_at_dusk,_Las_Vegas,_Nevada_LCCN2011634444.tif",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Aerial view showing the Las Vegas Strip at dusk, Las Vegas, Nevada LCCN2011634444.tif); source https://upload.wikimedia.org/wikipedia/commons/4/47/Aerial_view_showing_the_Las_Vegas_Strip_at_dusk%2C_Las_Vegas%2C_Nevada_LCCN2011634444.tif; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "08e339cc83a84204b72d34980c946c92fb2c7ff1d670e8473b40189bb0a0c161",
+    "width": 3840,
+    "height": 2462,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/las-vegas/w640.jpg",
+        "bytes": 50910
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/las-vegas/w1280.jpg",
+        "bytes": 185486
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/las-vegas/w2048.jpg",
+        "bytes": 555255
+      }
+    ]
+  },
+  "medellin": {
+    "featureName": "Medellin",
+    "alt": "Medellin in Colombia",
+    "caption": "Medellin, Colombia",
+    "photographer": "Steffen Schmitz ( more photos )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Medell%C3%ADn,_San_Javier,_2023-07_CN-11.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Medellín, San Javier, 2023-07 CN-11.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/fe/Medell%C3%ADn%2C_San_Javier%2C_2023-07_CN-11.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ce645d37d02e4306a6d22f92b0152dbfd8243f97ecfdb7c221a0f05710e1f823",
+    "width": 3840,
+    "height": 2540,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/medellin/w640.jpg",
+        "bytes": 81478
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/medellin/w1280.jpg",
+        "bytes": 261163
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/medellin/w2048.jpg",
+        "bytes": 713269
+      }
+    ]
+  },
+  "quito": {
+    "featureName": "Quito",
+    "alt": "Quito in Ecuador",
+    "caption": "Quito, Ecuador",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ind%C3%ADgenas_contemplando_Quito_desde_El_Panecillo,_Ecuador,_2015-07-22,_DD_44.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Indígenas contemplando Quito desde El Panecillo, Ecuador, 2015-07-22, DD 44.JPG); source https://upload.wikimedia.org/wikipedia/commons/d/d7/Ind%C3%ADgenas_contemplando_Quito_desde_El_Panecillo%2C_Ecuador%2C_2015-07-22%2C_DD_44.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "94b416dc05ca1e622f6093643c7a6a3b601bbadbc6473cdf9af70e3a739d7a7a",
+    "width": 3840,
+    "height": 2350,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/quito/w640.jpg",
+        "bytes": 77269
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/quito/w1280.jpg",
+        "bytes": 250592
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/quito/w2048.jpg",
+        "bytes": 612941
+      }
+    ]
+  },
+  "salvador": {
+    "featureName": "Salvador Bahia",
+    "alt": "Salvador Bahia in Brazil",
+    "caption": "Salvador Bahia, Brazil",
+    "photographer": "Paul R. Burley",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elevador_Lacerda_Salvador_Bahia_Outubro_Rosa_2021-1851.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Elevador Lacerda Salvador Bahia Outubro Rosa 2021-1851.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9c/Elevador_Lacerda_Salvador_Bahia_Outubro_Rosa_2021-1851.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5dc76fadfdb8fd0d4acc7c1226c0054bce02a0aa7a7bbac9a7a55862cd1b0bdb",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/salvador/w640.jpg",
+        "bytes": 42399
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/salvador/w1280.jpg",
+        "bytes": 152572
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/salvador/w2048.jpg",
+        "bytes": 457524
+      }
+    ]
+  },
+  "tunis": {
+    "featureName": "Tunis",
+    "alt": "Tunis in Tunisia",
+    "caption": "Tunis, Tunisia",
+    "photographer": "Smailtn",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reflet_sur_le_lac_de_Tunis.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Reflet sur le lac de Tunis.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9b/Reflet_sur_le_lac_de_Tunis.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f45887e6457d9c5b4a5afd6e550c895f3ef20f56daeb945f0062e465f9d61d56",
+    "width": 3840,
+    "height": 2208,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tunis/w640.jpg",
+        "bytes": 18711
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tunis/w1280.jpg",
+        "bytes": 61874
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tunis/w2048.jpg",
+        "bytes": 191366
+      }
+    ]
+  },
+  "dakar": {
+    "featureName": "Dakar",
+    "alt": "Dakar in Senegal",
+    "caption": "Dakar, Senegal",
+    "photographer": "Fawaz.tairou",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gor%C3%A9e_2024_-_coucher_de_soleil_sur_Dakar_-_25.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Gorée 2024 - coucher de soleil sur Dakar - 25.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/45/Gor%C3%A9e_2024_-_coucher_de_soleil_sur_Dakar_-_25.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9ec8bfee64461f814d45c9a21baa3e8cd02c7a16f753b322388e948426c3a908",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/dakar/w640.jpg",
+        "bytes": 26144
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/dakar/w1280.jpg",
+        "bytes": 76772
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/dakar/w2048.jpg",
+        "bytes": 212905
+      }
+    ]
+  },
+  "bangalore": {
+    "featureName": "Bengaluru",
+    "alt": "Bengaluru in India",
+    "caption": "Bengaluru, India",
+    "photographer": "Vraj Acharya, WELL Labs",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Attur_Lake_Bengaluru_urban_lake_Karnataka_India_aerial_view.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Attur Lake Bengaluru urban lake Karnataka India aerial view.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/45/Attur_Lake_Bengaluru_urban_lake_Karnataka_India_aerial_view.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7b8ccd0487c5828aeead75d26637065790366d20d3efa344db30547df2f3af2b",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bangalore/w640.jpg",
+        "bytes": 46998
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bangalore/w1280.jpg",
+        "bytes": 176719
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bangalore/w2048.jpg",
+        "bytes": 577358
+      }
+    ]
+  },
+  "chennai": {
+    "featureName": "Chennai",
+    "alt": "Chennai in India",
+    "caption": "Chennai, India",
+    "photographer": "Planemad",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ripon_Building_panorama.jpg",
+    "license": "CC BY-SA 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:Ripon Building panorama.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b3/Ripon_Building_panorama.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b45a65052a5e3551d48d1c9cf31972531cdc1c3af2dc946fb956ee418aca5d25",
+    "width": 3840,
+    "height": 1738,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/chennai/w640.jpg",
+        "bytes": 33639
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/chennai/w1280.jpg",
+        "bytes": 117024
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/chennai/w2048.jpg",
+        "bytes": 334304
+      }
+    ]
+  },
+  "hong-kong": {
+    "featureName": "Hong Kong",
+    "alt": "Hong Kong in China",
+    "caption": "Hong Kong, China",
+    "photographer": "Benh LIEU SONG ( Flickr )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hong_Kong_Harbour_Night_2019-06-11.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Hong Kong Harbour Night 2019-06-11.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a4/Hong_Kong_Harbour_Night_2019-06-11.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4d193733b76db648c18ab6a56ea79fe083c1bdb26991468cbcced01bcab2dae8",
+    "width": 3840,
+    "height": 1816,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hong-kong/w640.jpg",
+        "bytes": 51825
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hong-kong/w1280.jpg",
+        "bytes": 196612
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hong-kong/w2048.jpg",
+        "bytes": 570668
+      }
+    ]
+  },
+  "minnesota": {
+    "featureName": "Minnesota",
+    "alt": "Minnesota in United States",
+    "caption": "Minnesota, United States",
+    "photographer": "Jim Sorbie",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Split_Rock_Lighthouse_-_Lake_County,_Minnesota_-_8_Jan._2009.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Split Rock Lighthouse - Lake County, Minnesota - 8 Jan. 2009.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1d/Split_Rock_Lighthouse_-_Lake_County%2C_Minnesota_-_8_Jan._2009.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f5fac2a0eea8a3c6de5058060a4ce58e900e82e6c1b32a13e83a44405885473f",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/minnesota/w640.jpg",
+        "bytes": 42017
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/minnesota/w1280.jpg",
+        "bytes": 136519
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/minnesota/w2048.jpg",
+        "bytes": 344304
+      }
+    ]
+  },
+  "ontario": {
+    "featureName": "Ontario",
+    "alt": "Ontario in Canada",
+    "caption": "Ontario, Canada",
+    "photographer": "DXR",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Smoke_Lake,_Algonquin_Provincial_Park,_North_view_20170421_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Smoke Lake, Algonquin Provincial Park, North view 20170421 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/84/Smoke_Lake%2C_Algonquin_Provincial_Park%2C_North_view_20170421_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5cd81c130599534c7070e935c385f925eafba6d6923adb3820036e49b3e3cd85",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ontario/w640.jpg",
+        "bytes": 28933
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ontario/w1280.jpg",
+        "bytes": 104253
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ontario/w2048.jpg",
+        "bytes": 330361
+      }
+    ]
+  },
+  "western-australia": {
+    "featureName": "Western Australia",
+    "alt": "Western Australia in Australia",
+    "caption": "Western Australia, Australia",
+    "photographer": "Dhx1",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pinnacles_Desert,_Nambung_National_Park,_Western_Australia_24.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Pinnacles Desert, Nambung National Park, Western Australia 24.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/65/Pinnacles_Desert%2C_Nambung_National_Park%2C_Western_Australia_24.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e82c5639513b5cf4feb6d5de44baa77352f3bffb497d7d656786db633dccbd32",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/western-australia/w640.jpg",
+        "bytes": 35749
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/western-australia/w1280.jpg",
+        "bytes": 123510
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/western-australia/w2048.jpg",
+        "bytes": 348843
+      }
+    ]
+  },
+  "paros": {
+    "featureName": "Paros",
+    "alt": "Paros in Greece",
+    "caption": "Paros, Greece",
+    "photographer": "Tommybee89",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Venetian_Castle_from_the_side_of_the_port.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Venetian Castle from the side of the port.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/06/Venetian_Castle_from_the_side_of_the_port.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "dd858cd8952c2bfa147a1f3dc51f8c3bdcc4aad190f8d6bf4db089260efb8ebd",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/paros/w640.jpg",
+        "bytes": 28980
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/paros/w1280.jpg",
+        "bytes": 103594
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/paros/w2048.jpg",
+        "bytes": 318357
+      }
+    ]
+  },
+  "ios": {
+    "featureName": "Ios",
+    "alt": "Ios in Greece",
+    "caption": "Ios, Greece",
+    "photographer": "Jan M",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ios,_840_01,_Greece_-_panoramio.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ios, 840 01, Greece - panoramio.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/8c/Ios%2C_840_01%2C_Greece_-_panoramio.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6178adf330cf2f75fd3411fa3a497c7ed4e0c97c97462f80e9ad4940dd41e495",
+    "width": 3072,
+    "height": 1728,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ios/w640.jpg",
+        "bytes": 64722
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ios/w1280.jpg",
+        "bytes": 180312
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ios/w2048.jpg",
+        "bytes": 447719
+      }
+    ]
+  },
+  "moorea": {
+    "featureName": "Moorea",
+    "alt": "Moorea in France",
+    "caption": "Moorea, France",
+    "photographer": "Fanny98716",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moorea_-_Baies_de_Cook_et_de_Opunohu.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Moorea - Baies de Cook et de Opunohu.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e2/Moorea_-_Baies_de_Cook_et_de_Opunohu.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "afd67382bbc0be2c971cacf370f8aade59d01dbe78bd43b2aaba3cfc965c2652",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/moorea/w640.jpg",
+        "bytes": 39305
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/moorea/w1280.jpg",
+        "bytes": 122318
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/moorea/w2048.jpg",
+        "bytes": 320920
+      }
+    ]
+  },
+  "jersey": {
+    "featureName": "Jersey",
+    "alt": "Jersey in United Kingdom",
+    "caption": "Jersey, United Kingdom",
+    "photographer": "Photochrom Print Collection",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jersey,_Saint_Aubins,_Channel_Islands-LCCN2002696494.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Jersey, Saint Aubins, Channel Islands-LCCN2002696494.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d8/Jersey%2C_Saint_Aubins%2C_Channel_Islands-LCCN2002696494.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7742fd30ede241241242d2335a8ed546b6f29f9f2020baa126f523f567b61972",
+    "width": 3742,
+    "height": 2790,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/jersey/w640.jpg",
+        "bytes": 56704
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/jersey/w1280.jpg",
+        "bytes": 210672
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/jersey/w2048.jpg",
+        "bytes": 584861
+      }
+    ]
+  },
+  "gozo": {
+    "featureName": "Gozo",
+    "alt": "Gozo in Malta",
+    "caption": "Gozo, Malta",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bah%C3%ADa_de_Ramla_desde_la_cueva_de_Calipso,_isla_de_Gozo,_Malta,_2021-08-22,_DD_01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bahía de Ramla desde la cueva de Calipso, isla de Gozo, Malta, 2021-08-22, DD 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/49/Bah%C3%ADa_de_Ramla_desde_la_cueva_de_Calipso%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b8b5ee2b68673fd826e3ecdeab2368ec01e489aad9e46ac930bfd3b5bbbab0b5",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/gozo/w640.jpg",
+        "bytes": 47363
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/gozo/w1280.jpg",
+        "bytes": 180118
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/gozo/w2048.jpg",
+        "bytes": 571493
+      }
+    ]
+  },
+  "hvar": {
+    "featureName": "Hvar",
+    "alt": "Hvar in Croatia",
+    "caption": "Hvar, Croatia",
+    "photographer": "Jocelyn Erskine-Kellie from London, UK",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stari_Grad_(Old_Town),_Hvar_Island_(41666347684).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Stari Grad (Old Town), Hvar Island (41666347684).jpg); source https://upload.wikimedia.org/wikipedia/commons/2/23/Stari_Grad_%28Old_Town%29%2C_Hvar_Island_%2841666347684%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "802b4213fd58af89ceb9fcda515a5f0dac475b978e6be068e35271a1b40d14aa",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hvar/w640.jpg",
+        "bytes": 58201
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hvar/w1280.jpg",
+        "bytes": 195896
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hvar/w2048.jpg",
+        "bytes": 542536
+      }
+    ]
+  },
+  "scottish-highlands": {
+    "featureName": "Scottish Highlands",
+    "alt": "Scottish Highlands in United Kingdom",
+    "caption": "Scottish Highlands, United Kingdom",
+    "photographer": "Michal Klajban",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_southwest_from_Ben_Lawers,_Scottish_Highlands,_Scotland.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:View southwest from Ben Lawers, Scottish Highlands, Scotland.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c6/View_southwest_from_Ben_Lawers%2C_Scottish_Highlands%2C_Scotland.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "90645a6c811f38907acb88781a2395ced56cd58a988c511dae6a25ea70faf23f",
+    "width": 3840,
+    "height": 940,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/scottish-highlands/w640.jpg",
+        "bytes": 18663
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/scottish-highlands/w1280.jpg",
+        "bytes": 65198
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/scottish-highlands/w2048.jpg",
+        "bytes": 196358
+      }
+    ]
+  },
+  "danube-delta": {
+    "featureName": "Danube Delta",
+    "alt": "Danube Delta in Romania",
+    "caption": "Danube Delta, Romania",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delta_del_Danubio,_Ruman%C3%ADa,_2016-05-28,_DD_13.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Delta del Danubio, Rumanía, 2016-05-28, DD 13.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a8/Delta_del_Danubio%2C_Ruman%C3%ADa%2C_2016-05-28%2C_DD_13.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bf6bf81703edc39ec75c3cab04968493f999487a4156903d160794551f41d8a0",
+    "width": 3840,
+    "height": 2537,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/danube-delta/w640.jpg",
+        "bytes": 75564
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/danube-delta/w1280.jpg",
+        "bytes": 324168
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/danube-delta/w2048.jpg",
+        "bytes": 1015069
+      }
+    ]
+  },
+  "kimberley": {
+    "featureName": "Kimberley",
+    "alt": "Kimberley in Australia",
+    "caption": "Kimberley, Australia",
+    "photographer": "Maclearite",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bungle_Bungle_Range_Purnululu_National_Park,_Cathedral_Gorge.png",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bungle Bungle Range Purnululu National Park, Cathedral Gorge.png); source https://upload.wikimedia.org/wikipedia/commons/5/5d/Bungle_Bungle_Range_Purnululu_National_Park%2C_Cathedral_Gorge.png; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5626c39ec2549e7fedb465551277e429230d936ae75bf966993067476221675a",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kimberley/w640.jpg",
+        "bytes": 67024
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kimberley/w1280.jpg",
+        "bytes": 280108
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kimberley/w2048.jpg",
+        "bytes": 860611
+      }
+    ]
+  },
+  "champagne": {
+    "featureName": "Champagne",
+    "alt": "Champagne in France",
+    "caption": "Champagne, France",
+    "photographer": "JLPC",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Champagne-Vigny_16_Vignes%26collines_D7_pano_2013.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Champagne-Vigny 16 Vignes&collines D7 pano 2013.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7e/Champagne-Vigny_16_Vignes%26collines_D7_pano_2013.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6c0e430cd143d2a1f3ae8753a86453732e9363f039a517697b5bbd42efa48bd7",
+    "width": 3840,
+    "height": 925,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/champagne/w640.jpg",
+        "bytes": 21798
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/champagne/w1280.jpg",
+        "bytes": 84437
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/champagne/w2048.jpg",
+        "bytes": 264463
+      }
+    ]
+  },
+  "alentejo": {
+    "featureName": "Alentejo",
+    "alt": "Alentejo in Portugal",
+    "caption": "Alentejo, Portugal",
+    "photographer": "Alvesgaspar",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Porto_Covo_March_2015-2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Porto Covo March 2015-2.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/22/Porto_Covo_March_2015-2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8665ff78000d40b02658648b95770b9f97a60d140cabd2c4a56f78bfe1beb8a2",
+    "width": 3840,
+    "height": 5782,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/alentejo/w640.jpg",
+        "bytes": 139201
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/alentejo/w1280.jpg",
+        "bytes": 535910
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/alentejo/w2048.jpg",
+        "bytes": 1497499
+      }
+    ]
+  },
+  "eiffel-tower": {
+    "featureName": "Eiffel Tower",
+    "alt": "Eiffel Tower in France",
+    "caption": "Eiffel Tower, France",
+    "photographer": "Benh LIEU SONG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Tour Eiffel Wikimedia Commons.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f133c17bfc2cfabaf358e8bba786459ecd80970c037ced907b6ab41381386c8a",
+    "width": 2900,
+    "height": 5367,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/eiffel-tower/w640.jpg",
+        "bytes": 78173
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/eiffel-tower/w1280.jpg",
+        "bytes": 306074
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/eiffel-tower/w2048.jpg",
+        "bytes": 935827
+      }
+    ]
+  },
+  "colosseum": {
+    "featureName": "Colosseum",
+    "alt": "Colosseum in Italy",
+    "caption": "Colosseum, Italy",
+    "photographer": "Wilfredor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colosseum_of_Rome,_Italy.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Colosseum of Rome, Italy.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5b/Colosseum_of_Rome%2C_Italy.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1365a6a7b56b5a21060fded06949d5c392a792090879e6945b9a5925e2a82764",
+    "width": 3840,
+    "height": 2417,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/colosseum/w640.jpg",
+        "bytes": 55966
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/colosseum/w1280.jpg",
+        "bytes": 193671
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/colosseum/w2048.jpg",
+        "bytes": 554929
+      }
+    ]
+  },
+  "bryce-canyon": {
+    "featureName": "Bryce Canyon",
+    "alt": "Bryce Canyon in United States",
+    "caption": "Bryce Canyon, United States",
+    "photographer": "“Jon Zander( digon3 )”",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bryce_Canyon_Hoodoos.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bryce Canyon Hoodoos.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c9/Bryce_Canyon_Hoodoos.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f82887117632264df358e81bd38aca049174a37a40baed393c79b4f9898acb06",
+    "width": 2272,
+    "height": 1704,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bryce-canyon/w640.jpg",
+        "bytes": 79310
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bryce-canyon/w1280.jpg",
+        "bytes": 189673
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bryce-canyon/w2048.jpg",
+        "bytes": 445079
+      }
+    ]
+  },
+  "monument-valley": {
+    "featureName": "Monument Valley",
+    "alt": "Monument Valley in United States",
+    "caption": "Monument Valley, United States",
+    "photographer": "Tobi 87",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Artist_Point-Monument_Valley-USA-retouched.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Artist Point-Monument Valley-USA-retouched.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c2/Artist_Point-Monument_Valley-USA-retouched.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c560d6ae01241788c691fd6e967f2221f760a18e02efbd72b03f7d6c6805c1d6",
+    "width": 3840,
+    "height": 1209,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/monument-valley/w640.jpg",
+        "bytes": 19236
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/monument-valley/w1280.jpg",
+        "bytes": 73355
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/monument-valley/w2048.jpg",
+        "bytes": 238925
+      }
+    ]
+  },
+  "potala-palace": {
+    "featureName": "Potala Palace",
+    "alt": "Potala Palace in China",
+    "caption": "Potala Palace, China",
+    "photographer": "Antoine Taveneaux",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potala_palace21.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Potala palace21.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e9/Potala_palace21.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "25e8138c5e2f47a5b4c2a2b6fa70889356cd16ec23bccad45b63e526c5e1d752",
+    "width": 3504,
+    "height": 2268,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/potala-palace/w640.jpg",
+        "bytes": 113005
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/potala-palace/w1280.jpg",
+        "bytes": 270034
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/potala-palace/w2048.jpg",
+        "bytes": 612134
+      }
+    ]
+  },
+  "itsukushima": {
+    "featureName": "Itsukushima",
+    "alt": "Itsukushima in Japan",
+    "caption": "Itsukushima, Japan",
+    "photographer": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Itsukushima-jinja_torii_at_sunset,_Miyajima,_Japan,_20240816_1812_4144.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Itsukushima-jinja torii at sunset, Miyajima, Japan, 20240816 1812 4144.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b1/Itsukushima-jinja_torii_at_sunset%2C_Miyajima%2C_Japan%2C_20240816_1812_4144.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "80bc27c66662304271da063a9335e829d3c1eef5fffcc6d1ed3a750c1122e9bb",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/itsukushima/w640.jpg",
+        "bytes": 54339
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/itsukushima/w1280.jpg",
+        "bytes": 196455
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/itsukushima/w2048.jpg",
+        "bytes": 561157
+      }
+    ]
   }
 }

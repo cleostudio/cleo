@@ -14,7 +14,7 @@ import {
 
 describe('place guides', () => {
   it('ships a curated catalog with unique slugs and codes', () => {
-    expect(placeGuides.length).toBeGreaterThanOrEqual(210)
+    expect(placeGuides.length).toBeGreaterThanOrEqual(256)
 
     const slugs = placeGuides.map((place) => place.slug)
     const codes = placeGuides.map((place) => place.code)
@@ -92,6 +92,12 @@ describe('place guides', () => {
     ).toBe('sagrada-familia')
     expect(matchPlaceGuideForBlurb('japan', 'Fushimi Inari')?.slug).toBe(
       'fushimi-inari',
+    )
+    expect(matchPlaceGuideForBlurb('france', 'Eiffel Tower')?.slug).toBe(
+      'eiffel-tower',
+    )
+    expect(matchPlaceGuideForBlurb('italy', 'Colosseum')?.slug).toBe(
+      'colosseum',
     )
   })
 

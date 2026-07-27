@@ -2393,5 +2393,351 @@
       "Fushimi Inari Taisha",
       "Inari torii"
     ]
+  },
+  "minneapolis": {
+    "name": "Minneapolis",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Minneapolis",
+      "Minneapolis skyline",
+      "Mississippi Minneapolis"
+    ]
+  },
+  "detroit": {
+    "name": "Detroit",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Detroit",
+      "Detroit skyline",
+      "Detroit riverfront"
+    ]
+  },
+  "phoenix": {
+    "name": "Phoenix",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Phoenix Arizona",
+      "Phoenix skyline",
+      "Camelback Mountain"
+    ]
+  },
+  "las-vegas": {
+    "name": "Las Vegas",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Las Vegas",
+      "Las Vegas Strip",
+      "Las Vegas skyline"
+    ]
+  },
+  "medellin": {
+    "name": "Medellín",
+    "countrySlug": "colombia",
+    "countryName": "Colombia",
+    "kind": "City",
+    "searchNames": [
+      "Medellin",
+      "Medellín",
+      "Medellin skyline"
+    ]
+  },
+  "quito": {
+    "name": "Quito",
+    "countrySlug": "ecuador",
+    "countryName": "Ecuador",
+    "kind": "City",
+    "searchNames": [
+      "Quito",
+      "Quito historic center",
+      "Quito volcano"
+    ]
+  },
+  "salvador": {
+    "name": "Salvador",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": [
+      "Salvador Bahia",
+      "Pelourinho",
+      "Salvador Brazil"
+    ]
+  },
+  "tunis": {
+    "name": "Tunis",
+    "countrySlug": "tunisia",
+    "countryName": "Tunisia",
+    "kind": "City",
+    "searchNames": [
+      "Tunis",
+      "Tunis medina",
+      "Avenue Habib Bourguiba"
+    ]
+  },
+  "dakar": {
+    "name": "Dakar",
+    "countrySlug": "senegal",
+    "countryName": "Senegal",
+    "kind": "City",
+    "searchNames": [
+      "Dakar",
+      "Dakar Senegal",
+      "Dakar coast"
+    ]
+  },
+  "bangalore": {
+    "name": "Bengaluru",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Bangalore",
+      "Bengaluru",
+      "Bengaluru skyline"
+    ]
+  },
+  "chennai": {
+    "name": "Chennai",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Chennai",
+      "Chennai Marina",
+      "Madras"
+    ]
+  },
+  "hong-kong": {
+    "name": "Hong Kong",
+    "countrySlug": "china",
+    "countryName": "China",
+    "kind": "City",
+    "searchNames": [
+      "Hong Kong",
+      "Hong Kong skyline",
+      "Victoria Harbour"
+    ]
+  },
+  "minnesota": {
+    "name": "Minnesota",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Minnesota",
+      "Minnesota lakes",
+      "Boundary Waters"
+    ]
+  },
+  "ontario": {
+    "name": "Ontario",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": [
+      "Ontario",
+      "Ontario Canada",
+      "Niagara Ontario"
+    ]
+  },
+  "western-australia": {
+    "name": "Western Australia",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "State",
+    "searchNames": [
+      "Western Australia",
+      "Perth Western Australia",
+      "Ningaloo"
+    ]
+  },
+  "paros": {
+    "name": "Paros",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Paros",
+      "Paros Greece",
+      "Naoussa Paros"
+    ]
+  },
+  "ios": {
+    "name": "Ios",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Ios",
+      "Ios Greece",
+      "Chora Ios"
+    ]
+  },
+  "moorea": {
+    "name": "Moorea",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": [
+      "Moorea",
+      "Moorea lagoon",
+      "Cook's Bay Moorea"
+    ]
+  },
+  "jersey": {
+    "name": "Jersey",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Jersey Channel Islands",
+      "Jersey island",
+      "St Helier"
+    ]
+  },
+  "gozo": {
+    "name": "Gozo",
+    "countrySlug": "malta",
+    "countryName": "Malta",
+    "kind": "Island",
+    "searchNames": [
+      "Gozo",
+      "Gozo Malta",
+      "Xlendi"
+    ]
+  },
+  "hvar": {
+    "name": "Hvar",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "Island",
+    "searchNames": [
+      "Hvar",
+      "Hvar Town",
+      "Hvar Croatia"
+    ]
+  },
+  "scottish-highlands": {
+    "name": "Scottish Highlands",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Region",
+    "searchNames": [
+      "Scottish Highlands",
+      "Highlands Scotland",
+      "Glencoe"
+    ]
+  },
+  "danube-delta": {
+    "name": "Danube Delta",
+    "countrySlug": "romania",
+    "countryName": "Romania",
+    "kind": "Region",
+    "searchNames": [
+      "Danube Delta",
+      "Danube Delta Romania"
+    ]
+  },
+  "kimberley": {
+    "name": "Kimberley",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Region",
+    "searchNames": [
+      "Kimberley Australia",
+      "Kimberley WA",
+      "Bungle Bungle"
+    ]
+  },
+  "champagne": {
+    "name": "Champagne",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Champagne France",
+      "Champagne vineyards",
+      "Reims Champagne"
+    ]
+  },
+  "alentejo": {
+    "name": "Alentejo",
+    "countrySlug": "portugal",
+    "countryName": "Portugal",
+    "kind": "Region",
+    "searchNames": [
+      "Alentejo",
+      "Alentejo Portugal",
+      "Évora"
+    ]
+  },
+  "eiffel-tower": {
+    "name": "Eiffel Tower",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": [
+      "Eiffel Tower",
+      "Tour Eiffel"
+    ]
+  },
+  "colosseum": {
+    "name": "Colosseum",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": [
+      "Colosseum",
+      "Coliseum",
+      "Colosseo"
+    ]
+  },
+  "bryce-canyon": {
+    "name": "Bryce Canyon",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Bryce Canyon",
+      "Bryce Canyon National Park"
+    ]
+  },
+  "monument-valley": {
+    "name": "Monument Valley",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Monument Valley"
+    ]
+  },
+  "potala-palace": {
+    "name": "Potala Palace",
+    "countrySlug": "china",
+    "countryName": "China",
+    "kind": "Landmark",
+    "searchNames": [
+      "Potala Palace",
+      "Potala"
+    ]
+  },
+  "itsukushima": {
+    "name": "Itsukushima",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Landmark",
+    "searchNames": [
+      "Itsukushima",
+      "Itsukushima Shrine",
+      "Miyajima torii"
+    ]
   }
 }
