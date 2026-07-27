@@ -428,6 +428,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const [regions, setRegions] = useState<MapRegionCamera[]>([])
   const [activeRegion, setActiveRegion] = useState<string | null>(null)
   const [layers, setLayers] = useState<MapLayerVisibility>(DEFAULT_MAP_LAYERS)
+  const [layersHydrated, setLayersHydrated] = useState(false)
   const [copyState, setCopyState] = useState<
     'idle' | 'copied' | 'shared' | 'failed'
   >('idle')
@@ -444,7 +445,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     const resolved = resolveMapLayers(fromUrl, stored)
     layersRef.current = resolved
     setLayers(resolved)
-    syncMapLayersSearchParams(resolved)
+    setLayersHydrated(true)
   }, [])
 
   useEffect(() => {
@@ -452,12 +453,13 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   }, [suggestionsOpen])
 
   useEffect(() => {
+    if (!layersHydrated) return
     layersRef.current = layers
     writeStoredMapLayers(layers)
     syncMapLayersSearchParams(layers)
     const map = mapRef.current
     if (map && ready) applyLayerVisibility(map, layers)
-  }, [layers, ready])
+  }, [layers, ready, layersHydrated])
 
   useEffect(() => {
     const container = containerRef.current
