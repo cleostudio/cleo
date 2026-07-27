@@ -841,6 +841,30 @@ export function mapHrefWithLayers(
   return `${url.pathname}${url.search}${url.hash}`
 }
 
+/** Attach or clear a `#zoom/lat/lng` camera fragment on a Maps href. */
+export function mapHrefWithCamera(
+  href: string,
+  camera: MapCamera | null | undefined,
+): string {
+  const url = new URL(href, 'https://cleo.local')
+  if (!camera || isDefaultMapCamera(camera)) {
+    url.hash = ''
+  } else {
+    const hash = formatMapCameraHash(camera)
+    url.hash = hash ? hash.slice(1) : ''
+  }
+  return `${url.pathname}${url.search}${url.hash}`
+}
+
+/** Layer flags + optional live camera for shareable Maps links. */
+export function mapShareHref(
+  href: string,
+  layers: MapLayerVisibility,
+  camera?: MapCamera | null,
+): string {
+  return mapHrefWithCamera(mapHrefWithLayers(href, layers), camera)
+}
+
 export type MapLineFeatureCollection = {
   type: 'FeatureCollection'
   features: Array<{

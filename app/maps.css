@@ -3,8 +3,13 @@
 html[data-maps-route] {
   --maps-dock-clearance: 5.75rem;
   --maps-hud-inset: 1rem;
+  --maps-dossier-lift: 0rem;
   --maps-panel-bg: color-mix(in oklab, var(--background) 78%, transparent);
   --maps-panel-shadow: 0 0 0 1px var(--border), var(--shadow-medium);
+}
+
+html[data-maps-route] .earth-map[data-has-selection] {
+  --maps-dossier-lift: 8.75rem;
 }
 
 html[data-maps-route] .site-chrome {
@@ -423,7 +428,17 @@ html[data-maps-route] body {
 }
 
 .earth-map-status-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
   padding: 0.5rem 0.75rem;
+}
+
+.earth-map-status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
 }
 
 .earth-map-canvas .maplibregl-canvas {
@@ -452,7 +467,8 @@ html[data-maps-route] body {
 /* Keep the metric scale above a tall selection dossier when one is open. */
 .earth-map[data-has-selection] .maplibregl-ctrl-bottom-left {
   bottom: calc(
-    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 8.75rem
+    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) +
+      var(--maps-dossier-lift)
   );
 }
 
@@ -537,6 +553,10 @@ html[data-maps-route] body {
   align-items: flex-end;
   justify-content: space-between;
   gap: 0.75rem 1rem;
+  max-height: min(48vh, 22rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 0.75rem 0.85rem;
 }
 
@@ -598,7 +618,8 @@ html[data-maps-route] body {
 
 .earth-map[data-has-selection] .earth-map-toast {
   bottom: calc(
-    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 9.5rem
+    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) +
+      var(--maps-dossier-lift)
   );
 }
 
@@ -809,6 +830,10 @@ html[data-maps-route] body {
     --maps-hud-inset: 0.75rem;
   }
 
+  html[data-maps-route] .earth-map[data-has-selection] {
+    --maps-dossier-lift: 9.25rem;
+  }
+
   .earth-map-chrome-top {
     width: min(22.5rem, calc(100vw - 2 * var(--maps-hud-inset)));
     min-width: 0;
@@ -868,10 +893,30 @@ html[data-maps-route] body {
   .earth-map-selection {
     align-items: flex-start;
     flex-direction: column;
+    max-height: min(38vh, 15.5rem);
+    gap: 0.55rem 0.75rem;
+    padding: 0.65rem 0.75rem;
   }
 
   .earth-map-selection-about {
     -webkit-line-clamp: 2;
+  }
+
+  .earth-map-selection-places {
+    display: none;
+  }
+
+  .earth-map-neighbors-label {
+    letter-spacing: 0.05em;
+  }
+
+  .earth-map-neighbor {
+    font-size: 0.65rem;
+    padding: 0.28rem 0.42rem;
+  }
+
+  .earth-map-status-actions {
+    padding: 0 0.75rem 0.65rem;
   }
 
   .earth-map-canvas .maplibregl-ctrl-attrib {
@@ -891,11 +936,6 @@ html[data-maps-route] body {
     padding: 0.28rem 0.42rem;
   }
 
-  .earth-map[data-has-selection] .maplibregl-ctrl-bottom-left {
-    bottom: calc(
-      var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 10.5rem
-    );
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

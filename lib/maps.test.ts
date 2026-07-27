@@ -26,9 +26,11 @@ import {
   mapCountryHref,
   mapCountrySuggestionMatchKind,
   mapFocusKey,
+  mapHrefWithCamera,
   mapHrefWithLayers,
   mapRegionHref,
   mapRegionLabel,
+  mapShareHref,
   mapSuggestionSecondary,
   mapsDeepLinkMetadata,
   mapsFocusDocumentTitle,
@@ -481,6 +483,25 @@ describe('maps helpers', () => {
         graticule: false,
       }),
     ).toBe('/maps?country=japan&labels=0')
+    expect(
+      mapHrefWithCamera('/maps?country=japan&labels=0', {
+        center: [139.6912, 35.6804],
+        zoom: 5.21,
+      }),
+    ).toBe('/maps?country=japan&labels=0#5.21/35.6804/139.6912')
+    expect(
+      mapShareHref(
+        '/maps?country=japan',
+        { borders: true, labels: false, graticule: false },
+        { center: [139.6912, 35.6804], zoom: 5.21 },
+      ),
+    ).toBe('/maps?country=japan&labels=0#5.21/35.6804/139.6912')
+    expect(
+      mapHrefWithCamera('/maps?country=japan#5/1/2', {
+        center: DEFAULT_MAP_CENTER,
+        zoom: DEFAULT_MAP_ZOOM,
+      }),
+    ).toBe('/maps?country=japan')
   })
 
   it('shares map links when available and otherwise copies', async () => {

@@ -43,8 +43,8 @@ import {
   mapAttribution,
   mapCountryHref,
   mapCountrySuggestionMatchKind,
-  mapHrefWithLayers,
   mapRegionHref,
+  mapShareHref,
   mapSuggestionSecondary,
   mapsFocusDocumentTitle,
   mapViewHref,
@@ -94,12 +94,46 @@ const MAP_FOCUS_PADDING = {
   right: 48,
 } as const
 
+const MAP_FOCUS_PADDING_NARROW = {
+  top: 120,
+  bottom: 210,
+  left: 28,
+  right: 28,
+} as const
+
 const MAP_REGION_PADDING = {
   top: 120,
   bottom: 140,
   left: 40,
   right: 40,
 } as const
+
+const MAP_REGION_PADDING_NARROW = {
+  top: 96,
+  bottom: 180,
+  left: 24,
+  right: 24,
+} as const
+
+function mapFocusPadding() {
+  if (
+    typeof window !== 'undefined' &&
+    window.matchMedia('(max-width: 40rem)').matches
+  ) {
+    return { ...MAP_FOCUS_PADDING_NARROW }
+  }
+  return { ...MAP_FOCUS_PADDING }
+}
+
+function mapRegionPadding() {
+  if (
+    typeof window !== 'undefined' &&
+    window.matchMedia('(max-width: 40rem)').matches
+  ) {
+    return { ...MAP_REGION_PADDING_NARROW }
+  }
+  return { ...MAP_REGION_PADDING }
+}
 
 function basemapStyle(): StyleSpecification {
   return {
@@ -602,7 +636,10 @@ function withCameraHashPause(
 function handleMapCanvasKeyDown(
   event: React.KeyboardEvent<HTMLDivElement>,
   map: MapLibreMap | null,
-  onHome?: () => void,
+  {
+    onHome,
+    onSelectCenter,
+  }: { onHome?: () => void; onSelectCenter?: () => void } = {},
 ) {
   if (!map) return
   const panPx = event.shiftKey ? 140 : 80
@@ -633,6 +670,12 @@ function handleMapCanvasKeyDown(
     case '_':
       event.preventDefault()
       map.zoomOut({ duration: mapMotionMs(220) })
+      break
+    case 'Enter':
+      if (onSelectCenter) {
+        event.preventDefault()
+        onSelectCenter()
+      }
       break
     case 'Home':
       if (onHome) {
@@ -672,7 +715,7 @@ function fitCountry(
     return
   }
   map.fitBounds(entry.bounds, {
-    padding: { ...MAP_FOCUS_PADDING },
+    padding: mapFocusPadding(),
     maxZoom: Math.min(entry.maxZoom, MAP_MAX_ZOOM + 0.75),
     duration: mapMotionMs(800),
   })
@@ -701,6 +744,7 @@ export function EarthMap({
   const suggestionsOpenRef = useRef(false)
   const layersRef = useRef<MapLayerVisibility>({ ...DEFAULT_MAP_LAYERS })
   const resetViewRef = useRef<() => void>(() => {})
+  const focusMapCanvasRef = useRef<() => void>(() => {})
   const cameraHashPausedRef = useRef(false)
   const fittedFocusKeyRef = useRef<string | null>(null)
   const mapEpochRef = useRef(0)
@@ -731,6 +775,7 @@ export function EarthMap({
   const [copyState, setCopyState] = useState<
     'idle' | 'copied' | 'shared' | 'failed'
   >('idle')
+  const [copyKind, setCopyKind] = useState<'view' | 'place'>('view')
   const [loadState, setLoadState] = useState<'loading' | 'ready' | 'degraded'>(
     'loading',
   )
@@ -797,7 +842,7 @@ export function EarthMap({
 
     map.getCanvas().setAttribute(
       'aria-label',
-      'Interactive map of Earth. Arrow keys pan, plus and minus zoom, Home resets.',
+      'Interactive map of Earth. Arrow keys pan, plus and minus zoom, Enter selects the place at center, Home resets.',
     )
 
     // Restore a shared camera when there is no country/region deep link.
@@ -1263,6 +1308,15 @@ export function EarthMap({
       if (suggestionsOpenRef.current) return
       if (!selectedCodeRef.current && !activeRegionRef.current) return
       event.preventDefault()
+      const active = document.activeElement
+      const panel = selectionPanelRef.current
+      const inPanel =
+        panel != null &&
+        (active === panel || (active instanceof Node && panel.contains(active)))
+      if (inPanel) {
+        focusMapCanvasRef.current()
+        return
+      }
       resetViewRef.current()
     }
     window.addEventListener('keydown', onKeyDown)
@@ -1385,8 +1439,10 @@ export function EarthMap({
 
   function focusMapCanvas() {
     mapRef.current?.getCanvas().focus({ preventScroll: true })
-    setFocusAnnouncement('Map focused. Arrow keys pan.')
+    setFocusAnnouncement('Map focused. Arrow keys pan. Enter selects center.')
   }
+
+  focusMapCanvasRef.current = focusMapCanvas
 
   function fitSelectedCountry() {
     const map = mapRef.current
@@ -1430,27 +1486,89 @@ export function EarthMap({
     }
     withCameraHashPause(map, cameraHashPausedRef, () => {
       map.fitBounds(region.bounds, {
-        padding: { ...MAP_REGION_PADDING },
+        padding: mapRegionPadding(),
         maxZoom: region.maxZoom,
         duration: mapMotionMs(800),
       })
     })
   }
 
-  async function shareDeepLink(href: string, text?: string) {
-    const result = await shareOrCopyMapLink(mapHrefWithLayers(href, layers), {
-      title: 'Cleo Maps',
-      text,
-    })
+  async function shareDeepLink(
+    href: string,
+    text?: string,
+    kind: 'view' | 'place' = 'place',
+  ) {
+    const map = mapRef.current
+    const camera = map ? readMapCamera(map) : null
+    if (map && kind === 'view') writeCameraHashFromMap(map)
+    const result = await shareOrCopyMapLink(
+      mapShareHref(href, layers, camera),
+      {
+        title: 'Cleo Maps',
+        text,
+      },
+    )
     if (result === 'aborted') return
+    setCopyKind(kind)
     setCopyState(result)
     window.setTimeout(() => setCopyState('idle'), 2200)
   }
 
   async function shareCurrentView() {
+    await shareDeepLink(mapViewHref(), 'Earth on Cleo Maps', 'view')
+  }
+
+  function clearInvalidFocusLink() {
+    setFocusAnnouncement('')
+    syncMapFocusSearchParams(null, { history: 'push' })
+    fittedFocusKeyRef.current = null
+    searchInputRef.current?.focus()
+  }
+
+  function selectAtViewportCenter() {
     const map = mapRef.current
-    if (map) writeCameraHashFromMap(map)
-    await shareDeepLink(mapViewHref(), 'Earth on Cleo Maps')
+    if (!map || !ready) return
+    const point = map.project(map.getCenter())
+    const layers: string[] = []
+    if (map.getLayer('capital-hits')) layers.push('capital-hits')
+    if (map.getLayer('country-fill')) layers.push('country-fill')
+    if (layers.length === 0) {
+      setFocusAnnouncement('No place at map center.')
+      return
+    }
+    const hits = map.queryRenderedFeatures(point, { layers })
+    const capitalHit = hits.find((feature) => feature.layer?.id === 'capital-hits')
+    const countryHit = hits.find((feature) => feature.layer?.id === 'country-fill')
+    const feature = capitalHit ?? countryHit
+    if (!feature) {
+      setFocusAnnouncement('No place at map center.')
+      return
+    }
+    const code = String(feature.id ?? feature.properties?.code ?? '')
+    if (!code) {
+      setFocusAnnouncement('No place at map center.')
+      return
+    }
+    const entry = indexRef.current.find((item) => item.code === code)
+    if (entry) {
+      flyToCountry(entry, { preferCapital: feature.layer?.id === 'capital-hits' })
+      return
+    }
+    const fallbackName = String(
+      feature.properties?.country ?? feature.properties?.name ?? code,
+    )
+    const hit = resolveMapCountry(code, fallbackName)
+    selectedCodeRef.current = hit.code
+    setSelected(hit)
+    setSelectedEntry(null)
+    setActiveRegion(null)
+    activeRegionRef.current = null
+    setQuery(hit.name)
+    setFocusAnnouncement(`Selected ${hit.name}.`)
+    syncMapFocusSearchParams(
+      { kind: 'country', value: hit.country?.slug ?? hit.code },
+      { history: 'push' },
+    )
   }
 
   function showSelectedCapital() {
@@ -1498,10 +1616,27 @@ export function EarthMap({
   const regionButtons =
     regions.length > 0 ? regions : FALLBACK_MAP_REGIONS
 
-  const showStatus =
-    loadState !== 'ready' ||
+  const invalidFocusLink =
     focusAnnouncement.startsWith('No country matched') ||
     focusAnnouncement.startsWith('No region matched')
+  const showStatus = loadState !== 'ready' || invalidFocusLink
+  const recoveryStarters =
+    showStatus && loadState !== 'loading'
+      ? resolveMapIdleStarters(countries, regions).slice(0, 3)
+      : []
+
+  const shareToastMessage =
+    copyState === 'shared'
+      ? copyKind === 'view'
+        ? 'View link shared'
+        : 'Place link shared'
+      : copyState === 'copied'
+        ? copyKind === 'view'
+          ? 'View link copied'
+          : 'Place link copied'
+        : copyState === 'failed'
+          ? 'Could not share link'
+          : ''
 
   return (
     <div
@@ -1513,9 +1648,12 @@ export function EarthMap({
         ref={containerRef}
         className="earth-map-canvas"
         role="application"
-        aria-label="Interactive map of Earth. Press slash to search. Arrow keys pan, plus and minus zoom, Home resets."
+        aria-label="Interactive map of Earth. Press slash to search. Arrow keys pan, plus and minus zoom, Enter selects the place at center, Home resets."
         onKeyDown={(event) => {
-          handleMapCanvasKeyDown(event, mapRef.current, resetView)
+          handleMapCanvasKeyDown(event, mapRef.current, {
+            onHome: resetView,
+            onSelectCenter: selectAtViewportCenter,
+          })
         }}
       />
 
@@ -1731,7 +1869,7 @@ export function EarthMap({
               <p
                 className="earth-map-status"
                 data-tone={
-                  loadState === 'degraded' || focusAnnouncement.startsWith('No ')
+                  loadState === 'degraded' || invalidFocusLink
                     ? 'warn'
                     : undefined
                 }
@@ -1743,6 +1881,45 @@ export function EarthMap({
                     ? 'Basemap ready — country search is unavailable right now.'
                     : focusAnnouncement}
               </p>
+              {loadState !== 'loading' &&
+              (loadState === 'degraded' || invalidFocusLink) ? (
+                <div className="earth-map-status-actions">
+                  {invalidFocusLink ? (
+                    <button
+                      type="button"
+                      className="earth-map-copy"
+                      onClick={clearInvalidFocusLink}
+                    >
+                      Clear link
+                    </button>
+                  ) : null}
+                  <button
+                    type="button"
+                    className="earth-map-copy"
+                    onClick={() => searchInputRef.current?.focus()}
+                  >
+                    Search
+                  </button>
+                  {recoveryStarters.map((starter) => (
+                    <button
+                      key={starter.key}
+                      type="button"
+                      className="earth-map-neighbor"
+                      disabled={!ready || countries.length === 0}
+                      onClick={() => {
+                        setFocusAnnouncement('')
+                        if (starter.kind === 'country') {
+                          flyToCountry(starter.entry)
+                          return
+                        }
+                        flyToRegion(starter.region)
+                      }}
+                    >
+                      {starter.label}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
             </div>
           ) : null}
         </div>
@@ -1764,7 +1941,7 @@ export function EarthMap({
               disabled={!ready}
               title="Share or copy a link to this exact map view"
             >
-              Share
+              Share view
             </button>
             <button
               type="button"
@@ -1783,6 +1960,7 @@ export function EarthMap({
               ref={selectionPanelRef}
               className="earth-map-panel earth-map-selection"
               tabIndex={-1}
+              aria-label={`${selected.name} selected`}
             >
               <MapsGlass />
               {photo ? (
@@ -1894,10 +2072,11 @@ export function EarthMap({
                     void shareDeepLink(
                       selected.mapHref ?? mapCountryHref(selected.code),
                       selected.name,
+                      'place',
                     )
                   }}
                 >
-                  Share link
+                  Share place
                 </button>
                 <button
                   type="button"
@@ -1913,6 +2092,7 @@ export function EarthMap({
               ref={selectionPanelRef}
               className="earth-map-panel earth-map-selection"
               tabIndex={-1}
+              aria-label={`${activeRegionCamera.label} region`}
             >
               <MapsGlass />
               <div>
@@ -1959,10 +2139,11 @@ export function EarthMap({
                     void shareDeepLink(
                       mapRegionHref(activeRegionCamera.id),
                       activeRegionCamera.label,
+                      'place',
                     )
                   }}
                 >
-                  Share link
+                  Share place
                 </button>
                 <button
                   type="button"
@@ -1977,8 +2158,8 @@ export function EarthMap({
             <div className="earth-map-panel earth-map-idle">
               <MapsGlass />
               <p className="earth-map-hint">
-                Pick a place to begin. Press / to search · arrow keys pan when
-                the map is focused.
+                Pick a place to begin. Press / to search · arrows pan · Enter
+                selects the place at center.
               </p>
               {idleStarters.length > 0 ? (
                 <div
@@ -2022,30 +2203,13 @@ export function EarthMap({
             data-tone={copyState === 'failed' ? 'warn' : undefined}
           >
             <MapsGlass />
-            <span>
-              {copyState === 'shared'
-                ? 'Link shared'
-                : copyState === 'copied'
-                  ? 'Link copied'
-                  : 'Could not share link'}
-            </span>
+            <span>{shareToastMessage}</span>
           </div>
         ) : null}
       </div>
 
       <p className="sr-only" aria-live="polite">
-        {[
-          focusAnnouncement,
-          copyState === 'shared'
-            ? 'Link shared'
-            : copyState === 'copied'
-              ? 'Link copied to clipboard'
-              : copyState === 'failed'
-                ? 'Could not share link'
-                : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
+        {[focusAnnouncement, shareToastMessage].filter(Boolean).join(' ')}
       </p>
     </div>
   )
