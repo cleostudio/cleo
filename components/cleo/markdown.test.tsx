@@ -156,7 +156,7 @@ describe('Cleo Markdown generative widgets', () => {
     expect(screen.getByRole('cell', { name: '2' })).toBeTruthy()
   })
 
-  it('does not flash incomplete cleo fences while streaming', () => {
+  it('shows a pending placeholder for incomplete cleo fences while streaming', () => {
     const { container } = render(
       <Markdown isAnimating>
         {'Prose first.\n\n```cleo\n{"type":"tabs","tabs":['}
@@ -164,7 +164,9 @@ describe('Cleo Markdown generative widgets', () => {
     )
 
     expect(container.textContent).toContain('Prose first.')
+    expect(container.textContent).toContain('Building sections')
     expect(container.textContent).not.toContain('"type":"tabs"')
     expect(container.textContent).not.toContain('```')
+    expect(container.querySelector('[aria-busy="true"]')).toBeTruthy()
   })
 })
