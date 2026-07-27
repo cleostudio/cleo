@@ -151,7 +151,10 @@ describe('Cleo Markdown generative widgets', () => {
 
     render(<Markdown>{markdown}</Markdown>)
 
-    expect(screen.getByRole('button', { name: 'Mars' })).toBeTruthy()
+    expect(
+      screen.getByRole('button', { name: 'Mars', pressed: true }),
+    ).toBeTruthy()
+    expect(screen.getByRole('columnheader', { name: 'Mars' })).toBeTruthy()
     expect(screen.getByRole('rowheader', { name: 'Moons' })).toBeTruthy()
     expect(screen.getByRole('cell', { name: '2' })).toBeTruthy()
   })
