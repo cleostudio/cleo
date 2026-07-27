@@ -14663,6 +14663,774 @@
       }
     ]
   },
+  "places/charlotte": {
+    "collection": "places",
+    "title": "Charlotte",
+    "subtitle": "Charlotte",
+    "alt": "Charlotte in United States",
+    "photographer": "Cmao20",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2425,
+    "renditions": [
+      {
+        "src": "/images/places/charlotte/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/charlotte/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/charlotte/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/columbus": {
+    "collection": "places",
+    "title": "Columbus Ohio",
+    "subtitle": "Columbus",
+    "alt": "Columbus Ohio in United States",
+    "photographer": "Paul Wasneski",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2623,
+    "renditions": [
+      {
+        "src": "/images/places/columbus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/columbus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/columbus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/memphis": {
+    "collection": "places",
+    "title": "Memphis",
+    "subtitle": "Memphis",
+    "alt": "Memphis in United States",
+    "photographer": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/places/memphis/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/memphis/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/memphis/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/halifax": {
+    "collection": "places",
+    "title": "Halifax",
+    "subtitle": "Halifax",
+    "alt": "Halifax in Canada",
+    "photographer": "Gordon Leggett",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1223,
+    "renditions": [
+      {
+        "src": "/images/places/halifax/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/halifax/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/halifax/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/salta": {
+    "collection": "places",
+    "title": "Salta city",
+    "subtitle": "Salta",
+    "alt": "Salta city in Argentina",
+    "photographer": "Kevin Jones",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2582,
+    "renditions": [
+      {
+        "src": "/images/places/salta/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/salta/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/salta/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/valdivia": {
+    "collection": "places",
+    "title": "Valdivia river",
+    "subtitle": "Valdivia",
+    "alt": "Valdivia river in Chile",
+    "photographer": "Carlos Figueroa Rojas",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "src": "/images/places/valdivia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/valdivia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/valdivia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/fortaleza": {
+    "collection": "places",
+    "title": "Fortaleza",
+    "subtitle": "Fortaleza",
+    "alt": "Fortaleza in Brazil",
+    "photographer": "Nelson Pérez",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/fortaleza/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/fortaleza/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/fortaleza/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/dubrovnik": {
+    "collection": "places",
+    "title": "Dubrovnik",
+    "subtitle": "Dubrovnik",
+    "alt": "Dubrovnik in Croatia",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2090,
+    "renditions": [
+      {
+        "src": "/images/places/dubrovnik/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/dubrovnik/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/dubrovnik/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tirana": {
+    "collection": "places",
+    "title": "Tirana",
+    "subtitle": "Tirana",
+    "alt": "Tirana in Albania",
+    "photographer": "Pudelek",
+    "license": "CC BY-SA 4.0",
+    "width": 2688,
+    "height": 1827,
+    "renditions": [
+      {
+        "src": "/images/places/tirana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tirana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tirana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lucknow": {
+    "collection": "places",
+    "title": "Lucknow",
+    "subtitle": "Lucknow",
+    "alt": "Lucknow in India",
+    "photographer": "Kumud Kant",
+    "license": "CC BY-SA 3.0",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "src": "/images/places/lucknow/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lucknow/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lucknow/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sendai": {
+    "collection": "places",
+    "title": "Sendai",
+    "subtitle": "Sendai",
+    "alt": "Sendai in Japan",
+    "photographer": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/sendai/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sendai/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sendai/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/namur": {
+    "collection": "places",
+    "title": "Namur",
+    "subtitle": "Namur",
+    "alt": "Namur in Belgium",
+    "photographer": "Luc Viatour",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2539,
+    "renditions": [
+      {
+        "src": "/images/places/namur/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/namur/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/namur/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/illinois": {
+    "collection": "places",
+    "title": "Illinois",
+    "subtitle": "Illinois",
+    "alt": "Illinois in United States",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1374,
+    "renditions": [
+      {
+        "src": "/images/places/illinois/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/illinois/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/illinois/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/newfoundland-and-labrador": {
+    "collection": "places",
+    "title": "Newfoundland",
+    "subtitle": "Newfoundland and Labrador",
+    "alt": "Newfoundland in Canada",
+    "photographer": "Adavyd",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2509,
+    "renditions": [
+      {
+        "src": "/images/places/newfoundland-and-labrador/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/newfoundland-and-labrador/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/newfoundland-and-labrador/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/west-bengal": {
+    "collection": "places",
+    "title": "West Bengal",
+    "subtitle": "West Bengal",
+    "alt": "West Bengal in India",
+    "photographer": "Nasrin Mondal",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/west-bengal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/west-bengal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/west-bengal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sifnos": {
+    "collection": "places",
+    "title": "Sifnos",
+    "subtitle": "Sifnos",
+    "alt": "Sifnos in Greece",
+    "photographer": "Zde",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/sifnos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sifnos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sifnos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/serifos": {
+    "collection": "places",
+    "title": "Serifos",
+    "subtitle": "Serifos",
+    "alt": "Serifos in Greece",
+    "photographer": "Wikinaut",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 350,
+    "renditions": [
+      {
+        "src": "/images/places/serifos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/serifos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/serifos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/el-hierro": {
+    "collection": "places",
+    "title": "El Hierro",
+    "subtitle": "El Hierro",
+    "alt": "El Hierro in Spain",
+    "photographer": "Erik del Toro Streb",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/el-hierro/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/el-hierro/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/el-hierro/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/jura": {
+    "collection": "places",
+    "title": "Isle of Jura",
+    "subtitle": "Isle of Jura",
+    "alt": "Isle of Jura in United Kingdom",
+    "photographer": "Bjarne Henning Kvaal…",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/jura/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/jura/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/jura/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/marie-galante": {
+    "collection": "places",
+    "title": "Marie-Galante",
+    "subtitle": "Marie-Galante",
+    "alt": "Marie-Galante in France",
+    "photographer": "Tjeerd Wiersma",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/marie-galante/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/marie-galante/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/marie-galante/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sint-eustatius": {
+    "collection": "places",
+    "title": "Sint Eustatius",
+    "subtitle": "Sint Eustatius",
+    "alt": "Sint Eustatius in Netherlands",
+    "photographer": "GIS Statia",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/sint-eustatius/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sint-eustatius/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sint-eustatius/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/molise": {
+    "collection": "places",
+    "title": "Molise",
+    "subtitle": "Molise",
+    "alt": "Molise in Italy",
+    "photographer": "In.my.earth",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2157,
+    "renditions": [
+      {
+        "src": "/images/places/molise/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/molise/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/molise/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/vorarlberg": {
+    "collection": "places",
+    "title": "Vorarlberg",
+    "subtitle": "Vorarlberg",
+    "alt": "Vorarlberg in Austria",
+    "photographer": "böhringer friedrich",
+    "license": "CC BY-SA 2.5",
+    "width": 3840,
+    "height": 1099,
+    "renditions": [
+      {
+        "src": "/images/places/vorarlberg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/vorarlberg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/vorarlberg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/margaret-river": {
+    "collection": "places",
+    "title": "Margaret River",
+    "subtitle": "Margaret River",
+    "alt": "Margaret River in Australia",
+    "photographer": "Lasthib",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/margaret-river/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/margaret-river/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/margaret-river/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/asturias": {
+    "collection": "places",
+    "title": "Asturias",
+    "subtitle": "Asturias",
+    "alt": "Asturias in Spain",
+    "photographer": "Javier Pérez López",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "src": "/images/places/asturias/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/asturias/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/asturias/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/banat": {
+    "collection": "places",
+    "title": "Banat",
+    "subtitle": "Banat",
+    "alt": "Banat in Romania",
+    "photographer": "Choinowski",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/banat/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/banat/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/banat/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/london-eye": {
+    "collection": "places",
+    "title": "London Eye",
+    "subtitle": "London Eye",
+    "alt": "London Eye in United Kingdom",
+    "photographer": "User:Diliff",
+    "license": "CC BY 2.5",
+    "width": 2100,
+    "height": 1400,
+    "renditions": [
+      {
+        "src": "/images/places/london-eye/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/london-eye/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/london-eye/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sacre-coeur": {
+    "collection": "places",
+    "title": "Sacré-Cœur",
+    "subtitle": "Sacré-Cœur",
+    "alt": "Sacré-Cœur in France",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2331,
+    "renditions": [
+      {
+        "src": "/images/places/sacre-coeur/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sacre-coeur/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sacre-coeur/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/devils-tower": {
+    "collection": "places",
+    "title": "Devils Tower",
+    "subtitle": "Devils Tower",
+    "alt": "Devils Tower in United States",
+    "photographer": "Anthony Maw",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/devils-tower/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/devils-tower/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/devils-tower/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/crater-lake": {
+    "collection": "places",
+    "title": "Crater Lake",
+    "subtitle": "Crater Lake",
+    "alt": "Crater Lake in United States",
+    "photographer": "Amy Hanley a_hanley",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/crater-lake/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/crater-lake/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/crater-lake/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/alcazar-seville": {
+    "collection": "places",
+    "title": "Alcázar of Seville",
+    "subtitle": "Alcázar of Seville",
+    "alt": "Alcázar of Seville in Spain",
+    "photographer": "Suicasmo",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/alcazar-seville/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/alcazar-seville/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/alcazar-seville/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hohenzollern": {
+    "collection": "places",
+    "title": "Hohenzollern Castle",
+    "subtitle": "Hohenzollern Castle",
+    "alt": "Hohenzollern Castle in Germany",
+    "photographer": "Jörg Wendland",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/hohenzollern/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hohenzollern/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hohenzollern/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

@@ -1,0 +1,226 @@
+{
+  "charlotte": {
+    "name": "Charlotte",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Charlotte", "Charlotte skyline", "Charlotte North Carolina"]
+  },
+  "columbus": {
+    "name": "Columbus",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Columbus Ohio", "Columbus skyline", "Downtown Columbus"]
+  },
+  "memphis": {
+    "name": "Memphis",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Memphis", "Memphis skyline", "Memphis Tennessee"]
+  },
+  "halifax": {
+    "name": "Halifax",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": ["Halifax Nova Scotia", "Halifax harbour", "Halifax skyline"]
+  },
+  "salta": {
+    "name": "Salta",
+    "countrySlug": "argentina",
+    "countryName": "Argentina",
+    "kind": "City",
+    "searchNames": ["Salta Argentina", "Salta cathedral", "Salta city"]
+  },
+  "valdivia": {
+    "name": "Valdivia",
+    "countrySlug": "chile",
+    "countryName": "Chile",
+    "kind": "City",
+    "searchNames": ["Valdivia Chile", "Valdivia river", "Valdivia city"]
+  },
+  "fortaleza": {
+    "name": "Fortaleza",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": ["Fortaleza", "Fortaleza beach", "Fortaleza skyline"]
+  },
+  "dubrovnik": {
+    "name": "Dubrovnik",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "City",
+    "searchNames": ["Dubrovnik", "Dubrovnik old town", "Dubrovnik walls"]
+  },
+  "tirana": {
+    "name": "Tirana",
+    "countrySlug": "albania",
+    "countryName": "Albania",
+    "kind": "City",
+    "searchNames": ["Tirana", "Tirana skyline", "Tirana Albania"]
+  },
+  "lucknow": {
+    "name": "Lucknow",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": ["Lucknow", "Lucknow India", "Bara Imambara Lucknow"]
+  },
+  "sendai": {
+    "name": "Sendai",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": ["Sendai", "Sendai Japan", "Sendai city"]
+  },
+  "namur": {
+    "name": "Namur",
+    "countrySlug": "belgium",
+    "countryName": "Belgium",
+    "kind": "City",
+    "searchNames": ["Namur", "Namur citadel", "Namur Belgium"]
+  },
+  "illinois": {
+    "name": "Illinois",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": ["Illinois", "Illinois landscape", "Illinois prairie"]
+  },
+  "newfoundland-and-labrador": {
+    "name": "Newfoundland and Labrador",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": ["Newfoundland", "Newfoundland coast", "Signal Hill Newfoundland"]
+  },
+  "west-bengal": {
+    "name": "West Bengal",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": ["West Bengal", "Sundarbans", "Darjeeling West Bengal"]
+  },
+  "sifnos": {
+    "name": "Sifnos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Sifnos", "Sifnos Greece", "Kastro Sifnos"]
+  },
+  "serifos": {
+    "name": "Serifos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Serifos", "Serifos Greece", "Chora Serifos"]
+  },
+  "el-hierro": {
+    "name": "El Hierro",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": ["El Hierro", "El Hierro Canary", "El Hierro cliffs"]
+  },
+  "jura": {
+    "name": "Isle of Jura",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": ["Isle of Jura", "Jura Scotland", "Paps of Jura"]
+  },
+  "marie-galante": {
+    "name": "Marie-Galante",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": ["Marie-Galante", "Marie Galante Guadeloupe", "Marie-Galante beach"]
+  },
+  "sint-eustatius": {
+    "name": "Sint Eustatius",
+    "countrySlug": "netherlands",
+    "countryName": "Netherlands",
+    "kind": "Island",
+    "searchNames": ["Sint Eustatius", "Statia", "The Quill Statia"]
+  },
+  "molise": {
+    "name": "Molise",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": ["Molise", "Molise Italy", "Molise landscape"]
+  },
+  "vorarlberg": {
+    "name": "Vorarlberg",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "Region",
+    "searchNames": ["Vorarlberg", "Lake Constance Vorarlberg", "Bregenzerwald"]
+  },
+  "margaret-river": {
+    "name": "Margaret River",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Region",
+    "searchNames": ["Margaret River", "Margaret River vineyards", "Margaret River Western Australia"]
+  },
+  "asturias": {
+    "name": "Asturias",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": ["Asturias", "Asturias coast", "Picos de Europa Asturias"]
+  },
+  "banat": {
+    "name": "Banat",
+    "countrySlug": "romania",
+    "countryName": "Romania",
+    "kind": "Region",
+    "searchNames": ["Banat Romania", "Banat landscape", "Timișoara Banat"]
+  },
+  "london-eye": {
+    "name": "London Eye",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": ["London Eye", "London Eye Thames", "London Eye wheel"]
+  },
+  "sacre-coeur": {
+    "name": "Sacré-Cœur",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": ["Sacré-Cœur", "Sacre Coeur", "Sacré-Cœur Montmartre"]
+  },
+  "devils-tower": {
+    "name": "Devils Tower",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Devils Tower", "Devil's Tower", "Devils Tower Wyoming"]
+  },
+  "crater-lake": {
+    "name": "Crater Lake",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Crater Lake", "Crater Lake Oregon", "Crater Lake National Park"]
+  },
+  "alcazar-seville": {
+    "name": "Alcázar of Seville",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Landmark",
+    "searchNames": ["Alcázar of Seville", "Real Alcázar Sevilla", "Alcazar Seville gardens"]
+  },
+  "hohenzollern": {
+    "name": "Hohenzollern Castle",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Landmark",
+    "searchNames": ["Hohenzollern Castle", "Burg Hohenzollern", "Hohenzollern"]
+  }
+}

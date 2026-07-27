@@ -12062,5 +12062,933 @@
         "bytes": 700534
       }
     ]
+  },
+  "charlotte": {
+    "featureName": "Charlotte",
+    "alt": "Charlotte in United States",
+    "caption": "Charlotte, United States",
+    "photographer": "Cmao20",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uptown_Charlotte_2018_taking_by_DJI_Phantom_4_pro_-_Perspective_Corrected_Edit.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Uptown Charlotte 2018 taking by DJI Phantom 4 pro - Perspective Corrected Edit.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9e/Uptown_Charlotte_2018_taking_by_DJI_Phantom_4_pro_-_Perspective_Corrected_Edit.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "dea5787c4d70721981bb125f1f43bbd456e93b5df5fcc8d475afabbe86ba291e",
+    "width": 3840,
+    "height": 2425,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/charlotte/w640.jpg",
+        "bytes": 63693
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/charlotte/w1280.jpg",
+        "bytes": 235540
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/charlotte/w2048.jpg",
+        "bytes": 687058
+      }
+    ]
+  },
+  "columbus": {
+    "featureName": "Columbus Ohio",
+    "alt": "Columbus Ohio in United States",
+    "caption": "Columbus Ohio, United States",
+    "photographer": "Paul Wasneski",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Columbus_View_from_Main_St_Bridge_-_edit1.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown Columbus View from Main St Bridge - edit1.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ad/Downtown_Columbus_View_from_Main_St_Bridge_-_edit1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "57bc6c8a56c84a15c642619759fac587b86fc9cccf9fa4817fa6f8119951f366",
+    "width": 3840,
+    "height": 2623,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/columbus/w640.jpg",
+        "bytes": 44741
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/columbus/w1280.jpg",
+        "bytes": 171411
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/columbus/w2048.jpg",
+        "bytes": 526324
+      }
+    ]
+  },
+  "memphis": {
+    "featureName": "Memphis",
+    "alt": "Memphis in United States",
+    "caption": "Memphis, United States",
+    "photographer": "Quintin Soloviev",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Memphis,_TN_skyline_along_the_Mississippi_River.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Memphis, TN skyline along the Mississippi River.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/75/Memphis%2C_TN_skyline_along_the_Mississippi_River.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5ac276fb143e6d1a0d96da0da49f6b96f3c096ee48578083795472ceae6044d8",
+    "width": 3840,
+    "height": 2304,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/memphis/w640.jpg",
+        "bytes": 49540
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/memphis/w1280.jpg",
+        "bytes": 190013
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/memphis/w2048.jpg",
+        "bytes": 567492
+      }
+    ]
+  },
+  "halifax": {
+    "featureName": "Halifax",
+    "alt": "Halifax in Canada",
+    "caption": "Halifax, Canada",
+    "photographer": "Gordon Leggett",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022-08-15_01_Wide_angle_view_of_Halifax_skyline,_Nova_Scotia,_Canada.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:2022-08-15 01 Wide angle view of Halifax skyline, Nova Scotia, Canada.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4e/2022-08-15_01_Wide_angle_view_of_Halifax_skyline%2C_Nova_Scotia%2C_Canada.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "000ee416a6ccbc303f8984766cef3dc0e68c9777705ec071a61f8128b64366ed",
+    "width": 3840,
+    "height": 1223,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/halifax/w640.jpg",
+        "bytes": 18722
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/halifax/w1280.jpg",
+        "bytes": 67628
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/halifax/w2048.jpg",
+        "bytes": 204811
+      }
+    ]
+  },
+  "salta": {
+    "featureName": "Salta city",
+    "alt": "Salta city in Argentina",
+    "caption": "Salta city, Argentina",
+    "photographer": "Kevin Jones",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Salta_city,_Argentina.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:View of Salta city, Argentina.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/44/View_of_Salta_city%2C_Argentina.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4850ad9eb33c2caf17fe2c0ef4d7223b7b0c1e4d872f9c5f42aa31c6cc252813",
+    "width": 3840,
+    "height": 2582,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/salta/w640.jpg",
+        "bytes": 45500
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/salta/w1280.jpg",
+        "bytes": 151407
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/salta/w2048.jpg",
+        "bytes": 407520
+      }
+    ]
+  },
+  "valdivia": {
+    "featureName": "Valdivia river",
+    "alt": "Valdivia river in Chile",
+    "caption": "Valdivia river, Chile",
+    "photographer": "Carlos Figueroa Rojas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muelle_Schuster,_Valdivia,_20190216_-_05.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Muelle Schuster, Valdivia, 20190216 - 05.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/64/Muelle_Schuster%2C_Valdivia%2C_20190216_-_05.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d02376edc6b241aaa121b839547118509303938d9800e6b43d5ec4489ff01c47",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/valdivia/w640.jpg",
+        "bytes": 50965
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/valdivia/w1280.jpg",
+        "bytes": 188587
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/valdivia/w2048.jpg",
+        "bytes": 555051
+      }
+    ]
+  },
+  "fortaleza": {
+    "featureName": "Fortaleza",
+    "alt": "Fortaleza in Brazil",
+    "caption": "Fortaleza, Brazil",
+    "photographer": "Nelson Pérez",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fortaleza,_Cear%C3%A1,_Brasil_-_panoramio_(1).jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Fortaleza, Ceará, Brasil - panoramio (1).jpg); source https://upload.wikimedia.org/wikipedia/commons/0/07/Fortaleza%2C_Cear%C3%A1%2C_Brasil_-_panoramio_%281%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "430fdc5c99dfde619fc6e9ea0a6bac09becf6ae37fa851e1e82356a7b43ea06b",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/fortaleza/w640.jpg",
+        "bytes": 30937
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/fortaleza/w1280.jpg",
+        "bytes": 110969
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/fortaleza/w2048.jpg",
+        "bytes": 352330
+      }
+    ]
+  },
+  "dubrovnik": {
+    "featureName": "Dubrovnik",
+    "alt": "Dubrovnik in Croatia",
+    "caption": "Dubrovnik, Croatia",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Casco_viejo_de_Dubrovnik,_Croacia,_2014-04-14,_DD_04.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Casco viejo de Dubrovnik, Croacia, 2014-04-14, DD 04.JPG); source https://upload.wikimedia.org/wikipedia/commons/b/b4/Casco_viejo_de_Dubrovnik%2C_Croacia%2C_2014-04-14%2C_DD_04.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4849b6bb0636c7f6bd7ee8346b4f1f20cba43579d886707f6c3a808dce6ec3b3",
+    "width": 3840,
+    "height": 2090,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/dubrovnik/w640.jpg",
+        "bytes": 48451
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/dubrovnik/w1280.jpg",
+        "bytes": 179094
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/dubrovnik/w2048.jpg",
+        "bytes": 550137
+      }
+    ]
+  },
+  "tirana": {
+    "featureName": "Tirana",
+    "alt": "Tirana in Albania",
+    "caption": "Tirana, Albania",
+    "photographer": "Pudelek",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ethem_Bey_mosque_by_night,_Tirana_(by_Pudelek).JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ethem Bey mosque by night, Tirana (by Pudelek).JPG); source https://upload.wikimedia.org/wikipedia/commons/3/39/Ethem_Bey_mosque_by_night%2C_Tirana_%28by_Pudelek%29.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d0fbc15eff2259e1dc74007526b4dadae3f409dfe30201e957bcd3bb962567ee",
+    "width": 2688,
+    "height": 1827,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tirana/w640.jpg",
+        "bytes": 48100
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tirana/w1280.jpg",
+        "bytes": 119687
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tirana/w2048.jpg",
+        "bytes": 287582
+      }
+    ]
+  },
+  "lucknow": {
+    "featureName": "Lucknow",
+    "alt": "Lucknow in India",
+    "caption": "Lucknow, India",
+    "photographer": "Kumud Kant",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asfi_Mosque,_Lucknow,_Uttar_Pradesh,_India_(2013)_2.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Asfi Mosque, Lucknow, Uttar Pradesh, India (2013) 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/ec/Asfi_Mosque%2C_Lucknow%2C_Uttar_Pradesh%2C_India_%282013%29_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "69dccce753a8da95ec1f5f8d9bba9e633b17d0e9037fcfdfd6a9e7ffad049c6e",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lucknow/w640.jpg",
+        "bytes": 46465
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lucknow/w1280.jpg",
+        "bytes": 133188
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lucknow/w2048.jpg",
+        "bytes": 325113
+      }
+    ]
+  },
+  "sendai": {
+    "featureName": "Sendai",
+    "alt": "Sendai in Japan",
+    "caption": "Sendai, Japan",
+    "photographer": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendai_skyline_and_Hirose_River_from_Hyojogawara_Bridge.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sendai skyline and Hirose River from Hyojogawara Bridge.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/40/Sendai_skyline_and_Hirose_River_from_Hyojogawara_Bridge.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "edae9c5109ac74296c1f59425c08bd1ec50ce85a0156462c9ced0795152e55cf",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sendai/w640.jpg",
+        "bytes": 50784
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sendai/w1280.jpg",
+        "bytes": 212672
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sendai/w2048.jpg",
+        "bytes": 711623
+      }
+    ]
+  },
+  "namur": {
+    "featureName": "Namur",
+    "alt": "Namur in Belgium",
+    "caption": "Namur, Belgium",
+    "photographer": "Luc Viatour",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2h_Namur_13.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:2h Namur 13.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/25/2h_Namur_13.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6eaf06266b38f7e0d5e1ff83615154a5fd501096c9351a1cabe0dda5cb961873",
+    "width": 3840,
+    "height": 2539,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/namur/w640.jpg",
+        "bytes": 64660
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/namur/w1280.jpg",
+        "bytes": 229736
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/namur/w2048.jpg",
+        "bytes": 640947
+      }
+    ]
+  },
+  "illinois": {
+    "featureName": "Illinois",
+    "alt": "Illinois in United States",
+    "caption": "Illinois, United States",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muelle_Monroe,_Chicago,_Illinois,_Estados_Unidos,_2012-10-20,_DD_10.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Muelle Monroe, Chicago, Illinois, Estados Unidos, 2012-10-20, DD 10.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/ff/Muelle_Monroe%2C_Chicago%2C_Illinois%2C_Estados_Unidos%2C_2012-10-20%2C_DD_10.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ed1b728ccb4f203a29ecad55fe6eee5c40d1162ef3bc784c40044a9f6c6cc9d0",
+    "width": 3840,
+    "height": 1374,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/illinois/w640.jpg",
+        "bytes": 19014
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/illinois/w1280.jpg",
+        "bytes": 65278
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/illinois/w2048.jpg",
+        "bytes": 191170
+      }
+    ]
+  },
+  "newfoundland-and-labrador": {
+    "featureName": "Newfoundland",
+    "alt": "Newfoundland in Canada",
+    "caption": "Newfoundland, Canada",
+    "photographer": "Adavyd",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Western_Brook_Pond_Newfoundland_Canada_DSC_6405.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Western Brook Pond Newfoundland Canada DSC 6405.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/aa/Western_Brook_Pond_Newfoundland_Canada_DSC_6405.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9f8dbe4151775d591a34d5734b1e6d313a340491c974be29da141cc170d8b967",
+    "width": 3840,
+    "height": 2509,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/newfoundland-and-labrador/w640.jpg",
+        "bytes": 42639
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/newfoundland-and-labrador/w1280.jpg",
+        "bytes": 144424
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/newfoundland-and-labrador/w2048.jpg",
+        "bytes": 418728
+      }
+    ]
+  },
+  "west-bengal": {
+    "featureName": "West Bengal",
+    "alt": "West Bengal in India",
+    "caption": "West Bengal, India",
+    "photographer": "Nasrin Mondal",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kanchenjunga_and_Darjeeling_city.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kanchenjunga and Darjeeling city.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/ca/Kanchenjunga_and_Darjeeling_city.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6daf13ddaaeb35972a89b6af02f99680ca8085433fd08e81f148c72048078ab1",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/west-bengal/w640.jpg",
+        "bytes": 10956
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/west-bengal/w1280.jpg",
+        "bytes": 32833
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/west-bengal/w2048.jpg",
+        "bytes": 105478
+      }
+    ]
+  },
+  "sifnos": {
+    "featureName": "Sifnos",
+    "alt": "Sifnos in Greece",
+    "caption": "Sifnos, Greece",
+    "photographer": "Zde",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_from_Apollonia_on_Sifnos,_153367.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:View from Apollonia on Sifnos, 153367.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/61/View_from_Apollonia_on_Sifnos%2C_153367.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9fb824d5d5df52bddb490d6ff2e697e45114d57728904b30b3d30feddb911fa1",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sifnos/w640.jpg",
+        "bytes": 34896
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sifnos/w1280.jpg",
+        "bytes": 112172
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sifnos/w2048.jpg",
+        "bytes": 307205
+      }
+    ]
+  },
+  "serifos": {
+    "featureName": "Serifos",
+    "alt": "Serifos in Greece",
+    "caption": "Serifos, Greece",
+    "photographer": "Wikinaut",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pano_Seriphos_20030730.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Pano Seriphos 20030730.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/24/Pano_Seriphos_20030730.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "742c6656506d9d63cb0d4ed44dcde50f04e01447135487ec852e45bae98e592b",
+    "width": 3840,
+    "height": 350,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/serifos/w640.jpg",
+        "bytes": 7162
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/serifos/w1280.jpg",
+        "bytes": 22786
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/serifos/w2048.jpg",
+        "bytes": 70037
+      }
+    ]
+  },
+  "el-hierro": {
+    "featureName": "El Hierro",
+    "alt": "El Hierro in Spain",
+    "caption": "El Hierro, Spain",
+    "photographer": "Erik del Toro Streb",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_from_Tanganasoga_volcano_into_the_Golfo_Valley_(El_Hierro).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:View from Tanganasoga volcano into the Golfo Valley (El Hierro).jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a5/View_from_Tanganasoga_volcano_into_the_Golfo_Valley_%28El_Hierro%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ab0d4a3b2c88f895a31b96311cca3cc1326f4c98684f79e51013dc0c20b4d6de",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/el-hierro/w640.jpg",
+        "bytes": 37675
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/el-hierro/w1280.jpg",
+        "bytes": 147318
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/el-hierro/w2048.jpg",
+        "bytes": 436718
+      }
+    ]
+  },
+  "jura": {
+    "featureName": "Isle of Jura",
+    "alt": "Isle of Jura in United Kingdom",
+    "caption": "Isle of Jura, United Kingdom",
+    "photographer": "Bjarne Henning Kvaal…",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jura_seen_from_Bunnahabhain_-_panoramio.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Jura seen from Bunnahabhain - panoramio.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/fd/Jura_seen_from_Bunnahabhain_-_panoramio.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c04ac56514dccf38025a91a1a8df421d4d89aafd392d60bc57fb89f8423f51e1",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/jura/w640.jpg",
+        "bytes": 37824
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/jura/w1280.jpg",
+        "bytes": 138308
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/jura/w2048.jpg",
+        "bytes": 413170
+      }
+    ]
+  },
+  "marie-galante": {
+    "featureName": "Marie-Galante",
+    "alt": "Marie-Galante in France",
+    "caption": "Marie-Galante, France",
+    "photographer": "Tjeerd Wiersma",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plage_de_Folle_Anse_on_Marie-Galante.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Plage de Folle Anse on Marie-Galante.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5e/Plage_de_Folle_Anse_on_Marie-Galante.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "224a24852305bb6db9c34b6c742dc7d971eb15e385d0c3b3cc1308e18b2f71ed",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/marie-galante/w640.jpg",
+        "bytes": 45057
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/marie-galante/w1280.jpg",
+        "bytes": 161823
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/marie-galante/w2048.jpg",
+        "bytes": 466520
+      }
+    ]
+  },
+  "sint-eustatius": {
+    "featureName": "Sint Eustatius",
+    "alt": "Sint Eustatius in Netherlands",
+    "caption": "Sint Eustatius, Netherlands",
+    "photographer": "GIS Statia",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_fields_in_front_of_the_Quill,_in_Sint_Eustatius.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Green fields in front of the Quill, in Sint Eustatius.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6e/Green_fields_in_front_of_the_Quill%2C_in_Sint_Eustatius.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ed81fa87d788330c34243383e78fe53963613df921f81656968082c96a913fa7",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sint-eustatius/w640.jpg",
+        "bytes": 46341
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sint-eustatius/w1280.jpg",
+        "bytes": 189618
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sint-eustatius/w2048.jpg",
+        "bytes": 573463
+      }
+    ]
+  },
+  "molise": {
+    "featureName": "Molise",
+    "alt": "Molise in Italy",
+    "caption": "Molise, Italy",
+    "photographer": "In.my.earth",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paese_di_Pietrabbondante,_Molise.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Paese di Pietrabbondante, Molise.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/db/Paese_di_Pietrabbondante%2C_Molise.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8ea9582b3a77d7ab26dba1bc06c398e3a58f1d53382c91845be95ff983a26a38",
+    "width": 3840,
+    "height": 2157,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/molise/w640.jpg",
+        "bytes": 43812
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/molise/w1280.jpg",
+        "bytes": 180200
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/molise/w2048.jpg",
+        "bytes": 499407
+      }
+    ]
+  },
+  "vorarlberg": {
+    "featureName": "Vorarlberg",
+    "alt": "Vorarlberg in Austria",
+    "caption": "Vorarlberg, Austria",
+    "photographer": "böhringer friedrich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tschengla_Panorama.jpg",
+    "license": "CC BY-SA 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:Tschengla Panorama.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/81/Tschengla_Panorama.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "445c8f17816e745ae3a3a526a1b1a0ea1de206bba59bb2463f22154d93d18458",
+    "width": 3840,
+    "height": 1099,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/vorarlberg/w640.jpg",
+        "bytes": 24589
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/vorarlberg/w1280.jpg",
+        "bytes": 88046
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/vorarlberg/w2048.jpg",
+        "bytes": 266727
+      }
+    ]
+  },
+  "margaret-river": {
+    "featureName": "Margaret River",
+    "alt": "Margaret River in Australia",
+    "caption": "Margaret River, Australia",
+    "photographer": "Lasthib",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2016_Margaret_River_Australia._Yallingup_beach.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:2016 Margaret River Australia. Yallingup beach.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6c/2016_Margaret_River_Australia._Yallingup_beach.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ab00e41a143aa3951f812cf7c8b8045ca87701cde95fc5439779c43e55454528",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/margaret-river/w640.jpg",
+        "bytes": 48424
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/margaret-river/w1280.jpg",
+        "bytes": 175986
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/margaret-river/w2048.jpg",
+        "bytes": 524797
+      }
+    ]
+  },
+  "asturias": {
+    "featureName": "Asturias",
+    "alt": "Asturias in Spain",
+    "caption": "Asturias, Spain",
+    "photographer": "Javier Pérez López",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Quir%C3%B3s,_Asturias,_Spain_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Quirós, Asturias, Spain - panoramio.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1e/Quir%C3%B3s%2C_Asturias%2C_Spain_-_panoramio.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "43ca8b52f23dbeaf6db3d414a973fd5d0feaac553e52675e852d4f88d3657983",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/asturias/w640.jpg",
+        "bytes": 56179
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/asturias/w1280.jpg",
+        "bytes": 218240
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/asturias/w2048.jpg",
+        "bytes": 616257
+      }
+    ]
+  },
+  "banat": {
+    "featureName": "Banat",
+    "alt": "Banat in Romania",
+    "caption": "Banat, Romania",
+    "photographer": "Choinowski",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Victory_Square_in_Timi%C8%99oara_Romania.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Victory Square in Timișoara Romania.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/af/Victory_Square_in_Timi%C8%99oara_Romania.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a9e6cf9ffc4b1c1b0615da0ebfeefb29acf8bef1b6110b4fa870e8cdd254e110",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/banat/w640.jpg",
+        "bytes": 49694
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/banat/w1280.jpg",
+        "bytes": 173407
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/banat/w2048.jpg",
+        "bytes": 521021
+      }
+    ]
+  },
+  "london-eye": {
+    "featureName": "London Eye",
+    "alt": "London Eye in United Kingdom",
+    "caption": "London Eye, United Kingdom",
+    "photographer": "User:Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:London_Eye_Twilight_April_2006.jpg",
+    "license": "CC BY 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:London Eye Twilight April 2006.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b4/London_Eye_Twilight_April_2006.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7b52a18e08a2de957375dbffa851395fd1c51847bd7d2b4a697990c78008412a",
+    "width": 2100,
+    "height": 1400,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/london-eye/w640.jpg",
+        "bytes": 104744
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/london-eye/w1280.jpg",
+        "bytes": 280724
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/london-eye/w2048.jpg",
+        "bytes": 647914
+      }
+    ]
+  },
+  "sacre-coeur": {
+    "featureName": "Sacré-Cœur",
+    "alt": "Sacré-Cœur in France",
+    "caption": "Sacré-Cœur, France",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paris,_Sacr%C3%A9-C%C5%93ur_de_Montmartre_--_2014_--_1193.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Paris, Sacré-Cœur de Montmartre -- 2014 -- 1193.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/92/Paris%2C_Sacr%C3%A9-C%C5%93ur_de_Montmartre_--_2014_--_1193.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b3637643fd0f9fe0e1ba3630cfe50ac7c36c2ead32b775cf9f36a3a3774118fa",
+    "width": 3840,
+    "height": 2331,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sacre-coeur/w640.jpg",
+        "bytes": 44848
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sacre-coeur/w1280.jpg",
+        "bytes": 153182
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sacre-coeur/w2048.jpg",
+        "bytes": 434625
+      }
+    ]
+  },
+  "devils-tower": {
+    "featureName": "Devils Tower",
+    "alt": "Devils Tower in United States",
+    "caption": "Devils Tower, United States",
+    "photographer": "Anthony Maw",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:United_States_Wyoming_Devils_Tower_Frosty_Morning_view_from_Joyner_Ridge.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:United States Wyoming Devils Tower Frosty Morning view from Joyner Ridge.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/08/United_States_Wyoming_Devils_Tower_Frosty_Morning_view_from_Joyner_Ridge.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e2447ea1b962eb76307e69f37468fbd9b2deaf87fc14a6305eeda54ef435af61",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/devils-tower/w640.jpg",
+        "bytes": 48358
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/devils-tower/w1280.jpg",
+        "bytes": 160382
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/devils-tower/w2048.jpg",
+        "bytes": 418377
+      }
+    ]
+  },
+  "crater-lake": {
+    "featureName": "Crater Lake",
+    "alt": "Crater Lake in United States",
+    "caption": "Crater Lake, United States",
+    "photographer": "Amy Hanley a_hanley",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crater_Lake_National_Park,_United_States_(Unsplash).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Crater Lake National Park, United States (Unsplash).jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7e/Crater_Lake_National_Park%2C_United_States_%28Unsplash%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9831cc154c6b4c7f7890f231e8e2c7e5829b5fb9ede4dfbeb6400912ce747c91",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/crater-lake/w640.jpg",
+        "bytes": 27702
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/crater-lake/w1280.jpg",
+        "bytes": 90275
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/crater-lake/w2048.jpg",
+        "bytes": 265000
+      }
+    ]
+  },
+  "alcazar-seville": {
+    "featureName": "Alcázar of Seville",
+    "alt": "Alcázar of Seville in Spain",
+    "caption": "Alcázar of Seville, Spain",
+    "photographer": "Suicasmo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gardens_of_the_Alc%C3%A1zar_of_Seville_20180719-2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Gardens of the Alcázar of Seville 20180719-2.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/65/Gardens_of_the_Alc%C3%A1zar_of_Seville_20180719-2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f9e0b4fbf2c4045b075ed93449513d1b01727fd77ce9404852177d0c5e317ede",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/alcazar-seville/w640.jpg",
+        "bytes": 71083
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/alcazar-seville/w1280.jpg",
+        "bytes": 281045
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/alcazar-seville/w2048.jpg",
+        "bytes": 852999
+      }
+    ]
+  },
+  "hohenzollern": {
+    "featureName": "Hohenzollern Castle",
+    "alt": "Hohenzollern Castle in Germany",
+    "caption": "Hohenzollern Castle, Germany",
+    "photographer": "Jörg Wendland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Burg_Hohenzollern.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Burg Hohenzollern.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/50/Burg_Hohenzollern.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5279ee20204a28fe94d791afe24dd0592b7ad49d95b2add4f036de7288677707",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hohenzollern/w640.jpg",
+        "bytes": 21689
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hohenzollern/w1280.jpg",
+        "bytes": 64068
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hohenzollern/w2048.jpg",
+        "bytes": 174513
+      }
+    ]
   }
 }
