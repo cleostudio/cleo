@@ -199,6 +199,11 @@ export const CLEO_PORTAL_STARTERS = [
       'Where is Japan on Earth relative to its neighbors? Deep-link Maps for Japan and its Explore field guide.',
   },
   {
+    label: 'Frame Africa on the map',
+    prompt:
+      'Frame the African continent on Earth. Deep-link Maps with the Africa region camera (`/maps?region=africa`) and mention a couple of Explore guides.',
+  },
+  {
     label: 'Why is Europa interesting?',
     prompt:
       'Why is Europa interesting as an ocean world? Deep-link the Space guide when you name it.',

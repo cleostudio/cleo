@@ -167,5 +167,10 @@ describe('CLEO_PORTAL_STARTERS', () => {
     expect(
       CLEO_PORTAL_STARTERS.some((starter) => /maps/i.test(starter.prompt)),
     ).toBe(true)
+    expect(
+      CLEO_PORTAL_STARTERS.some((starter) =>
+        /maps\?region=africa/i.test(starter.prompt),
+      ),
+    ).toBe(true)
   })
 })

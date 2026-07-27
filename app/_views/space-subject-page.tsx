@@ -231,7 +231,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
             href="/maps"
             className="text-sm text-muted-foreground hover:text-foreground"
           >
-            Open the Earth map →
+            View on map →
           </Link>
         </p>
       ) : null}

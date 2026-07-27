@@ -352,19 +352,39 @@ function addCapitalLayers(map: MapLibreMap) {
       minzoom: 2.8,
       paint: {
         'circle-radius': [
-          'interpolate',
-          ['linear'],
-          ['zoom'],
-          2.8,
-          2.2,
-          5,
-          3.4,
-          6.5,
-          4.2,
+          'case',
+          ['boolean', ['feature-state', 'selected'], false],
+          5.6,
+          [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            2.8,
+            2.2,
+            5,
+            3.4,
+            6.5,
+            4.2,
+          ],
         ],
-        'circle-color': 'rgba(255, 236, 200, 0.95)',
-        'circle-stroke-color': 'rgba(20, 28, 40, 0.75)',
-        'circle-stroke-width': 1,
+        'circle-color': [
+          'case',
+          ['boolean', ['feature-state', 'selected'], false],
+          'rgba(255, 196, 120, 1)',
+          'rgba(255, 236, 200, 0.95)',
+        ],
+        'circle-stroke-color': [
+          'case',
+          ['boolean', ['feature-state', 'selected'], false],
+          'rgba(255, 220, 160, 0.95)',
+          'rgba(20, 28, 40, 0.75)',
+        ],
+        'circle-stroke-width': [
+          'case',
+          ['boolean', ['feature-state', 'selected'], false],
+          1.7,
+          1,
+        ],
         'circle-opacity': [
           'interpolate',
           ['linear'],
@@ -387,7 +407,12 @@ function addCapitalLayers(map: MapLibreMap) {
       layout: {
         'text-field': ['get', 'name'],
         'text-font': ['Open Sans Regular'],
-        'text-size': 11,
+        'text-size': [
+          'case',
+          ['boolean', ['feature-state', 'selected'], false],
+          12.5,
+          11,
+        ],
         'text-offset': [0, 1.05],
         'text-anchor': 'top',
         'text-padding': 4,
@@ -395,7 +420,12 @@ function addCapitalLayers(map: MapLibreMap) {
         'text-allow-overlap': false,
       },
       paint: {
-        'text-color': 'rgba(255, 244, 220, 0.92)',
+        'text-color': [
+          'case',
+          ['boolean', ['feature-state', 'selected'], false],
+          'rgba(255, 220, 160, 0.98)',
+          'rgba(255, 244, 220, 0.92)',
+        ],
         'text-halo-color': 'rgba(10, 18, 30, 0.8)',
         'text-halo-width': 1.05,
         'text-opacity': [
@@ -409,6 +439,25 @@ function addCapitalLayers(map: MapLibreMap) {
         ],
       },
     })
+  }
+}
+
+/** Keep country fill and capital marker selection feature-state in sync. */
+function syncSelectionFeatureState(
+  map: MapLibreMap,
+  previous: string | null,
+  next: string | null,
+) {
+  for (const source of ['countries', 'capitals'] as const) {
+    if (!map.getSource(source)) continue
+    if (previous && previous !== next) {
+      map.setFeatureState({ source, id: previous }, { selected: false })
+    }
+    if (next) {
+      map.setFeatureState({ source, id: next }, { selected: true })
+    } else if (previous) {
+      map.setFeatureState({ source, id: previous }, { selected: false })
+    }
   }
 }
 
@@ -621,16 +670,13 @@ export function EarthMap({
       }
     }
 
-    const setSelection = (hit: MapCountryHit | null, entry?: MapCountryIndexEntry) => {
-      if (map.getSource('countries')) {
-        const previous = selectedCodeRef.current
-        if (previous && previous !== hit?.code) {
-          map.setFeatureState({ source: 'countries', id: previous }, { selected: false })
-        }
-        if (hit) {
-          map.setFeatureState({ source: 'countries', id: hit.code }, { selected: true })
-        }
-      }
+    const setSelection = (
+      hit: MapCountryHit | null,
+      entry?: MapCountryIndexEntry,
+      { preferCapital = false }: { preferCapital?: boolean } = {},
+    ) => {
+      const previous = selectedCodeRef.current
+      syncSelectionFeatureState(map, previous, hit?.code ?? null)
       selectedCodeRef.current = hit?.code ?? null
       setSelected(hit)
       setActiveRegion(null)
@@ -640,16 +686,19 @@ export function EarthMap({
       setSuggestions([])
       if (hit) {
         setQuery(hit.name)
-        setFocusAnnouncement(`Selected ${hit.name}.`)
+        const indexed =
+          entry ?? indexRef.current.find((item) => item.code === hit.code)
+        const capitalName = indexed?.capitalName
+        setFocusAnnouncement(
+          preferCapital && capitalName
+            ? `Selected ${hit.name}. Showing ${capitalName}.`
+            : `Selected ${hit.name}.`,
+        )
         syncMapFocusSearchParams({
           kind: 'country',
           value: hit.country?.slug ?? hit.code,
         })
-        if (entry) fitCountry(map, entry)
-        else {
-          const indexed = indexRef.current.find((item) => item.code === hit.code)
-          if (indexed) fitCountry(map, indexed)
-        }
+        if (indexed) fitCountry(map, indexed, { preferCapital })
       } else {
         setQuery('')
         setFocusAnnouncement('Selection cleared.')
@@ -675,43 +724,95 @@ export function EarthMap({
     }
 
     let countryHandlersBound = false
+    let capitalHandlersBound = false
     let ignoreMapClicksUntil = 0
 
-    const bindCountryHandlers = () => {
-      if (countryHandlersBound || !map.getLayer('country-fill')) return
-      countryHandlersBound = true
+    const selectCode = (
+      code: string,
+      fallbackName: string,
+      { preferCapital = false }: { preferCapital?: boolean } = {},
+    ) => {
+      const hit = resolveMapCountry(code, fallbackName)
+      const indexed = indexRef.current.find((item) => item.code === hit.code)
+      setSelection(hit, indexed, { preferCapital })
+    }
 
-      map.on('mousemove', 'country-fill', (event: MapLayerMouseEvent) => {
-        const feature = event.features?.[0]
-        const code = feature ? String(feature.id ?? feature.properties?.code ?? '') : ''
-        setHover(code || null)
-        if (event.lngLat) {
-          setCoords(formatMapCoords(event.lngLat.lng, event.lngLat.lat))
-        }
-      })
+    const bindInteractionHandlers = () => {
+      if (!countryHandlersBound && map.getLayer('country-fill')) {
+        countryHandlersBound = true
 
-      map.on('mouseleave', 'country-fill', () => {
-        setHover(null)
-      })
-
-      map.on('click', 'country-fill', (event: MapLayerMouseEvent) => {
-        if (performance.now() < ignoreMapClicksUntil) return
-        const feature = event.features?.[0]
-        if (!feature) return
-        const code = String(feature.id ?? feature.properties?.code ?? '')
-        if (!code) return
-        const hit = resolveMapCountry(code, String(feature.properties?.name ?? code))
-        setSelection(hit)
-      })
-
-      map.on('click', (event: MapMouseEvent) => {
-        if (performance.now() < ignoreMapClicksUntil) return
-        if (!map.getLayer('country-fill')) return
-        const hits = map.queryRenderedFeatures(event.point, {
-          layers: ['country-fill'],
+        map.on('mousemove', 'country-fill', (event: MapLayerMouseEvent) => {
+          const feature = event.features?.[0]
+          const code = feature
+            ? String(feature.id ?? feature.properties?.code ?? '')
+            : ''
+          setHover(code || null)
+          if (event.lngLat) {
+            setCoords(formatMapCoords(event.lngLat.lng, event.lngLat.lat))
+          }
         })
-        if (hits.length === 0) setSelection(null)
-      })
+
+        map.on('mouseleave', 'country-fill', () => {
+          setHover(null)
+        })
+
+        map.on('click', 'country-fill', (event: MapLayerMouseEvent) => {
+          if (performance.now() < ignoreMapClicksUntil) return
+          // Prefer a capital hit when the click lands on both layers.
+          if (map.getLayer('capital-dots')) {
+            const capitalHits = map.queryRenderedFeatures(event.point, {
+              layers: ['capital-dots'],
+            })
+            if (capitalHits.length > 0) return
+          }
+          const feature = event.features?.[0]
+          if (!feature) return
+          const code = String(feature.id ?? feature.properties?.code ?? '')
+          if (!code) return
+          selectCode(code, String(feature.properties?.name ?? code))
+        })
+
+        map.on('click', (event: MapMouseEvent) => {
+          if (performance.now() < ignoreMapClicksUntil) return
+          if (!map.getLayer('country-fill')) return
+          const layers = ['country-fill']
+          if (map.getLayer('capital-dots')) layers.push('capital-dots')
+          const hits = map.queryRenderedFeatures(event.point, { layers })
+          if (hits.length === 0) setSelection(null)
+        })
+      }
+
+      if (!capitalHandlersBound && map.getLayer('capital-dots')) {
+        capitalHandlersBound = true
+
+        map.on('mousemove', 'capital-dots', (event: MapLayerMouseEvent) => {
+          const feature = event.features?.[0]
+          const code = feature
+            ? String(feature.id ?? feature.properties?.code ?? '')
+            : ''
+          setHover(code || null)
+          map.getCanvas().style.cursor = code ? 'pointer' : ''
+          if (event.lngLat) {
+            setCoords(formatMapCoords(event.lngLat.lng, event.lngLat.lat))
+          }
+        })
+
+        map.on('mouseleave', 'capital-dots', () => {
+          setHover(null)
+        })
+
+        map.on('click', 'capital-dots', (event: MapLayerMouseEvent) => {
+          if (performance.now() < ignoreMapClicksUntil) return
+          const feature = event.features?.[0]
+          if (!feature) return
+          const code = String(feature.id ?? feature.properties?.code ?? '')
+          if (!code) return
+          const countryName = String(
+            feature.properties?.country ?? feature.properties?.name ?? code,
+          )
+          selectCode(code, countryName, { preferCapital: true })
+        })
+      }
     }
 
     const ensureCountryLayers = () => {
@@ -724,7 +825,7 @@ export function EarthMap({
         upsertLabelLayers(map, indexRef.current, regionsRef.current)
       }
       applyLayerVisibility(map, layersRef.current)
-      bindCountryHandlers()
+      bindInteractionHandlers()
     }
 
     const hydrateCountries = async () => {
@@ -880,12 +981,7 @@ export function EarthMap({
     suppressMapClickRef.current()
     const hit = resolveMapCountry(entry.code, entry.name)
     const previous = selectedCodeRef.current
-    if (map.getSource('countries')) {
-      if (previous && previous !== hit.code) {
-        map.setFeatureState({ source: 'countries', id: previous }, { selected: false })
-      }
-      map.setFeatureState({ source: 'countries', id: hit.code }, { selected: true })
-    }
+    syncSelectionFeatureState(map, previous, hit.code)
     selectedCodeRef.current = hit.code
     setSelected(hit)
     setQuery(entry.name)
@@ -921,12 +1017,7 @@ export function EarthMap({
   function resetView() {
     const map = mapRef.current
     if (!map) return
-    if (selectedCodeRef.current && map.getSource('countries')) {
-      map.setFeatureState(
-        { source: 'countries', id: selectedCodeRef.current },
-        { selected: false },
-      )
-    }
+    syncSelectionFeatureState(map, selectedCodeRef.current, null)
     selectedCodeRef.current = null
     setSelected(null)
     setQuery('')
@@ -957,12 +1048,7 @@ export function EarthMap({
     const map = mapRef.current
     if (!map) return
     suppressMapClickRef.current()
-    if (selectedCodeRef.current && map.getSource('countries')) {
-      map.setFeatureState(
-        { source: 'countries', id: selectedCodeRef.current },
-        { selected: false },
-      )
-    }
+    syncSelectionFeatureState(map, selectedCodeRef.current, null)
     selectedCodeRef.current = null
     setSelected(null)
     setQuery('')
@@ -1013,6 +1099,7 @@ export function EarthMap({
   return (
     <div
       className={cn('earth-map', className)}
+      data-has-selection={selected || activeRegion ? '' : undefined}
       aria-busy={loadState === 'loading' || undefined}
     >
       <div
@@ -1380,7 +1467,7 @@ export function EarthMap({
               <p className="earth-map-hint">
                 Pan and zoom (arrow keys when the map is focused), toggle
                 borders, labels, and graticule, jump by region, or click a
-                country for its Explore field guide.
+                country or capital for its Explore field guide.
               </p>
             </div>
           )}

@@ -204,8 +204,12 @@ html[data-maps-route] body {
   top: calc(100% + 0.35rem);
   left: 0;
   right: 0;
+  max-height: min(14.5rem, 42vh);
   margin: 0;
   padding: 0.25rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   list-style: none;
   border-radius: var(--radius);
   background: var(--popover);
@@ -409,9 +413,22 @@ html[data-maps-route] body {
   );
 }
 
-.earth-map-canvas .maplibregl-ctrl-bottom-left,
+.earth-map-canvas .maplibregl-ctrl-bottom-left {
+  left: max(var(--maps-hud-inset), env(safe-area-inset-left, 0px));
+  bottom: calc(
+    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.35rem
+  );
+}
+
 .earth-map-canvas .maplibregl-ctrl-bottom-right {
   bottom: 0.45rem;
+}
+
+/* Keep the metric scale above a tall selection dossier when one is open. */
+.earth-map[data-has-selection] .maplibregl-ctrl-bottom-left {
+  bottom: calc(
+    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 8.75rem
+  );
 }
 
 .earth-map-canvas .maplibregl-ctrl-group {
@@ -669,6 +686,25 @@ html[data-maps-route] body {
 
   .earth-map-canvas .maplibregl-ctrl-attrib {
     max-width: min(12rem, 48vw);
+  }
+
+  .earth-map-suggestions {
+    max-height: min(12rem, 36vh);
+  }
+
+  .earth-map-layers {
+    gap: 0.25rem;
+  }
+
+  .earth-map-layer {
+    font-size: 0.65rem;
+    padding: 0.28rem 0.42rem;
+  }
+
+  .earth-map[data-has-selection] .maplibregl-ctrl-bottom-left {
+    bottom: calc(
+      var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 10.5rem
+    );
   }
 }
 
