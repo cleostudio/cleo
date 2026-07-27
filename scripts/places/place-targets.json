@@ -3443,5 +3443,357 @@
       "Ayasofya",
       "Hagia Sophia Istanbul"
     ]
+  },
+  "kansas-city": {
+    "name": "Kansas City",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Kansas City Missouri",
+      "Kansas City skyline",
+      "Kansas City Plaza"
+    ]
+  },
+  "cleveland": {
+    "name": "Cleveland",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Cleveland",
+      "Cleveland skyline",
+      "Cleveland Lake Erie"
+    ]
+  },
+  "raleigh": {
+    "name": "Raleigh",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Raleigh North Carolina",
+      "Raleigh skyline",
+      "Raleigh downtown"
+    ]
+  },
+  "edmonton": {
+    "name": "Edmonton",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": [
+      "Edmonton",
+      "Edmonton skyline",
+      "Edmonton North Saskatchewan"
+    ]
+  },
+  "valparaiso": {
+    "name": "Valparaíso",
+    "countrySlug": "chile",
+    "countryName": "Chile",
+    "kind": "City",
+    "searchNames": [
+      "Valparaiso Chile",
+      "Valparaíso hills",
+      "Valparaiso harbor"
+    ]
+  },
+  "arequipa": {
+    "name": "Arequipa",
+    "countrySlug": "peru",
+    "countryName": "Peru",
+    "kind": "City",
+    "searchNames": [
+      "Arequipa",
+      "Arequipa volcano",
+      "Arequipa cathedral"
+    ]
+  },
+  "curitiba": {
+    "name": "Curitiba",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": [
+      "Curitiba",
+      "Curitiba skyline",
+      "Curitiba Brazil"
+    ]
+  },
+  "riga": {
+    "name": "Riga",
+    "countrySlug": "latvia",
+    "countryName": "Latvia",
+    "kind": "City",
+    "searchNames": [
+      "Riga",
+      "Riga old town",
+      "Riga skyline"
+    ]
+  },
+  "vilnius": {
+    "name": "Vilnius",
+    "countrySlug": "lithuania",
+    "countryName": "Lithuania",
+    "kind": "City",
+    "searchNames": [
+      "Vilnius",
+      "Vilnius old town",
+      "Vilnius skyline"
+    ]
+  },
+  "ahmedabad": {
+    "name": "Ahmedabad",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Ahmedabad",
+      "Ahmedabad India",
+      "Sabarmati Ahmedabad"
+    ]
+  },
+  "kanazawa": {
+    "name": "Kanazawa",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": [
+      "Kanazawa",
+      "Kenrokuen Kanazawa",
+      "Kanazawa Japan"
+    ]
+  },
+  "ghent": {
+    "name": "Ghent",
+    "countrySlug": "belgium",
+    "countryName": "Belgium",
+    "kind": "City",
+    "searchNames": [
+      "Ghent",
+      "Ghent Belgium",
+      "Graslei Ghent"
+    ]
+  },
+  "virginia": {
+    "name": "Virginia",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Virginia USA",
+      "Blue Ridge Virginia",
+      "Virginia landscape"
+    ]
+  },
+  "saskatchewan": {
+    "name": "Saskatchewan",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": [
+      "Saskatchewan",
+      "Saskatchewan prairie",
+      "Saskatchewan fields"
+    ]
+  },
+  "andhra-pradesh": {
+    "name": "Andhra Pradesh",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": [
+      "Andhra Pradesh",
+      "Andhra Pradesh coast",
+      "Andhra Pradesh temple"
+    ]
+  },
+  "paxos": {
+    "name": "Paxos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Paxos",
+      "Paxos Greece",
+      "Paxos harbour"
+    ]
+  },
+  "symi": {
+    "name": "Symi",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Symi",
+      "Symi harbour",
+      "Symi Greece"
+    ]
+  },
+  "la-gomera": {
+    "name": "La Gomera",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": [
+      "La Gomera",
+      "La Gomera Canary",
+      "Garajonay La Gomera"
+    ]
+  },
+  "islay": {
+    "name": "Islay",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Islay",
+      "Islay Scotland",
+      "Islay coast"
+    ]
+  },
+  "bonaire": {
+    "name": "Bonaire",
+    "countrySlug": "netherlands",
+    "countryName": "Netherlands",
+    "kind": "Island",
+    "searchNames": [
+      "Bonaire",
+      "Bonaire reef",
+      "Bonaire Caribbean"
+    ]
+  },
+  "abruzzo": {
+    "name": "Abruzzo",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Abruzzo",
+      "Abruzzo mountains",
+      "Abruzzo Italy"
+    ]
+  },
+  "tyrol": {
+    "name": "Tyrol",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "Region",
+    "searchNames": [
+      "Tyrol",
+      "Tyrol Alps",
+      "Innsbruck Tyrol"
+    ]
+  },
+  "hunter-valley": {
+    "name": "Hunter Valley",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Region",
+    "searchNames": [
+      "Hunter Valley",
+      "Hunter Valley vineyards",
+      "Hunter Valley NSW"
+    ]
+  },
+  "lake-constance": {
+    "name": "Lake Constance",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Lake Constance",
+      "Bodensee",
+      "Lake Constance Alps"
+    ]
+  },
+  "transylvania": {
+    "name": "Transylvania",
+    "countrySlug": "romania",
+    "countryName": "Romania",
+    "kind": "Region",
+    "searchNames": [
+      "Transylvania",
+      "Transylvania Romania",
+      "Transylvanian Alps"
+    ]
+  },
+  "blue-mosque": {
+    "name": "Blue Mosque",
+    "countrySlug": "turkiye",
+    "countryName": "Türkiye",
+    "kind": "Landmark",
+    "searchNames": [
+      "Blue Mosque",
+      "Sultan Ahmed Mosque",
+      "Sultanahmet Mosque"
+    ]
+  },
+  "pantheon": {
+    "name": "Pantheon",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": [
+      "Pantheon Rome",
+      "Pantheon",
+      "Pantheon exterior"
+    ]
+  },
+  "mount-vesuvius": {
+    "name": "Mount Vesuvius",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mount Vesuvius",
+      "Vesuvius",
+      "Vesuvius crater"
+    ]
+  },
+  "canyonlands": {
+    "name": "Canyonlands",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Canyonlands National Park",
+      "Canyonlands",
+      "Island in the Sky Canyonlands"
+    ]
+  },
+  "brandenburg-gate": {
+    "name": "Brandenburg Gate",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Landmark",
+    "searchNames": [
+      "Brandenburg Gate",
+      "Brandenburger Tor",
+      "Brandenburg Gate Berlin"
+    ]
+  },
+  "trevi-fountain": {
+    "name": "Trevi Fountain",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": [
+      "Trevi Fountain",
+      "Fontana di Trevi",
+      "Trevi Fountain Rome"
+    ]
+  },
+  "st-lucia": {
+    "name": "Saint Lucia",
+    "countrySlug": "saint-lucia",
+    "countryName": "Saint Lucia",
+    "kind": "Island",
+    "searchNames": [
+      "Saint Lucia",
+      "Pitons Saint Lucia",
+      "Soufriere Saint Lucia"
+    ]
   }
 }

@@ -12359,6 +12359,774 @@
       }
     ]
   },
+  "places/kansas-city": {
+    "collection": "places",
+    "title": "Kansas City",
+    "subtitle": "Kansas City",
+    "alt": "Kansas City in United States",
+    "photographer": "Lasse Fuss",
+    "license": "CC BY-SA 3.0",
+    "width": 3000,
+    "height": 1700,
+    "renditions": [
+      {
+        "src": "/images/places/kansas-city/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kansas-city/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kansas-city/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cleveland": {
+    "collection": "places",
+    "title": "Cleveland",
+    "subtitle": "Cleveland",
+    "alt": "Cleveland in United States",
+    "photographer": "Erik Drost",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/cleveland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cleveland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cleveland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/raleigh": {
+    "collection": "places",
+    "title": "Raleigh",
+    "subtitle": "Raleigh",
+    "alt": "Raleigh in United States",
+    "photographer": "James Willamor",
+    "license": "CC BY-SA 3.0",
+    "width": 3711,
+    "height": 2438,
+    "renditions": [
+      {
+        "src": "/images/places/raleigh/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/raleigh/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/raleigh/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/edmonton": {
+    "collection": "places",
+    "title": "Edmonton",
+    "subtitle": "Edmonton",
+    "alt": "Edmonton in Canada",
+    "photographer": "Joli Rumi",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/edmonton/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/edmonton/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/edmonton/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/valparaiso": {
+    "collection": "places",
+    "title": "Valparaíso",
+    "subtitle": "Valparaíso",
+    "alt": "Valparaíso in Chile",
+    "photographer": "Alexxxos",
+    "license": "CC BY-SA 3.0",
+    "width": 1600,
+    "height": 1200,
+    "renditions": [
+      {
+        "src": "/images/places/valparaiso/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/valparaiso/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/valparaiso/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/arequipa": {
+    "collection": "places",
+    "title": "Arequipa",
+    "subtitle": "Arequipa",
+    "alt": "Arequipa in Peru",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1757,
+    "renditions": [
+      {
+        "src": "/images/places/arequipa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/arequipa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/arequipa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/curitiba": {
+    "collection": "places",
+    "title": "Curitiba",
+    "subtitle": "Curitiba",
+    "alt": "Curitiba in Brazil",
+    "photographer": "Wilfredor",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2413,
+    "renditions": [
+      {
+        "src": "/images/places/curitiba/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/curitiba/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/curitiba/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/riga": {
+    "collection": "places",
+    "title": "Riga",
+    "subtitle": "Riga",
+    "alt": "Riga in Latvia",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 597,
+    "renditions": [
+      {
+        "src": "/images/places/riga/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/riga/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/riga/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/vilnius": {
+    "collection": "places",
+    "title": "Vilnius",
+    "subtitle": "Vilnius",
+    "alt": "Vilnius in Lithuania",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2003,
+    "renditions": [
+      {
+        "src": "/images/places/vilnius/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/vilnius/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/vilnius/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ahmedabad": {
+    "collection": "places",
+    "title": "Ahmedabad",
+    "subtitle": "Ahmedabad",
+    "alt": "Ahmedabad in India",
+    "photographer": "Pravega",
+    "license": "CC0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/places/ahmedabad/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ahmedabad/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ahmedabad/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kanazawa": {
+    "collection": "places",
+    "title": "Kanazawa",
+    "subtitle": "Kanazawa",
+    "alt": "Kanazawa in Japan",
+    "photographer": "663highland",
+    "license": "CC BY 2.5",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "src": "/images/places/kanazawa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kanazawa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kanazawa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ghent": {
+    "collection": "places",
+    "title": "Ghent",
+    "subtitle": "Ghent",
+    "alt": "Ghent in Belgium",
+    "photographer": "Martinvl",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/ghent/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ghent/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ghent/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/virginia": {
+    "collection": "places",
+    "title": "Virginia",
+    "subtitle": "Virginia",
+    "alt": "Virginia in United States",
+    "photographer": "Famartin",
+    "license": "CC BY-SA 4.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/places/virginia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/virginia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/virginia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/saskatchewan": {
+    "collection": "places",
+    "title": "Saskatchewan",
+    "subtitle": "Saskatchewan",
+    "alt": "Saskatchewan in Canada",
+    "photographer": "Masterhatch",
+    "license": "CC BY-SA 4.0",
+    "width": 3796,
+    "height": 2847,
+    "renditions": [
+      {
+        "src": "/images/places/saskatchewan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/saskatchewan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/saskatchewan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/andhra-pradesh": {
+    "collection": "places",
+    "title": "Andhra Pradesh",
+    "subtitle": "Andhra Pradesh",
+    "alt": "Andhra Pradesh in India",
+    "photographer": "Nikhilb239",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/andhra-pradesh/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/andhra-pradesh/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/andhra-pradesh/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/paxos": {
+    "collection": "places",
+    "title": "Paxos",
+    "subtitle": "Paxos",
+    "alt": "Paxos in Greece",
+    "photographer": "Mageiamaya",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2559,
+    "renditions": [
+      {
+        "src": "/images/places/paxos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/paxos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/paxos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/symi": {
+    "collection": "places",
+    "title": "Symi",
+    "subtitle": "Symi",
+    "alt": "Symi in Greece",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2556,
+    "renditions": [
+      {
+        "src": "/images/places/symi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/symi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/symi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/la-gomera": {
+    "collection": "places",
+    "title": "La Gomera",
+    "subtitle": "La Gomera",
+    "alt": "La Gomera in Spain",
+    "photographer": "Till Niermann",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/la-gomera/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/la-gomera/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/la-gomera/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/islay": {
+    "collection": "places",
+    "title": "Islay",
+    "subtitle": "Islay",
+    "alt": "Islay in United Kingdom",
+    "photographer": "MSeses",
+    "license": "CC BY-SA 4.0",
+    "width": 3456,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/places/islay/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/islay/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/islay/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bonaire": {
+    "collection": "places",
+    "title": "Bonaire",
+    "subtitle": "Bonaire",
+    "alt": "Bonaire in Netherlands",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/bonaire/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bonaire/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bonaire/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/st-lucia": {
+    "collection": "places",
+    "title": "Saint Lucia",
+    "subtitle": "Saint Lucia",
+    "alt": "Saint Lucia in Saint Lucia",
+    "photographer": "Jayen466",
+    "license": "Public domain",
+    "width": 2001,
+    "height": 1644,
+    "renditions": [
+      {
+        "src": "/images/places/st-lucia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/st-lucia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/st-lucia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/abruzzo": {
+    "collection": "places",
+    "title": "Abruzzo",
+    "subtitle": "Abruzzo",
+    "alt": "Abruzzo in Italy",
+    "photographer": "PaestumPaestum",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2167,
+    "renditions": [
+      {
+        "src": "/images/places/abruzzo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/abruzzo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/abruzzo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tyrol": {
+    "collection": "places",
+    "title": "Tyrol",
+    "subtitle": "Tyrol",
+    "alt": "Tyrol in Austria",
+    "photographer": "Jörg Braukmann",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1583,
+    "renditions": [
+      {
+        "src": "/images/places/tyrol/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tyrol/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tyrol/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hunter-valley": {
+    "collection": "places",
+    "title": "Hunter Valley",
+    "subtitle": "Hunter Valley",
+    "alt": "Hunter Valley in Australia",
+    "photographer": "thinkrorbot",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/hunter-valley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hunter-valley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hunter-valley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lake-constance": {
+    "collection": "places",
+    "title": "Lake Constance",
+    "subtitle": "Lake Constance",
+    "alt": "Lake Constance in Germany",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "src": "/images/places/lake-constance/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lake-constance/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lake-constance/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/transylvania": {
+    "collection": "places",
+    "title": "Transylvania",
+    "subtitle": "Transylvania",
+    "alt": "Transylvania in Romania",
+    "photographer": "FOTO:Fortepan — ID 26511 : Adományozó/Donor: Tarbay Júlia. archive copy at the Wayback Machine",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2597,
+    "renditions": [
+      {
+        "src": "/images/places/transylvania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/transylvania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/transylvania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/blue-mosque": {
+    "collection": "places",
+    "title": "Blue Mosque",
+    "subtitle": "Blue Mosque",
+    "alt": "Blue Mosque in Türkiye",
+    "photographer": "Benh LIEU SONG ( Flickr )",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2700,
+    "renditions": [
+      {
+        "src": "/images/places/blue-mosque/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/blue-mosque/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/blue-mosque/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/pantheon": {
+    "collection": "places",
+    "title": "Pantheon",
+    "subtitle": "Pantheon",
+    "alt": "Pantheon in Italy",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/pantheon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/pantheon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/pantheon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mount-vesuvius": {
+    "collection": "places",
+    "title": "Mount Vesuvius",
+    "subtitle": "Mount Vesuvius",
+    "alt": "Mount Vesuvius in Italy",
+    "photographer": "Ввласенко",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2271,
+    "renditions": [
+      {
+        "src": "/images/places/mount-vesuvius/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mount-vesuvius/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mount-vesuvius/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/canyonlands": {
+    "collection": "places",
+    "title": "Canyonlands",
+    "subtitle": "Canyonlands",
+    "alt": "Canyonlands in United States",
+    "photographer": "Thomas Wolf , www.foto-tw.de",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2271,
+    "renditions": [
+      {
+        "src": "/images/places/canyonlands/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/canyonlands/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/canyonlands/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/brandenburg-gate": {
+    "collection": "places",
+    "title": "Brandenburg Gate",
+    "subtitle": "Brandenburg Gate",
+    "alt": "Brandenburg Gate in Germany",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/brandenburg-gate/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/brandenburg-gate/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/brandenburg-gate/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/trevi-fountain": {
+    "collection": "places",
+    "title": "Trevi Fountain",
+    "subtitle": "Trevi Fountain",
+    "alt": "Trevi Fountain in Italy",
+    "photographer": "Diliff",
+    "license": "CC BY 3.0",
+    "width": 3500,
+    "height": 2325,
+    "renditions": [
+      {
+        "src": "/images/places/trevi-fountain/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/trevi-fountain/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/trevi-fountain/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

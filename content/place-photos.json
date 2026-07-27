@@ -9278,5 +9278,933 @@
         "bytes": 331895
       }
     ]
+  },
+  "kansas-city": {
+    "featureName": "Kansas City",
+    "alt": "Kansas City in United States",
+    "caption": "Kansas City, United States",
+    "photographer": "Lasse Fuss",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kansas_City,_MO_skyline_at_night.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kansas City, MO skyline at night.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/23/Kansas_City%2C_MO_skyline_at_night.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bf53e1490368b27295fb17a0dda8f22d6051aaf59dcde8f00836ac75ca431077",
+    "width": 3000,
+    "height": 1700,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kansas-city/w640.jpg",
+        "bytes": 62199
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kansas-city/w1280.jpg",
+        "bytes": 141404
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kansas-city/w2048.jpg",
+        "bytes": 327387
+      }
+    ]
+  },
+  "cleveland": {
+    "featureName": "Cleveland",
+    "alt": "Cleveland in United States",
+    "caption": "Cleveland, United States",
+    "photographer": "Erik Drost",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%22Lake_Erie%22_%22Terminal_Tower%22_Skyscraper_Skyline_%22Key_Tower%22_Cleveland_Ohio_(29511983292).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:\"Lake Erie\" \"Terminal Tower\" Skyscraper Skyline \"Key Tower\" Cleveland Ohio (29511983292).jpg); source https://upload.wikimedia.org/wikipedia/commons/e/ef/%22Lake_Erie%22_%22Terminal_Tower%22_Skyscraper_Skyline_%22Key_Tower%22_Cleveland_Ohio_%2829511983292%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "41649444e1ee39cfae235c214d443aa6f1a13e1f2c3a4480b32a4307985134b7",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cleveland/w640.jpg",
+        "bytes": 29404
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cleveland/w1280.jpg",
+        "bytes": 87004
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cleveland/w2048.jpg",
+        "bytes": 232501
+      }
+    ]
+  },
+  "raleigh": {
+    "featureName": "Raleigh",
+    "alt": "Raleigh in United States",
+    "caption": "Raleigh, United States",
+    "photographer": "James Willamor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown,_Raleigh,_North_Carolina,_USA_--_in_9_February_2014_h17m38_Cloudy_weather_--_(panoramio.com).jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown, Raleigh, North Carolina, USA -- in 9 February 2014 h17m38 Cloudy weather -- (panoramio.com).jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3b/Downtown%2C_Raleigh%2C_North_Carolina%2C_USA_--_in_9_February_2014_h17m38_Cloudy_weather_--_%28panoramio.com%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "713032ccabed80a3647c10cd08707218a8e5b1590bb56031b9cfc0876bba0212",
+    "width": 3711,
+    "height": 2438,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/raleigh/w640.jpg",
+        "bytes": 57333
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/raleigh/w1280.jpg",
+        "bytes": 150137
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/raleigh/w2048.jpg",
+        "bytes": 359786
+      }
+    ]
+  },
+  "edmonton": {
+    "featureName": "Edmonton",
+    "alt": "Edmonton in Canada",
+    "caption": "Edmonton, Canada",
+    "photographer": "Joli Rumi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edmonton_downtown_in_winter,_2025,_Alberta,_Canada2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Edmonton downtown in winter, 2025, Alberta, Canada2.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5c/Edmonton_downtown_in_winter%2C_2025%2C_Alberta%2C_Canada2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "608bd9c6ec0812115ffd8c740a598227de9cbb1b340fc0540b3f8e3b07889e12",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/edmonton/w640.jpg",
+        "bytes": 44383
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/edmonton/w1280.jpg",
+        "bytes": 165150
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/edmonton/w2048.jpg",
+        "bytes": 462434
+      }
+    ]
+  },
+  "valparaiso": {
+    "featureName": "Valparaíso",
+    "alt": "Valparaíso in Chile",
+    "caption": "Valparaíso, Chile",
+    "photographer": "Alexxxos",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vista_desde_el_Cerro_Artiller%C3%ADa_a_la_Bah%C3%ADa_de_Valpara%C3%ADso.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vista desde el Cerro Artillería a la Bahía de Valparaíso.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/54/Vista_desde_el_Cerro_Artiller%C3%ADa_a_la_Bah%C3%ADa_de_Valpara%C3%ADso.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9e4d42eafddd9a158b2874cc87cfb23a51fadcb31fa22797a39479bdc015ec75",
+    "width": 1600,
+    "height": 1200,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/valparaiso/w640.jpg",
+        "bytes": 37008
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/valparaiso/w1280.jpg",
+        "bytes": 129713
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/valparaiso/w2048.jpg",
+        "bytes": 249012
+      }
+    ]
+  },
+  "arequipa": {
+    "featureName": "Arequipa",
+    "alt": "Arequipa in Peru",
+    "caption": "Arequipa, Peru",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Volc%C3%A1n_Misti_desde_Arequipa,_Per%C3%BA,_2015-08-02,_DD_03.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Volcán Misti desde Arequipa, Perú, 2015-08-02, DD 03.JPG); source https://upload.wikimedia.org/wikipedia/commons/8/80/Volc%C3%A1n_Misti_desde_Arequipa%2C_Per%C3%BA%2C_2015-08-02%2C_DD_03.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1bf4548fb5a16cf8258b03f35cf38cd40aee749b391f12e459caca7e9b4bc58a",
+    "width": 3840,
+    "height": 1757,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/arequipa/w640.jpg",
+        "bytes": 25657
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/arequipa/w1280.jpg",
+        "bytes": 99990
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/arequipa/w2048.jpg",
+        "bytes": 326633
+      }
+    ]
+  },
+  "curitiba": {
+    "featureName": "Curitiba",
+    "alt": "Curitiba in Brazil",
+    "caption": "Curitiba, Brazil",
+    "photographer": "Wilfredor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Curitiba_Skyline_2.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Curitiba Skyline 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/60/Curitiba_Skyline_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6cf50b97943f11c24b190e1b7162df6d18f0e1c14d0d94cfdbb55bb7af126670",
+    "width": 3840,
+    "height": 2413,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/curitiba/w640.jpg",
+        "bytes": 32133
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/curitiba/w1280.jpg",
+        "bytes": 100470
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/curitiba/w2048.jpg",
+        "bytes": 279672
+      }
+    ]
+  },
+  "riga": {
+    "featureName": "Riga",
+    "alt": "Riga in Latvia",
+    "caption": "Riga, Latvia",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Riga_Skyline_Panorama,_Latvia_-_Diliff.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Riga Skyline Panorama, Latvia - Diliff.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/71/Riga_Skyline_Panorama%2C_Latvia_-_Diliff.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "23a89b053164752c01fccd34341142a4bb5af8897931003435573ef6686e50ab",
+    "width": 3840,
+    "height": 597,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/riga/w640.jpg",
+        "bytes": 17602
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/riga/w1280.jpg",
+        "bytes": 60311
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/riga/w2048.jpg",
+        "bytes": 171487
+      }
+    ]
+  },
+  "vilnius": {
+    "featureName": "Vilnius",
+    "alt": "Vilnius in Lithuania",
+    "caption": "Vilnius, Lithuania",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vilnius_Modern_Skyline_At_Dusk,_Lithuania_-_Diliff.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vilnius Modern Skyline At Dusk, Lithuania - Diliff.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/54/Vilnius_Modern_Skyline_At_Dusk%2C_Lithuania_-_Diliff.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a9c769e68a43b446488a4dee2ce0a4faba845200e56cf17fd31c269489f23306",
+    "width": 3840,
+    "height": 2003,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/vilnius/w640.jpg",
+        "bytes": 39606
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/vilnius/w1280.jpg",
+        "bytes": 134529
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/vilnius/w2048.jpg",
+        "bytes": 397214
+      }
+    ]
+  },
+  "ahmedabad": {
+    "featureName": "Ahmedabad",
+    "alt": "Ahmedabad in India",
+    "caption": "Ahmedabad, India",
+    "photographer": "Pravega",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sabarmati_riverfront_and_Atal_Pedestrian_Bridge_06.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Sabarmati riverfront and Atal Pedestrian Bridge 06.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b8/Sabarmati_riverfront_and_Atal_Pedestrian_Bridge_06.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a56ec479841dc8022b2a21be87d98c6a63e0c467a80b8c9791229721ca1b7b27",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ahmedabad/w640.jpg",
+        "bytes": 67168
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ahmedabad/w1280.jpg",
+        "bytes": 218631
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ahmedabad/w2048.jpg",
+        "bytes": 565971
+      }
+    ]
+  },
+  "kanazawa": {
+    "featureName": "Kanazawa",
+    "alt": "Kanazawa in Japan",
+    "caption": "Kanazawa, Japan",
+    "photographer": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:131109_Kenrokuen_Kanazawa_Ishikawa_pref_Japan01s3.jpg",
+    "license": "CC BY 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:131109 Kenrokuen Kanazawa Ishikawa pref Japan01s3.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a0/131109_Kenrokuen_Kanazawa_Ishikawa_pref_Japan01s3.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3095b11650610f871bc8bdef5463aa4ef0da7c459f4bc7608862c340e307c0aa",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kanazawa/w640.jpg",
+        "bytes": 69001
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kanazawa/w1280.jpg",
+        "bytes": 269486
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kanazawa/w2048.jpg",
+        "bytes": 791671
+      }
+    ]
+  },
+  "ghent": {
+    "featureName": "Ghent",
+    "alt": "Ghent in Belgium",
+    "caption": "Ghent, Belgium",
+    "photographer": "Martinvl",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Graslei_Ghent.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Graslei Ghent.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/59/Graslei_Ghent.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "68d32777d22c210710573132f78b891c5964946ea4e785296738969d6418fbd4",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ghent/w640.jpg",
+        "bytes": 64657
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ghent/w1280.jpg",
+        "bytes": 235591
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ghent/w2048.jpg",
+        "bytes": 664395
+      }
+    ]
+  },
+  "virginia": {
+    "featureName": "Virginia",
+    "alt": "Virginia in United States",
+    "caption": "Virginia, United States",
+    "photographer": "Famartin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2016-10-24_10_21_12_View_north_along_the_Blue_Ridge_Parkway_just_north_of_the_Shenandoah_Valley_Overlook_in_Augusta_County,_Virginia.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:2016-10-24 10 21 12 View north along the Blue Ridge Parkway just north of the Shenandoah Valley Overlook in Augusta County, Virginia.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/8c/2016-10-24_10_21_12_View_north_along_the_Blue_Ridge_Parkway_just_north_of_the_Shenandoah_Valley_Overlook_in_Augusta_County%2C_Virginia.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "113b96a7004a4bf0744128eb11222399274496ac983b9d3fb58bfcb70ed83e6e",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/virginia/w640.jpg",
+        "bytes": 39614
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/virginia/w1280.jpg",
+        "bytes": 135396
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/virginia/w2048.jpg",
+        "bytes": 408983
+      }
+    ]
+  },
+  "saskatchewan": {
+    "featureName": "Saskatchewan",
+    "alt": "Saskatchewan in Canada",
+    "caption": "Saskatchewan, Canada",
+    "photographer": "Masterhatch",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:RM_of_Tecumseh_canola_field.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:RM of Tecumseh canola field.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e3/RM_of_Tecumseh_canola_field.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0cb17cf24d7b7217114f3b5eee88bdaa56ec6770e432d5e5d10a946769cdf9fd",
+    "width": 3796,
+    "height": 2847,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/saskatchewan/w640.jpg",
+        "bytes": 81265
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/saskatchewan/w1280.jpg",
+        "bytes": 243391
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/saskatchewan/w2048.jpg",
+        "bytes": 621545
+      }
+    ]
+  },
+  "andhra-pradesh": {
+    "featureName": "Andhra Pradesh",
+    "alt": "Andhra Pradesh in India",
+    "caption": "Andhra Pradesh, India",
+    "photographer": "Nikhilb239",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sapthagiri_hills_Tirumala_Tirupati.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sapthagiri hills Tirumala Tirupati.JPG); source https://upload.wikimedia.org/wikipedia/commons/9/95/Sapthagiri_hills_Tirumala_Tirupati.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f47f8bcb2849b050fc0b4b79765a47ada926e674b0d2f57a3aa1f6d20e7165fc",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/andhra-pradesh/w640.jpg",
+        "bytes": 53176
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/andhra-pradesh/w1280.jpg",
+        "bytes": 223091
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/andhra-pradesh/w2048.jpg",
+        "bytes": 717167
+      }
+    ]
+  },
+  "paxos": {
+    "featureName": "Paxos",
+    "alt": "Paxos in Greece",
+    "caption": "Paxos, Greece",
+    "photographer": "Mageiamaya",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Picturesque_harbour_of_Gaios,_Paxos_island.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Picturesque harbour of Gaios, Paxos island.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d0/Picturesque_harbour_of_Gaios%2C_Paxos_island.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "685f1f2a88b0ebf9b1aee4256d48c4dafd415ab8c099dda71d2ff7c875cd5e00",
+    "width": 3840,
+    "height": 2559,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/paxos/w640.jpg",
+        "bytes": 28807
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/paxos/w1280.jpg",
+        "bytes": 107702
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/paxos/w2048.jpg",
+        "bytes": 410688
+      }
+    ]
+  },
+  "symi": {
+    "featureName": "Symi",
+    "alt": "Symi in Greece",
+    "caption": "Symi, Greece",
+    "photographer": "Jebulon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Symi_houses_Greece.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Symi houses Greece.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/17/Symi_houses_Greece.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3247243201fe76cb02a1a1bcc5ec5264e82d93e5d51be88c25557d2edd062a12",
+    "width": 3840,
+    "height": 2556,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/symi/w640.jpg",
+        "bytes": 78577
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/symi/w1280.jpg",
+        "bytes": 294040
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/symi/w2048.jpg",
+        "bytes": 837127
+      }
+    ]
+  },
+  "la-gomera": {
+    "featureName": "La Gomera",
+    "alt": "La Gomera in Spain",
+    "caption": "La Gomera, Spain",
+    "photographer": "Till Niermann",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Gomera_-_Roque_Agando.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:La Gomera - Roque Agando.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0f/La_Gomera_-_Roque_Agando.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c9c81d276dcca7a1b5378899eb1d6b307849f60698465993458f0f7080f6a2e1",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/la-gomera/w640.jpg",
+        "bytes": 53469
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/la-gomera/w1280.jpg",
+        "bytes": 207367
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/la-gomera/w2048.jpg",
+        "bytes": 631398
+      }
+    ]
+  },
+  "islay": {
+    "featureName": "Islay",
+    "alt": "Islay in United Kingdom",
+    "caption": "Islay, United Kingdom",
+    "photographer": "MSeses",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scotland_Argyll_Bute_Islay_The_Oa_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Scotland Argyll Bute Islay The Oa 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/55/Scotland_Argyll_Bute_Islay_The_Oa_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a4b28180089a10bcb332fe0e4e9dfcf0dcbcf759ba39e38e39eb07f10e21c965",
+    "width": 3456,
+    "height": 2304,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/islay/w640.jpg",
+        "bytes": 69841
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/islay/w1280.jpg",
+        "bytes": 221286
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/islay/w2048.jpg",
+        "bytes": 586006
+      }
+    ]
+  },
+  "bonaire": {
+    "featureName": "Bonaire",
+    "alt": "Bonaire in Netherlands",
+    "caption": "Bonaire, Netherlands",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beach_Klein_Bonaire_(36653868946).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Beach Klein Bonaire (36653868946).jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5d/Beach_Klein_Bonaire_%2836653868946%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1d90dff25ff60bc46a115aed5ca05d89d93606e6272a81c74c2534e26864bcc2",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bonaire/w640.jpg",
+        "bytes": 24773
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bonaire/w1280.jpg",
+        "bytes": 75256
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bonaire/w2048.jpg",
+        "bytes": 212161
+      }
+    ]
+  },
+  "abruzzo": {
+    "featureName": "Abruzzo",
+    "alt": "Abruzzo in Italy",
+    "caption": "Abruzzo, Italy",
+    "photographer": "PaestumPaestum",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monte_Velino_marzo_2024.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Monte Velino marzo 2024.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/eb/Monte_Velino_marzo_2024.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "20052d1530bc89865a1928ca70d3afbb59f57474bccdc9664563aac61fd496ee",
+    "width": 3840,
+    "height": 2167,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/abruzzo/w640.jpg",
+        "bytes": 31899
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/abruzzo/w1280.jpg",
+        "bytes": 126207
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/abruzzo/w2048.jpg",
+        "bytes": 418111
+      }
+    ]
+  },
+  "tyrol": {
+    "featureName": "Tyrol",
+    "alt": "Tyrol in Austria",
+    "caption": "Tyrol, Austria",
+    "photographer": "Jörg Braukmann",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goldkappl_und_Sandessee.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Goldkappl und Sandessee.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/63/Goldkappl_und_Sandessee.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "90f5fccd0d9b22ad30fd07d2b7f69bd5f69d4bed47d94b365d63db61d2434b5f",
+    "width": 3840,
+    "height": 1583,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tyrol/w640.jpg",
+        "bytes": 33926
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tyrol/w1280.jpg",
+        "bytes": 132260
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tyrol/w2048.jpg",
+        "bytes": 422420
+      }
+    ]
+  },
+  "hunter-valley": {
+    "featureName": "Hunter Valley",
+    "alt": "Hunter Valley in Australia",
+    "caption": "Hunter Valley, Australia",
+    "photographer": "thinkrorbot",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hunter_Valley_Vineyards_(23646322062).jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Hunter Valley Vineyards (23646322062).jpg); source https://upload.wikimedia.org/wikipedia/commons/6/66/Hunter_Valley_Vineyards_%2823646322062%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "daa702e4b7a221818b8fba8349ac9db994d04ac0fe1f29c9cc31640329aa8921",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hunter-valley/w640.jpg",
+        "bytes": 69738
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hunter-valley/w1280.jpg",
+        "bytes": 273226
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hunter-valley/w2048.jpg",
+        "bytes": 814256
+      }
+    ]
+  },
+  "lake-constance": {
+    "featureName": "Lake Constance",
+    "alt": "Lake Constance in Germany",
+    "caption": "Lake Constance, Germany",
+    "photographer": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Constance_in_Lindau,_Germany,_20250502_0908_8490.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake Constance in Lindau, Germany, 20250502 0908 8490.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e4/Lake_Constance_in_Lindau%2C_Germany%2C_20250502_0908_8490.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ffb13c91f4faf88f41c091e91838f127e7bb5685ef34a237dfb90ae99e3742dc",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lake-constance/w640.jpg",
+        "bytes": 20939
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lake-constance/w1280.jpg",
+        "bytes": 73303
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lake-constance/w2048.jpg",
+        "bytes": 227717
+      }
+    ]
+  },
+  "transylvania": {
+    "featureName": "Transylvania",
+    "alt": "Transylvania in Romania",
+    "caption": "Transylvania, Romania",
+    "photographer": "FOTO:Fortepan — ID 26511 : Adományozó/Donor: Tarbay Júlia. archive copy at the Wayback Machine",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Romania,_Transylvania_Fortepan_26511.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Romania, Transylvania Fortepan 26511.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/14/Romania%2C_Transylvania_Fortepan_26511.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "48b13698900f50a29152174a74c294a544fe20091c17a91fe8c6cfd3b585bc99",
+    "width": 3840,
+    "height": 2597,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/transylvania/w640.jpg",
+        "bytes": 44856
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/transylvania/w1280.jpg",
+        "bytes": 128749
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/transylvania/w2048.jpg",
+        "bytes": 326994
+      }
+    ]
+  },
+  "blue-mosque": {
+    "featureName": "Blue Mosque",
+    "alt": "Blue Mosque in Türkiye",
+    "caption": "Blue Mosque, Türkiye",
+    "photographer": "Benh LIEU SONG ( Flickr )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Mosque_Courtyard_Dusk_Wikimedia_Commons.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Blue Mosque Courtyard Dusk Wikimedia Commons.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/77/Blue_Mosque_Courtyard_Dusk_Wikimedia_Commons.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d8cbe0ee9e4ebc8f540e0d47b8e76e5aded0d5cdd2ffc86ead1a45ae20b522fb",
+    "width": 3840,
+    "height": 2700,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/blue-mosque/w640.jpg",
+        "bytes": 47201
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/blue-mosque/w1280.jpg",
+        "bytes": 157786
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/blue-mosque/w2048.jpg",
+        "bytes": 460169
+      }
+    ]
+  },
+  "pantheon": {
+    "featureName": "Pantheon",
+    "alt": "Pantheon in Italy",
+    "caption": "Pantheon, Italy",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rome_(IT),_Pantheon_--_2013_--_3572.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Rome (IT), Pantheon -- 2013 -- 3572.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d3/Rome_%28IT%29%2C_Pantheon_--_2013_--_3572.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ab95075d3dd0b7d2e377b94e787ac6cc220417fefdf468c1f698b0623e7df7d4",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/pantheon/w640.jpg",
+        "bytes": 69873
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/pantheon/w1280.jpg",
+        "bytes": 296387
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/pantheon/w2048.jpg",
+        "bytes": 889528
+      }
+    ]
+  },
+  "mount-vesuvius": {
+    "featureName": "Mount Vesuvius",
+    "alt": "Mount Vesuvius in Italy",
+    "caption": "Mount Vesuvius, Italy",
+    "photographer": "Ввласенко",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_harbor_of_Naples_and_Vesuvius_at_dawn._Italy.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:The harbor of Naples and Vesuvius at dawn. Italy.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/74/The_harbor_of_Naples_and_Vesuvius_at_dawn._Italy.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "15ee35e3df389b4d7b29aa73b5da3c6178c92722e1c26f7f3cc144d906f82203",
+    "width": 3840,
+    "height": 2271,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mount-vesuvius/w640.jpg",
+        "bytes": 39099
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mount-vesuvius/w1280.jpg",
+        "bytes": 146701
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mount-vesuvius/w2048.jpg",
+        "bytes": 429986
+      }
+    ]
+  },
+  "canyonlands": {
+    "featureName": "Canyonlands",
+    "alt": "Canyonlands in United States",
+    "caption": "Canyonlands, United States",
+    "photographer": "Thomas Wolf , www.foto-tw.de",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mesa_Arch_Canyonlands_sunrise.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Mesa Arch Canyonlands sunrise.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d6/Mesa_Arch_Canyonlands_sunrise.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c7e4d1946aa2c7eb572a82006d251a0bbd055df5081c0cb30f6025e43d22cd03",
+    "width": 3840,
+    "height": 2271,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/canyonlands/w640.jpg",
+        "bytes": 50443
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/canyonlands/w1280.jpg",
+        "bytes": 187043
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/canyonlands/w2048.jpg",
+        "bytes": 569721
+      }
+    ]
+  },
+  "brandenburg-gate": {
+    "featureName": "Brandenburg Gate",
+    "alt": "Brandenburg Gate in Germany",
+    "caption": "Brandenburg Gate, Germany",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Berlin,_Brandenburger_Tor_--_2019_--_6335.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Berlin, Brandenburger Tor -- 2019 -- 6335.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7c/Berlin%2C_Brandenburger_Tor_--_2019_--_6335.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6fee50658803ff960b68f3a9ba94786c8f1fca515047444c9c35f1cdf9e805ea",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/brandenburg-gate/w640.jpg",
+        "bytes": 39843
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/brandenburg-gate/w1280.jpg",
+        "bytes": 123868
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/brandenburg-gate/w2048.jpg",
+        "bytes": 323806
+      }
+    ]
+  },
+  "trevi-fountain": {
+    "featureName": "Trevi Fountain",
+    "alt": "Trevi Fountain in Italy",
+    "caption": "Trevi Fountain, Italy",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trevi_Fountain,_Rome,_Italy_2_-_May_2007.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Trevi Fountain, Rome, Italy 2 - May 2007.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7e/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "df295dac102417a1ed6826562e73a75b2f8811023f922b3d71b47090aeeb4160",
+    "width": 3500,
+    "height": 2325,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/trevi-fountain/w640.jpg",
+        "bytes": 82842
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/trevi-fountain/w1280.jpg",
+        "bytes": 244837
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/trevi-fountain/w2048.jpg",
+        "bytes": 633099
+      }
+    ]
+  },
+  "st-lucia": {
+    "featureName": "Saint Lucia",
+    "alt": "Saint Lucia in Saint Lucia",
+    "caption": "Saint Lucia, Saint Lucia",
+    "photographer": "Jayen466",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:PetitPiton.JPG",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:PetitPiton.JPG); source https://upload.wikimedia.org/wikipedia/commons/d/dc/PetitPiton.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "88c72c93e3515f325a54a6c018b21fae14c19fc101a8fed672a75ede7d3b5f9d",
+    "width": 2001,
+    "height": 1644,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/st-lucia/w640.jpg",
+        "bytes": 80716
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/st-lucia/w1280.jpg",
+        "bytes": 250402
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/st-lucia/w2048.jpg",
+        "bytes": 598053
+      }
+    ]
   }
 }

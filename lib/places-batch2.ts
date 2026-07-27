@@ -327,7 +327,7 @@ export const placeGuideDraftsBatch2: PlaceGuideDraftBatch[] = [
     kind: 'City',
     countrySlug: 'germany',
     subtitle: 'City · Germany',
-    matchNames: ['Berlin', 'Brandenburg Gate'],
+    matchNames: ['Berlin'],
     about:
       'Berlin sprawls across the Brandenburg plain as a reunited capital of parks, waterways, and abrupt architectural eras. The Spree and Landwehr Canal thread districts that once faced different systems; Brandenburg Gate and Museum Island mark the historic Mitte. Wide postwar voids and later infill still read in the streetscape. Orientation uses rivers, ring transit, and the former wall corridor as mental maps. Berlin’s primer is layered capital history on flat ground — politics written into voids, axes, and neighborhood contrasts more than into dramatic relief.',
     facts: {
