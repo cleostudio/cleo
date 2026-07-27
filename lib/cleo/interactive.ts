@@ -611,11 +611,17 @@ function parseScaleValue(value: unknown): number | null {
   return value
 }
 
-/** Format a scale magnitude for display (compact when large). */
+/** Format a scale magnitude for display (compact when very large). */
 export function formatScaleValue(value: number): string {
+  if (value >= 1_000_000) {
+    return new Intl.NumberFormat('en', {
+      maximumFractionDigits: 1,
+      notation: 'compact',
+    }).format(value)
+  }
+
   return new Intl.NumberFormat('en', {
     maximumFractionDigits: value >= 100 ? 0 : 2,
-    notation: value >= 10_000 ? 'compact' : 'standard',
   }).format(value)
 }
 
