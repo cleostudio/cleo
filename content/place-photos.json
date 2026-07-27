@@ -15774,5 +15774,933 @@
         "bytes": 897929
       }
     ]
+  },
+  "tulsa": {
+    "featureName": "Tulsa",
+    "alt": "Tulsa in United States",
+    "caption": "Tulsa, United States",
+    "photographer": "Jon Grogan jongrogan110",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tulsa,_United_States_(Unsplash).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Tulsa, United States (Unsplash).jpg); source https://upload.wikimedia.org/wikipedia/commons/e/eb/Tulsa%2C_United_States_%28Unsplash%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "de45073a9d2f8b5e30c47c5611e090a35d3a65d1aa6c5144b52a3716e5a06f2c",
+    "width": 3840,
+    "height": 2544,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tulsa/w640.jpg",
+        "bytes": 50570
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tulsa/w1280.jpg",
+        "bytes": 183747
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tulsa/w2048.jpg",
+        "bytes": 578470
+      }
+    ]
+  },
+  "fresno": {
+    "featureName": "Fresno",
+    "alt": "Fresno in United States",
+    "caption": "Fresno, United States",
+    "photographer": "DoulosBen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fresno_California.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Fresno California.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/24/Fresno_California.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bf63729d9d1acffe980901b19106467c05eb7ad7ff5947403476e1564a76d701",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/fresno/w640.jpg",
+        "bytes": 35977
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/fresno/w1280.jpg",
+        "bytes": 116849
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/fresno/w2048.jpg",
+        "bytes": 295863
+      }
+    ]
+  },
+  "madison": {
+    "featureName": "Madison",
+    "alt": "Madison in United States",
+    "caption": "Madison, United States",
+    "photographer": "Warren LeMay from Covington, KY, United States",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Monona_from_Monona_Terrace,_John_Nolen_Drive,_Madison,_WI_(52745306209).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake Monona from Monona Terrace, John Nolen Drive, Madison, WI (52745306209).jpg); source https://upload.wikimedia.org/wikipedia/commons/2/27/Lake_Monona_from_Monona_Terrace%2C_John_Nolen_Drive%2C_Madison%2C_WI_%2852745306209%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "02641ef96b04b8533fe41a0d5dfc47f51befadb13d888e519119d40c6e33243b",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/madison/w640.jpg",
+        "bytes": 53490
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/madison/w1280.jpg",
+        "bytes": 205868
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/madison/w2048.jpg",
+        "bytes": 602009
+      }
+    ]
+  },
+  "wichita": {
+    "featureName": "Wichita",
+    "alt": "Wichita in United States",
+    "caption": "Wichita, United States",
+    "photographer": "StarksWinter",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Wichita_From_Lincoln.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown Wichita From Lincoln.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/cd/Downtown_Wichita_From_Lincoln.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "31a50c6ec45f5d35a8b0571a884ca1024e4472f3b917e18c84b29a2a30af9fd8",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/wichita/w640.jpg",
+        "bytes": 33266
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/wichita/w1280.jpg",
+        "bytes": 120426
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/wichita/w2048.jpg",
+        "bytes": 377592
+      }
+    ]
+  },
+  "hamilton": {
+    "featureName": "Hamilton",
+    "alt": "Hamilton in Canada",
+    "caption": "Hamilton, Canada",
+    "photographer": "Laslovarga",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Albion_Falls_Hamilton_Laslovarga_(3).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Albion Falls Hamilton Laslovarga (3).jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d4/Albion_Falls_Hamilton_Laslovarga_%283%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "856b02e3e0e020821f5885bec4354f3ae8023801d72a2711be1bf8cd7b4e8a1d",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hamilton/w640.jpg",
+        "bytes": 58509
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hamilton/w1280.jpg",
+        "bytes": 248436
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hamilton/w2048.jpg",
+        "bytes": 809686
+      }
+    ]
+  },
+  "temuco": {
+    "featureName": "Temuco",
+    "alt": "Temuco in Chile",
+    "caption": "Temuco, Chile",
+    "photographer": "Hector Montero",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temuco_skyline_from_%C3%91ielol_Hill.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Temuco skyline from Ñielol Hill.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a1/Temuco_skyline_from_%C3%91ielol_Hill.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fb042e8d3cac581caa25e21fe891a46791ebaf43f0f216fb36131edceb8f997d",
+    "width": 1427,
+    "height": 999,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/temuco/w640.jpg",
+        "bytes": 116872
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/temuco/w1280.jpg",
+        "bytes": 283954
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/temuco/w2048.jpg",
+        "bytes": 382127
+      }
+    ]
+  },
+  "maceio": {
+    "featureName": "Maceió",
+    "alt": "Maceió in Brazil",
+    "caption": "Maceió, Brazil",
+    "photographer": "Daniel Alves from Brazil",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macei%C3%B3,_Alagoas,_Brazil_(51694933696).jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Maceió, Alagoas, Brazil (51694933696).jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3b/Macei%C3%B3%2C_Alagoas%2C_Brazil_%2851694933696%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a1f32380cb39b9089a1b88b727473551647927ba803b1c9e59c53a356bf8fe0d",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/maceio/w640.jpg",
+        "bytes": 64268
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/maceio/w1280.jpg",
+        "bytes": 208212
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/maceio/w2048.jpg",
+        "bytes": 518646
+      }
+    ]
+  },
+  "osijek": {
+    "featureName": "Osijek",
+    "alt": "Osijek in Croatia",
+    "caption": "Osijek, Croatia",
+    "photographer": "Pudelek",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tvr%C4%91a,_Osijek_04.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Tvrđa, Osijek 04.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/33/Tvr%C4%91a%2C_Osijek_04.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2ba230f38d12bc1bb6f65a6399bf8dd2e0ff42a813c8f674b36c94faed64a59b",
+    "width": 3840,
+    "height": 2517,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/osijek/w640.jpg",
+        "bytes": 43779
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/osijek/w1280.jpg",
+        "bytes": 167598
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/osijek/w2048.jpg",
+        "bytes": 529513
+      }
+    ]
+  },
+  "bilbao": {
+    "featureName": "Bilbao",
+    "alt": "Bilbao in Spain",
+    "caption": "Bilbao, Spain",
+    "photographer": "José Ligero Loarte",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Museo_Guggenheim_--_2021_--_Bilbao,_Euskadi,_Espa%C3%B1a.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Museo Guggenheim -- 2021 -- Bilbao, Euskadi, España.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/43/Museo_Guggenheim_--_2021_--_Bilbao%2C_Euskadi%2C_Espa%C3%B1a.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9f4f8b470e263b81721e7e1defb89190f59fc5ef671e9e098a2b0dd34aa4eb09",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bilbao/w640.jpg",
+        "bytes": 47936
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bilbao/w1280.jpg",
+        "bytes": 177809
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bilbao/w2048.jpg",
+        "bytes": 530994
+      }
+    ]
+  },
+  "marseille": {
+    "featureName": "Marseille France",
+    "alt": "Marseille France in France",
+    "caption": "Marseille France, France",
+    "photographer": "Clément Bardot",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vieux-Port_de_Marseille,_France.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vieux-Port de Marseille, France.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c0/Vieux-Port_de_Marseille%2C_France.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8c040f3796a058881f2e9b007c98e69f48a273c0ba484327d8e7c8574d8ed5e8",
+    "width": 3840,
+    "height": 2496,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/marseille/w640.jpg",
+        "bytes": 68374
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/marseille/w1280.jpg",
+        "bytes": 237655
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/marseille/w2048.jpg",
+        "bytes": 659223
+      }
+    ]
+  },
+  "bologna": {
+    "featureName": "Bologna",
+    "alt": "Bologna in Italy",
+    "caption": "Bologna, Italy",
+    "photographer": "Ввласенко",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bologna_Panorama.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bologna Panorama.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/69/Bologna_Panorama.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ff50a1f2608922e1264ea15abdef13776a2f89bf8e6f46a34ef6fd92131a37c8",
+    "width": 3840,
+    "height": 1964,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bologna/w640.jpg",
+        "bytes": 45758
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bologna/w1280.jpg",
+        "bytes": 167452
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bologna/w2048.jpg",
+        "bytes": 507169
+      }
+    ]
+  },
+  "manchester": {
+    "featureName": "Manchester",
+    "alt": "Manchester in United Kingdom",
+    "caption": "Manchester, United Kingdom",
+    "photographer": "Michaelmazr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Owen_street_2018.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Owen street 2018.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/55/Owen_street_2018.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "71fa512f4fbd559f9c406368c87471292e1552d87571628f5ebc3081694ae3c6",
+    "width": 3840,
+    "height": 2811,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/manchester/w640.jpg",
+        "bytes": 52062
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/manchester/w1280.jpg",
+        "bytes": 191864
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/manchester/w2048.jpg",
+        "bytes": 564037
+      }
+    ]
+  },
+  "kansas": {
+    "featureName": "Kansas",
+    "alt": "Kansas in United States",
+    "caption": "Kansas, United States",
+    "photographer": "U.S. Fish and Wildlife Service - Midwest Region",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Konza_Prairie,_part_of_the_Flint_Hills_in_Kansas_(19130964193).jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Konza Prairie, part of the Flint Hills in Kansas (19130964193).jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ab/Konza_Prairie%2C_part_of_the_Flint_Hills_in_Kansas_%2819130964193%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4c71f720f282e6e787000cf392d0bb6699d179bd0021579b01056647d9bc3bb0",
+    "width": 3840,
+    "height": 2453,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kansas/w640.jpg",
+        "bytes": 46786
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kansas/w1280.jpg",
+        "bytes": 176101
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kansas/w2048.jpg",
+        "bytes": 509831
+      }
+    ]
+  },
+  "nebraska": {
+    "featureName": "Nebraska",
+    "alt": "Nebraska in United States",
+    "caption": "Nebraska, United States",
+    "photographer": "Ammodramus",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nebraska_Sandhills_NE97_Hooker_County_1.JPG",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Nebraska Sandhills NE97 Hooker County 1.JPG); source https://upload.wikimedia.org/wikipedia/commons/b/bd/Nebraska_Sandhills_NE97_Hooker_County_1.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d9cc3f7b97984c49a7838f1e55222467a0c4896cf3e85d7481b0ab4baac52f76",
+    "width": 2560,
+    "height": 1603,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nebraska/w640.jpg",
+        "bytes": 56046
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nebraska/w1280.jpg",
+        "bytes": 198305
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nebraska/w2048.jpg",
+        "bytes": 527559
+      }
+    ]
+  },
+  "himachal-pradesh": {
+    "featureName": "Himachal Pradesh",
+    "alt": "Himachal Pradesh in India",
+    "caption": "Himachal Pradesh, India",
+    "photographer": "Tagooty",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spiti_River_Kaza_Himachal_Jun18_D72_7232.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Spiti River Kaza Himachal Jun18 D72 7232.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3f/Spiti_River_Kaza_Himachal_Jun18_D72_7232.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "050152d6a097906774b71ba54be2d8f27f9f3cba6519e90f866176a4c0c6a73d",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/himachal-pradesh/w640.jpg",
+        "bytes": 52803
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/himachal-pradesh/w1280.jpg",
+        "bytes": 207427
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/himachal-pradesh/w2048.jpg",
+        "bytes": 667057
+      }
+    ]
+  },
+  "rum": {
+    "featureName": "Isle of Rum",
+    "alt": "Isle of Rum in United Kingdom",
+    "caption": "Isle of Rum, United Kingdom",
+    "photographer": "sue middleton",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cuillin_of_Rum_-_geograph.org.uk_-_3092676.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cuillin of Rum - geograph.org.uk - 3092676.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c0/Cuillin_of_Rum_-_geograph.org.uk_-_3092676.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "345ad2691133f4523274535355afb0fe39d7280bc7b5c9a0e02670cdff90a43c",
+    "width": 1280,
+    "height": 857,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rum/w640.jpg",
+        "bytes": 37677
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rum/w1280.jpg",
+        "bytes": 121849
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rum/w2048.jpg",
+        "bytes": 145535
+      }
+    ]
+  },
+  "eigg": {
+    "featureName": "Eigg",
+    "alt": "Eigg in United Kingdom",
+    "caption": "Eigg, United Kingdom",
+    "photographer": "Colin Park",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Sgurr,_Eigg_%5E_Galmisdale_Farm_-_geograph.org.uk_-_5612744.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:An Sgurr, Eigg ^ Galmisdale Farm - geograph.org.uk - 5612744.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c6/An_Sgurr%2C_Eigg_%5E_Galmisdale_Farm_-_geograph.org.uk_-_5612744.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d3b5909d2168021a53745982050ecc60cdaa0ad4cf9d1991d9d65c918f68b0aa",
+    "width": 3840,
+    "height": 2163,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/eigg/w640.jpg",
+        "bytes": 32216
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/eigg/w1280.jpg",
+        "bytes": 116495
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/eigg/w2048.jpg",
+        "bytes": 358752
+      }
+    ]
+  },
+  "mayotte": {
+    "featureName": "Mayotte",
+    "alt": "Mayotte in France",
+    "caption": "Mayotte, France",
+    "photographer": "Jean-Pierre Dalbéra from Paris, France",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Le_lagon_de_Mayotte_(34707734326).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Le lagon de Mayotte (34707734326).jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c8/Le_lagon_de_Mayotte_%2834707734326%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "292a791400cb3bc13e2176dd8346852a611fc8728367c2ee229b3c41b61bcfd6",
+    "width": 1800,
+    "height": 1200,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mayotte/w640.jpg",
+        "bytes": 82239
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mayotte/w1280.jpg",
+        "bytes": 274298
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mayotte/w2048.jpg",
+        "bytes": 596775
+      }
+    ]
+  },
+  "folegandros": {
+    "featureName": "Folegandros",
+    "alt": "Folegandros in Greece",
+    "caption": "Folegandros, Greece",
+    "photographer": "Etienne O. Dallaire",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chora,_Folegandros,_Greece.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Chora, Folegandros, Greece.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e2/Chora%2C_Folegandros%2C_Greece.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d032811b6b30faedd77f2c240d1a37ba1d9801e7cef73579d1cd344cd0566730",
+    "width": 3840,
+    "height": 2543,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/folegandros/w640.jpg",
+        "bytes": 51510
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/folegandros/w1280.jpg",
+        "bytes": 207384
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/folegandros/w2048.jpg",
+        "bytes": 689929
+      }
+    ]
+  },
+  "kea": {
+    "featureName": "Kea",
+    "alt": "Kea in Greece",
+    "caption": "Kea, Greece",
+    "photographer": "Kevin Stroup",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kea_840_02,_Greece_-_panoramio_(4).jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kea 840 02, Greece - panoramio (4).jpg); source https://upload.wikimedia.org/wikipedia/commons/6/66/Kea_840_02%2C_Greece_-_panoramio_%284%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4243df6532c8dccb531d8d38adc97ecd317f16afad1d923c03a8dcd1c81c8816",
+    "width": 3072,
+    "height": 2304,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kea/w640.jpg",
+        "bytes": 121998
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kea/w1280.jpg",
+        "bytes": 333751
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kea/w2048.jpg",
+        "bytes": 791398
+      }
+    ]
+  },
+  "ischia": {
+    "featureName": "Ischia",
+    "alt": "Ischia in Italy",
+    "caption": "Ischia, Italy",
+    "photographer": "Luca Scognamillo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vista_del_Castello_Aragonese_da_Ischia_Ponte.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vista del Castello Aragonese da Ischia Ponte.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ab/Vista_del_Castello_Aragonese_da_Ischia_Ponte.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4ec3654dc9ef7a166d22a305205039805801536e0abb30a33780c67a65021554",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ischia/w640.jpg",
+        "bytes": 54742
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ischia/w1280.jpg",
+        "bytes": 198832
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ischia/w2048.jpg",
+        "bytes": 560008
+      }
+    ]
+  },
+  "emilia-romagna": {
+    "featureName": "Emilia-Romagna",
+    "alt": "Emilia-Romagna in Italy",
+    "caption": "Emilia-Romagna, Italy",
+    "photographer": "Terragio67",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cesenatico_-_Porto_Canale_(2023).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cesenatico - Porto Canale (2023).jpg); source https://upload.wikimedia.org/wikipedia/commons/5/51/Cesenatico_-_Porto_Canale_%282023%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "441d1c391d7706378a55b15c5b78658057cb4e59f6d7fd6f24f844cc948d6056",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/emilia-romagna/w640.jpg",
+        "bytes": 42564
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/emilia-romagna/w1280.jpg",
+        "bytes": 149839
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/emilia-romagna/w2048.jpg",
+        "bytes": 438351
+      }
+    ]
+  },
+  "lazio": {
+    "featureName": "Lazio",
+    "alt": "Lazio in Italy",
+    "caption": "Lazio, Italy",
+    "photographer": "Livioandronico2013",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bridge_Vittorio_Emanuele_II_at_sunset.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bridge Vittorio Emanuele II at sunset.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6e/Bridge_Vittorio_Emanuele_II_at_sunset.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "068e93f0846ed4a85e7c72b2a3d070ad269e164da9192bdb1e29ca848d548bd2",
+    "width": 3840,
+    "height": 2585,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lazio/w640.jpg",
+        "bytes": 49264
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lazio/w1280.jpg",
+        "bytes": 175744
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lazio/w2048.jpg",
+        "bytes": 523501
+      }
+    ]
+  },
+  "campania": {
+    "featureName": "Campania",
+    "alt": "Campania in Italy",
+    "caption": "Campania, Italy",
+    "photographer": "Norbert Nagel",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Solfatara_-_Pozzuoli_-_Campania_-_Italy_-_July_11th_2013_-_09.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Solfatara - Pozzuoli - Campania - Italy - July 11th 2013 - 09.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/16/Solfatara_-_Pozzuoli_-_Campania_-_Italy_-_July_11th_2013_-_09.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a4abc9d3d43c6c10bbc12ad954160a3cf97a7b5499d100376e89d659d3773a7e",
+    "width": 3840,
+    "height": 2454,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/campania/w640.jpg",
+        "bytes": 76286
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/campania/w1280.jpg",
+        "bytes": 318001
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/campania/w2048.jpg",
+        "bytes": 991744
+      }
+    ]
+  },
+  "basque-country": {
+    "featureName": "Basque Country Spain",
+    "alt": "Basque Country Spain in Spain",
+    "caption": "Basque Country Spain, Spain",
+    "photographer": "Jules Verne Times Two",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Gorliz_Beach,_Basque_Country,_Spain_(PPL3-Altered)_julesvernex2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sunset at Gorliz Beach, Basque Country, Spain (PPL3-Altered) julesvernex2.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/60/Sunset_at_Gorliz_Beach%2C_Basque_Country%2C_Spain_%28PPL3-Altered%29_julesvernex2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "700840773e70e17141c74b1c732abe677347c30c61ad74401b07695027f4c707",
+    "width": 3840,
+    "height": 2678,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/basque-country/w640.jpg",
+        "bytes": 31161
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/basque-country/w1280.jpg",
+        "bytes": 107387
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/basque-country/w2048.jpg",
+        "bytes": 332402
+      }
+    ]
+  },
+  "castile-leon": {
+    "featureName": "Castile and León",
+    "alt": "Castile and León in Spain",
+    "caption": "Castile and León, Spain",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iglesia_de_San_Juan_Bautista,_%C3%81greda,_Soria,_Espa%C3%B1a,_2018-03-29,_DD_40-42_HDR.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Iglesia de San Juan Bautista, Ágreda, Soria, España, 2018-03-29, DD 40-42 HDR.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/71/Iglesia_de_San_Juan_Bautista%2C_%C3%81greda%2C_Soria%2C_Espa%C3%B1a%2C_2018-03-29%2C_DD_40-42_HDR.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "294ff22ebbcfb1dae5d7e4fd5e55ff695bf75dd71221781fc4dad479db1eeb6d",
+    "width": 3840,
+    "height": 5760,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/castile-leon/w640.jpg",
+        "bytes": 183805
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/castile-leon/w1280.jpg",
+        "bytes": 682394
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/castile-leon/w2048.jpg",
+        "bytes": 1962624
+      }
+    ]
+  },
+  "orsay": {
+    "featureName": "Musée d'Orsay",
+    "alt": "Musée d'Orsay in France",
+    "caption": "Musée d'Orsay, France",
+    "photographer": "DiscoA340",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_d%27Orsay_seen_from_the_River_Seine.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Musée d'Orsay seen from the River Seine.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0e/Mus%C3%A9e_d%27Orsay_seen_from_the_River_Seine.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a27f762d405df9d5bd5ab2c4c0353655e3266ce224231d1ad810a1b1e6dbae8c",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/orsay/w640.jpg",
+        "bytes": 43832
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/orsay/w1280.jpg",
+        "bytes": 139562
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/orsay/w2048.jpg",
+        "bytes": 357109
+      }
+    ]
+  },
+  "canyon-de-chelly": {
+    "featureName": "Canyon de Chelly",
+    "alt": "Canyon de Chelly in United States",
+    "caption": "Canyon de Chelly, United States",
+    "photographer": "Cacophony",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Canyon_de_Chelly_Spider_Rock.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Canyon de Chelly Spider Rock.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/cd/Canyon_de_Chelly_Spider_Rock.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "057e5b79f530957c51eac55a2370115accd900a8abbd79a011edc5456c36bfad",
+    "width": 3476,
+    "height": 2546,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/canyon-de-chelly/w640.jpg",
+        "bytes": 125726
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/canyon-de-chelly/w1280.jpg",
+        "bytes": 310623
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/canyon-de-chelly/w2048.jpg",
+        "bytes": 750425
+      }
+    ]
+  },
+  "himeji-castle": {
+    "featureName": "Himeji Castle",
+    "alt": "Himeji Castle in Japan",
+    "caption": "Himeji Castle, Japan",
+    "photographer": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Himeji_Castle,_November_2016_-02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Himeji Castle, November 2016 -02.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/65/Himeji_Castle%2C_November_2016_-02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "774b1c33fbaa3da954ead6711693ece378e5f7068a776a3e4cb2537dd78f4530",
+    "width": 3840,
+    "height": 1993,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/himeji-castle/w640.jpg",
+        "bytes": 46964
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/himeji-castle/w1280.jpg",
+        "bytes": 192732
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/himeji-castle/w2048.jpg",
+        "bytes": 624810
+      }
+    ]
+  },
+  "windsor-castle": {
+    "featureName": "Windsor Castle",
+    "alt": "Windsor Castle in United Kingdom",
+    "caption": "Windsor Castle, United Kingdom",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Round_Tower,_Windsor_Castle,_England_-_Nov_2006.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Round Tower, Windsor Castle, England - Nov 2006.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/94/Round_Tower%2C_Windsor_Castle%2C_England_-_Nov_2006.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c79752732afac03b6d31c5f186077db805eb8b5de8ab08fa9d029e3cde040c9c",
+    "width": 3840,
+    "height": 2337,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/windsor-castle/w640.jpg",
+        "bytes": 49113
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/windsor-castle/w1280.jpg",
+        "bytes": 181048
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/windsor-castle/w2048.jpg",
+        "bytes": 505305
+      }
+    ]
+  },
+  "edinburgh-castle": {
+    "featureName": "Edinburgh Castle",
+    "alt": "Edinburgh Castle in United Kingdom",
+    "caption": "Edinburgh Castle, United Kingdom",
+    "photographer": "Virtual-Pano",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:City_of_Edinburgh_-_Edinburgh_Castle,_Gate_House_-_20190813221636.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:City of Edinburgh - Edinburgh Castle, Gate House - 20190813221636.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e3/City_of_Edinburgh_-_Edinburgh_Castle%2C_Gate_House_-_20190813221636.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bad599a96cee2fcc7854c1f46c5314854f28bd8cba3b3963e45afba8cd587901",
+    "width": 3840,
+    "height": 2385,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/edinburgh-castle/w640.jpg",
+        "bytes": 39222
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/edinburgh-castle/w1280.jpg",
+        "bytes": 124180
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/edinburgh-castle/w2048.jpg",
+        "bytes": 333699
+      }
+    ]
+  },
+  "park-guell": {
+    "featureName": "Park Güell",
+    "alt": "Park Güell in Spain",
+    "caption": "Park Güell, Spain",
+    "photographer": "Joe Mabel",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Park_G%C3%BCell_-_cafe_terrace_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Park Güell - cafe terrace 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/26/Park_G%C3%BCell_-_cafe_terrace_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5f679c258ac1e172d41f510376ebf33a2461b9eca3218d0d7cda8e9e3a2f6bb5",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/park-guell/w640.jpg",
+        "bytes": 74389
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/park-guell/w1280.jpg",
+        "bytes": 258184
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/park-guell/w2048.jpg",
+        "bytes": 710716
+      }
+    ]
   }
 }

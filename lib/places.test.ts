@@ -14,7 +14,7 @@ import {
 
 describe('place guides', () => {
   it('ships a curated catalog with unique slugs and codes', () => {
-    expect(placeGuides.length).toBeGreaterThanOrEqual(544)
+    expect(placeGuides.length).toBeGreaterThanOrEqual(576)
 
     const slugs = placeGuides.map((place) => place.slug)
     const codes = placeGuides.map((place) => place.code)
@@ -299,6 +299,43 @@ describe('place guides', () => {
     expect(
       matchPlaceGuideForBlurb('germany', 'Schloss Heidelberg')?.slug,
     ).toBe('heidelberg-castle')
+    expect(matchPlaceGuideForBlurb('united-states', 'Tulsa')?.slug).toBe(
+      'tulsa',
+    )
+    expect(matchPlaceGuideForBlurb('canada', 'Hamilton')?.slug).toBe(
+      'hamilton',
+    )
+    expect(matchPlaceGuideForBlurb('brazil', 'Maceio')?.slug).toBe('maceio')
+    expect(matchPlaceGuideForBlurb('spain', 'Bilbao')?.slug).toBe('bilbao')
+    expect(matchPlaceGuideForBlurb('united-states', 'Kansas')?.slug).toBe(
+      'kansas',
+    )
+    expect(matchPlaceGuideForBlurb('india', 'Himachal')?.slug).toBe(
+      'himachal-pradesh',
+    )
+    expect(matchPlaceGuideForBlurb('united-kingdom', 'Rùm')?.slug).toBe('rum')
+    expect(matchPlaceGuideForBlurb('greece', 'Tzia')?.slug).toBe('kea')
+    expect(matchPlaceGuideForBlurb('italy', 'Emilia Romagna')?.slug).toBe(
+      'emilia-romagna',
+    )
+    expect(matchPlaceGuideForBlurb('spain', 'Euskadi')?.slug).toBe(
+      'basque-country',
+    )
+    expect(matchPlaceGuideForBlurb('france', 'Orsay Museum')?.slug).toBe(
+      'orsay',
+    )
+    expect(
+      matchPlaceGuideForBlurb('united-states', 'Canyon de Chelly')?.slug,
+    ).toBe('canyon-de-chelly')
+    expect(matchPlaceGuideForBlurb('japan', 'White Heron Castle')?.slug).toBe(
+      'himeji-castle',
+    )
+    expect(
+      matchPlaceGuideForBlurb('united-kingdom', 'Edinburgh Castle')?.slug,
+    ).toBe('edinburgh-castle')
+    expect(matchPlaceGuideForBlurb('spain', 'Parc Güell')?.slug).toBe(
+      'park-guell',
+    )
   })
 
   it('never reuses a sentence between place guides', () => {

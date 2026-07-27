@@ -17735,6 +17735,774 @@
       }
     ]
   },
+  "places/tulsa": {
+    "collection": "places",
+    "title": "Tulsa",
+    "subtitle": "Tulsa",
+    "alt": "Tulsa in United States",
+    "photographer": "Jon Grogan jongrogan110",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2544,
+    "renditions": [
+      {
+        "src": "/images/places/tulsa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tulsa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tulsa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/fresno": {
+    "collection": "places",
+    "title": "Fresno",
+    "subtitle": "Fresno",
+    "alt": "Fresno in United States",
+    "photographer": "DoulosBen",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/fresno/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/fresno/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/fresno/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/madison": {
+    "collection": "places",
+    "title": "Madison",
+    "subtitle": "Madison",
+    "alt": "Madison in United States",
+    "photographer": "Warren LeMay from Covington, KY, United States",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/madison/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/madison/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/madison/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/wichita": {
+    "collection": "places",
+    "title": "Wichita",
+    "subtitle": "Wichita",
+    "alt": "Wichita in United States",
+    "photographer": "StarksWinter",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/wichita/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/wichita/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/wichita/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hamilton": {
+    "collection": "places",
+    "title": "Hamilton",
+    "subtitle": "Hamilton",
+    "alt": "Hamilton in Canada",
+    "photographer": "Laslovarga",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/hamilton/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hamilton/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hamilton/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/temuco": {
+    "collection": "places",
+    "title": "Temuco",
+    "subtitle": "Temuco",
+    "alt": "Temuco in Chile",
+    "photographer": "Hector Montero",
+    "license": "CC BY-SA 2.0",
+    "width": 1427,
+    "height": 999,
+    "renditions": [
+      {
+        "src": "/images/places/temuco/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/temuco/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/temuco/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/maceio": {
+    "collection": "places",
+    "title": "Maceió",
+    "subtitle": "Maceió",
+    "alt": "Maceió in Brazil",
+    "photographer": "Daniel Alves from Brazil",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/maceio/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/maceio/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/maceio/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/osijek": {
+    "collection": "places",
+    "title": "Osijek",
+    "subtitle": "Osijek",
+    "alt": "Osijek in Croatia",
+    "photographer": "Pudelek",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2517,
+    "renditions": [
+      {
+        "src": "/images/places/osijek/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/osijek/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/osijek/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bilbao": {
+    "collection": "places",
+    "title": "Bilbao",
+    "subtitle": "Bilbao",
+    "alt": "Bilbao in Spain",
+    "photographer": "José Ligero Loarte",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "src": "/images/places/bilbao/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bilbao/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bilbao/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/marseille": {
+    "collection": "places",
+    "title": "Marseille France",
+    "subtitle": "Marseille",
+    "alt": "Marseille France in France",
+    "photographer": "Clément Bardot",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2496,
+    "renditions": [
+      {
+        "src": "/images/places/marseille/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/marseille/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/marseille/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bologna": {
+    "collection": "places",
+    "title": "Bologna",
+    "subtitle": "Bologna",
+    "alt": "Bologna in Italy",
+    "photographer": "Ввласенко",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1964,
+    "renditions": [
+      {
+        "src": "/images/places/bologna/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bologna/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bologna/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/manchester": {
+    "collection": "places",
+    "title": "Manchester",
+    "subtitle": "Manchester",
+    "alt": "Manchester in United Kingdom",
+    "photographer": "Michaelmazr",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2811,
+    "renditions": [
+      {
+        "src": "/images/places/manchester/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/manchester/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/manchester/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kansas": {
+    "collection": "places",
+    "title": "Kansas",
+    "subtitle": "Kansas",
+    "alt": "Kansas in United States",
+    "photographer": "U.S. Fish and Wildlife Service - Midwest Region",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2453,
+    "renditions": [
+      {
+        "src": "/images/places/kansas/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kansas/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kansas/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nebraska": {
+    "collection": "places",
+    "title": "Nebraska",
+    "subtitle": "Nebraska",
+    "alt": "Nebraska in United States",
+    "photographer": "Ammodramus",
+    "license": "Public domain",
+    "width": 2560,
+    "height": 1603,
+    "renditions": [
+      {
+        "src": "/images/places/nebraska/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nebraska/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nebraska/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/himachal-pradesh": {
+    "collection": "places",
+    "title": "Himachal Pradesh",
+    "subtitle": "Himachal Pradesh",
+    "alt": "Himachal Pradesh in India",
+    "photographer": "Tagooty",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/himachal-pradesh/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/himachal-pradesh/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/himachal-pradesh/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rum": {
+    "collection": "places",
+    "title": "Isle of Rum",
+    "subtitle": "Isle of Rum",
+    "alt": "Isle of Rum in United Kingdom",
+    "photographer": "sue middleton",
+    "license": "CC BY-SA 2.0",
+    "width": 1280,
+    "height": 857,
+    "renditions": [
+      {
+        "src": "/images/places/rum/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rum/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rum/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/eigg": {
+    "collection": "places",
+    "title": "Eigg",
+    "subtitle": "Eigg",
+    "alt": "Eigg in United Kingdom",
+    "photographer": "Colin Park",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2163,
+    "renditions": [
+      {
+        "src": "/images/places/eigg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/eigg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/eigg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mayotte": {
+    "collection": "places",
+    "title": "Mayotte",
+    "subtitle": "Mayotte",
+    "alt": "Mayotte in France",
+    "photographer": "Jean-Pierre Dalbéra from Paris, France",
+    "license": "CC BY 2.0",
+    "width": 1800,
+    "height": 1200,
+    "renditions": [
+      {
+        "src": "/images/places/mayotte/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mayotte/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mayotte/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/folegandros": {
+    "collection": "places",
+    "title": "Folegandros",
+    "subtitle": "Folegandros",
+    "alt": "Folegandros in Greece",
+    "photographer": "Etienne O. Dallaire",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2543,
+    "renditions": [
+      {
+        "src": "/images/places/folegandros/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/folegandros/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/folegandros/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kea": {
+    "collection": "places",
+    "title": "Kea",
+    "subtitle": "Kea",
+    "alt": "Kea in Greece",
+    "photographer": "Kevin Stroup",
+    "license": "CC BY 3.0",
+    "width": 3072,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/places/kea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ischia": {
+    "collection": "places",
+    "title": "Ischia",
+    "subtitle": "Ischia",
+    "alt": "Ischia in Italy",
+    "photographer": "Luca Scognamillo",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "src": "/images/places/ischia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ischia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ischia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/emilia-romagna": {
+    "collection": "places",
+    "title": "Emilia-Romagna",
+    "subtitle": "Emilia-Romagna",
+    "alt": "Emilia-Romagna in Italy",
+    "photographer": "Terragio67",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/emilia-romagna/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/emilia-romagna/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/emilia-romagna/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lazio": {
+    "collection": "places",
+    "title": "Lazio",
+    "subtitle": "Lazio",
+    "alt": "Lazio in Italy",
+    "photographer": "Livioandronico2013",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2585,
+    "renditions": [
+      {
+        "src": "/images/places/lazio/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lazio/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lazio/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/campania": {
+    "collection": "places",
+    "title": "Campania",
+    "subtitle": "Campania",
+    "alt": "Campania in Italy",
+    "photographer": "Norbert Nagel",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2454,
+    "renditions": [
+      {
+        "src": "/images/places/campania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/campania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/campania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/basque-country": {
+    "collection": "places",
+    "title": "Basque Country Spain",
+    "subtitle": "Basque Country",
+    "alt": "Basque Country Spain in Spain",
+    "photographer": "Jules Verne Times Two",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2678,
+    "renditions": [
+      {
+        "src": "/images/places/basque-country/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/basque-country/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/basque-country/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/castile-leon": {
+    "collection": "places",
+    "title": "Castile and León",
+    "subtitle": "Castile and León",
+    "alt": "Castile and León in Spain",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 5760,
+    "renditions": [
+      {
+        "src": "/images/places/castile-leon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/castile-leon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/castile-leon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/orsay": {
+    "collection": "places",
+    "title": "Musée d'Orsay",
+    "subtitle": "Musée d'Orsay",
+    "alt": "Musée d'Orsay in France",
+    "photographer": "DiscoA340",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/orsay/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/orsay/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/orsay/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/canyon-de-chelly": {
+    "collection": "places",
+    "title": "Canyon de Chelly",
+    "subtitle": "Canyon de Chelly",
+    "alt": "Canyon de Chelly in United States",
+    "photographer": "Cacophony",
+    "license": "CC BY-SA 3.0",
+    "width": 3476,
+    "height": 2546,
+    "renditions": [
+      {
+        "src": "/images/places/canyon-de-chelly/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/canyon-de-chelly/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/canyon-de-chelly/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/himeji-castle": {
+    "collection": "places",
+    "title": "Himeji Castle",
+    "subtitle": "Himeji Castle",
+    "alt": "Himeji Castle in Japan",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1993,
+    "renditions": [
+      {
+        "src": "/images/places/himeji-castle/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/himeji-castle/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/himeji-castle/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/windsor-castle": {
+    "collection": "places",
+    "title": "Windsor Castle",
+    "subtitle": "Windsor Castle",
+    "alt": "Windsor Castle in United Kingdom",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2337,
+    "renditions": [
+      {
+        "src": "/images/places/windsor-castle/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/windsor-castle/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/windsor-castle/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/edinburgh-castle": {
+    "collection": "places",
+    "title": "Edinburgh Castle",
+    "subtitle": "Edinburgh Castle",
+    "alt": "Edinburgh Castle in United Kingdom",
+    "photographer": "Virtual-Pano",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2385,
+    "renditions": [
+      {
+        "src": "/images/places/edinburgh-castle/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/edinburgh-castle/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/edinburgh-castle/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/park-guell": {
+    "collection": "places",
+    "title": "Park Güell",
+    "subtitle": "Park Güell",
+    "alt": "Park Güell in Spain",
+    "photographer": "Joe Mabel",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/park-guell/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/park-guell/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/park-guell/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

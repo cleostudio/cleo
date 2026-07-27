@@ -5906,5 +5906,357 @@
       "Schloss Heidelberg",
       "Heidelberg ruin"
     ]
+  },
+  "tulsa": {
+    "name": "Tulsa",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Tulsa",
+      "Tulsa United States",
+      "Tulsa city"
+    ]
+  },
+  "fresno": {
+    "name": "Fresno",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Fresno",
+      "Fresno United States",
+      "Fresno city"
+    ]
+  },
+  "madison": {
+    "name": "Madison",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Madison",
+      "Madison United States",
+      "Madison city"
+    ]
+  },
+  "wichita": {
+    "name": "Wichita",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Wichita",
+      "Wichita United States",
+      "Wichita city"
+    ]
+  },
+  "hamilton": {
+    "name": "Hamilton",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": [
+      "Hamilton Ontario",
+      "Hamilton Canada",
+      "Hamilton escarpment"
+    ]
+  },
+  "temuco": {
+    "name": "Temuco",
+    "countrySlug": "chile",
+    "countryName": "Chile",
+    "kind": "City",
+    "searchNames": [
+      "Temuco",
+      "Temuco Chile",
+      "Temuco city"
+    ]
+  },
+  "maceio": {
+    "name": "Maceió",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": [
+      "Maceió",
+      "Maceio Brazil",
+      "Maceió beach"
+    ]
+  },
+  "osijek": {
+    "name": "Osijek",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "City",
+    "searchNames": [
+      "Osijek",
+      "Osijek Croatia",
+      "Osijek city"
+    ]
+  },
+  "bilbao": {
+    "name": "Bilbao",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "City",
+    "searchNames": [
+      "Bilbao",
+      "Bilbao Spain",
+      "Bilbao city"
+    ]
+  },
+  "marseille": {
+    "name": "Marseille",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Marseille",
+      "Marseille France",
+      "Marseille city"
+    ]
+  },
+  "bologna": {
+    "name": "Bologna",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Bologna",
+      "Bologna Italy",
+      "Bologna city"
+    ]
+  },
+  "manchester": {
+    "name": "Manchester",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Manchester",
+      "Manchester United Kingdom",
+      "Manchester city"
+    ]
+  },
+  "kansas": {
+    "name": "Kansas",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Kansas",
+      "Kansas landscape",
+      "Kansas United States"
+    ]
+  },
+  "nebraska": {
+    "name": "Nebraska",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Nebraska",
+      "Nebraska landscape",
+      "Nebraska United States"
+    ]
+  },
+  "himachal-pradesh": {
+    "name": "Himachal Pradesh",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": [
+      "Himachal Pradesh",
+      "Himachal India",
+      "Shimla Himachal"
+    ]
+  },
+  "rum": {
+    "name": "Isle of Rum",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Isle of Rum",
+      "Rum Scotland",
+      "Rum Cuillin"
+    ]
+  },
+  "eigg": {
+    "name": "Eigg",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Eigg",
+      "Isle of Eigg",
+      "An Sgurr Eigg"
+    ]
+  },
+  "mayotte": {
+    "name": "Mayotte",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": [
+      "Mayotte",
+      "Mayotte lagoon",
+      "Mayotte France"
+    ]
+  },
+  "folegandros": {
+    "name": "Folegandros",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Folegandros",
+      "Folegandros island",
+      "Folegandros Greece"
+    ]
+  },
+  "kea": {
+    "name": "Kea",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Kea",
+      "Kea island",
+      "Kea Greece"
+    ]
+  },
+  "ischia": {
+    "name": "Ischia",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Island",
+    "searchNames": [
+      "Ischia",
+      "Ischia island",
+      "Ischia Italy"
+    ]
+  },
+  "emilia-romagna": {
+    "name": "Emilia-Romagna",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Emilia-Romagna",
+      "Emilia-Romagna Italy",
+      "Emilia-Romagna landscape"
+    ]
+  },
+  "lazio": {
+    "name": "Lazio",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Lazio",
+      "Lazio Italy",
+      "Lazio landscape"
+    ]
+  },
+  "campania": {
+    "name": "Campania",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Campania",
+      "Campania Italy",
+      "Campania landscape"
+    ]
+  },
+  "basque-country": {
+    "name": "Basque Country",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": [
+      "Basque Country Spain",
+      "Euskadi",
+      "San Sebastián Basque"
+    ]
+  },
+  "castile-leon": {
+    "name": "Castile and León",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": [
+      "Castile and León",
+      "Castilla y Leon",
+      "Duero Spain"
+    ]
+  },
+  "orsay": {
+    "name": "Musée d'Orsay",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": [
+      "Musée d'Orsay",
+      "Musee dOrsay Paris",
+      "Orsay Museum"
+    ]
+  },
+  "canyon-de-chelly": {
+    "name": "Canyon de Chelly",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Canyon de Chelly",
+      "Canyon de Chelly Arizona",
+      "Spider Rock"
+    ]
+  },
+  "himeji-castle": {
+    "name": "Himeji Castle",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Landmark",
+    "searchNames": [
+      "Himeji Castle",
+      "Himeji-jo",
+      "White Heron Castle"
+    ]
+  },
+  "windsor-castle": {
+    "name": "Windsor Castle",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": [
+      "Windsor Castle",
+      "Windsor Castle United Kingdom",
+      "Windsor Castle"
+    ]
+  },
+  "edinburgh-castle": {
+    "name": "Edinburgh Castle",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": [
+      "Edinburgh Castle",
+      "Edinburgh Castle United Kingdom",
+      "Edinburgh Castle"
+    ]
+  },
+  "park-guell": {
+    "name": "Park Güell",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Landmark",
+    "searchNames": [
+      "Park Güell",
+      "Parc Guell Barcelona",
+      "Park Guell"
+    ]
   }
 }
