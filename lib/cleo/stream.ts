@@ -35,6 +35,8 @@ export type ActivityStatus =
   | "interpreting"
   | "completed"
   | "failed"
+  /** Client-side: live step interrupted by Stop / reload / hard failure. */
+  | "cancelled"
 
 export type ActivityKind =
   | "web_search"
@@ -145,7 +147,8 @@ function isActivityStatus(value: unknown): value is ActivityStatus {
     value === "generating" ||
     value === "interpreting" ||
     value === "completed" ||
-    value === "failed"
+    value === "failed" ||
+    value === "cancelled"
   )
 }
 

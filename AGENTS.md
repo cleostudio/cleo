@@ -95,12 +95,13 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   includes `web_search_call.action.sources` for the activity panel (Auto and
   Research); expanded search steps link source hosts; python steps can show
   clipped interpreter logs. Partial incomplete answers and user Stop emit /
-  mark `incomplete` so the UI can offer Continue / Retry / Dismiss; Stop and
-  mid-turn reload settle live activities and keep Continue; Continue turns get
+  mark `incomplete` so the UI can offer Continue / Retry / Dismiss; Stop,
+  hard failures with a draft, activity-only dead ends, and mid-turn reload
+  settle live activities as `cancelled` and keep Continue; Continue turns get
   resume guidance on the server; Escape stops generation; completed answers
   offer Regenerate. Hard failures show Retry in the dock. Gallery/Writing tools
   return `?q=` filtered index links. Streaming only autoscrolls when the user
-  is near the bottom of the page.
+  is near the bottom of the page, with a Latest control to jump back.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
   grounds matching subjects on each turn; tools can also supply paths);

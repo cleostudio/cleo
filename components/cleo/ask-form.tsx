@@ -30,7 +30,7 @@ import {
 import { CONTINUE_PROMPT } from "~/lib/cleo/continue"
 import {
   hydrateRestoredMessages,
-  settleActivities,
+  markAssistantInterrupted,
   shouldStickToBottom,
 } from "~/lib/cleo/conversation-helpers"
 import {
@@ -42,7 +42,6 @@ import type { EncryptedReasoningItem } from "~/lib/cleo/reasoning-items"
 import {
   type ActivityItem,
   type IncompleteReason,
-  incompleteStatusMessage,
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
@@ -242,6 +241,7 @@ export function AskForm() {
   const isSubmittingRef = useRef(false)
   const mountedRef = useRef(true)
   const stickToBottomRef = useRef(true)
+  const [showJumpToLatest, setShowJumpToLatest] = useState(false)
 
   const hasMessages = messages.length > 0
   const canSubmit =
@@ -331,11 +331,13 @@ export function AskForm() {
 
   useEffect(() => {
     function onScroll() {
-      stickToBottomRef.current = shouldStickToBottom(
+      const stick = shouldStickToBottom(
         window.scrollY,
         window.innerHeight,
         document.documentElement.scrollHeight
       )
+      stickToBottomRef.current = stick
+      setShowJumpToLatest(isSubmittingRef.current && !stick)
     }
 
     window.addEventListener("scroll", onScroll, { passive: true })
@@ -348,6 +350,12 @@ export function AskForm() {
     // bottom — leaving the latest text above the fixed prompt.
     messagesEndRef.current?.scrollIntoView({ block: "end", behavior: "instant" })
   }, [hasMessages, messages])
+
+  useEffect(() => {
+    if (!isSubmitting) {
+      setShowJumpToLatest(false)
+    }
+  }, [isSubmitting])
 
   useEffect(() => {
     if (!isSubmitting && hasMessages) {
@@ -508,6 +516,7 @@ export function AskForm() {
 
     isSubmittingRef.current = true
     stickToBottomRef.current = true
+    setShowJumpToLatest(false)
     setMessages([...history, userMessage, assistantMessage])
     setInput("")
     setPendingImages([])
@@ -671,10 +680,28 @@ export function AskForm() {
       if (
         !output.trim() &&
         !receivedImages &&
+        !receivedActivities &&
         !abortController.signal.aborted
       ) {
         throw new Error(
           "The AI service stopped before returning an answer. Try again."
+        )
+      }
+
+      // Activity-only completion (tools ran, no visible answer): keep the turn
+      // and offer Continue instead of treating it as success with a blank reply.
+      if (
+        !output.trim() &&
+        !receivedImages &&
+        receivedActivities &&
+        !abortController.signal.aborted
+      ) {
+        setMessages((currentMessages) =>
+          currentMessages.map((message) =>
+            message.id === assistantMessage.id
+              ? markAssistantInterrupted(message, "other")
+              : message
+          )
         )
       }
 
@@ -727,18 +754,29 @@ export function AskForm() {
             )
             .map((message) =>
               message.id === assistantMessage.id
-                ? {
-                    ...message,
-                    activities: message.activities
-                      ? settleActivities(message.activities)
-                      : message.activities,
-                    incomplete: {
-                      reason: "stopped" as const,
-                      message: incompleteStatusMessage("stopped"),
-                    },
-                  }
+                ? markAssistantInterrupted(message, "stopped")
                 : message
             )
+        )
+      } else if (hadVisibleDraft) {
+        // Hard failure with a partial draft: same Continue path as Stop.
+        setMessages((currentMessages) =>
+          currentMessages
+            .filter(
+              (message) =>
+                message.id !== assistantMessage.id ||
+                messageHasVisibleContent(message)
+            )
+            .map((message) =>
+              message.id === assistantMessage.id
+                ? markAssistantInterrupted(message, "other")
+                : message
+            )
+        )
+        setError(
+          requestError instanceof Error
+            ? requestError.message
+            : "The request could not be completed."
         )
       } else {
         setMessages((currentMessages) =>
@@ -957,6 +995,24 @@ export function AskForm() {
             ref={messagesEndRef}
           />
         </div>
+      ) : null}
+
+      {showJumpToLatest ? (
+        <button
+          aria-label="Jump to the latest message"
+          className="cleo-jump-latest"
+          onClick={() => {
+            stickToBottomRef.current = true
+            setShowJumpToLatest(false)
+            messagesEndRef.current?.scrollIntoView({
+              block: "end",
+              behavior: "smooth",
+            })
+          }}
+          type="button"
+        >
+          Latest
+        </button>
       ) : null}
 
       <div

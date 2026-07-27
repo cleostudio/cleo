@@ -4,7 +4,11 @@
  * whether the document should autoscroll with new tokens.
  */
 
-import { incompleteStatusMessage, type ActivityItem } from "~/lib/cleo/stream"
+import {
+  incompleteStatusMessage,
+  type ActivityItem,
+  type IncompleteReason,
+} from "~/lib/cleo/stream"
 
 const LIVE_ACTIVITY_STATUSES = new Set<ActivityItem["status"]>([
   "in_progress",
@@ -29,14 +33,17 @@ export function hasLiveActivity(
   )
 }
 
-/** Flip in-progress tool/reasoning rows to completed so the panel can settle. */
+/**
+ * Flip in-progress tool/reasoning rows to cancelled so the panel can settle
+ * without claiming the step finished successfully.
+ */
 export function settleActivities(
   activities: readonly ActivityItem[] | undefined
 ): ActivityItem[] {
   if (!activities?.length) return []
   return activities.map((activity) =>
     isLiveActivityStatus(activity.status)
-      ? { ...activity, status: "completed" as const }
+      ? { ...activity, status: "cancelled" as const }
       : activity
   )
 }
@@ -47,9 +54,29 @@ type HydrateAssistant = {
   images?: unknown[]
   incomplete?: {
     message: string
-    reason?: "max_output_tokens" | "content_filter" | "stopped" | "other"
+    reason?: IncompleteReason
   }
   role: "assistant" | "user"
+}
+
+/**
+ * Mark an assistant turn interrupted: settle live activities and attach an
+ * incomplete marker for Continue / Retry.
+ */
+export function markAssistantInterrupted<T extends HydrateAssistant>(
+  message: T,
+  reason: IncompleteReason
+): T {
+  return {
+    ...message,
+    activities: message.activities
+      ? settleActivities(message.activities)
+      : message.activities,
+    incomplete: {
+      reason,
+      message: incompleteStatusMessage(reason),
+    },
+  }
 }
 
 /**
@@ -66,27 +93,17 @@ export function hydrateRestoredMessages<T extends HydrateAssistant>(
     if (message.role !== "assistant") return message
 
     const hadLive = hasLiveActivity(message.activities)
-    const activities = message.activities
-      ? settleActivities(message.activities)
-      : message.activities
     const isLast = index === messages.length - 1
-    let incomplete = message.incomplete
 
-    if (
-      isLast &&
-      !incomplete &&
-      (inFlight || hadLive)
-    ) {
-      incomplete = {
-        reason: "stopped",
-        message: incompleteStatusMessage("stopped"),
-      }
+    if (isLast && !message.incomplete && (inFlight || hadLive)) {
+      return markAssistantInterrupted(message, "stopped")
     }
+
+    if (!message.activities) return message
 
     return {
       ...message,
-      ...(activities ? { activities } : {}),
-      ...(incomplete ? { incomplete } : {}),
+      activities: settleActivities(message.activities),
     }
   })
 }

@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
 import { ThinkingOrb, type OrbState } from "thinking-orbs"
 
+import { isLiveActivityStatus } from "~/lib/cleo/conversation-helpers"
 import type { ActivityItem, WebSearchSource } from "~/lib/cleo/stream"
 import { cn } from "~/lib/utils"
 
@@ -38,14 +39,7 @@ function hostnameFromUrl(url: string) {
   }
 }
 
-function isActiveStatus(status: ActivityItem["status"]) {
-  return (
-    status === "in_progress" ||
-    status === "searching" ||
-    status === "generating" ||
-    status === "interpreting"
-  )
-}
+const isActiveStatus = isLiveActivityStatus
 
 function formatReasoningSummary(summary: string) {
   return summary
@@ -88,7 +82,13 @@ function activityLabel(activity: ActivityItem) {
       return formatReasoningSummary(summary)
     }
 
-    return isActiveStatus(activity.status) ? "Thinking" : "Thought"
+    if (isActiveStatus(activity.status)) {
+      return "Thinking"
+    }
+    if (activity.status === "cancelled") {
+      return "Stopped thinking"
+    }
+    return "Thought"
   }
 
   if (activity.kind === "image_generation") {
@@ -98,6 +98,10 @@ function activityLabel(activity: ActivityItem) {
 
     if (activity.status === "failed") {
       return "Image generation failed"
+    }
+
+    if (activity.status === "cancelled") {
+      return "Stopped generating an image"
     }
 
     return "Generating an image"
@@ -114,6 +118,9 @@ function activityLabel(activity: ActivityItem) {
     if (activity.status === "completed") {
       return "Used a portal tool"
     }
+    if (activity.status === "cancelled") {
+      return "Stopped a portal tool"
+    }
     return "Using a portal tool"
   }
 
@@ -123,6 +130,9 @@ function activityLabel(activity: ActivityItem) {
     }
     if (activity.status === "failed") {
       return "Python tool failed"
+    }
+    if (activity.status === "cancelled") {
+      return "Stopped python"
     }
     if (activity.status === "interpreting") {
       return "Running python"
@@ -136,6 +146,9 @@ function activityLabel(activity: ActivityItem) {
     if (activity.status === "completed") {
       return "Searched the web"
     }
+    if (activity.status === "cancelled") {
+      return "Stopped searching"
+    }
 
     return "Searching the web"
   }
@@ -145,6 +158,9 @@ function activityLabel(activity: ActivityItem) {
 
     if (activity.status === "completed") {
       return query ? `Searched “${query}”` : "Searched the web"
+    }
+    if (activity.status === "cancelled") {
+      return query ? `Stopped searching “${query}”` : "Stopped searching"
     }
 
     return query ? `Searching “${query}”` : "Searching the web"
@@ -156,6 +172,9 @@ function activityLabel(activity: ActivityItem) {
     if (activity.status === "completed") {
       return host ? `Opened ${host}` : "Opened a page"
     }
+    if (activity.status === "cancelled") {
+      return host ? `Stopped opening ${host}` : "Stopped opening a page"
+    }
 
     return host ? `Opening ${host}` : "Opening a page"
   }
@@ -164,6 +183,9 @@ function activityLabel(activity: ActivityItem) {
 
   if (activity.status === "completed") {
     return `Found “${action.pattern}” on ${host}`
+  }
+  if (activity.status === "cancelled") {
+    return `Stopped looking for “${action.pattern}” on ${host}`
   }
 
   return `Looking for “${action.pattern}” on ${host}`
@@ -247,13 +269,10 @@ function collapsedActivityLabel(activity: ActivityItem) {
     const summary = activity.summary?.trim()
 
     if (!summary) {
-      return isActiveStatus(activity.status) ? "Thinking" : "Thought"
+      return activityLabel(activity)
     }
 
-    return (
-      latestReasoningHeading(summary) ??
-      (isActiveStatus(activity.status) ? "Thinking" : "Thought")
-    )
+    return latestReasoningHeading(summary) ?? activityLabel(activity)
   }
 
   return activityLabel(activity)
@@ -374,12 +393,18 @@ export function ActivityPanel({
     }
 
     if (startedAtRef.current === null) {
+      // Restored/settled panels mount with no live rows — do not invent a
+      // "Thought for 1s" duration from remount time.
+      if (!hasActive) {
+        startedAtRef.current = -1
+        return
+      }
       startedAtRef.current = performance.now()
     }
 
     // Record duration whenever steps settle. Gaps between steps may update this
     // early; the label only uses it after the stream is no longer live.
-    if (!hasActive) {
+    if (!hasActive && startedAtRef.current >= 0) {
       setDurationMs(performance.now() - startedAtRef.current)
     }
   }, [activities, hasActive])

@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest"
 import {
   hasLiveActivity,
   hydrateRestoredMessages,
+  markAssistantInterrupted,
   settleActivities,
   shouldStickToBottom,
 } from "./conversation-helpers"
@@ -20,7 +21,7 @@ type TestMessage = {
 }
 
 describe("settleActivities", () => {
-  it("marks live statuses completed and leaves terminals alone", () => {
+  it("marks live statuses cancelled and leaves terminals alone", () => {
     const settled = settleActivities([
       { id: "r1", kind: "reasoning", status: "in_progress" },
       { id: "w1", kind: "web_search", status: "searching" },
@@ -31,10 +32,10 @@ describe("settleActivities", () => {
     ])
 
     expect(settled.map((item) => item.status)).toEqual([
-      "completed",
-      "completed",
-      "completed",
-      "completed",
+      "cancelled",
+      "cancelled",
+      "cancelled",
+      "cancelled",
       "completed",
       "failed",
     ])
@@ -56,6 +57,24 @@ describe("hasLiveActivity", () => {
   })
 })
 
+describe("markAssistantInterrupted", () => {
+  it("settles activities and attaches an incomplete marker", () => {
+    const marked = markAssistantInterrupted<TestMessage>(
+      {
+        role: "assistant",
+        content: "Partial…",
+        activities: [
+          { id: "w1", kind: "web_search", status: "searching" },
+        ],
+      },
+      "other"
+    )
+
+    expect(marked.activities?.[0]?.status).toBe("cancelled")
+    expect(marked.incomplete?.reason).toBe("other")
+  })
+})
+
 describe("hydrateRestoredMessages", () => {
   it("settles live activities and marks incomplete when inFlight", () => {
     const hydrated = hydrateRestoredMessages<TestMessage>(
@@ -72,7 +91,7 @@ describe("hydrateRestoredMessages", () => {
       { inFlight: true }
     )
 
-    expect(hydrated[1]?.activities?.[0]?.status).toBe("completed")
+    expect(hydrated[1]?.activities?.[0]?.status).toBe("cancelled")
     expect(hydrated[1]?.incomplete?.reason).toBe("stopped")
   })
 
@@ -89,7 +108,7 @@ describe("hydrateRestoredMessages", () => {
     ])
 
     expect(hydrated[1]?.incomplete?.reason).toBe("stopped")
-    expect(hydrated[1]?.activities?.[0]?.status).toBe("completed")
+    expect(hydrated[1]?.activities?.[0]?.status).toBe("cancelled")
   })
 
   it("does not mark a finished last assistant incomplete without inFlight", () => {
