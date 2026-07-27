@@ -662,5 +662,349 @@
     "searchNames": [
       "Cliffs of Moher"
     ]
+  },
+  "mexico-city": {
+    "name": "Mexico City",
+    "countrySlug": "mexico",
+    "countryName": "Mexico",
+    "kind": "City",
+    "searchNames": [
+      "Mexico City",
+      "Zócalo",
+      "Teotihuacan"
+    ]
+  },
+  "lima": {
+    "name": "Lima",
+    "countrySlug": "peru",
+    "countryName": "Peru",
+    "kind": "City",
+    "searchNames": [
+      "Lima",
+      "Miraflores Lima",
+      "Historic Centre of Lima"
+    ]
+  },
+  "bogota": {
+    "name": "Bogotá",
+    "countrySlug": "colombia",
+    "countryName": "Colombia",
+    "kind": "City",
+    "searchNames": [
+      "Bogotá",
+      "Bogota",
+      "Monserrate"
+    ]
+  },
+  "santiago": {
+    "name": "Santiago",
+    "countrySlug": "chile",
+    "countryName": "Chile",
+    "kind": "City",
+    "searchNames": [
+      "Santiago Chile",
+      "Santiago de Chile",
+      "Cerro San Cristóbal"
+    ]
+  },
+  "nairobi": {
+    "name": "Nairobi",
+    "countrySlug": "kenya",
+    "countryName": "Kenya",
+    "kind": "City",
+    "searchNames": [
+      "Nairobi",
+      "Nairobi skyline"
+    ]
+  },
+  "athens": {
+    "name": "Athens",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "City",
+    "searchNames": [
+      "Athens",
+      "Acropolis of Athens"
+    ]
+  },
+  "stockholm": {
+    "name": "Stockholm",
+    "countrySlug": "sweden",
+    "countryName": "Sweden",
+    "kind": "City",
+    "searchNames": [
+      "Stockholm",
+      "Gamla Stan"
+    ]
+  },
+  "copenhagen": {
+    "name": "Copenhagen",
+    "countrySlug": "denmark",
+    "countryName": "Denmark",
+    "kind": "City",
+    "searchNames": [
+      "Copenhagen",
+      "Nyhavn"
+    ]
+  },
+  "mumbai": {
+    "name": "Mumbai",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Mumbai",
+      "Gateway of India",
+      "Marine Drive Mumbai"
+    ]
+  },
+  "shanghai": {
+    "name": "Shanghai",
+    "countrySlug": "china",
+    "countryName": "China",
+    "kind": "City",
+    "searchNames": [
+      "Shanghai",
+      "The Bund",
+      "Pudong skyline"
+    ]
+  },
+  "melbourne": {
+    "name": "Melbourne",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "City",
+    "searchNames": [
+      "Melbourne",
+      "Melbourne skyline",
+      "Yarra River"
+    ]
+  },
+  "chicago": {
+    "name": "Chicago",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Chicago",
+      "Chicago skyline",
+      "Millennium Park"
+    ]
+  },
+  "texas": {
+    "name": "Texas",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Texas",
+      "Big Bend",
+      "Austin Texas"
+    ]
+  },
+  "florida": {
+    "name": "Florida",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Florida",
+      "Everglades",
+      "Key West"
+    ]
+  },
+  "tasmania": {
+    "name": "Tasmania",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "State",
+    "searchNames": [
+      "Tasmania",
+      "Hobart",
+      "Cradle Mountain"
+    ]
+  },
+  "amalfi-coast": {
+    "name": "Amalfi Coast",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Amalfi Coast",
+      "Positano",
+      "Amalfi"
+    ]
+  },
+  "lake-district": {
+    "name": "Lake District",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Region",
+    "searchNames": [
+      "Lake District",
+      "Windermere",
+      "Lake District National Park"
+    ]
+  },
+  "rhine-valley": {
+    "name": "Rhine Valley",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Rhine Valley",
+      "Rhine Gorge",
+      "Rhine castles"
+    ]
+  },
+  "central-highlands": {
+    "name": "Central Highlands",
+    "countrySlug": "sri-lanka",
+    "countryName": "Sri Lanka",
+    "kind": "Region",
+    "searchNames": [
+      "Sri Lanka Central Highlands",
+      "Ella Sri Lanka",
+      "Nuwara Eliya"
+    ]
+  },
+  "crete": {
+    "name": "Crete",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Crete",
+      "Samaria Gorge",
+      "Chania"
+    ]
+  },
+  "corsica": {
+    "name": "Corsica",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": [
+      "Corsica",
+      "Calanques de Piana",
+      "Bonifacio"
+    ]
+  },
+  "sardinia": {
+    "name": "Sardinia",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Island",
+    "searchNames": [
+      "Sardinia",
+      "Costa Smeralda",
+      "Cagliari"
+    ]
+  },
+  "capri": {
+    "name": "Capri",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Island",
+    "searchNames": [
+      "Capri",
+      "Faraglioni",
+      "Blue Grotto Capri"
+    ]
+  },
+  "hokkaido": {
+    "name": "Hokkaido",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Island",
+    "searchNames": [
+      "Hokkaido",
+      "Sapporo",
+      "Furano"
+    ]
+  },
+  "okinawa": {
+    "name": "Okinawa",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Island",
+    "searchNames": [
+      "Okinawa",
+      "Shuri Castle",
+      "Okinawa beach"
+    ]
+  },
+  "torres-del-paine": {
+    "name": "Torres del Paine",
+    "countrySlug": "chile",
+    "countryName": "Chile",
+    "kind": "Landmark",
+    "searchNames": [
+      "Torres del Paine",
+      "Cuernos del Paine"
+    ]
+  },
+  "iguazu": {
+    "name": "Iguazú Falls",
+    "countrySlug": "argentina",
+    "countryName": "Argentina",
+    "kind": "Landmark",
+    "searchNames": [
+      "Iguazú Falls",
+      "Iguazu Falls",
+      "Cataratas del Iguazú"
+    ]
+  },
+  "serengeti": {
+    "name": "Serengeti",
+    "countrySlug": "tanzania",
+    "countryName": "Tanzania",
+    "kind": "Landmark",
+    "searchNames": [
+      "Serengeti",
+      "Serengeti National Park"
+    ]
+  },
+  "mont-saint-michel": {
+    "name": "Mont Saint-Michel",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mont Saint-Michel",
+      "Mont-Saint-Michel"
+    ]
+  },
+  "yellowstone": {
+    "name": "Yellowstone",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Yellowstone",
+      "Grand Prismatic Spring",
+      "Old Faithful"
+    ]
+  },
+  "everest": {
+    "name": "Everest Region",
+    "countrySlug": "nepal",
+    "countryName": "Nepal",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mount Everest",
+      "Everest Region",
+      "Khumbu"
+    ]
+  },
+  "uluru": {
+    "name": "Uluru",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Landmark",
+    "searchNames": [
+      "Uluru",
+      "Ayers Rock"
+    ]
   }
 }

@@ -6215,6 +6215,774 @@
       }
     ]
   },
+  "places/mexico-city": {
+    "collection": "places",
+    "title": "Mexico City",
+    "subtitle": "Mexico City",
+    "alt": "Mexico City in Mexico",
+    "photographer": "Nan Palmero from San Antonio, TX, USA",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 1121,
+    "renditions": [
+      {
+        "src": "/images/places/mexico-city/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mexico-city/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mexico-city/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lima": {
+    "collection": "places",
+    "title": "Lima",
+    "subtitle": "Lima",
+    "alt": "Lima in Peru",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2530,
+    "renditions": [
+      {
+        "src": "/images/places/lima/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lima/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lima/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bogota": {
+    "collection": "places",
+    "title": "Bogotá",
+    "subtitle": "Bogotá",
+    "alt": "Bogotá in Colombia",
+    "photographer": "Steffen Schmitz ( more photos )",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2577,
+    "renditions": [
+      {
+        "src": "/images/places/bogota/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bogota/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bogota/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/santiago": {
+    "collection": "places",
+    "title": "Santiago",
+    "subtitle": "Santiago",
+    "alt": "Santiago in Chile",
+    "photographer": "Balou46",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1128,
+    "renditions": [
+      {
+        "src": "/images/places/santiago/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/santiago/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/santiago/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nairobi": {
+    "collection": "places",
+    "title": "Nairobi",
+    "subtitle": "Nairobi",
+    "alt": "Nairobi in Kenya",
+    "photographer": "Antony Trivet",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/nairobi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nairobi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nairobi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/athens": {
+    "collection": "places",
+    "title": "Athens",
+    "subtitle": "Athens",
+    "alt": "Athens in Greece",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3519,
+    "height": 2575,
+    "renditions": [
+      {
+        "src": "/images/places/athens/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/athens/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/athens/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/stockholm": {
+    "collection": "places",
+    "title": "Stockholm",
+    "subtitle": "Stockholm",
+    "alt": "Stockholm in Sweden",
+    "photographer": "Arild Vågen",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/stockholm/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/stockholm/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/stockholm/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/copenhagen": {
+    "collection": "places",
+    "title": "Copenhagen",
+    "subtitle": "Copenhagen",
+    "alt": "Copenhagen in Denmark",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/copenhagen/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/copenhagen/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/copenhagen/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mumbai": {
+    "collection": "places",
+    "title": "Gateway of India",
+    "subtitle": "Mumbai",
+    "alt": "Gateway of India in India",
+    "photographer": "Joe Ravi",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/mumbai/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mumbai/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mumbai/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/shanghai": {
+    "collection": "places",
+    "title": "Shanghai",
+    "subtitle": "Shanghai",
+    "alt": "Shanghai in China",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/places/shanghai/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/shanghai/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/shanghai/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/melbourne": {
+    "collection": "places",
+    "title": "Melbourne",
+    "subtitle": "Melbourne",
+    "alt": "Melbourne in Australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/melbourne/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/melbourne/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/melbourne/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/chicago": {
+    "collection": "places",
+    "title": "Chicago",
+    "subtitle": "Chicago",
+    "alt": "Chicago in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 960,
+    "renditions": [
+      {
+        "src": "/images/places/chicago/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/chicago/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/chicago/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/texas": {
+    "collection": "places",
+    "title": "Texas",
+    "subtitle": "Texas",
+    "alt": "Texas in United States",
+    "photographer": "TripOfALifestyle.com",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2673,
+    "renditions": [
+      {
+        "src": "/images/places/texas/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/texas/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/texas/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/florida": {
+    "collection": "places",
+    "title": "Florida",
+    "subtitle": "Florida",
+    "alt": "Florida in United States",
+    "photographer": "evergladesnps",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/florida/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/florida/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/florida/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tasmania": {
+    "collection": "places",
+    "title": "Tasmania",
+    "subtitle": "Tasmania",
+    "alt": "Tasmania in Australia",
+    "photographer": "Jamen Percy",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/tasmania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tasmania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tasmania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/amalfi-coast": {
+    "collection": "places",
+    "title": "Amalfi Coast",
+    "subtitle": "Amalfi Coast",
+    "alt": "Amalfi Coast in Italy",
+    "photographer": "Paolo Costa Baldi",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2551,
+    "renditions": [
+      {
+        "src": "/images/places/amalfi-coast/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/amalfi-coast/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/amalfi-coast/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lake-district": {
+    "collection": "places",
+    "title": "Lake District",
+    "subtitle": "Lake District",
+    "alt": "Lake District in United Kingdom",
+    "photographer": "Julian Herzog ( Website )",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "src": "/images/places/lake-district/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lake-district/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lake-district/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rhine-valley": {
+    "collection": "places",
+    "title": "Rhine Valley",
+    "subtitle": "Rhine Valley",
+    "alt": "Rhine Valley in Germany",
+    "photographer": "Jörg Braukmann",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1545,
+    "renditions": [
+      {
+        "src": "/images/places/rhine-valley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rhine-valley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rhine-valley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/central-highlands": {
+    "collection": "places",
+    "title": "Ella Sri Lanka",
+    "subtitle": "Central Highlands",
+    "alt": "Ella Sri Lanka in Sri Lanka",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/places/central-highlands/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/central-highlands/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/central-highlands/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/crete": {
+    "collection": "places",
+    "title": "Crete",
+    "subtitle": "Crete",
+    "alt": "Crete in Greece",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2341,
+    "renditions": [
+      {
+        "src": "/images/places/crete/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/crete/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/crete/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/corsica": {
+    "collection": "places",
+    "title": "Bonifacio",
+    "subtitle": "Corsica",
+    "alt": "Bonifacio in France",
+    "photographer": "Isiwal",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/corsica/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/corsica/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/corsica/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sardinia": {
+    "collection": "places",
+    "title": "Sardinia",
+    "subtitle": "Sardinia",
+    "alt": "Sardinia in Italy",
+    "photographer": "Norbert Nagel",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/sardinia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sardinia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sardinia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/capri": {
+    "collection": "places",
+    "title": "Capri",
+    "subtitle": "Capri",
+    "alt": "Capri in Italy",
+    "photographer": "Jorge Royan",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/capri/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/capri/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/capri/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hokkaido": {
+    "collection": "places",
+    "title": "Hokkaido",
+    "subtitle": "Hokkaido",
+    "alt": "Hokkaido in Japan",
+    "photographer": "663highland",
+    "license": "CC BY 2.5",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/hokkaido/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hokkaido/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hokkaido/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/okinawa": {
+    "collection": "places",
+    "title": "Okinawa",
+    "subtitle": "Okinawa",
+    "alt": "Okinawa in Japan",
+    "photographer": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 764,
+    "renditions": [
+      {
+        "src": "/images/places/okinawa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/okinawa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/okinawa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/torres-del-paine": {
+    "collection": "places",
+    "title": "Torres del Paine",
+    "subtitle": "Torres del Paine",
+    "alt": "Torres del Paine in Chile",
+    "photographer": "Martin St-Amant ( S23678 )",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1364,
+    "renditions": [
+      {
+        "src": "/images/places/torres-del-paine/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/torres-del-paine/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/torres-del-paine/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/iguazu": {
+    "collection": "places",
+    "title": "Iguazu Falls",
+    "subtitle": "Iguazú Falls",
+    "alt": "Iguazu Falls in Argentina",
+    "photographer": "Genossegerd",
+    "license": "CC BY-SA 3.0",
+    "width": 2816,
+    "height": 2112,
+    "renditions": [
+      {
+        "src": "/images/places/iguazu/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/iguazu/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/iguazu/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/serengeti": {
+    "collection": "places",
+    "title": "Serengeti",
+    "subtitle": "Serengeti",
+    "alt": "Serengeti in Tanzania",
+    "photographer": "Giles Laurent",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1227,
+    "renditions": [
+      {
+        "src": "/images/places/serengeti/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/serengeti/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/serengeti/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mont-saint-michel": {
+    "collection": "places",
+    "title": "Mont Saint-Michel",
+    "subtitle": "Mont Saint-Michel",
+    "alt": "Mont Saint-Michel in France",
+    "photographer": "Diliff",
+    "license": "Public domain",
+    "width": 2811,
+    "height": 1993,
+    "renditions": [
+      {
+        "src": "/images/places/mont-saint-michel/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mont-saint-michel/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mont-saint-michel/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/yellowstone": {
+    "collection": "places",
+    "title": "Yellowstone",
+    "subtitle": "Yellowstone",
+    "alt": "Yellowstone in United States",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/yellowstone/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/yellowstone/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/yellowstone/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/everest": {
+    "collection": "places",
+    "title": "Mount Everest",
+    "subtitle": "Everest Region",
+    "alt": "Mount Everest in Nepal",
+    "photographer": "Nir B. Gurung",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/everest/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/everest/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/everest/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/uluru": {
+    "collection": "places",
+    "title": "Uluru",
+    "subtitle": "Uluru",
+    "alt": "Uluru in Australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/uluru/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/uluru/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/uluru/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",
