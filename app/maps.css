@@ -84,7 +84,9 @@ html[data-maps-route] body {
   top: max(var(--maps-hud-inset), env(safe-area-inset-top, 0px));
   left: max(var(--maps-hud-inset), env(safe-area-inset-left, 0px));
   right: auto;
-  width: min(22.5rem, calc(100% - 2 * var(--maps-hud-inset)));
+  /* Prefer vw so absolute chrome doesn't shrink-wrap to content width. */
+  width: min(22.5rem, calc(100vw - 2 * var(--maps-hud-inset)));
+  min-width: min(18rem, calc(100vw - 2 * var(--maps-hud-inset)));
 }
 
 .earth-map-chrome-meta {
@@ -127,7 +129,8 @@ html[data-maps-route] body {
 }
 
 .earth-map-brand {
-  padding: 0.7rem 0.85rem 0.8rem;
+  width: 100%;
+  padding: 0.75rem 0.85rem 0.85rem;
 }
 
 .earth-map-brand .page-eyebrow {
@@ -136,7 +139,6 @@ html[data-maps-route] body {
 
 .earth-map-lede {
   margin: 0.35rem 0 0;
-  max-width: 22rem;
   font-size: 0.75rem;
   line-height: 1.45;
   color: var(--muted-foreground);
@@ -144,7 +146,8 @@ html[data-maps-route] body {
 
 .earth-map-search {
   position: relative;
-  margin-top: 0.7rem;
+  width: 100%;
+  margin-top: 0.65rem;
 }
 
 .earth-map-search input {
@@ -155,13 +158,13 @@ html[data-maps-route] body {
   margin: 0;
   border: 0;
   border-radius: 2px;
-  background: color-mix(in oklab, var(--background) 55%, transparent);
-  box-shadow: 0 0 0 1px var(--border);
+  background: color-mix(in oklab, var(--background) 62%, transparent);
+  box-shadow: inset 0 0 0 1px var(--border);
   color: var(--foreground);
   font-size: 0.875rem;
   letter-spacing: -0.011em;
-  line-height: 1.25rem;
-  padding: 0 0.7rem;
+  line-height: 2.25rem;
+  padding: 0 0.75rem;
   outline: none;
   appearance: none;
   -webkit-appearance: none;
@@ -181,11 +184,12 @@ html[data-maps-route] body {
 }
 
 .earth-map-search input:hover:not(:disabled) {
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--foreground) 28%, var(--border));
+  box-shadow: inset 0 0 0 1px
+    color-mix(in oklab, var(--foreground) 28%, var(--border));
 }
 
 .earth-map-search input:focus-visible {
-  box-shadow: 0 0 0 1px var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
 }
 
 .earth-map-search input:disabled {
@@ -550,7 +554,8 @@ html[data-maps-route] body {
   }
 
   .earth-map-chrome-top {
-    width: min(100% - 2 * var(--maps-hud-inset), 22.5rem);
+    width: min(22.5rem, calc(100vw - 2 * var(--maps-hud-inset)));
+    min-width: 0;
   }
 
   .earth-map-chrome-meta {
