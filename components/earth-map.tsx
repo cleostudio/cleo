@@ -158,7 +158,7 @@ function mapMotionMs(preferred: number) {
 function fitCountry(map: MapLibreMap, entry: MapCountryIndexEntry) {
   map.fitBounds(entry.bounds, {
     padding: { ...MAP_FOCUS_PADDING },
-    maxZoom: Math.min(entry.maxZoom, MAP_MAX_ZOOM + 1.25),
+    maxZoom: Math.min(entry.maxZoom, MAP_MAX_ZOOM + 0.75),
     duration: mapMotionMs(800),
   })
 }
@@ -207,7 +207,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       center: [10, 20],
       zoom: 1.2,
       minZoom: MAP_MIN_ZOOM,
-      maxZoom: MAP_MAX_ZOOM + 1.5,
+      maxZoom: MAP_MAX_ZOOM + 0.85,
       maxPitch: 0,
       dragRotate: false,
       pitchWithRotate: false,

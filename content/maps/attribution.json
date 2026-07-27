@@ -1,9 +1,10 @@
 {
   "basemap": {
     "name": "NASA Blue Marble",
-    "credit": "NASA Earth Observatory / NASA Goddard Space Flight Center (Blue Marble Next Generation)",
+    "credit": "NASA Earth Observatory / NASA Goddard Space Flight Center (Blue Marble Next Generation + topography & bathymetry, July 2004)",
     "sourceUrl": "https://earthobservatory.nasa.gov/features/BlueMarble",
-    "license": "Public domain (US government work)"
+    "license": "Public domain (US government work)",
+    "resolution": "21600×10800"
   },
   "boundaries": {
     "name": "Natural Earth Admin 0 Countries",
@@ -15,11 +16,13 @@
   "tiles": {
     "projection": "Web Mercator (EPSG:3857)",
     "minZoom": 0,
-    "maxZoom": 4,
+    "maxZoom": 6,
     "tileSize": 256,
-    "count": 341
+    "count": 5461,
+    "jpegQuality": 90,
+    "resampling": "bilinear"
   },
-  "featureCount": 233,
-  "indexCount": 233,
+  "featureCount": 237,
+  "indexCount": 237,
   "regionCount": 5
 }

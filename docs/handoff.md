@@ -27,11 +27,11 @@ document (enable both products in the Vercel project dashboard).
 - Posts: `content/blog/<slug>/` via owned content route
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
 - Maps: `lib/maps.ts`, `components/earth-map.tsx`, `/maps` (full-bleed MapLibre
-  + local NASA Blue Marble tiles and Natural Earth borders; paper/glass HUD via
-  `html[data-maps-route]`; country/region deep links with antimeridian-aware
-  Oceania and mainland-leaning Europe cameras; Explore ↔ Maps region
-  round-trips; selection a11y + mobile chrome; Cleo portal map grounding;
-  `pnpm prepare:maps` / `pnpm validate:maps`)
+  + local NASA BMNG 21600 tiles z0–z6 / bilinear q90 and Natural Earth borders;
+  paper/glass HUD via `html[data-maps-route]`; country/region deep links with
+  antimeridian-aware Oceania and mainland-leaning Europe cameras; Explore ↔
+  Maps region round-trips; selection a11y + mobile chrome; Cleo portal map
+  grounding; `pnpm prepare:maps` / `pnpm validate:maps`)
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
 - Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`

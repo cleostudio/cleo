@@ -38,17 +38,20 @@ at `/gallery` shows both Explore place photos and Space body photos.
 The Topics catalog in `lib/topics.ts` lists Countries, Maps, and Space.
 
 Maps (`/maps`) is a full-bleed MapLibre Earth plate: NASA Blue Marble
-Web-Mercator tiles under `public/images/maps/tiles/` and Natural Earth
-admin-0 borders at `public/maps/countries.geojson`, with a camera index at
+Next Generation (21600×10800, July 2004 topo+bathymetry) reprojected to
+Web-Mercator JPEG tiles z0–z6 under `public/images/maps/tiles/` (bilinear,
+mozjpeg q90, 4:4:4) and Natural Earth admin-0 borders at
+`public/maps/countries.geojson`, with a camera index at
 `public/maps/country-index.json`. The shell unlocks via `html[data-maps-route]`
 (same pattern as Cleo) so the basemap fills the viewport with paper/glass HUD
 chrome above the dock. Deep links use `/maps?country=[slug|iso]` or
 `/maps?region=[africa|americas|asia|europe|oceania]`. Explore guides link back
 with “View on map”; Cleo may cite the same map paths. MapLibre’s module workers
 are vendored to `public/maplibre/` so Turbopack/Next can load them under the
-site CSP. Regenerate tiles, borders, index, and workers with `pnpm prepare:maps`
-(`--skip-tiles` refreshes vectors/index only); validate with `pnpm validate:maps`.
-No third-party tile CDN — assets stay on-origin.
+site CSP. Regenerate from a local 21600 source with
+`pnpm prepare:maps -- --blue-marble=/path/to/21600.jpg` (`--skip-tiles`
+refreshes vectors/index only); validate with `pnpm validate:maps`. No
+third-party tile CDN — assets stay on-origin.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

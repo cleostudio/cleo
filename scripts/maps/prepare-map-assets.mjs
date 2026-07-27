@@ -6,8 +6,11 @@
  *
  * Usage:
  *   node scripts/maps/prepare-map-assets.mjs \
- *     --blue-marble=/tmp/maps-assets/blue-marble.jpg \
+ *     --blue-marble=/tmp/maps-assets/world.topo.bathy.200407.3x21600x10800.jpg \
  *     --countries=/tmp/maps-assets/ne_50m_admin_0_countries.geojson
+ *
+ * Prefer a 21600×10800 BMNG source so z6 tiles are not upscaled. The script
+ * writes a smaller 8192×4096 preview to public/images/maps/blue-marble.jpg.
  */
 
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises'
@@ -17,10 +20,13 @@ import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
-const MAX_ZOOM = 4
+/** z6 matches a 21600×10800 BMNG source without material upscaling. */
+const MAX_ZOOM = 6
 const TILE_SIZE = 256
-const JPEG_QUALITY = 82
+const JPEG_QUALITY = 90
 const MERCATOR_MAX_LAT = 85.05112878
+/** Degrees — lower = sharper country borders (heavier GeoJSON). */
+const BORDER_SIMPLIFY_TOLERANCE = 0.012
 
 function argValue(flag) {
   const prefix = `${flag}=`
@@ -153,7 +159,11 @@ async function writeCountries(sourcePath, outPaths) {
     if (!code) continue
     const geometry = {
       type: feature.geometry.type,
-      coordinates: simplifyCoords(feature.geometry.coordinates, feature.geometry.type, 0.04),
+      coordinates: simplifyCoords(
+        feature.geometry.coordinates,
+        feature.geometry.type,
+        BORDER_SIMPLIFY_TOLERANCE,
+      ),
     }
     if (
       (geometry.type === 'Polygon' && geometry.coordinates.length === 0) ||
@@ -303,7 +313,7 @@ function cameraFromGeometry(geometry) {
   const spanY = Math.max(maxY - minY, 0.35)
   const span = Math.max(spanX, spanY)
   // Rough zoom so small islands open close and continents stay framed.
-  const maxZoom = Math.max(1.4, Math.min(5.4, Math.log2(360 / span) + 0.65))
+  const maxZoom = Math.max(2.2, Math.min(6.8, Math.log2(360 / span) + 0.85))
 
   return {
     center: [wrapLng((minX + maxX) / 2), (minY + maxY) / 2],
@@ -360,7 +370,7 @@ function regionCamera(entries, { refLng = null, clamp = null } = {}) {
   }
   if (maxX <= minX || maxY <= minY) return null
   const span = Math.max(maxX - minX, maxY - minY, 1)
-  const maxZoom = Math.max(1.2, Math.min(3.4, Math.log2(360 / span) + 0.35))
+  const maxZoom = Math.max(1.6, Math.min(4.8, Math.log2(360 / span) + 0.45))
   return {
     bounds: [
       [minX, minY],
@@ -430,39 +440,67 @@ async function writeCountryIndex(collection, outPath) {
   return { countryCount: entries.length, regionCount: regions.length }
 }
 
-function renderMercatorCanvas(source, srcWidth, srcHeight, size) {
-  const pixels = Buffer.alloc(size * size * 3)
-  const ocean = [8, 24, 48]
+const OCEAN_FILL = [8, 24, 48]
 
-  for (let py = 0; py < size; py++) {
-    const mercatorY = Math.PI * (1 - (2 * (py + 0.5)) / size)
+function sampleBilinear(source, srcWidth, srcHeight, x, y, out, offset) {
+  const x0 = Math.floor(x)
+  const y0 = Math.floor(y)
+  const x1 = Math.min(srcWidth - 1, x0 + 1)
+  const y1 = Math.min(srcHeight - 1, y0 + 1)
+  const fx = x - x0
+  const fy = y - y0
+  const ifx = 1 - fx
+  const ify = 1 - fy
+
+  const i00 = (y0 * srcWidth + x0) * 3
+  const i10 = (y0 * srcWidth + x1) * 3
+  const i01 = (y1 * srcWidth + x0) * 3
+  const i11 = (y1 * srcWidth + x1) * 3
+
+  for (let c = 0; c < 3; c++) {
+    const top = source[i00 + c] * ifx + source[i10 + c] * fx
+    const bottom = source[i01 + c] * ifx + source[i11 + c] * fx
+    out[offset + c] = Math.round(top * ify + bottom * fy)
+  }
+}
+
+/** Render one Web-Mercator tile directly from equirectangular RGB. */
+function renderMercatorTile(source, srcWidth, srcHeight, z, x, y) {
+  const pixels = Buffer.alloc(TILE_SIZE * TILE_SIZE * 3)
+  const n = 2 ** z
+  const worldSize = TILE_SIZE * n
+
+  for (let py = 0; py < TILE_SIZE; py++) {
+    const globalY = y * TILE_SIZE + py + 0.5
+    const mercatorY = Math.PI * (1 - (2 * globalY) / worldSize)
     const lat = (Math.atan(Math.sinh(mercatorY)) * 180) / Math.PI
+
     if (lat > MERCATOR_MAX_LAT || lat < -MERCATOR_MAX_LAT) {
-      for (let px = 0; px < size; px++) {
-        const i = (py * size + px) * 3
-        pixels[i] = ocean[0]
-        pixels[i + 1] = ocean[1]
-        pixels[i + 2] = ocean[2]
+      for (let px = 0; px < TILE_SIZE; px++) {
+        const i = (py * TILE_SIZE + px) * 3
+        pixels[i] = OCEAN_FILL[0]
+        pixels[i + 1] = OCEAN_FILL[1]
+        pixels[i + 2] = OCEAN_FILL[2]
       }
       continue
     }
 
-    const srcY = Math.min(
-      srcHeight - 1,
-      Math.max(0, Math.floor(((90 - lat) / 180) * srcHeight)),
-    )
+    const srcY = ((90 - lat) / 180) * (srcHeight - 1)
 
-    for (let px = 0; px < size; px++) {
-      const lon = ((px + 0.5) / size) * 360 - 180
-      const srcX = Math.min(
-        srcWidth - 1,
-        Math.max(0, Math.floor(((lon + 180) / 360) * srcWidth)),
+    for (let px = 0; px < TILE_SIZE; px++) {
+      const globalX = x * TILE_SIZE + px + 0.5
+      const lon = (globalX / worldSize) * 360 - 180
+      const srcX = ((lon + 180) / 360) * (srcWidth - 1)
+      const i = (py * TILE_SIZE + px) * 3
+      sampleBilinear(
+        source,
+        srcWidth,
+        srcHeight,
+        Math.min(srcWidth - 1, Math.max(0, srcX)),
+        Math.min(srcHeight - 1, Math.max(0, srcY)),
+        pixels,
+        i,
       )
-      const si = (srcY * srcWidth + srcX) * 3
-      const i = (py * size + px) * 3
-      pixels[i] = source[si]
-      pixels[i + 1] = source[si + 1]
-      pixels[i + 2] = source[si + 2]
     }
   }
 
@@ -470,6 +508,7 @@ function renderMercatorCanvas(source, srcWidth, srcHeight, size) {
 }
 
 async function writeTiles(blueMarblePath, tilesDir) {
+  console.log('decoding Blue Marble source…')
   const { data, info } = await sharp(blueMarblePath)
     .removeAlpha()
     .raw()
@@ -487,35 +526,33 @@ async function writeTiles(blueMarblePath, tilesDir) {
     throw new Error(`Expected RGB source, got ${info.channels} channels`)
   }
 
+  console.log(`source ${info.width}×${info.height}, tiling z0–z${MAX_ZOOM}…`)
+
   let tileCount = 0
   for (let z = 0; z <= MAX_ZOOM; z++) {
     const n = 2 ** z
-    const size = TILE_SIZE * n
-    console.log(`rendering mercator canvas z${z} (${size}×${size})…`)
-    const canvas = renderMercatorCanvas(rgb, info.width, info.height, size)
-    const image = sharp(canvas, {
-      raw: { width: size, height: size, channels: 3 },
-    })
-
+    const started = Date.now()
     for (let x = 0; x < n; x++) {
       const dir = path.join(tilesDir, String(z), String(x))
       await mkdir(dir, { recursive: true })
       for (let y = 0; y < n; y++) {
-        const jpeg = await image
-          .clone()
-          .extract({
-            left: x * TILE_SIZE,
-            top: y * TILE_SIZE,
-            width: TILE_SIZE,
-            height: TILE_SIZE,
+        const raw = renderMercatorTile(rgb, info.width, info.height, z, x, y)
+        const jpeg = await sharp(raw, {
+          raw: { width: TILE_SIZE, height: TILE_SIZE, channels: 3 },
+        })
+          .jpeg({
+            quality: JPEG_QUALITY,
+            mozjpeg: true,
+            chromaSubsampling: '4:4:4',
           })
-          .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
           .toBuffer()
         await writeFile(path.join(dir, `${y}.jpg`), jpeg)
         tileCount++
       }
     }
-    console.log(`tiles z${z}: ${n * n}`)
+    console.log(
+      `tiles z${z}: ${n * n} (${((Date.now() - started) / 1000).toFixed(1)}s)`,
+    )
   }
   return tileCount
 }
@@ -541,11 +578,14 @@ async function main() {
   const indexPublic = path.join(root, 'public/maps/country-index.json')
   const attributionOut = path.join(root, 'content/maps/attribution.json')
 
+  // Keep a preview-sized equirectangular in-repo; full-res is only needed
+  // while generating tiles (pass --blue-marble=/path/to/21600.jpg).
   const publicBlueMarble = path.join(root, 'public/images/maps/blue-marble.jpg')
-  if (path.resolve(blueMarble) !== path.resolve(publicBlueMarble)) {
-    await mkdir(path.dirname(publicBlueMarble), { recursive: true })
-    await writeFile(publicBlueMarble, await readFile(blueMarble))
-  }
+  await mkdir(path.dirname(publicBlueMarble), { recursive: true })
+  await sharp(blueMarble)
+    .resize({ width: 8192, height: 4096, fit: 'fill' })
+    .jpeg({ quality: 88, mozjpeg: true })
+    .toFile(publicBlueMarble)
 
   await copyMapLibreWorkers()
 
@@ -579,9 +619,10 @@ async function main() {
         basemap: {
           name: 'NASA Blue Marble',
           credit:
-            'NASA Earth Observatory / NASA Goddard Space Flight Center (Blue Marble Next Generation)',
+            'NASA Earth Observatory / NASA Goddard Space Flight Center (Blue Marble Next Generation + topography & bathymetry, July 2004)',
           sourceUrl: 'https://earthobservatory.nasa.gov/features/BlueMarble',
           license: 'Public domain (US government work)',
+          resolution: '21600×10800',
         },
         boundaries: {
           name: 'Natural Earth Admin 0 Countries',
@@ -596,6 +637,8 @@ async function main() {
           maxZoom: MAX_ZOOM,
           tileSize: TILE_SIZE,
           count: tileCount,
+          jpegQuality: JPEG_QUALITY,
+          resampling: 'bilinear',
         },
         featureCount,
         indexCount,

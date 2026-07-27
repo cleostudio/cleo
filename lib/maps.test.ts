@@ -110,7 +110,7 @@ describe('maps helpers', () => {
     expect(MAP_TILE_URL).toBe('/images/maps/tiles/{z}/{x}/{y}.jpg')
     expect(MAP_COUNTRIES_URL).toBe('/maps/countries.geojson')
     expect(MAP_COUNTRY_INDEX_URL).toBe('/maps/country-index.json')
-    expect(MAP_MAX_ZOOM).toBe(4)
+    expect(MAP_MAX_ZOOM).toBe(6)
     expect(mapAttribution.basemap.name).toContain('Blue Marble')
     expect(mapAttribution.boundaries.name).toContain('Natural Earth')
   })
