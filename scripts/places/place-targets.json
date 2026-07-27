@@ -3795,5 +3795,357 @@
       "Pitons Saint Lucia",
       "Soufriere Saint Lucia"
     ]
+  },
+  "omaha": {
+    "name": "Omaha",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Omaha",
+      "Omaha skyline",
+      "Omaha Nebraska"
+    ]
+  },
+  "milwaukee": {
+    "name": "Milwaukee",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Milwaukee",
+      "Milwaukee skyline",
+      "Milwaukee Lake Michigan"
+    ]
+  },
+  "tampa": {
+    "name": "Tampa",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Tampa",
+      "Tampa skyline",
+      "Tampa Bay"
+    ]
+  },
+  "quebec-city": {
+    "name": "Quebec City",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": [
+      "Quebec City",
+      "Québec City",
+      "Old Quebec"
+    ]
+  },
+  "mendoza": {
+    "name": "Mendoza",
+    "countrySlug": "argentina",
+    "countryName": "Argentina",
+    "kind": "City",
+    "searchNames": [
+      "Mendoza Argentina",
+      "Mendoza Andes",
+      "Mendoza vineyards"
+    ]
+  },
+  "cusco": {
+    "name": "Cusco",
+    "countrySlug": "peru",
+    "countryName": "Peru",
+    "kind": "City",
+    "searchNames": [
+      "Cusco",
+      "Cuzco",
+      "Cusco Plaza de Armas"
+    ]
+  },
+  "belo-horizonte": {
+    "name": "Belo Horizonte",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": [
+      "Belo Horizonte",
+      "Belo Horizonte skyline",
+      "Belo Horizonte Brazil"
+    ]
+  },
+  "bratislava": {
+    "name": "Bratislava",
+    "countrySlug": "slovakia",
+    "countryName": "Slovakia",
+    "kind": "City",
+    "searchNames": [
+      "Bratislava",
+      "Bratislava castle",
+      "Bratislava skyline"
+    ]
+  },
+  "ljubljana": {
+    "name": "Ljubljana",
+    "countrySlug": "slovenia",
+    "countryName": "Slovenia",
+    "kind": "City",
+    "searchNames": [
+      "Ljubljana",
+      "Ljubljana castle",
+      "Ljubljana Slovenia"
+    ]
+  },
+  "pune": {
+    "name": "Pune",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Pune",
+      "Pune India",
+      "Pune skyline"
+    ]
+  },
+  "nagasaki": {
+    "name": "Nagasaki",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": [
+      "Nagasaki",
+      "Nagasaki harbor",
+      "Nagasaki Japan"
+    ]
+  },
+  "bruges": {
+    "name": "Bruges",
+    "countrySlug": "belgium",
+    "countryName": "Belgium",
+    "kind": "City",
+    "searchNames": [
+      "Bruges",
+      "Brugge",
+      "Bruges canals"
+    ]
+  },
+  "wisconsin": {
+    "name": "Wisconsin",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Wisconsin",
+      "Wisconsin lakes",
+      "Door County Wisconsin"
+    ]
+  },
+  "nova-scotia": {
+    "name": "Nova Scotia",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": [
+      "Nova Scotia",
+      "Nova Scotia coast",
+      "Peggy's Cove"
+    ]
+  },
+  "karnataka": {
+    "name": "Karnataka",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": [
+      "Karnataka",
+      "Karnataka temple",
+      "Western Ghats Karnataka"
+    ]
+  },
+  "ithaki": {
+    "name": "Ithaca",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Ithaca Greece",
+      "Ithaki",
+      "Ithaca Ionian"
+    ]
+  },
+  "patmos": {
+    "name": "Patmos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Patmos",
+      "Patmos monastery",
+      "Patmos Greece"
+    ]
+  },
+  "la-palma": {
+    "name": "La Palma",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": [
+      "La Palma Canary",
+      "La Palma volcano",
+      "La Palma Caldera"
+    ]
+  },
+  "mull": {
+    "name": "Isle of Mull",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Isle of Mull",
+      "Mull Scotland",
+      "Tobermory Mull"
+    ]
+  },
+  "saba": {
+    "name": "Saba",
+    "countrySlug": "netherlands",
+    "countryName": "Netherlands",
+    "kind": "Island",
+    "searchNames": [
+      "Saba",
+      "Saba Caribbean",
+      "Mount Scenery Saba"
+    ]
+  },
+  "nevis": {
+    "name": "Nevis",
+    "countrySlug": "saint-kitts-and-nevis",
+    "countryName": "Saint Kitts and Nevis",
+    "kind": "Island",
+    "searchNames": [
+      "Nevis",
+      "Nevis island",
+      "Nevis peak"
+    ]
+  },
+  "calabria": {
+    "name": "Calabria",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Calabria",
+      "Calabria coast",
+      "Calabria Italy"
+    ]
+  },
+  "salzkammergut": {
+    "name": "Salzkammergut",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "Region",
+    "searchNames": [
+      "Salzkammergut",
+      "Hallstatt",
+      "Salzkammergut lakes"
+    ]
+  },
+  "yarra-valley": {
+    "name": "Yarra Valley",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Region",
+    "searchNames": [
+      "Yarra Valley",
+      "Yarra Valley vineyards",
+      "Yarra Valley Victoria"
+    ]
+  },
+  "algarve": {
+    "name": "Algarve",
+    "countrySlug": "portugal",
+    "countryName": "Portugal",
+    "kind": "Region",
+    "searchNames": [
+      "Algarve",
+      "Algarve cliffs",
+      "Algarve Portugal"
+    ]
+  },
+  "bucovina": {
+    "name": "Bukovina",
+    "countrySlug": "romania",
+    "countryName": "Romania",
+    "kind": "Region",
+    "searchNames": [
+      "Bukovina",
+      "Bucovina",
+      "Painted monasteries Bukovina"
+    ]
+  },
+  "white-house": {
+    "name": "White House",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "White House",
+      "White House Washington",
+      "White House exterior"
+    ]
+  },
+  "arc-de-triomphe": {
+    "name": "Arc de Triomphe",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": [
+      "Arc de Triomphe",
+      "Arc de Triomphe Paris",
+      "Arc de Triomphe Etoile"
+    ]
+  },
+  "tower-bridge": {
+    "name": "Tower Bridge",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": [
+      "Tower Bridge",
+      "Tower Bridge London",
+      "Tower Bridge Thames"
+    ]
+  },
+  "death-valley": {
+    "name": "Death Valley",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Death Valley",
+      "Death Valley National Park",
+      "Badwater Death Valley"
+    ]
+  },
+  "duomo-milan": {
+    "name": "Milan Cathedral",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": [
+      "Milan Cathedral",
+      "Duomo di Milano",
+      "Duomo Milan"
+    ]
+  },
+  "westminster-abbey": {
+    "name": "Westminster Abbey",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": [
+      "Westminster Abbey",
+      "Westminster Abbey London",
+      "Westminster Abbey exterior"
+    ]
   }
 }

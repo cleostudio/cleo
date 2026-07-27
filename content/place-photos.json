@@ -10206,5 +10206,933 @@
         "bytes": 598053
       }
     ]
+  },
+  "omaha": {
+    "featureName": "Omaha",
+    "alt": "Omaha in United States",
+    "caption": "Omaha, United States",
+    "photographer": "Tony Webster from Minneapolis, Minnesota, United States",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:City_of_Omaha,_Nebraska_Skyline_on_the_Missouri_River_(30899969517).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:City of Omaha, Nebraska Skyline on the Missouri River (30899969517).jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b6/City_of_Omaha%2C_Nebraska_Skyline_on_the_Missouri_River_%2830899969517%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1407e45d70dfbb2d06d16bbed95b3e3ae11cd43554a9387ac4f5a9abe3d1b3aa",
+    "width": 3840,
+    "height": 2454,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/omaha/w640.jpg",
+        "bytes": 36932
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/omaha/w1280.jpg",
+        "bytes": 136324
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/omaha/w2048.jpg",
+        "bytes": 412078
+      }
+    ]
+  },
+  "milwaukee": {
+    "featureName": "Milwaukee",
+    "alt": "Milwaukee in United States",
+    "caption": "Milwaukee, United States",
+    "photographer": "Purple Slog from West Allis Wisconsin, USA",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Milwaukee_viewed_from_Lake_Michigan_in_September_2006_(237441387).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Milwaukee viewed from Lake Michigan in September 2006 (237441387).jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1a/Milwaukee_viewed_from_Lake_Michigan_in_September_2006_%28237441387%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2ba7eb71008e3fab4723f173ab2a63edfcd7ff8083377ebacc58e27660e7ca0f",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/milwaukee/w640.jpg",
+        "bytes": 38159
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/milwaukee/w1280.jpg",
+        "bytes": 110576
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/milwaukee/w2048.jpg",
+        "bytes": 289877
+      }
+    ]
+  },
+  "tampa": {
+    "featureName": "Tampa",
+    "alt": "Tampa in United States",
+    "caption": "Tampa, United States",
+    "photographer": "Clément Bardot",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Tampa,_Florida.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown Tampa, Florida.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/bf/Downtown_Tampa%2C_Florida.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4dc967fd2485ba550e2692c9dbbb07d79350d799ee0e3bb2988606318ed06347",
+    "width": 3840,
+    "height": 2205,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tampa/w640.jpg",
+        "bytes": 40898
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tampa/w1280.jpg",
+        "bytes": 150610
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tampa/w2048.jpg",
+        "bytes": 431970
+      }
+    ]
+  },
+  "quebec-city": {
+    "featureName": "Quebec City",
+    "alt": "Quebec City in Canada",
+    "caption": "Quebec City, Canada",
+    "photographer": "Wilfredor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_Frontenac_after_a_freezing_rain_day_in_Quebec_city.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Château Frontenac after a freezing rain day in Quebec city.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/bf/Ch%C3%A2teau_Frontenac_after_a_freezing_rain_day_in_Quebec_city.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "970b10340aef929688bd40c55b42c1f5038f6a764a549d61c6c8545426f810ca",
+    "width": 3840,
+    "height": 1847,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/quebec-city/w640.jpg",
+        "bytes": 39048
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/quebec-city/w1280.jpg",
+        "bytes": 145521
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/quebec-city/w2048.jpg",
+        "bytes": 439227
+      }
+    ]
+  },
+  "mendoza": {
+    "featureName": "Mendoza",
+    "alt": "Mendoza in Argentina",
+    "caption": "Mendoza, Argentina",
+    "photographer": "Cobosch33",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cerro_de_la_Gloria,_Mendoza,_julio_de_2016.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cerro de la Gloria, Mendoza, julio de 2016.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/54/Cerro_de_la_Gloria%2C_Mendoza%2C_julio_de_2016.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "43bd99c2f652c97ced7226a731e855e1c4894010ff0ec969bb3aca046564636e",
+    "width": 3840,
+    "height": 1669,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mendoza/w640.jpg",
+        "bytes": 33582
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mendoza/w1280.jpg",
+        "bytes": 123583
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mendoza/w2048.jpg",
+        "bytes": 357257
+      }
+    ]
+  },
+  "cusco": {
+    "featureName": "Cusco",
+    "alt": "Cusco in Peru",
+    "caption": "Cusco, Peru",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vista_de_Cusco,_Per%C3%BA,_2015-07-31,_DD_11-17_PAN.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vista de Cusco, Perú, 2015-07-31, DD 11-17 PAN.JPG); source https://upload.wikimedia.org/wikipedia/commons/9/94/Vista_de_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_11-17_PAN.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f0a2fb51c4d3984070d38d9fb3d47f84e5ccecd4366efeea7d0b2b891104fd69",
+    "width": 3840,
+    "height": 500,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cusco/w640.jpg",
+        "bytes": 17033
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cusco/w1280.jpg",
+        "bytes": 65718
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cusco/w2048.jpg",
+        "bytes": 202189
+      }
+    ]
+  },
+  "belo-horizonte": {
+    "featureName": "Belo Horizonte",
+    "alt": "Belo Horizonte in Brazil",
+    "caption": "Belo Horizonte, Brazil",
+    "photographer": "Pedro Lopes pedrinholula",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lagoa_da_Pampulha,_Belo_Horizonte,_Brazil_(Unsplash).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Lagoa da Pampulha, Belo Horizonte, Brazil (Unsplash).jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3a/Lagoa_da_Pampulha%2C_Belo_Horizonte%2C_Brazil_%28Unsplash%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9dcbde3989c2bec4e1cea0737e04d30549928ce82cb27cb2071e8f6fbb67e901",
+    "width": 3840,
+    "height": 2555,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/belo-horizonte/w640.jpg",
+        "bytes": 44889
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/belo-horizonte/w1280.jpg",
+        "bytes": 160046
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/belo-horizonte/w2048.jpg",
+        "bytes": 467260
+      }
+    ]
+  },
+  "bratislava": {
+    "featureName": "Bratislava",
+    "alt": "Bratislava in Slovakia",
+    "caption": "Bratislava, Slovakia",
+    "photographer": "Ingo Mehling",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bratislava_Castle_with_Danube.jpeg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bratislava Castle with Danube.jpeg); source https://upload.wikimedia.org/wikipedia/commons/4/48/Bratislava_Castle_with_Danube.jpeg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e9652281742c030c151973d58ad3e5e4cff0b710ad5db9ba5bcb9f3aff39f810",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bratislava/w640.jpg",
+        "bytes": 42996
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bratislava/w1280.jpg",
+        "bytes": 158576
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bratislava/w2048.jpg",
+        "bytes": 485206
+      }
+    ]
+  },
+  "ljubljana": {
+    "featureName": "Ljubljana",
+    "alt": "Ljubljana in Slovenia",
+    "caption": "Ljubljana, Slovenia",
+    "photographer": "Valerio2468",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Triple_Bridge_and_Preseren_Square_fron_the_Ljubljanica.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Triple Bridge and Preseren Square fron the Ljubljanica.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5a/Triple_Bridge_and_Preseren_Square_fron_the_Ljubljanica.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "113c6e3580d95b8da7f7ebdb03a64fce9d682fb1996974e7712cc6456e755242",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ljubljana/w640.jpg",
+        "bytes": 52102
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ljubljana/w1280.jpg",
+        "bytes": 176324
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ljubljana/w2048.jpg",
+        "bytes": 472080
+      }
+    ]
+  },
+  "pune": {
+    "featureName": "Pune",
+    "alt": "Pune in India",
+    "caption": "Pune, India",
+    "photographer": "PKharote",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khandoba_temple_Pune.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Khandoba temple Pune.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c1/Khandoba_temple_Pune.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d121267b3337f1d585dcb7f45c30dde4d8723a3f860adf20fb1c939cd49aa67f",
+    "width": 3840,
+    "height": 2623,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/pune/w640.jpg",
+        "bytes": 65722
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/pune/w1280.jpg",
+        "bytes": 227834
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/pune/w2048.jpg",
+        "bytes": 645022
+      }
+    ]
+  },
+  "nagasaki": {
+    "featureName": "Nagasaki",
+    "alt": "Nagasaki in Japan",
+    "caption": "Nagasaki, Japan",
+    "photographer": "Konstantin Leonov",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagasaki,_viewed_from_Mount_Inasayama;_January_2013.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Nagasaki, viewed from Mount Inasayama; January 2013.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/05/Nagasaki%2C_viewed_from_Mount_Inasayama%3B_January_2013.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b1f49bfe2bbc645100d9aa462d9a3ced2203df4794e2e403f5faabcc666bc97e",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nagasaki/w640.jpg",
+        "bytes": 42851
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nagasaki/w1280.jpg",
+        "bytes": 144224
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nagasaki/w2048.jpg",
+        "bytes": 367981
+      }
+    ]
+  },
+  "bruges": {
+    "featureName": "Bruges",
+    "alt": "Bruges in Belgium",
+    "caption": "Bruges, Belgium",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Br%C3%BCgge_(B),_Groenerei_--_2018_--_8493-7.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Brügge (B), Groenerei -- 2018 -- 8493-7.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/10/Br%C3%BCgge_%28B%29%2C_Groenerei_--_2018_--_8493-7.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d3ec19636a9af3f23170ad21410c3a12542ac26120e4986a76df1b044903e716",
+    "width": 3840,
+    "height": 2559,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bruges/w640.jpg",
+        "bytes": 56927
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bruges/w1280.jpg",
+        "bytes": 213261
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bruges/w2048.jpg",
+        "bytes": 626439
+      }
+    ]
+  },
+  "wisconsin": {
+    "featureName": "Wisconsin",
+    "alt": "Wisconsin in United States",
+    "caption": "Wisconsin, United States",
+    "photographer": "Barbara Steiner Photography",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wisconsin_River_Dells_Natural_Art.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Wisconsin River Dells Natural Art.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/61/Wisconsin_River_Dells_Natural_Art.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fad1a6bd0ce3697e6cf6a87fd591aa24c2fb1f603afff21741ca4c05f01d2da1",
+    "width": 3840,
+    "height": 2390,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/wisconsin/w640.jpg",
+        "bytes": 44573
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/wisconsin/w1280.jpg",
+        "bytes": 141224
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/wisconsin/w2048.jpg",
+        "bytes": 357122
+      }
+    ]
+  },
+  "nova-scotia": {
+    "featureName": "Nova Scotia",
+    "alt": "Nova Scotia in Canada",
+    "caption": "Nova Scotia, Canada",
+    "photographer": "Gordon Leggett",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022-08-15_01_Wide_angle_view_of_Halifax_skyline,_Nova_Scotia,_Canada.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:2022-08-15 01 Wide angle view of Halifax skyline, Nova Scotia, Canada.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4e/2022-08-15_01_Wide_angle_view_of_Halifax_skyline%2C_Nova_Scotia%2C_Canada.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "000ee416a6ccbc303f8984766cef3dc0e68c9777705ec071a61f8128b64366ed",
+    "width": 3840,
+    "height": 1223,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nova-scotia/w640.jpg",
+        "bytes": 18722
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nova-scotia/w1280.jpg",
+        "bytes": 67628
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nova-scotia/w2048.jpg",
+        "bytes": 204811
+      }
+    ]
+  },
+  "karnataka": {
+    "featureName": "Karnataka",
+    "alt": "Karnataka in India",
+    "caption": "Karnataka, India",
+    "photographer": "Vyacheslav Argenberg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hampi,_India,_Rocky_landscape_of_Hampi,_Granite_rocks_of_Matanga_Hill.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Hampi, India, Rocky landscape of Hampi, Granite rocks of Matanga Hill.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7d/Hampi%2C_India%2C_Rocky_landscape_of_Hampi%2C_Granite_rocks_of_Matanga_Hill.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ac93421054c1845fefca34d626b19cceeb1982b3de416db1b3ef77c03fe86797",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/karnataka/w640.jpg",
+        "bytes": 61351
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/karnataka/w1280.jpg",
+        "bytes": 221987
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/karnataka/w2048.jpg",
+        "bytes": 631980
+      }
+    ]
+  },
+  "ithaki": {
+    "featureName": "Ithaca",
+    "alt": "Ithaca in Greece",
+    "caption": "Ithaca, Greece",
+    "photographer": "auteur",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ithaki-Vathy.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ithaki-Vathy.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4c/Ithaki-Vathy.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "527f0bfbf2d62919e25624feaa0e77b535029c595e8191327f550a1ace5b10dd",
+    "width": 2257,
+    "height": 1692,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ithaki/w640.jpg",
+        "bytes": 60435
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ithaki/w1280.jpg",
+        "bytes": 174355
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ithaki/w2048.jpg",
+        "bytes": 537963
+      }
+    ]
+  },
+  "patmos": {
+    "featureName": "Patmos",
+    "alt": "Patmos in Greece",
+    "caption": "Patmos, Greece",
+    "photographer": "Gary Bembridge from London, UK",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Patmos_Greece_(31665204678).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Patmos Greece (31665204678).jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3b/Patmos_Greece_%2831665204678%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a13eaabe6d1a71d0f85da7809a42da4637924eefeb3023efb0fb304f7718a011",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/patmos/w640.jpg",
+        "bytes": 53114
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/patmos/w1280.jpg",
+        "bytes": 197913
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/patmos/w2048.jpg",
+        "bytes": 579893
+      }
+    ]
+  },
+  "la-palma": {
+    "featureName": "La Palma",
+    "alt": "La Palma in Spain",
+    "caption": "La Palma, Spain",
+    "photographer": "imehling",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Palma_-_Caldera_de_Taburiente_Interior_-_4.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:La Palma - Caldera de Taburiente Interior - 4.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/fb/La_Palma_-_Caldera_de_Taburiente_Interior_-_4.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "487bcc8cd85be794a28423055770f501b18c080ca9f96e5029eca4b884fd177e",
+    "width": 3840,
+    "height": 3239,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/la-palma/w640.jpg",
+        "bytes": 55858
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/la-palma/w1280.jpg",
+        "bytes": 222241
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/la-palma/w2048.jpg",
+        "bytes": 699131
+      }
+    ]
+  },
+  "mull": {
+    "featureName": "Isle of Mull",
+    "alt": "Isle of Mull in United Kingdom",
+    "caption": "Isle of Mull, United Kingdom",
+    "photographer": "Arran Bee from Nottingham, UK",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_colourful_harbour_buildings_of_Tobermory_-_Flickr_-_Arran_Bee.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:The colourful harbour buildings of Tobermory - Flickr - Arran Bee.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b7/The_colourful_harbour_buildings_of_Tobermory_-_Flickr_-_Arran_Bee.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6ccce54d0b9d95e170b7197ab003f462d48c8f1949279dfc10e8d4f719f5fd0d",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mull/w640.jpg",
+        "bytes": 62180
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mull/w1280.jpg",
+        "bytes": 250242
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mull/w2048.jpg",
+        "bytes": 742923
+      }
+    ]
+  },
+  "saba": {
+    "featureName": "Saba",
+    "alt": "Saba in Netherlands",
+    "caption": "Saba, Netherlands",
+    "photographer": "CareAhLine",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wells_Bay,_Saba,_with_Torrens_Point_in_the_distance.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Wells Bay, Saba, with Torrens Point in the distance.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/10/Wells_Bay%2C_Saba%2C_with_Torrens_Point_in_the_distance.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a79c1967eb708a7a25106a3860c8a5348355df9d672ea05fc14db1a715efaba3",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/saba/w640.jpg",
+        "bytes": 42874
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/saba/w1280.jpg",
+        "bytes": 165838
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/saba/w2048.jpg",
+        "bytes": 469340
+      }
+    ]
+  },
+  "nevis": {
+    "featureName": "Nevis",
+    "alt": "Nevis in Saint Kitts and Nevis",
+    "caption": "Nevis, Saint Kitts and Nevis",
+    "photographer": "Dr. Thomas Liptak",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nevis_Charlestown_Ferry_Pier_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Nevis Charlestown Ferry Pier 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/61/Nevis_Charlestown_Ferry_Pier_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "950e7438feed425e1a260c4b2cdbb9372d1f27db84b79739ae5941d857b55312",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nevis/w640.jpg",
+        "bytes": 44800
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nevis/w1280.jpg",
+        "bytes": 161286
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nevis/w2048.jpg",
+        "bytes": 459716
+      }
+    ]
+  },
+  "calabria": {
+    "featureName": "Calabria",
+    "alt": "Calabria in Italy",
+    "caption": "Calabria, Italy",
+    "photographer": "Benjamin Smith",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reggio_Calabria_-_Duomo_-_08.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Reggio Calabria - Duomo - 08.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/43/Reggio_Calabria_-_Duomo_-_08.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e00069efcb861f89ff23b96cc678bedbb3b0f201ac60f8dcb6eb2242a03cba53",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/calabria/w640.jpg",
+        "bytes": 73968
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/calabria/w1280.jpg",
+        "bytes": 285482
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/calabria/w2048.jpg",
+        "bytes": 834091
+      }
+    ]
+  },
+  "salzkammergut": {
+    "featureName": "Salzkammergut",
+    "alt": "Salzkammergut in Austria",
+    "caption": "Salzkammergut, Austria",
+    "photographer": "Dmitry A. Mottl",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:St_Wolfgang,_Austria.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:St Wolfgang, Austria.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/87/St_Wolfgang%2C_Austria.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1c636767d0ddb44dc16c451be4aad20158c70f40a7cfd575da673ef711dc3fdb",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/salzkammergut/w640.jpg",
+        "bytes": 36863
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/salzkammergut/w1280.jpg",
+        "bytes": 135511
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/salzkammergut/w2048.jpg",
+        "bytes": 415977
+      }
+    ]
+  },
+  "yarra-valley": {
+    "featureName": "Yarra Valley",
+    "alt": "Yarra Valley in Australia",
+    "caption": "Yarra Valley, Australia",
+    "photographer": "Bob Tan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yarra_Valley_wine_region_panorama._Facing_east.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Yarra Valley wine region panorama. Facing east.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/40/Yarra_Valley_wine_region_panorama._Facing_east.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "62e57c9193cb2162bc4bc6f49c6649933ac2d82d0294e8f4f3813d582673b54f",
+    "width": 3840,
+    "height": 1534,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/yarra-valley/w640.jpg",
+        "bytes": 33799
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/yarra-valley/w1280.jpg",
+        "bytes": 130838
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/yarra-valley/w2048.jpg",
+        "bytes": 402433
+      }
+    ]
+  },
+  "algarve": {
+    "featureName": "Algarve",
+    "alt": "Algarve in Portugal",
+    "caption": "Algarve, Portugal",
+    "photographer": "muffinn from Worcester, UK",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portugal_-_Algarve_-_cliffs_near_Lagos_(25151629713).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Portugal - Algarve - cliffs near Lagos (25151629713).jpg); source https://upload.wikimedia.org/wikipedia/commons/d/da/Portugal_-_Algarve_-_cliffs_near_Lagos_%2825151629713%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4e9075159c3b0e911f483626c63e4e69fe6090946a722426089d10f30b3f5e60",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/algarve/w640.jpg",
+        "bytes": 59492
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/algarve/w1280.jpg",
+        "bytes": 212623
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/algarve/w2048.jpg",
+        "bytes": 601803
+      }
+    ]
+  },
+  "bucovina": {
+    "featureName": "Bukovina",
+    "alt": "Bukovina in Romania",
+    "caption": "Bukovina, Romania",
+    "photographer": "Gary Todd",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Voronet_Monastery_-_2016-3.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Voronet Monastery - 2016-3.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/65/Voronet_Monastery_-_2016-3.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f99f67a70f71d6b05510551d90ae60b9ab683670bba470869e75043b1dc6bedd",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bucovina/w640.jpg",
+        "bytes": 50877
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bucovina/w1280.jpg",
+        "bytes": 165094
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bucovina/w2048.jpg",
+        "bytes": 406617
+      }
+    ]
+  },
+  "white-house": {
+    "featureName": "White House",
+    "alt": "White House in United States",
+    "caption": "White House, United States",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_White_House,_Washington,_D.C._USA2.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:The White House, Washington, D.C. USA2.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d8/The_White_House%2C_Washington%2C_D.C._USA2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6044da5b83141db3851dbaec61a09dafbf8d263cb2d70753d36c6c3e1b881685",
+    "width": 2711,
+    "height": 1615,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/white-house/w640.jpg",
+        "bytes": 52193
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/white-house/w1280.jpg",
+        "bytes": 161918
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/white-house/w2048.jpg",
+        "bytes": 433576
+      }
+    ]
+  },
+  "arc-de-triomphe": {
+    "featureName": "Arc de Triomphe",
+    "alt": "Arc de Triomphe in France",
+    "caption": "Arc de Triomphe, France",
+    "photographer": "Benh LIEU SONG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arc_Triomphe.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Arc Triomphe.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c4/Arc_Triomphe.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "07b7c6f47b79a618bb20d22e4605b4395746defaa841ad8c581db243f08f466b",
+    "width": 3840,
+    "height": 4164,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/arc-de-triomphe/w640.jpg",
+        "bytes": 81404
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/arc-de-triomphe/w1280.jpg",
+        "bytes": 279465
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/arc-de-triomphe/w2048.jpg",
+        "bytes": 783008
+      }
+    ]
+  },
+  "tower-bridge": {
+    "featureName": "Tower Bridge",
+    "alt": "Tower Bridge in United Kingdom",
+    "caption": "Tower Bridge, United Kingdom",
+    "photographer": "Ввласенко",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_the_Tower_Bridge_from_the_Thames_from_northwest._London.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:View of the Tower Bridge from the Thames from northwest. London.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6e/View_of_the_Tower_Bridge_from_the_Thames_from_northwest._London.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "78862b13abd037dc5102e06fc149228c88bf803f4cd74bd2c994df3c8ea5cf3b",
+    "width": 3840,
+    "height": 2083,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tower-bridge/w640.jpg",
+        "bytes": 28151
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tower-bridge/w1280.jpg",
+        "bytes": 102717
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tower-bridge/w2048.jpg",
+        "bytes": 316030
+      }
+    ]
+  },
+  "death-valley": {
+    "featureName": "Death Valley",
+    "alt": "Death Valley in United States",
+    "caption": "Death Valley, United States",
+    "photographer": "Luca Galuzzi ( Lucag )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:USA_10789_Death_Valley_Luca_Galuzzi_2007.jpg",
+    "license": "CC BY-SA 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:USA 10789 Death Valley Luca Galuzzi 2007.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e0/USA_10789_Death_Valley_Luca_Galuzzi_2007.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "67d3af1873b82910f5b6c4acfe014523916be23fbacae3dac3683f66c4ed178a",
+    "width": 2000,
+    "height": 1333,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/death-valley/w640.jpg",
+        "bytes": 70900
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/death-valley/w1280.jpg",
+        "bytes": 218669
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/death-valley/w2048.jpg",
+        "bytes": 559325
+      }
+    ]
+  },
+  "duomo-milan": {
+    "featureName": "Milan Cathedral",
+    "alt": "Milan Cathedral in Italy",
+    "caption": "Milan Cathedral, Italy",
+    "photographer": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20110724_Milan_Cathedral_5266.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:20110724 Milan Cathedral 5266.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/11/20110724_Milan_Cathedral_5266.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2c86e51cf4cb7d10c08fa280a80d9fe223feacd6ed5cd9c53b1716d541f97c24",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/duomo-milan/w640.jpg",
+        "bytes": 54263
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/duomo-milan/w1280.jpg",
+        "bytes": 186081
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/duomo-milan/w2048.jpg",
+        "bytes": 502476
+      }
+    ]
+  },
+  "westminster-abbey": {
+    "featureName": "Westminster Abbey",
+    "alt": "Westminster Abbey in United Kingdom",
+    "caption": "Westminster Abbey, United Kingdom",
+    "photographer": "Carlos Delgado",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Westminster_Abbey_-_02.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Westminster Abbey - 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e0/Westminster_Abbey_-_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "147f7a4e5c905c289d56eef28d9fcc2dfd29f74b07527f2936757aa1fd9e1b1a",
+    "width": 2800,
+    "height": 2100,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/westminster-abbey/w640.jpg",
+        "bytes": 123057
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/westminster-abbey/w1280.jpg",
+        "bytes": 298729
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/westminster-abbey/w2048.jpg",
+        "bytes": 668803
+      }
+    ]
   }
 }

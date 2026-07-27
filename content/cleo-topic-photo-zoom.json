@@ -13127,6 +13127,774 @@
       }
     ]
   },
+  "places/omaha": {
+    "collection": "places",
+    "title": "Omaha",
+    "subtitle": "Omaha",
+    "alt": "Omaha in United States",
+    "photographer": "Tony Webster from Minneapolis, Minnesota, United States",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2454,
+    "renditions": [
+      {
+        "src": "/images/places/omaha/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/omaha/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/omaha/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/milwaukee": {
+    "collection": "places",
+    "title": "Milwaukee",
+    "subtitle": "Milwaukee",
+    "alt": "Milwaukee in United States",
+    "photographer": "Purple Slog from West Allis Wisconsin, USA",
+    "license": "CC BY 2.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/milwaukee/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/milwaukee/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/milwaukee/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tampa": {
+    "collection": "places",
+    "title": "Tampa",
+    "subtitle": "Tampa",
+    "alt": "Tampa in United States",
+    "photographer": "Clément Bardot",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2205,
+    "renditions": [
+      {
+        "src": "/images/places/tampa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tampa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tampa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/quebec-city": {
+    "collection": "places",
+    "title": "Quebec City",
+    "subtitle": "Quebec City",
+    "alt": "Quebec City in Canada",
+    "photographer": "Wilfredor",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1847,
+    "renditions": [
+      {
+        "src": "/images/places/quebec-city/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/quebec-city/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/quebec-city/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mendoza": {
+    "collection": "places",
+    "title": "Mendoza",
+    "subtitle": "Mendoza",
+    "alt": "Mendoza in Argentina",
+    "photographer": "Cobosch33",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1669,
+    "renditions": [
+      {
+        "src": "/images/places/mendoza/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mendoza/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mendoza/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cusco": {
+    "collection": "places",
+    "title": "Cusco",
+    "subtitle": "Cusco",
+    "alt": "Cusco in Peru",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 500,
+    "renditions": [
+      {
+        "src": "/images/places/cusco/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cusco/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cusco/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/belo-horizonte": {
+    "collection": "places",
+    "title": "Belo Horizonte",
+    "subtitle": "Belo Horizonte",
+    "alt": "Belo Horizonte in Brazil",
+    "photographer": "Pedro Lopes pedrinholula",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2555,
+    "renditions": [
+      {
+        "src": "/images/places/belo-horizonte/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/belo-horizonte/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/belo-horizonte/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bratislava": {
+    "collection": "places",
+    "title": "Bratislava",
+    "subtitle": "Bratislava",
+    "alt": "Bratislava in Slovakia",
+    "photographer": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/bratislava/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bratislava/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bratislava/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ljubljana": {
+    "collection": "places",
+    "title": "Ljubljana",
+    "subtitle": "Ljubljana",
+    "alt": "Ljubljana in Slovenia",
+    "photographer": "Valerio2468",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/ljubljana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ljubljana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ljubljana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/pune": {
+    "collection": "places",
+    "title": "Pune",
+    "subtitle": "Pune",
+    "alt": "Pune in India",
+    "photographer": "PKharote",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2623,
+    "renditions": [
+      {
+        "src": "/images/places/pune/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/pune/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/pune/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nagasaki": {
+    "collection": "places",
+    "title": "Nagasaki",
+    "subtitle": "Nagasaki",
+    "alt": "Nagasaki in Japan",
+    "photographer": "Konstantin Leonov",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "src": "/images/places/nagasaki/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nagasaki/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nagasaki/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bruges": {
+    "collection": "places",
+    "title": "Bruges",
+    "subtitle": "Bruges",
+    "alt": "Bruges in Belgium",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2559,
+    "renditions": [
+      {
+        "src": "/images/places/bruges/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bruges/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bruges/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/wisconsin": {
+    "collection": "places",
+    "title": "Wisconsin",
+    "subtitle": "Wisconsin",
+    "alt": "Wisconsin in United States",
+    "photographer": "Barbara Steiner Photography",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2390,
+    "renditions": [
+      {
+        "src": "/images/places/wisconsin/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/wisconsin/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/wisconsin/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nova-scotia": {
+    "collection": "places",
+    "title": "Nova Scotia",
+    "subtitle": "Nova Scotia",
+    "alt": "Nova Scotia in Canada",
+    "photographer": "Gordon Leggett",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1223,
+    "renditions": [
+      {
+        "src": "/images/places/nova-scotia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nova-scotia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nova-scotia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/karnataka": {
+    "collection": "places",
+    "title": "Karnataka",
+    "subtitle": "Karnataka",
+    "alt": "Karnataka in India",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/karnataka/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/karnataka/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/karnataka/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ithaki": {
+    "collection": "places",
+    "title": "Ithaca",
+    "subtitle": "Ithaca",
+    "alt": "Ithaca in Greece",
+    "photographer": "auteur",
+    "license": "CC BY-SA 2.0",
+    "width": 2257,
+    "height": 1692,
+    "renditions": [
+      {
+        "src": "/images/places/ithaki/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ithaki/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ithaki/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/patmos": {
+    "collection": "places",
+    "title": "Patmos",
+    "subtitle": "Patmos",
+    "alt": "Patmos in Greece",
+    "photographer": "Gary Bembridge from London, UK",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/patmos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/patmos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/patmos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/la-palma": {
+    "collection": "places",
+    "title": "La Palma",
+    "subtitle": "La Palma",
+    "alt": "La Palma in Spain",
+    "photographer": "imehling",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 3239,
+    "renditions": [
+      {
+        "src": "/images/places/la-palma/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/la-palma/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/la-palma/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mull": {
+    "collection": "places",
+    "title": "Isle of Mull",
+    "subtitle": "Isle of Mull",
+    "alt": "Isle of Mull in United Kingdom",
+    "photographer": "Arran Bee from Nottingham, UK",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/mull/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mull/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mull/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/saba": {
+    "collection": "places",
+    "title": "Saba",
+    "subtitle": "Saba",
+    "alt": "Saba in Netherlands",
+    "photographer": "CareAhLine",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/saba/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/saba/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/saba/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nevis": {
+    "collection": "places",
+    "title": "Nevis",
+    "subtitle": "Nevis",
+    "alt": "Nevis in Saint Kitts and Nevis",
+    "photographer": "Dr. Thomas Liptak",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/nevis/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nevis/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nevis/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/calabria": {
+    "collection": "places",
+    "title": "Calabria",
+    "subtitle": "Calabria",
+    "alt": "Calabria in Italy",
+    "photographer": "Benjamin Smith",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/calabria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/calabria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/calabria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/salzkammergut": {
+    "collection": "places",
+    "title": "Salzkammergut",
+    "subtitle": "Salzkammergut",
+    "alt": "Salzkammergut in Austria",
+    "photographer": "Dmitry A. Mottl",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/salzkammergut/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/salzkammergut/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/salzkammergut/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/yarra-valley": {
+    "collection": "places",
+    "title": "Yarra Valley",
+    "subtitle": "Yarra Valley",
+    "alt": "Yarra Valley in Australia",
+    "photographer": "Bob Tan",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 1534,
+    "renditions": [
+      {
+        "src": "/images/places/yarra-valley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/yarra-valley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/yarra-valley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/algarve": {
+    "collection": "places",
+    "title": "Algarve",
+    "subtitle": "Algarve",
+    "alt": "Algarve in Portugal",
+    "photographer": "muffinn from Worcester, UK",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/algarve/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/algarve/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/algarve/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bucovina": {
+    "collection": "places",
+    "title": "Bukovina",
+    "subtitle": "Bukovina",
+    "alt": "Bukovina in Romania",
+    "photographer": "Gary Todd",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/bucovina/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bucovina/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bucovina/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/white-house": {
+    "collection": "places",
+    "title": "White House",
+    "subtitle": "White House",
+    "alt": "White House in United States",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 2711,
+    "height": 1615,
+    "renditions": [
+      {
+        "src": "/images/places/white-house/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/white-house/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/white-house/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/arc-de-triomphe": {
+    "collection": "places",
+    "title": "Arc de Triomphe",
+    "subtitle": "Arc de Triomphe",
+    "alt": "Arc de Triomphe in France",
+    "photographer": "Benh LIEU SONG",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 4164,
+    "renditions": [
+      {
+        "src": "/images/places/arc-de-triomphe/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/arc-de-triomphe/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/arc-de-triomphe/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tower-bridge": {
+    "collection": "places",
+    "title": "Tower Bridge",
+    "subtitle": "Tower Bridge",
+    "alt": "Tower Bridge in United Kingdom",
+    "photographer": "Ввласенко",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2083,
+    "renditions": [
+      {
+        "src": "/images/places/tower-bridge/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tower-bridge/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tower-bridge/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/death-valley": {
+    "collection": "places",
+    "title": "Death Valley",
+    "subtitle": "Death Valley",
+    "alt": "Death Valley in United States",
+    "photographer": "Luca Galuzzi ( Lucag )",
+    "license": "CC BY-SA 2.5",
+    "width": 2000,
+    "height": 1333,
+    "renditions": [
+      {
+        "src": "/images/places/death-valley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/death-valley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/death-valley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/duomo-milan": {
+    "collection": "places",
+    "title": "Milan Cathedral",
+    "subtitle": "Milan Cathedral",
+    "alt": "Milan Cathedral in Italy",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "src": "/images/places/duomo-milan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/duomo-milan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/duomo-milan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/westminster-abbey": {
+    "collection": "places",
+    "title": "Westminster Abbey",
+    "subtitle": "Westminster Abbey",
+    "alt": "Westminster Abbey in United Kingdom",
+    "photographer": "Carlos Delgado",
+    "license": "CC BY-SA 3.0",
+    "width": 2800,
+    "height": 2100,
+    "renditions": [
+      {
+        "src": "/images/places/westminster-abbey/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/westminster-abbey/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/westminster-abbey/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",
