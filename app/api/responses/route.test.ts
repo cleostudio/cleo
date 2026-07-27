@@ -383,7 +383,12 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       model: "gpt-5.6-terra",
       store: false,
       stream: true,
-      reasoning: { effort: "medium", summary: "auto" },
+      reasoning: {
+        effort: "medium",
+        summary: "auto",
+        context: "all_turns",
+      },
+      include: ["reasoning.encrypted_content"],
     })
     expect(
       openai.create.mock.calls[0]?.[0].tools.map(
@@ -438,6 +443,8 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     expect(call.instructions).toContain("Mode: quick")
     expect(call.prompt_cache_key).toBe("cleo:agent:v1:quick")
     expect(call.parallel_tool_calls).toBe(false)
+    expect(call.reasoning.context).toBe("current_turn")
+    expect(call.include).toEqual(["reasoning.encrypted_content"])
   })
 
   it("forces high reasoning in research mode", async () => {
@@ -456,12 +463,16 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     )
 
     expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("high")
+    expect(openai.create.mock.calls[0]?.[0].reasoning.context).toBe(
+      "all_turns"
+    )
     expect(openai.create.mock.calls[0]?.[0].text.verbosity).toBe("high")
     expect(openai.create.mock.calls[0]?.[0].tools[0]).toMatchObject({
       type: "web_search",
       search_context_size: "high",
     })
     expect(openai.create.mock.calls[0]?.[0].include).toEqual([
+      "reasoning.encrypted_content",
       "web_search_call.action.sources",
     ])
   })
@@ -681,5 +692,96 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     expect(topicMessage?.content).toContain(
       "You MAY and SHOULD include the curated photograph"
     )
+  })
+
+  it("streams encrypted reasoning items for client persistence", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "Mars is nearby.", type: "response.output_text.delta" },
+        {
+          response: {
+            output: [
+              {
+                encrypted_content: "enc-rs-1",
+                id: "rs_1",
+                summary: [{ text: "compare", type: "summary_text" }],
+                type: "reasoning",
+              },
+              {
+                content: [{ text: "Mars is nearby.", type: "output_text" }],
+                id: "msg_1",
+                role: "assistant",
+                status: "completed",
+                type: "message",
+              },
+            ],
+          },
+          type: "response.completed",
+        },
+      ])
+    )
+
+    const events = await ndjson(await POST(ask(question)))
+
+    expect(events).toContainEqual({
+      items: [
+        {
+          encrypted_content: "enc-rs-1",
+          id: "rs_1",
+          summary: [{ text: "compare", type: "summary_text" }],
+          type: "reasoning",
+        },
+      ],
+      type: "reasoning_items",
+    })
+  })
+
+  it("replays prior encrypted reasoning before assistant turns", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
+    )
+
+    await POST(
+      ask({
+        messages: [
+          { content: "Tell me about Mars", role: "user" },
+          {
+            content: "Mars is next door.",
+            reasoningItems: [
+              {
+                encrypted_content: "enc-prior",
+                id: "rs_prior",
+                type: "reasoning",
+              },
+            ],
+            role: "assistant",
+          },
+          { content: "And Earth?", role: "user" },
+        ],
+      })
+    )
+
+    const input = openai.create.mock.calls[0]?.[0].input as Array<{
+      content?: string
+      encrypted_content?: string
+      id?: string
+      role?: string
+      type?: string
+    }>
+
+    const reasoningIndex = input.findIndex(
+      (item) => item.type === "reasoning" && item.id === "rs_prior"
+    )
+    const assistantIndex = input.findIndex(
+      (item) =>
+        item.role === "assistant" && item.content === "Mars is next door."
+    )
+
+    expect(reasoningIndex).toBeGreaterThanOrEqual(0)
+    expect(input[reasoningIndex]?.encrypted_content).toBe("enc-prior")
+    expect(assistantIndex).toBe(reasoningIndex + 1)
   })
 })

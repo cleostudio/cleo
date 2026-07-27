@@ -25,6 +25,7 @@ import {
   modeAllowsCodeInterpreter,
   modeParallelToolCalls,
   modePromptCacheKey,
+  modeReasoningContext,
   modeTextVerbosity,
   parseCleoMode,
   type CleoMode,
@@ -35,6 +36,10 @@ import {
   PORTAL_FUNCTION_TOOLS,
   portalToolActivityLabel,
 } from "~/lib/cleo/portal-tools"
+import {
+  sanitizeReasoningItems,
+  type EncryptedReasoningItem,
+} from "~/lib/cleo/reasoning-items"
 import { selectReasoningEffort } from "~/lib/cleo/reasoning-effort"
 import {
   type ActivityItem,
@@ -87,6 +92,7 @@ export const maxDuration = 90
 type ConversationMessage = {
   content: string
   images?: MessageImage[]
+  reasoningItems?: EncryptedReasoningItem[]
   role: "assistant" | "user"
 }
 
@@ -247,6 +253,15 @@ function parseRequestBody(
       message.images = imagesResult
     }
 
+    if (item.role === "assistant") {
+      const reasoningItems = sanitizeReasoningItems(
+        "reasoningItems" in item ? item.reasoningItems : undefined
+      )
+      if (reasoningItems) {
+        message.reasoningItems = reasoningItems
+      }
+    }
+
     messages.push(message)
   }
 
@@ -282,18 +297,28 @@ function toUserContent(
   return content
 }
 
-function toApiInput(messages: ConversationMessage[]): EasyInputMessage[] {
-  const input: EasyInputMessage[] = []
+function toApiInput(messages: ConversationMessage[]): AgentInput {
+  const input: AgentInput = []
   // With store: false, image_generation_call ids cannot be replayed. Carry the
   // latest generated images into the next user turn as input_image instead.
   let pendingGeneratedImages: MessageImage[] = []
 
   for (const message of messages) {
     if (message.role === "assistant") {
+      // Replay encrypted reasoning before the assistant message so
+      // reasoning.context all_turns can render prior chain-of-thought.
+      for (const item of message.reasoningItems ?? []) {
+        input.push({
+          type: "reasoning",
+          id: item.id,
+          summary: item.summary ?? [],
+          encrypted_content: item.encrypted_content,
+        } satisfies ResponseReasoningItem)
+      }
       input.push({
         role: "assistant",
         content: message.content || "Generated an image.",
-      })
+      } satisfies EasyInputMessage)
       pendingGeneratedImages = message.images ?? []
       continue
     }
@@ -307,10 +332,30 @@ function toApiInput(messages: ConversationMessage[]): EasyInputMessage[] {
     input.push({
       role: "user",
       content: toUserContent(message.content, images),
-    })
+    } satisfies EasyInputMessage)
   }
 
   return input
+}
+
+/** Collect opaque encrypted reasoning items for the client to persist. */
+function extractEncryptedReasoningItems(
+  output: ResponseOutputItem[]
+): EncryptedReasoningItem[] {
+  return (
+    sanitizeReasoningItems(
+      output
+        .filter(
+          (item): item is ResponseReasoningItem => item.type === "reasoning"
+        )
+        .map((item) => ({
+          type: "reasoning" as const,
+          id: item.id,
+          encrypted_content: item.encrypted_content ?? "",
+          ...(item.summary.length > 0 ? { summary: item.summary } : {}),
+        }))
+    ) ?? []
+  )
 }
 
 function toWebSearchAction(
@@ -463,12 +508,15 @@ export async function POST(request: Request) {
   const verbosity = modeTextVerbosity(mode)
   const promptCacheKey = modePromptCacheKey(mode)
   const parallelToolCalls = modeParallelToolCalls(mode)
-  // Research mode asks the hosted web_search tool to return source URLs so the
-  // activity panel can surface what was consulted (OpenAI include guidance).
-  const include =
-    mode === "research"
-      ? (["web_search_call.action.sources"] as const)
-      : undefined
+  const reasoningContext = modeReasoningContext(mode)
+  // Always request encrypted reasoning for store:false multi-turn replay.
+  // Research also asks hosted web_search for source URLs (activity panel).
+  const include: Array<
+    "reasoning.encrypted_content" | "web_search_call.action.sources"
+  > = ["reasoning.encrypted_content"]
+  if (mode === "research") {
+    include.push("web_search_call.action.sources")
+  }
 
   const createStream = () =>
     client.responses.create(
@@ -480,14 +528,18 @@ export async function POST(request: Request) {
         instructions,
         // Keep headroom for reasoning + tools + visible answer.
         max_output_tokens: 16_384,
-        reasoning: { effort: reasoningEffort, summary: "auto" },
+        reasoning: {
+          effort: reasoningEffort,
+          summary: "auto",
+          context: reasoningContext,
+        },
         stream: true,
         text: { verbosity },
         tools,
         parallel_tool_calls: parallelToolCalls,
         prompt_cache_key: promptCacheKey,
         store: false,
-        ...(include ? { include: [...include] } : {}),
+        include,
       },
       { signal: request.signal }
     ) as Promise<ResponseStream>
@@ -888,6 +940,14 @@ export async function POST(request: Request) {
                   "The AI service stopped before finishing an answer. Try again."
                 )
               }
+              const reasoningItems =
+                extractEncryptedReasoningItems(outputItems)
+              if (reasoningItems.length > 0) {
+                enqueue(controller, {
+                  type: "reasoning_items",
+                  items: reasoningItems,
+                })
+              }
               break
             }
 
@@ -919,11 +979,14 @@ export async function POST(request: Request) {
               // One final model turn after soft tool errors, then stop.
               const finalStream = await createStream()
               activeUpstream = finalStream
+              let finalOutput: ResponseOutputItem[] = []
 
               for await (const event of finalStream) {
                 if (event.type === "response.output_text.delta") {
                   streamedText += event.delta
                   enqueue(controller, { type: "text", delta: event.delta })
+                } else if (event.type === "response.completed") {
+                  finalOutput = event.response.output ?? []
                 } else if (event.type === "error") {
                   throw new Error(event.message)
                 } else if (event.type === "response.failed") {
@@ -935,6 +998,14 @@ export async function POST(request: Request) {
               }
 
               activeUpstream = null
+              const reasoningItems =
+                extractEncryptedReasoningItems(finalOutput)
+              if (reasoningItems.length > 0) {
+                enqueue(controller, {
+                  type: "reasoning_items",
+                  items: reasoningItems,
+                })
+              }
               break
             }
           }

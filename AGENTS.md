@@ -73,19 +73,22 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `image_generation`, `code_interpreter` (auto/research modes), portal function
   tools (`search_portal_topics`, `lookup_guide`, `get_topic_photos`,
   `search_gallery`, `search_writing`, `lookup_writing`), mode-aware reasoning /
-  verbosity / `web_search.search_context_size`, `prompt_cache_key` per mode,
-  streaming, a small tool-call loop, and `store: false`. Per-turn topic photo
-  grounding is a trailing developer message so the static instruction prefix
-  stays cacheable.
+  verbosity / `web_search.search_context_size` / `reasoning.context`,
+  `prompt_cache_key` per mode, streaming, a small tool-call loop, and
+  `store: false`. Encrypted reasoning items (`include:
+  reasoning.encrypted_content`) are streamed to the client, persisted in the
+  browser session, and replayed on later turns so Auto/Research can use
+  `reasoning.context: all_turns`. Per-turn topic photo grounding is a trailing
+  developer message so the static instruction prefix stays cacheable.
 - Behavior: `lib/cleo/instructions.ts` (base voice + research policy + portal
   surface guidance from `lib/cleo/portal-catalog.ts`). Guide/Writing/Gallery
   paths come from portal tools (and optional per-turn topic-photo grounding),
   not a stuffed full-catalog prompt. UI modes: Quick / Auto / Research
   (`lib/cleo/mode.ts`).
-- Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`);
-  activities include `web_search`, `reasoning`, `image_generation`,
-  `portal_tool`, and `code_interpreter`. Portal tool labels update as
-  `function_call_arguments` stream in; Research mode includes
+- Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`,
+  `reasoning_items`, `error`); activities include `web_search`, `reasoning`,
+  `image_generation`, `portal_tool`, and `code_interpreter`. Portal tool labels
+  update as `function_call_arguments` stream in; Research mode includes
   `web_search_call.action.sources` for the activity panel.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`

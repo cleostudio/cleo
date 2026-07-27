@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import { CornerRightUp, Plus, Square, X } from 'lucide-react'
+import { Check, Copy, CornerRightUp, Plus, Square, X } from 'lucide-react'
 import { ThinkingOrb } from 'thinking-orbs'
 
 import { ActivityPanel } from '~/components/cleo/activity-panel'
@@ -32,6 +32,7 @@ import {
   loadCleoSession,
   saveCleoSession,
 } from "~/lib/cleo/session"
+import type { EncryptedReasoningItem } from "~/lib/cleo/reasoning-items"
 import {
   type ActivityItem,
   type MessageImage,
@@ -51,7 +52,60 @@ type Message = {
   content: string
   id: number
   images?: MessageImage[]
+  reasoningItems?: EncryptedReasoningItem[]
   role: "assistant" | "user"
+}
+
+function CopyAnswerButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    }
+  }, [])
+
+  async function handleCopy() {
+    if (!text.trim()) return
+    let ok = true
+    try {
+      await navigator.clipboard.writeText(text)
+    } catch {
+      ok = false
+      try {
+        const textarea = document.createElement("textarea")
+        textarea.value = text
+        textarea.setAttribute("readonly", "")
+        textarea.style.position = "fixed"
+        textarea.style.opacity = "0"
+        document.body.appendChild(textarea)
+        textarea.select()
+        ok = document.execCommand("copy")
+        document.body.removeChild(textarea)
+      } catch {
+        ok = false
+      }
+    }
+    if (!ok) return
+    setCopied(true)
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    timeoutRef.current = setTimeout(() => setCopied(false), 1600)
+  }
+
+  return (
+    <button
+      aria-label={copied ? "Copied" : "Copy answer"}
+      className="cleo-copy-answer"
+      onClick={() => {
+        void handleCopy()
+      }}
+      type="button"
+    >
+      {copied ? <Check aria-hidden size={14} /> : <Copy aria-hidden size={14} />}
+      <span>{copied ? "Copied" : "Copy"}</span>
+    </button>
+  )
 }
 
 function isAbortError(error: unknown) {
@@ -276,10 +330,15 @@ export function AskForm() {
           (message) =>
             Boolean(message.content.trim()) || Boolean(message.images?.length)
         )
-        .map(({ role, content, images }) => ({
+        .map(({ role, content, images, reasoningItems }) => ({
           role,
           content,
           ...(images && images.length > 0 ? { images } : {}),
+          ...(role === "assistant" &&
+          reasoningItems &&
+          reasoningItems.length > 0
+            ? { reasoningItems }
+            : {}),
         })),
       {
         role: "user" as const,
@@ -370,6 +429,16 @@ export function AskForm() {
         )
       }
 
+      const applyReasoningItems = (items: EncryptedReasoningItem[]) => {
+        setMessages((currentMessages) =>
+          currentMessages.map((message) =>
+            message.id === assistantMessage.id
+              ? { ...message, reasoningItems: items }
+              : message
+          )
+        )
+      }
+
       while (true) {
         const { done, value } = await reader.read()
 
@@ -403,6 +472,11 @@ export function AskForm() {
             continue
           }
 
+          if (event.type === "reasoning_items") {
+            applyReasoningItems(event.items)
+            continue
+          }
+
           if (event.type === "error") {
             streamError = event.error
           }
@@ -424,6 +498,8 @@ export function AskForm() {
           applyActivity(event.activity)
         } else if (event?.type === "image") {
           applyImage(event.id, event.imageUrl)
+        } else if (event?.type === "reasoning_items") {
+          applyReasoningItems(event.items)
         } else if (event?.type === "error") {
           streamError = event.error
         }
@@ -560,13 +636,22 @@ export function AskForm() {
                   ) : null}
 
                   {message.content ? (
-                    <Markdown
-                      isAnimating={
+                    <>
+                      <Markdown
+                        isAnimating={
+                          isSubmitting && message.id === messages.at(-1)?.id
+                        }
+                      >
+                        {message.content}
+                      </Markdown>
+                      {!(
                         isSubmitting && message.id === messages.at(-1)?.id
-                      }
-                    >
-                      {message.content}
-                    </Markdown>
+                      ) ? (
+                        <div className="cleo-answer-actions">
+                          <CopyAnswerButton text={message.content} />
+                        </div>
+                      ) : null}
+                    </>
                   ) : isSubmitting &&
                     message.id === messages.at(-1)?.id &&
                     !(message.activities && message.activities.length > 0) &&

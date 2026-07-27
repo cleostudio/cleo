@@ -7,6 +7,7 @@ import {
   modeAllowsCodeInterpreter,
   modeParallelToolCalls,
   modePromptCacheKey,
+  modeReasoningContext,
   modeWebSearchContextSize,
   parseCleoMode,
 } from './mode'
@@ -44,5 +45,11 @@ describe('cleo mode', () => {
     expect(modePromptCacheKey('research')).toBe('cleo:agent:v1:research')
     expect(modeParallelToolCalls('quick')).toBe(false)
     expect(modeParallelToolCalls('auto')).toBe(true)
+  })
+
+  it('maps modes to OpenAI reasoning.context', () => {
+    expect(modeReasoningContext('quick')).toBe('current_turn')
+    expect(modeReasoningContext('auto')).toBe('all_turns')
+    expect(modeReasoningContext('research')).toBe('all_turns')
   })
 })

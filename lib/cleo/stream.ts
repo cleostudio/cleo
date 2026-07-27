@@ -1,3 +1,10 @@
+import {
+  isEncryptedReasoningItem,
+  type EncryptedReasoningItem,
+} from "~/lib/cleo/reasoning-items"
+
+export type { EncryptedReasoningItem }
+
 export type WebSearchSource = {
   type: "url"
   url: string
@@ -79,8 +86,17 @@ export type StreamErrorEvent = {
   type: "error"
 }
 
+export type StreamReasoningItemsEvent = {
+  items: EncryptedReasoningItem[]
+  type: "reasoning_items"
+}
+
 export type ClientStreamEvent =
-  StreamTextEvent | StreamActivityEvent | StreamImageEvent | StreamErrorEvent
+  | StreamTextEvent
+  | StreamActivityEvent
+  | StreamImageEvent
+  | StreamErrorEvent
+  | StreamReasoningItemsEvent
 
 function isActivityStatus(value: unknown): value is ActivityStatus {
   return (
@@ -225,6 +241,19 @@ export function parseStreamLine(line: string): ClientStreamEvent | null {
       }
 
       return { type: "error", error: parsed.error }
+    }
+
+    if (parsed.type === "reasoning_items") {
+      if (!("items" in parsed) || !Array.isArray(parsed.items)) {
+        return null
+      }
+
+      const items = parsed.items.filter(isEncryptedReasoningItem)
+      if (items.length === 0) {
+        return null
+      }
+
+      return { type: "reasoning_items", items }
     }
 
     return null

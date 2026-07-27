@@ -3,6 +3,10 @@
  * storage — reload restores the last thread; New chat clears it.
  */
 
+import {
+  sanitizeReasoningItems,
+  type EncryptedReasoningItem,
+} from '~/lib/cleo/reasoning-items'
 import type { ActivityItem, MessageImage } from '~/lib/cleo/stream'
 
 export const CLEO_SESSION_STORAGE_KEY = 'cleo:conversation:v1'
@@ -16,6 +20,8 @@ export type PersistedCleoMessage = {
   content: string
   id: number
   images?: MessageImage[]
+  /** Opaque OpenAI encrypted reasoning for store:false multi-turn. */
+  reasoningItems?: EncryptedReasoningItem[]
   role: 'assistant' | 'user'
 }
 
@@ -71,6 +77,10 @@ function sanitizeMessage(value: unknown): PersistedCleoMessage | null {
     : undefined
 
   const images = sanitizeImages(message.images)
+  const reasoningItems =
+    message.role === 'assistant'
+      ? sanitizeReasoningItems(message.reasoningItems)
+      : undefined
 
   return {
     id: message.id,
@@ -78,6 +88,7 @@ function sanitizeMessage(value: unknown): PersistedCleoMessage | null {
     content: message.content.slice(0, 10_000),
     ...(activities && activities.length > 0 ? { activities } : {}),
     ...(images ? { images } : {}),
+    ...(reasoningItems ? { reasoningItems } : {}),
   }
 }
 
@@ -128,6 +139,10 @@ export function serializeCleoSession(
       ...(sanitizeImages(message.images)
         ? { images: sanitizeImages(message.images) }
         : {}),
+      ...(message.role === 'assistant' &&
+      sanitizeReasoningItems(message.reasoningItems)
+        ? { reasoningItems: sanitizeReasoningItems(message.reasoningItems) }
+        : {}),
     })),
     nextId,
     savedAt: Date.now(),
@@ -135,12 +150,18 @@ export function serializeCleoSession(
 
   const raw = JSON.stringify(snapshot)
   if (raw.length > MAX_SESSION_CHARS) {
-    // Drop images first, then truncate older turns.
+    // Drop images, then encrypted reasoning, then truncate older turns.
     const withoutImages: CleoSessionSnapshot = {
       ...snapshot,
       messages: snapshot.messages.map(({ images: _images, ...rest }) => rest),
     }
-    const trimmed = JSON.stringify(withoutImages)
+    let trimmed = JSON.stringify(withoutImages)
+    if (trimmed.length > MAX_SESSION_CHARS) {
+      withoutImages.messages = withoutImages.messages.map(
+        ({ reasoningItems: _reasoningItems, ...rest }) => rest,
+      )
+      trimmed = JSON.stringify(withoutImages)
+    }
     if (trimmed.length > MAX_SESSION_CHARS) {
       withoutImages.messages = withoutImages.messages.slice(-20)
       const shorter = JSON.stringify(withoutImages)

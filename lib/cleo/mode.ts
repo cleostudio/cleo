@@ -6,9 +6,12 @@
  * `search_context_size` low/medium/high for lookup vs deeper research.
  */
 
+import type { Reasoning } from 'openai/resources/shared'
 import type { WebSearchTool } from 'openai/resources/responses/responses'
 
 import type { CleoReasoningEffort } from '~/lib/cleo/reasoning-effort'
+
+export type CleoReasoningContext = NonNullable<Reasoning['context']>
 
 export const CLEO_MODES = ['quick', 'auto', 'research'] as const
 
@@ -124,4 +127,13 @@ export function modePromptCacheKey(mode: CleoMode): string {
 /** Allow parallel portal lookups in Auto/Research; keep Quick serial. */
 export function modeParallelToolCalls(mode: CleoMode): boolean {
   return mode !== 'quick'
+}
+
+/**
+ * OpenAI reasoning.context for store:false multi-turn.
+ * Quick ignores prior encrypted reasoning; Auto/Research replay it.
+ */
+export function modeReasoningContext(mode: CleoMode): CleoReasoningContext {
+  if (mode === 'quick') return 'current_turn'
+  return 'all_turns'
 }

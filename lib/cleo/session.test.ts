@@ -55,4 +55,31 @@ describe('cleo session persistence', () => {
       null,
     )
   })
+
+  it('round-trips encrypted reasoning items on assistant messages', () => {
+    const raw = serializeCleoSession(
+      [
+        { id: 0, role: 'user', content: 'Why?' },
+        {
+          id: 1,
+          role: 'assistant',
+          content: 'Because.',
+          reasoningItems: [
+            {
+              type: 'reasoning',
+              id: 'rs_1',
+              encrypted_content: 'opaque-token',
+              summary: [{ type: 'summary_text', text: 'think' }],
+            },
+          ],
+        },
+      ],
+      2,
+    )
+
+    const parsed = parseCleoSession(raw!)
+    expect(parsed?.messages[1]?.reasoningItems?.[0]?.encrypted_content).toBe(
+      'opaque-token',
+    )
+  })
 })
