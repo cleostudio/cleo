@@ -1,9 +1,12 @@
-import Link from 'next/link'
-
 import { HomeIntroReplay } from '~/components/home-intro-replay'
+import { SitePreviewCard } from '~/components/preview-card-timing'
+import { highlightedAtlasEntries } from '~/lib/atlas'
+import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
+import { spaceSubjects } from '~/lib/space'
+import { staticRendition } from '~/lib/static-photo'
 
-function DesignEngineerMark() {
+function CraftMark() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +67,7 @@ function DesignEngineerMark() {
   )
 }
 
-function DetailsMark() {
+function HopMark() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -110,21 +113,340 @@ function DetailsMark() {
   )
 }
 
-function DesignEngineerPhrase({ children }: { children: React.ReactNode }) {
+function PhotoMark() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      aria-hidden="true"
+      focusable="false"
+      className="home-photo-mark"
+    >
+      <g
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        stroke="currentColor"
+      >
+        <path d="M6.25 4.75h5.5l1 1.5H15a1.25 1.25 0 0 1 1.25 1.25v6.5A1.25 1.25 0 0 1 15 15.25H3A1.25 1.25 0 0 1 1.75 14V7.5A1.25 1.25 0 0 1 3 6.25h2.25l1-1.5Z" />
+        <circle
+          className="home-photo-lens-ring"
+          cx="9"
+          cy="10.25"
+          r="2.75"
+          fill="currentColor"
+          fillOpacity="0.3"
+          stroke="none"
+        />
+        <circle className="home-photo-lens" cx="9" cy="10.25" r="2.75" />
+        <circle
+          className="home-photo-lens-core"
+          cx="9"
+          cy="10.25"
+          r="1.1"
+          fill="currentColor"
+          stroke="none"
+        />
+        <path className="home-photo-flash" d="M12.75 7.75h1.75" />
+      </g>
+    </svg>
+  )
+}
+
+function SearchMark() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      aria-hidden="true"
+      focusable="false"
+      className="home-search-mark"
+    >
+      <g
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        stroke="currentColor"
+      >
+        <circle
+          className="home-search-glass"
+          cx="7.75"
+          cy="7.75"
+          r="4.5"
+          fill="currentColor"
+          fillOpacity="0.3"
+        />
+        <circle className="home-search-glass" cx="7.75" cy="7.75" r="4.5" />
+        <path className="home-search-handle" d="M11.1 11.1 15.25 15.25" />
+      </g>
+    </svg>
+  )
+}
+
+/** Rainbow label + craft mark (hover / tap). */
+function CraftPhrase({ children }: { children: React.ReactNode }) {
   return (
     <HomeIntroReplay>
       <span className="home-design-label">{children}</span>
-      <DesignEngineerMark />
+      <CraftMark />
     </HomeIntroReplay>
   )
 }
 
-function DetailsPhrase({ children }: { children: React.ReactNode }) {
+/** Orbital mark + hopping units (hover / tap). */
+function HopPhrase({ children }: { children: React.ReactNode }) {
   return (
     <HomeIntroReplay>
-      <DetailsMark />
+      <HopMark />
       {children}
     </HomeIntroReplay>
+  )
+}
+
+/** Camera mark with shutter blink (hover / tap). */
+function PhotoPhrase({ children }: { children: React.ReactNode }) {
+  return (
+    <HomeIntroReplay>
+      <span className="home-photo-label">{children}</span>
+      <PhotoMark />
+    </HomeIntroReplay>
+  )
+}
+
+/** Magnifier mark that tips on hover / tap. */
+function SearchPhrase({ children }: { children: React.ReactNode }) {
+  return (
+    <HomeIntroReplay>
+      <span className="home-search-label">{children}</span>
+      <SearchMark />
+    </HomeIntroReplay>
+  )
+}
+
+/** cali.so ExternalLink-with-image pattern — photo leads, no description. */
+function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
+  const sample = highlightedAtlasEntries(1)[0]
+  const image = sample ? staticRendition(sample.photo, 640) : null
+
+  return (
+    <SitePreviewCard
+      href="/gallery"
+      triggerClassName="home-contact-link"
+      closeDelay={100}
+      side="top"
+      popupClassName={`link-card${image ? ' link-card-with-image' : ''}`}
+      popup={
+        <>
+          {image && (
+            <span className="link-card-image-frame" aria-hidden>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="link-card-image"
+                src={image.src}
+                alt=""
+                width={236}
+                height={133}
+                loading="eager"
+              />
+            </span>
+          )}
+          <span className="link-card-site">
+            <T zh="图库" en="Gallery" />
+          </span>
+          <span className="link-card-title">
+            {sample ? (
+              <T zh={sample.photo.placeName} en={sample.photo.placeName} />
+            ) : (
+              <T zh="精选照片" en="Curated photographs" />
+            )}
+          </span>
+        </>
+      }
+    >
+      {children}
+    </SitePreviewCard>
+  )
+}
+
+/** cali.so GitHub-card spirit — content animates inside the plate. */
+function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
+  const rows = highlightedAtlasEntries(3).map((entry) => entry.name)
+
+  return (
+    <SitePreviewCard
+      href="#home-site-search"
+      triggerClassName="home-contact-link"
+      closeDelay={100}
+      side="top"
+      popupClassName="link-card home-intro-search-card"
+      popup={
+        <span className="home-intro-search-body" aria-hidden>
+          <span className="home-intro-search-field">
+            <T zh="搜索…" en="Search…" />
+          </span>
+          <span className="home-intro-search-rows">
+            {rows.map((name, index) => (
+              <span
+                key={name}
+                className="home-intro-search-row"
+                style={{ '--i': index } as React.CSSProperties}
+              >
+                {name}
+              </span>
+            ))}
+          </span>
+        </span>
+      }
+    >
+      {children}
+    </SitePreviewCard>
+  )
+}
+
+/** cali.so service-card identity layout. */
+function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
+  return (
+    <SitePreviewCard
+      href="/topics"
+      triggerClassName="home-contact-link"
+      closeDelay={100}
+      side="top"
+      popupClassName="link-card service-card"
+      popup={
+        <>
+          <span className="service-card-head">
+            <span className="service-card-avatar service-card-monogram" aria-hidden>
+              T
+            </span>
+            <span className="service-card-names">
+              <span className="service-card-name">
+                <T zh="主题" en="Topics" />
+              </span>
+              <span className="service-card-sub">
+                <T zh="目录" en="catalog" />
+              </span>
+            </span>
+          </span>
+          <span className="service-card-bio">
+            <T zh="先从现有合集读起，之后还会继续加。" en="Start with the collections on hand; more will follow." />
+          </span>
+          <span className="service-card-stat">
+            <span>
+              <b>{countries.length}</b> <T zh="国家" en="countries" />
+            </span>
+            <span aria-hidden>·</span>
+            <span>
+              <b>{spaceSubjects.length}</b> <T zh="太空" en="space" />
+            </span>
+          </span>
+        </>
+      }
+    >
+      {children}
+    </SitePreviewCard>
+  )
+}
+
+/** cali.so / NavCards travel-folio object card. */
+function ExplorePreviewCard({ children }: { children: React.ReactNode }) {
+  return (
+    <SitePreviewCard
+      href="/explore"
+      triggerClassName="home-contact-link"
+      closeDelay={100}
+      side="top"
+      popupClassName="link-card home-intro-folio-card"
+      popup={
+        <span className="home-intro-folio" aria-hidden>
+          <span className="home-intro-folio-stamp">
+            <svg viewBox="0 0 32 32" width="28" height="28">
+              <circle
+                cx="16"
+                cy="16"
+                r="13.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.25"
+                strokeDasharray="2.2 1.6"
+              />
+              <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" strokeWidth="1" />
+              <rect
+                x="10"
+                y="13"
+                width="12"
+                height="6"
+                rx="0.75"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1"
+                transform="rotate(-18 16 16)"
+              />
+            </svg>
+          </span>
+          <span className="home-intro-folio-itinerary" />
+          <span className="home-intro-folio-map" />
+          <span className="home-intro-folio-label">
+            <T zh="探索" en="Explore" />
+            <span>
+              <T zh={`${countries.length} 个国家`} en={`${countries.length} countries`} />
+            </span>
+          </span>
+        </span>
+      }
+    >
+      {children}
+    </SitePreviewCard>
+  )
+}
+
+/** cali.so EmailCard physical-object pattern — a mailed note to Cleo. */
+function AskCleoPreviewCard({ children }: { children: React.ReactNode }) {
+  return (
+    <SitePreviewCard
+      href="/cleo"
+      triggerClassName="home-contact-link"
+      closeDelay={120}
+      side="top"
+      popupClassName="link-card email-envelope-card"
+      popup={
+        <span className="email-envelope" aria-hidden>
+          <span className="email-envelope-flap" />
+          <span className="email-envelope-return">
+            <span>FROM</span>
+            YOU
+            <br />
+            HERE
+          </span>
+          <span className="email-envelope-stamps">
+            <span className="email-envelope-stamp email-envelope-stamp-monogram">
+              <span className="email-envelope-stamp-letter" aria-hidden>
+                C
+              </span>
+              <span>CLEO · 20</span>
+            </span>
+            <span className="email-envelope-stamp email-envelope-stamp-mark">
+              <span className="email-envelope-stamp-star">✦</span>
+              <span>ASK · 26</span>
+            </span>
+          </span>
+          <span className="email-envelope-postmark" />
+          <span className="email-envelope-address">
+            <span>
+              <T zh="收" en="TO" />
+            </span>
+            Ask Cleo
+          </span>
+        </span>
+      }
+    >
+      {children}
+    </SitePreviewCard>
   )
 }
 
@@ -135,76 +457,78 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              Cleo 是一座中立的知识门户：从国家开始，再延展到更多主题。每个条目都以
-              <DesignEngineerPhrase>设计工程师</DesignEngineerPhrase>
-              的方式打磨，并坚持把细节做到
-              <DetailsPhrase>
-                <span className="home-detail-units">
-                  <span className="home-detail-unit">刚</span>
-                  <span className="home-detail-unit">刚</span>
-                  <span className="home-detail-unit">好</span>
+              Cleo 是一座
+              <CraftPhrase>知识门户</CraftPhrase>
+              。眼下先落在
+              <HopPhrase>
+                <span className="home-detail-units home-detail-words">
+                  <span className="home-detail-unit">国家</span>{' '}
+                  <span className="home-detail-unit">和</span>{' '}
+                  <span className="home-detail-unit">太空</span>
                 </span>
-              </DetailsPhrase>
-              。
+              </HopPhrase>
+              ，之后会一点点往外扩。
             </>
           }
           en={
             <>
-              Cleo is a neutral knowledge portal — starting with countries, then expanding into more
-              topics. Every guide is shaped with <DesignEngineerPhrase>design engineer</DesignEngineerPhrase>{' '}
-              care, and a love of getting the{' '}
-              <DetailsPhrase>
+              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase>. Right now the focus is{' '}
+              <HopPhrase>
                 <span className="home-detail-units home-detail-words">
-                  <span className="home-detail-unit">details</span>{' '}
-                  <span className="home-detail-unit">just</span>{' '}
-                  <span className="home-detail-unit">right</span>
-                  <span className="home-detail-period">.</span>
+                  <span className="home-detail-unit">countries</span>{' '}
+                  <span className="home-detail-unit">and</span>{' '}
+                  <span className="home-detail-unit">space</span>
                 </span>
-              </DetailsPhrase>
+              </HopPhrase>
+              ; more subjects will land over time.
             </>
           }
-        />
-      </p>
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-        <T
-          zh="常青的国家导览、精选地点照片，以及可检索的主题目录。没有签证、安全或价格这类易变建议——只保留可靠的方向感。"
-          en="Evergreen country primers, curated place photographs, and a searchable topic catalog. No visas, safety bulletins, or prices — just durable orientation."
         />
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         <T
           zh={
             <>
-              从{' '}
-              <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
-                主题
-              </Link>
-              、
-              <Link href="/explore" className="home-contact-link text-foreground underline-offset-2 hover:underline">
-                探索
-              </Link>
-              {' '}或{' '}
-              <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
-                询问 Cleo
-              </Link>
-              {' '}开始。
+              想先有个印象，就翻翻
+              <GalleryPreviewCard>
+                <PhotoPhrase>照片</PhotoPhrase>
+              </GalleryPreviewCard>
+              ；已经知道名字的话，直接搜
+              <CatalogPreviewCard>
+                <SearchPhrase>目录</SearchPhrase>
+              </CatalogPreviewCard>
+              就行。
             </>
           }
           en={
             <>
-              Begin with{' '}
-              <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
-                Topics
-              </Link>
-              ,{' '}
-              <Link href="/explore" className="home-contact-link text-foreground underline-offset-2 hover:underline">
-                Explore
-              </Link>
-              , or{' '}
-              <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
-                Ask Cleo
-              </Link>
-              .
+              Flip through{' '}
+              <GalleryPreviewCard>
+                <PhotoPhrase>photographs</PhotoPhrase>
+              </GalleryPreviewCard>{' '}
+              when you want a sense of place, or search the{' '}
+              <CatalogPreviewCard>
+                <SearchPhrase>catalog</SearchPhrase>
+              </CatalogPreviewCard>{' '}
+              by name.
+            </>
+          }
+        />
+      </p>
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        <T
+          zh={
+            <>
+              打开 <TopicsPreviewCard>主题</TopicsPreviewCard>、
+              <ExplorePreviewCard>探索</ExplorePreviewCard>
+              {' '}或 <AskCleoPreviewCard>询问 Cleo</AskCleoPreviewCard>。
+            </>
+          }
+          en={
+            <>
+              Open <TopicsPreviewCard>Topics</TopicsPreviewCard>,{' '}
+              <ExplorePreviewCard>Explore</ExplorePreviewCard>, or{' '}
+              <AskCleoPreviewCard>Ask Cleo</AskCleoPreviewCard>.
             </>
           }
         />

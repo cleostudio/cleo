@@ -2933,7 +2933,9 @@ a:focus-visible .external-label .external-mark {
 }
 
 .home-design-mark,
-.home-details-mark {
+.home-details-mark,
+.home-photo-mark,
+.home-search-mark {
   display: inline-block;
   align-self: center;
   flex: none;
@@ -2947,6 +2949,11 @@ a:focus-visible .external-label .external-mark {
 
 .home-design-laptop,
 .home-design-sparkle,
+.home-photo-lens,
+.home-photo-lens-core,
+.home-photo-flash,
+.home-search-glass,
+.home-search-handle,
 .home-zolplay-link .external-link > img {
   transform-box: fill-box;
   transform-origin: center;
@@ -2955,6 +2962,14 @@ a:focus-visible .external-label .external-mark {
 .home-design-laptop,
 .home-zolplay-link .external-link > img {
   transition: transform 150ms var(--ease-swift);
+}
+
+.home-photo-lens-core {
+  opacity: 0.55;
+}
+
+.home-photo-flash {
+  opacity: 0.7;
 }
 
 .home-detail-units {
@@ -3005,6 +3020,26 @@ a:focus-visible .external-label .external-mark {
 
 .home-intro-trigger.home-intro-tap .home-detail-unit:nth-child(3) {
   animation-delay: 160ms;
+}
+
+.home-intro-trigger.home-intro-tap .home-photo-lens {
+  animation: home-photo-shutter 280ms var(--ease-swift);
+}
+
+.home-intro-trigger.home-intro-tap .home-photo-lens-core {
+  animation: home-photo-core 280ms var(--ease-swift);
+}
+
+.home-intro-trigger.home-intro-tap .home-photo-flash {
+  animation: home-photo-flash 220ms var(--ease-swift);
+}
+
+.home-intro-trigger.home-intro-tap .home-search-glass {
+  animation: home-search-glass 280ms var(--ease-spring);
+}
+
+.home-intro-trigger.home-intro-tap .home-search-handle {
+  animation: home-search-handle 280ms var(--ease-swift);
 }
 
 .home-zolplay-link {
@@ -3101,6 +3136,34 @@ a:focus-visible .external-label .external-mark {
     animation: home-intro-twinkle 180ms 90ms var(--ease-swift);
   }
 
+  .home-intro-trigger:hover .home-photo-label {
+    color: var(--foreground);
+  }
+
+  .home-intro-trigger:hover .home-photo-lens {
+    animation: home-photo-shutter 280ms var(--ease-swift);
+  }
+
+  .home-intro-trigger:hover .home-photo-lens-core {
+    animation: home-photo-core 280ms var(--ease-swift);
+  }
+
+  .home-intro-trigger:hover .home-photo-flash {
+    animation: home-photo-flash 220ms var(--ease-swift);
+  }
+
+  .home-intro-trigger:hover .home-search-label {
+    color: var(--foreground);
+  }
+
+  .home-intro-trigger:hover .home-search-glass {
+    animation: home-search-glass 280ms var(--ease-spring);
+  }
+
+  .home-intro-trigger:hover .home-search-handle {
+    animation: home-search-handle 280ms var(--ease-swift);
+  }
+
   .home-zolplay-link:hover .external-link > img {
     transform: translateY(-1px) rotate(-4deg);
   }
@@ -3145,6 +3208,63 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
+@keyframes home-photo-shutter {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(0.82);
+  }
+}
+
+@keyframes home-photo-core {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  40% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes home-photo-flash {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  35% {
+    opacity: 1;
+  }
+}
+
+@keyframes home-search-glass {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  45% {
+    transform: translate(-0.5px, -0.75px) scale(1.06);
+  }
+}
+
+@keyframes home-search-handle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  45% {
+    transform: rotate(12deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .external-label .external-mark {
     transition: none;
@@ -3157,6 +3277,11 @@ a:focus-visible .external-label .external-mark {
   .home-design-laptop,
   .home-design-sparkle,
   .home-detail-unit,
+  .home-photo-lens,
+  .home-photo-lens-core,
+  .home-photo-flash,
+  .home-search-glass,
+  .home-search-handle,
   .home-zolplay-link .external-link > img {
     animation: none;
     transition: none;
@@ -3166,9 +3291,19 @@ a:focus-visible .external-label .external-mark {
   .home-intro-trigger:is(:hover, :active) .home-design-laptop,
   .home-intro-trigger:is(:hover, :active) .home-design-sparkle,
   .home-intro-trigger:is(:hover, :active) .home-detail-unit,
+  .home-intro-trigger:is(:hover, :active) .home-photo-lens,
+  .home-intro-trigger:is(:hover, :active) .home-photo-lens-core,
+  .home-intro-trigger:is(:hover, :active) .home-photo-flash,
+  .home-intro-trigger:is(:hover, :active) .home-search-glass,
+  .home-intro-trigger:is(:hover, :active) .home-search-handle,
   .home-intro-trigger.home-intro-tap .home-design-laptop,
   .home-intro-trigger.home-intro-tap .home-design-sparkle,
   .home-intro-trigger.home-intro-tap .home-detail-unit,
+  .home-intro-trigger.home-intro-tap .home-photo-lens,
+  .home-intro-trigger.home-intro-tap .home-photo-lens-core,
+  .home-intro-trigger.home-intro-tap .home-photo-flash,
+  .home-intro-trigger.home-intro-tap .home-search-glass,
+  .home-intro-trigger.home-intro-tap .home-search-handle,
   .home-zolplay-link:is(:hover, :active) .external-link > img,
   .home-zolplay-link:is(:hover, :active) .external-mark {
     animation: none;
@@ -3183,6 +3318,142 @@ a:focus-visible .external-label .external-mark {
   .home-contact-link {
     transition: none;
   }
+
+  .home-intro-search-row {
+    animation: none;
+  }
+}
+
+/* Homepage intro preview cards — distinct bodies, cali.so-style species */
+
+.home-intro-search-card {
+  gap: 0.5rem;
+}
+
+.home-intro-search-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.home-intro-search-field {
+  display: block;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid color-mix(in oklab, var(--foreground) 14%, transparent);
+  border-radius: 4px;
+  color: var(--muted-foreground);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  background: color-mix(in oklab, var(--foreground) 3%, transparent);
+}
+
+.home-intro-search-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.home-intro-search-row {
+  display: block;
+  padding: 0.28rem 0.45rem;
+  border-radius: 3px;
+  color: var(--foreground);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  background: color-mix(in oklab, var(--foreground) 4%, transparent);
+  animation: home-intro-search-row-in 420ms var(--ease-swift) backwards;
+  animation-delay: calc(var(--i, 0) * 55ms);
+}
+
+@keyframes home-intro-search-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-intro-folio-card {
+  padding: 0.7rem 0.75rem 0.65rem;
+}
+
+.home-intro-folio {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.45rem 0.65rem;
+  min-height: 5.5rem;
+  color: var(--foreground);
+}
+
+.home-intro-folio-stamp {
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--muted-foreground);
+}
+
+.home-intro-folio-itinerary {
+  grid-row: 1;
+  grid-column: 2;
+  align-self: center;
+  height: 2.15rem;
+  border-radius: 2px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 0.45rem,
+      color-mix(in oklab, var(--foreground) 14%, transparent) 0.45rem 0.52rem
+    );
+  opacity: 0.85;
+}
+
+.home-intro-folio-map {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  height: 1.65rem;
+  border-radius: 2px;
+  background:
+    linear-gradient(
+      120deg,
+      color-mix(in oklab, var(--foreground) 8%, transparent) 0 35%,
+      transparent 35% 55%,
+      color-mix(in oklab, var(--foreground) 6%, transparent) 55% 100%
+    ),
+    color-mix(in oklab, var(--foreground) 4%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--foreground) 10%, transparent);
+}
+
+.home-intro-folio-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+  padding: 0.15rem 0.2rem;
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+  background: color-mix(in oklab, var(--paper, var(--background)) 88%, transparent);
+}
+
+.home-intro-folio-label span {
+  color: var(--muted-foreground);
+  font-weight: 400;
+  font-size: 0.6875rem;
 }
 
 .external-link img {
