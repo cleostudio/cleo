@@ -10823,6 +10823,774 @@
       }
     ]
   },
+  "places/portland": {
+    "collection": "places",
+    "title": "Portland",
+    "subtitle": "Portland",
+    "alt": "Portland in United States",
+    "photographer": "Steve Morgan",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2055,
+    "renditions": [
+      {
+        "src": "/images/places/portland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/portland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/portland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/austin": {
+    "collection": "places",
+    "title": "Austin",
+    "subtitle": "Austin",
+    "alt": "Austin in United States",
+    "photographer": "ajay_suresh",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/austin/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/austin/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/austin/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nashville": {
+    "collection": "places",
+    "title": "Nashville",
+    "subtitle": "Nashville",
+    "alt": "Nashville in United States",
+    "photographer": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "src": "/images/places/nashville/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nashville/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nashville/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/new-orleans": {
+    "collection": "places",
+    "title": "New Orleans",
+    "subtitle": "New Orleans",
+    "alt": "New Orleans in United States",
+    "photographer": "MusikAnimal",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/new-orleans/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/new-orleans/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/new-orleans/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/guadalajara": {
+    "collection": "places",
+    "title": "Guadalajara",
+    "subtitle": "Guadalajara",
+    "alt": "Guadalajara in Mexico",
+    "photographer": "Another Believer",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/guadalajara/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/guadalajara/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/guadalajara/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/montevideo": {
+    "collection": "places",
+    "title": "Montevideo",
+    "subtitle": "Montevideo",
+    "alt": "Montevideo in Uruguay",
+    "photographer": "Felipe Restrepo Acosta",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2788,
+    "renditions": [
+      {
+        "src": "/images/places/montevideo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/montevideo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/montevideo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/addis-ababa": {
+    "collection": "places",
+    "title": "Addis Ababa",
+    "subtitle": "Addis Ababa",
+    "alt": "Addis Ababa in Ethiopia",
+    "photographer": "Laika ac from UK",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2557,
+    "renditions": [
+      {
+        "src": "/images/places/addis-ababa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/addis-ababa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/addis-ababa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kampala": {
+    "collection": "places",
+    "title": "Kampala",
+    "subtitle": "Kampala",
+    "alt": "Kampala in Uganda",
+    "photographer": "Nsae Comp",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 1111,
+    "renditions": [
+      {
+        "src": "/images/places/kampala/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kampala/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kampala/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lahore": {
+    "collection": "places",
+    "title": "Lahore",
+    "subtitle": "Lahore",
+    "alt": "Lahore in Pakistan",
+    "photographer": "Muddiii",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2192,
+    "renditions": [
+      {
+        "src": "/images/places/lahore/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lahore/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lahore/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kolkata": {
+    "collection": "places",
+    "title": "Kolkata",
+    "subtitle": "Kolkata",
+    "alt": "Kolkata in India",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/kolkata/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kolkata/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kolkata/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/fukuoka": {
+    "collection": "places",
+    "title": "Fukuoka",
+    "subtitle": "Fukuoka",
+    "alt": "Fukuoka in Japan",
+    "photographer": "そらみみ",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/fukuoka/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/fukuoka/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/fukuoka/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rotterdam": {
+    "collection": "places",
+    "title": "Rotterdam",
+    "subtitle": "Rotterdam",
+    "alt": "Rotterdam in Netherlands",
+    "photographer": "Kristoffer Trolle from Copenhagen, Denmark",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/rotterdam/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rotterdam/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rotterdam/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/michigan": {
+    "collection": "places",
+    "title": "Michigan",
+    "subtitle": "Michigan",
+    "alt": "Michigan in United States",
+    "photographer": "Daniel Kaplowitz",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1604,
+    "renditions": [
+      {
+        "src": "/images/places/michigan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/michigan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/michigan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/georgia-us": {
+    "collection": "places",
+    "title": "Georgia",
+    "subtitle": "Georgia",
+    "alt": "Georgia in United States",
+    "photographer": "Public Lands Institute",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/georgia-us/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/georgia-us/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/georgia-us/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/south-australia": {
+    "collection": "places",
+    "title": "South Australia",
+    "subtitle": "South Australia",
+    "alt": "South Australia in Australia",
+    "photographer": "DXR",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 731,
+    "renditions": [
+      {
+        "src": "/images/places/south-australia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/south-australia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/south-australia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/skiathos": {
+    "collection": "places",
+    "title": "Skiathos",
+    "subtitle": "Skiathos",
+    "alt": "Skiathos in Greece",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2558,
+    "renditions": [
+      {
+        "src": "/images/places/skiathos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/skiathos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/skiathos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kos": {
+    "collection": "places",
+    "title": "Kos",
+    "subtitle": "Kos",
+    "alt": "Kos in Greece",
+    "photographer": "kallerna",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1648,
+    "renditions": [
+      {
+        "src": "/images/places/kos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/zakynthos": {
+    "collection": "places",
+    "title": "Zakynthos",
+    "subtitle": "Zakynthos",
+    "alt": "Zakynthos in Greece",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2581,
+    "renditions": [
+      {
+        "src": "/images/places/zakynthos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/zakynthos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/zakynthos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/martinique": {
+    "collection": "places",
+    "title": "Martinique",
+    "subtitle": "Martinique",
+    "alt": "Martinique in France",
+    "photographer": "AronMSzabo",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/martinique/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/martinique/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/martinique/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/isle-of-skye": {
+    "collection": "places",
+    "title": "Isle of Skye",
+    "subtitle": "Isle of Skye",
+    "alt": "Isle of Skye in United Kingdom",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1896,
+    "renditions": [
+      {
+        "src": "/images/places/isle-of-skye/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/isle-of-skye/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/isle-of-skye/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/koh-samui": {
+    "collection": "places",
+    "title": "Koh Samui",
+    "subtitle": "Koh Samui",
+    "alt": "Koh Samui in Thailand",
+    "photographer": "Chi King",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/koh-samui/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/koh-samui/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/koh-samui/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/burgundy": {
+    "collection": "places",
+    "title": "Burgundy",
+    "subtitle": "Burgundy",
+    "alt": "Burgundy in France",
+    "photographer": "Benjamin Smith",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2562,
+    "renditions": [
+      {
+        "src": "/images/places/burgundy/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/burgundy/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/burgundy/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/piedmont": {
+    "collection": "places",
+    "title": "Piedmont",
+    "subtitle": "Piedmont",
+    "alt": "Piedmont in Italy",
+    "photographer": "Mænsard vokser",
+    "license": "CC BY-SA 4.0",
+    "width": 3580,
+    "height": 2387,
+    "renditions": [
+      {
+        "src": "/images/places/piedmont/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/piedmont/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/piedmont/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/yorkshire": {
+    "collection": "places",
+    "title": "Yorkshire",
+    "subtitle": "Yorkshire",
+    "alt": "Yorkshire in United Kingdom",
+    "photographer": "TXGemGem",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/yorkshire/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/yorkshire/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/yorkshire/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/atlas-mountains": {
+    "collection": "places",
+    "title": "Atlas Mountains",
+    "subtitle": "Atlas Mountains",
+    "alt": "Atlas Mountains in Morocco",
+    "photographer": "Tagooty",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/atlas-mountains/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/atlas-mountains/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/atlas-mountains/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kakadu": {
+    "collection": "places",
+    "title": "Kakadu",
+    "subtitle": "Kakadu",
+    "alt": "Kakadu in Australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/kakadu/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kakadu/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kakadu/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/statue-of-liberty": {
+    "collection": "places",
+    "title": "Statue of Liberty",
+    "subtitle": "Statue of Liberty",
+    "alt": "Statue of Liberty in United States",
+    "photographer": "Christian David",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/statue-of-liberty/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/statue-of-liberty/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/statue-of-liberty/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/golden-gate": {
+    "collection": "places",
+    "title": "Golden Gate Bridge",
+    "subtitle": "Golden Gate Bridge",
+    "alt": "Golden Gate Bridge in United States",
+    "photographer": "Frank Schulenburg",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1681,
+    "renditions": [
+      {
+        "src": "/images/places/golden-gate/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/golden-gate/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/golden-gate/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/versailles": {
+    "collection": "places",
+    "title": "Palace of Versailles",
+    "subtitle": "Palace of Versailles",
+    "alt": "Palace of Versailles in France",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/places/versailles/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/versailles/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/versailles/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sydney-opera-house": {
+    "collection": "places",
+    "title": "Sydney Opera House",
+    "subtitle": "Sydney Opera House",
+    "alt": "Sydney Opera House in Australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/sydney-opera-house/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sydney-opera-house/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sydney-opera-house/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/teotihuacan": {
+    "collection": "places",
+    "title": "Teotihuacan",
+    "subtitle": "Teotihuacan",
+    "alt": "Teotihuacan in Mexico",
+    "photographer": "Polimerek",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 803,
+    "renditions": [
+      {
+        "src": "/images/places/teotihuacan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/teotihuacan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/teotihuacan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/arches": {
+    "collection": "places",
+    "title": "Arches National Park",
+    "subtitle": "Arches National Park",
+    "alt": "Arches National Park in United States",
+    "photographer": "Thomas Wolf , www.foto-tw.de",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2128,
+    "renditions": [
+      {
+        "src": "/images/places/arches/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/arches/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/arches/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

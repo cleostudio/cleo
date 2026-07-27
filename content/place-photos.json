@@ -7422,5 +7422,933 @@
         "bytes": 561157
       }
     ]
+  },
+  "portland": {
+    "featureName": "Portland",
+    "alt": "Portland in United States",
+    "caption": "Portland, United States",
+    "photographer": "Steve Morgan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Portland_from_the_north_2013.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown Portland from the north 2013.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/bc/Downtown_Portland_from_the_north_2013.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "950d140abddbd75b94aac88e605482ef789d5af8ffcbef436b4cefe476114a2f",
+    "width": 3840,
+    "height": 2055,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/portland/w640.jpg",
+        "bytes": 35879
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/portland/w1280.jpg",
+        "bytes": 127638
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/portland/w2048.jpg",
+        "bytes": 355897
+      }
+    ]
+  },
+  "austin": {
+    "featureName": "Austin",
+    "alt": "Austin in United States",
+    "caption": "Austin, United States",
+    "photographer": "ajay_suresh",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Austin_Skyline_-_Lady_Bird_Lake_(54987239041).jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown Austin Skyline - Lady Bird Lake (54987239041).jpg); source https://upload.wikimedia.org/wikipedia/commons/4/41/Downtown_Austin_Skyline_-_Lady_Bird_Lake_%2854987239041%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "86b0f160305069b68fef24face1e568083925d14d9785122402f8d1248e68de8",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/austin/w640.jpg",
+        "bytes": 64979
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/austin/w1280.jpg",
+        "bytes": 245888
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/austin/w2048.jpg",
+        "bytes": 702708
+      }
+    ]
+  },
+  "nashville": {
+    "featureName": "Nashville",
+    "alt": "Nashville in United States",
+    "caption": "Nashville, United States",
+    "photographer": "Quintin Soloviev",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nashville,_TN_skyline.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Nashville, TN skyline.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e4/Nashville%2C_TN_skyline.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f206e1655e9bf35c8c26837cf39107172561fe58fc8925c54ef9130cfc03b2dc",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nashville/w640.jpg",
+        "bytes": 54385
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nashville/w1280.jpg",
+        "bytes": 204420
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nashville/w2048.jpg",
+        "bytes": 600369
+      }
+    ]
+  },
+  "new-orleans": {
+    "featureName": "New Orleans",
+    "alt": "New Orleans in United States",
+    "caption": "New Orleans, United States",
+    "photographer": "MusikAnimal",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:New_Orleans_skyline_from_the_Mississippi_River.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:New Orleans skyline from the Mississippi River.JPG); source https://upload.wikimedia.org/wikipedia/commons/0/01/New_Orleans_skyline_from_the_Mississippi_River.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "21dc20ca30d2d3b9fc6d5dc62772409caab69c7b2bf3200b1c111885f20e93b7",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/new-orleans/w640.jpg",
+        "bytes": 32791
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/new-orleans/w1280.jpg",
+        "bytes": 120006
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/new-orleans/w2048.jpg",
+        "bytes": 354285
+      }
+    ]
+  },
+  "guadalajara": {
+    "featureName": "Guadalajara",
+    "alt": "Guadalajara in Mexico",
+    "caption": "Guadalajara, Mexico",
+    "photographer": "Another Believer",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Guadalajara,_Jalisco,_Mexico_(2021)_-_151.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Guadalajara, Jalisco, Mexico (2021) - 151.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c0/Guadalajara%2C_Jalisco%2C_Mexico_%282021%29_-_151.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2401de2512166c9a3bd892370148221051ca0b74db11b18470e9c04745379f9d",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/guadalajara/w640.jpg",
+        "bytes": 59007
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/guadalajara/w1280.jpg",
+        "bytes": 201606
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/guadalajara/w2048.jpg",
+        "bytes": 512296
+      }
+    ]
+  },
+  "montevideo": {
+    "featureName": "Montevideo",
+    "alt": "Montevideo in Uruguay",
+    "caption": "Montevideo, Uruguay",
+    "photographer": "Felipe Restrepo Acosta",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2016_centro_de_Montevideo_desde_la_Rambla_del_presidente_Wilson.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:2016 centro de Montevideo desde la Rambla del presidente Wilson.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/96/2016_centro_de_Montevideo_desde_la_Rambla_del_presidente_Wilson.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7de977169fab7b26ddd2d07d209d94f1c966b8b4b08b6f1df1a8db6d915b1a93",
+    "width": 3840,
+    "height": 2788,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/montevideo/w640.jpg",
+        "bytes": 33218
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/montevideo/w1280.jpg",
+        "bytes": 105690
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/montevideo/w2048.jpg",
+        "bytes": 301512
+      }
+    ]
+  },
+  "addis-ababa": {
+    "featureName": "Addis Ababa",
+    "alt": "Addis Ababa in Ethiopia",
+    "caption": "Addis Ababa, Ethiopia",
+    "photographer": "Laika ac from UK",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Addis_Ababa_(16314616596).jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Addis Ababa (16314616596).jpg); source https://upload.wikimedia.org/wikipedia/commons/3/36/Addis_Ababa_%2816314616596%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d4ec0b0c553da9ded6068c0a6b4e466fdb35e4f939c7662de2ed91304af6d7e8",
+    "width": 3840,
+    "height": 2557,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/addis-ababa/w640.jpg",
+        "bytes": 42015
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/addis-ababa/w1280.jpg",
+        "bytes": 141861
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/addis-ababa/w2048.jpg",
+        "bytes": 363974
+      }
+    ]
+  },
+  "kampala": {
+    "featureName": "Kampala",
+    "alt": "Kampala in Uganda",
+    "caption": "Kampala, Uganda",
+    "photographer": "Nsae Comp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kampala-Gaddafi_Mosque.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kampala-Gaddafi Mosque.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/46/Kampala-Gaddafi_Mosque.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "94a75a590176b3d3a7273f9855c86e75fcac6d6565439cdbb7ab5ce4931f1597",
+    "width": 3840,
+    "height": 1111,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kampala/w640.jpg",
+        "bytes": 21462
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kampala/w1280.jpg",
+        "bytes": 74570
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kampala/w2048.jpg",
+        "bytes": 205998
+      }
+    ]
+  },
+  "lahore": {
+    "featureName": "Lahore",
+    "alt": "Lahore in Pakistan",
+    "caption": "Lahore, Pakistan",
+    "photographer": "Muddiii",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badshahi_Mosque_Sunset.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Badshahi Mosque Sunset.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/09/Badshahi_Mosque_Sunset.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "deecbff8c39bca1514ff1a6a1040fc4a52f7765889c3b0d9702e2dbd311e538d",
+    "width": 3840,
+    "height": 2192,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lahore/w640.jpg",
+        "bytes": 37027
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lahore/w1280.jpg",
+        "bytes": 128817
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lahore/w2048.jpg",
+        "bytes": 390143
+      }
+    ]
+  },
+  "kolkata": {
+    "featureName": "Kolkata",
+    "alt": "Kolkata in India",
+    "caption": "Kolkata, India",
+    "photographer": "Bernard Gagnon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Howrah_Bridge_02.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Howrah Bridge 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e6/Howrah_Bridge_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3454e70bfe315fc7d1ce0c8ee4dca29c0822e50720b5ee026cef84e2f16012cd",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kolkata/w640.jpg",
+        "bytes": 72493
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kolkata/w1280.jpg",
+        "bytes": 271195
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kolkata/w2048.jpg",
+        "bytes": 767309
+      }
+    ]
+  },
+  "fukuoka": {
+    "featureName": "Fukuoka",
+    "alt": "Fukuoka in Japan",
+    "caption": "Fukuoka, Japan",
+    "photographer": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukuoka_Tower_and_pine_trees_from_beach_of_Seaside_Momochi_Seaside_Park.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Fukuoka Tower and pine trees from beach of Seaside Momochi Seaside Park.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3f/Fukuoka_Tower_and_pine_trees_from_beach_of_Seaside_Momochi_Seaside_Park.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f91b1a1e082cc01a1c5bffeea709e105a34ef3c1525e094374222670ac470d67",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/fukuoka/w640.jpg",
+        "bytes": 43009
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/fukuoka/w1280.jpg",
+        "bytes": 150184
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/fukuoka/w2048.jpg",
+        "bytes": 425089
+      }
+    ]
+  },
+  "rotterdam": {
+    "featureName": "Rotterdam",
+    "alt": "Rotterdam in Netherlands",
+    "caption": "Rotterdam, Netherlands",
+    "photographer": "Kristoffer Trolle from Copenhagen, Denmark",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erasmus_bridge_and_Rotterdam_skyline_(21458216300).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Erasmus bridge and Rotterdam skyline (21458216300).jpg); source https://upload.wikimedia.org/wikipedia/commons/5/56/Erasmus_bridge_and_Rotterdam_skyline_%2821458216300%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5483900afae470e16178f6e0ab14225bc162c7ff75872f778fc9f620b7b141f6",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rotterdam/w640.jpg",
+        "bytes": 39406
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rotterdam/w1280.jpg",
+        "bytes": 125153
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rotterdam/w2048.jpg",
+        "bytes": 307179
+      }
+    ]
+  },
+  "michigan": {
+    "featureName": "Michigan",
+    "alt": "Michigan in United States",
+    "caption": "Michigan, United States",
+    "photographer": "Daniel Kaplowitz",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_of_Lake_Michigan_from_Sleeping_Bear_Dunes.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Panorama of Lake Michigan from Sleeping Bear Dunes.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d1/Panorama_of_Lake_Michigan_from_Sleeping_Bear_Dunes.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "46b25e7dd6e44d3a5fa7fa1f31a2352dff78d2ac470bc077d9cf1fb57dec1fae",
+    "width": 3840,
+    "height": 1604,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/michigan/w640.jpg",
+        "bytes": 14074
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/michigan/w1280.jpg",
+        "bytes": 53299
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/michigan/w2048.jpg",
+        "bytes": 188174
+      }
+    ]
+  },
+  "georgia-us": {
+    "featureName": "Georgia",
+    "alt": "Georgia in United States",
+    "caption": "Georgia, United States",
+    "photographer": "Public Lands Institute",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Public_Lands_Institute_-_Blood_Mountain_Wilderness_-_001.tif",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Public Lands Institute - Blood Mountain Wilderness - 001.tif); source https://upload.wikimedia.org/wikipedia/commons/6/66/Public_Lands_Institute_-_Blood_Mountain_Wilderness_-_001.tif; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d73f70b05ff3abca4cc67ae962800066d1f5ae527e06e956165dfc1f694a69a8",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/georgia-us/w640.jpg",
+        "bytes": 80390
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/georgia-us/w1280.jpg",
+        "bytes": 307403
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/georgia-us/w2048.jpg",
+        "bytes": 885240
+      }
+    ]
+  },
+  "south-australia": {
+    "featureName": "South Australia",
+    "alt": "South Australia in Australia",
+    "caption": "South Australia, Australia",
+    "photographer": "DXR",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Rawnsley_Bluff_and_Chace_Range_from_Alison_Saddle_20230211_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:View of Rawnsley Bluff and Chace Range from Alison Saddle 20230211 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/88/View_of_Rawnsley_Bluff_and_Chace_Range_from_Alison_Saddle_20230211_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "01e43f3dc5654cf7543beb9816ec7256418ec4768f8bb0280699064635eb2713",
+    "width": 3840,
+    "height": 731,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/south-australia/w640.jpg",
+        "bytes": 13389
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/south-australia/w1280.jpg",
+        "bytes": 48584
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/south-australia/w2048.jpg",
+        "bytes": 149806
+      }
+    ]
+  },
+  "skiathos": {
+    "featureName": "Skiathos",
+    "alt": "Skiathos in Greece",
+    "caption": "Skiathos, Greece",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Top-down_aerial_of_Koukounaries_Beach,_Skiathos,_Greece_(51695982638).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Top-down aerial of Koukounaries Beach, Skiathos, Greece (51695982638).jpg); source https://upload.wikimedia.org/wikipedia/commons/5/53/Top-down_aerial_of_Koukounaries_Beach%2C_Skiathos%2C_Greece_%2851695982638%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e7632e951eb5e750f448e2eab3134afd68a58e58d0ccfe12a87da9be69d4824c",
+    "width": 3840,
+    "height": 2558,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/skiathos/w640.jpg",
+        "bytes": 68283
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/skiathos/w1280.jpg",
+        "bytes": 259558
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/skiathos/w2048.jpg",
+        "bytes": 813590
+      }
+    ]
+  },
+  "kos": {
+    "featureName": "Kos",
+    "alt": "Kos in Greece",
+    "caption": "Kos, Greece",
+    "photographer": "kallerna",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_Kos_8.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Panorama Kos 8.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f5/Panorama_Kos_8.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "95433a9d54df49cd8474b9806e9e3b6f029dfd71602aed93b159cd330cac6f6c",
+    "width": 3840,
+    "height": 1648,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kos/w640.jpg",
+        "bytes": 39462
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kos/w1280.jpg",
+        "bytes": 148594
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kos/w2048.jpg",
+        "bytes": 454862
+      }
+    ]
+  },
+  "zakynthos": {
+    "featureName": "Zakynthos",
+    "alt": "Zakynthos in Greece",
+    "caption": "Zakynthos, Greece",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Navagio_Beach_aerial_Zakynthos_Greece_(46470564281).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Navagio Beach aerial Zakynthos Greece (46470564281).jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ae/Navagio_Beach_aerial_Zakynthos_Greece_%2846470564281%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f11a92ac926d4647b87e01b1a73b3d6fff4e581753292eabdd5f929e807f00a5",
+    "width": 3840,
+    "height": 2581,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/zakynthos/w640.jpg",
+        "bytes": 47641
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/zakynthos/w1280.jpg",
+        "bytes": 185319
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/zakynthos/w2048.jpg",
+        "bytes": 600860
+      }
+    ]
+  },
+  "martinique": {
+    "featureName": "Martinique",
+    "alt": "Martinique in France",
+    "caption": "Martinique, France",
+    "photographer": "AronMSzabo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Les_Anses-d%27Arlet,_Martinique.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:View of Les Anses-d'Arlet, Martinique.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4e/View_of_Les_Anses-d%27Arlet%2C_Martinique.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "400e0cc6db40d79795305a19c5a3210f684f257b98f1cb273fbbbe36bc56f964",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/martinique/w640.jpg",
+        "bytes": 67707
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/martinique/w1280.jpg",
+        "bytes": 266513
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/martinique/w2048.jpg",
+        "bytes": 796611
+      }
+    ]
+  },
+  "isle-of-skye": {
+    "featureName": "Isle of Skye",
+    "alt": "Isle of Skye in United Kingdom",
+    "caption": "Isle of Skye, United Kingdom",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Quiraing,_Isle_of_Skye,_Scotland_-_Diliff.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Quiraing, Isle of Skye, Scotland - Diliff.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/72/Quiraing%2C_Isle_of_Skye%2C_Scotland_-_Diliff.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cb1077cfa7f51be155a975446f599b95609942debd176a4c711bf2cddb384fca",
+    "width": 3840,
+    "height": 1896,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/isle-of-skye/w640.jpg",
+        "bytes": 34168
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/isle-of-skye/w1280.jpg",
+        "bytes": 129752
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/isle-of-skye/w2048.jpg",
+        "bytes": 424273
+      }
+    ]
+  },
+  "koh-samui": {
+    "featureName": "Koh Samui",
+    "alt": "Koh Samui in Thailand",
+    "caption": "Koh Samui, Thailand",
+    "photographer": "Chi King",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koh_Samui_(THAILAND-LANDSCAPE)_(4567666381).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Koh Samui (THAILAND-LANDSCAPE) (4567666381).jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f2/Koh_Samui_%28THAILAND-LANDSCAPE%29_%284567666381%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2ed2135f4024c9fe907c1966df73270760cb805e9b52671d436665a03140c080",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/koh-samui/w640.jpg",
+        "bytes": 41429
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/koh-samui/w1280.jpg",
+        "bytes": 121641
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/koh-samui/w2048.jpg",
+        "bytes": 307727
+      }
+    ]
+  },
+  "burgundy": {
+    "featureName": "Burgundy",
+    "alt": "Burgundy in France",
+    "caption": "Burgundy, France",
+    "photographer": "Benjamin Smith",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meursault_-_Vineyards_-_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Meursault - Vineyards - 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/56/Meursault_-_Vineyards_-_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "60754b81bc9fdedaef44fc690f3af26f166936d158217a4f46d2005a93028312",
+    "width": 3840,
+    "height": 2562,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/burgundy/w640.jpg",
+        "bytes": 76644
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/burgundy/w1280.jpg",
+        "bytes": 321953
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/burgundy/w2048.jpg",
+        "bytes": 982690
+      }
+    ]
+  },
+  "piedmont": {
+    "featureName": "Piedmont",
+    "alt": "Piedmont in Italy",
+    "caption": "Piedmont, Italy",
+    "photographer": "Mænsard vokser",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alpine_hut_ruin_pasture_Alpe_Cortaccio_1670m_-_Vigezzo_Valley,_Re,_Piedmont,_Italy_2022-01-06.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Alpine hut ruin pasture Alpe Cortaccio 1670m - Vigezzo Valley, Re, Piedmont, Italy 2022-01-06.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/22/Alpine_hut_ruin_pasture_Alpe_Cortaccio_1670m_-_Vigezzo_Valley%2C_Re%2C_Piedmont%2C_Italy_2022-01-06.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ac502a2f599abb0c3e2c63e5cbaf25fe1f3c31f660d389e89015e0f3d3074900",
+    "width": 3580,
+    "height": 2387,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/piedmont/w640.jpg",
+        "bytes": 74979
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/piedmont/w1280.jpg",
+        "bytes": 212584
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/piedmont/w2048.jpg",
+        "bytes": 523795
+      }
+    ]
+  },
+  "yorkshire": {
+    "featureName": "Yorkshire",
+    "alt": "Yorkshire in United Kingdom",
+    "caption": "Yorkshire, United Kingdom",
+    "photographer": "TXGemGem",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ingleborough_Framed_by_Stone_Walls_and_Rails_%E2%80%93_Yorkshire_Dales_National_Park.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ingleborough Framed by Stone Walls and Rails – Yorkshire Dales National Park.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/93/Ingleborough_Framed_by_Stone_Walls_and_Rails_%E2%80%93_Yorkshire_Dales_National_Park.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "75e74a87266cd6d0cd1d3a979799b638c87e5f639bd00bd66c436323a2012def",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/yorkshire/w640.jpg",
+        "bytes": 54754
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/yorkshire/w1280.jpg",
+        "bytes": 204216
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/yorkshire/w2048.jpg",
+        "bytes": 604132
+      }
+    ]
+  },
+  "atlas-mountains": {
+    "featureName": "Atlas Mountains",
+    "alt": "Atlas Mountains in Morocco",
+    "caption": "Atlas Mountains, Morocco",
+    "photographer": "Tagooty",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anraz_Ouirgane_Atlas_Mountains_Oct25_A7CR_08751-5_HDR1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Anraz Ouirgane Atlas Mountains Oct25 A7CR 08751-5 HDR1.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/52/Anraz_Ouirgane_Atlas_Mountains_Oct25_A7CR_08751-5_HDR1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fb2586455c24c40b7ad8e6e291d15249ec088f97fa73ad09e8c1ef2d17af4311",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/atlas-mountains/w640.jpg",
+        "bytes": 66894
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/atlas-mountains/w1280.jpg",
+        "bytes": 271633
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/atlas-mountains/w2048.jpg",
+        "bytes": 861774
+      }
+    ]
+  },
+  "kakadu": {
+    "featureName": "Kakadu",
+    "alt": "Kakadu in Australia",
+    "caption": "Kakadu, Australia",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kakadu_National_Park_(AU),_Marrakai_Road_--_2019_--_3765.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kakadu National Park (AU), Marrakai Road -- 2019 -- 3765.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0a/Kakadu_National_Park_%28AU%29%2C_Marrakai_Road_--_2019_--_3765.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3999b86d575fe2f3b5e3f7d6acfb2cf4bd4ae0dfe6cfa8f91cd9554214b4dcf4",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kakadu/w640.jpg",
+        "bytes": 63625
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kakadu/w1280.jpg",
+        "bytes": 257980
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kakadu/w2048.jpg",
+        "bytes": 783167
+      }
+    ]
+  },
+  "statue-of-liberty": {
+    "featureName": "Statue of Liberty",
+    "alt": "Statue of Liberty in United States",
+    "caption": "Statue of Liberty, United States",
+    "photographer": "Christian David",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_and_a_sightseeing_boat,_Liberty_Island,_New_York.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Statue of Liberty and a sightseeing boat, Liberty Island, New York.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/93/Statue_of_Liberty_and_a_sightseeing_boat%2C_Liberty_Island%2C_New_York.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4a9167a18954617ca0de7c7db5dac320fa4994f987c3bc83dc4555b61ceadfd1",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/statue-of-liberty/w640.jpg",
+        "bytes": 40898
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/statue-of-liberty/w1280.jpg",
+        "bytes": 146854
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/statue-of-liberty/w2048.jpg",
+        "bytes": 442811
+      }
+    ]
+  },
+  "golden-gate": {
+    "featureName": "Golden Gate Bridge",
+    "alt": "Golden Gate Bridge in United States",
+    "caption": "Golden Gate Bridge, United States",
+    "photographer": "Frank Schulenburg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Bridge_(August_2013).jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:The Bridge (August 2013).jpg); source https://upload.wikimedia.org/wikipedia/commons/0/01/The_Bridge_%28August_2013%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b6d9e6e5d2342ff721c09f87ae4bd36c3c87ca91fd9bbba16e4be95d79225b40",
+    "width": 3840,
+    "height": 1681,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/golden-gate/w640.jpg",
+        "bytes": 15111
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/golden-gate/w1280.jpg",
+        "bytes": 40435
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/golden-gate/w2048.jpg",
+        "bytes": 109657
+      }
+    ]
+  },
+  "versailles": {
+    "featureName": "Palace of Versailles",
+    "alt": "Palace of Versailles in France",
+    "caption": "Palace of Versailles, France",
+    "photographer": "Basile Morin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_the_Orangerie_garden_and_Palace_of_Versailles_with_blue_sky_in_France.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Water reflection of the Orangerie garden and Palace of Versailles with blue sky in France.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/51/Water_reflection_of_the_Orangerie_garden_and_Palace_of_Versailles_with_blue_sky_in_France.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2342b41c300588fd52c2ce687b511031d08b3bc1e40a88309b9f8b6ba3b4b422",
+    "width": 3840,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/versailles/w640.jpg",
+        "bytes": 35219
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/versailles/w1280.jpg",
+        "bytes": 122066
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/versailles/w2048.jpg",
+        "bytes": 355387
+      }
+    ]
+  },
+  "sydney-opera-house": {
+    "featureName": "Sydney Opera House",
+    "alt": "Sydney Opera House in Australia",
+    "caption": "Sydney Opera House, Australia",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sydney_(AU),_Opera_House_--_2019_--_2280.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sydney (AU), Opera House -- 2019 -- 2280.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0a/Sydney_%28AU%29%2C_Opera_House_--_2019_--_2280.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e689ce93b33b4536ae4b917e4bd5960cdf43009bbb59c3c50bc66c266e99cb35",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sydney-opera-house/w640.jpg",
+        "bytes": 40136
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sydney-opera-house/w1280.jpg",
+        "bytes": 148047
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sydney-opera-house/w2048.jpg",
+        "bytes": 439201
+      }
+    ]
+  },
+  "teotihuacan": {
+    "featureName": "Teotihuacan",
+    "alt": "Teotihuacan in Mexico",
+    "caption": "Teotihuacan, Mexico",
+    "photographer": "Polimerek",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Avenue_of_the_Dead_at_Teotihuacan_panorama_5.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Avenue of the Dead at Teotihuacan panorama 5.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/8f/Avenue_of_the_Dead_at_Teotihuacan_panorama_5.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bd073152f81b11ebda7202529e1626fce6c3cdc72be98f010c1e141bb08220bd",
+    "width": 3840,
+    "height": 803,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/teotihuacan/w640.jpg",
+        "bytes": 17382
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/teotihuacan/w1280.jpg",
+        "bytes": 60940
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/teotihuacan/w2048.jpg",
+        "bytes": 180108
+      }
+    ]
+  },
+  "arches": {
+    "featureName": "Arches National Park",
+    "alt": "Arches National Park in United States",
+    "caption": "Arches National Park, United States",
+    "photographer": "Thomas Wolf , www.foto-tw.de",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Balanced_Rock_sunset.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Balanced Rock sunset.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/da/Balanced_Rock_sunset.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "696c1bd700a377509fedab57e116c29eb9dcc73e19d35442e5355a26795e040e",
+    "width": 3840,
+    "height": 2128,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/arches/w640.jpg",
+        "bytes": 35583
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/arches/w1280.jpg",
+        "bytes": 125142
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/arches/w2048.jpg",
+        "bytes": 370259
+      }
+    ]
   }
 }

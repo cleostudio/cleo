@@ -9,6 +9,7 @@ import { placeGuideDraftsBatch5 } from '~/lib/places-batch5'
 import { placeGuideDraftsBatch6 } from '~/lib/places-batch6'
 import { placeGuideDraftsBatch7 } from '~/lib/places-batch7'
 import { placeGuideDraftsBatch8 } from '~/lib/places-batch8'
+import { placeGuideDraftsBatch9 } from '~/lib/places-batch9'
 import type { StaticPhoto } from '~/lib/static-photo'
 
 export type PlaceKind = 'City' | 'State' | 'Island' | 'Region' | 'Landmark'
@@ -180,7 +181,7 @@ const placeGuideDrafts: PlaceGuideDraft[] = [
     kind: 'City',
     countrySlug: 'united-states',
     subtitle: 'City · United States',
-    matchNames: ['Statue of Liberty', 'New York'],
+    matchNames: ['New York'],
     about:
       'New York City occupies a harbor archipelago where the Hudson and East rivers meet the Atlantic approaches. Manhattan’s street grid, Brooklyn and Queens on Long Island, the Bronx on the mainland, and Staten Island across the Narrows form five boroughs linked by bridges, tunnels, and ferries. The skyline is a product of bedrock, zoning, and port wealth; the street life is a product of immigrant neighborhoods, parks, and transit density. Central Park interrupts the midtown–uptown continuum; the harbor islands and waterfront piers recall the city’s maritime origin even as container traffic shifted outward. Orientation works best by water and borough: where islands pinch, where bridges land, where subway lines branch. Brownstone blocks, industrial loft districts, and glass towers coexist within short distances. The durable story is harbor geography turned into a continental gateway — still readable in ferry wakes, tunnel mouths, and the grid’s relentless numbering.',
     facts: {
@@ -468,7 +469,7 @@ const placeGuideDrafts: PlaceGuideDraft[] = [
     kind: 'City',
     countrySlug: 'australia',
     subtitle: 'City · Australia',
-    matchNames: ['Sydney', 'Sydney Opera House'],
+    matchNames: ['Sydney'],
     about:
       'Sydney wraps a deeply indented harbor on Australia’s southeast coast, with sandstone headlands, ferry lanes, and beach suburbs defining daily geography. The Opera House and Harbour Bridge mark the inner harbor’s iconic pinch; beyond them, drowned river valleys create countless bays and point-to-point ferry routes. The CBD occupies a peninsula; residential quarters climb surrounding ridges and spill toward Pacific beaches like Bondi. Orientation is aqueous: which cove, which headland, which ferry wharf. Native bush remnants cling to slopes inside the metropolitan area, a reminder that the city grew into a rugged coastal landscape rather than a flat plain. Sydney’s primer is harbor morphology — a working and recreational waterway that still structures commuting, views, and the sense that neighborhoods face water as much as streets.',
     facts: {
@@ -1620,6 +1621,7 @@ const placeGuideDrafts: PlaceGuideDraft[] = [
   ...(placeGuideDraftsBatch6 as PlaceGuideDraft[]),
   ...(placeGuideDraftsBatch7 as PlaceGuideDraft[]),
   ...(placeGuideDraftsBatch8 as PlaceGuideDraft[]),
+  ...(placeGuideDraftsBatch9 as PlaceGuideDraft[]),
 ]
 
 export const placeGuides: PlaceGuide[] = placeGuideDrafts.map(withPhoto)

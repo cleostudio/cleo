@@ -2739,5 +2739,357 @@
       "Itsukushima Shrine",
       "Miyajima torii"
     ]
+  },
+  "portland": {
+    "name": "Portland",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Portland Oregon",
+      "Portland skyline",
+      "Willamette Portland"
+    ]
+  },
+  "austin": {
+    "name": "Austin",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Austin Texas",
+      "Austin skyline",
+      "Lady Bird Lake Austin"
+    ]
+  },
+  "nashville": {
+    "name": "Nashville",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Nashville",
+      "Nashville skyline",
+      "Nashville Tennessee"
+    ]
+  },
+  "new-orleans": {
+    "name": "New Orleans",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "New Orleans",
+      "French Quarter New Orleans",
+      "New Orleans skyline"
+    ]
+  },
+  "guadalajara": {
+    "name": "Guadalajara",
+    "countrySlug": "mexico",
+    "countryName": "Mexico",
+    "kind": "City",
+    "searchNames": [
+      "Guadalajara",
+      "Guadalajara Mexico",
+      "Guadalajara cathedral"
+    ]
+  },
+  "montevideo": {
+    "name": "Montevideo",
+    "countrySlug": "uruguay",
+    "countryName": "Uruguay",
+    "kind": "City",
+    "searchNames": [
+      "Montevideo",
+      "Montevideo skyline",
+      "Rambla Montevideo"
+    ]
+  },
+  "addis-ababa": {
+    "name": "Addis Ababa",
+    "countrySlug": "ethiopia",
+    "countryName": "Ethiopia",
+    "kind": "City",
+    "searchNames": [
+      "Addis Ababa",
+      "Addis Ababa skyline",
+      "Addis Ababa Ethiopia"
+    ]
+  },
+  "kampala": {
+    "name": "Kampala",
+    "countrySlug": "uganda",
+    "countryName": "Uganda",
+    "kind": "City",
+    "searchNames": [
+      "Kampala",
+      "Kampala Uganda",
+      "Kampala hills"
+    ]
+  },
+  "lahore": {
+    "name": "Lahore",
+    "countrySlug": "pakistan",
+    "countryName": "Pakistan",
+    "kind": "City",
+    "searchNames": [
+      "Lahore",
+      "Lahore Fort",
+      "Badshahi Mosque Lahore"
+    ]
+  },
+  "kolkata": {
+    "name": "Kolkata",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Kolkata",
+      "Calcutta",
+      "Howrah Bridge Kolkata"
+    ]
+  },
+  "fukuoka": {
+    "name": "Fukuoka",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": [
+      "Fukuoka",
+      "Fukuoka skyline",
+      "Hakata Fukuoka"
+    ]
+  },
+  "rotterdam": {
+    "name": "Rotterdam",
+    "countrySlug": "netherlands",
+    "countryName": "Netherlands",
+    "kind": "City",
+    "searchNames": [
+      "Rotterdam",
+      "Rotterdam skyline",
+      "Erasmus Bridge Rotterdam"
+    ]
+  },
+  "michigan": {
+    "name": "Michigan",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Michigan",
+      "Michigan lakeshore",
+      "Sleeping Bear Dunes"
+    ]
+  },
+  "georgia-us": {
+    "name": "Georgia",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Georgia USA",
+      "Georgia state landscape",
+      "Blue Ridge Georgia"
+    ]
+  },
+  "south-australia": {
+    "name": "South Australia",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "State",
+    "searchNames": [
+      "South Australia",
+      "Adelaide Hills",
+      "Flinders Ranges"
+    ]
+  },
+  "skiathos": {
+    "name": "Skiathos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Skiathos",
+      "Skiathos beach",
+      "Skiathos Greece"
+    ]
+  },
+  "kos": {
+    "name": "Kos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Kos island",
+      "Kos Greece",
+      "Kos harbour"
+    ]
+  },
+  "zakynthos": {
+    "name": "Zakynthos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Zakynthos",
+      "Navagio Beach",
+      "Zakynthos Greece"
+    ]
+  },
+  "martinique": {
+    "name": "Martinique",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": [
+      "Martinique",
+      "Martinique beach",
+      "Mount Pelee Martinique"
+    ]
+  },
+  "isle-of-skye": {
+    "name": "Isle of Skye",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Isle of Skye",
+      "Skye Scotland",
+      "Old Man of Storr"
+    ]
+  },
+  "koh-samui": {
+    "name": "Koh Samui",
+    "countrySlug": "thailand",
+    "countryName": "Thailand",
+    "kind": "Island",
+    "searchNames": [
+      "Koh Samui",
+      "Samui beach",
+      "Ko Samui"
+    ]
+  },
+  "burgundy": {
+    "name": "Burgundy",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Burgundy France",
+      "Bourgogne vineyards",
+      "Burgundy wine country"
+    ]
+  },
+  "piedmont": {
+    "name": "Piedmont",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Piedmont Italy",
+      "Piemonte vineyards",
+      "Langhe Piedmont"
+    ]
+  },
+  "yorkshire": {
+    "name": "Yorkshire",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Region",
+    "searchNames": [
+      "Yorkshire Dales",
+      "Yorkshire England",
+      "Yorkshire moors"
+    ]
+  },
+  "atlas-mountains": {
+    "name": "Atlas Mountains",
+    "countrySlug": "morocco",
+    "countryName": "Morocco",
+    "kind": "Region",
+    "searchNames": [
+      "Atlas Mountains",
+      "High Atlas Morocco",
+      "Atlas Morocco landscape"
+    ]
+  },
+  "kakadu": {
+    "name": "Kakadu",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Region",
+    "searchNames": [
+      "Kakadu National Park",
+      "Kakadu wetlands",
+      "Kakadu escarpment"
+    ]
+  },
+  "statue-of-liberty": {
+    "name": "Statue of Liberty",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Statue of Liberty",
+      "Liberty Island",
+      "Statue of Liberty New York"
+    ]
+  },
+  "golden-gate": {
+    "name": "Golden Gate Bridge",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Golden Gate Bridge",
+      "Golden Gate",
+      "Golden Gate San Francisco"
+    ]
+  },
+  "versailles": {
+    "name": "Palace of Versailles",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": [
+      "Palace of Versailles",
+      "Versailles",
+      "Chateau de Versailles"
+    ]
+  },
+  "sydney-opera-house": {
+    "name": "Sydney Opera House",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Landmark",
+    "searchNames": [
+      "Sydney Opera House",
+      "Opera House Sydney",
+      "Sydney Opera House harbour"
+    ]
+  },
+  "teotihuacan": {
+    "name": "Teotihuacan",
+    "countrySlug": "mexico",
+    "countryName": "Mexico",
+    "kind": "Landmark",
+    "searchNames": [
+      "Teotihuacan",
+      "Pyramid of the Sun Teotihuacan",
+      "Teotihuacan Mexico"
+    ]
+  },
+  "arches": {
+    "name": "Arches National Park",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Arches National Park",
+      "Delicate Arch",
+      "Arches Utah"
+    ]
   }
 }
