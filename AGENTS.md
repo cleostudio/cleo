@@ -89,8 +89,11 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 
-Conversation state is browser-only and clears on reload. There is no
-authentication, database, media library, or AMA booking.
+Conversation state is browser-only; New chat or a reload clears it. There
+is no authentication, database, media library, or AMA booking.
+
+The public dock includes Writing, Gallery, Explore, Space, Topics, and
+Cleo (`G` then `W` / `P` / `E` / `S` / `T` / `C`).
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,

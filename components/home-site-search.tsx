@@ -40,15 +40,32 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
   }, [matches])
 
   useEffect(() => {
+    function focusSearch() {
+      inputRef.current?.focus()
+    }
+
     function focusFromHash() {
       if (window.location.hash === '#home-site-search') {
-        inputRef.current?.focus()
+        focusSearch()
       }
+    }
+
+    function onDocumentClick(event: MouseEvent) {
+      const target = event.target
+      if (!(target instanceof Element)) return
+      const anchor = target.closest('a[href="#home-site-search"]')
+      if (!anchor) return
+      // Hash may already be set; still complete the “open the catalog” action.
+      requestAnimationFrame(focusSearch)
     }
 
     focusFromHash()
     window.addEventListener('hashchange', focusFromHash)
-    return () => window.removeEventListener('hashchange', focusFromHash)
+    document.addEventListener('click', onDocumentClick)
+    return () => {
+      window.removeEventListener('hashchange', focusFromHash)
+      document.removeEventListener('click', onDocumentClick)
+    }
   }, [])
 
   function onKeyDown(event: KeyboardEvent<HTMLInputElement>) {

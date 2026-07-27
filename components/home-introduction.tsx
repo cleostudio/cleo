@@ -285,11 +285,6 @@ function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
       closeDelay={100}
       side="top"
       popupClassName="link-card home-intro-search-card"
-      onNavigate={() => {
-        requestAnimationFrame(() => {
-          document.getElementById('home-site-search')?.focus()
-        })
-      }}
       popup={
         <span className="home-intro-search-body" aria-hidden>
           <span className="home-intro-search-field">
