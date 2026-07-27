@@ -94,6 +94,63 @@ export type MapRegionCamera = {
   tally: number
 }
 
+/**
+ * Static continent cameras used when the country index fails to hydrate.
+ * Bounds mirror `public/maps/country-index.json` (incl. antimeridian Oceania).
+ */
+export const FALLBACK_MAP_REGIONS: MapRegionCamera[] = [
+  {
+    id: 'africa',
+    label: 'Africa',
+    bounds: [
+      [-25.337109, -46.962891],
+      [57.791992, 37.340381],
+    ],
+    maxZoom: 2.54,
+    tally: 0,
+  },
+  {
+    id: 'americas',
+    label: 'Americas',
+    bounds: [
+      [-168.088379, -55.889648],
+      [-34.805469, 83.116113],
+    ],
+    maxZoom: 1.82,
+    tally: 0,
+  },
+  {
+    id: 'asia',
+    label: 'Asia',
+    bounds: [
+      [25.668945, -10.909277],
+      [145.833008, 55.3896],
+    ],
+    maxZoom: 2.03,
+    tally: 0,
+  },
+  {
+    id: 'europe',
+    label: 'Europe',
+    bounds: [
+      [-25, 34],
+      [40.126172, 80.477832],
+    ],
+    maxZoom: 2.92,
+    tally: 0,
+  },
+  {
+    id: 'oceania',
+    label: 'Oceania',
+    bounds: [
+      [96.825879, -54.749219],
+      [208.217383, 11.168652],
+    ],
+    maxZoom: 2.14,
+    tally: 0,
+  },
+]
+
 export type MapCountryIndex = {
   countries: MapCountryIndexEntry[]
   regions: MapRegionCamera[]

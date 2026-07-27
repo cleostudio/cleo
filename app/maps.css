@@ -266,6 +266,16 @@ html[data-maps-route] body {
   outline-offset: -2px;
 }
 
+/* MapLibre focuses the WebGL canvas, not the wrapper. */
+.earth-map-canvas .maplibregl-canvas:focus {
+  outline: none;
+}
+
+.earth-map-canvas .maplibregl-canvas:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+
 .earth-map-suggestions button:hover,
 .earth-map-suggestions button:focus-visible,
 .earth-map-suggestions button[data-active] {
@@ -758,6 +768,15 @@ html[data-maps-route] body {
     display: none;
   }
 
+  /* Keep the basemap readable once a dossier is open. */
+  .earth-map[data-has-selection] .earth-map-regions {
+    display: none;
+  }
+
+  .earth-map[data-has-selection] .earth-map-brand {
+    padding-bottom: 0.65rem;
+  }
+
   .earth-map-regions {
     gap: 0.25rem;
   }
@@ -770,6 +789,10 @@ html[data-maps-route] body {
   .earth-map-selection {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .earth-map-selection-about {
+    -webkit-line-clamp: 2;
   }
 
   .earth-map-canvas .maplibregl-ctrl-attrib {

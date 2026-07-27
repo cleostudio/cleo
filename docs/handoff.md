@@ -32,10 +32,11 @@ document (enable both products in the Vercel project dashboard).
   (clickable hit pads, selected capital stays visible when Labels are off);
   Borders/Labels/Graticule toggles with shareable layer query flags;
   `#zoom/lat/lng` camera hash + Share view; capital-aware search + selection
-  dossier; Cleo `/maps?` link presentation; paper/glass HUD via
-  `html[data-maps-route]`; country/region deep links with antimeridian-aware
-  Oceania and mainland-leaning Europe cameras; Explore ↔ Maps region
-  round-trips; selection a11y + mobile chrome; Cleo portal map grounding;
+  dossier; homepage search/highlights deep-link into Maps; Cleo `/maps?`
+  link presentation; paper/glass HUD via `html[data-maps-route]`;
+  country/region deep links with antimeridian-aware Oceania and
+  mainland-leaning Europe cameras; Explore ↔ Maps region round-trips;
+  selection a11y + mobile chrome; Cleo portal map grounding;
   `pnpm prepare:maps` / `pnpm validate:maps`)
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)

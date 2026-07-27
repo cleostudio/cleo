@@ -9,14 +9,20 @@ import { allTopics } from './topics'
 describe('site search catalog', () => {
   const hits = buildSiteSearchHits()
 
-  it('indexes topic collections, country guides, space guides, and portal surfaces', () => {
+  it('indexes topic collections, country guides, Maps deep links, space guides, and portal surfaces', () => {
     const kinds = new Set(hits.map((hit) => hit.kind))
-    expect(kinds).toEqual(new Set(['topic', 'explore', 'space', 'surface']))
+    expect(kinds).toEqual(
+      new Set(['topic', 'explore', 'maps', 'space', 'surface']),
+    )
 
     expect(hits.filter((hit) => hit.kind === 'explore')).toHaveLength(countries.length)
+    expect(hits.filter((hit) => hit.kind === 'maps')).toHaveLength(
+      countries.length + 5,
+    )
     expect(hits.filter((hit) => hit.kind === 'space')).toHaveLength(spaceSubjects.length)
     expect(hits.filter((hit) => hit.kind === 'topic')).toHaveLength(allTopics().length)
     expect(hits.some((hit) => hit.href === '/maps')).toBe(true)
+    expect(hits.some((hit) => hit.href === '/maps?region=africa')).toBe(true)
     expect(hits.some((hit) => hit.href === '/gallery')).toBe(true)
     expect(hits.some((hit) => hit.href === '/cleo')).toBe(true)
     expect(hits.some((hit) => hit.href === '/blog')).toBe(true)
@@ -47,14 +53,31 @@ describe('site search catalog', () => {
   })
 
   it('finds countries by name, code, and region', () => {
-    expect(filterSiteSearchHits(hits, 'japan')[0]).toMatchObject({
+    const japan = filterSiteSearchHits(hits, 'japan')
+    expect(japan[0]).toMatchObject({
       href: '/explore/japan',
       kind: 'explore',
     })
+    expect(japan.some((hit) => hit.href === '/maps?country=japan')).toBe(true)
     expect(filterSiteSearchHits(hits, 'jp')[0]?.href).toBe('/explore/japan')
     expect(filterSiteSearchHits(hits, 'western europe').some((hit) => hit.kind === 'explore')).toBe(
       true,
     )
+  })
+
+  it('ranks Explore guides ahead of Maps deep links for the same country', () => {
+    const japan = filterSiteSearchHits(hits, 'japan')
+    const exploreIndex = japan.findIndex((hit) => hit.kind === 'explore')
+    const mapsIndex = japan.findIndex((hit) => hit.kind === 'maps')
+    expect(exploreIndex).toBeGreaterThanOrEqual(0)
+    expect(mapsIndex).toBeGreaterThan(exploreIndex)
+  })
+
+  it('finds continent cameras on Maps', () => {
+    expect(filterSiteSearchHits(hits, 'oceania')[0]).toMatchObject({
+      kind: 'maps',
+      href: '/maps?region=oceania',
+    })
   })
 
   it('finds space guides alongside countries', () => {

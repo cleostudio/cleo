@@ -1,12 +1,21 @@
 /**
- * Assembles the lean homepage search catalog from Explore, Space, Topics, and
- * portal surfaces. Import from Server Components only.
+ * Assembles the lean homepage search catalog from Explore, Space, Topics, Maps,
+ * and portal surfaces. Import from Server Components only.
  */
 
 import { countries } from '~/lib/countries'
+import { MAP_REGION_IDS, mapCountryHref, mapRegionHref } from '~/lib/maps'
 import type { SiteSearchHit } from '~/lib/site-search'
 import { spaceSubjects } from '~/lib/space'
 import { allTopics } from '~/lib/topics'
+
+const MAP_REGION_TITLES: Record<(typeof MAP_REGION_IDS)[number], string> = {
+  africa: 'Africa',
+  americas: 'Americas',
+  asia: 'Asia',
+  europe: 'Europe',
+  oceania: 'Oceania',
+}
 
 const PORTAL_SURFACES: Omit<SiteSearchHit, 'id' | 'searchText'>[] = [
   {
@@ -60,6 +69,38 @@ function exploreHits(): SiteSearchHit[] {
   }))
 }
 
+/** Country / region deep links into Maps — ranked below Explore guides. */
+function mapsHits(): SiteSearchHit[] {
+  const countryHits = countries.map((country) => ({
+    id: `maps:country:${country.slug}`,
+    kind: 'maps' as const,
+    title: country.name,
+    subtitle: `On the map · ${country.code}`,
+    href: mapCountryHref(country.slug),
+    searchText: haystack(
+      country.name,
+      country.code,
+      country.region,
+      country.subregion,
+      'on the map',
+    ),
+  }))
+
+  const regionHits = MAP_REGION_IDS.map((id) => {
+    const title = MAP_REGION_TITLES[id]
+    return {
+      id: `maps:region:${id}`,
+      kind: 'maps' as const,
+      title,
+      subtitle: 'Maps · Region',
+      href: mapRegionHref(id),
+      searchText: haystack(title, id, 'maps', 'region', 'continent', 'earth'),
+    }
+  })
+
+  return [...regionHits, ...countryHits]
+}
+
 function spaceHits(): SiteSearchHit[] {
   return spaceSubjects.map((subject) => ({
     id: `space:${subject.slug}`,
@@ -93,11 +134,28 @@ function surfaceHits(): SiteSearchHit[] {
   return PORTAL_SURFACES.map((surface) => ({
     ...surface,
     id: `surface:${surface.href}`,
-    searchText: haystack(surface.title, surface.subtitle, surface.kind),
+    searchText:
+      surface.href === '/maps'
+        ? haystack(
+            surface.title,
+            surface.subtitle,
+            surface.kind,
+            'earth',
+            'globe',
+            'atlas',
+            'blue marble',
+          )
+        : haystack(surface.title, surface.subtitle, surface.kind),
   }))
 }
 
 /** Full static catalog for the homepage search typeahead. */
 export function buildSiteSearchHits(): SiteSearchHit[] {
-  return [...topicHits(), ...exploreHits(), ...spaceHits(), ...surfaceHits()]
+  return [
+    ...topicHits(),
+    ...exploreHits(),
+    ...mapsHits(),
+    ...spaceHits(),
+    ...surfaceHits(),
+  ]
 }

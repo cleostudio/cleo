@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { loadMapCountryIndex } from './maps-index'
-import { MAP_REGION_IDS } from './maps'
+import { FALLBACK_MAP_REGIONS, MAP_REGION_IDS } from './maps'
 
 describe('loadMapCountryIndex', () => {
   const index = loadMapCountryIndex()
@@ -30,6 +30,19 @@ describe('loadMapCountryIndex', () => {
     for (const entry of explore) {
       expect(entry.capital).toEqual([expect.any(Number), expect.any(Number)])
       expect(entry.capitalName?.length).toBeGreaterThan(0)
+    }
+  })
+
+  it('keeps FALLBACK_MAP_REGIONS aligned with the prepared index cameras', () => {
+    expect(FALLBACK_MAP_REGIONS.map((region) => region.id)).toEqual(
+      MAP_REGION_IDS as unknown as string[],
+    )
+    for (const fallback of FALLBACK_MAP_REGIONS) {
+      const prepared = index.regions.find((region) => region.id === fallback.id)
+      expect(prepared).toBeDefined()
+      expect(fallback.bounds).toEqual(prepared?.bounds)
+      expect(fallback.maxZoom).toBe(prepared?.maxZoom)
+      expect(fallback.label).toBe(prepared?.label)
     }
   })
 })

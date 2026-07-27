@@ -4,7 +4,12 @@
  * this module without pulling full Explore/Space guide records into the bundle.
  */
 
-export type SiteSearchKind = 'explore' | 'space' | 'topic' | 'surface'
+export type SiteSearchKind =
+  | 'explore'
+  | 'space'
+  | 'topic'
+  | 'maps'
+  | 'surface'
 
 export interface SiteSearchHit {
   id: string
@@ -15,6 +20,15 @@ export interface SiteSearchHit {
   href: string
   /** Lowercased haystack for substring matching. */
   searchText: string
+}
+
+/** Prefer field guides over Maps deep links when match quality ties. */
+const KIND_RANK: Record<SiteSearchKind, number> = {
+  topic: 0,
+  explore: 1,
+  space: 2,
+  maps: 3,
+  surface: 4,
 }
 
 function matchRank(hit: SiteSearchHit, q: string): number {
@@ -40,6 +54,8 @@ export function filterSiteSearchHits(
     .sort((a, b) => {
       const rankDiff = matchRank(a, q) - matchRank(b, q)
       if (rankDiff !== 0) return rankDiff
+      const kindDiff = KIND_RANK[a.kind] - KIND_RANK[b.kind]
+      if (kindDiff !== 0) return kindDiff
       return a.title.localeCompare(b.title)
     })
     .slice(0, limit)

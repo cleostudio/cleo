@@ -24,6 +24,7 @@ import {
   DEFAULT_MAP_CENTER,
   DEFAULT_MAP_LAYERS,
   DEFAULT_MAP_ZOOM,
+  FALLBACK_MAP_REGIONS,
   exploreRegionHref,
   filterMapCountrySuggestions,
   findMapCountryIndexEntry,
@@ -1285,6 +1286,8 @@ export function EarthMap({
     suggestions.length === 0 &&
     ready &&
     loadState === 'ready'
+  const regionButtons =
+    regions.length > 0 ? regions : FALLBACK_MAP_REGIONS
 
   const showStatus =
     loadState !== 'ready' ||
@@ -1380,7 +1383,10 @@ export function EarthMap({
                 autoComplete="off"
                 spellCheck={false}
                 aria-controls={searchListId}
-                aria-expanded={suggestions.length > 0}
+                aria-expanded={
+                  suggestionsOpen &&
+                  (suggestions.length > 0 || showSuggestionEmpty)
+                }
                 aria-autocomplete="list"
                 aria-activedescendant={
                   suggestions[activeSuggestion]
@@ -1439,13 +1445,13 @@ export function EarthMap({
             </div>
           </div>
 
-          {regions.length > 0 ? (
+          {regionButtons.length > 0 ? (
             <div
               className="earth-map-regions"
               role="group"
               aria-label="Jump to region"
             >
-              {regions.map((region) => (
+              {regionButtons.map((region) => (
                 <button
                   key={region.id}
                   type="button"
@@ -1456,9 +1462,11 @@ export function EarthMap({
                   onClick={() => flyToRegion(region)}
                 >
                   <span>{region.label}</span>
-                  <span className="tabular-nums text-muted-foreground">
-                    {region.tally}
-                  </span>
+                  {region.tally > 0 ? (
+                    <span className="tabular-nums text-muted-foreground">
+                      {region.tally}
+                    </span>
+                  ) : null}
                 </button>
               ))}
             </div>
