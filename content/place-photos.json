@@ -8350,5 +8350,933 @@
         "bytes": 370259
       }
     ]
+  },
+  "charleston": {
+    "featureName": "Charleston",
+    "alt": "Charleston in United States",
+    "caption": "Charleston, United States",
+    "photographer": "Animum",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Charleston_skyline_from_Charleston_Harbor.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Charleston skyline from Charleston Harbor.JPG); source https://upload.wikimedia.org/wikipedia/commons/8/80/Charleston_skyline_from_Charleston_Harbor.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fc0a803be61eaa016b1a6c0f24770e469d6fd9ebd69838e805ae300c919644fe",
+    "width": 2592,
+    "height": 1944,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/charleston/w640.jpg",
+        "bytes": 28959
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/charleston/w1280.jpg",
+        "bytes": 91611
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/charleston/w2048.jpg",
+        "bytes": 288346
+      }
+    ]
+  },
+  "salt-lake-city": {
+    "featureName": "Salt Lake City",
+    "alt": "Salt Lake City in United States",
+    "caption": "Salt Lake City, United States",
+    "photographer": "Garrett from Salt Lake City",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salt_Lake_City,_August_2012_(7707261420).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Salt Lake City, August 2012 (7707261420).jpg); source https://upload.wikimedia.org/wikipedia/commons/e/ec/Salt_Lake_City%2C_August_2012_%287707261420%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0238a7a6abbd7e47bebab46b12826071c3e6a2a3c84f5902543b328d2098383d",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/salt-lake-city/w640.jpg",
+        "bytes": 37040
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/salt-lake-city/w1280.jpg",
+        "bytes": 132918
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/salt-lake-city/w2048.jpg",
+        "bytes": 402096
+      }
+    ]
+  },
+  "pittsburgh": {
+    "featureName": "Pittsburgh",
+    "alt": "Pittsburgh in United States",
+    "caption": "Pittsburgh, United States",
+    "photographer": "Dllu",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown Pittsburgh from Duquesne Incline in the morning.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5d/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "28de7d0e2482539743fc8719447f67b75e722a3d081b64f65d2ef21acd16402d",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/pittsburgh/w640.jpg",
+        "bytes": 45905
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/pittsburgh/w1280.jpg",
+        "bytes": 182449
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/pittsburgh/w2048.jpg",
+        "bytes": 590059
+      }
+    ]
+  },
+  "calgary": {
+    "featureName": "Calgary",
+    "alt": "Calgary in Canada",
+    "caption": "Calgary, Canada",
+    "photographer": "CocoRoux",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bow_River_Bridge_and_Calgary_Skyline.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bow River Bridge and Calgary Skyline.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0a/Bow_River_Bridge_and_Calgary_Skyline.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f7c07cd6bab9a8ddd54be5128b7742cf8934c80da2f0370693c0654a004c6428",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/calgary/w640.jpg",
+        "bytes": 39408
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/calgary/w1280.jpg",
+        "bytes": 129221
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/calgary/w2048.jpg",
+        "bytes": 355446
+      }
+    ]
+  },
+  "cartagena": {
+    "featureName": "Cartagena",
+    "alt": "Cartagena in Colombia",
+    "caption": "Cartagena, Colombia",
+    "photographer": "Igvir Ramirez",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset-cartagena-tower-dewired.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sunset-cartagena-tower-dewired.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/12/Sunset-cartagena-tower-dewired.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9d3c8b3364a34f26355e2ae84d52b4ad1792922a89008861e3be284e40575eeb",
+    "width": 2048,
+    "height": 1360,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cartagena/w640.jpg",
+        "bytes": 31937
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cartagena/w1280.jpg",
+        "bytes": 101790
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cartagena/w2048.jpg",
+        "bytes": 270540
+      }
+    ]
+  },
+  "recife": {
+    "featureName": "Recife",
+    "alt": "Recife in Brazil",
+    "caption": "Recife, Brazil",
+    "photographer": "Luci Correia from Jaboatão dos Guararapes - PE, Brasil",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zona_Sul_da_Cidade_do_Recife,_Pernambuco,_Brasil.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Zona Sul da Cidade do Recife, Pernambuco, Brasil.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9d/Zona_Sul_da_Cidade_do_Recife%2C_Pernambuco%2C_Brasil.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4863e08f9d7fa61eeecb01b61564c8b1492c969b469edced1f2b74f34a74aa45",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/recife/w640.jpg",
+        "bytes": 63388
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/recife/w1280.jpg",
+        "bytes": 222146
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/recife/w2048.jpg",
+        "bytes": 619113
+      }
+    ]
+  },
+  "belgrade": {
+    "featureName": "Belgrade",
+    "alt": "Belgrade in Serbia",
+    "caption": "Belgrade, Serbia",
+    "photographer": "Jorge Láscar from Melbourne, Australia",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Confluence_of_the_Danube_and_Sava_rivers_-_Belgrade_Fortress_(13808328374).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Confluence of the Danube and Sava rivers - Belgrade Fortress (13808328374).jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3b/Confluence_of_the_Danube_and_Sava_rivers_-_Belgrade_Fortress_%2813808328374%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "54e6c725f33795e46295670a2b9f9a40c199e4c3f6898ba17f55e17663cdcab4",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/belgrade/w640.jpg",
+        "bytes": 61545
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/belgrade/w1280.jpg",
+        "bytes": 227509
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/belgrade/w2048.jpg",
+        "bytes": 631624
+      }
+    ]
+  },
+  "sofia": {
+    "featureName": "Sofia",
+    "alt": "Sofia in Bulgaria",
+    "caption": "Sofia, Bulgaria",
+    "photographer": "Plamen Agov ( user:MrPanyGoff )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AlexanderNevskyCathedral-Sofia-6.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:AlexanderNevskyCathedral-Sofia-6.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ad/AlexanderNevskyCathedral-Sofia-6.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e13e6ddfc93987b1bb15894db3e87a944f21994fa9574f5c2615e354b9472915",
+    "width": 3127,
+    "height": 1986,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sofia/w640.jpg",
+        "bytes": 71771
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sofia/w1280.jpg",
+        "bytes": 167286
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sofia/w2048.jpg",
+        "bytes": 404634
+      }
+    ]
+  },
+  "hyderabad": {
+    "featureName": "Hyderabad",
+    "alt": "Hyderabad in India",
+    "caption": "Hyderabad, India",
+    "photographer": "Rashid Jorvee",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Charminar-Hyderabad-Monument.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Charminar-Hyderabad-Monument.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/40/Charminar-Hyderabad-Monument.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fadb3e83423a0d85e6f52c8a910e105b51411f1ff1b562acc67aa914abb42720",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hyderabad/w640.jpg",
+        "bytes": 35033
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hyderabad/w1280.jpg",
+        "bytes": 107492
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hyderabad/w2048.jpg",
+        "bytes": 294448
+      }
+    ]
+  },
+  "jaipur": {
+    "featureName": "Jaipur",
+    "alt": "Jaipur in India",
+    "caption": "Jaipur, India",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amber_Fort-Jaipur-India0033.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Amber Fort-Jaipur-India0033.JPG); source https://upload.wikimedia.org/wikipedia/commons/8/81/Amber_Fort-Jaipur-India0033.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9e0774f06f64421db6f6823dcd33dd40aff8b404cd37293ee484995982c20bd1",
+    "width": 3715,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/jaipur/w640.jpg",
+        "bytes": 28977
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/jaipur/w1280.jpg",
+        "bytes": 80695
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/jaipur/w2048.jpg",
+        "bytes": 206721
+      }
+    ]
+  },
+  "sapporo": {
+    "featureName": "Sapporo",
+    "alt": "Sapporo in Japan",
+    "caption": "Sapporo, Japan",
+    "photographer": "Qiuqizhenghong",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sapporo_TV_Tower_and_Odori_park.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sapporo TV Tower and Odori park.JPG); source https://upload.wikimedia.org/wikipedia/commons/3/3a/Sapporo_TV_Tower_and_Odori_park.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c02461d7234e341c69fed0d1f420817d3fdc1387c95e56321968a79677f03a1a",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sapporo/w640.jpg",
+        "bytes": 35898
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sapporo/w1280.jpg",
+        "bytes": 110828
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sapporo/w2048.jpg",
+        "bytes": 296763
+      }
+    ]
+  },
+  "antwerp": {
+    "featureName": "Antwerp",
+    "alt": "Antwerp in Belgium",
+    "caption": "Antwerp, Belgium",
+    "photographer": "Acediscovery",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama-sunset-Antwerp.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Panorama-sunset-Antwerp.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/06/Panorama-sunset-Antwerp.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6ed783e71065a60a1b0f19fa7ace87eef58e0bb993b2cd33ef0ea49d3d7bef0e",
+    "width": 3600,
+    "height": 2595,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/antwerp/w640.jpg",
+        "bytes": 41706
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/antwerp/w1280.jpg",
+        "bytes": 98480
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/antwerp/w2048.jpg",
+        "bytes": 231701
+      }
+    ]
+  },
+  "manitoba": {
+    "featureName": "Manitoba",
+    "alt": "Manitoba in Canada",
+    "caption": "Manitoba, Canada",
+    "photographer": "Vince pahkala",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_winnipeg_in_july.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake winnipeg in july.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/dd/Lake_winnipeg_in_july.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "af156a84bb500d303121123910be8d0fc55c3f10435aa3b30f20bff96493b48d",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/manitoba/w640.jpg",
+        "bytes": 56594
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/manitoba/w1280.jpg",
+        "bytes": 190621
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/manitoba/w2048.jpg",
+        "bytes": 493521
+      }
+    ]
+  },
+  "north-carolina": {
+    "featureName": "North Carolina",
+    "alt": "North Carolina in United States",
+    "caption": "North Carolina, United States",
+    "photographer": "Maria newengland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Ridge_Parkway_North_Carolina_by_maria_newengland.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Blue Ridge Parkway North Carolina by maria newengland.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c3/Blue_Ridge_Parkway_North_Carolina_by_maria_newengland.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6a27e2cd27ebb47bb60b93f156b4072bf646640dd18ad393639aca3ae8f1aae7",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/north-carolina/w640.jpg",
+        "bytes": 29353
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/north-carolina/w1280.jpg",
+        "bytes": 103586
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/north-carolina/w2048.jpg",
+        "bytes": 288246
+      }
+    ]
+  },
+  "tamil-nadu": {
+    "featureName": "Tamil Nadu",
+    "alt": "Tamil Nadu in India",
+    "caption": "Tamil Nadu, India",
+    "photographer": "Timothy A. Gonsalves",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fields_Akoni_Nilgiris_Tamil_Nadu_Nov24_A7CR_05287.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Fields Akoni Nilgiris Tamil Nadu Nov24 A7CR 05287.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/50/Fields_Akoni_Nilgiris_Tamil_Nadu_Nov24_A7CR_05287.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "58147e804f75aa14b4e834149d4fe9050f2c82b445f6d158abbd1f8fe7160530",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tamil-nadu/w640.jpg",
+        "bytes": 62237
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tamil-nadu/w1280.jpg",
+        "bytes": 243653
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tamil-nadu/w2048.jpg",
+        "bytes": 741814
+      }
+    ]
+  },
+  "hydra": {
+    "featureName": "Hydra",
+    "alt": "Hydra in Greece",
+    "caption": "Hydra, Greece",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:St_Nikolaos_Beach_Hydra_Greece_(44819998352).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:St Nikolaos Beach Hydra Greece (44819998352).jpg); source https://upload.wikimedia.org/wikipedia/commons/4/42/St_Nikolaos_Beach_Hydra_Greece_%2844819998352%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "68372db169ff177d39b9f78a863dd830eed2716bbd34b482d7c188764e8b063e",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hydra/w640.jpg",
+        "bytes": 58837
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hydra/w1280.jpg",
+        "bytes": 225679
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hydra/w2048.jpg",
+        "bytes": 642593
+      }
+    ]
+  },
+  "lefkada": {
+    "featureName": "Lefkada",
+    "alt": "Lefkada in Greece",
+    "caption": "Lefkada, Greece",
+    "photographer": "Dimitra Papadimitriou",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Porto_Katsiki_Beach,_Lefkada,_Ionian_Islands,_Greece.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Porto Katsiki Beach, Lefkada, Ionian Islands, Greece.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/8d/Porto_Katsiki_Beach%2C_Lefkada%2C_Ionian_Islands%2C_Greece.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d3b908a4076ecc32096f4967d4729947eecdef33662a5cc1f88506adba653f8e",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lefkada/w640.jpg",
+        "bytes": 36240
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lefkada/w1280.jpg",
+        "bytes": 141374
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lefkada/w2048.jpg",
+        "bytes": 453479
+      }
+    ]
+  },
+  "lanzarote": {
+    "featureName": "Lanzarote",
+    "alt": "Lanzarote in Spain",
+    "caption": "Lanzarote, Spain",
+    "photographer": "Lviatour",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lanzarote_5_Luc_Viatour.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lanzarote 5 Luc Viatour.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/10/Lanzarote_5_Luc_Viatour.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7e17a554fddc09b5d3309b1137e84b098b894126afa9e4c7dc1d9caf92d86ae7",
+    "width": 3840,
+    "height": 2549,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lanzarote/w640.jpg",
+        "bytes": 78863
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lanzarote/w1280.jpg",
+        "bytes": 302904
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lanzarote/w2048.jpg",
+        "bytes": 883035
+      }
+    ]
+  },
+  "fuerteventura": {
+    "featureName": "Fuerteventura",
+    "alt": "Fuerteventura in Spain",
+    "caption": "Fuerteventura, Spain",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pajara_(Fuerteventura,_Spain),_Mirador_Astron%C3%B3mico_de_Sicasumbre,_Ausblick_--_2025_--_7140.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Pajara (Fuerteventura, Spain), Mirador Astronómico de Sicasumbre, Ausblick -- 2025 -- 7140.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/80/Pajara_%28Fuerteventura%2C_Spain%29%2C_Mirador_Astron%C3%B3mico_de_Sicasumbre%2C_Ausblick_--_2025_--_7140.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ba66186ee2da4bd4a85b7a2e437a3e374641b1223dcdbc2fc40a3f4cfcb76c4f",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/fuerteventura/w640.jpg",
+        "bytes": 79454
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/fuerteventura/w1280.jpg",
+        "bytes": 361742
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/fuerteventura/w2048.jpg",
+        "bytes": 1183746
+      }
+    ]
+  },
+  "isle-of-wight": {
+    "featureName": "Isle of Wight",
+    "alt": "Isle of Wight in United Kingdom",
+    "caption": "Isle of Wight, United Kingdom",
+    "photographer": "Suicasmo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Needles,_Isle_of_Wight_20180618-3.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:The Needles, Isle of Wight 20180618-3.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/01/The_Needles%2C_Isle_of_Wight_20180618-3.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6a155312b8d3a3d044b4e1be8999d924770a4c67d46b486b2e5196be849b9c26",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/isle-of-wight/w640.jpg",
+        "bytes": 45013
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/isle-of-wight/w1280.jpg",
+        "bytes": 186612
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/isle-of-wight/w2048.jpg",
+        "bytes": 603851
+      }
+    ]
+  },
+  "tobago": {
+    "featureName": "Tobago",
+    "alt": "Tobago in Trinidad and Tobago",
+    "caption": "Tobago, Trinidad and Tobago",
+    "photographer": "Kalamazadkhan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Englishman%27s_Bay_-_Tobago,_West_Indies.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Englishman's Bay - Tobago, West Indies.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/74/Englishman%27s_Bay_-_Tobago%2C_West_Indies.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b4acd311ca439a415006e5880433c573aedabe26deb8149e6081690fe01a91c3",
+    "width": 3791,
+    "height": 2132,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tobago/w640.jpg",
+        "bytes": 39617
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tobago/w1280.jpg",
+        "bytes": 123974
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tobago/w2048.jpg",
+        "bytes": 361225
+      }
+    ]
+  },
+  "alsace": {
+    "featureName": "Alsace",
+    "alt": "Alsace in France",
+    "caption": "Alsace, France",
+    "photographer": "Krzysztof Golik",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Little_Venice_in_Colmar_01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Little Venice in Colmar 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0e/Little_Venice_in_Colmar_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3b166bfa8942dc009a97e462bc3abbb8306551403550bdce2896489613ce206e",
+    "width": 3840,
+    "height": 2461,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/alsace/w640.jpg",
+        "bytes": 68721
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/alsace/w1280.jpg",
+        "bytes": 250628
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/alsace/w2048.jpg",
+        "bytes": 726166
+      }
+    ]
+  },
+  "cinque-terre": {
+    "featureName": "Cinque Terre",
+    "alt": "Cinque Terre in Italy",
+    "caption": "Cinque Terre, Italy",
+    "photographer": "Tagooty",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Riomaggiore_From_Ferry_Cinque_Terre_Italy_Sep23_A7C_07414.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Riomaggiore From Ferry Cinque Terre Italy Sep23 A7C 07414.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/76/Riomaggiore_From_Ferry_Cinque_Terre_Italy_Sep23_A7C_07414.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2b61b2a4d07ff968cb60648a31222a82e3eef429fd48b27c503b781d2e8bc860",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cinque-terre/w640.jpg",
+        "bytes": 64705
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cinque-terre/w1280.jpg",
+        "bytes": 256717
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cinque-terre/w2048.jpg",
+        "bytes": 820181
+      }
+    ]
+  },
+  "lake-garda": {
+    "featureName": "Lake Garda",
+    "alt": "Lake Garda in Italy",
+    "caption": "Lake Garda, Italy",
+    "photographer": "Ввласенко",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boat_jetty._Lake_Garda,_Italy.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Boat jetty. Lake Garda, Italy.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d7/Boat_jetty._Lake_Garda%2C_Italy.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cbe0d9a1e65ce62b067717ee0beed3ea73329fbf24a17eadb525db79701f8132",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lake-garda/w640.jpg",
+        "bytes": 38950
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lake-garda/w1280.jpg",
+        "bytes": 140862
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lake-garda/w2048.jpg",
+        "bytes": 421598
+      }
+    ]
+  },
+  "lake-geneva": {
+    "featureName": "Lake Geneva",
+    "alt": "Lake Geneva in Switzerland",
+    "caption": "Lake Geneva, Switzerland",
+    "photographer": "Dmitry A. Mottl",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Geneva_from_Chillon_Castle.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake Geneva from Chillon Castle.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/17/Lake_Geneva_from_Chillon_Castle.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ec1766b17ea84a8234529592b727223a020f1f45391dfaa29251b8c5d114abc6",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lake-geneva/w640.jpg",
+        "bytes": 30743
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lake-geneva/w1280.jpg",
+        "bytes": 105457
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lake-geneva/w2048.jpg",
+        "bytes": 297468
+      }
+    ]
+  },
+  "nullarbor": {
+    "featureName": "Nullarbor",
+    "alt": "Nullarbor in Australia",
+    "caption": "Nullarbor, Australia",
+    "photographer": "Chuq",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eyre_Highway,_South_Australia_(on_Nullarbor_Plain).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Eyre Highway, South Australia (on Nullarbor Plain).jpg); source https://upload.wikimedia.org/wikipedia/commons/f/ff/Eyre_Highway%2C_South_Australia_%28on_Nullarbor_Plain%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b551d78a1166351f18982af357510cd35a779ffdfff89346b67f0dcf2aa7618f",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nullarbor/w640.jpg",
+        "bytes": 34198
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nullarbor/w1280.jpg",
+        "bytes": 131625
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nullarbor/w2048.jpg",
+        "bytes": 401086
+      }
+    ]
+  },
+  "acropolis": {
+    "featureName": "Acropolis of Athens",
+    "alt": "Acropolis of Athens in Greece",
+    "caption": "Acropolis of Athens, Greece",
+    "photographer": "Jebulon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erechtheum_Acropolis_Athens_evening_moon.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Erechtheum Acropolis Athens evening moon.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9f/Erechtheum_Acropolis_Athens_evening_moon.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "236093efaeb485806755654f01c0dae5f026ad9d24219f9f1e955cf86b94ec6b",
+    "width": 3576,
+    "height": 3056,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/acropolis/w640.jpg",
+        "bytes": 62250
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/acropolis/w1280.jpg",
+        "bytes": 175268
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/acropolis/w2048.jpg",
+        "bytes": 428075
+      }
+    ]
+  },
+  "leaning-tower": {
+    "featureName": "Leaning Tower of Pisa",
+    "alt": "Leaning Tower of Pisa in Italy",
+    "caption": "Leaning Tower of Pisa, Italy",
+    "photographer": "MHoser",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Duomo_and_Tower_of_Pisa_at_sunrise.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:The Duomo and Tower of Pisa at sunrise.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5f/The_Duomo_and_Tower_of_Pisa_at_sunrise.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "87534a47854223d488e3c6e82f952edda2c4c98a5b578df5f26e5a4783ac3745",
+    "width": 3840,
+    "height": 2403,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/leaning-tower/w640.jpg",
+        "bytes": 49938
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/leaning-tower/w1280.jpg",
+        "bytes": 188734
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/leaning-tower/w2048.jpg",
+        "bytes": 578530
+      }
+    ]
+  },
+  "buckingham-palace": {
+    "featureName": "Buckingham Palace",
+    "alt": "Buckingham Palace in United Kingdom",
+    "caption": "Buckingham Palace, United Kingdom",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:London,_Buckingham_Palace_--_2016_--_4827.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:London, Buckingham Palace -- 2016 -- 4827.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a1/London%2C_Buckingham_Palace_--_2016_--_4827.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "947feb3ef86e6b677a56fee0b74636beb5a3a620462c6ef6a142d3df9a222822",
+    "width": 3648,
+    "height": 5472,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/buckingham-palace/w640.jpg",
+        "bytes": 127149
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/buckingham-palace/w1280.jpg",
+        "bytes": 318556
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/buckingham-palace/w2048.jpg",
+        "bytes": 795564
+      }
+    ]
+  },
+  "mount-rushmore": {
+    "featureName": "Mount Rushmore",
+    "alt": "Mount Rushmore in United States",
+    "caption": "Mount Rushmore, United States",
+    "photographer": "Dean Franklin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dean_Franklin_-_06.04.03_Mount_Rushmore_Monument_(by-sa).jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Dean Franklin - 06.04.03 Mount Rushmore Monument (by-sa).jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d0/Dean_Franklin_-_06.04.03_Mount_Rushmore_Monument_%28by-sa%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "26288c7761a22ad39dcf3155d147724edb80f5666ea9ef8239dca0ce41846568",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mount-rushmore/w640.jpg",
+        "bytes": 73503
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mount-rushmore/w1280.jpg",
+        "bytes": 202253
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mount-rushmore/w2048.jpg",
+        "bytes": 512699
+      }
+    ]
+  },
+  "mesa-verde": {
+    "featureName": "Mesa Verde",
+    "alt": "Mesa Verde in United States",
+    "caption": "Mesa Verde, United States",
+    "photographer": "Marku1988",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cliff_Palace_at_Mesa_Verde.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cliff Palace at Mesa Verde.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7a/Cliff_Palace_at_Mesa_Verde.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1737efc3cfe7e8eda9b8e37e90d97870e561a5ac3d7b122ac151bc636e8991f9",
+    "width": 3840,
+    "height": 1457,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mesa-verde/w640.jpg",
+        "bytes": 32376
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mesa-verde/w1280.jpg",
+        "bytes": 112100
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mesa-verde/w2048.jpg",
+        "bytes": 301777
+      }
+    ]
+  },
+  "hagia-sophia": {
+    "featureName": "Hagia Sophia",
+    "alt": "Hagia Sophia in Türkiye",
+    "caption": "Hagia Sophia, Türkiye",
+    "photographer": "Mertaydintr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ayasofya,_%C4%B0stanbul,_T%C3%BCrkiye.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ayasofya, İstanbul, Türkiye.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/29/Ayasofya%2C_%C4%B0stanbul%2C_T%C3%BCrkiye.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "596d473594f1edab924c37305d3f7f0d085e4847e3f1956a038e7e8a032b6a17",
+    "width": 3840,
+    "height": 2749,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hagia-sophia/w640.jpg",
+        "bytes": 43247
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hagia-sophia/w1280.jpg",
+        "bytes": 134545
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hagia-sophia/w2048.jpg",
+        "bytes": 331895
+      }
+    ]
   }
 }

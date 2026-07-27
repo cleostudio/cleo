@@ -279,7 +279,7 @@ export const placeGuideDraftsBatch3: PlaceGuideDraftBatch[] = [
     kind: 'City',
     countrySlug: 'greece',
     subtitle: 'City · Greece',
-    matchNames: ['Athens', 'Acropolis of Athens'],
+    matchNames: ['Athens'],
     about:
       'Athens fills a coastal basin under the Acropolis, a rock that still organizes the city’s skyline and historical identity. Classical ruins, Ottoman and neoclassical layers, and dense modern neighborhoods share short walks. The Attic light and surrounding hills define views toward Piraeus and the Saronic Gulf. Orientation is Acropolis-centered, then neighborhoods and coastal approaches. Athens’s primer is basin capital under a sacred rock — continuous habitation around monuments that made the city’s name synonymous with classical civic culture.',
     facts: {

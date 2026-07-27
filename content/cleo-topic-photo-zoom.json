@@ -11591,6 +11591,774 @@
       }
     ]
   },
+  "places/charleston": {
+    "collection": "places",
+    "title": "Charleston",
+    "subtitle": "Charleston",
+    "alt": "Charleston in United States",
+    "photographer": "Animum",
+    "license": "CC BY-SA 3.0",
+    "width": 2592,
+    "height": 1944,
+    "renditions": [
+      {
+        "src": "/images/places/charleston/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/charleston/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/charleston/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/salt-lake-city": {
+    "collection": "places",
+    "title": "Salt Lake City",
+    "subtitle": "Salt Lake City",
+    "alt": "Salt Lake City in United States",
+    "photographer": "Garrett from Salt Lake City",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/salt-lake-city/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/salt-lake-city/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/salt-lake-city/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/pittsburgh": {
+    "collection": "places",
+    "title": "Pittsburgh",
+    "subtitle": "Pittsburgh",
+    "alt": "Pittsburgh in United States",
+    "photographer": "Dllu",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "src": "/images/places/pittsburgh/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/pittsburgh/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/pittsburgh/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/calgary": {
+    "collection": "places",
+    "title": "Calgary",
+    "subtitle": "Calgary",
+    "alt": "Calgary in Canada",
+    "photographer": "CocoRoux",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/calgary/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/calgary/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/calgary/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cartagena": {
+    "collection": "places",
+    "title": "Cartagena",
+    "subtitle": "Cartagena",
+    "alt": "Cartagena in Colombia",
+    "photographer": "Igvir Ramirez",
+    "license": "CC BY-SA 2.0",
+    "width": 2048,
+    "height": 1360,
+    "renditions": [
+      {
+        "src": "/images/places/cartagena/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cartagena/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cartagena/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/recife": {
+    "collection": "places",
+    "title": "Recife",
+    "subtitle": "Recife",
+    "alt": "Recife in Brazil",
+    "photographer": "Luci Correia from Jaboatão dos Guararapes - PE, Brasil",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/recife/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/recife/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/recife/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/belgrade": {
+    "collection": "places",
+    "title": "Belgrade",
+    "subtitle": "Belgrade",
+    "alt": "Belgrade in Serbia",
+    "photographer": "Jorge Láscar from Melbourne, Australia",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "src": "/images/places/belgrade/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/belgrade/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/belgrade/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sofia": {
+    "collection": "places",
+    "title": "Sofia",
+    "subtitle": "Sofia",
+    "alt": "Sofia in Bulgaria",
+    "photographer": "Plamen Agov ( user:MrPanyGoff )",
+    "license": "CC BY-SA 4.0",
+    "width": 3127,
+    "height": 1986,
+    "renditions": [
+      {
+        "src": "/images/places/sofia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sofia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sofia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hyderabad": {
+    "collection": "places",
+    "title": "Hyderabad",
+    "subtitle": "Hyderabad",
+    "alt": "Hyderabad in India",
+    "photographer": "Rashid Jorvee",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/hyderabad/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hyderabad/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hyderabad/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/jaipur": {
+    "collection": "places",
+    "title": "Jaipur",
+    "subtitle": "Jaipur",
+    "alt": "Jaipur in India",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3715,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/jaipur/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/jaipur/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/jaipur/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sapporo": {
+    "collection": "places",
+    "title": "Sapporo",
+    "subtitle": "Sapporo",
+    "alt": "Sapporo in Japan",
+    "photographer": "Qiuqizhenghong",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/sapporo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sapporo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sapporo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/antwerp": {
+    "collection": "places",
+    "title": "Antwerp",
+    "subtitle": "Antwerp",
+    "alt": "Antwerp in Belgium",
+    "photographer": "Acediscovery",
+    "license": "CC BY 4.0",
+    "width": 3600,
+    "height": 2595,
+    "renditions": [
+      {
+        "src": "/images/places/antwerp/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/antwerp/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/antwerp/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/manitoba": {
+    "collection": "places",
+    "title": "Manitoba",
+    "subtitle": "Manitoba",
+    "alt": "Manitoba in Canada",
+    "photographer": "Vince pahkala",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "src": "/images/places/manitoba/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/manitoba/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/manitoba/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/north-carolina": {
+    "collection": "places",
+    "title": "North Carolina",
+    "subtitle": "North Carolina",
+    "alt": "North Carolina in United States",
+    "photographer": "Maria newengland",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/north-carolina/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/north-carolina/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/north-carolina/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tamil-nadu": {
+    "collection": "places",
+    "title": "Tamil Nadu",
+    "subtitle": "Tamil Nadu",
+    "alt": "Tamil Nadu in India",
+    "photographer": "Timothy A. Gonsalves",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/tamil-nadu/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tamil-nadu/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tamil-nadu/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hydra": {
+    "collection": "places",
+    "title": "Hydra",
+    "subtitle": "Hydra",
+    "alt": "Hydra in Greece",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/hydra/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hydra/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hydra/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lefkada": {
+    "collection": "places",
+    "title": "Lefkada",
+    "subtitle": "Lefkada",
+    "alt": "Lefkada in Greece",
+    "photographer": "Dimitra Papadimitriou",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/lefkada/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lefkada/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lefkada/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lanzarote": {
+    "collection": "places",
+    "title": "Lanzarote",
+    "subtitle": "Lanzarote",
+    "alt": "Lanzarote in Spain",
+    "photographer": "Lviatour",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2549,
+    "renditions": [
+      {
+        "src": "/images/places/lanzarote/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lanzarote/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lanzarote/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/fuerteventura": {
+    "collection": "places",
+    "title": "Fuerteventura",
+    "subtitle": "Fuerteventura",
+    "alt": "Fuerteventura in Spain",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/fuerteventura/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/fuerteventura/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/fuerteventura/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/isle-of-wight": {
+    "collection": "places",
+    "title": "Isle of Wight",
+    "subtitle": "Isle of Wight",
+    "alt": "Isle of Wight in United Kingdom",
+    "photographer": "Suicasmo",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/isle-of-wight/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/isle-of-wight/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/isle-of-wight/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tobago": {
+    "collection": "places",
+    "title": "Tobago",
+    "subtitle": "Tobago",
+    "alt": "Tobago in Trinidad and Tobago",
+    "photographer": "Kalamazadkhan",
+    "license": "CC BY-SA 4.0",
+    "width": 3791,
+    "height": 2132,
+    "renditions": [
+      {
+        "src": "/images/places/tobago/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tobago/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tobago/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/alsace": {
+    "collection": "places",
+    "title": "Alsace",
+    "subtitle": "Alsace",
+    "alt": "Alsace in France",
+    "photographer": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2461,
+    "renditions": [
+      {
+        "src": "/images/places/alsace/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/alsace/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/alsace/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cinque-terre": {
+    "collection": "places",
+    "title": "Cinque Terre",
+    "subtitle": "Cinque Terre",
+    "alt": "Cinque Terre in Italy",
+    "photographer": "Tagooty",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/cinque-terre/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cinque-terre/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cinque-terre/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lake-garda": {
+    "collection": "places",
+    "title": "Lake Garda",
+    "subtitle": "Lake Garda",
+    "alt": "Lake Garda in Italy",
+    "photographer": "Ввласенко",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "src": "/images/places/lake-garda/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lake-garda/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lake-garda/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lake-geneva": {
+    "collection": "places",
+    "title": "Lake Geneva",
+    "subtitle": "Lake Geneva",
+    "alt": "Lake Geneva in Switzerland",
+    "photographer": "Dmitry A. Mottl",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/lake-geneva/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lake-geneva/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lake-geneva/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nullarbor": {
+    "collection": "places",
+    "title": "Nullarbor",
+    "subtitle": "Nullarbor",
+    "alt": "Nullarbor in Australia",
+    "photographer": "Chuq",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/nullarbor/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nullarbor/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nullarbor/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/acropolis": {
+    "collection": "places",
+    "title": "Acropolis of Athens",
+    "subtitle": "Acropolis of Athens",
+    "alt": "Acropolis of Athens in Greece",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3576,
+    "height": 3056,
+    "renditions": [
+      {
+        "src": "/images/places/acropolis/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/acropolis/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/acropolis/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/leaning-tower": {
+    "collection": "places",
+    "title": "Leaning Tower of Pisa",
+    "subtitle": "Leaning Tower of Pisa",
+    "alt": "Leaning Tower of Pisa in Italy",
+    "photographer": "MHoser",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2403,
+    "renditions": [
+      {
+        "src": "/images/places/leaning-tower/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/leaning-tower/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/leaning-tower/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/buckingham-palace": {
+    "collection": "places",
+    "title": "Buckingham Palace",
+    "subtitle": "Buckingham Palace",
+    "alt": "Buckingham Palace in United Kingdom",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3648,
+    "height": 5472,
+    "renditions": [
+      {
+        "src": "/images/places/buckingham-palace/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/buckingham-palace/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/buckingham-palace/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mount-rushmore": {
+    "collection": "places",
+    "title": "Mount Rushmore",
+    "subtitle": "Mount Rushmore",
+    "alt": "Mount Rushmore in United States",
+    "photographer": "Dean Franklin",
+    "license": "Public domain",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/places/mount-rushmore/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mount-rushmore/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mount-rushmore/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mesa-verde": {
+    "collection": "places",
+    "title": "Mesa Verde",
+    "subtitle": "Mesa Verde",
+    "alt": "Mesa Verde in United States",
+    "photographer": "Marku1988",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1457,
+    "renditions": [
+      {
+        "src": "/images/places/mesa-verde/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mesa-verde/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mesa-verde/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hagia-sophia": {
+    "collection": "places",
+    "title": "Hagia Sophia",
+    "subtitle": "Hagia Sophia",
+    "alt": "Hagia Sophia in Türkiye",
+    "photographer": "Mertaydintr",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2749,
+    "renditions": [
+      {
+        "src": "/images/places/hagia-sophia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hagia-sophia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hagia-sophia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

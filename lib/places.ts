@@ -10,6 +10,7 @@ import { placeGuideDraftsBatch6 } from '~/lib/places-batch6'
 import { placeGuideDraftsBatch7 } from '~/lib/places-batch7'
 import { placeGuideDraftsBatch8 } from '~/lib/places-batch8'
 import { placeGuideDraftsBatch9 } from '~/lib/places-batch9'
+import { placeGuideDraftsBatch10 } from '~/lib/places-batch10'
 import type { StaticPhoto } from '~/lib/static-photo'
 
 export type PlaceKind = 'City' | 'State' | 'Island' | 'Region' | 'Landmark'
@@ -1622,6 +1623,7 @@ const placeGuideDrafts: PlaceGuideDraft[] = [
   ...(placeGuideDraftsBatch7 as PlaceGuideDraft[]),
   ...(placeGuideDraftsBatch8 as PlaceGuideDraft[]),
   ...(placeGuideDraftsBatch9 as PlaceGuideDraft[]),
+  ...(placeGuideDraftsBatch10 as PlaceGuideDraft[]),
 ]
 
 export const placeGuides: PlaceGuide[] = placeGuideDrafts.map(withPhoto)

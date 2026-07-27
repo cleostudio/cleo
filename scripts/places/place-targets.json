@@ -3091,5 +3091,357 @@
       "Delicate Arch",
       "Arches Utah"
     ]
+  },
+  "charleston": {
+    "name": "Charleston",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Charleston South Carolina",
+      "Charleston historic district",
+      "Charleston harbor"
+    ]
+  },
+  "salt-lake-city": {
+    "name": "Salt Lake City",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Salt Lake City",
+      "Salt Lake City skyline",
+      "Wasatch Salt Lake"
+    ]
+  },
+  "pittsburgh": {
+    "name": "Pittsburgh",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Pittsburgh",
+      "Pittsburgh skyline",
+      "Pittsburgh rivers"
+    ]
+  },
+  "calgary": {
+    "name": "Calgary",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": [
+      "Calgary",
+      "Calgary skyline",
+      "Calgary Alberta"
+    ]
+  },
+  "cartagena": {
+    "name": "Cartagena",
+    "countrySlug": "colombia",
+    "countryName": "Colombia",
+    "kind": "City",
+    "searchNames": [
+      "Cartagena Colombia",
+      "Cartagena walls",
+      "Cartagena old town"
+    ]
+  },
+  "recife": {
+    "name": "Recife",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": [
+      "Recife",
+      "Recife Brazil",
+      "Recife skyline"
+    ]
+  },
+  "belgrade": {
+    "name": "Belgrade",
+    "countrySlug": "serbia",
+    "countryName": "Serbia",
+    "kind": "City",
+    "searchNames": [
+      "Belgrade",
+      "Belgrade fortress",
+      "Belgrade skyline"
+    ]
+  },
+  "sofia": {
+    "name": "Sofia",
+    "countrySlug": "bulgaria",
+    "countryName": "Bulgaria",
+    "kind": "City",
+    "searchNames": [
+      "Sofia Bulgaria",
+      "Sofia skyline",
+      "Alexander Nevsky Sofia"
+    ]
+  },
+  "hyderabad": {
+    "name": "Hyderabad",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Hyderabad India",
+      "Charminar Hyderabad",
+      "Hyderabad skyline"
+    ]
+  },
+  "jaipur": {
+    "name": "Jaipur",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Jaipur",
+      "Hawa Mahal Jaipur",
+      "Amber Fort Jaipur"
+    ]
+  },
+  "sapporo": {
+    "name": "Sapporo",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": [
+      "Sapporo",
+      "Sapporo skyline",
+      "Sapporo Hokkaido"
+    ]
+  },
+  "antwerp": {
+    "name": "Antwerp",
+    "countrySlug": "belgium",
+    "countryName": "Belgium",
+    "kind": "City",
+    "searchNames": [
+      "Antwerp",
+      "Antwerp cathedral",
+      "Antwerp skyline"
+    ]
+  },
+  "manitoba": {
+    "name": "Manitoba",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": [
+      "Manitoba",
+      "Manitoba prairie",
+      "Lake Winnipeg"
+    ]
+  },
+  "north-carolina": {
+    "name": "North Carolina",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "North Carolina",
+      "Blue Ridge North Carolina",
+      "Outer Banks"
+    ]
+  },
+  "tamil-nadu": {
+    "name": "Tamil Nadu",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": [
+      "Tamil Nadu",
+      "Tamil Nadu temple",
+      "Marina Beach Chennai Tamil Nadu"
+    ]
+  },
+  "hydra": {
+    "name": "Hydra",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Hydra Greece",
+      "Hydra harbour",
+      "Hydra island"
+    ]
+  },
+  "lefkada": {
+    "name": "Lefkada",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Lefkada",
+      "Lefkada beach",
+      "Lefkas Greece"
+    ]
+  },
+  "lanzarote": {
+    "name": "Lanzarote",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": [
+      "Lanzarote",
+      "Timanfaya Lanzarote",
+      "Lanzarote volcanic"
+    ]
+  },
+  "fuerteventura": {
+    "name": "Fuerteventura",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": [
+      "Fuerteventura",
+      "Fuerteventura beach",
+      "Fuerteventura dunes"
+    ]
+  },
+  "isle-of-wight": {
+    "name": "Isle of Wight",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Isle of Wight",
+      "Needles Isle of Wight",
+      "Isle of Wight cliffs"
+    ]
+  },
+  "tobago": {
+    "name": "Tobago",
+    "countrySlug": "trinidad-and-tobago",
+    "countryName": "Trinidad and Tobago",
+    "kind": "Island",
+    "searchNames": [
+      "Tobago",
+      "Tobago beach",
+      "Tobago Caribbean"
+    ]
+  },
+  "alsace": {
+    "name": "Alsace",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Alsace",
+      "Alsace vineyards",
+      "Colmar Alsace"
+    ]
+  },
+  "cinque-terre": {
+    "name": "Cinque Terre",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Cinque Terre",
+      "Manarola",
+      "Vernazza Cinque Terre"
+    ]
+  },
+  "lake-garda": {
+    "name": "Lake Garda",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Lake Garda",
+      "Lago di Garda",
+      "Lake Garda Italy"
+    ]
+  },
+  "lake-geneva": {
+    "name": "Lake Geneva",
+    "countrySlug": "switzerland",
+    "countryName": "Switzerland",
+    "kind": "Region",
+    "searchNames": [
+      "Lake Geneva",
+      "Lac Léman",
+      "Lake Geneva Alps"
+    ]
+  },
+  "nullarbor": {
+    "name": "Nullarbor",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Region",
+    "searchNames": [
+      "Nullarbor Plain",
+      "Nullarbor cliffs",
+      "Nullarbor Australia"
+    ]
+  },
+  "acropolis": {
+    "name": "Acropolis of Athens",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Landmark",
+    "searchNames": [
+      "Acropolis of Athens",
+      "Acropolis",
+      "Parthenon Athens"
+    ]
+  },
+  "leaning-tower": {
+    "name": "Leaning Tower of Pisa",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": [
+      "Leaning Tower of Pisa",
+      "Tower of Pisa",
+      "Pisa tower"
+    ]
+  },
+  "buckingham-palace": {
+    "name": "Buckingham Palace",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": [
+      "Buckingham Palace",
+      "Buckingham Palace London",
+      "Buckingham Palace facade"
+    ]
+  },
+  "mount-rushmore": {
+    "name": "Mount Rushmore",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mount Rushmore",
+      "Mount Rushmore faces",
+      "Rushmore South Dakota"
+    ]
+  },
+  "mesa-verde": {
+    "name": "Mesa Verde",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mesa Verde",
+      "Cliff Palace Mesa Verde",
+      "Mesa Verde cliff dwellings"
+    ]
+  },
+  "hagia-sophia": {
+    "name": "Hagia Sophia",
+    "countrySlug": "turkiye",
+    "countryName": "Türkiye",
+    "kind": "Landmark",
+    "searchNames": [
+      "Hagia Sophia",
+      "Ayasofya",
+      "Hagia Sophia Istanbul"
+    ]
   }
 }
