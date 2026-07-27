@@ -7,7 +7,7 @@ export const publicPageMetadata = {
   blog: {
     title: 'Writing',
     description:
-      'Creative essays about Earth, the ocean, deep time, and the wider universe — place, scale, and what endures.',
+      'Essays on place, scale, and deep time - Earth, the ocean, and the wider universe.',
   },
   gallery: {
     title: 'Gallery',

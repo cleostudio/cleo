@@ -9,6 +9,7 @@ import { highlightedAtlasEntries } from '~/lib/atlas'
 import { getAllPosts } from '~/lib/content'
 import { T } from '~/lib/i18n'
 import type { Locale } from '~/lib/locale-route'
+import { publicPageMetadata } from '~/lib/public-page-metadata'
 import { buildSiteSearchHits } from '~/lib/site-search-catalog'
 import { allTopics } from '~/lib/topics'
 
@@ -144,6 +145,12 @@ export async function HomePageView({ locale }: { locale: Locale }) {
               <T zh="全部写作" en="All writing" />
             </Link>
           </div>
+          <p
+            className="enter mt-3 max-w-content-narrow text-sm text-muted-foreground text-balance"
+            style={{ '--enter-delay': '320ms' } as React.CSSProperties}
+          >
+            {publicPageMetadata.blog.description}
+          </p>
           <ul className="focus-list mt-4 flex flex-col">
             {writingPosts.map((post, index) => (
               <li

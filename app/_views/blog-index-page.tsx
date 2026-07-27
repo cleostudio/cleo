@@ -7,6 +7,7 @@ import { RevealScope } from '~/components/reveal-scope'
 import { getAllPosts } from '~/lib/content'
 import { T } from '~/lib/i18n'
 import type { Locale } from '~/lib/locale-route'
+import { publicPageMetadata } from '~/lib/public-page-metadata'
 
 export function BlogIndexPageView({ locale }: { locale: Locale }) {
   const posts = getAllPosts()
@@ -22,13 +23,21 @@ export function BlogIndexPageView({ locale }: { locale: Locale }) {
 
   return (
     <div className="mx-auto w-full max-w-content px-6">
-      <header className="enter flex items-center justify-between">
-        <h1 className="page-eyebrow">
-          <T zh="写作" en="Writing" />
-        </h1>
-        <PixelCluster variant={1} />
-      </header>
-      <WritingInkStage className="mt-6" contentClassName="flex flex-col gap-8">
+      <div className="flex items-start justify-between gap-4">
+        <header className="max-w-content-narrow">
+          <h1 className="page-eyebrow enter">
+            <T zh="写作" en="Writing" />
+          </h1>
+          <p
+            className="page-introduction enter mt-4 text-balance"
+            style={{ '--enter-delay': '70ms' } as React.CSSProperties}
+          >
+            {publicPageMetadata.blog.description}
+          </p>
+        </header>
+        <PixelCluster variant={1} className="enter shrink-0" />
+      </div>
+      <WritingInkStage className="mt-10" contentClassName="flex flex-col gap-8">
         {[...postsByYear].map(([year, yearPosts]) => {
           const center = (yearPosts.length - 1) / 2
 

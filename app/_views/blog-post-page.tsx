@@ -182,8 +182,8 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
             <PolaroidCover
               slug={post.slug}
               cover={post.cover}
-              caption={post.cover.caption ?? <BrailleDate date={post.publishedAt} />}
-              alt=""
+              caption={<BrailleDate date={post.publishedAt} />}
+              alt={post.cover.caption ?? post.title}
               priority
               morph
               print="collage"

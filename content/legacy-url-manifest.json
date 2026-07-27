@@ -176,23 +176,6 @@
     },
     {
       "kind": "page",
-      "source": "/blog/the-invisible-border-wallace-drew",
-      "probes": [
-        "/blog/the-invisible-border-wallace-drew"
-      ],
-      "status": 200,
-      "contains": "<article"
-    },
-    {
-      "kind": "redirect",
-      "source": "/en/blog/the-invisible-border-wallace-drew",
-      "destination": "/blog/the-invisible-border-wallace-drew",
-      "probes": [
-        "/en/blog/the-invisible-border-wallace-drew"
-      ]
-    },
-    {
-      "kind": "page",
       "source": "/blog/the-moon-that-steals-our-days",
       "probes": [
         "/blog/the-moon-that-steals-our-days"
@@ -384,6 +367,39 @@
       "destination": "/blog",
       "probes": [
         "/en/blog/when-the-sahara-was-green"
+      ]
+    },
+    {
+      "kind": "page",
+      "source": "/blog/the-line-wallace-drew",
+      "probes": [
+        "/blog/the-line-wallace-drew"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/the-line-wallace-drew",
+      "destination": "/blog/the-line-wallace-drew",
+      "probes": [
+        "/en/blog/the-line-wallace-drew"
+      ]
+    },
+    {
+      "kind": "redirect",
+      "source": "/blog/the-invisible-border-wallace-drew",
+      "destination": "/blog/the-line-wallace-drew",
+      "probes": [
+        "/blog/the-invisible-border-wallace-drew"
+      ]
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/the-invisible-border-wallace-drew",
+      "destination": "/blog/the-line-wallace-drew",
+      "probes": [
+        "/en/blog/the-invisible-border-wallace-drew"
       ]
     },
     {

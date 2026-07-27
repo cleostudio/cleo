@@ -6,7 +6,7 @@ export const publishedPostSlugs = [
   'dust-that-feeds-a-forest',
   'islands-that-arrive-overnight',
   'listening-for-black-holes',
-  'the-invisible-border-wallace-drew',
+  'the-line-wallace-drew',
   'the-moon-that-steals-our-days',
   'the-passport-of-a-raindrop',
   'the-thin-blue-shell',

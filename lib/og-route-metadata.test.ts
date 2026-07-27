@@ -25,7 +25,7 @@ describe('social OG image metadata', () => {
     [
       '/blog',
       publicPageMetadata.blog,
-      'Writing · Cleo. Creative essays about Earth, the ocean, deep time, and the wider universe — place, scale, and what endures.',
+      'Writing · Cleo. Essays on place, scale, and deep time - Earth, the ocean, and the wider universe.',
     ],
     ['/gallery', publicPageMetadata.gallery, 'Gallery · Cleo'],
     ['/topics', publicPageMetadata.topics, 'Topics · Cleo'],

@@ -12,7 +12,7 @@ function postTransitionId(slug: string) {
       return 'p04'
     case 'listening-for-black-holes':
       return 'p05'
-    case 'the-invisible-border-wallace-drew':
+    case 'the-line-wallace-drew':
       return 'p06'
     case 'the-moon-that-steals-our-days':
       return 'p07'

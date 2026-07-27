@@ -15,7 +15,7 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.blog).toEqual({
       title: 'Writing',
       description:
-        'Creative essays about Earth, the ocean, deep time, and the wider universe — place, scale, and what endures.',
+        'Essays on place, scale, and deep time - Earth, the ocean, and the wider universe.',
     })
     expect(publicPageMetadata.gallery).toEqual({
       title: 'Gallery',
