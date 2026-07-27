@@ -23,10 +23,23 @@ import {
 } from "~/lib/cleo/client-images"
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
 import {
+  CLEO_MODE_OPTIONS,
+  type CleoMode,
+  parseCleoMode,
+} from "~/lib/cleo/mode"
+import {
+  clearCleoSession,
+  loadCleoSession,
+  saveCleoSession,
+} from "~/lib/cleo/session"
+import {
   type ActivityItem,
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
+
+const CLEO_MODE_STORAGE_KEY = "cleo:mode:v1"
+
 const MAX_INPUT_LENGTH = 10_000
 
 type ResponsePayload = {
@@ -100,6 +113,8 @@ export function AskForm() {
   const [pendingImages, setPendingImages] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
+  const [mode, setMode] = useState<CleoMode>("auto")
+  const [sessionReady, setSessionReady] = useState(false)
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -110,6 +125,34 @@ export function AskForm() {
   const hasMessages = messages.length > 0
   const canSubmit =
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
+
+  useEffect(() => {
+    const restored = loadCleoSession()
+    if (restored && restored.messages.length > 0) {
+      setMessages(restored.messages)
+      messageIdRef.current = restored.nextId
+    }
+    try {
+      setMode(parseCleoMode(window.localStorage.getItem(CLEO_MODE_STORAGE_KEY)))
+    } catch {
+      setMode("auto")
+    }
+    setSessionReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (!sessionReady) return
+    try {
+      window.localStorage.setItem(CLEO_MODE_STORAGE_KEY, mode)
+    } catch {
+      // Privacy mode / quota — ignore.
+    }
+  }, [mode, sessionReady])
+
+  useEffect(() => {
+    if (!sessionReady || isSubmitting) return
+    saveCleoSession(messages, messageIdRef.current)
+  }, [messages, sessionReady, isSubmitting])
 
   useEffect(() => {
     if (!hasMessages) return
@@ -146,6 +189,19 @@ export function AskForm() {
 
   function handleStop() {
     abortControllerRef.current?.abort()
+  }
+
+  function handleNewChat() {
+    if (isSubmitting) {
+      abortControllerRef.current?.abort()
+    }
+    clearCleoSession()
+    setMessages([])
+    setInput("")
+    setPendingImages([])
+    setError(null)
+    messageIdRef.current = 0
+    inputRef.current?.focus()
   }
 
   function removePendingImage(index: number) {
@@ -252,7 +308,7 @@ export function AskForm() {
       const response = await fetch("/api/responses", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: conversation }),
+        body: JSON.stringify({ messages: conversation, mode }),
         signal: abortController.signal,
       })
 
@@ -435,6 +491,16 @@ export function AskForm() {
     <div className="app-column min-w-0">
       {hasMessages ? (
         <div className="cleo-messages pt-8 sm:pt-10">
+          <div className="mb-5 flex justify-end">
+            <button
+              className="cleo-new-chat"
+              disabled={isSubmitting}
+              onClick={handleNewChat}
+              type="button"
+            >
+              New chat
+            </button>
+          </div>
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === 'user' ? (
@@ -536,6 +602,27 @@ export function AskForm() {
             {error}
           </p>
         ) : null}
+
+        <div
+          aria-label="Response mode"
+          className="cleo-mode-row"
+          role="radiogroup"
+        >
+          {CLEO_MODE_OPTIONS.map((option) => (
+            <button
+              aria-checked={mode === option.id}
+              className="cleo-mode"
+              data-active={mode === option.id || undefined}
+              disabled={isSubmitting}
+              key={option.id}
+              onClick={() => setMode(option.id)}
+              role="radio"
+              type="button"
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
 
         <form
           aria-busy={isSubmitting}
@@ -639,7 +726,7 @@ export function AskForm() {
           </div>
         </form>
 
-        {!hasMessages ? (
+        {sessionReady && !hasMessages ? (
           <div className="cleo-starters" role="group" aria-label="Suggestions">
             {CLEO_PORTAL_STARTERS.map((starter) => (
               <button

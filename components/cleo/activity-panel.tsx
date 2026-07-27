@@ -42,7 +42,8 @@ function isActiveStatus(status: ActivityItem["status"]) {
   return (
     status === "in_progress" ||
     status === "searching" ||
-    status === "generating"
+    status === "generating" ||
+    status === "interpreting"
   )
 }
 
@@ -102,9 +103,36 @@ function activityLabel(activity: ActivityItem) {
     return "Generating an image"
   }
 
+  if (activity.kind === "portal_tool") {
+    const portalAction =
+      activity.action && activity.action.type === "portal_tool"
+        ? activity.action
+        : null
+    if (portalAction?.label) {
+      return portalAction.label
+    }
+    if (activity.status === "completed") {
+      return "Used a portal tool"
+    }
+    return "Using a portal tool"
+  }
+
+  if (activity.kind === "code_interpreter") {
+    if (activity.status === "completed") {
+      return "Ran python"
+    }
+    if (activity.status === "failed") {
+      return "Python tool failed"
+    }
+    if (activity.status === "interpreting") {
+      return "Running python"
+    }
+    return "Preparing python"
+  }
+
   const action = activity.action
 
-  if (!action) {
+  if (!action || action.type === "portal_tool") {
     if (activity.status === "completed") {
       return "Searched the web"
     }
@@ -148,6 +176,10 @@ function hasActionDetail(activity: ActivityItem) {
     return false
   }
 
+  if (action.type === "portal_tool") {
+    return Boolean(action.label || action.name)
+  }
+
   if (action.type === "search") {
     return Boolean(action.queries?.[0] ?? action.query)
   }
@@ -164,7 +196,11 @@ function hasSpecificCollapsedDetail(activity: ActivityItem) {
     return Boolean(activity.summary?.trim())
   }
 
-  if (activity.kind === "image_generation") {
+  if (
+    activity.kind === "image_generation" ||
+    activity.kind === "portal_tool" ||
+    activity.kind === "code_interpreter"
+  ) {
     return true
   }
 
@@ -262,6 +298,14 @@ function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
     (activity) =>
       activity.kind === "image_generation" && isActiveStatus(activity.status)
   )
+  const hasActivePortalTool = activities.some(
+    (activity) =>
+      activity.kind === "portal_tool" && isActiveStatus(activity.status)
+  )
+  const hasActiveCodeInterpreter = activities.some(
+    (activity) =>
+      activity.kind === "code_interpreter" && isActiveStatus(activity.status)
+  )
   const hasActiveReasoning = activities.some(
     (activity) =>
       activity.kind === "reasoning" && isActiveStatus(activity.status)
@@ -274,7 +318,12 @@ function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
     return "searching"
   }
 
-  if (isLive && hasActiveImageGeneration) {
+  if (
+    isLive &&
+    (hasActiveImageGeneration ||
+      hasActivePortalTool ||
+      hasActiveCodeInterpreter)
+  ) {
     return "composing"
   }
 

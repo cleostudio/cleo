@@ -217,7 +217,10 @@ describe("POST /api/responses: image attachments", () => {
 
   it("forwards an accepted attachment as vision input", async () => {
     openai.create.mockResolvedValueOnce(
-      responseStream([{ delta: "A photo.", type: "response.output_text.delta" }])
+      responseStream([
+        { delta: "A photo.", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
     )
 
     const response = await POST(
@@ -251,6 +254,7 @@ describe("POST /api/responses: streaming and upstream errors", () => {
         { item_id: "ws_1", type: "response.web_search_call.completed" },
         { delta: "Japan ", type: "response.output_text.delta" },
         { delta: "is an island country.", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
       ])
     )
 
@@ -314,7 +318,10 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     openai.create.mockResolvedValueOnce(
       responseStream([
         {
-          response: { incomplete_details: { reason: "max_output_tokens" } },
+          response: {
+            incomplete_details: { reason: "max_output_tokens" },
+            output: [],
+          },
           type: "response.incomplete",
         },
       ])
@@ -364,7 +371,10 @@ describe("POST /api/responses: streaming and upstream errors", () => {
 
   it("keeps the model, tools, and privacy settings the surface depends on", async () => {
     openai.create.mockResolvedValueOnce(
-      responseStream([{ delta: "ok", type: "response.output_text.delta" }])
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
     )
 
     await POST(ask(question))
@@ -373,17 +383,213 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       model: "gpt-5.6-terra",
       store: false,
       stream: true,
+      reasoning: { effort: "medium", summary: "auto" },
     })
     expect(
       openai.create.mock.calls[0]?.[0].tools.map(
-        (tool: { type: string }) => tool.type
+        (tool: { type: string; name?: string }) => tool.name ?? tool.type
       )
-    ).toEqual(["web_search", "image_generation"])
+    ).toEqual([
+      "web_search",
+      "image_generation",
+      "search_portal_topics",
+      "lookup_guide",
+      "get_topic_photos",
+      "search_gallery",
+      "search_writing",
+      "lookup_writing",
+      "code_interpreter",
+    ])
+    expect(openai.create.mock.calls[0]?.[0].tools[0]).toMatchObject({
+      type: "web_search",
+      search_context_size: "medium",
+    })
+  })
+
+  it("omits code interpreter and lowers verbosity in quick mode", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
+    )
+
+    await POST(
+      ask({
+        mode: "quick",
+        messages: [{ content: "Tell me about Japan", role: "user" }],
+      })
+    )
+
+    const call = openai.create.mock.calls[0]?.[0]
+    expect(call.text.verbosity).toBe("low")
+    expect(call.reasoning.effort).toBe("low")
+    expect(
+      call.tools.map((tool: { type: string }) => tool.type)
+    ).not.toContain("code_interpreter")
+    expect(call.tools[0]).toMatchObject({
+      type: "web_search",
+      search_context_size: "low",
+    })
+    expect(call.instructions).toContain("Mode: quick")
+  })
+
+  it("forces high reasoning in research mode", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
+    )
+
+    await POST(
+      ask({
+        mode: "research",
+        messages: [{ content: "hi", role: "user" }],
+      })
+    )
+
+    expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("high")
+    expect(openai.create.mock.calls[0]?.[0].text.verbosity).toBe("high")
+    expect(openai.create.mock.calls[0]?.[0].tools[0]).toMatchObject({
+      type: "web_search",
+      search_context_size: "high",
+    })
+  })
+
+  it("raises reasoning effort for comparison prompts", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
+    )
+
+    await POST(
+      ask({
+        messages: [
+          {
+            content: "Compare Mars and Earth with sources",
+            role: "user",
+          },
+        ],
+      })
+    )
+
+    expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("high")
+  })
+
+  it("runs portal function tools and continues the agent loop", async () => {
+    openai.create
+      .mockResolvedValueOnce(
+        responseStream([
+          {
+            item: {
+              arguments: JSON.stringify({
+                collection: "explore",
+                slug: "japan",
+              }),
+              call_id: "call_lookup_1",
+              id: "fc_1",
+              name: "lookup_guide",
+              type: "function_call",
+            },
+            type: "response.output_item.added",
+          },
+          {
+            item: {
+              arguments: JSON.stringify({
+                collection: "explore",
+                slug: "japan",
+              }),
+              call_id: "call_lookup_1",
+              id: "fc_1",
+              name: "lookup_guide",
+              status: "completed",
+              type: "function_call",
+            },
+            type: "response.output_item.done",
+          },
+          {
+            response: {
+              output: [
+                {
+                  arguments: JSON.stringify({
+                    collection: "explore",
+                    slug: "japan",
+                  }),
+                  call_id: "call_lookup_1",
+                  id: "fc_1",
+                  name: "lookup_guide",
+                  type: "function_call",
+                },
+              ],
+            },
+            type: "response.completed",
+          },
+        ])
+      )
+      .mockResolvedValueOnce(
+        responseStream([
+          { delta: "Japan is an archipelago.", type: "response.output_text.delta" },
+          { response: { output: [] }, type: "response.completed" },
+        ])
+      )
+
+    const events = await ndjson(await POST(ask(question)))
+
+    expect(openai.create).toHaveBeenCalledTimes(2)
+    expect(
+      events.some(
+        (event) =>
+          event.type === "activity" &&
+          event.activity?.kind === "portal_tool" &&
+          event.activity?.action?.name === "lookup_guide"
+      )
+    ).toBe(true)
+    expect(events.filter((event) => event.type === "text")).toEqual([
+      { delta: "Japan is an archipelago.", type: "text" },
+    ])
+
+    const secondInput = openai.create.mock.calls[1]?.[0].input as unknown[]
+    expect(
+      secondInput.some(
+        (item) =>
+          typeof item === "object" &&
+          item !== null &&
+          "type" in item &&
+          item.type === "function_call_output"
+      )
+    ).toBe(true)
+  })
+
+  it("keeps a partial answer when the stream is incomplete after text", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "Partial Japan note.", type: "response.output_text.delta" },
+        {
+          response: {
+            incomplete_details: { reason: "max_output_tokens" },
+            output: [],
+          },
+          type: "response.incomplete",
+        },
+      ])
+    )
+
+    const events = await ndjson(await POST(ask(question)))
+
+    expect(events).toEqual([
+      { delta: "Partial Japan note.", type: "text" },
+    ])
   })
 
   it("grounds topic photograph paths when the user asks about a catalog subject", async () => {
     openai.create.mockResolvedValueOnce(
-      responseStream([{ delta: "ok", type: "response.output_text.delta" }])
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
     )
 
     await POST(ask(question))

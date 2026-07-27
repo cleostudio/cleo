@@ -1,10 +1,15 @@
 import OpenAI, { APIError } from "openai"
 import type {
   EasyInputMessage,
+  ResponseFunctionToolCall,
   ResponseFunctionWebSearch,
+  ResponseInput,
+  ResponseInputItem,
   ResponseInputMessageContentList,
   ResponseOutputItem,
   ResponseReasoningItem,
+  ResponseStreamEvent,
+  Tool,
 } from "openai/resources/responses/responses"
 
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
@@ -14,10 +19,21 @@ import {
   toImageDataUrl,
 } from "~/lib/cleo/images"
 import {
-  buildTopicPhotoInstructions,
-  conversationTopicText,
-  matchTopicPhotosInText,
-} from "~/lib/cleo/topic-photos"
+  applyModeReasoningEffort,
+  buildModeInstructions,
+  buildModeWebSearchTool,
+  modeAllowsCodeInterpreter,
+  modeTextVerbosity,
+  parseCleoMode,
+  type CleoMode,
+} from "~/lib/cleo/mode"
+import {
+  executePortalTool,
+  isPortalToolName,
+  PORTAL_FUNCTION_TOOLS,
+  portalToolActivityLabel,
+} from "~/lib/cleo/portal-tools"
+import { selectReasoningEffort } from "~/lib/cleo/reasoning-effort"
 import {
   type ActivityItem,
   type ActivityStatus,
@@ -26,19 +42,57 @@ import {
   type MessageImage,
   type WebSearchAction,
 } from "~/lib/cleo/stream"
+import {
+  buildTopicPhotoInstructions,
+  conversationTopicText,
+  matchTopicPhotosInText,
+} from "~/lib/cleo/topic-photos"
 
 const MODEL = "gpt-5.6-terra"
 const MAX_INPUT_LENGTH = 10_000
 const MAX_MESSAGES = 50
 const MAX_TOTAL_INPUT_LENGTH = 100_000
+const MAX_TOOL_ROUNDS = 4
 
-/** Allow long tool-using turns on Vercel without cutting the NDJSON stream short. */
-export const maxDuration = 60
+const CODE_INTERPRETER_TOOL: Tool = {
+  type: "code_interpreter",
+  container: { type: "auto" },
+}
+
+function buildCleoTools(mode: CleoMode): Tool[] {
+  const tools: Tool[] = [
+    buildModeWebSearchTool(mode),
+    {
+      type: "image_generation",
+      partial_images: 2,
+      quality: "auto",
+      size: "auto",
+      output_format: "png",
+    },
+    ...PORTAL_FUNCTION_TOOLS,
+  ]
+
+  if (modeAllowsCodeInterpreter(mode)) {
+    tools.push(CODE_INTERPRETER_TOOL)
+  }
+
+  return tools
+}
+
+/** Allow long tool-using / research turns on Vercel without cutting the stream. */
+export const maxDuration = 90
 
 type ConversationMessage = {
   content: string
   images?: MessageImage[]
   role: "assistant" | "user"
+}
+
+/** Running Responses input across tool rounds (output items are round-tripped). */
+type AgentInput = Array<EasyInputMessage | ResponseInputItem | ResponseOutputItem>
+
+type ResponseStream = AsyncIterable<ResponseStreamEvent> & {
+  controller: { abort: () => void }
 }
 
 function errorResponse(error: string, status: number) {
@@ -108,7 +162,9 @@ function parseMessageImages(value: unknown): MessageImage[] | Response {
   return images
 }
 
-function parseMessages(body: unknown): ConversationMessage[] | Response {
+function parseRequestBody(
+  body: unknown
+): { messages: ConversationMessage[]; mode: CleoMode } | Response {
   if (typeof body !== "object" || body === null) {
     return errorResponse("The request body must be a JSON object.", 400)
   }
@@ -116,6 +172,11 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
   if (!("messages" in body) || !Array.isArray(body.messages)) {
     return errorResponse("A messages array is required.", 400)
   }
+
+  const mode =
+    "mode" in body && body.mode !== undefined
+      ? parseCleoMode(body.mode)
+      : "auto"
 
   if (body.messages.length === 0) {
     return errorResponse("Enter a question before sending.", 400)
@@ -191,7 +252,7 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
     return errorResponse("The last message must come from the user.", 400)
   }
 
-  return messages
+  return { messages, mode }
 }
 
 function toUserContent(
@@ -345,11 +406,13 @@ export async function POST(request: Request) {
     return errorResponse("The request body must be valid JSON.", 400)
   }
 
-  const parsed = parseMessages(body)
+  const parsed = parseRequestBody(body)
 
   if (parsed instanceof Response) {
     return parsed
   }
+
+  const { messages: conversation, mode } = parsed
 
   const apiKey = process.env.OPENAI_API_KEY
 
@@ -359,42 +422,58 @@ export async function POST(request: Request) {
   }
 
   const client = new OpenAI({ apiKey })
-  const input = toApiInput(parsed)
-  const topicPhotos = matchTopicPhotosInText(conversationTopicText(parsed))
+  let input: AgentInput = toApiInput(conversation)
+  const latestUserText = [...conversation]
+    .reverse()
+    .find((message) => message.role === "user")
+    ?.content ?? ""
+  const reasoningEffort = applyModeReasoningEffort(
+    mode,
+    selectReasoningEffort(latestUserText)
+  )
+  const topicPhotos = matchTopicPhotosInText(
+    conversationTopicText(conversation)
+  )
   const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
-  const instructions = topicPhotoInstructions
-    ? `${CLEO_INSTRUCTIONS}\n\n${topicPhotoInstructions}`
-    : CLEO_INSTRUCTIONS
+  const modeInstructions = buildModeInstructions(mode)
+  const instructions = [
+    CLEO_INSTRUCTIONS,
+    modeInstructions,
+    topicPhotoInstructions,
+  ]
+    .filter(Boolean)
+    .join("\n\n")
+  const tools = buildCleoTools(mode)
+  const verbosity = modeTextVerbosity(mode)
 
-  try {
-    const responseStream = await client.responses.create(
+  const createStream = () =>
+    client.responses.create(
       {
         model: MODEL,
-        input,
+        // Output items are round-tripped per the function-calling guide; the
+        // SDK input type is slightly narrower than runtime-accepted output.
+        input: input as ResponseInput,
         instructions,
-        // Keep headroom for reasoning + tools + visible answer. Effort "max"
-        // with a tight budget often ends incomplete with zero answer text.
+        // Keep headroom for reasoning + tools + visible answer.
         max_output_tokens: 16_384,
-        reasoning: { effort: "medium", summary: "auto" },
+        reasoning: { effort: reasoningEffort, summary: "auto" },
         stream: true,
-        text: { verbosity: "medium" },
-        tools: [
-          { type: "web_search" },
-          {
-            type: "image_generation",
-            partial_images: 2,
-            quality: "auto",
-            size: "auto",
-            output_format: "png",
-          },
-        ],
+        text: { verbosity },
+        tools,
         store: false,
       },
       { signal: request.signal }
-    )
+    ) as Promise<ResponseStream>
+
+  try {
+    // Start the first upstream request before opening the NDJSON body so
+    // auth/validation failures still map to HTTP error statuses.
+    let pendingStream: ResponseStream | null = await createStream()
+
     const encoder = new TextEncoder()
     const activities = new Map<string, ActivityItem>()
     const reasoningParts = new Map<string, Map<number, string>>()
+    let activeUpstream: { controller: { abort: () => void } } | null = null
 
     const enqueue = (
       controller: ReadableStreamDefaultController<Uint8Array>,
@@ -440,175 +519,345 @@ export async function POST(request: Request) {
 
     const outputStream = new ReadableStream<Uint8Array>({
       async start(controller) {
-        try {
-          for await (const event of responseStream) {
-            if (event.type === "response.output_text.delta") {
-              enqueue(controller, { type: "text", delta: event.delta })
-              continue
-            }
+        let streamedText = ""
 
-            if (event.type === "response.output_item.added") {
-              if (event.item.type === "web_search_call") {
-                emitActivity(
+        try {
+          let toolExecutions = 0
+
+          while (true) {
+            const responseStream = pendingStream ?? (await createStream())
+            pendingStream = null
+            activeUpstream = responseStream
+
+            let outputItems: ResponseOutputItem[] = []
+            let sawCompleted = false
+            let incompleteError: Error | null = null
+
+            for await (const event of responseStream) {
+              if (event.type === "response.output_text.delta") {
+                streamedText += event.delta
+                enqueue(controller, { type: "text", delta: event.delta })
+                continue
+              }
+
+              if (event.type === "response.output_item.added") {
+                if (event.item.type === "web_search_call") {
+                  emitActivity(
+                    controller,
+                    activityFromWebSearch(event.item, "in_progress")
+                  )
+                } else if (event.item.type === "reasoning") {
+                  emitActivity(
+                    controller,
+                    activityFromReasoning(event.item, "in_progress")
+                  )
+                } else if (event.item.type === "image_generation_call") {
+                  emitActivity(
+                    controller,
+                    activityFromImageGeneration(event.item, "in_progress")
+                  )
+                } else if (event.item.type === "code_interpreter_call") {
+                  emitActivity(controller, {
+                    id: event.item.id,
+                    kind: "code_interpreter",
+                    status: "in_progress",
+                  })
+                } else if (event.item.type === "function_call") {
+                  const name = event.item.name
+                  const args = event.item.arguments ?? ""
+                  if (isPortalToolName(name)) {
+                    emitActivity(controller, {
+                      id: event.item.id ?? event.item.call_id,
+                      kind: "portal_tool",
+                      status: "in_progress",
+                      action: {
+                        type: "portal_tool",
+                        name,
+                        label: portalToolActivityLabel(
+                          name,
+                          args,
+                          "in_progress"
+                        ),
+                      },
+                    })
+                  }
+                }
+                continue
+              }
+
+              if (event.type === "response.reasoning_summary_text.delta") {
+                const parts =
+                  reasoningParts.get(event.item_id) ?? new Map<number, string>()
+                const previous = parts.get(event.summary_index) ?? ""
+                emitReasoningSummary(
                   controller,
-                  activityFromWebSearch(event.item, "in_progress")
+                  event.item_id,
+                  event.summary_index,
+                  previous + event.delta
                 )
-              } else if (event.item.type === "reasoning") {
-                emitActivity(
+                continue
+              }
+
+              if (event.type === "response.reasoning_summary_text.done") {
+                emitReasoningSummary(
                   controller,
-                  activityFromReasoning(event.item, "in_progress")
+                  event.item_id,
+                  event.summary_index,
+                  event.text
                 )
-              } else if (event.item.type === "image_generation_call") {
-                emitActivity(
-                  controller,
-                  activityFromImageGeneration(event.item, "in_progress")
+                continue
+              }
+
+              if (event.type === "response.web_search_call.in_progress") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "web_search",
+                  status: "in_progress",
+                })
+                continue
+              }
+
+              if (event.type === "response.web_search_call.searching") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "web_search",
+                  status: "searching",
+                })
+                continue
+              }
+
+              if (event.type === "response.image_generation_call.in_progress") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "image_generation",
+                  status: "in_progress",
+                })
+                continue
+              }
+
+              if (event.type === "response.image_generation_call.generating") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "image_generation",
+                  status: "generating",
+                })
+                continue
+              }
+
+              if (event.type === "response.code_interpreter_call.in_progress") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "code_interpreter",
+                  status: "in_progress",
+                })
+                continue
+              }
+
+              if (event.type === "response.code_interpreter_call.interpreting") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "code_interpreter",
+                  status: "interpreting",
+                })
+                continue
+              }
+
+              if (event.type === "response.code_interpreter_call.completed") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "code_interpreter",
+                  status: "completed",
+                })
+                continue
+              }
+
+              if (event.type === "response.image_generation_call.partial_image") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "image_generation",
+                  status: "generating",
+                })
+                enqueue(controller, {
+                  type: "image",
+                  id: event.item_id,
+                  imageUrl: toImageDataUrl("image/png", event.partial_image_b64),
+                  partial: true,
+                })
+                continue
+              }
+
+              if (event.type === "response.image_generation_call.completed") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "image_generation",
+                  status: "completed",
+                })
+                continue
+              }
+
+              if (event.type === "response.output_item.done") {
+                if (event.item.type === "web_search_call") {
+                  emitActivity(controller, activityFromWebSearch(event.item))
+                } else if (event.item.type === "reasoning") {
+                  const summary =
+                    summaryFromReasoning(event.item) ||
+                    joinReasoningParts(
+                      reasoningParts.get(event.item.id) ?? new Map()
+                    ) ||
+                    undefined
+
+                  emitActivity(controller, {
+                    ...activityFromReasoning(event.item, "completed"),
+                    summary,
+                  })
+                } else if (event.item.type === "image_generation_call") {
+                  emitActivity(
+                    controller,
+                    activityFromImageGeneration(event.item, "completed")
+                  )
+
+                  if (event.item.result) {
+                    enqueue(controller, {
+                      type: "image",
+                      id: event.item.id,
+                      imageUrl: toImageDataUrl("image/png", event.item.result),
+                    })
+                  }
+                } else if (event.item.type === "code_interpreter_call") {
+                  emitActivity(controller, {
+                    id: event.item.id,
+                    kind: "code_interpreter",
+                    status:
+                      event.item.status === "failed" ? "failed" : "completed",
+                  })
+                } else if (event.item.type === "function_call") {
+                  const name = event.item.name
+                  const args = event.item.arguments ?? ""
+                  if (isPortalToolName(name)) {
+                    emitActivity(controller, {
+                      id: event.item.id ?? event.item.call_id,
+                      kind: "portal_tool",
+                      status: "completed",
+                      action: {
+                        type: "portal_tool",
+                        name,
+                        label: portalToolActivityLabel(name, args, "completed"),
+                      },
+                    })
+                  }
+                }
+                continue
+              }
+
+              if (event.type === "response.web_search_call.completed") {
+                emitActivity(controller, {
+                  id: event.item_id,
+                  kind: "web_search",
+                  status: "completed",
+                })
+                continue
+              }
+
+              if (event.type === "response.completed") {
+                outputItems = event.response.output ?? []
+                sawCompleted = true
+                continue
+              }
+
+              if (event.type === "error") {
+                throw new Error(event.message)
+              }
+
+              if (event.type === "response.failed") {
+                throw new Error(
+                  event.response.error?.message ??
+                    "The AI service could not complete the request."
                 )
               }
-              continue
+
+              if (event.type === "response.incomplete") {
+                outputItems = event.response.output ?? outputItems
+                const reason = event.response.incomplete_details?.reason
+                // Keep a partial answer when the model already streamed text.
+                if (streamedText.trim()) {
+                  sawCompleted = true
+                  incompleteError = null
+                } else {
+                  incompleteError = new Error(
+                    reason === "max_output_tokens"
+                      ? "The AI service ran out of room before finishing an answer. Try a shorter question."
+                      : "The AI service stopped before finishing an answer. Try again."
+                  )
+                }
+                continue
+              }
             }
 
-            if (event.type === "response.reasoning_summary_text.delta") {
-              const parts =
-                reasoningParts.get(event.item_id) ?? new Map<number, string>()
-              const previous = parts.get(event.summary_index) ?? ""
-              emitReasoningSummary(
-                controller,
-                event.item_id,
-                event.summary_index,
-                previous + event.delta
-              )
-              continue
+            activeUpstream = null
+
+            if (incompleteError) {
+              throw incompleteError
             }
 
-            if (event.type === "response.reasoning_summary_text.done") {
-              emitReasoningSummary(
-                controller,
-                event.item_id,
-                event.summary_index,
-                event.text
-              )
-              continue
-            }
+            const functionCalls = outputItems.filter(
+              (item): item is ResponseFunctionToolCall =>
+                item.type === "function_call"
+            )
 
-            if (event.type === "response.web_search_call.in_progress") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "web_search",
-                status: "in_progress",
-              })
-              continue
-            }
-
-            if (event.type === "response.web_search_call.searching") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "web_search",
-                status: "searching",
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.in_progress") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "in_progress",
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.generating") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "generating",
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.partial_image") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "generating",
-              })
-              enqueue(controller, {
-                type: "image",
-                id: event.item_id,
-                imageUrl: toImageDataUrl("image/png", event.partial_image_b64),
-                partial: true,
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.completed") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "completed",
-              })
-              continue
-            }
-
-            if (event.type === "response.output_item.done") {
-              if (event.item.type === "web_search_call") {
-                emitActivity(controller, activityFromWebSearch(event.item))
-              } else if (event.item.type === "reasoning") {
-                const summary =
-                  summaryFromReasoning(event.item) ||
-                  joinReasoningParts(
-                    reasoningParts.get(event.item.id) ?? new Map()
-                  ) ||
-                  undefined
-
-                emitActivity(controller, {
-                  ...activityFromReasoning(event.item, "completed"),
-                  summary,
-                })
-              } else if (event.item.type === "image_generation_call") {
-                emitActivity(
-                  controller,
-                  activityFromImageGeneration(event.item, "completed")
+            if (functionCalls.length === 0) {
+              if (!sawCompleted && !streamedText.trim()) {
+                throw new Error(
+                  "The AI service stopped before finishing an answer. Try again."
                 )
+              }
+              break
+            }
 
-                if (event.item.result) {
-                  enqueue(controller, {
-                    type: "image",
-                    id: event.item.id,
-                    imageUrl: toImageDataUrl("image/png", event.item.result),
+            input = [...input, ...outputItems]
+
+            const hitToolCap = toolExecutions >= MAX_TOOL_ROUNDS
+
+            for (const call of functionCalls) {
+              const output = hitToolCap
+                ? JSON.stringify({
+                    error:
+                      "Portal tool round limit reached. Answer with the evidence you already have.",
                   })
+                : executePortalTool(call.name, call.arguments)
+
+              input = [
+                ...input,
+                {
+                  type: "function_call_output",
+                  call_id: call.call_id,
+                  output,
+                },
+              ]
+            }
+
+            toolExecutions += 1
+
+            if (hitToolCap) {
+              // One final model turn after soft tool errors, then stop.
+              const finalStream = await createStream()
+              activeUpstream = finalStream
+
+              for await (const event of finalStream) {
+                if (event.type === "response.output_text.delta") {
+                  streamedText += event.delta
+                  enqueue(controller, { type: "text", delta: event.delta })
+                } else if (event.type === "error") {
+                  throw new Error(event.message)
+                } else if (event.type === "response.failed") {
+                  throw new Error(
+                    event.response.error?.message ??
+                      "The AI service could not complete the request."
+                  )
                 }
               }
-              continue
-            }
 
-            if (event.type === "response.web_search_call.completed") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "web_search",
-                status: "completed",
-              })
-              continue
-            }
-
-            if (event.type === "error") {
-              throw new Error(event.message)
-            }
-
-            if (event.type === "response.failed") {
-              throw new Error(
-                event.response.error?.message ??
-                  "The AI service could not complete the request."
-              )
-            }
-
-            if (event.type === "response.incomplete") {
-              const reason = event.response.incomplete_details?.reason
-              throw new Error(
-                reason === "max_output_tokens"
-                  ? "The AI service ran out of room before finishing an answer. Try a shorter question."
-                  : "The AI service stopped before finishing an answer. Try again."
-              )
+              activeUpstream = null
+              break
             }
           }
 
@@ -640,7 +889,7 @@ export async function POST(request: Request) {
         }
       },
       cancel() {
-        responseStream.controller.abort()
+        activeUpstream?.controller.abort()
       },
     })
 
