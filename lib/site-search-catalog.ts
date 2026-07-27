@@ -5,6 +5,7 @@
 
 import { countries } from '~/lib/countries'
 import { MAP_REGION_IDS, mapCountryHref, mapRegionHref } from '~/lib/maps'
+import { loadMapCountryIndex } from '~/lib/maps-index'
 import type { SiteSearchHit } from '~/lib/site-search'
 import { spaceSubjects } from '~/lib/space'
 import { allTopics } from '~/lib/topics'
@@ -69,22 +70,53 @@ function exploreHits(): SiteSearchHit[] {
   }))
 }
 
-/** Country / region deep links into Maps — ranked below Explore guides. */
+/** Country / region / territory deep links into Maps — ranked below Explore guides. */
 function mapsHits(): SiteSearchHit[] {
-  const countryHits = countries.map((country) => ({
-    id: `maps:country:${country.slug}`,
-    kind: 'maps' as const,
-    title: country.name,
-    subtitle: `On the map · ${country.code}`,
-    href: mapCountryHref(country.slug),
-    searchText: haystack(
-      country.name,
-      country.code,
-      country.region,
-      country.subregion,
-      'on the map',
-    ),
-  }))
+  const index = loadMapCountryIndex()
+  const byCode = new Map(
+    index.countries.map((entry) => [entry.code, entry] as const),
+  )
+
+  const countryHits = countries.map((country) => {
+    const entry = byCode.get(country.code)
+    return {
+      id: `maps:country:${country.slug}`,
+      kind: 'maps' as const,
+      title: country.name,
+      subtitle: entry?.capitalName
+        ? `On the map · ${country.code} · ${entry.capitalName}`
+        : `On the map · ${country.code}`,
+      href: mapCountryHref(country.slug),
+      searchText: haystack(
+        country.name,
+        country.code,
+        country.region,
+        country.subregion,
+        entry?.capitalName ?? '',
+        'on the map',
+      ),
+    }
+  })
+
+  const territoryHits = index.countries
+    .filter((entry) => !entry.slug)
+    .map((entry) => ({
+      id: `maps:territory:${entry.code.toLowerCase()}`,
+      kind: 'maps' as const,
+      title: entry.name,
+      subtitle: entry.capitalName
+        ? `On the map · ${entry.code} · ${entry.capitalName}`
+        : `On the map · ${entry.code}`,
+      href: mapCountryHref(entry.code),
+      searchText: haystack(
+        entry.name,
+        entry.code,
+        entry.region ?? '',
+        entry.capitalName ?? '',
+        'on the map',
+        'territory',
+      ),
+    }))
 
   const regionHits = MAP_REGION_IDS.map((id) => {
     const title = MAP_REGION_TITLES[id]
@@ -98,7 +130,7 @@ function mapsHits(): SiteSearchHit[] {
     }
   })
 
-  return [...regionHits, ...countryHits]
+  return [...regionHits, ...countryHits, ...territoryHits]
 }
 
 function spaceHits(): SiteSearchHit[] {

@@ -17,6 +17,7 @@ describe('portal catalog instructions', () => {
     expect(block).toContain('[Topics](/topics)')
     expect(block).toContain('[Maps](/maps)')
     expect(block).toContain('/maps?country=japan')
+    expect(block).toContain('/maps?country=hk')
     expect(block).toContain('/maps?region=africa|americas|asia|europe|oceania')
     expect(block).toContain('<cleo_topic_photos>')
     expect(block).toContain('curated photograph as a Markdown image')

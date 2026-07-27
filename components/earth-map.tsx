@@ -1138,6 +1138,21 @@ export function EarthMap({
       setCopyState('idle')
       syncCapitalLayerPresentation(map, layersRef.current.labels, null)
       setFocusAnnouncement('Selection cleared.')
+      // Restore the shared camera from the history entry (or the default world).
+      const camera = parseMapCameraHash(window.location.hash)
+      cameraHashPausedRef.current = true
+      if (camera) {
+        map.jumpTo({ center: camera.center, zoom: camera.zoom })
+      } else {
+        map.jumpTo({
+          center: DEFAULT_MAP_CENTER,
+          zoom: DEFAULT_MAP_ZOOM,
+        })
+      }
+      window.setTimeout(() => {
+        cameraHashPausedRef.current = false
+        writeCameraHashFromMap(map)
+      }, 0)
       return
     }
     fittedFocusKeyRef.current = null
@@ -1366,6 +1381,20 @@ export function EarthMap({
     await shareDeepLink(mapViewHref(), 'Earth on Cleo Maps')
   }
 
+  function showSelectedCapital() {
+    const map = mapRef.current
+    const entry = selectedEntry
+    if (!map || !entry?.capital) return
+    setFocusAnnouncement(
+      entry.capitalName
+        ? `Showing ${entry.capitalName}.`
+        : `Showing the capital of ${entry.name}.`,
+    )
+    withCameraHashPause(map, cameraHashPausedRef, () => {
+      fitCountry(map, entry, { preferCapital: true })
+    })
+  }
+
   const activeRegionCamera = activeRegion
     ? regions.find((region) => region.id === activeRegion)
     : undefined
@@ -1409,11 +1438,11 @@ export function EarthMap({
             <h1 className="page-eyebrow">Maps</h1>
             <p className="earth-map-lede">
               NASA Blue Marble imagery with Natural Earth borders — find a
-              country or jump by region.
+              country, capital, or territory, or jump by region.
             </p>
             <div className="earth-map-search">
               <label className="sr-only" htmlFor={`${reactId}-map-search`}>
-                Find a country
+                Find a country or capital
               </label>
               <input
                 ref={searchInputRef}
@@ -1472,7 +1501,9 @@ export function EarthMap({
                     }
                   }
                 }}
-                placeholder={ready ? 'Find a country' : 'Loading map…'}
+                placeholder={
+                  ready ? 'Find a country or capital' : 'Loading map…'
+                }
                 autoComplete="off"
                 spellCheck={false}
                 aria-controls={searchListId}
@@ -1495,7 +1526,8 @@ export function EarthMap({
                   className="earth-map-suggestions"
                 >
                   {suggestions.map((entry, index) => {
-                    const capital = countryPhotos[entry.code]?.capital
+                    const capital =
+                      entry.capitalName ?? countryPhotos[entry.code]?.capital
                     return (
                       <li key={entry.code}>
                         <button
@@ -1532,7 +1564,7 @@ export function EarthMap({
                   className="earth-map-suggestions earth-map-suggestions-empty"
                   role="status"
                 >
-                  No countries match “{query.trim()}”.
+                  No places match “{query.trim()}”.
                 </p>
               ) : null}
             </div>
@@ -1670,8 +1702,10 @@ export function EarthMap({
                     <span className="earth-map-selection-name">{selected.name}</span>
                     <span className="earth-map-photo-place">
                       {[
-                        selected.country?.region,
-                        photo.capital ? `Capital · ${photo.capital}` : null,
+                        selectedEntry?.region ?? selected.country?.region,
+                        (selectedEntry?.capitalName ?? photo.capital)
+                          ? `Capital · ${selectedEntry?.capitalName ?? photo.capital}`
+                          : null,
                         photo.placeName,
                       ]
                         .filter(Boolean)
@@ -1720,6 +1754,15 @@ export function EarthMap({
                     Browse Explore →
                   </Link>
                 )}
+                {selectedEntry?.capital ? (
+                  <button
+                    type="button"
+                    className="earth-map-copy"
+                    onClick={showSelectedCapital}
+                  >
+                    Show capital
+                  </button>
+                ) : null}
                 <button
                   type="button"
                   className="earth-map-copy"

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { countries } from './countries'
+import { loadMapCountryIndex } from './maps-index'
 import { spaceSubjects } from './space'
 import { buildSiteSearchHits } from './site-search-catalog'
 import { filterSiteSearchHits } from './site-search'
@@ -8,6 +9,8 @@ import { allTopics } from './topics'
 
 describe('site search catalog', () => {
   const hits = buildSiteSearchHits()
+  const mapIndex = loadMapCountryIndex()
+  const territoryCount = mapIndex.countries.filter((entry) => !entry.slug).length
 
   it('indexes topic collections, country guides, Maps deep links, space guides, and portal surfaces', () => {
     const kinds = new Set(hits.map((hit) => hit.kind))
@@ -17,12 +20,13 @@ describe('site search catalog', () => {
 
     expect(hits.filter((hit) => hit.kind === 'explore')).toHaveLength(countries.length)
     expect(hits.filter((hit) => hit.kind === 'maps')).toHaveLength(
-      countries.length + 5,
+      countries.length + 5 + territoryCount,
     )
     expect(hits.filter((hit) => hit.kind === 'space')).toHaveLength(spaceSubjects.length)
     expect(hits.filter((hit) => hit.kind === 'topic')).toHaveLength(allTopics().length)
     expect(hits.some((hit) => hit.href === '/maps')).toBe(true)
     expect(hits.some((hit) => hit.href === '/maps?region=africa')).toBe(true)
+    expect(hits.some((hit) => hit.href === '/maps?country=hk')).toBe(true)
     expect(hits.some((hit) => hit.href === '/gallery')).toBe(true)
     expect(hits.some((hit) => hit.href === '/cleo')).toBe(true)
     expect(hits.some((hit) => hit.href === '/blog')).toBe(true)
@@ -78,6 +82,18 @@ describe('site search catalog', () => {
       kind: 'maps',
       href: '/maps?region=oceania',
     })
+  })
+
+  it('finds no-guide territories on Maps by name and capital', () => {
+    expect(filterSiteSearchHits(hits, 'hong kong')[0]).toMatchObject({
+      kind: 'maps',
+      href: '/maps?country=hk',
+    })
+    expect(
+      filterSiteSearchHits(hits, 'nuuk').some(
+        (hit) => hit.href === '/maps?country=gl',
+      ),
+    ).toBe(true)
   })
 
   it('finds space guides alongside countries', () => {

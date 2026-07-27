@@ -444,7 +444,7 @@ export function mapsDeepLinkMetadata(
   index: MapCountryIndex,
 ): { title: string; description: string } {
   const baseDescription =
-    'A realistic interactive map of Earth — NASA Blue Marble imagery, accurate country borders, and deep links into Explore field guides.'
+    'A realistic interactive map of Earth — NASA Blue Marble imagery, accurate country borders, capitals and territories, and deep links into Explore field guides.'
   const focus = searchParams ? readMapFocusSearchParams(searchParams) : null
   if (focus?.kind === 'country') {
     const entry = findMapCountryIndexEntry(index.countries, focus.value)

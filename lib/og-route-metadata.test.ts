@@ -33,7 +33,7 @@ describe('social OG image metadata', () => {
     [
       '/maps',
       publicPageMetadata.maps,
-      'Maps · Cleo. A realistic interactive map of Earth — NASA Blue Marble imagery, accurate country borders, and deep links into Explore field guides.',
+      'Maps · Cleo. A realistic interactive map of Earth — NASA Blue Marble imagery, accurate country borders, capitals and territories, and deep links into Explore field guides.',
     ],
     [
       '/space',
