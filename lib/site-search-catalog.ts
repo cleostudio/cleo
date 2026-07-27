@@ -11,6 +11,12 @@ import { allTopics } from '~/lib/topics'
 const PORTAL_SURFACES: Omit<SiteSearchHit, 'id' | 'searchText'>[] = [
   {
     kind: 'surface',
+    title: 'Maps',
+    subtitle: 'Earth map',
+    href: '/maps',
+  },
+  {
+    kind: 'surface',
     title: 'Gallery',
     subtitle: 'Photographs',
     href: '/gallery',

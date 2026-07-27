@@ -14,9 +14,13 @@ import {
   findMapCountryIndexEntry,
   findMapRegionCamera,
   formatMapCoords,
+  countryLabelMinZoom,
+  excerptMapAbout,
   mapCountryHref,
+  mapCountrySuggestionMatchKind,
   mapHrefWithLayers,
   mapRegionHref,
+  MAP_CAPITALS_URL,
   MAP_COUNTRIES_URL,
   MAP_COUNTRY_INDEX_URL,
   MAP_GLYPHS_URL,
@@ -126,10 +130,12 @@ describe('maps helpers', () => {
     expect(MAP_TILE_URL).toBe('/images/maps/tiles/{z}/{x}/{y}.jpg')
     expect(MAP_COUNTRIES_URL).toBe('/maps/countries.geojson')
     expect(MAP_COUNTRY_INDEX_URL).toBe('/maps/country-index.json')
+    expect(MAP_CAPITALS_URL).toBe('/maps/capitals.geojson')
     expect(MAP_GLYPHS_URL).toBe('/maplibre/fonts/{fontstack}/{range}.pbf')
     expect(MAP_MAX_ZOOM).toBe(6)
     expect(mapAttribution.basemap.name).toContain('Blue Marble')
     expect(mapAttribution.boundaries.name).toContain('Natural Earth')
+    expect(mapAttribution.capitals.name).toContain('capitals')
   })
 
   it('builds ranked country and region label collections', () => {
@@ -189,7 +195,30 @@ describe('maps helpers', () => {
         US: 'Washington, D.C.',
       }).map((entry) => entry.code),
     ).toEqual(['JP'])
+    expect(
+      mapCountrySuggestionMatchKind(sampleIndex[0]!, 'tokyo', { JP: 'Tokyo' }),
+    ).toBe('capital')
     expect(filterMapCountrySuggestions(sampleIndex, 'zzz')).toEqual([])
+  })
+
+  it('raises label min-zoom for small countries and excerpts atlas about copy', () => {
+    expect(
+      countryLabelMinZoom([
+        [0, 0],
+        [0.2, 0.2],
+      ]),
+    ).toBeGreaterThan(
+      countryLabelMinZoom([
+        [-10, -10],
+        [10, 10],
+      ]),
+    )
+    expect(
+      excerptMapAbout(
+        'Japan is an archipelago in East Asia. Its islands frame the Pacific with volcanic arcs and dense coastal cities that have long oriented life toward the sea.',
+        80,
+      ),
+    ).toMatch(/…$/)
   })
 
   it('persists layer visibility in sessionStorage', () => {

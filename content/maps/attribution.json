@@ -13,6 +13,14 @@
     "license": "Public domain",
     "scale": "1:50m"
   },
+  "capitals": {
+    "name": "Natural Earth Populated Places (Admin-0 capitals)",
+    "credit": "Natural Earth",
+    "sourceUrl": "https://www.naturalearthdata.com/",
+    "license": "Public domain",
+    "scale": "1:10m",
+    "count": 198
+  },
   "tiles": {
     "projection": "Web Mercator (EPSG:3857)",
     "minZoom": 0,
@@ -24,5 +32,6 @@
   },
   "featureCount": 237,
   "indexCount": 237,
-  "regionCount": 5
+  "regionCount": 5,
+  "capitalCount": 198
 }

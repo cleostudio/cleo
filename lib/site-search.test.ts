@@ -16,6 +16,7 @@ describe('site search catalog', () => {
     expect(hits.filter((hit) => hit.kind === 'explore')).toHaveLength(countries.length)
     expect(hits.filter((hit) => hit.kind === 'space')).toHaveLength(spaceSubjects.length)
     expect(hits.filter((hit) => hit.kind === 'topic')).toHaveLength(allTopics().length)
+    expect(hits.some((hit) => hit.href === '/maps')).toBe(true)
     expect(hits.some((hit) => hit.href === '/gallery')).toBe(true)
     expect(hits.some((hit) => hit.href === '/cleo')).toBe(true)
     expect(hits.some((hit) => hit.href === '/blog')).toBe(true)

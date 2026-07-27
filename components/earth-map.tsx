@@ -26,6 +26,7 @@ import {
   findMapCountryIndexEntry,
   findMapRegionCamera,
   formatMapCoords,
+  MAP_CAPITALS_URL,
   MAP_COUNTRIES_URL,
   MAP_COUNTRY_INDEX_URL,
   MAP_GLYPHS_URL,
@@ -35,6 +36,7 @@ import {
   MAP_TILE_URL,
   mapAttribution,
   mapCountryHref,
+  mapCountrySuggestionMatchKind,
   mapHrefWithLayers,
   mapRegionHref,
   parseMapLayersSearchParams,
@@ -58,6 +60,8 @@ import { cn } from '~/lib/utils'
 type EarthMapProps = {
   className?: string
   countryPhotos?: Record<string, MapCountryPhoto>
+  /** Server-hydrated camera index so search/deep links skip a client fetch. */
+  initialIndex?: MapCountryIndex
 }
 
 const MAPS_GLASS_STYLE = {
@@ -108,7 +112,12 @@ function basemapStyle(): StyleSpecification {
 }
 
 const BORDER_LAYER_IDS = ['country-fill', 'country-line'] as const
-const LABEL_LAYER_IDS = ['region-labels', 'country-labels'] as const
+const LABEL_LAYER_IDS = [
+  'region-labels',
+  'country-labels',
+  'capital-dots',
+  'capital-labels',
+] as const
 const GRATICULE_LAYER_IDS = ['graticule-lines'] as const
 
 function addGraticuleLayer(map: MapLibreMap) {
@@ -284,6 +293,7 @@ function upsertLabelLayers(
       type: 'symbol',
       source: 'country-labels',
       minzoom: 2.1,
+      filter: ['<=', ['get', 'labelMinZoom'], ['zoom']],
       layout: {
         'text-field': ['get', 'name'],
         'text-font': ['Open Sans Regular'],
@@ -299,7 +309,7 @@ function upsertLabelLayers(
           14,
         ],
         'text-max-width': 7,
-        'text-padding': 6,
+        'text-padding': 8,
         'text-optional': true,
         'text-allow-overlap': false,
         'symbol-sort-key': ['get', 'rank'],
@@ -318,6 +328,84 @@ function upsertLabelLayers(
           0.88,
           6,
           0.95,
+        ],
+      },
+    })
+  }
+}
+
+function addCapitalLayers(map: MapLibreMap) {
+  if (!map.getSource('capitals')) {
+    map.addSource('capitals', {
+      type: 'geojson',
+      data: MAP_CAPITALS_URL,
+      attribution: mapAttribution.capitals?.credit ?? mapAttribution.boundaries.credit,
+      promoteId: 'code',
+    })
+  }
+
+  if (!map.getLayer('capital-dots')) {
+    map.addLayer({
+      id: 'capital-dots',
+      type: 'circle',
+      source: 'capitals',
+      minzoom: 2.8,
+      paint: {
+        'circle-radius': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          2.8,
+          2.2,
+          5,
+          3.4,
+          6.5,
+          4.2,
+        ],
+        'circle-color': 'rgba(255, 236, 200, 0.95)',
+        'circle-stroke-color': 'rgba(20, 28, 40, 0.75)',
+        'circle-stroke-width': 1,
+        'circle-opacity': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          2.8,
+          0,
+          3.2,
+          0.9,
+        ],
+      },
+    })
+  }
+
+  if (!map.getLayer('capital-labels')) {
+    map.addLayer({
+      id: 'capital-labels',
+      type: 'symbol',
+      source: 'capitals',
+      minzoom: 4.2,
+      layout: {
+        'text-field': ['get', 'name'],
+        'text-font': ['Open Sans Regular'],
+        'text-size': 11,
+        'text-offset': [0, 1.05],
+        'text-anchor': 'top',
+        'text-padding': 4,
+        'text-optional': true,
+        'text-allow-overlap': false,
+      },
+      paint: {
+        'text-color': 'rgba(255, 244, 220, 0.92)',
+        'text-halo-color': 'rgba(10, 18, 30, 0.8)',
+        'text-halo-width': 1.05,
+        'text-opacity': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          4.2,
+          0,
+          4.7,
+          0.9,
         ],
       },
     })
@@ -390,7 +478,22 @@ function mapMotionMs(preferred: number) {
   return preferred
 }
 
-function fitCountry(map: MapLibreMap, entry: MapCountryIndexEntry) {
+function fitCountry(
+  map: MapLibreMap,
+  entry: MapCountryIndexEntry,
+  { preferCapital = false }: { preferCapital?: boolean } = {},
+) {
+  if (preferCapital && entry.capital) {
+    map.easeTo({
+      center: entry.capital,
+      zoom: Math.min(
+        Math.max(entry.maxZoom, 4.6),
+        MAP_MAX_ZOOM + 0.65,
+      ),
+      duration: mapMotionMs(800),
+    })
+    return
+  }
   map.fitBounds(entry.bounds, {
     padding: { ...MAP_FOCUS_PADDING },
     maxZoom: Math.min(entry.maxZoom, MAP_MAX_ZOOM + 0.75),
@@ -398,7 +501,11 @@ function fitCountry(map: MapLibreMap, entry: MapCountryIndexEntry) {
   })
 }
 
-export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
+export function EarthMap({
+  className,
+  countryPhotos = {},
+  initialIndex,
+}: EarthMapProps) {
   const reactId = useId()
   const searchParams = useSearchParams()
   const countryParam = searchParams.get('country')
@@ -408,10 +515,10 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const hoveredCodeRef = useRef<string | null>(null)
   const selectedCodeRef = useRef<string | null>(null)
   const activeRegionRef = useRef<string | null>(null)
-  const indexRef = useRef<MapCountryIndexEntry[]>([])
-  const regionsRef = useRef<MapRegionCamera[]>([])
+  const indexRef = useRef<MapCountryIndexEntry[]>(initialIndex?.countries ?? [])
+  const regionsRef = useRef<MapRegionCamera[]>(initialIndex?.regions ?? [])
   const suppressMapClickRef = useRef<() => void>(() => {})
-  const indexReadyRef = useRef(false)
+  const indexReadyRef = useRef(Boolean(initialIndex?.countries.length))
   const selectionPanelRef = useRef<HTMLDivElement | null>(null)
   const suggestionsOpenRef = useRef(false)
   const layersRef = useRef<MapLayerVisibility>({ ...DEFAULT_MAP_LAYERS })
@@ -425,7 +532,9 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   const [suggestionsOpen, setSuggestionsOpen] = useState(false)
   const [suggestions, setSuggestions] = useState<MapCountryIndexEntry[]>([])
   const [activeSuggestion, setActiveSuggestion] = useState(0)
-  const [regions, setRegions] = useState<MapRegionCamera[]>([])
+  const [regions, setRegions] = useState<MapRegionCamera[]>(
+    initialIndex?.regions ?? [],
+  )
   const [activeRegion, setActiveRegion] = useState<string | null>(null)
   const [layers, setLayers] = useState<MapLayerVisibility>(DEFAULT_MAP_LAYERS)
   const [layersHydrated, setLayersHydrated] = useState(false)
@@ -610,6 +719,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
         addCountryLayers(map)
       }
       addGraticuleLayer(map)
+      addCapitalLayers(map)
       if (indexRef.current.length > 0 || regionsRef.current.length > 0) {
         upsertLabelLayers(map, indexRef.current, regionsRef.current)
       }
@@ -620,21 +730,25 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     const hydrateCountries = async () => {
       try {
         ensureCountryLayers()
-        const indexResponse = await fetch(MAP_COUNTRY_INDEX_URL)
-        if (!indexResponse.ok) {
-          throw new Error(`Index HTTP ${indexResponse.status}`)
+        if (indexRef.current.length === 0) {
+          const indexResponse = await fetch(MAP_COUNTRY_INDEX_URL)
+          if (!indexResponse.ok) {
+            throw new Error(`Index HTTP ${indexResponse.status}`)
+          }
+          const index = (await indexResponse.json()) as MapCountryIndex
+          indexRef.current = index.countries
+          regionsRef.current = index.regions ?? []
+          setRegions(regionsRef.current)
         }
-        const index = (await indexResponse.json()) as MapCountryIndex
-        indexRef.current = index.countries
-        regionsRef.current = index.regions ?? []
-        setRegions(regionsRef.current)
         upsertLabelLayers(map, indexRef.current, regionsRef.current)
         applyLayerVisibility(map, layersRef.current)
       } catch {
         indexFailed = true
-        indexRef.current = []
-        regionsRef.current = []
-        setRegions([])
+        if (!initialIndex?.countries.length) {
+          indexRef.current = []
+          regionsRef.current = []
+          setRegions([])
+        }
         try {
           ensureCountryLayers()
         } catch {
@@ -756,7 +870,10 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
 
   function flyToCountry(
     entry: MapCountryIndexEntry,
-    { syncUrl = true }: { syncUrl?: boolean } = {},
+    {
+      syncUrl = true,
+      preferCapital = false,
+    }: { syncUrl?: boolean; preferCapital?: boolean } = {},
   ) {
     const map = mapRef.current
     if (!map) return
@@ -777,14 +894,28 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     setActiveRegion(null)
     activeRegionRef.current = null
     setCopyState('idle')
-    setFocusAnnouncement(`Selected ${hit.name}.`)
+    const capitalName = entry.capitalName ?? countryPhotos[entry.code]?.capital
+    setFocusAnnouncement(
+      preferCapital && capitalName
+        ? `Selected ${hit.name}. Showing ${capitalName}.`
+        : `Selected ${hit.name}.`,
+    )
     if (syncUrl) {
       syncMapFocusSearchParams({
         kind: 'country',
         value: entry.slug ?? entry.code,
       })
     }
-    fitCountry(map, entry)
+    fitCountry(map, entry, { preferCapital })
+  }
+
+  function flyToCountryFromQuery(entry: MapCountryIndexEntry) {
+    const capitals: Record<string, string> = {}
+    for (const [code, photo] of Object.entries(countryPhotos)) {
+      if (photo.capital) capitals[code] = photo.capital
+    }
+    const kind = mapCountrySuggestionMatchKind(entry, query, capitals)
+    flyToCountry(entry, { preferCapital: kind === 'capital' })
   }
 
   function resetView() {
@@ -948,7 +1079,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                   }
                   if (event.key === 'Enter' && suggestions[activeSuggestion]) {
                     event.preventDefault()
-                    flyToCountry(suggestions[activeSuggestion]!)
+                    flyToCountryFromQuery(suggestions[activeSuggestion]!)
                     return
                   }
                   if (event.key === 'Escape') {
@@ -995,7 +1126,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                           onMouseDown={(event) => {
                             event.preventDefault()
                             event.stopPropagation()
-                            flyToCountry(entry)
+                            flyToCountryFromQuery(entry)
                           }}
                         >
                           <span className="earth-map-suggestion-main">
@@ -1162,6 +1293,14 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                   ) : null}
                 </div>
               )}
+              {photo?.aboutExcerpt ? (
+                <p className="earth-map-selection-about">{photo.aboutExcerpt}</p>
+              ) : null}
+              {photo?.places?.length ? (
+                <p className="earth-map-selection-places">
+                  {photo.places.join(' · ')}
+                </p>
+              ) : null}
               <div className="earth-map-selection-actions">
                 {selected.href ? (
                   <Link href={selected.href} className="earth-map-guide-link">
@@ -1247,6 +1386,9 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
           )}
           <p className="earth-map-credit">
             {mapAttribution.basemap.name} · {mapAttribution.boundaries.name}
+            {mapAttribution.capitals?.name
+              ? ` · ${mapAttribution.capitals.name}`
+              : ''}
           </p>
         </div>
       </div>

@@ -566,6 +566,21 @@ async function copyMapLibreWorkers() {
   }
 }
 
+async function extractCapitals(placesPath) {
+  const { spawnSync } = await import('node:child_process')
+  const script = path.join(root, 'scripts/maps/extract-capitals.py')
+  const result = spawnSync('python3', [script, `--places=${placesPath}`], {
+    cwd: root,
+    encoding: 'utf8',
+  })
+  if (result.status !== 0) {
+    throw new Error(
+      `extract-capitals failed: ${result.stderr || result.stdout || result.error}`,
+    )
+  }
+  if (result.stdout.trim()) console.log(result.stdout.trim())
+}
+
 async function main() {
   const skipTiles = process.argv.includes('--skip-tiles')
   const blueMarble =
@@ -573,19 +588,24 @@ async function main() {
   const countriesSrc =
     argValue('--countries') ||
     path.join('/tmp/maps-assets/ne_50m_admin_0_countries.geojson')
+  const placesSrc =
+    argValue('--places') || path.join('/tmp/maps-assets/ne_10m_populated_places')
   const tilesDir = path.join(root, 'public/images/maps/tiles')
   const countriesPublic = path.join(root, 'public/maps/countries.geojson')
   const indexPublic = path.join(root, 'public/maps/country-index.json')
+  const capitalsPublic = path.join(root, 'public/maps/capitals.geojson')
   const attributionOut = path.join(root, 'content/maps/attribution.json')
 
   // Keep a preview-sized equirectangular in-repo; full-res is only needed
   // while generating tiles (pass --blue-marble=/path/to/21600.jpg).
   const publicBlueMarble = path.join(root, 'public/images/maps/blue-marble.jpg')
   await mkdir(path.dirname(publicBlueMarble), { recursive: true })
-  await sharp(blueMarble)
-    .resize({ width: 8192, height: 4096, fit: 'fill' })
-    .jpeg({ quality: 88, mozjpeg: true })
-    .toFile(publicBlueMarble)
+  if (path.resolve(blueMarble) !== path.resolve(publicBlueMarble)) {
+    await sharp(blueMarble)
+      .resize({ width: 8192, height: 4096, fit: 'fill' })
+      .jpeg({ quality: 88, mozjpeg: true })
+      .toFile(publicBlueMarble)
+  }
 
   await copyMapLibreWorkers()
 
@@ -600,6 +620,21 @@ async function main() {
   const featureCount = collection.features.length
   const { countryCount: indexCount, regionCount } =
     await writeCountryIndex(collection, indexPublic)
+
+  let capitalCount = 0
+  try {
+    await extractCapitals(placesSrc)
+    capitalCount = JSON.parse(await readFile(capitalsPublic, 'utf8')).features.length
+  } catch (error) {
+    try {
+      capitalCount = JSON.parse(await readFile(capitalsPublic, 'utf8')).features.length
+      console.warn(
+        `capitals: kept checked-in geojson (${capitalCount}); extract skipped — ${error.message}`,
+      )
+    } catch {
+      throw error
+    }
+  }
 
   let tileCount = 0
   if (skipTiles) {
@@ -631,6 +666,14 @@ async function main() {
           license: 'Public domain',
           scale: '1:50m',
         },
+        capitals: {
+          name: 'Natural Earth Populated Places (Admin-0 capitals)',
+          credit: 'Natural Earth',
+          sourceUrl: 'https://www.naturalearthdata.com/',
+          license: 'Public domain',
+          scale: '1:10m',
+          count: capitalCount,
+        },
         tiles: {
           projection: 'Web Mercator (EPSG:3857)',
           minZoom: 0,
@@ -643,6 +686,7 @@ async function main() {
         featureCount,
         indexCount,
         regionCount,
+        capitalCount,
       },
       null,
       2,
@@ -652,6 +696,7 @@ async function main() {
   console.log(`countries: ${featureCount}`)
   console.log(`index: ${indexCount}`)
   console.log(`regions: ${regionCount}`)
+  console.log(`capitals: ${capitalCount}`)
   console.log(`tiles: ${tileCount}${skipTiles ? ' (skipped)' : ''}`)
   console.log('done')
 }

@@ -23,6 +23,7 @@ async function main() {
   const attributionPath = await assertExists('content/maps/attribution.json')
   const countriesPath = await assertExists('public/maps/countries.geojson')
   const indexPath = await assertExists('public/maps/country-index.json')
+  const capitalsPath = await assertExists('public/maps/capitals.geojson')
   await assertExists('public/maplibre/maplibre-gl-worker.mjs')
   await assertExists('public/maplibre/maplibre-gl-shared.mjs')
   await assertExists('public/maplibre/fonts/Open Sans Regular/0-255.pbf')
@@ -32,6 +33,7 @@ async function main() {
   const attribution = JSON.parse(await readFile(attributionPath, 'utf8'))
   const countries = JSON.parse(await readFile(countriesPath, 'utf8'))
   const index = JSON.parse(await readFile(indexPath, 'utf8'))
+  const capitals = JSON.parse(await readFile(capitalsPath, 'utf8'))
 
   if (!Array.isArray(countries.features) || countries.features.length < 190) {
     throw new Error(`Expected ≥190 country features, got ${countries.features?.length}`)
@@ -76,11 +78,29 @@ async function main() {
     if (!Array.isArray(entry.bounds) || entry.bounds.length !== 2) {
       throw new Error(`Bad bounds for ${entry.code}`)
     }
+    if (
+      !Array.isArray(entry.capital) ||
+      entry.capital.length !== 2 ||
+      !entry.capitalName
+    ) {
+      throw new Error(`Explore country ${entry.code} is missing a capital point`)
+    }
   }
   if (indexedExplore.length !== exploreCodes.size) {
     throw new Error(
       `Explore coverage mismatch: index has ${indexedExplore.length}, countries.ts has ${exploreCodes.size}`,
     )
+  }
+  if (!Array.isArray(capitals.features) || capitals.features.length < 190) {
+    throw new Error(`Expected ≥190 capital points, got ${capitals.features?.length}`)
+  }
+  const capitalCodes = new Set(
+    capitals.features.map((feature) => feature.properties?.code),
+  )
+  for (const code of exploreCodes) {
+    if (!capitalCodes.has(code)) {
+      throw new Error(`Missing capital point for Explore country ${code}`)
+    }
   }
 
   // Natural Earth 50m omits these Explore microstates; prepare:maps injects
@@ -111,7 +131,7 @@ async function main() {
   }
 
   console.log(
-    `validate:maps ok — ${countries.features.length} borders, ${indexedExplore.length} explore cameras, ${index.regions.length} regions, tiles z0–z${maxZoom}`,
+    `validate:maps ok — ${countries.features.length} borders, ${indexedExplore.length} explore cameras, ${capitals.features.length} capitals, ${index.regions.length} regions, tiles z0–z${maxZoom}`,
   )
 }
 

@@ -18,6 +18,9 @@ export const MAP_COUNTRIES_URL = '/maps/countries.geojson'
 /** Compact camera index for search, deep links, and antimeridian framing. */
 export const MAP_COUNTRY_INDEX_URL = '/maps/country-index.json'
 
+/** Admin-0 capital points (Natural Earth + atlas capital names). */
+export const MAP_CAPITALS_URL = '/maps/capitals.geojson'
+
 /** First-party MapLibre SDF glyphs (Open Sans Regular / Bold). */
 export const MAP_GLYPHS_URL = '/maplibre/fonts/{fontstack}/{range}.pbf'
 
@@ -68,6 +71,9 @@ export type MapCountryIndexEntry = {
   center: [number, number]
   bounds: [[number, number], [number, number]]
   maxZoom: number
+  /** Admin-0 capital [lng, lat] when known. */
+  capital?: [number, number]
+  capitalName?: string
 }
 
 export type MapRegionCamera = {
@@ -92,6 +98,10 @@ export type MapCountryPhoto = {
   alt: string
   src: string
   href: string
+  /** Short atlas orientation blurb for the selection plate. */
+  aboutExcerpt: string
+  /** Notable place names from the Explore field guide. */
+  places: string[]
 }
 
 export type MapFocus =
@@ -248,12 +258,25 @@ export type MapLabelFeatureCollection = {
       name: string
       code?: string
       rank: number
+      labelMinZoom?: number
     }
     geometry: {
       type: 'Point'
       coordinates: [number, number]
     }
   }>
+}
+
+/** Zoom floor so microstates wait until the camera is close enough. */
+export function countryLabelMinZoom(
+  bounds: [[number, number], [number, number]],
+): number {
+  const area = boundsArea(bounds)
+  if (area >= 80) return 2.1
+  if (area >= 20) return 3.0
+  if (area >= 5) return 4.0
+  if (area >= 1) return 4.8
+  return 5.4
 }
 
 /** Point labels at country index centers, ranked so large places win collisions. */
@@ -272,6 +295,7 @@ export function buildCountryLabelCollection(
           code: entry.code,
           // Lower sort-key → placed first in MapLibre.
           rank: -Math.round(boundsArea(entry.bounds) * 100),
+          labelMinZoom: countryLabelMinZoom(entry.bounds),
         },
         geometry: {
           type: 'Point' as const,
@@ -446,6 +470,25 @@ export function buildGraticuleCollection(step = 30): MapLineFeatureCollection {
   return { type: 'FeatureCollection', features }
 }
 
+export type MapSuggestionMatchKind = 'name' | 'code' | 'slug' | 'capital'
+
+/** Why a country index row matched the combobox query. */
+export function mapCountrySuggestionMatchKind(
+  entry: MapCountryIndexEntry,
+  query: string,
+  capitals: Readonly<Record<string, string>> = {},
+): MapSuggestionMatchKind | null {
+  const trimmed = query.trim().toLowerCase()
+  if (!trimmed) return null
+  if (entry.code.toLowerCase() === trimmed) return 'code'
+  if (entry.slug?.toLowerCase() === trimmed) return 'slug'
+  if (entry.name.toLowerCase().includes(trimmed)) return 'name'
+  const capital =
+    (entry.capitalName ?? capitals[entry.code] ?? '').toLowerCase()
+  if (capital.length > 0 && capital.includes(trimmed)) return 'capital'
+  return null
+}
+
 /** Country index filter for the Maps combobox (name, code, slug, capital). */
 export function filterMapCountrySuggestions(
   countries: readonly MapCountryIndexEntry[],
@@ -453,19 +496,19 @@ export function filterMapCountrySuggestions(
   capitals: Readonly<Record<string, string>> = {},
   limit = 8,
 ): MapCountryIndexEntry[] {
-  const trimmed = query.trim().toLowerCase()
-  if (!trimmed) return []
+  if (!query.trim()) return []
   return countries
-    .filter((entry) => {
-      const capital = capitals[entry.code]?.toLowerCase() ?? ''
-      return (
-        entry.name.toLowerCase().includes(trimmed) ||
-        entry.code.toLowerCase() === trimmed ||
-        entry.slug?.toLowerCase() === trimmed ||
-        (capital.length > 0 && capital.includes(trimmed))
-      )
-    })
+    .filter((entry) => mapCountrySuggestionMatchKind(entry, query, capitals))
     .slice(0, limit)
+}
+
+/** Shorten atlas orientation prose for the Maps selection plate. */
+export function excerptMapAbout(about: string, max = 170): string {
+  const trimmed = about.replace(/\s+/g, ' ').trim()
+  if (trimmed.length <= max) return trimmed
+  const cut = trimmed.slice(0, max)
+  const lastSpace = cut.lastIndexOf(' ')
+  return `${cut.slice(0, lastSpace > 90 ? lastSpace : max).trimEnd()}…`
 }
 
 export type MapShareResult = 'shared' | 'copied' | 'failed' | 'aborted'

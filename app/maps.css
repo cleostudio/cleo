@@ -472,6 +472,20 @@ html[data-maps-route] body {
   padding: 0.75rem 0.85rem;
 }
 
+.earth-map-selection-about,
+.earth-map-selection-places {
+  flex: 1 1 100%;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  letter-spacing: -0.011em;
+  line-height: 1.4;
+}
+
+.earth-map-selection-places {
+  margin-top: -0.35rem;
+}
+
 .earth-map-photo {
   display: grid;
   grid-template-columns: 4.75rem minmax(0, 1fr);

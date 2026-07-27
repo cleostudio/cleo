@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 
 import { EarthMap } from '~/components/earth-map'
 import { localeMetadata } from '~/lib/locale-metadata'
+import { loadMapCountryIndex } from '~/lib/maps-index'
 import { mapCountryPhotos } from '~/lib/maps-photos'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 
@@ -16,6 +17,7 @@ export function mapsPageMetadata() {
 
 export function MapsPageView() {
   const countryPhotos = mapCountryPhotos()
+  const countryIndex = loadMapCountryIndex()
 
   return (
     <div className="maps-page">
@@ -31,7 +33,10 @@ export function MapsPageView() {
           </div>
         }
       >
-        <EarthMap countryPhotos={countryPhotos} />
+        <EarthMap
+          countryPhotos={countryPhotos}
+          initialIndex={countryIndex}
+        />
       </Suspense>
     </div>
   )
