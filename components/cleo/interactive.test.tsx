@@ -154,6 +154,43 @@ describe('InteractiveBlock generative widgets', () => {
     ).toBe('Mount Fuji')
   })
 
+  it('focuses scale bars and shows relative magnitude', () => {
+    render(
+      <InteractiveBlock
+        block={{
+          type: 'scale',
+          title: 'Mean diameter',
+          unit: 'km',
+          items: [
+            {
+              label: 'Earth',
+              value: 12742,
+              note: 'Reference rocky world.',
+              href: '/space/earth',
+            },
+            {
+              label: 'Mars',
+              value: 6779,
+              note: 'About half Earth.',
+              href: '/space/mars',
+            },
+          ],
+        }}
+      />,
+    )
+
+    expect(screen.getByText(/largest/i)).toBeTruthy()
+    expect(
+      screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
+    ).toBe('/space/earth')
+    fireEvent.click(screen.getByRole('option', { name: /Mars/i }))
+    expect(screen.getByText(/About half Earth/i)).toBeTruthy()
+    expect(screen.getByText(/% of largest/i)).toBeTruthy()
+    expect(
+      screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
+    ).toBe('/space/mars')
+  })
+
   it('walks a reading path and marks stops done', () => {
     render(
       <InteractiveBlock
@@ -180,6 +217,27 @@ describe('InteractiveBlock generative widgets', () => {
     fireEvent.click(screen.getByRole('button', { name: /Continue/i }))
     expect(screen.getByText('Then dense continuity.')).toBeTruthy()
     expect(screen.getByText('1 of 2 complete')).toBeTruthy()
+  })
+
+  it('expands all cards when available', () => {
+    render(
+      <InteractiveBlock
+        block={{
+          type: 'cards',
+          title: 'Moons',
+          cards: [
+            { label: 'Io', summary: 'Volcanic', detail: 'Detail Io' },
+            { label: 'Europa', summary: 'Icy', detail: 'Detail Europa' },
+            { label: 'Ganymede', summary: 'Largest', detail: 'Detail Ganymede' },
+          ],
+        }}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: 'Expand all' }))
+    expect(screen.getByText('Detail Io')).toBeTruthy()
+    expect(screen.getByText('Detail Europa')).toBeTruthy()
+    expect(screen.getByText('Detail Ganymede')).toBeTruthy()
   })
 
   it('expands all facts and timeline details when available', () => {

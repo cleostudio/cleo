@@ -3,8 +3,8 @@
  *
  * The model embeds fenced `cleo` JSON in assistant Markdown. The client
  * parses those fences into typed widgets (tabs, timeline, facts, compare,
- * steps, cards, gallery, path) that the user interacts with in place — part
- * of the answer, not suggestion chips or quizzes.
+ * steps, cards, gallery, path, scale) that the user interacts with in place —
+ * part of the answer, not suggestion chips or quizzes.
  */
 
 import { isCuratedTopicImageSrc } from '~/lib/cleo/portal-links'
@@ -57,6 +57,13 @@ export type CleoPathStop = {
   title: string
 }
 
+export type CleoScaleItem = {
+  href?: string
+  label: string
+  note?: string
+  value: number
+}
+
 export type CleoTabsBlock = {
   tabs: CleoTabItem[]
   title?: string
@@ -107,6 +114,13 @@ export type CleoPathBlock = {
   type: 'path'
 }
 
+export type CleoScaleBlock = {
+  items: CleoScaleItem[]
+  title?: string
+  type: 'scale'
+  unit?: string
+}
+
 export type CleoInteractiveBlock =
   | CleoTabsBlock
   | CleoTimelineBlock
@@ -116,6 +130,7 @@ export type CleoInteractiveBlock =
   | CleoCardsBlock
   | CleoGalleryBlock
   | CleoPathBlock
+  | CleoScaleBlock
 
 export type CleoMarkdownSegment =
   | {
@@ -140,6 +155,8 @@ const MAX_STEPS = 6
 const MAX_CARDS = 6
 const MAX_GALLERY = 6
 const MAX_PATH_STOPS = 6
+const MAX_SCALE_ITEMS = 6
+const MAX_SCALE_VALUE = 1e15
 const MAX_LABEL = 64
 const MAX_SHORT = 120
 const MAX_BODY = 700
@@ -584,6 +601,85 @@ function parsePathBlock(value: Record<string, unknown>): CleoPathBlock | null {
   return withOptionalTitle({ type: 'path', stops }, parseOptionalTitle(value))
 }
 
+function parseScaleValue(value: unknown): number | null {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    return null
+  }
+  if (value <= 0 || value > MAX_SCALE_VALUE) {
+    return null
+  }
+  return value
+}
+
+/** Format a scale magnitude for display (compact when large). */
+export function formatScaleValue(value: number): string {
+  return new Intl.NumberFormat('en', {
+    maximumFractionDigits: value >= 100 ? 0 : 2,
+    notation: value >= 10_000 ? 'compact' : 'standard',
+  }).format(value)
+}
+
+function parseScaleBlock(value: Record<string, unknown>): CleoScaleBlock | null {
+  if (
+    !Array.isArray(value.items) ||
+    value.items.length < 2 ||
+    value.items.length > MAX_SCALE_ITEMS
+  ) {
+    return null
+  }
+
+  const items: CleoScaleItem[] = []
+  for (const entry of value.items) {
+    if (typeof entry !== 'object' || entry === null) {
+      return null
+    }
+    const label = trimString(
+      'label' in entry ? entry.label : undefined,
+      MAX_LABEL,
+    )
+    const magnitude = parseScaleValue(
+      'value' in entry ? entry.value : undefined,
+    )
+    if (!label || magnitude === null) {
+      return null
+    }
+    const item: CleoScaleItem = { label, value: magnitude }
+    if ('note' in entry && entry.note !== undefined) {
+      const note = trimString(entry.note, MAX_BODY)
+      if (!note) {
+        return null
+      }
+      item.note = note
+    }
+    if ('href' in entry && entry.href !== undefined) {
+      const href = parseOptionalHref(entry.href)
+      if (href === null) {
+        return null
+      }
+      if (href !== undefined) {
+        item.href = href
+      }
+    }
+    items.push(item)
+  }
+
+  let unit: string | undefined
+  if ('unit' in value && value.unit !== undefined) {
+    const parsedUnit = trimString(value.unit, MAX_LABEL)
+    if (!parsedUnit) {
+      return null
+    }
+    unit = parsedUnit
+  }
+
+  return withOptionalTitle(
+    unit
+      ? { type: 'scale', items, unit }
+      : { type: 'scale', items },
+    parseOptionalTitle(value),
+  )
+}
+
 /** Parse and validate one fenced `cleo` JSON payload. */
 export function parseCleoInteractiveBlock(
   raw: string,
@@ -623,6 +719,8 @@ export function parseCleoInteractiveBlock(
       return parseGalleryBlock(record)
     case 'path':
       return parsePathBlock(record)
+    case 'scale':
+      return parseScaleBlock(record)
     default:
       return null
   }

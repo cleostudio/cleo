@@ -201,6 +201,6 @@ export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Compare Mars and Earth',
     prompt:
-      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide, include a cleo compare widget with hrefs for both columns, and a cleo cards widget for related worlds with guide hrefs and curated images when available.',
+      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide, include a cleo compare widget with hrefs for both columns, and a cleo scale widget for mean diameters in km.',
   },
 ] as const

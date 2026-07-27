@@ -19,6 +19,7 @@ import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { ZoomImage } from '~/components/zoom-image'
 import {
   type CleoInteractiveBlock,
+  formatScaleValue,
   isCleoWidgetHref,
 } from '~/lib/cleo/interactive'
 import { topicPhotoZoomForSrc } from '~/lib/cleo/topic-photo-zoom'
@@ -387,20 +388,40 @@ function CompareWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'compare' }>
 }) {
+  const baseId = useId()
   const [focus, setFocus] = useState(0)
   const focusedLabel = block.columns[focus] ?? block.columns[0]
   const focusedHref = block.hrefs?.[focus]
 
+  function onSubjectsKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
+      return
+    }
+    event.preventDefault()
+    const delta = event.key === 'ArrowRight' ? 1 : -1
+    const next =
+      (focus + delta + block.columns.length) % block.columns.length
+    setFocus(next)
+    document.getElementById(`${baseId}-subject-${next}`)?.focus()
+  }
+
   return (
     <WidgetShell title={block.title}>
-      <div className="cleo-widget-compare-subjects" role="group">
+      <div
+        aria-label={block.title ?? 'Subjects'}
+        className="cleo-widget-compare-subjects"
+        onKeyDown={onSubjectsKeyDown}
+        role="group"
+      >
         {block.columns.map((column, index) => (
           <button
             aria-pressed={focus === index}
             className="cleo-widget-compare-subject"
             data-active={focus === index || undefined}
+            id={`${baseId}-subject-${index}`}
             key={column}
             onClick={() => setFocus(index)}
+            tabIndex={focus === index ? 0 : -1}
             type="button"
           >
             {column}
@@ -564,10 +585,33 @@ function CardsWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'cards' }>
 }) {
+  const expandableIndexes = block.cards
+    .map((card, index) =>
+      card.detail || card.href || card.image ? index : -1,
+    )
+    .filter((index) => index >= 0)
   const [open, setOpen] = useState<ReadonlySet<number>>(() => new Set())
+  const allOpen =
+    expandableIndexes.length > 0 &&
+    expandableIndexes.every((index) => open.has(index))
 
   return (
-    <WidgetShell title={block.title}>
+    <WidgetShell
+      actions={
+        expandableIndexes.length >= 3 ? (
+          <button
+            className="cleo-widget-header-action"
+            onClick={() =>
+              setOpen(allOpen ? new Set() : new Set(expandableIndexes))
+            }
+            type="button"
+          >
+            {allOpen ? 'Collapse all' : 'Expand all'}
+          </button>
+        ) : null
+      }
+      title={block.title}
+    >
       <div className="cleo-widget-cards">
         {block.cards.map((card, index) => {
           const expandable = Boolean(card.detail || card.href || card.image)
@@ -643,7 +687,10 @@ function GalleryWidget({
     )
   }
 
-  function onThumbKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+  function onGalleryKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (!multi) {
+      return
+    }
     if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
       return
     }
@@ -653,7 +700,11 @@ function GalleryWidget({
 
   return (
     <WidgetShell title={block.title}>
-      <div className="cleo-widget-gallery">
+      <div
+        className="cleo-widget-gallery"
+        onKeyDown={onGalleryKeyDown}
+        tabIndex={multi ? 0 : undefined}
+      >
         <div className="cleo-widget-gallery-stage" key={active}>
           <WidgetPhoto alt={current.caption} src={current.src} />
           <div className="cleo-widget-gallery-meta">
@@ -697,7 +748,6 @@ function GalleryWidget({
             <div
               aria-label="Photographs"
               className="cleo-widget-gallery-thumbs"
-              onKeyDown={onThumbKeyDown}
               role="listbox"
             >
               {block.items.map((item, index) => {
@@ -862,6 +912,100 @@ function PathWidget({
   )
 }
 
+function ScaleWidget({
+  block,
+}: {
+  block: Extract<CleoInteractiveBlock, { type: 'scale' }>
+}) {
+  const baseId = useId()
+  const [focus, setFocus] = useState(0)
+  const max = Math.max(...block.items.map((item) => item.value))
+  const current = block.items[focus] ?? block.items[0]
+  const relative = Math.round((current.value / max) * 100)
+
+  function onListKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') {
+      return
+    }
+    event.preventDefault()
+    const delta = event.key === 'ArrowDown' ? 1 : -1
+    const next = (focus + delta + block.items.length) % block.items.length
+    setFocus(next)
+    document.getElementById(`${baseId}-item-${next}`)?.focus()
+  }
+
+  return (
+    <WidgetShell title={block.title}>
+      <div className="cleo-widget-scale">
+        <div
+          aria-label={block.title ?? 'Scale'}
+          className="cleo-widget-scale-list"
+          onKeyDown={onListKeyDown}
+          role="listbox"
+        >
+          {block.items.map((item, index) => {
+            const selected = index === focus
+            const width = Math.max(4, (item.value / max) * 100)
+            return (
+              <button
+                aria-selected={selected}
+                className="cleo-widget-scale-row"
+                data-active={selected || undefined}
+                id={`${baseId}-item-${index}`}
+                key={`${item.label}-${index}`}
+                onClick={() => setFocus(index)}
+                role="option"
+                tabIndex={selected ? 0 : -1}
+                type="button"
+              >
+                <span className="cleo-widget-scale-label">{item.label}</span>
+                <span className="cleo-widget-scale-track" aria-hidden="true">
+                  <span
+                    className="cleo-widget-scale-fill"
+                    style={{ width: `${width}%` }}
+                  />
+                </span>
+                <span className="cleo-widget-scale-value">
+                  {formatScaleValue(item.value)}
+                  {block.unit ? (
+                    <span className="cleo-widget-scale-unit">
+                      {' '}
+                      {block.unit}
+                    </span>
+                  ) : null}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+
+        <div className="cleo-widget-scale-focus" key={focus}>
+          <p className="cleo-widget-scale-focus-label">{current.label}</p>
+          <p className="cleo-widget-scale-focus-value">
+            {formatScaleValue(current.value)}
+            {block.unit ? ` ${block.unit}` : ''}
+            {relative < 100 ? (
+              <span className="cleo-widget-scale-relative">
+                {' '}
+                · {relative}% of largest
+              </span>
+            ) : (
+              <span className="cleo-widget-scale-relative"> · largest</span>
+            )}
+          </p>
+          {current.note ? <WidgetProse text={current.note} /> : null}
+          {current.href ? (
+            <Link className="cleo-widget-guide-link" href={current.href}>
+              Open guide
+              <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            </Link>
+          ) : null}
+        </div>
+      </div>
+    </WidgetShell>
+  )
+}
+
 export function InteractiveBlock({
   block,
   className,
@@ -881,8 +1025,10 @@ export function InteractiveBlock({
       <CardsWidget block={block} />
     ) : block.type === 'gallery' ? (
       <GalleryWidget block={block} />
-    ) : (
+    ) : block.type === 'path' ? (
       <PathWidget block={block} />
+    ) : (
+      <ScaleWidget block={block} />
     )
 
   return <div className={cn('cleo-interactive', className)}>{content}</div>

@@ -32,6 +32,7 @@ describe('portal catalog instructions', () => {
     expect(CLEO_INSTRUCTIONS).toContain('"type":"cards"')
     expect(CLEO_INSTRUCTIONS).toContain('"type":"gallery"')
     expect(CLEO_INSTRUCTIONS).toContain('"type":"path"')
+    expect(CLEO_INSTRUCTIONS).toContain('"type":"scale"')
     expect(CLEO_INSTRUCTIONS).toContain('"type":"compare"')
     expect(CLEO_INSTRUCTIONS).toContain('"hrefs"')
     expect(CLEO_INSTRUCTIONS).not.toContain('"type":"quiz"')

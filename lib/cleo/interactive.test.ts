@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  formatScaleValue,
   isCleoWidgetHref,
   normalizeCuratedWidgetImage,
   parseCleoInteractiveBlock,
@@ -56,6 +57,52 @@ describe('parseCleoInteractiveBlock', () => {
       type: 'cards',
       cards: [{ image: '/images/space/io/w1280.jpg' }, { label: 'Ganymede' }],
     })
+  })
+
+  it('parses scale widgets with units and notes', () => {
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'scale',
+          title: 'Mean diameter',
+          unit: 'km',
+          items: [
+            {
+              label: 'Earth',
+              value: 12742,
+              note: 'Reference rocky world.',
+              href: '/space/earth',
+            },
+            { label: 'Mars', value: 6779, href: '/space/mars' },
+          ],
+        }),
+      ),
+    ).toEqual({
+      type: 'scale',
+      title: 'Mean diameter',
+      unit: 'km',
+      items: [
+        {
+          label: 'Earth',
+          value: 12742,
+          note: 'Reference rocky world.',
+          href: '/space/earth',
+        },
+        { label: 'Mars', value: 6779, href: '/space/mars' },
+      ],
+    })
+
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'scale',
+          items: [
+            { label: 'Earth', value: 0 },
+            { label: 'Mars', value: 6779 },
+          ],
+        }),
+      ),
+    ).toBeNull()
   })
 
   it('parses path widgets and compare hrefs', () => {
@@ -187,5 +234,7 @@ describe('helpers', () => {
     )
     expect(isCleoWidgetHref('/explore/japan')).toBe(true)
     expect(isCleoWidgetHref('/cleo')).toBe(false)
+    expect(formatScaleValue(12742)).toBe('12,742')
+    expect(formatScaleValue(1_200_000)).toMatch(/1\.2/)
   })
 })
