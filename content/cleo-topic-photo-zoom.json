@@ -13895,6 +13895,774 @@
       }
     ]
   },
+  "places/sacramento": {
+    "collection": "places",
+    "title": "Sacramento",
+    "subtitle": "Sacramento",
+    "alt": "Sacramento in United States",
+    "photographer": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2545,
+    "renditions": [
+      {
+        "src": "/images/places/sacramento/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sacramento/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sacramento/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/indianapolis": {
+    "collection": "places",
+    "title": "Indianapolis",
+    "subtitle": "Indianapolis",
+    "alt": "Indianapolis in United States",
+    "photographer": "TheWxResearcher",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/indianapolis/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/indianapolis/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/indianapolis/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/oklahoma-city": {
+    "collection": "places",
+    "title": "Oklahoma City",
+    "subtitle": "Oklahoma City",
+    "alt": "Oklahoma City in United States",
+    "photographer": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2170,
+    "renditions": [
+      {
+        "src": "/images/places/oklahoma-city/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/oklahoma-city/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/oklahoma-city/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/winnipeg": {
+    "collection": "places",
+    "title": "Winnipeg",
+    "subtitle": "Winnipeg",
+    "alt": "Winnipeg in Canada",
+    "photographer": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/winnipeg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/winnipeg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/winnipeg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cordoba-ar": {
+    "collection": "places",
+    "title": "Córdoba",
+    "subtitle": "Córdoba",
+    "alt": "Córdoba in Argentina",
+    "photographer": "Alakasam",
+    "license": "CC BY-SA 3.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/cordoba-ar/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cordoba-ar/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cordoba-ar/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/asuncion": {
+    "collection": "places",
+    "title": "Asunción",
+    "subtitle": "Asunción",
+    "alt": "Asunción in Paraguay",
+    "photographer": "W. Bulach",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2516,
+    "renditions": [
+      {
+        "src": "/images/places/asuncion/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/asuncion/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/asuncion/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/goiania": {
+    "collection": "places",
+    "title": "Goiânia",
+    "subtitle": "Goiânia",
+    "alt": "Goiânia in Brazil",
+    "photographer": "Boaventuravinicius",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/goiania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/goiania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/goiania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/zagreb": {
+    "collection": "places",
+    "title": "Zagreb",
+    "subtitle": "Zagreb",
+    "alt": "Zagreb in Croatia",
+    "photographer": "Branko Radovanović",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1187,
+    "renditions": [
+      {
+        "src": "/images/places/zagreb/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/zagreb/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/zagreb/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sarajevo": {
+    "collection": "places",
+    "title": "Sarajevo",
+    "subtitle": "Sarajevo",
+    "alt": "Sarajevo in Bosnia and Herzegovina",
+    "photographer": "Julian Nyča",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/sarajevo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sarajevo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sarajevo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kochi": {
+    "collection": "places",
+    "title": "Kochi",
+    "subtitle": "Kochi",
+    "alt": "Kochi in India",
+    "photographer": "Vis M",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/kochi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kochi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kochi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hiroshima": {
+    "collection": "places",
+    "title": "Hiroshima",
+    "subtitle": "Hiroshima",
+    "alt": "Hiroshima in Japan",
+    "photographer": "DXR",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2468,
+    "renditions": [
+      {
+        "src": "/images/places/hiroshima/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hiroshima/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hiroshima/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/leuven": {
+    "collection": "places",
+    "title": "Leuven",
+    "subtitle": "Leuven",
+    "alt": "Leuven in Belgium",
+    "photographer": "Latinista",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/leuven/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/leuven/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/leuven/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ohio": {
+    "collection": "places",
+    "title": "Ohio",
+    "subtitle": "Ohio",
+    "alt": "Ohio in United States",
+    "photographer": "Aaron Zhu",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/ohio/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ohio/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ohio/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/new-brunswick": {
+    "collection": "places",
+    "title": "New Brunswick",
+    "subtitle": "New Brunswick",
+    "alt": "New Brunswick in Canada",
+    "photographer": "The Cosmonaut",
+    "license": "CC BY-SA 2.5 ca",
+    "width": 3840,
+    "height": 2442,
+    "renditions": [
+      {
+        "src": "/images/places/new-brunswick/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/new-brunswick/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/new-brunswick/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/maharashtra": {
+    "collection": "places",
+    "title": "Maharashtra",
+    "subtitle": "Maharashtra",
+    "alt": "Maharashtra in India",
+    "photographer": "Shishirdasika",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2558,
+    "renditions": [
+      {
+        "src": "/images/places/maharashtra/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/maharashtra/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/maharashtra/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/amorgos": {
+    "collection": "places",
+    "title": "Amorgos",
+    "subtitle": "Amorgos",
+    "alt": "Amorgos in Greece",
+    "photographer": "Apenauta at Italian Wikipedia",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/amorgos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/amorgos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/amorgos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/karpathos": {
+    "collection": "places",
+    "title": "Karpathos",
+    "subtitle": "Karpathos",
+    "alt": "Karpathos in Greece",
+    "photographer": "Ввласенко",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1562,
+    "renditions": [
+      {
+        "src": "/images/places/karpathos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/karpathos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/karpathos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/la-graciosa": {
+    "collection": "places",
+    "title": "La Graciosa",
+    "subtitle": "La Graciosa",
+    "alt": "La Graciosa in Spain",
+    "photographer": "Edmundo Sáez",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2097,
+    "renditions": [
+      {
+        "src": "/images/places/la-graciosa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/la-graciosa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/la-graciosa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/arran": {
+    "collection": "places",
+    "title": "Isle of Arran",
+    "subtitle": "Isle of Arran",
+    "alt": "Isle of Arran in United Kingdom",
+    "photographer": "Clydecoast",
+    "license": "CC BY-SA 3.0",
+    "width": 3823,
+    "height": 2562,
+    "renditions": [
+      {
+        "src": "/images/places/arran/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/arran/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/arran/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/st-barthelemy": {
+    "collection": "places",
+    "title": "Saint Barthélemy",
+    "subtitle": "Saint Barthélemy",
+    "alt": "Saint Barthélemy in France",
+    "photographer": "User:Mattes",
+    "license": "CC BY 2.0 de",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/st-barthelemy/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/st-barthelemy/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/st-barthelemy/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/anguilla": {
+    "collection": "places",
+    "title": "Anguilla",
+    "subtitle": "Anguilla",
+    "alt": "Anguilla in United Kingdom",
+    "photographer": "therealaxalady",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2157,
+    "renditions": [
+      {
+        "src": "/images/places/anguilla/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/anguilla/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/anguilla/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/puglia": {
+    "collection": "places",
+    "title": "Puglia",
+    "subtitle": "Puglia",
+    "alt": "Puglia in Italy",
+    "photographer": "Maurizio Moro5153",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2272,
+    "renditions": [
+      {
+        "src": "/images/places/puglia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/puglia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/puglia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/carinthia": {
+    "collection": "places",
+    "title": "Carinthia",
+    "subtitle": "Carinthia",
+    "alt": "Carinthia in Austria",
+    "photographer": "Carsten Steger",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2508,
+    "renditions": [
+      {
+        "src": "/images/places/carinthia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/carinthia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/carinthia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/barossa-valley": {
+    "collection": "places",
+    "title": "Barossa Valley",
+    "subtitle": "Barossa Valley",
+    "alt": "Barossa Valley in Australia",
+    "photographer": "User:DXR",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "src": "/images/places/barossa-valley/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/barossa-valley/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/barossa-valley/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/extremadura": {
+    "collection": "places",
+    "title": "Extremadura",
+    "subtitle": "Extremadura",
+    "alt": "Extremadura in Spain",
+    "photographer": "Fernando",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/extremadura/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/extremadura/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/extremadura/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/maramures": {
+    "collection": "places",
+    "title": "Maramureș",
+    "subtitle": "Maramureș",
+    "alt": "Maramureș in Romania",
+    "photographer": "DimiTalen",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "src": "/images/places/maramures/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/maramures/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/maramures/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/big-ben": {
+    "collection": "places",
+    "title": "Big Ben",
+    "subtitle": "Big Ben",
+    "alt": "Big Ben in United Kingdom",
+    "photographer": "Domob",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1731,
+    "renditions": [
+      {
+        "src": "/images/places/big-ben/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/big-ben/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/big-ben/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/notre-dame": {
+    "collection": "places",
+    "title": "Notre-Dame",
+    "subtitle": "Notre-Dame",
+    "alt": "Notre-Dame in France",
+    "photographer": "Alvesgaspar",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2657,
+    "renditions": [
+      {
+        "src": "/images/places/notre-dame/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/notre-dame/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/notre-dame/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lincoln-memorial": {
+    "collection": "places",
+    "title": "Lincoln Memorial",
+    "subtitle": "Lincoln Memorial",
+    "alt": "Lincoln Memorial in United States",
+    "photographer": "颐园居",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/lincoln-memorial/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lincoln-memorial/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lincoln-memorial/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mount-rainier": {
+    "collection": "places",
+    "title": "Mount Rainier",
+    "subtitle": "Mount Rainier",
+    "alt": "Mount Rainier in United States",
+    "photographer": "Mount Rainier National Park from Ashford, WA, United States",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/mount-rainier/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mount-rainier/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mount-rainier/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/red-square": {
+    "collection": "places",
+    "title": "Red Square",
+    "subtitle": "Red Square",
+    "alt": "Red Square in Russia",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/places/red-square/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/red-square/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/red-square/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cn-tower": {
+    "collection": "places",
+    "title": "CN Tower",
+    "subtitle": "CN Tower",
+    "alt": "CN Tower in Canada",
+    "photographer": "Jchmrt",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2882,
+    "renditions": [
+      {
+        "src": "/images/places/cn-tower/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cn-tower/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cn-tower/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

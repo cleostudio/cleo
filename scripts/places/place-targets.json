@@ -4147,5 +4147,357 @@
       "Westminster Abbey London",
       "Westminster Abbey exterior"
     ]
+  },
+  "sacramento": {
+    "name": "Sacramento",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Sacramento",
+      "Sacramento skyline",
+      "Sacramento Capitol"
+    ]
+  },
+  "indianapolis": {
+    "name": "Indianapolis",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Indianapolis",
+      "Indianapolis skyline",
+      "Indianapolis Monument Circle"
+    ]
+  },
+  "oklahoma-city": {
+    "name": "Oklahoma City",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Oklahoma City",
+      "Oklahoma City skyline",
+      "Oklahoma City downtown"
+    ]
+  },
+  "winnipeg": {
+    "name": "Winnipeg",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": [
+      "Winnipeg",
+      "Winnipeg skyline",
+      "Winnipeg Manitoba"
+    ]
+  },
+  "cordoba-ar": {
+    "name": "Córdoba",
+    "countrySlug": "argentina",
+    "countryName": "Argentina",
+    "kind": "City",
+    "searchNames": [
+      "Córdoba Argentina",
+      "Cordoba Argentina",
+      "Córdoba skyline"
+    ]
+  },
+  "asuncion": {
+    "name": "Asunción",
+    "countrySlug": "paraguay",
+    "countryName": "Paraguay",
+    "kind": "City",
+    "searchNames": [
+      "Asunción",
+      "Asuncion",
+      "Asunción Paraguay"
+    ]
+  },
+  "goiania": {
+    "name": "Goiânia",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": [
+      "Goiânia",
+      "Goiania",
+      "Goiânia skyline"
+    ]
+  },
+  "zagreb": {
+    "name": "Zagreb",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "City",
+    "searchNames": [
+      "Zagreb",
+      "Zagreb skyline",
+      "Zagreb cathedral"
+    ]
+  },
+  "sarajevo": {
+    "name": "Sarajevo",
+    "countrySlug": "bosnia-and-herzegovina",
+    "countryName": "Bosnia and Herzegovina",
+    "kind": "City",
+    "searchNames": [
+      "Sarajevo",
+      "Sarajevo old town",
+      "Sarajevo Bosnia"
+    ]
+  },
+  "kochi": {
+    "name": "Kochi",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Kochi India",
+      "Cochin",
+      "Kochi harbor"
+    ]
+  },
+  "hiroshima": {
+    "name": "Hiroshima",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": [
+      "Hiroshima",
+      "Hiroshima city",
+      "Hiroshima Peace Memorial"
+    ]
+  },
+  "leuven": {
+    "name": "Leuven",
+    "countrySlug": "belgium",
+    "countryName": "Belgium",
+    "kind": "City",
+    "searchNames": [
+      "Leuven",
+      "Louvain",
+      "Leuven town hall"
+    ]
+  },
+  "ohio": {
+    "name": "Ohio",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Ohio",
+      "Ohio landscape",
+      "Hocking Hills Ohio"
+    ]
+  },
+  "new-brunswick": {
+    "name": "New Brunswick",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": [
+      "New Brunswick",
+      "Bay of Fundy",
+      "New Brunswick coast"
+    ]
+  },
+  "maharashtra": {
+    "name": "Maharashtra",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": [
+      "Maharashtra",
+      "Maharashtra India",
+      "Western Ghats Maharashtra"
+    ]
+  },
+  "amorgos": {
+    "name": "Amorgos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Amorgos",
+      "Amorgos Greece",
+      "Amorgos cliffs"
+    ]
+  },
+  "karpathos": {
+    "name": "Karpathos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Karpathos",
+      "Karpathos Greece",
+      "Karpathos island"
+    ]
+  },
+  "la-graciosa": {
+    "name": "La Graciosa",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Island",
+    "searchNames": [
+      "La Graciosa",
+      "La Graciosa Canary",
+      "Caleta de Sebo"
+    ]
+  },
+  "arran": {
+    "name": "Isle of Arran",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Isle of Arran",
+      "Arran Scotland",
+      "Goatfell Arran"
+    ]
+  },
+  "st-barthelemy": {
+    "name": "Saint Barthélemy",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": [
+      "Saint Barthélemy",
+      "St Barts",
+      "Gustavia St Barthelemy"
+    ]
+  },
+  "anguilla": {
+    "name": "Anguilla",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Anguilla",
+      "Anguilla beach",
+      "Anguilla Caribbean"
+    ]
+  },
+  "puglia": {
+    "name": "Puglia",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Puglia",
+      "Apulia",
+      "Puglia trulli"
+    ]
+  },
+  "carinthia": {
+    "name": "Carinthia",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "Region",
+    "searchNames": [
+      "Carinthia",
+      "Kärnten",
+      "Carinthia lakes"
+    ]
+  },
+  "barossa-valley": {
+    "name": "Barossa Valley",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Region",
+    "searchNames": [
+      "Barossa Valley",
+      "Barossa vineyards",
+      "Barossa South Australia"
+    ]
+  },
+  "extremadura": {
+    "name": "Extremadura",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": [
+      "Extremadura",
+      "Extremadura Spain",
+      "Cáceres Extremadura"
+    ]
+  },
+  "maramures": {
+    "name": "Maramureș",
+    "countrySlug": "romania",
+    "countryName": "Romania",
+    "kind": "Region",
+    "searchNames": [
+      "Maramureș",
+      "Maramures",
+      "Maramureș wooden churches"
+    ]
+  },
+  "big-ben": {
+    "name": "Big Ben",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": [
+      "Big Ben",
+      "Elizabeth Tower",
+      "Big Ben London"
+    ]
+  },
+  "notre-dame": {
+    "name": "Notre-Dame",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": [
+      "Notre-Dame",
+      "Notre-Dame de Paris",
+      "Notre Dame cathedral"
+    ]
+  },
+  "lincoln-memorial": {
+    "name": "Lincoln Memorial",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Lincoln Memorial",
+      "Lincoln Memorial Washington",
+      "Lincoln Memorial exterior"
+    ]
+  },
+  "mount-rainier": {
+    "name": "Mount Rainier",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mount Rainier",
+      "Mount Rainier National Park",
+      "Rainier summit"
+    ]
+  },
+  "red-square": {
+    "name": "Red Square",
+    "countrySlug": "russia",
+    "countryName": "Russia",
+    "kind": "Landmark",
+    "searchNames": [
+      "Red Square",
+      "Red Square Moscow",
+      "Saint Basil Red Square"
+    ]
+  },
+  "cn-tower": {
+    "name": "CN Tower",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "Landmark",
+    "searchNames": [
+      "CN Tower",
+      "CN Tower Toronto",
+      "CN Tower skyline"
+    ]
   }
 }
