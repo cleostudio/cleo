@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import {
   CLEO_PORTAL_STARTERS,
   extractPortalGuideLinks,
+  extractPortalMapLinks,
   isCuratedTopicImageSrc,
   presentPortalGuideMarkdown,
   presentTopicPhotoMarkdown,
@@ -158,6 +159,50 @@ describe('presentTopicPhotoMarkdown', () => {
   })
 })
 
+describe('extractPortalMapLinks', () => {
+  it('collects unique Maps country and region deep links', () => {
+    const markdown = [
+      'See [Japan on the map](/maps?country=japan&labels=0).',
+      'Then [Africa](/maps?region=africa).',
+      'Repeat [Japan again](/maps?country=japan) should dedupe by canonical href.',
+      'Ignore [bare maps](/maps) and [docs](https://example.com/maps?country=japan).',
+    ].join(' ')
+
+    expect(extractPortalMapLinks(markdown)).toEqual([
+      {
+        kind: 'country',
+        href: '/maps?country=japan',
+        label: 'Japan on the map',
+        value: 'japan',
+      },
+      {
+        kind: 'region',
+        href: '/maps?region=africa',
+        label: 'Africa',
+        value: 'africa',
+      },
+    ])
+  })
+})
+
+describe('presentPortalGuideMarkdown maps links', () => {
+  it('keeps the first Maps deep link and turns later repeats into plain text', () => {
+    const markdown = [
+      'Start with [Japan on the map](/maps?country=japan).',
+      '',
+      'Also [Japan again](/maps?country=japan&graticule=1).',
+    ].join('\n')
+
+    expect(presentPortalGuideMarkdown(markdown)).toBe(
+      [
+        'Start with [Japan on the map](/maps?country=japan).',
+        '',
+        'Also Japan again on the map.',
+      ].join('\n'),
+    )
+  })
+})
+
 describe('CLEO_PORTAL_STARTERS', () => {
   it('ships a small set of portal-oriented prompts', () => {
     expect(CLEO_PORTAL_STARTERS.length).toBeGreaterThanOrEqual(3)
@@ -165,7 +210,9 @@ describe('CLEO_PORTAL_STARTERS', () => {
       true,
     )
     expect(
-      CLEO_PORTAL_STARTERS.some((starter) => /maps/i.test(starter.prompt)),
+      CLEO_PORTAL_STARTERS.some((starter) =>
+        /maps\?country=japan/i.test(starter.prompt),
+      ),
     ).toBe(true)
     expect(
       CLEO_PORTAL_STARTERS.some((starter) =>

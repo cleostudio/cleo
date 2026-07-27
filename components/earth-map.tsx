@@ -8,6 +8,7 @@ import {
   Map as MapLibreMap,
   NavigationControl,
   ScaleControl,
+  type FilterSpecification,
   type GeoJSONSource,
   type MapLayerMouseEvent,
   type MapMouseEvent,
@@ -112,9 +113,9 @@ function basemapStyle(): StyleSpecification {
 }
 
 const BORDER_LAYER_IDS = ['country-fill', 'country-line'] as const
-const LABEL_LAYER_IDS = [
-  'region-labels',
-  'country-labels',
+const LABEL_LAYER_IDS = ['region-labels', 'country-labels'] as const
+const CAPITAL_LAYER_IDS = [
+  'capital-hits',
   'capital-dots',
   'capital-labels',
 ] as const
@@ -344,6 +345,31 @@ function addCapitalLayers(map: MapLibreMap) {
     })
   }
 
+  // Invisible hit pad so capital clicks are reliable at small radii.
+  if (!map.getLayer('capital-hits')) {
+    map.addLayer({
+      id: 'capital-hits',
+      type: 'circle',
+      source: 'capitals',
+      minzoom: 2.8,
+      paint: {
+        'circle-radius': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          2.8,
+          10,
+          5,
+          14,
+          6.5,
+          16,
+        ],
+        'circle-color': '#000000',
+        'circle-opacity': 0,
+      },
+    })
+  }
+
   if (!map.getLayer('capital-dots')) {
     map.addLayer({
       id: 'capital-dots',
@@ -351,19 +377,30 @@ function addCapitalLayers(map: MapLibreMap) {
       source: 'capitals',
       minzoom: 2.8,
       paint: {
+        // zoom must be the top-level interpolate input — nest feature-state inside stops.
         'circle-radius': [
-          'case',
-          ['boolean', ['feature-state', 'selected'], false],
-          5.6,
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          2.8,
           [
-            'interpolate',
-            ['linear'],
-            ['zoom'],
-            2.8,
+            'case',
+            ['boolean', ['feature-state', 'selected'], false],
+            4.4,
             2.2,
-            5,
+          ],
+          5,
+          [
+            'case',
+            ['boolean', ['feature-state', 'selected'], false],
+            6.2,
             3.4,
-            6.5,
+          ],
+          6.5,
+          [
+            'case',
+            ['boolean', ['feature-state', 'selected'], false],
+            7,
             4.2,
           ],
         ],
@@ -443,6 +480,39 @@ function addCapitalLayers(map: MapLibreMap) {
   }
 }
 
+/**
+ * Capitals follow Labels when browsing, but the selected capital stays visible
+ * (and clickable) even when Labels are toggled off.
+ */
+function syncCapitalLayerPresentation(
+  map: MapLibreMap,
+  labelsOn: boolean,
+  selectedCode: string | null,
+) {
+  const show = labelsOn || Boolean(selectedCode)
+  const filter: FilterSpecification | null = labelsOn
+    ? null
+    : selectedCode
+      ? ['==', ['get', 'code'], selectedCode]
+      : ['==', ['get', 'code'], '__none__']
+
+  for (const id of CAPITAL_LAYER_IDS) {
+    if (!map.getLayer(id)) continue
+    map.setLayoutProperty(id, 'visibility', show ? 'visible' : 'none')
+    map.setFilter(id, filter)
+  }
+
+  if (map.getLayer('capital-labels')) {
+    const pinSelected = !labelsOn && Boolean(selectedCode)
+    map.setLayoutProperty('capital-labels', 'text-allow-overlap', pinSelected)
+    map.setLayoutProperty(
+      'capital-labels',
+      'text-ignore-placement',
+      pinSelected,
+    )
+  }
+}
+
 /** Keep country fill and capital marker selection feature-state in sync. */
 function syncSelectionFeatureState(
   map: MapLibreMap,
@@ -462,7 +532,11 @@ function syncSelectionFeatureState(
   }
 }
 
-function applyLayerVisibility(map: MapLibreMap, layers: MapLayerVisibility) {
+function applyLayerVisibility(
+  map: MapLibreMap,
+  layers: MapLayerVisibility,
+  selectedCode: string | null = null,
+) {
   const borderVisibility = layers.borders ? 'visible' : 'none'
   const labelVisibility = layers.labels ? 'visible' : 'none'
   const graticuleVisibility = layers.graticule ? 'visible' : 'none'
@@ -477,6 +551,7 @@ function applyLayerVisibility(map: MapLibreMap, layers: MapLayerVisibility) {
       map.setLayoutProperty(id, 'visibility', graticuleVisibility)
     }
   }
+  syncCapitalLayerPresentation(map, layers.labels, selectedCode)
 }
 
 function handleMapCanvasKeyDown(
@@ -617,7 +692,9 @@ export function EarthMap({
     writeStoredMapLayers(layers)
     syncMapLayersSearchParams(layers)
     const map = mapRef.current
-    if (map && ready) applyLayerVisibility(map, layers)
+    if (map && ready) {
+      applyLayerVisibility(map, layers, selectedCodeRef.current)
+    }
   }, [layers, ready, layersHydrated])
 
   useEffect(() => {
@@ -685,6 +762,11 @@ export function EarthMap({
       setCopyState('idle')
       setSuggestionsOpen(false)
       setSuggestions([])
+      syncCapitalLayerPresentation(
+        map,
+        layersRef.current.labels,
+        selectedCodeRef.current,
+      )
       if (hit) {
         setQuery(hit.name)
         const indexed =
@@ -759,10 +841,11 @@ export function EarthMap({
 
         map.on('click', 'country-fill', (event: MapLayerMouseEvent) => {
           if (performance.now() < ignoreMapClicksUntil) return
+          if (event.originalEvent.detail > 1) return
           // Prefer a capital hit when the click lands on both layers.
-          if (map.getLayer('capital-dots')) {
+          if (map.getLayer('capital-hits')) {
             const capitalHits = map.queryRenderedFeatures(event.point, {
-              layers: ['capital-dots'],
+              layers: ['capital-hits'],
             })
             if (capitalHits.length > 0) return
           }
@@ -775,18 +858,19 @@ export function EarthMap({
 
         map.on('click', (event: MapMouseEvent) => {
           if (performance.now() < ignoreMapClicksUntil) return
+          if (event.originalEvent.detail > 1) return
           if (!map.getLayer('country-fill')) return
           const layers = ['country-fill']
-          if (map.getLayer('capital-dots')) layers.push('capital-dots')
+          if (map.getLayer('capital-hits')) layers.push('capital-hits')
           const hits = map.queryRenderedFeatures(event.point, { layers })
           if (hits.length === 0) setSelection(null)
         })
       }
 
-      if (!capitalHandlersBound && map.getLayer('capital-dots')) {
+      if (!capitalHandlersBound && map.getLayer('capital-hits')) {
         capitalHandlersBound = true
 
-        map.on('mousemove', 'capital-dots', (event: MapLayerMouseEvent) => {
+        map.on('mousemove', 'capital-hits', (event: MapLayerMouseEvent) => {
           const feature = event.features?.[0]
           const code = feature
             ? String(feature.id ?? feature.properties?.code ?? '')
@@ -798,12 +882,13 @@ export function EarthMap({
           }
         })
 
-        map.on('mouseleave', 'capital-dots', () => {
+        map.on('mouseleave', 'capital-hits', () => {
           setHover(null)
         })
 
-        map.on('click', 'capital-dots', (event: MapLayerMouseEvent) => {
+        map.on('click', 'capital-hits', (event: MapLayerMouseEvent) => {
           if (performance.now() < ignoreMapClicksUntil) return
+          if (event.originalEvent.detail > 1) return
           const feature = event.features?.[0]
           if (!feature) return
           const code = String(feature.id ?? feature.properties?.code ?? '')
@@ -825,7 +910,7 @@ export function EarthMap({
       if (indexRef.current.length > 0 || regionsRef.current.length > 0) {
         upsertLabelLayers(map, indexRef.current, regionsRef.current)
       }
-      applyLayerVisibility(map, layersRef.current)
+      applyLayerVisibility(map, layersRef.current, selectedCodeRef.current)
       bindInteractionHandlers()
     }
 
@@ -843,7 +928,7 @@ export function EarthMap({
           setRegions(regionsRef.current)
         }
         upsertLabelLayers(map, indexRef.current, regionsRef.current)
-        applyLayerVisibility(map, layersRef.current)
+        applyLayerVisibility(map, layersRef.current, selectedCodeRef.current)
       } catch {
         indexFailed = true
         if (!initialIndex?.countries.length) {
@@ -991,6 +1076,11 @@ export function EarthMap({
     setActiveRegion(null)
     activeRegionRef.current = null
     setCopyState('idle')
+    syncCapitalLayerPresentation(
+      map,
+      layersRef.current.labels,
+      selectedCodeRef.current,
+    )
     const capitalName = entry.capitalName ?? countryPhotos[entry.code]?.capital
     setFocusAnnouncement(
       preferCapital && capitalName
@@ -1027,6 +1117,7 @@ export function EarthMap({
     setActiveRegion(null)
     activeRegionRef.current = null
     setCopyState('idle')
+    syncCapitalLayerPresentation(map, layersRef.current.labels, null)
     setFocusAnnouncement('Map reset.')
     syncMapFocusSearchParams(null)
     map.easeTo({
@@ -1056,6 +1147,7 @@ export function EarthMap({
     setSuggestionsOpen(false)
     setSuggestions([])
     setCopyState('idle')
+    syncCapitalLayerPresentation(map, layersRef.current.labels, null)
     setActiveRegion(region.id)
     activeRegionRef.current = region.id
     setFocusAnnouncement(`Viewing ${region.label}.`)
@@ -1479,6 +1571,23 @@ export function EarthMap({
               : ''}
           </p>
         </div>
+
+        {copyState !== 'idle' ? (
+          <div
+            className="earth-map-toast"
+            role="status"
+            data-tone={copyState === 'failed' ? 'warn' : undefined}
+          >
+            <MapsGlass />
+            <span>
+              {copyState === 'shared'
+                ? 'Link shared'
+                : copyState === 'copied'
+                  ? 'Link copied'
+                  : 'Could not share link'}
+            </span>
+          </div>
+        ) : null}
       </div>
 
       <p className="sr-only" aria-live="polite">

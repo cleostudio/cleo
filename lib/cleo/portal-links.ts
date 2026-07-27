@@ -10,8 +10,25 @@ export type PortalGuideLink = {
   slug: string
 }
 
+export type PortalMapLink = {
+  kind: 'country' | 'region'
+  href: string
+  label: string
+  value: string
+}
+
 const MARKDOWN_GUIDE_LINK =
   /\[([^\]]*)\]\((\/(explore|space)\/([a-z0-9-]+))\)/gi
+
+const MARKDOWN_MAP_LINK = /\[([^\]]*)\]\((\/maps\?[^)\s]+)\)/gi
+
+const MAP_REGION_VALUES = new Set([
+  'africa',
+  'americas',
+  'asia',
+  'europe',
+  'oceania',
+])
 
 /** Curated static JPEGs under the site image roots. */
 const CURATED_TOPIC_IMAGE_SRC =
@@ -65,6 +82,62 @@ export function cleanPortalGuideLabel(
   return cleaned || titleFromSlug(slug)
 }
 
+/** Prefer a short Maps deep-link label over noisy model link text. */
+export function cleanPortalMapLabel(
+  label: string,
+  kind: PortalMapLink['kind'],
+  value: string,
+): string {
+  const fallback =
+    kind === 'region'
+      ? titleFromSlug(value)
+      : `${titleFromSlug(value)} on the map`
+  const trimmed = label.trim()
+  if (!trimmed) return fallback
+
+  const cleaned = trimmed
+    .replace(/\s*on\s+the\s+map\s*$/i, '')
+    .replace(/^(?:view|open|see)\s+/i, '')
+    .replace(/^maps?\s*[·|:–-]\s*/i, '')
+    .trim()
+
+  if (!cleaned) return fallback
+  if (kind === 'region') return cleaned
+  return /on the map$/i.test(trimmed) ? trimmed : `${cleaned} on the map`
+}
+
+function parsePortalMapHref(href: string): PortalMapLink | null {
+  let url: URL
+  try {
+    url = new URL(href, 'https://cleo.local')
+  } catch {
+    return null
+  }
+  if (url.pathname !== '/maps') return null
+
+  const country = url.searchParams.get('country')?.trim().toLowerCase()
+  if (country && /^[a-z0-9-]+$/.test(country)) {
+    return {
+      kind: 'country',
+      href: `/maps?country=${encodeURIComponent(country)}`,
+      label: cleanPortalMapLabel('', 'country', country),
+      value: country,
+    }
+  }
+
+  const region = url.searchParams.get('region')?.trim().toLowerCase()
+  if (region && MAP_REGION_VALUES.has(region)) {
+    return {
+      kind: 'region',
+      href: `/maps?region=${encodeURIComponent(region)}`,
+      label: cleanPortalMapLabel('', 'region', region),
+      value: region,
+    }
+  }
+
+  return null
+}
+
 /** Pull unique Explore/Space guide links from assistant Markdown. */
 export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
   const found = new Map<string, PortalGuideLink>()
@@ -84,6 +157,25 @@ export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
       href,
       label: cleanPortalGuideLabel(rawLabel, slug),
       slug,
+    })
+  }
+
+  return [...found.values()]
+}
+
+/** Pull unique Maps country/region deep links from assistant Markdown. */
+export function extractPortalMapLinks(markdown: string): PortalMapLink[] {
+  const found = new Map<string, PortalMapLink>()
+
+  for (const match of markdown.matchAll(MARKDOWN_MAP_LINK)) {
+    const rawLabel = match[1] ?? ''
+    const href = match[2]
+    if (!href || found.has(href)) continue
+    const parsed = parsePortalMapHref(href)
+    if (!parsed) continue
+    found.set(parsed.href, {
+      ...parsed,
+      label: cleanPortalMapLabel(rawLabel, parsed.kind, parsed.value),
     })
   }
 
@@ -141,8 +233,9 @@ function isRedundantGuideFooter(
 }
 
 /**
- * Keep the first Markdown link per Explore/Space guide (short label), turn
- * later repeats into plain text, and drop redundant guide-only footer blocks.
+ * Keep the first Markdown link per Explore/Space guide or Maps deep link
+ * (short label), turn later repeats into plain text, and drop redundant
+ * guide-only footer blocks.
  */
 export function presentPortalGuideMarkdown(markdown: string): string {
   const seenHrefs = new Set<string>()
@@ -150,7 +243,7 @@ export function presentPortalGuideMarkdown(markdown: string): string {
   // like "global ocean"), so short real paragraphs are not dropped.
   const guideNames = new Set<string>()
 
-  const rewriteLinks = (block: string) =>
+  const rewriteGuideLinks = (block: string) =>
     block.replace(
       MARKDOWN_GUIDE_LINK,
       (_full, rawLabel: string, href: string, _collection: string, slug: string) => {
@@ -165,12 +258,27 @@ export function presentPortalGuideMarkdown(markdown: string): string {
       },
     )
 
+  const rewriteMapLinks = (block: string) =>
+    block.replace(
+      MARKDOWN_MAP_LINK,
+      (_full, rawLabel: string, href: string) => {
+        const parsed = parsePortalMapHref(href)
+        if (!parsed) return _full
+        const label = cleanPortalMapLabel(rawLabel, parsed.kind, parsed.value)
+        if (seenHrefs.has(parsed.href)) {
+          return label
+        }
+        seenHrefs.add(parsed.href)
+        return `[${label}](${parsed.href})`
+      },
+    )
+
   const blocks = presentTopicPhotoMarkdown(markdown).split(/\n{2,}/)
   const kept: string[] = []
 
   for (const block of blocks) {
     const hrefsBefore = seenHrefs.size
-    const rewritten = rewriteLinks(block)
+    const rewritten = rewriteMapLinks(rewriteGuideLinks(block))
 
     if (
       kept.length > 0 &&
@@ -196,7 +304,7 @@ export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Show Japan on the map',
     prompt:
-      'Where is Japan on Earth relative to its neighbors? Deep-link Maps for Japan and its Explore field guide.',
+      'Where is Japan on Earth relative to its neighbors? Deep-link Maps with `/maps?country=japan` and its Explore field guide.',
   },
   {
     label: 'Frame Africa on the map',

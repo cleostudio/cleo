@@ -29,8 +29,9 @@ document (enable both products in the Vercel project dashboard).
 - Maps: `lib/maps.ts`, `components/earth-map.tsx`, `/maps` (full-bleed MapLibre
   + local NASA BMNG 21600 tiles z0–z6 / bilinear q90 and Natural Earth borders;
   country/continent labels via vendored MapLibre glyphs; Admin-0 capital markers
-  (clickable, selected highlight); Borders/Labels/Graticule toggles with
-  shareable layer query flags; capital-aware search + selection dossier;
+  (clickable hit pads, selected capital stays visible when Labels are off);
+  Borders/Labels/Graticule toggles with shareable layer query flags;
+  capital-aware search + selection dossier; Cleo `/maps?` link presentation;
   paper/glass HUD via `html[data-maps-route]`; country/region deep links with
   antimeridian-aware Oceania and mainland-leaning Europe cameras; Explore ↔
   Maps region round-trips; selection a11y + mobile chrome; Cleo portal map

@@ -175,6 +175,18 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         </dl>
       </section>
 
+      <p
+        className="enter mt-8"
+        style={{ '--enter-delay': '150ms' } as React.CSSProperties}
+      >
+        <Link
+          href={mapCountryHref(country.slug)}
+          className="text-sm text-foreground underline-offset-2 hover:underline"
+        >
+          View on map →
+        </Link>
+      </p>
+
       <section
         className="enter mt-12"
         style={{ '--enter-delay': '160ms' } as React.CSSProperties}
@@ -203,19 +215,11 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
-        <Link
-          href={mapCountryHref(country.slug)}
-          className="text-sm text-muted-foreground hover:text-foreground"
-        >
-          View on map →
-        </Link>
-      </p>
-      <p className="enter mt-3" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
         <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
           Browse the gallery →
         </Link>
       </p>
-      <p className="enter mt-3 mb-4" style={{ '--enter-delay': '200ms' } as React.CSSProperties}>
+      <p className="enter mt-3 mb-4" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
         <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
           ← All countries
         </Link>
