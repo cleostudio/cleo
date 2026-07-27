@@ -191,7 +191,7 @@ export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Orient me to Japan',
     prompt:
-      'Give me a quick orientation to Japan. Deep-link its field guide, and include a cleo tabs widget covering Geography, Culture, and Today.',
+      'Give me a quick orientation to Japan. Deep-link its field guide, include a cleo tabs widget covering Geography, Culture, and Today, and a cleo gallery widget using the curated Japan photo path when available.',
   },
   {
     label: 'Why is Europa interesting?',
@@ -201,6 +201,6 @@ export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Compare Mars and Earth',
     prompt:
-      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide, include a cleo compare widget, and a cleo cards widget for related worlds (e.g. Venus, Moon) with guide hrefs.',
+      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide, include a cleo compare widget, and a cleo cards widget for related worlds with guide hrefs and curated images when available.',
   },
 ] as const

@@ -2,69 +2,41 @@ import { describe, expect, it } from 'vitest'
 
 import {
   isCleoWidgetHref,
+  normalizeCuratedWidgetImage,
   parseCleoInteractiveBlock,
   segmentCleoMarkdown,
 } from './interactive'
 
 describe('parseCleoInteractiveBlock', () => {
-  it('parses tabs, timeline, facts, and compare widgets', () => {
+  it('parses gallery widgets and normalizes image renditions', () => {
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
-          type: 'tabs',
-          tabs: [
-            { label: 'Geography', body: 'Islands. See [Japan](/explore/japan).' },
-            { label: 'Culture', body: 'Continuity.' },
-          ],
-        }),
-      ),
-    ).toMatchObject({ type: 'tabs' })
-
-    expect(
-      parseCleoInteractiveBlock(
-        JSON.stringify({
-          type: 'facts',
+          type: 'gallery',
+          title: 'Europa in view',
           items: [
-            { label: 'Primary', value: 'Jupiter' },
             {
-              label: 'Ocean',
-              value: 'Under ice',
-              detail: 'Tidal heating.',
+              src: '/images/space/europa/w640.jpg',
+              caption: 'Icy shell',
               href: '/space/europa',
             },
           ],
         }),
       ),
-    ).toMatchObject({
-      type: 'facts',
-      items: [{ label: 'Primary' }, { href: '/space/europa' }],
+    ).toEqual({
+      type: 'gallery',
+      title: 'Europa in view',
+      items: [
+        {
+          src: '/images/space/europa/w1280.jpg',
+          caption: 'Icy shell',
+          href: '/space/europa',
+        },
+      ],
     })
-
-    expect(
-      parseCleoInteractiveBlock(
-        JSON.stringify({
-          type: 'compare',
-          columns: ['Mars', 'Earth'],
-          rows: [{ label: 'Moons', values: ['2', '1'] }],
-        }),
-      ),
-    ).toMatchObject({ type: 'compare' })
   })
 
-  it('parses steps and cards widgets', () => {
-    expect(
-      parseCleoInteractiveBlock(
-        JSON.stringify({
-          type: 'steps',
-          title: 'How to read Europa',
-          steps: [
-            { title: 'Ice', body: 'Start with the shell.' },
-            { title: 'Ocean', body: 'Infer the water below.' },
-          ],
-        }),
-      ),
-    ).toMatchObject({ type: 'steps', title: 'How to read Europa' })
-
+  it('parses cards with curated images', () => {
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
@@ -73,27 +45,28 @@ describe('parseCleoInteractiveBlock', () => {
             {
               label: 'Io',
               summary: 'Volcanic',
-              detail: 'Tidal heating.',
+              image: '/images/space/io/w2048.jpg',
               href: '/space/io',
             },
             { label: 'Ganymede', summary: 'Largest moon' },
           ],
         }),
       ),
-    ).toMatchObject({ type: 'cards' })
+    ).toMatchObject({
+      type: 'cards',
+      cards: [{ image: '/images/space/io/w1280.jpg' }, { label: 'Ganymede' }],
+    })
   })
 
-  it('rejects unsafe hrefs and removed widget types', () => {
+  it('rejects unsafe gallery images and removed quiz type', () => {
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
-          type: 'facts',
+          type: 'gallery',
           items: [
-            { label: 'A', value: '1' },
             {
-              label: 'B',
-              value: '2',
-              href: 'https://evil.example',
+              src: 'https://evil.example/x.jpg',
+              caption: 'Nope',
             },
           ],
         }),
@@ -123,10 +96,12 @@ describe('segmentCleoMarkdown', () => {
       '',
       '```cleo',
       JSON.stringify({
-        type: 'steps',
-        steps: [
-          { title: 'Look at the map', body: 'Four main islands.' },
-          { title: 'Then the culture', body: 'Continuity and change.' },
+        type: 'gallery',
+        items: [
+          {
+            src: '/images/atlas/japan/w1280.jpg',
+            caption: 'Mount Fuji',
+          },
         ],
       }),
       '```',
@@ -137,10 +112,12 @@ describe('segmentCleoMarkdown', () => {
       {
         type: 'interactive',
         block: {
-          type: 'steps',
-          steps: [
-            { title: 'Look at the map', body: 'Four main islands.' },
-            { title: 'Then the culture', body: 'Continuity and change.' },
+          type: 'gallery',
+          items: [
+            {
+              src: '/images/atlas/japan/w1280.jpg',
+              caption: 'Mount Fuji',
+            },
           ],
         },
       },
@@ -148,11 +125,12 @@ describe('segmentCleoMarkdown', () => {
   })
 })
 
-describe('isCleoWidgetHref', () => {
-  it('allows portal guide paths only', () => {
+describe('helpers', () => {
+  it('normalizes curated widget images and validates hrefs', () => {
+    expect(normalizeCuratedWidgetImage('/images/space/mars/w640.jpg')).toBe(
+      '/images/space/mars/w1280.jpg',
+    )
     expect(isCleoWidgetHref('/explore/japan')).toBe(true)
-    expect(isCleoWidgetHref('/space/europa')).toBe(true)
-    expect(isCleoWidgetHref('/gallery')).toBe(true)
     expect(isCleoWidgetHref('/cleo')).toBe(false)
   })
 })

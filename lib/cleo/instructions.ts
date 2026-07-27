@@ -10,8 +10,8 @@
  * Per-request topic photo paths (see topic-photos.ts) let Cleo embed curated
  * photographs when answering about catalog subjects. Optional fenced \`cleo\`
  * JSON blocks render as generative interactive widgets (tabs, timeline,
- * facts, compare, steps, cards) embedded in the reply — not suggestion chips
- * or quizzes.
+ * facts, compare, steps, cards, gallery) embedded in the reply — not
+ * suggestion chips or quizzes.
  */
 
 import { buildPortalCatalogInstructions } from '~/lib/cleo/portal-catalog'
@@ -119,7 +119,7 @@ When using web results:
 </citations>
 
 <interactive_components>
-Cleo can embed generative interactive widgets in a reply. These are part of the answer — switchable sections, expandable timelines/facts/cards, progressive steps, and focusable compare plates. They are not quizzes, suggestion chips, follow-up buttons, or "ask next" prompts.
+Cleo can embed generative interactive widgets in a reply. These are part of the answer — switchable sections, expandable timelines/facts/cards, progressive steps, focusable compare plates, and curated photo galleries. They are not quizzes, suggestion chips, follow-up buttons, or "ask next" prompts.
 
 Emit a fenced block with language tag \`cleo\` and a single JSON object. Place the widget where it belongs in the answer (often after a short lead-in). Never narrate the JSON, never wrap it in an extra code fence, and never invent a block type. Keep Explore/Space guide deep-links as ordinary inline Markdown in surrounding prose too.
 
@@ -150,18 +150,24 @@ Allowed widgets:
 {"type":"steps","title":"How to read Europa","steps":[{"title":"Start with the ice","body":"The cracked shell is the part we image — ridges and chaos terrain."},{"title":"Infer the ocean","body":"Induced magnetic signals and plume hints point to a global ocean below."},{"title":"Ask the habitability question","body":"Water, chemistry, and energy matter more than a surface scorecard."}]}
 \`\`\`
 
-6. Cards — expandable subject tiles (neighbors, options, related guides):
+6. Cards — expandable subject tiles (neighbors, options, related guides); optional curated \`image\`:
 \`\`\`cleo
-{"type":"cards","title":"Nearby Jovian moons","cards":[{"label":"Io","summary":"Volcanic world","detail":"Tidal heating drives constant resurfacing.","href":"/space/io"},{"label":"Ganymede","summary":"Largest moon","detail":"Has its own magnetic field and a deep interior ocean.","href":"/space/ganymede"}]}
+{"type":"cards","title":"Nearby Jovian moons","cards":[{"label":"Io","summary":"Volcanic world","detail":"Tidal heating drives constant resurfacing.","href":"/space/io","image":"/images/space/io/w1280.jpg"},{"label":"Ganymede","summary":"Largest moon","detail":"Has its own magnetic field and a deep interior ocean.","href":"/space/ganymede"}]}
+\`\`\`
+
+7. Gallery — curated topic photographs the user can flip through and zoom (paths only from \`<cleo_topic_photos>\` when present):
+\`\`\`cleo
+{"type":"gallery","title":"Europa in view","items":[{"src":"/images/space/europa/w1280.jpg","caption":"Icy shell and chaos terrain","href":"/space/europa"}]}
 \`\`\`
 
 Rules:
-- Prefer a widget when it makes the answer clearer than prose alone (overview → tabs/facts; sequence → timeline/steps; comparison → compare; related subjects → cards).
+- Prefer a widget when it makes the answer clearer than prose alone (overview → tabs/facts; sequence → timeline/steps; comparison → compare; related subjects → cards; visuals → gallery).
 - Write dense, useful widget copy — short bodies with a concrete point, not filler labels.
 - For facts, timeline, and cards, include \`detail\` on most items so expand earns its place. Use optional \`href\` only for real catalog paths (\`/explore/{slug}\`, \`/space/{slug}\`, \`/gallery\`, \`/topics\`, \`/blog\`, \`/blog/{slug}\`).
-- Widget body/detail text may include same-site Markdown links like \`[Japan](/explore/japan)\`; do not put images or nested \`cleo\` fences inside widget fields.
+- For \`gallery\` items and card \`image\` fields, use exact curated paths from \`<cleo_topic_photos>\` (\`/images/atlas|space/{slug}/w1280.jpg\`). Never invent image URLs.
+- Widget body/detail text may include same-site Markdown links like \`[Japan](/explore/japan)\`; do not put Markdown images or nested \`cleo\` fences inside widget text fields.
 - At most two widgets per reply. Prefer one strong widget over several weak ones.
-- Limits: tabs 2–5; timeline events 2–8; facts 2–8; compare columns 2–3 and rows ≤ 8; steps 2–6; cards 2–6.
+- Limits: tabs 2–5; timeline events 2–8; facts 2–8; compare columns 2–3 and rows ≤ 8; steps 2–6; cards 2–6; gallery items 1–6.
 - Never emit quizzes, follow-up suggestion buttons, choice prompts that submit a new chat message, or portal-action chip rows.
 - Skip widgets for greetings, one-line facts, refusals, and finished artifacts the user asked to keep as plain text.
 </interactive_components>

@@ -3,9 +3,11 @@
  *
  * The model embeds fenced `cleo` JSON in assistant Markdown. The client
  * parses those fences into typed widgets (tabs, timeline, facts, compare,
- * steps, cards) that the user interacts with in place — part of the answer,
- * not suggestion chips or quizzes.
+ * steps, cards, gallery) that the user interacts with in place — part of
+ * the answer, not suggestion chips or quizzes.
  */
+
+import { isCuratedTopicImageSrc } from '~/lib/cleo/portal-links'
 
 export type CleoTabItem = {
   body: string
@@ -38,8 +40,15 @@ export type CleoStepItem = {
 export type CleoCardItem = {
   detail?: string
   href?: string
+  image?: string
   label: string
   summary: string
+}
+
+export type CleoGalleryItem = {
+  caption: string
+  href?: string
+  src: string
 }
 
 export type CleoTabsBlock = {
@@ -79,6 +88,12 @@ export type CleoCardsBlock = {
   type: 'cards'
 }
 
+export type CleoGalleryBlock = {
+  items: CleoGalleryItem[]
+  title?: string
+  type: 'gallery'
+}
+
 export type CleoInteractiveBlock =
   | CleoTabsBlock
   | CleoTimelineBlock
@@ -86,6 +101,7 @@ export type CleoInteractiveBlock =
   | CleoCompareBlock
   | CleoStepsBlock
   | CleoCardsBlock
+  | CleoGalleryBlock
 
 export type CleoMarkdownSegment =
   | {
@@ -108,6 +124,7 @@ const MAX_COMPARE_COLUMNS = 3
 const MAX_COMPARE_ROWS = 8
 const MAX_STEPS = 6
 const MAX_CARDS = 6
+const MAX_GALLERY = 6
 const MAX_LABEL = 64
 const MAX_SHORT = 120
 const MAX_BODY = 700
@@ -156,6 +173,22 @@ function parseOptionalHref(value: unknown): string | undefined | null {
     return null
   }
   return href
+}
+
+/** Prefer the mid curated rendition for widget display. */
+export function normalizeCuratedWidgetImage(src: string): string {
+  return src.replace(/\/w(640|2048)\.jpg$/, '/w1280.jpg')
+}
+
+function parseOptionalImage(value: unknown): string | undefined | null {
+  if (value === undefined) {
+    return undefined
+  }
+  const src = trimString(value, MAX_HREF)
+  if (!src || !isCuratedTopicImageSrc(src)) {
+    return null
+  }
+  return normalizeCuratedWidgetImage(src)
 }
 
 function withOptionalTitle<T extends { type: string }>(
@@ -412,10 +445,73 @@ function parseCardsBlock(value: Record<string, unknown>): CleoCardsBlock | null 
         card.href = href
       }
     }
+    if ('image' in entry && entry.image !== undefined) {
+      const image = parseOptionalImage(entry.image)
+      if (image === null) {
+        return null
+      }
+      if (image !== undefined) {
+        card.image = image
+      }
+    }
     cards.push(card)
   }
 
   return withOptionalTitle({ type: 'cards', cards }, parseOptionalTitle(value))
+}
+
+function parseGalleryBlock(
+  value: Record<string, unknown>,
+): CleoGalleryBlock | null {
+  if (
+    !Array.isArray(value.items) ||
+    value.items.length < 1 ||
+    value.items.length > MAX_GALLERY
+  ) {
+    return null
+  }
+
+  const items: CleoGalleryItem[] = []
+  const seen = new Set<string>()
+  for (const entry of value.items) {
+    if (typeof entry !== 'object' || entry === null) {
+      return null
+    }
+    const caption = trimString(
+      'caption' in entry ? entry.caption : undefined,
+      MAX_SHORT,
+    )
+    const image = parseOptionalImage(
+      'src' in entry ? entry.src : undefined,
+    )
+    if (!caption || !image) {
+      return null
+    }
+    if (seen.has(image)) {
+      continue
+    }
+    seen.add(image)
+    const item: CleoGalleryItem = { caption, src: image }
+    if ('href' in entry && entry.href !== undefined) {
+      const href = parseOptionalHref(entry.href)
+      if (href === null) {
+        return null
+      }
+      if (href !== undefined) {
+        item.href = href
+      }
+    }
+    items.push(item)
+  }
+
+  if (items.length === 0) {
+    return null
+  }
+
+  return withOptionalTitle(
+    { type: 'gallery', items },
+    parseOptionalTitle(value),
+  )
 }
 
 /** Parse and validate one fenced `cleo` JSON payload. */
@@ -453,6 +549,8 @@ export function parseCleoInteractiveBlock(
       return parseStepsBlock(record)
     case 'cards':
       return parseCardsBlock(record)
+    case 'gallery':
+      return parseGalleryBlock(record)
     default:
       return null
   }

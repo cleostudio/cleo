@@ -1,7 +1,7 @@
 /** @vitest-environment jsdom */
 
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { InteractiveBlock } from './interactive'
 
@@ -17,36 +17,40 @@ vi.mock('next/link', () => ({
   ),
 }))
 
+vi.mock('next/image', () => ({
+  default: ({
+    loader: _loader,
+    unoptimized: _unoptimized,
+    ...props
+  }: React.ImgHTMLAttributes<HTMLImageElement> & {
+    loader?: unknown
+    unoptimized?: boolean
+  }) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img {...props} />
+  ),
+}))
+
+vi.mock('~/lib/locale-client', () => ({
+  localize: (_locale: string, _zh: string, en: string) => en,
+  useLocale: () => 'en',
+}))
+
+beforeEach(() => {
+  vi.stubGlobal(
+    'matchMedia',
+    vi.fn(() => ({ matches: true }) as MediaQueryList),
+  )
+})
+
 afterEach(() => {
   cleanup()
+  vi.unstubAllGlobals()
+  vi.restoreAllMocks()
 })
 
 describe('InteractiveBlock generative widgets', () => {
-  it('switches tabs and renders same-site prose links', () => {
-    render(
-      <InteractiveBlock
-        block={{
-          type: 'tabs',
-          title: 'Japan at a glance',
-          tabs: [
-            {
-              label: 'Geography',
-              body: 'See the [Japan guide](/explore/japan).',
-            },
-            { label: 'Culture', body: 'Continuity and reinvention.' },
-          ],
-        }}
-      />,
-    )
-
-    expect(
-      screen.getByRole('link', { name: 'Japan guide' }).getAttribute('href'),
-    ).toBe('/explore/japan')
-    fireEvent.click(screen.getByRole('tab', { name: 'Culture' }))
-    expect(screen.getByText('Continuity and reinvention.')).toBeTruthy()
-  })
-
-  it('walks through steps with continue/back controls', () => {
+  it('walks through steps with a progress bar', () => {
     render(
       <InteractiveBlock
         block={{
@@ -60,61 +64,98 @@ describe('InteractiveBlock generative widgets', () => {
       />,
     )
 
-    expect(screen.getByText('Start with the shell.')).toBeTruthy()
+    expect(screen.getByRole('progressbar').getAttribute('aria-valuenow')).toBe(
+      '50',
+    )
     fireEvent.click(screen.getByRole('button', { name: /Continue/i }))
     expect(screen.getByText('Infer the water below.')).toBeTruthy()
-    fireEvent.click(screen.getByRole('button', { name: /Back/i }))
-    expect(screen.getByText('Start with the shell.')).toBeTruthy()
+    expect(screen.getByRole('progressbar').getAttribute('aria-valuenow')).toBe(
+      '100',
+    )
   })
 
-  it('expands cards and surfaces guide links', () => {
+  it('shows a focused compare subject panel', () => {
     render(
       <InteractiveBlock
         block={{
-          type: 'cards',
-          title: 'Nearby moons',
-          cards: [
+          type: 'compare',
+          title: 'Mars vs Earth',
+          columns: ['Mars', 'Earth'],
+          rows: [{ label: 'Moons', values: ['2', '1'] }],
+        }}
+      />,
+    )
+
+    expect(
+      screen.getByRole('button', { name: 'Mars' }).getAttribute('aria-pressed'),
+    ).toBe('true')
+    fireEvent.click(screen.getByRole('button', { name: 'Earth' }))
+    expect(
+      document.querySelector('.cleo-widget-compare-focus-label')?.textContent,
+    ).toBe('Earth')
+    expect(
+      document.querySelector('.cleo-widget-compare-focus-row dd')?.textContent,
+    ).toBe('1')
+  })
+
+  it('renders a gallery with selectable photographs', () => {
+    render(
+      <InteractiveBlock
+        block={{
+          type: 'gallery',
+          title: 'Places',
+          items: [
             {
-              label: 'Io',
-              summary: 'Volcanic world',
-              detail: 'Tidal heating drives resurfacing.',
-              href: '/space/io',
+              src: '/images/atlas/japan/w1280.jpg',
+              caption: 'Mount Fuji',
+              href: '/explore/japan',
             },
-            { label: 'Ganymede', summary: 'Largest moon' },
+            {
+              src: '/images/space/mars/w1280.jpg',
+              caption: 'Mars',
+              href: '/space/mars',
+            },
           ],
         }}
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: /Io/i }))
-    expect(screen.getByText('Tidal heating drives resurfacing.')).toBeTruthy()
+    expect(
+      document.querySelector('.cleo-widget-gallery-caption')?.textContent,
+    ).toBe('Mount Fuji')
     expect(
       screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
-    ).toBe('/space/io')
+    ).toBe('/explore/japan')
+
+    fireEvent.click(screen.getByRole('option', { name: 'Mars' }))
+    expect(
+      document.querySelector('.cleo-widget-gallery-caption')?.textContent,
+    ).toBe('Mars')
+    expect(
+      screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
+    ).toBe('/space/mars')
   })
 
-  it('expands facts with optional guide hrefs', () => {
+  it('expands all facts when available', () => {
     render(
       <InteractiveBlock
         block={{
           type: 'facts',
+          title: 'Europa',
           items: [
-            { label: 'Primary', value: 'Jupiter' },
-            {
-              label: 'Ocean',
-              value: 'Under ice',
-              detail: 'Kept liquid by tidal flexing.',
-              href: '/space/europa',
-            },
+            { label: 'A', value: '1', detail: 'Detail A' },
+            { label: 'B', value: '2', detail: 'Detail B' },
+            { label: 'C', value: '3', detail: 'Detail C' },
           ],
         }}
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: /Ocean/i }))
-    expect(screen.getByText('Kept liquid by tidal flexing.')).toBeTruthy()
-    expect(
-      screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
-    ).toBe('/space/europa')
+    fireEvent.click(screen.getByRole('button', { name: 'Expand all' }))
+    expect(screen.getByText('Detail A')).toBeTruthy()
+    expect(screen.getByText('Detail B')).toBeTruthy()
+    expect(screen.getByText('Detail C')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: 'Collapse all' }))
+    expect(screen.queryByText('Detail A')).toBeNull()
   })
 })

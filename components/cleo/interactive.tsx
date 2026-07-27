@@ -7,12 +7,21 @@ import {
   useState,
 } from 'react'
 import Link from 'next/link'
-import { ArrowUpRight, Check, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
+import {
+  ArrowUpRight,
+  Check,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
 
+import { PhotoZoomDetails } from '~/components/photo-zoom-details'
+import { ZoomImage } from '~/components/zoom-image'
 import {
   type CleoInteractiveBlock,
   isCleoWidgetHref,
 } from '~/lib/cleo/interactive'
+import { topicPhotoZoomForSrc } from '~/lib/cleo/topic-photo-zoom'
 import { cn } from '~/lib/utils'
 
 type InteractiveBlocksProps = {
@@ -48,7 +57,11 @@ function WidgetProse({ text, className }: { text: string; className?: string }) 
     const href = match[2]
     if (href && isCleoWidgetHref(href)) {
       nodes.push(
-        <Link className="cleo-widget-inline-link" href={href} key={`${href}-${match.index}`}>
+        <Link
+          className="cleo-widget-inline-link"
+          href={href}
+          key={`${href}-${match.index}`}
+        >
           {label}
         </Link>,
       )
@@ -72,20 +85,61 @@ function WidgetProse({ text, className }: { text: string; className?: string }) 
   )
 }
 
+function WidgetPhoto({
+  src,
+  alt,
+  className,
+}: {
+  src: string
+  alt: string
+  className?: string
+}) {
+  const zoom = topicPhotoZoomForSrc(src)
+  if (!zoom) {
+    return null
+  }
+
+  return (
+    <div className={cn('cleo-widget-photo', className)}>
+      <ZoomImage
+        alt={alt.trim() || zoom.alt}
+        className="cleo-widget-photo-image"
+        expandedContent={
+          <PhotoZoomDetails
+            collection={zoom.collection}
+            license={zoom.license}
+            photographer={zoom.photographer}
+            subtitle={zoom.subtitle}
+            title={zoom.title}
+          />
+        }
+        height={zoom.height}
+        renditions={zoom.renditions}
+        sizes="(max-width: 40rem) 100vw, 22rem"
+        src={src}
+        width={zoom.width}
+      />
+    </div>
+  )
+}
+
 function WidgetShell({
   title,
   className,
   children,
+  actions,
 }: {
   title?: string
   className?: string
   children: React.ReactNode
+  actions?: React.ReactNode
 }) {
   return (
     <div className={cn('cleo-widget', className)}>
-      {title ? (
+      {title || actions ? (
         <header className="cleo-widget-header">
-          <h3 className="cleo-widget-title">{title}</h3>
+          {title ? <h3 className="cleo-widget-title">{title}</h3> : null}
+          {actions}
         </header>
       ) : null}
       {children}
@@ -224,10 +278,33 @@ function FactsWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'facts' }>
 }) {
+  const expandableIndexes = block.items
+    .map((item, index) =>
+      item.detail || item.href ? index : -1,
+    )
+    .filter((index) => index >= 0)
   const [open, setOpen] = useState<ReadonlySet<number>>(() => new Set())
+  const allOpen =
+    expandableIndexes.length > 0 &&
+    expandableIndexes.every((index) => open.has(index))
 
   return (
-    <WidgetShell title={block.title}>
+    <WidgetShell
+      actions={
+        expandableIndexes.length >= 3 ? (
+          <button
+            className="cleo-widget-header-action"
+            onClick={() =>
+              setOpen(allOpen ? new Set() : new Set(expandableIndexes))
+            }
+            type="button"
+          >
+            {allOpen ? 'Collapse all' : 'Expand all'}
+          </button>
+        ) : null
+      }
+      title={block.title}
+    >
       <div className="cleo-widget-facts">
         {block.items.map((item, index) => {
           const expandable = Boolean(item.detail || item.href)
@@ -289,7 +366,8 @@ function CompareWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'compare' }>
 }) {
-  const [focus, setFocus] = useState<number | null>(0)
+  const [focus, setFocus] = useState(0)
+  const focusedLabel = block.columns[focus] ?? block.columns[0]
 
   return (
     <WidgetShell title={block.title}>
@@ -300,13 +378,26 @@ function CompareWidget({
             className="cleo-widget-compare-subject"
             data-active={focus === index || undefined}
             key={column}
-            onClick={() => setFocus(focus === index ? null : index)}
+            onClick={() => setFocus(index)}
             type="button"
           >
             {column}
           </button>
         ))}
       </div>
+
+      <div className="cleo-widget-compare-focus-panel" key={focus}>
+        <p className="cleo-widget-compare-focus-label">{focusedLabel}</p>
+        <dl className="cleo-widget-compare-focus-list">
+          {block.rows.map((row) => (
+            <div className="cleo-widget-compare-focus-row" key={row.label}>
+              <dt>{row.label}</dt>
+              <dd>{row.values[focus]}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
       <div className="cleo-widget-compare-scroll">
         <table className="cleo-widget-compare-table">
           <caption className="sr-only">{block.title ?? 'Comparison'}</caption>
@@ -316,9 +407,7 @@ function CompareWidget({
                 <th scope="row">{row.label}</th>
                 {row.values.map((value, index) => (
                   <td
-                    data-dim={
-                      (focus !== null && focus !== index) || undefined
-                    }
+                    data-dim={focus !== index || undefined}
                     data-focus={focus === index || undefined}
                     key={`${row.label}-${block.columns[index]}`}
                   >
@@ -344,6 +433,7 @@ function StepsWidget({
   const step = block.steps[active] ?? block.steps[0]
   const isLast = active === block.steps.length - 1
   const isDone = done.has(active)
+  const progress = ((active + 1) / block.steps.length) * 100
 
   function markDoneAndAdvance() {
     setDone((current) => {
@@ -356,61 +446,86 @@ function StepsWidget({
     }
   }
 
+  function onKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key === 'ArrowRight') {
+      event.preventDefault()
+      setActive((current) => Math.min(block.steps.length - 1, current + 1))
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault()
+      setActive((current) => Math.max(0, current - 1))
+    }
+  }
+
   return (
     <WidgetShell title={block.title}>
-      <div className="cleo-widget-steps-progress" aria-hidden="true">
-        {block.steps.map((item, index) => (
+      <div className="cleo-widget-steps" onKeyDown={onKeyDown}>
+        <div
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={Math.round(progress)}
+          className="cleo-widget-steps-bar"
+          role="progressbar"
+        >
+          <span
+            className="cleo-widget-steps-bar-fill"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+
+        <div className="cleo-widget-steps-progress">
+          {block.steps.map((item, index) => (
+            <button
+              className="cleo-widget-steps-dot"
+              data-active={index === active || undefined}
+              data-done={done.has(index) || undefined}
+              key={`${item.title}-${index}`}
+              onClick={() => setActive(index)}
+              type="button"
+            >
+              <span className="sr-only">
+                Step {index + 1}: {item.title}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <div className="cleo-widget-steps-stage" key={active}>
+          <p className="cleo-widget-steps-meta">
+            Step {active + 1} of {block.steps.length}
+          </p>
+          <h4 className="cleo-widget-steps-title">{step.title}</h4>
+          <WidgetProse text={step.body} />
+        </div>
+
+        <div className="cleo-widget-steps-controls">
           <button
-            className="cleo-widget-steps-dot"
-            data-active={index === active || undefined}
-            data-done={done.has(index) || undefined}
-            key={`${item.title}-${index}`}
-            onClick={() => setActive(index)}
+            className="cleo-widget-steps-button"
+            disabled={active === 0}
+            onClick={() => setActive((current) => Math.max(0, current - 1))}
             type="button"
           >
-            <span className="sr-only">
-              Step {index + 1}: {item.title}
-            </span>
+            <ChevronLeft aria-hidden="true" className="size-4" />
+            Back
           </button>
-        ))}
-      </div>
-
-      <div className="cleo-widget-steps-stage" key={active}>
-        <p className="cleo-widget-steps-meta">
-          Step {active + 1} of {block.steps.length}
-        </p>
-        <h4 className="cleo-widget-steps-title">{step.title}</h4>
-        <WidgetProse text={step.body} />
-      </div>
-
-      <div className="cleo-widget-steps-controls">
-        <button
-          className="cleo-widget-steps-button"
-          disabled={active === 0}
-          onClick={() => setActive((current) => Math.max(0, current - 1))}
-          type="button"
-        >
-          <ChevronLeft aria-hidden="true" className="size-4" />
-          Back
-        </button>
-        <button
-          className="cleo-widget-steps-button"
-          data-primary=""
-          onClick={markDoneAndAdvance}
-          type="button"
-        >
-          {isDone || isLast ? (
-            <>
-              <Check aria-hidden="true" className="size-4" />
-              {isLast ? 'Done' : 'Continue'}
-            </>
-          ) : (
-            <>
-              Continue
-              <ChevronRight aria-hidden="true" className="size-4" />
-            </>
-          )}
-        </button>
+          <button
+            className="cleo-widget-steps-button"
+            data-primary=""
+            onClick={markDoneAndAdvance}
+            type="button"
+          >
+            {isDone || isLast ? (
+              <>
+                <Check aria-hidden="true" className="size-4" />
+                {isLast ? 'Done' : 'Continue'}
+              </>
+            ) : (
+              <>
+                Continue
+                <ChevronRight aria-hidden="true" className="size-4" />
+              </>
+            )}
+          </button>
+        </div>
       </div>
     </WidgetShell>
   )
@@ -427,7 +542,7 @@ function CardsWidget({
     <WidgetShell title={block.title}>
       <div className="cleo-widget-cards">
         {block.cards.map((card, index) => {
-          const expandable = Boolean(card.detail || card.href)
+          const expandable = Boolean(card.detail || card.href || card.image)
           const isOpen = open.has(index)
           return (
             <article
@@ -435,6 +550,13 @@ function CardsWidget({
               data-open={isOpen || undefined}
               key={`${card.label}-${index}`}
             >
+              {card.image ? (
+                <WidgetPhoto
+                  alt={card.label}
+                  className="cleo-widget-card-photo"
+                  src={card.image}
+                />
+              ) : null}
               {expandable ? (
                 <button
                   aria-expanded={isOpen}
@@ -477,6 +599,81 @@ function CardsWidget({
   )
 }
 
+function GalleryWidget({
+  block,
+}: {
+  block: Extract<CleoInteractiveBlock, { type: 'gallery' }>
+}) {
+  const [active, setActive] = useState(0)
+  const current = block.items[active] ?? block.items[0]
+
+  function onThumbKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
+      return
+    }
+    event.preventDefault()
+    const delta = event.key === 'ArrowRight' ? 1 : -1
+    setActive(
+      (currentIndex) =>
+        (currentIndex + delta + block.items.length) % block.items.length,
+    )
+  }
+
+  return (
+    <WidgetShell title={block.title}>
+      <div className="cleo-widget-gallery">
+        <div className="cleo-widget-gallery-stage" key={active}>
+          <WidgetPhoto alt={current.caption} src={current.src} />
+          <div className="cleo-widget-gallery-meta">
+            <p className="cleo-widget-gallery-caption">{current.caption}</p>
+            {current.href ? (
+              <Link className="cleo-widget-guide-link" href={current.href}>
+                Open guide
+                <ArrowUpRight aria-hidden="true" className="size-3.5" />
+              </Link>
+            ) : null}
+          </div>
+        </div>
+
+        {block.items.length > 1 ? (
+          <div
+            aria-label="Photographs"
+            className="cleo-widget-gallery-thumbs"
+            onKeyDown={onThumbKeyDown}
+            role="listbox"
+          >
+            {block.items.map((item, index) => {
+              const selected = index === active
+              const zoom = topicPhotoZoomForSrc(item.src)
+              return (
+                <button
+                  aria-selected={selected}
+                  className="cleo-widget-gallery-thumb"
+                  data-active={selected || undefined}
+                  key={`${item.src}-${index}`}
+                  onClick={() => setActive(index)}
+                  role="option"
+                  type="button"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element -- curated static JPEG thumbs */}
+                  <img
+                    alt=""
+                    className="cleo-widget-gallery-thumb-image"
+                    height={zoom?.height ?? 80}
+                    src={item.src}
+                    width={zoom?.width ?? 120}
+                  />
+                  <span className="sr-only">{item.caption}</span>
+                </button>
+              )
+            })}
+          </div>
+        ) : null}
+      </div>
+    </WidgetShell>
+  )
+}
+
 export function InteractiveBlock({
   block,
   className,
@@ -492,8 +689,10 @@ export function InteractiveBlock({
       <CompareWidget block={block} />
     ) : block.type === 'steps' ? (
       <StepsWidget block={block} />
-    ) : (
+    ) : block.type === 'cards' ? (
       <CardsWidget block={block} />
+    ) : (
+      <GalleryWidget block={block} />
     )
 
   return <div className={cn('cleo-interactive', className)}>{content}</div>
