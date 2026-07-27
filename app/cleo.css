@@ -1401,9 +1401,6 @@
   border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
 }
 
-background) 55%, transparent);
-}
-
 .cleo-starters {
   display: flex;
   flex-wrap: wrap;
