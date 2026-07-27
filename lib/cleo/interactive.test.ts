@@ -1,10 +1,12 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  curatedWidgetThumbSrc,
   formatScaleValue,
   isCleoWidgetHref,
   normalizeCuratedWidgetImage,
   parseCleoInteractiveBlock,
+  peekCleoWidgetType,
   segmentCleoMarkdown,
 } from './interactive'
 
@@ -56,6 +58,38 @@ describe('parseCleoInteractiveBlock', () => {
     ).toMatchObject({
       type: 'cards',
       cards: [{ image: '/images/space/io/w1280.jpg' }, { label: 'Ganymede' }],
+    })
+  })
+
+  it('parses layers widgets outermost first', () => {
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'layers',
+          title: 'Europa interior',
+          layers: [
+            {
+              label: 'Ice shell',
+              depth: '~20 km',
+              body: 'Cracked icy crust.',
+              href: '/space/europa',
+            },
+            { label: 'Ocean', body: 'Global salty ocean.' },
+          ],
+        }),
+      ),
+    ).toEqual({
+      type: 'layers',
+      title: 'Europa interior',
+      layers: [
+        {
+          label: 'Ice shell',
+          depth: '~20 km',
+          body: 'Cracked icy crust.',
+          href: '/space/europa',
+        },
+        { label: 'Ocean', body: 'Global salty ocean.' },
+      ],
     })
   })
 
@@ -225,12 +259,30 @@ describe('segmentCleoMarkdown', () => {
       },
     ])
   })
+
+  it('emits a pending placeholder for incomplete streaming fences', () => {
+    const markdown = [
+      'Europa is an ocean world.',
+      '',
+      '```cleo',
+      '{"type":"layers","title":"Europa interior","layers":[',
+    ].join('\n')
+
+    expect(segmentCleoMarkdown(markdown)).toEqual([
+      { type: 'markdown', content: 'Europa is an ocean world.\n\n' },
+      { type: 'pending', widgetType: 'layers' },
+    ])
+    expect(peekCleoWidgetType('{"type":"scale"')).toBe('scale')
+  })
 })
 
 describe('helpers', () => {
   it('normalizes curated widget images and validates hrefs', () => {
     expect(normalizeCuratedWidgetImage('/images/space/mars/w640.jpg')).toBe(
       '/images/space/mars/w1280.jpg',
+    )
+    expect(curatedWidgetThumbSrc('/images/space/mars/w1280.jpg')).toBe(
+      '/images/space/mars/w640.jpg',
     )
     expect(isCleoWidgetHref('/explore/japan')).toBe(true)
     expect(isCleoWidgetHref('/cleo')).toBe(false)

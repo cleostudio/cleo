@@ -5,7 +5,10 @@ import Link from "next/link"
 import { code } from "@streamdown/code"
 import { Streamdown } from "streamdown"
 
-import { InteractiveBlock } from "~/components/cleo/interactive"
+import {
+  InteractiveBlock,
+  PendingInteractive,
+} from "~/components/cleo/interactive"
 import { PhotoZoomDetails } from "~/components/photo-zoom-details"
 import { ZoomImage } from "~/components/zoom-image"
 import { segmentCleoMarkdown } from "~/lib/cleo/interactive"
@@ -151,6 +154,15 @@ export function Markdown({
             >
               {segment.content}
             </MarkdownProse>
+          )
+        }
+
+        if (segment.type === "pending") {
+          return (
+            <PendingInteractive
+              key={`pending-${index}`}
+              widgetType={segment.widgetType}
+            />
           )
         }
 

@@ -46,7 +46,8 @@ document (enable both products in the Vercel project dashboard).
   matching turns also ground curated topic photo paths so replies can embed
   atlas/space JPEGs as Markdown images; replies may also include fenced
   `cleo` JSON for generative widgets — tabs, timeline, facts, compare,
-  steps, cards, gallery, path, scale)
+  steps, cards, gallery, path, scale, layers; incomplete fences render a
+  pending placeholder while streaming)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

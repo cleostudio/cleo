@@ -3,8 +3,8 @@
  *
  * The model embeds fenced `cleo` JSON in assistant Markdown. The client
  * parses those fences into typed widgets (tabs, timeline, facts, compare,
- * steps, cards, gallery, path, scale) that the user interacts with in place —
- * part of the answer, not suggestion chips or quizzes.
+ * steps, cards, gallery, path, scale, layers) that the user interacts with in
+ * place — part of the answer, not suggestion chips or quizzes.
  */
 
 import { isCuratedTopicImageSrc } from '~/lib/cleo/portal-links'
@@ -64,6 +64,13 @@ export type CleoScaleItem = {
   value: number
 }
 
+export type CleoLayerItem = {
+  body: string
+  depth?: string
+  href?: string
+  label: string
+}
+
 export type CleoTabsBlock = {
   tabs: CleoTabItem[]
   title?: string
@@ -121,6 +128,12 @@ export type CleoScaleBlock = {
   unit?: string
 }
 
+export type CleoLayersBlock = {
+  layers: CleoLayerItem[]
+  title?: string
+  type: 'layers'
+}
+
 export type CleoInteractiveBlock =
   | CleoTabsBlock
   | CleoTimelineBlock
@@ -131,6 +144,9 @@ export type CleoInteractiveBlock =
   | CleoGalleryBlock
   | CleoPathBlock
   | CleoScaleBlock
+  | CleoLayersBlock
+
+export type CleoWidgetType = CleoInteractiveBlock['type']
 
 export type CleoMarkdownSegment =
   | {
@@ -140,6 +156,10 @@ export type CleoMarkdownSegment =
   | {
       type: 'interactive'
       block: CleoInteractiveBlock
+    }
+  | {
+      type: 'pending'
+      widgetType?: CleoWidgetType
     }
 
 /** Fence open at a line start (multiline `^`), including the trailing newline. */
@@ -157,11 +177,29 @@ const MAX_GALLERY = 6
 const MAX_PATH_STOPS = 6
 const MAX_SCALE_ITEMS = 6
 const MAX_SCALE_VALUE = 1e15
+const MAX_LAYERS = 6
 const MAX_LABEL = 64
 const MAX_SHORT = 120
 const MAX_BODY = 700
 const MAX_HREF = 160
 const MAX_JSON = 8_000
+
+const WIDGET_TYPES = [
+  'tabs',
+  'timeline',
+  'facts',
+  'compare',
+  'steps',
+  'cards',
+  'gallery',
+  'path',
+  'scale',
+  'layers',
+] as const satisfies readonly CleoWidgetType[]
+
+const WIDGET_TYPE_PATTERN = new RegExp(
+  `"type"\\s*:\\s*"(${WIDGET_TYPES.join('|')})"`,
+)
 
 /** Same-site paths widgets may deep-link. */
 const WIDGET_HREF =
@@ -210,6 +248,20 @@ function parseOptionalHref(value: unknown): string | undefined | null {
 /** Prefer the mid curated rendition for widget display. */
 export function normalizeCuratedWidgetImage(src: string): string {
   return src.replace(/\/w(640|2048)\.jpg$/, '/w1280.jpg')
+}
+
+/** Prefer the small curated rendition for gallery thumbs. */
+export function curatedWidgetThumbSrc(src: string): string {
+  return src.replace(/\/w(1280|2048)\.jpg$/, '/w640.jpg')
+}
+
+/** Best-effort type peek while a `cleo` fence is still streaming. */
+export function peekCleoWidgetType(raw: string): CleoWidgetType | undefined {
+  const match = WIDGET_TYPE_PATTERN.exec(raw)
+  if (!match?.[1]) {
+    return undefined
+  }
+  return match[1] as CleoWidgetType
 }
 
 function parseOptionalImage(value: unknown): string | undefined | null {
@@ -686,6 +738,56 @@ function parseScaleBlock(value: Record<string, unknown>): CleoScaleBlock | null 
   )
 }
 
+function parseLayersBlock(
+  value: Record<string, unknown>,
+): CleoLayersBlock | null {
+  if (
+    !Array.isArray(value.layers) ||
+    value.layers.length < 2 ||
+    value.layers.length > MAX_LAYERS
+  ) {
+    return null
+  }
+
+  const layers: CleoLayerItem[] = []
+  for (const entry of value.layers) {
+    if (typeof entry !== 'object' || entry === null) {
+      return null
+    }
+    const label = trimString(
+      'label' in entry ? entry.label : undefined,
+      MAX_LABEL,
+    )
+    const body = trimString('body' in entry ? entry.body : undefined, MAX_BODY)
+    if (!label || !body) {
+      return null
+    }
+    const layer: CleoLayerItem = { label, body }
+    if ('depth' in entry && entry.depth !== undefined) {
+      const depth = trimString(entry.depth, MAX_SHORT)
+      if (!depth) {
+        return null
+      }
+      layer.depth = depth
+    }
+    if ('href' in entry && entry.href !== undefined) {
+      const href = parseOptionalHref(entry.href)
+      if (href === null) {
+        return null
+      }
+      if (href !== undefined) {
+        layer.href = href
+      }
+    }
+    layers.push(layer)
+  }
+
+  return withOptionalTitle(
+    { type: 'layers', layers },
+    parseOptionalTitle(value),
+  )
+}
+
 /** Parse and validate one fenced `cleo` JSON payload. */
 export function parseCleoInteractiveBlock(
   raw: string,
@@ -727,6 +829,8 @@ export function parseCleoInteractiveBlock(
       return parsePathBlock(record)
     case 'scale':
       return parseScaleBlock(record)
+    case 'layers':
+      return parseLayersBlock(record)
     default:
       return null
   }
@@ -766,8 +870,8 @@ function findNextFence(
 
 /**
  * Split assistant Markdown into prose segments and validated interactive
- * widgets. Incomplete trailing fences (common while streaming) are omitted
- * entirely so raw JSON never flashes in the UI.
+ * widgets. Incomplete trailing fences (common while streaming) become a
+ * pending placeholder — never raw JSON — until the fence closes.
  */
 export function segmentCleoMarkdown(markdown: string): CleoMarkdownSegment[] {
   const segments: CleoMarkdownSegment[] = []
@@ -789,6 +893,12 @@ export function segmentCleoMarkdown(markdown: string): CleoMarkdownSegment[] {
     }
 
     if (!fence.closed) {
+      const widgetType = peekCleoWidgetType(fence.body)
+      segments.push(
+        widgetType
+          ? { type: 'pending', widgetType }
+          : { type: 'pending' },
+      )
       break
     }
 

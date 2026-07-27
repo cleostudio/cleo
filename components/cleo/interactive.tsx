@@ -19,6 +19,8 @@ import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { ZoomImage } from '~/components/zoom-image'
 import {
   type CleoInteractiveBlock,
+  type CleoWidgetType,
+  curatedWidgetThumbSrc,
   formatScaleValue,
   isCleoWidgetHref,
 } from '~/lib/cleo/interactive'
@@ -586,9 +588,7 @@ function CardsWidget({
   block: Extract<CleoInteractiveBlock, { type: 'cards' }>
 }) {
   const expandableIndexes = block.cards
-    .map((card, index) =>
-      card.detail || card.href || card.image ? index : -1,
-    )
+    .map((card, index) => (card.detail || card.href ? index : -1))
     .filter((index) => index >= 0)
   const [open, setOpen] = useState<ReadonlySet<number>>(() => new Set())
   const allOpen =
@@ -614,7 +614,7 @@ function CardsWidget({
     >
       <div className="cleo-widget-cards">
         {block.cards.map((card, index) => {
-          const expandable = Boolean(card.detail || card.href || card.image)
+          const expandable = Boolean(card.detail || card.href)
           const isOpen = open.has(index)
           return (
             <article
@@ -752,7 +752,8 @@ function GalleryWidget({
             >
               {block.items.map((item, index) => {
                 const selected = index === active
-                const zoom = topicPhotoZoomForSrc(item.src)
+                const thumbSrc = curatedWidgetThumbSrc(item.src)
+                const zoom = topicPhotoZoomForSrc(thumbSrc)
                 return (
                   <button
                     aria-selected={selected}
@@ -768,7 +769,7 @@ function GalleryWidget({
                       alt=""
                       className="cleo-widget-gallery-thumb-image"
                       height={zoom?.height ?? 80}
-                      src={item.src}
+                      src={thumbSrc}
                       width={zoom?.width ?? 120}
                     />
                     <span className="sr-only">{item.caption}</span>
@@ -1006,6 +1007,121 @@ function ScaleWidget({
   )
 }
 
+function LayersWidget({
+  block,
+}: {
+  block: Extract<CleoInteractiveBlock, { type: 'layers' }>
+}) {
+  const baseId = useId()
+  const [focus, setFocus] = useState(0)
+  const current = block.layers[focus] ?? block.layers[0]
+  const count = block.layers.length
+
+  function onStackKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') {
+      return
+    }
+    event.preventDefault()
+    const delta = event.key === 'ArrowDown' ? 1 : -1
+    const next = (focus + delta + count) % count
+    setFocus(next)
+    document.getElementById(`${baseId}-layer-${next}`)?.focus()
+  }
+
+  return (
+    <WidgetShell title={block.title}>
+      <div className="cleo-widget-layers">
+        <div
+          aria-label={block.title ?? 'Layers'}
+          className="cleo-widget-layers-stack"
+          onKeyDown={onStackKeyDown}
+          role="listbox"
+        >
+          {block.layers.map((layer, index) => {
+            const selected = index === focus
+            // Outer layers read thicker; inner layers taper slightly.
+            const weight = 1.15 - (index / Math.max(1, count - 1)) * 0.35
+            return (
+              <button
+                aria-selected={selected}
+                className="cleo-widget-layers-band"
+                data-active={selected || undefined}
+                id={`${baseId}-layer-${index}`}
+                key={`${layer.label}-${index}`}
+                onClick={() => setFocus(index)}
+                role="option"
+                style={{ minHeight: `${2.1 * weight}rem` }}
+                tabIndex={selected ? 0 : -1}
+                type="button"
+              >
+                <span className="cleo-widget-layers-band-label">
+                  {layer.label}
+                </span>
+                {layer.depth ? (
+                  <span className="cleo-widget-layers-band-depth">
+                    {layer.depth}
+                  </span>
+                ) : null}
+              </button>
+            )
+          })}
+        </div>
+
+        <div className="cleo-widget-layers-focus" key={focus}>
+          <div className="cleo-widget-layers-focus-header">
+            <p className="cleo-widget-layers-focus-label">{current.label}</p>
+            {current.depth ? (
+              <p className="cleo-widget-layers-focus-depth">{current.depth}</p>
+            ) : null}
+          </div>
+          <WidgetProse text={current.body} />
+          {current.href ? (
+            <Link className="cleo-widget-guide-link" href={current.href}>
+              Open guide
+              <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            </Link>
+          ) : null}
+        </div>
+      </div>
+    </WidgetShell>
+  )
+}
+
+const PENDING_LABELS: Record<CleoWidgetType, string> = {
+  tabs: 'Sections',
+  timeline: 'Timeline',
+  facts: 'Facts',
+  compare: 'Compare',
+  steps: 'Steps',
+  cards: 'Cards',
+  gallery: 'Gallery',
+  path: 'Path',
+  scale: 'Scale',
+  layers: 'Layers',
+}
+
+export function PendingInteractive({
+  widgetType,
+  className,
+}: {
+  widgetType?: CleoWidgetType
+  className?: string
+}) {
+  const label = widgetType ? PENDING_LABELS[widgetType] : 'Interactive'
+  return (
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      className={cn('cleo-interactive', className)}
+    >
+      <div className="cleo-widget cleo-widget-pending">
+        <div className="cleo-widget-pending-pulse" aria-hidden="true" />
+        <p className="cleo-widget-pending-label">Building {label.toLowerCase()}…</p>
+      </div>
+    </div>
+  )
+}
+
 export function InteractiveBlock({
   block,
   className,
@@ -1027,8 +1143,10 @@ export function InteractiveBlock({
       <GalleryWidget block={block} />
     ) : block.type === 'path' ? (
       <PathWidget block={block} />
-    ) : (
+    ) : block.type === 'scale' ? (
       <ScaleWidget block={block} />
+    ) : (
+      <LayersWidget block={block} />
     )
 
   return <div className={cn('cleo-interactive', className)}>{content}</div>

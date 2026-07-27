@@ -1775,6 +1775,157 @@
   border-radius: calc(var(--radius) + 4px);
 }
 
+.cleo-widget-pending {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 3.25rem;
+  padding: 0.85rem 1rem;
+}
+
+.cleo-widget-pending-pulse {
+  width: 0.55rem;
+  height: 0.55rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--foreground) 45%, transparent);
+  animation: cleo-widget-pending-pulse 1.1s var(--ease-swift) infinite;
+}
+
+.cleo-widget-pending-label {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+}
+
+@keyframes cleo-widget-pending-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cleo-widget-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cleo-widget-layers-stack {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  gap: 0.2rem;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: calc(var(--radius) + 4px);
+  background: color-mix(in oklab, var(--foreground) 3%, transparent);
+  padding: 0.35rem;
+}
+
+.cleo-widget-layers-band {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in oklab, var(--background) 88%, transparent);
+  padding: 0.45rem 0.7rem;
+  color: var(--foreground);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 160ms var(--ease-swift),
+    border-color 160ms var(--ease-swift),
+    transform 160ms var(--ease-spring);
+}
+
+.cleo-widget-layers-band:nth-child(odd) {
+  background: color-mix(in oklab, var(--foreground) 5%, var(--background));
+}
+
+.cleo-widget-layers-band:hover {
+  border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
+}
+
+.cleo-widget-layers-band[data-active] {
+  border-color: color-mix(in oklab, var(--foreground) 22%, transparent);
+  background: color-mix(in oklab, var(--background) 72%, transparent);
+  transform: scale(1.01);
+}
+
+.cleo-widget-layers-band:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.cleo-widget-layers-band-label {
+  min-width: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.cleo-widget-layers-band-depth {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.cleo-widget-layers-focus {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: calc(var(--radius) + 4px);
+  background: color-mix(in oklab, var(--background) 78%, transparent);
+  padding: 0.8rem 0.85rem;
+  animation: cleo-widget-fade 180ms var(--ease-swift);
+}
+
+.cleo-widget-layers-focus-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 0.75rem;
+}
+
+.cleo-widget-layers-focus-label {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+.cleo-widget-layers-focus-depth {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.dark .cleo-widget-layers-stack,
+.dark .cleo-widget-layers-focus,
+.dark .cleo-widget-layers-band[data-active] {
+  border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
+}
+
 .cleo-starters {
   display: flex;
   flex-wrap: wrap;

@@ -154,6 +154,33 @@ describe('InteractiveBlock generative widgets', () => {
     ).toBe('Mount Fuji')
   })
 
+  it('focuses cross-section layers', () => {
+    render(
+      <InteractiveBlock
+        block={{
+          type: 'layers',
+          title: 'Europa interior',
+          layers: [
+            {
+              label: 'Ice shell',
+              depth: '~20 km',
+              body: 'Cracked icy crust.',
+              href: '/space/europa',
+            },
+            { label: 'Ocean', body: 'Global salty ocean.' },
+          ],
+        }}
+      />,
+    )
+
+    expect(screen.getByText('Cracked icy crust.')).toBeTruthy()
+    expect(
+      screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
+    ).toBe('/space/europa')
+    fireEvent.click(screen.getByRole('option', { name: /Ocean/i }))
+    expect(screen.getByText('Global salty ocean.')).toBeTruthy()
+  })
+
   it('focuses scale bars and shows relative magnitude', () => {
     render(
       <InteractiveBlock
