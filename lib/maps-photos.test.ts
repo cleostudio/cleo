@@ -18,6 +18,9 @@ describe('mapCountryPhotos', () => {
       galleryHref: '/gallery?q=Japan',
     })
     expect(japan.src).toMatch(/^\/images\/atlas\/japan\/w640\.jpg$/)
+    expect(japan.renditions.length).toBe(3)
+    expect(japan.photographer.length).toBeGreaterThan(0)
+    expect(japan.width).toBeGreaterThan(0)
     expect(japan.aboutExcerpt.length).toBeGreaterThan(40)
     expect(japan.aboutExcerpt.length).toBeLessThanOrEqual(180)
     expect(japan.places.length).toBe(3)

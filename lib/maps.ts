@@ -164,6 +164,11 @@ export type MapCountryPhoto = {
   placeName: string
   alt: string
   src: string
+  width: number
+  height: number
+  photographer: string
+  license: string
+  renditions: Array<{ src: string; width: number }>
   /** Explore field guide for this country. */
   href: string
   /** Gallery deep link filtered to this country. */

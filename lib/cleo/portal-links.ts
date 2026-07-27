@@ -324,6 +324,11 @@ export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Compare Mars and Earth',
     prompt:
-      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide when you name the planets.',
+      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide when you name the planets, and add `/maps` when placing Earth on the globe helps.',
+  },
+  {
+    label: 'Show Earth on the map',
+    prompt:
+      'Orient me to Earth from space, then show where it sits on the interactive map. Deep-link `/space/earth` and `/maps`.',
   },
 ] as const

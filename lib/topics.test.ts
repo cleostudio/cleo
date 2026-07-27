@@ -16,7 +16,8 @@ describe('topics catalog', () => {
     })
     expect(topics[1]).toMatchObject({
       href: '/maps',
-      secondaryHref: '/explore',
+      secondaryHref: '/gallery',
+      secondaryLabel: 'Gallery',
       tally: 'Earth',
     })
     expect(topics[2]).toMatchObject({

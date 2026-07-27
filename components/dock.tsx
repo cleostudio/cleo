@@ -10,6 +10,7 @@ import {
   MapsIcon,
   PreferencesIcon,
   SayHiIcon,
+  SpaceIcon,
   TopicsIcon,
   WritingIcon,
 } from '~/components/dock-icons'
@@ -30,6 +31,7 @@ const ITEMS = [
   { href: '/gallery', zh: '图库', en: 'Gallery', icon: GalleryIcon },
   { href: '/explore', zh: '探索', en: 'Explore', icon: ExploreIcon },
   { href: '/maps', zh: '地图', en: 'Maps', icon: MapsIcon },
+  { href: '/space', zh: '太空', en: 'Space', icon: SpaceIcon },
   { href: '/topics', zh: '主题', en: 'Topics', icon: TopicsIcon },
   { href: '/cleo', zh: 'Cleo', en: 'Cleo', icon: SayHiIcon },
 ] as const

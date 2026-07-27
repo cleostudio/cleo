@@ -36,8 +36,8 @@ export function allTopics(): Topic[] {
         'An interactive 2D map of Earth with NASA Blue Marble imagery, Natural Earth borders and capitals (including territories), shareable views, and deep links into Explore guides.',
       tally: 'Earth',
       href: '/maps',
-      secondaryHref: '/explore',
-      secondaryLabel: 'Explore',
+      secondaryHref: '/gallery',
+      secondaryLabel: 'Gallery',
     },
     {
       slug: 'space',

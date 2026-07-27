@@ -24,6 +24,9 @@ describe('DockFallback', () => {
     expect(screen.getByRole('link', { name: /Maps/ }).getAttribute('href')).toBe(
       '/maps',
     )
+    expect(screen.getByRole('link', { name: /Space/ }).getAttribute('href')).toBe(
+      '/space',
+    )
     expect(screen.getByRole('link', { name: /Topics/ }).getAttribute('href')).toBe(
       '/topics',
     )
@@ -33,7 +36,8 @@ describe('DockFallback', () => {
 
     const hrefs = screen.getAllByRole('link').map((link) => link.getAttribute('href'))
     expect(hrefs.indexOf('/explore')).toBeLessThan(hrefs.indexOf('/maps'))
-    expect(hrefs.indexOf('/maps')).toBeLessThan(hrefs.indexOf('/topics'))
+    expect(hrefs.indexOf('/maps')).toBeLessThan(hrefs.indexOf('/space'))
+    expect(hrefs.indexOf('/space')).toBeLessThan(hrefs.indexOf('/topics'))
     expect((screen.getByRole('button') as HTMLButtonElement).disabled).toBe(true)
   })
 })

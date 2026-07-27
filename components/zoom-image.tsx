@@ -206,6 +206,8 @@ export function ZoomImage({
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         e.preventDefault()
+        // Keep page-level Escape handlers (e.g. Maps clear-selection) from firing.
+        e.stopImmediatePropagation()
         close('escape')
       }
       // image-only dialog: the overlay is the sole focusable — keep Tab inside

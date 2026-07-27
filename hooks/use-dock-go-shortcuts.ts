@@ -16,6 +16,7 @@ export const DOCK_GO_SHORTCUTS: Record<string, string> = {
   t: '/topics',
   e: '/explore',
   m: '/maps',
+  s: '/space',
   c: '/cleo',
 }
 

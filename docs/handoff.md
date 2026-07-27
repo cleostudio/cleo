@@ -37,9 +37,10 @@ document (enable both products in the Vercel project dashboard).
   (deep links honor shared `#zoom/lat/lng`), Fit region / Share region,
   territory→region jump, mobile dossier height budget, recovery for bad
   links, Maps OG + sitemap deep links, Gallery↔Maps Photos / View on map
-  round-trips (`/gallery?q=`), Explore end-matter Map·Photos·All countries,
-  footer Index Maps, and “Back to map” focus; Back/`hashchange` restore
-  camera hash;
+  round-trips (`/gallery?q=`), dossier ZoomImage + Escape nesting guard,
+  Explore/Space end-matter Map·Photos·All…, dock Space (`G` then `S`),
+  footer Index Maps/Space, Cleo Earth↔Maps starter, and “Back to map”
+  focus; Back/`hashchange` restore camera hash;
   Borders/Labels/ Graticule toggles with shareable layer query flags;
   `#zoom/lat/lng` camera hash + Share view; Back/Forward for country/region
   focus (pushState); capital-aware search + selection dossier; deep-link

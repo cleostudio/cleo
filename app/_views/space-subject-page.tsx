@@ -5,12 +5,13 @@ import { GuideOrientation } from '~/components/guide-orientation'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
+import { galleryHref } from '~/lib/gallery'
+import { localeMetadata } from '~/lib/locale-metadata'
 import {
   getSpaceSubject,
   spaceDescription,
   spaceSubjectSlugs,
 } from '~/lib/space'
-import { localeMetadata } from '~/lib/locale-metadata'
 
 export function spaceSubjectStaticParams() {
   return spaceSubjectSlugs().map((slug) => ({ slug }))
@@ -222,33 +223,32 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         </ul>
       </section>
 
-      {subject.slug === 'earth' ? (
-        <p
-          className="enter mt-10"
-          style={{ '--enter-delay': '180ms' } as React.CSSProperties}
-        >
+      <nav
+        className="enter mt-10 mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm"
+        style={{ '--enter-delay': '180ms' } as React.CSSProperties}
+        aria-label="Continue"
+      >
+        {subject.slug === 'earth' ? (
           <Link
             href="/maps"
-            className="text-sm text-muted-foreground hover:text-foreground"
+            className="text-foreground underline-offset-2 hover:underline"
           >
-            View on map →
+            Map →
           </Link>
-        </p>
-      ) : null}
-      <p
-        className={
-          subject.slug === 'earth' ? 'enter mt-3 mb-4' : 'enter mt-10 mb-4'
-        }
-        style={
-          {
-            '--enter-delay': subject.slug === 'earth' ? '190ms' : '180ms',
-          } as React.CSSProperties
-        }
-      >
-        <Link href="/space" className="text-sm text-muted-foreground hover:text-foreground">
+        ) : null}
+        <Link
+          href={galleryHref(subject.name)}
+          className="text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+        >
+          Photos →
+        </Link>
+        <Link
+          href="/space"
+          className="text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+        >
           ← All space guides
         </Link>
-      </p>
+      </nav>
     </article>
   )
 }

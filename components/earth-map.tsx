@@ -16,6 +16,8 @@ import {
 } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 
+import { PhotoZoomDetails } from '~/components/photo-zoom-details'
+import { ZoomImage } from '~/components/zoom-image'
 import { ensureMapLibreWorker } from '~/lib/maplibre-worker'
 import {
   buildCountryLabelCollection,
@@ -1321,6 +1323,8 @@ export function EarthMap({
       }
       if (event.key !== 'Escape') return
       if (suggestionsOpenRef.current) return
+      // ZoomImage owns Escape while the lightbox is open.
+      if (document.querySelector('.zoom-overlay[aria-modal="true"]')) return
       const active = document.activeElement as HTMLElement | null
       const tag = active?.tagName
       if (
@@ -2040,19 +2044,31 @@ export function EarthMap({
             >
               <MapsGlass />
               {photo ? (
-                <Link
-                  href={photo.galleryHref}
-                  className="earth-map-photo"
-                  title={`Photos of ${selected.name} in the Gallery`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element -- static atlas JPEG with known path */}
-                  <img src={photo.src} alt={photo.alt} width={160} height={106} />
-                  <span className="earth-map-photo-caption">
-                    <span className="earth-map-selection-code tabular-nums">
+                <div className="earth-map-photo">
+                  <ZoomImage
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={photo.width}
+                    height={photo.height}
+                    className="earth-map-photo-thumb"
+                    sizes="4.75rem"
+                    renditions={photo.renditions}
+                    expandedContent={
+                      <PhotoZoomDetails
+                        collection="places"
+                        title={photo.placeName}
+                        subtitle={photo.name}
+                        photographer={photo.photographer}
+                        license={photo.license}
+                      />
+                    }
+                  />
+                  <div className="earth-map-photo-caption">
+                    <p className="earth-map-selection-code tabular-nums">
                       {selected.code}
-                    </span>
-                    <span className="earth-map-selection-name">{selected.name}</span>
-                    <span className="earth-map-photo-place">
+                    </p>
+                    <p className="earth-map-selection-name">{selected.name}</p>
+                    <p className="earth-map-photo-place">
                       {[
                         selectedEntry?.region ?? selected.country?.region,
                         (selectedEntry?.capitalName ?? photo.capital)
@@ -2062,9 +2078,9 @@ export function EarthMap({
                       ]
                         .filter(Boolean)
                         .join(' · ')}
-                    </span>
-                  </span>
-                </Link>
+                    </p>
+                  </div>
+                </div>
               ) : (
                 <div>
                   <p className="earth-map-selection-code tabular-nums">

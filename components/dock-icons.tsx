@@ -161,6 +161,31 @@ export function MapsIcon() {
   )
 }
 
+/** Ringed planet for Space field guides. */
+export function SpaceIcon() {
+  return (
+    <Base>
+      <circle
+        cx="9"
+        cy="9"
+        r="4.25"
+        fill="currentColor"
+        opacity=".3"
+        strokeWidth="0"
+        stroke="none"
+      />
+      <circle cx="9" cy="9" r="4.25" />
+      <ellipse
+        cx="9"
+        cy="9"
+        rx="7.5"
+        ry="2.15"
+        transform="rotate(-22 9 9)"
+      />
+    </Base>
+  )
+}
+
 export function SayHiIcon() {
   return (
     <Base>

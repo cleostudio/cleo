@@ -69,6 +69,7 @@ describe('useDockGoShortcuts', () => {
     { key: 't', href: '/topics' },
     { key: 'e', href: '/explore' },
     { key: 'm', href: '/maps' },
+    { key: 's', href: '/space' },
     { key: 'c', href: '/cleo' },
   ] as const)('maps G then $key to $href', ({ key, href }) => {
     render(<Harness locale="en" activeHref="/" />)
