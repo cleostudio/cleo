@@ -2782,5 +2782,933 @@
         "bytes": 571053
       }
     ]
+  },
+  "lagos": {
+    "featureName": "Lagos",
+    "alt": "Lagos in Nigeria",
+    "caption": "Lagos, Nigeria",
+    "photographer": "Clara Sanchiz",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lagos_skyline.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lagos skyline.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/12/Lagos_skyline.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cf5bcdc67c916f9de09b08e33bb5bbfca6904325b1a6e505b13e8223aef441c0",
+    "width": 3726,
+    "height": 1970,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lagos/w640.jpg",
+        "bytes": 33876
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lagos/w1280.jpg",
+        "bytes": 99978
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lagos/w2048.jpg",
+        "bytes": 263402
+      }
+    ]
+  },
+  "helsinki": {
+    "featureName": "Helsinki",
+    "alt": "Helsinki in Finland",
+    "caption": "Helsinki, Finland",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catedral_Luterana_de_Helsinki,_Finlandia,_2012-08-14,_DD_14.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Catedral Luterana de Helsinki, Finlandia, 2012-08-14, DD 14.JPG); source https://upload.wikimedia.org/wikipedia/commons/2/24/Catedral_Luterana_de_Helsinki%2C_Finlandia%2C_2012-08-14%2C_DD_14.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ff7f5a46bc7f8cb4a4ebc476df0e5eeec7d5560dd5bf5e87212a184e16d69824",
+    "width": 3840,
+    "height": 2798,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/helsinki/w640.jpg",
+        "bytes": 38326
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/helsinki/w1280.jpg",
+        "bytes": 122977
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/helsinki/w2048.jpg",
+        "bytes": 334295
+      }
+    ]
+  },
+  "warsaw": {
+    "featureName": "Warsaw",
+    "alt": "Warsaw in Poland",
+    "caption": "Warsaw, Poland",
+    "photographer": "Rhododendrites",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castle_Square_(22346p).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Castle Square (22346p).jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7a/Castle_Square_%2822346p%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2654488f3d148f906b6df5cfbe857095e3a25deb68277949f8e20185bd182f35",
+    "width": 3840,
+    "height": 3023,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/warsaw/w640.jpg",
+        "bytes": 67381
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/warsaw/w1280.jpg",
+        "bytes": 237396
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/warsaw/w2048.jpg",
+        "bytes": 724214
+      }
+    ]
+  },
+  "budapest": {
+    "featureName": "Budapest",
+    "alt": "Budapest in Hungary",
+    "caption": "Budapest, Hungary",
+    "photographer": "Godot13",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HUN-2015-Budapest-Hungarian_Parliament_(Budapest)_2015-02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:HUN-2015-Budapest-Hungarian Parliament (Budapest) 2015-02.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/ba/HUN-2015-Budapest-Hungarian_Parliament_%28Budapest%29_2015-02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b5782bd5baefaf580e846f4a3e9259f08871006bc5256986047b194b307a4f60",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/budapest/w640.jpg",
+        "bytes": 34457
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/budapest/w1280.jpg",
+        "bytes": 111480
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/budapest/w2048.jpg",
+        "bytes": 309445
+      }
+    ]
+  },
+  "delhi": {
+    "featureName": "Delhi",
+    "alt": "Delhi in India",
+    "caption": "Delhi, India",
+    "photographer": "Joygopal008",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:India_Gate_early_morning.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:India Gate early morning.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0d/India_Gate_early_morning.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1563f68da382058d54ed111e7df311b2941fba9d94ea2868d6f409040561f00c",
+    "width": 3840,
+    "height": 2735,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/delhi/w640.jpg",
+        "bytes": 38544
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/delhi/w1280.jpg",
+        "bytes": 134287
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/delhi/w2048.jpg",
+        "bytes": 390426
+      }
+    ]
+  },
+  "osaka": {
+    "featureName": "Osaka",
+    "alt": "Osaka in Japan",
+    "caption": "Osaka, Japan",
+    "photographer": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_Outer_Moat_and_Osaka_Business_Park,_November_2016.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Osaka Castle Outer Moat and Osaka Business Park, November 2016.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b9/Osaka_Castle_Outer_Moat_and_Osaka_Business_Park%2C_November_2016.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1bee1ba0feb8a62c9975d1e5ff4bd11540c18745ff98e973c1bbed62592aa6dd",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/osaka/w640.jpg",
+        "bytes": 41504
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/osaka/w1280.jpg",
+        "bytes": 163393
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/osaka/w2048.jpg",
+        "bytes": 533889
+      }
+    ]
+  },
+  "auckland": {
+    "featureName": "Auckland",
+    "alt": "Auckland in New Zealand",
+    "caption": "Auckland, New Zealand",
+    "photographer": "Christian Mehlführer, User:Chmehl",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AucklandPano_MC.jpg",
+    "license": "CC BY 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:AucklandPano MC.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b5/AucklandPano_MC.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7a56671c810481be1e15e26b298ce179b91e56c4fc594deba42ffd0314569499",
+    "width": 3840,
+    "height": 581,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/auckland/w640.jpg",
+        "bytes": 14307
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/auckland/w1280.jpg",
+        "bytes": 50253
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/auckland/w2048.jpg",
+        "bytes": 147767
+      }
+    ]
+  },
+  "vancouver": {
+    "featureName": "Vancouver",
+    "alt": "Vancouver in Canada",
+    "caption": "Vancouver, Canada",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vancouver_(BC,_Canada),_Skyline_--_2022_--_2080-92.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vancouver (BC, Canada), Skyline -- 2022 -- 2080-92.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/88/Vancouver_%28BC%2C_Canada%29%2C_Skyline_--_2022_--_2080-92.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bdd8818516f1446268191c4d9234fcf289b6a98b421bf3369d11a69cbbd6a3ea",
+    "width": 3840,
+    "height": 510,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/vancouver/w640.jpg",
+        "bytes": 10506
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/vancouver/w1280.jpg",
+        "bytes": 35803
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/vancouver/w2048.jpg",
+        "bytes": 108868
+      }
+    ]
+  },
+  "edinburgh": {
+    "featureName": "Edinburgh",
+    "alt": "Edinburgh in United Kingdom",
+    "caption": "Edinburgh, United Kingdom",
+    "photographer": "George Washington Wilson / Adam Cuerden",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_from_Grass_Market.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Edinburgh Castle from Grass Market.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c4/Edinburgh_Castle_from_Grass_Market.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1e47d506ef4233686c1f62aed631c0c9fe1d0e80f03acce492b15d74cda7236c",
+    "width": 3460,
+    "height": 2300,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/edinburgh/w640.jpg",
+        "bytes": 66537
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/edinburgh/w1280.jpg",
+        "bytes": 209953
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/edinburgh/w2048.jpg",
+        "bytes": 572814
+      }
+    ]
+  },
+  "dublin": {
+    "featureName": "Dublin",
+    "alt": "Dublin in Ireland",
+    "caption": "Dublin, Ireland",
+    "photographer": "Zairon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dublin_Ha%27_Penny_Bridge_2.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Dublin Ha' Penny Bridge 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/24/Dublin_Ha%27_Penny_Bridge_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "19c92366bcd0afae80bd20a2d551377512d7b5696af5a70d2224d55f6b10d2eb",
+    "width": 3840,
+    "height": 2892,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/dublin/w640.jpg",
+        "bytes": 56097
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/dublin/w1280.jpg",
+        "bytes": 185649
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/dublin/w2048.jpg",
+        "bytes": 500343
+      }
+    ]
+  },
+  "reykjavik": {
+    "featureName": "Reykjavík",
+    "alt": "Reykjavík in Iceland",
+    "caption": "Reykjavík, Iceland",
+    "photographer": "McKay Savage from London, UK",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iceland_-_Reykjavik_042_-_panorama_from_Hallgrimskirkja_cathedral_(6571025007).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Iceland - Reykjavik 042 - panorama from Hallgrimskirkja cathedral (6571025007).jpg); source https://upload.wikimedia.org/wikipedia/commons/2/2c/Iceland_-_Reykjavik_042_-_panorama_from_Hallgrimskirkja_cathedral_%286571025007%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fc913da4d3e6e5d342142446472709ffe800af1499755b316efadbf70fc28925",
+    "width": 2376,
+    "height": 1584,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/reykjavik/w640.jpg",
+        "bytes": 69307
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/reykjavik/w1280.jpg",
+        "bytes": 222947
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/reykjavik/w2048.jpg",
+        "bytes": 555168
+      }
+    ]
+  },
+  "hanoi": {
+    "featureName": "Hanoi",
+    "alt": "Hanoi in Vietnam",
+    "caption": "Hanoi, Vietnam",
+    "photographer": "Christopher Crouzet",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_over_Hanoi_After_the_Rain.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sunset over Hanoi After the Rain.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/20/Sunset_over_Hanoi_After_the_Rain.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "954756596ec17f1a0c69323abbc5369a30c702274c98d39b1094773d3dfae58c",
+    "width": 3840,
+    "height": 1307,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hanoi/w640.jpg",
+        "bytes": 19580
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hanoi/w1280.jpg",
+        "bytes": 63898
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hanoi/w2048.jpg",
+        "bytes": 183820
+      }
+    ]
+  },
+  "java": {
+    "featureName": "Java Indonesia",
+    "alt": "Java Indonesia in Indonesia",
+    "caption": "Java Indonesia, Indonesia",
+    "photographer": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Batok,_view_from_Bromo_volcano,_Java,_Indonesia,_20220820_0539_9409.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Batok, view from Bromo volcano, Java, Indonesia, 20220820 0539 9409.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/ee/Batok%2C_view_from_Bromo_volcano%2C_Java%2C_Indonesia%2C_20220820_0539_9409.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "07f1c25ebd8e3fbfde4934042d59e50a09ae708d88caab73a84a37fbaa71cdb8",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/java/w640.jpg",
+        "bytes": 34978
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/java/w1280.jpg",
+        "bytes": 129347
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/java/w2048.jpg",
+        "bytes": 396888
+      }
+    ]
+  },
+  "borneo": {
+    "featureName": "Mount Kinabalu",
+    "alt": "Mount Kinabalu in Malaysia",
+    "caption": "Mount Kinabalu, Malaysia",
+    "photographer": "Nino Verde",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Morning_view_of_Mount_Kinabalu_in_Malaysia,_with_its_peak_clearly_visible.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Morning view of Mount Kinabalu in Malaysia, with its peak clearly visible.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/27/Morning_view_of_Mount_Kinabalu_in_Malaysia%2C_with_its_peak_clearly_visible.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "abd97e637ab72048dc0caf882f845409855500e08dba45ec325790b99db6f535",
+    "width": 3543,
+    "height": 2362,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/borneo/w640.jpg",
+        "bytes": 79608
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/borneo/w1280.jpg",
+        "bytes": 231965
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/borneo/w2048.jpg",
+        "bytes": 649046
+      }
+    ]
+  },
+  "phuket": {
+    "featureName": "Phuket",
+    "alt": "Phuket in Thailand",
+    "caption": "Phuket, Thailand",
+    "photographer": "Radek Kucharski",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kata_Beach1.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kata Beach1.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/65/Kata_Beach1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4ab590dd3251a9b33409dd6fca5e9636ca4629f37a32e88d4abb687474a9d9d5",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/phuket/w640.jpg",
+        "bytes": 42552
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/phuket/w1280.jpg",
+        "bytes": 184871
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/phuket/w2048.jpg",
+        "bytes": 588797
+      }
+    ]
+  },
+  "bora-bora": {
+    "featureName": "Bora Bora",
+    "alt": "Bora Bora in France",
+    "caption": "Bora Bora, France",
+    "photographer": "The TerraMar Project",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bora_Bora_(16542797633).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bora Bora (16542797633).jpg); source https://upload.wikimedia.org/wikipedia/commons/7/78/Bora_Bora_%2816542797633%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c6fca0795b090e6b94437ec4d93f8368d5c8fdc25ecac8d54a41f0a5f9212e9c",
+    "width": 3840,
+    "height": 2047,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bora-bora/w640.jpg",
+        "bytes": 21940
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bora-bora/w1280.jpg",
+        "bytes": 66250
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bora-bora/w2048.jpg",
+        "bytes": 198162
+      }
+    ]
+  },
+  "luzon": {
+    "featureName": "Luzon",
+    "alt": "Luzon in Philippines",
+    "caption": "Luzon, Philippines",
+    "photographer": "Grunderfam",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_der_Reisterrassen_von_Banaue,_Philippinen.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Panorama der Reisterrassen von Banaue, Philippinen.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/ed/Panorama_der_Reisterrassen_von_Banaue%2C_Philippinen.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2e975f394953f0ab4a7be408c25c8d70c164dc3c140b9b0c700c42d2e8e5ad1f",
+    "width": 2592,
+    "height": 1944,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/luzon/w640.jpg",
+        "bytes": 120750
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/luzon/w1280.jpg",
+        "bytes": 382563
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/luzon/w2048.jpg",
+        "bytes": 949634
+      }
+    ]
+  },
+  "sumatra": {
+    "featureName": "Sumatra",
+    "alt": "Sumatra in Indonesia",
+    "caption": "Sumatra, Indonesia",
+    "photographer": "Chapsorini",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Toba_from_Simalem,_North_Sumatra.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake Toba from Simalem, North Sumatra.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b5/Lake_Toba_from_Simalem%2C_North_Sumatra.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "47ec02514d7e8af5ed4c6d44d2bd729c04a259a5aaca4a01d10cb13df5a90146",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sumatra/w640.jpg",
+        "bytes": 55310
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sumatra/w1280.jpg",
+        "bytes": 185865
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sumatra/w2048.jpg",
+        "bytes": 507986
+      }
+    ]
+  },
+  "fiordland": {
+    "featureName": "Fiordland",
+    "alt": "Fiordland in New Zealand",
+    "caption": "Fiordland, New Zealand",
+    "photographer": "Krzysztof Golik",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_of_Fiordland_National_Park_01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Landscape of Fiordland National Park 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e9/Landscape_of_Fiordland_National_Park_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3db5f045b711429df881820dd385eedbda56cfdca6ffee8fa0211a84a8c34b82",
+    "width": 3796,
+    "height": 2531,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/fiordland/w640.jpg",
+        "bytes": 104849
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/fiordland/w1280.jpg",
+        "bytes": 294489
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/fiordland/w2048.jpg",
+        "bytes": 771634
+      }
+    ]
+  },
+  "namib": {
+    "featureName": "Namib Desert",
+    "alt": "Namib Desert in Namibia",
+    "caption": "Namib Desert, Namibia",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Duna_en_Sossusvlei,_Namibia,_2018-08-06,_DD_002.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Duna en Sossusvlei, Namibia, 2018-08-06, DD 002.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/2a/Duna_en_Sossusvlei%2C_Namibia%2C_2018-08-06%2C_DD_002.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "df24574e93272f275ade04e5dd50042c6f3dc3b433a4fc088007526da6958b1b",
+    "width": 3840,
+    "height": 2144,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/namib/w640.jpg",
+        "bytes": 22976
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/namib/w1280.jpg",
+        "bytes": 85287
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/namib/w2048.jpg",
+        "bytes": 280182
+      }
+    ]
+  },
+  "sahara": {
+    "featureName": "Tassili n'Ajjer",
+    "alt": "Tassili n'Ajjer in Algeria",
+    "caption": "Tassili n'Ajjer, Algeria",
+    "photographer": "IssamBarhoumi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tassili_n%27Ajjer-Tamghit_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Tassili n'Ajjer-Tamghit 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0f/Tassili_n%27Ajjer-Tamghit_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c4518279b222bbf792e90b78e8a10e76f2725c0cc72fbd9bd0bee36cf46bd4fd",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sahara/w640.jpg",
+        "bytes": 22650
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sahara/w1280.jpg",
+        "bytes": 72418
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sahara/w2048.jpg",
+        "bytes": 223524
+      }
+    ]
+  },
+  "lapland": {
+    "featureName": "Lapland Finland",
+    "alt": "Lapland Finland in Finland",
+    "caption": "Lapland Finland, Finland",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pallastunturi_and_Hanhij%C3%A4rvi_in_Muonio,_Lapland,_Finland,_2023_September.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Pallastunturi and Hanhijärvi in Muonio, Lapland, Finland, 2023 September.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4e/Pallastunturi_and_Hanhij%C3%A4rvi_in_Muonio%2C_Lapland%2C_Finland%2C_2023_September.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "db4f46258ebffcbb4f1528ae213e60cf3a8062fd5f8a604d4cc770a380bdf570",
+    "width": 3840,
+    "height": 2270,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lapland/w640.jpg",
+        "bytes": 48627
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lapland/w1280.jpg",
+        "bytes": 182472
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lapland/w2048.jpg",
+        "bytes": 557002
+      }
+    ]
+  },
+  "banff": {
+    "featureName": "Banff National Park",
+    "alt": "Banff National Park in Canada",
+    "caption": "Banff National Park, Canada",
+    "photographer": "Florian Fuchs",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Agnes_im_Banff_National_Park.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake Agnes im Banff National Park.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/bc/Lake_Agnes_im_Banff_National_Park.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ece217dcb08f87466d417252399ec6f8a63192bf4369f143155491a9a3cf2fcd",
+    "width": 3840,
+    "height": 2544,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/banff/w640.jpg",
+        "bytes": 63711
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/banff/w1280.jpg",
+        "bytes": 255329
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/banff/w2048.jpg",
+        "bytes": 809180
+      }
+    ]
+  },
+  "niagara-falls": {
+    "featureName": "Niagara Falls",
+    "alt": "Niagara Falls in Canada",
+    "caption": "Niagara Falls, Canada",
+    "photographer": "Robert F. Tobler",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Niagara_Falls_USA_Canada_from_Skylon_Tower_on_2002-05-28.png",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Niagara Falls USA Canada from Skylon Tower on 2002-05-28.png); source https://upload.wikimedia.org/wikipedia/commons/6/64/Niagara_Falls_USA_Canada_from_Skylon_Tower_on_2002-05-28.png; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "65ec998237c2d939b83b90a6684d49324bc1170e374460195f32868fe691d8a3",
+    "width": 3840,
+    "height": 960,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/niagara-falls/w640.jpg",
+        "bytes": 25600
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/niagara-falls/w1280.jpg",
+        "bytes": 93411
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/niagara-falls/w2048.jpg",
+        "bytes": 270545
+      }
+    ]
+  },
+  "plitvice": {
+    "featureName": "Plitvice Lakes",
+    "alt": "Plitvice Lakes in Croatia",
+    "caption": "Plitvice Lakes, Croatia",
+    "photographer": "Tesla Delacroix",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plitvice_Lakes1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Plitvice Lakes1.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/18/Plitvice_Lakes1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ecb4d1cf8959a7a66dba57552979f4d9287f064ba8e1ab57345c9961b64a5809",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/plitvice/w640.jpg",
+        "bytes": 67523
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/plitvice/w1280.jpg",
+        "bytes": 274620
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/plitvice/w2048.jpg",
+        "bytes": 819161
+      }
+    ]
+  },
+  "matterhorn": {
+    "featureName": "Matterhorn",
+    "alt": "Matterhorn in Switzerland",
+    "caption": "Matterhorn, Switzerland",
+    "photographer": "Roy Egloff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CH.VS.Zermatt_2021-10-17_Matterhorn_8726.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:CH.VS.Zermatt 2021-10-17 Matterhorn 8726.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c9/CH.VS.Zermatt_2021-10-17_Matterhorn_8726.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5703d6a570ed36965cad279a88eb82398296cd6e4900e880936862a746bd710d",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/matterhorn/w640.jpg",
+        "bytes": 64072
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/matterhorn/w1280.jpg",
+        "bytes": 247166
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/matterhorn/w2048.jpg",
+        "bytes": 752796
+      }
+    ]
+  },
+  "neuschwanstein": {
+    "featureName": "Neuschwanstein",
+    "alt": "Neuschwanstein in Germany",
+    "caption": "Neuschwanstein, Germany",
+    "photographer": "Wilfredor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neuschwanstein_Castle_2024-02.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Neuschwanstein Castle 2024-02.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3c/Neuschwanstein_Castle_2024-02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "650c8edc740af5d58987521102305822014293b25f54a903b4f59dfc01ba3557",
+    "width": 3840,
+    "height": 2615,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/neuschwanstein/w640.jpg",
+        "bytes": 49858
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/neuschwanstein/w1280.jpg",
+        "bytes": 187123
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/neuschwanstein/w2048.jpg",
+        "bytes": 587932
+      }
+    ]
+  },
+  "alhambra": {
+    "featureName": "Alhambra",
+    "alt": "Alhambra in Spain",
+    "caption": "Alhambra, Spain",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Granada_-_View_from_Mirador_de_San_Nicol%C3%A1s_-_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Granada - View from Mirador de San Nicolás - 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1e/Granada_-_View_from_Mirador_de_San_Nicol%C3%A1s_-_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bf492e60d21e43e144e30690be8aea69a47835830c5de9fbf8b9424d6034b081",
+    "width": 3840,
+    "height": 2158,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/alhambra/w640.jpg",
+        "bytes": 50883
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/alhambra/w1280.jpg",
+        "bytes": 191875
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/alhambra/w2048.jpg",
+        "bytes": 600983
+      }
+    ]
+  },
+  "victoria-falls": {
+    "featureName": "Victoria Falls",
+    "alt": "Victoria Falls in Zambia",
+    "caption": "Victoria Falls, Zambia",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_04.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cataratas Victoria, Zambia-Zimbabue, 2018-07-27, DD 04.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/da/Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_04.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "75913fd416d53748b447a7227b0ab9e1e8e0e8be02e166cf7e09167409118e57",
+    "width": 3840,
+    "height": 5966,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/victoria-falls/w640.jpg",
+        "bytes": 134827
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/victoria-falls/w1280.jpg",
+        "bytes": 487881
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/victoria-falls/w2048.jpg",
+        "bytes": 1422490
+      }
+    ]
+  },
+  "kilimanjaro": {
+    "featureName": "Kilimanjaro",
+    "alt": "Kilimanjaro in Tanzania",
+    "caption": "Kilimanjaro, Tanzania",
+    "photographer": "Sergey Pesterev",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kilimanjaro_from_Amboseli.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kilimanjaro from Amboseli.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6c/Kilimanjaro_from_Amboseli.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6b2064978fffcb72430231234ea18ceb4e23194b1a4e902aed49e3d5f66416f6",
+    "width": 3043,
+    "height": 2036,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kilimanjaro/w640.jpg",
+        "bytes": 58523
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kilimanjaro/w1280.jpg",
+        "bytes": 164779
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kilimanjaro/w2048.jpg",
+        "bytes": 454955
+      }
+    ]
+  },
+  "yosemite": {
+    "featureName": "Yosemite",
+    "alt": "Yosemite in United States",
+    "caption": "Yosemite, United States",
+    "photographer": "King of Hearts",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Valley_View_Yosemite_August_2013_002.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Valley View Yosemite August 2013 002.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f0/Valley_View_Yosemite_August_2013_002.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7202cac8a9ee76db59cc0e46a141e120c5fd595ec9acee341c613278c4c14e36",
+    "width": 3840,
+    "height": 2543,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/yosemite/w640.jpg",
+        "bytes": 68444
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/yosemite/w1280.jpg",
+        "bytes": 267754
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/yosemite/w2048.jpg",
+        "bytes": 826261
+      }
+    ]
+  },
+  "great-barrier-reef": {
+    "featureName": "Great Barrier Reef",
+    "alt": "Great Barrier Reef in Australia",
+    "caption": "Great Barrier Reef, Australia",
+    "photographer": "Ank Kumar",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_shots_of_The_Great_Barrier_Reef,_Queensland,_Australia_(Ank_Kumar)_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Aerial shots of The Great Barrier Reef, Queensland, Australia (Ank Kumar) 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e1/Aerial_shots_of_The_Great_Barrier_Reef%2C_Queensland%2C_Australia_%28Ank_Kumar%29_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0da24a842a420a8c676f7d41dfeb693094eb748d93fc3fe4b3c54c4560c04653",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/great-barrier-reef/w640.jpg",
+        "bytes": 22296
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/great-barrier-reef/w1280.jpg",
+        "bytes": 77526
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/great-barrier-reef/w2048.jpg",
+        "bytes": 252495
+      }
+    ]
   }
 }

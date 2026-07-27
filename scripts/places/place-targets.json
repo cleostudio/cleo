@@ -1006,5 +1006,350 @@
       "Uluru",
       "Ayers Rock"
     ]
+  },
+  "lagos": {
+    "name": "Lagos",
+    "countrySlug": "nigeria",
+    "countryName": "Nigeria",
+    "kind": "City",
+    "searchNames": [
+      "Lagos Nigeria",
+      "Lagos skyline",
+      "Victoria Island Lagos"
+    ]
+  },
+  "helsinki": {
+    "name": "Helsinki",
+    "countrySlug": "finland",
+    "countryName": "Finland",
+    "kind": "City",
+    "searchNames": [
+      "Helsinki",
+      "Suomenlinna",
+      "Helsinki Cathedral"
+    ]
+  },
+  "warsaw": {
+    "name": "Warsaw",
+    "countrySlug": "poland",
+    "countryName": "Poland",
+    "kind": "City",
+    "searchNames": [
+      "Warsaw",
+      "Warsaw Old Town",
+      "Warsaw skyline"
+    ]
+  },
+  "budapest": {
+    "name": "Budapest",
+    "countrySlug": "hungary",
+    "countryName": "Hungary",
+    "kind": "City",
+    "searchNames": [
+      "Budapest",
+      "Buda Castle",
+      "Parliament Budapest"
+    ]
+  },
+  "delhi": {
+    "name": "Delhi",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Delhi",
+      "New Delhi",
+      "India Gate",
+      "Red Fort Delhi"
+    ]
+  },
+  "osaka": {
+    "name": "Osaka",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": [
+      "Osaka",
+      "Osaka Castle",
+      "Dotonbori"
+    ]
+  },
+  "auckland": {
+    "name": "Auckland",
+    "countrySlug": "new-zealand",
+    "countryName": "New Zealand",
+    "kind": "City",
+    "searchNames": [
+      "Auckland",
+      "Auckland Harbour Bridge",
+      "Rangitoto"
+    ]
+  },
+  "vancouver": {
+    "name": "Vancouver",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": [
+      "Vancouver",
+      "Vancouver skyline",
+      "Stanley Park"
+    ]
+  },
+  "edinburgh": {
+    "name": "Edinburgh",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Edinburgh",
+      "Edinburgh Castle",
+      "Royal Mile"
+    ]
+  },
+  "dublin": {
+    "name": "Dublin",
+    "countrySlug": "ireland",
+    "countryName": "Ireland",
+    "kind": "City",
+    "searchNames": [
+      "Dublin",
+      "Trinity College",
+      "Ha'penny Bridge"
+    ]
+  },
+  "reykjavik": {
+    "name": "Reykjavík",
+    "countrySlug": "iceland",
+    "countryName": "Iceland",
+    "kind": "City",
+    "searchNames": [
+      "Reykjavik",
+      "Reykjavík",
+      "Hallgrímskirkja"
+    ]
+  },
+  "hanoi": {
+    "name": "Hanoi",
+    "countrySlug": "vietnam",
+    "countryName": "Vietnam",
+    "kind": "City",
+    "searchNames": [
+      "Hanoi",
+      "Hoan Kiem Lake",
+      "Hanoi Old Quarter"
+    ]
+  },
+  "java": {
+    "name": "Java",
+    "countrySlug": "indonesia",
+    "countryName": "Indonesia",
+    "kind": "Island",
+    "searchNames": [
+      "Java Indonesia",
+      "Borobudur",
+      "Mount Bromo"
+    ]
+  },
+  "borneo": {
+    "name": "Borneo",
+    "countrySlug": "malaysia",
+    "countryName": "Malaysia",
+    "kind": "Island",
+    "searchNames": [
+      "Borneo",
+      "Mount Kinabalu",
+      "Gunung Mulu"
+    ]
+  },
+  "phuket": {
+    "name": "Phuket",
+    "countrySlug": "thailand",
+    "countryName": "Thailand",
+    "kind": "Island",
+    "searchNames": [
+      "Phuket",
+      "Patong Beach",
+      "Big Buddha Phuket"
+    ]
+  },
+  "bora-bora": {
+    "name": "Bora Bora",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": [
+      "Bora Bora",
+      "Mount Otemanu",
+      "Bora Bora lagoon"
+    ]
+  },
+  "luzon": {
+    "name": "Luzon",
+    "countrySlug": "philippines",
+    "countryName": "Philippines",
+    "kind": "Island",
+    "searchNames": [
+      "Luzon",
+      "Rice Terraces of Banaue",
+      "Mayon Volcano"
+    ]
+  },
+  "sumatra": {
+    "name": "Sumatra",
+    "countrySlug": "indonesia",
+    "countryName": "Indonesia",
+    "kind": "Island",
+    "searchNames": [
+      "Sumatra",
+      "Lake Toba",
+      "Mount Kerinci"
+    ]
+  },
+  "fiordland": {
+    "name": "Fiordland",
+    "countrySlug": "new-zealand",
+    "countryName": "New Zealand",
+    "kind": "Region",
+    "searchNames": [
+      "Fiordland",
+      "Doubtful Sound",
+      "Fiordland National Park"
+    ]
+  },
+  "namib": {
+    "name": "Namib",
+    "countrySlug": "namibia",
+    "countryName": "Namibia",
+    "kind": "Region",
+    "searchNames": [
+      "Namib Desert",
+      "Sossusvlei",
+      "Deadvlei"
+    ]
+  },
+  "sahara": {
+    "name": "Sahara",
+    "countrySlug": "algeria",
+    "countryName": "Algeria",
+    "kind": "Region",
+    "searchNames": [
+      "Sahara Desert Algeria",
+      "Tassili n'Ajjer",
+      "Sahara dunes"
+    ]
+  },
+  "lapland": {
+    "name": "Lapland",
+    "countrySlug": "finland",
+    "countryName": "Finland",
+    "kind": "Region",
+    "searchNames": [
+      "Lapland Finland",
+      "Northern Lights Lapland",
+      "Rovaniemi"
+    ]
+  },
+  "banff": {
+    "name": "Banff",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "Landmark",
+    "searchNames": [
+      "Banff National Park",
+      "Lake Louise",
+      "Moraine Lake"
+    ]
+  },
+  "niagara-falls": {
+    "name": "Niagara Falls",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "Landmark",
+    "searchNames": [
+      "Niagara Falls",
+      "Horseshoe Falls"
+    ]
+  },
+  "plitvice": {
+    "name": "Plitvice Lakes",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "Landmark",
+    "searchNames": [
+      "Plitvice Lakes",
+      "Plitvice"
+    ]
+  },
+  "matterhorn": {
+    "name": "Matterhorn",
+    "countrySlug": "switzerland",
+    "countryName": "Switzerland",
+    "kind": "Landmark",
+    "searchNames": [
+      "Matterhorn",
+      "Zermatt Matterhorn"
+    ]
+  },
+  "neuschwanstein": {
+    "name": "Neuschwanstein",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Landmark",
+    "searchNames": [
+      "Neuschwanstein Castle",
+      "Neuschwanstein"
+    ]
+  },
+  "alhambra": {
+    "name": "Alhambra",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Landmark",
+    "searchNames": [
+      "Alhambra",
+      "Alhambra Granada"
+    ]
+  },
+  "victoria-falls": {
+    "name": "Victoria Falls",
+    "countrySlug": "zambia",
+    "countryName": "Zambia",
+    "kind": "Landmark",
+    "searchNames": [
+      "Victoria Falls",
+      "Mosi-oa-Tunya"
+    ]
+  },
+  "kilimanjaro": {
+    "name": "Kilimanjaro",
+    "countrySlug": "tanzania",
+    "countryName": "Tanzania",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mount Kilimanjaro",
+      "Kilimanjaro"
+    ]
+  },
+  "yosemite": {
+    "name": "Yosemite",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Yosemite",
+      "Yosemite Valley",
+      "Half Dome"
+    ]
+  },
+  "great-barrier-reef": {
+    "name": "Great Barrier Reef",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Landmark",
+    "searchNames": [
+      "Great Barrier Reef",
+      "Great Barrier Reef aerial"
+    ]
   }
 }

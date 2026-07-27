@@ -6983,6 +6983,774 @@
       }
     ]
   },
+  "places/lagos": {
+    "collection": "places",
+    "title": "Lagos",
+    "subtitle": "Lagos",
+    "alt": "Lagos in Nigeria",
+    "photographer": "Clara Sanchiz",
+    "license": "CC BY-SA 2.0",
+    "width": 3726,
+    "height": 1970,
+    "renditions": [
+      {
+        "src": "/images/places/lagos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lagos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lagos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/helsinki": {
+    "collection": "places",
+    "title": "Helsinki",
+    "subtitle": "Helsinki",
+    "alt": "Helsinki in Finland",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2798,
+    "renditions": [
+      {
+        "src": "/images/places/helsinki/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/helsinki/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/helsinki/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/warsaw": {
+    "collection": "places",
+    "title": "Warsaw",
+    "subtitle": "Warsaw",
+    "alt": "Warsaw in Poland",
+    "photographer": "Rhododendrites",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 3023,
+    "renditions": [
+      {
+        "src": "/images/places/warsaw/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/warsaw/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/warsaw/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/budapest": {
+    "collection": "places",
+    "title": "Budapest",
+    "subtitle": "Budapest",
+    "alt": "Budapest in Hungary",
+    "photographer": "Godot13",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/budapest/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/budapest/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/budapest/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/delhi": {
+    "collection": "places",
+    "title": "Delhi",
+    "subtitle": "Delhi",
+    "alt": "Delhi in India",
+    "photographer": "Joygopal008",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2735,
+    "renditions": [
+      {
+        "src": "/images/places/delhi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/delhi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/delhi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/osaka": {
+    "collection": "places",
+    "title": "Osaka",
+    "subtitle": "Osaka",
+    "alt": "Osaka in Japan",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/osaka/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/osaka/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/osaka/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/auckland": {
+    "collection": "places",
+    "title": "Auckland",
+    "subtitle": "Auckland",
+    "alt": "Auckland in New Zealand",
+    "photographer": "Christian Mehlführer, User:Chmehl",
+    "license": "CC BY 2.5",
+    "width": 3840,
+    "height": 581,
+    "renditions": [
+      {
+        "src": "/images/places/auckland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/auckland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/auckland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/vancouver": {
+    "collection": "places",
+    "title": "Vancouver",
+    "subtitle": "Vancouver",
+    "alt": "Vancouver in Canada",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 510,
+    "renditions": [
+      {
+        "src": "/images/places/vancouver/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/vancouver/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/vancouver/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/edinburgh": {
+    "collection": "places",
+    "title": "Edinburgh",
+    "subtitle": "Edinburgh",
+    "alt": "Edinburgh in United Kingdom",
+    "photographer": "George Washington Wilson / Adam Cuerden",
+    "license": "Public domain",
+    "width": 3460,
+    "height": 2300,
+    "renditions": [
+      {
+        "src": "/images/places/edinburgh/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/edinburgh/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/edinburgh/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/dublin": {
+    "collection": "places",
+    "title": "Dublin",
+    "subtitle": "Dublin",
+    "alt": "Dublin in Ireland",
+    "photographer": "Zairon",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2892,
+    "renditions": [
+      {
+        "src": "/images/places/dublin/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/dublin/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/dublin/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/reykjavik": {
+    "collection": "places",
+    "title": "Reykjavík",
+    "subtitle": "Reykjavík",
+    "alt": "Reykjavík in Iceland",
+    "photographer": "McKay Savage from London, UK",
+    "license": "CC BY 2.0",
+    "width": 2376,
+    "height": 1584,
+    "renditions": [
+      {
+        "src": "/images/places/reykjavik/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/reykjavik/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/reykjavik/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hanoi": {
+    "collection": "places",
+    "title": "Hanoi",
+    "subtitle": "Hanoi",
+    "alt": "Hanoi in Vietnam",
+    "photographer": "Christopher Crouzet",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1307,
+    "renditions": [
+      {
+        "src": "/images/places/hanoi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hanoi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hanoi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/java": {
+    "collection": "places",
+    "title": "Java Indonesia",
+    "subtitle": "Java",
+    "alt": "Java Indonesia in Indonesia",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/java/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/java/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/java/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/borneo": {
+    "collection": "places",
+    "title": "Mount Kinabalu",
+    "subtitle": "Borneo",
+    "alt": "Mount Kinabalu in Malaysia",
+    "photographer": "Nino Verde",
+    "license": "CC BY-SA 4.0",
+    "width": 3543,
+    "height": 2362,
+    "renditions": [
+      {
+        "src": "/images/places/borneo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/borneo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/borneo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/phuket": {
+    "collection": "places",
+    "title": "Phuket",
+    "subtitle": "Phuket",
+    "alt": "Phuket in Thailand",
+    "photographer": "Radek Kucharski",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/phuket/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/phuket/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/phuket/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bora-bora": {
+    "collection": "places",
+    "title": "Bora Bora",
+    "subtitle": "Bora Bora",
+    "alt": "Bora Bora in France",
+    "photographer": "The TerraMar Project",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2047,
+    "renditions": [
+      {
+        "src": "/images/places/bora-bora/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bora-bora/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bora-bora/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/luzon": {
+    "collection": "places",
+    "title": "Luzon",
+    "subtitle": "Luzon",
+    "alt": "Luzon in Philippines",
+    "photographer": "Grunderfam",
+    "license": "CC BY-SA 4.0",
+    "width": 2592,
+    "height": 1944,
+    "renditions": [
+      {
+        "src": "/images/places/luzon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/luzon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/luzon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sumatra": {
+    "collection": "places",
+    "title": "Sumatra",
+    "subtitle": "Sumatra",
+    "alt": "Sumatra in Indonesia",
+    "photographer": "Chapsorini",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/sumatra/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sumatra/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sumatra/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/fiordland": {
+    "collection": "places",
+    "title": "Fiordland",
+    "subtitle": "Fiordland",
+    "alt": "Fiordland in New Zealand",
+    "photographer": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "width": 3796,
+    "height": 2531,
+    "renditions": [
+      {
+        "src": "/images/places/fiordland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/fiordland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/fiordland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/namib": {
+    "collection": "places",
+    "title": "Namib Desert",
+    "subtitle": "Namib",
+    "alt": "Namib Desert in Namibia",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2144,
+    "renditions": [
+      {
+        "src": "/images/places/namib/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/namib/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/namib/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sahara": {
+    "collection": "places",
+    "title": "Tassili n'Ajjer",
+    "subtitle": "Sahara",
+    "alt": "Tassili n'Ajjer in Algeria",
+    "photographer": "IssamBarhoumi",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/sahara/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sahara/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sahara/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lapland": {
+    "collection": "places",
+    "title": "Lapland Finland",
+    "subtitle": "Lapland",
+    "alt": "Lapland Finland in Finland",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2270,
+    "renditions": [
+      {
+        "src": "/images/places/lapland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lapland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lapland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/banff": {
+    "collection": "places",
+    "title": "Banff National Park",
+    "subtitle": "Banff",
+    "alt": "Banff National Park in Canada",
+    "photographer": "Florian Fuchs",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2544,
+    "renditions": [
+      {
+        "src": "/images/places/banff/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/banff/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/banff/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/niagara-falls": {
+    "collection": "places",
+    "title": "Niagara Falls",
+    "subtitle": "Niagara Falls",
+    "alt": "Niagara Falls in Canada",
+    "photographer": "Robert F. Tobler",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 960,
+    "renditions": [
+      {
+        "src": "/images/places/niagara-falls/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/niagara-falls/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/niagara-falls/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/plitvice": {
+    "collection": "places",
+    "title": "Plitvice Lakes",
+    "subtitle": "Plitvice Lakes",
+    "alt": "Plitvice Lakes in Croatia",
+    "photographer": "Tesla Delacroix",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/plitvice/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/plitvice/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/plitvice/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/matterhorn": {
+    "collection": "places",
+    "title": "Matterhorn",
+    "subtitle": "Matterhorn",
+    "alt": "Matterhorn in Switzerland",
+    "photographer": "Roy Egloff",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/matterhorn/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/matterhorn/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/matterhorn/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/neuschwanstein": {
+    "collection": "places",
+    "title": "Neuschwanstein",
+    "subtitle": "Neuschwanstein",
+    "alt": "Neuschwanstein in Germany",
+    "photographer": "Wilfredor",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2615,
+    "renditions": [
+      {
+        "src": "/images/places/neuschwanstein/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/neuschwanstein/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/neuschwanstein/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/alhambra": {
+    "collection": "places",
+    "title": "Alhambra",
+    "subtitle": "Alhambra",
+    "alt": "Alhambra in Spain",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2158,
+    "renditions": [
+      {
+        "src": "/images/places/alhambra/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/alhambra/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/alhambra/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/victoria-falls": {
+    "collection": "places",
+    "title": "Victoria Falls",
+    "subtitle": "Victoria Falls",
+    "alt": "Victoria Falls in Zambia",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 5966,
+    "renditions": [
+      {
+        "src": "/images/places/victoria-falls/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/victoria-falls/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/victoria-falls/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kilimanjaro": {
+    "collection": "places",
+    "title": "Kilimanjaro",
+    "subtitle": "Kilimanjaro",
+    "alt": "Kilimanjaro in Tanzania",
+    "photographer": "Sergey Pesterev",
+    "license": "CC BY-SA 4.0",
+    "width": 3043,
+    "height": 2036,
+    "renditions": [
+      {
+        "src": "/images/places/kilimanjaro/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kilimanjaro/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kilimanjaro/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/yosemite": {
+    "collection": "places",
+    "title": "Yosemite",
+    "subtitle": "Yosemite",
+    "alt": "Yosemite in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2543,
+    "renditions": [
+      {
+        "src": "/images/places/yosemite/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/yosemite/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/yosemite/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/great-barrier-reef": {
+    "collection": "places",
+    "title": "Great Barrier Reef",
+    "subtitle": "Great Barrier Reef",
+    "alt": "Great Barrier Reef in Australia",
+    "photographer": "Ank Kumar",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/great-barrier-reef/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/great-barrier-reef/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/great-barrier-reef/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",
