@@ -44,7 +44,9 @@ document (enable both products in the Vercel project dashboard).
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
   (instructions include Explore/Space catalog paths for guide deep-links;
   matching turns also ground curated topic photo paths so replies can embed
-  atlas/space JPEGs as Markdown images)
+  atlas/space JPEGs as Markdown images; replies may also include fenced
+  `cleo` JSON for interactive follow-ups, choices, portal actions, and
+  compare plates)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

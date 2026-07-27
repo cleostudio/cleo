@@ -5,6 +5,18 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { Markdown } from './markdown'
 
+vi.mock('next/link', () => ({
+  default: ({
+    href,
+    children,
+    ...props
+  }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  ),
+}))
+
 vi.mock('next/image', () => ({
   default: ({
     loader: _loader,
@@ -98,5 +110,84 @@ describe('Cleo Markdown topic photos', () => {
     expect(
       screen.queryByRole('button', { name: /Zoom image/i }),
     ).toBeNull()
+  })
+})
+
+describe('Cleo Markdown interactive blocks', () => {
+  it('renders follow-up buttons and submits the prompt', () => {
+    const onPrompt = vi.fn()
+    const markdown = [
+      'Japan is an archipelago.',
+      '',
+      '```cleo',
+      JSON.stringify({
+        type: 'follow_ups',
+        items: [
+          { label: 'Food culture', prompt: 'Tell me about Japanese food.' },
+        ],
+      }),
+      '```',
+    ].join('\n')
+
+    render(<Markdown onPrompt={onPrompt}>{markdown}</Markdown>)
+
+    expect(screen.getByText('Japan is an archipelago.')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: 'Food culture' }))
+    expect(onPrompt).toHaveBeenCalledWith('Tell me about Japanese food.')
+  })
+
+  it('renders portal action links for allowlisted hrefs', () => {
+    const markdown = [
+      '```cleo',
+      JSON.stringify({
+        type: 'portal_actions',
+        items: [
+          { label: 'Open Japan guide', href: '/explore/japan' },
+          { label: 'Browse Gallery', href: '/gallery' },
+        ],
+      }),
+      '```',
+    ].join('\n')
+
+    render(<Markdown>{markdown}</Markdown>)
+
+    expect(
+      screen.getByRole('link', { name: 'Open Japan guide' }).getAttribute('href'),
+    ).toBe('/explore/japan')
+    expect(
+      screen.getByRole('link', { name: 'Browse Gallery' }).getAttribute('href'),
+    ).toBe('/gallery')
+  })
+
+  it('renders compare plates as accessible tables', () => {
+    const markdown = [
+      '```cleo',
+      JSON.stringify({
+        type: 'compare',
+        title: 'Mars vs Earth',
+        columns: ['Mars', 'Earth'],
+        rows: [{ label: 'Moons', values: ['2', '1'] }],
+      }),
+      '```',
+    ].join('\n')
+
+    render(<Markdown>{markdown}</Markdown>)
+
+    expect(screen.getByLabelText('Mars vs Earth')).toBeTruthy()
+    expect(screen.getByRole('columnheader', { name: 'Mars' })).toBeTruthy()
+    expect(screen.getByRole('rowheader', { name: 'Moons' })).toBeTruthy()
+    expect(screen.getByRole('cell', { name: '2' })).toBeTruthy()
+  })
+
+  it('does not flash incomplete cleo fences while streaming', () => {
+    const { container } = render(
+      <Markdown isAnimating>
+        {'Prose first.\n\n```cleo\n{"type":"follow_ups","items":['}
+      </Markdown>,
+    )
+
+    expect(container.textContent).toContain('Prose first.')
+    expect(container.textContent).not.toContain('follow_ups')
+    expect(container.textContent).not.toContain('```')
   })
 })

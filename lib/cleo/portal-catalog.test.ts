@@ -25,5 +25,8 @@ describe('portal catalog instructions', () => {
     expect(CLEO_INSTRUCTIONS).toContain('knowledge portal')
     expect(CLEO_INSTRUCTIONS).toContain('(/explore/japan)')
     expect(CLEO_INSTRUCTIONS).toContain('(/space/mars)')
+    expect(CLEO_INSTRUCTIONS).toContain('<interactive_components>')
+    expect(CLEO_INSTRUCTIONS).toContain('"type":"follow_ups"')
+    expect(CLEO_INSTRUCTIONS).toContain('"type":"compare"')
   })
 })

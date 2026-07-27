@@ -5,8 +5,10 @@ import Link from "next/link"
 import { code } from "@streamdown/code"
 import { Streamdown } from "streamdown"
 
+import { InteractiveBlock } from "~/components/cleo/interactive"
 import { PhotoZoomDetails } from "~/components/photo-zoom-details"
 import { ZoomImage } from "~/components/zoom-image"
+import { segmentCleoMarkdown } from "~/lib/cleo/interactive"
 import {
   isCuratedTopicImageSrc,
   presentPortalGuideMarkdown,
@@ -17,7 +19,9 @@ import { cn } from "~/lib/utils"
 type MarkdownProps = {
   children: string
   className?: string
+  disabled?: boolean
   isAnimating?: boolean
+  onPrompt?: (prompt: string) => void
 }
 
 type MarkdownAnchorProps = ComponentProps<"a"> & {
@@ -102,17 +106,19 @@ function MarkdownImage({
   )
 }
 
-export function Markdown({
+function MarkdownProse({
   children,
-  className,
   isAnimating = false,
-}: MarkdownProps) {
+}: {
+  children: string
+  isAnimating?: boolean
+}) {
   const content = presentPortalGuideMarkdown(children)
 
   return (
     <Streamdown
       caret={isAnimating ? "block" : undefined}
-      className={cn("ai-response space-y-0", className)}
+      className="cleo-markdown-prose space-y-0"
       components={{ a: MarkdownLink, img: MarkdownImage }}
       isAnimating={isAnimating}
       // Same-site Explore/Space paths should navigate in-tab; keep external
@@ -124,5 +130,43 @@ export function Markdown({
     >
       {content}
     </Streamdown>
+  )
+}
+
+export function Markdown({
+  children,
+  className,
+  disabled = false,
+  isAnimating = false,
+  onPrompt,
+}: MarkdownProps) {
+  const segments = segmentCleoMarkdown(children)
+
+  return (
+    <div className={cn("ai-response space-y-0", className)}>
+      {segments.map((segment, index) => {
+        if (segment.type === "markdown") {
+          return (
+            <MarkdownProse
+              // Index is stable for a given streamed prefix; content identity
+              // changes as deltas arrive, so keying by index avoids remount thrash.
+              isAnimating={isAnimating && index === segments.length - 1}
+              key={`md-${index}`}
+            >
+              {segment.content}
+            </MarkdownProse>
+          )
+        }
+
+        return (
+          <InteractiveBlock
+            block={segment.block}
+            disabled={disabled}
+            key={`ui-${segment.block.type}-${index}`}
+            onPrompt={onPrompt}
+          />
+        )
+      })}
+    </div>
   )
 }
