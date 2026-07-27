@@ -145,32 +145,12 @@ are short, concrete, and conversational — "为什么按钮不需要手指光�
 
 ## Homepage introduction
 
-The homepage opens with four short bilingual paragraphs: Cleo is a father of
-two, a design engineer, and an agent orchestrator; he loves getting the details
-just right. Zolplay is introduced as an AI-native design studio creating
-products, brands, and digital experiences, a casual generalist note connects
-curiosity and craft to having fun with the team, and a final contact line links
-to X, GitHub, and email.
-Chinese also includes Xiaohongshu. Those inline contact triggers reuse the footer's
-fixed-size informational preview cards and remain plain destination links on
-touch. The personal sentence carries two decorative 18px
-marks: the supplied design-engineer figure and the supplied orbital sparkle
-for getting details just right. The orbital mark precedes its phrase in both
-locales. Inline text establishes the shared baseline while each mark centers
-against that text, so neither localized phrase shifts vertically. Hovering the
-associated phrase on a fine pointer, or pressing it on touch, produces one
-brief response with no looping or layout movement. On a fine-pointer hover,
-both localized design-engineer labels pick up the same restrained, static
-rainbow gradient. The three
-characters in 刚刚好 and the three words in "details just right" rise in
-sequence to `translateY(-5px) scale(1.03)` over a one-second spring, staggered
-by 80ms, then settle back at their origin as the animation's end state. English
-punctuation stays inside the unbreakable phrase wrapper but outside the
-animated units, keeping its baseline and position stable. The Zolplay mention
-uses the shared external-link preview, its fixed favicon slot, and the standard
-northeast mark. Decorative marks stay out of the accessibility tree, reduced
-motion keeps every mark and text unit static, and the text remains complete
-without them.
+The homepage opens with three short bilingual paragraphs: Cleo is a knowledge
+portal (countries and space first, more topics later); it offers field guides,
+curated photographs, and a searchable catalog without visas, safety bulletins,
+or prices; and a final line links into Topics, Explore, or Ask Cleo. Keep the
+voice plain and product-facing — no personal bio flourishes or decorative
+inline marks in the intro.
 
 ## Entrance choreography
 
