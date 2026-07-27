@@ -164,10 +164,20 @@ take a restrained rainbow gradient; hop units rise in sequence; the camera
 shutter blinks; the magnifier tips. Decorative marks stay out of the
 accessibility tree; reduced motion keeps every mark and text unit static.
 
-Linked phrases (photographs → Gallery, catalog → homepage search,
-Topics / Explore / Ask Cleo) use the shared `SitePreviewCard` hover dialog
-(`.link-card`). Fine-pointer hover shows a short title + description; touch
-falls back to the plain destination link. Cards are informational only.
+Linked phrases use the shared `SitePreviewCard` primitive, but each popup is a
+different species — same split as cali.so’s OG / service / envelope cards:
+
+- photographs → Gallery: image-led `.link-card-with-image` (curated place JPEG,
+  site line, title; no description)
+- catalog → homepage search: search-tray plate with mono field + cascading
+  result rows (GitHub-card “content animates” spirit)
+- Topics: `.service-card` identity head + bio + tally foot
+- Explore: travel-folio object card (stamp / itinerary / map), from the
+  NavCards doorway vignette
+- Ask Cleo: `.email-envelope-card` physical note (FROM / stamps / TO)
+
+Fine-pointer hover opens the card; touch falls back to the plain destination
+link. Cards stay informational only (`pointer-events: none` on the plate).
 
 ## Entrance choreography
 

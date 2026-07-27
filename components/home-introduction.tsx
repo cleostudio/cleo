@@ -1,6 +1,10 @@
 import { HomeIntroReplay } from '~/components/home-intro-replay'
 import { SitePreviewCard } from '~/components/preview-card-timing'
+import { highlightedAtlasEntries } from '~/lib/atlas'
+import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
+import { spaceSubjects } from '~/lib/space'
+import { staticRendition } from '~/lib/static-photo'
 
 function CraftMark() {
   return (
@@ -225,37 +229,220 @@ function SearchPhrase({ children }: { children: React.ReactNode }) {
   )
 }
 
-function IntroPreviewCard({
-  href,
-  titleZh,
-  titleEn,
-  descriptionZh,
-  descriptionEn,
-  children,
-}: {
-  href: string
-  titleZh: string
-  titleEn: string
-  descriptionZh: string
-  descriptionEn: string
-  children: React.ReactNode
-}) {
+/** cali.so ExternalLink-with-image pattern — photo leads, no description. */
+function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
+  const sample = highlightedAtlasEntries(1)[0]
+  const image = sample ? staticRendition(sample.photo, 640) : null
+
   return (
     <SitePreviewCard
-      href={href}
+      href="/gallery"
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName="link-card"
+      popupClassName={`link-card${image ? ' link-card-with-image' : ''}`}
       popup={
         <>
-          <span className="link-card-title">
-            <T zh={titleZh} en={titleEn} />
+          {image && (
+            <span className="link-card-image-frame" aria-hidden>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="link-card-image"
+                src={image.src}
+                alt=""
+                width={236}
+                height={133}
+                loading="eager"
+              />
+            </span>
+          )}
+          <span className="link-card-site">
+            <T zh="图库" en="Gallery" />
           </span>
-          <span className="link-card-description">
-            <T zh={descriptionZh} en={descriptionEn} />
+          <span className="link-card-title">
+            {sample ? (
+              <T zh={sample.photo.placeName} en={sample.photo.placeName} />
+            ) : (
+              <T zh="精选照片" en="Curated photographs" />
+            )}
           </span>
         </>
+      }
+    >
+      {children}
+    </SitePreviewCard>
+  )
+}
+
+/** cali.so GitHub-card spirit — content animates inside the plate. */
+function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
+  const rows = highlightedAtlasEntries(3).map((entry) => entry.name)
+
+  return (
+    <SitePreviewCard
+      href="#home-site-search"
+      triggerClassName="home-contact-link"
+      closeDelay={100}
+      side="top"
+      popupClassName="link-card home-intro-search-card"
+      popup={
+        <span className="home-intro-search-body" aria-hidden>
+          <span className="home-intro-search-field">
+            <T zh="搜索…" en="Search…" />
+          </span>
+          <span className="home-intro-search-rows">
+            {rows.map((name, index) => (
+              <span
+                key={name}
+                className="home-intro-search-row"
+                style={{ '--i': index } as React.CSSProperties}
+              >
+                {name}
+              </span>
+            ))}
+          </span>
+        </span>
+      }
+    >
+      {children}
+    </SitePreviewCard>
+  )
+}
+
+/** cali.so service-card identity layout. */
+function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
+  return (
+    <SitePreviewCard
+      href="/topics"
+      triggerClassName="home-contact-link"
+      closeDelay={100}
+      side="top"
+      popupClassName="link-card service-card"
+      popup={
+        <>
+          <span className="service-card-head">
+            <span className="service-card-avatar service-card-monogram" aria-hidden>
+              T
+            </span>
+            <span className="service-card-names">
+              <span className="service-card-name">
+                <T zh="主题" en="Topics" />
+              </span>
+              <span className="service-card-sub">
+                <T zh="目录" en="catalog" />
+              </span>
+            </span>
+          </span>
+          <span className="service-card-bio">
+            <T zh="先从现有合集读起，之后还会继续加。" en="Start with the collections on hand; more will follow." />
+          </span>
+          <span className="service-card-stat">
+            <span>
+              <b>{countries.length}</b> <T zh="国家" en="countries" />
+            </span>
+            <span aria-hidden>·</span>
+            <span>
+              <b>{spaceSubjects.length}</b> <T zh="太空" en="space" />
+            </span>
+          </span>
+        </>
+      }
+    >
+      {children}
+    </SitePreviewCard>
+  )
+}
+
+/** cali.so / NavCards travel-folio object card. */
+function ExplorePreviewCard({ children }: { children: React.ReactNode }) {
+  return (
+    <SitePreviewCard
+      href="/explore"
+      triggerClassName="home-contact-link"
+      closeDelay={100}
+      side="top"
+      popupClassName="link-card home-intro-folio-card"
+      popup={
+        <span className="home-intro-folio" aria-hidden>
+          <span className="home-intro-folio-stamp">
+            <svg viewBox="0 0 32 32" width="28" height="28">
+              <circle
+                cx="16"
+                cy="16"
+                r="13.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.25"
+                strokeDasharray="2.2 1.6"
+              />
+              <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" strokeWidth="1" />
+              <rect
+                x="10"
+                y="13"
+                width="12"
+                height="6"
+                rx="0.75"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1"
+                transform="rotate(-18 16 16)"
+              />
+            </svg>
+          </span>
+          <span className="home-intro-folio-itinerary" />
+          <span className="home-intro-folio-map" />
+          <span className="home-intro-folio-label">
+            <T zh="探索" en="Explore" />
+            <span>
+              <T zh={`${countries.length} 个国家`} en={`${countries.length} countries`} />
+            </span>
+          </span>
+        </span>
+      }
+    >
+      {children}
+    </SitePreviewCard>
+  )
+}
+
+/** cali.so EmailCard physical-object pattern — a mailed note to Cleo. */
+function AskCleoPreviewCard({ children }: { children: React.ReactNode }) {
+  return (
+    <SitePreviewCard
+      href="/cleo"
+      triggerClassName="home-contact-link"
+      closeDelay={120}
+      side="top"
+      popupClassName="link-card email-envelope-card"
+      popup={
+        <span className="email-envelope" aria-hidden>
+          <span className="email-envelope-flap" />
+          <span className="email-envelope-return">
+            <span>FROM</span>
+            YOU
+            <br />
+            HERE
+          </span>
+          <span className="email-envelope-stamps">
+            <span className="email-envelope-stamp email-envelope-stamp-monogram">
+              <span className="email-envelope-stamp-letter" aria-hidden>
+                C
+              </span>
+              <span>CLEO · 20</span>
+            </span>
+            <span className="email-envelope-stamp email-envelope-stamp-mark">
+              <span className="email-envelope-stamp-star">✦</span>
+              <span>ASK · 26</span>
+            </span>
+          </span>
+          <span className="email-envelope-postmark" />
+          <span className="email-envelope-address">
+            <span>
+              <T zh="收" en="TO" />
+            </span>
+            Ask Cleo
+          </span>
+        </span>
       }
     >
       {children}
@@ -303,50 +490,26 @@ export function HomeIntroduction() {
           zh={
             <>
               想先有个印象，就翻翻
-              <IntroPreviewCard
-                href="/gallery"
-                titleZh="图库"
-                titleEn="Gallery"
-                descriptionZh="地点与太空的精选照片。"
-                descriptionEn="Curated place and space photographs."
-              >
+              <GalleryPreviewCard>
                 <PhotoPhrase>照片</PhotoPhrase>
-              </IntroPreviewCard>
+              </GalleryPreviewCard>
               ；已经知道名字的话，直接搜
-              <IntroPreviewCard
-                href="#home-site-search"
-                titleZh="搜索"
-                titleEn="Search"
-                descriptionZh="按名字查找页面与内容。"
-                descriptionEn="Find pages and subjects by name."
-              >
+              <CatalogPreviewCard>
                 <SearchPhrase>目录</SearchPhrase>
-              </IntroPreviewCard>
+              </CatalogPreviewCard>
               就行。
             </>
           }
           en={
             <>
               Flip through{' '}
-              <IntroPreviewCard
-                href="/gallery"
-                titleZh="图库"
-                titleEn="Gallery"
-                descriptionZh="地点与太空的精选照片。"
-                descriptionEn="Curated place and space photographs."
-              >
+              <GalleryPreviewCard>
                 <PhotoPhrase>photographs</PhotoPhrase>
-              </IntroPreviewCard>{' '}
+              </GalleryPreviewCard>{' '}
               when you want a sense of place, or search the{' '}
-              <IntroPreviewCard
-                href="#home-site-search"
-                titleZh="搜索"
-                titleEn="Search"
-                descriptionZh="按名字查找页面与内容。"
-                descriptionEn="Find pages and subjects by name."
-              >
+              <CatalogPreviewCard>
                 <SearchPhrase>catalog</SearchPhrase>
-              </IntroPreviewCard>{' '}
+              </CatalogPreviewCard>{' '}
               by name.
             </>
           }
@@ -356,72 +519,16 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              打开{' '}
-              <IntroPreviewCard
-                href="/topics"
-                titleZh="主题"
-                titleEn="Topics"
-                descriptionZh="国家、太空，以及后续会加入的内容。"
-                descriptionEn="Countries, space, and whatever comes next."
-              >
-                主题
-              </IntroPreviewCard>
-              、
-              <IntroPreviewCard
-                href="/explore"
-                titleZh="探索"
-                titleEn="Explore"
-                descriptionZh="按国家浏览页面与地点。"
-                descriptionEn="Browse country pages and places."
-              >
-                探索
-              </IntroPreviewCard>
-              {' '}或{' '}
-              <IntroPreviewCard
-                href="/cleo"
-                titleZh="询问 Cleo"
-                titleEn="Ask Cleo"
-                descriptionZh="用自然语言提问，获取方向。"
-                descriptionEn="Ask in plain language and get oriented."
-              >
-                询问 Cleo
-              </IntroPreviewCard>
-              。
+              打开 <TopicsPreviewCard>主题</TopicsPreviewCard>、
+              <ExplorePreviewCard>探索</ExplorePreviewCard>
+              {' '}或 <AskCleoPreviewCard>询问 Cleo</AskCleoPreviewCard>。
             </>
           }
           en={
             <>
-              Open{' '}
-              <IntroPreviewCard
-                href="/topics"
-                titleZh="主题"
-                titleEn="Topics"
-                descriptionZh="国家、太空，以及后续会加入的内容。"
-                descriptionEn="Countries, space, and whatever comes next."
-              >
-                Topics
-              </IntroPreviewCard>
-              ,{' '}
-              <IntroPreviewCard
-                href="/explore"
-                titleZh="探索"
-                titleEn="Explore"
-                descriptionZh="按国家浏览页面与地点。"
-                descriptionEn="Browse country pages and places."
-              >
-                Explore
-              </IntroPreviewCard>
-              , or{' '}
-              <IntroPreviewCard
-                href="/cleo"
-                titleZh="询问 Cleo"
-                titleEn="Ask Cleo"
-                descriptionZh="用自然语言提问，获取方向。"
-                descriptionEn="Ask in plain language and get oriented."
-              >
-                Ask Cleo
-              </IntroPreviewCard>
-              .
+              Open <TopicsPreviewCard>Topics</TopicsPreviewCard>,{' '}
+              <ExplorePreviewCard>Explore</ExplorePreviewCard>, or{' '}
+              <AskCleoPreviewCard>Ask Cleo</AskCleoPreviewCard>.
             </>
           }
         />
