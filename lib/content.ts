@@ -224,12 +224,39 @@ function similarity(a: Map<string, number>, b: Map<string, number>) {
 // keyed on body lengths too, so a dev-mode content edit refreshes the vector
 const postVectors = new Map<string, Map<string, number>>()
 
+function topicSeeds(slug: string) {
+  // Tiny catalog of essays: a light Earth/space seed keeps "Posts like this"
+  // from pairing a black-hole piece with coastal flooding just because both
+  // mention "planet" a few times.
+  if (
+    /moon|black-holes|listening|thin-blue-shell|orbit|galaxy|enceladus|space/.test(
+      slug,
+    )
+  ) {
+    return 'cosmos astronomy spacetime gravity orbit'
+  }
+  if (
+    /rain|dust|forest|ice|tide|cities|island|wallace|river|equator|sahara|passport/.test(
+      slug,
+    )
+  ) {
+    return 'earth geography climate landscape ocean'
+  }
+  return ''
+}
+
 function postVector(post: Post) {
   const key = `${post.slug}:${post.body.length}:${post.bodyEn.length}`
   const cached = postVectors.get(key)
   if (cached) return cached
   const vector = new Map<string, number>()
   addTerms(vector, `${post.title} ${post.titleEn}`, 3)
+  addTerms(
+    vector,
+    `${post.description ?? ''} ${post.descriptionEn} ${post.slug.replaceAll('-', ' ')}`,
+    2,
+  )
+  addTerms(vector, topicSeeds(post.slug), 4)
   addTerms(vector, `${post.body} ${post.bodyEn}`, 1)
   postVectors.set(key, vector)
   return vector
