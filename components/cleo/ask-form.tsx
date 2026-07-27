@@ -57,7 +57,7 @@ type Message = {
 }
 
 function CopyAnswerButton({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false)
+  const [status, setStatus] = useState<"idle" | "copied" | "error">("idle")
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
@@ -68,11 +68,11 @@ function CopyAnswerButton({ text }: { text: string }) {
 
   async function handleCopy() {
     if (!text.trim()) return
-    let ok = true
+    let ok = false
     try {
       await navigator.clipboard.writeText(text)
+      ok = true
     } catch {
-      ok = false
       try {
         const textarea = document.createElement("textarea")
         textarea.value = text
@@ -80,6 +80,7 @@ function CopyAnswerButton({ text }: { text: string }) {
         textarea.style.position = "fixed"
         textarea.style.opacity = "0"
         document.body.appendChild(textarea)
+        textarea.focus()
         textarea.select()
         ok = document.execCommand("copy")
         document.body.removeChild(textarea)
@@ -87,23 +88,29 @@ function CopyAnswerButton({ text }: { text: string }) {
         ok = false
       }
     }
-    if (!ok) return
-    setCopied(true)
+    setStatus(ok ? "copied" : "error")
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
-    timeoutRef.current = setTimeout(() => setCopied(false), 1600)
+    timeoutRef.current = setTimeout(() => setStatus("idle"), 1600)
   }
+
+  const label =
+    status === "copied" ? "Copied" : status === "error" ? "Couldn't copy" : "Copy"
 
   return (
     <button
-      aria-label={copied ? "Copied" : "Copy answer"}
+      aria-label={status === "idle" ? "Copy answer" : label}
       className="cleo-copy-answer"
       onClick={() => {
         void handleCopy()
       }}
       type="button"
     >
-      {copied ? <Check aria-hidden size={14} /> : <Copy aria-hidden size={14} />}
-      <span>{copied ? "Copied" : "Copy"}</span>
+      {status === "copied" ? (
+        <Check aria-hidden size={14} />
+      ) : (
+        <Copy aria-hidden size={14} />
+      )}
+      <span>{label}</span>
     </button>
   )
 }
