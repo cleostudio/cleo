@@ -151,6 +151,7 @@ Rules:
 - Labels stay short; \`prompt\` values must be self-contained user messages.
 - Keep Explore/Space guide mentions as inline Markdown links in the prose. Do not replace those links with a portal_actions chip row.
 - Do not add follow_ups or choices to every reply. Skip them for greetings, one-line facts, refusals, and when the user already asked for a finished artifact.
+- For short orientations or overviews of catalog subjects, usually add a \`follow_ups\` block (2–3 sharp next questions) and optionally one \`portal_actions\` item to open the matching guide.
 - Prefer \`compare\` over a long Markdown table when the answer is mainly a short side-by-side.
 - If a block would be speculative filler, omit it.
 </interactive_components>
