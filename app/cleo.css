@@ -526,76 +526,169 @@
   transform: translate(-50%, -50%);
 }
 
-/* Interactive response blocks — text actions, not pill chips. */
+/* Interactive response blocks — paper controls, not text links. */
 .cleo-interactive {
   display: flex;
   min-width: 0;
   flex-direction: column;
   gap: 0.55rem;
-  padding-top: 0.15rem;
+  padding-top: 0.25rem;
 }
 
-.cleo-interactive-prompt {
+.cleo-interactive-eyebrow {
   margin: 0;
   color: var(--muted-foreground);
-  font-size: 0.925rem;
-  line-height: 1.45;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
 }
 
-.cleo-interactive-actions {
+.cleo-interactive-followups {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem 0.95rem;
+  gap: 0.5rem;
 }
 
-.cleo-interactive-action {
+.cleo-interactive-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   margin: 0;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  color: var(--muted-foreground);
+  border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in oklab, var(--card) 88%, transparent);
+  padding: 0.55rem 0.8rem;
+  color: var(--foreground);
   font: inherit;
-  font-size: 0.925rem;
-  line-height: 1.35;
-  text-decoration: underline;
-  text-decoration-color: color-mix(
-    in oklab,
-    var(--muted-foreground) 35%,
-    transparent
-  );
-  text-underline-offset: 0.18em;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25;
   cursor: pointer;
   transition:
-    color 160ms var(--ease-swift),
-    text-decoration-color 160ms var(--ease-swift);
+    background-color 160ms var(--ease-swift),
+    border-color 160ms var(--ease-swift),
+    transform 160ms var(--ease-swift);
 }
 
-a.cleo-interactive-action {
-  display: inline;
+.cleo-interactive-chip-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+  color: var(--muted-foreground);
 }
 
-.cleo-interactive-action:hover:not(:disabled) {
-  color: var(--foreground);
-  text-decoration-color: color-mix(
-    in oklab,
-    var(--foreground) 45%,
-    transparent
-  );
+.cleo-interactive-chip:hover:not(:disabled) {
+  border-color: color-mix(in oklab, var(--foreground) 22%, transparent);
+  background: var(--muted);
 }
 
-.cleo-interactive-action:focus-visible {
+.cleo-interactive-chip:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.cleo-interactive-chip:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
-  outline-offset: 3px;
-  border-radius: 2px;
+  outline-offset: 2px;
 }
 
-.cleo-interactive-action:disabled {
+.cleo-interactive-chip:disabled {
   cursor: not-allowed;
   opacity: 0.55;
 }
 
-.cleo-interactive-compare-title {
+.cleo-interactive-choice-list,
+.cleo-interactive-portal-list {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cleo-interactive-choice,
+.cleo-interactive-portal {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   margin: 0;
+  border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+  border-radius: calc(var(--radius) + 4px);
+  background: color-mix(in oklab, var(--card) 92%, transparent);
+  padding: 0.8rem 0.9rem;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 160ms var(--ease-swift),
+    border-color 160ms var(--ease-swift),
+    transform 160ms var(--ease-swift);
+}
+
+.cleo-interactive-choice-label,
+.cleo-interactive-portal-label {
+  min-width: 0;
+}
+
+.cleo-interactive-choice-chevron,
+.cleo-interactive-portal-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+  transition:
+    color 160ms var(--ease-swift),
+    transform 160ms var(--ease-swift);
+}
+
+.cleo-interactive-choice:hover:not(:disabled),
+.cleo-interactive-portal:hover {
+  border-color: color-mix(in oklab, var(--foreground) 22%, transparent);
+  background: var(--muted);
+}
+
+.cleo-interactive-choice:hover:not(:disabled) .cleo-interactive-choice-chevron,
+.cleo-interactive-portal:hover .cleo-interactive-portal-icon {
+  color: var(--foreground);
+  transform: translateX(1px);
+}
+
+.cleo-interactive-choice:active:not(:disabled),
+.cleo-interactive-portal:active {
+  transform: translateY(1px);
+}
+
+.cleo-interactive-choice:focus-visible,
+.cleo-interactive-portal:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.cleo-interactive-choice:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.cleo-interactive-compare-plate {
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+  border-radius: calc(var(--radius) + 4px);
+  background: color-mix(in oklab, var(--card) 92%, transparent);
+  padding: 0.85rem 0.15rem 0.25rem;
+}
+
+.cleo-interactive-compare-title,
+.cleo-interactive-compare-plate > .cleo-interactive-eyebrow {
+  margin: 0;
+  padding-inline: 0.85rem;
   color: var(--foreground);
   font-size: 0.925rem;
   font-weight: 600;
@@ -603,9 +696,17 @@ a.cleo-interactive-action {
   line-height: 1.35;
 }
 
+.cleo-interactive-compare-plate > .cleo-interactive-eyebrow {
+  color: var(--muted-foreground);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .cleo-interactive-compare-scroll {
   width: 100%;
   overflow-x: auto;
+  margin-top: 0.55rem;
 }
 
 .cleo-interactive-compare-table {
@@ -618,8 +719,8 @@ a.cleo-interactive-action {
 
 .cleo-interactive-compare-table th,
 .cleo-interactive-compare-table td {
-  padding: 0.45rem 0.65rem;
-  border-bottom: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  padding: 0.55rem 0.85rem;
+  border-top: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
   text-align: left;
   vertical-align: top;
 }
@@ -640,9 +741,17 @@ a.cleo-interactive-action {
   color: var(--foreground);
 }
 
+.dark .cleo-interactive-chip,
+.dark .cleo-interactive-choice,
+.dark .cleo-interactive-portal,
+.dark .cleo-interactive-compare-plate {
+  border-color: color-mix(in oklab, var(--foreground) 14%, transparent);
+  background: color-mix(in oklab, var(--card) 72%, transparent);
+}
+
 .dark .cleo-interactive-compare-table th,
 .dark .cleo-interactive-compare-table td {
-  border-bottom-color: color-mix(in oklab, var(--foreground) 12%, transparent);
+  border-top-color: color-mix(in oklab, var(--foreground) 12%, transparent);
 }
 
 .cleo-starters {

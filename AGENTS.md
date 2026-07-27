@@ -88,9 +88,11 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 - Interactive response blocks: the model may emit fenced `cleo` JSON
   (`follow_ups`, `choices`, `portal_actions`, `compare`) parsed by
   `lib/cleo/interactive.ts` and rendered by `components/cleo/interactive.tsx`
-  inside `components/cleo/markdown.tsx`. Follow-ups/choices submit via the
-  ask-form; portal actions navigate same-site paths only. Incomplete fences
-  are dropped while streaming so raw JSON never flashes.
+  inside `components/cleo/markdown.tsx` as paper controls (chip buttons,
+  choice cards, portal cards, compare plates) — not plain text links.
+  Follow-ups/choices submit via the ask-form; portal actions navigate
+  same-site paths only. Incomplete fences are dropped while streaming so
+  raw JSON never flashes.
 - Styles: `app/cleo.css` (streamdown + prompt dock + interactive blocks). Keep
   the prompt dock above the site dock via `--cleo-prompt-bottom`.
 
