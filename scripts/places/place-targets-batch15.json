@@ -1,0 +1,226 @@
+{
+  "richmond": {
+    "name": "Richmond",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Richmond Virginia", "Richmond skyline", "Richmond VA"]
+  },
+  "birmingham-us": {
+    "name": "Birmingham",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Birmingham Alabama", "Birmingham skyline", "Birmingham AL"]
+  },
+  "boise": {
+    "name": "Boise",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["Boise", "Boise skyline", "Boise Idaho"]
+  },
+  "victoria-bc": {
+    "name": "Victoria",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": ["Victoria British Columbia", "Victoria BC harbour", "Victoria BC"]
+  },
+  "bariloche": {
+    "name": "Bariloche",
+    "countrySlug": "argentina",
+    "countryName": "Argentina",
+    "kind": "City",
+    "searchNames": ["Bariloche", "San Carlos de Bariloche", "Bariloche lake"]
+  },
+  "iquique": {
+    "name": "Iquique",
+    "countrySlug": "chile",
+    "countryName": "Chile",
+    "kind": "City",
+    "searchNames": ["Iquique", "Iquique Chile", "Iquique coast"]
+  },
+  "manaus": {
+    "name": "Manaus",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": ["Manaus", "Manaus Amazon", "Manaus Brazil"]
+  },
+  "split": {
+    "name": "Split",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "City",
+    "searchNames": ["Split Croatia", "Split Diocletian", "Split harbor"]
+  },
+  "skopje": {
+    "name": "Skopje",
+    "countrySlug": "north-macedonia",
+    "countryName": "North Macedonia",
+    "kind": "City",
+    "searchNames": ["Skopje", "Skopje fortress", "Skopje Macedonia"]
+  },
+  "varanasi": {
+    "name": "Varanasi",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": ["Varanasi", "Varanasi ghats", "Banaras"]
+  },
+  "matsuyama": {
+    "name": "Matsuyama",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": ["Matsuyama", "Matsuyama castle", "Matsuyama Japan"]
+  },
+  "liege": {
+    "name": "Liège",
+    "countrySlug": "belgium",
+    "countryName": "Belgium",
+    "kind": "City",
+    "searchNames": ["Liège", "Liege", "Liège Belgium"]
+  },
+  "pennsylvania": {
+    "name": "Pennsylvania",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": ["Pennsylvania", "Pennsylvania landscape", "Poconos Pennsylvania"]
+  },
+  "prince-edward-island": {
+    "name": "Prince Edward Island",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": ["Prince Edward Island", "PEI coast", "Prince Edward Island dunes"]
+  },
+  "gujarat": {
+    "name": "Gujarat",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": ["Gujarat", "Gujarat India", "Rann of Kutch"]
+  },
+  "milos": {
+    "name": "Milos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Milos", "Milos Greece", "Milos beaches"]
+  },
+  "tinos": {
+    "name": "Tinos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Tinos", "Tinos Greece", "Tinos village"]
+  },
+  "chios": {
+    "name": "Chios",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Chios", "Chios Greece", "Chios mastic"]
+  },
+  "harris": {
+    "name": "Isle of Harris",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": ["Isle of Harris", "Harris Scotland", "Harris beach"]
+  },
+  "desirade": {
+    "name": "La Désirade",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Island",
+    "searchNames": ["La Désirade", "Desirade Guadeloupe", "La Désirade island"]
+  },
+  "aruba": {
+    "name": "Aruba",
+    "countrySlug": "netherlands",
+    "countryName": "Netherlands",
+    "kind": "Island",
+    "searchNames": ["Aruba", "Aruba beach", "Oranjestad Aruba"]
+  },
+  "liguria": {
+    "name": "Liguria",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": ["Liguria", "Liguria coast", "Cinque Terre Liguria"]
+  },
+  "styria": {
+    "name": "Styria",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "Region",
+    "searchNames": ["Styria", "Steiermark", "Styria Austria"]
+  },
+  "mclaren-vale": {
+    "name": "McLaren Vale",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Region",
+    "searchNames": ["McLaren Vale", "McLaren Vale vineyards", "McLaren Vale South Australia"]
+  },
+  "cantabria": {
+    "name": "Cantabria",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": ["Cantabria", "Cantabria coast", "Santander Cantabria"]
+  },
+  "dobruja": {
+    "name": "Dobruja",
+    "countrySlug": "romania",
+    "countryName": "Romania",
+    "kind": "Region",
+    "searchNames": ["Dobruja", "Dobrogea", "Danube Delta Dobruja"]
+  },
+  "tower-of-london": {
+    "name": "Tower of London",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Landmark",
+    "searchNames": ["Tower of London", "Tower of London Thames", "White Tower London"]
+  },
+  "pantheon-paris": {
+    "name": "Panthéon",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": ["Panthéon Paris", "Pantheon Paris", "Panthéon"]
+  },
+  "badlands": {
+    "name": "Badlands",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Badlands", "Badlands National Park", "Badlands South Dakota"]
+  },
+  "acadia": {
+    "name": "Acadia",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Acadia", "Acadia National Park", "Cadillac Mountain Acadia"]
+  },
+  "wartburg": {
+    "name": "Wartburg",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Landmark",
+    "searchNames": ["Wartburg", "Wartburg Castle", "Wartburg Eisenach"]
+  },
+  "gateway-arch": {
+    "name": "Gateway Arch",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Gateway Arch", "Gateway Arch St Louis", "St Louis Arch"]
+  }
+}

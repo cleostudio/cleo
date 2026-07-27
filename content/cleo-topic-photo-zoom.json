@@ -15431,6 +15431,774 @@
       }
     ]
   },
+  "places/richmond": {
+    "collection": "places",
+    "title": "Richmond Virginia",
+    "subtitle": "Richmond",
+    "alt": "Richmond Virginia in United States",
+    "photographer": "Acroterion",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2573,
+    "renditions": [
+      {
+        "src": "/images/places/richmond/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/richmond/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/richmond/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/birmingham-us": {
+    "collection": "places",
+    "title": "Birmingham",
+    "subtitle": "Birmingham",
+    "alt": "Birmingham in United States",
+    "photographer": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/places/birmingham-us/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/birmingham-us/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/birmingham-us/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/boise": {
+    "collection": "places",
+    "title": "Boise",
+    "subtitle": "Boise",
+    "alt": "Boise in United States",
+    "photographer": "Tamanoeconomico",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/boise/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/boise/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/boise/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/victoria-bc": {
+    "collection": "places",
+    "title": "Victoria",
+    "subtitle": "Victoria",
+    "alt": "Victoria in Canada",
+    "photographer": "DXR",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/victoria-bc/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/victoria-bc/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/victoria-bc/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bariloche": {
+    "collection": "places",
+    "title": "Bariloche",
+    "subtitle": "Bariloche",
+    "alt": "Bariloche in Argentina",
+    "photographer": "Fernando",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/bariloche/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bariloche/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bariloche/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/iquique": {
+    "collection": "places",
+    "title": "Iquique",
+    "subtitle": "Iquique",
+    "alt": "Iquique in Chile",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1992,
+    "renditions": [
+      {
+        "src": "/images/places/iquique/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/iquique/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/iquique/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/manaus": {
+    "collection": "places",
+    "title": "Manaus",
+    "subtitle": "Manaus",
+    "alt": "Manaus in Brazil",
+    "photographer": "Ana Claudia Jatahy - MTUR",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2442,
+    "renditions": [
+      {
+        "src": "/images/places/manaus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/manaus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/manaus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/split": {
+    "collection": "places",
+    "title": "Split Croatia",
+    "subtitle": "Split",
+    "alt": "Split Croatia in Croatia",
+    "photographer": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/split/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/split/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/split/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/skopje": {
+    "collection": "places",
+    "title": "Skopje",
+    "subtitle": "Skopje",
+    "alt": "Skopje in North Macedonia",
+    "photographer": "Pudelek",
+    "license": "CC BY-SA 4.0",
+    "width": 3483,
+    "height": 2055,
+    "renditions": [
+      {
+        "src": "/images/places/skopje/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/skopje/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/skopje/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/varanasi": {
+    "collection": "places",
+    "title": "Varanasi",
+    "subtitle": "Varanasi",
+    "alt": "Varanasi in India",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/places/varanasi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/varanasi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/varanasi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/matsuyama": {
+    "collection": "places",
+    "title": "Matsuyama",
+    "subtitle": "Matsuyama",
+    "alt": "Matsuyama in Japan",
+    "photographer": "Urashimataro",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 2555,
+    "renditions": [
+      {
+        "src": "/images/places/matsuyama/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/matsuyama/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/matsuyama/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/liege": {
+    "collection": "places",
+    "title": "Liège",
+    "subtitle": "Liège",
+    "alt": "Liège in Belgium",
+    "photographer": "PJDespa",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2510,
+    "renditions": [
+      {
+        "src": "/images/places/liege/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/liege/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/liege/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/pennsylvania": {
+    "collection": "places",
+    "title": "Pennsylvania",
+    "subtitle": "Pennsylvania",
+    "alt": "Pennsylvania in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1600,
+    "renditions": [
+      {
+        "src": "/images/places/pennsylvania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/pennsylvania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/pennsylvania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/prince-edward-island": {
+    "collection": "places",
+    "title": "Prince Edward Island",
+    "subtitle": "Prince Edward Island",
+    "alt": "Prince Edward Island in Canada",
+    "photographer": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2496,
+    "renditions": [
+      {
+        "src": "/images/places/prince-edward-island/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/prince-edward-island/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/prince-edward-island/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/gujarat": {
+    "collection": "places",
+    "title": "Gujarat",
+    "subtitle": "Gujarat",
+    "alt": "Gujarat in India",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2720,
+    "renditions": [
+      {
+        "src": "/images/places/gujarat/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/gujarat/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/gujarat/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/milos": {
+    "collection": "places",
+    "title": "Milos",
+    "subtitle": "Milos",
+    "alt": "Milos in Greece",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2558,
+    "renditions": [
+      {
+        "src": "/images/places/milos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/milos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/milos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tinos": {
+    "collection": "places",
+    "title": "Tinos",
+    "subtitle": "Tinos",
+    "alt": "Tinos in Greece",
+    "photographer": "Stepanps",
+    "license": "CC BY-SA 4.0",
+    "width": 3763,
+    "height": 1167,
+    "renditions": [
+      {
+        "src": "/images/places/tinos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tinos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tinos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/chios": {
+    "collection": "places",
+    "title": "Chios",
+    "subtitle": "Chios",
+    "alt": "Chios in Greece",
+    "photographer": "KONSTANTINOS ZANNARAS",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/chios/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/chios/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/chios/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/harris": {
+    "collection": "places",
+    "title": "Isle of Harris",
+    "subtitle": "Isle of Harris",
+    "alt": "Isle of Harris in United Kingdom",
+    "photographer": "Carroll Pierce",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2860,
+    "renditions": [
+      {
+        "src": "/images/places/harris/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/harris/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/harris/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/desirade": {
+    "collection": "places",
+    "title": "La Désirade",
+    "subtitle": "La Désirade",
+    "alt": "La Désirade in France",
+    "photographer": "Mart.wain",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "src": "/images/places/desirade/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/desirade/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/desirade/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/aruba": {
+    "collection": "places",
+    "title": "Aruba",
+    "subtitle": "Aruba",
+    "alt": "Aruba in Netherlands",
+    "photographer": "Noshha.photography",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/aruba/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/aruba/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/aruba/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/liguria": {
+    "collection": "places",
+    "title": "Liguria",
+    "subtitle": "Liguria",
+    "alt": "Liguria in Italy",
+    "photographer": "Federica Cidale",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2457,
+    "renditions": [
+      {
+        "src": "/images/places/liguria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/liguria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/liguria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/styria": {
+    "collection": "places",
+    "title": "Styria",
+    "subtitle": "Styria",
+    "alt": "Styria in Austria",
+    "photographer": "Daniel Kraft",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1174,
+    "renditions": [
+      {
+        "src": "/images/places/styria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/styria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/styria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mclaren-vale": {
+    "collection": "places",
+    "title": "McLaren Vale",
+    "subtitle": "McLaren Vale",
+    "alt": "McLaren Vale in Australia",
+    "photographer": "Wikipedian",
+    "license": "CC BY-SA 3.0",
+    "width": 3359,
+    "height": 1790,
+    "renditions": [
+      {
+        "src": "/images/places/mclaren-vale/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mclaren-vale/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mclaren-vale/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cantabria": {
+    "collection": "places",
+    "title": "Cantabria",
+    "subtitle": "Cantabria",
+    "alt": "Cantabria in Spain",
+    "photographer": "Carlos Ramón Bonilla…",
+    "license": "CC BY-SA 3.0",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "src": "/images/places/cantabria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cantabria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cantabria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/dobruja": {
+    "collection": "places",
+    "title": "Dobruja",
+    "subtitle": "Dobruja",
+    "alt": "Dobruja in Romania",
+    "photographer": "Alexandru Panoiu from Bucharest, Romania",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/dobruja/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/dobruja/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/dobruja/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tower-of-london": {
+    "collection": "places",
+    "title": "Tower of London",
+    "subtitle": "Tower of London",
+    "alt": "Tower of London in United Kingdom",
+    "photographer": "Bob Collowan",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2411,
+    "renditions": [
+      {
+        "src": "/images/places/tower-of-london/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tower-of-london/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tower-of-london/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/pantheon-paris": {
+    "collection": "places",
+    "title": "Panthéon",
+    "subtitle": "Panthéon",
+    "alt": "Panthéon in France",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2481,
+    "renditions": [
+      {
+        "src": "/images/places/pantheon-paris/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/pantheon-paris/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/pantheon-paris/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/badlands": {
+    "collection": "places",
+    "title": "Badlands",
+    "subtitle": "Badlands",
+    "alt": "Badlands in United States",
+    "photographer": "Murray Foubister",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/badlands/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/badlands/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/badlands/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/acadia": {
+    "collection": "places",
+    "title": "Acadia National Park",
+    "subtitle": "Acadia",
+    "alt": "Acadia National Park in United States",
+    "photographer": "Domenico Convertini from Zurich, Schweiz",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/acadia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/acadia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/acadia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/wartburg": {
+    "collection": "places",
+    "title": "Wartburg",
+    "subtitle": "Wartburg",
+    "alt": "Wartburg in Germany",
+    "photographer": "A.Savin",
+    "license": "FAL",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/wartburg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/wartburg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/wartburg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/gateway-arch": {
+    "collection": "places",
+    "title": "Gateway Arch",
+    "subtitle": "Gateway Arch",
+    "alt": "Gateway Arch in United States",
+    "photographer": "Daniel Schwen",
+    "license": "CC BY-SA 4.0",
+    "width": 3000,
+    "height": 1929,
+    "renditions": [
+      {
+        "src": "/images/places/gateway-arch/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/gateway-arch/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/gateway-arch/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

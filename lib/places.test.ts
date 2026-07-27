@@ -14,7 +14,7 @@ import {
 
 describe('place guides', () => {
   it('ships a curated catalog with unique slugs and codes', () => {
-    expect(placeGuides.length).toBeGreaterThanOrEqual(448)
+    expect(placeGuides.length).toBeGreaterThanOrEqual(480)
 
     const slugs = placeGuides.map((place) => place.slug)
     const codes = placeGuides.map((place) => place.code)
@@ -190,6 +190,37 @@ describe('place guides', () => {
     expect(
       matchPlaceGuideForBlurb('germany', 'Hohenzollern Castle')?.slug,
     ).toBe('hohenzollern')
+    expect(matchPlaceGuideForBlurb('united-states', 'Richmond')?.slug).toBe(
+      'richmond',
+    )
+    expect(matchPlaceGuideForBlurb('croatia', 'Split')?.slug).toBe('split')
+    expect(matchPlaceGuideForBlurb('india', 'Banaras')?.slug).toBe('varanasi')
+    expect(
+      matchPlaceGuideForBlurb('north-macedonia', 'Skopje')?.slug,
+    ).toBe('skopje')
+    expect(matchPlaceGuideForBlurb('united-states', 'Pennsylvania')?.slug).toBe(
+      'pennsylvania',
+    )
+    expect(matchPlaceGuideForBlurb('greece', 'Milos')?.slug).toBe('milos')
+    expect(matchPlaceGuideForBlurb('italy', 'Liguria')?.slug).toBe('liguria')
+    expect(
+      matchPlaceGuideForBlurb('united-kingdom', 'Tower of London')?.slug,
+    ).toBe('tower-of-london')
+    expect(matchPlaceGuideForBlurb('france', 'Panthéon')?.slug).toBe(
+      'pantheon-paris',
+    )
+    expect(
+      matchPlaceGuideForBlurb('united-states', 'Badlands National Park')?.slug,
+    ).toBe('badlands')
+    expect(
+      matchPlaceGuideForBlurb('united-states', 'Acadia National Park')?.slug,
+    ).toBe('acadia')
+    expect(matchPlaceGuideForBlurb('germany', 'Wartburg Castle')?.slug).toBe(
+      'wartburg',
+    )
+    expect(matchPlaceGuideForBlurb('united-states', 'Gateway Arch')?.slug).toBe(
+      'gateway-arch',
+    )
   })
 
   it('never reuses a sentence between place guides', () => {
