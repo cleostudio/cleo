@@ -855,7 +855,7 @@ export const placeGuideDraftsBatch2: PlaceGuideDraftBatch[] = [
     kind: 'Region',
     countrySlug: 'croatia',
     subtitle: 'Region · Croatia',
-    matchNames: ['Dalmatia', 'Dubrovnik Old Town', 'Dubrovnik'],
+    matchNames: ['Dalmatia'],
     about:
       'Dalmatia is Croatia’s Adriatic coastal belt of limestone mountains, island chains, and walled harbor towns. Dubrovnik, Split, and Zadar mark different historic weights along a shared karst shore. Clear water, mistral-like winds, and maquis vegetation define the Mediterranean edge; hinterland ridges rise abruptly. Orientation is coast–island–mountain in a narrow band. Dalmatia’s primer is Adriatic karst urbanism — stone cities facing island-studded seas under a steep Dinaric backdrop.',
     facts: {
