@@ -407,12 +407,8 @@ function addCapitalLayers(map: MapLibreMap) {
       layout: {
         'text-field': ['get', 'name'],
         'text-font': ['Open Sans Regular'],
-        'text-size': [
-          'case',
-          ['boolean', ['feature-state', 'selected'], false],
-          12.5,
-          11,
-        ],
+        // feature-state is paint-only in MapLibre — keep size static here.
+        'text-size': 11,
         'text-offset': [0, 1.05],
         'text-anchor': 'top',
         'text-padding': 4,
@@ -427,7 +423,12 @@ function addCapitalLayers(map: MapLibreMap) {
           'rgba(255, 244, 220, 0.92)',
         ],
         'text-halo-color': 'rgba(10, 18, 30, 0.8)',
-        'text-halo-width': 1.05,
+        'text-halo-width': [
+          'case',
+          ['boolean', ['feature-state', 'selected'], false],
+          1.35,
+          1.05,
+        ],
         'text-opacity': [
           'interpolate',
           ['linear'],
