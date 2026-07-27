@@ -729,13 +729,15 @@ function GalleryWidget({
   const current = block.items[active] ?? block.items[0]
   const multi = block.items.length > 1
 
-  function step(delta: number) {
+  function step(delta: number, focusThumb = false) {
     setActive((currentIndex) => {
       const next =
         (currentIndex + delta + block.items.length) % block.items.length
-      queueMicrotask(() => {
-        document.getElementById(`${baseId}-thumb-${next}`)?.focus()
-      })
+      if (focusThumb) {
+        queueMicrotask(() => {
+          document.getElementById(`${baseId}-thumb-${next}`)?.focus()
+        })
+      }
       return next
     })
   }
@@ -743,10 +745,10 @@ function GalleryWidget({
   function onThumbsKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (event.key === 'ArrowRight') {
       event.preventDefault()
-      step(1)
+      step(1, true)
     } else if (event.key === 'ArrowLeft') {
       event.preventDefault()
-      step(-1)
+      step(-1, true)
     } else if (event.key === 'Home') {
       event.preventDefault()
       setActive(0)
