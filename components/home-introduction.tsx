@@ -200,7 +200,7 @@ export function HomeIntroduction() {
                   <span className="home-detail-unit">太空</span>
                 </span>
               </HopPhrase>
-              ，之后再慢慢补上更多内容。
+              ，之后会按内容一点点往外扩。
             </>
           }
           en={
@@ -213,7 +213,7 @@ export function HomeIntroduction() {
                   <span className="home-detail-unit">space</span>
                 </span>
               </HopPhrase>
-              , and grows from there.
+              , and grows from there as more subjects arrive.
             </>
           }
         />
@@ -222,14 +222,15 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              可以翻看
+              想先看一眼，可以翻
               <PhotoPhrase>照片</PhotoPhrase>
-              ，或搜索目录。
+              ；已经有目标的话，直接搜索目录就行。
             </>
           }
           en={
             <>
-              Browse <PhotoPhrase>photographs</PhotoPhrase>, or search the catalog.
+              Browse <PhotoPhrase>photographs</PhotoPhrase> for a quick look around, or search the
+              catalog when you already know the name.
             </>
           }
         />

@@ -146,12 +146,13 @@ are short, concrete, and conversational — "为什么按钮不需要手指光�
 ## Homepage introduction
 
 The homepage opens with three short bilingual paragraphs: Cleo is a knowledge
-portal that begins with countries and space and grows from there; you can
-browse photographs or search the catalog; and a final line opens Topics,
-Explore, or Ask Cleo. Keep the voice natural and product-facing — no metaphors,
-no exclusion lists, no craft-romance phrasing. Avoid the word “guides”. Do not
-repeat a subject across paragraphs: countries/space, topic/Topics, and Ask
-Cleo each appear once (Ask Cleo only in the linked CTA).
+portal that begins with countries and space and grows as more subjects arrive;
+browse photographs for a quick look around, or search the catalog when you
+already know the name; and a final line opens Topics, Explore, or Ask Cleo.
+Keep the voice natural and product-facing — no metaphors, no exclusion lists,
+no craft-romance phrasing. Avoid the word “guides”. Do not repeat a subject
+across paragraphs: countries/space, topic/Topics, and Ask Cleo each appear once
+(Ask Cleo only in the linked CTA).
 
 Three decorative 18px marks sit on plain product phrases: the craft figure
 after "knowledge portal" / 知识门户, the orbital sparkle before "countries and
