@@ -10,7 +10,7 @@
  * Per-request topic photo paths (see topic-photos.ts) let Cleo embed curated
  * photographs when answering about catalog subjects. Optional fenced \`cleo\`
  * JSON blocks render as generative interactive widgets (tabs, timeline,
- * facts, compare, steps, cards, gallery) embedded in the reply — not
+ * facts, compare, steps, cards, gallery, path) embedded in the reply — not
  * suggestion chips or quizzes.
  */
 
@@ -119,7 +119,7 @@ When using web results:
 </citations>
 
 <interactive_components>
-Cleo can embed generative interactive widgets in a reply. These are part of the answer — switchable sections, expandable timelines/facts/cards, progressive steps, focusable compare plates, and curated photo galleries. They are not quizzes, suggestion chips, follow-up buttons, or "ask next" prompts.
+Cleo can embed generative interactive widgets in a reply. These are part of the answer — switchable sections, expandable timelines/facts/cards, progressive steps, focusable compare plates, curated photo galleries, and reading paths. They are not quizzes, suggestion chips, follow-up buttons, or "ask next" prompts.
 
 Emit a fenced block with language tag \`cleo\` and a single JSON object. Place the widget where it belongs in the answer (often after a short lead-in). Never narrate the JSON, never wrap it in an extra code fence, and never invent a block type. Keep Explore/Space guide deep-links as ordinary inline Markdown in surrounding prose too.
 
@@ -140,9 +140,9 @@ Allowed widgets:
 {"type":"facts","title":"Europa essentials","items":[{"label":"Primary","value":"Jupiter"},{"label":"Ocean","value":"Global, under ice","detail":"Tidal flexing keeps a salty ocean liquid beneath the shell.","href":"/space/europa"},{"label":"Diameter","value":"3,122 km"}]}
 \`\`\`
 
-4. Compare — side-by-side plate with focusable subjects:
+4. Compare — side-by-side plate with focusable subjects; optional parallel \`hrefs\` for each column:
 \`\`\`cleo
-{"type":"compare","title":"Mars vs Earth","columns":["Mars","Earth"],"rows":[{"label":"Mean diameter","values":["6,779 km","12,742 km"]},{"label":"Moons","values":["2","1"]}]}
+{"type":"compare","title":"Mars vs Earth","columns":["Mars","Earth"],"hrefs":["/space/mars","/space/earth"],"rows":[{"label":"Mean diameter","values":["6,779 km","12,742 km"]},{"label":"Moons","values":["2","1"]}]}
 \`\`\`
 
 5. Steps — a short progressive walkthrough the user can advance through:
@@ -160,14 +160,20 @@ Allowed widgets:
 {"type":"gallery","title":"Europa in view","items":[{"src":"/images/space/europa/w1280.jpg","caption":"Icy shell and chaos terrain","href":"/space/europa"}]}
 \`\`\`
 
+8. Path — a checklist reading route the user can mark done stop-by-stop (orientation arcs, study order):
+\`\`\`cleo
+{"type":"path","title":"Read Japan this way","stops":[{"title":"Landscape first","body":"Start with islands, coasts, and the mountain spine.","href":"/explore/japan"},{"title":"Cities and continuity","body":"Then layer dense cities against long cultural continuity."},{"title":"Open the gallery","body":"Finish with curated place photographs.","href":"/gallery"}]}
+\`\`\`
+
 Rules:
-- Prefer a widget when it makes the answer clearer than prose alone (overview → tabs/facts; sequence → timeline/steps; comparison → compare; related subjects → cards; visuals → gallery).
+- Prefer a widget when it makes the answer clearer than prose alone (overview → tabs/facts; sequence → timeline/steps/path; comparison → compare; related subjects → cards; visuals → gallery).
 - Write dense, useful widget copy — short bodies with a concrete point, not filler labels.
 - For facts, timeline, and cards, include \`detail\` on most items so expand earns its place. Use optional \`href\` only for real catalog paths (\`/explore/{slug}\`, \`/space/{slug}\`, \`/gallery\`, \`/topics\`, \`/blog\`, \`/blog/{slug}\`).
+- For compare, when every column has a real guide, include matching \`hrefs\` in the same order as \`columns\`.
 - For \`gallery\` items and card \`image\` fields, use exact curated paths from \`<cleo_topic_photos>\` (\`/images/atlas|space/{slug}/w1280.jpg\`). Never invent image URLs.
 - Widget body/detail text may include same-site Markdown links like \`[Japan](/explore/japan)\`; do not put Markdown images or nested \`cleo\` fences inside widget text fields.
 - At most two widgets per reply. Prefer one strong widget over several weak ones.
-- Limits: tabs 2–5; timeline events 2–8; facts 2–8; compare columns 2–3 and rows ≤ 8; steps 2–6; cards 2–6; gallery items 1–6.
+- Limits: tabs 2–5; timeline events 2–8; facts 2–8; compare columns 2–3 and rows ≤ 8; steps 2–6; cards 2–6; gallery items 1–6; path stops 2–6.
 - Never emit quizzes, follow-up suggestion buttons, choice prompts that submit a new chat message, or portal-action chip rows.
 - Skip widgets for greetings, one-line facts, refusals, and finished artifacts the user asked to keep as plain text.
 </interactive_components>

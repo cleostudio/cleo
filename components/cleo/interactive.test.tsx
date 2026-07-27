@@ -74,13 +74,14 @@ describe('InteractiveBlock generative widgets', () => {
     )
   })
 
-  it('shows a focused compare subject panel', () => {
+  it('shows a focused compare subject panel with guide href', () => {
     render(
       <InteractiveBlock
         block={{
           type: 'compare',
           title: 'Mars vs Earth',
           columns: ['Mars', 'Earth'],
+          hrefs: ['/space/mars', '/space/earth'],
           rows: [{ label: 'Moons', values: ['2', '1'] }],
         }}
       />,
@@ -89,6 +90,9 @@ describe('InteractiveBlock generative widgets', () => {
     expect(
       screen.getByRole('button', { name: 'Mars' }).getAttribute('aria-pressed'),
     ).toBe('true')
+    expect(
+      screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
+    ).toBe('/space/mars')
     fireEvent.click(screen.getByRole('button', { name: 'Earth' }))
     expect(
       document.querySelector('.cleo-widget-compare-focus-label')?.textContent,
@@ -96,9 +100,12 @@ describe('InteractiveBlock generative widgets', () => {
     expect(
       document.querySelector('.cleo-widget-compare-focus-row dd')?.textContent,
     ).toBe('1')
+    expect(
+      screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
+    ).toBe('/space/earth')
   })
 
-  it('renders a gallery with selectable photographs', () => {
+  it('renders a gallery with prev/next and selectable photographs', () => {
     render(
       <InteractiveBlock
         block={{
@@ -124,19 +131,58 @@ describe('InteractiveBlock generative widgets', () => {
       document.querySelector('.cleo-widget-gallery-caption')?.textContent,
     ).toBe('Mount Fuji')
     expect(
+      document.querySelector('.cleo-widget-gallery-counter')?.textContent,
+    ).toBe('1 / 2')
+    expect(
       screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
     ).toBe('/explore/japan')
 
-    fireEvent.click(screen.getByRole('option', { name: 'Mars' }))
+    fireEvent.click(screen.getByRole('button', { name: /Next/i }))
     expect(
       document.querySelector('.cleo-widget-gallery-caption')?.textContent,
     ).toBe('Mars')
     expect(
+      document.querySelector('.cleo-widget-gallery-counter')?.textContent,
+    ).toBe('2 / 2')
+    expect(
       screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
     ).toBe('/space/mars')
+
+    fireEvent.click(screen.getByRole('option', { name: 'Mount Fuji' }))
+    expect(
+      document.querySelector('.cleo-widget-gallery-caption')?.textContent,
+    ).toBe('Mount Fuji')
   })
 
-  it('expands all facts when available', () => {
+  it('walks a reading path and marks stops done', () => {
+    render(
+      <InteractiveBlock
+        block={{
+          type: 'path',
+          title: 'Read Japan',
+          stops: [
+            {
+              title: 'Landscape',
+              body: 'Start with islands.',
+              href: '/explore/japan',
+            },
+            { title: 'Cities', body: 'Then dense continuity.' },
+          ],
+        }}
+      />,
+    )
+
+    expect(screen.getByText('0 of 2 complete')).toBeTruthy()
+    expect(screen.getByText('Start with islands.')).toBeTruthy()
+    expect(
+      screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
+    ).toBe('/explore/japan')
+    fireEvent.click(screen.getByRole('button', { name: /Continue/i }))
+    expect(screen.getByText('Then dense continuity.')).toBeTruthy()
+    expect(screen.getByText('1 of 2 complete')).toBeTruthy()
+  })
+
+  it('expands all facts and timeline details when available', () => {
     render(
       <InteractiveBlock
         block={{
@@ -157,5 +203,26 @@ describe('InteractiveBlock generative widgets', () => {
     expect(screen.getByText('Detail C')).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: 'Collapse all' }))
     expect(screen.queryByText('Detail A')).toBeNull()
+
+    cleanup()
+
+    render(
+      <InteractiveBlock
+        block={{
+          type: 'timeline',
+          title: 'Apollo',
+          events: [
+            { when: '1961', title: 'Goal', detail: 'Moon commitment' },
+            { when: '1969', title: 'Landing', detail: 'Apollo 11' },
+            { when: '1972', title: 'Last crew', detail: 'Apollo 17' },
+          ],
+        }}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: 'Expand all' }))
+    expect(screen.getByText('Moon commitment')).toBeTruthy()
+    expect(screen.getByText('Apollo 11')).toBeTruthy()
+    expect(screen.getByText('Apollo 17')).toBeTruthy()
   })
 })

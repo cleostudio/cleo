@@ -214,10 +214,31 @@ function TimelineWidget({
 }: {
   block: Extract<CleoInteractiveBlock, { type: 'timeline' }>
 }) {
+  const expandableIndexes = block.events
+    .map((event, index) => (event.detail ? index : -1))
+    .filter((index) => index >= 0)
   const [open, setOpen] = useState<ReadonlySet<number>>(() => new Set())
+  const allOpen =
+    expandableIndexes.length > 0 &&
+    expandableIndexes.every((index) => open.has(index))
 
   return (
-    <WidgetShell title={block.title}>
+    <WidgetShell
+      actions={
+        expandableIndexes.length >= 3 ? (
+          <button
+            className="cleo-widget-header-action"
+            onClick={() =>
+              setOpen(allOpen ? new Set() : new Set(expandableIndexes))
+            }
+            type="button"
+          >
+            {allOpen ? 'Collapse all' : 'Expand all'}
+          </button>
+        ) : null
+      }
+      title={block.title}
+    >
       <ol className="cleo-widget-timeline">
         {block.events.map((event, index) => {
           const expandable = Boolean(event.detail)
@@ -368,6 +389,7 @@ function CompareWidget({
 }) {
   const [focus, setFocus] = useState(0)
   const focusedLabel = block.columns[focus] ?? block.columns[0]
+  const focusedHref = block.hrefs?.[focus]
 
   return (
     <WidgetShell title={block.title}>
@@ -396,6 +418,12 @@ function CompareWidget({
             </div>
           ))}
         </dl>
+        {focusedHref ? (
+          <Link className="cleo-widget-guide-link" href={focusedHref}>
+            Open guide
+            <ArrowUpRight aria-hidden="true" className="size-3.5" />
+          </Link>
+        ) : null}
       </div>
 
       <div className="cleo-widget-compare-scroll">
@@ -606,17 +634,21 @@ function GalleryWidget({
 }) {
   const [active, setActive] = useState(0)
   const current = block.items[active] ?? block.items[0]
+  const multi = block.items.length > 1
+
+  function step(delta: number) {
+    setActive(
+      (currentIndex) =>
+        (currentIndex + delta + block.items.length) % block.items.length,
+    )
+  }
 
   function onThumbKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
       return
     }
     event.preventDefault()
-    const delta = event.key === 'ArrowRight' ? 1 : -1
-    setActive(
-      (currentIndex) =>
-        (currentIndex + delta + block.items.length) % block.items.length,
-    )
+    step(event.key === 'ArrowRight' ? 1 : -1)
   }
 
   return (
@@ -626,49 +658,205 @@ function GalleryWidget({
           <WidgetPhoto alt={current.caption} src={current.src} />
           <div className="cleo-widget-gallery-meta">
             <p className="cleo-widget-gallery-caption">{current.caption}</p>
-            {current.href ? (
-              <Link className="cleo-widget-guide-link" href={current.href}>
-                Open guide
-                <ArrowUpRight aria-hidden="true" className="size-3.5" />
-              </Link>
-            ) : null}
+            <div className="cleo-widget-gallery-meta-actions">
+              {multi ? (
+                <p className="cleo-widget-gallery-counter" aria-live="polite">
+                  {active + 1} / {block.items.length}
+                </p>
+              ) : null}
+              {current.href ? (
+                <Link className="cleo-widget-guide-link" href={current.href}>
+                  Open guide
+                  <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                </Link>
+              ) : null}
+            </div>
           </div>
         </div>
 
-        {block.items.length > 1 ? (
-          <div
-            aria-label="Photographs"
-            className="cleo-widget-gallery-thumbs"
-            onKeyDown={onThumbKeyDown}
-            role="listbox"
-          >
-            {block.items.map((item, index) => {
-              const selected = index === active
-              const zoom = topicPhotoZoomForSrc(item.src)
-              return (
+        {multi ? (
+          <>
+            <div className="cleo-widget-gallery-nav">
+              <button
+                className="cleo-widget-gallery-nav-button"
+                onClick={() => step(-1)}
+                type="button"
+              >
+                <ChevronLeft aria-hidden="true" className="size-4" />
+                Previous
+              </button>
+              <button
+                className="cleo-widget-gallery-nav-button"
+                onClick={() => step(1)}
+                type="button"
+              >
+                Next
+                <ChevronRight aria-hidden="true" className="size-4" />
+              </button>
+            </div>
+            <div
+              aria-label="Photographs"
+              className="cleo-widget-gallery-thumbs"
+              onKeyDown={onThumbKeyDown}
+              role="listbox"
+            >
+              {block.items.map((item, index) => {
+                const selected = index === active
+                const zoom = topicPhotoZoomForSrc(item.src)
+                return (
+                  <button
+                    aria-selected={selected}
+                    className="cleo-widget-gallery-thumb"
+                    data-active={selected || undefined}
+                    key={`${item.src}-${index}`}
+                    onClick={() => setActive(index)}
+                    role="option"
+                    type="button"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element -- curated static JPEG thumbs */}
+                    <img
+                      alt=""
+                      className="cleo-widget-gallery-thumb-image"
+                      height={zoom?.height ?? 80}
+                      src={item.src}
+                      width={zoom?.width ?? 120}
+                    />
+                    <span className="sr-only">{item.caption}</span>
+                  </button>
+                )
+              })}
+            </div>
+          </>
+        ) : null}
+      </div>
+    </WidgetShell>
+  )
+}
+
+function PathWidget({
+  block,
+}: {
+  block: Extract<CleoInteractiveBlock, { type: 'path' }>
+}) {
+  const [active, setActive] = useState(0)
+  const [done, setDone] = useState<ReadonlySet<number>>(() => new Set())
+  const stop = block.stops[active] ?? block.stops[0]
+  const doneCount = done.size
+  const progress = (doneCount / block.stops.length) * 100
+  const allDone = doneCount === block.stops.length
+
+  function toggleDone(index: number) {
+    setDone((current) => toggleIndex(current, index))
+  }
+
+  function markActiveDone() {
+    setDone((current) => {
+      const next = new Set(current)
+      next.add(active)
+      return next
+    })
+    if (active < block.stops.length - 1) {
+      setActive((current) => current + 1)
+    }
+  }
+
+  function onKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      event.preventDefault()
+      setActive((current) => Math.min(block.stops.length - 1, current + 1))
+    } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      event.preventDefault()
+      setActive((current) => Math.max(0, current - 1))
+    }
+  }
+
+  return (
+    <WidgetShell title={block.title}>
+      <div className="cleo-widget-path" onKeyDown={onKeyDown}>
+        <div
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={Math.round(progress)}
+          className="cleo-widget-path-bar"
+          role="progressbar"
+        >
+          <span
+            className="cleo-widget-path-bar-fill"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+
+        <p className="cleo-widget-path-meta">
+          {allDone
+            ? 'Path complete'
+            : `${doneCount} of ${block.stops.length} complete`}
+        </p>
+
+        <ol className="cleo-widget-path-stops">
+          {block.stops.map((item, index) => {
+            const isActive = index === active
+            const isDone = done.has(index)
+            return (
+              <li key={`${item.title}-${index}`}>
                 <button
-                  aria-selected={selected}
-                  className="cleo-widget-gallery-thumb"
-                  data-active={selected || undefined}
-                  key={`${item.src}-${index}`}
+                  aria-current={isActive ? 'step' : undefined}
+                  className="cleo-widget-path-stop"
+                  data-active={isActive || undefined}
+                  data-done={isDone || undefined}
                   onClick={() => setActive(index)}
-                  role="option"
                   type="button"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element -- curated static JPEG thumbs */}
-                  <img
-                    alt=""
-                    className="cleo-widget-gallery-thumb-image"
-                    height={zoom?.height ?? 80}
-                    src={item.src}
-                    width={zoom?.width ?? 120}
-                  />
-                  <span className="sr-only">{item.caption}</span>
+                  <span className="cleo-widget-path-check" aria-hidden="true">
+                    {isDone ? <Check className="size-3.5" /> : index + 1}
+                  </span>
+                  <span className="cleo-widget-path-stop-title">
+                    {item.title}
+                  </span>
                 </button>
-              )
-            })}
-          </div>
-        ) : null}
+              </li>
+            )
+          })}
+        </ol>
+
+        <div className="cleo-widget-path-stage" key={active}>
+          <h4 className="cleo-widget-path-title">{stop.title}</h4>
+          <WidgetProse text={stop.body} />
+          {stop.href ? (
+            <Link className="cleo-widget-guide-link" href={stop.href}>
+              Open guide
+              <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            </Link>
+          ) : null}
+        </div>
+
+        <div className="cleo-widget-path-controls">
+          <button
+            className="cleo-widget-path-button"
+            onClick={() => toggleDone(active)}
+            type="button"
+          >
+            {done.has(active) ? 'Mark unread' : 'Mark done'}
+          </button>
+          <button
+            className="cleo-widget-path-button"
+            data-primary=""
+            disabled={allDone && done.has(active)}
+            onClick={markActiveDone}
+            type="button"
+          >
+            {active === block.stops.length - 1 || done.has(active) ? (
+              <>
+                <Check aria-hidden="true" className="size-4" />
+                {allDone ? 'Complete' : 'Continue'}
+              </>
+            ) : (
+              <>
+                Continue
+                <ChevronRight aria-hidden="true" className="size-4" />
+              </>
+            )}
+          </button>
+        </div>
       </div>
     </WidgetShell>
   )
@@ -691,8 +879,10 @@ export function InteractiveBlock({
       <StepsWidget block={block} />
     ) : block.type === 'cards' ? (
       <CardsWidget block={block} />
-    ) : (
+    ) : block.type === 'gallery' ? (
       <GalleryWidget block={block} />
+    ) : (
+      <PathWidget block={block} />
     )
 
   return <div className={cn('cleo-interactive', className)}>{content}</div>

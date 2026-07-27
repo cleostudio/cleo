@@ -58,6 +58,61 @@ describe('parseCleoInteractiveBlock', () => {
     })
   })
 
+  it('parses path widgets and compare hrefs', () => {
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'path',
+          title: 'Read Japan',
+          stops: [
+            {
+              title: 'Landscape',
+              body: 'Start with islands and mountains.',
+              href: '/explore/japan',
+            },
+            { title: 'Cities', body: 'Then dense urban continuity.' },
+          ],
+        }),
+      ),
+    ).toEqual({
+      type: 'path',
+      title: 'Read Japan',
+      stops: [
+        {
+          title: 'Landscape',
+          body: 'Start with islands and mountains.',
+          href: '/explore/japan',
+        },
+        { title: 'Cities', body: 'Then dense urban continuity.' },
+      ],
+    })
+
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'compare',
+          columns: ['Mars', 'Earth'],
+          hrefs: ['/space/mars', '/space/earth'],
+          rows: [{ label: 'Moons', values: ['2', '1'] }],
+        }),
+      ),
+    ).toMatchObject({
+      type: 'compare',
+      hrefs: ['/space/mars', '/space/earth'],
+    })
+
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'compare',
+          columns: ['Mars', 'Earth'],
+          hrefs: ['https://evil.example', '/space/earth'],
+          rows: [{ label: 'Moons', values: ['2', '1'] }],
+        }),
+      ),
+    ).toBeNull()
+  })
+
   it('rejects unsafe gallery images and removed quiz type', () => {
     expect(
       parseCleoInteractiveBlock(

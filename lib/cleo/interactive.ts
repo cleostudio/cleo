@@ -3,8 +3,8 @@
  *
  * The model embeds fenced `cleo` JSON in assistant Markdown. The client
  * parses those fences into typed widgets (tabs, timeline, facts, compare,
- * steps, cards, gallery) that the user interacts with in place — part of
- * the answer, not suggestion chips or quizzes.
+ * steps, cards, gallery, path) that the user interacts with in place — part
+ * of the answer, not suggestion chips or quizzes.
  */
 
 import { isCuratedTopicImageSrc } from '~/lib/cleo/portal-links'
@@ -51,6 +51,12 @@ export type CleoGalleryItem = {
   src: string
 }
 
+export type CleoPathStop = {
+  body: string
+  href?: string
+  title: string
+}
+
 export type CleoTabsBlock = {
   tabs: CleoTabItem[]
   title?: string
@@ -71,6 +77,7 @@ export type CleoFactsBlock = {
 
 export type CleoCompareBlock = {
   columns: string[]
+  hrefs?: string[]
   rows: CleoCompareRow[]
   title?: string
   type: 'compare'
@@ -94,6 +101,12 @@ export type CleoGalleryBlock = {
   type: 'gallery'
 }
 
+export type CleoPathBlock = {
+  stops: CleoPathStop[]
+  title?: string
+  type: 'path'
+}
+
 export type CleoInteractiveBlock =
   | CleoTabsBlock
   | CleoTimelineBlock
@@ -102,6 +115,7 @@ export type CleoInteractiveBlock =
   | CleoStepsBlock
   | CleoCardsBlock
   | CleoGalleryBlock
+  | CleoPathBlock
 
 export type CleoMarkdownSegment =
   | {
@@ -125,6 +139,7 @@ const MAX_COMPARE_ROWS = 8
 const MAX_STEPS = 6
 const MAX_CARDS = 6
 const MAX_GALLERY = 6
+const MAX_PATH_STOPS = 6
 const MAX_LABEL = 64
 const MAX_SHORT = 120
 const MAX_BODY = 700
@@ -369,8 +384,25 @@ function parseCompareBlock(
     rows.push({ label, values })
   }
 
+  let hrefs: string[] | undefined
+  if ('hrefs' in value && value.hrefs !== undefined) {
+    if (!Array.isArray(value.hrefs) || value.hrefs.length !== columns.length) {
+      return null
+    }
+    hrefs = []
+    for (const entry of value.hrefs) {
+      const href = parseOptionalHref(entry)
+      if (!href) {
+        return null
+      }
+      hrefs.push(href)
+    }
+  }
+
   return withOptionalTitle(
-    { type: 'compare', columns, rows },
+    hrefs
+      ? { type: 'compare', columns, rows, hrefs }
+      : { type: 'compare', columns, rows },
     parseOptionalTitle(value),
   )
 }
@@ -514,6 +546,44 @@ function parseGalleryBlock(
   )
 }
 
+function parsePathBlock(value: Record<string, unknown>): CleoPathBlock | null {
+  if (
+    !Array.isArray(value.stops) ||
+    value.stops.length < 2 ||
+    value.stops.length > MAX_PATH_STOPS
+  ) {
+    return null
+  }
+
+  const stops: CleoPathStop[] = []
+  for (const entry of value.stops) {
+    if (typeof entry !== 'object' || entry === null) {
+      return null
+    }
+    const title = trimString(
+      'title' in entry ? entry.title : undefined,
+      MAX_SHORT,
+    )
+    const body = trimString('body' in entry ? entry.body : undefined, MAX_BODY)
+    if (!title || !body) {
+      return null
+    }
+    const stop: CleoPathStop = { title, body }
+    if ('href' in entry && entry.href !== undefined) {
+      const href = parseOptionalHref(entry.href)
+      if (href === null) {
+        return null
+      }
+      if (href !== undefined) {
+        stop.href = href
+      }
+    }
+    stops.push(stop)
+  }
+
+  return withOptionalTitle({ type: 'path', stops }, parseOptionalTitle(value))
+}
+
 /** Parse and validate one fenced `cleo` JSON payload. */
 export function parseCleoInteractiveBlock(
   raw: string,
@@ -551,6 +621,8 @@ export function parseCleoInteractiveBlock(
       return parseCardsBlock(record)
     case 'gallery':
       return parseGalleryBlock(record)
+    case 'path':
+      return parsePathBlock(record)
     default:
       return null
   }
