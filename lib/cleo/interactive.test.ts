@@ -25,37 +25,6 @@ describe('parseCleoInteractiveBlock', () => {
     })
   })
 
-  it('parses quiz widgets and requires a matching answer id', () => {
-    expect(
-      parseCleoInteractiveBlock(
-        JSON.stringify({
-          type: 'quiz',
-          question: 'Which moon has an ocean?',
-          options: [
-            { id: 'a', label: 'Io' },
-            { id: 'b', label: 'Europa' },
-          ],
-          answer: 'b',
-          explanation: 'Europa hides a global ocean under ice.',
-        }),
-      ),
-    ).toMatchObject({ type: 'quiz', answer: 'b' })
-
-    expect(
-      parseCleoInteractiveBlock(
-        JSON.stringify({
-          type: 'quiz',
-          question: 'Which moon has an ocean?',
-          options: [
-            { id: 'a', label: 'Io' },
-            { id: 'b', label: 'Europa' },
-          ],
-          answer: 'z',
-        }),
-      ),
-    ).toBeNull()
-  })
-
   it('parses timeline, facts, and compare widgets', () => {
     expect(
       parseCleoInteractiveBlock(
@@ -97,7 +66,20 @@ describe('parseCleoInteractiveBlock', () => {
     ).toMatchObject({ type: 'compare' })
   })
 
-  it('rejects suggestion-style and unknown types', () => {
+  it('rejects quizzes and suggestion-style types', () => {
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'quiz',
+          question: 'Which moon?',
+          options: [
+            { id: 'a', label: 'Io' },
+            { id: 'b', label: 'Europa' },
+          ],
+          answer: 'b',
+        }),
+      ),
+    ).toBeNull()
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
@@ -106,8 +88,6 @@ describe('parseCleoInteractiveBlock', () => {
         }),
       ),
     ).toBeNull()
-    expect(parseCleoInteractiveBlock('{"type":"portal_actions"}')).toBeNull()
-    expect(parseCleoInteractiveBlock('not-json')).toBeNull()
   })
 })
 

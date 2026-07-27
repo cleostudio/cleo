@@ -86,12 +86,12 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).
 - Generative interactive widgets: the model may emit fenced `cleo` JSON
-  (`tabs`, `quiz`, `timeline`, `facts`, `compare`) parsed by
+  (`tabs`, `timeline`, `facts`, `compare`) parsed by
   `lib/cleo/interactive.ts` and rendered by `components/cleo/interactive.tsx`
   inside `components/cleo/markdown.tsx`. These are in-answer widgets the user
-  manipulates in place (switch tabs, answer a quiz, expand facts/timeline,
-  focus compare columns) — not suggestion chips that submit a new prompt.
-  Incomplete fences are dropped while streaming so raw JSON never flashes.
+  manipulates in place (switch tabs, expand facts/timeline, focus compare
+  subjects) — not quizzes or suggestion chips. Incomplete fences are dropped
+  while streaming so raw JSON never flashes.
 - Styles: `app/cleo.css` (streamdown + prompt dock + interactive blocks). Keep
   the prompt dock above the site dock via `--cleo-prompt-bottom`.
 

@@ -9,8 +9,8 @@
  * grounding is appended so Cleo can deep-link Explore/Space field guides.
  * Per-request topic photo paths (see topic-photos.ts) let Cleo embed curated
  * photographs when answering about catalog subjects. Optional fenced \`cleo\`
- * JSON blocks render as generative interactive widgets (tabs, quiz, timeline,
- * facts, compare) embedded in the reply — not suggestion chips.
+ * JSON blocks render as generative interactive widgets (tabs, timeline,
+ * facts, compare) embedded in the reply — not suggestion chips or quizzes.
  */
 
 import { buildPortalCatalogInstructions } from '~/lib/cleo/portal-catalog'
@@ -118,7 +118,7 @@ When using web results:
 </citations>
 
 <interactive_components>
-Cleo can embed generative interactive widgets in a reply. These are part of the answer the user can manipulate in place — tabs, quizzes, timelines, expandable facts, compare plates. They are not suggestion chips, follow-up buttons, or "ask next" prompts.
+Cleo can embed generative interactive widgets in a reply. These are part of the answer — switchable sections, expandable timelines/facts, and focusable compare plates. They are not quizzes, suggestion chips, follow-up buttons, or "ask next" prompts.
 
 Emit a fenced block with language tag \`cleo\` and a single JSON object. Place the widget where it belongs in the answer (often after a short lead-in). Never narrate the JSON, never wrap it in an extra code fence, and never invent a block type. Keep Explore/Space guide deep-links as ordinary inline Markdown in the prose.
 
@@ -129,32 +129,29 @@ Allowed widgets:
 {"type":"tabs","title":"Japan at a glance","tabs":[{"label":"Geography","body":"An archipelago of four main islands…"},{"label":"Culture","body":"Continuity and reinvention sit side by side…"},{"label":"Today","body":"A constitutional monarchy and major economy…"}]}
 \`\`\`
 
-2. Quiz — one question the user can answer in place (include explanation):
-\`\`\`cleo
-{"type":"quiz","question":"Which Jovian moon hides a global ocean under ice?","options":[{"id":"a","label":"Io"},{"id":"b","label":"Europa"},{"id":"c","label":"Callisto"}],"answer":"b","explanation":"Europa's ice shell sits over a salty subsurface ocean."}
-\`\`\`
-
-3. Timeline — dated events the user can expand:
+2. Timeline — dated events the user can expand for detail:
 \`\`\`cleo
 {"type":"timeline","title":"Apollo milestones","events":[{"when":"1961","title":"Kennedy's Moon goal","detail":"The US commits to a crewed lunar landing."},{"when":"1969","title":"Apollo 11 lands","detail":"Armstrong and Aldrin walk on the Moon."}]}
 \`\`\`
 
-4. Facts — key-value plate; add \`detail\` so rows expand on tap:
+3. Facts — dossier plate; add \`detail\` so rows expand on tap:
 \`\`\`cleo
 {"type":"facts","title":"Europa essentials","items":[{"label":"Primary","value":"Jupiter"},{"label":"Ocean","value":"Global, under ice","detail":"Tidal flexing keeps a salty ocean liquid beneath the shell."},{"label":"Diameter","value":"3,122 km"}]}
 \`\`\`
 
-5. Compare — side-by-side plate; column headers are focusable:
+4. Compare — side-by-side plate with focusable subjects:
 \`\`\`cleo
 {"type":"compare","title":"Mars vs Earth","columns":["Mars","Earth"],"rows":[{"label":"Mean diameter","values":["6,779 km","12,742 km"]},{"label":"Moons","values":["2","1"]}]}
 \`\`\`
 
 Rules:
-- Prefer a widget when it makes the answer clearer than prose alone (overview → tabs/facts; comparison → compare; sequence → timeline; check understanding → quiz).
+- Prefer a widget when it makes the answer clearer than prose alone (overview → tabs/facts; sequence → timeline; comparison → compare).
+- Write dense, useful widget copy — short bodies with a concrete point, not filler labels.
+- For facts and timeline, include \`detail\` on most rows/events so the expand interaction earns its place.
 - At most two widgets per reply. Prefer one strong widget over several weak ones.
-- Limits: tabs 2–5; quiz options 2–4; timeline events 2–8; facts 2–8; compare columns 2–3 and rows ≤ 8.
+- Limits: tabs 2–5; timeline events 2–8; facts 2–8; compare columns 2–3 and rows ≤ 8.
 - Bodies and details are plain text (short paragraphs fine). Do not put Markdown images or nested \`cleo\` fences inside widget fields.
-- Never emit follow-up suggestion buttons, choice prompts that submit a new chat message, or portal-action chip rows.
+- Never emit quizzes, follow-up suggestion buttons, choice prompts that submit a new chat message, or portal-action chip rows.
 - Skip widgets for greetings, one-line facts, refusals, and finished artifacts the user asked to keep as plain text.
 </interactive_components>
 

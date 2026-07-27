@@ -10,7 +10,7 @@ afterEach(() => {
 })
 
 describe('InteractiveBlock generative widgets', () => {
-  it('switches tab panels in place', () => {
+  it('switches tab panels in place with keyboard support', () => {
     render(
       <InteractiveBlock
         block={{
@@ -28,50 +28,35 @@ describe('InteractiveBlock generative widgets', () => {
     fireEvent.click(screen.getByRole('tab', { name: 'Culture' }))
     expect(screen.getByText('Continuity and reinvention.')).toBeTruthy()
     expect(screen.queryByText('Four main islands.')).toBeNull()
+
+    fireEvent.keyDown(screen.getByRole('tablist'), { key: 'ArrowLeft' })
+    expect(screen.getByText('Four main islands.')).toBeTruthy()
   })
 
-  it('checks quiz answers and reveals explanation', () => {
+  it('expands multiple timeline events independently', () => {
     render(
-      <InteractiveBlock
-        block={{
-          type: 'quiz',
-          question: 'Which moon has an ocean?',
-          options: [
-            { id: 'a', label: 'Io' },
-            { id: 'b', label: 'Europa' },
-          ],
-          answer: 'b',
-          explanation: 'Europa hides a global ocean under ice.',
-        }}
-      />,
-    )
-
-    fireEvent.click(screen.getByRole('button', { name: 'Europa' }))
-    expect(screen.getByText('Correct.')).toBeTruthy()
-    expect(
-      screen.getByText('Europa hides a global ocean under ice.'),
-    ).toBeTruthy()
-  })
-
-  it('expands timeline and fact details on tap', () => {
-    const { rerender } = render(
       <InteractiveBlock
         block={{
           type: 'timeline',
           title: 'Apollo',
           events: [
             { when: '1961', title: 'Goal set', detail: 'Kennedy speech.' },
-            { when: '1969', title: 'Landing' },
+            { when: '1969', title: 'Landing', detail: 'Moon walk.' },
           ],
         }}
       />,
     )
 
-    expect(screen.getByText('Kennedy speech.')).toBeTruthy()
-    fireEvent.click(screen.getByRole('button', { name: /Goal set/i }))
     expect(screen.queryByText('Kennedy speech.')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: /Goal set/i }))
+    expect(screen.getByText('Kennedy speech.')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /Landing/i }))
+    expect(screen.getByText('Moon walk.')).toBeTruthy()
+    expect(screen.getByText('Kennedy speech.')).toBeTruthy()
+  })
 
-    rerender(
+  it('expands fact details on tap', () => {
+    render(
       <InteractiveBlock
         block={{
           type: 'facts',
@@ -92,7 +77,7 @@ describe('InteractiveBlock generative widgets', () => {
     expect(screen.getByText('Kept liquid by tidal flexing.')).toBeTruthy()
   })
 
-  it('focuses compare columns when a header is pressed', () => {
+  it('focuses compare subjects from the subject row', () => {
     render(
       <InteractiveBlock
         block={{
@@ -105,7 +90,11 @@ describe('InteractiveBlock generative widgets', () => {
     )
 
     const mars = screen.getByRole('button', { name: 'Mars' })
-    fireEvent.click(mars)
     expect(mars.getAttribute('aria-pressed')).toBe('true')
+    fireEvent.click(screen.getByRole('button', { name: 'Earth' }))
+    expect(
+      screen.getByRole('button', { name: 'Earth' }).getAttribute('aria-pressed'),
+    ).toBe('true')
+    expect(mars.getAttribute('aria-pressed')).toBe('false')
   })
 })

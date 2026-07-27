@@ -30,7 +30,7 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides, embed curated
   topic photographs when a visual helps, and emit generative `cleo` widgets
-  (tabs, quiz, timeline, facts, compare) the user can interact with in place;
+  (tabs, timeline, facts, compare) the user can interact with in place;
   topic and chat images use the same click-to-zoom lightbox as Gallery)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 

@@ -2,18 +2,13 @@
  * Generative interactive widgets for Cleo replies.
  *
  * The model embeds fenced `cleo` JSON in assistant Markdown. The client
- * parses those fences into typed widgets (tabs, quiz, timeline, facts,
- * compare) that the user can interact with in place — not suggestion chips
- * that submit another prompt.
+ * parses those fences into typed widgets (tabs, timeline, facts, compare)
+ * that the user interacts with in place — part of the answer, not suggestion
+ * chips or quizzes.
  */
 
 export type CleoTabItem = {
   body: string
-  label: string
-}
-
-export type CleoQuizOption = {
-  id: string
   label: string
 }
 
@@ -40,14 +35,6 @@ export type CleoTabsBlock = {
   type: 'tabs'
 }
 
-export type CleoQuizBlock = {
-  answer: string
-  explanation?: string
-  options: CleoQuizOption[]
-  question: string
-  type: 'quiz'
-}
-
 export type CleoTimelineBlock = {
   events: CleoTimelineEvent[]
   title?: string
@@ -69,7 +56,6 @@ export type CleoCompareBlock = {
 
 export type CleoInteractiveBlock =
   | CleoTabsBlock
-  | CleoQuizBlock
   | CleoTimelineBlock
   | CleoFactsBlock
   | CleoCompareBlock
@@ -89,7 +75,6 @@ const CLEO_FENCE_OPEN = /^```cleo(?:-ui)?[ \t]*\r?\n/im
 const CLEO_FENCE_CLOSE = /\r?\n```[ \t]*(?:\r?\n|$)/
 
 const MAX_TABS = 5
-const MAX_QUIZ_OPTIONS = 4
 const MAX_TIMELINE_EVENTS = 8
 const MAX_FACTS = 8
 const MAX_COMPARE_COLUMNS = 3
@@ -104,7 +89,10 @@ function trimString(value: unknown, max: number): string | null {
     return null
   }
 
-  const trimmed = value.trim().replace(/[^\S\n]+/g, ' ').replace(/\n{3,}/g, '\n\n')
+  const trimmed = value
+    .trim()
+    .replace(/[^\S\n]+/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
   if (!trimmed || trimmed.length > max) {
     return null
   }
@@ -112,8 +100,21 @@ function trimString(value: unknown, max: number): string | null {
   return trimmed
 }
 
+function parseOptionalTitle(
+  value: Record<string, unknown>,
+): string | undefined | null {
+  if (!('title' in value) || value.title === undefined) {
+    return undefined
+  }
+  return trimString(value.title, MAX_LABEL)
+}
+
 function parseTabsBlock(value: Record<string, unknown>): CleoTabsBlock | null {
-  if (!Array.isArray(value.tabs) || value.tabs.length < 2 || value.tabs.length > MAX_TABS) {
+  if (
+    !Array.isArray(value.tabs) ||
+    value.tabs.length < 2 ||
+    value.tabs.length > MAX_TABS
+  ) {
     return null
   }
 
@@ -122,7 +123,10 @@ function parseTabsBlock(value: Record<string, unknown>): CleoTabsBlock | null {
     if (typeof entry !== 'object' || entry === null) {
       return null
     }
-    const label = trimString('label' in entry ? entry.label : undefined, MAX_LABEL)
+    const label = trimString(
+      'label' in entry ? entry.label : undefined,
+      MAX_LABEL,
+    )
     const body = trimString('body' in entry ? entry.body : undefined, MAX_BODY)
     if (!label || !body) {
       return null
@@ -130,58 +134,14 @@ function parseTabsBlock(value: Record<string, unknown>): CleoTabsBlock | null {
     tabs.push({ label, body })
   }
 
-  const block: CleoTabsBlock = { type: 'tabs', tabs }
-  if ('title' in value && value.title !== undefined) {
-    const title = trimString(value.title, MAX_LABEL)
-    if (!title) {
-      return null
-    }
-    block.title = title
-  }
-  return block
-}
-
-function parseQuizBlock(value: Record<string, unknown>): CleoQuizBlock | null {
-  const question = trimString(value.question, MAX_BODY)
-  const answer = trimString(value.answer, MAX_LABEL)
-  if (
-    !question ||
-    !answer ||
-    !Array.isArray(value.options) ||
-    value.options.length < 2 ||
-    value.options.length > MAX_QUIZ_OPTIONS
-  ) {
+  const title = parseOptionalTitle(value)
+  if (title === null) {
     return null
   }
 
-  const options: CleoQuizOption[] = []
-  const seen = new Set<string>()
-  for (const entry of value.options) {
-    if (typeof entry !== 'object' || entry === null) {
-      return null
-    }
-    const id = trimString('id' in entry ? entry.id : undefined, MAX_LABEL)
-    const label = trimString('label' in entry ? entry.label : undefined, MAX_SHORT)
-    if (!id || !label || seen.has(id)) {
-      return null
-    }
-    seen.add(id)
-    options.push({ id, label })
-  }
-
-  if (!seen.has(answer)) {
-    return null
-  }
-
-  const block: CleoQuizBlock = { type: 'quiz', question, options, answer }
-  if ('explanation' in value && value.explanation !== undefined) {
-    const explanation = trimString(value.explanation, MAX_BODY)
-    if (!explanation) {
-      return null
-    }
-    block.explanation = explanation
-  }
-  return block
+  return title === undefined
+    ? { type: 'tabs', tabs }
+    : { type: 'tabs', tabs, title }
 }
 
 function parseTimelineBlock(
@@ -201,7 +161,10 @@ function parseTimelineBlock(
       return null
     }
     const when = trimString('when' in entry ? entry.when : undefined, MAX_LABEL)
-    const title = trimString('title' in entry ? entry.title : undefined, MAX_SHORT)
+    const title = trimString(
+      'title' in entry ? entry.title : undefined,
+      MAX_SHORT,
+    )
     if (!when || !title) {
       return null
     }
@@ -216,15 +179,14 @@ function parseTimelineBlock(
     events.push(event)
   }
 
-  const block: CleoTimelineBlock = { type: 'timeline', events }
-  if ('title' in value && value.title !== undefined) {
-    const title = trimString(value.title, MAX_LABEL)
-    if (!title) {
-      return null
-    }
-    block.title = title
+  const title = parseOptionalTitle(value)
+  if (title === null) {
+    return null
   }
-  return block
+
+  return title === undefined
+    ? { type: 'timeline', events }
+    : { type: 'timeline', events, title }
 }
 
 function parseFactsBlock(value: Record<string, unknown>): CleoFactsBlock | null {
@@ -241,8 +203,14 @@ function parseFactsBlock(value: Record<string, unknown>): CleoFactsBlock | null 
     if (typeof entry !== 'object' || entry === null) {
       return null
     }
-    const label = trimString('label' in entry ? entry.label : undefined, MAX_LABEL)
-    const factValue = trimString('value' in entry ? entry.value : undefined, MAX_SHORT)
+    const label = trimString(
+      'label' in entry ? entry.label : undefined,
+      MAX_LABEL,
+    )
+    const factValue = trimString(
+      'value' in entry ? entry.value : undefined,
+      MAX_SHORT,
+    )
     if (!label || !factValue) {
       return null
     }
@@ -257,15 +225,14 @@ function parseFactsBlock(value: Record<string, unknown>): CleoFactsBlock | null 
     items.push(item)
   }
 
-  const block: CleoFactsBlock = { type: 'facts', items }
-  if ('title' in value && value.title !== undefined) {
-    const title = trimString(value.title, MAX_LABEL)
-    if (!title) {
-      return null
-    }
-    block.title = title
+  const title = parseOptionalTitle(value)
+  if (title === null) {
+    return null
   }
-  return block
+
+  return title === undefined
+    ? { type: 'facts', items }
+    : { type: 'facts', items, title }
 }
 
 function parseCompareBlock(
@@ -319,21 +286,14 @@ function parseCompareBlock(
     rows.push({ label, values })
   }
 
-  const block: CleoCompareBlock = {
-    type: 'compare',
-    columns,
-    rows,
+  const title = parseOptionalTitle(value)
+  if (title === null) {
+    return null
   }
 
-  if ('title' in value && value.title !== undefined) {
-    const title = trimString(value.title, MAX_LABEL)
-    if (!title) {
-      return null
-    }
-    block.title = title
-  }
-
-  return block
+  return title === undefined
+    ? { type: 'compare', columns, rows }
+    : { type: 'compare', columns, rows, title }
 }
 
 /** Parse and validate one fenced `cleo` JSON payload. */
@@ -361,8 +321,6 @@ export function parseCleoInteractiveBlock(
   switch (record.type) {
     case 'tabs':
       return parseTabsBlock(record)
-    case 'quiz':
-      return parseQuizBlock(record)
     case 'timeline':
       return parseTimelineBlock(record)
     case 'facts':
