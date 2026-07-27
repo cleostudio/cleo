@@ -31,7 +31,7 @@ export const MAP_REGION_IDS = [
 
 export type MapRegionId = (typeof MAP_REGION_IDS)[number]
 
-export const MAP_LAYER_IDS = ['borders', 'labels'] as const
+export const MAP_LAYER_IDS = ['borders', 'labels', 'graticule'] as const
 
 export type MapLayerId = (typeof MAP_LAYER_IDS)[number]
 
@@ -40,6 +40,7 @@ export type MapLayerVisibility = Record<MapLayerId, boolean>
 export const DEFAULT_MAP_LAYERS: MapLayerVisibility = {
   borders: true,
   labels: true,
+  graticule: false,
 }
 
 export const MAP_LAYER_STORAGE_KEY = 'cleo.maps.layers'
@@ -86,6 +87,7 @@ export type MapCountryPhoto = {
   code: string
   slug: string
   name: string
+  capital: string
   placeName: string
   alt: string
   src: string
@@ -300,6 +302,47 @@ export function buildRegionLabelCollection(
   }
 }
 
+function coerceLayerFlag(
+  value: string | boolean | null | undefined,
+  fallback: boolean,
+): boolean {
+  if (typeof value === 'boolean') return value
+  if (value == null) return fallback
+  const normalized = String(value).trim().toLowerCase()
+  if (normalized === '0' || normalized === 'false' || normalized === 'off') {
+    return false
+  }
+  if (normalized === '1' || normalized === 'true' || normalized === 'on') {
+    return true
+  }
+  return fallback
+}
+
+/** Parse optional `borders` / `labels` / `graticule` query flags. */
+export function parseMapLayersSearchParams(
+  params: Pick<URLSearchParams, 'get'>,
+): Partial<MapLayerVisibility> {
+  const next: Partial<MapLayerVisibility> = {}
+  for (const id of MAP_LAYER_IDS) {
+    const raw = params.get(id)
+    if (raw == null || raw === '') continue
+    next[id] = coerceLayerFlag(raw, DEFAULT_MAP_LAYERS[id])
+  }
+  return next
+}
+
+/** URL partials win over session storage; missing keys keep the stored value. */
+export function resolveMapLayers(
+  urlPartial: Partial<MapLayerVisibility>,
+  stored: MapLayerVisibility = DEFAULT_MAP_LAYERS,
+): MapLayerVisibility {
+  return {
+    borders: urlPartial.borders ?? stored.borders,
+    labels: urlPartial.labels ?? stored.labels,
+    graticule: urlPartial.graticule ?? stored.graticule,
+  }
+}
+
 export function readStoredMapLayers(): MapLayerVisibility {
   if (typeof window === 'undefined') return { ...DEFAULT_MAP_LAYERS }
   try {
@@ -307,8 +350,9 @@ export function readStoredMapLayers(): MapLayerVisibility {
     if (!raw) return { ...DEFAULT_MAP_LAYERS }
     const parsed = JSON.parse(raw) as Partial<MapLayerVisibility>
     return {
-      borders: parsed.borders !== false,
-      labels: parsed.labels !== false,
+      borders: coerceLayerFlag(parsed.borders, DEFAULT_MAP_LAYERS.borders),
+      labels: coerceLayerFlag(parsed.labels, DEFAULT_MAP_LAYERS.labels),
+      graticule: coerceLayerFlag(parsed.graticule, DEFAULT_MAP_LAYERS.graticule),
     }
   } catch {
     return { ...DEFAULT_MAP_LAYERS }
@@ -322,6 +366,106 @@ export function writeStoredMapLayers(layers: MapLayerVisibility) {
   } catch {
     // Private mode / quota — preference is best-effort.
   }
+}
+
+/** Persist non-default layer flags in the URL; omit defaults to keep shares clean. */
+export function syncMapLayersSearchParams(layers: MapLayerVisibility) {
+  if (typeof window === 'undefined') return
+  const url = new URL(window.location.href)
+  for (const id of MAP_LAYER_IDS) {
+    if (layers[id] === DEFAULT_MAP_LAYERS[id]) {
+      url.searchParams.delete(id)
+    } else {
+      url.searchParams.set(id, layers[id] ? '1' : '0')
+    }
+  }
+  const next = `${url.pathname}${url.search}${url.hash}`
+  window.history.replaceState(window.history.state, '', next)
+}
+
+/** Append non-default layer flags onto a Maps href. */
+export function mapHrefWithLayers(
+  href: string,
+  layers: MapLayerVisibility,
+): string {
+  const url = new URL(href, 'https://cleo.local')
+  for (const id of MAP_LAYER_IDS) {
+    if (layers[id] === DEFAULT_MAP_LAYERS[id]) {
+      url.searchParams.delete(id)
+    } else {
+      url.searchParams.set(id, layers[id] ? '1' : '0')
+    }
+  }
+  return `${url.pathname}${url.search}${url.hash}`
+}
+
+export type MapLineFeatureCollection = {
+  type: 'FeatureCollection'
+  features: Array<{
+    type: 'Feature'
+    properties: {
+      kind: 'meridian' | 'parallel'
+      value: number
+    }
+    geometry: {
+      type: 'LineString'
+      coordinates: [number, number][]
+    }
+  }>
+}
+
+/** Lightweight lat/lng grid for the optional Graticule layer (no tile work). */
+export function buildGraticuleCollection(step = 30): MapLineFeatureCollection {
+  const features: MapLineFeatureCollection['features'] = []
+  const latMax = 80
+
+  for (let lng = -180; lng < 180; lng += step) {
+    const coordinates: [number, number][] = []
+    for (let lat = -latMax; lat <= latMax; lat += 5) {
+      coordinates.push([lng, lat])
+    }
+    features.push({
+      type: 'Feature',
+      properties: { kind: 'meridian', value: lng },
+      geometry: { type: 'LineString', coordinates },
+    })
+  }
+
+  for (let lat = -60; lat <= 60; lat += step) {
+    const coordinates: [number, number][] = []
+    for (let lng = -180; lng <= 180; lng += 5) {
+      coordinates.push([lng, lat])
+    }
+    features.push({
+      type: 'Feature',
+      properties: { kind: 'parallel', value: lat },
+      geometry: { type: 'LineString', coordinates },
+    })
+  }
+
+  return { type: 'FeatureCollection', features }
+}
+
+/** Country index filter for the Maps combobox (name, code, slug, capital). */
+export function filterMapCountrySuggestions(
+  countries: readonly MapCountryIndexEntry[],
+  query: string,
+  capitals: Readonly<Record<string, string>> = {},
+  limit = 8,
+): MapCountryIndexEntry[] {
+  const trimmed = query.trim().toLowerCase()
+  if (!trimmed) return []
+  return countries
+    .filter((entry) => {
+      const capital = capitals[entry.code]?.toLowerCase() ?? ''
+      return (
+        entry.name.toLowerCase().includes(trimmed) ||
+        entry.code.toLowerCase() === trimmed ||
+        entry.slug?.toLowerCase() === trimmed ||
+        (capital.length > 0 && capital.includes(trimmed))
+      )
+    })
+    .slice(0, limit)
 }
 
 export type MapShareResult = 'shared' | 'copied' | 'failed' | 'aborted'

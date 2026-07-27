@@ -213,6 +213,28 @@ html[data-maps-route] body {
   box-shadow: var(--maps-panel-shadow);
 }
 
+.earth-map-suggestions-empty {
+  margin: 0;
+  padding: 0.55rem 0.65rem;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  letter-spacing: -0.011em;
+  line-height: 1.35;
+}
+
+.earth-map-suggestion-main {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.earth-map-suggestion-meta {
+  color: var(--muted-foreground);
+  font-size: 0.6875rem;
+  letter-spacing: 0.01em;
+}
+
 .earth-map-suggestions button {
   display: flex;
   width: 100%;
@@ -229,6 +251,15 @@ html[data-maps-route] body {
   padding: 0.45rem 0.55rem;
   text-align: left;
   transition: background-color 150ms var(--ease-swift);
+}
+
+.earth-map-canvas:focus {
+  outline: none;
+}
+
+.earth-map-canvas:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
 }
 
 .earth-map-suggestions button:hover,

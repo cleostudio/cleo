@@ -6,13 +6,16 @@ import {
   boundsArea,
   boundsCenter,
   buildCountryLabelCollection,
+  buildGraticuleCollection,
   buildRegionLabelCollection,
   DEFAULT_MAP_LAYERS,
   exploreRegionHref,
+  filterMapCountrySuggestions,
   findMapCountryIndexEntry,
   findMapRegionCamera,
   formatMapCoords,
   mapCountryHref,
+  mapHrefWithLayers,
   mapRegionHref,
   MAP_COUNTRIES_URL,
   MAP_COUNTRY_INDEX_URL,
@@ -22,11 +25,14 @@ import {
   MAP_TILE_URL,
   mapAttribution,
   parseMapCountryParam,
+  parseMapLayersSearchParams,
   parseMapRegionParam,
   readStoredMapLayers,
   resolveMapCountry,
+  resolveMapLayers,
   shareOrCopyMapLink,
   syncMapFocusSearchParams,
+  syncMapLayersSearchParams,
   writeStoredMapLayers,
   type MapCountryIndexEntry,
   type MapRegionCamera,
@@ -159,14 +165,76 @@ describe('maps helpers', () => {
     )
   })
 
+  it('builds a 30° graticule with equator and prime meridian', () => {
+    const grid = buildGraticuleCollection(30)
+    expect(grid.features.length).toBeGreaterThan(10)
+    expect(
+      grid.features.some(
+        (feature) =>
+          feature.properties.kind === 'parallel' && feature.properties.value === 0,
+      ),
+    ).toBe(true)
+    expect(
+      grid.features.some(
+        (feature) =>
+          feature.properties.kind === 'meridian' && feature.properties.value === 0,
+      ),
+    ).toBe(true)
+  })
+
+  it('filters country suggestions by capital as well as name', () => {
+    expect(
+      filterMapCountrySuggestions(sampleIndex, 'tokyo', {
+        JP: 'Tokyo',
+        US: 'Washington, D.C.',
+      }).map((entry) => entry.code),
+    ).toEqual(['JP'])
+    expect(filterMapCountrySuggestions(sampleIndex, 'zzz')).toEqual([])
+  })
+
   it('persists layer visibility in sessionStorage', () => {
     window.sessionStorage.clear()
     expect(readStoredMapLayers()).toEqual(DEFAULT_MAP_LAYERS)
-    writeStoredMapLayers({ borders: false, labels: true })
+    writeStoredMapLayers({ borders: false, labels: true, graticule: true })
     expect(window.sessionStorage.getItem(MAP_LAYER_STORAGE_KEY)).toContain(
       '"borders":false',
     )
-    expect(readStoredMapLayers()).toEqual({ borders: false, labels: true })
+    expect(readStoredMapLayers()).toEqual({
+      borders: false,
+      labels: true,
+      graticule: true,
+    })
+  })
+
+  it('parses and syncs non-default layer URL params', () => {
+    expect(
+      parseMapLayersSearchParams(
+        new URLSearchParams('borders=0&labels=1&graticule=on'),
+      ),
+    ).toEqual({ borders: false, labels: true, graticule: true })
+
+    expect(
+      resolveMapLayers(
+        { graticule: true },
+        { borders: false, labels: true, graticule: false },
+      ),
+    ).toEqual({ borders: false, labels: true, graticule: true })
+
+    window.history.replaceState({}, '', '/maps?country=japan')
+    syncMapLayersSearchParams({
+      borders: false,
+      labels: true,
+      graticule: true,
+    })
+    expect(window.location.search).toBe('?country=japan&borders=0&graticule=1')
+
+    expect(
+      mapHrefWithLayers('/maps?country=japan', {
+        borders: true,
+        labels: false,
+        graticule: false,
+      }),
+    ).toBe('/maps?country=japan&labels=0')
   })
 
   it('shares map links when available and otherwise copies', async () => {
@@ -211,6 +279,16 @@ describe('maps helpers', () => {
     syncMapFocusSearchParams(null)
     expect(window.location.search).toBe('')
     expect(window.location.hash).toBe('#globe')
+  })
+
+  it('preserves layer params while syncing focus', () => {
+    window.history.replaceState(
+      {},
+      '',
+      '/maps?country=japan&borders=0&graticule=1',
+    )
+    syncMapFocusSearchParams({ kind: 'region', value: 'asia' })
+    expect(window.location.search).toBe('?borders=0&graticule=1&region=asia')
   })
 })
 

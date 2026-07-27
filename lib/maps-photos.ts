@@ -11,6 +11,7 @@ export function mapCountryPhotos(): Record<string, MapCountryPhoto> {
       code: entry.code,
       slug: entry.slug,
       name: entry.name,
+      capital: entry.facts.capital,
       placeName: entry.photo.placeName,
       alt: entry.photo.alt,
       src: rendition.src,

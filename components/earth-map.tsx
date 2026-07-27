@@ -18,9 +18,11 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { ensureMapLibreWorker } from '~/lib/maplibre-worker'
 import {
   buildCountryLabelCollection,
+  buildGraticuleCollection,
   buildRegionLabelCollection,
   DEFAULT_MAP_LAYERS,
   exploreRegionHref,
+  filterMapCountrySuggestions,
   findMapCountryIndexEntry,
   findMapRegionCamera,
   formatMapCoords,
@@ -33,11 +35,15 @@ import {
   MAP_TILE_URL,
   mapAttribution,
   mapCountryHref,
+  mapHrefWithLayers,
   mapRegionHref,
+  parseMapLayersSearchParams,
   readStoredMapLayers,
   resolveMapCountry,
+  resolveMapLayers,
   shareOrCopyMapLink,
   syncMapFocusSearchParams,
+  syncMapLayersSearchParams,
   writeStoredMapLayers,
   type MapCountryHit,
   type MapCountryIndex,
@@ -103,6 +109,45 @@ function basemapStyle(): StyleSpecification {
 
 const BORDER_LAYER_IDS = ['country-fill', 'country-line'] as const
 const LABEL_LAYER_IDS = ['region-labels', 'country-labels'] as const
+const GRATICULE_LAYER_IDS = ['graticule-lines'] as const
+
+function addGraticuleLayer(map: MapLibreMap) {
+  if (!map.getSource('graticule')) {
+    map.addSource('graticule', {
+      type: 'geojson',
+      data: buildGraticuleCollection(30),
+    })
+  }
+
+  if (!map.getLayer('graticule-lines')) {
+    map.addLayer(
+      {
+        id: 'graticule-lines',
+        type: 'line',
+        source: 'graticule',
+        layout: {
+          visibility: 'none',
+        },
+        paint: {
+          'line-color': 'rgba(255, 255, 255, 0.28)',
+          'line-width': [
+            'case',
+            ['==', ['get', 'value'], 0],
+            1.15,
+            0.55,
+          ],
+          'line-opacity': [
+            'case',
+            ['==', ['get', 'value'], 0],
+            0.55,
+            0.32,
+          ],
+        },
+      },
+      map.getLayer('country-fill') ? 'country-fill' : undefined,
+    )
+  }
+}
 
 function addCountryLayers(map: MapLibreMap) {
   if (map.getSource('countries')) return
@@ -282,11 +327,56 @@ function upsertLabelLayers(
 function applyLayerVisibility(map: MapLibreMap, layers: MapLayerVisibility) {
   const borderVisibility = layers.borders ? 'visible' : 'none'
   const labelVisibility = layers.labels ? 'visible' : 'none'
+  const graticuleVisibility = layers.graticule ? 'visible' : 'none'
   for (const id of BORDER_LAYER_IDS) {
     if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', borderVisibility)
   }
   for (const id of LABEL_LAYER_IDS) {
     if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', labelVisibility)
+  }
+  for (const id of GRATICULE_LAYER_IDS) {
+    if (map.getLayer(id)) {
+      map.setLayoutProperty(id, 'visibility', graticuleVisibility)
+    }
+  }
+}
+
+function handleMapCanvasKeyDown(
+  event: React.KeyboardEvent<HTMLDivElement>,
+  map: MapLibreMap | null,
+) {
+  if (!map) return
+  const panPx = event.shiftKey ? 140 : 80
+  const duration = mapMotionMs(180)
+  switch (event.key) {
+    case 'ArrowLeft':
+      event.preventDefault()
+      map.panBy([-panPx, 0], { duration })
+      break
+    case 'ArrowRight':
+      event.preventDefault()
+      map.panBy([panPx, 0], { duration })
+      break
+    case 'ArrowUp':
+      event.preventDefault()
+      map.panBy([0, -panPx], { duration })
+      break
+    case 'ArrowDown':
+      event.preventDefault()
+      map.panBy([0, panPx], { duration })
+      break
+    case '+':
+    case '=':
+      event.preventDefault()
+      map.zoomIn({ duration: mapMotionMs(220) })
+      break
+    case '-':
+    case '_':
+      event.preventDefault()
+      map.zoomOut({ duration: mapMotionMs(220) })
+      break
+    default:
+      break
   }
 }
 
@@ -348,8 +438,13 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
 
   useEffect(() => {
     const stored = readStoredMapLayers()
-    layersRef.current = stored
-    setLayers(stored)
+    const fromUrl = parseMapLayersSearchParams(
+      new URLSearchParams(window.location.search),
+    )
+    const resolved = resolveMapLayers(fromUrl, stored)
+    layersRef.current = resolved
+    setLayers(resolved)
+    syncMapLayersSearchParams(resolved)
   }, [])
 
   useEffect(() => {
@@ -359,6 +454,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   useEffect(() => {
     layersRef.current = layers
     writeStoredMapLayers(layers)
+    syncMapLayersSearchParams(layers)
     const map = mapRef.current
     if (map && ready) applyLayerVisibility(map, layers)
   }, [layers, ready])
@@ -389,6 +485,11 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
     )
     map.addControl(new AttributionControl({ compact: true }), 'bottom-right')
     map.addControl(new ScaleControl({ maxWidth: 120, unit: 'metric' }), 'bottom-left')
+
+    map.getCanvas().setAttribute(
+      'aria-label',
+      'Interactive map of Earth. Arrow keys pan, plus and minus zoom.',
+    )
 
     mapRef.current = map
 
@@ -506,6 +607,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
       if (!map.getSource('countries')) {
         addCountryLayers(map)
       }
+      addGraticuleLayer(map)
       if (indexRef.current.length > 0 || regionsRef.current.length > 0) {
         upsertLabelLayers(map, indexRef.current, regionsRef.current)
       }
@@ -631,23 +733,24 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   }, [])
 
   useEffect(() => {
-    const trimmed = query.trim().toLowerCase()
+    const trimmed = query.trim()
     if (!suggestionsOpen || !trimmed) {
       setSuggestions([])
       setActiveSuggestion(0)
       return
     }
-    const next = indexRef.current
-      .filter(
-        (entry) =>
-          entry.name.toLowerCase().includes(trimmed) ||
-          entry.code.toLowerCase() === trimmed ||
-          entry.slug?.toLowerCase() === trimmed,
-      )
-      .slice(0, 8)
+    const capitals: Record<string, string> = {}
+    for (const [code, photo] of Object.entries(countryPhotos)) {
+      if (photo.capital) capitals[code] = photo.capital
+    }
+    const next = filterMapCountrySuggestions(
+      indexRef.current,
+      trimmed,
+      capitals,
+    )
     setSuggestions(next)
     setActiveSuggestion(0)
-  }, [query, ready, suggestionsOpen])
+  }, [query, ready, suggestionsOpen, countryPhotos])
 
   function flyToCountry(
     entry: MapCountryIndexEntry,
@@ -747,7 +850,7 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
   }
 
   async function shareDeepLink(href: string, text?: string) {
-    const result = await shareOrCopyMapLink(href, {
+    const result = await shareOrCopyMapLink(mapHrefWithLayers(href, layers), {
       title: 'Cleo Maps',
       text,
     })
@@ -762,6 +865,12 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
 
   const searchListId = `${reactId}-map-suggestions`
   const photo = selected ? countryPhotos[selected.code] : undefined
+  const showSuggestionEmpty =
+    suggestionsOpen &&
+    query.trim().length > 0 &&
+    suggestions.length === 0 &&
+    ready &&
+    loadState === 'ready'
 
   const showStatus =
     loadState !== 'ready' ||
@@ -777,7 +886,10 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
         ref={containerRef}
         className="earth-map-canvas"
         role="application"
-        aria-label="Interactive map of Earth"
+        aria-label="Interactive map of Earth. Arrow keys pan, plus and minus zoom."
+        onKeyDown={(event) => {
+          handleMapCanvasKeyDown(event, mapRef.current)
+        }}
       />
 
       <div className="earth-map-hud">
@@ -868,28 +980,46 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                   role="listbox"
                   className="earth-map-suggestions"
                 >
-                  {suggestions.map((entry, index) => (
-                    <li key={entry.code}>
-                      <button
-                        id={`${reactId}-option-${entry.code}`}
-                        type="button"
-                        role="option"
-                        aria-selected={index === activeSuggestion}
-                        data-active={index === activeSuggestion || undefined}
-                        onMouseDown={(event) => {
-                          event.preventDefault()
-                          event.stopPropagation()
-                          flyToCountry(entry)
-                        }}
-                      >
-                        <span>{entry.name}</span>
-                        <span className="tabular-nums text-muted-foreground">
-                          {entry.code}
-                        </span>
-                      </button>
-                    </li>
-                  ))}
+                  {suggestions.map((entry, index) => {
+                    const capital = countryPhotos[entry.code]?.capital
+                    return (
+                      <li key={entry.code}>
+                        <button
+                          id={`${reactId}-option-${entry.code}`}
+                          type="button"
+                          role="option"
+                          aria-selected={index === activeSuggestion}
+                          data-active={index === activeSuggestion || undefined}
+                          onMouseDown={(event) => {
+                            event.preventDefault()
+                            event.stopPropagation()
+                            flyToCountry(entry)
+                          }}
+                        >
+                          <span className="earth-map-suggestion-main">
+                            <span>{entry.name}</span>
+                            {capital ? (
+                              <span className="earth-map-suggestion-meta">
+                                Capital · {capital}
+                              </span>
+                            ) : null}
+                          </span>
+                          <span className="tabular-nums text-muted-foreground">
+                            {entry.code}
+                          </span>
+                        </button>
+                      </li>
+                    )
+                  })}
                 </ul>
+              ) : showSuggestionEmpty ? (
+                <p
+                  id={searchListId}
+                  className="earth-map-suggestions earth-map-suggestions-empty"
+                  role="status"
+                >
+                  No countries match “{query.trim()}”.
+                </p>
               ) : null}
             </div>
           </div>
@@ -944,6 +1074,16 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
             >
               Labels
             </button>
+            <button
+              type="button"
+              className="earth-map-layer"
+              data-active={layers.graticule || undefined}
+              aria-pressed={layers.graticule}
+              disabled={!ready}
+              onClick={() => toggleLayer('graticule')}
+            >
+              Graticule
+            </button>
           </div>
 
           {showStatus ? (
@@ -996,14 +1136,15 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
                       {selected.code}
                     </span>
                     <span className="earth-map-selection-name">{selected.name}</span>
-                    {selected.country?.region ? (
-                      <span className="earth-map-photo-place">
-                        {selected.country.region}
-                        {photo.placeName ? ` · ${photo.placeName}` : ''}
-                      </span>
-                    ) : (
-                      <span className="earth-map-photo-place">{photo.placeName}</span>
-                    )}
+                    <span className="earth-map-photo-place">
+                      {[
+                        selected.country?.region,
+                        photo.capital ? `Capital · ${photo.capital}` : null,
+                        photo.placeName,
+                      ]
+                        .filter(Boolean)
+                        .join(' · ')}
+                    </span>
                   </span>
                 </Link>
               ) : (
@@ -1096,8 +1237,9 @@ export function EarthMap({ className, countryPhotos = {} }: EarthMapProps) {
             <div className="earth-map-panel">
               <MapsGlass />
               <p className="earth-map-hint">
-                Pan and zoom the basemap, toggle borders and labels, jump by
-                region, or click a country for its Explore field guide.
+                Pan and zoom (arrow keys when the map is focused), toggle
+                borders, labels, and graticule, jump by region, or click a
+                country for its Explore field guide.
               </p>
             </div>
           )}

@@ -28,7 +28,8 @@ document (enable both products in the Vercel project dashboard).
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
 - Maps: `lib/maps.ts`, `components/earth-map.tsx`, `/maps` (full-bleed MapLibre
   + local NASA BMNG 21600 tiles z0–z6 / bilinear q90 and Natural Earth borders;
-  country/continent labels via vendored MapLibre glyphs; Borders/Labels toggles;
+  country/continent labels via vendored MapLibre glyphs; Borders/Labels/Graticule
+  toggles with shareable layer query flags; capital-aware search;
   paper/glass HUD via `html[data-maps-route]`; country/region deep links with
   antimeridian-aware Oceania and mainland-leaning Europe cameras; Explore ↔
   Maps region round-trips; selection a11y + mobile chrome; Cleo portal map
