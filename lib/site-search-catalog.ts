@@ -4,6 +4,7 @@
  */
 
 import { countries } from '~/lib/countries'
+import { placeGuides, placeHref } from '~/lib/places'
 import type { SiteSearchHit } from '~/lib/site-search'
 import { spaceSubjects } from '~/lib/space'
 import { allTopics } from '~/lib/topics'
@@ -54,6 +55,30 @@ function exploreHits(): SiteSearchHit[] {
   }))
 }
 
+function placeHits(): SiteSearchHit[] {
+  return placeGuides.map((place) => ({
+    id: `place:${place.slug}`,
+    kind: 'place',
+    title: place.name,
+    subtitle: `${place.code} · ${place.kind}`,
+    href: placeHref(place),
+    searchText: haystack(
+      place.name,
+      place.code,
+      place.kind,
+      place.facts.country,
+      place.facts.region,
+      place.subtitle,
+      ...place.matchNames,
+      'city',
+      'state',
+      'island',
+      'place',
+      'explore',
+    ),
+  }))
+}
+
 function spaceHits(): SiteSearchHit[] {
   return spaceSubjects.map((subject) => ({
     id: `space:${subject.slug}`,
@@ -93,5 +118,11 @@ function surfaceHits(): SiteSearchHit[] {
 
 /** Full static catalog for the homepage search typeahead. */
 export function buildSiteSearchHits(): SiteSearchHit[] {
-  return [...topicHits(), ...exploreHits(), ...spaceHits(), ...surfaceHits()]
+  return [
+    ...topicHits(),
+    ...exploreHits(),
+    ...placeHits(),
+    ...spaceHits(),
+    ...surfaceHits(),
+  ]
 }

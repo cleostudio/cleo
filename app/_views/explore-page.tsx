@@ -4,6 +4,7 @@ import { PixelCluster } from '~/components/pixel-cluster'
 import { countriesByRegion } from '~/lib/countries'
 import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
+import { placeGuidesByKind, placeHref } from '~/lib/places'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 
 export function explorePageMetadata() {
@@ -30,6 +31,53 @@ export function ExplorePageView() {
       </div>
 
       <div className="mt-10 flex flex-col gap-10">
+        {placeGuidesByKind().map(([kind, places]) => {
+          const center = (places.length - 1) / 2
+          return (
+            <section key={kind} aria-labelledby={`place-kind-${kind}`}>
+              <h2
+                id={`place-kind-${kind}`}
+                className="enter text-sm font-medium text-muted-foreground"
+              >
+                {kind === 'State'
+                  ? 'States & provinces'
+                  : kind === 'City'
+                    ? 'Cities'
+                    : `${kind}s`}
+                <span className="ml-2 tabular-nums text-muted-foreground/70">
+                  {places.length}
+                </span>
+              </h2>
+              <ul className="focus-list mt-2 flex flex-col">
+                {places.map((place, index) => (
+                  <li
+                    key={place.slug}
+                    className="enter-swing"
+                    style={
+                      {
+                        '--enter-delay': `${80 + Math.min(Math.abs(index - center), 12) * 18}ms`,
+                      } as React.CSSProperties
+                    }
+                  >
+                    <Link
+                      href={placeHref(place)}
+                      className="country-row hairline-top group"
+                    >
+                      <span className="country-code text-muted-foreground tabular-nums">
+                        {place.code}
+                      </span>
+                      <span className="country-name font-medium">{place.name}</span>
+                      <span className="country-subregion text-muted-foreground">
+                        {place.facts.country}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        })}
+
         {regions.map(([region, regionCountries]) => {
           const center = (regionCountries.length - 1) / 2
 

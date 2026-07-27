@@ -4679,6 +4679,774 @@
       }
     ]
   },
+  "places/paris": {
+    "collection": "places",
+    "title": "Paris",
+    "subtitle": "Paris",
+    "alt": "Paris in France",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 647,
+    "renditions": [
+      {
+        "src": "/images/places/paris/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/paris/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/paris/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tokyo": {
+    "collection": "places",
+    "title": "Tokyo",
+    "subtitle": "Tokyo",
+    "alt": "Tokyo in Japan",
+    "photographer": "David Kernan",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/tokyo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tokyo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tokyo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/new-york": {
+    "collection": "places",
+    "title": "New York City",
+    "subtitle": "New York City",
+    "alt": "New York City in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 1200,
+    "renditions": [
+      {
+        "src": "/images/places/new-york/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/new-york/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/new-york/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rome": {
+    "collection": "places",
+    "title": "Rome",
+    "subtitle": "Rome",
+    "alt": "Rome in Italy",
+    "photographer": "Jebulon",
+    "license": "CC BY-SA 3.0",
+    "width": 3780,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/places/rome/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rome/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rome/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cairo": {
+    "collection": "places",
+    "title": "Cairo",
+    "subtitle": "Cairo",
+    "alt": "Cairo in Egypt",
+    "photographer": "Ricardo Liberato",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "src": "/images/places/cairo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cairo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cairo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/istanbul": {
+    "collection": "places",
+    "title": "Istanbul",
+    "subtitle": "Istanbul",
+    "alt": "Istanbul in Türkiye",
+    "photographer": "Arild Vågen",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/istanbul/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/istanbul/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/istanbul/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rio-de-janeiro": {
+    "collection": "places",
+    "title": "Rio de Janeiro",
+    "subtitle": "Rio de Janeiro",
+    "alt": "Rio de Janeiro in Brazil",
+    "photographer": "Donatas Dabravolskas",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/rio-de-janeiro/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rio-de-janeiro/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rio-de-janeiro/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cape-town": {
+    "collection": "places",
+    "title": "Cape Town",
+    "subtitle": "Cape Town",
+    "alt": "Cape Town in South Africa",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/cape-town/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cape-town/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cape-town/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sydney": {
+    "collection": "places",
+    "title": "Sydney",
+    "subtitle": "Sydney",
+    "alt": "Sydney in Australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/sydney/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sydney/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sydney/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/marrakesh": {
+    "collection": "places",
+    "title": "Marrakesh",
+    "subtitle": "Marrakesh",
+    "alt": "Marrakesh in Morocco",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2469,
+    "renditions": [
+      {
+        "src": "/images/places/marrakesh/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/marrakesh/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/marrakesh/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kyoto": {
+    "collection": "places",
+    "title": "Kyoto",
+    "subtitle": "Kyoto",
+    "alt": "Kyoto in Japan",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/kyoto/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kyoto/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kyoto/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/venice": {
+    "collection": "places",
+    "title": "Venice",
+    "subtitle": "Venice",
+    "alt": "Venice in Italy",
+    "photographer": "Benh LIEU SONG",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 1655,
+    "renditions": [
+      {
+        "src": "/images/places/venice/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/venice/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/venice/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/california": {
+    "collection": "places",
+    "title": "California",
+    "subtitle": "California",
+    "alt": "California in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2475,
+    "renditions": [
+      {
+        "src": "/images/places/california/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/california/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/california/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tuscany": {
+    "collection": "places",
+    "title": "Tuscany",
+    "subtitle": "Tuscany",
+    "alt": "Tuscany in Italy",
+    "photographer": "Iaia quark",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2427,
+    "renditions": [
+      {
+        "src": "/images/places/tuscany/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tuscany/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tuscany/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/provence": {
+    "collection": "places",
+    "title": "Provence",
+    "subtitle": "Provence",
+    "alt": "Provence in France",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/provence/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/provence/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/provence/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bavaria": {
+    "collection": "places",
+    "title": "Bavaria",
+    "subtitle": "Bavaria",
+    "alt": "Bavaria in Germany",
+    "photographer": "Jörg Braukmann",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2172,
+    "renditions": [
+      {
+        "src": "/images/places/bavaria/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bavaria/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bavaria/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kerala": {
+    "collection": "places",
+    "title": "Kerala",
+    "subtitle": "Kerala",
+    "alt": "Kerala in India",
+    "photographer": "Hans A. Rosbach",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/kerala/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kerala/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kerala/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/scotland": {
+    "collection": "places",
+    "title": "Scotland",
+    "subtitle": "Scotland",
+    "alt": "Scotland in United Kingdom",
+    "photographer": "Michal Klajban",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2126,
+    "renditions": [
+      {
+        "src": "/images/places/scotland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/scotland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/scotland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/andalusia": {
+    "collection": "places",
+    "title": "Andalusia",
+    "subtitle": "Andalusia",
+    "alt": "Andalusia in Spain",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3089,
+    "height": 2056,
+    "renditions": [
+      {
+        "src": "/images/places/andalusia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/andalusia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/andalusia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/quebec": {
+    "collection": "places",
+    "title": "Quebec",
+    "subtitle": "Quebec",
+    "alt": "Quebec in Canada",
+    "photographer": "Wilfredor",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2520,
+    "renditions": [
+      {
+        "src": "/images/places/quebec/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/quebec/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/quebec/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/santorini": {
+    "collection": "places",
+    "title": "Santorini",
+    "subtitle": "Santorini",
+    "alt": "Santorini in Greece",
+    "photographer": "C messier",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2792,
+    "renditions": [
+      {
+        "src": "/images/places/santorini/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/santorini/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/santorini/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bali": {
+    "collection": "places",
+    "title": "Bali",
+    "subtitle": "Bali",
+    "alt": "Bali in Indonesia",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "src": "/images/places/bali/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bali/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bali/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hawaii": {
+    "collection": "places",
+    "title": "Hawaii",
+    "subtitle": "Hawaii",
+    "alt": "Hawaii in United States",
+    "photographer": "Brocken Inaglory",
+    "license": "CC BY-SA 3.0",
+    "width": 2200,
+    "height": 1469,
+    "renditions": [
+      {
+        "src": "/images/places/hawaii/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hawaii/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hawaii/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sicily": {
+    "collection": "places",
+    "title": "Sicily",
+    "subtitle": "Sicily",
+    "alt": "Sicily in Italy",
+    "photographer": "Cayambe",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1873,
+    "renditions": [
+      {
+        "src": "/images/places/sicily/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sicily/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sicily/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/galapagos": {
+    "collection": "places",
+    "title": "Galápagos",
+    "subtitle": "Galápagos",
+    "alt": "Galápagos in Ecuador",
+    "photographer": "Cayambe",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2461,
+    "renditions": [
+      {
+        "src": "/images/places/galapagos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/galapagos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/galapagos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/jeju": {
+    "collection": "places",
+    "title": "Jeju",
+    "subtitle": "Jeju",
+    "alt": "Jeju in Korea, South",
+    "photographer": "Bernard Gagnon",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/jeju/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/jeju/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/jeju/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/zanzibar": {
+    "collection": "places",
+    "title": "Stone Town",
+    "subtitle": "Zanzibar",
+    "alt": "Stone Town in Tanzania",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/zanzibar/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/zanzibar/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/zanzibar/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mount-fuji": {
+    "collection": "places",
+    "title": "Mount Fuji",
+    "subtitle": "Mount Fuji",
+    "alt": "Mount Fuji in Japan",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "src": "/images/places/mount-fuji/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mount-fuji/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mount-fuji/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/grand-canyon": {
+    "collection": "places",
+    "title": "Grand Canyon",
+    "subtitle": "Grand Canyon",
+    "alt": "Grand Canyon in United States",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/grand-canyon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/grand-canyon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/grand-canyon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/machu-picchu": {
+    "collection": "places",
+    "title": "Machu Picchu",
+    "subtitle": "Machu Picchu",
+    "alt": "Machu Picchu in Peru",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "src": "/images/places/machu-picchu/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/machu-picchu/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/machu-picchu/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/petra": {
+    "collection": "places",
+    "title": "Petra",
+    "subtitle": "Petra",
+    "alt": "Petra in Jordan",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3142,
+    "height": 2075,
+    "renditions": [
+      {
+        "src": "/images/places/petra/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/petra/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/petra/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/angkor-wat": {
+    "collection": "places",
+    "title": "Angkor Wat",
+    "subtitle": "Angkor Wat",
+    "alt": "Angkor Wat in Cambodia",
+    "photographer": "Satdeep Gill",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1935,
+    "renditions": [
+      {
+        "src": "/images/places/angkor-wat/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/angkor-wat/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/angkor-wat/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

@@ -12,6 +12,9 @@ describe('topicPhotoZoomKeyFromSrc', () => {
     expect(topicPhotoZoomKeyFromSrc('/images/atlas/japan/w1280.jpg')).toBe(
       'atlas/japan',
     )
+    expect(topicPhotoZoomKeyFromSrc('/images/places/paris/w1280.jpg')).toBe(
+      'places/paris',
+    )
     expect(topicPhotoZoomKeyFromSrc('/images/space/mars/w640.jpg')).toBe(
       'space/mars',
     )

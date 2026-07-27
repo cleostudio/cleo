@@ -6,14 +6,20 @@ import {
   galleryDescription,
   galleryFilterKeys,
 } from './gallery'
+import { placeGuides } from './places'
 import { spaceSubjects } from './space'
 
 describe('gallery catalog', () => {
-  it('merges Explore place photos and Space body photos', () => {
+  it('merges Explore country/place photos and Space body photos', () => {
     const items = allGalleryItems()
-    expect(items).toHaveLength(countries.length + spaceSubjects.length)
+    expect(items).toHaveLength(
+      countries.length + placeGuides.length + spaceSubjects.length,
+    )
     expect(items.some((item) => item.collection === 'places')).toBe(true)
     expect(items.some((item) => item.collection === 'space')).toBe(true)
+    expect(items.some((item) => item.href === '/explore/france/paris')).toBe(
+      true,
+    )
     expect(items.some((item) => item.href === '/space/mars')).toBe(true)
     expect(items.every((item) => item.photo.renditions.length === 3)).toBe(true)
   })
@@ -28,7 +34,8 @@ describe('gallery catalog', () => {
 
   it('describes the combined photograph count', () => {
     expect(galleryDescription(210)).toBe(
-      '210 curated photographs — places from Explore and bodies from Space.',
+      '210 curated photographs — countries and places from Explore, bodies from Space.',
     )
   })
 })
+

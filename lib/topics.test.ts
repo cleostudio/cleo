@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { countries } from './countries'
+import { placeGuides } from './places'
 import { spaceSubjects } from './space'
 import { allTopics } from './topics'
 
@@ -12,7 +13,7 @@ describe('topics catalog', () => {
     expect(topics[0]).toMatchObject({
       href: '/explore',
       secondaryHref: '/gallery',
-      tally: `${countries.length} guides`,
+      tally: `${countries.length} countries · ${placeGuides.length} places`,
     })
     expect(topics[1]).toMatchObject({
       href: '/space',

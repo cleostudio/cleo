@@ -1,14 +1,15 @@
 # Cleo
 
 This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
-portal starting with countries and space. The homepage is a neutral portal
-(unified topic search, highlighted places, topic discovery, recent Writing
-posts). Explore field guides live
-at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
-`/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
-layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
-`/gallery`; `/projects` permanently redirects to `/topics`. Projects UI,
-vinyl/bookshelf, and social card components remain in the repo for later reuse.
+portal starting with countries, nested places, and space. The homepage is a
+neutral portal (unified topic search, highlighted places, topic discovery,
+recent Writing posts). Explore country field guides live at `/explore/[slug]`,
+city/state/island/landmark guides at `/explore/[country]/[place]`, Space guides
+at `/space/[slug]`, the place Gallery at `/gallery`, Topics at `/topics`, Writing
+at `/blog` (future encyclopedia-like layer), and the AI agent at `/cleo`.
+`/photos` permanently redirects to `/gallery`; `/projects` permanently redirects
+to `/topics`. Projects UI, vinyl/bookshelf, and social card components remain in
+the repo for later reuse.
 
 Country guide records live in `content/atlas.json` (one entry per Explore slug).
 Orientation prose is curated, not generated at build time. It lives in
@@ -18,23 +19,27 @@ length, recycled phrasing, and volatile claims before it is kept). The site
 never calls a model to render a page. `lib/atlas/prose.test.ts` holds the
 corpus to that bar — no sentence may appear in two countries.
 
-Assemble the manifest with `pnpm generate:atlas-content`, curate accurate
+Assemble the country manifest with `pnpm generate:atlas-content`, curate accurate
 Wikimedia Commons place photos with `pnpm curate:atlas-photos`, then import
 optimized local JPEG renditions with `pnpm import:atlas-photos`. Validate with
-`pnpm validate:atlas`. After atlas or space photo imports change caption or
-rendition metadata, refresh Cleo’s slim zoom index with
-`pnpm generate:cleo-topic-photo-zoom`. Originals stay in `.atlas-originals/` (gitignored);
-public assets are under `public/images/atlas/{slug}/` and are served as static
-files with browser `srcset` — no account, CDN, or `/_next/image` re-encode at
-runtime.
+`pnpm validate:atlas`. Nested place guides (cities, states, islands, regions,
+landmarks) live in `lib/places.ts` with photos in `content/place-photos.json`;
+curate/import/validate with `pnpm curate:place-photos`,
+`pnpm import:place-photos`, and `pnpm validate:places`. After atlas, place, or
+space photo imports change caption or rendition metadata, refresh Cleo’s slim
+zoom index with `pnpm generate:cleo-topic-photo-zoom`. Originals stay in
+`.atlas-originals/` / `.place-originals/` (gitignored); public assets are under
+`public/images/atlas/{slug}/` and `public/images/places/{slug}/` and are served
+as static files with browser `srcset` — no account, CDN, or `/_next/image`
+re-encode at runtime.
 
 Space field guides live in `lib/space.ts` (Solar System, Moons, Deep Space —
 planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 `/space/[slug]`. Curated NASA photographs are imported with
 `pnpm import:space-photos` into `public/images/space/{slug}/` and
 `content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
-at `/gallery` shows both Explore place photos and Space body photos.
-The Topics catalog in `lib/topics.ts` lists Countries and Space.
+at `/gallery` shows Explore country photos, nested place photos, and Space body
+photos. The Topics catalog in `lib/topics.ts` lists Countries and Space.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
 Cleo agent surface.

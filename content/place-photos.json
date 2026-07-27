@@ -1,0 +1,930 @@
+{
+  "paris": {
+    "featureName": "Paris",
+    "alt": "Paris in France",
+    "caption": "Paris, France",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paris,_Notre_Dame_--_2014_--_1458-65.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Paris, Notre Dame -- 2014 -- 1458-65.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/68/Paris%2C_Notre_Dame_--_2014_--_1458-65.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f1f4076125f1de7d8ef0a0cd221e6e278baf7ec3d95d2bacbfdf617a3915c0c2",
+    "width": 3840,
+    "height": 647,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/paris/w640.jpg",
+        "bytes": 24757
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/paris/w1280.jpg",
+        "bytes": 89838
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/paris/w2048.jpg",
+        "bytes": 255665
+      }
+    ]
+  },
+  "tokyo": {
+    "featureName": "Tokyo",
+    "alt": "Tokyo in Japan",
+    "caption": "Tokyo, Japan",
+    "photographer": "David Kernan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minato_City,_Tokyo,_Japan.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Minato City, Tokyo, Japan.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/35/Minato_City%2C_Tokyo%2C_Japan.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "28df85c9750d674b59a7a65b84d0c1564fa69ffaaf15dc43c33112c443ccd5e7",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tokyo/w640.jpg",
+        "bytes": 43702
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tokyo/w1280.jpg",
+        "bytes": 157002
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tokyo/w2048.jpg",
+        "bytes": 443135
+      }
+    ]
+  },
+  "new-york": {
+    "featureName": "New York City",
+    "alt": "New York City in United States",
+    "caption": "New York City, United States",
+    "photographer": "King of Hearts",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lower_Manhattan_from_Brooklyn_May_2015_panorama.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lower Manhattan from Brooklyn May 2015 panorama.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3e/Lower_Manhattan_from_Brooklyn_May_2015_panorama.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fe926870574008c0f2825a23c7daa460d790f68234dd7519162d0460b95b6614",
+    "width": 3840,
+    "height": 1200,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/new-york/w640.jpg",
+        "bytes": 22590
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/new-york/w1280.jpg",
+        "bytes": 78531
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/new-york/w2048.jpg",
+        "bytes": 221270
+      }
+    ]
+  },
+  "rome": {
+    "featureName": "Rome",
+    "alt": "Rome in Italy",
+    "caption": "Rome, Italy",
+    "photographer": "Jebulon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ponte_Vittorio_Emanuele_II_San_Pietro,_Rome,_Italy.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ponte Vittorio Emanuele II San Pietro, Rome, Italy.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/91/Ponte_Vittorio_Emanuele_II_San_Pietro%2C_Rome%2C_Italy.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a39b09fcded1c66663a792b17375ac6cff13f32d68e1406b55ccb3d0f023e7a0",
+    "width": 3780,
+    "height": 2448,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rome/w640.jpg",
+        "bytes": 44451
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rome/w1280.jpg",
+        "bytes": 121811
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rome/w2048.jpg",
+        "bytes": 300418
+      }
+    ]
+  },
+  "cairo": {
+    "featureName": "Cairo",
+    "alt": "Cairo in Egypt",
+    "caption": "Cairo, Egypt",
+    "photographer": "Ricardo Liberato",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:All_Gizah_Pyramids.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:All Gizah Pyramids.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/af/All_Gizah_Pyramids.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7a71fac13a4d3f7608f7683d9f8cf3a2928a92ae83b41a2d10d7a06e24d306cd",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cairo/w640.jpg",
+        "bytes": 31236
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cairo/w1280.jpg",
+        "bytes": 133623
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cairo/w2048.jpg",
+        "bytes": 450744
+      }
+    ]
+  },
+  "istanbul": {
+    "featureName": "Istanbul",
+    "alt": "Istanbul in Türkiye",
+    "caption": "Istanbul, Türkiye",
+    "photographer": "Arild Vågen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Hagia Sophia Mars 2013.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/22/Hagia_Sophia_Mars_2013.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b31ea13b5150aecc0cd90150982ba09673a1b3f19693e5d05c8fbad811244e3a",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/istanbul/w640.jpg",
+        "bytes": 48883
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/istanbul/w1280.jpg",
+        "bytes": 193162
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/istanbul/w2048.jpg",
+        "bytes": 630915
+      }
+    ]
+  },
+  "rio-de-janeiro": {
+    "featureName": "Rio de Janeiro",
+    "alt": "Rio de Janeiro in Brazil",
+    "caption": "Rio de Janeiro, Brazil",
+    "photographer": "Donatas Dabravolskas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Contrasts_of_Rio_de_Janeiro_-_Rocinha,_Ipanema,_and_Mountains_at_Sunrise.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Contrasts of Rio de Janeiro - Rocinha, Ipanema, and Mountains at Sunrise.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4c/Contrasts_of_Rio_de_Janeiro_-_Rocinha%2C_Ipanema%2C_and_Mountains_at_Sunrise.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "70a0432e61d1656400696a5f0f12ddd2f137023cb03d344c60b9bf1bd9f9c788",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rio-de-janeiro/w640.jpg",
+        "bytes": 47216
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rio-de-janeiro/w1280.jpg",
+        "bytes": 158697
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rio-de-janeiro/w2048.jpg",
+        "bytes": 438367
+      }
+    ]
+  },
+  "cape-town": {
+    "featureName": "Cape Town",
+    "alt": "Cape Town in South Africa",
+    "caption": "Cape Town, South Africa",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Town_(ZA),_Wale_Street_--_2024_--_3536.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cape Town (ZA), Wale Street -- 2024 -- 3536.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d3/Cape_Town_%28ZA%29%2C_Wale_Street_--_2024_--_3536.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b93cf16c51692eb573fb6f3aab499b0179ee5496b634b2447fba55b8cccd2be2",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cape-town/w640.jpg",
+        "bytes": 54510
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cape-town/w1280.jpg",
+        "bytes": 173236
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cape-town/w2048.jpg",
+        "bytes": 474899
+      }
+    ]
+  },
+  "sydney": {
+    "featureName": "Sydney",
+    "alt": "Sydney in Australia",
+    "caption": "Sydney, Australia",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sydney_(AU),_Opera_House_--_2019_--_3054.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sydney (AU), Opera House -- 2019 -- 3054.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/ea/Sydney_%28AU%29%2C_Opera_House_--_2019_--_3054.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c63c78bae22d42c823f93f7520ef225a91c6961c48b387f17713b1caab9958f5",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sydney/w640.jpg",
+        "bytes": 26776
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sydney/w1280.jpg",
+        "bytes": 102765
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sydney/w2048.jpg",
+        "bytes": 318126
+      }
+    ]
+  },
+  "marrakesh": {
+    "featureName": "Marrakesh",
+    "alt": "Marrakesh in Morocco",
+    "caption": "Marrakesh, Morocco",
+    "photographer": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:El_Badi_Palace,_Marrakesh,_Morocco,_20250125_0957_7117.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:El Badi Palace, Marrakesh, Morocco, 20250125 0957 7117.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e2/El_Badi_Palace%2C_Marrakesh%2C_Morocco%2C_20250125_0957_7117.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9217663b231fe04a3c72b14de692e77101e5483619f8988370badfb5c2a207c3",
+    "width": 3840,
+    "height": 2469,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/marrakesh/w640.jpg",
+        "bytes": 32383
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/marrakesh/w1280.jpg",
+        "bytes": 116306
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/marrakesh/w2048.jpg",
+        "bytes": 369038
+      }
+    ]
+  },
+  "kyoto": {
+    "featureName": "Kyoto",
+    "alt": "Kyoto in Japan",
+    "caption": "Kyoto, Japan",
+    "photographer": "Basile Morin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunlight_through_clouds_and_view_of_Ginkaku-ji_Temple_from_above,_Kyoto,_Japan.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sunlight through clouds and view of Ginkaku-ji Temple from above, Kyoto, Japan.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/99/Sunlight_through_clouds_and_view_of_Ginkaku-ji_Temple_from_above%2C_Kyoto%2C_Japan.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6fe49695609a9d3e22ab0208d2e43384b0bb4e1aadf79c02c724d11f24fab248",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kyoto/w640.jpg",
+        "bytes": 53884
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kyoto/w1280.jpg",
+        "bytes": 206231
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kyoto/w2048.jpg",
+        "bytes": 639523
+      }
+    ]
+  },
+  "venice": {
+    "featureName": "Venice",
+    "alt": "Venice in Italy",
+    "caption": "Venice, Italy",
+    "photographer": "Benh LIEU SONG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piazzetta_San_Marco_Venice_BLS.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Piazzetta San Marco Venice BLS.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/48/Piazzetta_San_Marco_Venice_BLS.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1f4f017a4205f4bbddc759e7a962b7e5a9a673ec27a6981e6a0016ecca207831",
+    "width": 3840,
+    "height": 1655,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/venice/w640.jpg",
+        "bytes": 37246
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/venice/w1280.jpg",
+        "bytes": 132559
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/venice/w2048.jpg",
+        "bytes": 397739
+      }
+    ]
+  },
+  "california": {
+    "featureName": "California",
+    "alt": "California in United States",
+    "caption": "California, United States",
+    "photographer": "King of Hearts",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chimney_Rock_Trail_Point_Reyes_December_2016_panorama_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Chimney Rock Trail Point Reyes December 2016 panorama 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7d/Chimney_Rock_Trail_Point_Reyes_December_2016_panorama_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "19d8069ac67e9ffab7eb94cbb5c5b5138ff258e50cebb557e1153e847d4861e4",
+    "width": 3840,
+    "height": 2475,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/california/w640.jpg",
+        "bytes": 58139
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/california/w1280.jpg",
+        "bytes": 225729
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/california/w2048.jpg",
+        "bytes": 695575
+      }
+    ]
+  },
+  "tuscany": {
+    "featureName": "Tuscany",
+    "alt": "Tuscany in Italy",
+    "caption": "Tuscany, Italy",
+    "photographer": "Iaia quark",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Continua_-_cypresses_(no_watermark).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Continua - cypresses (no watermark).jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e4/Continua_-_cypresses_%28no_watermark%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b8dd6568bc3d6f5065a4db343bff777faaa49903cdf2c02896258a88fddbb212",
+    "width": 3840,
+    "height": 2427,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tuscany/w640.jpg",
+        "bytes": 42616
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tuscany/w1280.jpg",
+        "bytes": 150980
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tuscany/w2048.jpg",
+        "bytes": 442077
+      }
+    ]
+  },
+  "provence": {
+    "featureName": "Provence",
+    "alt": "Provence in France",
+    "caption": "Provence, France",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lavender_field_at_the_foot_of_the_Alps,_Provence,_France_(51695209778).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lavender field at the foot of the Alps, Provence, France (51695209778).jpg); source https://upload.wikimedia.org/wikipedia/commons/8/81/Lavender_field_at_the_foot_of_the_Alps%2C_Provence%2C_France_%2851695209778%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "88a87b197863605cd18654513e5090224948989b269075fd5f6ebd647f7d7c5e",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/provence/w640.jpg",
+        "bytes": 49865
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/provence/w1280.jpg",
+        "bytes": 201051
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/provence/w2048.jpg",
+        "bytes": 644884
+      }
+    ]
+  },
+  "bavaria": {
+    "featureName": "Bavaria",
+    "alt": "Bavaria in Germany",
+    "caption": "Bavaria, Germany",
+    "photographer": "Jörg Braukmann",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blick_in_den_Nationalpark_Berchtesgaden.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Blick in den Nationalpark Berchtesgaden.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/8b/Blick_in_den_Nationalpark_Berchtesgaden.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0c198c6556f66bcbcbe38e4e4da0ea62a3b10ccf7c782d281bd9e6c4724931f3",
+    "width": 3840,
+    "height": 2172,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bavaria/w640.jpg",
+        "bytes": 45800
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bavaria/w1280.jpg",
+        "bytes": 178135
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bavaria/w2048.jpg",
+        "bytes": 552223
+      }
+    ]
+  },
+  "kerala": {
+    "featureName": "Kerala",
+    "alt": "Kerala in India",
+    "caption": "Kerala, India",
+    "photographer": "Hans A. Rosbach",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puvar_20080220-1.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Puvar 20080220-1.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e0/Puvar_20080220-1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cdacb783e780b98d0c6f23b67c9f4e8109b551bf4177b1004173b399e155dd6b",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kerala/w640.jpg",
+        "bytes": 29330
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kerala/w1280.jpg",
+        "bytes": 103716
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kerala/w2048.jpg",
+        "bytes": 322122
+      }
+    ]
+  },
+  "scotland": {
+    "featureName": "Scotland",
+    "alt": "Scotland in United Kingdom",
+    "caption": "Scotland, United Kingdom",
+    "photographer": "Michal Klajban",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rain_over_Beinn_Eich,_Luss_Hills,_Scotland.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Rain over Beinn Eich, Luss Hills, Scotland.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/da/Rain_over_Beinn_Eich%2C_Luss_Hills%2C_Scotland.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "807e72854ccf3096407cab899618d2691d2b1ad1f918a7ffaa9ce8814f708500",
+    "width": 3840,
+    "height": 2126,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/scotland/w640.jpg",
+        "bytes": 27327
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/scotland/w1280.jpg",
+        "bytes": 94792
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/scotland/w2048.jpg",
+        "bytes": 301358
+      }
+    ]
+  },
+  "andalusia": {
+    "featureName": "Andalusia",
+    "alt": "Andalusia in Spain",
+    "caption": "Andalusia, Spain",
+    "photographer": "Jebulon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rocks_El_Torcal_de_Antequera_karst_Andalusia_Spain.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Rocks El Torcal de Antequera karst Andalusia Spain.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/8a/Rocks_El_Torcal_de_Antequera_karst_Andalusia_Spain.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "401c01b7d99b2c5f5574d0a5ef15d853aa62bc3247c3c6c263e170b0485b39eb",
+    "width": 3089,
+    "height": 2056,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/andalusia/w640.jpg",
+        "bytes": 80811
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/andalusia/w1280.jpg",
+        "bytes": 286877
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/andalusia/w2048.jpg",
+        "bytes": 815404
+      }
+    ]
+  },
+  "quebec": {
+    "featureName": "Quebec",
+    "alt": "Quebec in Canada",
+    "caption": "Quebec, Canada",
+    "photographer": "Wilfredor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Qu%C3%A9bec_city_at_night,_view_from_L%C3%A9vis_city.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Québec city at night, view from Lévis city.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f4/Qu%C3%A9bec_city_at_night%2C_view_from_L%C3%A9vis_city.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ba442f0c20e1f2fe5fa83ca020592cc1a3a849b4efbc0e530136c6484af3d2fe",
+    "width": 3840,
+    "height": 2520,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/quebec/w640.jpg",
+        "bytes": 43924
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/quebec/w1280.jpg",
+        "bytes": 145159
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/quebec/w2048.jpg",
+        "bytes": 401059
+      }
+    ]
+  },
+  "santorini": {
+    "featureName": "Santorini",
+    "alt": "Santorini in Greece",
+    "caption": "Santorini, Greece",
+    "photographer": "C messier",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%CE%9F%CE%AF%CE%B1_1121.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Οία 1121.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/50/%CE%9F%CE%AF%CE%B1_1121.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f4703de55e0ced78258f681621435700d420277c5cb5e015b5b6714db6445509",
+    "width": 3840,
+    "height": 2792,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/santorini/w640.jpg",
+        "bytes": 33981
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/santorini/w1280.jpg",
+        "bytes": 108710
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/santorini/w2048.jpg",
+        "bytes": 330153
+      }
+    ]
+  },
+  "bali": {
+    "featureName": "Bali",
+    "alt": "Bali in Indonesia",
+    "caption": "Bali, Indonesia",
+    "photographer": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset,_Kuta,_Bali,_Indonesia,_20220825_1755_0879.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sunset, Kuta, Bali, Indonesia, 20220825 1755 0879.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e0/Sunset%2C_Kuta%2C_Bali%2C_Indonesia%2C_20220825_1755_0879.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "50465510bbef47c16ee2f6e48b982695a944a163aeacc9be1371e371ba22b138",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bali/w640.jpg",
+        "bytes": 39558
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bali/w1280.jpg",
+        "bytes": 146006
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bali/w2048.jpg",
+        "bytes": 442481
+      }
+    ]
+  },
+  "hawaii": {
+    "featureName": "Hawaii",
+    "alt": "Hawaii in United States",
+    "caption": "Hawaii, United States",
+    "photographer": "Brocken Inaglory",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:P%C4%81hoehoe_and_Aa_flows_at_Hawaii.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Pāhoehoe and Aa flows at Hawaii.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/89/P%C4%81hoehoe_and_Aa_flows_at_Hawaii.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a20298ec5cb7254ca604949c7bf2a01759e2e2905c42421d638d7f359c9da212",
+    "width": 2200,
+    "height": 1469,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hawaii/w640.jpg",
+        "bytes": 93152
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hawaii/w1280.jpg",
+        "bytes": 312018
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hawaii/w2048.jpg",
+        "bytes": 816389
+      }
+    ]
+  },
+  "sicily": {
+    "featureName": "Sicily",
+    "alt": "Sicily in Italy",
+    "caption": "Sicily, Italy",
+    "photographer": "Cayambe",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sicily,_SP96,_SW_of_Augusta.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sicily, SP96, SW of Augusta.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/28/Sicily%2C_SP96%2C_SW_of_Augusta.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c6dfa3ca65f5b0e0ef5bbe1a4f43c83005677fe10539d565f936a854742d31ae",
+    "width": 3840,
+    "height": 1873,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sicily/w640.jpg",
+        "bytes": 35396
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sicily/w1280.jpg",
+        "bytes": 138138
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sicily/w2048.jpg",
+        "bytes": 434465
+      }
+    ]
+  },
+  "galapagos": {
+    "featureName": "Galápagos",
+    "alt": "Galápagos in Ecuador",
+    "caption": "Galápagos, Ecuador",
+    "photographer": "Cayambe",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bartolom%C3%A9_Island_Pinnacle_Rock.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bartolomé Island Pinnacle Rock.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/14/Bartolom%C3%A9_Island_Pinnacle_Rock.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b3fc7abfe1a129aa62cdd830d89f8e50e0fd52a4359856815e72f299366f8a09",
+    "width": 3840,
+    "height": 2461,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/galapagos/w640.jpg",
+        "bytes": 38526
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/galapagos/w1280.jpg",
+        "bytes": 151554
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/galapagos/w2048.jpg",
+        "bytes": 544799
+      }
+    ]
+  },
+  "jeju": {
+    "featureName": "Jeju",
+    "alt": "Jeju in Korea, South",
+    "caption": "Jeju, Korea, South",
+    "photographer": "Bernard Gagnon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seongsan,_Jeju_Island.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Seongsan, Jeju Island.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f8/Seongsan%2C_Jeju_Island.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5619cac64bd69fde5866e7b9e0dce1a614ec2556bdb34228681d0f989ba8972d",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/jeju/w640.jpg",
+        "bytes": 42312
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/jeju/w1280.jpg",
+        "bytes": 159529
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/jeju/w2048.jpg",
+        "bytes": 456528
+      }
+    ]
+  },
+  "zanzibar": {
+    "featureName": "Stone Town",
+    "alt": "Stone Town in Tanzania",
+    "caption": "Stone Town, Tanzania",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Departamento_de_museos_y_antig%C3%BCedades,_Stone_Town,_Zanz%C3%ADbar,_Tanzania,_2024-05-31,_DD_33-35_HDR.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Departamento de museos y antigüedades, Stone Town, Zanzíbar, Tanzania, 2024-05-31, DD 33-35 HDR.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/dc/Departamento_de_museos_y_antig%C3%BCedades%2C_Stone_Town%2C_Zanz%C3%ADbar%2C_Tanzania%2C_2024-05-31%2C_DD_33-35_HDR.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ab031ef59d19686d6ab5b06c85a81f51011cf3eb3facb7cb993fc40be7631408",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/zanzibar/w640.jpg",
+        "bytes": 46529
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/zanzibar/w1280.jpg",
+        "bytes": 170031
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/zanzibar/w2048.jpg",
+        "bytes": 516092
+      }
+    ]
+  },
+  "mount-fuji": {
+    "featureName": "Mount Fuji",
+    "alt": "Mount Fuji in Japan",
+    "caption": "Mount Fuji, Japan",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_towards_Mount_Fuji_from_Arakurayama_Sengen_Park_in_Fujiyoshida,_Yamanashi,_Japan,_2024_May_-_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:View towards Mount Fuji from Arakurayama Sengen Park in Fujiyoshida, Yamanashi, Japan, 2024 May - 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a2/View_towards_Mount_Fuji_from_Arakurayama_Sengen_Park_in_Fujiyoshida%2C_Yamanashi%2C_Japan%2C_2024_May_-_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "18ba16cba1000ab6248870cf18e6b8bcb5347fef649290e30ee48550e4af3000",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mount-fuji/w640.jpg",
+        "bytes": 57216
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mount-fuji/w1280.jpg",
+        "bytes": 235350
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mount-fuji/w2048.jpg",
+        "bytes": 759565
+      }
+    ]
+  },
+  "grand-canyon": {
+    "featureName": "Grand Canyon",
+    "alt": "Grand Canyon in United States",
+    "caption": "Grand Canyon, United States",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_(Arizona,_USA),_South_Rim_nahe_Tusayan_--_2012_--_5895.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Grand Canyon (Arizona, USA), South Rim nahe Tusayan -- 2012 -- 5895.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/16/Grand_Canyon_%28Arizona%2C_USA%29%2C_South_Rim_nahe_Tusayan_--_2012_--_5895.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c59c09bcb872f15ab8e37aec82842e4f45e0ce3a2e9d243abe0d94bd3e1d604e",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/grand-canyon/w640.jpg",
+        "bytes": 60064
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/grand-canyon/w1280.jpg",
+        "bytes": 224493
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/grand-canyon/w2048.jpg",
+        "bytes": 652952
+      }
+    ]
+  },
+  "machu-picchu": {
+    "featureName": "Machu Picchu",
+    "alt": "Machu Picchu in Peru",
+    "caption": "Machu Picchu, Peru",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Per%C3%BA,_2015-07-30,_DD_47.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Machu Picchu, Perú, 2015-07-30, DD 47.JPG); source https://upload.wikimedia.org/wikipedia/commons/7/71/Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_47.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9bfb3152a68b05312c5144394ccae216cb4d4d036990e45373883817ec9a2536",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/machu-picchu/w640.jpg",
+        "bytes": 53578
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/machu-picchu/w1280.jpg",
+        "bytes": 206994
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/machu-picchu/w2048.jpg",
+        "bytes": 645756
+      }
+    ]
+  },
+  "petra": {
+    "featureName": "Petra",
+    "alt": "Petra in Jordan",
+    "caption": "Petra, Jordan",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Monastery,_Petra,_Jordan8.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:The Monastery, Petra, Jordan8.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b7/The_Monastery%2C_Petra%2C_Jordan8.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5ea1f987d5d203fc44af3b687c18243e41ba67c443c66394b4c241d1dc1b586b",
+    "width": 3142,
+    "height": 2075,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/petra/w640.jpg",
+        "bytes": 93537
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/petra/w1280.jpg",
+        "bytes": 230474
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/petra/w2048.jpg",
+        "bytes": 557804
+      }
+    ]
+  },
+  "angkor-wat": {
+    "featureName": "Angkor Wat",
+    "alt": "Angkor Wat in Cambodia",
+    "caption": "Angkor Wat, Cambodia",
+    "photographer": "Satdeep Gill",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angkor_Wat_with_its_reflection_(cropped).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Angkor Wat with its reflection (cropped).jpg); source https://upload.wikimedia.org/wikipedia/commons/2/25/Angkor_Wat_with_its_reflection_%28cropped%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3ef54c3b7cf1b50a775e6269f43baa02e598d2c531ab9525c43a04beb03c9c5d",
+    "width": 3840,
+    "height": 1935,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/angkor-wat/w640.jpg",
+        "bytes": 36246
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/angkor-wat/w1280.jpg",
+        "bytes": 129102
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/angkor-wat/w2048.jpg",
+        "bytes": 390831
+      }
+    ]
+  }
+}

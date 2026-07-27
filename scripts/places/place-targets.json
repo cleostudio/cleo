@@ -1,0 +1,226 @@
+{
+  "paris": {
+    "name": "Paris",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": ["Paris", "Eiffel Tower"]
+  },
+  "tokyo": {
+    "name": "Tokyo",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": ["Tokyo", "Tokyo skyline"]
+  },
+  "new-york": {
+    "name": "New York City",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": ["New York City", "Manhattan skyline", "Statue of Liberty"]
+  },
+  "rome": {
+    "name": "Rome",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": ["Rome", "Colosseum"]
+  },
+  "cairo": {
+    "name": "Cairo",
+    "countrySlug": "egypt",
+    "countryName": "Egypt",
+    "kind": "City",
+    "searchNames": ["Cairo", "Giza pyramids"]
+  },
+  "istanbul": {
+    "name": "Istanbul",
+    "countrySlug": "turkiye",
+    "countryName": "Türkiye",
+    "kind": "City",
+    "searchNames": ["Istanbul", "Hagia Sophia"]
+  },
+  "rio-de-janeiro": {
+    "name": "Rio de Janeiro",
+    "countrySlug": "brazil",
+    "countryName": "Brazil",
+    "kind": "City",
+    "searchNames": ["Rio de Janeiro", "Christ the Redeemer"]
+  },
+  "cape-town": {
+    "name": "Cape Town",
+    "countrySlug": "south-africa",
+    "countryName": "South Africa",
+    "kind": "City",
+    "searchNames": ["Cape Town", "Table Mountain"]
+  },
+  "sydney": {
+    "name": "Sydney",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "City",
+    "searchNames": ["Sydney", "Sydney Opera House"]
+  },
+  "marrakesh": {
+    "name": "Marrakesh",
+    "countrySlug": "morocco",
+    "countryName": "Morocco",
+    "kind": "City",
+    "searchNames": ["Marrakesh", "Marrakech", "Jemaa el-Fnaa"]
+  },
+  "kyoto": {
+    "name": "Kyoto",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "City",
+    "searchNames": ["Kyoto", "Kyoto Temples", "Fushimi Inari"]
+  },
+  "venice": {
+    "name": "Venice",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": ["Venice", "Grand Canal"]
+  },
+  "california": {
+    "name": "California",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": ["California", "Yosemite", "Golden Gate Bridge"]
+  },
+  "tuscany": {
+    "name": "Tuscany",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": ["Tuscany", "Val d'Orcia"]
+  },
+  "provence": {
+    "name": "Provence",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": ["Provence", "lavender fields Provence"]
+  },
+  "bavaria": {
+    "name": "Bavaria",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "State",
+    "searchNames": ["Bavaria", "Neuschwanstein"]
+  },
+  "kerala": {
+    "name": "Kerala",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": ["Kerala", "Kerala backwaters"]
+  },
+  "scotland": {
+    "name": "Scotland",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Region",
+    "searchNames": ["Scotland", "Scottish Highlands"]
+  },
+  "andalusia": {
+    "name": "Andalusia",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": ["Andalusia", "Alhambra"]
+  },
+  "quebec": {
+    "name": "Quebec",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "State",
+    "searchNames": ["Quebec", "Old Quebec", "Quebec City"]
+  },
+  "santorini": {
+    "name": "Santorini",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": ["Santorini", "Santorini Caldera"]
+  },
+  "bali": {
+    "name": "Bali",
+    "countrySlug": "indonesia",
+    "countryName": "Indonesia",
+    "kind": "Island",
+    "searchNames": ["Bali", "Tegallalang", "Ubud"]
+  },
+  "hawaii": {
+    "name": "Hawaii",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Island",
+    "searchNames": ["Hawaii", "Hawaiian Islands", "Na Pali Coast"]
+  },
+  "sicily": {
+    "name": "Sicily",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Island",
+    "searchNames": ["Sicily", "Mount Etna"]
+  },
+  "galapagos": {
+    "name": "Galápagos",
+    "countrySlug": "ecuador",
+    "countryName": "Ecuador",
+    "kind": "Island",
+    "searchNames": ["Galapagos", "Galápagos Islands"]
+  },
+  "jeju": {
+    "name": "Jeju",
+    "countrySlug": "korea-south",
+    "countryName": "Korea, South",
+    "kind": "Island",
+    "searchNames": ["Jeju", "Jeju Island", "Hallasan"]
+  },
+  "zanzibar": {
+    "name": "Zanzibar",
+    "countrySlug": "tanzania",
+    "countryName": "Tanzania",
+    "kind": "Island",
+    "searchNames": ["Zanzibar", "Stone Town"]
+  },
+  "mount-fuji": {
+    "name": "Mount Fuji",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Landmark",
+    "searchNames": ["Mount Fuji"]
+  },
+  "grand-canyon": {
+    "name": "Grand Canyon",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": ["Grand Canyon"]
+  },
+  "machu-picchu": {
+    "name": "Machu Picchu",
+    "countrySlug": "peru",
+    "countryName": "Peru",
+    "kind": "Landmark",
+    "searchNames": ["Machu Picchu"]
+  },
+  "petra": {
+    "name": "Petra",
+    "countrySlug": "jordan",
+    "countryName": "Jordan",
+    "kind": "Landmark",
+    "searchNames": ["Petra", "Al-Khazneh"]
+  },
+  "angkor-wat": {
+    "name": "Angkor Wat",
+    "countrySlug": "cambodia",
+    "countryName": "Cambodia",
+    "kind": "Landmark",
+    "searchNames": ["Angkor Wat"]
+  }
+}

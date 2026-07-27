@@ -1,4 +1,5 @@
 import { allAtlasEntries, atlasRegions } from '~/lib/atlas'
+import { placeGuides, placeHref } from '~/lib/places'
 import type { StaticPhoto } from '~/lib/static-photo'
 import { spaceSubjects } from '~/lib/space'
 
@@ -47,7 +48,7 @@ function atlasPhotoToStatic(photo: {
 }
 
 export function allGalleryItems(): GalleryItem[] {
-  const places: GalleryItem[] = allAtlasEntries().map((entry) => ({
+  const countries: GalleryItem[] = allAtlasEntries().map((entry) => ({
     id: `places:${entry.slug}`,
     collection: 'places',
     href: `/explore/${entry.slug}`,
@@ -64,6 +65,26 @@ export function allGalleryItems(): GalleryItem[] {
       'country',
     ].join(' '),
     photo: atlasPhotoToStatic(entry.photo),
+  }))
+
+  const nestedPlaces: GalleryItem[] = placeGuides.map((place) => ({
+    id: `places:guide:${place.slug}`,
+    collection: 'places',
+    href: placeHref(place),
+    title: place.photo.featureName,
+    subtitle: place.name,
+    filterKey: place.facts.region,
+    searchText: [
+      place.name,
+      place.photo.featureName,
+      place.kind,
+      place.facts.country,
+      place.code,
+      place.facts.region,
+      'place',
+      place.kind.toLowerCase(),
+    ].join(' '),
+    photo: place.photo,
   }))
 
   const space: GalleryItem[] = spaceSubjects.map((subject) => ({
@@ -84,7 +105,7 @@ export function allGalleryItems(): GalleryItem[] {
     photo: subject.photo,
   }))
 
-  return [...places, ...space]
+  return [...countries, ...nestedPlaces, ...space]
 }
 
 export function galleryFilterKeys(): string[] {
@@ -96,5 +117,5 @@ export function galleryFilterKeys(): string[] {
 }
 
 export function galleryDescription(count: number): string {
-  return `${count} curated photographs — places from Explore and bodies from Space.`
+  return `${count} curated photographs — countries and places from Explore, bodies from Space.`
 }

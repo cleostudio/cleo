@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { countries } from './countries'
+import { placeGuides } from './places'
 import { spaceSubjects } from './space'
 import { buildSiteSearchHits } from './site-search-catalog'
 import { filterSiteSearchHits } from './site-search'
@@ -9,11 +10,12 @@ import { allTopics } from './topics'
 describe('site search catalog', () => {
   const hits = buildSiteSearchHits()
 
-  it('indexes topic collections, country guides, space guides, and portal surfaces', () => {
+  it('indexes topic collections, country guides, place guides, space guides, and portal surfaces', () => {
     const kinds = new Set(hits.map((hit) => hit.kind))
-    expect(kinds).toEqual(new Set(['topic', 'explore', 'space', 'surface']))
+    expect(kinds).toEqual(new Set(['topic', 'explore', 'place', 'space', 'surface']))
 
     expect(hits.filter((hit) => hit.kind === 'explore')).toHaveLength(countries.length)
+    expect(hits.filter((hit) => hit.kind === 'place')).toHaveLength(placeGuides.length)
     expect(hits.filter((hit) => hit.kind === 'space')).toHaveLength(spaceSubjects.length)
     expect(hits.filter((hit) => hit.kind === 'topic')).toHaveLength(allTopics().length)
     expect(hits.some((hit) => hit.href === '/gallery')).toBe(true)
@@ -52,6 +54,16 @@ describe('site search catalog', () => {
     })
     expect(filterSiteSearchHits(hits, 'jp')[0]?.href).toBe('/explore/japan')
     expect(filterSiteSearchHits(hits, 'western europe').some((hit) => hit.kind === 'explore')).toBe(
+      true,
+    )
+  })
+
+  it('finds place guides by city and kind', () => {
+    expect(filterSiteSearchHits(hits, 'paris')[0]).toMatchObject({
+      href: '/explore/france/paris',
+      kind: 'place',
+    })
+    expect(filterSiteSearchHits(hits, 'island').some((hit) => hit.kind === 'place')).toBe(
       true,
     )
   })

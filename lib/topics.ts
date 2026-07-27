@@ -1,4 +1,5 @@
 import { countries } from '~/lib/countries'
+import { placeGuides } from '~/lib/places'
 import { spaceSubjects } from '~/lib/space'
 
 /** Knowledge collections shown on /topics. Expand this list as new topics ship. */
@@ -17,14 +18,15 @@ export interface Topic {
 
 export function allTopics(): Topic[] {
   const countryCount = countries.length
+  const placeCount = placeGuides.length
   const spaceCount = spaceSubjects.length
   return [
     {
       slug: 'countries',
       name: 'Countries',
       description:
-        'Evergreen field guides for every country — orientation, notable places, facts, sources, and one curated photograph.',
-      tally: `${countryCount} guides`,
+        'Evergreen field guides for every country, plus curated cities, states, islands, regions, and landmarks — orientation, facts, sources, and photographs.',
+      tally: `${countryCount} countries · ${placeCount} places`,
       href: '/explore',
       secondaryHref: '/gallery',
       secondaryLabel: 'Gallery',

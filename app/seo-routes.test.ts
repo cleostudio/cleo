@@ -5,6 +5,7 @@ import sitemap from './sitemap'
 import { getAllPosts } from '~/lib/content'
 import { countrySlugs } from '~/lib/countries'
 import { archivedNewsletterIds } from '~/lib/newsletters'
+import { placeGuides, placeHref } from '~/lib/places'
 import { seo } from '~/lib/seo'
 import { spaceSubjectSlugs } from '~/lib/space'
 
@@ -32,6 +33,7 @@ describe('discovery routes', () => {
       '/space',
       '/cleo',
       ...countrySlugs().map((slug) => `/explore/${slug}`),
+      ...placeGuides.map((place) => placeHref(place)),
       ...spaceSubjectSlugs().map((slug) => `/space/${slug}`),
       ...archivedNewsletterIds.map((id) => `/newsletters/${id}`),
       ...getAllPosts().map((post) => `/blog/${post.slug}`),

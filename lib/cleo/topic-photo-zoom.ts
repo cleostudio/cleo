@@ -20,7 +20,7 @@ export type TopicPhotoZoomRecord = {
 }
 
 const CURATED_TOPIC_IMAGE_PATH =
-  /^\/images\/(atlas|space)\/([a-z0-9-]+)\/w(640|1280|2048)\.jpg$/
+  /^\/images\/(atlas|space|places)\/([a-z0-9-]+)\/w(640|1280|2048)\.jpg$/
 
 const index = topicPhotoZoom as Record<string, TopicPhotoZoomRecord>
 

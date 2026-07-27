@@ -6,14 +6,15 @@ Current as of July 2026 (Cleo fork).
 
 English-only general-knowledge portal with:
 
-- Homepage: unified topic search (countries, space, collections, portal
+- Homepage: unified topic search (countries, places, space, collections, portal
   surfaces), highlighted places, topic discovery, recent Writing posts (no
   personal contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
-  country field guides, Space field guides, Topics catalog (countries and
-  space first; more topics later)
-- Gallery: searchable photographs from Explore places and Space guides
-  (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
+  country field guides plus nested city/state/island/landmark guides, Space
+  field guides, Topics catalog (countries and space first; more topics later)
+- Gallery: searchable photographs from Explore countries/places and Space
+  guides (`content/atlas.json`, `content/place-photos.json`,
+  `content/space-photos.json`, optimized static JPEGs)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
 
 There is **no** Clerk auth, Neon/Postgres, Bunny media, AMA booking, Stripe,
@@ -25,22 +26,26 @@ document (enable both products in the Vercel project dashboard).
 
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4, Base UI
 - Posts: `content/blog/<slug>/` via owned content route
-- Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
+- Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `lib/places.ts`,
+  `/explore`, `/explore/[country]/[place]`, `/gallery`
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
-- Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
+- Gallery: `lib/gallery.ts` unifies atlas + nested place + space photos for `/gallery`
 - Place images: import-time mozjpeg 640/1280/2048 under `public/images/atlas/`
-  (Wikimedia Commons curation, relevance-first + assessments; hand-picks via
-  `scripts/atlas/apply-handpicks.mjs` when scoring still misses) and
+  and `public/images/places/` (Wikimedia Commons curation, relevance-first +
+  assessments; hand-picks via `scripts/atlas/apply-handpicks.mjs` /
+  `scripts/places/apply-handpicks.mjs` when scoring still misses) and
   `public/images/space/` (NASA); rendered with static `srcset`. No runtime
   image account, API, or third-party fetch. Review aid:
   `tsx scripts/atlas/contact-sheet.mjs --collection=places|space`.
 - Country prose: curated in `scripts/atlas/atlas-about.json` via
   `pnpm write:atlas-about` (one-time, needs `OPENAI_API_KEY`); never generated
-  at build or request time
+  at build or request time. Nested place prose lives in `lib/places.ts`.
 - Media workflow: `pnpm generate:atlas-content` → `pnpm curate:atlas-photos` →
-  `pnpm import:atlas-photos` → `pnpm validate:atlas`; Space via
-  `pnpm import:space-photos` → `pnpm validate:space`
+  `pnpm import:atlas-photos` → `pnpm validate:atlas`; places via
+  `pnpm curate:place-photos` → `pnpm import:place-photos` →
+  `pnpm validate:places`; Space via `pnpm import:space-photos` →
+  `pnpm validate:space`
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
   (instructions include Explore/Space catalog paths for guide deep-links;
   matching turns also ground curated topic photo paths so replies can embed

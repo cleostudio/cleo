@@ -21,9 +21,14 @@ const { allGalleryItems } = await import(
 const index = {}
 
 for (const item of allGalleryItems()) {
-  const rootKey = item.collection === 'places' ? 'atlas' : 'space'
-  const slug = item.href.replace(/^\/(explore|space)\//, '')
-  const key = `${rootKey}/${slug}`
+  const sampleSrc = item.photo.renditions[0]?.src ?? ''
+  const pathMatch = sampleSrc.match(
+    /^\/images\/(atlas|space|places)\/([a-z0-9-]+)\//,
+  )
+  if (!pathMatch) {
+    throw new Error(`Cannot derive zoom key from ${sampleSrc || item.id}`)
+  }
+  const key = `${pathMatch[1]}/${pathMatch[2]}`
 
   index[key] = {
     collection: item.collection,

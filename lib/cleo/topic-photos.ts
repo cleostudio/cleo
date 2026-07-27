@@ -6,13 +6,18 @@
 
 import { atlasRendition, getAtlasEntry } from '~/lib/atlas'
 import { countries } from '~/lib/countries'
+import {
+  getPlaceGuide,
+  placeGuides,
+  placeHref,
+} from '~/lib/places'
 import { getSpaceSubject, spaceSubjects } from '~/lib/space'
 import { staticRendition } from '~/lib/static-photo'
 
 export const MAX_TOPIC_PHOTOS = 3
 
 export type TopicPhoto = {
-  collection: 'explore' | 'space'
+  collection: 'explore' | 'place' | 'space'
   slug: string
   name: string
   href: string
@@ -25,7 +30,7 @@ export type TopicPhoto = {
 }
 
 type TopicCandidate = {
-  collection: 'explore' | 'space'
+  collection: 'explore' | 'place' | 'space'
   slug: string
   name: string
 }
@@ -44,6 +49,11 @@ function allCandidates(): TopicCandidate[] {
       collection: 'space' as const,
       slug: subject.slug,
       name: subject.name,
+    })),
+    ...placeGuides.map((place) => ({
+      collection: 'place' as const,
+      slug: place.slug,
+      name: place.name,
     })),
     ...countries.map((country) => ({
       collection: 'explore' as const,
@@ -68,6 +78,21 @@ function loadTopicPhoto(
       alt: entry.photo.alt,
       caption: entry.photo.caption,
       src: atlasRendition(entry.photo, 1280).src,
+    }
+  }
+
+  if (topic.collection === 'place') {
+    const place = getPlaceGuide(topic.slug)
+    if (!place) return null
+    return {
+      collection: 'place',
+      slug: place.slug,
+      name: place.name,
+      href: placeHref(place),
+      title: place.photo.featureName,
+      alt: place.photo.alt,
+      caption: place.photo.caption,
+      src: staticRendition(place.photo, 1280).src,
     }
   }
 
@@ -129,8 +154,20 @@ export function matchTopicPhotosInText(text: string): TopicPhoto[] {
     ordered.push(candidate)
   }
 
+  const placePathPattern =
+    /(?:^|[^A-Za-z0-9])(\/explore\/([a-z0-9-]+)\/([a-z0-9-]+))(?![a-z0-9-])/gi
+  for (const match of haystack.matchAll(placePathPattern)) {
+    const path = match[1]!
+    const placeSlug = match[3]!
+    const pathOffset = match[0]!.indexOf(path)
+    if (pathOffset < 0) continue
+    const start = (match.index ?? 0) + pathOffset
+    const end = start + path.length
+    claim(start, end, { collection: 'place', slug: placeSlug, name: placeSlug })
+  }
+
   const pathPattern =
-    /(?:^|[^A-Za-z0-9])\/(explore|space)\/([a-z0-9-]+)(?![a-z0-9-])/gi
+    /(?:^|[^A-Za-z0-9])\/(explore|space)\/([a-z0-9-]+)(?![a-z0-9-/])/gi
   for (const match of haystack.matchAll(pathPattern)) {
     const collection = match[1] as 'explore' | 'space'
     const slug = match[2]!

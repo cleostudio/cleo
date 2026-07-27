@@ -4,18 +4,18 @@
  */
 
 export type PortalGuideLink = {
-  collection: 'explore' | 'space'
+  collection: 'explore' | 'place' | 'space'
   href: string
   label: string
   slug: string
 }
 
 const MARKDOWN_GUIDE_LINK =
-  /\[([^\]]*)\]\((\/(explore|space)\/([a-z0-9-]+))\)/gi
+  /\[([^\]]*)\]\((\/(?:explore\/[a-z0-9-]+(?:\/[a-z0-9-]+)?|space\/[a-z0-9-]+))\)/gi
 
 /** Curated static JPEGs under the site image roots. */
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space)\/[a-z0-9-]+\/w(640|1280|2048)\.jpg$/
+  /^\/images\/(atlas|space|places)\/[a-z0-9-]+\/w(640|1280|2048)\.jpg$/
 
 const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
@@ -65,6 +65,20 @@ export function cleanPortalGuideLabel(
   return cleaned || titleFromSlug(slug)
 }
 
+function guideCollectionFromHref(
+  href: string,
+): PortalGuideLink['collection'] | null {
+  if (href.startsWith('/space/')) return 'space'
+  if (/^\/explore\/[a-z0-9-]+\/[a-z0-9-]+$/.test(href)) return 'place'
+  if (/^\/explore\/[a-z0-9-]+$/.test(href)) return 'explore'
+  return null
+}
+
+function guideSlugFromHref(href: string): string {
+  const parts = href.split('/').filter(Boolean)
+  return parts[parts.length - 1] ?? ''
+}
+
 /** Pull unique Explore/Space guide links from assistant Markdown. */
 export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
   const found = new Map<string, PortalGuideLink>()
@@ -72,12 +86,11 @@ export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
   for (const match of markdown.matchAll(MARKDOWN_GUIDE_LINK)) {
     const rawLabel = match[1] ?? ''
     const href = match[2]
-    const collection = match[3] as 'explore' | 'space'
-    const slug = match[4]
+    if (!href || found.has(href)) continue
 
-    if (!href || !collection || !slug || found.has(href)) {
-      continue
-    }
+    const collection = guideCollectionFromHref(href)
+    const slug = guideSlugFromHref(href)
+    if (!collection || !slug) continue
 
     found.set(href, {
       collection,
@@ -153,7 +166,8 @@ export function presentPortalGuideMarkdown(markdown: string): string {
   const rewriteLinks = (block: string) =>
     block.replace(
       MARKDOWN_GUIDE_LINK,
-      (_full, rawLabel: string, href: string, _collection: string, slug: string) => {
+      (_full, rawLabel: string, href: string) => {
+        const slug = guideSlugFromHref(href)
         const label = cleanPortalGuideLabel(rawLabel, slug)
         const guideName = titleFromSlug(slug)
         if (seenHrefs.has(href)) {

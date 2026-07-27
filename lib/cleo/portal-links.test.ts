@@ -144,8 +144,9 @@ describe('presentPortalGuideMarkdown', () => {
 })
 
 describe('presentTopicPhotoMarkdown', () => {
-  it('allows only curated atlas and space JPEG paths', () => {
+  it('allows only curated atlas, places, and space JPEG paths', () => {
     expect(isCuratedTopicImageSrc('/images/atlas/japan/w1280.jpg')).toBe(true)
+    expect(isCuratedTopicImageSrc('/images/places/paris/w1280.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('/images/space/mars/w640.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('https://evil.example/x.jpg')).toBe(false)
     expect(isCuratedTopicImageSrc('/images/other/x.jpg')).toBe(false)

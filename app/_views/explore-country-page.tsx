@@ -8,6 +8,12 @@ import { ZoomImage } from '~/components/zoom-image'
 import { countrySlugs, getCountry } from '~/lib/countries'
 import { atlasDescription, getAtlasEntry } from '~/lib/atlas'
 import { localeMetadata } from '~/lib/locale-metadata'
+import {
+  matchPlaceGuideForBlurb,
+  placeHref,
+  placesForCountry,
+} from '~/lib/places'
+import { staticRendition } from '~/lib/static-photo'
 
 export function exploreCountryStaticParams() {
   return countrySlugs().map((slug) => ({ slug }))
@@ -121,19 +127,80 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
           Places
         </h2>
         <ol className="mt-3 flex flex-col">
-          {entry.places.map((place, index) => (
-            <li key={place.name} className="hairline-top grid grid-cols-[2rem_1fr] gap-3 py-3 text-sm">
-              <span className="tabular-nums text-muted-foreground" aria-hidden>
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <div>
-                <p className="font-medium text-foreground">{place.name}</p>
-                <p className="mt-1 text-muted-foreground leading-relaxed">{place.description}</p>
-              </div>
-            </li>
-          ))}
+          {entry.places.map((place, index) => {
+            const linked = matchPlaceGuideForBlurb(entry.slug, place.name)
+            return (
+              <li
+                key={place.name}
+                className="hairline-top grid grid-cols-[2rem_1fr] gap-3 py-3 text-sm"
+              >
+                <span className="tabular-nums text-muted-foreground" aria-hidden>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <p className="font-medium text-foreground">
+                    {linked ? (
+                      <Link
+                        href={placeHref(linked)}
+                        className="underline-offset-2 hover:underline"
+                      >
+                        {place.name}
+                      </Link>
+                    ) : (
+                      place.name
+                    )}
+                  </p>
+                  <p className="mt-1 text-muted-foreground leading-relaxed">
+                    {place.description}
+                  </p>
+                </div>
+              </li>
+            )
+          })}
         </ol>
       </section>
+
+      {placesForCountry(entry.slug).length > 0 ? (
+        <section
+          className="enter mt-12"
+          style={{ '--enter-delay': '130ms' } as React.CSSProperties}
+          aria-labelledby="guide-place-guides"
+        >
+          <h2 id="guide-place-guides" className="guide-label">
+            Field guides
+          </h2>
+          <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {placesForCountry(entry.slug).map((place) => {
+              const thumb = staticRendition(place.photo, 640)
+              return (
+                <li key={place.slug}>
+                  <Link
+                    href={placeHref(place)}
+                    className="group flex flex-col gap-2"
+                  >
+                    <img
+                      src={thumb.src}
+                      alt={place.photo.alt}
+                      width={thumb.width}
+                      height={Math.round(
+                        (thumb.width * place.photo.height) / place.photo.width,
+                      )}
+                      className="photo-frame aspect-[3/2] w-full object-cover"
+                      loading="lazy"
+                    />
+                    <span className="text-sm font-medium text-foreground group-hover:underline underline-offset-2">
+                      {place.name}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {place.kind}
+                    </span>
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </section>
+      ) : null}
 
       <section
         className="enter mt-12"

@@ -3,9 +3,9 @@
 **Cleo** is an English-only general-knowledge portal with a chat agent on the
 dock at `/cleo`.
 
-The public site includes a homepage with unified topic search (countries, space,
-collections), highlighted places, topic discovery, and recent Writing posts;
-Explore country field
+The public site includes a homepage with unified topic search (countries, places,
+space, collections), highlighted places, topic discovery, and recent Writing
+posts; Explore country field guides plus nested city/state/island/landmark
 guides; Space field guides at `/space`; a place Gallery at `/gallery`; a Topics
 catalog; Writing (for a future encyclopedia layer); and a browser-only agent
 with streamed Markdown, vision, image generation, and live reasoning /
@@ -21,6 +21,8 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - MDX posts under `content/blog/`; English-only public routes
 - Country guides: `content/atlas.json` + optimized static JPEGs in
   `public/images/atlas/` (no image CDN/account at runtime)
+- Place guides: `lib/places.ts` + `content/place-photos.json` + JPEGs in
+  `public/images/places/` (cities, states, islands, regions, landmarks)
 - Space guides: `lib/space.ts` + `content/space-photos.json` + JPEGs in
   `public/images/space/`
 - **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
