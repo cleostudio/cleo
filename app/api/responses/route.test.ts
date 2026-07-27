@@ -674,6 +674,32 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     ])
   })
 
+  it("appends resume guidance for Continue turns", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "…and dusty.", type: "response.output_text.delta" },
+        { response: { output: [] }, type: "response.completed" },
+      ])
+    )
+
+    await POST(
+      ask({
+        messages: [
+          { content: "Tell me about Mars", role: "user" },
+          { content: "Mars is", role: "assistant" },
+          {
+            content: "Continue from where you left off.",
+            role: "user",
+          },
+        ],
+      })
+    )
+
+    const call = openai.create.mock.calls[0]?.[0]
+    expect(call.instructions).toContain("<continue_resume>")
+    expect(call.instructions).toContain("Resume the unfinished draft")
+  })
+
   it("grounds topic photograph paths as a trailing developer message", async () => {
     openai.create.mockResolvedValueOnce(
       responseStream([

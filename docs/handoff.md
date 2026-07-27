@@ -44,11 +44,13 @@ document (enable both products in the Vercel project dashboard).
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
   (portal tools for guides/Gallery/Writing; code interpreter in Auto/Research;
   Quick/Auto/Research modes; adaptive reasoning; browser `localStorage`
-  session restore + New chat; encrypted reasoning replay for store:false
-  multi-turn; Retry / Continue for failed, stopped, or truncated answers;
-  clickable Auto/Research search sources; Gallery/Writing `?q=` deep-links from
-  portal tools; matching turns also ground curated topic photo paths so replies
-  can embed atlas/space JPEGs as Markdown images)
+  session restore + New chat (mid-turn `inFlight` checkpoints settle activities
+  and keep Continue); encrypted reasoning replay for store:false multi-turn;
+  Retry / Continue for failed, stopped, or truncated answers (Continue turns
+  get resume guidance); smart autoscroll while streaming; clickable
+  Auto/Research search sources; Gallery/Writing `?q=` deep-links from portal
+  tools; matching turns also ground curated topic photo paths so replies can
+  embed atlas/space JPEGs as Markdown images)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

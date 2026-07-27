@@ -30,7 +30,8 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (portal tools for guides /
   Gallery / Writing with `?q=` deep-links, code interpreter, Quick/Auto/Research
   modes, adaptive reasoning, encrypted reasoning replay for multi-turn with
-  `store: false`, browser session restore; replies deep-link field guides and
+  `store: false`, browser session restore (mid-turn Continue), smart autoscroll;
+  replies deep-link field guides and
   embed curated topic photographs when a visual helps; topic and chat images
   use the same click-to-zoom lightbox as Gallery)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo

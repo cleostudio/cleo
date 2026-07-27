@@ -19,6 +19,10 @@ type CleoResponseCreateParams = ResponseCreateParamsStreaming & {
   max_tool_calls?: number | null
 }
 
+import {
+  CONTINUE_RESUME_GUIDANCE,
+  isContinuePrompt,
+} from "~/lib/cleo/continue"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
   MAX_IMAGES_PER_MESSAGE,
@@ -553,7 +557,11 @@ export async function POST(request: Request) {
     ]
   }
   const modeInstructions = buildModeInstructions(mode)
-  const instructions = [CLEO_INSTRUCTIONS, modeInstructions].join("\n\n")
+  const instructions = [
+    CLEO_INSTRUCTIONS,
+    modeInstructions,
+    ...(isContinuePrompt(latestUserText) ? [CONTINUE_RESUME_GUIDANCE] : []),
+  ].join("\n\n")
   const tools = buildCleoTools(mode)
   const verbosity = modeTextVerbosity(mode)
   const promptCacheKey = modePromptCacheKey(mode)

@@ -104,6 +104,29 @@ describe('cleo session persistence', () => {
     expect(parsed?.messages[1]?.incomplete?.reason).toBe('max_output_tokens')
   })
 
+  it('round-trips inFlight mid-turn checkpoints', () => {
+    const raw = serializeCleoSession(
+      [
+        { id: 0, role: 'user', content: 'Long answer' },
+        { id: 1, role: 'assistant', content: 'Working on it…' },
+      ],
+      2,
+      { inFlight: true },
+    )
+
+    const parsed = parseCleoSession(raw!)
+    expect(parsed?.inFlight).toBe(true)
+
+    const idle = serializeCleoSession(
+      [
+        { id: 0, role: 'user', content: 'Hi' },
+        { id: 1, role: 'assistant', content: 'Hello.' },
+      ],
+      2,
+    )
+    expect(parseCleoSession(idle!)?.inFlight).toBeUndefined()
+  })
+
   it('round-trips hidden Continue prompts', () => {
     const raw = serializeCleoSession(
       [

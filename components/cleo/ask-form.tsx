@@ -27,6 +27,12 @@ import {
   type CleoMode,
   parseCleoMode,
 } from "~/lib/cleo/mode"
+import { CONTINUE_PROMPT } from "~/lib/cleo/continue"
+import {
+  hydrateRestoredMessages,
+  settleActivities,
+  shouldStickToBottom,
+} from "~/lib/cleo/conversation-helpers"
 import {
   clearCleoSession,
   loadCleoSession,
@@ -42,7 +48,6 @@ import {
 } from "~/lib/cleo/stream"
 
 const CLEO_MODE_STORAGE_KEY = "cleo:mode:v1"
-const CONTINUE_PROMPT = "Continue from where you left off."
 
 const MAX_INPUT_LENGTH = 10_000
 
@@ -236,6 +241,7 @@ export function AskForm() {
   const messagesRef = useRef<Message[]>([])
   const isSubmittingRef = useRef(false)
   const mountedRef = useRef(true)
+  const stickToBottomRef = useRef(true)
 
   const hasMessages = messages.length > 0
   const canSubmit =
@@ -265,8 +271,13 @@ export function AskForm() {
   useEffect(() => {
     const restored = loadCleoSession()
     if (restored && restored.messages.length > 0) {
-      setMessages(restored.messages)
+      setMessages(
+        hydrateRestoredMessages(restored.messages, {
+          inFlight: restored.inFlight,
+        })
+      )
       messageIdRef.current = restored.nextId
+      stickToBottomRef.current = true
     }
     try {
       setMode(parseCleoMode(window.localStorage.getItem(CLEO_MODE_STORAGE_KEY)))
@@ -293,7 +304,7 @@ export function AskForm() {
       return
     }
     const timer = window.setTimeout(() => {
-      saveCleoSession(messages, messageIdRef.current)
+      saveCleoSession(messages, messageIdRef.current, { inFlight: true })
     }, 750)
     return () => window.clearTimeout(timer)
   }, [messages, sessionReady, isSubmitting])
@@ -319,10 +330,23 @@ export function AskForm() {
   }, [])
 
   useEffect(() => {
-    if (!hasMessages) return
+    function onScroll() {
+      stickToBottomRef.current = shouldStickToBottom(
+        window.scrollY,
+        window.innerHeight,
+        document.documentElement.scrollHeight
+      )
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    if (!hasMessages || !stickToBottomRef.current) return
     // Scroll the document so the clearance spacer sits against the viewport
     // bottom — leaving the latest text above the fixed prompt.
-    messagesEndRef.current?.scrollIntoView({ block: 'end', behavior: 'instant' })
+    messagesEndRef.current?.scrollIntoView({ block: "end", behavior: "instant" })
   }, [hasMessages, messages])
 
   useEffect(() => {
@@ -483,6 +507,7 @@ export function AskForm() {
     abortControllerRef.current = abortController
 
     isSubmittingRef.current = true
+    stickToBottomRef.current = true
     setMessages([...history, userMessage, assistantMessage])
     setInput("")
     setPendingImages([])
@@ -691,8 +716,8 @@ export function AskForm() {
           setPendingImages(userImages.map((image) => image.url))
         }
       } else if (aborted) {
-        // Partial Stop (text, images, or activity): keep the draft and mark
-        // it so Continue/Retry appear.
+        // Partial Stop (text, images, or activity): keep the draft, settle
+        // live activities, and mark incomplete so Continue/Retry appear.
         setMessages((currentMessages) =>
           currentMessages
             .filter(
@@ -704,6 +729,9 @@ export function AskForm() {
               message.id === assistantMessage.id
                 ? {
                     ...message,
+                    activities: message.activities
+                      ? settleActivities(message.activities)
+                      : message.activities,
                     incomplete: {
                       reason: "stopped" as const,
                       message: incompleteStatusMessage("stopped"),

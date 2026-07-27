@@ -185,7 +185,7 @@
   text-decoration: underline;
   text-decoration-color: color-mix(in oklab, var(--foreground) 35%, transparent);
   text-underline-offset: 2px;
-  transition: text-decoration-color 150ms ease;
+  transition: text-decoration-color 150ms var(--ease-swift);
 }
 
 .ai-response .cleo-topic-photo-frame,
@@ -578,7 +578,9 @@
   text-decoration-color: color-mix(in oklab, var(--muted-foreground) 35%, transparent);
   text-underline-offset: 0.18em;
   cursor: pointer;
-  transition: color 160ms ease, text-decoration-color 160ms ease;
+  transition:
+    color 160ms var(--ease-swift),
+    text-decoration-color 160ms var(--ease-swift);
 }
 
 .cleo-starter:hover:not(:disabled) {
@@ -721,8 +723,8 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   color: var(--primary-foreground);
   box-shadow: none;
   transition:
-    color 150ms ease,
-    background-color 150ms ease,
+    color 150ms var(--ease-swift),
+    background-color 150ms var(--ease-swift),
     transform 150ms var(--ease-swift);
 }
 

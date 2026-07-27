@@ -38,10 +38,16 @@ export type PersistedCleoMessage = {
 }
 
 export type CleoSessionSnapshot = {
+  /** True when the snapshot was written while a turn was still streaming. */
+  inFlight?: boolean
   messages: PersistedCleoMessage[]
   nextId: number
   savedAt: number
   version: 1
+}
+
+export type SaveCleoSessionOptions = {
+  inFlight?: boolean
 }
 
 function isActivityItem(value: unknown): value is ActivityItem {
@@ -153,6 +159,7 @@ export function parseCleoSession(raw: string): CleoSessionSnapshot | null {
       ),
       savedAt:
         typeof record.savedAt === 'number' ? record.savedAt : Date.now(),
+      ...(record.inFlight === true ? { inFlight: true } : {}),
     }
   } catch {
     return null
@@ -162,6 +169,7 @@ export function parseCleoSession(raw: string): CleoSessionSnapshot | null {
 export function serializeCleoSession(
   messages: readonly PersistedCleoMessage[],
   nextId: number,
+  options?: SaveCleoSessionOptions,
 ): string | null {
   const snapshot: CleoSessionSnapshot = {
     version: 1,
@@ -187,6 +195,7 @@ export function serializeCleoSession(
     })),
     nextId,
     savedAt: Date.now(),
+    ...(options?.inFlight ? { inFlight: true } : {}),
   }
 
   const raw = JSON.stringify(snapshot)
@@ -228,6 +237,7 @@ export function loadCleoSession(): CleoSessionSnapshot | null {
 export function saveCleoSession(
   messages: readonly PersistedCleoMessage[],
   nextId: number,
+  options?: SaveCleoSessionOptions,
 ): boolean {
   if (typeof window === 'undefined') return false
   try {
@@ -235,7 +245,7 @@ export function saveCleoSession(
       window.localStorage.removeItem(CLEO_SESSION_STORAGE_KEY)
       return true
     }
-    const raw = serializeCleoSession(messages, nextId)
+    const raw = serializeCleoSession(messages, nextId, options)
     if (!raw) {
       window.localStorage.removeItem(CLEO_SESSION_STORAGE_KEY)
       return false
