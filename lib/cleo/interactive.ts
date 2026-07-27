@@ -2,9 +2,9 @@
  * Generative interactive widgets for Cleo replies.
  *
  * The model embeds fenced `cleo` JSON in assistant Markdown. The client
- * parses those fences into typed widgets (tabs, timeline, facts, compare)
- * that the user interacts with in place — part of the answer, not suggestion
- * chips or quizzes.
+ * parses those fences into typed widgets (tabs, timeline, facts, compare,
+ * steps, cards) that the user interacts with in place — part of the answer,
+ * not suggestion chips or quizzes.
  */
 
 export type CleoTabItem = {
@@ -20,6 +20,7 @@ export type CleoTimelineEvent = {
 
 export type CleoFactItem = {
   detail?: string
+  href?: string
   label: string
   value: string
 }
@@ -27,6 +28,18 @@ export type CleoFactItem = {
 export type CleoCompareRow = {
   label: string
   values: string[]
+}
+
+export type CleoStepItem = {
+  body: string
+  title: string
+}
+
+export type CleoCardItem = {
+  detail?: string
+  href?: string
+  label: string
+  summary: string
 }
 
 export type CleoTabsBlock = {
@@ -54,11 +67,25 @@ export type CleoCompareBlock = {
   type: 'compare'
 }
 
+export type CleoStepsBlock = {
+  steps: CleoStepItem[]
+  title?: string
+  type: 'steps'
+}
+
+export type CleoCardsBlock = {
+  cards: CleoCardItem[]
+  title?: string
+  type: 'cards'
+}
+
 export type CleoInteractiveBlock =
   | CleoTabsBlock
   | CleoTimelineBlock
   | CleoFactsBlock
   | CleoCompareBlock
+  | CleoStepsBlock
+  | CleoCardsBlock
 
 export type CleoMarkdownSegment =
   | {
@@ -79,10 +106,21 @@ const MAX_TIMELINE_EVENTS = 8
 const MAX_FACTS = 8
 const MAX_COMPARE_COLUMNS = 3
 const MAX_COMPARE_ROWS = 8
+const MAX_STEPS = 6
+const MAX_CARDS = 6
 const MAX_LABEL = 64
 const MAX_SHORT = 120
 const MAX_BODY = 700
+const MAX_HREF = 160
 const MAX_JSON = 8_000
+
+/** Same-site paths widgets may deep-link. */
+const WIDGET_HREF =
+  /^\/(explore|space)\/[a-z0-9-]+$|^\/(gallery|topics|blog)(?:\/[a-z0-9-]+)?$/
+
+export function isCleoWidgetHref(href: string): boolean {
+  return WIDGET_HREF.test(href)
+}
 
 function trimString(value: unknown, max: number): string | null {
   if (typeof value !== 'string') {
@@ -107,6 +145,27 @@ function parseOptionalTitle(
     return undefined
   }
   return trimString(value.title, MAX_LABEL)
+}
+
+function parseOptionalHref(value: unknown): string | undefined | null {
+  if (value === undefined) {
+    return undefined
+  }
+  const href = trimString(value, MAX_HREF)
+  if (!href || !isCleoWidgetHref(href)) {
+    return null
+  }
+  return href
+}
+
+function withOptionalTitle<T extends { type: string }>(
+  block: T,
+  title: string | undefined | null,
+): (T & { title?: string }) | null {
+  if (title === null) {
+    return null
+  }
+  return title === undefined ? block : { ...block, title }
 }
 
 function parseTabsBlock(value: Record<string, unknown>): CleoTabsBlock | null {
@@ -134,14 +193,7 @@ function parseTabsBlock(value: Record<string, unknown>): CleoTabsBlock | null {
     tabs.push({ label, body })
   }
 
-  const title = parseOptionalTitle(value)
-  if (title === null) {
-    return null
-  }
-
-  return title === undefined
-    ? { type: 'tabs', tabs }
-    : { type: 'tabs', tabs, title }
+  return withOptionalTitle({ type: 'tabs', tabs }, parseOptionalTitle(value))
 }
 
 function parseTimelineBlock(
@@ -179,14 +231,10 @@ function parseTimelineBlock(
     events.push(event)
   }
 
-  const title = parseOptionalTitle(value)
-  if (title === null) {
-    return null
-  }
-
-  return title === undefined
-    ? { type: 'timeline', events }
-    : { type: 'timeline', events, title }
+  return withOptionalTitle(
+    { type: 'timeline', events },
+    parseOptionalTitle(value),
+  )
 }
 
 function parseFactsBlock(value: Record<string, unknown>): CleoFactsBlock | null {
@@ -222,17 +270,19 @@ function parseFactsBlock(value: Record<string, unknown>): CleoFactsBlock | null 
       }
       item.detail = detail
     }
+    if ('href' in entry && entry.href !== undefined) {
+      const href = parseOptionalHref(entry.href)
+      if (href === null) {
+        return null
+      }
+      if (href !== undefined) {
+        item.href = href
+      }
+    }
     items.push(item)
   }
 
-  const title = parseOptionalTitle(value)
-  if (title === null) {
-    return null
-  }
-
-  return title === undefined
-    ? { type: 'facts', items }
-    : { type: 'facts', items, title }
+  return withOptionalTitle({ type: 'facts', items }, parseOptionalTitle(value))
 }
 
 function parseCompareBlock(
@@ -286,14 +336,86 @@ function parseCompareBlock(
     rows.push({ label, values })
   }
 
-  const title = parseOptionalTitle(value)
-  if (title === null) {
+  return withOptionalTitle(
+    { type: 'compare', columns, rows },
+    parseOptionalTitle(value),
+  )
+}
+
+function parseStepsBlock(value: Record<string, unknown>): CleoStepsBlock | null {
+  if (
+    !Array.isArray(value.steps) ||
+    value.steps.length < 2 ||
+    value.steps.length > MAX_STEPS
+  ) {
     return null
   }
 
-  return title === undefined
-    ? { type: 'compare', columns, rows }
-    : { type: 'compare', columns, rows, title }
+  const steps: CleoStepItem[] = []
+  for (const entry of value.steps) {
+    if (typeof entry !== 'object' || entry === null) {
+      return null
+    }
+    const title = trimString(
+      'title' in entry ? entry.title : undefined,
+      MAX_SHORT,
+    )
+    const body = trimString('body' in entry ? entry.body : undefined, MAX_BODY)
+    if (!title || !body) {
+      return null
+    }
+    steps.push({ title, body })
+  }
+
+  return withOptionalTitle({ type: 'steps', steps }, parseOptionalTitle(value))
+}
+
+function parseCardsBlock(value: Record<string, unknown>): CleoCardsBlock | null {
+  if (
+    !Array.isArray(value.cards) ||
+    value.cards.length < 2 ||
+    value.cards.length > MAX_CARDS
+  ) {
+    return null
+  }
+
+  const cards: CleoCardItem[] = []
+  for (const entry of value.cards) {
+    if (typeof entry !== 'object' || entry === null) {
+      return null
+    }
+    const label = trimString(
+      'label' in entry ? entry.label : undefined,
+      MAX_LABEL,
+    )
+    const summary = trimString(
+      'summary' in entry ? entry.summary : undefined,
+      MAX_SHORT,
+    )
+    if (!label || !summary) {
+      return null
+    }
+    const card: CleoCardItem = { label, summary }
+    if ('detail' in entry && entry.detail !== undefined) {
+      const detail = trimString(entry.detail, MAX_BODY)
+      if (!detail) {
+        return null
+      }
+      card.detail = detail
+    }
+    if ('href' in entry && entry.href !== undefined) {
+      const href = parseOptionalHref(entry.href)
+      if (href === null) {
+        return null
+      }
+      if (href !== undefined) {
+        card.href = href
+      }
+    }
+    cards.push(card)
+  }
+
+  return withOptionalTitle({ type: 'cards', cards }, parseOptionalTitle(value))
 }
 
 /** Parse and validate one fenced `cleo` JSON payload. */
@@ -327,6 +449,10 @@ export function parseCleoInteractiveBlock(
       return parseFactsBlock(record)
     case 'compare':
       return parseCompareBlock(record)
+    case 'steps':
+      return parseStepsBlock(record)
+    case 'cards':
+      return parseCardsBlock(record)
     default:
       return null
   }

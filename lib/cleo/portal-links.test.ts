@@ -164,11 +164,10 @@ describe('CLEO_PORTAL_STARTERS', () => {
     expect(CLEO_PORTAL_STARTERS.every((starter) => starter.prompt.length > 20)).toBe(
       true,
     )
-    expect(CLEO_PORTAL_STARTERS.map((starter) => starter.prompt).join('\n')).toMatch(
-      /tabs|facts|compare/,
+    const prompts = CLEO_PORTAL_STARTERS.map((starter) => starter.prompt).join(
+      '\n',
     )
-    expect(CLEO_PORTAL_STARTERS.map((starter) => starter.prompt).join('\n')).not.toMatch(
-      /quiz/,
-    )
+    expect(prompts).toMatch(/tabs|facts|compare|steps|cards/)
+    expect(prompts).not.toMatch(/quiz/)
   })
 })

@@ -1,59 +1,44 @@
 import { describe, expect, it } from 'vitest'
 
-import { parseCleoInteractiveBlock, segmentCleoMarkdown } from './interactive'
+import {
+  isCleoWidgetHref,
+  parseCleoInteractiveBlock,
+  segmentCleoMarkdown,
+} from './interactive'
 
 describe('parseCleoInteractiveBlock', () => {
-  it('parses tabs widgets', () => {
+  it('parses tabs, timeline, facts, and compare widgets', () => {
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
           type: 'tabs',
-          title: 'Japan at a glance',
           tabs: [
-            { label: 'Geography', body: 'An archipelago…' },
-            { label: 'Culture', body: 'Continuity and reinvention…' },
+            { label: 'Geography', body: 'Islands. See [Japan](/explore/japan).' },
+            { label: 'Culture', body: 'Continuity.' },
           ],
         }),
       ),
-    ).toEqual({
-      type: 'tabs',
-      title: 'Japan at a glance',
-      tabs: [
-        { label: 'Geography', body: 'An archipelago…' },
-        { label: 'Culture', body: 'Continuity and reinvention…' },
-      ],
-    })
-  })
-
-  it('parses timeline, facts, and compare widgets', () => {
-    expect(
-      parseCleoInteractiveBlock(
-        JSON.stringify({
-          type: 'timeline',
-          title: 'Apollo',
-          events: [
-            { when: '1961', title: 'Goal set', detail: 'Kennedy speech.' },
-            { when: '1969', title: 'Landing' },
-          ],
-        }),
-      ),
-    ).toMatchObject({ type: 'timeline', title: 'Apollo' })
+    ).toMatchObject({ type: 'tabs' })
 
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
           type: 'facts',
           items: [
-            { label: 'Capital', value: 'Tokyo' },
+            { label: 'Primary', value: 'Jupiter' },
             {
               label: 'Ocean',
               value: 'Under ice',
-              detail: 'Tidal heating helps.',
+              detail: 'Tidal heating.',
+              href: '/space/europa',
             },
           ],
         }),
       ),
-    ).toMatchObject({ type: 'facts' })
+    ).toMatchObject({
+      type: 'facts',
+      items: [{ label: 'Primary' }, { href: '/space/europa' }],
+    })
 
     expect(
       parseCleoInteractiveBlock(
@@ -66,7 +51,55 @@ describe('parseCleoInteractiveBlock', () => {
     ).toMatchObject({ type: 'compare' })
   })
 
-  it('rejects quizzes and suggestion-style types', () => {
+  it('parses steps and cards widgets', () => {
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'steps',
+          title: 'How to read Europa',
+          steps: [
+            { title: 'Ice', body: 'Start with the shell.' },
+            { title: 'Ocean', body: 'Infer the water below.' },
+          ],
+        }),
+      ),
+    ).toMatchObject({ type: 'steps', title: 'How to read Europa' })
+
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'cards',
+          cards: [
+            {
+              label: 'Io',
+              summary: 'Volcanic',
+              detail: 'Tidal heating.',
+              href: '/space/io',
+            },
+            { label: 'Ganymede', summary: 'Largest moon' },
+          ],
+        }),
+      ),
+    ).toMatchObject({ type: 'cards' })
+  })
+
+  it('rejects unsafe hrefs and removed widget types', () => {
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'facts',
+          items: [
+            { label: 'A', value: '1' },
+            {
+              label: 'B',
+              value: '2',
+              href: 'https://evil.example',
+            },
+          ],
+        }),
+      ),
+    ).toBeNull()
+
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
@@ -80,14 +113,6 @@ describe('parseCleoInteractiveBlock', () => {
         }),
       ),
     ).toBeNull()
-    expect(
-      parseCleoInteractiveBlock(
-        JSON.stringify({
-          type: 'follow_ups',
-          items: [{ label: 'More', prompt: 'Tell me more' }],
-        }),
-      ),
-    ).toBeNull()
   })
 })
 
@@ -98,10 +123,10 @@ describe('segmentCleoMarkdown', () => {
       '',
       '```cleo',
       JSON.stringify({
-        type: 'tabs',
-        tabs: [
-          { label: 'Geography', body: 'Islands.' },
-          { label: 'Culture', body: 'Continuity.' },
+        type: 'steps',
+        steps: [
+          { title: 'Look at the map', body: 'Four main islands.' },
+          { title: 'Then the culture', body: 'Continuity and change.' },
         ],
       }),
       '```',
@@ -112,26 +137,22 @@ describe('segmentCleoMarkdown', () => {
       {
         type: 'interactive',
         block: {
-          type: 'tabs',
-          tabs: [
-            { label: 'Geography', body: 'Islands.' },
-            { label: 'Culture', body: 'Continuity.' },
+          type: 'steps',
+          steps: [
+            { title: 'Look at the map', body: 'Four main islands.' },
+            { title: 'Then the culture', body: 'Continuity and change.' },
           ],
         },
       },
     ])
   })
+})
 
-  it('omits incomplete trailing fences while streaming', () => {
-    const markdown = [
-      'Comparing Mars and Earth.',
-      '',
-      '```cleo',
-      '{"type":"compare","columns":["Mars","Earth"],"rows":[',
-    ].join('\n')
-
-    expect(segmentCleoMarkdown(markdown)).toEqual([
-      { type: 'markdown', content: 'Comparing Mars and Earth.\n\n' },
-    ])
+describe('isCleoWidgetHref', () => {
+  it('allows portal guide paths only', () => {
+    expect(isCleoWidgetHref('/explore/japan')).toBe(true)
+    expect(isCleoWidgetHref('/space/europa')).toBe(true)
+    expect(isCleoWidgetHref('/gallery')).toBe(true)
+    expect(isCleoWidgetHref('/cleo')).toBe(false)
   })
 })

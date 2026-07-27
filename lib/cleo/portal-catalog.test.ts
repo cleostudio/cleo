@@ -28,6 +28,8 @@ describe('portal catalog instructions', () => {
     expect(CLEO_INSTRUCTIONS).toContain('<interactive_components>')
     expect(CLEO_INSTRUCTIONS).toContain('"type":"tabs"')
     expect(CLEO_INSTRUCTIONS).toContain('"type":"timeline"')
+    expect(CLEO_INSTRUCTIONS).toContain('"type":"steps"')
+    expect(CLEO_INSTRUCTIONS).toContain('"type":"cards"')
     expect(CLEO_INSTRUCTIONS).toContain('"type":"compare"')
     expect(CLEO_INSTRUCTIONS).not.toContain('"type":"quiz"')
     expect(CLEO_INSTRUCTIONS).not.toContain('"type":"follow_ups"')

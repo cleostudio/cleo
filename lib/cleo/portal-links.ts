@@ -196,11 +196,11 @@ export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Why is Europa interesting?',
     prompt:
-      'Why is Europa interesting as an ocean world? Deep-link the Space guide, and include a cleo facts widget with expandable details on most rows.',
+      'Why is Europa interesting as an ocean world? Deep-link the Space guide, include a cleo facts widget with expandable details and an href to /space/europa, then a short cleo steps widget for how to read the moon.',
   },
   {
     label: 'Compare Mars and Earth',
     prompt:
-      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide, and include a cleo compare widget.',
+      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide, include a cleo compare widget, and a cleo cards widget for related worlds (e.g. Venus, Moon) with guide hrefs.',
   },
 ] as const

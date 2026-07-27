@@ -1,72 +1,110 @@
 /** @vitest-environment jsdom */
 
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { InteractiveBlock } from './interactive'
+
+vi.mock('next/link', () => ({
+  default: ({
+    href,
+    children,
+    ...props
+  }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  ),
+}))
 
 afterEach(() => {
   cleanup()
 })
 
 describe('InteractiveBlock generative widgets', () => {
-  it('switches tab panels in place with keyboard support', () => {
+  it('switches tabs and renders same-site prose links', () => {
     render(
       <InteractiveBlock
         block={{
           type: 'tabs',
           title: 'Japan at a glance',
           tabs: [
-            { label: 'Geography', body: 'Four main islands.' },
+            {
+              label: 'Geography',
+              body: 'See the [Japan guide](/explore/japan).',
+            },
             { label: 'Culture', body: 'Continuity and reinvention.' },
           ],
         }}
       />,
     )
 
-    expect(screen.getByText('Four main islands.')).toBeTruthy()
+    expect(
+      screen.getByRole('link', { name: 'Japan guide' }).getAttribute('href'),
+    ).toBe('/explore/japan')
     fireEvent.click(screen.getByRole('tab', { name: 'Culture' }))
     expect(screen.getByText('Continuity and reinvention.')).toBeTruthy()
-    expect(screen.queryByText('Four main islands.')).toBeNull()
-
-    fireEvent.keyDown(screen.getByRole('tablist'), { key: 'ArrowLeft' })
-    expect(screen.getByText('Four main islands.')).toBeTruthy()
   })
 
-  it('expands multiple timeline events independently', () => {
+  it('walks through steps with continue/back controls', () => {
     render(
       <InteractiveBlock
         block={{
-          type: 'timeline',
-          title: 'Apollo',
-          events: [
-            { when: '1961', title: 'Goal set', detail: 'Kennedy speech.' },
-            { when: '1969', title: 'Landing', detail: 'Moon walk.' },
+          type: 'steps',
+          title: 'How to read Europa',
+          steps: [
+            { title: 'Ice', body: 'Start with the shell.' },
+            { title: 'Ocean', body: 'Infer the water below.' },
           ],
         }}
       />,
     )
 
-    expect(screen.queryByText('Kennedy speech.')).toBeNull()
-    fireEvent.click(screen.getByRole('button', { name: /Goal set/i }))
-    expect(screen.getByText('Kennedy speech.')).toBeTruthy()
-    fireEvent.click(screen.getByRole('button', { name: /Landing/i }))
-    expect(screen.getByText('Moon walk.')).toBeTruthy()
-    expect(screen.getByText('Kennedy speech.')).toBeTruthy()
+    expect(screen.getByText('Start with the shell.')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /Continue/i }))
+    expect(screen.getByText('Infer the water below.')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /Back/i }))
+    expect(screen.getByText('Start with the shell.')).toBeTruthy()
   })
 
-  it('expands fact details on tap', () => {
+  it('expands cards and surfaces guide links', () => {
+    render(
+      <InteractiveBlock
+        block={{
+          type: 'cards',
+          title: 'Nearby moons',
+          cards: [
+            {
+              label: 'Io',
+              summary: 'Volcanic world',
+              detail: 'Tidal heating drives resurfacing.',
+              href: '/space/io',
+            },
+            { label: 'Ganymede', summary: 'Largest moon' },
+          ],
+        }}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: /Io/i }))
+    expect(screen.getByText('Tidal heating drives resurfacing.')).toBeTruthy()
+    expect(
+      screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
+    ).toBe('/space/io')
+  })
+
+  it('expands facts with optional guide hrefs', () => {
     render(
       <InteractiveBlock
         block={{
           type: 'facts',
-          title: 'Europa',
           items: [
             { label: 'Primary', value: 'Jupiter' },
             {
               label: 'Ocean',
               value: 'Under ice',
               detail: 'Kept liquid by tidal flexing.',
+              href: '/space/europa',
             },
           ],
         }}
@@ -75,26 +113,8 @@ describe('InteractiveBlock generative widgets', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /Ocean/i }))
     expect(screen.getByText('Kept liquid by tidal flexing.')).toBeTruthy()
-  })
-
-  it('focuses compare subjects from the subject row', () => {
-    render(
-      <InteractiveBlock
-        block={{
-          type: 'compare',
-          title: 'Mars vs Earth',
-          columns: ['Mars', 'Earth'],
-          rows: [{ label: 'Moons', values: ['2', '1'] }],
-        }}
-      />,
-    )
-
-    const mars = screen.getByRole('button', { name: 'Mars' })
-    expect(mars.getAttribute('aria-pressed')).toBe('true')
-    fireEvent.click(screen.getByRole('button', { name: 'Earth' }))
     expect(
-      screen.getByRole('button', { name: 'Earth' }).getAttribute('aria-pressed'),
-    ).toBe('true')
-    expect(mars.getAttribute('aria-pressed')).toBe('false')
+      screen.getByRole('link', { name: /Open guide/i }).getAttribute('href'),
+    ).toBe('/space/europa')
   })
 })

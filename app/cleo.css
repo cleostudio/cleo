@@ -970,6 +970,260 @@
   background: color-mix(in oklab, var(--foreground) 14%, transparent);
 }
 
+
+.cleo-widget-prose {
+  color: var(--foreground);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.cleo-widget-inline-link {
+  color: var(--foreground);
+  font-weight: 550;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--foreground) 30%, transparent);
+  text-underline-offset: 0.14em;
+}
+
+.cleo-widget-inline-link:hover {
+  text-decoration-color: var(--foreground);
+}
+
+.cleo-widget-guide-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.55rem;
+  border-radius: calc(var(--radius) + 2px);
+  color: var(--foreground);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: opacity 160ms var(--ease-swift);
+}
+
+.cleo-widget-guide-link:hover {
+  opacity: 0.72;
+}
+
+.cleo-widget-fact-panel,
+.cleo-widget-card-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0 0.85rem 0.85rem;
+}
+
+.cleo-widget-fact-panel .cleo-widget-prose,
+.cleo-widget-card-panel .cleo-widget-prose,
+.cleo-widget-timeline-detail {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+/* Steps — progressive walkthrough */
+.cleo-widget-steps-progress {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cleo-widget-steps-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin: 0;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--foreground) 18%, transparent);
+  padding: 0;
+  cursor: pointer;
+  transition:
+    background-color 160ms var(--ease-swift),
+    transform 160ms var(--ease-swift);
+}
+
+.cleo-widget-steps-dot[data-done] {
+  background: color-mix(in oklab, var(--foreground) 45%, transparent);
+}
+
+.cleo-widget-steps-dot[data-active] {
+  background: var(--foreground);
+  transform: scale(1.2);
+}
+
+.cleo-widget-steps-dot:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 3px;
+}
+
+.cleo-widget-steps-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  animation: cleo-widget-fade 180ms var(--ease-swift);
+}
+
+.cleo-widget-steps-meta {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cleo-widget-steps-title {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+.cleo-widget-steps-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.cleo-widget-steps-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in oklab, var(--background) 78%, transparent);
+  padding: 0.55rem 0.8rem;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 550;
+  cursor: pointer;
+  transition:
+    background-color 160ms var(--ease-swift),
+    border-color 160ms var(--ease-swift),
+    opacity 160ms var(--ease-swift);
+}
+
+.cleo-widget-steps-button[data-primary] {
+  background: var(--muted);
+  border-color: color-mix(in oklab, var(--foreground) 16%, transparent);
+  font-weight: 600;
+}
+
+.cleo-widget-steps-button:hover:not(:disabled) {
+  border-color: color-mix(in oklab, var(--foreground) 18%, transparent);
+  background: var(--muted);
+}
+
+.cleo-widget-steps-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.cleo-widget-steps-button:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
+}
+
+/* Cards — expandable subject tiles */
+.cleo-widget-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+  gap: 0.55rem;
+}
+
+.cleo-widget-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: calc(var(--radius) + 4px);
+  background: color-mix(in oklab, var(--background) 78%, transparent);
+  transition:
+    border-color 160ms var(--ease-swift),
+    background-color 160ms var(--ease-swift);
+}
+
+.cleo-widget-card[data-open] {
+  border-color: color-mix(in oklab, var(--foreground) 18%, transparent);
+  background: color-mix(in oklab, var(--muted) 45%, transparent);
+}
+
+.cleo-widget-card-trigger {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  column-gap: 0.55rem;
+  row-gap: 0.2rem;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0.8rem 0.85rem;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cleo-widget-card-trigger[data-static] {
+  cursor: default;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cleo-widget-card-trigger:not([data-static]):hover .cleo-widget-card-label {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--foreground) 28%, transparent);
+  text-underline-offset: 0.14em;
+}
+
+.cleo-widget-card-trigger:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: -2px;
+}
+
+.cleo-widget-card-label {
+  grid-column: 1;
+  color: var(--foreground);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+.cleo-widget-card-summary {
+  grid-column: 1;
+  color: var(--muted-foreground);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.cleo-widget-card-trigger .cleo-widget-chevron {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+.cleo-widget-card-panel {
+  padding-top: 0;
+  border-top: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+  padding-top: 0.7rem;
+  margin-top: -0.1rem;
+}
+
+.dark .cleo-widget-steps-button,
+.dark .cleo-widget-card {
+  border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
+  background: color-mix(in oklab, var(--background) 55%, transparent);
+}
+
 .cleo-starters {
   display: flex;
   flex-wrap: wrap;
