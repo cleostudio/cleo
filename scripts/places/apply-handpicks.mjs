@@ -19,6 +19,7 @@ const UA = 'cleo-places-curate/1.0 (handpick)'
 
 /** slug → Commons file title (with or without File:) */
 const HANDPICKS = {
+  paris: 'File:Notre-Dame de Paris and Île de la Cité at dusk 140516 1.jpg',
   'new-york': 'File:Lower Manhattan from Brooklyn May 2015 panorama.jpg',
   cairo: 'File:All Gizah Pyramids.jpg',
   quebec: 'File:Québec city at night, view from Lévis city.jpg',

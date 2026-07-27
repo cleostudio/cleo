@@ -3,28 +3,28 @@
     "featureName": "Paris",
     "alt": "Paris in France",
     "caption": "Paris, France",
-    "photographer": "Dietmar Rabich",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paris,_Notre_Dame_--_2014_--_1458-65.jpg",
-    "license": "CC BY-SA 4.0",
-    "provenance": "Curated from Wikimedia Commons (File:Paris, Notre Dame -- 2014 -- 1458-65.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/68/Paris%2C_Notre_Dame_--_2014_--_1458-65.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "f1f4076125f1de7d8ef0a0cd221e6e278baf7ec3d95d2bacbfdf617a3915c0c2",
+    "photographer": "DXR",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notre-Dame_de_Paris_and_%C3%8Ele_de_la_Cit%C3%A9_at_dusk_140516_1.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Notre-Dame de Paris and Île de la Cité at dusk 140516 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d0/Notre-Dame_de_Paris_and_%C3%8Ele_de_la_Cit%C3%A9_at_dusk_140516_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b09dc2a2177fe0086ceecd322fa889996100b3620d814c7a2d1700cd03d4d3bd",
     "width": 3840,
-    "height": 647,
+    "height": 1920,
     "renditions": [
       {
         "width": 640,
         "src": "/images/places/paris/w640.jpg",
-        "bytes": 24757
+        "bytes": 31407
       },
       {
         "width": 1280,
         "src": "/images/places/paris/w1280.jpg",
-        "bytes": 89838
+        "bytes": 112157
       },
       {
         "width": 2048,
         "src": "/images/places/paris/w2048.jpg",
-        "bytes": 255665
+        "bytes": 337423
       }
     ]
   },
