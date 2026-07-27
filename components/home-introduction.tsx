@@ -190,14 +190,14 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              Cleo 整理国家与太空的
-              <CraftPhrase>实地笔记</CraftPhrase>
-              ，主题会继续增加——做到
+              Cleo 汇集国家与太空的
+              <CraftPhrase>短篇导览</CraftPhrase>
+              。内容会
               <HopPhrase>
                 <span className="home-detail-units">
-                  <span className="home-detail-unit">站</span>
-                  <span className="home-detail-unit">得</span>
-                  <span className="home-detail-unit">住</span>
+                  <span className="home-detail-unit">慢</span>
+                  <span className="home-detail-unit">慢</span>
+                  <span className="home-detail-unit">来</span>
                 </span>
               </HopPhrase>
               。
@@ -205,13 +205,12 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Cleo keeps <CraftPhrase>field notes</CraftPhrase> on countries and space, and will keep
-              adding topics —{' '}
+              Cleo gathers <CraftPhrase>short guides</CraftPhrase> on countries and space. The set{' '}
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
-                  <span className="home-detail-unit">meant</span>{' '}
-                  <span className="home-detail-unit">to</span>{' '}
-                  <span className="home-detail-unit">last</span>
+                  <span className="home-detail-unit">grows</span>{' '}
+                  <span className="home-detail-unit">over</span>{' '}
+                  <span className="home-detail-unit">time</span>
                   <span className="home-detail-period">.</span>
                 </span>
               </HopPhrase>
@@ -225,13 +224,13 @@ export function HomeIntroduction() {
             <>
               翻看
               <PhotoPhrase>精选照片</PhotoPhrase>
-              ，或检索主题目录。签证、安全提示与价格不在此列。
+              ，检索主题目录，或直接向 Cleo 提问。
             </>
           }
           en={
             <>
-              Browse <PhotoPhrase>photographs</PhotoPhrase>, or search the topic catalog. Visas, safety
-              bulletins, and prices stay out.
+              Browse <PhotoPhrase>photographs</PhotoPhrase>, search the topic catalog, or ask Cleo when
+              you want a pointer.
             </>
           }
         />
