@@ -190,30 +190,30 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              Cleo 汇集国家与太空的
-              <CraftPhrase>短篇导览</CraftPhrase>
-              。内容会
+              Cleo 是
               <HopPhrase>
                 <span className="home-detail-units">
-                  <span className="home-detail-unit">慢</span>
-                  <span className="home-detail-unit">慢</span>
-                  <span className="home-detail-unit">来</span>
+                  <span className="home-detail-unit">天</span>
+                  <span className="home-detail-unit">地</span>
+                  <span className="home-detail-unit">间</span>
                 </span>
               </HopPhrase>
-              。
+              的
+              <CraftPhrase>阅览室</CraftPhrase>
+              。先从国家与太空开始。
             </>
           }
           en={
             <>
-              Cleo gathers <CraftPhrase>short guides</CraftPhrase> on countries and space. The set{' '}
+              Cleo is a <CraftPhrase>reading room</CraftPhrase> for the{' '}
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
-                  <span className="home-detail-unit">grows</span>{' '}
-                  <span className="home-detail-unit">over</span>{' '}
-                  <span className="home-detail-unit">time</span>
-                  <span className="home-detail-period">.</span>
+                  <span className="home-detail-unit">world</span>{' '}
+                  <span className="home-detail-unit">and</span>{' '}
+                  <span className="home-detail-unit">sky</span>
                 </span>
               </HopPhrase>
+              . Countries and space come first.
             </>
           }
         />
@@ -222,15 +222,15 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              翻看
-              <PhotoPhrase>精选照片</PhotoPhrase>
-              ，检索主题目录，或直接向 Cleo 提问。
+              检索目录、打开一张
+              <PhotoPhrase>照片</PhotoPhrase>
+              ，不清楚时再问 Cleo。
             </>
           }
           en={
             <>
-              Browse <PhotoPhrase>photographs</PhotoPhrase>, search the topic catalog, or ask Cleo when
-              you want a pointer.
+              Search the catalog, open a <PhotoPhrase>photograph</PhotoPhrase>, or ask when something is
+              unclear.
             </>
           }
         />
@@ -239,7 +239,7 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              打开{' '}
+              试试{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 主题
               </Link>
@@ -256,7 +256,7 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Open{' '}
+              Try{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 Topics
               </Link>

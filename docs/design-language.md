@@ -145,29 +145,28 @@ are short, concrete, and conversational — "为什么按钮不需要手指光�
 
 ## Homepage introduction
 
-The homepage opens with three short bilingual paragraphs: Cleo gathers short
-guides on countries and space, growing over time; readers can browse
-photographs, search the topic catalog, or ask Cleo; and a final line opens
-Topics, Explore, or Ask Cleo. Keep the voice plain and product-facing — describe
-what is here, not a list of what is absent.
+The homepage opens with three short bilingual paragraphs: Cleo is a reading
+room for the world and the sky (countries and space first); readers can search
+the catalog, open a photograph, or ask when something is unclear; and a final
+line points to Topics, Explore, or Ask Cleo. Keep the voice plain and
+product-facing — describe what is here, not a list of what is absent.
 
 Three decorative 18px marks sit on product phrases: the craft figure after
-"short guides" / 短篇导览, the orbital sparkle before "grows over time" /
-慢慢来, and the camera after "photographs" / 精选照片. The orbital mark
-precedes its phrase in both locales; the craft and camera marks follow theirs.
-Inline text establishes the shared baseline while each mark centers against
-that text, so neither localized phrase shifts vertically. Hovering the
-associated phrase on a fine pointer, or pressing it on touch, produces one
-brief response with no looping or layout movement. On a fine-pointer hover, the
-craft labels pick up the same restrained, static rainbow gradient; the camera
-lens scales shut and the flash ticks once. The three characters in 慢慢来 and
-the three words in "grows over time" rise in sequence to
-`translateY(-5px) scale(1.03)` over a one-second spring, staggered by 80ms,
-then settle back at their origin as the animation's end state. English
-punctuation stays inside the unbreakable phrase wrapper but outside the
-animated units, keeping its baseline and position stable. Decorative marks stay
-out of the accessibility tree, reduced motion keeps every mark and text unit
-static, and the text remains complete without them.
+"reading room" / 阅览室, the orbital sparkle before "world and sky" / 天地间,
+and the camera after "photograph" / 照片. The orbital mark precedes its phrase
+in both locales; the craft and camera marks follow theirs. Inline text
+establishes the shared baseline while each mark centers against that text, so
+neither localized phrase shifts vertically. Hovering the associated phrase on a
+fine pointer, or pressing it on touch, produces one brief response with no
+looping or layout movement. On a fine-pointer hover, the craft labels pick up
+the same restrained, static rainbow gradient; the camera lens scales shut and
+the flash ticks once. The three characters in 天地间 and the three words in
+"world and sky" rise in sequence to `translateY(-5px) scale(1.03)` over a
+one-second spring, staggered by 80ms, then settle back at their origin as the
+animation's end state. English has no trailing period inside the hop wrapper
+here (the sentence continues / ends outside it). Decorative marks stay out of
+the accessibility tree, reduced motion keeps every mark and text unit static,
+and the text remains complete without them.
 
 ## Entrance choreography
 
