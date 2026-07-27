@@ -48,6 +48,11 @@ export function PostRow({
               height={44}
               sizes="64px"
               className="print-thumb-img"
+              style={
+                post.cover.focus
+                  ? ({ objectPosition: post.cover.focus } as React.CSSProperties)
+                  : undefined
+              }
             />
           </span>
         ) : (

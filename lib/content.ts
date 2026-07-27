@@ -12,6 +12,13 @@ import {
 
 const POSTS_DIR = path.join(process.cwd(), 'content/blog')
 
+const coverFocusSchema = z
+  .string()
+  .regex(
+    /^(?:(?:left|center|right|[0-9]+(?:\.[0-9]+)?%)\s+(?:top|center|bottom|[0-9]+(?:\.[0-9]+)?%))$/,
+    'coverFocus must be a CSS object-position pair',
+  )
+
 const frontmatterSchema = z.object({
   title: z.string().min(1),
   description: z.string().min(1),
@@ -20,6 +27,8 @@ const frontmatterSchema = z.object({
   coverWidth: z.number().int().positive().optional(),
   coverHeight: z.number().int().positive().optional(),
   coverCaption: z.string().optional(),
+  /** Optional CSS object-position for list thumbs (e.g. "center 28%"). */
+  coverFocus: coverFocusSchema.optional(),
 })
 
 export interface PostCover {
@@ -27,6 +36,7 @@ export interface PostCover {
   width: number
   height: number
   caption?: string
+  focus?: string
 }
 
 export interface Post {
@@ -157,6 +167,7 @@ export function getPost(slug: string): Post {
       width: fm.coverWidth,
       height: fm.coverHeight,
       caption: fm.coverCaption,
+      focus: fm.coverFocus,
     }
   }
 
@@ -228,17 +239,11 @@ function topicSeeds(slug: string) {
   // Tiny catalog of essays: a light Earth/space seed keeps "Posts like this"
   // from pairing a black-hole piece with coastal flooding just because both
   // mention "planet" a few times.
-  if (
-    /moon|black-holes|listening|thin-blue-shell|orbit|galaxy|enceladus|space/.test(
-      slug,
-    )
-  ) {
+  if (/moon|black-holes|listening|thin-blue-shell/.test(slug)) {
     return 'cosmos astronomy spacetime gravity orbit'
   }
   if (
-    /rain|dust|forest|ice|tide|cities|island|wallace|river|equator|sahara|passport/.test(
-      slug,
-    )
+    /rain|dust|forest|ice|tide|cities|island|wallace|passport/.test(slug)
   ) {
     return 'earth geography climate landscape ocean'
   }
