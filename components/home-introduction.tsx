@@ -200,7 +200,7 @@ export function HomeIntroduction() {
                   <span className="home-detail-unit">太空</span>
                 </span>
               </HopPhrase>
-              ，之后再慢慢补上更多主题。
+              ，之后再慢慢补上更多内容。
             </>
           }
           en={
@@ -224,13 +224,12 @@ export function HomeIntroduction() {
             <>
               可以翻看
               <PhotoPhrase>照片</PhotoPhrase>
-              、搜索主题目录，也可以打开国家或太空页面。
+              ，或搜索目录。
             </>
           }
           en={
             <>
-              Browse <PhotoPhrase>photographs</PhotoPhrase>, search the topic catalog, or open a country
-              or space page.
+              Browse <PhotoPhrase>photographs</PhotoPhrase>, or search the catalog.
             </>
           }
         />
@@ -239,7 +238,7 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              可以从{' '}
+              打开{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 主题
               </Link>
@@ -251,12 +250,12 @@ export function HomeIntroduction() {
               <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 询问 Cleo
               </Link>
-              {' '}开始。
+              。
             </>
           }
           en={
             <>
-              Start from{' '}
+              Open{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 Topics
               </Link>
