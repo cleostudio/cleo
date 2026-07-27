@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import { AskCleoSurfaceLink } from '~/components/ask-cleo-link'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { countriesByRegion } from '~/lib/countries'
 import { T } from '~/lib/i18n'
@@ -28,6 +29,13 @@ export function ExplorePageView() {
         </header>
         <PixelCluster variant={4} className="enter shrink-0" />
       </div>
+
+      <p
+        className="enter mt-6"
+        style={{ '--enter-delay': '80ms' } as React.CSSProperties}
+      >
+        <AskCleoSurfaceLink surface="explore" />
+      </p>
 
       <div className="mt-10 flex flex-col gap-10">
         {regions.map(([region, regionCountries]) => {

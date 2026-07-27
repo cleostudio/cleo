@@ -1,3 +1,4 @@
+import { AskCleoSurfaceLink } from '~/components/ask-cleo-link'
 import { PlaceGallery } from '~/components/place-gallery'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { allGalleryItems } from '~/lib/gallery'
@@ -32,6 +33,10 @@ export function GalleryPageView() {
         </header>
         <PixelCluster variant={4} className="shrink-0" />
       </div>
+
+      <p className="mt-4">
+        <AskCleoSurfaceLink surface="gallery" />
+      </p>
 
       <div className="mt-4">
         <PlaceGallery entries={entries} />

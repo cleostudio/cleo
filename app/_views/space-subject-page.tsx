@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { AskCleoGuideLink } from '~/components/ask-cleo-link'
 import { GuideOrientation } from '~/components/guide-orientation'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
@@ -223,8 +224,14 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
       </section>
 
       <p
-        className="enter mt-10 mb-4"
+        className="enter mt-10"
         style={{ '--enter-delay': '180ms' } as React.CSSProperties}
+      >
+        <AskCleoGuideLink collection="space" name={subject.name} />
+      </p>
+      <p
+        className="enter mt-3 mb-4"
+        style={{ '--enter-delay': '190ms' } as React.CSSProperties}
       >
         <Link href="/space" className="text-sm text-muted-foreground hover:text-foreground">
           ← All space guides

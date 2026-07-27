@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import { AskCleoSurfaceLink } from '~/components/ask-cleo-link'
 import { GhostSchematic } from '~/components/ghost-schematic'
 import { TopicsBlueprintStage } from '~/components/hidden-list-stage'
 import { PixelCluster } from '~/components/pixel-cluster'
@@ -32,6 +33,13 @@ export function TopicsPageView() {
         </header>
         <PixelCluster variant={3} className="enter shrink-0" />
       </div>
+
+      <p
+        className="enter mt-6"
+        style={{ '--enter-delay': '80ms' } as React.CSSProperties}
+      >
+        <AskCleoSurfaceLink surface="topics" />
+      </p>
 
       <TopicsBlueprintStage className="mt-10">
         <ul className="focus-list flex flex-col">

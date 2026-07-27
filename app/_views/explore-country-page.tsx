@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { AskCleoGuideLink } from '~/components/ask-cleo-link'
 import { GuideOrientation } from '~/components/guide-orientation'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
@@ -202,11 +203,14 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
+        <AskCleoGuideLink collection="explore" name={entry.name} />
+      </p>
+      <p className="enter mt-3" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
         <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
           Browse the gallery →
         </Link>
       </p>
-      <p className="enter mt-3 mb-4" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
+      <p className="enter mt-3 mb-4" style={{ '--enter-delay': '200ms' } as React.CSSProperties}>
         <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
           ← All countries
         </Link>

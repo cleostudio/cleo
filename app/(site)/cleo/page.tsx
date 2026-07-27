@@ -1,4 +1,5 @@
 import { CleoPageView } from '../../_views/cleo-page'
+import { parseCleoAskSearchParams } from '~/lib/cleo/ask-links'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 
@@ -10,6 +11,12 @@ export const metadata = localeMetadata({
   ...copy,
 })
 
-export default function EnglishCleoPage() {
-  return <CleoPageView />
+export default async function EnglishCleoPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
+  const initialAsk = parseCleoAskSearchParams(await searchParams)
+
+  return <CleoPageView initialAsk={initialAsk} />
 }

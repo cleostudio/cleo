@@ -21,6 +21,7 @@ import {
   IMAGE_ACCEPT,
   MAX_IMAGES_PER_MESSAGE,
 } from "~/lib/cleo/client-images"
+import type { CleoAskIntent } from '~/lib/cleo/ask-links'
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
 import {
   type ActivityItem,
@@ -94,9 +95,16 @@ function messageHasVisibleContent(message: Message) {
   )
 }
 
-export function AskForm() {
+type AskFormProps = {
+  /** Deep-link intent from `/cleo?q=…` (parsed on the server). */
+  initialAsk?: CleoAskIntent | null
+}
+
+export function AskForm({ initialAsk = null }: AskFormProps = {}) {
   const [error, setError] = useState<string | null>(null)
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState(() =>
+    initialAsk && !initialAsk.autoSubmit ? initialAsk.prompt : '',
+  )
   const [pendingImages, setPendingImages] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
@@ -106,6 +114,10 @@ export function AskForm() {
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const mountedRef = useRef(true)
+  const deepLinkConsumedRef = useRef(false)
+  const submitRef = useRef<
+    (event?: FormEvent<HTMLFormElement>, promptOverride?: string) => Promise<void>
+  >(async () => {})
 
   const hasMessages = messages.length > 0
   const canSubmit =
@@ -430,6 +442,45 @@ export function AskForm() {
       }
     }
   }
+
+  submitRef.current = handleSubmit
+
+  // Portal deep links (`/cleo?q=…&auto=1`) start a turn once on an empty chat.
+  // Clear the query string before submit so React Strict Mode remounts do not
+  // fire a second request from the same navigation.
+  useEffect(() => {
+    if (deepLinkConsumedRef.current || !initialAsk?.prompt) {
+      return
+    }
+
+    const url = new URL(window.location.href)
+    const hadQuery =
+      url.searchParams.has('q') || url.searchParams.has('auto')
+
+    if (hadQuery) {
+      url.searchParams.delete('q')
+      url.searchParams.delete('auto')
+      window.history.replaceState(
+        window.history.state,
+        '',
+        `${url.pathname}${url.search}${url.hash}`,
+      )
+    }
+
+    if (initialAsk.autoSubmit) {
+      if (!hadQuery) {
+        deepLinkConsumedRef.current = true
+        return
+      }
+      deepLinkConsumedRef.current = true
+      void submitRef.current(undefined, initialAsk.prompt)
+      return
+    }
+
+    deepLinkConsumedRef.current = true
+    setInput(initialAsk.prompt)
+    inputRef.current?.focus()
+  }, [initialAsk])
 
   return (
     <div className="app-column min-w-0">

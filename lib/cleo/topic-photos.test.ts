@@ -72,13 +72,15 @@ describe('topic photos', () => {
     )
   })
 
-  it('grounds from the latest user turns', () => {
-    expect(
-      conversationTopicText([
-        { role: 'user', content: 'Hi' },
-        { role: 'assistant', content: 'Hello' },
-        { role: 'user', content: 'Tell me about Mars' },
-      ]),
-    ).toContain('Mars')
+  it('grounds from the latest user turns and the latest assistant reply', () => {
+    const text = conversationTopicText([
+      { role: 'user', content: 'Hi' },
+      { role: 'assistant', content: 'Hello — interested in Europa?' },
+      { role: 'user', content: 'Show me a photo' },
+    ])
+
+    expect(text).toContain('Show me a photo')
+    expect(text).toContain('Europa')
   })
 })
+

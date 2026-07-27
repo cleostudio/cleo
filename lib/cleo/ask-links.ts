@@ -1,0 +1,162 @@
+/**
+ * Cross-site deep links into /cleo with a prefilled (optionally auto-submitted)
+ * prompt. Kept free of heavy catalog imports so guide pages and the homepage
+ * search client can share the same URL contract.
+ */
+
+export const CLEO_ASK_QUERY_PARAM = 'q'
+export const CLEO_ASK_AUTO_PARAM = 'auto'
+export const CLEO_ASK_MAX_PROMPT_LENGTH = 10_000
+
+export type CleoAskCollection = 'explore' | 'space' | 'topics' | 'gallery'
+
+export type CleoAskIntent = {
+  /** Prompt text placed in the Cleo input (and submitted when auto). */
+  prompt: string
+  /** When true, AskForm submits once on an empty conversation. */
+  autoSubmit: boolean
+}
+
+function clampPrompt(prompt: string) {
+  return prompt.trim().slice(0, CLEO_ASK_MAX_PROMPT_LENGTH)
+}
+
+function firstString(
+  value: string | string[] | undefined,
+): string | undefined {
+  if (typeof value === 'string') return value
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      if (typeof item === 'string') return item
+    }
+  }
+  return undefined
+}
+
+function isTruthyFlag(value: string | undefined) {
+  if (!value) return false
+  const normalized = value.trim().toLowerCase()
+  return (
+    normalized === '1' ||
+    normalized === 'true' ||
+    normalized === 'yes' ||
+    normalized === 'auto'
+  )
+}
+
+/** Build `/cleo?q=…` (and optional `auto=1`) for portal entry points. */
+export function cleoAskHref(
+  prompt: string,
+  options?: { autoSubmit?: boolean },
+): string {
+  const trimmed = clampPrompt(prompt)
+  if (!trimmed) return '/cleo'
+
+  const params = new URLSearchParams()
+  params.set(CLEO_ASK_QUERY_PARAM, trimmed)
+  if (options?.autoSubmit) {
+    params.set(CLEO_ASK_AUTO_PARAM, '1')
+  }
+  return `/cleo?${params.toString()}`
+}
+
+/**
+ * Parse Ask Cleo intent from Next.js `searchParams` or a query-string object.
+ * Returns null when `q` is missing/blank.
+ */
+export function parseCleoAskSearchParams(
+  searchParams:
+    | URLSearchParams
+    | Record<string, string | string[] | undefined>
+    | null
+    | undefined,
+): CleoAskIntent | null {
+  if (!searchParams) return null
+
+  const rawQ =
+    searchParams instanceof URLSearchParams
+      ? searchParams.get(CLEO_ASK_QUERY_PARAM) ?? undefined
+      : firstString(searchParams[CLEO_ASK_QUERY_PARAM])
+  const prompt = clampPrompt(rawQ ?? '')
+  if (!prompt) return null
+
+  const rawAuto =
+    searchParams instanceof URLSearchParams
+      ? searchParams.get(CLEO_ASK_AUTO_PARAM) ?? undefined
+      : firstString(searchParams[CLEO_ASK_AUTO_PARAM])
+
+  return {
+    prompt,
+    autoSubmit: isTruthyFlag(rawAuto),
+  }
+}
+
+/** Orientation prompt for an Explore or Space field guide. */
+export function guideAskPrompt(
+  collection: 'explore' | 'space',
+  name: string,
+): string {
+  const subject = name.trim()
+  if (!subject) {
+    return collection === 'explore'
+      ? 'Give me a quick orientation to a country on this site. Deep-link its Explore field guide when you mention it.'
+      : 'Give me a quick orientation to a Space subject on this site. Deep-link its Space field guide when you mention it.'
+  }
+
+  if (collection === 'explore') {
+    return `Give me a quick orientation to ${subject}. Deep-link its Explore field guide when you mention the country, and include a curated photograph if it helps.`
+  }
+
+  return `Give me a quick orientation to ${subject}. Deep-link its Space field guide when you mention it, and include a curated photograph if it helps.`
+}
+
+/** Broader prompts for Topics / Gallery / Explore & Space indexes. */
+export function surfaceAskPrompt(surface: CleoAskCollection): string {
+  switch (surface) {
+    case 'explore':
+      return 'Help me pick a country field guide to start with, then deep-link it.'
+    case 'space':
+      return 'Help me pick a Space field guide to start with, then deep-link it.'
+    case 'topics':
+      return 'Give me a quick tour of the Topics on this site and deep-link the collections that fit.'
+    case 'gallery':
+      return 'Help me find interesting photographs in the Gallery — suggest a few subjects and deep-link them.'
+  }
+}
+
+/** Homepage search fallback when no catalog hit matches. */
+export function searchAskPrompt(query: string): string {
+  const trimmed = query.trim()
+  if (!trimmed) {
+    return 'Help me explore this knowledge portal.'
+  }
+  return `I searched the portal for “${trimmed}” and found no matching guide. Help me with that topic, and deep-link any related Explore, Space, Gallery, or Writing pages if they exist.`
+}
+
+export function guideAskHref(
+  collection: 'explore' | 'space',
+  name: string,
+  options?: { autoSubmit?: boolean },
+) {
+  return cleoAskHref(guideAskPrompt(collection, name), {
+    autoSubmit: options?.autoSubmit ?? true,
+  })
+}
+
+export function surfaceAskHref(
+  surface: CleoAskCollection,
+  options?: { autoSubmit?: boolean },
+) {
+  return cleoAskHref(surfaceAskPrompt(surface), {
+    autoSubmit: options?.autoSubmit ?? true,
+  })
+}
+
+export function searchAskHref(
+  query: string,
+  options?: { autoSubmit?: boolean },
+) {
+  return cleoAskHref(searchAskPrompt(query), {
+    autoSubmit: options?.autoSubmit ?? true,
+  })
+}

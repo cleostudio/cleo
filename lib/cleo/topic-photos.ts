@@ -159,16 +159,31 @@ export function matchTopicPhotosInText(text: string): TopicPhoto[] {
   return resolveTopicPhotos(ordered)
 }
 
-/** Collect topic-matching text from the latest user turns. */
+/**
+ * Collect topic-matching text from the latest turns.
+ * Prefer recent user messages, then include the latest assistant reply so
+ * follow-ups like “show me a photo” still ground the subject just discussed.
+ */
 export function conversationTopicText(
   messages: readonly { role: string; content: string }[],
 ): string {
-  const userTexts = messages
-    .filter((message) => message.role === 'user' && message.content.trim())
+  const recent = messages
+    .filter((message) => message.content.trim())
+    .slice(-6)
+
+  const userTexts = recent
+    .filter((message) => message.role === 'user')
     .map((message) => message.content.trim())
     .slice(-3)
 
-  return userTexts.join('\n')
+  const latestAssistant = [...recent]
+    .reverse()
+    .find((message) => message.role === 'assistant')
+    ?.content.trim()
+
+  return [...userTexts, ...(latestAssistant ? [latestAssistant] : [])].join(
+    '\n',
+  )
 }
 
 /** Keep Markdown image alts from breaking on rare `]` / newline titles. */

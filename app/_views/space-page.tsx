@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import { AskCleoSurfaceLink } from '~/components/ask-cleo-link'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
@@ -34,6 +35,13 @@ export function SpacePageView() {
         </header>
         <PixelCluster variant={6} className="enter shrink-0" />
       </div>
+
+      <p
+        className="enter mt-6"
+        style={{ '--enter-delay': '90ms' } as React.CSSProperties}
+      >
+        <AskCleoSurfaceLink surface="space" />
+      </p>
 
       <div className="mt-10 flex flex-col gap-10">
         {categories.map(([category, subjects]) => {
