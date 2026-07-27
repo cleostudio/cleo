@@ -144,19 +144,35 @@ html[data-maps-route] body {
 
 .earth-map-search {
   position: relative;
+  /* Match the shared 32px control height (Input / Button lg). */
+  height: 2rem;
 }
 
 .earth-map-search input {
+  box-sizing: border-box;
+  display: block;
   width: 100%;
+  height: 100%;
+  margin: 0;
   border: 0;
   border-radius: var(--radius);
   background: transparent;
   color: var(--foreground);
   font-size: 0.875rem;
   letter-spacing: -0.011em;
-  line-height: 1.4;
-  padding: 0.65rem 0.85rem;
+  line-height: 1.25;
+  padding: 0 0.75rem;
   outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.earth-map-search input::-webkit-search-decoration,
+.earth-map-search input::-webkit-search-cancel-button,
+.earth-map-search input::-webkit-search-results-button,
+.earth-map-search input::-webkit-search-results-decoration {
+  appearance: none;
+  display: none;
 }
 
 .earth-map-search input::placeholder {
