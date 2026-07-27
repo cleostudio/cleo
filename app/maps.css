@@ -653,6 +653,57 @@ html[data-maps-route] body {
   letter-spacing: -0.011em;
 }
 
+.earth-map-neighbors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.earth-map-neighbors-label {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.earth-map-neighbors-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.earth-map-neighbor {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--background) 72%, transparent);
+  box-shadow: 0 0 0 1px var(--border);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  padding: 0.32rem 0.5rem;
+  transition:
+    background-color 150ms var(--ease-swift),
+    color 150ms var(--ease-swift),
+    box-shadow 150ms var(--ease-swift);
+}
+
+.earth-map-neighbor:hover {
+  color: var(--signal);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--signal) 45%, var(--border));
+}
+
+.earth-map-neighbor:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
 .earth-map-selection-actions {
   display: flex;
   flex-wrap: wrap;

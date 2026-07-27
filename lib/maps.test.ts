@@ -14,12 +14,14 @@ import {
   exploreRegionHref,
   filterMapCountrySuggestions,
   findMapCountryIndexEntry,
+  findMapNeighbors,
   findMapRegionCamera,
   formatMapCameraHash,
   formatMapCoords,
   countryLabelMinZoom,
   excerptMapAbout,
   isDefaultMapCamera,
+  mapCenterDistanceDeg,
   mapCountryHref,
   mapCountrySuggestionMatchKind,
   mapFocusKey,
@@ -211,6 +213,69 @@ describe('maps helpers', () => {
       mapCountrySuggestionMatchKind(sampleIndex[0]!, 'tokyo', { JP: 'Tokyo' }),
     ).toBe('capital')
     expect(filterMapCountrySuggestions(sampleIndex, 'zzz')).toEqual([])
+  })
+
+  it('finds nearby places by bounds adjacency and prefers same-region guides', () => {
+    const korea: MapCountryIndexEntry = {
+      code: 'KR',
+      name: 'South Korea',
+      slug: 'south-korea',
+      region: 'Asia',
+      center: [127.5, 36.5],
+      bounds: [
+        [126, 33],
+        [130, 39],
+      ],
+      maxZoom: 5,
+    }
+    const china: MapCountryIndexEntry = {
+      code: 'CN',
+      name: 'China',
+      slug: 'china',
+      region: 'Asia',
+      center: [104, 35],
+      bounds: [
+        [73, 18],
+        [135, 53],
+      ],
+      maxZoom: 3,
+    }
+    const brazil: MapCountryIndexEntry = {
+      code: 'BR',
+      name: 'Brazil',
+      slug: 'brazil',
+      region: 'Americas',
+      center: [-55, -10],
+      bounds: [
+        [-74, -34],
+        [-34, 5],
+      ],
+      maxZoom: 3,
+    }
+    const japan = sampleIndex[0]!
+    const neighbors = findMapNeighbors(japan, [
+      ...sampleIndex,
+      korea,
+      china,
+      brazil,
+      {
+        code: 'AQ',
+        name: 'Antarctica',
+        slug: null,
+        region: null,
+        center: [0, -80],
+        bounds: [
+          [-180, -90],
+          [180, -60],
+        ],
+        maxZoom: 2,
+      },
+    ])
+    expect(neighbors.map((entry) => entry.code)).toEqual(['KR', 'CN'])
+    expect(mapCenterDistanceDeg(japan.center, korea.center)).toBeLessThan(
+      mapCenterDistanceDeg(japan.center, china.center),
+    )
+    expect(findMapNeighbors(japan, sampleIndex)).toEqual([])
   })
 
   it('raises label min-zoom for small countries and excerpts atlas about copy', () => {

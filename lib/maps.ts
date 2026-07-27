@@ -489,6 +489,81 @@ export function boundsCenter(
   return [midLng, (south + north) / 2]
 }
 
+function expandBounds(
+  bounds: [[number, number], [number, number]],
+  padDegrees: number,
+): [[number, number], [number, number]] {
+  const [[west, south], [east, north]] = bounds
+  return [
+    [west - padDegrees, Math.max(-90, south - padDegrees)],
+    [east + padDegrees, Math.min(90, north + padDegrees)],
+  ]
+}
+
+/** Axis-aligned lon/lat overlap. Wrapped (dateline) boxes fall back to false. */
+export function boundsOverlap(
+  a: [[number, number], [number, number]],
+  b: [[number, number], [number, number]],
+): boolean {
+  const [[aw, as], [ae, an]] = a
+  const [[bw, bs], [be, bn]] = b
+  if (ae < aw || be < bw) return false
+  return aw <= be && ae >= bw && as <= bn && an >= bs
+}
+
+/** Approximate great-circle-ish distance in degrees (equirectangular). */
+export function mapCenterDistanceDeg(
+  a: [number, number],
+  b: [number, number],
+): number {
+  let dLng = Math.abs(a[0] - b[0])
+  if (dLng > 180) dLng = 360 - dLng
+  const dLat = Math.abs(a[1] - b[1])
+  const meanLat = ((a[1] + b[1]) / 2) * (Math.PI / 180)
+  return Math.hypot(dLng * Math.cos(meanLat), dLat)
+}
+
+/**
+ * Nearby places for the selection dossier — bounds adjacency with a center
+ * distance fallback. Prefers the same region and Explore-linked guides.
+ * Does not widen region cameras; callers jump country-by-country.
+ */
+export function findMapNeighbors(
+  entry: MapCountryIndexEntry,
+  countries: readonly MapCountryIndexEntry[],
+  { limit = 5, padDegrees = 3 } = {},
+): MapCountryIndexEntry[] {
+  if (limit <= 0) return []
+  const expanded = expandBounds(entry.bounds, padDegrees)
+  const entryArea = boundsArea(entry.bounds)
+  const maxCenterDist = Math.max(10, Math.sqrt(Math.max(entryArea, 0.01)) * 0.55)
+
+  const scored: Array<{
+    candidate: MapCountryIndexEntry
+    score: number
+  }> = []
+
+  for (const candidate of countries) {
+    if (candidate.code === entry.code || candidate.code === 'AQ') continue
+    const overlap = boundsOverlap(expanded, candidate.bounds)
+    const dist = mapCenterDistanceDeg(entry.center, candidate.center)
+    if (!overlap && dist > maxCenterDist) continue
+
+    const sameRegion = Boolean(
+      entry.region && candidate.region && entry.region === candidate.region,
+    )
+    let score = dist
+    if (sameRegion) score -= 4
+    if (candidate.slug) score -= 2
+    // Softly prefer compact neighbors over continental giants at similar range.
+    score += Math.min(boundsArea(candidate.bounds), 200) * 0.002
+    scored.push({ candidate, score })
+  }
+
+  scored.sort((a, b) => a.score - b.score)
+  return scored.slice(0, limit).map((item) => item.candidate)
+}
+
 export type MapLabelFeatureCollection = {
   type: 'FeatureCollection'
   features: Array<{

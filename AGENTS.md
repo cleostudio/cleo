@@ -55,10 +55,14 @@ viewport with paper/glass HUD chrome above the dock. Deep links use
 `/maps?region=[africa|americas|asia|europe|oceania]`. Pan/zoom also syncs a
 MapLibre-style camera hash (`#zoom/lat/lng`) so “Share” can copy the exact
 view; country/region params still win on load and use `history.pushState` so
-Back/Forward restores focus. Search matches country name or capital (capital
-hits fly to the city); Explore guides link back with “View on map”; homepage
+Back/Forward restores focus; clearing focus (or `hashchange` without a
+country/region) restores the camera hash. Search matches country name or
+capital (capital hits fly to the city); the selection dossier offers Nearby
+place chips, “Show capital”, and “Back to map” (refocuses the canvas for
+keyboard pan). Explore guides link back with “View on map”; homepage
 search/highlights deep-link into Maps; `?country=` / `?region=` set page
-titles; Cleo may cite the same map paths. MapLibre’s module workers are
+titles; Cleo may cite the same map paths (including territory ISO links).
+MapLibre’s module workers are
 vendored to `public/maplibre/` so Turbopack/Next can load them under the site
 CSP. Regenerate from a local 21600 source with
 `pnpm prepare:maps -- --blue-marble=/path/to/21600.jpg` (`--skip-tiles`

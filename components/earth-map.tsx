@@ -28,6 +28,7 @@ import {
   exploreRegionHref,
   filterMapCountrySuggestions,
   findMapCountryIndexEntry,
+  findMapNeighbors,
   findMapRegionCamera,
   formatMapCoords,
   MAP_CAPITALS_URL,
@@ -45,6 +46,7 @@ import {
   mapRegionHref,
   mapsFocusDocumentTitle,
   mapViewHref,
+  normalizeMapCamera,
   parseMapCameraHash,
   parseMapLayersSearchParams,
   readStoredMapLayers,
@@ -716,6 +718,9 @@ export function EarthMap({
   const [regions, setRegions] = useState<MapRegionCamera[]>(
     initialIndex?.regions ?? [],
   )
+  const [countries, setCountries] = useState<MapCountryIndexEntry[]>(
+    initialIndex?.countries ?? [],
+  )
   const [activeRegion, setActiveRegion] = useState<string | null>(null)
   const [layers, setLayers] = useState<MapLayerVisibility>(DEFAULT_MAP_LAYERS)
   const [layersHydrated, setLayersHydrated] = useState(false)
@@ -1011,6 +1016,7 @@ export function EarthMap({
           regionsRef.current = index.regions ?? []
           setRegions(regionsRef.current)
         }
+        setCountries(indexRef.current)
         upsertLabelLayers(map, indexRef.current, regionsRef.current)
         applyLayerVisibility(map, layersRef.current, selectedCodeRef.current)
       } catch {
@@ -1018,6 +1024,7 @@ export function EarthMap({
         if (!initialIndex?.countries.length) {
           indexRef.current = []
           regionsRef.current = []
+          setCountries([])
           setRegions([])
         }
         try {
@@ -1084,6 +1091,36 @@ export function EarthMap({
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
   }, [])
+
+  useEffect(() => {
+    if (!ready) return
+    const onHashChange = () => {
+      if (cameraHashPausedRef.current) return
+      const params = new URLSearchParams(window.location.search)
+      if (params.get('country') || params.get('region')) return
+      const map = mapRef.current
+      if (!map) return
+      const parsed = parseMapCameraHash(window.location.hash)
+      const next = normalizeMapCamera(
+        parsed ?? { center: DEFAULT_MAP_CENTER, zoom: DEFAULT_MAP_ZOOM },
+      )
+      const current = normalizeMapCamera(readMapCamera(map))
+      if (
+        current.zoom === next.zoom &&
+        current.center[0] === next.center[0] &&
+        current.center[1] === next.center[1]
+      ) {
+        return
+      }
+      cameraHashPausedRef.current = true
+      map.jumpTo({ center: next.center, zoom: next.zoom })
+      window.setTimeout(() => {
+        cameraHashPausedRef.current = false
+      }, 0)
+    }
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [ready])
 
   useEffect(() => {
     if (!ready || mapEpoch === 0) return
@@ -1326,6 +1363,11 @@ export function EarthMap({
 
   resetViewRef.current = resetView
 
+  function focusMapCanvas() {
+    mapRef.current?.getCanvas().focus({ preventScroll: true })
+    setFocusAnnouncement('Map focused. Arrow keys pan.')
+  }
+
   function toggleLayer(id: MapLayerId) {
     setLayers((current) => ({ ...current, [id]: !current[id] }))
   }
@@ -1401,6 +1443,10 @@ export function EarthMap({
 
   const searchListId = `${reactId}-map-suggestions`
   const photo = selected ? countryPhotos[selected.code] : undefined
+  const neighbors =
+    selectedEntry && countries.length > 0
+      ? findMapNeighbors(selectedEntry, countries)
+      : []
   const showSuggestionEmpty =
     suggestionsOpen &&
     query.trim().length > 0 &&
@@ -1744,6 +1790,27 @@ export function EarthMap({
                   {photo.places.join(' · ')}
                 </p>
               ) : null}
+              {neighbors.length > 0 ? (
+                <div className="earth-map-neighbors">
+                  <p className="earth-map-neighbors-label">Nearby</p>
+                  <div
+                    className="earth-map-neighbors-list"
+                    role="group"
+                    aria-label="Nearby places"
+                  >
+                    {neighbors.map((neighbor) => (
+                      <button
+                        key={neighbor.code}
+                        type="button"
+                        className="earth-map-neighbor"
+                        onClick={() => flyToCountry(neighbor)}
+                      >
+                        {neighbor.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
               <div className="earth-map-selection-actions">
                 {selected.href ? (
                   <Link href={selected.href} className="earth-map-guide-link">
@@ -1774,6 +1841,13 @@ export function EarthMap({
                   }}
                 >
                   Share link
+                </button>
+                <button
+                  type="button"
+                  className="earth-map-copy"
+                  onClick={focusMapCanvas}
+                >
+                  Back to map
                 </button>
               </div>
             </div>
@@ -1811,6 +1885,13 @@ export function EarthMap({
                   }}
                 >
                   Share link
+                </button>
+                <button
+                  type="button"
+                  className="earth-map-copy"
+                  onClick={focusMapCanvas}
+                >
+                  Back to map
                 </button>
               </div>
             </div>

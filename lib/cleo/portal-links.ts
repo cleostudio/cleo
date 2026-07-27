@@ -312,6 +312,11 @@ export const CLEO_PORTAL_STARTERS = [
       'Frame the African continent on Earth. Deep-link Maps with the Africa region camera (`/maps?region=africa`) and mention a couple of Explore guides.',
   },
   {
+    label: 'Find Hong Kong on the map',
+    prompt:
+      'Where is Hong Kong on Earth? Deep-link Maps with the territory ISO link `/maps?country=hk` (no Explore guide yet) and briefly place it relative to nearby China.',
+  },
+  {
     label: 'Why is Europa interesting?',
     prompt:
       'Why is Europa interesting as an ocean world? Deep-link the Space guide when you name it.',
