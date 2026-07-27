@@ -79,8 +79,10 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `store: false`. Encrypted reasoning items (`include:
   reasoning.encrypted_content`) are streamed to the client, persisted in the
   browser session, and replayed on later turns so Auto/Research can use
-  `reasoning.context: all_turns`. Per-turn topic photo grounding is a trailing
-  developer message so the static instruction prefix stays cacheable.
+  `reasoning.context: all_turns`. Auto/Research also include
+  `web_search_call.action.sources` and `code_interpreter_call.outputs` for the
+  activity panel. Per-turn topic photo grounding is a trailing developer
+  message so the static instruction prefix stays cacheable.
 - Behavior: `lib/cleo/instructions.ts` (base voice + research policy + portal
   surface guidance from `lib/cleo/portal-catalog.ts`). Guide/Writing/Gallery
   paths come from portal tools (and optional per-turn topic-photo grounding),
@@ -91,9 +93,11 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `reasoning`, `image_generation`, `portal_tool`, and `code_interpreter`. Portal
   tool labels update as `function_call_arguments` stream in; Research mode
   includes `web_search_call.action.sources` for the activity panel (Auto and
-  Research); expanded search steps link source hosts. Partial incomplete
-  answers and user Stop emit / mark `incomplete` so the UI can offer Continue /
-  Retry; hard failures show Retry in the dock.
+  Research); expanded search steps link source hosts; python steps can show
+  clipped interpreter logs. Partial incomplete answers and user Stop emit /
+  mark `incomplete` so the UI can offer Continue / Retry / Dismiss; Escape
+  stops generation; completed answers offer Regenerate. Hard failures show
+  Retry in the dock. Gallery/Writing tools return `?q=` filtered index links.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
   grounds matching subjects on each turn; tools can also supply paths);

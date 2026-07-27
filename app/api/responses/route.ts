@@ -1,6 +1,7 @@
 import OpenAI, { APIError } from "openai"
 import type {
   EasyInputMessage,
+  ResponseCodeInterpreterToolCall,
   ResponseCreateParamsStreaming,
   ResponseFunctionToolCall,
   ResponseFunctionWebSearch,
@@ -429,6 +430,45 @@ function activityFromImageGeneration(
   }
 }
 
+function summaryFromCodeInterpreter(
+  item: ResponseCodeInterpreterToolCall
+): string | undefined {
+  const logs = item.outputs
+    ?.filter(
+      (output): output is ResponseCodeInterpreterToolCall.Logs =>
+        output.type === "logs" && typeof output.logs === "string"
+    )
+    .map((output) => output.logs.trim())
+    .filter(Boolean)
+
+  if (!logs || logs.length === 0) {
+    return undefined
+  }
+
+  return logs.join("\n\n").slice(0, 1_200)
+}
+
+function activityFromCodeInterpreter(
+  item: ResponseCodeInterpreterToolCall,
+  status?: ActivityStatus
+): ActivityItem {
+  const summary = summaryFromCodeInterpreter(item)
+  return {
+    id: item.id,
+    kind: "code_interpreter",
+    status:
+      status ??
+      (item.status === "failed"
+        ? "failed"
+        : item.status === "completed"
+          ? "completed"
+          : item.status === "interpreting"
+            ? "interpreting"
+            : "in_progress"),
+    ...(summary ? { summary } : {}),
+  }
+}
+
 function summaryFromReasoning(item: ResponseReasoningItem) {
   const parts = item.summary.map((part) => part.text.trim()).filter(Boolean)
 
@@ -521,13 +561,17 @@ export async function POST(request: Request) {
   const reasoningContext = modeReasoningContext(mode)
   const maxToolCalls = modeMaxToolCalls(mode)
   // Always request encrypted reasoning for store:false multi-turn replay.
-  // Research also asks hosted web_search for source URLs (activity panel).
+  // Auto/Research also ask for web_search sources and python logs for the panel.
   const include: Array<
-    "reasoning.encrypted_content" | "web_search_call.action.sources"
+    | "reasoning.encrypted_content"
+    | "web_search_call.action.sources"
+    | "code_interpreter_call.outputs"
   > = ["reasoning.encrypted_content"]
-  // Auto/Research surface consulted hosts in the activity panel.
   if (mode !== "quick") {
-    include.push("web_search_call.action.sources")
+    include.push(
+      "web_search_call.action.sources",
+      "code_interpreter_call.outputs"
+    )
   }
 
   const createStream = () => {
@@ -874,12 +918,10 @@ export async function POST(request: Request) {
                     })
                   }
                 } else if (event.item.type === "code_interpreter_call") {
-                  emitActivity(controller, {
-                    id: event.item.id,
-                    kind: "code_interpreter",
-                    status:
-                      event.item.status === "failed" ? "failed" : "completed",
-                  })
+                  emitActivity(
+                    controller,
+                    activityFromCodeInterpreter(event.item)
+                  )
                 } else if (event.item.type === "function_call") {
                   const name = event.item.name
                   const args = event.item.arguments ?? ""

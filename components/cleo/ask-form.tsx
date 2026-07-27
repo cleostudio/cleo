@@ -249,6 +249,10 @@ export function AskForm() {
     !isSubmitting &&
     lastVisibleMessage?.role === "assistant" &&
     Boolean(lastVisibleMessage.incomplete)
+  const regenerateLabel =
+    Boolean(error) || Boolean(lastVisibleMessage?.incomplete)
+      ? "Retry"
+      : "Regenerate"
 
   useEffect(() => {
     messagesRef.current = messages
@@ -282,9 +286,37 @@ export function AskForm() {
   }, [mode, sessionReady])
 
   useEffect(() => {
-    if (!sessionReady || isSubmitting) return
-    saveCleoSession(messages, messageIdRef.current)
+    if (!sessionReady) return
+    // Checkpoint during streaming so a mid-turn reload keeps the draft.
+    if (!isSubmitting) {
+      saveCleoSession(messages, messageIdRef.current)
+      return
+    }
+    const timer = window.setTimeout(() => {
+      saveCleoSession(messages, messageIdRef.current)
+    }, 750)
+    return () => window.clearTimeout(timer)
   }, [messages, sessionReady, isSubmitting])
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key !== "Escape") return
+      if (!isSubmittingRef.current) return
+      if (event.defaultPrevented) return
+      const target = event.target
+      if (
+        target instanceof HTMLElement &&
+        target.closest('[role="dialog"], [data-radix-portal]')
+      ) {
+        return
+      }
+      event.preventDefault()
+      abortControllerRef.current?.abort()
+    }
+
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [])
 
   useEffect(() => {
     if (!hasMessages) return
@@ -358,6 +390,21 @@ export function AskForm() {
       hideUserMessage: true,
       clearPriorIncomplete: true,
     })
+  }
+
+  function handleDismissIncomplete() {
+    if (isSubmittingRef.current) return
+    const target = [...messagesRef.current]
+      .reverse()
+      .find((message) => !message.hidden && message.role === "assistant")
+    if (!target?.incomplete) return
+    setMessages((current) =>
+      current.map((message) =>
+        message.id === target.id
+          ? { ...message, incomplete: undefined }
+          : message
+      )
+    )
   }
 
   function removePendingImage(index: number) {
@@ -843,15 +890,30 @@ export function AskForm() {
                             Continue
                           </button>
                         ) : null}
+                        {message.incomplete &&
+                        message.id === lastVisibleMessage?.id ? (
+                          <button
+                            aria-label="Dismiss the incomplete notice"
+                            className="cleo-answer-action"
+                            onClick={handleDismissIncomplete}
+                            type="button"
+                          >
+                            Dismiss
+                          </button>
+                        ) : null}
                         {message.id === lastVisibleMessage?.id ? (
                           <button
-                            aria-label="Retry the last question"
+                            aria-label={
+                              regenerateLabel === "Retry"
+                                ? "Retry the last question"
+                                : "Regenerate the last answer"
+                            }
                             className="cleo-answer-action"
                             disabled={!canRetryLastTurn}
                             onClick={handleRetry}
                             type="button"
                           >
-                            Retry
+                            {regenerateLabel}
                           </button>
                         ) : null}
                       </div>

@@ -86,7 +86,7 @@ Before searching, identify the facts the answer actually needs. For a simple loo
 <research_policy>
 For multi-step research, comparisons, fact-checks, or recommendations that need evidence, work in a tight loop:
 1. Clarify the decisive question (silently unless ambiguity would change the answer).
-2. Use portal tools for on-site guides/photos when the topic may be in Explore or Space.
+2. Use portal tools for on-site guides, Gallery photos, or Writing when the topic may live on this portal.
 3. Use \`web_search\` for external or time-sensitive evidence.
 4. Synthesize with citations; note material conflicts.
 5. Stop when another tool round is unlikely to change the answer.

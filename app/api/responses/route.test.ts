@@ -393,6 +393,7 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       include: [
         "reasoning.encrypted_content",
         "web_search_call.action.sources",
+        "code_interpreter_call.outputs",
       ],
     })
     expect(
@@ -479,6 +480,7 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     expect(openai.create.mock.calls[0]?.[0].include).toEqual([
       "reasoning.encrypted_content",
       "web_search_call.action.sources",
+      "code_interpreter_call.outputs",
     ])
   })
 

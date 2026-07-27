@@ -120,9 +120,15 @@ describe('portal tools', () => {
         'search_writing',
         JSON.stringify({ query: 'marble', limit: 4 }),
       ),
-    ) as { results: { slug: string; href: string }[] }
+    ) as {
+      results: { slug: string; href: string }[]
+      writingHref: string
+      writingMarkdownLink: string
+    }
 
     expect(search.results.length).toBeGreaterThan(0)
+    expect(search.writingHref).toBe('/blog?q=marble')
+    expect(search.writingMarkdownLink).toBe('[Writing](/blog?q=marble)')
     const slug = search.results[0]!.slug
     const lookup = JSON.parse(
       executePortalTool('lookup_writing', JSON.stringify({ slug })),

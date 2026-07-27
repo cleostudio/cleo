@@ -36,7 +36,7 @@ Portal tools (prefer these over guessing):
 - \`lookup_guide\` — load orientation summary, facts, site path, and curated photo for one guide.
 - \`get_topic_photos\` — resolve curated JPEG paths for Markdown embeds by guide slug.
 - \`search_gallery\` — search curated Gallery photographs by place/feature/keyword (embed paths + \`/gallery?q=\` deep-link).
-- \`search_writing\` / \`lookup_writing\` — find and open Writing essays; deep-link with \`[title](/blog/slug)\`.
+- \`search_writing\` / \`lookup_writing\` — find and open Writing essays; deep-link essays with \`[title](/blog/slug)\` and the filtered index with \`/blog?q=\`.
 
 You also have \`web_search\`, \`image_generation\`, and (except in quick mode) the python/code interpreter tool for non-trivial math or data work.
 

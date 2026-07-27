@@ -4,6 +4,7 @@ import { WritingInkStage } from '~/components/hidden-list-stage'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { PostRow } from '~/components/post-row'
 import { RevealScope } from '~/components/reveal-scope'
+import { WritingIndexToolbar } from '~/components/writing-index-toolbar'
 import { getAllPosts } from '~/lib/content'
 import { T } from '~/lib/i18n'
 import type { Locale } from '~/lib/locale-route'
@@ -21,19 +22,28 @@ export function BlogIndexPageView({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-content px-6">
+    <div className="mx-auto w-full max-w-content px-6" data-writing-index>
       <header className="enter flex items-center justify-between">
         <h1 className="page-eyebrow">
           <T zh="写作" en="Writing" />
         </h1>
         <PixelCluster variant={1} />
       </header>
-      <WritingInkStage className="mt-6" contentClassName="flex flex-col gap-8">
+      <WritingIndexToolbar />
+      <p className="mb-4 px-0 text-sm text-muted-foreground" data-writing-empty hidden>
+        No essays match that search.
+      </p>
+      <WritingInkStage className="mt-2" contentClassName="flex flex-col gap-8">
         {[...postsByYear].map(([year, yearPosts]) => {
           const center = (yearPosts.length - 1) / 2
 
           return (
-            <section key={year} aria-labelledby={`posts-${year}`} className="relative">
+            <section
+              key={year}
+              aria-labelledby={`posts-${year}`}
+              className="relative"
+              data-writing-year
+            >
               {/* ghost folio: the year as a print folio numeral, at the edge of perception */}
               <span aria-hidden className={`ghost-folio ${GeistPixelSquare.className}`}>
                 {String(year).slice(2)}
@@ -49,6 +59,15 @@ export function BlogIndexPageView({ locale }: { locale: Locale }) {
                   <li
                     key={post.slug}
                     className="enter-swing"
+                    data-writing-item
+                    data-search-text={[
+                      post.title,
+                      post.titleEn,
+                      post.descriptionEn,
+                      post.slug,
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
                     style={
                       {
                         '--enter-delay': `${120 + Math.abs(index - center) * 50}ms`,

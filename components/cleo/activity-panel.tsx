@@ -461,6 +461,10 @@ export function ActivityPanel({
                   >
                     {detail}
                   </ShimmerText>
+                  {activity.kind === "code_interpreter" &&
+                  activity.summary?.trim() ? (
+                    <pre className="activity-code-logs">{activity.summary}</pre>
+                  ) : null}
                   {pageUrl ? (
                     <ul className="activity-sources">
                       <li>

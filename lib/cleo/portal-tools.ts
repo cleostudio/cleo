@@ -189,7 +189,7 @@ export const PORTAL_FUNCTION_TOOLS: FunctionTool[] = [
     type: 'function',
     name: 'search_writing',
     description:
-      'Search Writing essays on this site by title or description keywords. Use before linking a blog post.',
+      'Search Writing essays on this site by title or description keywords. Returns essay deep-links and a filtered Writing index link (`writingHref` / `writingMarkdownLink` with ?q=).',
     strict: true,
     parameters: {
       type: 'object',
@@ -395,9 +395,12 @@ function writingCatalog(): SiteSearchHit[] {
 function searchWriting(query: string, limit: number) {
   const capped = Math.min(8, Math.max(1, Number.isFinite(limit) ? limit : 4))
   const hits = filterSiteSearchHits(writingCatalog(), query, capped)
+  const writingHref = `/blog?q=${encodeURIComponent(query.trim())}`
   return {
     query,
     count: hits.length,
+    writingHref,
+    writingMarkdownLink: `[Writing](${writingHref})`,
     results: hits.map((hit) => ({
       slug: hit.href.replace(/^\/blog\//, ''),
       title: hit.title,
