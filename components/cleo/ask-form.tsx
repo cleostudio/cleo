@@ -495,13 +495,9 @@ export function AskForm() {
 
                   {message.content ? (
                     <Markdown
-                      disabled={isSubmitting}
                       isAnimating={
                         isSubmitting && message.id === messages.at(-1)?.id
                       }
-                      onPrompt={(prompt) => {
-                        void handleSubmit(undefined, prompt)
-                      }}
                     >
                       {message.content}
                     </Markdown>

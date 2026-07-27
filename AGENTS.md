@@ -85,14 +85,13 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
   `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).
-- Interactive response blocks: the model may emit fenced `cleo` JSON
-  (`follow_ups`, `choices`, `portal_actions`, `compare`) parsed by
+- Generative interactive widgets: the model may emit fenced `cleo` JSON
+  (`tabs`, `quiz`, `timeline`, `facts`, `compare`) parsed by
   `lib/cleo/interactive.ts` and rendered by `components/cleo/interactive.tsx`
-  inside `components/cleo/markdown.tsx` as paper controls (chip buttons,
-  choice cards, portal cards, compare plates) — not plain text links.
-  Follow-ups/choices submit via the ask-form; portal actions navigate
-  same-site paths only. Incomplete fences are dropped while streaming so
-  raw JSON never flashes.
+  inside `components/cleo/markdown.tsx`. These are in-answer widgets the user
+  manipulates in place (switch tabs, answer a quiz, expand facts/timeline,
+  focus compare columns) — not suggestion chips that submit a new prompt.
+  Incomplete fences are dropped while streaming so raw JSON never flashes.
 - Styles: `app/cleo.css` (streamdown + prompt dock + interactive blocks). Keep
   the prompt dock above the site dock via `--cleo-prompt-bottom`.
 

@@ -19,9 +19,7 @@ import { cn } from "~/lib/utils"
 type MarkdownProps = {
   children: string
   className?: string
-  disabled?: boolean
   isAnimating?: boolean
-  onPrompt?: (prompt: string) => void
 }
 
 type MarkdownAnchorProps = ComponentProps<"a"> & {
@@ -136,9 +134,7 @@ function MarkdownProse({
 export function Markdown({
   children,
   className,
-  disabled = false,
   isAnimating = false,
-  onPrompt,
 }: MarkdownProps) {
   const segments = segmentCleoMarkdown(children)
 
@@ -161,9 +157,7 @@ export function Markdown({
         return (
           <InteractiveBlock
             block={segment.block}
-            disabled={disabled}
             key={`ui-${segment.block.type}-${index}`}
-            onPrompt={onPrompt}
           />
         )
       })}

@@ -1,137 +1,128 @@
 import { describe, expect, it } from 'vitest'
 
-import {
-  isCleoPortalActionHref,
-  parseCleoInteractiveBlock,
-  segmentCleoMarkdown,
-} from './interactive'
+import { parseCleoInteractiveBlock, segmentCleoMarkdown } from './interactive'
 
 describe('parseCleoInteractiveBlock', () => {
-  it('parses follow_ups', () => {
+  it('parses tabs widgets', () => {
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
-          type: 'follow_ups',
-          items: [
-            { label: 'Food', prompt: 'Tell me about Japanese food.' },
-            { label: 'Season', prompt: 'Best season to visit Japan?' },
+          type: 'tabs',
+          title: 'Japan at a glance',
+          tabs: [
+            { label: 'Geography', body: 'An archipelago…' },
+            { label: 'Culture', body: 'Continuity and reinvention…' },
           ],
         }),
       ),
     ).toEqual({
-      type: 'follow_ups',
-      items: [
-        { label: 'Food', prompt: 'Tell me about Japanese food.' },
-        { label: 'Season', prompt: 'Best season to visit Japan?' },
+      type: 'tabs',
+      title: 'Japan at a glance',
+      tabs: [
+        { label: 'Geography', body: 'An archipelago…' },
+        { label: 'Culture', body: 'Continuity and reinvention…' },
       ],
     })
   })
 
-  it('parses choices with an optional prompt', () => {
+  it('parses quiz widgets and requires a matching answer id', () => {
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
-          type: 'choices',
-          prompt: 'Which angle?',
-          items: [{ label: 'History', prompt: 'History of Japan.' }],
-        }),
-      ),
-    ).toEqual({
-      type: 'choices',
-      prompt: 'Which angle?',
-      items: [{ label: 'History', prompt: 'History of Japan.' }],
-    })
-  })
-
-  it('parses portal_actions with allowlisted hrefs', () => {
-    expect(
-      parseCleoInteractiveBlock(
-        JSON.stringify({
-          type: 'portal_actions',
-          items: [
-            { label: 'Japan guide', href: '/explore/japan' },
-            { label: 'Gallery', href: '/gallery' },
+          type: 'quiz',
+          question: 'Which moon has an ocean?',
+          options: [
+            { id: 'a', label: 'Io' },
+            { id: 'b', label: 'Europa' },
           ],
+          answer: 'b',
+          explanation: 'Europa hides a global ocean under ice.',
         }),
       ),
-    ).toEqual({
-      type: 'portal_actions',
-      items: [
-        { label: 'Japan guide', href: '/explore/japan' },
-        { label: 'Gallery', href: '/gallery' },
-      ],
-    })
-  })
-
-  it('rejects unsafe or unknown portal hrefs', () => {
-    expect(
-      parseCleoInteractiveBlock(
-        JSON.stringify({
-          type: 'portal_actions',
-          items: [{ label: 'Evil', href: 'https://example.com' }],
-        }),
-      ),
-    ).toBeNull()
+    ).toMatchObject({ type: 'quiz', answer: 'b' })
 
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
-          type: 'portal_actions',
-          items: [{ label: 'Admin', href: '/admin' }],
+          type: 'quiz',
+          question: 'Which moon has an ocean?',
+          options: [
+            { id: 'a', label: 'Io' },
+            { id: 'b', label: 'Europa' },
+          ],
+          answer: 'z',
         }),
       ),
     ).toBeNull()
   })
 
-  it('parses compare plates', () => {
+  it('parses timeline, facts, and compare widgets', () => {
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'timeline',
+          title: 'Apollo',
+          events: [
+            { when: '1961', title: 'Goal set', detail: 'Kennedy speech.' },
+            { when: '1969', title: 'Landing' },
+          ],
+        }),
+      ),
+    ).toMatchObject({ type: 'timeline', title: 'Apollo' })
+
+    expect(
+      parseCleoInteractiveBlock(
+        JSON.stringify({
+          type: 'facts',
+          items: [
+            { label: 'Capital', value: 'Tokyo' },
+            {
+              label: 'Ocean',
+              value: 'Under ice',
+              detail: 'Tidal heating helps.',
+            },
+          ],
+        }),
+      ),
+    ).toMatchObject({ type: 'facts' })
+
     expect(
       parseCleoInteractiveBlock(
         JSON.stringify({
           type: 'compare',
-          title: 'Mars vs Earth',
           columns: ['Mars', 'Earth'],
-          rows: [
-            { label: 'Moons', values: ['2', '1'] },
-            { label: 'Day length', values: ['24.6 h', '24 h'] },
-          ],
+          rows: [{ label: 'Moons', values: ['2', '1'] }],
         }),
       ),
-    ).toMatchObject({
-      type: 'compare',
-      title: 'Mars vs Earth',
-      columns: ['Mars', 'Earth'],
-    })
+    ).toMatchObject({ type: 'compare' })
   })
 
-  it('rejects unknown types and malformed payloads', () => {
-    expect(parseCleoInteractiveBlock('{"type":"widget"}')).toBeNull()
-    expect(parseCleoInteractiveBlock('not-json')).toBeNull()
+  it('rejects suggestion-style and unknown types', () => {
     expect(
       parseCleoInteractiveBlock(
-        JSON.stringify({ type: 'follow_ups', items: [] }),
+        JSON.stringify({
+          type: 'follow_ups',
+          items: [{ label: 'More', prompt: 'Tell me more' }],
+        }),
       ),
     ).toBeNull()
+    expect(parseCleoInteractiveBlock('{"type":"portal_actions"}')).toBeNull()
+    expect(parseCleoInteractiveBlock('not-json')).toBeNull()
   })
 })
 
 describe('segmentCleoMarkdown', () => {
-  it('interleaves prose with validated interactive blocks', () => {
+  it('interleaves prose with generative widgets', () => {
     const markdown = [
       'Japan is an archipelago.',
       '',
       '```cleo',
       JSON.stringify({
-        type: 'follow_ups',
-        items: [{ label: 'Food', prompt: 'Japanese food culture?' }],
-      }),
-      '```',
-      '',
-      'Want photos next?',
-      '',
-      '```cleo',
-      JSON.stringify({
-        type: 'portal_actions',
-        items: [{ label: 'Gallery', href: '/gallery' }],
+        type: 'tabs',
+        tabs: [
+          { label: 'Geography', body: 'Islands.' },
+          { label: 'Culture', body: 'Continuity.' },
+        ],
       }),
       '```',
     ].join('\n')
@@ -141,22 +132,17 @@ describe('segmentCleoMarkdown', () => {
       {
         type: 'interactive',
         block: {
-          type: 'follow_ups',
-          items: [{ label: 'Food', prompt: 'Japanese food culture?' }],
-        },
-      },
-      { type: 'markdown', content: '\nWant photos next?\n\n' },
-      {
-        type: 'interactive',
-        block: {
-          type: 'portal_actions',
-          items: [{ label: 'Gallery', href: '/gallery' }],
+          type: 'tabs',
+          tabs: [
+            { label: 'Geography', body: 'Islands.' },
+            { label: 'Culture', body: 'Continuity.' },
+          ],
         },
       },
     ])
   })
 
-  it('omits incomplete trailing fences so streaming JSON never flashes', () => {
+  it('omits incomplete trailing fences while streaming', () => {
     const markdown = [
       'Comparing Mars and Earth.',
       '',
@@ -167,55 +153,5 @@ describe('segmentCleoMarkdown', () => {
     expect(segmentCleoMarkdown(markdown)).toEqual([
       { type: 'markdown', content: 'Comparing Mars and Earth.\n\n' },
     ])
-  })
-
-  it('drops invalid closed fences without leaking them into prose', () => {
-    const markdown = [
-      'Hello.',
-      '',
-      '```cleo',
-      '{"type":"nope"}',
-      '```',
-      '',
-      'Still here.',
-    ].join('\n')
-
-    expect(segmentCleoMarkdown(markdown)).toEqual([
-      { type: 'markdown', content: 'Hello.\n\n' },
-      { type: 'markdown', content: '\nStill here.' },
-    ])
-  })
-
-  it('accepts the cleo-ui language alias', () => {
-    const markdown = [
-      '```cleo-ui',
-      JSON.stringify({
-        type: 'choices',
-        items: [{ label: 'A', prompt: 'Pick A' }],
-      }),
-      '```',
-    ].join('\n')
-
-    expect(segmentCleoMarkdown(markdown)).toEqual([
-      {
-        type: 'interactive',
-        block: {
-          type: 'choices',
-          items: [{ label: 'A', prompt: 'Pick A' }],
-        },
-      },
-    ])
-  })
-})
-
-describe('isCleoPortalActionHref', () => {
-  it('allows portal surfaces and guide paths only', () => {
-    expect(isCleoPortalActionHref('/explore/japan')).toBe(true)
-    expect(isCleoPortalActionHref('/space/europa')).toBe(true)
-    expect(isCleoPortalActionHref('/gallery')).toBe(true)
-    expect(isCleoPortalActionHref('/topics')).toBe(true)
-    expect(isCleoPortalActionHref('/blog/hello')).toBe(true)
-    expect(isCleoPortalActionHref('/cleo')).toBe(false)
-    expect(isCleoPortalActionHref('/explore/../admin')).toBe(false)
   })
 })

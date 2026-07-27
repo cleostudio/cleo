@@ -165,7 +165,7 @@ describe('CLEO_PORTAL_STARTERS', () => {
       true,
     )
     expect(CLEO_PORTAL_STARTERS.map((starter) => starter.prompt).join('\n')).toMatch(
-      /follow_ups|choices|compare/,
+      /tabs|facts|quiz|compare/,
     )
   })
 })

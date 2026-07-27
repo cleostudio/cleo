@@ -526,16 +526,31 @@
   transform: translate(-50%, -50%);
 }
 
-/* Interactive response blocks — paper controls, not text links. */
+/* Generative interactive widgets embedded in Cleo replies. */
 .cleo-interactive {
+  min-width: 0;
+  padding-top: 0.15rem;
+}
+
+.cleo-widget {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  gap: 0.55rem;
-  padding-top: 0.25rem;
+  gap: 0.75rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+  border-radius: calc(var(--radius) + 6px);
+  background: color-mix(in oklab, var(--card) 94%, transparent);
+  padding: 0.9rem;
 }
 
-.cleo-interactive-eyebrow {
+.cleo-widget-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cleo-widget-eyebrow {
   margin: 0;
   color: var(--muted-foreground);
   font-size: 0.6875rem;
@@ -545,22 +560,35 @@
   text-transform: uppercase;
 }
 
-.cleo-interactive-followups {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.cleo-widget-title {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
 }
 
-.cleo-interactive-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+.cleo-widget-hint {
   margin: 0;
-  border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.cleo-widget-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.cleo-widget-tab {
+  margin: 0;
+  border: 1px solid transparent;
   border-radius: calc(var(--radius) + 2px);
-  background: color-mix(in oklab, var(--card) 88%, transparent);
-  padding: 0.55rem 0.8rem;
-  color: var(--foreground);
+  background: transparent;
+  padding: 0.45rem 0.7rem;
+  color: var(--muted-foreground);
   font: inherit;
   font-size: 0.875rem;
   font-weight: 500;
@@ -569,63 +597,55 @@
   transition:
     background-color 160ms var(--ease-swift),
     border-color 160ms var(--ease-swift),
-    transform 160ms var(--ease-swift);
+    color 160ms var(--ease-swift);
 }
 
-.cleo-interactive-chip-icon {
-  width: 0.9rem;
-  height: 0.9rem;
-  flex-shrink: 0;
-  color: var(--muted-foreground);
-}
-
-.cleo-interactive-chip:hover:not(:disabled) {
-  border-color: color-mix(in oklab, var(--foreground) 22%, transparent);
+.cleo-widget-tab:hover {
+  color: var(--foreground);
   background: var(--muted);
 }
 
-.cleo-interactive-chip:active:not(:disabled) {
-  transform: translateY(1px);
+.cleo-widget-tab[data-active] {
+  border-color: color-mix(in oklab, var(--foreground) 18%, transparent);
+  background: var(--muted);
+  color: var(--foreground);
 }
 
-.cleo-interactive-chip:focus-visible {
+.cleo-widget-tab:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
   outline-offset: 2px;
 }
 
-.cleo-interactive-chip:disabled {
-  cursor: not-allowed;
-  opacity: 0.55;
+.cleo-widget-tab-panel {
+  color: var(--foreground);
+  font-size: 0.925rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
 }
 
-.cleo-interactive-choice-list,
-.cleo-interactive-portal-list {
+.cleo-widget-quiz-options {
   display: flex;
-  min-width: 0;
   flex-direction: column;
   gap: 0.4rem;
 }
 
-.cleo-interactive-choice,
-.cleo-interactive-portal {
+.cleo-widget-quiz-option {
   display: flex;
   width: 100%;
-  min-width: 0;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
   margin: 0;
   border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
-  border-radius: calc(var(--radius) + 4px);
-  background: color-mix(in oklab, var(--card) 92%, transparent);
-  padding: 0.8rem 0.9rem;
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in oklab, var(--background) 70%, transparent);
+  padding: 0.7rem 0.8rem;
   color: var(--foreground);
   font: inherit;
-  font-size: 0.9375rem;
+  font-size: 0.925rem;
   font-weight: 500;
   line-height: 1.3;
   text-align: left;
-  text-decoration: none;
   cursor: pointer;
   transition:
     background-color 160ms var(--ease-swift),
@@ -633,83 +653,235 @@
     transform 160ms var(--ease-swift);
 }
 
-.cleo-interactive-choice-label,
-.cleo-interactive-portal-label {
-  min-width: 0;
-}
-
-.cleo-interactive-choice-chevron,
-.cleo-interactive-portal-icon {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-  color: var(--muted-foreground);
-  transition:
-    color 160ms var(--ease-swift),
-    transform 160ms var(--ease-swift);
-}
-
-.cleo-interactive-choice:hover:not(:disabled),
-.cleo-interactive-portal:hover {
-  border-color: color-mix(in oklab, var(--foreground) 22%, transparent);
+.cleo-widget-quiz-option:hover:not(:disabled) {
+  border-color: color-mix(in oklab, var(--foreground) 20%, transparent);
   background: var(--muted);
 }
 
-.cleo-interactive-choice:hover:not(:disabled) .cleo-interactive-choice-chevron,
-.cleo-interactive-portal:hover .cleo-interactive-portal-icon {
-  color: var(--foreground);
-  transform: translateX(1px);
-}
-
-.cleo-interactive-choice:active:not(:disabled),
-.cleo-interactive-portal:active {
+.cleo-widget-quiz-option:active:not(:disabled) {
   transform: translateY(1px);
 }
 
-.cleo-interactive-choice:focus-visible,
-.cleo-interactive-portal:focus-visible {
+.cleo-widget-quiz-option:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
   outline-offset: 2px;
 }
 
-.cleo-interactive-choice:disabled {
-  cursor: not-allowed;
+.cleo-widget-quiz-option:disabled {
+  cursor: default;
+}
+
+.cleo-widget-quiz-option[data-state='correct'] {
+  border-color: color-mix(in oklab, var(--foreground) 28%, transparent);
+  background: var(--muted);
+}
+
+.cleo-widget-quiz-option[data-state='wrong'] {
   opacity: 0.55;
 }
 
-.cleo-interactive-compare-plate {
-  overflow: hidden;
-  border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
-  border-radius: calc(var(--radius) + 4px);
-  background: color-mix(in oklab, var(--card) 92%, transparent);
-  padding: 0.85rem 0.15rem 0.25rem;
+.cleo-widget-quiz-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
 }
 
-.cleo-interactive-compare-title,
-.cleo-interactive-compare-plate > .cleo-interactive-eyebrow {
+.cleo-widget-quiz-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cleo-widget-quiz-result {
   margin: 0;
-  padding-inline: 0.85rem;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cleo-widget-quiz-explanation {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.cleo-widget-timeline {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cleo-widget-timeline-item {
+  position: relative;
+  padding-left: 1.15rem;
+  padding-bottom: 0.65rem;
+}
+
+.cleo-widget-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.cleo-widget-timeline-rail {
+  position: absolute;
+  top: 0.35rem;
+  left: 0.2rem;
+  bottom: -0.15rem;
+  width: 1px;
+  background: color-mix(in oklab, var(--border) 90%, transparent);
+}
+
+.cleo-widget-timeline-item:last-child .cleo-widget-timeline-rail {
+  bottom: auto;
+  height: 0.7rem;
+}
+
+.cleo-widget-timeline-rail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2.5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--foreground);
+}
+
+.cleo-widget-timeline-trigger {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 4.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0.15rem 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cleo-widget-timeline-trigger[data-static] {
+  cursor: default;
+}
+
+.cleo-widget-timeline-trigger:not([data-static]):hover .cleo-widget-timeline-title {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--foreground) 30%, transparent);
+  text-underline-offset: 0.14em;
+}
+
+.cleo-widget-timeline-trigger:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.cleo-widget-timeline-when {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.cleo-widget-timeline-title {
   color: var(--foreground);
   font-size: 0.925rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 500;
   line-height: 1.35;
 }
 
-.cleo-interactive-compare-plate > .cleo-interactive-eyebrow {
+.cleo-widget-timeline-chevron,
+.cleo-widget-fact-chevron {
+  width: 0.95rem;
+  height: 0.95rem;
   color: var(--muted-foreground);
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  transition: transform 160ms var(--ease-swift);
 }
 
-.cleo-interactive-compare-scroll {
+.cleo-widget-timeline-chevron[data-open],
+.cleo-widget-fact-chevron[data-open] {
+  transform: rotate(180deg);
+}
+
+.cleo-widget-timeline-detail,
+.cleo-widget-fact-detail {
+  margin: 0.2rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.cleo-widget-facts {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+}
+
+.cleo-widget-fact {
+  border-bottom: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+}
+
+.cleo-widget-fact-row {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0.7rem 0.1rem;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cleo-widget-fact-row[data-static] {
+  cursor: default;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+}
+
+.cleo-widget-fact-row:not([data-static]):hover {
+  background: color-mix(in oklab, var(--muted) 55%, transparent);
+}
+
+.cleo-widget-fact-row:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.cleo-widget-fact-label {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.cleo-widget-fact-value {
+  color: var(--foreground);
+  font-size: 0.925rem;
+  font-weight: 500;
+}
+
+.cleo-widget-fact-detail {
+  padding: 0 0.1rem 0.7rem;
+}
+
+.cleo-widget-compare-scroll {
   width: 100%;
   overflow-x: auto;
-  margin-top: 0.55rem;
 }
 
-.cleo-interactive-compare-table {
+.cleo-widget-compare-table {
   width: 100%;
   min-width: 18rem;
   border-collapse: collapse;
@@ -717,41 +889,69 @@
   line-height: 1.45;
 }
 
-.cleo-interactive-compare-table th,
-.cleo-interactive-compare-table td {
-  padding: 0.55rem 0.85rem;
+.cleo-widget-compare-table th,
+.cleo-widget-compare-table td {
+  padding: 0.55rem 0.35rem;
   border-top: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
   text-align: left;
   vertical-align: top;
 }
 
-.cleo-interactive-compare-table thead th {
-  color: var(--foreground);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-.cleo-interactive-compare-table tbody th {
+.cleo-widget-compare-table tbody th {
   width: 28%;
   color: var(--muted-foreground);
   font-weight: 500;
 }
 
-.cleo-interactive-compare-table tbody td {
+.cleo-widget-compare-table tbody td {
   color: var(--foreground);
+  transition: opacity 160ms var(--ease-swift);
 }
 
-.dark .cleo-interactive-chip,
-.dark .cleo-interactive-choice,
-.dark .cleo-interactive-portal,
-.dark .cleo-interactive-compare-plate {
+.cleo-widget-compare-table tbody td[data-dim] {
+  opacity: 0.38;
+}
+
+.cleo-widget-compare-table tbody td[data-focus] {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.cleo-widget-compare-focus {
+  margin: 0;
+  border: 0;
+  border-radius: calc(var(--radius) - 2px);
+  background: transparent;
+  padding: 0.15rem 0.35rem;
+  color: var(--foreground);
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+
+.cleo-widget-compare-focus[data-active],
+.cleo-widget-compare-focus:hover {
+  background: var(--muted);
+}
+
+.cleo-widget-compare-focus:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.dark .cleo-widget {
   border-color: color-mix(in oklab, var(--foreground) 14%, transparent);
   background: color-mix(in oklab, var(--card) 72%, transparent);
 }
 
-.dark .cleo-interactive-compare-table th,
-.dark .cleo-interactive-compare-table td {
-  border-top-color: color-mix(in oklab, var(--foreground) 12%, transparent);
+.dark .cleo-widget-quiz-option,
+.dark .cleo-widget-facts,
+.dark .cleo-widget-fact,
+.dark .cleo-widget-compare-table th,
+.dark .cleo-widget-compare-table td,
+.dark .cleo-widget-timeline-rail {
+  border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
 }
 
 .cleo-starters {

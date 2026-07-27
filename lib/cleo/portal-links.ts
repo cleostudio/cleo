@@ -186,21 +186,21 @@ export function presentPortalGuideMarkdown(markdown: string): string {
   return kept.join('\n\n')
 }
 
-/** Empty-state prompts that exercise portal grounding + interactive blocks. */
+/** Empty-state prompts that exercise portal grounding + generative widgets. */
 export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Orient me to Japan',
     prompt:
-      'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country, and finish with a cleo follow_ups block plus a portal_actions link to the Japan guide.',
+      'Give me a quick orientation to Japan. Deep-link its field guide, and include a cleo tabs widget covering Geography, Culture, and Today.',
   },
   {
     label: 'Why is Europa interesting?',
     prompt:
-      'Why is Europa interesting as an ocean world? Deep-link the Space guide when you name it, and offer cleo choices for ice shell vs subsurface ocean.',
+      'Why is Europa interesting as an ocean world? Deep-link the Space guide, and include a cleo facts widget with expandable details plus a short cleo quiz about its ocean.',
   },
   {
     label: 'Compare Mars and Earth',
     prompt:
-      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide when you name the planets, and include a cleo compare interactive block.',
+      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide, and include a cleo compare widget.',
   },
 ] as const

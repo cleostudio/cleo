@@ -113,37 +113,18 @@ describe('Cleo Markdown topic photos', () => {
   })
 })
 
-describe('Cleo Markdown interactive blocks', () => {
-  it('renders follow-up buttons and submits the prompt', () => {
-    const onPrompt = vi.fn()
+describe('Cleo Markdown generative widgets', () => {
+  it('renders tabs widgets inside the reply', () => {
     const markdown = [
       'Japan is an archipelago.',
       '',
       '```cleo',
       JSON.stringify({
-        type: 'follow_ups',
-        items: [
-          { label: 'Food culture', prompt: 'Tell me about Japanese food.' },
-        ],
-      }),
-      '```',
-    ].join('\n')
-
-    render(<Markdown onPrompt={onPrompt}>{markdown}</Markdown>)
-
-    expect(screen.getByText('Japan is an archipelago.')).toBeTruthy()
-    fireEvent.click(screen.getByRole('button', { name: 'Food culture' }))
-    expect(onPrompt).toHaveBeenCalledWith('Tell me about Japanese food.')
-  })
-
-  it('renders portal action links for allowlisted hrefs', () => {
-    const markdown = [
-      '```cleo',
-      JSON.stringify({
-        type: 'portal_actions',
-        items: [
-          { label: 'Open Japan guide', href: '/explore/japan' },
-          { label: 'Browse Gallery', href: '/gallery' },
+        type: 'tabs',
+        title: 'Japan at a glance',
+        tabs: [
+          { label: 'Geography', body: 'Four main islands.' },
+          { label: 'Culture', body: 'Continuity and reinvention.' },
         ],
       }),
       '```',
@@ -151,15 +132,12 @@ describe('Cleo Markdown interactive blocks', () => {
 
     render(<Markdown>{markdown}</Markdown>)
 
-    expect(
-      screen.getByRole('link', { name: 'Open Japan guide' }).getAttribute('href'),
-    ).toBe('/explore/japan')
-    expect(
-      screen.getByRole('link', { name: 'Browse Gallery' }).getAttribute('href'),
-    ).toBe('/gallery')
+    expect(screen.getByText('Japan is an archipelago.')).toBeTruthy()
+    expect(screen.getByRole('tab', { name: 'Geography' })).toBeTruthy()
+    expect(screen.getByText('Four main islands.')).toBeTruthy()
   })
 
-  it('renders compare plates as accessible tables', () => {
+  it('renders compare widgets as interactive tables', () => {
     const markdown = [
       '```cleo',
       JSON.stringify({
@@ -173,8 +151,7 @@ describe('Cleo Markdown interactive blocks', () => {
 
     render(<Markdown>{markdown}</Markdown>)
 
-    expect(screen.getByLabelText('Mars vs Earth')).toBeTruthy()
-    expect(screen.getByRole('columnheader', { name: 'Mars' })).toBeTruthy()
+    expect(screen.getByRole('button', { name: 'Mars' })).toBeTruthy()
     expect(screen.getByRole('rowheader', { name: 'Moons' })).toBeTruthy()
     expect(screen.getByRole('cell', { name: '2' })).toBeTruthy()
   })
@@ -182,12 +159,12 @@ describe('Cleo Markdown interactive blocks', () => {
   it('does not flash incomplete cleo fences while streaming', () => {
     const { container } = render(
       <Markdown isAnimating>
-        {'Prose first.\n\n```cleo\n{"type":"follow_ups","items":['}
+        {'Prose first.\n\n```cleo\n{"type":"tabs","tabs":['}
       </Markdown>,
     )
 
     expect(container.textContent).toContain('Prose first.')
-    expect(container.textContent).not.toContain('follow_ups')
+    expect(container.textContent).not.toContain('"type":"tabs"')
     expect(container.textContent).not.toContain('```')
   })
 })
