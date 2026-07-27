@@ -2,10 +2,46 @@
 
 import { useEffect, useId, useRef, useState } from 'react'
 
+function readGalleryQueryFromUrl() {
+  if (typeof window === 'undefined') return ''
+  try {
+    return new URLSearchParams(window.location.search).get('q')?.trim() ?? ''
+  } catch {
+    return ''
+  }
+}
+
+function writeGalleryQueryToUrl(query: string) {
+  if (typeof window === 'undefined') return
+  try {
+    const url = new URL(window.location.href)
+    const trimmed = query.trim()
+    if (trimmed) {
+      url.searchParams.set('q', trimmed)
+    } else {
+      url.searchParams.delete('q')
+    }
+    window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
+  } catch {
+    // History API unavailable — ignore.
+  }
+}
+
 export function PlaceGalleryToolbar() {
   const searchId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
   const [query, setQuery] = useState('')
+  const [hydrated, setHydrated] = useState(false)
+
+  useEffect(() => {
+    setQuery(readGalleryQueryFromUrl())
+    setHydrated(true)
+  }, [])
+
+  useEffect(() => {
+    if (!hydrated) return
+    writeGalleryQueryToUrl(query)
+  }, [hydrated, query])
 
   useEffect(() => {
     const root = rootRef.current?.closest<HTMLElement>('[data-place-gallery]')

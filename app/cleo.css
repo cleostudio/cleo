@@ -531,9 +531,15 @@
     calc(100% - (2 * var(--app-column-gutter))),
     var(--app-column-max)
   );
+  max-height: calc(100svh - 1.5rem);
   flex-direction: column;
   gap: 0.85rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-block: 0.35rem;
   transform: translate(-50%, -50%);
+  -webkit-overflow-scrolling: touch;
 }
 
 .cleo-starters {
@@ -548,7 +554,7 @@
   margin: 0;
   border: 0;
   background: transparent;
-  padding: 0;
+  padding: 0.2rem 0;
   color: var(--muted-foreground);
   font: inherit;
   font-size: 0.925rem;
@@ -579,12 +585,38 @@
 .prompt-dock-shell[data-docked] {
   top: auto;
   bottom: var(--cleo-prompt-bottom);
+  max-height: none;
+  overflow: visible;
+  padding-block: 0;
   transform: translateX(-50%);
 }
 
 @media (max-width: 39.99rem) {
+  .prompt-dock-shell:not([data-docked]) {
+    /* Prefer bottom-anchored empty state on short phones so starters are not
+       clipped under the fixed site dock when the shell grows past mid-screen. */
+    top: auto;
+    bottom: max(
+      0.75rem,
+      calc(var(--cleo-prompt-bottom-mobile) - 0.25rem)
+    );
+    max-height: calc(
+      100svh - 1rem - env(safe-area-inset-top, 0px) -
+        env(safe-area-inset-bottom, 0px)
+    );
+    transform: translateX(-50%);
+  }
+
   .prompt-dock-shell[data-docked] {
     bottom: var(--cleo-prompt-bottom-mobile);
+  }
+
+  .cleo-starters {
+    gap: 0.3rem 0.75rem;
+  }
+
+  .cleo-starter {
+    font-size: 0.8125rem;
   }
 }
 

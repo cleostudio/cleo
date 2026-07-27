@@ -35,7 +35,7 @@ Portal tools (prefer these over guessing):
 - \`search_portal_topics\` — find Explore/Space guides by name, region, category, or keyword.
 - \`lookup_guide\` — load orientation summary, facts, site path, and curated photo for one guide.
 - \`get_topic_photos\` — resolve curated JPEG paths for Markdown embeds by guide slug.
-- \`search_gallery\` — search curated Gallery photographs by place/feature/keyword (embed paths).
+- \`search_gallery\` — search curated Gallery photographs by place/feature/keyword (embed paths + \`/gallery?q=\` deep-link).
 - \`search_writing\` / \`lookup_writing\` — find and open Writing essays; deep-link with \`[title](/blog/slug)\`.
 
 You also have \`web_search\`, \`image_generation\`, and (except in quick mode) the python/code interpreter tool for non-trivial math or data work.

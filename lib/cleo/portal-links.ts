@@ -254,7 +254,7 @@ export const CLEO_PORTAL_STARTERS = [
   {
     label: 'Find nebula photos',
     prompt:
-      'Search the Gallery for nebula photographs and show one or two with short captions, linking each Space guide.',
+      'Search the Gallery for nebula photographs and show one or two with short captions, linking each Space guide and the filtered Gallery view.',
   },
   {
     label: 'Find a Writing essay',

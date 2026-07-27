@@ -103,4 +103,25 @@ describe('cleo session persistence', () => {
     const parsed = parseCleoSession(raw!)
     expect(parsed?.messages[1]?.incomplete?.reason).toBe('max_output_tokens')
   })
+
+  it('round-trips hidden Continue prompts', () => {
+    const raw = serializeCleoSession(
+      [
+        { id: 0, role: 'user', content: 'Tell me about Mars' },
+        { id: 1, role: 'assistant', content: 'Mars is…' },
+        {
+          id: 2,
+          role: 'user',
+          content: 'Continue from where you left off.',
+          hidden: true,
+        },
+        { id: 3, role: 'assistant', content: '…red and dusty.' },
+      ],
+      4,
+    )
+
+    const parsed = parseCleoSession(raw!)
+    expect(parsed?.messages[2]?.hidden).toBe(true)
+    expect(parsed?.messages[0]?.hidden).toBeUndefined()
+  })
 })

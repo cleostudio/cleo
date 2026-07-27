@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useId, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
 import { ThinkingOrb, type OrbState } from "thinking-orbs"
 
@@ -177,6 +177,17 @@ function searchSources(activity: ActivityItem): WebSearchSource[] {
   return action.sources.filter((source) => Boolean(source.url)).slice(0, 5)
 }
 
+function activityPageUrl(activity: ActivityItem): string | null {
+  const action = activity.action
+  if (!action || action.type === "portal_tool" || action.type === "search") {
+    return null
+  }
+  if (action.type === "open_page") {
+    return action.url ?? null
+  }
+  return action.url || null
+}
+
 function hasActionDetail(activity: ActivityItem) {
   const action = activity.action
 
@@ -349,6 +360,7 @@ export function ActivityPanel({
   isLive = false,
 }: ActivityPanelProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const detailsId = useId()
   const startedAtRef = useRef<number | null>(null)
   const [durationMs, setDurationMs] = useState<number | null>(null)
 
@@ -388,6 +400,7 @@ export function ActivityPanel({
   return (
     <div className="activity-panel mb-3">
       <button
+        aria-controls={detailsId}
         aria-expanded={isOpen}
         className="group flex max-w-full items-center gap-1.5 rounded-md text-left text-sm transition-colors"
         onClick={() => setIsOpen((open) => !open)}
@@ -419,7 +432,7 @@ export function ActivityPanel({
       </button>
 
       {isOpen ? (
-        <ul className="mt-2 space-y-1.5 pl-5">
+        <ul className="mt-2 space-y-1.5 pl-5" id={detailsId}>
           {activities
             .filter((activity) => shouldShowExpandedActivity(activity, isLive))
             .map((activity) => {
@@ -430,6 +443,11 @@ export function ActivityPanel({
                 activity.kind !== "reasoning" && isActive && isLive
               const sources =
                 activity.status === "completed" ? searchSources(activity) : []
+              const pageUrl =
+                activity.status === "completed"
+                  ? activityPageUrl(activity)
+                  : null
+              const pageHost = pageUrl ? hostnameFromUrl(pageUrl) : null
 
               return (
                 <li className="min-w-0" key={activity.id}>
@@ -443,6 +461,20 @@ export function ActivityPanel({
                   >
                     {detail}
                   </ShimmerText>
+                  {pageUrl ? (
+                    <ul className="activity-sources">
+                      <li>
+                        <a
+                          className="activity-source-link"
+                          href={pageUrl}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          {pageHost || pageUrl}
+                        </a>
+                      </li>
+                    </ul>
+                  ) : null}
                   {sources.length > 0 ? (
                     <ul className="activity-sources">
                       {sources.map((source) => {

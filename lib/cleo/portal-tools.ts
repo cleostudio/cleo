@@ -167,7 +167,7 @@ export const PORTAL_FUNCTION_TOOLS: FunctionTool[] = [
     type: 'function',
     name: 'search_gallery',
     description:
-      'Search curated Gallery photographs (Explore places and Space bodies) by place name, feature, country, or keyword. Returns embeddable JPEG paths.',
+      'Search curated Gallery photographs (Explore places and Space bodies) by place name, feature, country, or keyword. Returns embeddable JPEG paths and a filtered Gallery deep-link (`galleryHref` / `galleryMarkdownLink` with ?q=).',
     strict: true,
     parameters: {
       type: 'object',
@@ -364,12 +364,14 @@ function searchGallery(query: string, limit: number) {
     photos: ranked.map(({ item }) => {
       const src = staticRendition(item.photo, 1280).src
       const title = item.title.replace(/[\[\]\r\n]+/g, ' ').trim()
+      const galleryHref = `/gallery?q=${encodeURIComponent(query.trim())}`
       return {
         collection: item.collection,
         title: item.title,
         subtitle: item.subtitle,
         href: item.href,
-        galleryHref: '/gallery',
+        galleryHref,
+        galleryMarkdownLink: `[Gallery](${galleryHref})`,
         alt: item.photo.alt,
         caption: item.photo.caption,
         src,

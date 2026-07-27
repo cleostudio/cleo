@@ -27,6 +27,8 @@ export type PersistedIncomplete = {
 export type PersistedCleoMessage = {
   activities?: ActivityItem[]
   content: string
+  /** Hide Continue prompts from the transcript while keeping API history. */
+  hidden?: boolean
   id: number
   images?: MessageImage[]
   incomplete?: PersistedIncomplete
@@ -118,6 +120,7 @@ function sanitizeMessage(value: unknown): PersistedCleoMessage | null {
     id: message.id,
     role: message.role,
     content: message.content.slice(0, 10_000),
+    ...(message.hidden === true ? { hidden: true } : {}),
     ...(activities && activities.length > 0 ? { activities } : {}),
     ...(images ? { images } : {}),
     ...(reasoningItems ? { reasoningItems } : {}),
@@ -166,6 +169,7 @@ export function serializeCleoSession(
       id: message.id,
       role: message.role,
       content: message.content.slice(0, 10_000),
+      ...(message.hidden === true ? { hidden: true } : {}),
       ...(message.activities && message.activities.length > 0
         ? { activities: message.activities.slice(0, 40) }
         : {}),

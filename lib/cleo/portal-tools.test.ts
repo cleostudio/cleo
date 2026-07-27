@@ -95,11 +95,23 @@ describe('portal tools', () => {
         'search_gallery',
         JSON.stringify({ query: 'fuji', limit: 4 }),
       ),
-    ) as { count: number; photos: { src: string; href: string }[] }
+    ) as {
+      count: number
+      photos: {
+        src: string
+        href: string
+        galleryHref: string
+        galleryMarkdownLink: string
+      }[]
+    }
 
     expect(payload.count).toBeGreaterThan(0)
     expect(payload.photos[0]?.src).toContain('/images/')
     expect(payload.photos[0]?.href).toMatch(/^\/(explore|space)\//)
+    expect(payload.photos[0]?.galleryHref).toBe('/gallery?q=fuji')
+    expect(payload.photos[0]?.galleryMarkdownLink).toBe(
+      '[Gallery](/gallery?q=fuji)',
+    )
   })
 
   it('searches and looks up Writing essays', () => {
