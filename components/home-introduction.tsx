@@ -192,20 +192,20 @@ export function HomeIntroduction() {
             <>
               Cleo 是一座
               <CraftPhrase>知识门户</CraftPhrase>
-              。从
+              ，现在先做
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
                   <span className="home-detail-unit">国家</span>{' '}
-                  <span className="home-detail-unit">与</span>{' '}
+                  <span className="home-detail-unit">和</span>{' '}
                   <span className="home-detail-unit">太空</span>
                 </span>
               </HopPhrase>
-              起步，之后会加入更多主题。
+              ，之后再慢慢补上更多主题。
             </>
           }
           en={
             <>
-              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase>. It starts with{' '}
+              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase> that begins with{' '}
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
                   <span className="home-detail-unit">countries</span>{' '}
@@ -213,7 +213,7 @@ export function HomeIntroduction() {
                   <span className="home-detail-unit">space</span>
                 </span>
               </HopPhrase>
-              , then adds more topics.
+              , and grows from there.
             </>
           }
         />
@@ -222,14 +222,15 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              导览、
+              这里有导览可读，有
               <PhotoPhrase>照片</PhotoPhrase>
-              和可检索目录都在这里。
+              可看，也能搜索主题目录。
             </>
           }
           en={
             <>
-              Guides, <PhotoPhrase>photographs</PhotoPhrase>, and a searchable catalog live here.
+              You can read guides, browse <PhotoPhrase>photographs</PhotoPhrase>, and search the topic
+              catalog.
             </>
           }
         />
@@ -238,7 +239,7 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              从{' '}
+              可以从{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 主题
               </Link>
@@ -255,7 +256,7 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Start with{' '}
+              Start from{' '}
               <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 Topics
               </Link>
