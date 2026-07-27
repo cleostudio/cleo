@@ -220,6 +220,8 @@ export function AskForm() {
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesRef = useRef<Message[]>([])
+  const isSubmittingRef = useRef(false)
   const mountedRef = useRef(true)
 
   const hasMessages = messages.length > 0
@@ -232,6 +234,14 @@ export function AskForm() {
     !isSubmitting &&
     lastMessage?.role === "assistant" &&
     Boolean(lastMessage.incomplete)
+
+  useEffect(() => {
+    messagesRef.current = messages
+  }, [messages])
+
+  useEffect(() => {
+    isSubmittingRef.current = isSubmitting
+  }, [isSubmitting])
 
   useEffect(() => {
     const restored = loadCleoSession()
@@ -312,21 +322,22 @@ export function AskForm() {
   }
 
   function handleRetry() {
-    if (isSubmitting) return
-    const userIndex = lastUserMessageIndex(messages)
+    if (isSubmittingRef.current) return
+    const current = messagesRef.current
+    const userIndex = lastUserMessageIndex(current)
     if (userIndex < 0) return
-    const lastUser = messages[userIndex]!
+    const lastUser = current[userIndex]!
     void sendTurn({
-      history: messages.slice(0, userIndex),
+      history: current.slice(0, userIndex),
       question: lastUser.content,
       userImages: lastUser.images ?? [],
     })
   }
 
   function handleContinue() {
-    if (isSubmitting) return
+    if (isSubmittingRef.current) return
     void sendTurn({
-      history: messages,
+      history: messagesRef.current,
       question: CONTINUE_PROMPT,
       userImages: [],
     })
@@ -370,7 +381,7 @@ export function AskForm() {
   }
 
   async function sendTurn({ history, question, userImages }: TurnRequest) {
-    if ((!question && userImages.length === 0) || isSubmitting) {
+    if ((!question && userImages.length === 0) || isSubmittingRef.current) {
       return
     }
 
@@ -400,6 +411,7 @@ export function AskForm() {
     const abortController = new AbortController()
     abortControllerRef.current = abortController
 
+    isSubmittingRef.current = true
     setMessages([...history, userMessage, assistantMessage])
     setInput("")
     setPendingImages([])
@@ -606,6 +618,7 @@ export function AskForm() {
       if (abortControllerRef.current === abortController) {
         abortControllerRef.current = null
       }
+      isSubmittingRef.current = false
       if (mountedRef.current) {
         setIsSubmitting(false)
       }
