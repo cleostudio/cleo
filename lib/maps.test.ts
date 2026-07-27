@@ -16,6 +16,7 @@ import {
   findMapCountryIndexEntry,
   findMapNeighbors,
   findMapRegionCamera,
+  findMapRegionSamples,
   formatMapCameraHash,
   formatMapCoords,
   countryLabelMinZoom,
@@ -27,9 +28,12 @@ import {
   mapFocusKey,
   mapHrefWithLayers,
   mapRegionHref,
+  mapRegionLabel,
+  mapSuggestionSecondary,
   mapsDeepLinkMetadata,
   mapsFocusDocumentTitle,
   mapViewHref,
+  resolveMapIdleStarters,
   MAP_CAPITALS_URL,
   MAP_COUNTRIES_URL,
   MAP_COUNTRY_INDEX_URL,
@@ -126,6 +130,8 @@ describe('maps helpers', () => {
     expect(exploreRegionHref('asia')).toBe('/explore#region-Asia')
     expect(exploreRegionHref('Americas')).toBe('/explore#region-Americas')
     expect(exploreRegionHref('atlantis')).toBe('/explore')
+    expect(mapRegionLabel('asia')).toBe('Asia')
+    expect(mapRegionLabel('atlantis')).toBeNull()
     expect(parseMapCountryParam('japan')).toEqual({ kind: 'slug', value: 'japan' })
     expect(parseMapCountryParam('jp')).toEqual({ kind: 'code', value: 'JP' })
     expect(parseMapRegionParam('EUROPE')).toBe('europe')
@@ -212,7 +218,141 @@ describe('maps helpers', () => {
     expect(
       mapCountrySuggestionMatchKind(sampleIndex[0]!, 'tokyo', { JP: 'Tokyo' }),
     ).toBe('capital')
+    expect(
+      mapSuggestionSecondary(sampleIndex[0]!, 'tokyo', { JP: 'Tokyo' }),
+    ).toBe('Capital · Tokyo')
+    expect(
+      mapSuggestionSecondary(
+        {
+          code: 'HK',
+          name: 'Hong Kong',
+          slug: null,
+          region: 'Asia',
+          center: [114, 22],
+          bounds: [
+            [113.8, 22.1],
+            [114.4, 22.6],
+          ],
+          maxZoom: 6,
+          capitalName: 'Hong Kong',
+        },
+        'hk',
+      ),
+    ).toBe('Territory · Asia')
+    expect(
+      mapSuggestionSecondary(
+        {
+          code: 'HK',
+          name: 'Hong Kong',
+          slug: null,
+          region: 'Asia',
+          center: [114, 22],
+          bounds: [
+            [113.8, 22.1],
+            [114.4, 22.6],
+          ],
+          maxZoom: 6,
+          capitalName: 'Hong Kong',
+        },
+        'hong',
+      ),
+    ).toBe('Capital · Hong Kong')
     expect(filterMapCountrySuggestions(sampleIndex, 'zzz')).toEqual([])
+    expect(
+      filterMapCountrySuggestions(
+        [
+          ...sampleIndex,
+          {
+            code: 'KR',
+            name: 'South Korea',
+            slug: 'south-korea',
+            region: 'Asia',
+            center: [127.5, 36.5],
+            bounds: [
+              [126, 33],
+              [130, 39],
+            ],
+            maxZoom: 5,
+            capitalName: 'Seoul',
+          },
+        ],
+        'seoul',
+        { KR: 'Seoul' },
+      ).map((entry) => entry.code),
+    ).toEqual(['KR'])
+  })
+
+  it('samples curated Explore guides for a region dossier', () => {
+    const asiaPool: MapCountryIndexEntry[] = [
+      {
+        code: 'AF',
+        name: 'Afghanistan',
+        slug: 'afghanistan',
+        region: 'Asia',
+        center: [66, 33],
+        bounds: [
+          [60, 29],
+          [75, 38],
+        ],
+        maxZoom: 4,
+      },
+      {
+        code: 'JP',
+        name: 'Japan',
+        slug: 'japan',
+        region: 'Asia',
+        center: [138, 36],
+        bounds: [
+          [123, 24],
+          [146, 46],
+        ],
+        maxZoom: 4.5,
+      },
+      {
+        code: 'CN',
+        name: 'China',
+        slug: 'china',
+        region: 'Asia',
+        center: [104, 35],
+        bounds: [
+          [73, 18],
+          [135, 53],
+        ],
+        maxZoom: 3,
+      },
+      {
+        code: 'HK',
+        name: 'Hong Kong',
+        slug: null,
+        region: 'Asia',
+        center: [114, 22],
+        bounds: [
+          [113.8, 22.1],
+          [114.4, 22.6],
+        ],
+        maxZoom: 6,
+      },
+    ]
+    expect(
+      findMapRegionSamples('asia', asiaPool, { limit: 2 }).map(
+        (entry) => entry.code,
+      ),
+    ).toEqual(['JP', 'CN'])
+    expect(findMapRegionSamples('atlantis', asiaPool)).toEqual([])
+  })
+
+  it('resolves idle starter chips from the country and region indexes', () => {
+    const starters = resolveMapIdleStarters(sampleIndex, sampleRegions, [
+      { kind: 'country', value: 'japan' },
+      { kind: 'region', value: 'asia' },
+      { kind: 'country', value: 'zz' },
+    ])
+    expect(starters.map((starter) => starter.key)).toEqual([
+      'country:JP',
+      'region:asia',
+    ])
+    expect(starters[0]).toMatchObject({ kind: 'country', label: 'Japan' })
+    expect(starters[1]).toMatchObject({ kind: 'region', label: 'Asia' })
   })
 
   it('finds nearby places by bounds adjacency and prefers same-region guides', () => {

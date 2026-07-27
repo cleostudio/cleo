@@ -246,11 +246,114 @@ const EXPLORE_REGION_LABELS: Record<MapRegionId, string> = {
   oceania: 'Oceania',
 }
 
+/** Title-case Explore/index region label for a Maps region camera id. */
+export function mapRegionLabel(regionIdOrLabel: string): string | null {
+  const parsed = parseMapRegionParam(regionIdOrLabel)
+  return parsed ? EXPLORE_REGION_LABELS[parsed] : null
+}
+
 /** Jump to the matching region heading on the Explore index. */
 export function exploreRegionHref(regionIdOrLabel: string) {
   const parsed = parseMapRegionParam(regionIdOrLabel)
   if (!parsed) return '/explore'
   return `/explore#region-${EXPLORE_REGION_LABELS[parsed]}`
+}
+
+/** Curated Explore slugs preferred when sampling a continent dossier. */
+const REGION_SAMPLE_PREFERENCE: Record<MapRegionId, readonly string[]> = {
+  africa: ['egypt', 'kenya', 'morocco', 'south-africa', 'ethiopia', 'ghana'],
+  americas: ['peru', 'united-states', 'brazil', 'mexico', 'canada', 'chile'],
+  asia: ['japan', 'china', 'india', 'indonesia', 'south-korea', 'thailand'],
+  europe: ['greece', 'iceland', 'italy', 'france', 'norway', 'portugal'],
+  oceania: ['new-zealand', 'australia', 'fiji', 'papua-new-guinea', 'samoa'],
+}
+
+/**
+ * Sample Explore-linked places for a region dossier. Prefers curated guides,
+ * then largest remaining guides by bounds area. Does not widen the region camera.
+ */
+export function findMapRegionSamples(
+  regionId: string,
+  countries: readonly MapCountryIndexEntry[],
+  { limit = 6 } = {},
+): MapCountryIndexEntry[] {
+  if (limit <= 0) return []
+  const parsed = parseMapRegionParam(regionId)
+  const label = parsed ? EXPLORE_REGION_LABELS[parsed] : null
+  if (!parsed || !label) return []
+
+  const inRegion = countries.filter(
+    (entry) => entry.region === label && entry.code !== 'AQ',
+  )
+  const preferred: MapCountryIndexEntry[] = []
+  for (const slug of REGION_SAMPLE_PREFERENCE[parsed]) {
+    const hit = inRegion.find((entry) => entry.slug === slug)
+    if (hit) preferred.push(hit)
+    if (preferred.length >= limit) return preferred.slice(0, limit)
+  }
+
+  const preferredCodes = new Set(preferred.map((entry) => entry.code))
+  const rest = inRegion
+    .filter((entry) => entry.slug && !preferredCodes.has(entry.code))
+    .sort((a, b) => boundsArea(b.bounds) - boundsArea(a.bounds))
+
+  return [...preferred, ...rest].slice(0, limit)
+}
+
+/** Idle-state discovery chips when nothing is selected. */
+export const MAP_IDLE_STARTER_SPECS = [
+  { kind: 'country', value: 'japan' },
+  { kind: 'country', value: 'greece' },
+  { kind: 'country', value: 'iceland' },
+  { kind: 'region', value: 'africa' },
+  { kind: 'country', value: 'hk' },
+] as const
+
+export type MapIdleStarter =
+  | {
+      kind: 'country'
+      key: string
+      label: string
+      entry: MapCountryIndexEntry
+    }
+  | {
+      kind: 'region'
+      key: string
+      label: string
+      region: MapRegionCamera
+    }
+
+export function resolveMapIdleStarters(
+  countries: readonly MapCountryIndexEntry[],
+  regions: readonly MapRegionCamera[],
+  specs: readonly {
+    kind: 'country' | 'region'
+    value: string
+  }[] = MAP_IDLE_STARTER_SPECS,
+): MapIdleStarter[] {
+  const starters: MapIdleStarter[] = []
+  for (const spec of specs) {
+    if (spec.kind === 'country') {
+      const entry = findMapCountryIndexEntry(countries, spec.value)
+      if (!entry) continue
+      starters.push({
+        kind: 'country',
+        key: `country:${entry.code}`,
+        label: entry.name,
+        entry,
+      })
+      continue
+    }
+    const region = findMapRegionCamera(regions, spec.value)
+    if (!region) continue
+    starters.push({
+      kind: 'region',
+      key: `region:${region.id}`,
+      label: region.label,
+      region,
+    })
+  }
+  return starters
 }
 
 export function parseMapCountryParam(
@@ -787,6 +890,13 @@ export function buildGraticuleCollection(step = 30): MapLineFeatureCollection {
 
 export type MapSuggestionMatchKind = 'name' | 'code' | 'slug' | 'capital'
 
+const SUGGESTION_MATCH_RANK: Record<MapSuggestionMatchKind, number> = {
+  code: 0,
+  slug: 1,
+  capital: 2,
+  name: 3,
+}
+
 /** Why a country index row matched the combobox query. */
 export function mapCountrySuggestionMatchKind(
   entry: MapCountryIndexEntry,
@@ -797,11 +907,27 @@ export function mapCountrySuggestionMatchKind(
   if (!trimmed) return null
   if (entry.code.toLowerCase() === trimmed) return 'code'
   if (entry.slug?.toLowerCase() === trimmed) return 'slug'
-  if (entry.name.toLowerCase().includes(trimmed)) return 'name'
   const capital =
     (entry.capitalName ?? capitals[entry.code] ?? '').toLowerCase()
   if (capital.length > 0 && capital.includes(trimmed)) return 'capital'
+  if (entry.name.toLowerCase().includes(trimmed)) return 'name'
   return null
+}
+
+/** Secondary line for a combobox row (match reason / territory / region). */
+export function mapSuggestionSecondary(
+  entry: MapCountryIndexEntry,
+  query: string,
+  capitals: Readonly<Record<string, string>> = {},
+): string | null {
+  const kind = mapCountrySuggestionMatchKind(entry, query, capitals)
+  const capital = entry.capitalName ?? capitals[entry.code] ?? null
+  if (kind === 'capital' && capital) return `Capital · ${capital}`
+  const parts: string[] = []
+  if (!entry.slug) parts.push('Territory')
+  if (entry.region) parts.push(entry.region)
+  if (capital && kind !== 'code') parts.push(`Capital · ${capital}`)
+  return parts.length > 0 ? parts.join(' · ') : null
 }
 
 /** Country index filter for the Maps combobox (name, code, slug, capital). */
@@ -813,8 +939,21 @@ export function filterMapCountrySuggestions(
 ): MapCountryIndexEntry[] {
   if (!query.trim()) return []
   return countries
-    .filter((entry) => mapCountrySuggestionMatchKind(entry, query, capitals))
+    .map((entry) => {
+      const kind = mapCountrySuggestionMatchKind(entry, query, capitals)
+      if (!kind) return null
+      return { entry, kind }
+    })
+    .filter((item): item is { entry: MapCountryIndexEntry; kind: MapSuggestionMatchKind } =>
+      Boolean(item),
+    )
+    .sort((a, b) => {
+      const rank = SUGGESTION_MATCH_RANK[a.kind] - SUGGESTION_MATCH_RANK[b.kind]
+      if (rank !== 0) return rank
+      return a.entry.name.localeCompare(b.entry.name)
+    })
     .slice(0, limit)
+    .map((item) => item.entry)
 }
 
 /** Shorten atlas orientation prose for the Maps selection plate. */

@@ -358,6 +358,16 @@ html[data-maps-route] body {
   letter-spacing: 0.04em;
 }
 
+.earth-map-pointer-label {
+  max-width: min(14rem, 42vw);
+  overflow: hidden;
+  color: var(--foreground);
+  letter-spacing: 0.02em;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+}
+
 .earth-map-reset {
   border: 0;
   border-radius: 2px;
@@ -765,6 +775,23 @@ html[data-maps-route] body {
 .earth-map-hint {
   padding: 0.65rem 0.85rem;
   color: var(--muted-foreground);
+}
+
+.earth-map-idle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.earth-map-idle .earth-map-hint {
+  padding-bottom: 0.15rem;
+}
+
+.earth-map-starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  padding: 0 0.85rem 0.7rem;
 }
 
 .earth-map-credit {

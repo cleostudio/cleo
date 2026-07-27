@@ -30,6 +30,7 @@ import {
   findMapCountryIndexEntry,
   findMapNeighbors,
   findMapRegionCamera,
+  findMapRegionSamples,
   formatMapCoords,
   MAP_CAPITALS_URL,
   MAP_COUNTRIES_URL,
@@ -44,6 +45,7 @@ import {
   mapCountrySuggestionMatchKind,
   mapHrefWithLayers,
   mapRegionHref,
+  mapSuggestionSecondary,
   mapsFocusDocumentTitle,
   mapViewHref,
   normalizeMapCamera,
@@ -51,6 +53,7 @@ import {
   parseMapLayersSearchParams,
   readStoredMapLayers,
   resolveMapCountry,
+  resolveMapIdleStarters,
   resolveMapLayers,
   shareOrCopyMapLink,
   syncMapCameraHash,
@@ -707,6 +710,7 @@ export function EarthMap({
   const [mapEpoch, setMapEpoch] = useState(0)
   const [coords, setCoords] = useState('—')
   const [zoom, setZoom] = useState(MAP_MIN_ZOOM)
+  const [pointerLabel, setPointerLabel] = useState<string | null>(null)
   const [selected, setSelected] = useState<MapCountryHit | null>(null)
   const [selectedEntry, setSelectedEntry] = useState<MapCountryIndexEntry | null>(
     null,
@@ -807,7 +811,7 @@ export function EarthMap({
 
     mapRef.current = map
 
-    const setHover = (code: string | null) => {
+    const setHover = (code: string | null, label?: string | null) => {
       if (!map.getSource('countries')) return
       if (hoveredCodeRef.current && hoveredCodeRef.current !== code) {
         map.setFeatureState(
@@ -819,8 +823,11 @@ export function EarthMap({
       if (code) {
         map.setFeatureState({ source: 'countries', id: code }, { hover: true })
         map.getCanvas().style.cursor = 'pointer'
+        const indexed = indexRef.current.find((item) => item.code === code)
+        setPointerLabel(label?.trim() || indexed?.name || code)
       } else {
         map.getCanvas().style.cursor = ''
+        setPointerLabel(null)
       }
     }
 
@@ -918,7 +925,10 @@ export function EarthMap({
           const code = feature
             ? String(feature.id ?? feature.properties?.code ?? '')
             : ''
-          setHover(code || null)
+          const name = feature
+            ? String(feature.properties?.name ?? '')
+            : ''
+          setHover(code || null, name || null)
           if (event.lngLat) {
             setCoords(formatMapCoords(event.lngLat.lng, event.lngLat.lat))
           }
@@ -964,7 +974,17 @@ export function EarthMap({
           const code = feature
             ? String(feature.id ?? feature.properties?.code ?? '')
             : ''
-          setHover(code || null)
+          const capitalName = feature
+            ? String(feature.properties?.name ?? '')
+            : ''
+          const countryName = feature
+            ? String(feature.properties?.country ?? '')
+            : ''
+          const label =
+            capitalName && countryName
+              ? `${capitalName} · ${countryName}`
+              : capitalName || countryName || null
+          setHover(code || null, label)
           map.getCanvas().style.cursor = code ? 'pointer' : ''
           if (event.lngLat) {
             setCoords(formatMapCoords(event.lngLat.lng, event.lngLat.lat))
@@ -1368,6 +1388,16 @@ export function EarthMap({
     setFocusAnnouncement('Map focused. Arrow keys pan.')
   }
 
+  function fitSelectedCountry() {
+    const map = mapRef.current
+    const entry = selectedEntry
+    if (!map || !entry) return
+    setFocusAnnouncement(`Fitting ${entry.name}.`)
+    withCameraHashPause(map, cameraHashPausedRef, () => {
+      fitCountry(map, entry, { preferCapital: false })
+    })
+  }
+
   function toggleLayer(id: MapLayerId) {
     setLayers((current) => ({ ...current, [id]: !current[id] }))
   }
@@ -1447,6 +1477,18 @@ export function EarthMap({
     selectedEntry && countries.length > 0
       ? findMapNeighbors(selectedEntry, countries)
       : []
+  const regionSamples =
+    activeRegion && countries.length > 0
+      ? findMapRegionSamples(activeRegion, countries)
+      : []
+  const idleStarters =
+    !selected && !activeRegion
+      ? resolveMapIdleStarters(countries, regions)
+      : []
+  const suggestionCapitals: Record<string, string> = {}
+  for (const [code, countryPhoto] of Object.entries(countryPhotos)) {
+    if (countryPhoto.capital) suggestionCapitals[code] = countryPhoto.capital
+  }
   const showSuggestionEmpty =
     suggestionsOpen &&
     query.trim().length > 0 &&
@@ -1572,8 +1614,11 @@ export function EarthMap({
                   className="earth-map-suggestions"
                 >
                   {suggestions.map((entry, index) => {
-                    const capital =
-                      entry.capitalName ?? countryPhotos[entry.code]?.capital
+                    const secondary = mapSuggestionSecondary(
+                      entry,
+                      query,
+                      suggestionCapitals,
+                    )
                     return (
                       <li key={entry.code}>
                         <button
@@ -1590,9 +1635,9 @@ export function EarthMap({
                         >
                           <span className="earth-map-suggestion-main">
                             <span>{entry.name}</span>
-                            {capital ? (
+                            {secondary ? (
                               <span className="earth-map-suggestion-meta">
-                                Capital · {capital}
+                                {secondary}
                               </span>
                             ) : null}
                           </span>
@@ -1705,6 +1750,9 @@ export function EarthMap({
         <div className="earth-map-chrome earth-map-chrome-meta">
           <div className="earth-map-panel earth-map-meta" aria-live="polite">
             <MapsGlass />
+            {pointerLabel ? (
+              <span className="earth-map-pointer-label">{pointerLabel}</span>
+            ) : null}
             <span>{coords}</span>
             <span className="tabular-nums">z{zoom.toFixed(1)}</span>
             <button
@@ -1821,6 +1869,15 @@ export function EarthMap({
                     Browse Explore →
                   </Link>
                 )}
+                {selectedEntry ? (
+                  <button
+                    type="button"
+                    className="earth-map-copy"
+                    onClick={fitSelectedCountry}
+                  >
+                    Fit country
+                  </button>
+                ) : null}
                 {selectedEntry?.capital ? (
                   <button
                     type="button"
@@ -1867,6 +1924,27 @@ export function EarthMap({
                   {activeRegionCamera.tally} Explore guides
                 </p>
               </div>
+              {regionSamples.length > 0 ? (
+                <div className="earth-map-neighbors">
+                  <p className="earth-map-neighbors-label">Places</p>
+                  <div
+                    className="earth-map-neighbors-list"
+                    role="group"
+                    aria-label={`Places in ${activeRegionCamera.label}`}
+                  >
+                    {regionSamples.map((sample) => (
+                      <button
+                        key={sample.code}
+                        type="button"
+                        className="earth-map-neighbor"
+                        onClick={() => flyToCountry(sample)}
+                      >
+                        {sample.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
               <div className="earth-map-selection-actions">
                 <Link
                   href={exploreRegionHref(activeRegionCamera.id)}
@@ -1896,14 +1974,37 @@ export function EarthMap({
               </div>
             </div>
           ) : (
-            <div className="earth-map-panel">
+            <div className="earth-map-panel earth-map-idle">
               <MapsGlass />
               <p className="earth-map-hint">
-                Press / to search, arrow keys to pan when the map is focused
-                (Home resets), share the current view, toggle borders, labels,
-                and graticule, jump by region, or click a country or capital
-                for its Explore field guide.
+                Pick a place to begin. Press / to search · arrow keys pan when
+                the map is focused.
               </p>
+              {idleStarters.length > 0 ? (
+                <div
+                  className="earth-map-starters"
+                  role="group"
+                  aria-label="Suggested places"
+                >
+                  {idleStarters.map((starter) => (
+                    <button
+                      key={starter.key}
+                      type="button"
+                      className="earth-map-neighbor"
+                      disabled={!ready}
+                      onClick={() => {
+                        if (starter.kind === 'country') {
+                          flyToCountry(starter.entry)
+                          return
+                        }
+                        flyToRegion(starter.region)
+                      }}
+                    >
+                      {starter.label}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
             </div>
           )}
           <p className="earth-map-credit">

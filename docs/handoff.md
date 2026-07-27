@@ -31,7 +31,8 @@ document (enable both products in the Vercel project dashboard).
   country/continent labels via vendored MapLibre glyphs; Admin-0 capital markers
   (clickable hit pads, selected capital stays visible when Labels are off);
   curated region/capital metadata for no-guide territories; homepage search
-  finds territories and capitals; dossier “Show capital”, Nearby place chips,
+  finds territories and capitals; dossier Fit country / Show capital, Nearby
+  and region Place chips, idle starters, hover nameplate, richer search rows,
   and “Back to map” focus; Back/`hashchange` restore camera hash;
   Borders/Labels/ Graticule toggles with shareable layer query flags;
   `#zoom/lat/lng` camera hash + Share view; Back/Forward for country/region
