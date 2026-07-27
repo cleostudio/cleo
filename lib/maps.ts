@@ -530,14 +530,8 @@ export async function shareOrCopyMapLink(
     try {
       await navigator.share({ title, text, url: absolute })
       return 'shared'
-    } catch (error) {
-      if (
-        (error instanceof DOMException || error instanceof Error) &&
-        error.name === 'AbortError'
-      ) {
-        return 'aborted'
-      }
-      // Fall through to clipboard.
+    } catch {
+      // Cancelled share sheets and unsupported targets fall through to clipboard.
     }
   }
 
