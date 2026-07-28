@@ -101,7 +101,8 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   resume guidance on the server; Escape stops generation; completed answers
   offer Regenerate. Hard failures show Retry in the dock. Gallery/Writing tools
   return `?q=` filtered index links. Streaming only autoscrolls when the user
-  is near the bottom of the page, with a Latest control to jump back.
+  is near the bottom of the page; a Latest control appears whenever the live
+  edge is off-screen.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
   grounds matching subjects on each turn; tools can also supply paths);

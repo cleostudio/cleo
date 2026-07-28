@@ -29,9 +29,9 @@ import {
 } from "~/lib/cleo/mode"
 import { CONTINUE_PROMPT } from "~/lib/cleo/continue"
 import {
+  AUTOSCROLL_BOTTOM_THRESHOLD_PX,
   hydrateRestoredMessages,
   markAssistantInterrupted,
-  shouldStickToBottom,
 } from "~/lib/cleo/conversation-helpers"
 import {
   clearCleoSession,
@@ -330,32 +330,45 @@ export function AskForm() {
   }, [])
 
   useEffect(() => {
-    function onScroll() {
-      const stick = shouldStickToBottom(
-        window.scrollY,
-        window.innerHeight,
-        document.documentElement.scrollHeight
-      )
-      stickToBottomRef.current = stick
-      setShowJumpToLatest(isSubmittingRef.current && !stick)
-    }
+    if (!hasMessages) return
+    const target = messagesEndRef.current
+    if (!target) return
 
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+    // Observe the end spacer: when it leaves the viewport the user has scrolled
+    // up, so pause autoscroll and offer Latest. More reliable than scrollY math
+    // across browsers / layout spacers.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const stick = Boolean(entry?.isIntersecting)
+        stickToBottomRef.current = stick
+        // Offer Latest whenever the live edge is off-screen — during a stream
+        // or after, so users can jump back without hunting the scrollbar.
+        setShowJumpToLatest(!stick)
+      },
+      {
+        root: null,
+        // Keep stick=true while the end spacer is within ~threshold of the fold.
+        rootMargin: `0px 0px ${AUTOSCROLL_BOTTOM_THRESHOLD_PX}px 0px`,
+        threshold: 0,
+      }
+    )
+    observer.observe(target)
+    return () => observer.disconnect()
+  }, [hasMessages])
 
   useEffect(() => {
-    if (!hasMessages || !stickToBottomRef.current) return
+    if (!hasMessages) {
+      setShowJumpToLatest(false)
+      return
+    }
+    if (!stickToBottomRef.current) {
+      setShowJumpToLatest(true)
+      return
+    }
     // Scroll the document so the clearance spacer sits against the viewport
     // bottom — leaving the latest text above the fixed prompt.
     messagesEndRef.current?.scrollIntoView({ block: "end", behavior: "instant" })
   }, [hasMessages, messages])
-
-  useEffect(() => {
-    if (!isSubmitting) {
-      setShowJumpToLatest(false)
-    }
-  }, [isSubmitting])
 
   useEffect(() => {
     if (!isSubmitting && hasMessages) {
@@ -997,28 +1010,30 @@ export function AskForm() {
         </div>
       ) : null}
 
-      {showJumpToLatest ? (
-        <button
-          aria-label="Jump to the latest message"
-          className="cleo-jump-latest"
-          onClick={() => {
-            stickToBottomRef.current = true
-            setShowJumpToLatest(false)
-            messagesEndRef.current?.scrollIntoView({
-              block: "end",
-              behavior: "smooth",
-            })
-          }}
-          type="button"
-        >
-          Latest
-        </button>
-      ) : null}
-
       <div
         className="prompt-dock-shell"
         data-docked={hasMessages || undefined}
       >
+        {showJumpToLatest ? (
+          <div className="cleo-jump-latest-row">
+            <button
+              aria-label="Jump to the latest message"
+              className="cleo-jump-latest"
+              onClick={() => {
+                stickToBottomRef.current = true
+                setShowJumpToLatest(false)
+                messagesEndRef.current?.scrollIntoView({
+                  block: "end",
+                  behavior: "smooth",
+                })
+              }}
+              type="button"
+            >
+              Latest
+            </button>
+          </div>
+        ) : null}
+
         {error ? (
           <div
             className="cleo-error-banner mb-3 px-4 text-center text-sm text-destructive"

@@ -48,7 +48,8 @@ document (enable both products in the Vercel project dashboard).
   as cancelled and keep Continue); encrypted reasoning replay for store:false
   multi-turn; Retry / Continue for failed, stopped, truncated, or
   activity-only answers (Continue turns get resume guidance); smart autoscroll
-  with a Latest jump control; clickable Auto/Research search sources;
+  with a Latest jump when the live edge is off-screen; clickable Auto/Research
+  search sources;
   Gallery/Writing `?q=` deep-links from portal tools; matching turns also
   ground curated topic photo paths so replies can embed atlas/space JPEGs as
   Markdown images)

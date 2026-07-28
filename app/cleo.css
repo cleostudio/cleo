@@ -644,17 +644,19 @@
   pointer-events: none;
 }
 
-/* Re-engage smart autoscroll after the user scrolls up during a stream. */
+/* Re-engage smart autoscroll after the user scrolls up during a stream.
+   Lives inside the prompt dock stack so it is not covered by the dock. */
+.cleo-jump-latest-row {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0.15rem;
+}
+
 .cleo-jump-latest {
-  position: fixed;
-  left: 50%;
-  bottom: calc(var(--cleo-prompt-bottom) + 4.75rem);
-  z-index: calc(var(--z-nav) - 1);
-  transform: translateX(-50%);
   margin: 0;
   border: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent);
   border-radius: 999px;
-  background: color-mix(in oklab, var(--background) 88%, transparent);
+  background: color-mix(in oklab, var(--background) 92%, transparent);
   padding: 0.4rem 0.9rem;
   color: var(--muted-foreground);
   font: inherit;
@@ -672,18 +674,12 @@
 .cleo-jump-latest:hover {
   color: var(--foreground);
   border-color: color-mix(in oklab, var(--foreground) 22%, transparent);
-  background: color-mix(in oklab, var(--background) 94%, transparent);
+  background: color-mix(in oklab, var(--background) 96%, transparent);
 }
 
 .cleo-jump-latest:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
   outline-offset: 3px;
-}
-
-@media (max-width: 39.99rem) {
-  .cleo-jump-latest {
-    bottom: calc(var(--cleo-prompt-bottom-mobile, var(--cleo-prompt-bottom)) + 4.5rem);
-  }
 }
 
 /* Cleo layout flags live on <html> (see CleoRouteAttribute + AskForm) so a
