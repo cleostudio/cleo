@@ -325,6 +325,24 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     expect(events.at(-1)?.error).toContain("ran out of room")
   })
 
+  it("keeps a usable incomplete answer without a terminal error event", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "Japan is an archipelago.", type: "response.output_text.delta" },
+        {
+          response: { incomplete_details: { reason: "max_output_tokens" } },
+          type: "response.incomplete",
+        },
+      ])
+    )
+
+    const events = await ndjson(await POST(ask(question)))
+
+    expect(events).toEqual([
+      { delta: "Japan is an archipelago.", type: "text" },
+    ])
+  })
+
   it.each([
     [429, "The AI service is receiving too many requests. Try again shortly."],
     [400, "the model refused that input"],
@@ -379,6 +397,61 @@ describe("POST /api/responses: streaming and upstream errors", () => {
         (tool: { type: string }) => tool.type
       )
     ).toEqual(["web_search", "image_generation"])
+    expect(
+      openai.create.mock.calls[0]?.[0].tools.find(
+        (tool: { type: string }) => tool.type === "image_generation"
+      )
+    ).toMatchObject({
+      output_compression: 85,
+      output_format: "jpeg",
+      partial_images: 1,
+    })
+  })
+
+  it("streams generated images as jpeg data URLs", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        {
+          item: {
+            id: "img_1",
+            status: "in_progress",
+            type: "image_generation_call",
+          },
+          type: "response.output_item.added",
+        },
+        {
+          item_id: "img_1",
+          partial_image_b64: "partialbytes",
+          type: "response.image_generation_call.partial_image",
+        },
+        {
+          item: {
+            id: "img_1",
+            result: "finalbytes",
+            status: "completed",
+            type: "image_generation_call",
+          },
+          type: "response.output_item.done",
+        },
+      ])
+    )
+
+    const events = await ndjson(await POST(ask(question)))
+    const images = events.filter((event) => event.type === "image")
+
+    expect(images).toEqual([
+      {
+        id: "img_1",
+        imageUrl: "data:image/jpeg;base64,partialbytes",
+        partial: true,
+        type: "image",
+      },
+      {
+        id: "img_1",
+        imageUrl: "data:image/jpeg;base64,finalbytes",
+        type: "image",
+      },
+    ])
   })
 
   it("grounds topic photograph paths when the user asks about a catalog subject", async () => {

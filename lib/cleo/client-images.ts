@@ -128,11 +128,6 @@ export async function filesToMessageImages(files: FileList | File[]) {
     return [] as string[]
   }
 
-  const urls: string[] = []
-
-  for (const file of list) {
-    urls.push(await resizeImageFile(file))
-  }
-
-  return urls
+  // Preserve selection order while decoding/resizing in parallel.
+  return Promise.all(list.map((file) => resizeImageFile(file)))
 }

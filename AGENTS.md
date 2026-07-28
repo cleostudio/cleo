@@ -70,7 +70,8 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   (`G` then `C`).
 - API: `app/api/responses/route.ts` validates messages (including image data
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
-  `image_generation`, reasoning summaries, streaming, and `store: false`.
+  `image_generation` (jpeg + compression, one partial preview), reasoning
+  summaries, streaming, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
   `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).

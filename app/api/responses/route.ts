@@ -9,6 +9,10 @@ import type {
 
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
+  GENERATED_IMAGE_MEDIA_TYPE,
+  GENERATED_IMAGE_OUTPUT_COMPRESSION,
+  GENERATED_IMAGE_OUTPUT_FORMAT,
+  GENERATED_IMAGE_PARTIAL_IMAGES,
   MAX_IMAGES_PER_MESSAGE,
   parseImageDataUrl,
   toImageDataUrl,
@@ -34,6 +38,18 @@ const MAX_TOTAL_INPUT_LENGTH = 100_000
 
 /** Allow long tool-using turns on Vercel without cutting the NDJSON stream short. */
 export const maxDuration = 60
+
+let openAIClient: OpenAI | null = null
+let openAIClientKey: string | null = null
+
+function getOpenAIClient(apiKey: string) {
+  if (!openAIClient || openAIClientKey !== apiKey) {
+    openAIClient = new OpenAI({ apiKey })
+    openAIClientKey = apiKey
+  }
+
+  return openAIClient
+}
 
 type ConversationMessage = {
   content: string
@@ -358,7 +374,7 @@ export async function POST(request: Request) {
     return errorResponse("The AI service is not configured.", 503)
   }
 
-  const client = new OpenAI({ apiKey })
+  const client = getOpenAIClient(apiKey)
   const input = toApiInput(parsed)
   const topicPhotos = matchTopicPhotosInText(conversationTopicText(parsed))
   const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
@@ -382,10 +398,11 @@ export async function POST(request: Request) {
           { type: "web_search" },
           {
             type: "image_generation",
-            partial_images: 2,
+            partial_images: GENERATED_IMAGE_PARTIAL_IMAGES,
             quality: "auto",
             size: "auto",
-            output_format: "png",
+            output_format: GENERATED_IMAGE_OUTPUT_FORMAT,
+            output_compression: GENERATED_IMAGE_OUTPUT_COMPRESSION,
           },
         ],
         store: false,
@@ -395,11 +412,15 @@ export async function POST(request: Request) {
     const encoder = new TextEncoder()
     const activities = new Map<string, ActivityItem>()
     const reasoningParts = new Map<string, Map<number, string>>()
+    let emittedVisibleContent = false
 
     const enqueue = (
       controller: ReadableStreamDefaultController<Uint8Array>,
       event: ClientStreamEvent
     ) => {
+      if (event.type === "text" || event.type === "image") {
+        emittedVisibleContent = true
+      }
       controller.enqueue(encoder.encode(encodeStreamEvent(event)))
     }
 
@@ -535,7 +556,10 @@ export async function POST(request: Request) {
               enqueue(controller, {
                 type: "image",
                 id: event.item_id,
-                imageUrl: toImageDataUrl("image/png", event.partial_image_b64),
+                imageUrl: toImageDataUrl(
+                  GENERATED_IMAGE_MEDIA_TYPE,
+                  event.partial_image_b64
+                ),
                 partial: true,
               })
               continue
@@ -575,7 +599,10 @@ export async function POST(request: Request) {
                   enqueue(controller, {
                     type: "image",
                     id: event.item.id,
-                    imageUrl: toImageDataUrl("image/png", event.item.result),
+                    imageUrl: toImageDataUrl(
+                      GENERATED_IMAGE_MEDIA_TYPE,
+                      event.item.result
+                    ),
                   })
                 }
               }
@@ -603,6 +630,12 @@ export async function POST(request: Request) {
             }
 
             if (event.type === "response.incomplete") {
+              // If the model already streamed a usable answer, close cleanly
+              // instead of painting a hard error over partial content.
+              if (emittedVisibleContent) {
+                continue
+              }
+
               const reason = event.response.incomplete_details?.reason
               throw new Error(
                 reason === "max_output_tokens"

@@ -53,6 +53,32 @@ function allCandidates(): TopicCandidate[] {
   ]
 }
 
+type NameMatcher = {
+  candidate: TopicCandidate
+  pattern: RegExp
+}
+
+/** Longer names first; compiled once because the catalog is build-time static. */
+let nameMatchersCache: NameMatcher[] | null = null
+
+function nameMatchers(): NameMatcher[] {
+  if (!nameMatchersCache) {
+    nameMatchersCache = allCandidates()
+      .sort((a, b) => b.name.length - a.name.length)
+      .map((candidate) => ({
+        candidate,
+        // No `g` flag — we only need the first hit, and a shared RegExp must
+        // not retain lastIndex across requests.
+        pattern: new RegExp(
+          `(?<![\\p{L}\\p{N}])${escapeRegExp(candidate.name)}(?![\\p{L}\\p{N}])`,
+          'iu',
+        ),
+      }))
+  }
+
+  return nameMatchersCache
+}
+
 function loadTopicPhoto(
   topic: Pick<TopicCandidate, 'collection' | 'slug'>,
 ): TopicPhoto | null {
@@ -143,14 +169,8 @@ export function matchTopicPhotosInText(text: string): TopicPhoto[] {
     claim(start, end, { collection, slug, name: slug })
   }
 
-  const byName = allCandidates().sort((a, b) => b.name.length - a.name.length)
-
-  for (const candidate of byName) {
+  for (const { candidate, pattern } of nameMatchers()) {
     if (seen.has(candidateKey(candidate))) continue
-    const pattern = new RegExp(
-      `(?<![\\p{L}\\p{N}])${escapeRegExp(candidate.name)}(?![\\p{L}\\p{N}])`,
-      'giu',
-    )
     const match = pattern.exec(haystack)
     if (!match) continue
     claim(match.index, match.index + match[0].length, candidate)
