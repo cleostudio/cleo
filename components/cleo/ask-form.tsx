@@ -3,6 +3,7 @@
 import {
   type ChangeEvent,
   type FormEvent,
+  memo,
   useEffect,
   useRef,
   useState,
@@ -22,11 +23,14 @@ import {
   MAX_IMAGES_PER_MESSAGE,
 } from "~/lib/cleo/client-images"
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
+import { isDocumentNearBottom } from "~/lib/cleo/stick-to-bottom"
 import {
   type ActivityItem,
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
+import { createStreamUiBuffer } from "~/lib/cleo/stream-ui-buffer"
+
 const MAX_INPUT_LENGTH = 10_000
 
 type ResponsePayload = {
@@ -48,44 +52,6 @@ function isAbortError(error: unknown) {
   )
 }
 
-function upsertActivity(
-  activities: ActivityItem[] | undefined,
-  activity: ActivityItem
-) {
-  const current = activities ?? []
-  const index = current.findIndex((item) => item.id === activity.id)
-
-  if (index === -1) {
-    return [...current, activity]
-  }
-
-  const previous = current[index]
-  const next = [...current]
-  next[index] = {
-    ...previous,
-    ...activity,
-    action: activity.action ?? previous.action,
-    summary: activity.summary ?? previous.summary,
-  }
-  return next
-}
-
-function upsertMessageImage(
-  images: MessageImage[] | undefined,
-  image: MessageImage
-) {
-  const current = images ?? []
-  const index = current.findIndex((item) => item.id === image.id)
-
-  if (index === -1) {
-    return [...current, image]
-  }
-
-  const next = [...current]
-  next[index] = image
-  return next
-}
-
 function messageHasVisibleContent(message: Message) {
   return (
     Boolean(message.content.trim()) ||
@@ -93,6 +59,83 @@ function messageHasVisibleContent(message: Message) {
     Boolean(message.activities?.length)
   )
 }
+
+type UserMessageProps = {
+  message: Message
+}
+
+const UserMessage = memo(function UserMessage({ message }: UserMessageProps) {
+  return (
+    <div className="user-turn">
+      {message.images && message.images.length > 0 ? (
+        <div className="user-message-images">
+          {message.images.map((image, index) => (
+            <ZoomableMessageImage
+              alt={
+                message.content
+                  ? `Attachment ${index + 1}`
+                  : `Uploaded image ${index + 1}`
+              }
+              className="message-image"
+              key={image.id ?? `${message.id}-${index}`}
+              src={image.url}
+            />
+          ))}
+        </div>
+      ) : null}
+      {message.content ? (
+        <div className="glass-surface user-message">
+          <LiquidGlass />
+          <span className="user-message-text">{message.content}</span>
+        </div>
+      ) : null}
+    </div>
+  )
+})
+
+type AssistantMessageProps = {
+  isLive: boolean
+  message: Message
+}
+
+const AssistantMessage = memo(function AssistantMessage({
+  isLive,
+  message,
+}: AssistantMessageProps) {
+  return (
+    <section aria-label="AI response" aria-live="polite" className="min-w-0">
+      {message.activities && message.activities.length > 0 ? (
+        <ActivityPanel activities={message.activities} isLive={isLive} />
+      ) : null}
+
+      {message.images && message.images.length > 0 ? (
+        <div className="assistant-message-images mb-3">
+          {message.images.map((image, index) => (
+            <ZoomableMessageImage
+              alt={`Generated image ${index + 1}`}
+              className="message-image message-image-assistant"
+              key={image.id ?? `${message.id}-${index}`}
+              src={image.url}
+            />
+          ))}
+        </div>
+      ) : null}
+
+      {message.content ? (
+        <Markdown isAnimating={isLive}>{message.content}</Markdown>
+      ) : isLive &&
+        !(message.activities && message.activities.length > 0) &&
+        !(message.images && message.images.length > 0) ? (
+        <ThinkingOrb
+          aria-label="Listening"
+          className="block"
+          size={20}
+          state="listening"
+        />
+      ) : null}
+    </section>
+  )
+})
 
 export function AskForm() {
   const [error, setError] = useState<string | null>(null)
@@ -106,16 +149,65 @@ export function AskForm() {
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const mountedRef = useRef(true)
+  const stickToBottomRef = useRef(true)
+  const scrollFrameRef = useRef<number | null>(null)
 
   const hasMessages = messages.length > 0
   const canSubmit =
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
 
+  const syncStickToBottom = () => {
+    stickToBottomRef.current = isDocumentNearBottom(
+      window.scrollY,
+      window.innerHeight,
+      document.documentElement.scrollHeight,
+    )
+  }
+
+  const scrollToEndIfStuck = (force = false) => {
+    if (!force && !stickToBottomRef.current) {
+      return
+    }
+
+    if (scrollFrameRef.current !== null) {
+      return
+    }
+
+    scrollFrameRef.current = window.requestAnimationFrame(() => {
+      scrollFrameRef.current = null
+      if (!force && !stickToBottomRef.current) {
+        return
+      }
+      messagesEndRef.current?.scrollIntoView({
+        block: "end",
+        behavior: "instant",
+      })
+      stickToBottomRef.current = true
+    })
+  }
+
+  useEffect(() => {
+    const onScrollOrResize = () => {
+      syncStickToBottom()
+    }
+
+    syncStickToBottom()
+    window.addEventListener("scroll", onScrollOrResize, { passive: true })
+    window.addEventListener("resize", onScrollOrResize)
+
+    return () => {
+      window.removeEventListener("scroll", onScrollOrResize)
+      window.removeEventListener("resize", onScrollOrResize)
+      if (scrollFrameRef.current !== null) {
+        window.cancelAnimationFrame(scrollFrameRef.current)
+        scrollFrameRef.current = null
+      }
+    }
+  }, [])
+
   useEffect(() => {
     if (!hasMessages) return
-    // Scroll the document so the clearance spacer sits against the viewport
-    // bottom — leaving the latest text above the fixed prompt.
-    messagesEndRef.current?.scrollIntoView({ block: 'end', behavior: 'instant' })
+    scrollToEndIfStuck()
   }, [hasMessages, messages])
 
   useEffect(() => {
@@ -234,6 +326,34 @@ export function AskForm() {
 
     const abortController = new AbortController()
     abortControllerRef.current = abortController
+    const streamBuffer = createStreamUiBuffer({
+      activities: [],
+      content: "",
+      images: [],
+    })
+
+    const applyBufferedSnapshot = () => {
+      const snapshot = streamBuffer.consume()
+      if (!snapshot) return
+
+      setMessages((currentMessages) =>
+        currentMessages.map((message) =>
+          message.id === assistantMessage.id
+            ? {
+                ...message,
+                content: snapshot.content,
+                activities: snapshot.activities,
+                images: snapshot.images,
+              }
+            : message
+        )
+      )
+      scrollToEndIfStuck()
+    }
+
+    const scheduleStreamFlush = () => {
+      streamBuffer.schedule(applyBufferedSnapshot)
+    }
 
     setMessages((currentMessages) => [
       ...currentMessages,
@@ -244,9 +364,8 @@ export function AskForm() {
     setPendingImages([])
     setError(null)
     setIsSubmitting(true)
-
-    let output = ""
-    let receivedImages = false
+    stickToBottomRef.current = true
+    scrollToEndIfStuck(true)
 
     try {
       const response = await fetch("/api/responses", {
@@ -273,45 +392,31 @@ export function AskForm() {
       let buffer = ""
       let streamError: string | null = null
 
-      const applyTextDelta = (delta: string) => {
-        output += delta
-        setMessages((currentMessages) =>
-          currentMessages.map((message) =>
-            message.id === assistantMessage.id
-              ? { ...message, content: message.content + delta }
-              : message
-          )
-        )
-      }
+      const handleEvent = (event: NonNullable<ReturnType<typeof parseStreamLine>>) => {
+        if (event.type === "text") {
+          streamBuffer.appendText(event.delta)
+          scheduleStreamFlush()
+          return
+        }
 
-      const applyActivity = (activity: ActivityItem) => {
-        setMessages((currentMessages) =>
-          currentMessages.map((message) =>
-            message.id === assistantMessage.id
-              ? {
-                  ...message,
-                  activities: upsertActivity(message.activities, activity),
-                }
-              : message
-          )
-        )
-      }
+        if (event.type === "activity") {
+          streamBuffer.applyActivity(event.activity)
+          scheduleStreamFlush()
+          return
+        }
 
-      const applyImage = (id: string, imageUrl: string) => {
-        receivedImages = true
-        setMessages((currentMessages) =>
-          currentMessages.map((message) =>
-            message.id === assistantMessage.id
-              ? {
-                  ...message,
-                  images: upsertMessageImage(message.images, {
-                    id,
-                    url: imageUrl,
-                  }),
-                }
-              : message
-          )
-        )
+        if (event.type === "image") {
+          streamBuffer.applyImage({
+            id: event.id,
+            url: event.imageUrl,
+          })
+          scheduleStreamFlush()
+          return
+        }
+
+        if (event.type === "error") {
+          streamError = event.error
+        }
       }
 
       while (true) {
@@ -332,24 +437,7 @@ export function AskForm() {
             continue
           }
 
-          if (event.type === "text") {
-            applyTextDelta(event.delta)
-            continue
-          }
-
-          if (event.type === "activity") {
-            applyActivity(event.activity)
-            continue
-          }
-
-          if (event.type === "image") {
-            applyImage(event.id, event.imageUrl)
-            continue
-          }
-
-          if (event.type === "error") {
-            streamError = event.error
-          }
+          handleEvent(event)
         }
       }
 
@@ -362,24 +450,20 @@ export function AskForm() {
       if (buffer.trim()) {
         const event = parseStreamLine(buffer)
 
-        if (event?.type === "text") {
-          applyTextDelta(event.delta)
-        } else if (event?.type === "activity") {
-          applyActivity(event.activity)
-        } else if (event?.type === "image") {
-          applyImage(event.id, event.imageUrl)
-        } else if (event?.type === "error") {
-          streamError = event.error
+        if (event) {
+          handleEvent(event)
         }
       }
+
+      streamBuffer.flushNow(applyBufferedSnapshot)
 
       if (streamError && !abortController.signal.aborted) {
         throw new Error(streamError)
       }
 
       if (
-        !output.trim() &&
-        !receivedImages &&
+        !streamBuffer.content.trim() &&
+        !streamBuffer.hasImages &&
         !abortController.signal.aborted
       ) {
         throw new Error(
@@ -387,8 +471,12 @@ export function AskForm() {
         )
       }
     } catch (requestError) {
+      streamBuffer.flushNow(applyBufferedSnapshot)
+
       const aborted =
         isAbortError(requestError) || abortController.signal.aborted
+      const output = streamBuffer.content
+      const receivedImages = streamBuffer.hasImages
 
       // Ignore late aborts from an unmounted tree so a remounted empty shell
       // is not the only surviving signal of a failed turn.
@@ -422,6 +510,7 @@ export function AskForm() {
         )
       }
     } finally {
+      streamBuffer.cancel()
       if (abortControllerRef.current === abortController) {
         abortControllerRef.current = null
       }
@@ -438,81 +527,13 @@ export function AskForm() {
           <div className="flex flex-col gap-7">
             {messages.map((message) =>
               message.role === 'user' ? (
-                <div className="user-turn" key={message.id}>
-                  {message.images && message.images.length > 0 ? (
-                    <div className="user-message-images">
-                      {message.images.map((image, index) => (
-                        <ZoomableMessageImage
-                          alt={
-                            message.content
-                              ? `Attachment ${index + 1}`
-                              : `Uploaded image ${index + 1}`
-                          }
-                          className="message-image"
-                          key={image.id ?? `${message.id}-${index}`}
-                          src={image.url}
-                        />
-                      ))}
-                    </div>
-                  ) : null}
-                  {message.content ? (
-                    <div className="glass-surface user-message">
-                      <LiquidGlass />
-                      <span className="user-message-text">
-                        {message.content}
-                      </span>
-                    </div>
-                  ) : null}
-                </div>
+                <UserMessage key={message.id} message={message} />
               ) : (
-                <section
-                  aria-label="AI response"
-                  aria-live="polite"
-                  className="min-w-0"
+                <AssistantMessage
+                  isLive={isSubmitting && message.id === messages.at(-1)?.id}
                   key={message.id}
-                >
-                  {message.activities && message.activities.length > 0 ? (
-                    <ActivityPanel
-                      activities={message.activities}
-                      isLive={
-                        isSubmitting && message.id === messages.at(-1)?.id
-                      }
-                    />
-                  ) : null}
-
-                  {message.images && message.images.length > 0 ? (
-                    <div className="assistant-message-images mb-3">
-                      {message.images.map((image, index) => (
-                        <ZoomableMessageImage
-                          alt={`Generated image ${index + 1}`}
-                          className="message-image message-image-assistant"
-                          key={image.id ?? `${message.id}-${index}`}
-                          src={image.url}
-                        />
-                      ))}
-                    </div>
-                  ) : null}
-
-                  {message.content ? (
-                    <Markdown
-                      isAnimating={
-                        isSubmitting && message.id === messages.at(-1)?.id
-                      }
-                    >
-                      {message.content}
-                    </Markdown>
-                  ) : isSubmitting &&
-                    message.id === messages.at(-1)?.id &&
-                    !(message.activities && message.activities.length > 0) &&
-                    !(message.images && message.images.length > 0) ? (
-                    <ThinkingOrb
-                      aria-label="Listening"
-                      className="block"
-                      size={20}
-                      state="listening"
-                    />
-                  ) : null}
-                </section>
+                  message={message}
+                />
               )
             )}
           </div>

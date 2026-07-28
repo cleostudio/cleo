@@ -1,6 +1,6 @@
 "use client"
 
-import type { ComponentProps } from "react"
+import { memo, type ComponentProps } from "react"
 import Link from "next/link"
 import { code } from "@streamdown/code"
 import { Streamdown } from "streamdown"
@@ -10,6 +10,7 @@ import { ZoomImage } from "~/components/zoom-image"
 import {
   isCuratedTopicImageSrc,
   presentPortalGuideMarkdown,
+  presentTopicPhotoMarkdown,
 } from "~/lib/cleo/portal-links"
 import { topicPhotoZoomForSrc } from "~/lib/cleo/topic-photo-zoom"
 import { cn } from "~/lib/utils"
@@ -102,12 +103,17 @@ function MarkdownImage({
   )
 }
 
-export function Markdown({
+function MarkdownComponent({
   children,
   className,
   isAnimating = false,
 }: MarkdownProps) {
-  const content = presentPortalGuideMarkdown(children)
+  // While tokens are still arriving, only strip unsafe images. Guide-link
+  // dedupe / footer cleanup runs once the turn settles so historical messages
+  // are not re-processed on every live chunk.
+  const content = isAnimating
+    ? presentTopicPhotoMarkdown(children)
+    : presentPortalGuideMarkdown(children)
 
   return (
     <Streamdown
@@ -126,3 +132,5 @@ export function Markdown({
     </Streamdown>
   )
 }
+
+export const Markdown = memo(MarkdownComponent)
