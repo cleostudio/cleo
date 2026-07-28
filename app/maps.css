@@ -79,6 +79,18 @@ html[data-maps-route] body {
   gap: 0.55rem;
 }
 
+.earth-map-chrome-top {
+  z-index: 4;
+}
+
+.earth-map-chrome-meta {
+  z-index: 3;
+}
+
+.earth-map-chrome-bottom {
+  z-index: 5;
+}
+
 .earth-map-chrome > * {
   pointer-events: auto;
 }
@@ -472,7 +484,10 @@ html[data-maps-route] body {
 }
 
 .earth-map-canvas .maplibregl-ctrl-bottom-right {
-  bottom: 0.45rem;
+  bottom: calc(
+    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.45rem +
+      var(--maps-dossier-lift)
+  );
 }
 
 .earth-map-canvas .maplibregl-ctrl-group {
@@ -853,6 +868,12 @@ html[data-maps-route] body {
     width: min(22.5rem, calc(100vw - 2 * var(--maps-hud-inset)));
     max-width: none;
     align-items: stretch;
+  }
+
+  /* Suggestions hang below the brand; hide stacked meta while the list is open. */
+  .earth-map[data-suggestions-open] .earth-map-chrome-meta {
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .earth-map-meta {

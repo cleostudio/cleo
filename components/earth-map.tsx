@@ -791,6 +791,15 @@ export function EarthMap({
   const focusMapCanvasRef = useRef<() => void>(() => {})
   const cameraHashPausedRef = useRef(false)
   const fittedFocusKeyRef = useRef<string | null>(null)
+  /** Last auto-fit context — used to re-fit once after the dossier height settles. */
+  const fitContextRef = useRef<{
+    kind: 'country' | 'region'
+    id: string
+    preferCapital: boolean
+    shared: boolean
+    liftAtFit: number
+  } | null>(null)
+  const refitFrameRef = useRef<number | null>(null)
   const mapEpochRef = useRef(0)
 
   const [ready, setReady] = useState(false)
@@ -1423,6 +1432,7 @@ export function EarthMap({
       const clearKey = `clear@${mapEpoch}`
       if (fittedFocusKeyRef.current === clearKey) return
       fittedFocusKeyRef.current = clearKey
+      fitContextRef.current = null
       syncSelectionFeatureState(map, selectedCodeRef.current, null)
       selectedCodeRef.current = null
       setSelected(null)
@@ -1573,6 +1583,45 @@ export function EarthMap({
     const top = topChromeRef.current
     if (!root || !bottom) return
 
+    const scheduleRefitForMeasuredLift = () => {
+      const ctx = fitContextRef.current
+      if (!ctx || ctx.shared) return
+      if (Math.abs(measuredDossierLiftPx - ctx.liftAtFit) < 32) return
+      if (refitFrameRef.current != null) {
+        window.cancelAnimationFrame(refitFrameRef.current)
+      }
+      refitFrameRef.current = window.requestAnimationFrame(() => {
+        refitFrameRef.current = null
+        const map = mapRef.current
+        const latest = fitContextRef.current
+        if (!map || !latest || latest.shared) return
+        if (Math.abs(measuredDossierLiftPx - latest.liftAtFit) < 32) return
+        if (latest.kind === 'country') {
+          if (selectedCodeRef.current !== latest.id) return
+          const entry = indexRef.current.find((item) => item.code === latest.id)
+          if (!entry) return
+          latest.liftAtFit = measuredDossierLiftPx
+          withCameraHashPause(map, cameraHashPausedRef, () => {
+            fitCountry(map, entry, { preferCapital: latest.preferCapital })
+          })
+          return
+        }
+        if (activeRegionRef.current !== latest.id) return
+        const region =
+          regionsRef.current.find((item) => item.id === latest.id) ??
+          findMapRegionCamera(FALLBACK_MAP_REGIONS, latest.id)
+        if (!region) return
+        latest.liftAtFit = measuredDossierLiftPx
+        withCameraHashPause(map, cameraHashPausedRef, () => {
+          map.fitBounds(region.bounds, {
+            padding: mapRegionPadding(),
+            maxZoom: region.maxZoom,
+            duration: mapMotionMs(800),
+          })
+        })
+      })
+    }
+
     const publish = () => {
       const bottomHeight = bottom.getBoundingClientRect().height
       setMeasuredDossierLiftPx(bottomHeight)
@@ -1581,6 +1630,7 @@ export function EarthMap({
         const topHeight = Math.ceil(top.getBoundingClientRect().height)
         root.style.setProperty('--maps-top-chrome-height', `${topHeight}px`)
       }
+      scheduleRefitForMeasuredLift()
     }
 
     publish()
@@ -1591,6 +1641,10 @@ export function EarthMap({
     return () => {
       observer.disconnect()
       window.removeEventListener('resize', publish)
+      if (refitFrameRef.current != null) {
+        window.cancelAnimationFrame(refitFrameRef.current)
+        refitFrameRef.current = null
+      }
     }
   }, [selected?.code, activeRegion, ready, loadState, focusAnnouncement])
 
@@ -1642,6 +1696,13 @@ export function EarthMap({
     fittedFocusKeyRef.current = camera
       ? `country:${entry.code}@${mapEpochRef.current}#shared`
       : `country:${entry.code}@${mapEpochRef.current}`
+    fitContextRef.current = {
+      kind: 'country',
+      id: entry.code,
+      preferCapital,
+      shared: Boolean(camera),
+      liftAtFit: measuredDossierLiftPx,
+    }
     if (syncUrl) {
       syncMapFocusSearchParams(
         {
@@ -1689,6 +1750,7 @@ export function EarthMap({
     setFocusAnnouncement('Selection cleared.')
     syncMapFocusSearchParams(null, { history: 'push' })
     fittedFocusKeyRef.current = `clear@${mapEpoch}`
+    fitContextRef.current = null
     map.getCanvas().focus({ preventScroll: true })
   }
 
@@ -1711,6 +1773,7 @@ export function EarthMap({
     setFocusAnnouncement('Map reset.')
     syncMapFocusSearchParams(null, { history: 'push' })
     fittedFocusKeyRef.current = `clear@${mapEpoch}`
+    fitContextRef.current = null
     cameraHashPausedRef.current = true
     let settled = false
     const settle = () => {
@@ -1743,6 +1806,11 @@ export function EarthMap({
     const entry = selectedEntry
     if (!map || !entry) return
     setFocusAnnouncement(`Fitting ${entry.name}.`)
+    if (fitContextRef.current?.kind === 'country') {
+      fitContextRef.current.preferCapital = false
+      fitContextRef.current.shared = false
+      fitContextRef.current.liftAtFit = measuredDossierLiftPx
+    }
     withCameraHashPause(map, cameraHashPausedRef, () => {
       fitCountry(map, entry, { preferCapital: false })
     })
@@ -1756,6 +1824,10 @@ export function EarthMap({
       : undefined
     if (!map || !region) return
     setFocusAnnouncement(`Fitting ${region.label}.`)
+    if (fitContextRef.current?.kind === 'region') {
+      fitContextRef.current.shared = false
+      fitContextRef.current.liftAtFit = measuredDossierLiftPx
+    }
     withCameraHashPause(map, cameraHashPausedRef, () => {
       map.fitBounds(region.bounds, {
         padding: mapRegionPadding(),
@@ -1804,6 +1876,13 @@ export function EarthMap({
     fittedFocusKeyRef.current = camera
       ? `region:${region.id}@${mapEpochRef.current}#shared`
       : `region:${region.id}@${mapEpochRef.current}`
+    fitContextRef.current = {
+      kind: 'region',
+      id: region.id,
+      preferCapital: false,
+      shared: Boolean(camera),
+      liftAtFit: measuredDossierLiftPx,
+    }
     if (syncUrl) {
       syncMapFocusSearchParams(
         { kind: 'region', value: region.id },
@@ -1926,6 +2005,11 @@ export function EarthMap({
         ? `Showing ${entry.capitalName}.`
         : `Showing the capital of ${entry.name}.`,
     )
+    if (fitContextRef.current?.kind === 'country') {
+      fitContextRef.current.preferCapital = true
+      fitContextRef.current.shared = false
+      fitContextRef.current.liftAtFit = measuredDossierLiftPx
+    }
     withCameraHashPause(map, cameraHashPausedRef, () => {
       fitCountry(map, entry, { preferCapital: true })
     })
@@ -2002,6 +2086,11 @@ export function EarthMap({
       ref={rootRef}
       className={cn('earth-map', className)}
       data-has-selection={selected || activeRegion ? '' : undefined}
+      data-suggestions-open={
+        suggestionsOpen && (suggestions.length > 0 || showSuggestionEmpty)
+          ? ''
+          : undefined
+      }
       aria-busy={loadState === 'loading' || undefined}
     >
       <div
@@ -2176,7 +2265,10 @@ export function EarthMap({
                       type="button"
                       className="earth-map-copy"
                       onMouseDown={(event) => {
-                        event.preventDefault()
+                        // Keep the combobox focused for pointer clicks.
+                        if (event.detail > 0) event.preventDefault()
+                      }}
+                      onClick={() => {
                         setQuery('')
                         setSuggestions([])
                         setSuggestionsOpen(false)
@@ -2192,7 +2284,9 @@ export function EarthMap({
                         className="earth-map-neighbor"
                         disabled={!ready}
                         onMouseDown={(event) => {
-                          event.preventDefault()
+                          if (event.detail > 0) event.preventDefault()
+                        }}
+                        onClick={(event) => {
                           flyToRegion(region, {
                             focusDossier: isKeyboardActivation(event),
                           })
@@ -2461,8 +2555,10 @@ export function EarthMap({
                         key={neighbor.code}
                         type="button"
                         className="earth-map-neighbor"
-                        onClick={() =>
-                          flyToCountry(neighbor, { focusDossier: true })
+                        onClick={(event) =>
+                          flyToCountry(neighbor, {
+                            focusDossier: isKeyboardActivation(event),
+                          })
                         }
                       >
                         {neighbor.name}
@@ -2615,8 +2711,10 @@ export function EarthMap({
                         key={sample.code}
                         type="button"
                         className="earth-map-neighbor"
-                        onClick={() =>
-                          flyToCountry(sample, { focusDossier: true })
+                        onClick={(event) =>
+                          flyToCountry(sample, {
+                            focusDossier: isKeyboardActivation(event),
+                          })
                         }
                       >
                         {sample.name}
