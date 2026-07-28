@@ -5,12 +5,15 @@ import { seo } from './seo'
 
 describe('localeMetadata', () => {
   it('builds English self-canonical metadata and language alternates', () => {
+    const publishedAt = new Date('2026-06-19T12:00:00.000Z')
     const metadata = localeMetadata({
       locale: 'en',
       path: '/blog/a-post',
       title: 'A post',
       description: 'An English summary',
       type: 'article',
+      publishedTime: publishedAt,
+      modifiedTime: publishedAt,
     })
 
     expect(metadata.alternates).toEqual({
@@ -25,6 +28,8 @@ describe('localeMetadata', () => {
       description: 'An English summary',
       locale: 'en_US',
       type: 'article',
+      publishedTime: publishedAt.toISOString(),
+      modifiedTime: publishedAt.toISOString(),
       url: new URL('/blog/a-post', seo.url),
       images: [
         expect.objectContaining({

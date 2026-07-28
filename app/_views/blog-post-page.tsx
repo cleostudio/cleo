@@ -1,5 +1,6 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { cacheLife } from 'next/cache'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import rehypePrettyCode from 'rehype-pretty-code'
@@ -13,6 +14,7 @@ import { PolaroidCover } from '~/components/polaroid-cover'
 import { PostRow } from '~/components/post-row'
 import { PostToc } from '~/components/post-toc'
 import { RevealScope } from '~/components/reveal-scope'
+import { blogPostingJsonLd } from '~/lib/blog-json-ld'
 import {
   buildPostRail,
   getAllPosts,
@@ -22,12 +24,17 @@ import {
   POST_ARTICLE_START_ID,
 } from '~/lib/content'
 import { SITE_TIME_ZONE } from '~/lib/date'
+import { essayFieldGuideLinks } from '~/lib/essay-topics'
+import { guideNeighbors } from '~/lib/guide-neighbors'
 import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
 import type { Locale } from '~/lib/locale-route'
 import rehypePrefixIds from '~/lib/rehype-prefix-ids'
 import remarkMermaid from '~/lib/remark-mermaid'
 import { postViewTransitionName } from '~/lib/view-transition-name'
+
+const guideLinkClass =
+  'text-sm text-muted-foreground outline-none transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background'
 
 export function generatePostStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }))
@@ -40,14 +47,18 @@ export function requirePostSlug(slug: string) {
 
 export function blogPostMetadata(locale: Locale, slug: string) {
   const post = getPost(requirePostSlug(slug))
+  const title = locale === 'en' ? post.titleEn : post.title
+  const description =
+    locale === 'en' ? post.descriptionEn : (post.description ?? post.title)
 
   return localeMetadata({
     locale,
     path: `/blog/${post.slug}`,
-    title: locale === 'en' ? post.titleEn : post.title,
-    description:
-      locale === 'en' ? post.descriptionEn : (post.description ?? post.title),
+    title,
+    description,
     type: 'article',
+    publishedTime: post.publishedAt,
+    modifiedTime: post.publishedAt,
   })
 }
 
@@ -170,28 +181,65 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
   const edition = String(posts.length - postIndex).padStart(3, '0')
   const plateDate = plateDateFormat.format(post.publishedAt).replaceAll('-', '.')
   const related = getRelatedPosts(post.slug)
+  const fieldGuides = essayFieldGuideLinks(post.slug)
+  // Oldest → newest so previous/next read as archive order.
+  const chronological = [...posts].reverse()
+  const { previous, next } = guideNeighbors(chronological, post.slug)
   // stamp variant derives from the slug: stable per post, varied across them
   const clusterVariant = [...post.slug].reduce((sum, ch) => sum + ch.charCodeAt(0), 0)
+  const jsonLd = blogPostingJsonLd({
+    slug: post.slug,
+    title: english ? post.titleEn : post.title,
+    description: english
+      ? post.descriptionEn
+      : (post.description ?? post.title),
+    datePublished: post.publishedAt,
+    image: post.cover?.src,
+  })
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PostToc nodes={rail} nodesEn={railEn} />
       <article className="post-article mx-auto w-full max-w-content px-6">
         <header>
+          <p className="page-eyebrow enter">
+            <Link
+              href="/blog"
+              className="outline-none transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground focus-visible:ring-1 focus-visible:ring-foreground"
+            >
+              Writing
+            </Link>
+            <span aria-hidden className="mx-2 text-muted-foreground/50">
+              /
+            </span>
+            <span className="tabular-nums">{edition}</span>
+          </p>
           {post.cover && (
-            <PolaroidCover
-              slug={post.slug}
-              cover={post.cover}
-              caption={post.cover.caption ?? <BrailleDate date={post.publishedAt} />}
-              alt=""
-              priority
-              morph
-              print="collage"
-              sizes="(max-width: 704px) 100vw, 656px"
-            />
+            <div className="mt-6">
+              <PolaroidCover
+                slug={post.slug}
+                cover={post.cover}
+                caption={post.cover.caption ?? <BrailleDate date={post.publishedAt} />}
+                alt=""
+                priority
+                morph
+                print="collage"
+                sizes="(max-width: 704px) 100vw, 656px"
+              />
+            </div>
           )}
           <div className="post-title-card">
-            <div className="mt-10 flex items-start justify-between gap-4">
+            <div
+              className={
+                post.cover
+                  ? 'mt-10 flex items-start justify-between gap-4'
+                  : 'mt-4 flex items-start justify-between gap-4'
+              }
+            >
               <h1
                 id={POST_ARTICLE_START_ID}
                 className="text-2xl font-semibold tracking-tight text-balance"
@@ -247,6 +295,28 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
         <RevealScope lang={english ? 'en' : 'zh-CN'} className="post-body-stage prose enter mt-10">
           <CachedPostBody slug={post.slug} locale={locale} />
         </RevealScope>
+        {fieldGuides.length > 0 && (
+          <aside
+            className="post-related hairline-top"
+            aria-labelledby="post-field-guides-heading"
+          >
+            <h2 id="post-field-guides-heading" className="post-related-label">
+              <T zh="相关指南" en="Field guides" />
+            </h2>
+            <ul className="mt-3 flex flex-col gap-2">
+              {fieldGuides.map((guide) => (
+                <li key={`${guide.collection}-${guide.slug}`}>
+                  <Link href={guide.href} className={guideLinkClass}>
+                    <span className="text-foreground">{guide.name}</span>
+                    <span className="ml-2 text-xs uppercase tracking-wide text-muted-foreground">
+                      {guide.kind}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        )}
         {related.length > 0 && (
           <aside
             className="post-related hairline-top"
@@ -269,6 +339,26 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
             </ul>
           </aside>
         )}
+        <nav
+          className="enter mt-10 mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground"
+          aria-label="Nearby essays"
+        >
+          {previous ? (
+            <Link href={`/blog/${previous.slug}`} className={guideLinkClass}>
+              ← {english ? previous.titleEn : previous.title}
+            </Link>
+          ) : (
+            <span aria-hidden />
+          )}
+          <Link href="/blog" className={guideLinkClass}>
+            All writing
+          </Link>
+          {next ? (
+            <Link href={`/blog/${next.slug}`} className={guideLinkClass}>
+              {english ? next.titleEn : next.title} →
+            </Link>
+          ) : null}
+        </nav>
       </article>
     </>
   )

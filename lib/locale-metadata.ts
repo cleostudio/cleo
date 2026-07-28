@@ -10,6 +10,9 @@ interface LocaleMetadataOptions {
   title: string
   description: string
   type?: 'article' | 'website'
+  /** ISO article timestamps for `openGraph.type === 'article'`. */
+  publishedTime?: string | Date
+  modifiedTime?: string | Date
 }
 
 const SOCIAL_IMAGE_VERSION = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 12)
@@ -43,17 +46,28 @@ export function localeRoutePair(path: string) {
   }
 }
 
+function toIsoTime(value: string | Date | undefined) {
+  if (!value) return undefined
+  if (value instanceof Date) return value.toISOString()
+  const trimmed = value.trim()
+  return trimmed || undefined
+}
+
 /** Build server-rendered metadata for a public English route. */
 export function localeMetadata({
   path,
   title,
   description,
   type = 'website',
+  publishedTime,
+  modifiedTime,
 }: LocaleMetadataOptions): Metadata {
   const pair = localeRoutePair(path)
   const canonical = pair.en
   const siteName = 'Cleo'
   const trimmedDescription = description.trim()
+  const published = toIsoTime(publishedTime)
+  const modified = toIsoTime(modifiedTime) ?? published
   const image = {
     url: socialImageUrl('en', path),
     width: 1200,
@@ -86,6 +100,12 @@ export function localeMetadata({
       siteName,
       url: canonical,
       images: [image],
+      ...(type === 'article' && published
+        ? {
+            publishedTime: published,
+            ...(modified ? { modifiedTime: modified } : {}),
+          }
+        : {}),
     },
     twitter: {
       card: 'summary_large_image',
