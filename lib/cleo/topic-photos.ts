@@ -33,13 +33,54 @@ type TopicCandidate = {
   collection: 'explore' | 'space'
   slug: string
   name: string
-  /** Extra match tokens (notable places / features / photo titles). */
+  /** Extra match tokens (notable places / features / photo titles / colloquial names). */
   aliases: string[]
+  /**
+   * Short catalog codes matched case-sensitively (ISO alpha-2, ISS, …).
+   * Avoids pronoun false positives like “us” → United States.
+   */
+  codes: string[]
 }
 
 type MatchToken = {
   candidate: TopicCandidate
   token: string
+  /** When true, require the exact case from `token` (used for short codes). */
+  caseSensitive?: boolean
+}
+
+/**
+ * Common spoken / alternate names that the catalog primary name does not
+ * cover (e.g. “Korea, South” vs “South Korea”).
+ */
+const EXPLORE_NAME_ALIASES: Record<string, readonly string[]> = {
+  'korea-south': ['South Korea', 'Republic of Korea'],
+  'korea-north': ['North Korea', 'DPRK'],
+  'united-states': ['USA', 'U.S.', 'U.S.A.', 'United States of America'],
+  'united-kingdom': ['UK', 'U.K.', 'Britain', 'Great Britain'],
+  'united-arab-emirates': ['UAE', 'U.A.E.'],
+  russia: ['Russian Federation'],
+  czechia: ['Czech Republic'],
+  'cote-divoire': ["Cote d'Ivoire", 'Ivory Coast'],
+  myanmar: ['Burma'],
+  eswatini: ['Swaziland'],
+  'timor-leste': ['East Timor'],
+  'north-macedonia': ['Macedonia'],
+  'bosnia-and-herzegovina': ['Bosnia', 'BiH'],
+  'cabo-verde': ['Cape Verde'],
+}
+
+/** Colloquial / Messier / catalog nicknames for Space subjects. */
+const SPACE_NAME_ALIASES: Record<string, readonly string[]> = {
+  iss: ['ISS', 'space station'],
+  moon: ['Luna', "Earth's Moon"],
+  sun: ['Sol'],
+  andromeda: ['M31', 'Messier 31', 'Andromeda Galaxy'],
+  'orion-nebula': ['M42', 'Messier 42'],
+  'crab-nebula': ['M1', 'Messier 1'],
+  'carina-nebula': ['NGC 3372'],
+  'milky-way': ['Milky Way Galaxy'],
+  'asteroid-belt': ['main belt'],
 }
 
 function escapeRegExp(value: string) {
@@ -53,13 +94,15 @@ function candidateKey(topic: Pick<TopicCandidate, 'collection' | 'slug'>) {
 function uniqueAliases(
   values: readonly string[],
   primaryName: string,
+  options?: { minLength?: number },
 ): string[] {
+  const minLength = options?.minLength ?? 3
   const seen = new Set<string>()
   const aliases: string[] = []
 
   for (const value of values) {
     const trimmed = value.replace(/\s+/g, ' ').trim()
-    if (!trimmed || trimmed.length < 3) continue
+    if (!trimmed || trimmed.length < minLength) continue
     if (trimmed.toLowerCase() === primaryName.toLowerCase()) continue
     const key = trimmed.toLowerCase()
     if (seen.has(key)) continue
@@ -70,40 +113,97 @@ function uniqueAliases(
   return aliases
 }
 
-function allCandidates(): TopicCandidate[] {
+/** Uppercase short codes only — matched case-sensitively later. */
+function uniqueCodes(
+  values: readonly string[],
+  reservedLower: ReadonlySet<string>,
+): string[] {
+  const seen = new Set<string>()
+  const codes: string[] = []
+
+  for (const value of values) {
+    const trimmed = value.replace(/\s+/g, ' ').trim().toUpperCase()
+    if (!/^[A-Z]{2,3}$/.test(trimmed)) continue
+    if (reservedLower.has(trimmed.toLowerCase())) continue
+    if (seen.has(trimmed)) continue
+    seen.add(trimmed)
+    codes.push(trimmed)
+  }
+
+  return codes
+}
+
+let cachedCandidates: TopicCandidate[] | null = null
+let cachedMatchTokens: MatchToken[] | null = null
+
+function buildCandidates(): TopicCandidate[] {
   return [
-    ...spaceSubjects.map((subject) => ({
-      collection: 'space' as const,
-      slug: subject.slug,
-      name: subject.name,
-      aliases: uniqueAliases(
+    ...spaceSubjects.map((subject) => {
+      const colloquial = SPACE_NAME_ALIASES[subject.slug] ?? []
+      const aliases = uniqueAliases(
         [
           subject.photo.featureName,
           ...subject.features.map((feature) => feature.name),
+          ...colloquial,
         ],
         subject.name,
-      ),
-    })),
+      )
+      const aliasLower = new Set(aliases.map((alias) => alias.toLowerCase()))
+      aliasLower.add(subject.name.toLowerCase())
+      // Only well-known short forms (ISS) — skip opaque index codes like MWY/ORI.
+      const curatedCodes = colloquial.filter((value) =>
+        /^[A-Za-z]{2,3}$/.test(value.trim()),
+      )
+      const codes = uniqueCodes(curatedCodes, aliasLower)
+      return {
+        collection: 'space' as const,
+        slug: subject.slug,
+        name: subject.name,
+        aliases,
+        codes,
+      }
+    }),
     ...countries.map((country) => {
       const entry = getAtlasEntry(country.slug)
+      const colloquial = EXPLORE_NAME_ALIASES[country.slug] ?? []
+      const aliases = uniqueAliases(
+        [
+          entry?.photo.placeName ?? '',
+          ...(entry?.places.map((place) => place.name) ?? []),
+          ...colloquial,
+        ],
+        country.name,
+      )
+      const aliasLower = new Set(aliases.map((alias) => alias.toLowerCase()))
+      aliasLower.add(country.name.toLowerCase())
+      // ISO alpha-2 + two-letter nicknames (UK) — case-sensitive only.
+      const shortNicknames = colloquial.flatMap((value) => {
+        const compact = value.replace(/\./g, '').trim().toUpperCase()
+        return /^[A-Z]{2}$/.test(compact) ? [compact] : []
+      })
+      const codes = uniqueCodes([country.code, ...shortNicknames], aliasLower)
       return {
         collection: 'explore' as const,
         slug: country.slug,
         name: country.name,
-        aliases: uniqueAliases(
-          [
-            entry?.photo.placeName ?? '',
-            ...(entry?.places.map((place) => place.name) ?? []),
-          ],
-          country.name,
-        ),
+        aliases,
+        codes,
       }
     }),
   ]
 }
 
-/** Primary names + place/feature aliases, longest tokens first. */
+function allCandidates(): TopicCandidate[] {
+  if (!cachedCandidates) {
+    cachedCandidates = buildCandidates()
+  }
+  return cachedCandidates
+}
+
+/** Primary names + place/feature aliases + short codes, longest tokens first. */
 function allMatchTokens(): MatchToken[] {
+  if (cachedMatchTokens) return cachedMatchTokens
+
   const tokens: MatchToken[] = []
 
   for (const candidate of allCandidates()) {
@@ -111,13 +211,17 @@ function allMatchTokens(): MatchToken[] {
     for (const alias of candidate.aliases) {
       tokens.push({ candidate, token: alias })
     }
+    for (const code of candidate.codes) {
+      tokens.push({ candidate, token: code, caseSensitive: true })
+    }
   }
 
-  return tokens.sort((left, right) => {
+  cachedMatchTokens = tokens.sort((left, right) => {
     const lengthDiff = right.token.length - left.token.length
     if (lengthDiff !== 0) return lengthDiff
     return left.token.localeCompare(right.token)
   })
+  return cachedMatchTokens
 }
 
 /** Clip curated orientation without cutting mid-word when possible. */
@@ -231,14 +335,20 @@ export function matchTopicPhotosInText(text: string): TopicPhoto[] {
     if (pathOffset < 0) continue
     const start = (match.index ?? 0) + pathOffset
     const end = start + path.length
-    claim(start, end, { collection, slug, name: slug, aliases: [] })
+    claim(start, end, {
+      collection,
+      slug,
+      name: slug,
+      aliases: [],
+      codes: [],
+    })
   }
 
-  for (const { candidate, token } of allMatchTokens()) {
+  for (const { candidate, token, caseSensitive } of allMatchTokens()) {
     if (seen.has(candidateKey(candidate))) continue
     const pattern = new RegExp(
       `(?<![\\p{L}\\p{N}])${escapeRegExp(token)}(?![\\p{L}\\p{N}])`,
-      'giu',
+      caseSensitive ? 'gu' : 'giu',
     )
     const match = pattern.exec(haystack)
     if (!match) continue

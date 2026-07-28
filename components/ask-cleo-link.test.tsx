@@ -41,6 +41,20 @@ describe('AskCleoGuideLink', () => {
     expect(href).toContain('topic=explore%2Fjapan')
     expect(href).not.toContain('q=')
   })
+
+  it('supports a compact visible label while keeping the aria-label', () => {
+    render(
+      <AskCleoGuideLink
+        collection="explore"
+        name="Japan"
+        slug="japan"
+        label="Ask Cleo →"
+      />,
+    )
+
+    const link = screen.getByRole('link', { name: /Ask Cleo about Japan/i })
+    expect(link.textContent).toBe('Ask Cleo →')
+  })
 })
 
 describe('AskCleoPlaceLink', () => {
@@ -88,6 +102,22 @@ describe('AskCleoCompareLink', () => {
         .getByRole('link', { name: /Ask Cleo to compare Mars and Earth/i })
         .getAttribute('href'),
     ).toContain('/cleo?')
+  })
+
+  it('supports a compact visible label', () => {
+    render(
+      <AskCleoCompareLink
+        collection="space"
+        leftName="Mars"
+        rightName="Earth"
+        label="Ask Cleo to compare →"
+      />,
+    )
+
+    const link = screen.getByRole('link', {
+      name: /Ask Cleo to compare Mars and Earth/i,
+    })
+    expect(link.textContent).toBe('Ask Cleo to compare →')
   })
 })
 

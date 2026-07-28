@@ -21,6 +21,8 @@ type AskCleoGuideLinkProps = {
   className?: string
   /** Defaults to auto-submit so the guide context starts the turn. */
   autoSubmit?: boolean
+  /** Visible label; defaults to “Ask Cleo about {name} →”. */
+  label?: string
 }
 
 type AskCleoPlaceLinkProps = {
@@ -28,6 +30,8 @@ type AskCleoPlaceLinkProps = {
   countryName: string
   className?: string
   autoSubmit?: boolean
+  /** Visible label; defaults to “Ask Cleo about {place} →”. */
+  label?: string
 }
 
 type AskCleoFeatureLinkProps = {
@@ -35,6 +39,8 @@ type AskCleoFeatureLinkProps = {
   subjectName: string
   className?: string
   autoSubmit?: boolean
+  /** Visible label; defaults to “Ask Cleo about {feature} →”. */
+  label?: string
 }
 
 type AskCleoCompareLinkProps = {
@@ -43,6 +49,8 @@ type AskCleoCompareLinkProps = {
   rightName: string
   className?: string
   autoSubmit?: boolean
+  /** Visible label; defaults to the full compare phrase. */
+  label?: string
 }
 
 type AskCleoEssayLinkProps = {
@@ -60,6 +68,8 @@ type AskCleoGalleryItemLinkProps = {
   collection: 'places' | 'space'
   className?: string
   autoSubmit?: boolean
+  /** Visible label; defaults to “Ask Cleo →”. */
+  label?: string
 }
 
 type AskCleoSurfaceLinkProps = {
@@ -81,6 +91,7 @@ export function AskCleoGuideLink({
   slug,
   className,
   autoSubmit = true,
+  label,
 }: AskCleoGuideLinkProps) {
   const subject =
     name.trim() || (collection === 'explore' ? 'this country' : 'this subject')
@@ -94,7 +105,7 @@ export function AskCleoGuideLink({
       className={cn(linkClass, className)}
       aria-label={`Ask Cleo about ${subject}`}
     >
-      Ask Cleo about {subject} →
+      {label ?? `Ask Cleo about ${subject} →`}
     </Link>
   )
 }
@@ -105,6 +116,7 @@ export function AskCleoPlaceLink({
   countryName,
   className,
   autoSubmit = true,
+  label,
 }: AskCleoPlaceLinkProps) {
   const place = placeName.trim() || 'this place'
   const country = countryName.trim() || 'this country'
@@ -115,7 +127,7 @@ export function AskCleoPlaceLink({
       className={cn(linkClass, className)}
       aria-label={`Ask Cleo about ${place} in ${country}`}
     >
-      Ask Cleo about {place} →
+      {label ?? `Ask Cleo about ${place} →`}
     </Link>
   )
 }
@@ -126,6 +138,7 @@ export function AskCleoFeatureLink({
   subjectName,
   className,
   autoSubmit = true,
+  label,
 }: AskCleoFeatureLinkProps) {
   const feature = featureName.trim() || 'this feature'
   const subject = subjectName.trim() || 'this subject'
@@ -136,7 +149,7 @@ export function AskCleoFeatureLink({
       className={cn(linkClass, className)}
       aria-label={`Ask Cleo about ${feature} on ${subject}`}
     >
-      Ask Cleo about {feature} →
+      {label ?? `Ask Cleo about ${feature} →`}
     </Link>
   )
 }
@@ -148,6 +161,7 @@ export function AskCleoCompareLink({
   rightName,
   className,
   autoSubmit = true,
+  label,
 }: AskCleoCompareLinkProps) {
   const left = leftName.trim()
   const right = rightName.trim()
@@ -158,7 +172,7 @@ export function AskCleoCompareLink({
       className={cn(linkClass, className)}
       aria-label={`Ask Cleo to compare ${left} and ${right}`}
     >
-      Ask Cleo to compare {left} and {right} →
+      {label ?? `Ask Cleo to compare ${left} and ${right} →`}
     </Link>
   )
 }
@@ -191,6 +205,7 @@ export function AskCleoGalleryItemLink({
   collection,
   className,
   autoSubmit = true,
+  label = 'Ask Cleo →',
 }: AskCleoGalleryItemLinkProps) {
   const item = title.trim() || 'this photograph'
   const subject = subjectName.trim() || 'this subject'
@@ -201,7 +216,7 @@ export function AskCleoGalleryItemLink({
       className={cn('text-xs text-muted-foreground hover:text-foreground', className)}
       aria-label={`Ask Cleo about ${item} (${subject})`}
     >
-      Ask Cleo →
+      {label}
     </Link>
   )
 }

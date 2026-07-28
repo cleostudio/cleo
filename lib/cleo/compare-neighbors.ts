@@ -54,10 +54,28 @@ const SPACE_COMPARE_PREFERRED: Record<string, string> = {
   uranus: 'neptune',
   neptune: 'uranus',
   moon: 'earth',
+  sun: 'earth',
+  iss: 'earth',
+  pluto: 'neptune',
+  'asteroid-belt': 'mars',
   europa: 'ganymede',
   ganymede: 'europa',
   titan: 'europa',
   io: 'europa',
+  enceladus: 'titan',
+  'milky-way': 'andromeda',
+  andromeda: 'milky-way',
+  'orion-nebula': 'carina-nebula',
+  'carina-nebula': 'orion-nebula',
+  'crab-nebula': 'orion-nebula',
+}
+
+/** Never suggest these slugs as a compare peer for the given Space subject. */
+const SPACE_COMPARE_AVOID: Record<string, readonly string[]> = {
+  iss: ['asteroid-belt', 'pluto', 'sun'],
+  sun: ['asteroid-belt', 'iss'],
+  earth: ['asteroid-belt', 'iss'],
+  'asteroid-belt': ['iss', 'sun'],
 }
 
 function nameForExploreSlug(slug: string): string | undefined {
@@ -119,9 +137,10 @@ export function spaceComparePeer(slug: string): string | undefined {
     if (preferredName) return preferredName
   }
 
+  const avoid = new Set(SPACE_COMPARE_AVOID[slug] ?? [])
   const peers = spaceSubjects
     .filter((entry) => entry.category === subject.category)
     .map((entry) => ({ slug: entry.slug, name: entry.name }))
 
-  return peerFromList(peers, slug, new Set())
+  return peerFromList(peers, slug, avoid)
 }

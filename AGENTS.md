@@ -96,9 +96,12 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   via `lib/cleo/parse-ask-search-params.ts` **inside `<Suspense>`** and
   `AskForm` prefills or auto-submits once, clearing params through
   `lib/cleo/ask-params.ts` (`q`, `auto`, and `topic`). Matched topic turns
-  ground clipped orientation prose and resolve place/feature aliases to parent
+  ground clipped orientation prose and resolve place/feature aliases, common
+  names (e.g. South Korea, USA), Messier IDs, and uppercase ISO codes to parent
   guides (`lib/cleo/topic-photos.ts`). Compare peers use curated overrides
-  (`lib/cleo/compare-neighbors.ts`).
+  (`lib/cleo/compare-neighbors.ts`). `topic=` accepts an optional leading slash
+  and rejects overlong values. Smoke the deep-link contract with
+  `pnpm verify:cleo-ask`.
 - `/cleo` Instant Navigation merge rule: keep `export const instant = true` if
   another branch adds it, but **keep** Suspense + `parseCleoAskSearchParams` +
   `topic=` support. Do **not** add a second client-only `?q=` bootstrap that

@@ -56,6 +56,33 @@ describe('topic photos', () => {
     ).toEqual(['mars'])
   })
 
+  it('matches common names, Messier IDs, and uppercase ISO codes', () => {
+    expect(
+      matchTopicPhotosInText('Tell me about South Korea').map(
+        (photo) => photo.slug,
+      ),
+    ).toEqual(['korea-south'])
+    expect(
+      matchTopicPhotosInText('Compare USA and UK briefly').map(
+        (photo) => photo.slug,
+      ),
+    ).toEqual(['united-states', 'united-kingdom'])
+    expect(
+      matchTopicPhotosInText('What is M42?').map((photo) => photo.slug),
+    ).toEqual(['orion-nebula'])
+    expect(
+      matchTopicPhotosInText('Show me the ISS').map((photo) => photo.slug),
+    ).toEqual(['iss'])
+    expect(
+      matchTopicPhotosInText('Facts about Luna').map((photo) => photo.slug),
+    ).toEqual(['moon'])
+    // Uppercase ISO only — lowercase “us” must not mean United States.
+    expect(
+      matchTopicPhotosInText('Tell us about JP').map((photo) => photo.slug),
+    ).toEqual(['japan'])
+    expect(matchTopicPhotosInText('Tell us about travel')).toEqual([])
+  })
+
   it('prefers longer country names over nested shorter ones', () => {
     const photos = matchTopicPhotosInText('What is Nigeria known for?')
     expect(photos.map((photo) => photo.slug)).toEqual(['nigeria'])

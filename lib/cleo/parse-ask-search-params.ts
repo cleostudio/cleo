@@ -15,10 +15,28 @@ import {
 import { getCountry } from '~/lib/countries'
 import { getSpaceSubject } from '~/lib/space'
 
+/** Reject pathological `topic=` values before catalog lookup. */
+export const CLEO_ASK_MAX_TOPIC_LENGTH = 96
+
 const TOPIC_PATH = /^(explore|space)\/([a-z0-9-]+)$/i
 
 function clampPrompt(prompt: string) {
   return prompt.trim().slice(0, CLEO_ASK_MAX_PROMPT_LENGTH)
+}
+
+/**
+ * Normalize compact topic shortcuts:
+ * `explore/japan`, `/explore/japan`, optional whitespace.
+ */
+export function normalizeTopicPath(topic: string): string | null {
+  const trimmed = topic.trim()
+  if (!trimmed || trimmed.length > CLEO_ASK_MAX_TOPIC_LENGTH) return null
+
+  const withoutLeadingSlash = trimmed.replace(/^\/+/, '')
+  const match = TOPIC_PATH.exec(withoutLeadingSlash)
+  if (!match) return null
+
+  return `${match[1]!.toLowerCase()}/${match[2]!.toLowerCase()}`
 }
 
 function firstString(
@@ -45,23 +63,23 @@ function isTruthyFlag(value: string | undefined) {
 }
 
 /**
- * Resolve `explore/japan` or `space/mars` to a guide orientation prompt.
- * Unknown slugs return null so callers can fall back.
+ * Resolve `explore/japan`, `/explore/japan`, or `space/mars` to a guide
+ * orientation prompt. Unknown slugs return null so callers can fall back.
  */
 export function promptFromTopicPath(topic: string): string | null {
-  const match = TOPIC_PATH.exec(topic.trim())
-  if (!match) return null
+  const normalized = normalizeTopicPath(topic)
+  if (!normalized) return null
 
-  const collection = match[1]!.toLowerCase() as 'explore' | 'space'
-  const slug = match[2]!.toLowerCase()
+  const [collectionRaw, slug] = normalized.split('/')
+  const collection = collectionRaw as 'explore' | 'space'
 
   if (collection === 'explore') {
-    const country = getCountry(slug)
+    const country = getCountry(slug!)
     if (!country) return null
     return guideAskPrompt('explore', country.name)
   }
 
-  const subject = getSpaceSubject(slug)
+  const subject = getSpaceSubject(slug!)
   if (!subject) return null
   return guideAskPrompt('space', subject.name)
 }

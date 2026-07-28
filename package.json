@@ -23,6 +23,7 @@
     "test:unit": "vitest run app components lib --exclude='**/*.live.test.ts'",
     "test:localization": "node --test scripts/localization.test.mjs",
     "verify:legacy-urls": "node scripts/verify-legacy-url-contract.mjs",
+    "verify:cleo-ask": "node scripts/verify-cleo-ask-links.mjs",
     "verify:links": "node scripts/verify-public-links.mjs",
     "verify:public-discovery": "node scripts/verify-public-discovery.mjs",
     "generate:atlas-content": "tsx scripts/atlas/generate-atlas-content.mjs",

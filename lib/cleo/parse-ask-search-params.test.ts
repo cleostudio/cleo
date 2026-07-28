@@ -51,6 +51,9 @@ describe('parseCleoAskSearchParams', () => {
 
     expect(parseCleoAskSearchParams({ topic: 'explore/not-real' })).toBeNull()
     expect(promptFromTopicPath('explore/japan')).toMatch(/Japan/)
+    expect(promptFromTopicPath('/explore/japan')).toMatch(/Japan/)
+    expect(promptFromTopicPath('/space/europa')).toMatch(/Europa/)
+    expect(promptFromTopicPath(`explore/${'x'.repeat(120)}`)).toBeNull()
     expect(topicAskHref('explore', 'japan')).toContain(
       `${CLEO_ASK_TOPIC_PARAM}=explore%2Fjapan`,
     )

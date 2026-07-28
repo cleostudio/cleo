@@ -18,10 +18,21 @@ describe('compare neighbors', () => {
     expect(spaceComparePeer('mars')).toBe('Earth')
   })
 
+  it('pairs ISS and Sun with Earth instead of the Asteroid Belt', () => {
+    expect(spaceComparePeer('iss')).toBe('Earth')
+    expect(spaceComparePeer('sun')).toBe('Earth')
+  })
+
+  it('pairs nebulae and galaxies with sensible peers', () => {
+    expect(spaceComparePeer('orion-nebula')).toBe('Carina Nebula')
+    expect(spaceComparePeer('crab-nebula')).toBe('Orion Nebula')
+    expect(spaceComparePeer('milky-way')).toBe('Andromeda')
+    expect(spaceComparePeer('andromeda')).toBe('Milky Way')
+  })
+
   it('falls back within the same Space category when no override exists', () => {
-    const peer = spaceComparePeer('andromeda')
-    expect(peer).toBeTruthy()
-    expect(peer).not.toBe('Andromeda')
+    const peer = spaceComparePeer('enceladus')
+    expect(peer).toBe('Titan')
   })
 
   it('returns undefined for unknown slugs', () => {
