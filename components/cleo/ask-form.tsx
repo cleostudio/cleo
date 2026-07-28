@@ -147,10 +147,6 @@ export function AskForm() {
   const canRetryLastTurn = !isSubmitting && lastUserIndex >= 0
   const canContinueIncomplete =
     !isSubmitting && Boolean(lastVisibleMessage?.incomplete)
-  const regenerateLabel =
-    Boolean(error) || Boolean(lastVisibleMessage?.incomplete)
-      ? "Retry"
-      : "Regenerate"
   const canSubmit =
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
 
@@ -720,20 +716,17 @@ export function AskForm() {
                   ) : null}
 
                   {!(isSubmitting && message.id === messages.at(-1)?.id) &&
-                  (message.content || message.incomplete) ? (
+                  message.incomplete ? (
                     <div className="cleo-answer-actions">
-                      {message.incomplete ? (
-                        <p
-                          className="cleo-incomplete-note"
-                          id={incompleteNoteId}
-                          role="status"
-                        >
-                          {message.incomplete.message}
-                        </p>
-                      ) : null}
-                      <div className="cleo-answer-action-row">
-                        {message.incomplete &&
-                        message.id === lastVisibleMessage?.id ? (
+                      <p
+                        className="cleo-incomplete-note"
+                        id={incompleteNoteId}
+                        role="status"
+                      >
+                        {message.incomplete.message}
+                      </p>
+                      {message.id === lastVisibleMessage?.id ? (
+                        <div className="cleo-answer-action-row">
                           <button
                             aria-describedby={incompleteNoteId}
                             aria-label="Continue this answer"
@@ -744,9 +737,6 @@ export function AskForm() {
                           >
                             Continue
                           </button>
-                        ) : null}
-                        {message.incomplete &&
-                        message.id === lastVisibleMessage?.id ? (
                           <button
                             aria-label="Dismiss the incomplete notice"
                             className="cleo-answer-action"
@@ -755,23 +745,17 @@ export function AskForm() {
                           >
                             Dismiss
                           </button>
-                        ) : null}
-                        {message.id === lastVisibleMessage?.id ? (
                           <button
-                            aria-label={
-                              regenerateLabel === "Retry"
-                                ? "Retry the last question"
-                                : "Regenerate the last answer"
-                            }
+                            aria-label="Retry the last question"
                             className="cleo-answer-action"
                             disabled={!canRetryLastTurn}
                             onClick={handleRetry}
                             type="button"
                           >
-                            {regenerateLabel}
+                            Retry
                           </button>
-                        ) : null}
-                      </div>
+                        </div>
+                      ) : null}
                     </div>
                   ) : null}
                 </section>
