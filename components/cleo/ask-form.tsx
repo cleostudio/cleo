@@ -408,6 +408,23 @@ export function AskForm() {
   }, [hasMessages, isSubmitting])
 
   useEffect(() => {
+    if (isSubmitting) return
+    if (!lastVisibleMessage?.incomplete) return
+    // Bring Continue/Retry above the fixed prompt dock after Stop/restore.
+    const note = document.getElementById(
+      `cleo-incomplete-${lastVisibleMessage.id}`
+    )
+    note?.closest(".cleo-answer-actions")?.scrollIntoView({
+      block: "nearest",
+      behavior: "smooth",
+    })
+  }, [
+    isSubmitting,
+    lastVisibleMessage?.id,
+    lastVisibleMessage?.incomplete,
+  ])
+
+  useEffect(() => {
     mountedRef.current = true
     return () => {
       mountedRef.current = false
@@ -454,7 +471,10 @@ export function AskForm() {
   }
 
   function handleRetry() {
-    if (isSubmittingRef.current) return
+    // Trust React state for the enabled button; heal a stale submitting ref
+    // so a missed finally cannot permanently disable Retry/Continue.
+    if (isSubmitting) return
+    isSubmittingRef.current = false
     const current = messagesRef.current
     // Include hidden Continue prompts so Retry after Continue replays the
     // resume turn instead of jumping back to an older visible question.
@@ -471,7 +491,8 @@ export function AskForm() {
   }
 
   function handleContinue() {
-    if (isSubmittingRef.current) return
+    if (isSubmitting) return
+    isSubmittingRef.current = false
     void sendTurn({
       history: messagesRef.current,
       question: CONTINUE_PROMPT,

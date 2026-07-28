@@ -5,14 +5,15 @@
   /* Site dock is 3.5rem tall at bottom 1.25rem; keep the prompt above it */
   --cleo-prompt-bottom: 5.75rem;
   --cleo-prompt-bottom-mobile: calc(4.5rem + env(safe-area-inset-bottom, 0px));
-  /* Clearance under the last message: prompt bottom offset + prompt height + air */
-  --cleo-content-pad: calc(var(--cleo-prompt-bottom) + 5rem);
+  /* Clearance under the last message: prompt bottom offset + mode row +
+     prompt height + air so Continue/Retry are not covered by the dock. */
+  --cleo-content-pad: calc(var(--cleo-prompt-bottom) + 7.5rem);
 }
 
 @media (max-width: 39.99rem) {
   :root {
     --app-column-gutter: 1rem;
-    --cleo-content-pad: calc(var(--cleo-prompt-bottom-mobile) + 5rem);
+    --cleo-content-pad: calc(var(--cleo-prompt-bottom-mobile) + 7.5rem);
   }
 }
 
@@ -893,6 +894,16 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   align-items: flex-start;
   gap: 0.35rem;
   margin-top: 0.65rem;
+  /* Keep action hits above the fixed mode row + prompt dock. */
+  scroll-margin-bottom: calc(var(--cleo-prompt-bottom) + 6.75rem);
+}
+
+@media (max-width: 39.99rem) {
+  .cleo-answer-actions {
+    scroll-margin-bottom: calc(
+      var(--cleo-prompt-bottom-mobile) + 6.75rem
+    );
+  }
 }
 
 .cleo-answer-action-row {
