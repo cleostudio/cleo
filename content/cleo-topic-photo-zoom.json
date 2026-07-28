@@ -22343,6 +22343,774 @@
       }
     ]
   },
+  "places/plymouth": {
+    "collection": "places",
+    "title": "Plymouth",
+    "subtitle": "Plymouth",
+    "alt": "Plymouth in United Kingdom",
+    "photographer": "Crepuscular_rays_over_Plymouth_Sound.jpg : Nilfanion derivative work: Herby talk thyme",
+    "license": "CC BY-SA 3.0",
+    "width": 3651,
+    "height": 1793,
+    "renditions": [
+      {
+        "src": "/images/places/plymouth/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/plymouth/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/plymouth/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/york": {
+    "collection": "places",
+    "title": "York",
+    "subtitle": "York",
+    "alt": "York in United Kingdom",
+    "photographer": "JackPeasePhotography",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2530,
+    "renditions": [
+      {
+        "src": "/images/places/york/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/york/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/york/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/dijon": {
+    "collection": "places",
+    "title": "Dijon",
+    "subtitle": "Dijon",
+    "alt": "Dijon in France",
+    "photographer": "Benjamin Smith",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/dijon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/dijon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/dijon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/reims": {
+    "collection": "places",
+    "title": "Reims",
+    "subtitle": "Reims",
+    "alt": "Reims in France",
+    "photographer": "Magnus Manske",
+    "license": "CC BY-SA 3.0",
+    "width": 2272,
+    "height": 1704,
+    "renditions": [
+      {
+        "src": "/images/places/reims/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/reims/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/reims/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/parma": {
+    "collection": "places",
+    "title": "Parma",
+    "subtitle": "Parma",
+    "alt": "Parma in Italy",
+    "photographer": "Norbert Nagel",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/parma/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/parma/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/parma/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/brescia": {
+    "collection": "places",
+    "title": "Brescia",
+    "subtitle": "Brescia",
+    "alt": "Brescia in Italy",
+    "photographer": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2476,
+    "renditions": [
+      {
+        "src": "/images/places/brescia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/brescia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/brescia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/stavanger": {
+    "collection": "places",
+    "title": "Stavanger",
+    "subtitle": "Stavanger",
+    "alt": "Stavanger in Norway",
+    "photographer": "Artem Vynohradov",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/stavanger/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/stavanger/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/stavanger/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/eindhoven": {
+    "collection": "places",
+    "title": "Eindhoven",
+    "subtitle": "Eindhoven",
+    "alt": "Eindhoven in Netherlands",
+    "photographer": "Zairon",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2840,
+    "renditions": [
+      {
+        "src": "/images/places/eindhoven/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/eindhoven/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/eindhoven/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ostrava": {
+    "collection": "places",
+    "title": "Ostrava",
+    "subtitle": "Ostrava",
+    "alt": "Ostrava in Czechia",
+    "photographer": "Oleksandr Dede",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2263,
+    "renditions": [
+      {
+        "src": "/images/places/ostrava/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ostrava/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ostrava/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/patras": {
+    "collection": "places",
+    "title": "Patras",
+    "subtitle": "Patras",
+    "alt": "Patras in Greece",
+    "photographer": "Jason Blackeye jeisblack",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/patras/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/patras/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/patras/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/antalya": {
+    "collection": "places",
+    "title": "Antalya",
+    "subtitle": "Antalya",
+    "alt": "Antalya in Türkiye",
+    "photographer": "REHBER0770",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/antalya/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/antalya/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/antalya/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/coimbra": {
+    "collection": "places",
+    "title": "Coimbra",
+    "subtitle": "Coimbra",
+    "alt": "Coimbra in Portugal",
+    "photographer": "Alvesgaspar",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2071,
+    "renditions": [
+      {
+        "src": "/images/places/coimbra/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/coimbra/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/coimbra/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/wyoming": {
+    "collection": "places",
+    "title": "Wyoming",
+    "subtitle": "Wyoming",
+    "alt": "Wyoming in United States",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/wyoming/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/wyoming/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/wyoming/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/new-hampshire": {
+    "collection": "places",
+    "title": "New Hampshire",
+    "subtitle": "New Hampshire",
+    "alt": "New Hampshire in United States",
+    "photographer": "Tichnor Brothers, Publisher",
+    "license": "Public domain",
+    "width": 3284,
+    "height": 2107,
+    "renditions": [
+      {
+        "src": "/images/places/new-hampshire/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/new-hampshire/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/new-hampshire/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rhode-island": {
+    "collection": "places",
+    "title": "Rhode Island",
+    "subtitle": "Rhode Island",
+    "alt": "Rhode Island in United States",
+    "photographer": "Farragutful",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/rhode-island/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rhode-island/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rhode-island/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/iona": {
+    "collection": "places",
+    "title": "Iona",
+    "subtitle": "Iona",
+    "alt": "Iona in United Kingdom",
+    "photographer": "BirdingInSpain",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/iona/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/iona/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/iona/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mljet": {
+    "collection": "places",
+    "title": "Mljet Croatia",
+    "subtitle": "Mljet",
+    "alt": "Mljet Croatia in Croatia",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/mljet/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mljet/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mljet/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lipari": {
+    "collection": "places",
+    "title": "Lipari",
+    "subtitle": "Lipari",
+    "alt": "Lipari in Italy",
+    "photographer": "Jeanne Griffin",
+    "license": "CC BY-SA 4.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/places/lipari/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lipari/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lipari/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/waiheke": {
+    "collection": "places",
+    "title": "Waiheke Island",
+    "subtitle": "Waiheke Island",
+    "alt": "Waiheke Island in New Zealand",
+    "photographer": "AlasdairW",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/waiheke/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/waiheke/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/waiheke/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/fraser-island": {
+    "collection": "places",
+    "title": "Fraser Island",
+    "subtitle": "Fraser Island",
+    "alt": "Fraser Island in Australia",
+    "photographer": "Rhain",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "src": "/images/places/fraser-island/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/fraser-island/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/fraser-island/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/penang": {
+    "collection": "places",
+    "title": "Penang",
+    "subtitle": "Penang",
+    "alt": "Penang in Malaysia",
+    "photographer": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/penang/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/penang/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/penang/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/thurgau": {
+    "collection": "places",
+    "title": "Thurgau",
+    "subtitle": "Thurgau",
+    "alt": "Thurgau in Switzerland",
+    "photographer": "Corradox",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/thurgau/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/thurgau/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/thurgau/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/vaud": {
+    "collection": "places",
+    "title": "Vaud",
+    "subtitle": "Vaud",
+    "alt": "Vaud in Switzerland",
+    "photographer": "Giles Laurent",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "src": "/images/places/vaud/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/vaud/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/vaud/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/north-rhine-westphalia": {
+    "collection": "places",
+    "title": "North Rhine-Westphalia",
+    "subtitle": "North Rhine-Westphalia",
+    "alt": "North Rhine-Westphalia in Germany",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2120,
+    "renditions": [
+      {
+        "src": "/images/places/north-rhine-westphalia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/north-rhine-westphalia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/north-rhine-westphalia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/saxony-anhalt": {
+    "collection": "places",
+    "title": "Saxony-Anhalt",
+    "subtitle": "Saxony-Anhalt",
+    "alt": "Saxony-Anhalt in Germany",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/saxony-anhalt/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/saxony-anhalt/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/saxony-anhalt/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/champagne-ardenne": {
+    "collection": "places",
+    "title": "Champagne-Ardenne",
+    "subtitle": "Champagne-Ardenne",
+    "alt": "Champagne-Ardenne in France",
+    "photographer": "Pline",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2543,
+    "renditions": [
+      {
+        "src": "/images/places/champagne-ardenne/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/champagne-ardenne/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/champagne-ardenne/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/epidaurus": {
+    "collection": "places",
+    "title": "Epidaurus",
+    "subtitle": "Epidaurus",
+    "alt": "Epidaurus in Greece",
+    "photographer": "Zde",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2555,
+    "renditions": [
+      {
+        "src": "/images/places/epidaurus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/epidaurus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/epidaurus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/uxmal": {
+    "collection": "places",
+    "title": "Uxmal",
+    "subtitle": "Uxmal",
+    "alt": "Uxmal in Mexico",
+    "photographer": "Gary Todd from Xinzheng, China",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2352,
+    "renditions": [
+      {
+        "src": "/images/places/uxmal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/uxmal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/uxmal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hampi": {
+    "collection": "places",
+    "title": "Hampi",
+    "subtitle": "Hampi",
+    "alt": "Hampi in India",
+    "photographer": "Basavaraj M",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/hampi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hampi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hampi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hatshepsut": {
+    "collection": "places",
+    "title": "Hatshepsut Temple",
+    "subtitle": "Hatshepsut’s Temple",
+    "alt": "Hatshepsut Temple in Egypt",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2451,
+    "renditions": [
+      {
+        "src": "/images/places/hatshepsut/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hatshepsut/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hatshepsut/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/carnac": {
+    "collection": "places",
+    "title": "Carnac",
+    "subtitle": "Carnac",
+    "alt": "Carnac in France",
+    "photographer": "Myrabella",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2551,
+    "renditions": [
+      {
+        "src": "/images/places/carnac/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/carnac/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/carnac/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/castel-sant-angelo": {
+    "collection": "places",
+    "title": "Castel Sant’Angelo",
+    "subtitle": "Castel Sant’Angelo",
+    "alt": "Castel Sant’Angelo in Italy",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2374,
+    "renditions": [
+      {
+        "src": "/images/places/castel-sant-angelo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/castel-sant-angelo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/castel-sant-angelo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

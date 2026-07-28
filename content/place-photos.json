@@ -21342,5 +21342,933 @@
         "bytes": 335779
       }
     ]
+  },
+  "plymouth": {
+    "featureName": "Plymouth",
+    "alt": "Plymouth in United Kingdom",
+    "caption": "Plymouth, United Kingdom",
+    "photographer": "Crepuscular_rays_over_Plymouth_Sound.jpg : Nilfanion derivative work: Herby talk thyme",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crepuscular_rays_over_Plymouth_Sound_crop.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Crepuscular rays over Plymouth Sound crop.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0b/Crepuscular_rays_over_Plymouth_Sound_crop.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c86fa2f1fe9929d1a480334a0ab022d0ff975c2801f4e3efeeff58c46519becd",
+    "width": 3651,
+    "height": 1793,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/plymouth/w640.jpg",
+        "bytes": 41355
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/plymouth/w1280.jpg",
+        "bytes": 69427
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/plymouth/w2048.jpg",
+        "bytes": 141204
+      }
+    ]
+  },
+  "york": {
+    "featureName": "York",
+    "alt": "York in United Kingdom",
+    "caption": "York, United Kingdom",
+    "photographer": "JackPeasePhotography",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:York_Minster,_North_Yorkshire_-_from_the_City_Walls_(32513880464).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:York Minster, North Yorkshire - from the City Walls (32513880464).jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c7/York_Minster%2C_North_Yorkshire_-_from_the_City_Walls_%2832513880464%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b1a1faf6ac63989110dc6c4cd701ce79cc967157f07aadb1a70b41ecf838a085",
+    "width": 3840,
+    "height": 2530,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/york/w640.jpg",
+        "bytes": 64175
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/york/w1280.jpg",
+        "bytes": 253465
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/york/w2048.jpg",
+        "bytes": 783234
+      }
+    ]
+  },
+  "dijon": {
+    "featureName": "Dijon",
+    "alt": "Dijon in France",
+    "caption": "Dijon, France",
+    "photographer": "Benjamin Smith",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dijon_-_Palais_des_Ducs_et_des_%C3%89tats_de_Bourgogne_-_07.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Dijon - Palais des Ducs et des États de Bourgogne - 07.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/75/Dijon_-_Palais_des_Ducs_et_des_%C3%89tats_de_Bourgogne_-_07.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "01c27c6b4e784585d47897fa35c247dbf1b1bf165e2e3fcb63e65a596dd91625",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/dijon/w640.jpg",
+        "bytes": 44773
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/dijon/w1280.jpg",
+        "bytes": 152880
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/dijon/w2048.jpg",
+        "bytes": 438110
+      }
+    ]
+  },
+  "reims": {
+    "featureName": "Reims",
+    "alt": "Reims in France",
+    "caption": "Reims, France",
+    "photographer": "Magnus Manske",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reims_Cathedral,_exterior_(3).jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Reims Cathedral, exterior (3).jpg); source https://upload.wikimedia.org/wikipedia/commons/b/be/Reims_Cathedral%2C_exterior_%283%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cbf10ee9288d536f695ecb7b4511d97e2f4a53dcc4e1684b11cd691f8e842556",
+    "width": 2272,
+    "height": 1704,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/reims/w640.jpg",
+        "bytes": 66852
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/reims/w1280.jpg",
+        "bytes": 205974
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/reims/w2048.jpg",
+        "bytes": 495961
+      }
+    ]
+  },
+  "parma": {
+    "featureName": "Parma",
+    "alt": "Parma in Italy",
+    "caption": "Parma, Italy",
+    "photographer": "Norbert Nagel",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parma_-_Italy_-_July_7th_2013_-_04.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Parma - Italy - July 7th 2013 - 04.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/ba/Parma_-_Italy_-_July_7th_2013_-_04.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ffd33c509f0d92a77217c847018ff2fda616742ae50d55049be85b2ad4c0e96c",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/parma/w640.jpg",
+        "bytes": 60996
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/parma/w1280.jpg",
+        "bytes": 201581
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/parma/w2048.jpg",
+        "bytes": 540815
+      }
+    ]
+  },
+  "brescia": {
+    "featureName": "Brescia",
+    "alt": "Brescia in Italy",
+    "caption": "Brescia, Italy",
+    "photographer": "Krzysztof Golik",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castle_of_Brescia_(2).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Castle of Brescia (2).jpg); source https://upload.wikimedia.org/wikipedia/commons/b/be/Castle_of_Brescia_%282%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "794f0244e028dbdfae9ae077e8646e5227558212cd3e96a8fdd7c9a530cefa13",
+    "width": 3840,
+    "height": 2476,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/brescia/w640.jpg",
+        "bytes": 63193
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/brescia/w1280.jpg",
+        "bytes": 246478
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/brescia/w2048.jpg",
+        "bytes": 751368
+      }
+    ]
+  },
+  "stavanger": {
+    "featureName": "Stavanger",
+    "alt": "Stavanger in Norway",
+    "caption": "Stavanger, Norway",
+    "photographer": "Artem Vynohradov",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gamle_Stavanger_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Gamle Stavanger 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/14/Gamle_Stavanger_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3498f2f04d5d7a986c99572da73d09fe9fab85e03bda63c17ab0ca980df520a0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/stavanger/w640.jpg",
+        "bytes": 66940
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/stavanger/w1280.jpg",
+        "bytes": 248645
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/stavanger/w2048.jpg",
+        "bytes": 672743
+      }
+    ]
+  },
+  "eindhoven": {
+    "featureName": "Eindhoven",
+    "alt": "Eindhoven in Netherlands",
+    "caption": "Eindhoven, Netherlands",
+    "photographer": "Zairon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eindhoven_Evoluon_03.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Eindhoven Evoluon 03.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/67/Eindhoven_Evoluon_03.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "41d0f438c76f764ad9a81576fb974f413ad723d4c180331cd0ddffd16fa576f0",
+    "width": 3840,
+    "height": 2840,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/eindhoven/w640.jpg",
+        "bytes": 42205
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/eindhoven/w1280.jpg",
+        "bytes": 142011
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/eindhoven/w2048.jpg",
+        "bytes": 388359
+      }
+    ]
+  },
+  "ostrava": {
+    "featureName": "Ostrava",
+    "alt": "Ostrava in Czechia",
+    "caption": "Ostrava, Czechia",
+    "photographer": "Oleksandr Dede",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Doln%C3%AD_V%C3%ADtkovice_from_Tieto_Towers.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Dolní Vítkovice from Tieto Towers.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1f/Doln%C3%AD_V%C3%ADtkovice_from_Tieto_Towers.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "01c911640075d824a5807a28f6ee53adb0d4b06574a029b16dd90cffacbdb5f4",
+    "width": 3840,
+    "height": 2263,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ostrava/w640.jpg",
+        "bytes": 53735
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ostrava/w1280.jpg",
+        "bytes": 183558
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ostrava/w2048.jpg",
+        "bytes": 493600
+      }
+    ]
+  },
+  "patras": {
+    "featureName": "Patras",
+    "alt": "Patras in Greece",
+    "caption": "Patras, Greece",
+    "photographer": "Jason Blackeye jeisblack",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Patras,_Greece_(Unsplash_TvqXq0jH3Wk).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Patras, Greece (Unsplash TvqXq0jH3Wk).jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9c/Patras%2C_Greece_%28Unsplash_TvqXq0jH3Wk%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e008063dac39941cdf05e1ae41ac7b81a12f679f61116d89fcc358b901ee3422",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/patras/w640.jpg",
+        "bytes": 46214
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/patras/w1280.jpg",
+        "bytes": 137778
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/patras/w2048.jpg",
+        "bytes": 343818
+      }
+    ]
+  },
+  "antalya": {
+    "featureName": "Antalya",
+    "alt": "Antalya in Türkiye",
+    "caption": "Antalya, Türkiye",
+    "photographer": "REHBER0770",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Antalya_kalei%C3%A7i_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Antalya kaleiçi 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/75/Antalya_kalei%C3%A7i_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "35827e9e5f057518305670f123fc7da779ac414c880a7d91b146d79f214d0fe2",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/antalya/w640.jpg",
+        "bytes": 77935
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/antalya/w1280.jpg",
+        "bytes": 312137
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/antalya/w2048.jpg",
+        "bytes": 932954
+      }
+    ]
+  },
+  "coimbra": {
+    "featureName": "Coimbra",
+    "alt": "Coimbra in Portugal",
+    "caption": "Coimbra, Portugal",
+    "photographer": "Alvesgaspar",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coimbra_November_2012-7.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Coimbra November 2012-7.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/50/Coimbra_November_2012-7.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9ec20d2550321da44f4303724901d050a108ff2d0f5084489833512c559a4532",
+    "width": 3840,
+    "height": 2071,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/coimbra/w640.jpg",
+        "bytes": 42992
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/coimbra/w1280.jpg",
+        "bytes": 144203
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/coimbra/w2048.jpg",
+        "bytes": 401002
+      }
+    ]
+  },
+  "wyoming": {
+    "featureName": "Wyoming",
+    "alt": "Wyoming in United States",
+    "caption": "Wyoming, United States",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yellowstone_National_Park_(WY,_USA),_Firehole_River,_Abflusskanal_des_Excelsior_Geysirs_--_2022_--_2572-4.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Yellowstone National Park (WY, USA), Firehole River, Abflusskanal des Excelsior Geysirs -- 2022 -- 2572-4.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/82/Yellowstone_National_Park_%28WY%2C_USA%29%2C_Firehole_River%2C_Abflusskanal_des_Excelsior_Geysirs_--_2022_--_2572-4.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "59b194f65f7e6a1de41b0f5d4cc4f05b8d4968bf1ffd7ddc7b97016e5df2c61c",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/wyoming/w640.jpg",
+        "bytes": 65126
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/wyoming/w1280.jpg",
+        "bytes": 260069
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/wyoming/w2048.jpg",
+        "bytes": 824958
+      }
+    ]
+  },
+  "new-hampshire": {
+    "featureName": "New Hampshire",
+    "alt": "New Hampshire in United States",
+    "caption": "New Hampshire, United States",
+    "photographer": "Tichnor Brothers, Publisher",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt._Lafayette_and_Echo_Lake_from_Artist%27s_Bluff,_Franconia_Notch,_White_Mountains,_N.H_(62508).jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Mt. Lafayette and Echo Lake from Artist's Bluff, Franconia Notch, White Mountains, N.H (62508).jpg); source https://upload.wikimedia.org/wikipedia/commons/3/35/Mt._Lafayette_and_Echo_Lake_from_Artist%27s_Bluff%2C_Franconia_Notch%2C_White_Mountains%2C_N.H_%2862508%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5ff98e2157e4e010776727c6cfefdbf1068e15f7da1705e60183938f41c154b5",
+    "width": 3284,
+    "height": 2107,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/new-hampshire/w640.jpg",
+        "bytes": 62753
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/new-hampshire/w1280.jpg",
+        "bytes": 307378
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/new-hampshire/w2048.jpg",
+        "bytes": 948774
+      }
+    ]
+  },
+  "rhode-island": {
+    "featureName": "Rhode Island",
+    "alt": "Rhode Island in United States",
+    "caption": "Rhode Island, United States",
+    "photographer": "Farragutful",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Providence_skyline_01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Providence skyline 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/55/Providence_skyline_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cf5958f4ea4b4f37fc1d4c800db0f1ab72ba59d7c97291ac13c19a8e8f9d66f0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rhode-island/w640.jpg",
+        "bytes": 56740
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rhode-island/w1280.jpg",
+        "bytes": 186815
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rhode-island/w2048.jpg",
+        "bytes": 516862
+      }
+    ]
+  },
+  "iona": {
+    "featureName": "Iona",
+    "alt": "Iona in United Kingdom",
+    "caption": "Iona, United Kingdom",
+    "photographer": "BirdingInSpain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iona,_Scotland.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Iona, Scotland.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/87/Iona%2C_Scotland.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9205e3b3bead50f83b631b6921335b08c9170ac8f767de1a4237659d69a556ed",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/iona/w640.jpg",
+        "bytes": 56332
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/iona/w1280.jpg",
+        "bytes": 202611
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/iona/w2048.jpg",
+        "bytes": 510749
+      }
+    ]
+  },
+  "mljet": {
+    "featureName": "Mljet Croatia",
+    "alt": "Mljet Croatia in Croatia",
+    "caption": "Mljet Croatia, Croatia",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Adriatic_Sea_between_the_islands_Pomestak_and_Mljet,_Croatia_(48738580543).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:The Adriatic Sea between the islands Pomestak and Mljet, Croatia (48738580543).jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0f/The_Adriatic_Sea_between_the_islands_Pomestak_and_Mljet%2C_Croatia_%2848738580543%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1bf462b079f30466231057902ecfb238ca70c69445465cce7e68a8ba4e7f1d98",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mljet/w640.jpg",
+        "bytes": 35578
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mljet/w1280.jpg",
+        "bytes": 126012
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mljet/w2048.jpg",
+        "bytes": 363609
+      }
+    ]
+  },
+  "lipari": {
+    "featureName": "Lipari",
+    "alt": "Lipari in Italy",
+    "caption": "Lipari, Italy",
+    "photographer": "Jeanne Griffin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lipari_Castle_and_Marina_Corta_4-2017.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lipari Castle and Marina Corta 4-2017.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e7/Lipari_Castle_and_Marina_Corta_4-2017.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "97a722d565170e1896a46004bca6cbe4788ed2fb41c31e027143d681f1e00016",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lipari/w640.jpg",
+        "bytes": 48106
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lipari/w1280.jpg",
+        "bytes": 197975
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lipari/w2048.jpg",
+        "bytes": 637308
+      }
+    ]
+  },
+  "waiheke": {
+    "featureName": "Waiheke Island",
+    "alt": "Waiheke Island in New Zealand",
+    "caption": "Waiheke Island, New Zealand",
+    "photographer": "AlasdairW",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waiheke_Island_Oneroa_Beach.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Waiheke Island Oneroa Beach.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a6/Waiheke_Island_Oneroa_Beach.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "eb5783a93481a05f0c2a72a0517f8198a2faced888fc66a6f82fd4ed5a276cf1",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/waiheke/w640.jpg",
+        "bytes": 34709
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/waiheke/w1280.jpg",
+        "bytes": 132357
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/waiheke/w2048.jpg",
+        "bytes": 396992
+      }
+    ]
+  },
+  "fraser-island": {
+    "featureName": "Fraser Island",
+    "alt": "Fraser Island in Australia",
+    "caption": "Fraser Island, Australia",
+    "photographer": "Rhain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_McKenzie,_Fraser_Island_(May_2016).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake McKenzie, Fraser Island (May 2016).jpg); source https://upload.wikimedia.org/wikipedia/commons/b/bb/Lake_McKenzie%2C_Fraser_Island_%28May_2016%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fccdaf474c12087357f0bf2d0053e11c8efa6b24ffc36406c1d24f2a4b1d6dee",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/fraser-island/w640.jpg",
+        "bytes": 46421
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/fraser-island/w1280.jpg",
+        "bytes": 170927
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/fraser-island/w2048.jpg",
+        "bytes": 507425
+      }
+    ]
+  },
+  "penang": {
+    "featureName": "Penang",
+    "alt": "Penang in Malaysia",
+    "caption": "Penang, Malaysia",
+    "photographer": "CEphoto, Uwe Aranas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Penang_Malaysia-_Cheong-Fatt-Tze-Mansion-05.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Penang Malaysia- Cheong-Fatt-Tze-Mansion-05.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c3/Penang_Malaysia-_Cheong-Fatt-Tze-Mansion-05.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2811c3a3c6b7ebccd82c286b2b2b3039562a829d364924f8902ed7272b91c7af",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/penang/w640.jpg",
+        "bytes": 52085
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/penang/w1280.jpg",
+        "bytes": 168856
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/penang/w2048.jpg",
+        "bytes": 476165
+      }
+    ]
+  },
+  "thurgau": {
+    "featureName": "Thurgau",
+    "alt": "Thurgau in Switzerland",
+    "caption": "Thurgau, Switzerland",
+    "photographer": "Corradox",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Schloss_Arenenberg_Untersee.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Schloss Arenenberg Untersee.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a8/Schloss_Arenenberg_Untersee.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ac457ad134afb8be9d52944f28b3e9f8b72363ae98a749d123ae39838c2d44f1",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/thurgau/w640.jpg",
+        "bytes": 78930
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/thurgau/w1280.jpg",
+        "bytes": 202784
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/thurgau/w2048.jpg",
+        "bytes": 430211
+      }
+    ]
+  },
+  "vaud": {
+    "featureName": "Vaud",
+    "alt": "Vaud in Switzerland",
+    "caption": "Vaud, Switzerland",
+    "photographer": "Giles Laurent",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:001_Chateau_de_Chillon_and_Dents_du_Midi_Photo_by_Giles_Laurent.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:001 Chateau de Chillon and Dents du Midi Photo by Giles Laurent.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/48/001_Chateau_de_Chillon_and_Dents_du_Midi_Photo_by_Giles_Laurent.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8edfe2f079dec155d76234bb339ecb407e192648fa480ec293d4bc95caf5cb86",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/vaud/w640.jpg",
+        "bytes": 38893
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/vaud/w1280.jpg",
+        "bytes": 143999
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/vaud/w2048.jpg",
+        "bytes": 443581
+      }
+    ]
+  },
+  "north-rhine-westphalia": {
+    "featureName": "North Rhine-Westphalia",
+    "alt": "North Rhine-Westphalia in Germany",
+    "caption": "North Rhine-Westphalia, Germany",
+    "photographer": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kranh%C3%A4user_Cologne,_April_2018_-01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kranhäuser Cologne, April 2018 -01.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5f/Kranh%C3%A4user_Cologne%2C_April_2018_-01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4d6d45e22c304cb200c5b465d06eaa0da484a911b9634fb2282b06fed0ae6eb6",
+    "width": 3840,
+    "height": 2120,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/north-rhine-westphalia/w640.jpg",
+        "bytes": 30212
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/north-rhine-westphalia/w1280.jpg",
+        "bytes": 98674
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/north-rhine-westphalia/w2048.jpg",
+        "bytes": 288753
+      }
+    ]
+  },
+  "saxony-anhalt": {
+    "featureName": "Saxony-Anhalt",
+    "alt": "Saxony-Anhalt in Germany",
+    "caption": "Saxony-Anhalt, Germany",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ilsenburg,_Ilsetal,_Ilsef%C3%A4lle_--_2017_--_0143.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ilsenburg, Ilsetal, Ilsefälle -- 2017 -- 0143.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c8/Ilsenburg%2C_Ilsetal%2C_Ilsef%C3%A4lle_--_2017_--_0143.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "290428745773b25ee1d4ed6467d7feebfd5a18d29674d9613df8b62d088788e2",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/saxony-anhalt/w640.jpg",
+        "bytes": 69792
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/saxony-anhalt/w1280.jpg",
+        "bytes": 264665
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/saxony-anhalt/w2048.jpg",
+        "bytes": 765169
+      }
+    ]
+  },
+  "champagne-ardenne": {
+    "featureName": "Champagne-Ardenne",
+    "alt": "Champagne-Ardenne in France",
+    "caption": "Champagne-Ardenne, France",
+    "photographer": "Pline",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_montagne_de_Reims_DSC_0226.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:La montagne de Reims DSC 0226.JPG); source https://upload.wikimedia.org/wikipedia/commons/d/d0/La_montagne_de_Reims_DSC_0226.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e21d4d6ce9efd60e73d1dc4ec3e7a37e8e49cbf49e07a104b59c246e6c045f1f",
+    "width": 3840,
+    "height": 2543,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/champagne-ardenne/w640.jpg",
+        "bytes": 50902
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/champagne-ardenne/w1280.jpg",
+        "bytes": 195906
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/champagne-ardenne/w2048.jpg",
+        "bytes": 589347
+      }
+    ]
+  },
+  "epidaurus": {
+    "featureName": "Epidaurus",
+    "alt": "Epidaurus in Greece",
+    "caption": "Epidaurus, Greece",
+    "photographer": "Zde",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Theatre_of_Epidaurus,_202512.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Theatre of Epidaurus, 202512.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b4/Theatre_of_Epidaurus%2C_202512.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6c70e0aa8d21213c8117e54514ee7ea93b623569840613de901155d38a0e2358",
+    "width": 3840,
+    "height": 2555,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/epidaurus/w640.jpg",
+        "bytes": 61708
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/epidaurus/w1280.jpg",
+        "bytes": 243313
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/epidaurus/w2048.jpg",
+        "bytes": 769268
+      }
+    ]
+  },
+  "uxmal": {
+    "featureName": "Uxmal",
+    "alt": "Uxmal in Mexico",
+    "caption": "Uxmal, Mexico",
+    "photographer": "Gary Todd from Xinzheng, China",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uxmal_Pyramid_of_the_Magician_(16462202846).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Uxmal Pyramid of the Magician (16462202846).jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6c/Uxmal_Pyramid_of_the_Magician_%2816462202846%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3b34b8b5d42815f96c2ca739dc99c26f545ad2cfc35b37ea103f07a82411f51a",
+    "width": 3840,
+    "height": 2352,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/uxmal/w640.jpg",
+        "bytes": 54208
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/uxmal/w1280.jpg",
+        "bytes": 176589
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/uxmal/w2048.jpg",
+        "bytes": 432656
+      }
+    ]
+  },
+  "hampi": {
+    "featureName": "Hampi",
+    "alt": "Hampi in India",
+    "caption": "Hampi, India",
+    "photographer": "Basavaraj M",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hampi_Vitthala_Temple_3465.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Hampi Vitthala Temple 3465.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3d/Hampi_Vitthala_Temple_3465.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "dd0115225c06435a6a14734f640781320400a48edc1bc31dc1bfad50fe1c67a4",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hampi/w640.jpg",
+        "bytes": 50462
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hampi/w1280.jpg",
+        "bytes": 177036
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hampi/w2048.jpg",
+        "bytes": 519235
+      }
+    ]
+  },
+  "hatshepsut": {
+    "featureName": "Hatshepsut Temple",
+    "alt": "Hatshepsut Temple in Egypt",
+    "caption": "Hatshepsut Temple, Egypt",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Templo_funerario_de_Hatshepsut,_Valle_de_las_Reyes,_Luxor,_Egipto,_2022-04-03,_DD_118.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Templo funerario de Hatshepsut, Valle de las Reyes, Luxor, Egipto, 2022-04-03, DD 118.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/47/Templo_funerario_de_Hatshepsut%2C_Valle_de_las_Reyes%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_118.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cb6a13b45e193c9a98543bb450b855ec9827f69dc9bd2680092baa18354d3e6b",
+    "width": 3840,
+    "height": 2451,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hatshepsut/w640.jpg",
+        "bytes": 54368
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hatshepsut/w1280.jpg",
+        "bytes": 205207
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hatshepsut/w2048.jpg",
+        "bytes": 636884
+      }
+    ]
+  },
+  "carnac": {
+    "featureName": "Carnac",
+    "alt": "Carnac in France",
+    "caption": "Carnac, France",
+    "photographer": "Myrabella",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alignement_Menec_Carnac.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Alignement Menec Carnac.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/36/Alignement_Menec_Carnac.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9dadadd1c5546c45f929236cbb6d4eef909648e42a58c659bb04f0b3e2d002ca",
+    "width": 3840,
+    "height": 2551,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/carnac/w640.jpg",
+        "bytes": 47286
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/carnac/w1280.jpg",
+        "bytes": 184097
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/carnac/w2048.jpg",
+        "bytes": 556294
+      }
+    ]
+  },
+  "castel-sant-angelo": {
+    "featureName": "Castel Sant’Angelo",
+    "alt": "Castel Sant’Angelo in Italy",
+    "caption": "Castel Sant’Angelo, Italy",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rome_(IT),_Engelsburg_--_2013_--_4359.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Rome (IT), Engelsburg -- 2013 -- 4359.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b2/Rome_%28IT%29%2C_Engelsburg_--_2013_--_4359.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9c75ddb6b9ca29e0ca54609f7b44da693406bce80f87d82e3e694fa584a96942",
+    "width": 3840,
+    "height": 2374,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/castel-sant-angelo/w640.jpg",
+        "bytes": 42671
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/castel-sant-angelo/w1280.jpg",
+        "bytes": 148024
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/castel-sant-angelo/w2048.jpg",
+        "bytes": 415745
+      }
+    ]
   }
 }

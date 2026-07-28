@@ -1,0 +1,354 @@
+{
+  "plymouth": {
+    "name": "Plymouth",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Plymouth",
+      "Plymouth United Kingdom",
+      "Plymouth Hoe"
+    ]
+  },
+  "york": {
+    "name": "York",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "York",
+      "York United Kingdom",
+      "York Minster"
+    ]
+  },
+  "dijon": {
+    "name": "Dijon",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Dijon",
+      "Dijon France",
+      "Dijon Burgundy"
+    ]
+  },
+  "reims": {
+    "name": "Reims",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Reims",
+      "Rheims",
+      "Reims France"
+    ]
+  },
+  "parma": {
+    "name": "Parma",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Parma",
+      "Parma Italy",
+      "Parma Duomo"
+    ]
+  },
+  "brescia": {
+    "name": "Brescia",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Brescia",
+      "Brescia Italy",
+      "Brescia Lombardy"
+    ]
+  },
+  "stavanger": {
+    "name": "Stavanger",
+    "countrySlug": "norway",
+    "countryName": "Norway",
+    "kind": "City",
+    "searchNames": [
+      "Stavanger",
+      "Stavanger Norway",
+      "Gamle Stavanger"
+    ]
+  },
+  "eindhoven": {
+    "name": "Eindhoven",
+    "countrySlug": "netherlands",
+    "countryName": "Netherlands",
+    "kind": "City",
+    "searchNames": [
+      "Eindhoven",
+      "Eindhoven Netherlands",
+      "Strijp-S"
+    ]
+  },
+  "ostrava": {
+    "name": "Ostrava",
+    "countrySlug": "czechia",
+    "countryName": "Czechia",
+    "kind": "City",
+    "searchNames": [
+      "Ostrava",
+      "Ostrava Czechia",
+      "Vitkovice"
+    ]
+  },
+  "patras": {
+    "name": "Patras",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "City",
+    "searchNames": [
+      "Patras",
+      "Patra",
+      "Patras Greece"
+    ]
+  },
+  "antalya": {
+    "name": "Antalya",
+    "countrySlug": "turkiye",
+    "countryName": "Türkiye",
+    "kind": "City",
+    "searchNames": [
+      "Antalya",
+      "Antalya Türkiye",
+      "Kaleiçi"
+    ]
+  },
+  "coimbra": {
+    "name": "Coimbra",
+    "countrySlug": "portugal",
+    "countryName": "Portugal",
+    "kind": "City",
+    "searchNames": [
+      "Coimbra",
+      "Coimbra Portugal",
+      "University of Coimbra"
+    ]
+  },
+  "wyoming": {
+    "name": "Wyoming",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Wyoming",
+      "Wyoming United States",
+      "Wyoming landscape"
+    ]
+  },
+  "new-hampshire": {
+    "name": "New Hampshire",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "New Hampshire",
+      "New Hampshire United States",
+      "White Mountains"
+    ]
+  },
+  "rhode-island": {
+    "name": "Rhode Island",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Rhode Island",
+      "Rhode Island United States",
+      "Narragansett Bay"
+    ]
+  },
+  "iona": {
+    "name": "Iona",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Iona",
+      "Iona Scotland",
+      "Iona Abbey"
+    ]
+  },
+  "mljet": {
+    "name": "Mljet",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "Island",
+    "searchNames": [
+      "Mljet",
+      "Mljet Croatia",
+      "Mljet National Park"
+    ]
+  },
+  "lipari": {
+    "name": "Lipari",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Island",
+    "searchNames": [
+      "Lipari",
+      "Lipari Italy",
+      "Aeolian Lipari"
+    ]
+  },
+  "waiheke": {
+    "name": "Waiheke Island",
+    "countrySlug": "new-zealand",
+    "countryName": "New Zealand",
+    "kind": "Island",
+    "searchNames": [
+      "Waiheke",
+      "Waiheke Island",
+      "Waiheke New Zealand"
+    ]
+  },
+  "fraser-island": {
+    "name": "Fraser Island",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Island",
+    "searchNames": [
+      "Fraser Island",
+      "K'gari",
+      "Kgari Queensland"
+    ]
+  },
+  "penang": {
+    "name": "Penang",
+    "countrySlug": "malaysia",
+    "countryName": "Malaysia",
+    "kind": "Island",
+    "searchNames": [
+      "Penang",
+      "Pulau Pinang",
+      "George Town Penang"
+    ]
+  },
+  "thurgau": {
+    "name": "Thurgau",
+    "countrySlug": "switzerland",
+    "countryName": "Switzerland",
+    "kind": "Region",
+    "searchNames": [
+      "Thurgau",
+      "Thurgau Switzerland",
+      "Lake Constance Thurgau"
+    ]
+  },
+  "vaud": {
+    "name": "Vaud",
+    "countrySlug": "switzerland",
+    "countryName": "Switzerland",
+    "kind": "Region",
+    "searchNames": [
+      "Vaud",
+      "Vaud Switzerland",
+      "Lavaux"
+    ]
+  },
+  "north-rhine-westphalia": {
+    "name": "North Rhine-Westphalia",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "North Rhine-Westphalia",
+      "Nordrhein-Westfalen",
+      "NRW Germany"
+    ]
+  },
+  "saxony-anhalt": {
+    "name": "Saxony-Anhalt",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Saxony-Anhalt",
+      "Sachsen-Anhalt",
+      "Saxony-Anhalt Germany"
+    ]
+  },
+  "champagne-ardenne": {
+    "name": "Champagne-Ardenne",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Champagne-Ardenne",
+      "Champagne Ardenne",
+      "Champagne France region"
+    ]
+  },
+  "epidaurus": {
+    "name": "Epidaurus",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Landmark",
+    "searchNames": [
+      "Epidaurus",
+      "Epidauros",
+      "Epidaurus theater"
+    ]
+  },
+  "uxmal": {
+    "name": "Uxmal",
+    "countrySlug": "mexico",
+    "countryName": "Mexico",
+    "kind": "Landmark",
+    "searchNames": [
+      "Uxmal",
+      "Uxmal Mexico",
+      "Uxmal Maya"
+    ]
+  },
+  "hampi": {
+    "name": "Hampi",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "Landmark",
+    "searchNames": [
+      "Hampi",
+      "Hampi India",
+      "Hampi Vijayanagara"
+    ]
+  },
+  "hatshepsut": {
+    "name": "Hatshepsut’s Temple",
+    "countrySlug": "egypt",
+    "countryName": "Egypt",
+    "kind": "Landmark",
+    "searchNames": [
+      "Hatshepsut Temple",
+      "Deir el-Bahri",
+      "Hatshepsut’s Temple"
+    ]
+  },
+  "carnac": {
+    "name": "Carnac",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": [
+      "Carnac",
+      "Carnac stones",
+      "Carnac Brittany"
+    ]
+  },
+  "castel-sant-angelo": {
+    "name": "Castel Sant’Angelo",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": [
+      "Castel Sant’Angelo",
+      "Castel Sant Angelo",
+      "Hadrian’s Mausoleum"
+    ]
+  }
+}

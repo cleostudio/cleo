@@ -14,7 +14,7 @@ import {
 
 describe('place guides', () => {
   it('ships a curated catalog with unique slugs and codes', () => {
-    expect(placeGuides.length).toBeGreaterThanOrEqual(736)
+    expect(placeGuides.length).toBeGreaterThanOrEqual(768)
 
     const slugs = placeGuides.map((place) => place.slug)
     const codes = placeGuides.map((place) => place.code)
@@ -479,6 +479,32 @@ describe('place guides', () => {
     expect(matchPlaceGuideForBlurb('guatemala', 'Tikal')?.slug).toBe('tikal')
     expect(matchPlaceGuideForBlurb('thailand', 'Ayudhya')?.slug).toBe(
       'ayutthaya',
+    )
+    expect(matchPlaceGuideForBlurb('united-kingdom', 'York Minster')?.slug).toBe(
+      'york',
+    )
+    expect(matchPlaceGuideForBlurb('france', 'Rheims')?.slug).toBe('reims')
+    expect(matchPlaceGuideForBlurb('greece', 'Patra')?.slug).toBe('patras')
+    expect(matchPlaceGuideForBlurb('united-states', 'Wyoming')?.slug).toBe(
+      'wyoming',
+    )
+    expect(matchPlaceGuideForBlurb('australia', "K'gari")?.slug).toBe(
+      'fraser-island',
+    )
+    expect(matchPlaceGuideForBlurb('malaysia', 'Pulau Pinang')?.slug).toBe(
+      'penang',
+    )
+    expect(matchPlaceGuideForBlurb('germany', 'Nordrhein-Westfalen')?.slug).toBe(
+      'north-rhine-westphalia',
+    )
+    expect(matchPlaceGuideForBlurb('greece', 'Epidauros')?.slug).toBe(
+      'epidaurus',
+    )
+    expect(matchPlaceGuideForBlurb('egypt', 'Deir el-Bahri')?.slug).toBe(
+      'hatshepsut',
+    )
+    expect(matchPlaceGuideForBlurb('italy', "Hadrian’s Mausoleum")?.slug).toBe(
+      'castel-sant-angelo',
     )
   })
 
