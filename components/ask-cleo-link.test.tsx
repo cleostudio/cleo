@@ -122,7 +122,7 @@ describe('AskCleoCompareLink', () => {
 })
 
 describe('AskCleoEssayLink', () => {
-  it('links a Writing essay into Cleo', () => {
+  it('links a Writing essay into Cleo via compact topic=', () => {
     render(
       <AskCleoEssayLink title="Pale Blue Marble" slug="pale-blue-marble" />,
     )
@@ -130,9 +130,10 @@ describe('AskCleoEssayLink', () => {
     const link = screen.getByRole('link', {
       name: /Ask Cleo about “Pale Blue Marble”/i,
     })
-    expect(decodeURIComponent(link.getAttribute('href') ?? '')).toContain(
-      '/blog/pale-blue-marble',
+    expect(link.getAttribute('href')).toContain(
+      'topic=writing%2Fpale-blue-marble',
     )
+    expect(link.getAttribute('href')).not.toContain('q=')
     expect(link.textContent).toMatch(/Ask Cleo about this essay/)
   })
 

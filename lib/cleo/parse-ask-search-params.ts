@@ -1,7 +1,7 @@
 /**
  * Server-side Ask Cleo deep-link parsing. Resolves compact `topic=` shortcuts
- * against the Explore/Space catalogs — keep this module off the client Ask
- * link bundle (`ask-links.ts` stays import-light).
+ * against the Explore/Space/Writing catalogs — keep this module off the client
+ * Ask link bundle (`ask-links.ts` stays import-light).
  */
 
 import {
@@ -10,15 +10,18 @@ import {
   CLEO_ASK_QUERY_PARAM,
   CLEO_ASK_TOPIC_PARAM,
   type CleoAskIntent,
+  essayAskPrompt,
   guideAskPrompt,
 } from '~/lib/cleo/ask-links'
+import { essayTitleForSlug } from '~/lib/cleo/essay-topics'
+import { getPost, isPostSlug } from '~/lib/content'
 import { getCountry } from '~/lib/countries'
 import { getSpaceSubject } from '~/lib/space'
 
 /** Reject pathological `topic=` values before catalog lookup. */
 export const CLEO_ASK_MAX_TOPIC_LENGTH = 96
 
-const TOPIC_PATH = /^(explore|space)\/([a-z0-9-]+)$/i
+const TOPIC_PATH = /^(explore|space|writing)\/([a-z0-9-]+)$/i
 
 function clampPrompt(prompt: string) {
   return prompt.trim().slice(0, CLEO_ASK_MAX_PROMPT_LENGTH)
@@ -26,7 +29,7 @@ function clampPrompt(prompt: string) {
 
 /**
  * Normalize compact topic shortcuts:
- * `explore/japan`, `/explore/japan`, optional whitespace.
+ * `explore/japan`, `/explore/japan`, `writing/pale-blue-marble`.
  */
 export function normalizeTopicPath(topic: string): string | null {
   const trimmed = topic.trim()
@@ -62,16 +65,26 @@ function isTruthyFlag(value: string | undefined) {
   )
 }
 
+function promptFromWritingSlug(slug: string): string | null {
+  if (!isPostSlug(slug)) return null
+  const title = essayTitleForSlug(slug) ?? getPost(slug).title
+  return essayAskPrompt(title, slug)
+}
+
 /**
- * Resolve `explore/japan`, `/explore/japan`, or `space/mars` to a guide
- * orientation prompt. Unknown slugs return null so callers can fall back.
+ * Resolve `explore/japan`, `/space/mars`, or `writing/pale-blue-marble` to an
+ * Ask prompt. Unknown slugs return null so callers can fall back.
  */
 export function promptFromTopicPath(topic: string): string | null {
   const normalized = normalizeTopicPath(topic)
   if (!normalized) return null
 
   const [collectionRaw, slug] = normalized.split('/')
-  const collection = collectionRaw as 'explore' | 'space'
+  const collection = collectionRaw as 'explore' | 'space' | 'writing'
+
+  if (collection === 'writing') {
+    return promptFromWritingSlug(slug!)
+  }
 
   if (collection === 'explore') {
     const country = getCountry(slug!)
@@ -86,7 +99,7 @@ export function promptFromTopicPath(topic: string): string | null {
 
 /**
  * Parse Ask Cleo intent from Next.js `searchParams` or a query-string object.
- * Prefers explicit `q=`; otherwise resolves `topic=explore|space/slug`.
+ * Prefers explicit `q=`; otherwise resolves `topic=explore|space|writing/slug`.
  * `auto` defaults to true for `topic=` shortcuts (shareable one-shot starts).
  */
 export function parseCleoAskSearchParams(

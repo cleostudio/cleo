@@ -46,15 +46,15 @@ document (enable both products in the Vercel project dashboard).
   matching turns also ground curated topic photo paths so replies can embed
   atlas/space JPEGs as Markdown images, plus clipped orientation prose).
   Portal pages deep-link into `/cleo?q=…&auto=1` or compact
-  `/cleo?topic=explore|space/{slug}` via `lib/cleo/ask-links.ts` +
+  `/cleo?topic=explore|space|writing/{slug}` via `lib/cleo/ask-links.ts` +
   `parse-ask-search-params.ts` (Explore/Space places & features, compare
   peers, Writing essays + related rows, Gallery tiles, Topics/Gallery
   indexes, homepage Ask preview + search). Topic photo grounding also
-  recognizes common names, Messier IDs, and uppercase ISO codes. AskForm
-  clears those params via `lib/cleo/ask-params.ts`. Smoke with
-  `pnpm verify:cleo-ask`. When merging Instant Navigation `/cleo` work,
-  keep Suspense parsing + `topic=` — do not stack a second `?q=`-only
-  client bootstrap.
+  recognizes common names, Messier IDs, uppercase ISO codes, and essay →
+  related-subject maps (`lib/cleo/essay-topics.ts`). AskForm clears those
+  params via `lib/cleo/ask-params.ts`. Smoke with `pnpm verify:cleo-ask`.
+  When merging Instant Navigation `/cleo` work, keep Suspense parsing +
+  `topic=` — do not stack a second `?q=`-only client bootstrap.
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

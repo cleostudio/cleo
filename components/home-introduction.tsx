@@ -1,7 +1,7 @@
 import { HomeIntroReplay } from '~/components/home-intro-replay'
 import { SitePreviewCard } from '~/components/preview-card-timing'
 import { highlightedAtlasEntries } from '~/lib/atlas'
-import { surfaceAskHref } from '~/lib/cleo/ask-links'
+import { homeAskHref } from '~/lib/cleo/ask-links'
 import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
 import { spaceSubjects } from '~/lib/space'
@@ -410,7 +410,7 @@ function ExplorePreviewCard({ children }: { children: React.ReactNode }) {
 function AskCleoPreviewCard({ children }: { children: React.ReactNode }) {
   return (
     <SitePreviewCard
-      href={surfaceAskHref('topics')}
+      href={homeAskHref()}
       triggerClassName="home-contact-link"
       closeDelay={120}
       side="top"

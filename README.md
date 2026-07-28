@@ -32,9 +32,10 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   curated topic photographs when a visual helps; topic and chat images use
   the same click-to-zoom lightbox as Gallery). Explore/Space/Writing/Topics/
   Gallery and homepage search deep-link into `/cleo?q=…&auto=1` or
-  `/cleo?topic=explore|space/{slug}` via `lib/cleo/ask-links.ts`; matched
-  turns also ground clipped orientation prose (common names, Messier IDs,
-  uppercase ISO codes). Smoke deep links with `pnpm verify:cleo-ask`
+  `/cleo?topic=explore|space|writing/{slug}` via `lib/cleo/ask-links.ts`;
+  matched turns also ground clipped orientation prose (common names, Messier
+  IDs, uppercase ISO codes, essay-related subjects). Smoke with
+  `pnpm verify:cleo-ask`
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and

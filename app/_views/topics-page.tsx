@@ -18,6 +18,12 @@ export function topicsPageMetadata() {
   })
 }
 
+function topicAskLabel(slug: string) {
+  return slug === 'space'
+    ? 'Ask Cleo to pick a Space guide →'
+    : 'Ask Cleo to pick a country →'
+}
+
 export function TopicsPageView() {
   const topics = allTopics()
   const center = (topics.length - 1) / 2
@@ -88,6 +94,13 @@ export function TopicsPageView() {
                     </Link>
                   </p>
                 ) : null}
+                <p className="topic-secondary">
+                  <AskCleoSurfaceLink
+                    surface={topic.slug === 'space' ? 'space' : 'explore'}
+                    label={topicAskLabel(topic.slug)}
+                    className="text-xs"
+                  />
+                </p>
               </div>
             </li>
           ))}

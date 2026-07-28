@@ -5,6 +5,7 @@
  */
 
 import { atlasRendition, getAtlasEntry } from '~/lib/atlas'
+import { ESSAY_TOPIC_GROUNDING } from '~/lib/cleo/essay-topics'
 import { countries } from '~/lib/countries'
 import { getSpaceSubject, spaceSubjects } from '~/lib/space'
 import { staticRendition } from '~/lib/static-photo'
@@ -68,6 +69,16 @@ const EXPLORE_NAME_ALIASES: Record<string, readonly string[]> = {
   'north-macedonia': ['Macedonia'],
   'bosnia-and-herzegovina': ['Bosnia', 'BiH'],
   'cabo-verde': ['Cape Verde'],
+  netherlands: ['Holland'],
+  turkiye: ['Turkey', 'Turkiye'],
+  // Longer DRC forms must beat bare “Congo” (Republic of the Congo).
+  'congo-democratic-republic-of-the': [
+    'Democratic Republic of the Congo',
+    'DR Congo',
+    'Congo-Kinshasa',
+    'DRC',
+  ],
+  congo: ['Republic of the Congo', 'Congo-Brazzaville'],
 }
 
 /** Colloquial / Messier / catalog nicknames for Space subjects. */
@@ -75,6 +86,8 @@ const SPACE_NAME_ALIASES: Record<string, readonly string[]> = {
   iss: ['ISS', 'space station'],
   moon: ['Luna', "Earth's Moon"],
   sun: ['Sol'],
+  earth: ['Blue Marble', 'Blue Planet', 'Terra'],
+  mars: ['Red Planet'],
   andromeda: ['M31', 'Messier 31', 'Andromeda Galaxy'],
   'orion-nebula': ['M42', 'Messier 42'],
   'crab-nebula': ['M1', 'Messier 1'],
@@ -301,9 +314,23 @@ export function resolveTopicPhotos(
   return photos
 }
 
+function stubCandidate(
+  collection: 'explore' | 'space',
+  slug: string,
+): TopicCandidate {
+  return {
+    collection,
+    slug,
+    name: slug,
+    aliases: [],
+    codes: [],
+  }
+}
+
 /**
  * Find catalog subjects mentioned in free text via site paths or names.
  * Longer names win over nested shorter ones (Nigeria before Niger).
+ * Writing paths/titles expand to related Explore/Space subjects.
  */
 export function matchTopicPhotosInText(text: string): TopicPhoto[] {
   const haystack = text.trim()
@@ -313,35 +340,79 @@ export function matchTopicPhotosInText(text: string): TopicPhoto[] {
   const ordered: TopicCandidate[] = []
   const seen = new Set<string>()
 
+  const append = (candidate: TopicCandidate) => {
+    const key = candidateKey(candidate)
+    if (seen.has(key)) return false
+    seen.add(key)
+    ordered.push(candidate)
+    return true
+  }
+
   const claim = (start: number, end: number, candidate: TopicCandidate) => {
     if (claimed.some(([a, b]) => start < b && end > a)) {
       return
     }
-    const key = candidateKey(candidate)
-    if (seen.has(key)) return
+    if (!append(candidate)) return
     claimed.push([start, end])
-    seen.add(key)
-    ordered.push(candidate)
+  }
+
+  /** One span → one or more related catalog subjects (essays). */
+  const claimMany = (
+    start: number,
+    end: number,
+    candidates: readonly TopicCandidate[],
+  ) => {
+    if (claimed.some(([a, b]) => start < b && end > a)) {
+      return
+    }
+    let added = false
+    for (const candidate of candidates) {
+      if (append(candidate)) added = true
+    }
+    if (added) claimed.push([start, end])
   }
 
   const pathPattern =
-    /(?:^|[^A-Za-z0-9])\/(explore|space)\/([a-z0-9-]+)(?![a-z0-9-])/gi
+    /(?:^|[^A-Za-z0-9])\/(explore|space|blog)\/([a-z0-9-]+)(?![a-z0-9-])/gi
   for (const match of haystack.matchAll(pathPattern)) {
-    const collection = match[1] as 'explore' | 'space'
+    const kind = match[1]!.toLowerCase()
     const slug = match[2]!
     const token = match[0]!
-    const path = `/${collection}/${slug}`
+    const path = `/${kind}/${slug}`
     const pathOffset = token.indexOf(path)
     if (pathOffset < 0) continue
     const start = (match.index ?? 0) + pathOffset
     const end = start + path.length
-    claim(start, end, {
-      collection,
-      slug,
-      name: slug,
-      aliases: [],
-      codes: [],
-    })
+
+    if (kind === 'blog') {
+      const related = ESSAY_TOPIC_GROUNDING[slug]?.topics ?? []
+      claimMany(
+        start,
+        end,
+        related.map((topic) => stubCandidate(topic.collection, topic.slug)),
+      )
+      continue
+    }
+
+    claim(start, end, stubCandidate(kind as 'explore' | 'space', slug))
+  }
+
+  const essayTitles = Object.entries(ESSAY_TOPIC_GROUNDING)
+    .map(([slug, entry]) => ({ slug, title: entry.title, topics: entry.topics }))
+    .sort((left, right) => right.title.length - left.title.length)
+
+  for (const essay of essayTitles) {
+    const pattern = new RegExp(
+      `(?<![\\p{L}\\p{N}])${escapeRegExp(essay.title)}(?![\\p{L}\\p{N}])`,
+      'giu',
+    )
+    const match = pattern.exec(haystack)
+    if (!match) continue
+    claimMany(
+      match.index,
+      match.index + match[0].length,
+      essay.topics.map((topic) => stubCandidate(topic.collection, topic.slug)),
+    )
   }
 
   for (const { candidate, token, caseSensitive } of allMatchTokens()) {

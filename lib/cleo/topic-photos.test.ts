@@ -76,11 +76,37 @@ describe('topic photos', () => {
     expect(
       matchTopicPhotosInText('Facts about Luna').map((photo) => photo.slug),
     ).toEqual(['moon'])
+    expect(
+      matchTopicPhotosInText('Democratic Republic of the Congo').map(
+        (photo) => photo.slug,
+      ),
+    ).toEqual(['congo-democratic-republic-of-the'])
+    expect(
+      matchTopicPhotosInText('Tell me about Turkey and Holland')
+        .map((photo) => photo.slug)
+        .sort(),
+    ).toEqual(['netherlands', 'turkiye'])
+    expect(
+      matchTopicPhotosInText('The Red Planet and Blue Marble')
+        .map((photo) => photo.slug)
+        .sort(),
+    ).toEqual(['earth', 'mars'])
     // Uppercase ISO only — lowercase “us” must not mean United States.
     expect(
       matchTopicPhotosInText('Tell us about JP').map((photo) => photo.slug),
     ).toEqual(['japan'])
     expect(matchTopicPhotosInText('Tell us about travel')).toEqual([])
+  })
+
+  it('grounds Writing essays via /blog paths and titles', () => {
+    expect(
+      matchTopicPhotosInText(
+        'Discuss /blog/when-the-sahara-was-green please',
+      ).map((photo) => photo.slug),
+    ).toEqual(['algeria', 'egypt'])
+    expect(
+      matchTopicPhotosInText('Pale Blue Marble').map((photo) => photo.slug),
+    ).toEqual(['earth'])
   })
 
   it('prefers longer country names over nested shorter ones', () => {

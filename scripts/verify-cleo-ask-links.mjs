@@ -14,6 +14,7 @@ const targets = [
   'lib/cleo/ask-params.test.ts',
   'lib/cleo/parse-ask-search-params.test.ts',
   'lib/cleo/compare-neighbors.test.ts',
+  'lib/cleo/essay-topics.test.ts',
   'lib/cleo/topic-photos.test.ts',
   'lib/cleo/cleo-page-ask.test.ts',
   'components/ask-cleo-link.test.tsx',

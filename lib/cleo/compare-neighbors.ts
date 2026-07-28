@@ -18,7 +18,6 @@ const EXPLORE_COMPARE_PREFERRED: Record<string, string> = {
   'korea-north': 'korea-south',
   china: 'japan',
   mongolia: 'china',
-  taiwan: 'japan',
   'united-states': 'canada',
   canada: 'united-states',
   mexico: 'united-states',
@@ -41,7 +40,6 @@ const EXPLORE_COMPARE_AVOID: Record<string, readonly string[]> = {
   japan: ['korea-north'],
   'korea-south': ['korea-north', 'mongolia'],
   china: ['korea-north'],
-  taiwan: ['korea-north'],
 }
 
 const SPACE_COMPARE_PREFERRED: Record<string, string> = {

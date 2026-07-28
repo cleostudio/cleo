@@ -97,11 +97,13 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `AskForm` prefills or auto-submits once, clearing params through
   `lib/cleo/ask-params.ts` (`q`, `auto`, and `topic`). Matched topic turns
   ground clipped orientation prose and resolve place/feature aliases, common
-  names (e.g. South Korea, USA), Messier IDs, and uppercase ISO codes to parent
-  guides (`lib/cleo/topic-photos.ts`). Compare peers use curated overrides
-  (`lib/cleo/compare-neighbors.ts`). `topic=` accepts an optional leading slash
-  and rejects overlong values. Smoke the deep-link contract with
-  `pnpm verify:cleo-ask`.
+  names (e.g. South Korea, USA, DRC, Turkey), Messier IDs, and uppercase ISO
+  codes to parent guides (`lib/cleo/topic-photos.ts`). Writing essays map to
+  related Explore/Space photos via `lib/cleo/essay-topics.ts`. Compare peers
+  use curated overrides (`lib/cleo/compare-neighbors.ts`). Compact `topic=`
+  shortcuts cover `explore|space|writing/{slug}` (optional leading slash;
+  overlong values rejected). Homepage Ask doorway uses `homeAskHref()`. Smoke
+  with `pnpm verify:cleo-ask`.
 - `/cleo` Instant Navigation merge rule: keep `export const instant = true` if
   another branch adds it, but **keep** Suspense + `parseCleoAskSearchParams` +
   `topic=` support. Do **not** add a second client-only `?q=` bootstrap that

@@ -44,9 +44,11 @@ export function cleoAskHref(
   return `/cleo?${params.toString()}`
 }
 
+export type CleoAskTopicCollection = 'explore' | 'space' | 'writing'
+
 /** Compact shareable deep link: `/cleo?topic=explore/japan`. */
 export function topicAskHref(
-  collection: 'explore' | 'space',
+  collection: CleoAskTopicCollection,
   slug: string,
   options?: { autoSubmit?: boolean },
 ): string {
@@ -155,6 +157,11 @@ export function essayAskPrompt(title: string, slug?: string): string {
     : `Discuss the Writing essay “${name}”. Deep-link it when you mention it, and connect it to related Explore, Space, or Gallery pages when useful.`
 }
 
+/** Homepage Ask Cleo doorway — portal orientation, not a Topics tour. */
+export function homeAskPrompt(): string {
+  return 'Help me explore this knowledge portal. Suggest a good starting Explore or Space field guide, deep-link it, and include a curated photograph if it helps.'
+}
+
 /** Broader prompts for Topics / Gallery / Explore & Space / Writing indexes. */
 export function surfaceAskPrompt(surface: CleoAskCollection): string {
   switch (surface) {
@@ -249,7 +256,19 @@ export function essayAskHref(
   slug?: string,
   options?: { autoSubmit?: boolean },
 ) {
-  return cleoAskHref(essayAskPrompt(title, slug), {
+  const trimmedSlug = slug?.trim()
+  if (trimmedSlug) {
+    return topicAskHref('writing', trimmedSlug, {
+      autoSubmit: options?.autoSubmit ?? true,
+    })
+  }
+  return cleoAskHref(essayAskPrompt(title), {
+    autoSubmit: options?.autoSubmit ?? true,
+  })
+}
+
+export function homeAskHref(options?: { autoSubmit?: boolean }) {
+  return cleoAskHref(homeAskPrompt(), {
     autoSubmit: options?.autoSubmit ?? true,
   })
 }

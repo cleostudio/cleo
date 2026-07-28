@@ -6,6 +6,7 @@ import {
   featureAskPrompt,
   galleryItemAskPrompt,
   guideAskPrompt,
+  homeAskPrompt,
   placeAskPrompt,
   searchAskPrompt,
   surfaceAskPrompt,
@@ -48,9 +49,12 @@ describe('ask-links prompt fixtures', () => {
     )
   })
 
-  it('keeps surface and search prompts stable', () => {
+  it('keeps surface, home, and search prompts stable', () => {
     expect(surfaceAskPrompt('topics')).toBe(
       'Give me a quick tour of the Topics on this site and deep-link the collections that fit.',
+    )
+    expect(homeAskPrompt()).toBe(
+      'Help me explore this knowledge portal. Suggest a good starting Explore or Space field guide, deep-link it, and include a curated photograph if it helps.',
     )
     expect(searchAskPrompt('atlantis')).toBe(
       'I searched the portal for “atlantis” and found no matching guide. Help me with that topic, and deep-link any related Explore, Space, Gallery, or Writing pages if they exist.',
@@ -74,6 +78,21 @@ describe('topic= round trip', () => {
     })
     expect(promptFromTopicPath('space/mars')).toBe(
       guideAskPrompt('space', 'Mars'),
+    )
+  })
+
+  it('parses writing topic shortcuts to essay prompts', () => {
+    const href = topicAskHref('writing', 'pale-blue-marble')
+    const intent = parseCleoAskSearchParams(
+      new URL(href, 'https://cleo.example').searchParams,
+    )
+
+    expect(intent).toEqual({
+      prompt: essayAskPrompt('Pale Blue Marble', 'pale-blue-marble'),
+      autoSubmit: true,
+    })
+    expect(promptFromTopicPath('/writing/pale-blue-marble')).toBe(
+      essayAskPrompt('Pale Blue Marble', 'pale-blue-marble'),
     )
   })
 

@@ -53,9 +53,16 @@ describe('parseCleoAskSearchParams', () => {
     expect(promptFromTopicPath('explore/japan')).toMatch(/Japan/)
     expect(promptFromTopicPath('/explore/japan')).toMatch(/Japan/)
     expect(promptFromTopicPath('/space/europa')).toMatch(/Europa/)
+    expect(promptFromTopicPath('writing/pale-blue-marble')).toMatch(
+      /Pale Blue Marble/,
+    )
+    expect(promptFromTopicPath('writing/not-a-post')).toBeNull()
     expect(promptFromTopicPath(`explore/${'x'.repeat(120)}`)).toBeNull()
     expect(topicAskHref('explore', 'japan')).toContain(
       `${CLEO_ASK_TOPIC_PARAM}=explore%2Fjapan`,
+    )
+    expect(topicAskHref('writing', 'pale-blue-marble')).toContain(
+      `${CLEO_ASK_TOPIC_PARAM}=writing%2Fpale-blue-marble`,
     )
   })
 

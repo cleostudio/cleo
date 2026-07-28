@@ -14,6 +14,8 @@ import {
   galleryItemAskHref,
   guideAskHref,
   guideAskPrompt,
+  homeAskHref,
+  homeAskPrompt,
   placeAskHref,
   placeAskPrompt,
   searchAskHref,
@@ -69,11 +71,15 @@ describe('guide, place, essay, and surface prompts', () => {
       '/blog/pale-blue-marble',
     )
     expect(essayAskHref('Pale Blue Marble', 'pale-blue-marble')).toContain(
-      '/cleo?',
+      `${CLEO_ASK_TOPIC_PARAM}=writing%2Fpale-blue-marble`,
     )
+    expect(essayAskHref('Pale Blue Marble')).toContain('q=')
   })
 
-  it('builds surface and search prompts', () => {
+  it('builds home, surface, and search prompts', () => {
+    expect(homeAskPrompt()).toMatch(/knowledge portal/)
+    expect(homeAskPrompt()).not.toMatch(/Topics tour/)
+    expect(homeAskHref()).toContain('q=')
     expect(surfaceAskPrompt('topics')).toMatch(/Topics/)
     expect(surfaceAskPrompt('writing')).toMatch(/Writing/)
     expect(surfaceAskHref('gallery')).toContain('q=')
