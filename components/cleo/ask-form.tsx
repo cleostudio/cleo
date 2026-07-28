@@ -454,11 +454,16 @@ export function AskForm({ initialAsk = null }: AskFormProps = {}) {
 
     const clearAskParams = () => {
       const url = new URL(window.location.href)
-      if (!url.searchParams.has('q') && !url.searchParams.has('auto')) {
+      if (
+        !url.searchParams.has('q') &&
+        !url.searchParams.has('auto') &&
+        !url.searchParams.has('topic')
+      ) {
         return false
       }
       url.searchParams.delete('q')
       url.searchParams.delete('auto')
+      url.searchParams.delete('topic')
       window.history.replaceState(
         window.history.state,
         '',
@@ -467,10 +472,13 @@ export function AskForm({ initialAsk = null }: AskFormProps = {}) {
       return true
     }
 
+    const hasAskParams = (url: URL) =>
+      url.searchParams.has('q') ||
+      url.searchParams.has('auto') ||
+      url.searchParams.has('topic')
+
     const url = new URL(window.location.href)
-    const hadQuery =
-      url.searchParams.has('q') || url.searchParams.has('auto')
-    if (!hadQuery) {
+    if (!hasAskParams(url)) {
       return
     }
 
@@ -484,10 +492,7 @@ export function AskForm({ initialAsk = null }: AskFormProps = {}) {
     let cancelled = false
     const timer = window.setTimeout(() => {
       if (cancelled) return
-      const stillPending =
-        new URL(window.location.href).searchParams.has('q') ||
-        new URL(window.location.href).searchParams.has('auto')
-      if (!stillPending) return
+      if (!hasAskParams(new URL(window.location.href))) return
       clearAskParams()
       void submitRef.current(undefined, initialAsk.prompt)
     }, 0)

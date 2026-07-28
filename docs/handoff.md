@@ -45,9 +45,11 @@ document (enable both products in the Vercel project dashboard).
   (instructions include Explore/Space catalog paths for guide deep-links;
   matching turns also ground curated topic photo paths so replies can embed
   atlas/space JPEGs as Markdown images, plus clipped orientation prose).
-  Portal pages deep-link into `/cleo?q=…&auto=1` via `lib/cleo/ask-links.ts`
-  (Explore/Space places & features, compare peers, Writing essays, Gallery
-  tiles, Topics/Gallery indexes, homepage Ask preview + search)
+  Portal pages deep-link into `/cleo?q=…&auto=1` or compact
+  `/cleo?topic=explore|space/{slug}` via `lib/cleo/ask-links.ts` +
+  `parse-ask-search-params.ts` (Explore/Space places & features, compare
+  peers, Writing essays + related rows, Gallery tiles, Topics/Gallery
+  indexes, homepage Ask preview + search)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

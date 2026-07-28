@@ -1,7 +1,11 @@
 /** @vitest-environment jsdom */
 
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { cleanup, render, screen } from '@testing-library/react'
+import { afterEach, describe, expect, it } from 'vitest'
+
+afterEach(() => {
+  cleanup()
+})
 
 import {
   AskCleoCompareLink,
@@ -23,6 +27,19 @@ describe('AskCleoGuideLink', () => {
     expect(href).toContain('q=')
     expect(href).toContain('auto=1')
     expect(decodeURIComponent(href)).toContain('Japan')
+  })
+
+  it('uses compact topic= URLs when a slug is provided', () => {
+    render(
+      <AskCleoGuideLink collection="explore" name="Japan" slug="japan" />,
+    )
+
+    const href =
+      screen.getByRole('link', { name: /Ask Cleo about Japan/i }).getAttribute(
+        'href',
+      ) ?? ''
+    expect(href).toContain('topic=explore%2Fjapan')
+    expect(href).not.toContain('q=')
   })
 })
 
@@ -81,16 +98,32 @@ describe('AskCleoEssayLink', () => {
     )
 
     const link = screen.getByRole('link', {
-      name: /Ask Cleo about this essay/i,
+      name: /Ask Cleo about “Pale Blue Marble”/i,
     })
     expect(decodeURIComponent(link.getAttribute('href') ?? '')).toContain(
       '/blog/pale-blue-marble',
     )
+    expect(link.textContent).toMatch(/Ask Cleo about this essay/)
+  })
+
+  it('supports a compact related-post label', () => {
+    render(
+      <AskCleoEssayLink
+        title="Pale Blue Marble"
+        slug="pale-blue-marble"
+        label="Ask Cleo →"
+      />,
+    )
+
+    const link = screen.getByRole('link', {
+      name: /Ask Cleo about “Pale Blue Marble”/i,
+    })
+    expect(link.textContent).toBe('Ask Cleo →')
   })
 })
 
 describe('AskCleoGalleryItemLink', () => {
-  it('links a Gallery photograph into Cleo', () => {
+  it('links a Gallery photograph into Cleo with a descriptive aria-label', () => {
     render(
       <AskCleoGalleryItemLink
         title="Mount Fuji"
@@ -99,9 +132,11 @@ describe('AskCleoGalleryItemLink', () => {
       />,
     )
 
-    expect(
-      screen.getByRole('link', { name: /^Ask Cleo →$/i }).getAttribute('href'),
-    ).toContain('/cleo?')
+    const link = screen.getByRole('link', {
+      name: /Ask Cleo about Mount Fuji \(Japan\)/i,
+    })
+    expect(link.getAttribute('href')).toContain('/cleo?')
+    expect(link.textContent).toMatch(/Ask Cleo →/)
   })
 })
 

@@ -9,12 +9,15 @@ import {
   guideAskHref,
   placeAskHref,
   surfaceAskHref,
+  topicAskHref,
 } from '~/lib/cleo/ask-links'
 import { cn } from '~/lib/utils'
 
 type AskCleoGuideLinkProps = {
   collection: 'explore' | 'space'
   name: string
+  /** When set, uses the compact `/cleo?topic=explore|space/{slug}` form. */
+  slug?: string
   className?: string
   /** Defaults to auto-submit so the guide context starts the turn. */
   autoSubmit?: boolean
@@ -47,6 +50,8 @@ type AskCleoEssayLinkProps = {
   slug: string
   className?: string
   autoSubmit?: boolean
+  /** Visible label; defaults to “Ask Cleo about this essay →”. */
+  label?: string
 }
 
 type AskCleoGalleryItemLinkProps = {
@@ -73,16 +78,21 @@ const linkClass = 'text-sm text-muted-foreground hover:text-foreground'
 export function AskCleoGuideLink({
   collection,
   name,
+  slug,
   className,
   autoSubmit = true,
 }: AskCleoGuideLinkProps) {
   const subject =
     name.trim() || (collection === 'explore' ? 'this country' : 'this subject')
+  const href = slug?.trim()
+    ? topicAskHref(collection, slug, { autoSubmit })
+    : guideAskHref(collection, name, { autoSubmit })
 
   return (
     <Link
-      href={guideAskHref(collection, name, { autoSubmit })}
+      href={href}
       className={cn(linkClass, className)}
+      aria-label={`Ask Cleo about ${subject}`}
     >
       Ask Cleo about {subject} →
     </Link>
@@ -97,11 +107,13 @@ export function AskCleoPlaceLink({
   autoSubmit = true,
 }: AskCleoPlaceLinkProps) {
   const place = placeName.trim() || 'this place'
+  const country = countryName.trim() || 'this country'
 
   return (
     <Link
       href={placeAskHref(placeName, countryName, { autoSubmit })}
       className={cn(linkClass, className)}
+      aria-label={`Ask Cleo about ${place} in ${country}`}
     >
       Ask Cleo about {place} →
     </Link>
@@ -116,11 +128,13 @@ export function AskCleoFeatureLink({
   autoSubmit = true,
 }: AskCleoFeatureLinkProps) {
   const feature = featureName.trim() || 'this feature'
+  const subject = subjectName.trim() || 'this subject'
 
   return (
     <Link
       href={featureAskHref(featureName, subjectName, { autoSubmit })}
       className={cn(linkClass, className)}
+      aria-label={`Ask Cleo about ${feature} on ${subject}`}
     >
       Ask Cleo about {feature} →
     </Link>
@@ -135,12 +149,16 @@ export function AskCleoCompareLink({
   className,
   autoSubmit = true,
 }: AskCleoCompareLinkProps) {
+  const left = leftName.trim()
+  const right = rightName.trim()
+
   return (
     <Link
       href={compareAskHref(collection, leftName, rightName, { autoSubmit })}
       className={cn(linkClass, className)}
+      aria-label={`Ask Cleo to compare ${left} and ${right}`}
     >
-      Ask Cleo to compare {leftName.trim()} and {rightName.trim()} →
+      Ask Cleo to compare {left} and {right} →
     </Link>
   )
 }
@@ -151,13 +169,17 @@ export function AskCleoEssayLink({
   slug,
   className,
   autoSubmit = true,
+  label = 'Ask Cleo about this essay →',
 }: AskCleoEssayLinkProps) {
+  const essay = title.trim() || 'this essay'
+
   return (
     <Link
       href={essayAskHref(title, slug, { autoSubmit })}
       className={cn(linkClass, className)}
+      aria-label={`Ask Cleo about “${essay}”`}
     >
-      Ask Cleo about this essay →
+      {label}
     </Link>
   )
 }
@@ -170,10 +192,14 @@ export function AskCleoGalleryItemLink({
   className,
   autoSubmit = true,
 }: AskCleoGalleryItemLinkProps) {
+  const item = title.trim() || 'this photograph'
+  const subject = subjectName.trim() || 'this subject'
+
   return (
     <Link
       href={galleryItemAskHref(title, subjectName, collection, { autoSubmit })}
       className={cn('text-xs text-muted-foreground hover:text-foreground', className)}
+      aria-label={`Ask Cleo about ${item} (${subject})`}
     >
       Ask Cleo →
     </Link>
@@ -197,13 +223,15 @@ export function AskCleoSurfaceLink({
           : surface === 'explore'
             ? 'Ask Cleo to pick a country →'
             : 'Ask Cleo to pick a Space guide →'
+  const text = label ?? defaultLabel
 
   return (
     <Link
       href={surfaceAskHref(surface, { autoSubmit })}
       className={cn(linkClass, className)}
+      aria-label={text.replace(/\s*→\s*$/, '')}
     >
-      {label ?? defaultLabel}
+      {text}
     </Link>
   )
 }

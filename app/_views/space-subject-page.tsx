@@ -239,7 +239,11 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         className="enter mt-10"
         style={{ '--enter-delay': '180ms' } as React.CSSProperties}
       >
-        <AskCleoGuideLink collection="space" name={subject.name} />
+        <AskCleoGuideLink
+          collection="space"
+          name={subject.name}
+          slug={subject.slug}
+        />
       </p>
       {comparePeer ? (
         <p

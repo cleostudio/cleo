@@ -268,6 +268,13 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
                     dateStyle="short"
                     locale={locale}
                   />
+                  <p className="mt-1 mb-3">
+                    <AskCleoEssayLink
+                      title={english ? entry.titleEn : entry.title}
+                      slug={entry.slug}
+                      label="Ask Cleo →"
+                    />
+                  </p>
                 </li>
               ))}
             </ul>

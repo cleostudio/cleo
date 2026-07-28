@@ -6,16 +6,22 @@ import {
 } from '~/lib/cleo/compare-neighbors'
 
 describe('compare neighbors', () => {
-  it('picks another country in the same Explore subregion', () => {
-    const peer = exploreComparePeer('japan')
-    expect(peer).toBeTruthy()
-    expect(peer).not.toBe('Japan')
+  it('prefers South Korea over North Korea for Japan', () => {
+    expect(exploreComparePeer('japan')).toBe('Korea, South')
   })
 
-  it('picks another Space subject in the same category', () => {
-    const peer = spaceComparePeer('mars')
+  it('pairs South Korea with Japan', () => {
+    expect(exploreComparePeer('korea-south')).toBe('Japan')
+  })
+
+  it('pairs Mars with Earth', () => {
+    expect(spaceComparePeer('mars')).toBe('Earth')
+  })
+
+  it('falls back within the same Space category when no override exists', () => {
+    const peer = spaceComparePeer('andromeda')
     expect(peer).toBeTruthy()
-    expect(peer).not.toBe('Mars')
+    expect(peer).not.toBe('Andromeda')
   })
 
   it('returns undefined for unknown slugs', () => {

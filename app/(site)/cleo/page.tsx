@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 
 import { CleoPageView } from '../../_views/cleo-page'
-import { parseCleoAskSearchParams } from '~/lib/cleo/ask-links'
+import { parseCleoAskSearchParams } from '~/lib/cleo/parse-ask-search-params'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 

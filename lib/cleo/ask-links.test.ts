@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import {
   CLEO_ASK_AUTO_PARAM,
   CLEO_ASK_QUERY_PARAM,
+  CLEO_ASK_TOPIC_PARAM,
   cleoAskHref,
   compareAskHref,
   compareAskPrompt,
@@ -13,13 +14,13 @@ import {
   galleryItemAskHref,
   guideAskHref,
   guideAskPrompt,
-  parseCleoAskSearchParams,
   placeAskHref,
   placeAskPrompt,
   searchAskHref,
   searchAskPrompt,
   surfaceAskHref,
   surfaceAskPrompt,
+  topicAskHref,
 } from '~/lib/cleo/ask-links'
 
 describe('cleoAskHref', () => {
@@ -36,35 +37,11 @@ describe('cleoAskHref', () => {
     )
     expect(url.searchParams.get(CLEO_ASK_AUTO_PARAM)).toBe('1')
   })
-})
 
-describe('parseCleoAskSearchParams', () => {
-  it('reads Next.js searchParams objects', () => {
-    expect(
-      parseCleoAskSearchParams({
-        q: 'Why is Europa interesting?',
-        auto: '1',
-      }),
-    ).toEqual({
-      prompt: 'Why is Europa interesting?',
-      autoSubmit: true,
-    })
-  })
-
-  it('reads URLSearchParams and ignores blank q', () => {
-    expect(
-      parseCleoAskSearchParams(new URLSearchParams('q=%20&auto=true')),
-    ).toBeNull()
-    expect(
-      parseCleoAskSearchParams(new URLSearchParams('q=hello&auto=yes')),
-    ).toEqual({ prompt: 'hello', autoSubmit: true })
-  })
-
-  it('defaults autoSubmit to false', () => {
-    expect(parseCleoAskSearchParams({ q: 'hi' })).toEqual({
-      prompt: 'hi',
-      autoSubmit: false,
-    })
+  it('builds compact topic= hrefs', () => {
+    expect(topicAskHref('explore', 'japan')).toContain(
+      `${CLEO_ASK_TOPIC_PARAM}=explore%2Fjapan`,
+    )
   })
 })
 

@@ -86,14 +86,18 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).
 - Site → Cleo entry points: `lib/cleo/ask-links.ts` builds `/cleo?q=…&auto=1`
-  prompts. Quiet “Ask Cleo” links live on Explore/Space guides (places,
-  features, compare-with-peer), Writing essays/indexes, Topics, Gallery tiles,
-  and the homepage Ask Cleo preview (`components/ask-cleo-link.tsx`).
-  Homepage search indexes Writing essays plus Explore places / Space features
-  and offers Ask Cleo on matches and as a no-results fallback.
-  `app/(site)/cleo/page.tsx` parses `q`/`auto` and `AskForm` prefills or
-  auto-submits once. Matched topic turns ground clipped orientation prose and
-  resolve place/feature aliases to parent guides (`lib/cleo/topic-photos.ts`).
+  prompts and compact `/cleo?topic=explore|space/{slug}` shortcuts. Quiet
+  “Ask Cleo” links live on Explore/Space guides (places, features,
+  compare-with-peer), Writing essays (including related rows), Topics, Gallery
+  tiles, and the homepage Ask Cleo preview (`components/ask-cleo-link.tsx`,
+  with descriptive `aria-label`s). Homepage search indexes Writing essays plus
+  Explore places / Space features and offers Ask Cleo on matches and as a
+  no-results fallback. `app/(site)/cleo/page.tsx` parses `q`/`topic`/`auto`
+  inside Suspense and `AskForm` prefills or auto-submits once (clearing those
+  params). Matched topic turns ground clipped orientation prose and resolve
+  place/feature aliases to parent guides (`lib/cleo/topic-photos.ts`).
+  Compare peers use curated overrides when needed
+  (`lib/cleo/compare-neighbors.ts`).
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 

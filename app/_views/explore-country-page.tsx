@@ -215,7 +215,11 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
-        <AskCleoGuideLink collection="explore" name={entry.name} />
+        <AskCleoGuideLink
+          collection="explore"
+          name={entry.name}
+          slug={entry.slug}
+        />
       </p>
       {comparePeer ? (
         <p className="enter mt-3" style={{ '--enter-delay': '185ms' } as React.CSSProperties}>

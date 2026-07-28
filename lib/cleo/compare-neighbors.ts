@@ -1,19 +1,92 @@
 /**
- * Lightweight peer picker for “Ask Cleo to compare …” links.
- * Prefers the next subject in the same Explore subregion / Space category.
+ * Peer picker for “Ask Cleo to compare …” links.
+ * Prefers a curated partner when the naive next-neighbor is a poor fit,
+ * otherwise the next (then previous) subject in the same Explore subregion
+ * or Space category — skipping denylisted pairs.
  */
 
 import { countries } from '~/lib/countries'
 import { spaceSubjects } from '~/lib/space'
 
-function peerName(
-  names: readonly string[],
-  current: string,
+/**
+ * Preferred compare partners by slug. Used when alphabetical “next in
+ * subregion” pairs poorly (e.g. Japan → Korea, North).
+ */
+const EXPLORE_COMPARE_PREFERRED: Record<string, string> = {
+  japan: 'korea-south',
+  'korea-south': 'japan',
+  'korea-north': 'korea-south',
+  china: 'japan',
+  mongolia: 'china',
+  taiwan: 'japan',
+  'united-states': 'canada',
+  canada: 'united-states',
+  mexico: 'united-states',
+  'united-kingdom': 'ireland',
+  ireland: 'united-kingdom',
+  australia: 'new-zealand',
+  'new-zealand': 'australia',
+  brazil: 'argentina',
+  argentina: 'brazil',
+  india: 'pakistan',
+  pakistan: 'india',
+  germany: 'france',
+  france: 'germany',
+  spain: 'portugal',
+  portugal: 'spain',
+}
+
+/** Never suggest these slugs as a compare peer for the given country. */
+const EXPLORE_COMPARE_AVOID: Record<string, readonly string[]> = {
+  japan: ['korea-north'],
+  'korea-south': ['korea-north', 'mongolia'],
+  china: ['korea-north'],
+  taiwan: ['korea-north'],
+}
+
+const SPACE_COMPARE_PREFERRED: Record<string, string> = {
+  mars: 'earth',
+  earth: 'mars',
+  venus: 'earth',
+  mercury: 'venus',
+  jupiter: 'saturn',
+  saturn: 'jupiter',
+  uranus: 'neptune',
+  neptune: 'uranus',
+  moon: 'earth',
+  europa: 'ganymede',
+  ganymede: 'europa',
+  titan: 'europa',
+  io: 'europa',
+}
+
+function nameForExploreSlug(slug: string): string | undefined {
+  return countries.find((entry) => entry.slug === slug)?.name
+}
+
+function nameForSpaceSlug(slug: string): string | undefined {
+  return spaceSubjects.find((entry) => entry.slug === slug)?.name
+}
+
+function peerFromList(
+  peers: readonly { slug: string; name: string }[],
+  currentSlug: string,
+  avoid: ReadonlySet<string>,
 ): string | undefined {
-  if (names.length < 2) return undefined
-  const index = names.indexOf(current)
-  if (index === -1) return undefined
-  return names[index + 1] ?? names[index - 1]
+  const index = peers.findIndex((entry) => entry.slug === currentSlug)
+  if (index === -1 || peers.length < 2) return undefined
+
+  const candidates = [
+    ...peers.slice(index + 1),
+    ...peers.slice(0, index).reverse(),
+  ]
+
+  for (const candidate of candidates) {
+    if (avoid.has(candidate.slug)) continue
+    return candidate.name
+  }
+
+  return undefined
 }
 
 /** Another country in the same subregion, when one exists. */
@@ -21,11 +94,18 @@ export function exploreComparePeer(slug: string): string | undefined {
   const country = countries.find((entry) => entry.slug === slug)
   if (!country) return undefined
 
+  const preferredSlug = EXPLORE_COMPARE_PREFERRED[slug]
+  if (preferredSlug) {
+    const preferredName = nameForExploreSlug(preferredSlug)
+    if (preferredName) return preferredName
+  }
+
+  const avoid = new Set(EXPLORE_COMPARE_AVOID[slug] ?? [])
   const peers = countries
     .filter((entry) => entry.subregion === country.subregion)
-    .map((entry) => entry.name)
+    .map((entry) => ({ slug: entry.slug, name: entry.name }))
 
-  return peerName(peers, country.name)
+  return peerFromList(peers, slug, avoid)
 }
 
 /** Another Space subject in the same category, when one exists. */
@@ -33,9 +113,15 @@ export function spaceComparePeer(slug: string): string | undefined {
   const subject = spaceSubjects.find((entry) => entry.slug === slug)
   if (!subject) return undefined
 
+  const preferredSlug = SPACE_COMPARE_PREFERRED[slug]
+  if (preferredSlug) {
+    const preferredName = nameForSpaceSlug(preferredSlug)
+    if (preferredName) return preferredName
+  }
+
   const peers = spaceSubjects
     .filter((entry) => entry.category === subject.category)
-    .map((entry) => entry.name)
+    .map((entry) => ({ slug: entry.slug, name: entry.name }))
 
-  return peerName(peers, subject.name)
+  return peerFromList(peers, slug, new Set())
 }

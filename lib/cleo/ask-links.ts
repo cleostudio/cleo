@@ -1,11 +1,13 @@
 /**
  * Cross-site deep links into /cleo with a prefilled (optionally auto-submitted)
- * prompt. Kept free of heavy catalog imports so guide pages and the homepage
- * search client can share the same URL contract.
+ * prompt. Kept free of catalog imports so client Ask links stay light.
+ * Server-side `topic=` / `q=` parsing lives in `parse-ask-search-params.ts`.
  */
 
 export const CLEO_ASK_QUERY_PARAM = 'q'
 export const CLEO_ASK_AUTO_PARAM = 'auto'
+/** Compact guide shorthand: `topic=explore/japan` or `topic=space/mars`. */
+export const CLEO_ASK_TOPIC_PARAM = 'topic'
 export const CLEO_ASK_MAX_PROMPT_LENGTH = 10_000
 
 export type CleoAskCollection =
@@ -26,29 +28,6 @@ function clampPrompt(prompt: string) {
   return prompt.trim().slice(0, CLEO_ASK_MAX_PROMPT_LENGTH)
 }
 
-function firstString(
-  value: string | string[] | undefined,
-): string | undefined {
-  if (typeof value === 'string') return value
-  if (Array.isArray(value)) {
-    for (const item of value) {
-      if (typeof item === 'string') return item
-    }
-  }
-  return undefined
-}
-
-function isTruthyFlag(value: string | undefined) {
-  if (!value) return false
-  const normalized = value.trim().toLowerCase()
-  return (
-    normalized === '1' ||
-    normalized === 'true' ||
-    normalized === 'yes' ||
-    normalized === 'auto'
-  )
-}
-
 /** Build `/cleo?q=…` (and optional `auto=1`) for portal entry points. */
 export function cleoAskHref(
   prompt: string,
@@ -65,35 +44,21 @@ export function cleoAskHref(
   return `/cleo?${params.toString()}`
 }
 
-/**
- * Parse Ask Cleo intent from Next.js `searchParams` or a query-string object.
- * Returns null when `q` is missing/blank.
- */
-export function parseCleoAskSearchParams(
-  searchParams:
-    | URLSearchParams
-    | Record<string, string | string[] | undefined>
-    | null
-    | undefined,
-): CleoAskIntent | null {
-  if (!searchParams) return null
+/** Compact shareable deep link: `/cleo?topic=explore/japan`. */
+export function topicAskHref(
+  collection: 'explore' | 'space',
+  slug: string,
+  options?: { autoSubmit?: boolean },
+): string {
+  const trimmedSlug = slug.trim().toLowerCase()
+  if (!trimmedSlug) return '/cleo'
 
-  const rawQ =
-    searchParams instanceof URLSearchParams
-      ? searchParams.get(CLEO_ASK_QUERY_PARAM) ?? undefined
-      : firstString(searchParams[CLEO_ASK_QUERY_PARAM])
-  const prompt = clampPrompt(rawQ ?? '')
-  if (!prompt) return null
-
-  const rawAuto =
-    searchParams instanceof URLSearchParams
-      ? searchParams.get(CLEO_ASK_AUTO_PARAM) ?? undefined
-      : firstString(searchParams[CLEO_ASK_AUTO_PARAM])
-
-  return {
-    prompt,
-    autoSubmit: isTruthyFlag(rawAuto),
+  const params = new URLSearchParams()
+  params.set(CLEO_ASK_TOPIC_PARAM, `${collection}/${trimmedSlug}`)
+  if (options?.autoSubmit === false) {
+    params.set(CLEO_ASK_AUTO_PARAM, '0')
   }
+  return `/cleo?${params.toString()}`
 }
 
 /** Orientation prompt for an Explore or Space field guide. */
