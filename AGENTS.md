@@ -93,11 +93,17 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   with descriptive `aria-label`s). Homepage search indexes Writing essays plus
   Explore places / Space features and offers Ask Cleo on matches and as a
   no-results fallback. `app/(site)/cleo/page.tsx` parses `q`/`topic`/`auto`
-  inside Suspense and `AskForm` prefills or auto-submits once (clearing those
-  params). Matched topic turns ground clipped orientation prose and resolve
-  place/feature aliases to parent guides (`lib/cleo/topic-photos.ts`).
-  Compare peers use curated overrides when needed
+  via `lib/cleo/parse-ask-search-params.ts` **inside `<Suspense>`** and
+  `AskForm` prefills or auto-submits once, clearing params through
+  `lib/cleo/ask-params.ts` (`q`, `auto`, and `topic`). Matched topic turns
+  ground clipped orientation prose and resolve place/feature aliases to parent
+  guides (`lib/cleo/topic-photos.ts`). Compare peers use curated overrides
   (`lib/cleo/compare-neighbors.ts`).
+- `/cleo` Instant Navigation merge rule: keep `export const instant = true` if
+  another branch adds it, but **keep** Suspense + `parseCleoAskSearchParams` +
+  `topic=` support. Do **not** add a second client-only `?q=` bootstrap that
+  ignores `topic=` or double-submits beside `initialAsk` — reuse
+  `clearCleoAskParamsFromLocation` / `urlHasCleoAskParams` instead.
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 

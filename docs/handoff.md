@@ -49,7 +49,10 @@ document (enable both products in the Vercel project dashboard).
   `/cleo?topic=explore|space/{slug}` via `lib/cleo/ask-links.ts` +
   `parse-ask-search-params.ts` (Explore/Space places & features, compare
   peers, Writing essays + related rows, Gallery tiles, Topics/Gallery
-  indexes, homepage Ask preview + search)
+  indexes, homepage Ask preview + search). AskForm clears those params via
+  `lib/cleo/ask-params.ts`. When merging Instant Navigation `/cleo` work,
+  keep Suspense parsing + `topic=` — do not stack a second `?q=`-only
+  client bootstrap.
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

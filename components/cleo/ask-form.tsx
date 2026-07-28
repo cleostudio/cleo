@@ -22,6 +22,10 @@ import {
   MAX_IMAGES_PER_MESSAGE,
 } from "~/lib/cleo/client-images"
 import type { CleoAskIntent } from '~/lib/cleo/ask-links'
+import {
+  clearCleoAskParamsFromLocation,
+  urlHasCleoAskParams,
+} from '~/lib/cleo/ask-params'
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
 import {
   type ActivityItem,
@@ -452,38 +456,12 @@ export function AskForm({ initialAsk = null }: AskFormProps = {}) {
       return
     }
 
-    const clearAskParams = () => {
-      const url = new URL(window.location.href)
-      if (
-        !url.searchParams.has('q') &&
-        !url.searchParams.has('auto') &&
-        !url.searchParams.has('topic')
-      ) {
-        return false
-      }
-      url.searchParams.delete('q')
-      url.searchParams.delete('auto')
-      url.searchParams.delete('topic')
-      window.history.replaceState(
-        window.history.state,
-        '',
-        `${url.pathname}${url.search}${url.hash}`,
-      )
-      return true
-    }
-
-    const hasAskParams = (url: URL) =>
-      url.searchParams.has('q') ||
-      url.searchParams.has('auto') ||
-      url.searchParams.has('topic')
-
-    const url = new URL(window.location.href)
-    if (!hasAskParams(url)) {
+    if (!urlHasCleoAskParams(new URL(window.location.href))) {
       return
     }
 
     if (!initialAsk.autoSubmit) {
-      clearAskParams()
+      clearCleoAskParamsFromLocation()
       setInput(initialAsk.prompt)
       inputRef.current?.focus()
       return
@@ -492,8 +470,8 @@ export function AskForm({ initialAsk = null }: AskFormProps = {}) {
     let cancelled = false
     const timer = window.setTimeout(() => {
       if (cancelled) return
-      if (!hasAskParams(new URL(window.location.href))) return
-      clearAskParams()
+      if (!urlHasCleoAskParams(new URL(window.location.href))) return
+      clearCleoAskParamsFromLocation()
       void submitRef.current(undefined, initialAsk.prompt)
     }, 0)
 
