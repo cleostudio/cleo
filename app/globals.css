@@ -3326,6 +3326,49 @@ a:focus-visible .external-label .external-mark {
 
 /* Homepage intro preview cards — distinct bodies, cali.so-style species */
 
+.home-intro-gallery-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-intro-gallery-image {
+  transform: scale(1);
+  transition: transform 350ms var(--ease-spring);
+}
+
+.home-intro-gallery-corners {
+  position: absolute;
+  z-index: 1;
+  inset: 6px;
+  opacity: 0.62;
+  transform: none;
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 300ms var(--ease-swift);
+}
+
+.home-intro-gallery-card .link-card-site,
+.home-intro-gallery-card .link-card-title {
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 200ms var(--ease-swift);
+}
+
+.home-intro-gallery-card .link-card-title {
+  transition-delay: 45ms;
+}
+
+.home-intro-gallery-card[data-starting-style] .home-intro-gallery-image {
+  transform: scale(1.08);
+}
+
+.home-intro-gallery-card[data-starting-style] .home-intro-gallery-corners,
+.home-intro-gallery-card[data-starting-style] .link-card-site,
+.home-intro-gallery-card[data-starting-style] .link-card-title {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
 .home-intro-search-card {
   gap: 0.5rem;
 }
@@ -3337,6 +3380,7 @@ a:focus-visible .external-label .external-mark {
 }
 
 .home-intro-search-field {
+  position: relative;
   display: block;
   padding: 0.4rem 0.55rem;
   border: 1px solid color-mix(in oklab, var(--foreground) 14%, transparent);
@@ -3348,6 +3392,26 @@ a:focus-visible .external-label .external-mark {
   background: color-mix(in oklab, var(--foreground) 3%, transparent);
 }
 
+.home-intro-search-field::after {
+  display: inline-block;
+  width: var(--border-hairline);
+  height: 0.75rem;
+  margin-left: 0.25rem;
+  vertical-align: -0.125em;
+  content: '';
+  background: currentColor;
+  opacity: 0.55;
+  transform: scaleY(1);
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 200ms var(--ease-swift);
+}
+
+.home-intro-search-card[data-starting-style] .home-intro-search-field::after {
+  opacity: 0;
+  transform: scaleY(0.3);
+}
+
 .home-intro-search-rows {
   display: flex;
   flex-direction: column;
@@ -3355,7 +3419,9 @@ a:focus-visible .external-label .external-mark {
 }
 
 .home-intro-search-row {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   padding: 0.28rem 0.45rem;
   border-radius: 3px;
   color: var(--foreground);
@@ -3364,6 +3430,25 @@ a:focus-visible .external-label .external-mark {
   background: color-mix(in oklab, var(--foreground) 4%, transparent);
   animation: home-intro-search-row-in 420ms var(--ease-swift) backwards;
   animation-delay: calc(var(--i, 0) * 55ms);
+}
+
+.home-intro-search-row::before {
+  width: var(--border-hairline);
+  align-self: stretch;
+  flex: none;
+  content: '';
+  background: color-mix(in oklab, var(--foreground) 42%, transparent);
+  opacity: 0.55;
+  transform: scaleY(1);
+  transform-origin: center;
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 200ms var(--ease-swift);
+}
+
+.home-intro-search-card[data-starting-style] .home-intro-search-row::before {
+  opacity: 0;
+  transform: scaleY(0);
 }
 
 @keyframes home-intro-search-row-in {
@@ -3376,6 +3461,37 @@ a:focus-visible .external-label .external-mark {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.home-intro-topics-card .service-card-head,
+.home-intro-topics-card .service-card-bio,
+.home-intro-topics-card .service-card-stat {
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 200ms var(--ease-swift);
+}
+
+.home-intro-topics-card .service-card-bio {
+  transition-delay: 35ms;
+}
+
+.home-intro-topics-card .service-card-stat {
+  transition-delay: 70ms;
+}
+
+.home-intro-topics-card .service-card-avatar {
+  transition: transform 350ms var(--ease-spring);
+}
+
+.home-intro-topics-card[data-starting-style] .service-card-head,
+.home-intro-topics-card[data-starting-style] .service-card-bio,
+.home-intro-topics-card[data-starting-style] .service-card-stat {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.home-intro-topics-card[data-starting-style] .service-card-avatar {
+  transform: rotate(-8deg) scale(0.82);
 }
 
 .home-intro-folio-card {
@@ -3454,6 +3570,35 @@ a:focus-visible .external-label .external-mark {
   color: var(--muted-foreground);
   font-weight: 400;
   font-size: 0.6875rem;
+}
+
+.home-intro-folio-stamp,
+.home-intro-folio-itinerary,
+.home-intro-folio-map,
+.home-intro-folio-label {
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 350ms var(--ease-spring);
+}
+
+.home-intro-folio-card[data-starting-style] .home-intro-folio-stamp {
+  opacity: 0;
+  transform: translate(-0.25rem, 0.25rem) rotate(-8deg);
+}
+
+.home-intro-folio-card[data-starting-style] .home-intro-folio-itinerary {
+  opacity: 0;
+  transform: translateX(0.5rem) rotate(1.5deg);
+}
+
+.home-intro-folio-card[data-starting-style] .home-intro-folio-map {
+  opacity: 0;
+  transform: scaleX(0.9) rotate(-1.5deg);
+}
+
+.home-intro-folio-card[data-starting-style] .home-intro-folio-label {
+  opacity: 0;
+  transform: translateY(4px);
 }
 
 .external-link img {
@@ -3723,10 +3868,52 @@ a:focus-visible .external-label .external-mark {
 .email-envelope-flap {
   position: absolute;
   inset: auto 0 0;
+  z-index: 2;
   height: 66%;
   clip-path: polygon(0 100%, 0 75%, 50% 25%, 100% 75%, 100% 100%);
   background: color-mix(in oklab, var(--paper-ink) 3%, var(--paper));
   filter: drop-shadow(0 -1px 0 color-mix(in oklab, var(--paper-ink) 34%, transparent));
+}
+
+.email-envelope-letter {
+  position: absolute;
+  top: 2.25rem;
+  right: 1.25rem;
+  left: 1.7rem;
+  z-index: 1;
+  display: flex;
+  height: 2.2rem;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--paper) 92%, var(--paper-ink));
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--paper-ink) 16%, transparent);
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 350ms var(--ease-spring);
+}
+
+.email-envelope-letter-line {
+  display: block;
+  width: 100%;
+  height: var(--border-hairline);
+  background: color-mix(in oklab, var(--paper-ink) 36%, transparent);
+}
+
+.email-envelope-letter-line:nth-child(2) {
+  width: 72%;
+}
+
+.email-envelope-letter-line:nth-child(3) {
+  width: 86%;
+}
+
+.email-envelope-card[data-starting-style] .email-envelope-letter {
+  opacity: 0;
+  transform: translateY(0.9rem) rotate(1.25deg) scale(0.96);
 }
 
 .email-envelope-return {
@@ -3757,6 +3944,16 @@ a:focus-visible .external-label .external-mark {
   display: flex;
   align-items: flex-start;
   gap: 0.2rem;
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 350ms var(--ease-spring);
+}
+
+.email-envelope-card[data-starting-style] .email-envelope-stamps {
+  opacity: 0;
+  transform: translateY(-0.5rem) scale(0.9);
 }
 
 .email-envelope-stamp {
@@ -3825,6 +4022,15 @@ a:focus-visible .external-label .external-mark {
   border-radius: 999px;
   rotate: -8deg;
   opacity: 0.72;
+  transform: none;
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 350ms var(--ease-spring);
+}
+
+.email-envelope-card[data-starting-style] .email-envelope-postmark {
+  opacity: 0;
+  transform: translateY(-0.4rem) scale(0.86);
 }
 
 .email-envelope-postmark::before {
@@ -3861,6 +4067,16 @@ a:focus-visible .external-label .external-mark {
   letter-spacing: 0.035em;
   color: color-mix(in oklab, var(--paper-ink) 92%, transparent);
   white-space: nowrap;
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 350ms var(--ease-spring);
+}
+
+.email-envelope-card[data-starting-style] .email-envelope-address {
+  opacity: 0;
+  transform: translateY(0.35rem);
 }
 
 .email-envelope-address > span {
@@ -3868,6 +4084,56 @@ a:focus-visible .external-label .external-mark {
   font-size: 6px;
   letter-spacing: 0.18em;
   opacity: 0.68;
+}
+
+.link-card.preview-card-instant .home-intro-gallery-image,
+.link-card.preview-card-instant .home-intro-gallery-corners,
+.link-card.preview-card-instant.home-intro-gallery-card :is(.link-card-site, .link-card-title),
+.link-card.preview-card-instant .home-intro-search-row,
+.link-card.preview-card-instant .home-intro-search-row::before,
+.link-card.preview-card-instant .home-intro-search-field::after,
+.link-card.preview-card-instant.home-intro-topics-card :is(.service-card-head, .service-card-avatar, .service-card-bio, .service-card-stat),
+.link-card.preview-card-instant .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
+.link-card.preview-card-instant .email-envelope :is(.email-envelope-letter, .email-envelope-stamps, .email-envelope-postmark, .email-envelope-address) {
+  animation: none;
+  transition: none;
+  transform: none;
+}
+
+.link-card.preview-card-instant .home-intro-gallery-corners,
+.link-card.preview-card-instant.home-intro-gallery-card :is(.link-card-site, .link-card-title),
+.link-card.preview-card-instant .home-intro-search-row::before,
+.link-card.preview-card-instant .home-intro-search-field::after,
+.link-card.preview-card-instant.home-intro-topics-card :is(.service-card-head, .service-card-bio, .service-card-stat),
+.link-card.preview-card-instant .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
+.link-card.preview-card-instant .email-envelope :is(.email-envelope-letter, .email-envelope-stamps, .email-envelope-address) {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-intro-gallery-image,
+  .home-intro-gallery-corners,
+  .home-intro-gallery-card :is(.link-card-site, .link-card-title),
+  .home-intro-search-row,
+  .home-intro-search-row::before,
+  .home-intro-search-field::after,
+  .home-intro-topics-card :is(.service-card-head, .service-card-avatar, .service-card-bio, .service-card-stat),
+  .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
+  .email-envelope :is(.email-envelope-letter, .email-envelope-stamps, .email-envelope-postmark, .email-envelope-address) {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+
+  .home-intro-gallery-corners,
+  .home-intro-gallery-card :is(.link-card-site, .link-card-title),
+  .home-intro-search-row::before,
+  .home-intro-search-field::after,
+  .home-intro-topics-card :is(.service-card-head, .service-card-bio, .service-card-stat),
+  .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
+  .email-envelope :is(.email-envelope-letter, .email-envelope-stamps, .email-envelope-address) {
+    opacity: 1;
+  }
 }
 
 /* ── Room shelves: records and books rest on a real wooden plank ──── */

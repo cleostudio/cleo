@@ -240,20 +240,21 @@ function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName={`link-card${image ? ' link-card-with-image' : ''}`}
+      popupClassName={`link-card home-intro-gallery-card${image ? ' link-card-with-image' : ''}`}
       popup={
         <>
           {image && (
-            <span className="link-card-image-frame" aria-hidden>
+            <span className="link-card-image-frame home-intro-gallery-frame" aria-hidden>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                className="link-card-image"
+                className="link-card-image home-intro-gallery-image"
                 src={image.src}
                 alt=""
                 width={236}
                 height={133}
                 loading="eager"
               />
+              <span className="calibration-corners home-intro-gallery-corners" />
             </span>
           )}
           <span className="link-card-site">
@@ -317,7 +318,7 @@ function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName="link-card service-card"
+      popupClassName="link-card service-card home-intro-topics-card"
       popup={
         <>
           <span className="service-card-head">
@@ -417,6 +418,11 @@ function AskCleoPreviewCard({ children }: { children: React.ReactNode }) {
       popup={
         <span className="email-envelope" aria-hidden>
           <span className="email-envelope-flap" />
+          <span className="email-envelope-letter">
+            <span className="email-envelope-letter-line" />
+            <span className="email-envelope-letter-line" />
+            <span className="email-envelope-letter-line" />
+          </span>
           <span className="email-envelope-return">
             <span>FROM</span>
             YOU
