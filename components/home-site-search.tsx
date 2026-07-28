@@ -14,6 +14,7 @@ const KIND_LABEL: Record<SiteSearchKind, string> = {
   explore: 'Country',
   space: 'Space',
   topic: 'Topic',
+  writing: 'Writing',
   surface: 'Portal',
 }
 
@@ -44,14 +45,14 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
               </li>
             ))}
             <li className="hairline-top">
-              <AskCleoSearchLink query={trimmed} />
+              <AskCleoSearchLink query={trimmed} hasMatches />
             </li>
           </ul>
         ) : (
           <p className="mt-2 text-sm text-muted-foreground" aria-live="polite">
             No guides match “{trimmed}”.{' '}
             <Link
-              href={searchAskHref(trimmed)}
+              href={searchAskHref(trimmed, { hasMatches: false })}
               className="text-foreground underline-offset-2 hover:underline"
             >
               Ask Cleo
@@ -79,10 +80,16 @@ function SearchHitLink({ hit }: { hit: SiteSearchHit }) {
   )
 }
 
-function AskCleoSearchLink({ query }: { query: string }) {
+function AskCleoSearchLink({
+  query,
+  hasMatches,
+}: {
+  query: string
+  hasMatches?: boolean
+}) {
   return (
     <Link
-      href={searchAskHref(query)}
+      href={searchAskHref(query, { hasMatches })}
       role="option"
       className="flex items-baseline justify-between gap-3 px-3 py-2.5 text-sm outline-none hover:bg-[color-mix(in_oklab,var(--foreground)_4%,transparent)] focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-foreground"
     >

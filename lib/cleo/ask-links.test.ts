@@ -4,9 +4,13 @@ import {
   CLEO_ASK_AUTO_PARAM,
   CLEO_ASK_QUERY_PARAM,
   cleoAskHref,
+  essayAskHref,
+  essayAskPrompt,
   guideAskHref,
   guideAskPrompt,
   parseCleoAskSearchParams,
+  placeAskHref,
+  placeAskPrompt,
   searchAskHref,
   searchAskPrompt,
   surfaceAskHref,
@@ -59,7 +63,7 @@ describe('parseCleoAskSearchParams', () => {
   })
 })
 
-describe('guide and surface prompts', () => {
+describe('guide, place, essay, and surface prompts', () => {
   it('builds explore/space orientation prompts', () => {
     expect(guideAskPrompt('explore', 'Japan')).toMatch(/Japan/)
     expect(guideAskPrompt('space', 'Europa')).toMatch(/Europa/)
@@ -69,10 +73,28 @@ describe('guide and surface prompts', () => {
     )
   })
 
-  it('builds surface and search fallbacks', () => {
+  it('builds place and essay prompts', () => {
+    expect(placeAskPrompt('Mount Fuji', 'Japan')).toMatch(/Mount Fuji/)
+    expect(placeAskHref('Mount Fuji', 'Japan')).toContain('auto=1')
+    expect(essayAskPrompt('Pale Blue Marble', 'pale-blue-marble')).toContain(
+      '/blog/pale-blue-marble',
+    )
+    expect(essayAskHref('Pale Blue Marble', 'pale-blue-marble')).toContain(
+      '/cleo?',
+    )
+  })
+
+  it('builds surface and search prompts', () => {
     expect(surfaceAskPrompt('topics')).toMatch(/Topics/)
+    expect(surfaceAskPrompt('writing')).toMatch(/Writing/)
     expect(surfaceAskHref('gallery')).toContain('q=')
-    expect(searchAskPrompt('atlantis')).toMatch(/atlantis/)
+    expect(searchAskPrompt('atlantis')).toMatch(/no matching guide/)
+    expect(searchAskPrompt('japan', { hasMatches: true })).toMatch(
+      /matching guides/,
+    )
+    expect(searchAskPrompt('japan', { hasMatches: true })).not.toMatch(
+      /no matching guide/,
+    )
     expect(searchAskHref('atlantis')).toContain(encodeURIComponent('atlantis'))
   })
 })

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import { AskCleoGuideLink } from '~/components/ask-cleo-link'
+import { AskCleoGuideLink, AskCleoPlaceLink } from '~/components/ask-cleo-link'
 import { GuideOrientation } from '~/components/guide-orientation'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
@@ -130,6 +130,12 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
               <div>
                 <p className="font-medium text-foreground">{place.name}</p>
                 <p className="mt-1 text-muted-foreground leading-relaxed">{place.description}</p>
+                <p className="mt-2">
+                  <AskCleoPlaceLink
+                    placeName={place.name}
+                    countryName={entry.name}
+                  />
+                </p>
               </div>
             </li>
           ))}

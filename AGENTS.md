@@ -86,10 +86,13 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).
 - Site → Cleo entry points: `lib/cleo/ask-links.ts` builds `/cleo?q=…&auto=1`
-  prompts. Quiet “Ask Cleo” links live on Explore/Space guides and indexes,
-  Topics, Gallery (`components/ask-cleo-link.tsx`); homepage search offers Ask
-  Cleo on matches and as a no-results fallback. `app/(site)/cleo/page.tsx`
-  parses `q`/`auto` and `AskForm` prefills or auto-submits once.
+  prompts. Quiet “Ask Cleo” links live on Explore/Space guides (including
+  notable places), Writing essays/indexes, Topics, and Gallery
+  (`components/ask-cleo-link.tsx`). Homepage search indexes Writing essays and
+  offers Ask Cleo on matches and as a no-results fallback.
+  `app/(site)/cleo/page.tsx` parses `q`/`auto` and `AskForm` prefills or
+  auto-submits once. Matched topic turns also ground clipped orientation prose
+  beside curated photo paths (`lib/cleo/topic-photos.ts`).
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 

@@ -13,6 +13,7 @@ const PORTAL_SURFACES = [
   ['Gallery', '/gallery'],
   ['Explore', '/explore'],
   ['Space', '/space'],
+  ['Writing', '/blog'],
 ] as const
 
 function formatExploreCatalog() {

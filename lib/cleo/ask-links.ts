@@ -8,7 +8,12 @@ export const CLEO_ASK_QUERY_PARAM = 'q'
 export const CLEO_ASK_AUTO_PARAM = 'auto'
 export const CLEO_ASK_MAX_PROMPT_LENGTH = 10_000
 
-export type CleoAskCollection = 'explore' | 'space' | 'topics' | 'gallery'
+export type CleoAskCollection =
+  | 'explore'
+  | 'space'
+  | 'topics'
+  | 'gallery'
+  | 'writing'
 
 export type CleoAskIntent = {
   /** Prompt text placed in the Cleo input (and submitted when auto). */
@@ -110,7 +115,29 @@ export function guideAskPrompt(
   return `Give me a quick orientation to ${subject}. Deep-link its Space field guide when you mention it, and include a curated photograph if it helps.`
 }
 
-/** Broader prompts for Topics / Gallery / Explore & Space indexes. */
+/** Ask about one notable place inside an Explore country guide. */
+export function placeAskPrompt(placeName: string, countryName: string): string {
+  const place = placeName.trim()
+  const country = countryName.trim()
+  if (!place || !country) {
+    return guideAskPrompt('explore', country || place)
+  }
+  return `Tell me about ${place} in ${country}. Deep-link the ${country} Explore field guide, and include a curated photograph if it helps.`
+}
+
+/** Ask about a Writing essay on this site. */
+export function essayAskPrompt(title: string, slug?: string): string {
+  const name = title.trim()
+  if (!name) {
+    return 'Help me pick a Writing essay on this site, then deep-link it.'
+  }
+  const path = slug?.trim() ? `/blog/${slug.trim()}` : undefined
+  return path
+    ? `Discuss the Writing essay “${name}” (${path}). Deep-link that essay when you mention it, and connect it to related Explore, Space, or Gallery pages when useful.`
+    : `Discuss the Writing essay “${name}”. Deep-link it when you mention it, and connect it to related Explore, Space, or Gallery pages when useful.`
+}
+
+/** Broader prompts for Topics / Gallery / Explore & Space / Writing indexes. */
 export function surfaceAskPrompt(surface: CleoAskCollection): string {
   switch (surface) {
     case 'explore':
@@ -121,15 +148,29 @@ export function surfaceAskPrompt(surface: CleoAskCollection): string {
       return 'Give me a quick tour of the Topics on this site and deep-link the collections that fit.'
     case 'gallery':
       return 'Help me find interesting photographs in the Gallery — suggest a few subjects and deep-link them.'
+    case 'writing':
+      return 'Help me pick a Writing essay to start with, then deep-link it.'
   }
 }
 
-/** Homepage search fallback when no catalog hit matches. */
-export function searchAskPrompt(query: string): string {
+/**
+ * Homepage search → Cleo prompt.
+ * When catalog matches already exist, ask Cleo to help choose among them.
+ * When none match, ask Cleo to cover the topic and deep-link anything related.
+ */
+export function searchAskPrompt(
+  query: string,
+  options?: { hasMatches?: boolean },
+): string {
   const trimmed = query.trim()
   if (!trimmed) {
     return 'Help me explore this knowledge portal.'
   }
+
+  if (options?.hasMatches) {
+    return `I searched the portal for “${trimmed}” and see matching guides. Help me choose where to start, then deep-link the best Explore, Space, Gallery, or Writing pages.`
+  }
+
   return `I searched the portal for “${trimmed}” and found no matching guide. Help me with that topic, and deep-link any related Explore, Space, Gallery, or Writing pages if they exist.`
 }
 
@@ -139,6 +180,26 @@ export function guideAskHref(
   options?: { autoSubmit?: boolean },
 ) {
   return cleoAskHref(guideAskPrompt(collection, name), {
+    autoSubmit: options?.autoSubmit ?? true,
+  })
+}
+
+export function placeAskHref(
+  placeName: string,
+  countryName: string,
+  options?: { autoSubmit?: boolean },
+) {
+  return cleoAskHref(placeAskPrompt(placeName, countryName), {
+    autoSubmit: options?.autoSubmit ?? true,
+  })
+}
+
+export function essayAskHref(
+  title: string,
+  slug?: string,
+  options?: { autoSubmit?: boolean },
+) {
+  return cleoAskHref(essayAskPrompt(title, slug), {
     autoSubmit: options?.autoSubmit ?? true,
   })
 }
@@ -154,9 +215,9 @@ export function surfaceAskHref(
 
 export function searchAskHref(
   query: string,
-  options?: { autoSubmit?: boolean },
+  options?: { autoSubmit?: boolean; hasMatches?: boolean },
 ) {
-  return cleoAskHref(searchAskPrompt(query), {
+  return cleoAskHref(searchAskPrompt(query, { hasMatches: options?.hasMatches }), {
     autoSubmit: options?.autoSubmit ?? true,
   })
 }

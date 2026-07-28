@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import {
   buildTopicPhotoInstructions,
+  clipTopicOrientation,
   conversationTopicText,
   matchTopicPhotosInText,
   resolveTopicPhotos,
@@ -49,7 +50,7 @@ describe('topic photos', () => {
     expect(photos.map((photo) => photo.slug)).toEqual(['nigeria'])
   })
 
-  it('builds instructions that allow Markdown image embeds', () => {
+  it('builds instructions that allow Markdown image embeds and orientation', () => {
     const photos = resolveTopicPhotos([{ collection: 'explore', slug: 'japan' }])
     const block = buildTopicPhotoInstructions(photos)
 
@@ -57,7 +58,17 @@ describe('topic photos', () => {
     expect(block).toContain('You MAY and SHOULD include the curated photograph')
     expect(block).toContain('![Mount Fuji](/images/atlas/japan/w1280.jpg)')
     expect(block).toContain('Prefer these curated photos over `image_generation`')
+    expect(block).toContain('Orientation (site copy')
+    expect(photos[0]?.orientation.length).toBeGreaterThan(40)
     expect(buildTopicPhotoInstructions([])).toBe('')
+  })
+
+  it('clips long orientation prose without mid-word cuts when possible', () => {
+    const long = `${'word '.repeat(200)}final.`
+    const clipped = clipTopicOrientation(long, 80)
+    expect(clipped.endsWith('…')).toBe(true)
+    expect(clipped.length).toBeLessThanOrEqual(81)
+    expect(clipped.includes('word')).toBe(true)
   })
 
   it('keeps parenthetical photo titles usable as Markdown image alts', () => {

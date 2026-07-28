@@ -3,6 +3,8 @@
  * portal surfaces. Import from Server Components only.
  */
 
+import { getAtlasEntry } from '~/lib/atlas'
+import { getAllPosts } from '~/lib/content'
 import { countries } from '~/lib/countries'
 import type { SiteSearchHit } from '~/lib/site-search'
 import { spaceSubjects } from '~/lib/space'
@@ -37,21 +39,29 @@ function haystack(...parts: string[]): string {
 }
 
 function exploreHits(): SiteSearchHit[] {
-  return countries.map((country) => ({
-    id: `explore:${country.slug}`,
-    kind: 'explore',
-    title: country.name,
-    subtitle: `${country.code} · ${country.region}`,
-    href: `/explore/${country.slug}`,
-    searchText: haystack(
-      country.name,
-      country.code,
-      country.region,
-      country.subregion,
-      'country',
-      'explore',
-    ),
-  }))
+  return countries.map((country) => {
+    const entry = getAtlasEntry(country.slug)
+    const placeNames = entry?.places.map((place) => place.name) ?? []
+    const photoPlace = entry?.photo.placeName ?? ''
+
+    return {
+      id: `explore:${country.slug}`,
+      kind: 'explore' as const,
+      title: country.name,
+      subtitle: `${country.code} · ${country.region}`,
+      href: `/explore/${country.slug}`,
+      searchText: haystack(
+        country.name,
+        country.code,
+        country.region,
+        country.subregion,
+        photoPlace,
+        ...placeNames,
+        'country',
+        'explore',
+      ),
+    }
+  })
 }
 
 function spaceHits(): SiteSearchHit[] {
@@ -83,6 +93,25 @@ function topicHits(): SiteSearchHit[] {
   }))
 }
 
+function writingHits(): SiteSearchHit[] {
+  return getAllPosts().map((post) => ({
+    id: `writing:${post.slug}`,
+    kind: 'writing' as const,
+    title: post.titleEn,
+    subtitle: 'Writing',
+    href: `/blog/${post.slug}`,
+    searchText: haystack(
+      post.titleEn,
+      post.title,
+      post.descriptionEn,
+      post.description ?? '',
+      'writing',
+      'essay',
+      'blog',
+    ),
+  }))
+}
+
 function surfaceHits(): SiteSearchHit[] {
   return PORTAL_SURFACES.map((surface) => ({
     ...surface,
@@ -93,5 +122,11 @@ function surfaceHits(): SiteSearchHit[] {
 
 /** Full static catalog for the homepage search typeahead. */
 export function buildSiteSearchHits(): SiteSearchHit[] {
-  return [...topicHits(), ...exploreHits(), ...spaceHits(), ...surfaceHits()]
+  return [
+    ...topicHits(),
+    ...exploreHits(),
+    ...spaceHits(),
+    ...writingHits(),
+    ...surfaceHits(),
+  ]
 }

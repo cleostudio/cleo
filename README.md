@@ -30,9 +30,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides and embed
   curated topic photographs when a visual helps; topic and chat images use
-  the same click-to-zoom lightbox as Gallery). Explore/Space/Topics/Gallery
-  and homepage search deep-link into `/cleo?q=…&auto=1` via
-  `lib/cleo/ask-links.ts`
+  the same click-to-zoom lightbox as Gallery). Explore/Space/Writing/Topics/
+  Gallery and homepage search deep-link into `/cleo?q=…&auto=1` via
+  `lib/cleo/ask-links.ts`; matched turns also ground clipped orientation prose
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
@@ -61,8 +61,8 @@ pnpm typecheck
 pnpm build
 ```
 
-Then manually verify `/cleo` chat, streaming, cancellation, attachments, and
-theme/dock coexistence.
+Then manually verify `/cleo` chat, streaming, cancellation, attachments,
+theme/dock coexistence, and an Explore/Space “Ask Cleo about …” deep link.
 
 ## Preview deploys
 

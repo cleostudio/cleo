@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
+import { getAllPosts } from './content'
 import { countries } from './countries'
 import { spaceSubjects } from './space'
 import { buildSiteSearchHits } from './site-search-catalog'
@@ -9,13 +10,18 @@ import { allTopics } from './topics'
 describe('site search catalog', () => {
   const hits = buildSiteSearchHits()
 
-  it('indexes topic collections, country guides, space guides, and portal surfaces', () => {
+  it('indexes topic collections, country guides, space guides, writing, and portal surfaces', () => {
     const kinds = new Set(hits.map((hit) => hit.kind))
-    expect(kinds).toEqual(new Set(['topic', 'explore', 'space', 'surface']))
+    expect(kinds).toEqual(
+      new Set(['topic', 'explore', 'space', 'writing', 'surface']),
+    )
 
     expect(hits.filter((hit) => hit.kind === 'explore')).toHaveLength(countries.length)
     expect(hits.filter((hit) => hit.kind === 'space')).toHaveLength(spaceSubjects.length)
     expect(hits.filter((hit) => hit.kind === 'topic')).toHaveLength(allTopics().length)
+    expect(hits.filter((hit) => hit.kind === 'writing')).toHaveLength(
+      getAllPosts().length,
+    )
     expect(hits.some((hit) => hit.href === '/gallery')).toBe(true)
     expect(hits.some((hit) => hit.href === '/cleo')).toBe(true)
     expect(hits.some((hit) => hit.href === '/blog')).toBe(true)
@@ -62,6 +68,17 @@ describe('site search catalog', () => {
 
     const moon = filterSiteSearchHits(hits, 'moon')
     expect(moon.some((hit) => hit.href === '/space/moon')).toBe(true)
+  })
+
+  it('finds Writing essays and Explore places by name', () => {
+    const posts = getAllPosts()
+    expect(posts.length).toBeGreaterThan(0)
+    const first = posts[0]!
+    const writing = filterSiteSearchHits(hits, first.titleEn)
+    expect(writing.some((hit) => hit.href === `/blog/${first.slug}`)).toBe(true)
+
+    const fuji = filterSiteSearchHits(hits, 'mount fuji')
+    expect(fuji.some((hit) => hit.href === '/explore/japan')).toBe(true)
   })
 
   it('ranks exact topic titles ahead of looser substring matches', () => {

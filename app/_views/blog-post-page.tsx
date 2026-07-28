@@ -6,6 +6,7 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
+import { AskCleoEssayLink } from '~/components/ask-cleo-link'
 import { BrailleDate } from '~/components/braille-date'
 import { mdxComponents } from '~/components/mdx/mdx-components'
 import { PixelCluster } from '~/components/pixel-cluster'
@@ -247,6 +248,9 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
         <RevealScope lang={english ? 'en' : 'zh-CN'} className="post-body-stage prose enter mt-10">
           <CachedPostBody slug={post.slug} locale={locale} />
         </RevealScope>
+        <p className="enter mt-10">
+          <AskCleoEssayLink title={english ? post.titleEn : post.title} slug={post.slug} />
+        </p>
         {related.length > 0 && (
           <aside
             className="post-related hairline-top"

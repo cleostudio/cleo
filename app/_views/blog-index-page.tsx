@@ -1,5 +1,6 @@
 import { GeistPixelSquare } from 'geist/font/pixel'
 
+import { AskCleoSurfaceLink } from '~/components/ask-cleo-link'
 import { WritingInkStage } from '~/components/hidden-list-stage'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { PostRow } from '~/components/post-row'
@@ -28,6 +29,12 @@ export function BlogIndexPageView({ locale }: { locale: Locale }) {
         </h1>
         <PixelCluster variant={1} />
       </header>
+      <p
+        className="enter mt-6"
+        style={{ '--enter-delay': '80ms' } as React.CSSProperties}
+      >
+        <AskCleoSurfaceLink surface="writing" />
+      </p>
       <WritingInkStage className="mt-6" contentClassName="flex flex-col gap-8">
         {[...postsByYear].map(([year, yearPosts]) => {
           const center = (yearPosts.length - 1) / 2

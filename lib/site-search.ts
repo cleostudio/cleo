@@ -4,7 +4,7 @@
  * this module without pulling full Explore/Space guide records into the bundle.
  */
 
-export type SiteSearchKind = 'explore' | 'space' | 'topic' | 'surface'
+export type SiteSearchKind = 'explore' | 'space' | 'topic' | 'surface' | 'writing'
 
 export interface SiteSearchHit {
   id: string

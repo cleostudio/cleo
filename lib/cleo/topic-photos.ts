@@ -11,6 +11,9 @@ import { staticRendition } from '~/lib/static-photo'
 
 export const MAX_TOPIC_PHOTOS = 3
 
+/** Keep orientation snippets short enough for per-turn developer grounding. */
+export const MAX_TOPIC_ORIENTATION_CHARS = 480
+
 export type TopicPhoto = {
   collection: 'explore' | 'space'
   slug: string
@@ -22,6 +25,8 @@ export type TopicPhoto = {
   caption: string
   /** Mid-size static JPEG path for Markdown embedding. */
   src: string
+  /** Clipped curated orientation prose from the field guide. */
+  orientation: string
 }
 
 type TopicCandidate = {
@@ -53,6 +58,28 @@ function allCandidates(): TopicCandidate[] {
   ]
 }
 
+/** Clip curated orientation without cutting mid-word when possible. */
+export function clipTopicOrientation(
+  about: string,
+  maxChars = MAX_TOPIC_ORIENTATION_CHARS,
+): string {
+  const normalized = about.replace(/\s+/g, ' ').trim()
+  if (!normalized) return ''
+  if (normalized.length <= maxChars) return normalized
+
+  const slice = normalized.slice(0, maxChars)
+  const boundary = Math.max(
+    slice.lastIndexOf('. '),
+    slice.lastIndexOf('? '),
+    slice.lastIndexOf('! '),
+    slice.lastIndexOf(' '),
+  )
+  const clipped = (boundary > maxChars * 0.5 ? slice.slice(0, boundary) : slice)
+    .trim()
+    .replace(/[,:;–—-]+$/u, '')
+  return `${clipped}…`
+}
+
 function loadTopicPhoto(
   topic: Pick<TopicCandidate, 'collection' | 'slug'>,
 ): TopicPhoto | null {
@@ -68,6 +95,7 @@ function loadTopicPhoto(
       alt: entry.photo.alt,
       caption: entry.photo.caption,
       src: atlasRendition(entry.photo, 1280).src,
+      orientation: clipTopicOrientation(entry.about),
     }
   }
 
@@ -83,6 +111,7 @@ function loadTopicPhoto(
     alt: subject.photo.alt,
     caption: subject.photo.caption,
     src: staticRendition(subject.photo, 1280).src,
+    orientation: clipTopicOrientation(subject.about),
   }
 }
 
@@ -193,13 +222,17 @@ function markdownImageAlt(value: string) {
 
 function formatTopicPhoto(photo: TopicPhoto): string {
   const alt = markdownImageAlt(photo.title)
-  return [
+  const lines = [
     `### ${photo.name} — ${photo.href}`,
     `Photograph title: ${photo.title}`,
     `Alt text: ${photo.alt}`,
     `Caption: ${photo.caption}`,
     `Embed with Markdown image (required path): ![${alt}](${photo.src})`,
-  ].join('\n')
+  ]
+  if (photo.orientation) {
+    lines.push(`Orientation (site copy — prefer for orientation answers): ${photo.orientation}`)
+  }
+  return lines.join('\n')
 }
 
 /**
@@ -214,7 +247,8 @@ export function buildTopicPhotoInstructions(
   const blocks = photos.map(formatTopicPhoto).join('\n\n')
 
   return `<cleo_topic_photos>
-The following curated photographs are from this website's Explore and Space topics. When the user's question is about these subjects:
+The following curated photographs and orientation snippets are from this website's Explore and Space topics. When the user's question is about these subjects:
+- Prefer the provided Orientation site copy for geography, character, and structural facts about the subject. Paraphrase in Cleo's voice — do not paste the block verbatim. If Orientation is silent on a detail, say so or use \`web_search\` rather than inventing.
 - You MAY and SHOULD include the curated photograph in your reply when appearance, landscape, what something looks like, or a visual orientation would help — or when the user asks to see a photo/image.
 - Embed with exactly one Markdown image per subject using the path shown: \`![title](/images/...)\`. Do not invent or alter image paths.
 - Still weave one Markdown deep link to the field guide (\`[Name](/explore/…)\` or \`[Name](/space/…)\`) on first mention.
