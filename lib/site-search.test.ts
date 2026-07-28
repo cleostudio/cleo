@@ -48,14 +48,29 @@ describe('site search catalog', () => {
         }),
       )
       expect(hit.searchText).toBe(hit.searchText.toLowerCase())
-      expect(Object.keys(hit).sort()).toEqual([
-        'href',
-        'id',
-        'kind',
-        'searchText',
-        'subtitle',
-        'title',
-      ])
+      const keys = Object.keys(hit).sort()
+      expect(keys).toEqual(
+        expect.arrayContaining([
+          'href',
+          'id',
+          'kind',
+          'searchText',
+          'subtitle',
+          'title',
+        ]),
+      )
+      for (const key of keys) {
+        expect([
+          'href',
+          'id',
+          'kind',
+          'searchText',
+          'subtitle',
+          'title',
+          'capitalName',
+          'capitalHref',
+        ]).toContain(key)
+      }
     }
   })
 
@@ -86,7 +101,14 @@ describe('site search catalog', () => {
       kind: 'explore',
       href: '/explore/japan',
     })
-    expect(tokyo.some((hit) => hit.href === '/maps?country=japan')).toBe(true)
+    const mapsJapan = tokyo.find((hit) => hit.kind === 'maps' && hit.title === 'Japan')
+    expect(mapsJapan?.href.startsWith('/maps?country=japan#')).toBe(true)
+    expect(mapsJapan).not.toHaveProperty('capitalHref')
+  })
+
+  it('keeps country-fit Maps links when the query is the country name', () => {
+    const japan = filterSiteSearchHits(hits, 'japan')
+    expect(japan.some((hit) => hit.href === '/maps?country=japan')).toBe(true)
   })
 
   it('finds Writing posts by title and slug', () => {
@@ -110,15 +132,13 @@ describe('site search catalog', () => {
   })
 
   it('finds no-guide territories on Maps by name and capital', () => {
-    expect(filterSiteSearchHits(hits, 'hong kong')[0]).toMatchObject({
-      kind: 'maps',
-      href: '/maps?country=hk',
-    })
-    expect(
-      filterSiteSearchHits(hits, 'nuuk').some(
-        (hit) => hit.href === '/maps?country=gl',
-      ),
-    ).toBe(true)
+    const hongKong = filterSiteSearchHits(hits, 'hong kong')[0]
+    expect(hongKong).toMatchObject({ kind: 'maps' })
+    expect(hongKong?.href.startsWith('/maps?country=hk')).toBe(true)
+    const nuuk = filterSiteSearchHits(hits, 'nuuk').find((hit) =>
+      hit.href.startsWith('/maps?country=gl'),
+    )
+    expect(nuuk?.href.startsWith('/maps?country=gl#')).toBe(true)
   })
 
   it('finds space guides alongside countries', () => {

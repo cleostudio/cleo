@@ -5,7 +5,12 @@
 
 import { getAllPosts } from '~/lib/content'
 import { countries } from '~/lib/countries'
-import { MAP_REGION_IDS, mapCountryHref, mapRegionHref } from '~/lib/maps'
+import {
+  MAP_REGION_IDS,
+  mapCapitalHref,
+  mapCountryHref,
+  mapRegionHref,
+} from '~/lib/maps'
 import { loadMapCountryIndex } from '~/lib/maps-index'
 import type { SiteSearchHit } from '~/lib/site-search'
 import { spaceSubjects } from '~/lib/space'
@@ -113,12 +118,13 @@ function mapsHits(): SiteSearchHit[] {
 
   const countryHits = countries.map((country) => {
     const entry = byCode.get(country.code)
+    const capitalName = entry?.capitalName
     return {
       id: `maps:country:${country.slug}`,
       kind: 'maps' as const,
       title: country.name,
-      subtitle: entry?.capitalName
-        ? `On the map · ${country.code} · ${entry.capitalName}`
+      subtitle: capitalName
+        ? `On the map · ${country.code} · ${capitalName}`
         : `On the map · ${country.code}`,
       href: mapCountryHref(country.slug),
       searchText: haystack(
@@ -126,9 +132,15 @@ function mapsHits(): SiteSearchHit[] {
         country.code,
         country.region,
         country.subregion,
-        entry?.capitalName ?? '',
+        capitalName ?? '',
         'on the map',
       ),
+      ...(entry && capitalName
+        ? {
+            capitalName,
+            capitalHref: mapCapitalHref(country.slug, entry),
+          }
+        : {}),
     }
   })
 
@@ -150,6 +162,12 @@ function mapsHits(): SiteSearchHit[] {
         'on the map',
         'territory',
       ),
+      ...(entry.capitalName
+        ? {
+            capitalName: entry.capitalName,
+            capitalHref: mapCapitalHref(entry.code, entry),
+          }
+        : {}),
     }))
 
   const regionHits = MAP_REGION_IDS.map((id) => {

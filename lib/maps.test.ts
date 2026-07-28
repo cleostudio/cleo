@@ -13,6 +13,7 @@ import {
   DEFAULT_MAP_ZOOM,
   exploreRegionHref,
   filterMapCountrySuggestions,
+  filterMapSuggestions,
   findMapCountryIndexEntry,
   findMapNeighbors,
   findMapRegionCamera,
@@ -22,6 +23,8 @@ import {
   countryLabelMinZoom,
   excerptMapAbout,
   isDefaultMapCamera,
+  mapCapitalCamera,
+  mapCapitalHref,
   mapCenterDistanceDeg,
   mapCountryHref,
   mapCountrySuggestionMatchKind,
@@ -74,6 +77,8 @@ const sampleIndex: MapCountryIndexEntry[] = [
       [146, 46],
     ],
     maxZoom: 4.5,
+    capital: [139.69, 35.68],
+    capitalName: 'Tokyo',
   },
   {
     code: 'US',
@@ -99,6 +104,26 @@ const sampleRegions: MapRegionCamera[] = [
     ],
     maxZoom: 1.9,
     tally: 47,
+  },
+  {
+    id: 'europe',
+    label: 'Europe',
+    bounds: [
+      [-25, 34],
+      [45, 72],
+    ],
+    maxZoom: 2.9,
+    tally: 40,
+  },
+  {
+    id: 'africa',
+    label: 'Africa',
+    bounds: [
+      [-20, -35],
+      [52, 38],
+    ],
+    maxZoom: 2.5,
+    tally: 50,
   },
 ]
 
@@ -141,6 +166,16 @@ describe('maps helpers', () => {
     expect(findMapCountryIndexEntry(sampleIndex, 'japan')?.code).toBe('JP')
     expect(findMapCountryIndexEntry(sampleIndex, 'us')?.slug).toBe('united-states')
     expect(findMapRegionCamera(sampleRegions, 'asia')?.label).toBe('Asia')
+    expect(mapCapitalCamera(sampleIndex[0]!)).toEqual({
+      center: [139.69, 35.68],
+      zoom: 4.6,
+    })
+    expect(mapCapitalHref('japan', sampleIndex[0]!)).toBe(
+      '/maps?country=japan#4.6/35.68/139.69',
+    )
+    expect(mapCapitalHref('united-states', sampleIndex[1]!)).toBe(
+      '/maps?country=united-states',
+    )
   })
 
   it('formats map coordinates for the status readout', () => {
@@ -282,6 +317,42 @@ describe('maps helpers', () => {
         { KR: 'Seoul' },
       ).map((entry) => entry.code),
     ).toEqual(['KR'])
+  })
+
+  it('ranks continent region cameras ahead of country name hits', () => {
+    const europe = filterMapSuggestions(sampleIndex, sampleRegions, 'europe')
+    expect(europe[0]).toMatchObject({
+      kind: 'region',
+      region: expect.objectContaining({ id: 'europe', label: 'Europe' }),
+    })
+    expect(mapSuggestionSecondary(europe[0]!, 'europe')).toBe(
+      'Continent · Region camera',
+    )
+
+    const africa = filterMapSuggestions(
+      [
+        ...sampleIndex,
+        {
+          code: 'ZA',
+          name: 'South Africa',
+          slug: 'south-africa',
+          region: 'Africa',
+          center: [25, -29],
+          bounds: [
+            [16, -35],
+            [33, -22],
+          ],
+          maxZoom: 4,
+        },
+      ],
+      sampleRegions,
+      'africa',
+    )
+    expect(africa[0]?.kind).toBe('region')
+    expect(africa.some((hit) => hit.kind === 'country' && hit.entry.code === 'ZA')).toBe(
+      true,
+    )
+    expect(filterMapSuggestions(sampleIndex, sampleRegions, 'zzz')).toEqual([])
   })
 
   it('samples curated Explore guides for a region dossier', () => {

@@ -29,7 +29,7 @@ import {
   DEFAULT_MAP_ZOOM,
   FALLBACK_MAP_REGIONS,
   exploreRegionHref,
-  filterMapCountrySuggestions,
+  filterMapSuggestions,
   findMapCountryIndexEntry,
   findMapNeighbors,
   findMapRegionCamera,
@@ -45,7 +45,6 @@ import {
   MAP_TILE_URL,
   mapAttribution,
   mapCountryHref,
-  mapCountrySuggestionMatchKind,
   mapRegionHref,
   mapShareHref,
   mapSuggestionSecondary,
@@ -72,6 +71,7 @@ import {
   type MapLayerId,
   type MapLayerVisibility,
   type MapRegionCamera,
+  type MapSearchSuggestion,
 } from '~/lib/maps'
 import { cn } from '~/lib/utils'
 
@@ -765,7 +765,8 @@ export function EarthMap({
   )
   const [query, setQuery] = useState('')
   const [suggestionsOpen, setSuggestionsOpen] = useState(false)
-  const [suggestions, setSuggestions] = useState<MapCountryIndexEntry[]>([])
+  const [suggestions, setSuggestions] = useState<MapSearchSuggestion[]>([])
+  const focusDossierOnSelectRef = useRef(false)
   const [activeSuggestion, setActiveSuggestion] = useState(0)
   const [regions, setRegions] = useState<MapRegionCamera[]>(
     initialIndex?.regions ?? [],
@@ -1280,6 +1281,8 @@ export function EarthMap({
 
   useEffect(() => {
     if (!selected && !activeRegion) return
+    if (!focusDossierOnSelectRef.current) return
+    focusDossierOnSelectRef.current = false
     const panel = selectionPanelRef.current
     if (!panel) return
     // Defer so fitBounds / paint settle before moving focus.
@@ -1364,8 +1367,9 @@ export function EarthMap({
     for (const [code, photo] of Object.entries(countryPhotos)) {
       if (photo.capital) capitals[code] = photo.capital
     }
-    const next = filterMapCountrySuggestions(
+    const next = filterMapSuggestions(
       indexRef.current,
+      regionsRef.current.length > 0 ? regionsRef.current : FALLBACK_MAP_REGIONS,
       trimmed,
       capitals,
     )
@@ -1379,16 +1383,20 @@ export function EarthMap({
       syncUrl = true,
       preferCapital = false,
       camera = null,
+      focusDossier = false,
     }: {
       syncUrl?: boolean
       preferCapital?: boolean
       /** When set (shared deep link), select the place but keep this framing. */
       camera?: MapCamera | null
+      /** Keyboard / search paths move focus into the dossier plate. */
+      focusDossier?: boolean
     } = {},
   ) {
     const map = mapRef.current
     if (!map) return
     suppressMapClickRef.current()
+    focusDossierOnSelectRef.current = focusDossier
     const hit = resolveMapCountry(entry.code, entry.name)
     const previous = selectedCodeRef.current
     syncSelectionFeatureState(map, previous, hit.code)
@@ -1435,13 +1443,15 @@ export function EarthMap({
     })
   }
 
-  function flyToCountryFromQuery(entry: MapCountryIndexEntry) {
-    const capitals: Record<string, string> = {}
-    for (const [code, photo] of Object.entries(countryPhotos)) {
-      if (photo.capital) capitals[code] = photo.capital
+  function activateSuggestion(suggestion: MapSearchSuggestion) {
+    if (suggestion.kind === 'region') {
+      flyToRegion(suggestion.region, { focusDossier: true })
+      return
     }
-    const kind = mapCountrySuggestionMatchKind(entry, query, capitals)
-    flyToCountry(entry, { preferCapital: kind === 'capital' })
+    flyToCountry(suggestion.entry, {
+      preferCapital: suggestion.match === 'capital',
+      focusDossier: true,
+    })
   }
 
   function resetView() {
@@ -1524,11 +1534,17 @@ export function EarthMap({
     {
       syncUrl = true,
       camera = null,
-    }: { syncUrl?: boolean; camera?: MapCamera | null } = {},
+      focusDossier = false,
+    }: {
+      syncUrl?: boolean
+      camera?: MapCamera | null
+      focusDossier?: boolean
+    } = {},
   ) {
     const map = mapRef.current
     if (!map) return
     suppressMapClickRef.current()
+    focusDossierOnSelectRef.current = focusDossier
     syncSelectionFeatureState(map, selectedCodeRef.current, null)
     selectedCodeRef.current = null
     setSelected(null)
@@ -1628,13 +1644,17 @@ export function EarthMap({
     }
     const entry = indexRef.current.find((item) => item.code === code)
     if (entry) {
-      flyToCountry(entry, { preferCapital: feature.layer?.id === 'capital-hits' })
+      flyToCountry(entry, {
+        preferCapital: feature.layer?.id === 'capital-hits',
+        focusDossier: true,
+      })
       return
     }
     const fallbackName = String(
       feature.properties?.country ?? feature.properties?.name ?? code,
     )
     const hit = resolveMapCountry(code, fallbackName)
+    focusDossierOnSelectRef.current = true
     selectedCodeRef.current = hit.code
     setSelected(hit)
     setSelectedEntry(null)
@@ -1758,7 +1778,7 @@ export function EarthMap({
             </p>
             <div className="earth-map-search">
               <label className="sr-only" htmlFor={`${reactId}-map-search`}>
-                Find a country or capital
+                Find a country, capital, or region
               </label>
               <input
                 ref={searchInputRef}
@@ -1802,7 +1822,7 @@ export function EarthMap({
                   }
                   if (event.key === 'Enter' && suggestions[activeSuggestion]) {
                     event.preventDefault()
-                    flyToCountryFromQuery(suggestions[activeSuggestion]!)
+                    activateSuggestion(suggestions[activeSuggestion]!)
                     return
                   }
                   if (event.key === 'Escape') {
@@ -1816,7 +1836,7 @@ export function EarthMap({
                   }
                 }}
                 placeholder={
-                  ready ? 'Find a country or capital' : 'Loading map…'
+                  ready ? 'Find a country, capital, or region' : 'Loading map…'
                 }
                 autoComplete="off"
                 spellCheck={false}
@@ -1828,7 +1848,11 @@ export function EarthMap({
                 aria-autocomplete="list"
                 aria-activedescendant={
                   suggestions[activeSuggestion]
-                    ? `${reactId}-option-${suggestions[activeSuggestion]!.code}`
+                    ? `${reactId}-option-${
+                        suggestions[activeSuggestion]!.kind === 'region'
+                          ? suggestions[activeSuggestion]!.region.id
+                          : suggestions[activeSuggestion]!.entry.code
+                      }`
                     : undefined
                 }
                 disabled={!ready}
@@ -1839,16 +1863,28 @@ export function EarthMap({
                   role="listbox"
                   className="earth-map-suggestions"
                 >
-                  {suggestions.map((entry, index) => {
+                  {suggestions.map((suggestion, index) => {
+                    const optionId =
+                      suggestion.kind === 'region'
+                        ? suggestion.region.id
+                        : suggestion.entry.code
+                    const title =
+                      suggestion.kind === 'region'
+                        ? suggestion.region.label
+                        : suggestion.entry.name
+                    const trailing =
+                      suggestion.kind === 'region'
+                        ? 'Region'
+                        : suggestion.entry.code
                     const secondary = mapSuggestionSecondary(
-                      entry,
+                      suggestion,
                       query,
                       suggestionCapitals,
                     )
                     return (
-                      <li key={entry.code}>
+                      <li key={`${suggestion.kind}:${optionId}`}>
                         <button
-                          id={`${reactId}-option-${entry.code}`}
+                          id={`${reactId}-option-${optionId}`}
                           type="button"
                           role="option"
                           aria-selected={index === activeSuggestion}
@@ -1856,11 +1892,11 @@ export function EarthMap({
                           onMouseDown={(event) => {
                             event.preventDefault()
                             event.stopPropagation()
-                            flyToCountryFromQuery(entry)
+                            activateSuggestion(suggestion)
                           }}
                         >
                           <span className="earth-map-suggestion-main">
-                            <span>{entry.name}</span>
+                            <span>{title}</span>
                             {secondary ? (
                               <span className="earth-map-suggestion-meta">
                                 {secondary}
@@ -1868,7 +1904,7 @@ export function EarthMap({
                             ) : null}
                           </span>
                           <span className="tabular-nums text-muted-foreground">
-                            {entry.code}
+                            {trailing}
                           </span>
                         </button>
                       </li>
@@ -2156,6 +2192,9 @@ export function EarthMap({
                     Photos →
                   </Link>
                 ) : null}
+                <Link href="/space/earth" className="earth-map-guide-link">
+                  Earth from space →
+                </Link>
                 {selectedEntry ? (
                   <button
                     type="button"
@@ -2291,6 +2330,9 @@ export function EarthMap({
                     Photos →
                   </Link>
                 ) : null}
+                <Link href="/space/earth" className="earth-map-guide-link">
+                  Earth from space →
+                </Link>
                 <button
                   type="button"
                   className="earth-map-copy"
@@ -2352,6 +2394,11 @@ export function EarthMap({
                   ))}
                 </div>
               ) : null}
+              <div className="earth-map-selection-actions">
+                <Link href="/space/earth" className="earth-map-guide-link">
+                  Earth from space →
+                </Link>
+              </div>
             </div>
           )}
           <p className="earth-map-credit">

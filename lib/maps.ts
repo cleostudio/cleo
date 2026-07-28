@@ -239,6 +239,28 @@ export function mapCountryHref(slugOrCode: string) {
   return `/maps?country=${encodeURIComponent(trimmed.toLowerCase())}`
 }
 
+/** Camera used by “Show capital” / capital-preferring deep links. */
+export function mapCapitalCamera(
+  entry: Pick<MapCountryIndexEntry, 'capital' | 'maxZoom'>,
+): MapCamera | null {
+  if (!entry.capital) return null
+  return normalizeMapCamera({
+    center: entry.capital,
+    zoom: Math.min(Math.max(entry.maxZoom, 4.6), MAP_MAX_ZOOM + 0.65),
+  })
+}
+
+/**
+ * Deep link into Maps focused on a country with the capital camera hash.
+ * Falls back to the country fit link when no capital is known.
+ */
+export function mapCapitalHref(
+  slugOrCode: string,
+  entry: Pick<MapCountryIndexEntry, 'capital' | 'maxZoom'>,
+) {
+  return mapHrefWithCamera(mapCountryHref(slugOrCode), mapCapitalCamera(entry))
+}
+
 /** Deep link into Maps framed on a continent region camera. */
 export function mapRegionHref(regionId: string) {
   const parsed = parseMapRegionParam(regionId)
@@ -922,12 +944,26 @@ export function buildGraticuleCollection(step = 30): MapLineFeatureCollection {
 
 export type MapSuggestionMatchKind = 'name' | 'code' | 'slug' | 'capital'
 
-const SUGGESTION_MATCH_RANK: Record<MapSuggestionMatchKind, number> = {
-  code: 0,
-  slug: 1,
-  capital: 2,
-  name: 3,
-}
+export type MapSearchSuggestion =
+  | {
+      kind: 'country'
+      entry: MapCountryIndexEntry
+      match: MapSuggestionMatchKind
+    }
+  | {
+      kind: 'region'
+      region: MapRegionCamera
+      match: 'region'
+    }
+
+const SUGGESTION_MATCH_RANK: Record<MapSuggestionMatchKind | 'region', number> =
+  {
+    region: 0,
+    code: 1,
+    slug: 2,
+    capital: 3,
+    name: 4,
+  }
 
 /** Why a country index row matched the combobox query. */
 export function mapCountrySuggestionMatchKind(
@@ -946,12 +982,32 @@ export function mapCountrySuggestionMatchKind(
   return null
 }
 
+function mapRegionSuggestionMatch(
+  region: MapRegionCamera,
+  query: string,
+): boolean {
+  const trimmed = query.trim().toLowerCase()
+  if (!trimmed) return false
+  return (
+    region.id === trimmed ||
+    region.label.toLowerCase().startsWith(trimmed) ||
+    region.label.toLowerCase().includes(trimmed)
+  )
+}
+
 /** Secondary line for a combobox row (match reason / territory / region). */
 export function mapSuggestionSecondary(
-  entry: MapCountryIndexEntry,
+  suggestion: MapSearchSuggestion | MapCountryIndexEntry,
   query: string,
   capitals: Readonly<Record<string, string>> = {},
 ): string | null {
+  if ('kind' in suggestion && suggestion.kind === 'region') {
+    return 'Continent · Region camera'
+  }
+  const entry =
+    'kind' in suggestion && suggestion.kind === 'country'
+      ? suggestion.entry
+      : (suggestion as MapCountryIndexEntry)
   const kind = mapCountrySuggestionMatchKind(entry, query, capitals)
   const capital = entry.capitalName ?? capitals[entry.code] ?? null
   if (kind === 'capital' && capital) return `Capital · ${capital}`
@@ -962,29 +1018,57 @@ export function mapSuggestionSecondary(
   return parts.length > 0 ? parts.join(' · ') : null
 }
 
-/** Country index filter for the Maps combobox (name, code, slug, capital). */
+/**
+ * Maps combobox filter: continent region cameras first, then countries
+ * (name, code, slug, capital).
+ */
+export function filterMapSuggestions(
+  countries: readonly MapCountryIndexEntry[],
+  regions: readonly MapRegionCamera[],
+  query: string,
+  capitals: Readonly<Record<string, string>> = {},
+  limit = 8,
+): MapSearchSuggestion[] {
+  if (!query.trim()) return []
+
+  const regionHits: MapSearchSuggestion[] = regions
+    .filter((region) => mapRegionSuggestionMatch(region, query))
+    .map((region) => ({ kind: 'region' as const, region, match: 'region' as const }))
+
+  const countryHits: MapSearchSuggestion[] = countries
+    .map((entry) => {
+      const match = mapCountrySuggestionMatchKind(entry, query, capitals)
+      if (!match) return null
+      return { kind: 'country' as const, entry, match }
+    })
+    .filter((item): item is Extract<MapSearchSuggestion, { kind: 'country' }> =>
+      Boolean(item),
+    )
+
+  return [...regionHits, ...countryHits]
+    .sort((a, b) => {
+      const rank =
+        SUGGESTION_MATCH_RANK[a.match] - SUGGESTION_MATCH_RANK[b.match]
+      if (rank !== 0) return rank
+      const aLabel = a.kind === 'region' ? a.region.label : a.entry.name
+      const bLabel = b.kind === 'region' ? b.region.label : b.entry.name
+      return aLabel.localeCompare(bLabel)
+    })
+    .slice(0, limit)
+}
+
+/** Country-only filter (tests / callers that do not need region cameras). */
 export function filterMapCountrySuggestions(
   countries: readonly MapCountryIndexEntry[],
   query: string,
   capitals: Readonly<Record<string, string>> = {},
   limit = 8,
 ): MapCountryIndexEntry[] {
-  if (!query.trim()) return []
-  return countries
-    .map((entry) => {
-      const kind = mapCountrySuggestionMatchKind(entry, query, capitals)
-      if (!kind) return null
-      return { entry, kind }
-    })
-    .filter((item): item is { entry: MapCountryIndexEntry; kind: MapSuggestionMatchKind } =>
-      Boolean(item),
+  return filterMapSuggestions(countries, [], query, capitals, limit)
+    .filter(
+      (item): item is Extract<MapSearchSuggestion, { kind: 'country' }> =>
+        item.kind === 'country',
     )
-    .sort((a, b) => {
-      const rank = SUGGESTION_MATCH_RANK[a.kind] - SUGGESTION_MATCH_RANK[b.kind]
-      if (rank !== 0) return rank
-      return a.entry.name.localeCompare(b.entry.name)
-    })
-    .slice(0, limit)
     .map((item) => item.entry)
 }
 
