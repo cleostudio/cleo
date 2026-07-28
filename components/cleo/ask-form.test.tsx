@@ -23,6 +23,8 @@ vi.mock('./zoomable-message-image', () => ({
   ZoomableMessageImage: () => null,
 }))
 
+import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
+
 import { AskForm } from './ask-form'
 
 let originalGeolocation: PropertyDescriptor | undefined
@@ -47,6 +49,7 @@ function mockGeolocation(
 }
 
 beforeEach(() => {
+  window.localStorage.clear()
   originalScrollIntoView ??= Object.getOwnPropertyDescriptor(
     HTMLElement.prototype,
     'scrollIntoView',
@@ -59,6 +62,7 @@ beforeEach(() => {
 
 afterEach(() => {
   cleanup()
+  window.localStorage.clear()
   if (originalGeolocation) {
     Object.defineProperty(navigator, 'geolocation', originalGeolocation)
   } else {
@@ -76,7 +80,7 @@ afterEach(() => {
 })
 
 describe('AskForm location context', () => {
-  it('automatically sends browser location after browser permission is granted', async () => {
+  it('requests location only after dock preferences enable location sync', async () => {
     let resolvePosition: PositionCallback | undefined
     const getCurrentPosition = mockGeolocation((success) => {
       resolvePosition = success
@@ -89,14 +93,12 @@ describe('AskForm location context', () => {
 
     render(<AskForm />)
 
-    expect(
-      screen.queryByText('Optional — share precise coordinates and time zone with OpenAI for this chat.'),
-    ).toBeNull()
-    expect(
-      screen.queryByRole('button', {
-        name: 'Share your precise location and time zone with Cleo',
-      }),
-    ).toBeNull()
+    expect(getCurrentPosition).not.toHaveBeenCalled()
+
+    await act(async () => {
+      setLocationSyncEnabled(true)
+    })
+
     expect(getCurrentPosition).toHaveBeenCalledTimes(1)
 
     await act(async () => {
@@ -134,6 +136,50 @@ describe('AskForm location context', () => {
     })
   })
 
+  it('stops attaching location as soon as the dock setting is disabled', async () => {
+    let resolvePosition: PositionCallback | undefined
+    mockGeolocation((success) => {
+      resolvePosition = success
+    })
+    const fetchMock = vi.fn<
+      (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
+    >()
+    fetchMock.mockResolvedValue(new Response('{"type":"text","delta":"Hi"}\n'))
+    vi.stubGlobal('fetch', fetchMock)
+
+    render(<AskForm />)
+
+    await act(async () => {
+      setLocationSyncEnabled(true)
+    })
+    await act(async () => {
+      resolvePosition?.({
+        coords: {
+          accuracy: 9,
+          latitude: 35.6895,
+          longitude: 139.6917,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+    await act(async () => {
+      setLocationSyncEnabled(false)
+    })
+
+    fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), {
+      target: { value: 'Tell me about Mars.' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+
+    const request = fetchMock.mock.calls[0]?.[1]
+    const payload = JSON.parse(request?.body as string)
+
+    expect(payload).not.toHaveProperty('location')
+  })
+
   it('keeps location out of the request when browser permission is denied', async () => {
     let rejectPosition: PositionErrorCallback | undefined
     mockGeolocation((_success, error) => {
@@ -146,6 +192,10 @@ describe('AskForm location context', () => {
     vi.stubGlobal('fetch', fetchMock)
 
     render(<AskForm />)
+
+    await act(async () => {
+      setLocationSyncEnabled(true)
+    })
 
     await act(async () => {
       rejectPosition?.({

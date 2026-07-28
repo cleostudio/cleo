@@ -24,6 +24,10 @@ import {
 import { requestUserLocation } from "~/lib/cleo/client-location"
 import type { UserLocation } from "~/lib/cleo/location"
 import {
+  isLocationSyncEnabled,
+  subscribeToLocationSync,
+} from "~/lib/cleo/location-preference"
+import {
   CONTINUE_PROMPT,
   makeIncomplete,
   messageHasVisibleContent,
@@ -194,15 +198,36 @@ export function AskForm() {
 
   useEffect(() => {
     let isCurrent = true
+    let locationRequestId = 0
 
-    void requestUserLocation()
-      .then((nextLocation) => {
-        if (isCurrent) setLocation(nextLocation)
-      })
-      .catch(() => undefined)
+    const syncLocation = (enabled: boolean) => {
+      locationRequestId += 1
+      const requestId = locationRequestId
+
+      if (!enabled) {
+        setLocation(null)
+        return
+      }
+
+      void requestUserLocation()
+        .then((nextLocation) => {
+          if (isCurrent && locationRequestId === requestId) {
+            setLocation(nextLocation)
+          }
+        })
+        .catch(() => {
+          if (isCurrent && locationRequestId === requestId) {
+            setLocation(null)
+          }
+        })
+    }
+
+    syncLocation(isLocationSyncEnabled())
+    const unsubscribe = subscribeToLocationSync(syncLocation)
 
     return () => {
       isCurrent = false
+      unsubscribe()
     }
   }, [])
 

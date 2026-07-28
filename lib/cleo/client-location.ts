@@ -28,7 +28,7 @@ function browserTimeZone() {
   return timeZone
 }
 
-/** Requests one fresh browser position for the active Cleo session. */
+/** Requests one fresh browser position after location sync is enabled. */
 export function requestUserLocation(): Promise<UserLocation> {
   if (typeof navigator === 'undefined' || !navigator.geolocation) {
     return Promise.reject(new Error('Location sharing is unavailable in this browser.'))

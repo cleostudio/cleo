@@ -94,21 +94,25 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
   `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).
-- Location: `lib/cleo/client-location.ts` requests one fresh high-accuracy
-  browser position when Cleo mounts. When the browser grants location services,
-  `components/cleo/ask-form.tsx` automatically includes it and the IANA time
-  zone with each request. `lib/cleo/location.ts` validates coordinates,
-  accuracy, and time zone server-side, then adds them only to private per-turn
-  instructions, never visible messages. Browser location settings are the
-  control for allowing or revoking this sync.
+- Location: the dock’s Preferences panel owns an opt-in Location switch,
+  persisted in browser storage and disabled by default. When enabled,
+  `lib/cleo/client-location.ts` requests one fresh high-accuracy browser
+  position; `components/cleo/ask-form.tsx` includes it and the IANA time zone
+  with each request. Turning the switch off clears the in-memory location
+  immediately.
+  `lib/cleo/location.ts` validates coordinates, accuracy, and time zone
+  server-side, then adds them only to private per-turn instructions, never
+  visible messages. Browser location settings remain the control for granting
+  or revoking device access.
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 
 Conversation state, the current location value, and encrypted reasoning items
-are browser-only. They clear on reload; browser permission determines whether
-the next session can refresh location, and reasoning items keep multi-turn
-replies coherent under `store: false`. There is no authentication, database,
-media library, or AMA booking.
+are browser-only. Conversation state clears on reload; the dock’s location
+preference persists in browser storage and controls whether the next session
+can refresh location. Reasoning items keep multi-turn replies coherent under
+`store: false`. There is no authentication, database, media library, or AMA
+booking.
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,
@@ -120,8 +124,9 @@ endpoints are served after deploy.
 100,000 total, with a final `user` message. User and assistant messages may
 include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF). A browser-authorized
 `location` object may include finite latitude, longitude, reported accuracy,
-and a valid IANA time zone; browser authorization controls automatic inclusion,
-and it is ephemeral developer context rather than chat text.
+and a valid IANA time zone; the dock preference plus browser authorization
+control automatic inclusion, and it is ephemeral developer context rather than
+chat text.
 
 ## External APIs
 
