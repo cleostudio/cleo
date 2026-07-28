@@ -108,7 +108,11 @@ describe('PlaceGalleryToolbar', () => {
 
     expect((input as HTMLInputElement).value).toBe('')
     expect(
-      screen.getByText('France').closest('[data-gallery-item]')?.hidden,
+      (
+        screen
+          .getByText('France')
+          .closest('[data-gallery-item]') as HTMLElement
+      ).hidden,
     ).toBe(false)
     expect(screen.queryByText(/Showing \d+ photograph/)).toBeNull()
     expect(window.location.search).not.toContain('q=')

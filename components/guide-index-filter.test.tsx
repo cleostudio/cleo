@@ -163,7 +163,9 @@ describe('GuideIndexFilter', () => {
 
     expect((input as HTMLInputElement).value).toBe('')
     expect(
-      screen.getByText('France').closest('[data-guide-item]')?.hidden,
+      (
+        screen.getByText('France').closest('[data-guide-item]') as HTMLElement
+      ).hidden,
     ).toBe(false)
     expect(screen.queryByText(/Showing \d+ countries/)).toBeNull()
     expect(window.location.search).not.toContain('q=')
