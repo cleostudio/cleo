@@ -66,7 +66,19 @@ export function SpacePageView({
           label="Search space guides"
           placeholder="Planet, moon, or deep-space body"
           initialQuery={initialQuery}
+          noun="space guides"
         />
+
+        <p
+          className="mb-4 text-sm text-muted-foreground"
+          data-guide-status
+          hidden={!initialQuery.trim() || totalVisible === 0 || undefined}
+          aria-live="polite"
+        >
+          {initialQuery.trim() && totalVisible > 0
+            ? `Showing ${totalVisible} space guides`
+            : ''}
+        </p>
 
         <div className="flex flex-col gap-10">
           {renderedCategories.map(({ category, center, rows, visibleCount }) => (

@@ -34,6 +34,8 @@ interface ZoomImageProps {
   sizes?: string
   className?: string
   style?: React.CSSProperties
+  loading?: 'eager' | 'lazy'
+  fetchPriority?: 'high' | 'low' | 'auto'
   renditions?: ReadonlyArray<ZoomImageRendition>
   expandedContent?: React.ReactNode
 }
@@ -73,6 +75,8 @@ export function ZoomImage({
   sizes,
   className,
   style,
+  loading,
+  fetchPriority,
   renditions,
   expandedContent,
 }: ZoomImageProps) {
@@ -267,6 +271,8 @@ export function ZoomImage({
           height={height}
           sizes={sizes}
           className={className}
+          loading={loading}
+          fetchPriority={fetchPriority}
         />
       </button>
       {zoom &&

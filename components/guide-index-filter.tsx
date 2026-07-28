@@ -1,7 +1,14 @@
 'use client'
 
-import { useEffect, useId, useRef, useState } from 'react'
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type KeyboardEvent,
+} from 'react'
 
+import { matchesIndexQuery } from '~/lib/index-filter'
 import { replaceQueryParam } from '~/lib/url-query'
 
 const SEARCH_FIELD_CLASS =
@@ -12,10 +19,13 @@ export function GuideIndexFilter({
   label,
   placeholder,
   initialQuery = '',
+  noun = 'results',
 }: {
   label: string
   placeholder: string
   initialQuery?: string
+  /** Plural noun used in the live “Showing N …” status line. */
+  noun?: string
 }) {
   const searchId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
@@ -36,13 +46,10 @@ export function GuideIndexFilter({
     const items = root.querySelectorAll<HTMLElement>('[data-guide-item]')
     const empty = root.querySelector<HTMLElement>('[data-guide-empty]')
     const sections = root.querySelectorAll<HTMLElement>('[data-guide-section]')
-    const normalizedQuery = query.trim().toLowerCase()
     let nextVisible = 0
 
     for (const item of items) {
-      const searchText = item.dataset.searchText ?? ''
-      const visible =
-        !normalizedQuery || searchText.toLowerCase().includes(normalizedQuery)
+      const visible = matchesIndexQuery(item.dataset.searchText ?? '', query)
       item.hidden = !visible
       if (visible) nextVisible += 1
     }
@@ -56,8 +63,24 @@ export function GuideIndexFilter({
       if (count) count.textContent = String(visibleInSection)
     }
 
+    const status = root.querySelector<HTMLElement>('[data-guide-status]')
+    const filtering = Boolean(query.trim())
+    if (status) {
+      status.hidden = !filtering || nextVisible === 0
+      status.textContent =
+        filtering && nextVisible > 0
+          ? `Showing ${nextVisible} ${noun}`
+          : ''
+    }
+
     if (empty) empty.hidden = nextVisible !== 0
-  }, [query])
+  }, [noun, query])
+
+  function onKeyDown(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.key !== 'Escape' || !query) return
+    event.preventDefault()
+    setQuery('')
+  }
 
   return (
     <div
@@ -69,6 +92,7 @@ export function GuideIndexFilter({
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
+        onKeyDown={onKeyDown}
         placeholder={placeholder}
         aria-label={label}
         autoComplete="off"

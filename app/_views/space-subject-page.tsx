@@ -45,8 +45,13 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
   const { previous, next } = guideNeighbors(categorySubjects, subject.slug)
   const askHref = `/cleo?q=${encodeURIComponent(`Tell me about ${subject.name}`)}`
   const galleryHref = `/gallery?q=${encodeURIComponent(subject.name)}&collection=space`
+  const indexHref = `/space?q=${encodeURIComponent(subject.category)}`
   const guideLinkClass =
     'text-sm text-muted-foreground outline-none transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+  const creditLinkClass =
+    'rounded-sm underline-offset-2 outline-none hover:underline focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+  const sourceLinkClass =
+    'rounded-sm text-foreground underline-offset-2 outline-none hover:underline focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background'
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -94,6 +99,8 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
           height={subject.photo.height}
           className="photo-frame aspect-[3/2] w-full object-cover"
           sizes="(max-width: 40rem) 100vw, 42rem"
+          loading="eager"
+          fetchPriority="high"
           renditions={subject.photo.renditions.map((r) => ({
             src: r.src,
             width: r.width,
@@ -116,7 +123,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
               href={subject.photo.sourceUrl}
               target="_blank"
               rel="noreferrer"
-              className="underline-offset-2 hover:underline"
+              className={creditLinkClass}
             >
               NASA
             </a>
@@ -225,7 +232,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
                 href={source.url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-foreground underline-offset-2 hover:underline"
+                className={sourceLinkClass}
               >
                 {source.label}
               </a>
@@ -260,9 +267,10 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         ) : (
           <span aria-hidden />
         )}
-        <Link href="/space" className={guideLinkClass}>
-          All space guides
-        </Link>
+        {/* Plain anchor so Instant Navigation keeps the category filter. */}
+        <a href={indexHref} className={guideLinkClass}>
+          All {subject.category}
+        </a>
         {next ? (
           <Link href={`/space/${next.slug}`} className={guideLinkClass}>
             {next.name} →

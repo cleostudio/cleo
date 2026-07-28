@@ -72,4 +72,46 @@ describe('PlaceGalleryToolbar', () => {
     expect(mars?.hidden).toBe(false)
     expect(screen.queryByText(/Showing \d+ photograph/)).toBeNull()
   })
+
+  it('clears search and collection on Escape', () => {
+    render(
+      <div data-place-gallery>
+        <PlaceGalleryToolbar initialQuery="mars" initialCollection="space" />
+        <ul>
+          <li
+            data-gallery-item
+            data-collection="places"
+            data-search-text="France Paris place"
+            hidden
+          >
+            France
+          </li>
+          <li
+            data-gallery-item
+            data-collection="space"
+            data-search-text="Mars space"
+          >
+            Mars
+          </li>
+        </ul>
+        <p data-gallery-status>Showing 1 photograph</p>
+        <p data-gallery-empty hidden>
+          No photographs match that search.
+        </p>
+      </div>,
+    )
+
+    const input = screen.getByRole('searchbox')
+    expect((input as HTMLInputElement).value).toBe('mars')
+
+    fireEvent.keyDown(input, { key: 'Escape' })
+
+    expect((input as HTMLInputElement).value).toBe('')
+    expect(
+      screen.getByText('France').closest('[data-gallery-item]')?.hidden,
+    ).toBe(false)
+    expect(screen.queryByText(/Showing \d+ photograph/)).toBeNull()
+    expect(window.location.search).not.toContain('q=')
+    expect(window.location.search).not.toContain('collection=')
+  })
 })

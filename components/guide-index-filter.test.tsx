@@ -18,7 +18,11 @@ describe('GuideIndexFilter', () => {
           label="Search countries"
           placeholder="Country"
           initialQuery="japan"
+          noun="countries"
         />
+        <p data-guide-status hidden>
+          Showing 1 countries
+        </p>
         <section data-guide-section>
           <h2>
             Asia
@@ -49,6 +53,7 @@ describe('GuideIndexFilter', () => {
     expect(
       screen.getByText('Asia').querySelector('[data-guide-count]')?.textContent,
     ).toBe('1')
+    expect(screen.getByText('Showing 1 countries').hidden).toBe(false)
   })
 
   it('filters guide rows, updates live counts, and syncs ?q=', () => {
@@ -58,7 +63,9 @@ describe('GuideIndexFilter', () => {
           label="Search countries"
           placeholder="Country"
           initialQuery=""
+          noun="countries"
         />
+        <p data-guide-status hidden />
         <section data-guide-section>
           <h2>
             Asia
@@ -112,6 +119,7 @@ describe('GuideIndexFilter', () => {
     expect(brazilSection?.hidden).toBe(true)
     expect(asiaCount?.textContent).toBe('1')
     expect(window.location.search).toContain('q=japan')
+    expect(screen.getByText('Showing 1 countries')).toBeTruthy()
     expect(screen.getByText('No countries match that search.').hidden).toBe(
       true,
     )
@@ -123,5 +131,41 @@ describe('GuideIndexFilter', () => {
     expect(screen.getByText('No countries match that search.').hidden).toBe(
       false,
     )
+    expect(screen.queryByText(/Showing \d+ countries/)).toBeNull()
+  })
+
+  it('clears the query on Escape', () => {
+    render(
+      <div data-guide-index>
+        <GuideIndexFilter
+          label="Search countries"
+          placeholder="Country"
+          initialQuery="japan"
+          noun="countries"
+        />
+        <p data-guide-status>Showing 1 countries</p>
+        <ul>
+          <li data-guide-item data-search-text="Japan Asia">
+            Japan
+          </li>
+          <li data-guide-item data-search-text="France Europe" hidden>
+            France
+          </li>
+        </ul>
+        <p data-guide-empty hidden>
+          No countries match that search.
+        </p>
+      </div>,
+    )
+
+    const input = screen.getByRole('searchbox')
+    fireEvent.keyDown(input, { key: 'Escape' })
+
+    expect((input as HTMLInputElement).value).toBe('')
+    expect(
+      screen.getByText('France').closest('[data-guide-item]')?.hidden,
+    ).toBe(false)
+    expect(screen.queryByText(/Showing \d+ countries/)).toBeNull()
+    expect(window.location.search).not.toContain('q=')
   })
 })

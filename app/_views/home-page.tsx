@@ -109,8 +109,8 @@ export async function HomePageView({ locale }: { locale: Locale }) {
                 } as React.CSSProperties
               }
             >
-              <Link href={topic.href} className="topic-row hairline-top group block">
-                <span className="topic-primary">
+              <div className="topic-row hairline-top">
+                <Link href={topic.href} className="topic-primary group">
                   <span className="topic-index tabular-nums text-muted-foreground" aria-hidden>
                     {String(index + 1).padStart(2, '0')}
                   </span>
@@ -121,8 +121,19 @@ export async function HomePageView({ locale }: { locale: Locale }) {
                   <span className="topic-description text-muted-foreground">
                     {topic.description}
                   </span>
-                </span>
-              </Link>
+                </Link>
+                {topic.secondaryHref && topic.secondaryLabel ? (
+                  <p className="topic-secondary">
+                    {/* Plain anchor keeps ?collection= through Instant Navigation. */}
+                    <a
+                      href={topic.secondaryHref}
+                      className="text-sm text-muted-foreground underline-offset-2 outline-none transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground hover:underline focus-visible:ring-1 focus-visible:ring-foreground"
+                    >
+                      {topic.secondaryLabel} →
+                    </a>
+                  </p>
+                ) : null}
+              </div>
             </li>
           ))}
         </ul>

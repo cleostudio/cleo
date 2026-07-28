@@ -1,8 +1,15 @@
 'use client'
 
-import { useEffect, useId, useRef, useState } from 'react'
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type KeyboardEvent,
+} from 'react'
 
 import type { GalleryCollectionFilter } from '~/lib/gallery-filters'
+import { galleryItemMatchesFilters } from '~/lib/gallery-filters'
 import { replaceQueryParam } from '~/lib/url-query'
 
 const SEARCH_FIELD_CLASS =
@@ -40,23 +47,22 @@ export function PlaceGalleryToolbar({
 
     const items = root.querySelectorAll<HTMLElement>('[data-gallery-item]')
     const empty = root.querySelector<HTMLElement>('[data-gallery-empty]')
-    const normalizedQuery = query.trim().toLowerCase()
     let nextVisible = 0
 
     for (const item of items) {
-      const searchText = item.dataset.searchText ?? ''
-      const itemCollection = item.dataset.collection ?? ''
-      const matchesCollection =
-        collection === 'all' || itemCollection === collection
-      const matchesQuery =
-        !normalizedQuery || searchText.toLowerCase().includes(normalizedQuery)
-      const visible = matchesCollection && matchesQuery
+      const visible = galleryItemMatchesFilters(
+        {
+          searchText: item.dataset.searchText ?? '',
+          collection: item.dataset.collection ?? '',
+        },
+        { query, collection },
+      )
       item.hidden = !visible
       if (visible) nextVisible += 1
     }
 
     const status = root.querySelector<HTMLElement>('[data-gallery-status]')
-    const filtering = Boolean(normalizedQuery) || collection !== 'all'
+    const filtering = Boolean(query.trim()) || collection !== 'all'
     if (status) {
       status.hidden = !filtering || nextVisible === 0
       status.textContent =
@@ -68,6 +74,14 @@ export function PlaceGalleryToolbar({
     if (empty) empty.hidden = nextVisible !== 0
   }, [collection, query])
 
+  function onKeyDown(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.key !== 'Escape') return
+    if (!query && collection === 'all') return
+    event.preventDefault()
+    setQuery('')
+    setCollection('all')
+  }
+
   return (
     <div
       ref={rootRef}
@@ -78,6 +92,7 @@ export function PlaceGalleryToolbar({
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
+        onKeyDown={onKeyDown}
         placeholder="Country, place, or space body"
         aria-label="Search photographs"
         data-catalog-search

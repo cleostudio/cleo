@@ -33,14 +33,7 @@ export function BlogIndexPageView({
   const renderedYears = [...postsByYear].map(([year, yearPosts]) => {
     const center = (yearPosts.length - 1) / 2
     const rows = yearPosts.map((post, index) => {
-      const searchText = [
-        post.titleEn,
-        post.descriptionEn,
-        'writing',
-        'essay',
-      ]
-        .join(' ')
-        .toLowerCase()
+      const searchText = [post.titleEn, post.descriptionEn].join(' ')
       const visible = matchesIndexQuery(searchText, initialQuery)
       if (visible) totalVisible += 1
       return { post, index, searchText, visible }
@@ -69,7 +62,19 @@ export function BlogIndexPageView({
           label="Search writing"
           placeholder="Essay title or topic"
           initialQuery={initialQuery}
+          noun="essays"
         />
+
+        <p
+          className="mb-4 text-sm text-muted-foreground"
+          data-guide-status
+          hidden={!initialQuery.trim() || totalVisible === 0 || undefined}
+          aria-live="polite"
+        >
+          {initialQuery.trim() && totalVisible > 0
+            ? `Showing ${totalVisible} essays`
+            : ''}
+        </p>
 
         <WritingInkStage contentClassName="flex flex-col gap-8">
           {renderedYears.map(({ year, center, rows, visibleCount }) => (

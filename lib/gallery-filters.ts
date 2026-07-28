@@ -1,4 +1,5 @@
 import type { GalleryCollection } from '~/lib/gallery'
+import { matchesIndexQuery } from '~/lib/index-filter'
 
 export type GalleryCollectionFilter = 'all' | GalleryCollection
 
@@ -19,3 +20,38 @@ export function parseGalleryQuery(
 
 /** Shared `?q=` parser for Explore, Space, Writing, and Gallery indexes. */
 export const parseIndexQuery = parseGalleryQuery
+
+export function galleryItemMatchesFilters(
+  item: {
+    searchText: string
+    collection: string
+  },
+  filters: {
+    query: string
+    collection: GalleryCollectionFilter | string
+  },
+) {
+  const collection = parseGalleryCollection(filters.collection)
+  const matchesQuery = matchesIndexQuery(item.searchText, filters.query)
+  const matchesCollection =
+    collection === 'all' || item.collection === collection
+
+  return matchesQuery && matchesCollection
+}
+
+export function countMatchingGalleryItems(
+  items: ReadonlyArray<{
+    searchText: string
+    collection: string
+  }>,
+  filters: {
+    query: string
+    collection: GalleryCollectionFilter | string
+  },
+) {
+  return items.reduce(
+    (count, item) =>
+      galleryItemMatchesFilters(item, filters) ? count + 1 : count,
+    0,
+  )
+}

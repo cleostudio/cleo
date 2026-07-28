@@ -65,7 +65,19 @@ export function ExplorePageView({
           label="Search countries"
           placeholder="Country, code, or region"
           initialQuery={initialQuery}
+          noun="countries"
         />
+
+        <p
+          className="mb-4 text-sm text-muted-foreground"
+          data-guide-status
+          hidden={!initialQuery.trim() || totalVisible === 0 || undefined}
+          aria-live="polite"
+        >
+          {initialQuery.trim() && totalVisible > 0
+            ? `Showing ${totalVisible} countries`
+            : ''}
+        </p>
 
         <div className="flex flex-col gap-10">
           {renderedRegions.map(({ region, center, rows, visibleCount }) => (
