@@ -44,6 +44,7 @@ import {
   MAP_TILE_SIZE,
   MAP_TILE_URL,
   mapAttribution,
+  mapCapitalCamera,
   mapCountryHref,
   mapRegionHref,
   mapShareHref,
@@ -969,14 +970,24 @@ export function EarthMap({
           { history: 'push' },
         )
         if (indexed) {
+          fitContextRef.current = {
+            kind: 'country',
+            id: hit.code,
+            preferCapital,
+            shared: false,
+            liftAtFit: measuredDossierLiftPx,
+          }
           withCameraHashPause(map, cameraHashPausedRef, () => {
             fitCountry(map, indexed, { preferCapital })
           })
+        } else {
+          fitContextRef.current = null
         }
       } else {
         setQuery('')
         setSelectedEntry(null)
         fittedFocusKeyRef.current = `clear@${mapEpochRef.current}`
+        fitContextRef.current = null
         setFocusAnnouncement('Selection cleared.')
         syncMapFocusSearchParams(null, { history: 'push' })
       }
@@ -1585,7 +1596,8 @@ export function EarthMap({
 
     const scheduleRefitForMeasuredLift = () => {
       const ctx = fitContextRef.current
-      if (!ctx || ctx.shared) return
+      // Capital framing is center/zoom, not padded bounds — skip the second ease.
+      if (!ctx || ctx.shared || ctx.preferCapital) return
       if (Math.abs(measuredDossierLiftPx - ctx.liftAtFit) < 32) return
       if (refitFrameRef.current != null) {
         window.cancelAnimationFrame(refitFrameRef.current)
@@ -1594,7 +1606,7 @@ export function EarthMap({
         refitFrameRef.current = null
         const map = mapRef.current
         const latest = fitContextRef.current
-        if (!map || !latest || latest.shared) return
+        if (!map || !latest || latest.shared || latest.preferCapital) return
         if (Math.abs(measuredDossierLiftPx - latest.liftAtFit) < 32) return
         if (latest.kind === 'country') {
           if (selectedCodeRef.current !== latest.id) return
@@ -1602,7 +1614,7 @@ export function EarthMap({
           if (!entry) return
           latest.liftAtFit = measuredDossierLiftPx
           withCameraHashPause(map, cameraHashPausedRef, () => {
-            fitCountry(map, entry, { preferCapital: latest.preferCapital })
+            fitCountry(map, entry, { preferCapital: false })
           })
           return
         }
@@ -1910,7 +1922,17 @@ export function EarthMap({
     kind: 'view' | 'place' = 'place',
   ) {
     const map = mapRef.current
-    const camera = map ? readMapCamera(map) : null
+    const fitContext = fitContextRef.current
+    let camera = map ? readMapCamera(map) : null
+    // Prefer the canonical capital camera over a mid-flight or country-fit view.
+    if (
+      kind === 'place' &&
+      fitContext?.kind === 'country' &&
+      fitContext.preferCapital &&
+      selectedEntry
+    ) {
+      camera = mapCapitalCamera(selectedEntry) ?? camera
+    }
     if (map && kind === 'view') writeCameraHashFromMap(map)
     const result = await shareOrCopyMapLink(
       mapShareHref(href, layers, camera),
@@ -2229,9 +2251,15 @@ export function EarthMap({
                           id={`${reactId}-option-${optionId}`}
                           type="button"
                           role="option"
+                          tabIndex={-1}
                           aria-selected={index === activeSuggestion}
                           data-active={index === activeSuggestion || undefined}
                           onMouseDown={(event) => {
+                            // Keep combobox focus; activate on click.
+                            event.preventDefault()
+                            event.stopPropagation()
+                          }}
+                          onClick={(event) => {
                             event.preventDefault()
                             event.stopPropagation()
                             activateSuggestion(suggestion)

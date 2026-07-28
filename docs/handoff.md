@@ -41,22 +41,25 @@ document (enable both products in the Vercel project dashboard).
   center, click country/region/capital labels to select, Borders-off keeps
   country hit-testing, Nearby/Places/region/idle chips restore dossier
   focus on keyboard activation, empty search Clear + region recovery
-  (click + keyboard), combobox scrolls active option, measured
-  `--maps-dossier-lift` (scale/zoom/toast/attrib + post-measure re-fit)
-  and mobile `--maps-top-chrome-height` (meta stacks under search; hidden
-  while suggestions open), share cancel returns aborted (no silent copy),
-  Share view/place with camera (deep links honor shared `#zoom/lat/lng`;
-  hydrate cleans country+region URLs), Cleo Maps links keep camera hashes
-  and capital-camera guidance, Fit region / Share region,
-  territory→region jump, recovery for bad links, Maps OG + sitemap deep
-  links, Gallery↔Maps Photos / View on map round-trips (`/gallery?q=`),
-  dossier ZoomImage + Escape nesting (incl. dock G-chord), region dossiers
-  with photo/Photos, Maps→Space “Earth from space”, Explore/Space
-  end-matter Map·Photos·All…, Space index Earth row “View on map”,
-  homepage Maps+Space CTAs + intro links, dock Space (`G` then `S`),
-  footer Index Maps/Space, lean Cleo portal starters (incl. Earth↔Maps),
-  keyboard/search dossier focus (pointer clicks keep map focus);
-  Back/`hashchange` restore camera hash;
+  (click + keyboard), combobox options activate on click with
+  aria-activedescendant (`tabIndex={-1}`), measured `--maps-dossier-lift`
+  (scale/zoom/toast/attrib + post-measure re-fit for country-fit map
+  clicks; skips capital/shared cameras) and mobile
+  `--maps-top-chrome-height` (meta stacks under search; hidden while
+  suggestions open), share cancel returns aborted (no silent copy),
+  Share place prefers capital camera when capital-framed, Share view/place
+  with camera (deep links honor shared `#zoom/lat/lng`; hydrate cleans
+  country+region URLs), Cleo Maps links keep camera hashes and
+  capital-camera guidance, Explore fact-plate capital → Maps capital
+  camera, Fit region / Share region, territory→region jump, recovery for
+  bad links, Maps OG + sitemap deep links, Gallery↔Maps Photos / View on
+  map round-trips (`/gallery?q=`), dossier ZoomImage + Escape nesting
+  (incl. dock G-chord), region dossiers with photo/Photos, Maps→Space
+  “Earth from space”, Explore/Space end-matter Map·Photos·All…, Space
+  index Earth row “View on map”, homepage Maps+Space CTAs + intro links,
+  dock Space (`G` then `S`), footer Index Maps/Space, lean Cleo portal
+  starters (incl. Earth↔Maps), keyboard/search dossier focus (pointer
+  clicks keep map focus); Back/`hashchange` restore camera hash;
   Borders/Labels/ Graticule toggles with shareable layer query flags;
   `#zoom/lat/lng` camera hash + Share view; Back/Forward for country/region
   focus (pushState); capital-aware search + selection dossier; deep-link

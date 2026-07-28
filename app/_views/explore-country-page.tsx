@@ -9,7 +9,8 @@ import { countrySlugs, getCountry } from '~/lib/countries'
 import { atlasDescription, getAtlasEntry } from '~/lib/atlas'
 import { galleryHref } from '~/lib/gallery'
 import { localeMetadata } from '~/lib/locale-metadata'
-import { mapCountryHref } from '~/lib/maps'
+import { mapCapitalHref, mapCountryHref } from '~/lib/maps'
+import { loadMapCountryIndex } from '~/lib/maps-index'
 
 export function exploreCountryStaticParams() {
   return countrySlugs().map((slug) => ({ slug }))
@@ -35,6 +36,13 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
 
   const hero = entry.photo.renditions.find((r) => r.width === 1280) ?? entry.photo.renditions[0]!
   const renditions = entry.photo.renditions.map((r) => ({ src: r.src, width: r.width }))
+  const mapEntry = loadMapCountryIndex().countries.find(
+    (item) => item.code === country.code,
+  )
+  const capitalMapHref =
+    mapEntry?.capital != null
+      ? mapCapitalHref(country.slug, mapEntry)
+      : null
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -150,7 +158,16 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
             <dt>Capital</dt>
             <dd>
               <span className="spec-signal" aria-hidden />
-              {entry.facts.capital}
+              {capitalMapHref ? (
+                <Link
+                  href={capitalMapHref}
+                  className="underline-offset-2 hover:underline"
+                >
+                  {entry.facts.capital}
+                </Link>
+              ) : (
+                entry.facts.capital
+              )}
             </dd>
           </div>
           <div>
