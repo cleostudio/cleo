@@ -4,14 +4,10 @@ html[data-maps-route] {
   --maps-dock-clearance: 5.75rem;
   --maps-hud-inset: 1rem;
   --maps-dossier-max-height: min(48vh, 22rem);
-  --maps-dossier-lift: 0rem;
+  /* Set in px by EarthMap ResizeObserver from bottom chrome height. */
+  --maps-dossier-lift: 0px;
   --maps-panel-bg: color-mix(in oklab, var(--background) 78%, transparent);
   --maps-panel-shadow: 0 0 0 1px var(--border), var(--shadow-medium);
-}
-
-html[data-maps-route] .earth-map[data-has-selection] {
-  /* Same budget as `.earth-map-selection` so scale/toast clear the plate. */
-  --maps-dossier-lift: var(--maps-dossier-max-height);
 }
 
 html[data-maps-route] .site-chrome {
@@ -451,27 +447,21 @@ html[data-maps-route] body {
   top: auto;
   right: max(var(--maps-hud-inset), env(safe-area-inset-right, 0px));
   bottom: calc(
-    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.35rem
+    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.35rem +
+      var(--maps-dossier-lift)
   );
 }
 
 .earth-map-canvas .maplibregl-ctrl-bottom-left {
   left: max(var(--maps-hud-inset), env(safe-area-inset-left, 0px));
   bottom: calc(
-    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.35rem
+    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.35rem +
+      var(--maps-dossier-lift)
   );
 }
 
 .earth-map-canvas .maplibregl-ctrl-bottom-right {
   bottom: 0.45rem;
-}
-
-/* Keep the metric scale above a tall selection dossier when one is open. */
-.earth-map[data-has-selection] .maplibregl-ctrl-bottom-left {
-  bottom: calc(
-    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) +
-      var(--maps-dossier-lift)
-  );
 }
 
 .earth-map-canvas .maplibregl-ctrl-group {
@@ -589,7 +579,8 @@ html[data-maps-route] body {
   z-index: 12;
   left: 50%;
   bottom: calc(
-    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.75rem
+    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.75rem +
+      var(--maps-dossier-lift)
   );
   transform: translateX(-50%);
   display: inline-flex;
@@ -616,13 +607,6 @@ html[data-maps-route] body {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
-}
-
-.earth-map[data-has-selection] .earth-map-toast {
-  bottom: calc(
-    var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) +
-      var(--maps-dossier-lift)
-  );
 }
 
 .earth-map-toast[data-tone='warn'] {
@@ -871,7 +855,8 @@ html[data-maps-route] body {
   .earth-map-canvas .maplibregl-ctrl-top-right {
     right: max(var(--maps-hud-inset), env(safe-area-inset-right, 0px));
     bottom: calc(
-      var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.2rem
+      var(--maps-dock-clearance) + env(safe-area-inset-bottom, 0px) + 0.2rem +
+        var(--maps-dossier-lift)
     );
   }
 

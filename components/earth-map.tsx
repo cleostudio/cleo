@@ -119,24 +119,42 @@ const MAP_REGION_PADDING_NARROW = {
   right: 24,
 } as const
 
+/** Measured bottom-chrome height (dossier/idle + credit); drives fit padding. */
+let measuredDossierLiftPx = 0
+
+function setMeasuredDossierLiftPx(px: number) {
+  measuredDossierLiftPx = Math.max(0, Math.round(px))
+}
+
+function withMeasuredBottomPadding(base: {
+  top: number
+  bottom: number
+  left: number
+  right: number
+}) {
+  if (measuredDossierLiftPx <= 0) return { ...base }
+  return {
+    ...base,
+    bottom: Math.max(base.bottom, measuredDossierLiftPx + 28),
+  }
+}
+
 function mapFocusPadding() {
-  if (
+  const base =
     typeof window !== 'undefined' &&
     window.matchMedia('(max-width: 40rem)').matches
-  ) {
-    return { ...MAP_FOCUS_PADDING_NARROW }
-  }
-  return { ...MAP_FOCUS_PADDING }
+      ? MAP_FOCUS_PADDING_NARROW
+      : MAP_FOCUS_PADDING
+  return withMeasuredBottomPadding(base)
 }
 
 function mapRegionPadding() {
-  if (
+  const base =
     typeof window !== 'undefined' &&
     window.matchMedia('(max-width: 40rem)').matches
-  ) {
-    return { ...MAP_REGION_PADDING_NARROW }
-  }
-  return { ...MAP_REGION_PADDING }
+      ? MAP_REGION_PADDING_NARROW
+      : MAP_REGION_PADDING
+  return withMeasuredBottomPadding(base)
 }
 
 function basemapStyle(): StyleSpecification {
@@ -753,6 +771,8 @@ export function EarthMap({
   const regionsRef = useRef<MapRegionCamera[]>(initialIndex?.regions ?? [])
   const suppressMapClickRef = useRef<() => void>(() => {})
   const indexReadyRef = useRef(Boolean(initialIndex?.countries.length))
+  const rootRef = useRef<HTMLDivElement | null>(null)
+  const bottomChromeRef = useRef<HTMLDivElement | null>(null)
   const selectionPanelRef = useRef<HTMLDivElement | null>(null)
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const suggestionsOpenRef = useRef(false)
@@ -983,6 +1003,7 @@ export function EarthMap({
       const layers: string[] = []
       if (map.getLayer('country-fill')) layers.push('country-fill')
       if (map.getLayer('capital-hits')) layers.push('capital-hits')
+      if (map.getLayer('capital-labels')) layers.push('capital-labels')
       if (map.getLayer('country-labels')) layers.push('country-labels')
       if (map.getLayer('region-labels')) layers.push('region-labels')
       return layers
@@ -1013,10 +1034,13 @@ export function EarthMap({
         map.on('click', 'country-fill', (event: MapLayerMouseEvent) => {
           if (performance.now() < ignoreMapClicksUntil) return
           if (event.originalEvent.detail > 1) return
-          // Prefer a capital hit when the click lands on both layers.
-          if (map.getLayer('capital-hits')) {
+          // Prefer a capital hit/label when the click lands on both layers.
+          const capitalLayers = ['capital-hits', 'capital-labels'].filter(
+            (id) => map.getLayer(id),
+          )
+          if (capitalLayers.length > 0) {
             const capitalHits = map.queryRenderedFeatures(event.point, {
-              layers: ['capital-hits'],
+              layers: capitalLayers,
             })
             if (capitalHits.length > 0) return
           }
@@ -1078,6 +1102,44 @@ export function EarthMap({
           )
           selectCode(code, countryName, { preferCapital: true })
         })
+
+        if (map.getLayer('capital-labels')) {
+          map.on('mousemove', 'capital-labels', (event: MapLayerMouseEvent) => {
+            const feature = event.features?.[0]
+            const code = feature
+              ? String(feature.id ?? feature.properties?.code ?? '')
+              : ''
+            const capitalName = feature
+              ? String(feature.properties?.name ?? '')
+              : ''
+            const countryName = feature
+              ? String(feature.properties?.country ?? '')
+              : ''
+            const label =
+              capitalName && countryName
+                ? `${capitalName} · ${countryName}`
+                : capitalName || countryName || null
+            setHover(code || null, label)
+            map.getCanvas().style.cursor = code ? 'pointer' : ''
+          })
+
+          map.on('mouseleave', 'capital-labels', () => {
+            setHover(null)
+          })
+
+          map.on('click', 'capital-labels', (event: MapLayerMouseEvent) => {
+            if (performance.now() < ignoreMapClicksUntil) return
+            if (event.originalEvent.detail > 1) return
+            const feature = event.features?.[0]
+            if (!feature) return
+            const code = String(feature.id ?? feature.properties?.code ?? '')
+            if (!code) return
+            const countryName = String(
+              feature.properties?.country ?? feature.properties?.name ?? code,
+            )
+            selectCode(code, countryName, { preferCapital: true })
+          })
+        }
       }
 
       if (!labelHandlersBound && map.getLayer('country-labels')) {
@@ -1102,9 +1164,12 @@ export function EarthMap({
         map.on('click', 'country-labels', (event: MapLayerMouseEvent) => {
           if (performance.now() < ignoreMapClicksUntil) return
           if (event.originalEvent.detail > 1) return
-          if (map.getLayer('capital-hits')) {
+          const capitalLayers = ['capital-hits', 'capital-labels'].filter(
+            (id) => map.getLayer(id),
+          )
+          if (capitalLayers.length > 0) {
             const capitalHits = map.queryRenderedFeatures(event.point, {
-              layers: ['capital-hits'],
+              layers: capitalLayers,
             })
             if (capitalHits.length > 0) return
           }
@@ -1484,6 +1549,27 @@ export function EarthMap({
     option?.scrollIntoView({ block: 'nearest' })
   }, [activeSuggestion, suggestions, suggestionsOpen, reactId])
 
+  useEffect(() => {
+    const root = rootRef.current
+    const chrome = bottomChromeRef.current
+    if (!root || !chrome) return
+
+    const publish = () => {
+      const height = chrome.getBoundingClientRect().height
+      setMeasuredDossierLiftPx(height)
+      root.style.setProperty('--maps-dossier-lift', `${measuredDossierLiftPx}px`)
+    }
+
+    publish()
+    const observer = new ResizeObserver(publish)
+    observer.observe(chrome)
+    window.addEventListener('resize', publish)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', publish)
+    }
+  }, [selected?.code, activeRegion, ready])
+
   function flyToCountry(
     entry: MapCountryIndexEntry,
     {
@@ -1756,13 +1842,18 @@ export function EarthMap({
     const point = map.project(map.getCenter())
     const layers: string[] = []
     if (map.getLayer('capital-hits')) layers.push('capital-hits')
+    if (map.getLayer('capital-labels')) layers.push('capital-labels')
     if (map.getLayer('country-fill')) layers.push('country-fill')
     if (layers.length === 0) {
       setFocusAnnouncement('No place at map center.')
       return
     }
     const hits = map.queryRenderedFeatures(point, { layers })
-    const capitalHit = hits.find((feature) => feature.layer?.id === 'capital-hits')
+    const capitalHit = hits.find(
+      (feature) =>
+        feature.layer?.id === 'capital-hits' ||
+        feature.layer?.id === 'capital-labels',
+    )
     const countryHit = hits.find((feature) => feature.layer?.id === 'country-fill')
     const feature = capitalHit ?? countryHit
     if (!feature) {
@@ -1777,7 +1868,9 @@ export function EarthMap({
     const entry = indexRef.current.find((item) => item.code === code)
     if (entry) {
       flyToCountry(entry, {
-        preferCapital: feature.layer?.id === 'capital-hits',
+        preferCapital:
+          feature.layer?.id === 'capital-hits' ||
+          feature.layer?.id === 'capital-labels',
         focusDossier: true,
       })
       return
@@ -1882,6 +1975,7 @@ export function EarthMap({
 
   return (
     <div
+      ref={rootRef}
       className={cn('earth-map', className)}
       data-has-selection={selected || activeRegion ? '' : undefined}
       aria-busy={loadState === 'loading' || undefined}
@@ -2210,7 +2304,10 @@ export function EarthMap({
           </div>
         </div>
 
-        <div className="earth-map-chrome earth-map-chrome-bottom">
+        <div
+          ref={bottomChromeRef}
+          className="earth-map-chrome earth-map-chrome-bottom"
+        >
           {selected ? (
             <div
               ref={selectionPanelRef}
@@ -2372,6 +2469,13 @@ export function EarthMap({
                 <button
                   type="button"
                   className="earth-map-copy"
+                  onClick={clearSelection}
+                >
+                  Clear
+                </button>
+                <button
+                  type="button"
+                  className="earth-map-copy"
                   onClick={focusMapCanvas}
                 >
                   Back to map
@@ -2488,6 +2592,13 @@ export function EarthMap({
                   }}
                 >
                   Share region
+                </button>
+                <button
+                  type="button"
+                  className="earth-map-copy"
+                  onClick={clearSelection}
+                >
+                  Clear
                 </button>
                 <button
                   type="button"
