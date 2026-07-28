@@ -139,6 +139,13 @@ function withMeasuredBottomPadding(base: {
   }
 }
 
+/** Keyboard activation (Enter/Space) reports detail 0; pointer clicks are > 0. */
+function isKeyboardActivation(
+  event: { detail?: number } | null | undefined,
+): boolean {
+  return (event?.detail ?? 1) === 0
+}
+
 function mapFocusPadding() {
   const base =
     typeof window !== 'undefined' &&
@@ -772,6 +779,7 @@ export function EarthMap({
   const suppressMapClickRef = useRef<() => void>(() => {})
   const indexReadyRef = useRef(Boolean(initialIndex?.countries.length))
   const rootRef = useRef<HTMLDivElement | null>(null)
+  const topChromeRef = useRef<HTMLDivElement | null>(null)
   const bottomChromeRef = useRef<HTMLDivElement | null>(null)
   const selectionPanelRef = useRef<HTMLDivElement | null>(null)
   const searchInputRef = useRef<HTMLInputElement | null>(null)
@@ -1372,6 +1380,12 @@ export function EarthMap({
       const focusKey = sharedCamera
         ? `country:${entry.code}@${mapEpoch}#shared`
         : `country:${entry.code}@${mapEpoch}`
+      const countryFocus = {
+        kind: 'country' as const,
+        value: entry.slug ?? entry.code,
+      }
+      // Drop stray `region=` even when the camera is already fitted.
+      syncMapFocusSearchParams(countryFocus, { history: 'replace' })
       if (fittedFocusKeyRef.current === focusKey) return
       fittedFocusKeyRef.current = focusKey
       flyToCountry(entry, {
@@ -1393,6 +1407,10 @@ export function EarthMap({
       const focusKey = sharedCamera
         ? `region:${regionCamera.id}@${mapEpoch}#shared`
         : `region:${regionCamera.id}@${mapEpoch}`
+      syncMapFocusSearchParams(
+        { kind: 'region', value: regionCamera.id },
+        { history: 'replace' },
+      )
       if (fittedFocusKeyRef.current === focusKey) return
       fittedFocusKeyRef.current = focusKey
       flyToRegion(regionCamera, {
@@ -1551,24 +1569,30 @@ export function EarthMap({
 
   useEffect(() => {
     const root = rootRef.current
-    const chrome = bottomChromeRef.current
-    if (!root || !chrome) return
+    const bottom = bottomChromeRef.current
+    const top = topChromeRef.current
+    if (!root || !bottom) return
 
     const publish = () => {
-      const height = chrome.getBoundingClientRect().height
-      setMeasuredDossierLiftPx(height)
+      const bottomHeight = bottom.getBoundingClientRect().height
+      setMeasuredDossierLiftPx(bottomHeight)
       root.style.setProperty('--maps-dossier-lift', `${measuredDossierLiftPx}px`)
+      if (top) {
+        const topHeight = Math.ceil(top.getBoundingClientRect().height)
+        root.style.setProperty('--maps-top-chrome-height', `${topHeight}px`)
+      }
     }
 
     publish()
     const observer = new ResizeObserver(publish)
-    observer.observe(chrome)
+    observer.observe(bottom)
+    if (top) observer.observe(top)
     window.addEventListener('resize', publish)
     return () => {
       observer.disconnect()
       window.removeEventListener('resize', publish)
     }
-  }, [selected?.code, activeRegion, ready])
+  }, [selected?.code, activeRegion, ready, loadState, focusAnnouncement])
 
   function flyToCountry(
     entry: MapCountryIndexEntry,
@@ -1994,7 +2018,10 @@ export function EarthMap({
       />
 
       <div className="earth-map-hud">
-        <div className="earth-map-chrome earth-map-chrome-top">
+        <div
+          ref={topChromeRef}
+          className="earth-map-chrome earth-map-chrome-top"
+        >
           <div className="earth-map-panel earth-map-brand">
             <MapsGlass />
             <h1 className="page-eyebrow">Maps</h1>
@@ -2138,13 +2165,44 @@ export function EarthMap({
                   })}
                 </ul>
               ) : showSuggestionEmpty ? (
-                <p
+                <div
                   id={searchListId}
                   className="earth-map-suggestions earth-map-suggestions-empty"
                   role="status"
                 >
-                  No places match “{query.trim()}”.
-                </p>
+                  <p>No places match “{query.trim()}”.</p>
+                  <div className="earth-map-suggestion-empty-actions">
+                    <button
+                      type="button"
+                      className="earth-map-copy"
+                      onMouseDown={(event) => {
+                        event.preventDefault()
+                        setQuery('')
+                        setSuggestions([])
+                        setSuggestionsOpen(false)
+                        searchInputRef.current?.focus()
+                      }}
+                    >
+                      Clear search
+                    </button>
+                    {regionButtons.slice(0, 3).map((region) => (
+                      <button
+                        key={region.id}
+                        type="button"
+                        className="earth-map-neighbor"
+                        disabled={!ready}
+                        onMouseDown={(event) => {
+                          event.preventDefault()
+                          flyToRegion(region, {
+                            focusDossier: isKeyboardActivation(event),
+                          })
+                        }}
+                      >
+                        {region.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               ) : null}
             </div>
           </div>
@@ -2163,7 +2221,11 @@ export function EarthMap({
                   data-active={activeRegion === region.id || undefined}
                   aria-pressed={activeRegion === region.id}
                   disabled={!ready}
-                  onClick={() => flyToRegion(region)}
+                  onClick={(event) =>
+                    flyToRegion(region, {
+                      focusDossier: isKeyboardActivation(event),
+                    })
+                  }
                 >
                   <span>{region.label}</span>
                   {region.tally > 0 ? (
@@ -2256,13 +2318,14 @@ export function EarthMap({
                       type="button"
                       className="earth-map-neighbor"
                       disabled={!ready || countries.length === 0}
-                      onClick={() => {
+                      onClick={(event) => {
                         setFocusAnnouncement('')
+                        const focusDossier = isKeyboardActivation(event)
                         if (starter.kind === 'country') {
-                          flyToCountry(starter.entry)
+                          flyToCountry(starter.entry, { focusDossier })
                           return
                         }
-                        flyToRegion(starter.region)
+                        flyToRegion(starter.region, { focusDossier })
                       }}
                     >
                       {starter.label}
@@ -2448,7 +2511,11 @@ export function EarthMap({
                   <button
                     type="button"
                     className="earth-map-copy"
-                    onClick={() => flyToRegion(selectedRegionCamera)}
+                    onClick={(event) =>
+                      flyToRegion(selectedRegionCamera, {
+                        focusDossier: isKeyboardActivation(event),
+                      })
+                    }
                   >
                     {selectedRegionCamera.label}
                   </button>
@@ -2628,12 +2695,13 @@ export function EarthMap({
                       type="button"
                       className="earth-map-neighbor"
                       disabled={!ready}
-                      onClick={() => {
+                      onClick={(event) => {
+                        const focusDossier = isKeyboardActivation(event)
                         if (starter.kind === 'country') {
-                          flyToCountry(starter.entry)
+                          flyToCountry(starter.entry, { focusDossier })
                           return
                         }
-                        flyToRegion(starter.region)
+                        flyToRegion(starter.region, { focusDossier })
                       }}
                     >
                       {starter.label}

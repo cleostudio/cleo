@@ -106,6 +106,29 @@ export function cleanPortalMapLabel(
   return /on the map$/i.test(trimmed) ? trimmed : `${cleaned} on the map`
 }
 
+/** Keep a valid `#zoom/lat/lng` camera; drop junk fragments. */
+function portalMapCameraHash(hash: string): string {
+  const raw = hash.startsWith('#') ? hash.slice(1) : hash
+  if (!raw) return ''
+  const parts = raw.split('/')
+  if (parts.length < 3) return ''
+  const zoom = Number(parts[0])
+  const lat = Number(parts[1])
+  const lng = Number(parts[2])
+  if (
+    !Number.isFinite(zoom) ||
+    !Number.isFinite(lat) ||
+    !Number.isFinite(lng) ||
+    zoom < 0 ||
+    zoom > 22 ||
+    lat < -90 ||
+    lat > 90
+  ) {
+    return ''
+  }
+  return `#${zoom}/${lat}/${lng}`
+}
+
 function parsePortalMapHref(href: string): PortalMapLink | null {
   let url: URL
   try {
@@ -115,11 +138,13 @@ function parsePortalMapHref(href: string): PortalMapLink | null {
   }
   if (url.pathname !== '/maps') return null
 
+  const cameraHash = portalMapCameraHash(url.hash)
+
   const country = url.searchParams.get('country')?.trim().toLowerCase()
   if (country && /^[a-z0-9-]+$/.test(country)) {
     return {
       kind: 'country',
-      href: `/maps?country=${encodeURIComponent(country)}`,
+      href: `/maps?country=${encodeURIComponent(country)}${cameraHash}`,
       label: cleanPortalMapLabel('', 'country', country),
       value: country,
     }
@@ -129,7 +154,7 @@ function parsePortalMapHref(href: string): PortalMapLink | null {
   if (region && MAP_REGION_VALUES.has(region)) {
     return {
       kind: 'region',
-      href: `/maps?region=${encodeURIComponent(region)}`,
+      href: `/maps?region=${encodeURIComponent(region)}${cameraHash}`,
       label: cleanPortalMapLabel('', 'region', region),
       value: region,
     }
@@ -170,10 +195,13 @@ export function extractPortalMapLinks(markdown: string): PortalMapLink[] {
   for (const match of markdown.matchAll(MARKDOWN_MAP_LINK)) {
     const rawLabel = match[1] ?? ''
     const href = match[2]
-    if (!href || found.has(href)) continue
+    if (!href) continue
     const parsed = parsePortalMapHref(href)
     if (!parsed) continue
-    found.set(parsed.href, {
+    // Dedupe by place focus so a later plain link does not drop a capital camera.
+    const key = `${parsed.kind}:${parsed.value}`
+    if (found.has(key)) continue
+    found.set(key, {
       ...parsed,
       label: cleanPortalMapLabel(rawLabel, parsed.kind, parsed.value),
     })
@@ -265,10 +293,11 @@ export function presentPortalGuideMarkdown(markdown: string): string {
         const parsed = parsePortalMapHref(href)
         if (!parsed) return _full
         const label = cleanPortalMapLabel(rawLabel, parsed.kind, parsed.value)
-        if (seenHrefs.has(parsed.href)) {
+        const focusKey = `map:${parsed.kind}:${parsed.value}`
+        if (seenHrefs.has(focusKey)) {
           return label
         }
-        seenHrefs.add(parsed.href)
+        seenHrefs.add(focusKey)
         return `[${label}](${parsed.href})`
       },
     )

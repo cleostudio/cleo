@@ -229,6 +229,17 @@ html[data-maps-route] body {
   line-height: 1.35;
 }
 
+.earth-map-suggestions-empty p {
+  margin: 0;
+}
+
+.earth-map-suggestion-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.45rem;
+}
+
 .earth-map-suggestion-main {
   display: flex;
   min-width: 0;
@@ -830,11 +841,22 @@ html[data-maps-route] body {
     min-width: 0;
   }
 
+  /* Stack meta under the measured top chrome so Share/coords never cover search. */
   .earth-map-chrome-meta {
-    top: max(var(--maps-hud-inset), env(safe-area-inset-top, 0px));
-    right: max(var(--maps-hud-inset), env(safe-area-inset-right, 0px));
+    top: calc(
+      max(var(--maps-hud-inset), env(safe-area-inset-top, 0px)) +
+        var(--maps-top-chrome-height, 7rem) + 0.35rem
+    );
+    left: max(var(--maps-hud-inset), env(safe-area-inset-left, 0px));
+    right: auto;
     bottom: auto;
-    max-width: min(14.5rem, calc(100% - 2 * var(--maps-hud-inset)));
+    width: min(22.5rem, calc(100vw - 2 * var(--maps-hud-inset)));
+    max-width: none;
+    align-items: stretch;
+  }
+
+  .earth-map-meta {
+    justify-content: flex-start;
   }
 
   .earth-map-meta {

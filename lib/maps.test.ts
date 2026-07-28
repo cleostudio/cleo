@@ -603,7 +603,7 @@ describe('maps helpers', () => {
     )
   })
 
-  it('falls back to clipboard when Web Share is cancelled', async () => {
+  it('returns aborted when the Web Share sheet is cancelled', async () => {
     const share = vi.fn().mockRejectedValue(new DOMException('Dismissed', 'AbortError'))
     Object.defineProperty(navigator, 'share', {
       configurable: true,
@@ -615,11 +615,9 @@ describe('maps helpers', () => {
       value: { writeText },
     })
     await expect(shareOrCopyMapLink('/maps#5/35.68/139.69')).resolves.toBe(
-      'copied',
+      'aborted',
     )
-    expect(writeText).toHaveBeenCalledWith(
-      expect.stringContaining('/maps#5/35.68/139.69'),
-    )
+    expect(writeText).not.toHaveBeenCalled()
   })
 
   it('uses a legacy copy path when the Clipboard API is unavailable', async () => {
@@ -696,6 +694,16 @@ describe('maps helpers', () => {
     syncMapFocusSearchParams(null)
     expect(window.location.search).toBe('')
     expect(window.location.hash).toBe('#globe')
+  })
+
+  it('replace-cleans stray focus params when the focus key is unchanged', () => {
+    window.history.replaceState({}, '', '/maps?country=japan&region=asia#5/35/139')
+    syncMapFocusSearchParams(
+      { kind: 'country', value: 'japan' },
+      { history: 'replace' },
+    )
+    expect(window.location.search).toBe('?country=japan')
+    expect(window.location.hash).toBe('#5/35/139')
   })
 
   it('preserves layer params while syncing focus', () => {

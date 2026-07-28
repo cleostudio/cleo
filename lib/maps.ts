@@ -555,9 +555,12 @@ export function syncMapFocusSearchParams(
   } else if (focus?.kind === 'region') {
     url.searchParams.set('region', focus.value.toLowerCase())
   }
-  if (mapFocusKey(previous) === mapFocusKey(focus)) return
   const next = `${url.pathname}${url.search}${url.hash}`
-  if (history === 'push') {
+  const current = `${window.location.pathname}${window.location.search}${window.location.hash}`
+  if (next === current) return
+  const focusChanged = mapFocusKey(previous) !== mapFocusKey(focus)
+  // Push only when focus changes; dirty URLs (e.g. country+region) replace-clean.
+  if (history === 'push' && focusChanged) {
     window.history.pushState(window.history.state, '', next)
   } else {
     window.history.replaceState(window.history.state, '', next)
@@ -1104,6 +1107,12 @@ function copyTextWithFallback(value: string): boolean {
   }
 }
 
+function isShareAbortError(error: unknown): boolean {
+  if (!error || typeof error !== 'object') return false
+  const name = 'name' in error ? String(error.name) : ''
+  return name === 'AbortError'
+}
+
 /** Prefer the Web Share API; fall back to clipboard (async API, then execCommand). */
 export async function shareOrCopyMapLink(
   href: string,
@@ -1121,8 +1130,10 @@ export async function shareOrCopyMapLink(
     try {
       await navigator.share({ title, text, url: absolute })
       return 'shared'
-    } catch {
-      // Cancelled share sheets and unsupported targets fall through to clipboard.
+    } catch (error) {
+      // User dismissed the share sheet — do not silently copy.
+      if (isShareAbortError(error)) return 'aborted'
+      // Unsupported share targets fall through to clipboard.
     }
   }
 

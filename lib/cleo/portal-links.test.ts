@@ -164,7 +164,7 @@ describe('extractPortalMapLinks', () => {
     const markdown = [
       'See [Japan on the map](/maps?country=japan&labels=0).',
       'Then [Africa](/maps?region=africa).',
-      'Repeat [Japan again](/maps?country=japan) should dedupe by canonical href.',
+      'Repeat [Japan again](/maps?country=japan) should dedupe by place focus.',
       'Ignore [bare maps](/maps) and [docs](https://example.com/maps?country=japan).',
     ].join(' ')
 
@@ -183,19 +183,34 @@ describe('extractPortalMapLinks', () => {
       },
     ])
   })
+
+  it('preserves capital camera hashes on Maps deep links', () => {
+    expect(
+      extractPortalMapLinks(
+        'Open [Tokyo](/maps?country=japan#4.6/35.68/139.69).',
+      ),
+    ).toEqual([
+      {
+        kind: 'country',
+        href: '/maps?country=japan#4.6/35.68/139.69',
+        label: 'Tokyo on the map',
+        value: 'japan',
+      },
+    ])
+  })
 })
 
 describe('presentPortalGuideMarkdown maps links', () => {
   it('keeps the first Maps deep link and turns later repeats into plain text', () => {
     const markdown = [
-      'Start with [Japan on the map](/maps?country=japan).',
+      'Start with [Japan on the map](/maps?country=japan#4.6/35.68/139.69).',
       '',
       'Also [Japan again](/maps?country=japan&graticule=1).',
     ].join('\n')
 
     expect(presentPortalGuideMarkdown(markdown)).toBe(
       [
-        'Start with [Japan on the map](/maps?country=japan).',
+        'Start with [Japan on the map](/maps?country=japan#4.6/35.68/139.69).',
         '',
         'Also Japan again on the map.',
       ].join('\n'),

@@ -39,10 +39,13 @@ document (enable both products in the Vercel project dashboard).
   nameplate, richer search rows, Escape→map then clear (keeps camera;
   Reset/Home still world-reset), dossier Clear action, Enter selects
   center, click country/region/capital labels to select, Borders-off keeps
-  country hit-testing, Nearby/Places restore dossier focus, combobox
-  scrolls active option, measured `--maps-dossier-lift` (scale/zoom/toast
-  + fitBounds bottom padding), Share view/place with camera (deep links
-  honor shared `#zoom/lat/lng`), Fit region / Share region,
+  country hit-testing, Nearby/Places/region/idle chips restore dossier
+  focus on keyboard activation, empty search Clear + region recovery,
+  combobox scrolls active option, measured `--maps-dossier-lift` and
+  mobile `--maps-top-chrome-height` (meta stacks under search), share
+  cancel returns aborted (no silent copy), Share view/place with camera
+  (deep links honor shared `#zoom/lat/lng`; hydrate cleans country+region
+  URLs), Cleo Maps links keep camera hashes, Fit region / Share region,
   territory→region jump, recovery for bad links, Maps OG + sitemap deep
   links, Gallery↔Maps Photos / View on map round-trips (`/gallery?q=`),
   dossier ZoomImage + Escape nesting (incl. dock G-chord), region dossiers
