@@ -21,7 +21,7 @@ import { getSpaceSubject } from '~/lib/space'
 /** Reject pathological `topic=` values before catalog lookup. */
 export const CLEO_ASK_MAX_TOPIC_LENGTH = 96
 
-const TOPIC_PATH = /^(explore|space|writing)\/([a-z0-9-]+)$/i
+const TOPIC_PATH = /^(explore|space|writing|blog)\/([a-z0-9-]+)$/i
 
 function clampPrompt(prompt: string) {
   return prompt.trim().slice(0, CLEO_ASK_MAX_PROMPT_LENGTH)
@@ -30,6 +30,7 @@ function clampPrompt(prompt: string) {
 /**
  * Normalize compact topic shortcuts:
  * `explore/japan`, `/explore/japan`, `writing/pale-blue-marble`.
+ * `blog/{slug}` is accepted as an alias for `writing/{slug}` (public route).
  */
 export function normalizeTopicPath(topic: string): string | null {
   const trimmed = topic.trim()
@@ -39,7 +40,9 @@ export function normalizeTopicPath(topic: string): string | null {
   const match = TOPIC_PATH.exec(withoutLeadingSlash)
   if (!match) return null
 
-  return `${match[1]!.toLowerCase()}/${match[2]!.toLowerCase()}`
+  const collection =
+    match[1]!.toLowerCase() === 'blog' ? 'writing' : match[1]!.toLowerCase()
+  return `${collection}/${match[2]!.toLowerCase()}`
 }
 
 function firstString(

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import { AskCleoEssayLink } from '~/components/ask-cleo-link'
 import { HomeHighlightedPlaces } from '~/components/home-highlighted-places'
 import { HomeIntroduction } from '~/components/home-introduction'
 import { HomeSiteSearch } from '~/components/home-site-search'
@@ -161,6 +162,13 @@ export async function HomePageView({ locale }: { locale: Locale }) {
                   dateStyle="short"
                   locale={locale}
                 />
+                <p className="mt-1 mb-3">
+                  <AskCleoEssayLink
+                    title={post.title}
+                    slug={post.slug}
+                    label="Ask Cleo →"
+                  />
+                </p>
               </li>
             ))}
           </ul>

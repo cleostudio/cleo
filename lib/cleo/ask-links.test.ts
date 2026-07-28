@@ -9,6 +9,8 @@ import {
   compareAskPrompt,
   essayAskHref,
   essayAskPrompt,
+  factsAskHref,
+  factsAskPrompt,
   featureAskHref,
   featureAskPrompt,
   galleryItemAskHref,
@@ -74,6 +76,8 @@ describe('guide, place, essay, and surface prompts', () => {
       `${CLEO_ASK_TOPIC_PARAM}=writing%2Fpale-blue-marble`,
     )
     expect(essayAskHref('Pale Blue Marble')).toContain('q=')
+    expect(factsAskPrompt('explore', 'Japan')).toMatch(/fact plate for Japan/)
+    expect(factsAskHref('space', 'Mars')).toContain('auto=1')
   })
 
   it('builds home, surface, and search prompts', () => {

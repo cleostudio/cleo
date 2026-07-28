@@ -56,7 +56,15 @@ describe('parseCleoAskSearchParams', () => {
     expect(promptFromTopicPath('writing/pale-blue-marble')).toMatch(
       /Pale Blue Marble/,
     )
+    expect(promptFromTopicPath('blog/pale-blue-marble')).toMatch(
+      /Pale Blue Marble/,
+    )
+    expect(promptFromTopicPath('/blog/pale-blue-marble')).toMatch(
+      /Pale Blue Marble/,
+    )
     expect(promptFromTopicPath('writing/not-a-post')).toBeNull()
+    expect(promptFromTopicPath('explore/')).toBeNull()
+    expect(promptFromTopicPath('explore')).toBeNull()
     expect(promptFromTopicPath(`explore/${'x'.repeat(120)}`)).toBeNull()
     expect(topicAskHref('explore', 'japan')).toContain(
       `${CLEO_ASK_TOPIC_PARAM}=explore%2Fjapan`,
@@ -74,5 +82,20 @@ describe('parseCleoAskSearchParams', () => {
         auto: '1',
       }),
     ).toEqual({ prompt: 'Custom prompt', autoSubmit: true })
+  })
+
+  it('treats auto=0/false/off as disabled for topic shortcuts', () => {
+    expect(
+      parseCleoAskSearchParams({ topic: 'explore/japan', auto: '0' })
+        ?.autoSubmit,
+    ).toBe(false)
+    expect(
+      parseCleoAskSearchParams({ topic: 'explore/japan', auto: 'false' })
+        ?.autoSubmit,
+    ).toBe(false)
+    expect(
+      parseCleoAskSearchParams({ topic: 'space/mars', auto: 'off' })
+        ?.autoSubmit,
+    ).toBe(false)
   })
 })

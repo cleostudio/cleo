@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import {
   compareAskPrompt,
   essayAskPrompt,
+  factsAskPrompt,
   featureAskPrompt,
   galleryItemAskPrompt,
   guideAskPrompt,
@@ -31,7 +32,7 @@ describe('ask-links prompt fixtures', () => {
     )
   })
 
-  it('keeps place, feature, compare, essay, and gallery prompts stable', () => {
+  it('keeps place, feature, compare, facts, essay, and gallery prompts stable', () => {
     expect(placeAskPrompt('Mount Fuji', 'Japan')).toBe(
       'Tell me about Mount Fuji in Japan. Deep-link the Japan Explore field guide, and include a curated photograph if it helps.',
     )
@@ -40,6 +41,12 @@ describe('ask-links prompt fixtures', () => {
     )
     expect(compareAskPrompt('space', 'Mars', 'Earth')).toBe(
       'Compare Mars and Earth in a few sharp points. Deep-link each Space field guide when you name the subjects.',
+    )
+    expect(factsAskPrompt('explore', 'Japan')).toBe(
+      'Walk me through the fact plate for Japan — capital, languages, currency, area, and region — and deep-link its Explore field guide.',
+    )
+    expect(factsAskPrompt('space', 'Mars')).toBe(
+      'Walk me through the fact plate for Mars — kind, system, distance, orbit, and companions — and deep-link its Space field guide.',
     )
     expect(essayAskPrompt('Pale Blue Marble', 'pale-blue-marble')).toBe(
       'Discuss the Writing essay “Pale Blue Marble” (/blog/pale-blue-marble). Deep-link that essay when you mention it, and connect it to related Explore, Space, or Gallery pages when useful.',
@@ -81,7 +88,7 @@ describe('topic= round trip', () => {
     )
   })
 
-  it('parses writing topic shortcuts to essay prompts', () => {
+  it('parses writing and blog topic shortcuts to essay prompts', () => {
     const href = topicAskHref('writing', 'pale-blue-marble')
     const intent = parseCleoAskSearchParams(
       new URL(href, 'https://cleo.example').searchParams,
@@ -92,6 +99,9 @@ describe('topic= round trip', () => {
       autoSubmit: true,
     })
     expect(promptFromTopicPath('/writing/pale-blue-marble')).toBe(
+      essayAskPrompt('Pale Blue Marble', 'pale-blue-marble'),
+    )
+    expect(promptFromTopicPath('blog/pale-blue-marble')).toBe(
       essayAskPrompt('Pale Blue Marble', 'pale-blue-marble'),
     )
   })

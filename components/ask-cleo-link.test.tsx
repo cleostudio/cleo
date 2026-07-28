@@ -10,6 +10,7 @@ afterEach(() => {
 import {
   AskCleoCompareLink,
   AskCleoEssayLink,
+  AskCleoFactsLink,
   AskCleoFeatureLink,
   AskCleoGalleryItemLink,
   AskCleoGuideLink,
@@ -118,6 +119,21 @@ describe('AskCleoCompareLink', () => {
       name: /Ask Cleo to compare Mars and Earth/i,
     })
     expect(link.textContent).toBe('Ask Cleo to compare →')
+  })
+})
+
+describe('AskCleoFactsLink', () => {
+  it('links a fact-plate prompt into Cleo', () => {
+    render(<AskCleoFactsLink collection="explore" name="Japan" />)
+
+    const link = screen.getByRole('link', {
+      name: /Ask Cleo about the fact plate for Japan/i,
+    })
+    const q =
+      new URL(link.getAttribute('href') ?? '', 'https://cleo.example')
+        .searchParams.get('q') ?? ''
+    expect(q).toMatch(/fact plate for Japan/)
+    expect(link.textContent).toMatch(/Ask Cleo about the fact plate/)
   })
 })
 

@@ -14,6 +14,15 @@ describe('compare neighbors', () => {
     expect(exploreComparePeer('korea-south')).toBe('Japan')
   })
 
+  it('pairs high-traffic Explore guides with curated neighbors', () => {
+    expect(exploreComparePeer('italy')).toBe('Switzerland')
+    expect(exploreComparePeer('egypt')).toBe('Morocco')
+    expect(exploreComparePeer('iceland')).toBe('Norway')
+    expect(exploreComparePeer('turkiye')).toBe('Greece')
+    expect(exploreComparePeer('nigeria')).toBe('Ghana')
+    expect(exploreComparePeer('indonesia')).toBe('Malaysia')
+  })
+
   it('pairs Mars with Earth', () => {
     expect(spaceComparePeer('mars')).toBe('Earth')
   })

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import {
   AskCleoCompareLink,
+  AskCleoFactsLink,
   AskCleoGuideLink,
   AskCleoPlaceLink,
 } from '~/components/ask-cleo-link'
@@ -185,6 +186,9 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
             <dd>{entry.code}</dd>
           </div>
         </dl>
+        <p className="mt-3">
+          <AskCleoFactsLink collection="explore" name={entry.name} />
+        </p>
       </section>
 
       <section

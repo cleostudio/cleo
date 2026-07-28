@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import {
   AskCleoCompareLink,
+  AskCleoFactsLink,
   AskCleoFeatureLink,
   AskCleoGuideLink,
 } from '~/components/ask-cleo-link'
@@ -206,6 +207,9 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
             <dd>{subject.code}</dd>
           </div>
         </dl>
+        <p className="mt-3">
+          <AskCleoFactsLink collection="space" name={subject.name} />
+        </p>
       </section>
 
       <section

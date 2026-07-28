@@ -157,6 +157,25 @@ export function essayAskPrompt(title: string, slug?: string): string {
     : `Discuss the Writing essay “${name}”. Deep-link it when you mention it, and connect it to related Explore, Space, or Gallery pages when useful.`
 }
 
+/** Ask Cleo to walk through a guide’s fact plate. */
+export function factsAskPrompt(
+  collection: 'explore' | 'space',
+  name: string,
+): string {
+  const subject = name.trim()
+  if (!subject) {
+    return collection === 'explore'
+      ? 'Walk me through a country fact plate on this site — capital, languages, scale — and deep-link the Explore field guide.'
+      : 'Walk me through a Space fact plate on this site — kind, distance, orbit — and deep-link the Space field guide.'
+  }
+
+  if (collection === 'explore') {
+    return `Walk me through the fact plate for ${subject} — capital, languages, currency, area, and region — and deep-link its Explore field guide.`
+  }
+
+  return `Walk me through the fact plate for ${subject} — kind, system, distance, orbit, and companions — and deep-link its Space field guide.`
+}
+
 /** Homepage Ask Cleo doorway — portal orientation, not a Topics tour. */
 export function homeAskPrompt(): string {
   return 'Help me explore this knowledge portal. Suggest a good starting Explore or Space field guide, deep-link it, and include a curated photograph if it helps.'
@@ -262,7 +281,18 @@ export function essayAskHref(
       autoSubmit: options?.autoSubmit ?? true,
     })
   }
+  // Title-only fallback when a slug is unavailable (UI links always pass slug).
   return cleoAskHref(essayAskPrompt(title), {
+    autoSubmit: options?.autoSubmit ?? true,
+  })
+}
+
+export function factsAskHref(
+  collection: 'explore' | 'space',
+  name: string,
+  options?: { autoSubmit?: boolean },
+) {
+  return cleoAskHref(factsAskPrompt(collection, name), {
     autoSubmit: options?.autoSubmit ?? true,
   })
 }

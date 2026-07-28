@@ -51,4 +51,17 @@ describe('cleo ask params', () => {
       '/cleo',
     )
   })
+
+  it('preserves hash fragments when clearing Ask params', () => {
+    const replaceState = vi.fn()
+    vi.stubGlobal('window', {
+      location: {
+        href: 'https://cleo.example/cleo?topic=writing/pale-blue-marble#reply',
+      },
+      history: { state: null, replaceState },
+    })
+
+    expect(clearCleoAskParamsFromLocation()).toBe(true)
+    expect(replaceState).toHaveBeenCalledWith(null, '', '/cleo#reply')
+  })
 })

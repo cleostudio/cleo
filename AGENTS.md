@@ -86,13 +86,14 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).
 - Site → Cleo entry points: `lib/cleo/ask-links.ts` builds `/cleo?q=…&auto=1`
-  prompts and compact `/cleo?topic=explore|space/{slug}` shortcuts. Quiet
-  “Ask Cleo” links live on Explore/Space guides (places, features,
-  compare-with-peer), Writing essays (including related rows), Topics, Gallery
-  tiles, and the homepage Ask Cleo preview (`components/ask-cleo-link.tsx`,
-  with descriptive `aria-label`s). Homepage search indexes Writing essays plus
-  Explore places / Space features and offers Ask Cleo on matches and as a
-  no-results fallback. `app/(site)/cleo/page.tsx` parses `q`/`topic`/`auto`
+  prompts and compact `/cleo?topic=explore|space|writing/{slug}` shortcuts
+  (`blog/{slug}` accepted as a `writing/` alias). Quiet
+  “Ask Cleo” links live on Explore/Space guides (places, features, fact
+  plates, compare-with-peer), Writing essays (including related + homepage
+  rows), Topics, Gallery tiles, and the homepage Ask Cleo preview
+  (`components/ask-cleo-link.tsx`, with descriptive `aria-label`s). Homepage
+  search indexes Writing essays plus Explore places / Space features and
+  offers Ask Cleo on matches and as a no-results fallback. `app/(site)/cleo/page.tsx` parses `q`/`topic`/`auto`
   via `lib/cleo/parse-ask-search-params.ts` **inside `<Suspense>`** and
   `AskForm` prefills or auto-submits once, clearing params through
   `lib/cleo/ask-params.ts` (`q`, `auto`, and `topic`). Matched topic turns

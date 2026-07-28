@@ -4,6 +4,7 @@ import {
   type CleoAskCollection,
   compareAskHref,
   essayAskHref,
+  factsAskHref,
   featureAskHref,
   galleryItemAskHref,
   guideAskHref,
@@ -50,6 +51,15 @@ type AskCleoCompareLinkProps = {
   className?: string
   autoSubmit?: boolean
   /** Visible label; defaults to the full compare phrase. */
+  label?: string
+}
+
+type AskCleoFactsLinkProps = {
+  collection: 'explore' | 'space'
+  name: string
+  className?: string
+  autoSubmit?: boolean
+  /** Visible label; defaults to “Ask Cleo about the fact plate →”. */
   label?: string
 }
 
@@ -173,6 +183,28 @@ export function AskCleoCompareLink({
       aria-label={`Ask Cleo to compare ${left} and ${right}`}
     >
       {label ?? `Ask Cleo to compare ${left} and ${right} →`}
+    </Link>
+  )
+}
+
+/** Quiet fact-plate link under an Explore/Space guide’s specs. */
+export function AskCleoFactsLink({
+  collection,
+  name,
+  className,
+  autoSubmit = true,
+  label = 'Ask Cleo about the fact plate →',
+}: AskCleoFactsLinkProps) {
+  const subject =
+    name.trim() || (collection === 'explore' ? 'this country' : 'this subject')
+
+  return (
+    <Link
+      href={factsAskHref(collection, name, { autoSubmit })}
+      className={cn(linkClass, className)}
+      aria-label={`Ask Cleo about the fact plate for ${subject}`}
+    >
+      {label}
     </Link>
   )
 }
