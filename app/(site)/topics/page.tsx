@@ -1,14 +1,6 @@
-import { TopicsPageView } from '../../_views/topics-page'
-import { localeMetadata } from '~/lib/locale-metadata'
-import { publicPageMetadata } from '~/lib/public-page-metadata'
+import { TopicsPageView, topicsPageMetadata } from '../../_views/topics-page'
 
-const copy = publicPageMetadata.topics
-
-export const metadata = localeMetadata({
-  locale: 'en',
-  path: '/topics',
-  ...copy,
-})
+export const metadata = topicsPageMetadata()
 
 export default function EnglishTopicsPage() {
   return <TopicsPageView />

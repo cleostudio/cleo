@@ -26,6 +26,3 @@ export const seo = {
   description: publicPageMetadata.home.description,
   url: publicSiteUrl(),
 } as const
-
-/** @deprecated Alias kept for call-site compatibility during cleanup. */
-export const seoEn = seo

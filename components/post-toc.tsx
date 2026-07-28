@@ -1,6 +1,6 @@
 'use client'
 
-import { animate, stagger } from 'motion'
+import { animate, stagger } from 'framer-motion/dom'
 import Link from 'next/link'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'

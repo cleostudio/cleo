@@ -31,15 +31,7 @@ export const rootMetadata: Metadata = {
   },
 }
 
-export async function SiteDocument({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-  /** @deprecated Ignored; site is English-only. */
-  locale?: 'en'
-  /** @deprecated Ignored; site is English-only. */
-  restoreLocale?: boolean
-}>) {
+export async function SiteDocument({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"

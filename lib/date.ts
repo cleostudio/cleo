@@ -1,12 +1,5 @@
 export const SITE_TIME_ZONE = 'Asia/Taipei'
 
-const formatter = new Intl.DateTimeFormat('zh-CN', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  timeZone: SITE_TIME_ZONE,
-})
-
 const englishFormatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
@@ -26,10 +19,6 @@ const shortDateFormatter = new Intl.DateTimeFormat('en-US', {
   day: '2-digit',
   timeZone: SITE_TIME_ZONE,
 })
-
-export function formatDate(date: Date): string {
-  return formatter.format(date)
-}
 
 export function formatDateEn(date: Date): string {
   return englishFormatter.format(date)

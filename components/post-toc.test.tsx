@@ -48,7 +48,7 @@ const motionMocks = vi.hoisted(() => {
   }
 })
 
-vi.mock('motion', () => ({
+vi.mock('framer-motion/dom', () => ({
   animate: motionMocks.animate,
   stagger: motionMocks.stagger,
 }))

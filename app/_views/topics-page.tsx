@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import { GhostSchematic } from '~/components/ghost-schematic'
-import { TopicsBlueprintStage } from '~/components/hidden-list-stage'
+import { ProjectsBlueprintStage } from '~/components/hidden-list-stage'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
@@ -33,7 +33,7 @@ export function TopicsPageView() {
         <PixelCluster variant={3} className="enter shrink-0" />
       </div>
 
-      <TopicsBlueprintStage className="mt-10">
+      <ProjectsBlueprintStage className="mt-10">
         <ul className="focus-list flex flex-col">
           {topics.map((topic, index) => (
             <li
@@ -84,7 +84,7 @@ export function TopicsPageView() {
             </li>
           ))}
         </ul>
-      </TopicsBlueprintStage>
+      </ProjectsBlueprintStage>
     </div>
   )
 }

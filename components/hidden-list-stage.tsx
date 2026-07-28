@@ -488,23 +488,6 @@ export function ProjectsBlueprintStage({
   )
 }
 
-/** Topics reuses the projects blueprint field — kept as a named export for the catalog. */
-export function TopicsBlueprintStage({
-  children,
-  className,
-  contentClassName,
-}: Readonly<{
-  children: React.ReactNode
-  className?: string
-  contentClassName?: string
-}>) {
-  return (
-    <ProjectsBlueprintStage className={className} contentClassName={contentClassName}>
-      {children}
-    </ProjectsBlueprintStage>
-  )
-}
-
 export function WritingInkStage({
   children,
   className,
