@@ -144,3 +144,27 @@ export function shouldStickToBottom(
     thresholdPx
   )
 }
+
+type RetryUserMessage = {
+  hidden?: boolean
+  role: "assistant" | "user"
+}
+
+/**
+ * Index of the user turn to replay for Retry / Regenerate.
+ * Includes hidden Continue prompts so Retry after Continue does not jump
+ * back to an older visible question.
+ */
+export function lastUserMessageIndex(
+  messages: readonly RetryUserMessage[],
+  options?: { includeHidden?: boolean }
+): number {
+  const includeHidden = options?.includeHidden ?? false
+  for (let index = messages.length - 1; index >= 0; index -= 1) {
+    const message = messages[index]
+    if (message?.role !== "user") continue
+    if (!includeHidden && message.hidden) continue
+    return index
+  }
+  return -1
+}

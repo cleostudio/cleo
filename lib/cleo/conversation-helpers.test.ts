@@ -4,6 +4,7 @@ import {
   hasLiveActivity,
   hydrateRestoredMessages,
   inFlightCheckpointDelayMs,
+  lastUserMessageIndex,
   markAssistantInterrupted,
   settleActivities,
   shouldStickToBottom,
@@ -159,6 +160,27 @@ describe("inFlightCheckpointDelayMs", () => {
     expect(inFlightCheckpointDelayMs(0, 1000, 750)).toBe(0)
     expect(inFlightCheckpointDelayMs(100, 900, 750)).toBe(0)
     expect(inFlightCheckpointDelayMs(100, 500, 750)).toBe(350)
+  })
+})
+
+describe("lastUserMessageIndex", () => {
+  const thread = [
+    { role: "user" as const, content: "Mars?" },
+    { role: "assistant" as const, content: "Mars is" },
+    {
+      role: "user" as const,
+      content: "Continue from where you left off.",
+      hidden: true,
+    },
+    { role: "assistant" as const, content: "…red." },
+  ]
+
+  it("skips hidden Continue prompts by default", () => {
+    expect(lastUserMessageIndex(thread)).toBe(0)
+  })
+
+  it("includes hidden Continue prompts for Retry after Continue", () => {
+    expect(lastUserMessageIndex(thread, { includeHidden: true })).toBe(2)
   })
 })
 

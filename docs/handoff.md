@@ -52,8 +52,9 @@ document (enable both products in the Vercel project dashboard).
   autoscroll with a Latest jump when the live edge is off-screen; clickable
   Auto/Research search sources; Gallery/Writing `?q=` deep-links from portal
   tools; image paste/drop attach; non-destructive session save failures;
-  matching turns also ground curated topic photo paths so replies can embed
-  atlas/space JPEGs as Markdown images)
+  aggregate image/body budgets on `/api/responses`; Retry after Continue
+  replays the hidden resume turn; matching turns also ground curated topic
+  photo paths so replies can embed atlas/space JPEGs as Markdown images)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

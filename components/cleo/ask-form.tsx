@@ -35,6 +35,7 @@ import {
   AUTOSCROLL_BOTTOM_THRESHOLD_PX,
   hydrateRestoredMessages,
   inFlightCheckpointDelayMs,
+  lastUserMessageIndex,
   markAssistantInterrupted,
 } from "~/lib/cleo/conversation-helpers"
 import {
@@ -82,20 +83,6 @@ type TurnRequest = {
   history: Message[]
   question: string
   userImages: MessageImage[]
-}
-
-function lastUserMessageIndex(
-  messages: readonly Message[],
-  options?: { includeHidden?: boolean }
-) {
-  const includeHidden = options?.includeHidden ?? false
-  for (let index = messages.length - 1; index >= 0; index -= 1) {
-    const message = messages[index]
-    if (message?.role !== "user") continue
-    if (!includeHidden && message.hidden) continue
-    return index
-  }
-  return -1
 }
 
 function toApiMessages(messages: readonly Message[]) {
@@ -469,13 +456,17 @@ export function AskForm() {
   function handleRetry() {
     if (isSubmittingRef.current) return
     const current = messagesRef.current
-    const userIndex = lastUserMessageIndex(current)
+    // Include hidden Continue prompts so Retry after Continue replays the
+    // resume turn instead of jumping back to an older visible question.
+    const userIndex = lastUserMessageIndex(current, { includeHidden: true })
     if (userIndex < 0) return
     const lastUser = current[userIndex]!
     void sendTurn({
       history: current.slice(0, userIndex),
       question: lastUser.content,
       userImages: lastUser.images ?? [],
+      hideUserMessage: Boolean(lastUser.hidden),
+      clearPriorIncomplete: Boolean(lastUser.hidden),
     })
   }
 
@@ -1172,6 +1163,7 @@ export function AskForm() {
             <div className="cleo-error-actions">
               {canContinueIncomplete ? (
                 <button
+                  aria-label="Continue this answer"
                   className="cleo-answer-action cleo-error-retry"
                   onClick={handleContinue}
                   type="button"
@@ -1181,6 +1173,11 @@ export function AskForm() {
               ) : null}
               {canRetryLastTurn ? (
                 <button
+                  aria-label={
+                    regenerateLabel === "Retry"
+                      ? "Retry the last question"
+                      : "Regenerate the last answer"
+                  }
                   className="cleo-answer-action cleo-error-retry"
                   onClick={handleRetry}
                   type="button"
@@ -1192,7 +1189,7 @@ export function AskForm() {
           </div>
         ) : null}
 
-        {sessionNotice && !error ? (
+        {sessionNotice ? (
           <p className="cleo-session-notice mb-3 px-4 text-center" role="status">
             {sessionNotice}
           </p>

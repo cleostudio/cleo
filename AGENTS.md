@@ -135,7 +135,9 @@ endpoints are served after deploy.
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and
 100,000 total, with a final `user` message. User and assistant messages may
-include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
+include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF), with at most 12MB
+of decoded image bytes across the conversation and a 16MB advertised request
+body ceiling.
 
 ## External APIs
 

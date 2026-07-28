@@ -215,6 +215,51 @@ describe("POST /api/responses: image attachments", () => {
     expect(response.status).toBe(400)
   })
 
+  it("rejects conversations whose images exceed the aggregate budget", async () => {
+    // Four ~3.2MB images across turns stay under the per-image 4MB ceiling
+    // but exceed the 12MB conversation budget.
+    const chunk = imageDataUrl(3.2 * 1024 * 1024)
+    const response = await POST(
+      ask({
+        messages: [
+          {
+            content: "one",
+            images: [{ url: chunk }, { url: chunk }],
+            role: "user",
+          },
+          { content: "ok", role: "assistant" },
+          {
+            content: "two",
+            images: [{ url: chunk }, { url: chunk }],
+            role: "user",
+          },
+        ],
+      })
+    )
+
+    expect(response.status).toBe(400)
+    await expect(response.json()).resolves.toEqual({
+      error: "Conversations can include at most 12MB of images.",
+    })
+  })
+
+  it("rejects an advertised Content-Length over the body ceiling", async () => {
+    const response = await POST(
+      ask(question, {
+        headers: {
+          "content-type": "application/json",
+          "content-length": String(17 * 1024 * 1024),
+        },
+      })
+    )
+
+    expect(response.status).toBe(413)
+    await expect(response.json()).resolves.toEqual({
+      error: "Request bodies must be 16MB or smaller.",
+    })
+    expect(openai.create).not.toHaveBeenCalled()
+  })
+
   it("forwards an accepted attachment as vision input", async () => {
     openai.create.mockResolvedValueOnce(
       responseStream([

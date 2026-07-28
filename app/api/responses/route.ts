@@ -74,6 +74,10 @@ const MODEL = "gpt-5.6-terra"
 const MAX_INPUT_LENGTH = 10_000
 const MAX_MESSAGES = 50
 const MAX_TOTAL_INPUT_LENGTH = 100_000
+/** Aggregate decoded image payload across the conversation (not per message). */
+const MAX_TOTAL_IMAGE_BYTES = 12 * 1024 * 1024
+/** Reject obviously oversized request bodies before JSON parse when advertised. */
+const MAX_REQUEST_BODY_BYTES = 16 * 1024 * 1024
 const MAX_TOOL_ROUNDS = 4
 
 const CODE_INTERPRETER_TOOL: Tool = {
@@ -122,7 +126,15 @@ function errorResponse(error: string, status: number) {
   return Response.json({ error }, { status })
 }
 
-function parseMessageImages(value: unknown): MessageImage[] | Response {
+type ImageParseBudget = {
+  max: number
+  used: number
+}
+
+function parseMessageImages(
+  value: unknown,
+  budget?: ImageParseBudget
+): MessageImage[] | Response {
   if (value === undefined) {
     return []
   }
@@ -162,6 +174,19 @@ function parseMessageImages(value: unknown): MessageImage[] | Response {
         "Images must be PNG, JPEG, WEBP, or GIF data URLs within the size limit.",
         400
       )
+    }
+
+    const estimatedBytes = Math.floor((parsed.base64.length * 3) / 4)
+    if (budget) {
+      budget.used += estimatedBytes
+      if (budget.used > budget.max) {
+        return errorResponse(
+          `Conversations can include at most ${Math.floor(
+            budget.max / (1024 * 1024)
+          )}MB of images.`,
+          400
+        )
+      }
     }
 
     const image: MessageImage = {
@@ -214,6 +239,10 @@ function parseRequestBody(
 
   const messages: ConversationMessage[] = []
   let totalLength = 0
+  const imageBudget: ImageParseBudget = {
+    used: 0,
+    max: MAX_TOTAL_IMAGE_BYTES,
+  }
 
   for (const item of body.messages) {
     if (
@@ -232,7 +261,8 @@ function parseRequestBody(
 
     const content = item.content.trim()
     const imagesResult = parseMessageImages(
-      "images" in item ? item.images : undefined
+      "images" in item ? item.images : undefined,
+      imageBudget
     )
 
     if (imagesResult instanceof Response) {
@@ -508,6 +538,22 @@ function joinReasoningParts(parts: Map<number, string>) {
 }
 
 export async function POST(request: Request) {
+  const contentLengthHeader = request.headers.get("content-length")
+  if (contentLengthHeader) {
+    const contentLength = Number(contentLengthHeader)
+    if (
+      Number.isFinite(contentLength) &&
+      contentLength > MAX_REQUEST_BODY_BYTES
+    ) {
+      return errorResponse(
+        `Request bodies must be ${Math.floor(
+          MAX_REQUEST_BODY_BYTES / (1024 * 1024)
+        )}MB or smaller.`,
+        413
+      )
+    }
+  }
+
   let body: unknown
 
   try {
