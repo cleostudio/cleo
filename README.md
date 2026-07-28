@@ -31,8 +31,8 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   Explore/Space catalog so replies can deep-link field guides and embed
   curated topic photographs when a visual helps; topic and chat images use
   the same click-to-zoom lightbox as Gallery; precise browser location and
-  time zone are sent to OpenAI only after an explicit, per-session Share
-  action)
+  time zone are sent to OpenAI automatically after the browser allows
+  location services)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
@@ -62,7 +62,7 @@ pnpm build
 ```
 
 Then manually verify `/cleo` chat, streaming, cancellation, attachments,
-opt-in location sharing (including denied permission), and theme/dock
+automatic browser-permission location sync (including denied permission), and theme/dock
 coexistence.
 
 ## Preview deploys

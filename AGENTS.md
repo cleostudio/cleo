@@ -65,11 +65,11 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 ## Cleo agent surface
 
 - UI: `components/cleo/ask-form.tsx` owns messages, image attachments,
- cancellation, consented location sharing, and NDJSON stream consumption. The page shell is
+ cancellation, browser-permission location sync, and NDJSON stream consumption. The page shell is
   `app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
   (`G` then `C`).
 - API: `app/api/responses/route.ts` validates messages (including image data
- URLs) and optional, user-consented browser location context before calling the
+ URLs) and optional, browser-authorized location context before calling the
  OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, reasoning summaries, streaming, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
@@ -86,17 +86,19 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
   `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
   are inline Markdown in the reply (no separate chip row).
-- Location: `lib/cleo/client-location.ts` asks for one fresh high-accuracy
-  browser position only after the user presses Share. `lib/cleo/location.ts`
-  validates coordinates, accuracy, and an IANA time zone server-side, then
-  adds them only to private per-turn instructions. The UI must clearly say that
-  precise coordinates and time zone go to OpenAI, offer Stop, and never add
-  them to visible messages.
+- Location: `lib/cleo/client-location.ts` requests one fresh high-accuracy
+  browser position when Cleo mounts. When the browser grants location services,
+  `components/cleo/ask-form.tsx` automatically includes it and the IANA time
+  zone with each request. `lib/cleo/location.ts` validates coordinates,
+  accuracy, and time zone server-side, then adds them only to private per-turn
+  instructions, never visible messages. Browser location settings are the
+  control for allowing or revoking this sync.
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 
-Conversation state and location-sharing consent are browser-only and clear on
-reload. There is no
+Conversation state and the current location value are browser-only and clear on
+reload; browser permission determines whether the next session can refresh it.
+There is no
 authentication, database, media library, or AMA booking.
 
 Vercel Web Analytics and Speed Insights are mounted in
@@ -107,9 +109,10 @@ endpoints are served after deploy.
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and
 100,000 total, with a final `user` message. User and assistant messages may
-include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF). An opt-in
+include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF). A browser-authorized
 `location` object may include finite latitude, longitude, reported accuracy,
-and a valid IANA time zone; it is ephemeral developer context, not chat text.
+and a valid IANA time zone; browser authorization controls automatic inclusion,
+and it is ephemeral developer context rather than chat text.
 
 ## External APIs
 

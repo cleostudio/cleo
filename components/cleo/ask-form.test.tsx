@@ -75,8 +75,8 @@ afterEach(() => {
   vi.restoreAllMocks()
 })
 
-describe('AskForm location sharing', () => {
-  it('sends browser location only after the user explicitly shares it', async () => {
+describe('AskForm location context', () => {
+  it('automatically sends browser location after browser permission is granted', async () => {
     let resolvePosition: PositionCallback | undefined
     const getCurrentPosition = mockGeolocation((success) => {
       resolvePosition = success
@@ -90,19 +90,16 @@ describe('AskForm location sharing', () => {
     render(<AskForm />)
 
     expect(
-      screen.getByText('Optional — share precise coordinates and time zone with OpenAI for this chat.'),
-    ).not.toBeNull()
-    expect(getCurrentPosition).not.toHaveBeenCalled()
-
-    fireEvent.click(
-      screen.getByRole('button', {
+      screen.queryByText('Optional — share precise coordinates and time zone with OpenAI for this chat.'),
+    ).toBeNull()
+    expect(
+      screen.queryByRole('button', {
         name: 'Share your precise location and time zone with Cleo',
       }),
-    )
-
+    ).toBeNull()
     expect(getCurrentPosition).toHaveBeenCalledTimes(1)
 
-    act(() => {
+    await act(async () => {
       resolvePosition?.({
         coords: {
           accuracy: 9,
@@ -110,10 +107,6 @@ describe('AskForm location sharing', () => {
           longitude: 139.6917,
         } as GeolocationCoordinates,
       } as GeolocationPosition)
-    })
-
-    await waitFor(() => {
-      expect(screen.getByText(/Location shared/)).not.toBeNull()
     })
 
     fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), {
@@ -139,5 +132,44 @@ describe('AskForm location sharing', () => {
       content: 'What should I do this evening?',
       role: 'user',
     })
+  })
+
+  it('keeps location out of the request when browser permission is denied', async () => {
+    let rejectPosition: PositionErrorCallback | undefined
+    mockGeolocation((_success, error) => {
+      rejectPosition = error
+    })
+    const fetchMock = vi.fn<
+      (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
+    >()
+    fetchMock.mockResolvedValue(new Response('{"type":"text","delta":"Hi"}\n'))
+    vi.stubGlobal('fetch', fetchMock)
+
+    render(<AskForm />)
+
+    await act(async () => {
+      rejectPosition?.({
+        PERMISSION_DENIED: 1,
+        POSITION_UNAVAILABLE: 2,
+        TIMEOUT: 3,
+        code: 1,
+        message: 'denied',
+      } as GeolocationPositionError)
+    })
+
+    fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), {
+      target: { value: 'Tell me about Japan.' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+
+    const request = fetchMock.mock.calls[0]?.[1]
+    const payload = JSON.parse(request?.body as string)
+
+    expect(payload).not.toHaveProperty('location')
+    expect(screen.queryByRole('alert')).toBeNull()
   })
 })

@@ -5,14 +5,14 @@
   /* Site dock is 3.5rem tall at bottom 1.25rem; keep the prompt above it */
   --cleo-prompt-bottom: 5.75rem;
   --cleo-prompt-bottom-mobile: calc(4.5rem + env(safe-area-inset-bottom, 0px));
-  /* Clearance under the last message: prompt bottom offset + share row + air */
-  --cleo-content-pad: calc(var(--cleo-prompt-bottom) + 7.5rem);
+  /* Clearance under the last message: prompt bottom offset + prompt height + air */
+  --cleo-content-pad: calc(var(--cleo-prompt-bottom) + 5rem);
 }
 
 @media (max-width: 39.99rem) {
   :root {
     --app-column-gutter: 1rem;
-    --cleo-content-pad: calc(var(--cleo-prompt-bottom-mobile) + 7.5rem);
+    --cleo-content-pad: calc(var(--cleo-prompt-bottom-mobile) + 5rem);
   }
 }
 
@@ -313,10 +313,9 @@
   padding: 0.375rem;
 }
 
-/* Multi-row docks need a softer radius than a pill so their context stays
-   legible instead of clipped by the capsule shape. */
-.prompt-dock:has(.prompt-dock-attachments),
-.prompt-dock:has(.prompt-dock-location) {
+/* Multi-row dock (attachment previews) needs a softer radius than a pill so
+   thumbnails are not clipped by the capsule shape. */
+.prompt-dock:has(.prompt-dock-attachments) {
   border-radius: 1.5rem;
 }
 
@@ -327,43 +326,6 @@
   align-items: center;
   gap: 0;
   width: 100%;
-}
-
-.prompt-dock-location {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.25rem 0.5rem 0;
-}
-
-.prompt-dock-location-copy {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 0.125rem;
-}
-
-.prompt-dock-location-label {
-  color: var(--foreground);
-  font-size: 0.75rem;
-  font-weight: var(--font-weight-medium);
-  line-height: 1.25;
-}
-
-.prompt-dock-location-description {
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  line-height: 1.35;
-}
-
-.prompt-dock-location-button {
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
 }
 
 .prompt-dock-attachments {

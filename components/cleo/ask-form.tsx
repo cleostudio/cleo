@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import { CornerRightUp, MapPin, Plus, Square, X } from 'lucide-react'
+import { CornerRightUp, Plus, Square, X } from 'lucide-react'
 import { ThinkingOrb } from 'thinking-orbs'
 
 import { ActivityPanel } from '~/components/cleo/activity-panel'
@@ -100,23 +100,19 @@ export function AskForm() {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])
-  const [sharedLocation, setSharedLocation] = useState<UserLocation | null>(null)
-  const [isLocating, setIsLocating] = useState(false)
+  const [location, setLocation] = useState<UserLocation | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const locationRequestIdRef = useRef(0)
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const mountedRef = useRef(true)
 
   const hasMessages = messages.length > 0
   const canSubmit =
-    !isSubmitting &&
-    !isLocating &&
-    (Boolean(input.trim()) || pendingImages.length > 0)
+    !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
 
   useEffect(() => {
     if (!hasMessages) return
@@ -135,8 +131,21 @@ export function AskForm() {
     mountedRef.current = true
     return () => {
       mountedRef.current = false
-      locationRequestIdRef.current += 1
       abortControllerRef.current?.abort()
+    }
+  }, [])
+
+  useEffect(() => {
+    let isCurrent = true
+
+    void requestUserLocation()
+      .then((nextLocation) => {
+        if (isCurrent) setLocation(nextLocation)
+      })
+      .catch(() => undefined)
+
+    return () => {
+      isCurrent = false
     }
   }, [])
 
@@ -158,40 +167,6 @@ export function AskForm() {
 
   function removePendingImage(index: number) {
     setPendingImages((current) => current.filter((_, i) => i !== index))
-  }
-
-  async function handleLocationSharing() {
-    if (sharedLocation) {
-      locationRequestIdRef.current += 1
-      setSharedLocation(null)
-      setError(null)
-      return
-    }
-
-    const requestId = locationRequestIdRef.current + 1
-    locationRequestIdRef.current = requestId
-    setError(null)
-    setIsLocating(true)
-
-    try {
-      const location = await requestUserLocation()
-
-      if (mountedRef.current && locationRequestIdRef.current === requestId) {
-        setSharedLocation(location)
-      }
-    } catch (locationError) {
-      if (mountedRef.current && locationRequestIdRef.current === requestId) {
-        setError(
-          locationError instanceof Error
-            ? locationError.message
-            : "Your location could not be determined."
-        )
-      }
-    } finally {
-      if (mountedRef.current && locationRequestIdRef.current === requestId) {
-        setIsLocating(false)
-      }
-    }
   }
 
   async function handleImageSelection(event: ChangeEvent<HTMLInputElement>) {
@@ -237,11 +212,10 @@ export function AskForm() {
     const question = (promptOverride ?? input).trim()
     const attachedImages = pendingImages
 
-    if ((!question && attachedImages.length === 0) || isSubmitting || isLocating) {
+    if ((!question && attachedImages.length === 0) || isSubmitting) {
       return
     }
 
-    const location = sharedLocation
     const userImages: MessageImage[] = attachedImages.map((url) => ({ url }))
     const userMessage: Message = {
       content: question,
@@ -589,37 +563,6 @@ export function AskForm() {
           onSubmit={handleSubmit}
         >
           <LiquidGlass />
-          <div className="prompt-dock-location" aria-live="polite">
-            <div className="prompt-dock-location-copy">
-              <span className="prompt-dock-location-label">
-                {sharedLocation
-                  ? `Location shared · ${sharedLocation.timeZone}`
-                  : "Location sharing"}
-              </span>
-              <span className="prompt-dock-location-description">
-                {sharedLocation
-                  ? "Precise coordinates and time zone go to OpenAI with each message. Clears on reload."
-                  : "Optional — share precise coordinates and time zone with OpenAI for this chat."}
-              </span>
-            </div>
-            <Button
-              aria-label={
-                sharedLocation
-                  ? "Stop sharing your precise location and time zone with Cleo"
-                  : "Share your precise location and time zone with Cleo"
-              }
-              aria-pressed={Boolean(sharedLocation)}
-              className="prompt-dock-location-button"
-              disabled={isSubmitting || isLocating}
-              onClick={() => void handleLocationSharing()}
-              size="sm"
-              type="button"
-              variant={sharedLocation ? "secondary" : "ghost"}
-            >
-              <MapPin aria-hidden="true" className="size-3.5" strokeWidth={2.25} />
-              {isLocating ? "Locating…" : sharedLocation ? "Stop" : "Share"}
-            </Button>
-          </div>
           {pendingImages.length > 0 ? (
             <div className="prompt-dock-attachments">
               {pendingImages.map((url, index) => (
@@ -721,7 +664,7 @@ export function AskForm() {
             {CLEO_PORTAL_STARTERS.map((starter) => (
               <button
                 className="cleo-starter"
-                disabled={isSubmitting || isLocating}
+                disabled={isSubmitting}
                 key={starter.label}
                 onClick={() => {
                   void handleSubmit(undefined, starter.prompt)
