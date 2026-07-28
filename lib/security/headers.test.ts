@@ -27,6 +27,8 @@ describe('site security headers', () => {
     expect(headers['x-content-type-options']).toBe('nosniff')
     expect(headers['referrer-policy']).toBe('strict-origin-when-cross-origin')
     expect(headers['permissions-policy']).toContain('camera=()')
+    expect(headers['permissions-policy']).toContain('geolocation=(self)')
+    expect(headers['permissions-policy']).not.toContain('geolocation=()')
     expect(headers['permissions-policy']).toContain('microphone=()')
     expect(headers['permissions-policy']).toContain('payment=()')
   })
