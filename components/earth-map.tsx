@@ -163,7 +163,13 @@ function basemapStyle(): StyleSpecification {
   }
 }
 
-const BORDER_LAYER_IDS = ['country-fill', 'country-line'] as const
+/** Drawn border strokes — toggled by the Borders control. */
+const BORDER_LINE_LAYER_IDS = ['country-line'] as const
+/**
+ * Invisible hit fill stays mounted so hover/click/Enter-at-center keep working
+ * when Borders are off (capitals alone are not enough).
+ */
+const BORDER_HIT_LAYER_IDS = ['country-fill'] as const
 const LABEL_LAYER_IDS = ['region-labels', 'country-labels'] as const
 const CAPITAL_LAYER_IDS = [
   'capital-hits',
@@ -591,8 +597,12 @@ function applyLayerVisibility(
   const borderVisibility = layers.borders ? 'visible' : 'none'
   const labelVisibility = layers.labels ? 'visible' : 'none'
   const graticuleVisibility = layers.graticule ? 'visible' : 'none'
-  for (const id of BORDER_LAYER_IDS) {
+  for (const id of BORDER_LINE_LAYER_IDS) {
     if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', borderVisibility)
+  }
+  // Hit fill stays visible for interaction; idle paint is fully transparent.
+  for (const id of BORDER_HIT_LAYER_IDS) {
+    if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', 'visible')
   }
   for (const id of LABEL_LAYER_IDS) {
     if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', labelVisibility)
@@ -748,6 +758,8 @@ export function EarthMap({
   const suggestionsOpenRef = useRef(false)
   const layersRef = useRef<MapLayerVisibility>({ ...DEFAULT_MAP_LAYERS })
   const resetViewRef = useRef<() => void>(() => {})
+  const clearSelectionRef = useRef<() => void>(() => {})
+  const flyToRegionRef = useRef<(region: MapRegionCamera) => void>(() => {})
   const focusMapCanvasRef = useRef<() => void>(() => {})
   const cameraHashPausedRef = useRef(false)
   const fittedFocusKeyRef = useRef<string | null>(null)
@@ -954,6 +966,7 @@ export function EarthMap({
 
     let countryHandlersBound = false
     let capitalHandlersBound = false
+    let labelHandlersBound = false
     let ignoreMapClicksUntil = 0
 
     const selectCode = (
@@ -964,6 +977,15 @@ export function EarthMap({
       const hit = resolveMapCountry(code, fallbackName)
       const indexed = indexRef.current.find((item) => item.code === hit.code)
       setSelection(hit, indexed, { preferCapital })
+    }
+
+    const interactiveHitLayers = () => {
+      const layers: string[] = []
+      if (map.getLayer('country-fill')) layers.push('country-fill')
+      if (map.getLayer('capital-hits')) layers.push('capital-hits')
+      if (map.getLayer('country-labels')) layers.push('country-labels')
+      if (map.getLayer('region-labels')) layers.push('region-labels')
+      return layers
     }
 
     const bindInteractionHandlers = () => {
@@ -1008,9 +1030,8 @@ export function EarthMap({
         map.on('click', (event: MapMouseEvent) => {
           if (performance.now() < ignoreMapClicksUntil) return
           if (event.originalEvent.detail > 1) return
-          if (!map.getLayer('country-fill')) return
-          const layers = ['country-fill']
-          if (map.getLayer('capital-hits')) layers.push('capital-hits')
+          const layers = interactiveHitLayers()
+          if (layers.length === 0) return
           const hits = map.queryRenderedFeatures(event.point, { layers })
           if (hits.length === 0) setSelection(null)
         })
@@ -1058,6 +1079,73 @@ export function EarthMap({
           selectCode(code, countryName, { preferCapital: true })
         })
       }
+
+      if (!labelHandlersBound && map.getLayer('country-labels')) {
+        labelHandlersBound = true
+
+        map.on('mousemove', 'country-labels', (event: MapLayerMouseEvent) => {
+          const feature = event.features?.[0]
+          const code = feature
+            ? String(feature.id ?? feature.properties?.code ?? '')
+            : ''
+          const name = feature
+            ? String(feature.properties?.name ?? '')
+            : ''
+          setHover(code || null, name || null)
+          map.getCanvas().style.cursor = code ? 'pointer' : ''
+        })
+
+        map.on('mouseleave', 'country-labels', () => {
+          setHover(null)
+        })
+
+        map.on('click', 'country-labels', (event: MapLayerMouseEvent) => {
+          if (performance.now() < ignoreMapClicksUntil) return
+          if (event.originalEvent.detail > 1) return
+          if (map.getLayer('capital-hits')) {
+            const capitalHits = map.queryRenderedFeatures(event.point, {
+              layers: ['capital-hits'],
+            })
+            if (capitalHits.length > 0) return
+          }
+          const feature = event.features?.[0]
+          if (!feature) return
+          const code = String(feature.id ?? feature.properties?.code ?? '')
+          if (!code) return
+          selectCode(code, String(feature.properties?.name ?? code))
+        })
+
+        if (map.getLayer('region-labels')) {
+          map.on('mousemove', 'region-labels', (event: MapLayerMouseEvent) => {
+            const feature = event.features?.[0]
+            const name = feature
+              ? String(feature.properties?.name ?? feature.id ?? '')
+              : ''
+            if (name) {
+              map.getCanvas().style.cursor = 'pointer'
+              setPointerLabel(name)
+            }
+          })
+
+          map.on('mouseleave', 'region-labels', () => {
+            map.getCanvas().style.cursor = ''
+            setPointerLabel(null)
+          })
+
+          map.on('click', 'region-labels', (event: MapLayerMouseEvent) => {
+            if (performance.now() < ignoreMapClicksUntil) return
+            if (event.originalEvent.detail > 1) return
+            const feature = event.features?.[0]
+            if (!feature) return
+            const regionId = String(feature.id ?? feature.properties?.name ?? '')
+            if (!regionId) return
+            const region =
+              findMapRegionCamera(regionsRef.current, regionId) ??
+              findMapRegionCamera(FALLBACK_MAP_REGIONS, regionId)
+            if (region) flyToRegionRef.current(region)
+          })
+        }
+      }
     }
 
     const ensureCountryLayers = () => {
@@ -1089,6 +1177,7 @@ export function EarthMap({
         setCountries(indexRef.current)
         upsertLabelLayers(map, indexRef.current, regionsRef.current)
         applyLayerVisibility(map, layersRef.current, selectedCodeRef.current)
+        bindInteractionHandlers()
       } catch {
         indexFailed = true
         if (!initialIndex?.countries.length) {
@@ -1112,7 +1201,11 @@ export function EarthMap({
     })
 
     map.on('idle', () => {
-      if (!map.getSource('countries') || !countryHandlersBound) {
+      if (
+        !map.getSource('countries') ||
+        !countryHandlersBound ||
+        (indexRef.current.length > 0 && !labelHandlersBound)
+      ) {
         try {
           ensureCountryLayers()
         } catch {
@@ -1350,7 +1443,9 @@ export function EarthMap({
         focusMapCanvasRef.current()
         return
       }
-      resetViewRef.current()
+      // Match ocean-click clear: drop focus/URL, keep the current framing.
+      // Home / Reset still fly back to the world camera.
+      clearSelectionRef.current()
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
@@ -1376,6 +1471,18 @@ export function EarthMap({
     setSuggestions(next)
     setActiveSuggestion(0)
   }, [query, ready, suggestionsOpen, countryPhotos])
+
+  useEffect(() => {
+    if (!suggestionsOpen || suggestions.length === 0) return
+    const suggestion = suggestions[activeSuggestion]
+    if (!suggestion) return
+    const optionId =
+      suggestion.kind === 'region'
+        ? suggestion.region.id
+        : suggestion.entry.code
+    const option = document.getElementById(`${reactId}-option-${optionId}`)
+    option?.scrollIntoView({ block: 'nearest' })
+  }, [activeSuggestion, suggestions, suggestionsOpen, reactId])
 
   function flyToCountry(
     entry: MapCountryIndexEntry,
@@ -1453,6 +1560,29 @@ export function EarthMap({
       focusDossier: true,
     })
   }
+
+  function clearSelection() {
+    const map = mapRef.current
+    if (!map) return
+    if (!selectedCodeRef.current && !activeRegionRef.current) return
+    syncSelectionFeatureState(map, selectedCodeRef.current, null)
+    selectedCodeRef.current = null
+    setSelected(null)
+    setSelectedEntry(null)
+    setQuery('')
+    setSuggestionsOpen(false)
+    setSuggestions([])
+    setActiveRegion(null)
+    activeRegionRef.current = null
+    setCopyState('idle')
+    syncCapitalLayerPresentation(map, layersRef.current.labels, null)
+    setFocusAnnouncement('Selection cleared.')
+    syncMapFocusSearchParams(null, { history: 'push' })
+    fittedFocusKeyRef.current = `clear@${mapEpoch}`
+    map.getCanvas().focus({ preventScroll: true })
+  }
+
+  clearSelectionRef.current = clearSelection
 
   function resetView() {
     const map = mapRef.current
@@ -1582,6 +1712,8 @@ export function EarthMap({
       })
     })
   }
+
+  flyToRegionRef.current = flyToRegion
 
   async function shareDeepLink(
     href: string,
@@ -2169,7 +2301,9 @@ export function EarthMap({
                         key={neighbor.code}
                         type="button"
                         className="earth-map-neighbor"
-                        onClick={() => flyToCountry(neighbor)}
+                        onClick={() =>
+                          flyToCountry(neighbor, { focusDossier: true })
+                        }
                       >
                         {neighbor.name}
                       </button>
@@ -2310,7 +2444,9 @@ export function EarthMap({
                         key={sample.code}
                         type="button"
                         className="earth-map-neighbor"
-                        onClick={() => flyToCountry(sample)}
+                        onClick={() =>
+                          flyToCountry(sample, { focusDossier: true })
+                        }
                       >
                         {sample.name}
                       </button>
