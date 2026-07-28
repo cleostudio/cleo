@@ -81,7 +81,10 @@ describe('AskForm location sharing', () => {
     const getCurrentPosition = mockGeolocation((success) => {
       resolvePosition = success
     })
-    const fetchMock = vi.fn(async () => new Response('{"type":"text","delta":"Hi"}\n'))
+    const fetchMock = vi.fn<
+      (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
+    >()
+    fetchMock.mockResolvedValue(new Response('{"type":"text","delta":"Hi"}\n'))
     vi.stubGlobal('fetch', fetchMock)
 
     render(<AskForm />)
@@ -122,8 +125,9 @@ describe('AskForm location sharing', () => {
       expect(fetchMock).toHaveBeenCalledTimes(1)
     })
 
-    const request = fetchMock.mock.calls[0]?.[1] as RequestInit
-    const payload = JSON.parse(request.body as string)
+    const request = fetchMock.mock.calls[0]?.[1]
+    expect(request).toBeDefined()
+    const payload = JSON.parse(request?.body as string)
 
     expect(payload.location).toEqual({
       accuracy: 9,
