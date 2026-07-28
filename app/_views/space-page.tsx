@@ -41,15 +41,25 @@ export function SpacePageView() {
 
           return (
             <section key={category} aria-labelledby={`space-${category}`}>
-              <h2
-                id={`space-${category}`}
-                className="enter text-sm font-medium text-muted-foreground"
-              >
-                {category}
-                <span className="ml-2 tabular-nums text-muted-foreground/70">
-                  {subjects.length}
-                </span>
-              </h2>
+              <div className="enter flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h2
+                  id={`space-${category}`}
+                  className="text-sm font-medium text-muted-foreground"
+                >
+                  {category}
+                  <span className="ml-2 tabular-nums text-muted-foreground/70">
+                    {subjects.length}
+                  </span>
+                </h2>
+                {category === 'Solar System' ? (
+                  <Link
+                    href="/maps"
+                    className="text-xs text-muted-foreground hover:text-foreground"
+                  >
+                    Earth on the map →
+                  </Link>
+                ) : null}
+              </div>
               <ul className="focus-list mt-2 flex flex-col">
                 {subjects.map((subject, index) => (
                   <li

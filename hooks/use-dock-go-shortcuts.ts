@@ -116,6 +116,8 @@ function useGoChords({
 
       if (key === 'Escape') {
         event.preventDefault()
+        // Don't let page Escape handlers (e.g. Maps clear-selection) also run.
+        event.stopPropagation()
         clearPending()
         return
       }
@@ -144,8 +146,8 @@ function useGoChords({
 
 /**
  * Global chord shortcuts for the public dock: press G, then H / W / P / T /
- * E / M / C within a short window to jump Home / Writing / Gallery / Topics /
- * Explore / Maps / Cleo.
+ * E / M / S / C within a short window to jump Home / Writing / Gallery /
+ * Topics / Explore / Maps / Space / Cleo.
  */
 export function useDockGoShortcuts({
   locale,

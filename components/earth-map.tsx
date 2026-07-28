@@ -18,6 +18,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { ZoomImage } from '~/components/zoom-image'
+import { galleryHref } from '~/lib/gallery'
 import { ensureMapLibreWorker } from '~/lib/maplibre-worker'
 import {
   buildCountryLabelCollection,
@@ -1322,6 +1323,7 @@ export function EarthMap({
         return
       }
       if (event.key !== 'Escape') return
+      if (event.defaultPrevented) return
       if (suggestionsOpenRef.current) return
       // ZoomImage owns Escape while the lightbox is open.
       if (document.querySelector('.zoom-overlay[aria-modal="true"]')) return
@@ -1681,6 +1683,12 @@ export function EarthMap({
     activeRegion && countries.length > 0
       ? findMapRegionSamples(activeRegion, countries)
       : []
+  const regionPhoto = regionSamples
+    .map((sample) => countryPhotos[sample.code])
+    .find((entry): entry is MapCountryPhoto => Boolean(entry))
+  const regionGalleryHref = activeRegionCamera
+    ? galleryHref(activeRegionCamera.label)
+    : null
   const idleStarters =
     !selected && !activeRegion
       ? resolveMapIdleStarters(countries, regions)
@@ -2205,15 +2213,51 @@ export function EarthMap({
               aria-label={`${activeRegionCamera.label} region`}
             >
               <MapsGlass />
-              <div>
-                <p className="earth-map-selection-code tabular-nums">Region</p>
-                <p className="earth-map-selection-name">
-                  {activeRegionCamera.label}
-                </p>
-                <p className="earth-map-photo-place">
-                  {activeRegionCamera.tally} Explore guides
-                </p>
-              </div>
+              {regionPhoto ? (
+                <div className="earth-map-photo">
+                  <ZoomImage
+                    src={regionPhoto.src}
+                    alt={regionPhoto.alt}
+                    width={regionPhoto.width}
+                    height={regionPhoto.height}
+                    className="earth-map-photo-thumb"
+                    sizes="4.75rem"
+                    renditions={regionPhoto.renditions}
+                    expandedContent={
+                      <PhotoZoomDetails
+                        collection="places"
+                        title={regionPhoto.placeName}
+                        subtitle={regionPhoto.name}
+                        photographer={regionPhoto.photographer}
+                        license={regionPhoto.license}
+                      />
+                    }
+                  />
+                  <div className="earth-map-photo-caption">
+                    <p className="earth-map-selection-code tabular-nums">
+                      Region
+                    </p>
+                    <p className="earth-map-selection-name">
+                      {activeRegionCamera.label}
+                    </p>
+                    <p className="earth-map-photo-place">
+                      {activeRegionCamera.tally} Explore guides · framed on
+                      Blue Marble Earth
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <p className="earth-map-selection-code tabular-nums">Region</p>
+                  <p className="earth-map-selection-name">
+                    {activeRegionCamera.label}
+                  </p>
+                  <p className="earth-map-photo-place">
+                    {activeRegionCamera.tally} Explore guides · framed on Blue
+                    Marble Earth
+                  </p>
+                </div>
+              )}
               {regionSamples.length > 0 ? (
                 <div className="earth-map-neighbors">
                   <p className="earth-map-neighbors-label">Places</p>
@@ -2242,6 +2286,11 @@ export function EarthMap({
                 >
                   Browse Explore guides →
                 </Link>
+                {regionGalleryHref ? (
+                  <Link href={regionGalleryHref} className="earth-map-guide-link">
+                    Photos →
+                  </Link>
+                ) : null}
                 <button
                   type="button"
                   className="earth-map-copy"

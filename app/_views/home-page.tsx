@@ -62,7 +62,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
           <HomeSiteSearch hits={searchHits} />
         </div>
         <p
-          className="enter mt-3"
+          className="enter mt-3 flex flex-wrap items-center gap-x-4 gap-y-2"
           style={{ '--enter-delay': '150ms' } as React.CSSProperties}
         >
           <Link
@@ -70,6 +70,12 @@ export async function HomePageView({ locale }: { locale: Locale }) {
             className="relative text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
           >
             <T zh="打开地球地图" en="Open the Earth map →" />
+          </Link>
+          <Link
+            href="/space"
+            className="relative text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+          >
+            <T zh="浏览太空指南" en="Browse Space guides →" />
           </Link>
         </p>
       </section>

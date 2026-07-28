@@ -65,14 +65,16 @@ place/region (with live camera hash), region jump from territories, and
 `#zoom/lat/lng` keep that framing on open. Escape from the dossier or
 search refocuses the canvas; Escape on the map clears. Enter selects the
 place at center. The meta HUD shows a hover nameplate and Share view.
-Mobile dossiers scroll inside a height budget. Dossier thumbs use
-Gallery-parity `ZoomImage` (Escape closes the lightbox before Maps
-clears selection); Photos actions open `/gallery?q=`. Explore/Space
-guides and Gallery tiles link with Map / Photos continue rows. The dock
-includes Maps and Space (`G` then `M` / `S`). Homepage search/highlights
-deep-link into Maps; `?country=` / `?region=` set titles and canonicals
-(Maps OG + sitemap include region/country deep links); Cleo may cite the
-same map paths (including territory ISO links and `/maps` with Space Earth).
+Mobile dossiers share one height budget with scale/toast clearance.
+Country and region dossiers use Gallery-parity `ZoomImage` where a
+sample photo exists (Escape closes lightbox / cancels a dock G-chord
+before Maps clears selection); Photos actions open `/gallery?q=`.
+Explore/Space guides and Gallery tiles link with Map / Photos continue
+rows; the Space index links Earth on the map. The dock includes Maps and
+Space (`G` then `M` / `S`). Homepage search offers Maps and Space CTAs;
+`?country=` / `?region=` set titles and canonicals (Maps OG + sitemap
+include region/country deep links); Cleo may cite the same map paths
+(including territory ISO links and `/maps` with Space Earth).
 MapLibre’s module workers are
 vendored to `public/maplibre/` so Turbopack/Next can load them under the site
 CSP. Regenerate from a local 21600 source with

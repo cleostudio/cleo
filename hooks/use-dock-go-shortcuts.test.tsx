@@ -103,6 +103,30 @@ describe('useDockGoShortcuts', () => {
     expect(push).not.toHaveBeenCalled()
   })
 
+  it('cancels a pending G chord on Escape without letting the event bubble', () => {
+    render(<Harness />)
+    const bubbled = vi.fn()
+    window.addEventListener('keydown', bubbled)
+
+    keydown('g')
+    const escape = new KeyboardEvent('keydown', {
+      key: 'Escape',
+      bubbles: true,
+      cancelable: true,
+    })
+    const prevented = !document.body.dispatchEvent(escape)
+
+    expect(prevented || escape.defaultPrevented).toBe(true)
+    expect(push).not.toHaveBeenCalled()
+    expect(
+      bubbled.mock.calls.some(
+        ([event]) => (event as KeyboardEvent).key === 'Escape',
+      ),
+    ).toBe(false)
+
+    window.removeEventListener('keydown', bubbled)
+  })
+
   it('ignores shifted letter keys while a chord is pending', () => {
     render(<Harness />)
 
