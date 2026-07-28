@@ -66,6 +66,7 @@ export function ExplorePageView({
           placeholder="Country, code, or region"
           initialQuery={initialQuery}
           noun="countries"
+          nounOne="country"
         />
 
         <p
@@ -75,7 +76,7 @@ export function ExplorePageView({
           aria-live="polite"
         >
           {initialQuery.trim() && totalVisible > 0
-            ? `Showing ${totalVisible} countries`
+            ? `Showing ${totalVisible} ${totalVisible === 1 ? 'country' : 'countries'}`
             : ''}
         </p>
 

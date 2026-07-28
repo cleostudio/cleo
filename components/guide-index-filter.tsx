@@ -20,12 +20,15 @@ export function GuideIndexFilter({
   placeholder,
   initialQuery = '',
   noun = 'results',
+  nounOne,
 }: {
   label: string
   placeholder: string
   initialQuery?: string
   /** Plural noun used in the live “Showing N …” status line. */
   noun?: string
+  /** Singular noun when exactly one row matches (defaults to `noun`). */
+  nounOne?: string
 }) {
   const searchId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
@@ -67,14 +70,16 @@ export function GuideIndexFilter({
     const filtering = Boolean(query.trim())
     if (status) {
       status.hidden = !filtering || nextVisible === 0
+      const label =
+        nextVisible === 1 ? (nounOne ?? noun) : noun
       status.textContent =
         filtering && nextVisible > 0
-          ? `Showing ${nextVisible} ${noun}`
+          ? `Showing ${nextVisible} ${label}`
           : ''
     }
 
     if (empty) empty.hidden = nextVisible !== 0
-  }, [noun, query])
+  }, [noun, nounOne, query])
 
   function onKeyDown(event: KeyboardEvent<HTMLInputElement>) {
     if (event.key !== 'Escape' || !query) return

@@ -67,6 +67,7 @@ export function SpacePageView({
           placeholder="Planet, moon, or deep-space body"
           initialQuery={initialQuery}
           noun="space guides"
+          nounOne="space guide"
         />
 
         <p
@@ -76,7 +77,7 @@ export function SpacePageView({
           aria-live="polite"
         >
           {initialQuery.trim() && totalVisible > 0
-            ? `Showing ${totalVisible} space guides`
+            ? `Showing ${totalVisible} space guide${totalVisible === 1 ? '' : 's'}`
             : ''}
         </p>
 

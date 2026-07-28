@@ -63,6 +63,7 @@ export function BlogIndexPageView({
           placeholder="Essay title or topic"
           initialQuery={initialQuery}
           noun="essays"
+          nounOne="essay"
         />
 
         <p
@@ -72,7 +73,7 @@ export function BlogIndexPageView({
           aria-live="polite"
         >
           {initialQuery.trim() && totalVisible > 0
-            ? `Showing ${totalVisible} essays`
+            ? `Showing ${totalVisible} ${totalVisible === 1 ? 'essay' : 'essays'}`
             : ''}
         </p>
 

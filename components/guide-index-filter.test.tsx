@@ -19,9 +19,10 @@ describe('GuideIndexFilter', () => {
           placeholder="Country"
           initialQuery="japan"
           noun="countries"
+          nounOne="country"
         />
         <p data-guide-status hidden>
-          Showing 1 countries
+          Showing 1 country
         </p>
         <section data-guide-section>
           <h2>
@@ -53,7 +54,7 @@ describe('GuideIndexFilter', () => {
     expect(
       screen.getByText('Asia').querySelector('[data-guide-count]')?.textContent,
     ).toBe('1')
-    expect(screen.getByText('Showing 1 countries').hidden).toBe(false)
+    expect(screen.getByText('Showing 1 country').hidden).toBe(false)
   })
 
   it('filters guide rows, updates live counts, and syncs ?q=', () => {
@@ -64,6 +65,7 @@ describe('GuideIndexFilter', () => {
           placeholder="Country"
           initialQuery=""
           noun="countries"
+          nounOne="country"
         />
         <p data-guide-status hidden />
         <section data-guide-section>
@@ -119,7 +121,7 @@ describe('GuideIndexFilter', () => {
     expect(brazilSection?.hidden).toBe(true)
     expect(asiaCount?.textContent).toBe('1')
     expect(window.location.search).toContain('q=japan')
-    expect(screen.getByText('Showing 1 countries')).toBeTruthy()
+    expect(screen.getByText('Showing 1 country')).toBeTruthy()
     expect(screen.getByText('No countries match that search.').hidden).toBe(
       true,
     )
@@ -131,7 +133,7 @@ describe('GuideIndexFilter', () => {
     expect(screen.getByText('No countries match that search.').hidden).toBe(
       false,
     )
-    expect(screen.queryByText(/Showing \d+ countries/)).toBeNull()
+    expect(screen.queryByText(/Showing \d+ countr(?:y|ies)/)).toBeNull()
   })
 
   it('clears the query on Escape', () => {
@@ -142,8 +144,9 @@ describe('GuideIndexFilter', () => {
           placeholder="Country"
           initialQuery="japan"
           noun="countries"
+          nounOne="country"
         />
-        <p data-guide-status>Showing 1 countries</p>
+        <p data-guide-status>Showing 1 country</p>
         <ul>
           <li data-guide-item data-search-text="Japan Asia">
             Japan
@@ -167,7 +170,7 @@ describe('GuideIndexFilter', () => {
         screen.getByText('France').closest('[data-guide-item]') as HTMLElement
       ).hidden,
     ).toBe(false)
-    expect(screen.queryByText(/Showing \d+ countries/)).toBeNull()
+    expect(screen.queryByText(/Showing \d+ countr(?:y|ies)/)).toBeNull()
     expect(window.location.search).not.toContain('q=')
   })
 })
