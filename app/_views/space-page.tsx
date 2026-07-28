@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { GuideIndexFilter } from '~/components/guide-index-filter'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { T } from '~/lib/i18n'
+import { matchesIndexQuery } from '~/lib/index-filter'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 import { spaceSubjectsByCategory } from '~/lib/space'
@@ -22,6 +23,26 @@ export function SpacePageView({
   initialQuery?: string
 }) {
   const categories = spaceSubjectsByCategory()
+  let totalVisible = 0
+
+  const renderedCategories = categories.map(([category, subjects]) => {
+    const center = (subjects.length - 1) / 2
+    const rows = subjects.map((subject, index) => {
+      const searchText = [
+        subject.name,
+        subject.code,
+        subject.category,
+        subject.facts.kind,
+        subject.subtitle,
+      ].join(' ')
+      const visible = matchesIndexQuery(searchText, initialQuery)
+      if (visible) totalVisible += 1
+      return { subject, index, searchText, visible }
+    })
+    const visibleCount = rows.filter((row) => row.visible).length
+
+    return { category, center, rows, visibleCount }
+  })
 
   return (
     <div className="mx-auto w-full max-w-content px-6">
@@ -48,70 +69,62 @@ export function SpacePageView({
         />
 
         <div className="flex flex-col gap-10">
-          {categories.map(([category, subjects]) => {
-            const center = (subjects.length - 1) / 2
-
-            return (
-              <section
-                key={category}
-                aria-labelledby={`space-${category}`}
-                data-guide-section
+          {renderedCategories.map(({ category, center, rows, visibleCount }) => (
+            <section
+              key={category}
+              aria-labelledby={`space-${category}`}
+              data-guide-section
+              hidden={visibleCount === 0 || undefined}
+            >
+              <h2
+                id={`space-${category}`}
+                className="enter text-sm font-medium text-muted-foreground"
               >
-                <h2
-                  id={`space-${category}`}
-                  className="enter text-sm font-medium text-muted-foreground"
+                {category}
+                <span
+                  className="ml-2 tabular-nums text-muted-foreground/70"
+                  data-guide-count
                 >
-                  {category}
-                  <span
-                    className="ml-2 tabular-nums text-muted-foreground/70"
-                    data-guide-count
+                  {visibleCount}
+                </span>
+              </h2>
+              <ul className="focus-list mt-2 flex flex-col">
+                {rows.map(({ subject, index, searchText, visible }) => (
+                  <li
+                    key={subject.slug}
+                    className="enter-swing"
+                    data-guide-item
+                    data-search-text={searchText}
+                    hidden={!visible || undefined}
+                    style={
+                      {
+                        '--enter-delay': `${80 + Math.min(Math.abs(index - center), 12) * 18}ms`,
+                      } as React.CSSProperties
+                    }
                   >
-                    {subjects.length}
-                  </span>
-                </h2>
-                <ul className="focus-list mt-2 flex flex-col">
-                  {subjects.map((subject, index) => (
-                    <li
-                      key={subject.slug}
-                      className="enter-swing"
-                      data-guide-item
-                      data-search-text={[
-                        subject.name,
-                        subject.code,
-                        subject.category,
-                        subject.facts.kind,
-                        subject.subtitle,
-                      ].join(' ')}
-                      style={
-                        {
-                          '--enter-delay': `${80 + Math.min(Math.abs(index - center), 12) * 18}ms`,
-                        } as React.CSSProperties
-                      }
+                    <Link
+                      href={`/space/${subject.slug}`}
+                      className="country-row hairline-top group"
                     >
-                      <Link
-                        href={`/space/${subject.slug}`}
-                        className="country-row hairline-top group"
-                      >
-                        <span className="country-code text-muted-foreground tabular-nums">
-                          {subject.code}
-                        </span>
-                        <span className="country-name font-medium">{subject.name}</span>
-                        <span className="country-subregion text-muted-foreground">
-                          {subject.facts.kind}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )
-          })}
+                      <span className="country-code text-muted-foreground tabular-nums">
+                        {subject.code}
+                      </span>
+                      <span className="country-name font-medium">{subject.name}</span>
+                      <span className="country-subregion text-muted-foreground">
+                        {subject.facts.kind}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
         </div>
 
         <p
           className="mt-6 text-sm text-muted-foreground"
           data-guide-empty
-          hidden
+          hidden={totalVisible !== 0 || undefined}
           aria-live="polite"
         >
           No space guides match that search.
