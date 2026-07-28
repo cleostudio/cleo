@@ -1461,17 +1461,6 @@
   gap: 0.5rem 1.5rem;
 }
 
-/* Field-guide plates carry real values — language lists, currency names,
-   orbital periods — that will not hold one line across four columns, and that
-   a reader has reason to copy. */
-.spec-plate-guide {
-  user-select: text;
-}
-
-.spec-plate-guide dd {
-  white-space: normal;
-}
-
 /* ── Nameplate: the boxed data-plate variant ──────────────────────── */
 
 .spec-nameplate {
@@ -5806,9 +5795,9 @@ a:focus-visible .external-label .external-mark {
   box-shadow: 0 0 0 1px var(--border);
 }
 
-/* ── Country field guide (/explore/[slug]) + gallery toolbar ─────── */
+/* ── Reference articles (/explore/[slug], /space/[slug]) ────────── */
 
-.guide-label {
+.article-breadcrumb {
   color: color-mix(in oklab, var(--muted-foreground) 78%, transparent);
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
@@ -5817,13 +5806,164 @@ a:focus-visible .external-label .external-mark {
   text-transform: uppercase;
 }
 
-.field-guide .guide-credit {
+.article-breadcrumb a {
+  color: var(--foreground);
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in oklab, currentColor 28%, transparent);
+  text-decoration-thickness: var(--border-hairline);
+  text-underline-offset: 0.2em;
+}
+
+.article-contents {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  padding-block: 0.625rem;
+  border-top: var(--border-hairline) solid var(--border);
+  border-bottom: var(--border-hairline) solid var(--border);
+}
+
+.article-contents-label {
+  color: var(--muted-foreground);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-contents ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 0.875rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-contents a {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in oklab, currentColor 28%, transparent);
+  text-decoration-thickness: var(--border-hairline);
+  text-underline-offset: 0.18em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .article-breadcrumb a:hover,
+  .article-contents a:hover {
+    color: var(--foreground);
+    text-decoration-color: currentColor;
+  }
+}
+
+.article-hero-grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 40rem) {
+  .article-hero-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  }
+}
+
+.topic-article .article-credit {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   letter-spacing: 0.02em;
 }
 
-.field-guide .photo-frame {
+.topic-article .photo-frame {
   box-shadow: 0 0 0 1px var(--border);
+}
+
+.article-infobox {
+  padding: 0.875rem;
+  box-shadow: inset 0 0 0 var(--border-hairline) var(--border);
+  background: var(--surface-1);
+}
+
+.article-infobox h2,
+.topic-article-heading {
+  color: var(--foreground);
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.article-infobox dl {
+  margin: 0.875rem 0 0;
+}
+
+.article-infobox dl > div {
+  padding-block: 0.625rem;
+  border-top: var(--border-hairline) solid var(--border);
+}
+
+.article-infobox dt {
+  color: var(--muted-foreground);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-infobox dd {
+  margin: 0.1875rem 0 0;
+  color: var(--foreground);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.topic-article-section {
+  scroll-margin-top: 4.5rem;
+}
+
+.article-lead {
+  color: var(--foreground);
+  font-size: 0.875rem;
+  line-height: 1.72;
+}
+
+.article-lead > * + * {
+  margin-top: 1.25em;
+}
+
+.article-highlights,
+.article-sources {
+  display: flex;
+  flex-direction: column;
+  margin: 0.875rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-highlights li {
+  padding-block: 1rem;
+  border-top: var(--border-hairline) solid var(--border);
+  font-size: 0.875rem;
+}
+
+.article-highlights h3 {
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.45;
+}
+
+.article-sources {
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.article-sources li {
+  padding-top: 0.625rem;
+  border-top: var(--border-hairline) solid var(--border);
 }
 
 .place-gallery .photo-item a:focus-visible .photo-frame {
@@ -5855,8 +5995,8 @@ a:focus-visible .external-label .external-mark {
   margin-top: 0.125rem;
   font-size: 0.75rem;
   /* Wikimedia credit lines run long. The overlay reserves a fixed strip, so a
-     cell that wraps would ride up over the photograph; the field guide behind
-     the caption carries the full credit. */
+     cell that wraps would ride up over the photograph; the article behind the
+     caption carries the full credit. */
   max-width: 16rem;
   overflow: hidden;
   text-overflow: ellipsis;

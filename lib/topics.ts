@@ -23,8 +23,8 @@ export function allTopics(): Topic[] {
       slug: 'countries',
       name: 'Countries',
       description:
-        'Evergreen field guides for every country — orientation, notable places, facts, sources, and one curated photograph.',
-      tally: `${countryCount} guides`,
+        'Reference articles for every country, with concise overviews, notable places, key facts, sources, and a curated photograph.',
+      tally: `${countryCount} articles`,
       href: '/explore',
       secondaryHref: '/gallery',
       secondaryLabel: 'Gallery',
@@ -33,8 +33,8 @@ export function allTopics(): Topic[] {
       slug: 'space',
       name: 'Space',
       description:
-        'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, facts, a photograph, and sources.',
-      tally: `${spaceCount} guides`,
+        'Reference articles on the Solar System, major moons, and nearby deep space, with overviews, key facts, photographs, and sources.',
+      tally: `${spaceCount} articles`,
       href: '/space',
       secondaryHref: '/gallery',
       secondaryLabel: 'Gallery',

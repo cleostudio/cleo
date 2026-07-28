@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react'
 import type { GalleryCollection } from '~/lib/gallery'
 
 /**
- * Capture plate for the photo lightbox. Shared by Gallery tiles and field-guide
+ * Capture plate for the photo lightbox. Shared by Gallery tiles and article
  * heroes so the same photograph always shows the same labeled cells.
  * The overlay is view-only (`.zoom-overlay-details` is `pointer-events: none`).
  */

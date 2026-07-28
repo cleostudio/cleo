@@ -2,13 +2,13 @@ import { describe, expect, it } from 'vitest'
 
 import {
   CLEO_PORTAL_STARTERS,
-  extractPortalGuideLinks,
+  extractPortalArticleLinks,
   isCuratedTopicImageSrc,
-  presentPortalGuideMarkdown,
+  presentPortalArticleMarkdown,
   presentTopicPhotoMarkdown,
 } from './portal-links'
 
-describe('extractPortalGuideLinks', () => {
+describe('extractPortalArticleLinks', () => {
   it('collects unique Explore and Space Markdown links', () => {
     const markdown = [
       'Start with [Japan](/explore/japan).',
@@ -17,7 +17,7 @@ describe('extractPortalGuideLinks', () => {
       'Ignore [docs](https://example.com/explore/japan) and `/explore/raw`.',
     ].join(' ')
 
-    expect(extractPortalGuideLinks(markdown)).toEqual([
+    expect(extractPortalArticleLinks(markdown)).toEqual([
       {
         collection: 'explore',
         href: '/explore/japan',
@@ -40,7 +40,7 @@ describe('extractPortalGuideLinks', () => {
   })
 
   it('falls back to a title-cased slug when the link text is empty', () => {
-    expect(extractPortalGuideLinks('See [](/space/orion-nebula).')).toEqual([
+    expect(extractPortalArticleLinks('See [](/space/orion-nebula).')).toEqual([
       {
         collection: 'space',
         href: '/space/orion-nebula',
@@ -50,10 +50,10 @@ describe('extractPortalGuideLinks', () => {
     ])
   })
 
-  it('strips noisy guide labels down to the subject name', () => {
+  it('strips noisy article labels down to the subject name', () => {
     expect(
-      extractPortalGuideLinks(
-        'Read the full [Europa Space guide](/space/europa) and the [Explore Japan field guide](/explore/japan).',
+      extractPortalArticleLinks(
+        'Read the full [Europa Space article](/space/europa) and the [Explore Japan article](/explore/japan).',
       ),
     ).toEqual([
       {
@@ -72,17 +72,17 @@ describe('extractPortalGuideLinks', () => {
   })
 })
 
-describe('presentPortalGuideMarkdown', () => {
-  it('keeps the first guide link and drops redundant footers', () => {
+describe('presentPortalArticleMarkdown', () => {
+  it('keeps the first article link and drops redundant footers', () => {
     const markdown = [
       'Japan is an archipelago. Start with [Japan](/explore/japan).',
       '',
-      'For a fuller primer, see [Japan](/explore/japan).',
+      'For more, see [Japan](/explore/japan).',
       '',
       'Explore [Japan](/explore/japan)',
     ].join('\n')
 
-    expect(presentPortalGuideMarkdown(markdown)).toBe(
+    expect(presentPortalArticleMarkdown(markdown)).toBe(
       'Japan is an archipelago. Start with [Japan](/explore/japan).',
     )
   })
@@ -91,24 +91,24 @@ describe('presentPortalGuideMarkdown', () => {
     const markdown = [
       'Europa hides a [global ocean](/space/europa) under ice.',
       '',
-      'Space [Europa field guide](/space/europa)',
+      'Space [Europa article](/space/europa)',
     ].join('\n')
 
-    expect(presentPortalGuideMarkdown(markdown)).toBe(
+    expect(presentPortalArticleMarkdown(markdown)).toBe(
       'Europa hides a [global ocean](/space/europa) under ice.',
     )
   })
 
-  it('keeps one link each when comparing two guides', () => {
+  it('keeps one link each when comparing two articles', () => {
     const markdown =
       'Compare [Earth](/space/earth) and [Mars](/space/mars).\n\nEarth · Mars'
 
-    expect(presentPortalGuideMarkdown(markdown)).toBe(
+    expect(presentPortalArticleMarkdown(markdown)).toBe(
       'Compare [Earth](/space/earth) and [Mars](/space/mars).',
     )
   })
 
-  it('does not drop real short paragraphs that are not guide footers', () => {
+  it('does not drop real short paragraphs that are not article footers', () => {
     const markdown = [
       'Europa hides a [global ocean](/space/europa) under ice.',
       '',
@@ -119,7 +119,7 @@ describe('presentPortalGuideMarkdown', () => {
       'Space is hard.',
     ].join('\n')
 
-    expect(presentPortalGuideMarkdown(markdown)).toBe(
+    expect(presentPortalArticleMarkdown(markdown)).toBe(
       [
         'Europa hides a [global ocean](/space/europa) under ice.',
         '',
@@ -139,7 +139,7 @@ describe('presentPortalGuideMarkdown', () => {
       '![Mount Fuji](/images/atlas/japan/w1280.jpg)',
     ].join('\n')
 
-    expect(presentPortalGuideMarkdown(markdown)).toBe(markdown)
+    expect(presentPortalArticleMarkdown(markdown)).toBe(markdown)
   })
 })
 

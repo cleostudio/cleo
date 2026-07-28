@@ -1,9 +1,6 @@
 import Link from 'next/link'
 
-import { GhostSchematic } from '~/components/ghost-schematic'
-import { TopicsBlueprintStage } from '~/components/hidden-list-stage'
 import { PixelCluster } from '~/components/pixel-cluster'
-import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 import { allTopics } from '~/lib/topics'
@@ -22,18 +19,31 @@ export function TopicsPageView() {
   const center = (topics.length - 1) / 2
 
   return (
-    <div className="relative mx-auto w-full max-w-content px-6">
-      <GhostSchematic className="top-4 right-6 hidden w-56 sm:block" />
+    <div className="mx-auto w-full max-w-content px-6">
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
-          <h1 className="page-eyebrow enter">
-            <T zh="主题" en="Topics" />
+          <p className="page-eyebrow enter">Reference library</p>
+          <h1
+            className="enter mt-4 text-2xl font-semibold tracking-tight text-foreground text-balance"
+            style={{ '--enter-delay': '40ms' } as React.CSSProperties}
+          >
+            Topics
           </h1>
+          <p
+            className="page-introduction enter mt-3 text-balance"
+            style={{ '--enter-delay': '55ms' } as React.CSSProperties}
+          >
+            Browse concise, sourced articles on countries, space, and the subjects that connect
+            them.
+          </p>
         </header>
         <PixelCluster variant={3} className="enter shrink-0" />
       </div>
 
-      <TopicsBlueprintStage className="mt-10">
+      <section className="mt-10" aria-labelledby="topic-collections">
+        <h2 id="topic-collections" className="sr-only">
+          Reference collections
+        </h2>
         <ul className="focus-list flex flex-col">
           {topics.map((topic, index) => (
             <li
@@ -41,20 +51,15 @@ export function TopicsPageView() {
               className="enter-swing"
               style={
                 {
-                  '--enter-delay': `${120 + Math.abs(index - center) * 50}ms`,
+                  '--enter-delay': `${100 + Math.abs(index - center) * 50}ms`,
                 } as React.CSSProperties
               }
             >
-              <div
-                className="topic-row hairline-top"
-                data-list-stage-row
-                data-list-stage-id={topic.slug}
-              >
+              <div className="topic-row hairline-top">
                 <Link href={topic.href} className="topic-primary group">
                   <span
                     className="topic-index tabular-nums text-muted-foreground"
                     aria-hidden
-                    data-list-stage-anchor
                   >
                     {String(index + 1).padStart(2, '0')}
                   </span>
@@ -84,7 +89,7 @@ export function TopicsPageView() {
             </li>
           ))}
         </ul>
-      </TopicsBlueprintStage>
+      </section>
     </div>
   )
 }

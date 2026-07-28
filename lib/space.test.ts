@@ -19,7 +19,7 @@ describe('space subjects', () => {
     expect(spaceSubjectSlugs()).toEqual(slugs)
   })
 
-  it('keeps each guide structured like a field record with a local photograph', () => {
+  it('keeps each article structured with a local photograph', () => {
     for (const subject of spaceSubjects) {
       expect(subject.about.length).toBeGreaterThan(120)
       expect(subject.features).toHaveLength(3)

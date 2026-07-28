@@ -3,15 +3,15 @@
 This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
 portal starting with countries and space. The homepage is a neutral portal
 (unified topic search, highlighted places, topic discovery, recent Writing
-posts). Explore field guides live
-at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
+posts). Explore country articles live
+at `/explore/[slug]`, Space articles at `/space/[slug]`, the place Gallery at
 `/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
 layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
 `/gallery`; `/projects` permanently redirects to `/topics`. Projects UI,
 vinyl/bookshelf, and social card components remain in the repo for later reuse.
 
 Country guide records live in `content/atlas.json` (one entry per Explore slug).
-Orientation prose is curated, not generated at build time. It lives in
+Overview prose is curated, not generated at build time. It lives in
 `scripts/atlas/atlas-about.json` and is written once by hand with
 `pnpm write:atlas-about` (needs `OPENAI_API_KEY`; every draft is checked for
 length, recycled phrasing, and volatile claims before it is kept). The site
@@ -28,7 +28,7 @@ public assets are under `public/images/atlas/{slug}/` and are served as static
 files with browser `srcset` — no account, CDN, or `/_next/image` re-encode at
 runtime.
 
-Space field guides live in `lib/space.ts` (Solar System, Moons, Deep Space —
+Space articles live in `lib/space.ts` (Solar System, Moons, Deep Space —
 planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 `/space/[slug]`. Curated NASA photographs are imported with
 `pnpm import:space-photos` into `public/images/space/{slug}/` and
@@ -72,7 +72,7 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, reasoning summaries, streaming, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
-  `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
+  `lib/cleo/portal-catalog.ts` so Cleo links related Explore/Space articles).
 - Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`

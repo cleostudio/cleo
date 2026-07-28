@@ -10,9 +10,9 @@ English-only general-knowledge portal with:
   surfaces), highlighted places, topic discovery, recent Writing posts (no
   personal contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
-  country field guides, Space field guides, Topics catalog (countries and
+  country articles, Space articles, Topics catalog (countries and
   space first; more topics later)
-- Gallery: searchable photographs from Explore places and Space guides
+- Gallery: searchable photographs from Explore places and Space articles
   (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
 
@@ -54,8 +54,9 @@ document (enable both products in the Vercel project dashboard).
 
 Visual contract: `docs/design-language.md` (including § Paper-artifact doorway
 vignettes — `NavCards` retained for reuse, not mounted on the current
-homepage). Country pages use the warm-paper field-guide layout (passport
-labels, hairline rules, zoomable contact-print hero).
+homepage). Country and Space pages use a warm-paper reference-article layout:
+lead image, structured infobox, article contents, sources, and zoomable
+photographs.
 
 ## Local / Preview
 

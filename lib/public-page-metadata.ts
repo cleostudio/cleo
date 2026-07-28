@@ -15,7 +15,7 @@ export const publicPageMetadata = {
   },
   topics: {
     title: 'Topics',
-    description: '',
+    description: 'Reference articles on countries, space, and more.',
   },
   /** Retained for preserved Projects UI / future portfolio surfaces. */
   projects: {
@@ -24,18 +24,18 @@ export const publicPageMetadata = {
       'Products, open-source tools, and small experiments I have made over the years. Some useful, some playful, all made with care.',
   },
   explore: {
-    title: 'Explore',
-    description: '',
+    title: 'Countries',
+    description: 'Reference articles on every country, organized by region.',
   },
   space: {
     title: 'Space',
     description:
-      'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
+      'Reference articles on the Solar System, major moons, and nearby deep space, with key facts and sources.',
   },
   cleo: {
     title: 'Cleo',
     description:
-      'A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',
+      'A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, link related articles, read images, and generate them.',
   },
 } as const
 

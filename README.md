@@ -5,9 +5,8 @@ dock at `/cleo`.
 
 The public site includes a homepage with unified topic search (countries, space,
 collections), highlighted places, topic discovery, and recent Writing posts;
-Explore country field
-guides; Space field guides at `/space`; a place Gallery at `/gallery`; a Topics
-catalog; Writing (for a future encyclopedia layer); and a browser-only agent
+country reference articles; Space articles at `/space`; a place Gallery at
+`/gallery`; a Topics catalog; Writing (for a future encyclopedia layer); and a browser-only agent
 with streamed Markdown, vision, image generation, and live reasoning /
 web-search activity.
 
@@ -19,16 +18,16 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
 - Base UI primitives with the `@fluid` component registry
 - MDX posts under `content/blog/`; English-only public routes
-- Country guides: `content/atlas.json` + optimized static JPEGs in
+- Country articles: `content/atlas.json` + optimized static JPEGs in
   `public/images/atlas/` (no image CDN/account at runtime)
-- Space guides: `lib/space.ts` + `content/space-photos.json` + JPEGs in
+- Space articles: `lib/space.ts` + `content/space-photos.json` + JPEGs in
   `public/images/space/`
 - **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
   `POST /api/responses`)
 - Vercel Web Analytics + Speed Insights in the root document (enable both in
   the Vercel project dashboard)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
-  Explore/Space catalog so replies can deep-link field guides and embed
+  Explore/Space catalog so replies can link related articles and embed
   curated topic photographs when a visual helps; topic and chat images use
   the same click-to-zoom lightbox as Gallery)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo

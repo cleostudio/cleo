@@ -200,9 +200,9 @@ export function buildTopicPhotoInstructions(
 
   return `<cleo_topic_photos>
 The following curated photographs are from this website's Explore and Space topics. When the user's question is about these subjects:
-- You MAY and SHOULD include the curated photograph in your reply when appearance, landscape, what something looks like, or a visual orientation would help — or when the user asks to see a photo/image.
+- You MAY and SHOULD include the curated photograph in your reply when appearance, landscape, what something looks like, or visual context would help — or when the user asks to see a photo/image.
 - Embed with exactly one Markdown image per subject using the path shown: \`![title](/images/...)\`. Do not invent or alter image paths.
-- Still weave one Markdown deep link to the field guide (\`[Name](/explore/…)\` or \`[Name](/space/…)\`) on first mention.
+- Still weave one Markdown link to the reference article (\`[Name](/explore/…)\` or \`[Name](/space/…)\`) on first mention.
 - Prefer these curated photos over \`image_generation\` for real places and space bodies. Use \`image_generation\` only if the user asks you to create, draw, redesign, or invent a visual the curated photo cannot cover (diagram, stylized illustration, edit).
 - Do not dump every photo unprompted for a pure text fact question (e.g. capital city only). One well-chosen image is enough when a visual helps.
 - Never claim a photo is yours or generated when you used a curated site path.

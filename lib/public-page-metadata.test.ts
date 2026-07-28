@@ -23,21 +23,21 @@ describe('public page metadata copy', () => {
     })
     expect(publicPageMetadata.topics).toEqual({
       title: 'Topics',
-      description: '',
+      description: 'Reference articles on countries, space, and more.',
     })
     expect(publicPageMetadata.explore).toEqual({
-      title: 'Explore',
-      description: '',
+      title: 'Countries',
+      description: 'Reference articles on every country, organized by region.',
     })
     expect(publicPageMetadata.space).toEqual({
       title: 'Space',
       description:
-        'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
+        'Reference articles on the Solar System, major moons, and nearby deep space, with key facts and sources.',
     })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',
       description:
-        'A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',
+        'A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, link related articles, read images, and generate them.',
     })
   })
 

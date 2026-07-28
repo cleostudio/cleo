@@ -9,7 +9,7 @@ import { allTopics } from './topics'
 describe('site search catalog', () => {
   const hits = buildSiteSearchHits()
 
-  it('indexes topic collections, country guides, space guides, and portal surfaces', () => {
+  it('indexes topic collections, country articles, space articles, and portal surfaces', () => {
     const kinds = new Set(hits.map((hit) => hit.kind))
     expect(kinds).toEqual(new Set(['topic', 'explore', 'space', 'surface']))
 
@@ -56,7 +56,7 @@ describe('site search catalog', () => {
     )
   })
 
-  it('finds space guides alongside countries', () => {
+  it('finds space articles alongside countries', () => {
     const mars = filterSiteSearchHits(hits, 'mars')
     expect(mars[0]).toMatchObject({ href: '/space/mars', kind: 'space' })
 

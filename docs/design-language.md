@@ -517,12 +517,11 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   plate keeps the established metadata develop timing. The lightbox's
   capture details are the same register (`.spec-plate-flow`, cells wrapping
   to content): Place, Country or Subject, Photograph, Licence — capture data
-  was always plate content. Country and space field guides carry their Fact
-  plate in the same register, in the `.spec-plate-guide` variant: the Capital
-  and Kind cells hold each page's signal, and because these values are real
-  content rather than chrome — language lists, currency names, orbital
-  periods — they wrap and stay selectable. The footer clock readout is the
-  smallest plate.
+  was always plate content. Country and Space articles pair the lead image with
+  an `.article-infobox`: a warm-surface reference panel whose Capital or Kind
+  value holds the page's single signal cell. Its labels stay mono and compact,
+  while real values such as language lists, currencies, and orbital periods
+  wrap and stay selectable. The footer clock readout is the smallest plate.
 - **Calibration marks** (`.calibration-corners`): hairline viewfinder
   corner brackets (9px arms; 11px around the lightbox photo). On photo
   tiles they develop under fine-pointer hover or focus-within (opacity
@@ -807,11 +806,11 @@ decision. OpenAI is the only third-party API.
 Photo tiles are quiet objects: no hover captions or overlays, and the only
 fine-pointer response on the print itself is the calibration corner brackets,
 which develop to 62% on hover or focus-within. The print opens the lightbox;
-capture data — place, country or subject, photographer, licence — appears only
-there, on a `spec-plate spec-plate-flow` sheet whose cells spring in one by one.
-The overlay is view-only (`.zoom-overlay-details` is `pointer-events: none`),
-so the route into the field guide is the caption line beneath the tile rather
-than the photograph. Those caption links disable prefetch to avoid a
+  capture data — place, country or subject, photographer, licence — appears only
+  there, on a `spec-plate spec-plate-flow` sheet whose cells spring in one by one.
+  The overlay is view-only (`.zoom-overlay-details` is `pointer-events: none`),
+  so the route into the reference article is the caption line beneath the tile
+  rather than the photograph. Those caption links disable prefetch to avoid a
 destination storm.
 
 The Gallery is a fully static Instant Navigation surface: the sync local

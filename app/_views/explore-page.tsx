@@ -2,7 +2,6 @@ import Link from 'next/link'
 
 import { PixelCluster } from '~/components/pixel-cluster'
 import { countriesByRegion } from '~/lib/countries'
-import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
 
@@ -22,9 +21,20 @@ export function ExplorePageView() {
     <div className="mx-auto w-full max-w-content px-6">
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
-          <h1 className="page-eyebrow enter">
-            <T zh="探索" en="Explore" />
+          <p className="page-eyebrow enter">Reference articles</p>
+          <h1
+            className="enter mt-4 text-2xl font-semibold tracking-tight text-foreground text-balance"
+            style={{ '--enter-delay': '40ms' } as React.CSSProperties}
+          >
+            Countries
           </h1>
+          <p
+            className="page-introduction enter mt-3 text-balance"
+            style={{ '--enter-delay': '55ms' } as React.CSSProperties}
+          >
+            Browse concise country articles, organized by region and grounded in durable facts and
+            sources.
+          </p>
         </header>
         <PixelCluster variant={4} className="enter shrink-0" />
       </div>

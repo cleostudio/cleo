@@ -29,7 +29,7 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Country, planet, moon, or topic"
-        aria-label="Search field guides"
+        aria-label="Search articles"
         autoComplete="off"
         className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2.5 text-base text-foreground outline-none"
       />
@@ -44,7 +44,7 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
           </ul>
         ) : (
           <p className="mt-2 text-sm text-muted-foreground" aria-live="polite">
-            No guides match “{query.trim()}”.
+            No articles match “{query.trim()}”.
           </p>
         )
       ) : null}

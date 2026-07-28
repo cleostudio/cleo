@@ -7,11 +7,11 @@ import { CLEO_INSTRUCTIONS } from './instructions'
 import { buildPortalCatalogInstructions } from './portal-catalog'
 
 describe('portal catalog instructions', () => {
-  it('lists Explore and Space guides with exact site paths', () => {
+  it('lists Explore and Space articles with exact site paths', () => {
     const block = buildPortalCatalogInstructions()
 
-    expect(block).toContain(`Explore country guides (${countries.length}):`)
-    expect(block).toContain(`Space guides (${spaceSubjects.length}):`)
+    expect(block).toContain(`Country articles (${countries.length}):`)
+    expect(block).toContain(`Space articles (${spaceSubjects.length}):`)
     expect(block).toContain('Japan (/explore/japan)')
     expect(block).toContain('Mars (/space/mars)')
     expect(block).toContain('[Topics](/topics)')

@@ -1,16 +1,16 @@
 /**
- * Client-safe helpers for Cleo ↔ portal guide deep links and topic photos.
+ * Client-safe helpers for Cleo ↔ portal article links and topic photos.
  * Kept free of heavy catalog imports so the ask-form bundle stays light.
  */
 
-export type PortalGuideLink = {
+export type PortalArticleLink = {
   collection: 'explore' | 'space'
   href: string
   label: string
   slug: string
 }
 
-const MARKDOWN_GUIDE_LINK =
+const MARKDOWN_ARTICLE_LINK =
   /\[([^\]]*)\]\((\/(explore|space)\/([a-z0-9-]+))\)/gi
 
 /** Curated static JPEGs under the site image roots. */
@@ -46,8 +46,8 @@ function titleFromSlug(slug: string) {
     .join(' ')
 }
 
-/** Prefer a short guide name over noisy model link text. */
-export function cleanPortalGuideLabel(
+/** Prefer a short article name over noisy model link text. */
+export function cleanPortalArticleLabel(
   label: string,
   slug: string,
 ): string {
@@ -57,7 +57,7 @@ export function cleanPortalGuideLabel(
   }
 
   const cleaned = trimmed
-    .replace(/\s*(?:explore|space)?\s*(?:field\s*)?guides?\s*$/i, '')
+    .replace(/\s*(?:explore|space)?\s*(?:(?:field\s*)?guides?|articles?)\s*$/i, '')
     .replace(/^(?:explore|space)\s*[·|:–-]\s*/i, '')
     .replace(/^(?:the\s+)?(?:explore|space)\s+/i, '')
     .trim()
@@ -65,11 +65,11 @@ export function cleanPortalGuideLabel(
   return cleaned || titleFromSlug(slug)
 }
 
-/** Pull unique Explore/Space guide links from assistant Markdown. */
-export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
-  const found = new Map<string, PortalGuideLink>()
+/** Pull unique Explore/Space article links from assistant Markdown. */
+export function extractPortalArticleLinks(markdown: string): PortalArticleLink[] {
+  const found = new Map<string, PortalArticleLink>()
 
-  for (const match of markdown.matchAll(MARKDOWN_GUIDE_LINK)) {
+  for (const match of markdown.matchAll(MARKDOWN_ARTICLE_LINK)) {
     const rawLabel = match[1] ?? ''
     const href = match[2]
     const collection = match[3] as 'explore' | 'space'
@@ -82,7 +82,7 @@ export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
     found.set(href, {
       collection,
       href,
-      label: cleanPortalGuideLabel(rawLabel, slug),
+      label: cleanPortalArticleLabel(rawLabel, slug),
       slug,
     })
   }
@@ -95,18 +95,18 @@ function escapeRegExp(value: string) {
 }
 
 /**
- * Strip leading guide-callout chrome only ("Explore …", "See …",
- * "For a fuller primer, see …") so real prose is not emptied by
+ * Strip leading article-callout chrome only ("Explore …", "See …",
+ * "For more, see …") so real prose is not emptied by
  * mid-sentence word removal.
  */
-function stripLeadingGuideChrome(block: string) {
+function stripLeadingArticleChrome(block: string) {
   let remainder = block.trim()
   let previous = ''
 
   while (remainder !== previous) {
     previous = remainder
     remainder = remainder
-      .replace(/^for a fuller primer,?\s*see\s+/i, '')
+      .replace(/^for (?:a fuller primer|more),?\s*see\s+/i, '')
       .replace(/^see\s+(?:the\s+)?/i, '')
       .replace(/^(?:explore|space)\s+/i, '')
       .trim()
@@ -116,23 +116,23 @@ function stripLeadingGuideChrome(block: string) {
 }
 
 /**
- * True when a block only restates guides already linked earlier (footer
- * callouts like "Explore Japan" or "For a fuller primer, see Japan.").
+ * True when a block only restates articles already linked earlier (footer
+ * callouts like "Explore Japan" or "For more, see Japan.").
  */
-function isRedundantGuideFooter(
+function isRedundantArticleFooter(
   block: string,
-  guideNames: ReadonlySet<string>,
+  articleNames: ReadonlySet<string>,
 ): boolean {
-  if (guideNames.size === 0) {
+  if (articleNames.size === 0) {
     return false
   }
 
-  let remainder = stripLeadingGuideChrome(block)
+  let remainder = stripLeadingArticleChrome(block)
   if (!remainder) {
     return false
   }
 
-  for (const name of guideNames) {
+  for (const name of articleNames) {
     remainder = remainder.replace(new RegExp(escapeRegExp(name), 'gi'), ' ')
   }
 
@@ -141,26 +141,26 @@ function isRedundantGuideFooter(
 }
 
 /**
- * Keep the first Markdown link per Explore/Space guide (short label), turn
- * later repeats into plain text, and drop redundant guide-only footer blocks.
+ * Keep the first Markdown link per Explore/Space article (short label), turn
+ * later repeats into plain text, and drop redundant article-only footer blocks.
  */
-export function presentPortalGuideMarkdown(markdown: string): string {
+export function presentPortalArticleMarkdown(markdown: string): string {
   const seenHrefs = new Set<string>()
-  // Footer matching uses guide subject names only (not arbitrary link text
+  // Footer matching uses article subject names only (not arbitrary link text
   // like "global ocean"), so short real paragraphs are not dropped.
-  const guideNames = new Set<string>()
+  const articleNames = new Set<string>()
 
   const rewriteLinks = (block: string) =>
     block.replace(
-      MARKDOWN_GUIDE_LINK,
+      MARKDOWN_ARTICLE_LINK,
       (_full, rawLabel: string, href: string, _collection: string, slug: string) => {
-        const label = cleanPortalGuideLabel(rawLabel, slug)
-        const guideName = titleFromSlug(slug)
+        const label = cleanPortalArticleLabel(rawLabel, slug)
+        const articleName = titleFromSlug(slug)
         if (seenHrefs.has(href)) {
           return label
         }
         seenHrefs.add(href)
-        guideNames.add(guideName)
+        articleNames.add(articleName)
         return `[${label}](${href})`
       },
     )
@@ -175,7 +175,7 @@ export function presentPortalGuideMarkdown(markdown: string): string {
     if (
       kept.length > 0 &&
       seenHrefs.size === hrefsBefore &&
-      isRedundantGuideFooter(rewritten, guideNames)
+      isRedundantArticleFooter(rewritten, articleNames)
     ) {
       continue
     }
@@ -189,18 +189,18 @@ export function presentPortalGuideMarkdown(markdown: string): string {
 /** Empty-state prompts that exercise portal grounding. */
 export const CLEO_PORTAL_STARTERS = [
   {
-    label: 'Orient me to Japan',
+    label: 'Japan at a glance',
     prompt:
-      'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
+      'Give me a concise overview of Japan. Link its reference article when you mention the country.',
   },
   {
     label: 'Why is Europa interesting?',
     prompt:
-      'Why is Europa interesting as an ocean world? Deep-link the Space guide when you name it.',
+      'Why is Europa interesting as an ocean world? Link its Space article when you name it.',
   },
   {
     label: 'Compare Mars and Earth',
     prompt:
-      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide when you name the planets.',
+      'Compare Mars and Earth in a few sharp points. Link each Space article when you name the planets.',
   },
 ] as const

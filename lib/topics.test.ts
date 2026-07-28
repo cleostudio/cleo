@@ -12,12 +12,12 @@ describe('topics catalog', () => {
     expect(topics[0]).toMatchObject({
       href: '/explore',
       secondaryHref: '/gallery',
-      tally: `${countries.length} guides`,
+      tally: `${countries.length} articles`,
     })
     expect(topics[1]).toMatchObject({
       href: '/space',
       secondaryHref: '/gallery',
-      tally: `${spaceSubjects.length} guides`,
+      tally: `${spaceSubjects.length} articles`,
     })
   })
 })

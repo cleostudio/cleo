@@ -28,17 +28,25 @@ describe('social OG image metadata', () => {
       'Writing · Cleo. Creative essays about Earth, the ocean, deep time, and the wider universe — place, scale, and what endures.',
     ],
     ['/gallery', publicPageMetadata.gallery, 'Gallery · Cleo'],
-    ['/topics', publicPageMetadata.topics, 'Topics · Cleo'],
-    ['/explore', publicPageMetadata.explore, 'Explore · Cleo'],
+    [
+      '/topics',
+      publicPageMetadata.topics,
+      'Topics · Cleo. Reference articles on countries, space, and more.',
+    ],
+    [
+      '/explore',
+      publicPageMetadata.explore,
+      'Countries · Cleo. Reference articles on every country, organized by region.',
+    ],
     [
       '/space',
       publicPageMetadata.space,
-      'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
+      'Space · Cleo. Reference articles on the Solar System, major moons, and nearby deep space, with key facts and sources.',
     ],
     [
       '/cleo',
       publicPageMetadata.cleo,
-      'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',
+      'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, link related articles, read images, and generate them.',
     ],
   ] as const)('describes the %s artwork with its own content', (path, copy, expected) => {
     expect(imageAlt(metadataFor(path, copy.title, copy.description))).toBe(expected)

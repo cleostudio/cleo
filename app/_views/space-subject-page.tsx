@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import { GuideOrientation } from '~/components/guide-orientation'
+import { ArticleContents } from '~/components/article-contents'
+import { ArticleInfobox } from '~/components/article-infobox'
+import { ArticleLead } from '~/components/article-lead'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
@@ -11,6 +13,12 @@ import {
   spaceSubjectSlugs,
 } from '~/lib/space'
 import { localeMetadata } from '~/lib/locale-metadata'
+
+const SPACE_ARTICLE_SECTIONS = [
+  { id: 'space-overview', label: 'Overview' },
+  { id: 'space-features', label: 'Notable features' },
+  { id: 'space-sources', label: 'Sources' },
+] as const
 
 export function spaceSubjectStaticParams() {
   return spaceSubjectSlugs().map((slug) => ({ slug }))
@@ -37,10 +45,10 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
   if (!subject) notFound()
 
   return (
-    <article className="field-guide mx-auto w-full max-w-content px-6">
-      <div className="flex items-start justify-between gap-4">
+    <article className="topic-article mx-auto w-full max-w-content px-6">
+      <div className="topic-article-header flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
-          <p className="page-eyebrow enter">
+          <nav className="article-breadcrumb enter" aria-label="Breadcrumb">
             <Link href="/space" className="hover:text-foreground">
               Space
             </Link>
@@ -48,7 +56,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
               /
             </span>
             <span className="tabular-nums">{subject.code}</span>
-          </p>
+          </nav>
           <h1
             className="enter mt-4 text-2xl font-semibold tracking-tight text-foreground text-balance"
             style={{ '--enter-delay': '40ms' } as React.CSSProperties}
@@ -65,147 +73,119 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         <PixelCluster variant={7} className="enter shrink-0" />
       </div>
 
-      <figure
+      <div
         className="enter mt-8"
         style={{ '--enter-delay': '70ms' } as React.CSSProperties}
       >
-        <ZoomImage
-          src={
-            (subject.photo.renditions.find((r) => r.width === 1280) ??
-              subject.photo.renditions[0])!.src
-          }
-          alt={subject.photo.alt}
-          width={subject.photo.width}
-          height={subject.photo.height}
-          className="photo-frame aspect-[3/2] w-full object-cover"
-          sizes="(max-width: 40rem) 100vw, 42rem"
-          renditions={subject.photo.renditions.map((r) => ({
-            src: r.src,
-            width: r.width,
-          }))}
-          expandedContent={
-            <PhotoZoomDetails
-              collection="space"
-              title={subject.photo.featureName}
-              subtitle={subject.name}
-              photographer={subject.photo.photographer}
-              license={subject.photo.license}
-            />
-          }
+        <ArticleContents items={SPACE_ARTICLE_SECTIONS} />
+      </div>
+
+      <div
+        className="article-hero-grid enter mt-8"
+        style={{ '--enter-delay': '100ms' } as React.CSSProperties}
+      >
+        <figure>
+          <ZoomImage
+            src={
+              (subject.photo.renditions.find((r) => r.width === 1280) ??
+                subject.photo.renditions[0])!.src
+            }
+            alt={subject.photo.alt}
+            width={subject.photo.width}
+            height={subject.photo.height}
+            className="photo-frame aspect-[3/2] w-full object-cover"
+            sizes="(max-width: 40rem) 100vw, 42rem"
+            renditions={subject.photo.renditions.map((r) => ({
+              src: r.src,
+              width: r.width,
+            }))}
+            expandedContent={
+              <PhotoZoomDetails
+                collection="space"
+                title={subject.photo.featureName}
+                subtitle={subject.name}
+                photographer={subject.photo.photographer}
+                license={subject.photo.license}
+              />
+            }
+          />
+          <figcaption className="article-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
+            <span>{subject.photo.caption}</span>
+            <span>
+              {subject.photo.photographer} ·{' '}
+              <a
+                href={subject.photo.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="underline-offset-2 hover:underline"
+              >
+                NASA
+              </a>
+            </span>
+          </figcaption>
+        </figure>
+        <ArticleInfobox
+          id="space-quick-facts"
+          facts={[
+            { label: 'Kind', value: subject.facts.kind, isPrimary: true },
+            { label: 'System', value: subject.facts.system },
+            { label: 'Mean distance', value: subject.facts.meanDistance },
+            { label: 'Equatorial radius', value: formatRadius(subject.facts.radiusKm) },
+            { label: 'Orbital period', value: subject.facts.orbitalPeriod },
+            { label: 'Rotation', value: subject.facts.rotationPeriod },
+            { label: 'Companions', value: subject.facts.companions },
+            { label: 'Catalog', value: subject.code },
+          ]}
         />
-        <figcaption className="guide-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
-          <span>{subject.photo.caption}</span>
-          <span>
-            {subject.photo.photographer} ·{' '}
-            <a
-              href={subject.photo.sourceUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="underline-offset-2 hover:underline"
-            >
-              NASA
-            </a>
-          </span>
-        </figcaption>
-      </figure>
+      </div>
 
       <section
-        className="enter mt-10"
-        style={{ '--enter-delay': '100ms' } as React.CSSProperties}
-        aria-labelledby="space-about"
+        id="space-overview"
+        className="topic-article-section enter mt-10"
+        style={{ '--enter-delay': '120ms' } as React.CSSProperties}
+        aria-labelledby="space-overview-heading"
       >
-        <h2 id="space-about" className="guide-label">
-          Orientation
+        <h2 id="space-overview-heading" className="topic-article-heading">
+          Overview
         </h2>
-        <GuideOrientation about={subject.about} />
+        <ArticleLead about={subject.about} />
       </section>
 
       <section
-        className="enter mt-12"
-        style={{ '--enter-delay': '120ms' } as React.CSSProperties}
-        aria-labelledby="space-features"
+        id="space-features"
+        className="topic-article-section enter mt-12"
+        style={{ '--enter-delay': '140ms' } as React.CSSProperties}
+        aria-labelledby="space-features-heading"
       >
-        <h2 id="space-features" className="guide-label">
-          Features
+        <h2 id="space-features-heading" className="topic-article-heading">
+          Notable features
         </h2>
-        <ol className="mt-3 flex flex-col">
-          {subject.features.map((feature, index) => (
-            <li
-              key={feature.name}
-              className="hairline-top grid grid-cols-[2rem_1fr] gap-3 py-3 text-sm"
-            >
-              <span className="tabular-nums text-muted-foreground" aria-hidden>
-                {String(index + 1).padStart(2, '0')}
-              </span>
+        <ul className="article-highlights">
+          {subject.features.map((feature) => (
+            <li key={feature.name}>
               <div>
-                <p className="font-medium text-foreground">{feature.name}</p>
+                <h3>{feature.name}</h3>
                 <p className="mt-1 text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
               </div>
             </li>
           ))}
-        </ol>
+        </ul>
       </section>
 
       <section
-        className="enter mt-12"
-        style={{ '--enter-delay': '140ms' } as React.CSSProperties}
-        aria-labelledby="space-facts"
-      >
-        <h2 id="space-facts" className="guide-label">
-          Fact plate
-        </h2>
-        <dl className="spec-plate spec-plate-guide mt-3">
-          <div>
-            <dt>Kind</dt>
-            <dd>
-              <span className="spec-signal" aria-hidden />
-              {subject.facts.kind}
-            </dd>
-          </div>
-          <div>
-            <dt>System</dt>
-            <dd>{subject.facts.system}</dd>
-          </div>
-          <div>
-            <dt>Mean distance</dt>
-            <dd>{subject.facts.meanDistance}</dd>
-          </div>
-          <div>
-            <dt>Equatorial radius</dt>
-            <dd>{formatRadius(subject.facts.radiusKm)}</dd>
-          </div>
-          <div>
-            <dt>Orbital period</dt>
-            <dd>{subject.facts.orbitalPeriod}</dd>
-          </div>
-          <div>
-            <dt>Rotation</dt>
-            <dd>{subject.facts.rotationPeriod}</dd>
-          </div>
-          <div>
-            <dt>Companions</dt>
-            <dd>{subject.facts.companions}</dd>
-          </div>
-          <div>
-            <dt>Catalog</dt>
-            <dd>{subject.code}</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section
-        className="enter mt-12"
+        id="space-sources"
+        className="topic-article-section enter mt-12"
         style={{ '--enter-delay': '160ms' } as React.CSSProperties}
-        aria-labelledby="space-sources"
+        aria-labelledby="space-sources-heading"
       >
-        <h2 id="space-sources" className="guide-label">
+        <h2 id="space-sources-heading" className="topic-article-heading">
           Sources
         </h2>
-        <ul className="mt-3 flex flex-col gap-2 text-sm">
+        <ul className="article-sources">
           {subject.sources.map((source) => (
-            <li key={source.url} className="hairline-top pt-2">
+            <li key={source.url}>
               <a
                 href={source.url}
                 target="_blank"
@@ -227,7 +207,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         style={{ '--enter-delay': '180ms' } as React.CSSProperties}
       >
         <Link href="/space" className="text-sm text-muted-foreground hover:text-foreground">
-          ← All space guides
+          Browse all space articles →
         </Link>
       </p>
     </article>

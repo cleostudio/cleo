@@ -9,7 +9,7 @@ import { PhotoZoomDetails } from "~/components/photo-zoom-details"
 import { ZoomImage } from "~/components/zoom-image"
 import {
   isCuratedTopicImageSrc,
-  presentPortalGuideMarkdown,
+  presentPortalArticleMarkdown,
 } from "~/lib/cleo/portal-links"
 import { topicPhotoZoomForSrc } from "~/lib/cleo/topic-photo-zoom"
 import { cn } from "~/lib/utils"
@@ -107,7 +107,7 @@ export function Markdown({
   className,
   isAnimating = false,
 }: MarkdownProps) {
-  const content = presentPortalGuideMarkdown(children)
+  const content = presentPortalArticleMarkdown(children)
 
   return (
     <Streamdown

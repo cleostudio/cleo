@@ -184,7 +184,7 @@ function OgSectionMark({ section }: { section: PublicSection }) {
   }
 
   if (section === 'space') {
-    // A ringed planet with a few field-guide stars.
+    // A ringed planet with a few reference stars.
     return (
       <svg
         width="232"

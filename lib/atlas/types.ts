@@ -1,4 +1,4 @@
-/** Country Atlas — evergreen field-guide records for every Explore slug. */
+/** Country Atlas — evergreen reference article records for every Explore slug. */
 
 export type AtlasRenditionWidth = 640 | 1280 | 2048
 
