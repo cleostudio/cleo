@@ -14,7 +14,11 @@ const KIND_LABEL: Record<SiteSearchKind, string> = {
   space: 'Space',
   topic: 'Topic',
   surface: 'Portal',
+  writing: 'Writing',
 }
+
+const SEARCH_FIELD_CLASS =
+  'w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2.5 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground'
 
 export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
   const [query, setQuery] = useState('')
@@ -28,10 +32,10 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Country, planet, moon, or topic"
-        aria-label="Search field guides"
+        placeholder="Country, planet, moon, topic, or essay"
+        aria-label="Search the catalog"
         autoComplete="off"
-        className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2.5 text-base text-foreground outline-none"
+        className={SEARCH_FIELD_CLASS}
       />
       {query.trim() ? (
         matches.length > 0 ? (

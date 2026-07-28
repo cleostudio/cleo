@@ -40,20 +40,34 @@ const MIME: Record<string, string> = {
   webp: 'image/webp',
 }
 
+/** Resolve a public `/content/...` or `/images/...` URL to an on-disk asset. */
+export function resolveOgAssetPath(publicSrc: string): string {
+  if (publicSrc.startsWith('/content/')) {
+    const relativePath = publicSrc.slice('/content/'.length)
+    if (!relativePath || relativePath.split('/').includes('..')) {
+      throw new Error('Invalid OG cover path')
+    }
+    // cover.src is the public /content/... URL; the file lives in content/
+    return path.join(process.cwd(), 'content', relativePath)
+  }
+
+  if (publicSrc.startsWith('/images/')) {
+    const relativePath = publicSrc.slice('/images/'.length)
+    if (!relativePath || relativePath.split('/').includes('..')) {
+      throw new Error('Invalid OG cover path')
+    }
+    // Curated atlas/space JPEGs are static files under public/images/
+    return path.join(process.cwd(), 'public', 'images', relativePath)
+  }
+
+  throw new Error('Invalid OG cover path')
+}
+
 export async function coverDataUri(publicSrc: string): Promise<string> {
   'use cache'
   cacheLife('max')
 
-  // cover.src is the public /content/... URL; the file lives in content/
-  const relativePath = publicSrc.startsWith('/content/')
-    ? publicSrc.slice('/content/'.length)
-    : null
-
-  if (!relativePath || relativePath.split('/').includes('..')) {
-    throw new Error('Invalid OG cover path')
-  }
-
-  const file = path.join(process.cwd(), 'content', relativePath)
+  const file = resolveOgAssetPath(publicSrc)
   const ext = (file.split('.').pop() ?? 'png').toLowerCase()
   const data = await readFile(file)
   return `data:${MIME[ext] ?? 'image/png'};base64,${data.toString('base64')}`

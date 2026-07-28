@@ -10,7 +10,9 @@ export function SiteChrome({
 }) {
   return (
     <div className="site-chrome flex min-h-screen flex-col pb-20">
-      <main className="site-chrome-main flex-1 pt-14">{children}</main>
+      <main id="main-content" className="site-chrome-main flex-1 pt-14" tabIndex={-1}>
+        {children}
+      </main>
       {footer}
     </div>
   )

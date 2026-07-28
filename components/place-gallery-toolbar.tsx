@@ -39,7 +39,7 @@ export function PlaceGalleryToolbar() {
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Country, place, or space body"
         aria-label="Search photographs"
-        className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none"
+        className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground"
       />
     </div>
   )

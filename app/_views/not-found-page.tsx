@@ -2,6 +2,7 @@ import { GeistPixelCircle, GeistPixelSquare } from 'geist/font/pixel'
 
 import { Barcode } from '~/components/barcode'
 import { ErrorHomeAction } from '~/components/error-home-action'
+import { ErrorRecoveryLinks } from '~/components/error-recovery-links'
 import { T } from '~/lib/i18n'
 
 export function NotFoundPageView() {
@@ -51,6 +52,7 @@ export function NotFoundPageView() {
             <T zh="错误恢复" en="Error recovery" />
           </span>
           <ErrorHomeAction />
+          <ErrorRecoveryLinks />
         </nav>
 
         <Barcode code="ERR-404-CLEO" className="error-barcode" />
