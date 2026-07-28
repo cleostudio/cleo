@@ -2,29 +2,29 @@
 
 import { useEffect, useId, useRef, useState } from 'react'
 
-import type { GalleryCollection } from '~/lib/gallery'
-import { readQueryParam, replaceQueryParam } from '~/lib/url-query'
-
-type CollectionFilter = 'all' | GalleryCollection
+import type { GalleryCollectionFilter } from '~/lib/gallery-filters'
+import { replaceQueryParam } from '~/lib/url-query'
 
 const SEARCH_FIELD_CLASS =
   'w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground'
 
-function parseCollection(value: string): CollectionFilter {
-  if (value === 'places' || value === 'space') return value
-  return 'all'
-}
-
-export function PlaceGalleryToolbar() {
+export function PlaceGalleryToolbar({
+  initialQuery = '',
+  initialCollection = 'all',
+}: {
+  initialQuery?: string
+  initialCollection?: GalleryCollectionFilter
+}) {
   const searchId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
-  const [query, setQuery] = useState('')
-  const [collection, setCollection] = useState<CollectionFilter>('all')
+  const [query, setQuery] = useState(initialQuery)
+  const [collection, setCollection] =
+    useState<GalleryCollectionFilter>(initialCollection)
 
   useEffect(() => {
-    setQuery(readQueryParam('q'))
-    setCollection(parseCollection(readQueryParam('collection')))
-  }, [])
+    setQuery(initialQuery)
+    setCollection(initialCollection)
+  }, [initialCollection, initialQuery])
 
   useEffect(() => {
     replaceQueryParam('q', query)

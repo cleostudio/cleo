@@ -4,14 +4,26 @@ import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PlaceGalleryToolbar } from '~/components/place-gallery-toolbar'
 import { ZoomImage } from '~/components/zoom-image'
 import type { GalleryItem } from '~/lib/gallery'
+import type { GalleryCollectionFilter } from '~/lib/gallery-filters'
 import { staticRendition } from '~/lib/static-photo'
 
 const LOADING_ASPECT_RATIOS = ['4 / 3', '3 / 4', '1 / 1', '3 / 4', '4 / 3', '1 / 1']
 
-export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
+export function PlaceGallery({
+  entries,
+  initialQuery = '',
+  initialCollection = 'all',
+}: {
+  entries: GalleryItem[]
+  initialQuery?: string
+  initialCollection?: GalleryCollectionFilter
+}) {
   return (
     <div className="place-gallery" data-place-gallery>
-      <PlaceGalleryToolbar />
+      <PlaceGalleryToolbar
+        initialQuery={initialQuery}
+        initialCollection={initialCollection}
+      />
 
       <ul className="photo-masonry">
         {entries.map((entry) => (

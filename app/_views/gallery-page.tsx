@@ -1,6 +1,10 @@
 import { PlaceGallery } from '~/components/place-gallery'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { allGalleryItems, galleryDescription } from '~/lib/gallery'
+import {
+  parseGalleryCollection,
+  parseGalleryQuery,
+} from '~/lib/gallery-filters'
 import { T } from '~/lib/i18n'
 import { localeMetadata } from '~/lib/locale-metadata'
 import { publicPageMetadata } from '~/lib/public-page-metadata'
@@ -19,9 +23,15 @@ export function galleryPageMetadata() {
  * Instant Navigation paints the real toolbar + tiles on first click —
  * a placeholder masonry was what made dock arrivals feel shaky.
  */
-export function GalleryPageView() {
+export function GalleryPageView({
+  searchParams,
+}: {
+  searchParams?: Record<string, string | string[] | undefined>
+}) {
   const entries = allGalleryItems()
   const introduction = galleryDescription(entries.length)
+  const initialQuery = parseGalleryQuery(searchParams?.q)
+  const initialCollection = parseGalleryCollection(searchParams?.collection)
 
   return (
     <div className="mx-auto w-full max-w-content px-6">
@@ -36,7 +46,11 @@ export function GalleryPageView() {
       </div>
 
       <div className="mt-4">
-        <PlaceGallery entries={entries} />
+        <PlaceGallery
+          entries={entries}
+          initialQuery={initialQuery}
+          initialCollection={initialCollection}
+        />
       </div>
     </div>
   )

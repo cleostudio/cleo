@@ -215,9 +215,10 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         </Link>
       </p>
       <p className="enter mt-3" style={{ '--enter-delay': '185ms' } as React.CSSProperties}>
-        <Link href={galleryHref} className={guideLinkClass}>
+        {/* Plain anchor so Instant Navigation cannot drop the filter query. */}
+        <a href={galleryHref} className={guideLinkClass}>
           Browse the gallery →
-        </Link>
+        </a>
       </p>
       <nav
         className="enter mt-6 mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground"

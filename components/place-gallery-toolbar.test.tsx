@@ -14,7 +14,7 @@ describe('PlaceGalleryToolbar', () => {
   it('filters server-rendered gallery items by search without remounting the masonry', () => {
     render(
       <div data-place-gallery>
-        <PlaceGalleryToolbar />
+        <PlaceGalleryToolbar initialQuery="" initialCollection="all" />
         <ul>
           <li
             data-gallery-item
