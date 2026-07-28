@@ -1,8 +1,9 @@
 /**
  * Assembles the lean homepage search catalog from Explore, Space, Topics, Maps,
- * and portal surfaces. Import from Server Components only.
+ * Writing, and portal surfaces. Import from Server Components only.
  */
 
+import { getAllPosts } from '~/lib/content'
 import { countries } from '~/lib/countries'
 import { MAP_REGION_IDS, mapCountryHref, mapRegionHref } from '~/lib/maps'
 import { loadMapCountryIndex } from '~/lib/maps-index'
@@ -53,19 +54,52 @@ function haystack(...parts: string[]): string {
 }
 
 function exploreHits(): SiteSearchHit[] {
-  return countries.map((country) => ({
-    id: `explore:${country.slug}`,
-    kind: 'explore',
-    title: country.name,
-    subtitle: `${country.code} · ${country.region}`,
-    href: `/explore/${country.slug}`,
+  const index = loadMapCountryIndex()
+  const capitalByCode = new Map(
+    index.countries
+      .filter((entry) => entry.capitalName)
+      .map((entry) => [entry.code, entry.capitalName!] as const),
+  )
+
+  return countries.map((country) => {
+    const capital = capitalByCode.get(country.code) ?? ''
+    return {
+      id: `explore:${country.slug}`,
+      kind: 'explore' as const,
+      title: country.name,
+      subtitle: capital
+        ? `${country.code} · ${country.region} · ${capital}`
+        : `${country.code} · ${country.region}`,
+      href: `/explore/${country.slug}`,
+      searchText: haystack(
+        country.name,
+        country.code,
+        country.region,
+        country.subregion,
+        capital,
+        'country',
+        'explore',
+        'capital',
+      ),
+    }
+  })
+}
+
+function writingHits(): SiteSearchHit[] {
+  return getAllPosts().map((post) => ({
+    id: `writing:${post.slug}`,
+    kind: 'writing' as const,
+    title: post.titleEn || post.title,
+    subtitle: 'Writing',
+    href: `/blog/${post.slug}`,
     searchText: haystack(
-      country.name,
-      country.code,
-      country.region,
-      country.subregion,
-      'country',
-      'explore',
+      post.title,
+      post.titleEn,
+      post.slug,
+      post.descriptionEn ?? post.description ?? '',
+      'writing',
+      'essay',
+      'blog',
     ),
   }))
 }
@@ -186,8 +220,9 @@ export function buildSiteSearchHits(): SiteSearchHit[] {
   return [
     ...topicHits(),
     ...exploreHits(),
-    ...mapsHits(),
     ...spaceHits(),
+    ...writingHits(),
+    ...mapsHits(),
     ...surfaceHits(),
   ]
 }

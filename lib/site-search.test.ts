@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
+import { getAllPosts } from './content'
 import { countries } from './countries'
 import { loadMapCountryIndex } from './maps-index'
 import { spaceSubjects } from './space'
@@ -11,11 +12,12 @@ describe('site search catalog', () => {
   const hits = buildSiteSearchHits()
   const mapIndex = loadMapCountryIndex()
   const territoryCount = mapIndex.countries.filter((entry) => !entry.slug).length
+  const posts = getAllPosts()
 
-  it('indexes topic collections, country guides, Maps deep links, space guides, and portal surfaces', () => {
+  it('indexes topic collections, country guides, Maps deep links, space guides, writing, and portal surfaces', () => {
     const kinds = new Set(hits.map((hit) => hit.kind))
     expect(kinds).toEqual(
-      new Set(['topic', 'explore', 'maps', 'space', 'surface']),
+      new Set(['topic', 'explore', 'maps', 'space', 'writing', 'surface']),
     )
 
     expect(hits.filter((hit) => hit.kind === 'explore')).toHaveLength(countries.length)
@@ -23,6 +25,7 @@ describe('site search catalog', () => {
       countries.length + 5 + territoryCount,
     )
     expect(hits.filter((hit) => hit.kind === 'space')).toHaveLength(spaceSubjects.length)
+    expect(hits.filter((hit) => hit.kind === 'writing')).toHaveLength(posts.length)
     expect(hits.filter((hit) => hit.kind === 'topic')).toHaveLength(allTopics().length)
     expect(hits.some((hit) => hit.href === '/maps')).toBe(true)
     expect(hits.some((hit) => hit.href === '/maps?region=africa')).toBe(true)
@@ -75,6 +78,28 @@ describe('site search catalog', () => {
     const mapsIndex = japan.findIndex((hit) => hit.kind === 'maps')
     expect(exploreIndex).toBeGreaterThanOrEqual(0)
     expect(mapsIndex).toBeGreaterThan(exploreIndex)
+  })
+
+  it('finds Explore guides by capital as well as Maps deep links', () => {
+    const tokyo = filterSiteSearchHits(hits, 'tokyo')
+    expect(tokyo[0]).toMatchObject({
+      kind: 'explore',
+      href: '/explore/japan',
+    })
+    expect(tokyo.some((hit) => hit.href === '/maps?country=japan')).toBe(true)
+  })
+
+  it('finds Writing posts by title and slug', () => {
+    const first = posts[0]
+    expect(first).toBeTruthy()
+    const bySlug = filterSiteSearchHits(hits, first!.slug)
+    expect(
+      bySlug.some((hit) => hit.kind === 'writing' && hit.href === `/blog/${first!.slug}`),
+    ).toBe(true)
+    const byTitle = filterSiteSearchHits(hits, first!.titleEn || first!.title)
+    expect(
+      byTitle.some((hit) => hit.kind === 'writing' && hit.href === `/blog/${first!.slug}`),
+    ).toBe(true)
   })
 
   it('finds continent cameras on Maps', () => {

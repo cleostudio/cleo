@@ -135,7 +135,7 @@ export function HomeIntroduction() {
         <T
           zh={
             <>
-              Cleo 是一座中立的知识门户：从国家开始，再延展到更多主题。每个条目都以
+              Cleo 是一座中立的知识门户：从国家、互动地球地图与太空导览开始。每个条目都以
               <DesignEngineerPhrase>设计工程师</DesignEngineerPhrase>
               的方式打磨，并坚持把细节做到
               <DetailsPhrase>
@@ -150,9 +150,10 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Cleo is a neutral knowledge portal — starting with countries, then expanding into more
-              topics. Every guide is shaped with <DesignEngineerPhrase>design engineer</DesignEngineerPhrase>{' '}
-              care, and a love of getting the{' '}
+              Cleo is a neutral knowledge portal — countries, an interactive Earth map, and space
+              field guides to start. Every guide is shaped with{' '}
+              <DesignEngineerPhrase>design engineer</DesignEngineerPhrase> care, and a love of
+              getting the{' '}
               <DetailsPhrase>
                 <span className="home-detail-units home-detail-words">
                   <span className="home-detail-unit">details</span>{' '}
@@ -167,8 +168,8 @@ export function HomeIntroduction() {
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         <T
-          zh="常青的国家导览、精选地点照片，以及可检索的主题目录。没有签证、安全或价格这类易变建议——只保留可靠的方向感。"
-          en="Evergreen country primers, curated place photographs, and a searchable topic catalog. No visas, safety bulletins, or prices — just durable orientation."
+          zh="常青的国家与太空导览、互动地球地图、精选照片，以及可检索的主题目录。没有签证、安全或价格这类易变建议——只保留可靠的方向感。"
+          en="Evergreen country and space primers, an interactive Earth map, curated photographs, and a searchable topic catalog. No visas, safety bulletins, or prices — just durable orientation."
         />
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -176,12 +177,16 @@ export function HomeIntroduction() {
           zh={
             <>
               从{' '}
-              <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
-                主题
-              </Link>
-              、
               <Link href="/explore" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 探索
+              </Link>
+              、
+              <Link href="/maps" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                地图
+              </Link>
+              、
+              <Link href="/space" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                太空
               </Link>
               {' '}或{' '}
               <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">
@@ -193,12 +198,16 @@ export function HomeIntroduction() {
           en={
             <>
               Begin with{' '}
-              <Link href="/topics" className="home-contact-link text-foreground underline-offset-2 hover:underline">
-                Topics
-              </Link>
-              ,{' '}
               <Link href="/explore" className="home-contact-link text-foreground underline-offset-2 hover:underline">
                 Explore
+              </Link>
+              ,{' '}
+              <Link href="/maps" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                Maps
+              </Link>
+              ,{' '}
+              <Link href="/space" className="home-contact-link text-foreground underline-offset-2 hover:underline">
+                Space
               </Link>
               , or{' '}
               <Link href="/cleo" className="home-contact-link text-foreground underline-offset-2 hover:underline">

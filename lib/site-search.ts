@@ -9,6 +9,7 @@ export type SiteSearchKind =
   | 'space'
   | 'topic'
   | 'maps'
+  | 'writing'
   | 'surface'
 
 export interface SiteSearchHit {
@@ -27,8 +28,9 @@ const KIND_RANK: Record<SiteSearchKind, number> = {
   topic: 0,
   explore: 1,
   space: 2,
-  maps: 3,
-  surface: 4,
+  writing: 3,
+  maps: 4,
+  surface: 5,
 }
 
 function matchRank(hit: SiteSearchHit, q: string): number {

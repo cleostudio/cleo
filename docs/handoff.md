@@ -6,9 +6,10 @@ Current as of July 2026 (Cleo fork).
 
 English-only general-knowledge portal with:
 
-- Homepage: unified topic search (countries, space, collections, portal
-  surfaces), highlighted places, topic discovery, recent Writing posts (no
-  personal contact / music / books / photo-wall sections)
+- Homepage: unified topic search (countries + capitals → Explore, space,
+  Writing essays, Maps deep links, collections, portal surfaces),
+  highlighted places, topic discovery, recent Writing posts (no personal
+  contact / music / books / photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
   country field guides, interactive Earth Maps, Space field guides, Topics
   catalog (countries, maps, and space first; more topics later)
@@ -31,18 +32,19 @@ document (enable both products in the Vercel project dashboard).
   country/continent labels via vendored MapLibre glyphs; Admin-0 capital markers
   (clickable hit pads, selected capital stays visible when Labels are off);
   curated region/capital metadata for no-guide territories; homepage search
-  finds territories and capitals; dossier Fit country / Show capital, Nearby
-  and region Place chips, idle starters, hover nameplate, richer search rows,
-  Escape→map then clear, Enter selects center, Share view/place with camera
-  (deep links honor shared `#zoom/lat/lng`), Fit region / Share region,
-  territory→region jump, mobile dossier height budget, recovery for bad
-  links, Maps OG + sitemap deep links, Gallery↔Maps Photos / View on map
-  round-trips (`/gallery?q=`), dossier ZoomImage + Escape nesting (incl.
-  dock G-chord), region dossiers with photo/Photos, Explore/Space
-  end-matter Map·Photos·All…, Space index Earth-on-map, homepage
-  Maps+Space CTAs, dock Space (`G` then `S`), footer Index Maps/Space,
-  Cleo Earth↔Maps starter, and “Back to map” focus; Back/`hashchange`
-  restore camera hash;
+  finds territories, capitals (Explore ahead of Maps), and Writing; dossier
+  Fit country / Show capital, Nearby and region Place chips, idle starters,
+  hover nameplate, richer search rows, Escape→map then clear, Enter selects
+  center, Share view/place with camera (deep links honor shared
+  `#zoom/lat/lng`), Fit region / Share region, territory→region jump, mobile
+  dossier height budget, recovery for bad links, Maps OG + sitemap deep
+  links, Gallery↔Maps Photos / View on map round-trips (`/gallery?q=`),
+  dossier ZoomImage + Escape nesting (incl. dock G-chord), region dossiers
+  with photo/Photos, Explore/Space end-matter Map·Photos·All…, Space index
+  Earth row “View on map”, homepage Maps+Space CTAs + intro links, dock
+  Space (`G` then `S`), footer Index Maps/Space, lean Cleo portal starters
+  (incl. Earth↔Maps), and “Back to map” focus; Back/`hashchange` restore
+  camera hash;
   Borders/Labels/ Graticule toggles with shareable layer query flags;
   `#zoom/lat/lng` camera hash + Share view; Back/Forward for country/region
   focus (pushState); capital-aware search + selection dossier; deep-link

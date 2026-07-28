@@ -13,6 +13,7 @@ const KIND_LABEL: Record<SiteSearchKind, string> = {
   explore: 'Country',
   space: 'Space',
   topic: 'Topic',
+  writing: 'Writing',
   maps: 'Maps',
   surface: 'Portal',
 }
@@ -29,8 +30,8 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Country, planet, moon, topic, or map"
-        aria-label="Search field guides and maps"
+        placeholder="Country, capital, planet, essay, topic, or map"
+        aria-label="Search field guides, writing, and maps"
         autoComplete="off"
         className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2.5 text-base text-foreground outline-none"
       />

@@ -41,25 +41,15 @@ export function SpacePageView() {
 
           return (
             <section key={category} aria-labelledby={`space-${category}`}>
-              <div className="enter flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                <h2
-                  id={`space-${category}`}
-                  className="text-sm font-medium text-muted-foreground"
-                >
-                  {category}
-                  <span className="ml-2 tabular-nums text-muted-foreground/70">
-                    {subjects.length}
-                  </span>
-                </h2>
-                {category === 'Solar System' ? (
-                  <Link
-                    href="/maps"
-                    className="text-xs text-muted-foreground hover:text-foreground"
-                  >
-                    Earth on the map →
-                  </Link>
-                ) : null}
-              </div>
+              <h2
+                id={`space-${category}`}
+                className="enter text-sm font-medium text-muted-foreground"
+              >
+                {category}
+                <span className="ml-2 tabular-nums text-muted-foreground/70">
+                  {subjects.length}
+                </span>
+              </h2>
               <ul className="focus-list mt-2 flex flex-col">
                 {subjects.map((subject, index) => (
                   <li
@@ -83,6 +73,16 @@ export function SpacePageView() {
                         {subject.facts.kind}
                       </span>
                     </Link>
+                    {subject.slug === 'earth' ? (
+                      <p className="mt-1 px-0.5 pb-2">
+                        <Link
+                          href="/maps"
+                          className="relative text-xs text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-1.5 after:-inset-y-2 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2"
+                        >
+                          View on map →
+                        </Link>
+                      </p>
+                    ) : null}
                   </li>
                 ))}
               </ul>

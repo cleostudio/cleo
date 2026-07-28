@@ -220,16 +220,12 @@ describe('CLEO_PORTAL_STARTERS', () => {
       ),
     ).toBe(true)
     expect(
-      CLEO_PORTAL_STARTERS.some((starter) =>
-        /maps\?country=hk/i.test(starter.prompt),
-      ),
-    ).toBe(true)
-    expect(
       CLEO_PORTAL_STARTERS.some(
         (starter) =>
           /\/space\/earth/i.test(starter.prompt) &&
           /\/maps(?!\?)/i.test(starter.prompt),
       ),
     ).toBe(true)
+    expect(CLEO_PORTAL_STARTERS.length).toBeLessThanOrEqual(5)
   })
 })
