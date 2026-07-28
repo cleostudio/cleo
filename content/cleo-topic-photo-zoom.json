@@ -18503,6 +18503,774 @@
       }
     ]
   },
+  "places/des-moines": {
+    "collection": "places",
+    "title": "Des Moines",
+    "subtitle": "Des Moines",
+    "alt": "Des Moines in United States",
+    "photographer": "NASA Astronaut",
+    "license": "Public domain",
+    "width": 3032,
+    "height": 2008,
+    "renditions": [
+      {
+        "src": "/images/places/des-moines/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/des-moines/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/des-moines/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/knoxville": {
+    "collection": "places",
+    "title": "Knoxville",
+    "subtitle": "Knoxville",
+    "alt": "Knoxville in United States",
+    "photographer": "Antony-22",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/knoxville/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/knoxville/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/knoxville/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mesa": {
+    "collection": "places",
+    "title": "Mesa",
+    "subtitle": "Mesa",
+    "alt": "Mesa in United States",
+    "photographer": "Ixnayonthetimmay",
+    "license": "CC BY 3.0",
+    "width": 2600,
+    "height": 1574,
+    "renditions": [
+      {
+        "src": "/images/places/mesa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mesa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mesa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cincinnati": {
+    "collection": "places",
+    "title": "Cincinnati",
+    "subtitle": "Cincinnati",
+    "alt": "Cincinnati in United States",
+    "photographer": "w_lemay",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/cincinnati/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cincinnati/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cincinnati/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/london-ontario": {
+    "collection": "places",
+    "title": "London",
+    "subtitle": "London",
+    "alt": "London in Canada",
+    "photographer": "Gogerr",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/london-ontario/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/london-ontario/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/london-ontario/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/liverpool": {
+    "collection": "places",
+    "title": "Liverpool",
+    "subtitle": "Liverpool",
+    "alt": "Liverpool in United Kingdom",
+    "photographer": "Beverley Goodwin",
+    "license": "CC BY 2.0",
+    "width": 3245,
+    "height": 2162,
+    "renditions": [
+      {
+        "src": "/images/places/liverpool/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/liverpool/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/liverpool/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/novi-sad": {
+    "collection": "places",
+    "title": "Novi Sad",
+    "subtitle": "Novi Sad",
+    "alt": "Novi Sad in Serbia",
+    "photographer": "Zeljko511",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/novi-sad/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/novi-sad/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/novi-sad/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lviv": {
+    "collection": "places",
+    "title": "Lviv",
+    "subtitle": "Lviv",
+    "alt": "Lviv in Ukraine",
+    "photographer": "Lestat (Jan Mehlich)",
+    "license": "CC BY-SA 3.0",
+    "width": 3782,
+    "height": 2338,
+    "renditions": [
+      {
+        "src": "/images/places/lviv/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lviv/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lviv/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/gdansk": {
+    "collection": "places",
+    "title": "Gdańsk",
+    "subtitle": "Gdańsk",
+    "alt": "Gdańsk in Poland",
+    "photographer": "Gerda Arendt",
+    "license": "CC0",
+    "width": 3720,
+    "height": 2790,
+    "renditions": [
+      {
+        "src": "/images/places/gdansk/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/gdansk/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/gdansk/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bergen": {
+    "collection": "places",
+    "title": "Bergen",
+    "subtitle": "Bergen",
+    "alt": "Bergen in Norway",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 889,
+    "renditions": [
+      {
+        "src": "/images/places/bergen/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bergen/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bergen/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/adelaide": {
+    "collection": "places",
+    "title": "Adelaide",
+    "subtitle": "Adelaide",
+    "alt": "Adelaide in Australia",
+    "photographer": "Pavel Špindler",
+    "license": "CC BY 3.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/adelaide/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/adelaide/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/adelaide/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/genoa": {
+    "collection": "places",
+    "title": "Genoa",
+    "subtitle": "Genoa",
+    "alt": "Genoa in Italy",
+    "photographer": "Tagooty",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/genoa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/genoa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/genoa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/arkansas": {
+    "collection": "places",
+    "title": "Arkansas",
+    "subtitle": "Arkansas",
+    "alt": "Arkansas in United States",
+    "photographer": "Daniel Schwen",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1542,
+    "renditions": [
+      {
+        "src": "/images/places/arkansas/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/arkansas/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/arkansas/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mississippi": {
+    "collection": "places",
+    "title": "Mississippi",
+    "subtitle": "Mississippi",
+    "alt": "Mississippi in United States",
+    "photographer": "Renelibrary",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1669,
+    "renditions": [
+      {
+        "src": "/images/places/mississippi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mississippi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mississippi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/alabama": {
+    "collection": "places",
+    "title": "Alabama",
+    "subtitle": "Alabama",
+    "alt": "Alabama in United States",
+    "photographer": "Thomson200",
+    "license": "CC0",
+    "width": 3456,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/places/alabama/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/alabama/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/alabama/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/muck": {
+    "collection": "places",
+    "title": "Muck",
+    "subtitle": "Muck",
+    "alt": "Muck in United Kingdom",
+    "photographer": "Alan Reid",
+    "license": "CC BY-SA 2.0",
+    "width": 1600,
+    "height": 1067,
+    "renditions": [
+      {
+        "src": "/images/places/muck/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/muck/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/muck/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/sikinos": {
+    "collection": "places",
+    "title": "Sikinos",
+    "subtitle": "Sikinos",
+    "alt": "Sikinos in Greece",
+    "photographer": "Zde",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2555,
+    "renditions": [
+      {
+        "src": "/images/places/sikinos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sikinos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sikinos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kythnos": {
+    "collection": "places",
+    "title": "Kythnos",
+    "subtitle": "Kythnos",
+    "alt": "Kythnos in Greece",
+    "photographer": "DNK GR",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/kythnos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kythnos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kythnos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bute": {
+    "collection": "places",
+    "title": "Isle of Bute",
+    "subtitle": "Isle of Bute",
+    "alt": "Isle of Bute in United Kingdom",
+    "photographer": "DeFacto",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2275,
+    "renditions": [
+      {
+        "src": "/images/places/bute/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bute/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bute/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/coll": {
+    "collection": "places",
+    "title": "Coll",
+    "subtitle": "Coll",
+    "alt": "Coll in United Kingdom",
+    "photographer": "Toby Thurston Thruston 10:32, 22 December 2005 (UTC)",
+    "license": "Public domain",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/coll/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/coll/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/coll/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/spetses": {
+    "collection": "places",
+    "title": "Spetses",
+    "subtitle": "Spetses",
+    "alt": "Spetses in Greece",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2558,
+    "renditions": [
+      {
+        "src": "/images/places/spetses/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/spetses/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/spetses/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/marche": {
+    "collection": "places",
+    "title": "Marche",
+    "subtitle": "Marche",
+    "alt": "Marche in Italy",
+    "photographer": "Terragio67",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 3258,
+    "renditions": [
+      {
+        "src": "/images/places/marche/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/marche/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/marche/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/friuli": {
+    "collection": "places",
+    "title": "Friuli-Venezia Giulia",
+    "subtitle": "Friuli",
+    "alt": "Friuli-Venezia Giulia in Italy",
+    "photographer": "Mænsard vokser",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/friuli/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/friuli/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/friuli/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/aragon": {
+    "collection": "places",
+    "title": "Aragon",
+    "subtitle": "Aragon",
+    "alt": "Aragon in Spain",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/places/aragon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/aragon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/aragon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/murcia": {
+    "collection": "places",
+    "title": "Region of Murcia",
+    "subtitle": "Murcia",
+    "alt": "Region of Murcia in Spain",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1669,
+    "renditions": [
+      {
+        "src": "/images/places/murcia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/murcia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/murcia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/saxony": {
+    "collection": "places",
+    "title": "Saxony",
+    "subtitle": "Saxony",
+    "alt": "Saxony in Germany",
+    "photographer": "Kalispera Dell",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/saxony/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/saxony/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/saxony/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kiyomizu-dera": {
+    "collection": "places",
+    "title": "Kiyomizu-dera",
+    "subtitle": "Kiyomizu-dera",
+    "alt": "Kiyomizu-dera in Japan",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2363,
+    "renditions": [
+      {
+        "src": "/images/places/kiyomizu-dera/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kiyomizu-dera/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kiyomizu-dera/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/senso-ji": {
+    "collection": "places",
+    "title": "Sensō-ji",
+    "subtitle": "Sensō-ji",
+    "alt": "Sensō-ji in Japan",
+    "photographer": "Redd Angelo reddangelo16",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/senso-ji/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/senso-ji/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/senso-ji/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/golden-pavilion": {
+    "collection": "places",
+    "title": "Golden Pavilion",
+    "subtitle": "Golden Pavilion",
+    "alt": "Golden Pavilion in Japan",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 3343,
+    "height": 4457,
+    "renditions": [
+      {
+        "src": "/images/places/golden-pavilion/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/golden-pavilion/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/golden-pavilion/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/empire-state": {
+    "collection": "places",
+    "title": "Empire State Building",
+    "subtitle": "Empire State Building",
+    "alt": "Empire State Building in United States",
+    "photographer": "Dllu",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2885,
+    "renditions": [
+      {
+        "src": "/images/places/empire-state/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/empire-state/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/empire-state/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mezquita": {
+    "collection": "places",
+    "title": "Mezquita",
+    "subtitle": "Mezquita",
+    "alt": "Mezquita in Spain",
+    "photographer": "Benjamin Smith",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2562,
+    "renditions": [
+      {
+        "src": "/images/places/mezquita/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mezquita/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mezquita/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/alcazar-segovia": {
+    "collection": "places",
+    "title": "Alcázar of Segovia",
+    "subtitle": "Alcázar of Segovia",
+    "alt": "Alcázar of Segovia in Spain",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "width": 2516,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/places/alcazar-segovia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/alcazar-segovia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/alcazar-segovia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

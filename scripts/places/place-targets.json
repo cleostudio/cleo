@@ -6258,5 +6258,357 @@
       "Parc Guell Barcelona",
       "Park Guell"
     ]
+  },
+  "des-moines": {
+    "name": "Des Moines",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Des Moines",
+      "Des Moines United States",
+      "Des Moines city"
+    ]
+  },
+  "knoxville": {
+    "name": "Knoxville",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Knoxville",
+      "Knoxville United States",
+      "Knoxville city"
+    ]
+  },
+  "mesa": {
+    "name": "Mesa",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Mesa",
+      "Mesa United States",
+      "Mesa city"
+    ]
+  },
+  "cincinnati": {
+    "name": "Cincinnati",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Cincinnati",
+      "Cincinnati United States",
+      "Cincinnati city"
+    ]
+  },
+  "london-ontario": {
+    "name": "London",
+    "countrySlug": "canada",
+    "countryName": "Canada",
+    "kind": "City",
+    "searchNames": [
+      "London Ontario",
+      "London Canada",
+      "Forks of the Thames"
+    ]
+  },
+  "liverpool": {
+    "name": "Liverpool",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Liverpool",
+      "Liverpool United Kingdom",
+      "Liverpool city"
+    ]
+  },
+  "novi-sad": {
+    "name": "Novi Sad",
+    "countrySlug": "serbia",
+    "countryName": "Serbia",
+    "kind": "City",
+    "searchNames": [
+      "Novi Sad",
+      "Novi Sad Serbia",
+      "Novi Sad city"
+    ]
+  },
+  "lviv": {
+    "name": "Lviv",
+    "countrySlug": "ukraine",
+    "countryName": "Ukraine",
+    "kind": "City",
+    "searchNames": [
+      "Lviv",
+      "Lviv Ukraine",
+      "Lviv city"
+    ]
+  },
+  "gdansk": {
+    "name": "Gdańsk",
+    "countrySlug": "poland",
+    "countryName": "Poland",
+    "kind": "City",
+    "searchNames": [
+      "Gdańsk",
+      "Gdansk Poland",
+      "Danzig"
+    ]
+  },
+  "bergen": {
+    "name": "Bergen",
+    "countrySlug": "norway",
+    "countryName": "Norway",
+    "kind": "City",
+    "searchNames": [
+      "Bergen",
+      "Bergen Norway",
+      "Bergen city"
+    ]
+  },
+  "adelaide": {
+    "name": "Adelaide",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "City",
+    "searchNames": [
+      "Adelaide",
+      "Adelaide Australia",
+      "Adelaide city"
+    ]
+  },
+  "genoa": {
+    "name": "Genoa",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Genoa",
+      "Genova Italy",
+      "Genoa harbor"
+    ]
+  },
+  "arkansas": {
+    "name": "Arkansas",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Arkansas",
+      "Arkansas landscape",
+      "Arkansas United States"
+    ]
+  },
+  "mississippi": {
+    "name": "Mississippi",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Mississippi",
+      "Mississippi state",
+      "Mississippi Delta"
+    ]
+  },
+  "alabama": {
+    "name": "Alabama",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Alabama",
+      "Alabama landscape",
+      "Alabama United States"
+    ]
+  },
+  "muck": {
+    "name": "Muck",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Muck",
+      "Muck island",
+      "Muck United Kingdom"
+    ]
+  },
+  "sikinos": {
+    "name": "Sikinos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Sikinos",
+      "Sikinos island",
+      "Sikinos Greece"
+    ]
+  },
+  "kythnos": {
+    "name": "Kythnos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Kythnos",
+      "Kythnos island",
+      "Kythnos Greece"
+    ]
+  },
+  "bute": {
+    "name": "Isle of Bute",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Isle of Bute",
+      "Isle of Bute island",
+      "Isle of Bute United Kingdom"
+    ]
+  },
+  "coll": {
+    "name": "Coll",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Coll",
+      "Coll island",
+      "Coll United Kingdom"
+    ]
+  },
+  "spetses": {
+    "name": "Spetses",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Spetses",
+      "Spetses Greece",
+      "Spetsai"
+    ]
+  },
+  "marche": {
+    "name": "Marche",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Marche",
+      "Marche Italy",
+      "Marche landscape"
+    ]
+  },
+  "friuli": {
+    "name": "Friuli",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Friuli",
+      "Friuli-Venezia Giulia",
+      "Friuli Italy"
+    ]
+  },
+  "aragon": {
+    "name": "Aragon",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": [
+      "Aragon",
+      "Aragon Spain",
+      "Aragon landscape"
+    ]
+  },
+  "murcia": {
+    "name": "Murcia",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": [
+      "Region of Murcia",
+      "Murcia Spain",
+      "Mar Menor"
+    ]
+  },
+  "saxony": {
+    "name": "Saxony",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Saxony",
+      "Saxony Germany",
+      "Saxony landscape"
+    ]
+  },
+  "kiyomizu-dera": {
+    "name": "Kiyomizu-dera",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Landmark",
+    "searchNames": [
+      "Kiyomizu-dera",
+      "Kiyomizu Temple",
+      "Kiyomizu Kyoto"
+    ]
+  },
+  "senso-ji": {
+    "name": "Sensō-ji",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Landmark",
+    "searchNames": [
+      "Sensō-ji",
+      "Sensoji Asakusa",
+      "Asakusa Temple"
+    ]
+  },
+  "golden-pavilion": {
+    "name": "Golden Pavilion",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Landmark",
+    "searchNames": [
+      "Golden Pavilion",
+      "Kinkaku-ji",
+      "Kinkakuji Kyoto"
+    ]
+  },
+  "empire-state": {
+    "name": "Empire State Building",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Empire State Building",
+      "Empire State",
+      "Empire State NYC"
+    ]
+  },
+  "mezquita": {
+    "name": "Mezquita",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mezquita Córdoba",
+      "Mosque-Cathedral of Córdoba",
+      "Mezquita Cordoba"
+    ]
+  },
+  "alcazar-segovia": {
+    "name": "Alcázar of Segovia",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Landmark",
+    "searchNames": [
+      "Alcázar of Segovia",
+      "Alcazar of Segovia",
+      "Segovia castle"
+    ]
   }
 }

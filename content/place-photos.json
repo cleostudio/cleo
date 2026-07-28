@@ -16702,5 +16702,933 @@
         "bytes": 710716
       }
     ]
+  },
+  "des-moines": {
+    "featureName": "Des Moines",
+    "alt": "Des Moines in United States",
+    "caption": "Des Moines, United States",
+    "photographer": "NASA Astronaut",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Des_Moines_Iowa.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Des Moines Iowa.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e9/Des_Moines_Iowa.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4ce1657177bc0a3b77c4afbde47248d584695f6d67367e0c9c986dc135e17d71",
+    "width": 3032,
+    "height": 2008,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/des-moines/w640.jpg",
+        "bytes": 64848
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/des-moines/w1280.jpg",
+        "bytes": 241349
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/des-moines/w2048.jpg",
+        "bytes": 669506
+      }
+    ]
+  },
+  "knoxville": {
+    "featureName": "Knoxville",
+    "alt": "Knoxville in United States",
+    "caption": "Knoxville, United States",
+    "photographer": "Antony-22",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Knoxville_2025a.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown Knoxville 2025a.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/65/Downtown_Knoxville_2025a.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5b92fd0a61b52e19480cba566831df75430e06bbd2a740d9d1873efbe4dde707",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/knoxville/w640.jpg",
+        "bytes": 38525
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/knoxville/w1280.jpg",
+        "bytes": 148935
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/knoxville/w2048.jpg",
+        "bytes": 479148
+      }
+    ]
+  },
+  "mesa": {
+    "featureName": "Mesa",
+    "alt": "Mesa in United States",
+    "caption": "Mesa, United States",
+    "photographer": "Ixnayonthetimmay",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Mesa_Arizona.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Downtown Mesa Arizona.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0c/Downtown_Mesa_Arizona.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1dd7f56ad231a0f9b43b1d1d7700987c7403a09174ecf8d09ea7d153b9963af4",
+    "width": 2600,
+    "height": 1574,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mesa/w640.jpg",
+        "bytes": 40051
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mesa/w1280.jpg",
+        "bytes": 128125
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mesa/w2048.jpg",
+        "bytes": 327018
+      }
+    ]
+  },
+  "cincinnati": {
+    "featureName": "Cincinnati",
+    "alt": "Cincinnati in United States",
+    "caption": "Cincinnati, United States",
+    "photographer": "w_lemay",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cincinnati_Skyline_from_Roebling_Bridge,_Covington,_KY.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cincinnati Skyline from Roebling Bridge, Covington, KY.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/cc/Cincinnati_Skyline_from_Roebling_Bridge%2C_Covington%2C_KY.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1ec55a8259e6b8ebb2f1c037a1dc18f47b59fc48f031421d568704c0351b0336",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cincinnati/w640.jpg",
+        "bytes": 47060
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cincinnati/w1280.jpg",
+        "bytes": 167136
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cincinnati/w2048.jpg",
+        "bytes": 463237
+      }
+    ]
+  },
+  "london-ontario": {
+    "featureName": "London",
+    "alt": "London in Canada",
+    "caption": "London, Canada",
+    "photographer": "Gogerr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Downtown,_London,_Ontario_and_the_Thames_River.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:View of Downtown, London, Ontario and the Thames River.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/ff/View_of_Downtown%2C_London%2C_Ontario_and_the_Thames_River.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "558e2f447581cf9f97c3ee615d3d6ce73e746bbdc766e05222653d86ee30d917",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/london-ontario/w640.jpg",
+        "bytes": 47775
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/london-ontario/w1280.jpg",
+        "bytes": 171834
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/london-ontario/w2048.jpg",
+        "bytes": 496361
+      }
+    ]
+  },
+  "liverpool": {
+    "featureName": "Liverpool",
+    "alt": "Liverpool in United Kingdom",
+    "caption": "Liverpool, United Kingdom",
+    "photographer": "Beverley Goodwin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liverpool_Pier_Head_from_ALbert_Dock.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Liverpool Pier Head from ALbert Dock.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/01/Liverpool_Pier_Head_from_ALbert_Dock.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1185a1a3300749cf2e9d97341b615a865a318a4d8b57e93246635f9f7c35a172",
+    "width": 3245,
+    "height": 2162,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/liverpool/w640.jpg",
+        "bytes": 58460
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/liverpool/w1280.jpg",
+        "bytes": 196576
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/liverpool/w2048.jpg",
+        "bytes": 480591
+      }
+    ]
+  },
+  "novi-sad": {
+    "featureName": "Novi Sad",
+    "alt": "Novi Sad in Serbia",
+    "caption": "Novi Sad, Serbia",
+    "photographer": "Zeljko511",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Petrovaradin_Fortress_II,_Novi_Sad,_Serbia_14.09.2016.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Petrovaradin Fortress II, Novi Sad, Serbia 14.09.2016.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/08/Petrovaradin_Fortress_II%2C_Novi_Sad%2C_Serbia_14.09.2016.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "29076b5f56a54eea6947477c0653fcc55349cd274b889ddd2b27f68784d3a3b3",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/novi-sad/w640.jpg",
+        "bytes": 46585
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/novi-sad/w1280.jpg",
+        "bytes": 194811
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/novi-sad/w2048.jpg",
+        "bytes": 620419
+      }
+    ]
+  },
+  "lviv": {
+    "featureName": "Lviv",
+    "alt": "Lviv in Ukraine",
+    "caption": "Lviv, Ukraine",
+    "photographer": "Lestat (Jan Mehlich)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lw%C3%B3w_-_Widok_z_wie%C5%BCy_ratuszowej_01.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lwów - Widok z wieży ratuszowej 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/63/Lw%C3%B3w_-_Widok_z_wie%C5%BCy_ratuszowej_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d63aa5ca7eba0a80ea7738a155dd0ef04524151aa5982e015c1e540ae7b2a635",
+    "width": 3782,
+    "height": 2338,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lviv/w640.jpg",
+        "bytes": 61534
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lviv/w1280.jpg",
+        "bytes": 221010
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lviv/w2048.jpg",
+        "bytes": 593670
+      }
+    ]
+  },
+  "gdansk": {
+    "featureName": "Gdańsk",
+    "alt": "Gdańsk in Poland",
+    "caption": "Gdańsk, Poland",
+    "photographer": "Gerda Arendt",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Old_Town_houses_and_port_crane_along_Mot%C5%82awa,_Gda%C5%84sk.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Old Town houses and port crane along Motława, Gdańsk.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5e/Old_Town_houses_and_port_crane_along_Mot%C5%82awa%2C_Gda%C5%84sk.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9cc4d41b4af20cd72a3d899dd720355fefe2c0d6e25d0556b7b38f4a6a0b296b",
+    "width": 3720,
+    "height": 2790,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/gdansk/w640.jpg",
+        "bytes": 40894
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/gdansk/w1280.jpg",
+        "bytes": 128644
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/gdansk/w2048.jpg",
+        "bytes": 369056
+      }
+    ]
+  },
+  "bergen": {
+    "featureName": "Bergen",
+    "alt": "Bergen in Norway",
+    "caption": "Bergen, Norway",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vista_de_Bergen_desde_la_monta%C3%B1a_Fl%C3%B8yen,_Noruega,_2019-09-08,_DD_27-31_PAN.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vista de Bergen desde la montaña Fløyen, Noruega, 2019-09-08, DD 27-31 PAN.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d5/Vista_de_Bergen_desde_la_monta%C3%B1a_Fl%C3%B8yen%2C_Noruega%2C_2019-09-08%2C_DD_27-31_PAN.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "82fe036a576cdd640dfeb32b21172f6c8c8cea27c5be8084c515cde541a80881",
+    "width": 3840,
+    "height": 889,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bergen/w640.jpg",
+        "bytes": 25511
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bergen/w1280.jpg",
+        "bytes": 95121
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bergen/w2048.jpg",
+        "bytes": 292643
+      }
+    ]
+  },
+  "adelaide": {
+    "featureName": "Adelaide",
+    "alt": "Adelaide in Australia",
+    "caption": "Adelaide, Australia",
+    "photographer": "Pavel Špindler",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adelaide_-_Torrens_River_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Adelaide - Torrens River - panoramio.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ad/Adelaide_-_Torrens_River_-_panoramio.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "2e226066ed32703453177da022565fbf0b15ed94883cef991393315c4b509459",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/adelaide/w640.jpg",
+        "bytes": 60644
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/adelaide/w1280.jpg",
+        "bytes": 200181
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/adelaide/w2048.jpg",
+        "bytes": 527264
+      }
+    ]
+  },
+  "genoa": {
+    "featureName": "Genoa",
+    "alt": "Genoa in Italy",
+    "caption": "Genoa, Italy",
+    "photographer": "Tagooty",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Porta_Soprana_Exterior_Close_Genoa_Italy_Sep23_A7C_06588.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Porta Soprana Exterior Close Genoa Italy Sep23 A7C 06588.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/90/Porta_Soprana_Exterior_Close_Genoa_Italy_Sep23_A7C_06588.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "862296ba554d2e478ca7a2390ca29eb494caf38220407773856424f3769e3b0f",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/genoa/w640.jpg",
+        "bytes": 52726
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/genoa/w1280.jpg",
+        "bytes": 201887
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/genoa/w2048.jpg",
+        "bytes": 649821
+      }
+    ]
+  },
+  "arkansas": {
+    "featureName": "Arkansas",
+    "alt": "Arkansas in United States",
+    "caption": "Arkansas, United States",
+    "photographer": "Daniel Schwen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arkansas_State_Capitol.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Arkansas State Capitol.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/61/Arkansas_State_Capitol.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d024dbdda5c24c16c0cf4fe92854ba5f7f1324969a8cb68625a4bfca512a5fa0",
+    "width": 3840,
+    "height": 1542,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/arkansas/w640.jpg",
+        "bytes": 23883
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/arkansas/w1280.jpg",
+        "bytes": 80263
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/arkansas/w2048.jpg",
+        "bytes": 231361
+      }
+    ]
+  },
+  "mississippi": {
+    "featureName": "Mississippi",
+    "alt": "Mississippi in United States",
+    "caption": "Mississippi, United States",
+    "photographer": "Renelibrary",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mississippi_River_Bridge_in_Vicksburg,_Mississippi.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Mississippi River Bridge in Vicksburg, Mississippi.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c1/Mississippi_River_Bridge_in_Vicksburg%2C_Mississippi.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5ddfa93b3332d56ba6e3f87e6e9cdc5fc5851dda5bebcf4138ddff1ce4988f3b",
+    "width": 3840,
+    "height": 1669,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mississippi/w640.jpg",
+        "bytes": 30429
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mississippi/w1280.jpg",
+        "bytes": 103360
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mississippi/w2048.jpg",
+        "bytes": 272693
+      }
+    ]
+  },
+  "alabama": {
+    "featureName": "Alabama",
+    "alt": "Alabama in United States",
+    "caption": "Alabama, United States",
+    "photographer": "Thomson200",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Little_River_Canyon_from_Wolf_Creek_Overlook,_April_2018_1.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Little River Canyon from Wolf Creek Overlook, April 2018 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e1/Little_River_Canyon_from_Wolf_Creek_Overlook%2C_April_2018_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5cb3b7eb1fda1a103e4ee4d2904b3a8cbfa484e45cefed05587780fe6ce6ce60",
+    "width": 3456,
+    "height": 2304,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/alabama/w640.jpg",
+        "bytes": 75987
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/alabama/w1280.jpg",
+        "bytes": 223826
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/alabama/w2048.jpg",
+        "bytes": 587840
+      }
+    ]
+  },
+  "muck": {
+    "featureName": "Muck",
+    "alt": "Muck in United Kingdom",
+    "caption": "Muck, United Kingdom",
+    "photographer": "Alan Reid",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Camas_na_Cairidh,_Isle_of_Muck_-_geograph.org.uk_-_7181002.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Camas na Cairidh, Isle of Muck - geograph.org.uk - 7181002.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e8/Camas_na_Cairidh%2C_Isle_of_Muck_-_geograph.org.uk_-_7181002.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "57f0727a06de2c6d1ee8b38d0de9cc3d29aa244e8c367ece7897bba18520e5d7",
+    "width": 1600,
+    "height": 1067,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/muck/w640.jpg",
+        "bytes": 49338
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/muck/w1280.jpg",
+        "bytes": 176884
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/muck/w2048.jpg",
+        "bytes": 337582
+      }
+    ]
+  },
+  "sikinos": {
+    "featureName": "Sikinos",
+    "alt": "Sikinos in Greece",
+    "caption": "Sikinos, Greece",
+    "photographer": "Zde",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kastro_in_Chora_of_Sikinos,_247997.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kastro in Chora of Sikinos, 247997.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d3/Kastro_in_Chora_of_Sikinos%2C_247997.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d3d72e47ed0ee6abd1d328da75e4bee8ba9c3aa28b57a3f6331e55b7381e7871",
+    "width": 3840,
+    "height": 2555,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sikinos/w640.jpg",
+        "bytes": 57576
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sikinos/w1280.jpg",
+        "bytes": 214513
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sikinos/w2048.jpg",
+        "bytes": 661851
+      }
+    ]
+  },
+  "kythnos": {
+    "featureName": "Kythnos",
+    "alt": "Kythnos in Greece",
+    "caption": "Kythnos, Greece",
+    "photographer": "DNK GR",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kythnos_xerolithia.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kythnos xerolithia.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/55/Kythnos_xerolithia.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9a1cb9ed14442d11bf10b7659aa5752101c2f4c0e5c63a85c6e95b866763a9f8",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kythnos/w640.jpg",
+        "bytes": 59386
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kythnos/w1280.jpg",
+        "bytes": 234830
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kythnos/w2048.jpg",
+        "bytes": 715107
+      }
+    ]
+  },
+  "bute": {
+    "featureName": "Isle of Bute",
+    "alt": "Isle of Bute in United Kingdom",
+    "caption": "Isle of Bute, United Kingdom",
+    "photographer": "DeFacto",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rothesay_from_Serpentine_Road.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Rothesay from Serpentine Road.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4d/Rothesay_from_Serpentine_Road.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0d3ef589d30e23d53fe60bc3ea98af99bbfee1069bfeaeb33404394d72cff492",
+    "width": 3840,
+    "height": 2275,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bute/w640.jpg",
+        "bytes": 51276
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bute/w1280.jpg",
+        "bytes": 185089
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bute/w2048.jpg",
+        "bytes": 519944
+      }
+    ]
+  },
+  "coll": {
+    "featureName": "Coll",
+    "alt": "Coll in United Kingdom",
+    "caption": "Coll, United Kingdom",
+    "photographer": "Toby Thurston Thruston 10:32, 22 December 2005 (UTC)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Traigh_Feall_-_Isle_of_Coll.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Traigh Feall - Isle of Coll.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9c/Traigh_Feall_-_Isle_of_Coll.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "79e0891750a2fe7073d52676dab5a80439d058d90136f425d8c01d857126ddaa",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/coll/w640.jpg",
+        "bytes": 80866
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/coll/w1280.jpg",
+        "bytes": 188324
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/coll/w2048.jpg",
+        "bytes": 428000
+      }
+    ]
+  },
+  "spetses": {
+    "featureName": "Spetses",
+    "alt": "Spetses in Greece",
+    "caption": "Spetses, Greece",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Old_port_on_Spetses_island,_Greece_(48760272116).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Old port on Spetses island, Greece (48760272116).jpg); source https://upload.wikimedia.org/wikipedia/commons/c/ca/Old_port_on_Spetses_island%2C_Greece_%2848760272116%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "aa9ffae4eaf61ef4cbdb976738a57a03cea78e112d35f28e7fbf47ca0089eeb5",
+    "width": 3840,
+    "height": 2558,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/spetses/w640.jpg",
+        "bytes": 73652
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/spetses/w1280.jpg",
+        "bytes": 267815
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/spetses/w2048.jpg",
+        "bytes": 766221
+      }
+    ]
+  },
+  "marche": {
+    "featureName": "Marche",
+    "alt": "Marche in Italy",
+    "caption": "Marche, Italy",
+    "photographer": "Terragio67",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Urbino_-_Duomo_di_Urbino_-_Visto_da_via_Puccinotti_(1)_-_2024-09-23_16-14-34_001.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Urbino - Duomo di Urbino - Visto da via Puccinotti (1) - 2024-09-23 16-14-34 001.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/69/Urbino_-_Duomo_di_Urbino_-_Visto_da_via_Puccinotti_%281%29_-_2024-09-23_16-14-34_001.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4ca5297b03a81511a3513a89a8ff321242003325a5b28b3aa7e3fdec0f066bb4",
+    "width": 3840,
+    "height": 3258,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/marche/w640.jpg",
+        "bytes": 63260
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/marche/w1280.jpg",
+        "bytes": 236221
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/marche/w2048.jpg",
+        "bytes": 717689
+      }
+    ]
+  },
+  "friuli": {
+    "featureName": "Friuli-Venezia Giulia",
+    "alt": "Friuli-Venezia Giulia in Italy",
+    "caption": "Friuli-Venezia Giulia, Italy",
+    "photographer": "Mænsard vokser",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Summit_cross_of_Col_dei_S%27cios_(1.340_m.a.s.l.)_-_Polcenigo,_Pordenone,_Friuli-Venezia_Giulia,_Italy_-_2020-09-30.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Summit cross of Col dei S'cios (1.340 m.a.s.l.) - Polcenigo, Pordenone, Friuli-Venezia Giulia, Italy - 2020-09-30.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b3/Summit_cross_of_Col_dei_S%27cios_%281.340_m.a.s.l.%29_-_Polcenigo%2C_Pordenone%2C_Friuli-Venezia_Giulia%2C_Italy_-_2020-09-30.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a3fef7a64dd2fdc325a57e20b916f7fd935da4a1d5dddd1bff8e412ca46e6739",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/friuli/w640.jpg",
+        "bytes": 49701
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/friuli/w1280.jpg",
+        "bytes": 207612
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/friuli/w2048.jpg",
+        "bytes": 744345
+      }
+    ]
+  },
+  "aragon": {
+    "featureName": "Aragon",
+    "alt": "Aragon in Spain",
+    "caption": "Aragon, Spain",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panor%C3%A1mica_esf%C3%A9rica_de_San_Andr%C3%A9s,_Calatayud,_Espa%C3%B1a,_2014-12-29,_DD_01-176_HDR_PAN.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Panorámica esférica de San Andrés, Calatayud, España, 2014-12-29, DD 01-176 HDR PAN.JPG); source https://upload.wikimedia.org/wikipedia/commons/6/64/Panor%C3%A1mica_esf%C3%A9rica_de_San_Andr%C3%A9s%2C_Calatayud%2C_Espa%C3%B1a%2C_2014-12-29%2C_DD_01-176_HDR_PAN.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4aad6400c22810dfbefa55620732372b07d6dbe4c5d980027192a856638b85ea",
+    "width": 3840,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/aragon/w640.jpg",
+        "bytes": 40763
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/aragon/w1280.jpg",
+        "bytes": 130036
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/aragon/w2048.jpg",
+        "bytes": 353598
+      }
+    ]
+  },
+  "murcia": {
+    "featureName": "Region of Murcia",
+    "alt": "Region of Murcia in Spain",
+    "caption": "Region of Murcia, Spain",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Playa_de_la_Cola_del_Caballo_in_La_Uni%C3%B3n,_Murcia,_Spain,_2022_January_-_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Playa de la Cola del Caballo in La Unión, Murcia, Spain, 2022 January - 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ae/Playa_de_la_Cola_del_Caballo_in_La_Uni%C3%B3n%2C_Murcia%2C_Spain%2C_2022_January_-_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cd55c80919031ccc6eb4ab88eb9edb5c21e3767b9e86f7ecebca02874812602a",
+    "width": 3840,
+    "height": 1669,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/murcia/w640.jpg",
+        "bytes": 40992
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/murcia/w1280.jpg",
+        "bytes": 154539
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/murcia/w2048.jpg",
+        "bytes": 484810
+      }
+    ]
+  },
+  "saxony": {
+    "featureName": "Saxony",
+    "alt": "Saxony in Germany",
+    "caption": "Saxony, Germany",
+    "photographer": "Kalispera Dell",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dresden_Elbe_Valley_(53).jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Dresden Elbe Valley (53).jpg); source https://upload.wikimedia.org/wikipedia/commons/1/18/Dresden_Elbe_Valley_%2853%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b5c1c4d2608f34cbae757c82bf5f0f1276c9346ac0ac1b00314b28cb39f50345",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/saxony/w640.jpg",
+        "bytes": 41751
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/saxony/w1280.jpg",
+        "bytes": 160535
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/saxony/w2048.jpg",
+        "bytes": 513140
+      }
+    ]
+  },
+  "kiyomizu-dera": {
+    "featureName": "Kiyomizu-dera",
+    "alt": "Kiyomizu-dera in Japan",
+    "caption": "Kiyomizu-dera, Japan",
+    "photographer": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kiyomizu-dera, Kyoto, November 2016 -01.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/83/Kiyomizu-dera%2C_Kyoto%2C_November_2016_-01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "527186d9bd4ecc954cb627f21576d4dabed087c6ccb2467080983e9d7cb5889a",
+    "width": 3840,
+    "height": 2363,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kiyomizu-dera/w640.jpg",
+        "bytes": 60493
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kiyomizu-dera/w1280.jpg",
+        "bytes": 237358
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kiyomizu-dera/w2048.jpg",
+        "bytes": 736771
+      }
+    ]
+  },
+  "senso-ji": {
+    "featureName": "Sensō-ji",
+    "alt": "Sensō-ji in Japan",
+    "caption": "Sensō-ji, Japan",
+    "photographer": "Redd Angelo reddangelo16",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sens%C5%8D-ji,_Tait%C5%8D-ku,_Japan_(Unsplash_lt0EmDHclpQ).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Sensō-ji, Taitō-ku, Japan (Unsplash lt0EmDHclpQ).jpg); source https://upload.wikimedia.org/wikipedia/commons/0/08/Sens%C5%8D-ji%2C_Tait%C5%8D-ku%2C_Japan_%28Unsplash_lt0EmDHclpQ%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9387798b188133d4112d7df2f83a9050ea53d0227dc24354e6d1c6d285b7c565",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/senso-ji/w640.jpg",
+        "bytes": 47446
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/senso-ji/w1280.jpg",
+        "bytes": 156045
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/senso-ji/w2048.jpg",
+        "bytes": 434501
+      }
+    ]
+  },
+  "golden-pavilion": {
+    "featureName": "Golden Pavilion",
+    "alt": "Golden Pavilion in Japan",
+    "caption": "Golden Pavilion, Japan",
+    "photographer": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kinkaku-ji_in_November_2016_-02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kinkaku-ji in November 2016 -02.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d8/Kinkaku-ji_in_November_2016_-02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "916190115169e10dba70a2b9f7479e139573012104c98021a0ef1e295cd04013",
+    "width": 3343,
+    "height": 4457,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/golden-pavilion/w640.jpg",
+        "bytes": 144425
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/golden-pavilion/w1280.jpg",
+        "bytes": 497394
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/golden-pavilion/w2048.jpg",
+        "bytes": 1320721
+      }
+    ]
+  },
+  "empire-state": {
+    "featureName": "Empire State Building",
+    "alt": "Empire State Building in United States",
+    "caption": "Empire State Building, United States",
+    "photographer": "Dllu",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:View of Empire State Building from Rockefeller Center New York City dllu.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8780140fd89edf1e5bb990e52c46261131cc1ef3becae4ae4a52931dc9dc7899",
+    "width": 3840,
+    "height": 2885,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/empire-state/w640.jpg",
+        "bytes": 61470
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/empire-state/w1280.jpg",
+        "bytes": 221784
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/empire-state/w2048.jpg",
+        "bytes": 633925
+      }
+    ]
+  },
+  "mezquita": {
+    "featureName": "Mezquita",
+    "alt": "Mezquita in Spain",
+    "caption": "Mezquita, Spain",
+    "photographer": "Benjamin Smith",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%B3rdoba_-_Mezquita-Catedral_-_Interior_-_10.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Córdoba - Mezquita-Catedral - Interior - 10.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f4/C%C3%B3rdoba_-_Mezquita-Catedral_-_Interior_-_10.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6d87e3a1253e35c6225c181187f772ceebdd5058903a8c4bf14a99d400e3b084",
+    "width": 3840,
+    "height": 2562,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mezquita/w640.jpg",
+        "bytes": 48445
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mezquita/w1280.jpg",
+        "bytes": 154966
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mezquita/w2048.jpg",
+        "bytes": 408704
+      }
+    ]
+  },
+  "alcazar-segovia": {
+    "featureName": "Alcázar of Segovia",
+    "alt": "Alcázar of Segovia in Spain",
+    "caption": "Alcázar of Segovia, Spain",
+    "photographer": "Bernard Gagnon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alc%C3%A1zar_of_Segovia_14.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Alcázar of Segovia 14.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d2/Alc%C3%A1zar_of_Segovia_14.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1b3cc392678580a2b55b70d7e54f581ee8b5d836d72d191c522a6ece2a1af19a",
+    "width": 2516,
+    "height": 2048,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/alcazar-segovia/w640.jpg",
+        "bytes": 94792
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/alcazar-segovia/w1280.jpg",
+        "bytes": 255883
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/alcazar-segovia/w2048.jpg",
+        "bytes": 594097
+      }
+    ]
   }
 }
