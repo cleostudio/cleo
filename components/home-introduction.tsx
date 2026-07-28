@@ -244,7 +244,7 @@ function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
       popup={
         <>
           {image && (
-            <span className="link-card-image-frame home-intro-gallery-frame" aria-hidden>
+            <span className="link-card-image-frame" aria-hidden>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="link-card-image home-intro-gallery-image"
@@ -254,7 +254,6 @@ function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
                 height={133}
                 loading="eager"
               />
-              <span className="calibration-corners home-intro-gallery-corners" />
             </span>
           )}
           <span className="link-card-site">
@@ -277,7 +276,10 @@ function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
 
 /** cali.so GitHub-card spirit — content animates inside the plate. */
 function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
-  const rows = highlightedAtlasEntries(3).map((entry) => entry.name)
+  const rows = highlightedAtlasEntries(3).map((entry) => ({
+    kind: 'Country',
+    name: entry.name,
+  }))
 
   return (
     <SitePreviewCard
@@ -289,16 +291,17 @@ function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
       popup={
         <span className="home-intro-search-body" aria-hidden>
           <span className="home-intro-search-field">
-            <T zh="搜索…" en="Search…" />
+            <T zh="国家、行星、卫星或主题" en="Country, planet, moon, or topic" />
           </span>
           <span className="home-intro-search-rows">
-            {rows.map((name, index) => (
+            {rows.map((row, index) => (
               <span
-                key={name}
+                key={row.name}
                 className="home-intro-search-row"
                 style={{ '--i': index } as React.CSSProperties}
               >
-                {name}
+                <span className="home-intro-search-row-title">{row.name}</span>
+                <span className="home-intro-search-row-kind">{row.kind}</span>
               </span>
             ))}
           </span>
