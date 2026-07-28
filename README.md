@@ -32,7 +32,8 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   curated topic photographs when a visual helps; topic and chat images use
   the same click-to-zoom lightbox as Gallery; precise browser location and
   time zone are sent to OpenAI automatically after the browser allows
-  location services)
+  location services; multi-turn turns replay encrypted reasoning under
+  `store: false`; incomplete/stopped answers offer Retry/Continue)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and

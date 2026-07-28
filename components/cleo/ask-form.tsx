@@ -6,16 +6,16 @@ import {
   useEffect,
   useRef,
   useState,
-} from 'react'
-import { CornerRightUp, Plus, Square, X } from 'lucide-react'
-import { ThinkingOrb } from 'thinking-orbs'
+} from "react"
+import { CornerRightUp, Plus, Square, X } from "lucide-react"
+import { ThinkingOrb } from "thinking-orbs"
 
-import { ActivityPanel } from '~/components/cleo/activity-panel'
-import { LiquidGlass } from '~/components/cleo/liquid-glass'
-import { Markdown } from '~/components/cleo/markdown'
-import { Button } from '~/components/cleo/ui/button'
-import { Input } from '~/components/cleo/ui/input'
-import { ZoomableMessageImage } from '~/components/cleo/zoomable-message-image'
+import { ActivityPanel } from "~/components/cleo/activity-panel"
+import { LiquidGlass } from "~/components/cleo/liquid-glass"
+import { Markdown } from "~/components/cleo/markdown"
+import { Button } from "~/components/cleo/ui/button"
+import { Input } from "~/components/cleo/ui/input"
+import { ZoomableMessageImage } from "~/components/cleo/zoomable-message-image"
 import {
   filesToMessageImages,
   IMAGE_ACCEPT,
@@ -23,12 +23,21 @@ import {
 } from "~/lib/cleo/client-images"
 import { requestUserLocation } from "~/lib/cleo/client-location"
 import type { UserLocation } from "~/lib/cleo/location"
+import {
+  CONTINUE_PROMPT,
+  makeIncomplete,
+  messageHasVisibleContent,
+  type MessageIncomplete,
+  toConversationPayload,
+} from "~/lib/cleo/conversation-helpers"
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
+import type { EncryptedReasoningItem } from "~/lib/cleo/reasoning-items"
 import {
   type ActivityItem,
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
+
 const MAX_INPUT_LENGTH = 10_000
 
 type ResponsePayload = {
@@ -38,9 +47,22 @@ type ResponsePayload = {
 type Message = {
   activities?: ActivityItem[]
   content: string
+  /** Hide from the transcript UI (still sent to the API). */
+  hidden?: boolean
   id: number
   images?: MessageImage[]
+  incomplete?: MessageIncomplete
+  reasoningItems?: EncryptedReasoningItem[]
   role: "assistant" | "user"
+}
+
+type TurnRequest = {
+  /** Clear incomplete markers on prior assistant turns after success. */
+  clearPriorIncomplete?: boolean
+  hideUserMessage?: boolean
+  history: Message[]
+  question: string
+  userImages: MessageImage[]
 }
 
 function isAbortError(error: unknown) {
@@ -88,12 +110,18 @@ function upsertMessageImage(
   return next
 }
 
-function messageHasVisibleContent(message: Message) {
-  return (
-    Boolean(message.content.trim()) ||
-    Boolean(message.images?.length) ||
-    Boolean(message.activities?.length)
-  )
+function lastUserMessageIndex(
+  messages: readonly Message[],
+  options?: { includeHidden?: boolean }
+) {
+  const includeHidden = options?.includeHidden ?? false
+  for (let index = messages.length - 1; index >= 0; index -= 1) {
+    const message = messages[index]
+    if (message?.role !== "user") continue
+    if (!includeHidden && message.hidden) continue
+    return index
+  }
+  return -1
 }
 
 export function AskForm() {
@@ -103,23 +131,52 @@ export function AskForm() {
   const [location, setLocation] = useState<UserLocation | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
+  const [scrollTick, setScrollTick] = useState(0)
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesRef = useRef<Message[]>([])
+  const isSubmittingRef = useRef(false)
   const mountedRef = useRef(true)
+  const stickToBottomRef = useRef(true)
 
-  const hasMessages = messages.length > 0
+  const hasMessages = messages.some((message) => !message.hidden)
+  const lastVisibleMessage = [...messages]
+    .reverse()
+    .find((message) => !message.hidden && message.role === "assistant")
+  const lastUserIndex = lastUserMessageIndex(messages)
+  const canRetryLastTurn = !isSubmitting && lastUserIndex >= 0
+  const canContinueIncomplete =
+    !isSubmitting && Boolean(lastVisibleMessage?.incomplete)
   const canSubmit =
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
 
   useEffect(() => {
-    if (!hasMessages) return
-    // Scroll the document so the clearance spacer sits against the viewport
-    // bottom — leaving the latest text above the fixed prompt.
-    messagesEndRef.current?.scrollIntoView({ block: 'end', behavior: 'instant' })
-  }, [hasMessages, messages])
+    messagesRef.current = messages
+  }, [messages])
+
+  useEffect(() => {
+    const onScroll = () => {
+      const end = messagesEndRef.current
+      if (!end) return
+      const rect = end.getBoundingClientRect()
+      // Stick while the clearance spacer is near the viewport bottom.
+      stickToBottomRef.current = rect.top < window.innerHeight + 120
+    }
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    if (!hasMessages || !stickToBottomRef.current) return
+    messagesEndRef.current?.scrollIntoView({
+      block: "end",
+      behavior: "instant",
+    })
+  }, [hasMessages, scrollTick])
 
   useEffect(() => {
     if (!isSubmitting && hasMessages) {
@@ -152,17 +209,56 @@ export function AskForm() {
   useEffect(() => {
     const root = document.documentElement
     if (hasMessages) {
-      root.removeAttribute('data-cleo-empty')
+      root.removeAttribute("data-cleo-empty")
     } else {
-      root.setAttribute('data-cleo-empty', '')
+      root.setAttribute("data-cleo-empty", "")
     }
     return () => {
-      root.removeAttribute('data-cleo-empty')
+      root.removeAttribute("data-cleo-empty")
     }
   }, [hasMessages])
 
   function handleStop() {
     abortControllerRef.current?.abort()
+  }
+
+  function handleRetry() {
+    if (isSubmittingRef.current) return
+    const current = messagesRef.current
+    const userIndex = lastUserMessageIndex(current)
+    if (userIndex < 0) return
+    const lastUser = current[userIndex]!
+    void sendTurn({
+      history: current.slice(0, userIndex),
+      question: lastUser.content,
+      userImages: lastUser.images ?? [],
+    })
+  }
+
+  function handleContinue() {
+    if (isSubmittingRef.current) return
+    void sendTurn({
+      history: messagesRef.current,
+      question: CONTINUE_PROMPT,
+      userImages: [],
+      hideUserMessage: true,
+      clearPriorIncomplete: true,
+    })
+  }
+
+  function handleDismissIncomplete() {
+    if (isSubmittingRef.current) return
+    const target = [...messagesRef.current]
+      .reverse()
+      .find((message) => !message.hidden && message.role === "assistant")
+    if (!target?.incomplete) return
+    setMessages((current) =>
+      current.map((message) =>
+        message.id === target.id
+          ? { ...message, incomplete: undefined }
+          : message
+      )
+    )
   }
 
   function removePendingImage(index: number) {
@@ -202,25 +298,20 @@ export function AskForm() {
     }
   }
 
-  async function handleSubmit(
-    event?: FormEvent<HTMLFormElement>,
-    promptOverride?: string
-  ) {
-    event?.preventDefault()
-    event?.stopPropagation()
+  async function sendTurn({
+    history,
+    question,
+    userImages,
+    hideUserMessage = false,
+    clearPriorIncomplete = false,
+  }: TurnRequest) {
+    if (isSubmittingRef.current) return
 
-    const question = (promptOverride ?? input).trim()
-    const attachedImages = pendingImages
-
-    if ((!question && attachedImages.length === 0) || isSubmitting) {
-      return
-    }
-
-    const userImages: MessageImage[] = attachedImages.map((url) => ({ url }))
     const userMessage: Message = {
       content: question,
       id: messageIdRef.current++,
       role: "user",
+      ...(hideUserMessage ? { hidden: true } : {}),
       ...(userImages.length > 0 ? { images: userImages } : {}),
     }
     const assistantMessage: Message = {
@@ -232,16 +323,7 @@ export function AskForm() {
     }
 
     const conversation = [
-      ...messages
-        .filter(
-          (message) =>
-            Boolean(message.content.trim()) || Boolean(message.images?.length)
-        )
-        .map(({ role, content, images }) => ({
-          role,
-          content,
-          ...(images && images.length > 0 ? { images } : {}),
-        })),
+      ...toConversationPayload(history),
       {
         role: "user" as const,
         content: question,
@@ -252,18 +334,101 @@ export function AskForm() {
     const abortController = new AbortController()
     abortControllerRef.current = abortController
 
-    setMessages((currentMessages) => [
-      ...currentMessages,
-      userMessage,
-      assistantMessage,
-    ])
+    isSubmittingRef.current = true
+    stickToBottomRef.current = true
+    setMessages([...history, userMessage, assistantMessage])
     setInput("")
     setPendingImages([])
     setError(null)
     setIsSubmitting(true)
+    setScrollTick((tick) => tick + 1)
 
     let output = ""
     let receivedImages = false
+    let receivedActivities = false
+    let sawIncomplete = false
+
+    // rAF-batched stream UI updates — one setMessages per frame.
+    let pendingText = ""
+    let pendingActivities: ActivityItem[] = []
+    let pendingImagesById = new Map<string, MessageImage>()
+    let pendingReasoningItems: EncryptedReasoningItem[] | null = null
+    let pendingIncomplete: MessageIncomplete | null = null
+    let rafHandle: number | null = null
+
+    const flushPending = () => {
+      rafHandle = null
+      if (!mountedRef.current) return
+
+      const textChunk = pendingText
+      const activitiesChunk = pendingActivities
+      const imagesChunk = [...pendingImagesById.values()]
+      const reasoningChunk = pendingReasoningItems
+      const incompleteChunk = pendingIncomplete
+
+      pendingText = ""
+      pendingActivities = []
+      pendingImagesById = new Map()
+      pendingReasoningItems = null
+      pendingIncomplete = null
+
+      if (
+        !textChunk &&
+        activitiesChunk.length === 0 &&
+        imagesChunk.length === 0 &&
+        !reasoningChunk &&
+        !incompleteChunk
+      ) {
+        return
+      }
+
+      setMessages((currentMessages) =>
+        currentMessages.map((message) => {
+          if (message.id !== assistantMessage.id) return message
+
+          let next = message
+          if (textChunk) {
+            next = { ...next, content: next.content + textChunk }
+          }
+          for (const activity of activitiesChunk) {
+            next = {
+              ...next,
+              activities: upsertActivity(next.activities, activity),
+            }
+          }
+          for (const image of imagesChunk) {
+            next = {
+              ...next,
+              images: upsertMessageImage(next.images, image),
+            }
+          }
+          if (reasoningChunk) {
+            next = { ...next, reasoningItems: reasoningChunk }
+          }
+          if (incompleteChunk) {
+            next = { ...next, incomplete: incompleteChunk }
+          }
+          return next
+        })
+      )
+
+      if (stickToBottomRef.current) {
+        setScrollTick((tick) => tick + 1)
+      }
+    }
+
+    const scheduleFlush = () => {
+      if (rafHandle !== null) return
+      rafHandle = window.requestAnimationFrame(flushPending)
+    }
+
+    const flushNow = () => {
+      if (rafHandle !== null) {
+        window.cancelAnimationFrame(rafHandle)
+        rafHandle = null
+      }
+      flushPending()
+    }
 
     try {
       const response = await fetch("/api/responses", {
@@ -293,45 +458,47 @@ export function AskForm() {
       let buffer = ""
       let streamError: string | null = null
 
-      const applyTextDelta = (delta: string) => {
-        output += delta
-        setMessages((currentMessages) =>
-          currentMessages.map((message) =>
-            message.id === assistantMessage.id
-              ? { ...message, content: message.content + delta }
-              : message
-          )
-        )
-      }
-
-      const applyActivity = (activity: ActivityItem) => {
-        setMessages((currentMessages) =>
-          currentMessages.map((message) =>
-            message.id === assistantMessage.id
-              ? {
-                  ...message,
-                  activities: upsertActivity(message.activities, activity),
-                }
-              : message
-          )
-        )
-      }
-
-      const applyImage = (id: string, imageUrl: string) => {
-        receivedImages = true
-        setMessages((currentMessages) =>
-          currentMessages.map((message) =>
-            message.id === assistantMessage.id
-              ? {
-                  ...message,
-                  images: upsertMessageImage(message.images, {
-                    id,
-                    url: imageUrl,
-                  }),
-                }
-              : message
-          )
-        )
+      const applyStreamEvent = (
+        event: NonNullable<ReturnType<typeof parseStreamLine>>
+      ) => {
+        if (event.type === "text") {
+          output += event.delta
+          pendingText += event.delta
+          scheduleFlush()
+          return
+        }
+        if (event.type === "activity") {
+          receivedActivities = true
+          pendingActivities.push(event.activity)
+          scheduleFlush()
+          return
+        }
+        if (event.type === "image") {
+          receivedImages = true
+          pendingImagesById.set(event.id, {
+            id: event.id,
+            url: event.imageUrl,
+          })
+          scheduleFlush()
+          return
+        }
+        if (event.type === "reasoning_items") {
+          pendingReasoningItems = event.items
+          scheduleFlush()
+          return
+        }
+        if (event.type === "status" && event.status === "incomplete") {
+          sawIncomplete = true
+          pendingIncomplete = {
+            message: event.message,
+            ...(event.reason ? { reason: event.reason } : {}),
+          }
+          scheduleFlush()
+          return
+        }
+        if (event.type === "error") {
+          streamError = event.error
+        }
       }
 
       while (true) {
@@ -347,29 +514,7 @@ export function AskForm() {
 
         for (const line of lines) {
           const event = parseStreamLine(line)
-
-          if (!event) {
-            continue
-          }
-
-          if (event.type === "text") {
-            applyTextDelta(event.delta)
-            continue
-          }
-
-          if (event.type === "activity") {
-            applyActivity(event.activity)
-            continue
-          }
-
-          if (event.type === "image") {
-            applyImage(event.id, event.imageUrl)
-            continue
-          }
-
-          if (event.type === "error") {
-            streamError = event.error
-          }
+          if (event) applyStreamEvent(event)
         }
       }
 
@@ -381,32 +526,39 @@ export function AskForm() {
 
       if (buffer.trim()) {
         const event = parseStreamLine(buffer)
-
-        if (event?.type === "text") {
-          applyTextDelta(event.delta)
-        } else if (event?.type === "activity") {
-          applyActivity(event.activity)
-        } else if (event?.type === "image") {
-          applyImage(event.id, event.imageUrl)
-        } else if (event?.type === "error") {
-          streamError = event.error
-        }
+        if (event) applyStreamEvent(event)
       }
+
+      flushNow()
 
       if (streamError && !abortController.signal.aborted) {
         throw new Error(streamError)
       }
 
-      if (
-        !output.trim() &&
-        !receivedImages &&
-        !abortController.signal.aborted
-      ) {
+      const hadUsefulOutput =
+        Boolean(output.trim()) ||
+        receivedImages ||
+        receivedActivities ||
+        sawIncomplete
+
+      if (!hadUsefulOutput && !abortController.signal.aborted) {
         throw new Error(
           "The AI service stopped before returning an answer. Try again."
         )
       }
+
+      if (clearPriorIncomplete && mountedRef.current) {
+        setMessages((currentMessages) =>
+          currentMessages.map((message) =>
+            message.id !== assistantMessage.id && message.incomplete
+              ? { ...message, incomplete: undefined }
+              : message
+          )
+        )
+      }
     } catch (requestError) {
+      flushNow()
+
       const aborted =
         isAbortError(requestError) || abortController.signal.aborted
 
@@ -416,25 +568,35 @@ export function AskForm() {
         return
       }
 
-      setMessages((currentMessages) => {
-        // Stop before any answer text or image: abandon the whole turn so the
-        // unanswered prompt does not leak into the next request.
-        if (aborted && !output.trim() && !receivedImages) {
-          return currentMessages.filter(
-            (message) =>
-              message.id !== assistantMessage.id &&
-              message.id !== userMessage.id
+      const hadVisibleDraft =
+        Boolean(output.trim()) || receivedImages || receivedActivities
+
+      if (aborted && !hadVisibleDraft) {
+        // Keep the user prompt so Retry can recover; drop the empty assistant.
+        setMessages((currentMessages) =>
+          currentMessages.filter(
+            (message) => message.id !== assistantMessage.id
           )
-        }
-
-        return currentMessages.filter(
-          (message) =>
-            message.id !== assistantMessage.id ||
-            messageHasVisibleContent(message)
         )
-      })
-
-      if (!aborted) {
+      } else if (aborted && hadVisibleDraft) {
+        setMessages((currentMessages) =>
+          currentMessages.map((message) =>
+            message.id === assistantMessage.id
+              ? {
+                  ...message,
+                  incomplete: makeIncomplete("stopped"),
+                }
+              : message
+          )
+        )
+      } else {
+        setMessages((currentMessages) =>
+          currentMessages.filter(
+            (message) =>
+              message.id !== assistantMessage.id ||
+              messageHasVisibleContent(message)
+          )
+        )
         setError(
           requestError instanceof Error
             ? requestError.message
@@ -442,13 +604,41 @@ export function AskForm() {
         )
       }
     } finally {
+      if (rafHandle !== null) {
+        window.cancelAnimationFrame(rafHandle)
+        rafHandle = null
+      }
       if (abortControllerRef.current === abortController) {
         abortControllerRef.current = null
       }
+      isSubmittingRef.current = false
       if (mountedRef.current) {
         setIsSubmitting(false)
       }
     }
+  }
+
+  async function handleSubmit(
+    event?: FormEvent<HTMLFormElement>,
+    promptOverride?: string
+  ) {
+    event?.preventDefault()
+    event?.stopPropagation()
+
+    const question = (promptOverride ?? input).trim()
+    const attachedImages = pendingImages
+
+    if ((!question && attachedImages.length === 0) || isSubmitting) {
+      return
+    }
+
+    const userImages: MessageImage[] = attachedImages.map((url) => ({ url }))
+
+    await sendTurn({
+      history: messagesRef.current,
+      question,
+      userImages,
+    })
   }
 
   return (
@@ -456,35 +646,47 @@ export function AskForm() {
       {hasMessages ? (
         <div className="cleo-messages pt-8 sm:pt-10">
           <div className="flex flex-col gap-7">
-            {messages.map((message) =>
-              message.role === 'user' ? (
-                <div className="user-turn" key={message.id}>
-                  {message.images && message.images.length > 0 ? (
-                    <div className="user-message-images">
-                      {message.images.map((image, index) => (
-                        <ZoomableMessageImage
-                          alt={
-                            message.content
-                              ? `Attachment ${index + 1}`
-                              : `Uploaded image ${index + 1}`
-                          }
-                          className="message-image"
-                          key={image.id ?? `${message.id}-${index}`}
-                          src={image.url}
-                        />
-                      ))}
-                    </div>
-                  ) : null}
-                  {message.content ? (
-                    <div className="glass-surface user-message">
-                      <LiquidGlass />
-                      <span className="user-message-text">
-                        {message.content}
-                      </span>
-                    </div>
-                  ) : null}
-                </div>
-              ) : (
+            {messages.map((message) => {
+              if (message.hidden) {
+                return null
+              }
+
+              if (message.role === "user") {
+                return (
+                  <div className="user-turn" key={message.id}>
+                    {message.images && message.images.length > 0 ? (
+                      <div className="user-message-images">
+                        {message.images.map((image, index) => (
+                          <ZoomableMessageImage
+                            alt={
+                              message.content
+                                ? `Attachment ${index + 1}`
+                                : `Uploaded image ${index + 1}`
+                            }
+                            className="message-image"
+                            key={image.id ?? `${message.id}-${index}`}
+                            src={image.url}
+                          />
+                        ))}
+                      </div>
+                    ) : null}
+                    {message.content ? (
+                      <div className="glass-surface user-message">
+                        <LiquidGlass />
+                        <span className="user-message-text">
+                          {message.content}
+                        </span>
+                      </div>
+                    ) : null}
+                  </div>
+                )
+              }
+
+              const incompleteNoteId = message.incomplete
+                ? `cleo-incomplete-${message.id}`
+                : undefined
+
+              return (
                 <section
                   aria-label="AI response"
                   aria-live="polite"
@@ -532,9 +734,53 @@ export function AskForm() {
                       state="listening"
                     />
                   ) : null}
+
+                  {!(isSubmitting && message.id === messages.at(-1)?.id) &&
+                  message.incomplete ? (
+                    <div className="cleo-answer-actions">
+                      <p
+                        className="cleo-incomplete-note"
+                        id={incompleteNoteId}
+                        role="status"
+                      >
+                        {message.incomplete.message}
+                      </p>
+                      {message.id === lastVisibleMessage?.id ? (
+                        <div className="cleo-answer-action-row">
+                          <button
+                            aria-describedby={incompleteNoteId}
+                            aria-label="Continue this answer"
+                            className="cleo-answer-action"
+                            disabled={!canContinueIncomplete}
+                            onClick={handleContinue}
+                            type="button"
+                          >
+                            Continue
+                          </button>
+                          <button
+                            aria-label="Dismiss the incomplete notice"
+                            className="cleo-answer-action"
+                            onClick={handleDismissIncomplete}
+                            type="button"
+                          >
+                            Dismiss
+                          </button>
+                          <button
+                            aria-label="Retry the last question"
+                            className="cleo-answer-action"
+                            disabled={!canRetryLastTurn}
+                            onClick={handleRetry}
+                            type="button"
+                          >
+                            Retry
+                          </button>
+                        </div>
+                      ) : null}
+                    </div>
+                  ) : null}
                 </section>
               )
-            )}
+            })}
           </div>
           <div
             aria-hidden="true"
@@ -549,12 +795,21 @@ export function AskForm() {
         data-docked={hasMessages || undefined}
       >
         {error ? (
-          <p
-            className="mb-3 px-4 text-center text-sm text-destructive"
+          <div
+            className="cleo-error-banner mb-3 px-4 text-center text-sm text-destructive"
             role="alert"
           >
-            {error}
-          </p>
+            <p>{error}</p>
+            {canRetryLastTurn ? (
+              <button
+                className="cleo-answer-action cleo-error-retry"
+                onClick={handleRetry}
+                type="button"
+              >
+                Retry
+              </button>
+            ) : null}
+          </div>
         ) : null}
 
         <form

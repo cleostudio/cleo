@@ -65,16 +65,24 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 ## Cleo agent surface
 
 - UI: `components/cleo/ask-form.tsx` owns messages, image attachments,
- cancellation, browser-permission location sync, and NDJSON stream consumption. The page shell is
+  cancellation, browser-permission location sync, NDJSON stream consumption,
+  rAF-batched UI updates, and Retry/Continue recovery for incomplete or failed
+  turns. The page shell is
   `app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
   (`G` then `C`).
 - API: `app/api/responses/route.ts` validates messages (including image data
- URLs) and optional, browser-authorized location context before calling the
- OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
-  `image_generation`, reasoning summaries, streaming, and `store: false`.
+  URLs) and optional, browser-authorized location context before calling the
+  OpenAI Responses API with `gpt-5.6-terra`, `web_search`, `image_generation`,
+  adaptive reasoning effort, encrypted reasoning replay
+  (`reasoning.context: "all_turns"`), `max_tool_calls`, `truncation: "auto"`,
+  prompt caching, streaming, `maxDuration` 90s, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
   `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
-- Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`, `error`).
+  Invented Explore/Space paths are stripped in Markdown via
+  `lib/cleo/guardrails.ts`.
+- Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`,
+  `reasoning_items`, `status` incomplete, `error`). Soft incomplete keeps
+  partial answers; hard `error` is for true failures.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
   grounds matching subjects on each turn); Streamdown only allows
@@ -96,10 +104,11 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 
-Conversation state and the current location value are browser-only and clear on
-reload; browser permission determines whether the next session can refresh it.
-There is no
-authentication, database, media library, or AMA booking.
+Conversation state, the current location value, and encrypted reasoning items
+are browser-only. They clear on reload; browser permission determines whether
+the next session can refresh location, and reasoning items keep multi-turn
+replies coherent under `store: false`. There is no authentication, database,
+media library, or AMA booking.
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,

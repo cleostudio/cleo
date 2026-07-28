@@ -678,3 +678,76 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
     transition: none;
   }
 }
+
+.cleo-answer-actions {
+  margin-top: 0.75rem;
+}
+
+.cleo-answer-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cleo-incomplete-note {
+  margin: 0 0 0.35rem;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.cleo-answer-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0.35rem 0.2rem;
+  min-height: 2rem;
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: color 160ms var(--ease-swift);
+}
+
+.cleo-answer-action:hover:not(:disabled) {
+  color: var(--foreground);
+}
+
+.cleo-answer-action:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.cleo-answer-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.cleo-error-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.cleo-error-banner p {
+  margin: 0;
+}
+
+.cleo-error-retry {
+  color: var(--destructive);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.cleo-error-retry:hover:not(:disabled) {
+  color: var(--destructive);
+}

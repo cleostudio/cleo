@@ -99,4 +99,13 @@ describe('Cleo Markdown topic photos', () => {
       screen.queryByRole('button', { name: /Zoom image/i }),
     ).toBeNull()
   })
+
+  it('strips invented Explore guide links to plain labels', () => {
+    render(
+      <Markdown>{'Visit [Atlantis](/explore/atlantis) sometime.'}</Markdown>,
+    )
+
+    expect(screen.queryByRole('link', { name: 'Atlantis' })).toBeNull()
+    expect(screen.getByText(/Visit Atlantis sometime/)).toBeTruthy()
+  })
 })

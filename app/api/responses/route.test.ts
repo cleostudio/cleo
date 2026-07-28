@@ -432,12 +432,167 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       model: "gpt-5.6-terra",
       store: false,
       stream: true,
+      max_tool_calls: 8,
+      truncation: "auto",
+      reasoning: {
+        effort: "medium",
+        summary: "auto",
+        context: "all_turns",
+      },
+      include: [
+        "reasoning.encrypted_content",
+        "web_search_call.action.sources",
+      ],
     })
+    expect(openai.create.mock.calls[0]?.[0].prompt_cache_key).toMatch(
+      /^cleo:[0-9a-f]+$/
+    )
     expect(
       openai.create.mock.calls[0]?.[0].tools.map(
         (tool: { type: string }) => tool.type
       )
     ).toEqual(["web_search", "image_generation"])
+  })
+
+  it("uses low reasoning effort for short social turns", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "hi", type: "response.output_text.delta" }])
+    )
+
+    await POST(ask({ messages: [{ content: "Hey Cleo", role: "user" }] }))
+
+    expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("low")
+  })
+
+  it("uses high reasoning effort for comparison prompts", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "ok", type: "response.output_text.delta" }])
+    )
+
+    await POST(
+      ask({
+        messages: [
+          {
+            content: "Compare Mars and Earth with sources",
+            role: "user",
+          },
+        ],
+      })
+    )
+
+    expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("high")
+  })
+
+  it("replays encrypted reasoning items before assistant turns", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "ok", type: "response.output_text.delta" }])
+    )
+
+    await POST(
+      ask({
+        messages: [
+          { content: "Tell me about Japan", role: "user" },
+          {
+            content: "Japan is an island country.",
+            role: "assistant",
+            reasoningItems: [
+              {
+                type: "reasoning",
+                id: "rs_1",
+                encrypted_content: "enc-abc",
+                summary: [{ type: "summary_text", text: "plan" }],
+              },
+            ],
+          },
+          { content: "Now compare it to Korea", role: "user" },
+        ],
+      })
+    )
+
+    const input = openai.create.mock.calls[0]?.[0].input as unknown[]
+    expect(input).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: "reasoning",
+          id: "rs_1",
+          encrypted_content: "enc-abc",
+        }),
+        expect.objectContaining({
+          role: "assistant",
+          content: "Japan is an island country.",
+        }),
+      ])
+    )
+    const reasoningIndex = input.findIndex(
+      (item) =>
+        typeof item === "object" &&
+        item !== null &&
+        "type" in item &&
+        item.type === "reasoning"
+    )
+    const assistantIndex = input.findIndex(
+      (item) =>
+        typeof item === "object" &&
+        item !== null &&
+        "role" in item &&
+        item.role === "assistant"
+    )
+    expect(reasoningIndex).toBeGreaterThanOrEqual(0)
+    expect(assistantIndex).toBeGreaterThan(reasoningIndex)
+  })
+
+  it("emits reasoning_items when encrypted content arrives", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        {
+          item: {
+            id: "rs_1",
+            status: "completed",
+            type: "reasoning",
+            summary: [{ type: "summary_text", text: "plan" }],
+            encrypted_content: "enc-xyz",
+          },
+          type: "response.output_item.done",
+        },
+        { delta: "Done.", type: "response.output_text.delta" },
+      ])
+    )
+
+    const events = await ndjson(await POST(ask(question)))
+
+    expect(events).toContainEqual({
+      type: "reasoning_items",
+      items: [
+        {
+          type: "reasoning",
+          id: "rs_1",
+          encrypted_content: "enc-xyz",
+          summary: [{ type: "summary_text", text: "plan" }],
+        },
+      ],
+    })
+  })
+
+  it("emits soft incomplete status when partial text already streamed", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "Partial answer", type: "response.output_text.delta" },
+        {
+          response: { incomplete_details: { reason: "max_output_tokens" } },
+          type: "response.incomplete",
+        },
+      ])
+    )
+
+    const events = await ndjson(await POST(ask(question)))
+
+    expect(events.filter((event) => event.type === "error")).toEqual([])
+    expect(events.at(-1)).toEqual({
+      type: "status",
+      status: "incomplete",
+      reason: "max_output_tokens",
+      message: "This answer was cut short before it finished.",
+    })
   })
 
   it("grounds topic photograph paths when the user asks about a catalog subject", async () => {
