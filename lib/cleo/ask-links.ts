@@ -125,6 +125,59 @@ export function placeAskPrompt(placeName: string, countryName: string): string {
   return `Tell me about ${place} in ${country}. Deep-link the ${country} Explore field guide, and include a curated photograph if it helps.`
 }
 
+/** Ask about one notable feature inside a Space field guide. */
+export function featureAskPrompt(
+  featureName: string,
+  subjectName: string,
+): string {
+  const feature = featureName.trim()
+  const subject = subjectName.trim()
+  if (!feature || !subject) {
+    return guideAskPrompt('space', subject || feature)
+  }
+  return `Tell me about ${feature} on ${subject}. Deep-link the ${subject} Space field guide, and include a curated photograph if it helps.`
+}
+
+/** Compare two catalog subjects in the same collection. */
+export function compareAskPrompt(
+  collection: 'explore' | 'space',
+  leftName: string,
+  rightName: string,
+): string {
+  const left = leftName.trim()
+  const right = rightName.trim()
+  if (!left || !right) {
+    return guideAskPrompt(collection, left || right)
+  }
+
+  if (collection === 'explore') {
+    return `Compare ${left} and ${right} in a few sharp points. Deep-link each Explore field guide when you name the countries.`
+  }
+
+  return `Compare ${left} and ${right} in a few sharp points. Deep-link each Space field guide when you name the subjects.`
+}
+
+/** Ask about a Gallery photograph (place or space feature title). */
+export function galleryItemAskPrompt(
+  title: string,
+  subjectName: string,
+  collection: 'places' | 'space',
+): string {
+  const item = title.trim()
+  const subject = subjectName.trim()
+  if (!item || !subject) {
+    return collection === 'space'
+      ? guideAskPrompt('space', subject || item)
+      : guideAskPrompt('explore', subject || item)
+  }
+
+  if (collection === 'space') {
+    return `Tell me about the Gallery photograph “${item}” (${subject}). Deep-link the ${subject} Space guide and include that curated photograph if it helps.`
+  }
+
+  return `Tell me about the Gallery photograph “${item}” in ${subject}. Deep-link the ${subject} Explore guide and include that curated photograph if it helps.`
+}
+
 /** Ask about a Writing essay on this site. */
 export function essayAskPrompt(title: string, slug?: string): string {
   const name = title.trim()
@@ -190,6 +243,38 @@ export function placeAskHref(
   options?: { autoSubmit?: boolean },
 ) {
   return cleoAskHref(placeAskPrompt(placeName, countryName), {
+    autoSubmit: options?.autoSubmit ?? true,
+  })
+}
+
+export function featureAskHref(
+  featureName: string,
+  subjectName: string,
+  options?: { autoSubmit?: boolean },
+) {
+  return cleoAskHref(featureAskPrompt(featureName, subjectName), {
+    autoSubmit: options?.autoSubmit ?? true,
+  })
+}
+
+export function compareAskHref(
+  collection: 'explore' | 'space',
+  leftName: string,
+  rightName: string,
+  options?: { autoSubmit?: boolean },
+) {
+  return cleoAskHref(compareAskPrompt(collection, leftName, rightName), {
+    autoSubmit: options?.autoSubmit ?? true,
+  })
+}
+
+export function galleryItemAskHref(
+  title: string,
+  subjectName: string,
+  collection: 'places' | 'space',
+  options?: { autoSubmit?: boolean },
+) {
+  return cleoAskHref(galleryItemAskPrompt(title, subjectName, collection), {
     autoSubmit: options?.autoSubmit ?? true,
   })
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import { AskCleoGalleryItemLink } from '~/components/ask-cleo-link'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PlaceGalleryToolbar } from '~/components/place-gallery-toolbar'
 import { ZoomImage } from '~/components/zoom-image'
@@ -45,18 +46,27 @@ export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
               />
               <span className="calibration-corners" aria-hidden />
             </div>
-            <Link
-              href={entry.href}
-              prefetch={false}
-              className="mt-2 block px-0.5 outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              <span className="block text-sm font-medium text-foreground">
-                {entry.title}
-              </span>
-              <span className="block text-xs text-muted-foreground">
-                {entry.subtitle}
-              </span>
-            </Link>
+            <div className="mt-2 px-0.5">
+              <Link
+                href={entry.href}
+                prefetch={false}
+                className="block outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <span className="block text-sm font-medium text-foreground">
+                  {entry.title}
+                </span>
+                <span className="block text-xs text-muted-foreground">
+                  {entry.subtitle}
+                </span>
+              </Link>
+              <p className="mt-1">
+                <AskCleoGalleryItemLink
+                  title={entry.title}
+                  subjectName={entry.subtitle}
+                  collection={entry.collection}
+                />
+              </p>
+            </div>
           </li>
         ))}
       </ul>

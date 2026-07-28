@@ -33,6 +33,13 @@ type TopicCandidate = {
   collection: 'explore' | 'space'
   slug: string
   name: string
+  /** Extra match tokens (notable places / features / photo titles). */
+  aliases: string[]
+}
+
+type MatchToken = {
+  candidate: TopicCandidate
+  token: string
 }
 
 function escapeRegExp(value: string) {
@@ -43,19 +50,74 @@ function candidateKey(topic: Pick<TopicCandidate, 'collection' | 'slug'>) {
   return `${topic.collection}/${topic.slug}`
 }
 
+function uniqueAliases(
+  values: readonly string[],
+  primaryName: string,
+): string[] {
+  const seen = new Set<string>()
+  const aliases: string[] = []
+
+  for (const value of values) {
+    const trimmed = value.replace(/\s+/g, ' ').trim()
+    if (!trimmed || trimmed.length < 3) continue
+    if (trimmed.toLowerCase() === primaryName.toLowerCase()) continue
+    const key = trimmed.toLowerCase()
+    if (seen.has(key)) continue
+    seen.add(key)
+    aliases.push(trimmed)
+  }
+
+  return aliases
+}
+
 function allCandidates(): TopicCandidate[] {
   return [
     ...spaceSubjects.map((subject) => ({
       collection: 'space' as const,
       slug: subject.slug,
       name: subject.name,
+      aliases: uniqueAliases(
+        [
+          subject.photo.featureName,
+          ...subject.features.map((feature) => feature.name),
+        ],
+        subject.name,
+      ),
     })),
-    ...countries.map((country) => ({
-      collection: 'explore' as const,
-      slug: country.slug,
-      name: country.name,
-    })),
+    ...countries.map((country) => {
+      const entry = getAtlasEntry(country.slug)
+      return {
+        collection: 'explore' as const,
+        slug: country.slug,
+        name: country.name,
+        aliases: uniqueAliases(
+          [
+            entry?.photo.placeName ?? '',
+            ...(entry?.places.map((place) => place.name) ?? []),
+          ],
+          country.name,
+        ),
+      }
+    }),
   ]
+}
+
+/** Primary names + place/feature aliases, longest tokens first. */
+function allMatchTokens(): MatchToken[] {
+  const tokens: MatchToken[] = []
+
+  for (const candidate of allCandidates()) {
+    tokens.push({ candidate, token: candidate.name })
+    for (const alias of candidate.aliases) {
+      tokens.push({ candidate, token: alias })
+    }
+  }
+
+  return tokens.sort((left, right) => {
+    const lengthDiff = right.token.length - left.token.length
+    if (lengthDiff !== 0) return lengthDiff
+    return left.token.localeCompare(right.token)
+  })
 }
 
 /** Clip curated orientation without cutting mid-word when possible. */
@@ -169,15 +231,13 @@ export function matchTopicPhotosInText(text: string): TopicPhoto[] {
     if (pathOffset < 0) continue
     const start = (match.index ?? 0) + pathOffset
     const end = start + path.length
-    claim(start, end, { collection, slug, name: slug })
+    claim(start, end, { collection, slug, name: slug, aliases: [] })
   }
 
-  const byName = allCandidates().sort((a, b) => b.name.length - a.name.length)
-
-  for (const candidate of byName) {
+  for (const { candidate, token } of allMatchTokens()) {
     if (seen.has(candidateKey(candidate))) continue
     const pattern = new RegExp(
-      `(?<![\\p{L}\\p{N}])${escapeRegExp(candidate.name)}(?![\\p{L}\\p{N}])`,
+      `(?<![\\p{L}\\p{N}])${escapeRegExp(token)}(?![\\p{L}\\p{N}])`,
       'giu',
     )
     const match = pattern.exec(haystack)

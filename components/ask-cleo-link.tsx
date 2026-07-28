@@ -2,7 +2,10 @@ import Link from 'next/link'
 
 import {
   type CleoAskCollection,
+  compareAskHref,
   essayAskHref,
+  featureAskHref,
+  galleryItemAskHref,
   guideAskHref,
   placeAskHref,
   surfaceAskHref,
@@ -24,9 +27,32 @@ type AskCleoPlaceLinkProps = {
   autoSubmit?: boolean
 }
 
+type AskCleoFeatureLinkProps = {
+  featureName: string
+  subjectName: string
+  className?: string
+  autoSubmit?: boolean
+}
+
+type AskCleoCompareLinkProps = {
+  collection: 'explore' | 'space'
+  leftName: string
+  rightName: string
+  className?: string
+  autoSubmit?: boolean
+}
+
 type AskCleoEssayLinkProps = {
   title: string
   slug: string
+  className?: string
+  autoSubmit?: boolean
+}
+
+type AskCleoGalleryItemLinkProps = {
+  title: string
+  subjectName: string
+  collection: 'places' | 'space'
   className?: string
   autoSubmit?: boolean
 }
@@ -82,6 +108,43 @@ export function AskCleoPlaceLink({
   )
 }
 
+/** Quiet link for one notable feature inside a Space field guide. */
+export function AskCleoFeatureLink({
+  featureName,
+  subjectName,
+  className,
+  autoSubmit = true,
+}: AskCleoFeatureLinkProps) {
+  const feature = featureName.trim() || 'this feature'
+
+  return (
+    <Link
+      href={featureAskHref(featureName, subjectName, { autoSubmit })}
+      className={cn(linkClass, className)}
+    >
+      Ask Cleo about {feature} →
+    </Link>
+  )
+}
+
+/** Quiet compare link for two catalog subjects. */
+export function AskCleoCompareLink({
+  collection,
+  leftName,
+  rightName,
+  className,
+  autoSubmit = true,
+}: AskCleoCompareLinkProps) {
+  return (
+    <Link
+      href={compareAskHref(collection, leftName, rightName, { autoSubmit })}
+      className={cn(linkClass, className)}
+    >
+      Ask Cleo to compare {leftName.trim()} and {rightName.trim()} →
+    </Link>
+  )
+}
+
 /** Quiet Writing essay → Cleo deep link. */
 export function AskCleoEssayLink({
   title,
@@ -95,6 +158,24 @@ export function AskCleoEssayLink({
       className={cn(linkClass, className)}
     >
       Ask Cleo about this essay →
+    </Link>
+  )
+}
+
+/** Quiet Gallery tile → Cleo deep link. */
+export function AskCleoGalleryItemLink({
+  title,
+  subjectName,
+  collection,
+  className,
+  autoSubmit = true,
+}: AskCleoGalleryItemLinkProps) {
+  return (
+    <Link
+      href={galleryItemAskHref(title, subjectName, collection, { autoSubmit })}
+      className={cn('text-xs text-muted-foreground hover:text-foreground', className)}
+    >
+      Ask Cleo →
     </Link>
   )
 }

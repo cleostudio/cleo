@@ -1,17 +1,22 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import { AskCleoGuideLink } from '~/components/ask-cleo-link'
+import {
+  AskCleoCompareLink,
+  AskCleoFeatureLink,
+  AskCleoGuideLink,
+} from '~/components/ask-cleo-link'
 import { GuideOrientation } from '~/components/guide-orientation'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
+import { spaceComparePeer } from '~/lib/cleo/compare-neighbors'
+import { localeMetadata } from '~/lib/locale-metadata'
 import {
   getSpaceSubject,
   spaceDescription,
   spaceSubjectSlugs,
 } from '~/lib/space'
-import { localeMetadata } from '~/lib/locale-metadata'
 
 export function spaceSubjectStaticParams() {
   return spaceSubjectSlugs().map((slug) => ({ slug }))
@@ -36,6 +41,7 @@ function formatRadius(radiusKm: number | null): string {
 export function SpaceSubjectPageView({ slug }: { slug: string }) {
   const subject = getSpaceSubject(slug)
   if (!subject) notFound()
+  const comparePeer = spaceComparePeer(subject.slug)
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -143,6 +149,12 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
                 <p className="mt-1 text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
+                <p className="mt-2">
+                  <AskCleoFeatureLink
+                    featureName={feature.name}
+                    subjectName={subject.name}
+                  />
+                </p>
               </div>
             </li>
           ))}
@@ -229,6 +241,18 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
       >
         <AskCleoGuideLink collection="space" name={subject.name} />
       </p>
+      {comparePeer ? (
+        <p
+          className="enter mt-3"
+          style={{ '--enter-delay': '185ms' } as React.CSSProperties}
+        >
+          <AskCleoCompareLink
+            collection="space"
+            leftName={subject.name}
+            rightName={comparePeer}
+          />
+        </p>
+      ) : null}
       <p
         className="enter mt-3 mb-4"
         style={{ '--enter-delay': '190ms' } as React.CSSProperties}

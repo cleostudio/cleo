@@ -1,13 +1,18 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import { AskCleoGuideLink, AskCleoPlaceLink } from '~/components/ask-cleo-link'
+import {
+  AskCleoCompareLink,
+  AskCleoGuideLink,
+  AskCleoPlaceLink,
+} from '~/components/ask-cleo-link'
 import { GuideOrientation } from '~/components/guide-orientation'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { ZoomImage } from '~/components/zoom-image'
-import { countrySlugs, getCountry } from '~/lib/countries'
 import { atlasDescription, getAtlasEntry } from '~/lib/atlas'
+import { exploreComparePeer } from '~/lib/cleo/compare-neighbors'
+import { countrySlugs, getCountry } from '~/lib/countries'
 import { localeMetadata } from '~/lib/locale-metadata'
 
 export function exploreCountryStaticParams() {
@@ -34,6 +39,7 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
 
   const hero = entry.photo.renditions.find((r) => r.width === 1280) ?? entry.photo.renditions[0]!
   const renditions = entry.photo.renditions.map((r) => ({ src: r.src, width: r.width }))
+  const comparePeer = exploreComparePeer(entry.slug)
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -211,6 +217,15 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
         <AskCleoGuideLink collection="explore" name={entry.name} />
       </p>
+      {comparePeer ? (
+        <p className="enter mt-3" style={{ '--enter-delay': '185ms' } as React.CSSProperties}>
+          <AskCleoCompareLink
+            collection="explore"
+            leftName={entry.name}
+            rightName={comparePeer}
+          />
+        </p>
+      ) : null}
       <p className="enter mt-3" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
         <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
           Browse the gallery →

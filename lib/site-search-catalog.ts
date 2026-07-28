@@ -65,21 +65,27 @@ function exploreHits(): SiteSearchHit[] {
 }
 
 function spaceHits(): SiteSearchHit[] {
-  return spaceSubjects.map((subject) => ({
-    id: `space:${subject.slug}`,
-    kind: 'space',
-    title: subject.name,
-    subtitle: `${subject.code} · ${subject.category}`,
-    href: `/space/${subject.slug}`,
-    searchText: haystack(
-      subject.name,
-      subject.code,
-      subject.category,
-      subject.facts.kind,
-      subject.subtitle,
-      'space',
-    ),
-  }))
+  return spaceSubjects.map((subject) => {
+    const featureNames = subject.features.map((feature) => feature.name)
+
+    return {
+      id: `space:${subject.slug}`,
+      kind: 'space' as const,
+      title: subject.name,
+      subtitle: `${subject.code} · ${subject.category}`,
+      href: `/space/${subject.slug}`,
+      searchText: haystack(
+        subject.name,
+        subject.code,
+        subject.category,
+        subject.facts.kind,
+        subject.subtitle,
+        subject.photo.featureName,
+        ...featureNames,
+        'space',
+      ),
+    }
+  })
 }
 
 function topicHits(): SiteSearchHit[] {

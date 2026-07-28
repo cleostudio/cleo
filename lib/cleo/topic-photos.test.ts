@@ -45,6 +45,17 @@ describe('topic photos', () => {
     ])
   })
 
+  it('matches Explore places and Space features to their parent guides', () => {
+    expect(
+      matchTopicPhotosInText('Show me Mount Fuji').map((photo) => photo.slug),
+    ).toEqual(['japan'])
+    expect(
+      matchTopicPhotosInText('What is Olympus Mons like?').map(
+        (photo) => photo.slug,
+      ),
+    ).toEqual(['mars'])
+  })
+
   it('prefers longer country names over nested shorter ones', () => {
     const photos = matchTopicPhotosInText('What is Nigeria known for?')
     expect(photos.map((photo) => photo.slug)).toEqual(['nigeria'])

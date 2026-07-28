@@ -4,8 +4,13 @@ import {
   CLEO_ASK_AUTO_PARAM,
   CLEO_ASK_QUERY_PARAM,
   cleoAskHref,
+  compareAskHref,
+  compareAskPrompt,
   essayAskHref,
   essayAskPrompt,
+  featureAskHref,
+  featureAskPrompt,
+  galleryItemAskHref,
   guideAskHref,
   guideAskPrompt,
   parseCleoAskSearchParams,
@@ -73,9 +78,16 @@ describe('guide, place, essay, and surface prompts', () => {
     )
   })
 
-  it('builds place and essay prompts', () => {
+  it('builds place, feature, compare, gallery, and essay prompts', () => {
     expect(placeAskPrompt('Mount Fuji', 'Japan')).toMatch(/Mount Fuji/)
     expect(placeAskHref('Mount Fuji', 'Japan')).toContain('auto=1')
+    expect(featureAskPrompt('Olympus Mons', 'Mars')).toMatch(/Olympus Mons/)
+    expect(featureAskHref('Olympus Mons', 'Mars')).toContain('/cleo?')
+    expect(compareAskPrompt('space', 'Mars', 'Earth')).toMatch(/Mars/)
+    expect(compareAskHref('explore', 'Japan', 'South Korea')).toContain('auto=1')
+    expect(
+      galleryItemAskHref('Mount Fuji', 'Japan', 'places'),
+    ).toContain('/cleo?')
     expect(essayAskPrompt('Pale Blue Marble', 'pale-blue-marble')).toContain(
       '/blog/pale-blue-marble',
     )

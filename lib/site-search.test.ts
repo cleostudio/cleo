@@ -70,7 +70,7 @@ describe('site search catalog', () => {
     expect(moon.some((hit) => hit.href === '/space/moon')).toBe(true)
   })
 
-  it('finds Writing essays and Explore places by name', () => {
+  it('finds Writing essays, Explore places, and Space features by name', () => {
     const posts = getAllPosts()
     expect(posts.length).toBeGreaterThan(0)
     const first = posts[0]!
@@ -79,6 +79,9 @@ describe('site search catalog', () => {
 
     const fuji = filterSiteSearchHits(hits, 'mount fuji')
     expect(fuji.some((hit) => hit.href === '/explore/japan')).toBe(true)
+
+    const olympus = filterSiteSearchHits(hits, 'olympus mons')
+    expect(olympus.some((hit) => hit.href === '/space/mars')).toBe(true)
   })
 
   it('ranks exact topic titles ahead of looser substring matches', () => {

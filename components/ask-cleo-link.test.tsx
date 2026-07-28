@@ -4,7 +4,10 @@ import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import {
+  AskCleoCompareLink,
   AskCleoEssayLink,
+  AskCleoFeatureLink,
+  AskCleoGalleryItemLink,
   AskCleoGuideLink,
   AskCleoPlaceLink,
   AskCleoSurfaceLink,
@@ -36,6 +39,41 @@ describe('AskCleoPlaceLink', () => {
   })
 })
 
+describe('AskCleoFeatureLink', () => {
+  it('links a Space feature into Cleo', () => {
+    render(
+      <AskCleoFeatureLink featureName="Olympus Mons" subjectName="Mars" />,
+    )
+
+    const link = screen.getByRole('link', {
+      name: /Ask Cleo about Olympus Mons/i,
+    })
+    const q =
+      new URL(link.getAttribute('href') ?? '', 'https://cleo.example')
+        .searchParams.get('q') ?? ''
+    expect(q).toContain('Olympus Mons')
+    expect(q).toContain('Mars')
+  })
+})
+
+describe('AskCleoCompareLink', () => {
+  it('links a compare prompt into Cleo', () => {
+    render(
+      <AskCleoCompareLink
+        collection="space"
+        leftName="Mars"
+        rightName="Earth"
+      />,
+    )
+
+    expect(
+      screen
+        .getByRole('link', { name: /Ask Cleo to compare Mars and Earth/i })
+        .getAttribute('href'),
+    ).toContain('/cleo?')
+  })
+})
+
 describe('AskCleoEssayLink', () => {
   it('links a Writing essay into Cleo', () => {
     render(
@@ -48,6 +86,22 @@ describe('AskCleoEssayLink', () => {
     expect(decodeURIComponent(link.getAttribute('href') ?? '')).toContain(
       '/blog/pale-blue-marble',
     )
+  })
+})
+
+describe('AskCleoGalleryItemLink', () => {
+  it('links a Gallery photograph into Cleo', () => {
+    render(
+      <AskCleoGalleryItemLink
+        title="Mount Fuji"
+        subjectName="Japan"
+        collection="places"
+      />,
+    )
+
+    expect(
+      screen.getByRole('link', { name: /^Ask Cleo →$/i }).getAttribute('href'),
+    ).toContain('/cleo?')
   })
 })
 
