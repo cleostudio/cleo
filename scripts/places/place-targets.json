@@ -6610,5 +6610,357 @@
       "Alcazar of Segovia",
       "Segovia castle"
     ]
+  },
+  "orlando": {
+    "name": "Orlando",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Orlando",
+      "Orlando United States",
+      "Orlando city"
+    ]
+  },
+  "jacksonville": {
+    "name": "Jacksonville",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "City",
+    "searchNames": [
+      "Jacksonville",
+      "Jacksonville United States",
+      "Jacksonville city"
+    ]
+  },
+  "perth": {
+    "name": "Perth",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "City",
+    "searchNames": [
+      "Perth",
+      "Perth Australia",
+      "Perth city"
+    ]
+  },
+  "hobart": {
+    "name": "Hobart",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "City",
+    "searchNames": [
+      "Hobart",
+      "Hobart Australia",
+      "Hobart city"
+    ]
+  },
+  "christchurch": {
+    "name": "Christchurch",
+    "countrySlug": "new-zealand",
+    "countryName": "New Zealand",
+    "kind": "City",
+    "searchNames": [
+      "Christchurch",
+      "Christchurch New Zealand",
+      "Christchurch NZ"
+    ]
+  },
+  "tampere": {
+    "name": "Tampere",
+    "countrySlug": "finland",
+    "countryName": "Finland",
+    "kind": "City",
+    "searchNames": [
+      "Tampere",
+      "Tampere Finland",
+      "Tampere city"
+    ]
+  },
+  "wroclaw": {
+    "name": "Wrocław",
+    "countrySlug": "poland",
+    "countryName": "Poland",
+    "kind": "City",
+    "searchNames": [
+      "Wrocław",
+      "Wroclaw Poland",
+      "Breslau"
+    ]
+  },
+  "belfast": {
+    "name": "Belfast",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Belfast",
+      "Belfast United Kingdom",
+      "Belfast city"
+    ]
+  },
+  "cardiff": {
+    "name": "Cardiff",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Cardiff",
+      "Cardiff United Kingdom",
+      "Cardiff city"
+    ]
+  },
+  "nice": {
+    "name": "Nice",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Nice",
+      "Nice France",
+      "Nice city"
+    ]
+  },
+  "verona": {
+    "name": "Verona",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Verona",
+      "Verona Italy",
+      "Verona city"
+    ]
+  },
+  "monterrey": {
+    "name": "Monterrey",
+    "countrySlug": "mexico",
+    "countryName": "Mexico",
+    "kind": "City",
+    "searchNames": [
+      "Monterrey",
+      "Monterrey Mexico",
+      "Monterrey city"
+    ]
+  },
+  "oklahoma": {
+    "name": "Oklahoma",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Oklahoma",
+      "Oklahoma landscape",
+      "Oklahoma United States"
+    ]
+  },
+  "louisiana": {
+    "name": "Louisiana",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Louisiana",
+      "Louisiana landscape",
+      "Louisiana United States"
+    ]
+  },
+  "kentucky": {
+    "name": "Kentucky",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Kentucky",
+      "Kentucky landscape",
+      "Kentucky United States"
+    ]
+  },
+  "aegina": {
+    "name": "Aegina",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Aegina",
+      "Aigina Greece",
+      "Temple of Aphaia"
+    ]
+  },
+  "poros": {
+    "name": "Poros",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Island",
+    "searchNames": [
+      "Poros",
+      "Poros island",
+      "Poros Greece"
+    ]
+  },
+  "favignana": {
+    "name": "Favignana",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Island",
+    "searchNames": [
+      "Favignana",
+      "Favignana island",
+      "Favignana Italy"
+    ]
+  },
+  "procida": {
+    "name": "Procida",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Island",
+    "searchNames": [
+      "Procida",
+      "Procida island",
+      "Procida Italy"
+    ]
+  },
+  "djerba": {
+    "name": "Djerba",
+    "countrySlug": "tunisia",
+    "countryName": "Tunisia",
+    "kind": "Island",
+    "searchNames": [
+      "Djerba",
+      "Jerba Tunisia",
+      "Djerba island"
+    ]
+  },
+  "orkney": {
+    "name": "Orkney",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Orkney",
+      "Orkney Islands",
+      "Skara Brae"
+    ]
+  },
+  "trentino": {
+    "name": "Trentino",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Trentino",
+      "Trentino-Alto Adige",
+      "Trentino Italy"
+    ]
+  },
+  "aquitaine": {
+    "name": "Aquitaine",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Aquitaine",
+      "Aquitaine France",
+      "Aquitaine landscape"
+    ]
+  },
+  "thuringia": {
+    "name": "Thuringia",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Thuringia",
+      "Thüringen",
+      "Thuringian Forest"
+    ]
+  },
+  "brandenburg": {
+    "name": "Brandenburg",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Brandenburg",
+      "Brandenburg Germany",
+      "Potsdam Brandenburg"
+    ]
+  },
+  "tokyo-skytree": {
+    "name": "Tokyo Skytree",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Landmark",
+    "searchNames": [
+      "Tokyo Skytree",
+      "Skytree Tokyo",
+      "Tokyo Sky Tree"
+    ]
+  },
+  "duomo-florence": {
+    "name": "Florence Cathedral",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": [
+      "Florence Cathedral",
+      "Duomo di Firenze",
+      "Brunelleschi Dome"
+    ]
+  },
+  "space-needle": {
+    "name": "Space Needle",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Space Needle",
+      "Space Needle United States",
+      "Space Needle"
+    ]
+  },
+  "mount-vernon": {
+    "name": "Mount Vernon",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mount Vernon",
+      "Mount Vernon United States",
+      "Mount Vernon"
+    ]
+  },
+  "chateau-chenonceau": {
+    "name": "Château de Chenonceau",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": [
+      "Château de Chenonceau",
+      "Chenonceau",
+      "Chenonceaux"
+    ]
+  },
+  "languedoc": {
+    "name": "Languedoc",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Languedoc",
+      "Languedoc-Roussillon",
+      "Languedoc France"
+    ]
+  },
+  "charles-bridge": {
+    "name": "Charles Bridge",
+    "countrySlug": "czechia",
+    "countryName": "Czechia",
+    "kind": "Landmark",
+    "searchNames": [
+      "Charles Bridge",
+      "Karlův most",
+      "Charles Bridge Prague"
+    ]
   }
 }

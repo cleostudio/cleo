@@ -17630,5 +17630,933 @@
         "bytes": 594097
       }
     ]
+  },
+  "orlando": {
+    "featureName": "Orlando",
+    "alt": "Orlando in United States",
+    "caption": "Orlando, United States",
+    "photographer": "JER3L1337",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Eola_and_Orlando_Skyline_seen_in_2024.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake Eola and Orlando Skyline seen in 2024.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f2/Lake_Eola_and_Orlando_Skyline_seen_in_2024.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9e3fdc283be284113164fb974eb952ad80d9395d7c3f5eec566cb75e3879d0b5",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/orlando/w640.jpg",
+        "bytes": 32792
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/orlando/w1280.jpg",
+        "bytes": 115624
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/orlando/w2048.jpg",
+        "bytes": 335198
+      }
+    ]
+  },
+  "jacksonville": {
+    "featureName": "Jacksonville",
+    "alt": "Jacksonville in United States",
+    "caption": "Jacksonville, United States",
+    "photographer": "Matthew T Rader",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jacksonville,_Florida_skyline.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Jacksonville, Florida skyline.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3c/Jacksonville%2C_Florida_skyline.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0b653850c29e1bbd1632713a5adfffc93a754d5b5b9330b8263e40da19ae713a",
+    "width": 3829,
+    "height": 2393,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/jacksonville/w640.jpg",
+        "bytes": 72203
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/jacksonville/w1280.jpg",
+        "bytes": 162692
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/jacksonville/w2048.jpg",
+        "bytes": 359966
+      }
+    ]
+  },
+  "perth": {
+    "featureName": "Perth",
+    "alt": "Perth in Australia",
+    "caption": "Perth, Australia",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perth_(AU),_Elizabeth_Quay_Bridge_--_2019_--_0375-9.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Perth (AU), Elizabeth Quay Bridge -- 2019 -- 0375-9.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f6/Perth_%28AU%29%2C_Elizabeth_Quay_Bridge_--_2019_--_0375-9.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0963ce5c53eb3f2a3f5d6f05d7f2ac9a4a680a64e97be5cc608065a68044be1f",
+    "width": 3840,
+    "height": 2767,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/perth/w640.jpg",
+        "bytes": 34582
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/perth/w1280.jpg",
+        "bytes": 106920
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/perth/w2048.jpg",
+        "bytes": 281515
+      }
+    ]
+  },
+  "hobart": {
+    "featureName": "Hobart",
+    "alt": "Hobart in Australia",
+    "caption": "Hobart, Australia",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hobart-Tasmania-Australia01.JPG",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Hobart-Tasmania-Australia01.JPG); source https://upload.wikimedia.org/wikipedia/commons/8/89/Hobart-Tasmania-Australia01.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "86b235247a50c8938cbc91881544939db43ee1ddfe21830feb414d576e83700b",
+    "width": 3832,
+    "height": 2555,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hobart/w640.jpg",
+        "bytes": 81975
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hobart/w1280.jpg",
+        "bytes": 171191
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hobart/w2048.jpg",
+        "bytes": 376318
+      }
+    ]
+  },
+  "christchurch": {
+    "featureName": "Christchurch",
+    "alt": "Christchurch in New Zealand",
+    "caption": "Christchurch, New Zealand",
+    "photographer": "Michal Klajban",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Avon_River,_Christchurch,_New_Zealand_01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Avon River, Christchurch, New Zealand 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6b/Avon_River%2C_Christchurch%2C_New_Zealand_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e1fa342c9d1dc1faca893a344cbaae90f44225d75aee3966d887570c5777bee3",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/christchurch/w640.jpg",
+        "bytes": 59621
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/christchurch/w1280.jpg",
+        "bytes": 232579
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/christchurch/w2048.jpg",
+        "bytes": 712546
+      }
+    ]
+  },
+  "tampere": {
+    "featureName": "Tampere",
+    "alt": "Tampere in Finland",
+    "caption": "Tampere, Finland",
+    "photographer": "kallerna",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tampere_aerial_view_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Tampere aerial view 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7e/Tampere_aerial_view_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e0430d7c770ba1688c4da297ebb5969ace41b36b6b0eb1053126ea6477ac027f",
+    "width": 3840,
+    "height": 2428,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tampere/w640.jpg",
+        "bytes": 60108
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tampere/w1280.jpg",
+        "bytes": 225944
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tampere/w2048.jpg",
+        "bytes": 656566
+      }
+    ]
+  },
+  "wroclaw": {
+    "featureName": "Wrocław",
+    "alt": "Wrocław in Poland",
+    "caption": "Wrocław, Poland",
+    "photographer": "Sneeuwvlakte",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rynek_-_Wroc%C5%82aw_(2026).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Rynek - Wrocław (2026).jpg); source https://upload.wikimedia.org/wikipedia/commons/5/57/Rynek_-_Wroc%C5%82aw_%282026%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e63dbc40f1d642331ba07aa0c8461549a1deccd6e87d05e1aa79fb32d32a0401",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/wroclaw/w640.jpg",
+        "bytes": 54067
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/wroclaw/w1280.jpg",
+        "bytes": 185633
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/wroclaw/w2048.jpg",
+        "bytes": 490329
+      }
+    ]
+  },
+  "belfast": {
+    "featureName": "Belfast",
+    "alt": "Belfast in United Kingdom",
+    "caption": "Belfast, United Kingdom",
+    "photographer": "Giorgio Galeotti",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Belfast_City_Hall_-_Belfast,_Northern_Ireland,_UK_-_August_13,_2017_-_01.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Belfast City Hall - Belfast, Northern Ireland, UK - August 13, 2017 - 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/74/Belfast_City_Hall_-_Belfast%2C_Northern_Ireland%2C_UK_-_August_13%2C_2017_-_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "10b3b9ae83130c87609fafc42846efc421b8cac0b5d00e1b11d186d1ab98d40b",
+    "width": 3840,
+    "height": 1757,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/belfast/w640.jpg",
+        "bytes": 32890
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/belfast/w1280.jpg",
+        "bytes": 111617
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/belfast/w2048.jpg",
+        "bytes": 313468
+      }
+    ]
+  },
+  "cardiff": {
+    "featureName": "Cardiff",
+    "alt": "Cardiff in United Kingdom",
+    "caption": "Cardiff, United Kingdom",
+    "photographer": "mattbuck ( category )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardiff_MMB_10.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cardiff MMB 10.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/cb/Cardiff_MMB_10.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "72e6f74054c840d87f9bc651d82a49ebdb5efd8f225e3a68503162a58ee34d1e",
+    "width": 2965,
+    "height": 1885,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cardiff/w640.jpg",
+        "bytes": 62020
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cardiff/w1280.jpg",
+        "bytes": 176332
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cardiff/w2048.jpg",
+        "bytes": 475988
+      }
+    ]
+  },
+  "nice": {
+    "featureName": "Nice",
+    "alt": "Nice in France",
+    "caption": "Nice, France",
+    "photographer": "Alexander Migl",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Promenade_des_Anglais_Nice_IMG_1255.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Promenade des Anglais Nice IMG 1255.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/ba/Promenade_des_Anglais_Nice_IMG_1255.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bd4c21b3aa72e66967900b8c883bb28dc2bfd8742f3d272764b301cd2006cc39",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nice/w640.jpg",
+        "bytes": 41890
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nice/w1280.jpg",
+        "bytes": 146223
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nice/w2048.jpg",
+        "bytes": 419157
+      }
+    ]
+  },
+  "verona": {
+    "featureName": "Verona",
+    "alt": "Verona in Italy",
+    "caption": "Verona, Italy",
+    "photographer": "Krzysztof Golik",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cathedral_of_Verona_(7).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cathedral of Verona (7).jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a3/Cathedral_of_Verona_%287%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ec4787186ede3f5f1c3db50412969816a361a1e9153b0b4548eeb30b0f5ca00c",
+    "width": 3840,
+    "height": 3285,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/verona/w640.jpg",
+        "bytes": 82710
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/verona/w1280.jpg",
+        "bytes": 286526
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/verona/w2048.jpg",
+        "bytes": 774421
+      }
+    ]
+  },
+  "monterrey": {
+    "featureName": "Monterrey",
+    "alt": "Monterrey in Mexico",
+    "caption": "Monterrey, Mexico",
+    "photographer": "Daniel Escobedo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skyline_de_Monterrey.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Skyline de Monterrey.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/12/Skyline_de_Monterrey.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c7c656d6959ed69e3e491510753a39df7def1ac5ab0bdbf5e3be4b803a652c2a",
+    "width": 3120,
+    "height": 2080,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/monterrey/w640.jpg",
+        "bytes": 106647
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/monterrey/w1280.jpg",
+        "bytes": 299048
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/monterrey/w2048.jpg",
+        "bytes": 740856
+      }
+    ]
+  },
+  "oklahoma": {
+    "featureName": "Oklahoma",
+    "alt": "Oklahoma in United States",
+    "caption": "Oklahoma, United States",
+    "photographer": "Quintin Soloviev",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oklahoma_City_skyline_from_drone.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Oklahoma City skyline from drone.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/15/Oklahoma_City_skyline_from_drone.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ce1c341888b328883c7c3b725323911eabfd65bad788e0cdf536d082b34e2e81",
+    "width": 3840,
+    "height": 2170,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/oklahoma/w640.jpg",
+        "bytes": 39681
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/oklahoma/w1280.jpg",
+        "bytes": 140618
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/oklahoma/w2048.jpg",
+        "bytes": 401475
+      }
+    ]
+  },
+  "louisiana": {
+    "featureName": "Louisiana",
+    "alt": "Louisiana in United States",
+    "caption": "Louisiana, United States",
+    "photographer": "MusikAnimal",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:New_Orleans_skyline_from_the_Mississippi_River.JPG",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:New Orleans skyline from the Mississippi River.JPG); source https://upload.wikimedia.org/wikipedia/commons/0/01/New_Orleans_skyline_from_the_Mississippi_River.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "21dc20ca30d2d3b9fc6d5dc62772409caab69c7b2bf3200b1c111885f20e93b7",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/louisiana/w640.jpg",
+        "bytes": 32791
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/louisiana/w1280.jpg",
+        "bytes": 120006
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/louisiana/w2048.jpg",
+        "bytes": 354285
+      }
+    ]
+  },
+  "kentucky": {
+    "featureName": "Kentucky",
+    "alt": "Kentucky in United States",
+    "caption": "Kentucky, United States",
+    "photographer": "TheLexingtonTimes",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_horse_farm_in_Lexington,_Kentucky.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:A horse farm in Lexington, Kentucky.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d8/A_horse_farm_in_Lexington%2C_Kentucky.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e309bbef41f24893ca97670cc204a84e7d71ed1bd3b62d20a57959ee37ab59ec",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kentucky/w640.jpg",
+        "bytes": 32445
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kentucky/w1280.jpg",
+        "bytes": 114311
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kentucky/w2048.jpg",
+        "bytes": 324220
+      }
+    ]
+  },
+  "aegina": {
+    "featureName": "Aegina",
+    "alt": "Aegina in Greece",
+    "caption": "Aegina, Greece",
+    "photographer": "Jebulon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aegina_harbour_1.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Aegina harbour 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/26/Aegina_harbour_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "741d8a08c0c63199222656c92f1d14c8fe57d55a453f0c67f8023b6107c30273",
+    "width": 3840,
+    "height": 2266,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/aegina/w640.jpg",
+        "bytes": 42903
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/aegina/w1280.jpg",
+        "bytes": 156441
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/aegina/w2048.jpg",
+        "bytes": 463739
+      }
+    ]
+  },
+  "poros": {
+    "featureName": "Poros",
+    "alt": "Poros in Greece",
+    "caption": "Poros, Greece",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poros_Greece_(30997579628).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Poros Greece (30997579628).jpg); source https://upload.wikimedia.org/wikipedia/commons/f/fb/Poros_Greece_%2830997579628%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "67188646585417c26a8a58f827331e5d60d80a12474085a639b90e51791aede6",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/poros/w640.jpg",
+        "bytes": 31686
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/poros/w1280.jpg",
+        "bytes": 110246
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/poros/w2048.jpg",
+        "bytes": 304665
+      }
+    ]
+  },
+  "favignana": {
+    "featureName": "Favignana island",
+    "alt": "Favignana island in Italy",
+    "caption": "Favignana island, Italy",
+    "photographer": "Tommie Hansen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beach_at_Favignana_Island,_Sicily_(Italy)_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Beach at Favignana Island, Sicily (Italy) - panoramio.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d4/Beach_at_Favignana_Island%2C_Sicily_%28Italy%29_-_panoramio.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c03cf6cd3b8085b12b0e788098fdab74d7169e7b19bfd28082b40abf9883a078",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/favignana/w640.jpg",
+        "bytes": 40592
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/favignana/w1280.jpg",
+        "bytes": 149686
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/favignana/w2048.jpg",
+        "bytes": 447974
+      }
+    ]
+  },
+  "procida": {
+    "featureName": "Procida",
+    "alt": "Procida in Italy",
+    "caption": "Procida, Italy",
+    "photographer": "Ekrem Canli",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corricella_2016,_Procida_(2).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Corricella 2016, Procida (2).jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ad/Corricella_2016%2C_Procida_%282%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d6c4a529a64972a7a44243e77d0ce8186999b20ad37b8c16c19816d2e6af60fd",
+    "width": 3840,
+    "height": 1471,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/procida/w640.jpg",
+        "bytes": 44507
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/procida/w1280.jpg",
+        "bytes": 159245
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/procida/w2048.jpg",
+        "bytes": 457140
+      }
+    ]
+  },
+  "djerba": {
+    "featureName": "Djerba",
+    "alt": "Djerba in Tunisia",
+    "caption": "Djerba, Tunisia",
+    "photographer": "YayaKaufen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paysage_de_mon_pays_%C3%A0_Jerba.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Paysage de mon pays à Jerba.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/8e/Paysage_de_mon_pays_%C3%A0_Jerba.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "310f226b64c8f00b9c404867636e29f21741b6c51832f5c3626c93aa970c52f3",
+    "width": 3521,
+    "height": 2640,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/djerba/w640.jpg",
+        "bytes": 65899
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/djerba/w1280.jpg",
+        "bytes": 242754
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/djerba/w2048.jpg",
+        "bytes": 768169
+      }
+    ]
+  },
+  "orkney": {
+    "featureName": "Skara Brae",
+    "alt": "Skara Brae in United Kingdom",
+    "caption": "Skara Brae, United Kingdom",
+    "photographer": "Smeashy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Overview_of_Skara_Brae,_showing_building_walls_and_the_bay.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Overview of Skara Brae, showing building walls and the bay.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b6/Overview_of_Skara_Brae%2C_showing_building_walls_and_the_bay.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7e88dd62815805a54f66d72e756a7bee3318280ca1ca6b528ee359bd31fdd266",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/orkney/w640.jpg",
+        "bytes": 42594
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/orkney/w1280.jpg",
+        "bytes": 173673
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/orkney/w2048.jpg",
+        "bytes": 600669
+      }
+    ]
+  },
+  "trentino": {
+    "featureName": "Trentino",
+    "alt": "Trentino in Italy",
+    "caption": "Trentino, Italy",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cima_di_Vezzana_and_Cimon_della_Pala,_San_Martino_di_Castrozza,_Trentino-Alto_Adige,_Italy,_2025_October.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Cima di Vezzana and Cimon della Pala, San Martino di Castrozza, Trentino-Alto Adige, Italy, 2025 October.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/aa/Cima_di_Vezzana_and_Cimon_della_Pala%2C_San_Martino_di_Castrozza%2C_Trentino-Alto_Adige%2C_Italy%2C_2025_October.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f24a217a7ded643ca7c0f991254e575e5a4ca100ba30a46d4d80e326d0fb3909",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/trentino/w640.jpg",
+        "bytes": 48638
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/trentino/w1280.jpg",
+        "bytes": 185183
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/trentino/w2048.jpg",
+        "bytes": 576752
+      }
+    ]
+  },
+  "aquitaine": {
+    "featureName": "Aquitaine",
+    "alt": "Aquitaine in France",
+    "caption": "Aquitaine, France",
+    "photographer": "Barry Marsh",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset,_Lacanau-Ocean,_Aquitaine,_France.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Sunset, Lacanau-Ocean, Aquitaine, France.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/44/Sunset%2C_Lacanau-Ocean%2C_Aquitaine%2C_France.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a43c30efe30e08dcda1b5a31bf68bd81d287dee1fae230b51c497dc2672d81cf",
+    "width": 3267,
+    "height": 2212,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/aquitaine/w640.jpg",
+        "bytes": 69816
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/aquitaine/w1280.jpg",
+        "bytes": 148293
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/aquitaine/w2048.jpg",
+        "bytes": 348076
+      }
+    ]
+  },
+  "thuringia": {
+    "featureName": "Thuringia",
+    "alt": "Thuringia in Germany",
+    "caption": "Thuringia, Germany",
+    "photographer": "Radomianin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paulinzella_abbey_church,_2022-05-28,_01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Paulinzella abbey church, 2022-05-28, 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/02/Paulinzella_abbey_church%2C_2022-05-28%2C_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fc6272fc3bf136fc17de5cfbae11f7924a353450864c94403951a483bcdf1418",
+    "width": 3840,
+    "height": 2378,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/thuringia/w640.jpg",
+        "bytes": 54466
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/thuringia/w1280.jpg",
+        "bytes": 208805
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/thuringia/w2048.jpg",
+        "bytes": 644833
+      }
+    ]
+  },
+  "brandenburg": {
+    "featureName": "Brandenburg",
+    "alt": "Brandenburg in Germany",
+    "caption": "Brandenburg, Germany",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heiligengrabe,_Kloster_Stift_zum_Heiligengrabe,_Heiliggrabkapelle_--_2017_--_7314-20_--_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Heiligengrabe, Kloster Stift zum Heiligengrabe, Heiliggrabkapelle -- 2017 -- 7314-20 -- 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/d5/Heiligengrabe%2C_Kloster_Stift_zum_Heiligengrabe%2C_Heiliggrabkapelle_--_2017_--_7314-20_--_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "eb56eeff02c2283849a3a48b4052211cfbe2375d90b215fa9d0c4c1bb64b0dbb",
+    "width": 3408,
+    "height": 3408,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/brandenburg/w640.jpg",
+        "bytes": 175688
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/brandenburg/w1280.jpg",
+        "bytes": 470173
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/brandenburg/w2048.jpg",
+        "bytes": 1131711
+      }
+    ]
+  },
+  "tokyo-skytree": {
+    "featureName": "Tokyo Skytree",
+    "alt": "Tokyo Skytree in Japan",
+    "caption": "Tokyo Skytree, Japan",
+    "photographer": "Basile Morin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Worm%27s-eye_view_of_Tokyo_Skytree_with_vertical_symmetry_impression,_a_sunny_day,_in_Japan.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Worm's-eye view of Tokyo Skytree with vertical symmetry impression, a sunny day, in Japan.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/11/Worm%27s-eye_view_of_Tokyo_Skytree_with_vertical_symmetry_impression%2C_a_sunny_day%2C_in_Japan.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "638b825e43ec37309d6e19419b1b02416e3eac82280c9501b531fad9bd561470",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tokyo-skytree/w640.jpg",
+        "bytes": 42676
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tokyo-skytree/w1280.jpg",
+        "bytes": 138211
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tokyo-skytree/w2048.jpg",
+        "bytes": 371618
+      }
+    ]
+  },
+  "duomo-florence": {
+    "featureName": "Florence Cathedral",
+    "alt": "Florence Cathedral in Italy",
+    "caption": "Florence Cathedral, Italy",
+    "photographer": "Jebulon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fa%C3%A7ade_cath%C3%A9drale_Florence.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Façade cathédrale Florence.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6c/Fa%C3%A7ade_cath%C3%A9drale_Florence.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "65272a3edc9e035435786c27b5d5758a7c876fad8987e7659f147f231db6464f",
+    "width": 2096,
+    "height": 2704,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/duomo-florence/w640.jpg",
+        "bytes": 147889
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/duomo-florence/w1280.jpg",
+        "bytes": 514601
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/duomo-florence/w2048.jpg",
+        "bytes": 1242322
+      }
+    ]
+  },
+  "space-needle": {
+    "featureName": "Space Needle",
+    "alt": "Space Needle in United States",
+    "caption": "Space Needle, United States",
+    "photographer": "Daniel Schwen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seattle_3.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Seattle 3.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/39/Seattle_3.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cea592e7e536ca4638512bbd5264b4d84402c780e61c3cd1423f94bd03133eb3",
+    "width": 3840,
+    "height": 902,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/space-needle/w640.jpg",
+        "bytes": 15528
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/space-needle/w1280.jpg",
+        "bytes": 53427
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/space-needle/w2048.jpg",
+        "bytes": 157942
+      }
+    ]
+  },
+  "mount-vernon": {
+    "featureName": "Mount Vernon",
+    "alt": "Mount Vernon in United States",
+    "caption": "Mount Vernon, United States",
+    "photographer": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Vernon_Estate_Mansion_2.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Mount Vernon Estate Mansion 2.JPG); source https://upload.wikimedia.org/wikipedia/commons/6/6b/Mount_Vernon_Estate_Mansion_2.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4112cfc3c388be69acc34d8ebfb44be126ccc8ad2d96e0c62d3d4354c5c397ea",
+    "width": 3554,
+    "height": 2623,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mount-vernon/w640.jpg",
+        "bytes": 66103
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mount-vernon/w1280.jpg",
+        "bytes": 187961
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mount-vernon/w2048.jpg",
+        "bytes": 485392
+      }
+    ]
+  },
+  "chateau-chenonceau": {
+    "featureName": "Château de Chenonceau",
+    "alt": "Château de Chenonceau in France",
+    "caption": "Château de Chenonceau, France",
+    "photographer": "Antoine Montulé",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Chenonceau_-_Fa%C3%A7ade_Est_reflets_Cher.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Château de Chenonceau - Façade Est reflets Cher.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c2/Ch%C3%A2teau_de_Chenonceau_-_Fa%C3%A7ade_Est_reflets_Cher.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "001e6251b528cc4a7166973d21412b57190c2f744c4b0df6e29cecfd004df27d",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/chateau-chenonceau/w640.jpg",
+        "bytes": 59733
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/chateau-chenonceau/w1280.jpg",
+        "bytes": 218420
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/chateau-chenonceau/w2048.jpg",
+        "bytes": 619269
+      }
+    ]
+  },
+  "languedoc": {
+    "featureName": "Languedoc",
+    "alt": "Languedoc in France",
+    "caption": "Languedoc, France",
+    "photographer": "Christian Ferrer",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pont_du_Vialais,_Haut-Languedoc,_Rosis_cf01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Pont du Vialais, Haut-Languedoc, Rosis cf01.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/2f/Pont_du_Vialais%2C_Haut-Languedoc%2C_Rosis_cf01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "145c8349fa47426307c211287a5ab194385b38dae159ee049a0248ac93f6a1e4",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/languedoc/w640.jpg",
+        "bytes": 75000
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/languedoc/w1280.jpg",
+        "bytes": 310740
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/languedoc/w2048.jpg",
+        "bytes": 993650
+      }
+    ]
+  },
+  "charles-bridge": {
+    "featureName": "Charles Bridge",
+    "alt": "Charles Bridge in Czechia",
+    "caption": "Charles Bridge, Czechia",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prag,_Karlsbr%C3%BCcke_--_2019_--_6546.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Prag, Karlsbrücke -- 2019 -- 6546.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/66/Prag%2C_Karlsbr%C3%BCcke_--_2019_--_6546.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e029703ca855abd5fc5ad76bf27bd4668576f2db8e71d74789dfa5eb02ab62ab",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/charles-bridge/w640.jpg",
+        "bytes": 40707
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/charles-bridge/w1280.jpg",
+        "bytes": 142142
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/charles-bridge/w2048.jpg",
+        "bytes": 419048
+      }
+    ]
   }
 }

@@ -14,7 +14,7 @@ import {
 
 describe('place guides', () => {
   it('ships a curated catalog with unique slugs and codes', () => {
-    expect(placeGuides.length).toBeGreaterThanOrEqual(608)
+    expect(placeGuides.length).toBeGreaterThanOrEqual(640)
 
     const slugs = placeGuides.map((place) => place.slug)
     const codes = placeGuides.map((place) => place.code)
@@ -368,6 +368,43 @@ describe('place guides', () => {
     expect(
       matchPlaceGuideForBlurb('spain', 'Alcázar of Segovia')?.slug,
     ).toBe('alcazar-segovia')
+    expect(matchPlaceGuideForBlurb('united-states', 'Orlando')?.slug).toBe(
+      'orlando',
+    )
+    expect(matchPlaceGuideForBlurb('australia', 'Perth')?.slug).toBe('perth')
+    expect(
+      matchPlaceGuideForBlurb('new-zealand', 'Christchurch')?.slug,
+    ).toBe('christchurch')
+    expect(matchPlaceGuideForBlurb('poland', 'Breslau')?.slug).toBe('wroclaw')
+    expect(matchPlaceGuideForBlurb('united-kingdom', 'Cardiff')?.slug).toBe(
+      'cardiff',
+    )
+    expect(matchPlaceGuideForBlurb('mexico', 'Monterrey')?.slug).toBe(
+      'monterrey',
+    )
+    expect(matchPlaceGuideForBlurb('united-states', 'Louisiana')?.slug).toBe(
+      'louisiana',
+    )
+    expect(matchPlaceGuideForBlurb('greece', 'Aigina')?.slug).toBe('aegina')
+    expect(matchPlaceGuideForBlurb('tunisia', 'Jerba')?.slug).toBe('djerba')
+    expect(
+      matchPlaceGuideForBlurb('united-kingdom', 'Orkney Islands')?.slug,
+    ).toBe('orkney')
+    expect(matchPlaceGuideForBlurb('germany', 'Thüringen')?.slug).toBe(
+      'thuringia',
+    )
+    expect(
+      matchPlaceGuideForBlurb('france', 'Languedoc-Roussillon')?.slug,
+    ).toBe('languedoc')
+    expect(matchPlaceGuideForBlurb('italy', 'Duomo di Firenze')?.slug).toBe(
+      'duomo-florence',
+    )
+    expect(matchPlaceGuideForBlurb('czechia', 'Karlův most')?.slug).toBe(
+      'charles-bridge',
+    )
+    expect(matchPlaceGuideForBlurb('france', 'Chenonceau')?.slug).toBe(
+      'chateau-chenonceau',
+    )
   })
 
   it('never reuses a sentence between place guides', () => {

@@ -19271,6 +19271,774 @@
       }
     ]
   },
+  "places/orlando": {
+    "collection": "places",
+    "title": "Orlando",
+    "subtitle": "Orlando",
+    "alt": "Orlando in United States",
+    "photographer": "JER3L1337",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/orlando/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/orlando/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/orlando/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/jacksonville": {
+    "collection": "places",
+    "title": "Jacksonville",
+    "subtitle": "Jacksonville",
+    "alt": "Jacksonville in United States",
+    "photographer": "Matthew T Rader",
+    "license": "CC BY-SA 4.0",
+    "width": 3829,
+    "height": 2393,
+    "renditions": [
+      {
+        "src": "/images/places/jacksonville/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/jacksonville/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/jacksonville/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/perth": {
+    "collection": "places",
+    "title": "Perth",
+    "subtitle": "Perth",
+    "alt": "Perth in Australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2767,
+    "renditions": [
+      {
+        "src": "/images/places/perth/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/perth/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/perth/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hobart": {
+    "collection": "places",
+    "title": "Hobart",
+    "subtitle": "Hobart",
+    "alt": "Hobart in Australia",
+    "photographer": "Diego Delso",
+    "license": "CC BY 3.0",
+    "width": 3832,
+    "height": 2555,
+    "renditions": [
+      {
+        "src": "/images/places/hobart/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hobart/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hobart/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/christchurch": {
+    "collection": "places",
+    "title": "Christchurch",
+    "subtitle": "Christchurch",
+    "alt": "Christchurch in New Zealand",
+    "photographer": "Michal Klajban",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/christchurch/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/christchurch/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/christchurch/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tampere": {
+    "collection": "places",
+    "title": "Tampere",
+    "subtitle": "Tampere",
+    "alt": "Tampere in Finland",
+    "photographer": "kallerna",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2428,
+    "renditions": [
+      {
+        "src": "/images/places/tampere/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tampere/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tampere/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/wroclaw": {
+    "collection": "places",
+    "title": "Wrocław",
+    "subtitle": "Wrocław",
+    "alt": "Wrocław in Poland",
+    "photographer": "Sneeuwvlakte",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/wroclaw/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/wroclaw/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/wroclaw/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/belfast": {
+    "collection": "places",
+    "title": "Belfast",
+    "subtitle": "Belfast",
+    "alt": "Belfast in United Kingdom",
+    "photographer": "Giorgio Galeotti",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 1757,
+    "renditions": [
+      {
+        "src": "/images/places/belfast/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/belfast/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/belfast/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cardiff": {
+    "collection": "places",
+    "title": "Cardiff",
+    "subtitle": "Cardiff",
+    "alt": "Cardiff in United Kingdom",
+    "photographer": "mattbuck ( category )",
+    "license": "CC BY-SA 3.0",
+    "width": 2965,
+    "height": 1885,
+    "renditions": [
+      {
+        "src": "/images/places/cardiff/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cardiff/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cardiff/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nice": {
+    "collection": "places",
+    "title": "Nice",
+    "subtitle": "Nice",
+    "alt": "Nice in France",
+    "photographer": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/nice/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nice/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nice/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/verona": {
+    "collection": "places",
+    "title": "Verona",
+    "subtitle": "Verona",
+    "alt": "Verona in Italy",
+    "photographer": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 3285,
+    "renditions": [
+      {
+        "src": "/images/places/verona/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/verona/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/verona/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/monterrey": {
+    "collection": "places",
+    "title": "Monterrey",
+    "subtitle": "Monterrey",
+    "alt": "Monterrey in Mexico",
+    "photographer": "Daniel Escobedo",
+    "license": "CC BY-SA 4.0",
+    "width": 3120,
+    "height": 2080,
+    "renditions": [
+      {
+        "src": "/images/places/monterrey/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/monterrey/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/monterrey/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/oklahoma": {
+    "collection": "places",
+    "title": "Oklahoma",
+    "subtitle": "Oklahoma",
+    "alt": "Oklahoma in United States",
+    "photographer": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2170,
+    "renditions": [
+      {
+        "src": "/images/places/oklahoma/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/oklahoma/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/oklahoma/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/louisiana": {
+    "collection": "places",
+    "title": "Louisiana",
+    "subtitle": "Louisiana",
+    "alt": "Louisiana in United States",
+    "photographer": "MusikAnimal",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/louisiana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/louisiana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/louisiana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kentucky": {
+    "collection": "places",
+    "title": "Kentucky",
+    "subtitle": "Kentucky",
+    "alt": "Kentucky in United States",
+    "photographer": "TheLexingtonTimes",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/kentucky/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kentucky/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kentucky/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/aegina": {
+    "collection": "places",
+    "title": "Aegina",
+    "subtitle": "Aegina",
+    "alt": "Aegina in Greece",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2266,
+    "renditions": [
+      {
+        "src": "/images/places/aegina/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/aegina/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/aegina/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/poros": {
+    "collection": "places",
+    "title": "Poros",
+    "subtitle": "Poros",
+    "alt": "Poros in Greece",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/poros/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/poros/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/poros/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/favignana": {
+    "collection": "places",
+    "title": "Favignana island",
+    "subtitle": "Favignana",
+    "alt": "Favignana island in Italy",
+    "photographer": "Tommie Hansen",
+    "license": "CC BY 3.0",
+    "width": 3840,
+    "height": 2552,
+    "renditions": [
+      {
+        "src": "/images/places/favignana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/favignana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/favignana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/procida": {
+    "collection": "places",
+    "title": "Procida",
+    "subtitle": "Procida",
+    "alt": "Procida in Italy",
+    "photographer": "Ekrem Canli",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1471,
+    "renditions": [
+      {
+        "src": "/images/places/procida/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/procida/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/procida/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/djerba": {
+    "collection": "places",
+    "title": "Djerba",
+    "subtitle": "Djerba",
+    "alt": "Djerba in Tunisia",
+    "photographer": "YayaKaufen",
+    "license": "CC BY-SA 4.0",
+    "width": 3521,
+    "height": 2640,
+    "renditions": [
+      {
+        "src": "/images/places/djerba/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/djerba/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/djerba/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/orkney": {
+    "collection": "places",
+    "title": "Skara Brae",
+    "subtitle": "Orkney",
+    "alt": "Skara Brae in United Kingdom",
+    "photographer": "Smeashy",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/orkney/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/orkney/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/orkney/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/trentino": {
+    "collection": "places",
+    "title": "Trentino",
+    "subtitle": "Trentino",
+    "alt": "Trentino in Italy",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/trentino/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/trentino/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/trentino/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/aquitaine": {
+    "collection": "places",
+    "title": "Aquitaine",
+    "subtitle": "Aquitaine",
+    "alt": "Aquitaine in France",
+    "photographer": "Barry Marsh",
+    "license": "Public domain",
+    "width": 3267,
+    "height": 2212,
+    "renditions": [
+      {
+        "src": "/images/places/aquitaine/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/aquitaine/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/aquitaine/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/thuringia": {
+    "collection": "places",
+    "title": "Thuringia",
+    "subtitle": "Thuringia",
+    "alt": "Thuringia in Germany",
+    "photographer": "Radomianin",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2378,
+    "renditions": [
+      {
+        "src": "/images/places/thuringia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/thuringia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/thuringia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/brandenburg": {
+    "collection": "places",
+    "title": "Brandenburg",
+    "subtitle": "Brandenburg",
+    "alt": "Brandenburg in Germany",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3408,
+    "height": 3408,
+    "renditions": [
+      {
+        "src": "/images/places/brandenburg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/brandenburg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/brandenburg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/languedoc": {
+    "collection": "places",
+    "title": "Languedoc",
+    "subtitle": "Languedoc",
+    "alt": "Languedoc in France",
+    "photographer": "Christian Ferrer",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2563,
+    "renditions": [
+      {
+        "src": "/images/places/languedoc/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/languedoc/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/languedoc/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tokyo-skytree": {
+    "collection": "places",
+    "title": "Tokyo Skytree",
+    "subtitle": "Tokyo Skytree",
+    "alt": "Tokyo Skytree in Japan",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/tokyo-skytree/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tokyo-skytree/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tokyo-skytree/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/duomo-florence": {
+    "collection": "places",
+    "title": "Florence Cathedral",
+    "subtitle": "Florence Cathedral",
+    "alt": "Florence Cathedral in Italy",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 2096,
+    "height": 2704,
+    "renditions": [
+      {
+        "src": "/images/places/duomo-florence/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/duomo-florence/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/duomo-florence/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/charles-bridge": {
+    "collection": "places",
+    "title": "Charles Bridge",
+    "subtitle": "Charles Bridge",
+    "alt": "Charles Bridge in Czechia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/charles-bridge/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/charles-bridge/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/charles-bridge/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/space-needle": {
+    "collection": "places",
+    "title": "Space Needle",
+    "subtitle": "Space Needle",
+    "alt": "Space Needle in United States",
+    "photographer": "Daniel Schwen",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 902,
+    "renditions": [
+      {
+        "src": "/images/places/space-needle/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/space-needle/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/space-needle/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mount-vernon": {
+    "collection": "places",
+    "title": "Mount Vernon",
+    "subtitle": "Mount Vernon",
+    "alt": "Mount Vernon in United States",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 3.0",
+    "width": 3554,
+    "height": 2623,
+    "renditions": [
+      {
+        "src": "/images/places/mount-vernon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mount-vernon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mount-vernon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/chateau-chenonceau": {
+    "collection": "places",
+    "title": "Château de Chenonceau",
+    "subtitle": "Château de Chenonceau",
+    "alt": "Château de Chenonceau in France",
+    "photographer": "Antoine Montulé",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "src": "/images/places/chateau-chenonceau/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/chateau-chenonceau/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/chateau-chenonceau/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",
