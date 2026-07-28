@@ -112,8 +112,15 @@ function activityLabel(activity: ActivityItem) {
       activity.action && activity.action.type === "portal_tool"
         ? activity.action
         : null
-    if (portalAction?.label) {
-      return portalAction.label
+    const portalLabel = portalAction?.label?.trim()
+    if (portalLabel) {
+      if (activity.status === "failed") {
+        return `Failed: ${portalLabel}`
+      }
+      if (activity.status === "cancelled") {
+        return `Stopped: ${portalLabel}`
+      }
+      return portalLabel
     }
     if (activity.status === "completed") {
       return "Used a portal tool"
