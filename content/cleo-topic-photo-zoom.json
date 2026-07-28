@@ -20807,6 +20807,774 @@
       }
     ]
   },
+  "places/sheffield": {
+    "collection": "places",
+    "title": "Sheffield",
+    "subtitle": "Sheffield",
+    "alt": "Sheffield in United Kingdom",
+    "photographer": "Chris Morgan",
+    "license": "CC BY-SA 2.0",
+    "width": 3072,
+    "height": 1728,
+    "renditions": [
+      {
+        "src": "/images/places/sheffield/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/sheffield/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/sheffield/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bristol": {
+    "collection": "places",
+    "title": "Bristol",
+    "subtitle": "Bristol",
+    "alt": "Bristol in United Kingdom",
+    "photographer": "mattbuck ( category )",
+    "license": "CC BY-SA 3.0",
+    "width": 2359,
+    "height": 1560,
+    "renditions": [
+      {
+        "src": "/images/places/bristol/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bristol/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bristol/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/newcastle": {
+    "collection": "places",
+    "title": "Newcastle",
+    "subtitle": "Newcastle",
+    "alt": "Newcastle in United Kingdom",
+    "photographer": "Ymblanter",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/newcastle/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/newcastle/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/newcastle/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nottingham": {
+    "collection": "places",
+    "title": "Nottingham",
+    "subtitle": "Nottingham",
+    "alt": "Nottingham in United Kingdom",
+    "photographer": "Bryn Holmes",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/nottingham/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nottingham/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nottingham/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nantes": {
+    "collection": "places",
+    "title": "Nantes",
+    "subtitle": "Nantes",
+    "alt": "Nantes in France",
+    "photographer": "Selbymay",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "src": "/images/places/nantes/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nantes/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nantes/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lille": {
+    "collection": "places",
+    "title": "Lille",
+    "subtitle": "Lille",
+    "alt": "Lille in France",
+    "photographer": "Velvet",
+    "license": "CC BY-SA 3.0",
+    "width": 2639,
+    "height": 1799,
+    "renditions": [
+      {
+        "src": "/images/places/lille/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lille/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lille/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/catania": {
+    "collection": "places",
+    "title": "Catania",
+    "subtitle": "Catania",
+    "alt": "Catania in Italy",
+    "photographer": "Cayambe",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1918,
+    "renditions": [
+      {
+        "src": "/images/places/catania/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/catania/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/catania/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/trieste": {
+    "collection": "places",
+    "title": "Trieste",
+    "subtitle": "Trieste",
+    "alt": "Trieste in Italy",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2356,
+    "renditions": [
+      {
+        "src": "/images/places/trieste/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/trieste/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/trieste/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/cali": {
+    "collection": "places",
+    "title": "Cali",
+    "subtitle": "Cali",
+    "alt": "Cali in Colombia",
+    "photographer": "Reg Natarajan",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/cali/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/cali/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/cali/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/uppsala": {
+    "collection": "places",
+    "title": "Uppsala",
+    "subtitle": "Uppsala",
+    "alt": "Uppsala in Sweden",
+    "photographer": "Chris06",
+    "license": "CC BY-SA 4.0",
+    "width": 3406,
+    "height": 2926,
+    "renditions": [
+      {
+        "src": "/images/places/uppsala/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/uppsala/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/uppsala/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/trondheim": {
+    "collection": "places",
+    "title": "Trondheim",
+    "subtitle": "Trondheim",
+    "alt": "Trondheim in Norway",
+    "photographer": "Leonhard Lenz",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2570,
+    "renditions": [
+      {
+        "src": "/images/places/trondheim/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/trondheim/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/trondheim/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/utrecht": {
+    "collection": "places",
+    "title": "Utrecht",
+    "subtitle": "Utrecht",
+    "alt": "Utrecht in Netherlands",
+    "photographer": "Michielverbeek",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2750,
+    "renditions": [
+      {
+        "src": "/images/places/utrecht/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/utrecht/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/utrecht/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/utah": {
+    "collection": "places",
+    "title": "Utah",
+    "subtitle": "Utah",
+    "alt": "Utah in United States",
+    "photographer": "Luca Galuzzi ( Lucag )",
+    "license": "CC BY-SA 2.5",
+    "width": 2000,
+    "height": 1333,
+    "renditions": [
+      {
+        "src": "/images/places/utah/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/utah/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/utah/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/vermont": {
+    "collection": "places",
+    "title": "Vermont",
+    "subtitle": "Vermont",
+    "alt": "Vermont in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "src": "/images/places/vermont/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/vermont/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/vermont/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/delaware": {
+    "collection": "places",
+    "title": "Delaware",
+    "subtitle": "Delaware",
+    "alt": "Delaware in United States",
+    "photographer": "Dough4872",
+    "license": "CC BY-SA 4.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/places/delaware/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/delaware/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/delaware/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/praslin": {
+    "collection": "places",
+    "title": "Praslin",
+    "subtitle": "Praslin",
+    "alt": "Praslin in Seychelles",
+    "photographer": "Radosław Botev",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/praslin/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/praslin/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/praslin/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/isle-of-man": {
+    "collection": "places",
+    "title": "Isle of Man",
+    "subtitle": "Isle of Man",
+    "alt": "Isle of Man in United Kingdom",
+    "photographer": "Frank Schuengel",
+    "license": "CC BY-SA 4.0",
+    "width": 2601,
+    "height": 1732,
+    "renditions": [
+      {
+        "src": "/images/places/isle-of-man/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/isle-of-man/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/isle-of-man/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bornholm": {
+    "collection": "places",
+    "title": "Bornholm",
+    "subtitle": "Bornholm",
+    "alt": "Bornholm in Denmark",
+    "photographer": "Socket0",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/bornholm/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bornholm/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bornholm/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/saaremaa": {
+    "collection": "places",
+    "title": "Saaremaa",
+    "subtitle": "Saaremaa",
+    "alt": "Saaremaa in Estonia",
+    "photographer": "Margus Opp",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "src": "/images/places/saaremaa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/saaremaa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/saaremaa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/brac": {
+    "collection": "places",
+    "title": "Zlatni Rat",
+    "subtitle": "Brač",
+    "alt": "Zlatni Rat in Croatia",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2558,
+    "renditions": [
+      {
+        "src": "/images/places/brac/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/brac/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/brac/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lombok": {
+    "collection": "places",
+    "title": "Lombok",
+    "subtitle": "Lombok",
+    "alt": "Lombok in Indonesia",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/lombok/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lombok/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lombok/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lorraine": {
+    "collection": "places",
+    "title": "Lorraine",
+    "subtitle": "Lorraine",
+    "alt": "Lorraine in France",
+    "photographer": "Berthold Werner",
+    "license": "CC BY-SA 3.0",
+    "width": 3744,
+    "height": 2469,
+    "renditions": [
+      {
+        "src": "/images/places/lorraine/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lorraine/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lorraine/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/auvergne": {
+    "collection": "places",
+    "title": "Auvergne",
+    "subtitle": "Auvergne",
+    "alt": "Auvergne in France",
+    "photographer": "Anthony Baratier",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/auvergne/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/auvergne/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/auvergne/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/saarland": {
+    "collection": "places",
+    "title": "Saarland",
+    "subtitle": "Saarland",
+    "alt": "Saarland in Germany",
+    "photographer": "Flocci Nivis",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "src": "/images/places/saarland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/saarland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/saarland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/schleswig-holstein": {
+    "collection": "places",
+    "title": "Schleswig-Holstein",
+    "subtitle": "Schleswig-Holstein",
+    "alt": "Schleswig-Holstein in Germany",
+    "photographer": "Frank Schulenburg",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2743,
+    "renditions": [
+      {
+        "src": "/images/places/schleswig-holstein/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/schleswig-holstein/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/schleswig-holstein/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/valais": {
+    "collection": "places",
+    "title": "Valais",
+    "subtitle": "Valais",
+    "alt": "Valais in Switzerland",
+    "photographer": "Christian David",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/valais/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/valais/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/valais/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/herculaneum": {
+    "collection": "places",
+    "title": "Herculaneum",
+    "subtitle": "Herculaneum",
+    "alt": "Herculaneum in Italy",
+    "photographer": "Norbert Nagel",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2526,
+    "renditions": [
+      {
+        "src": "/images/places/herculaneum/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/herculaneum/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/herculaneum/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/karnak": {
+    "collection": "places",
+    "title": "Karnak",
+    "subtitle": "Karnak",
+    "alt": "Karnak in Egypt",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/karnak/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/karnak/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/karnak/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/abu-simbel": {
+    "collection": "places",
+    "title": "Abu Simbel",
+    "subtitle": "Abu Simbel",
+    "alt": "Abu Simbel in Egypt",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2666,
+    "renditions": [
+      {
+        "src": "/images/places/abu-simbel/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/abu-simbel/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/abu-simbel/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/valley-of-the-kings": {
+    "collection": "places",
+    "title": "Valley of the Kings",
+    "subtitle": "Valley of the Kings",
+    "alt": "Valley of the Kings in Egypt",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/places/valley-of-the-kings/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/valley-of-the-kings/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/valley-of-the-kings/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/delphi": {
+    "collection": "places",
+    "title": "Delphi",
+    "subtitle": "Delphi",
+    "alt": "Delphi in Greece",
+    "photographer": "Berthold Werner",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "src": "/images/places/delphi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/delphi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/delphi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/knossos": {
+    "collection": "places",
+    "title": "Knossos",
+    "subtitle": "Knossos",
+    "alt": "Knossos in Greece",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2441,
+    "renditions": [
+      {
+        "src": "/images/places/knossos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/knossos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/knossos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

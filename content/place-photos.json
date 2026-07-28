@@ -19486,5 +19486,933 @@
         "bytes": 522289
       }
     ]
+  },
+  "sheffield": {
+    "featureName": "Sheffield",
+    "alt": "Sheffield in United Kingdom",
+    "caption": "Sheffield, United Kingdom",
+    "photographer": "Chris Morgan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sheffield_Town_Hall_and_Peace_Gardens_-_geograph.org.uk_-_4907417.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sheffield Town Hall and Peace Gardens - geograph.org.uk - 4907417.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6c/Sheffield_Town_Hall_and_Peace_Gardens_-_geograph.org.uk_-_4907417.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8ffdb16fd95a7ef07ee5bb18c55eb3742978771d74abb43faa6aed69066d505f",
+    "width": 3072,
+    "height": 1728,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/sheffield/w640.jpg",
+        "bytes": 112077
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/sheffield/w1280.jpg",
+        "bytes": 241884
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/sheffield/w2048.jpg",
+        "bytes": 536510
+      }
+    ]
+  },
+  "bristol": {
+    "featureName": "Bristol",
+    "alt": "Bristol in United Kingdom",
+    "caption": "Bristol, United Kingdom",
+    "photographer": "mattbuck ( category )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bristol_MMB_%C2%ABC0_Clifton_Suspension_Bridge.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bristol MMB «C0 Clifton Suspension Bridge.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9d/Bristol_MMB_%C2%ABC0_Clifton_Suspension_Bridge.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "300cb7d72d26ce892ac19dd45a946f6940b7fd06db692bba39525c5354614690",
+    "width": 2359,
+    "height": 1560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bristol/w640.jpg",
+        "bytes": 78016
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bristol/w1280.jpg",
+        "bytes": 265250
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bristol/w2048.jpg",
+        "bytes": 687168
+      }
+    ]
+  },
+  "newcastle": {
+    "featureName": "Newcastle",
+    "alt": "Newcastle in United Kingdom",
+    "caption": "Newcastle, United Kingdom",
+    "photographer": "Ymblanter",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Newcastle_upon_Tyne_Swing_Bridge_and_Tyne_Bridge_seen_from_High_Level_Bridge.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Newcastle upon Tyne Swing Bridge and Tyne Bridge seen from High Level Bridge.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/25/Newcastle_upon_Tyne_Swing_Bridge_and_Tyne_Bridge_seen_from_High_Level_Bridge.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "88de20f0a94d4612d5bbecdb9a3c6f50b5074a06826747eadf1a9f7b5a9211d5",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/newcastle/w640.jpg",
+        "bytes": 56172
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/newcastle/w1280.jpg",
+        "bytes": 200804
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/newcastle/w2048.jpg",
+        "bytes": 571729
+      }
+    ]
+  },
+  "nottingham": {
+    "featureName": "Nottingham",
+    "alt": "Nottingham in United Kingdom",
+    "caption": "Nottingham, United Kingdom",
+    "photographer": "Bryn Holmes",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nottingham_Council_House,_Old_Market_Square_-_geograph.org.uk_-_7409020.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Nottingham Council House, Old Market Square - geograph.org.uk - 7409020.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/81/Nottingham_Council_House%2C_Old_Market_Square_-_geograph.org.uk_-_7409020.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "73f90979b3670aa99b0517d40ea6ee7637818beab4a5d6a896ed317526e4f2b1",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nottingham/w640.jpg",
+        "bytes": 44414
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nottingham/w1280.jpg",
+        "bytes": 142393
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nottingham/w2048.jpg",
+        "bytes": 396260
+      }
+    ]
+  },
+  "nantes": {
+    "featureName": "Nantes",
+    "alt": "Nantes in France",
+    "caption": "Nantes, France",
+    "photographer": "Selbymay",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NantesChateau_08.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:NantesChateau 08.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a0/NantesChateau_08.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "436960b92bdcc14ea12a28a5ed88fe11c7cd4938cec192cfa348d7afa39ddf95",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nantes/w640.jpg",
+        "bytes": 37423
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nantes/w1280.jpg",
+        "bytes": 137137
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nantes/w2048.jpg",
+        "bytes": 440965
+      }
+    ]
+  },
+  "lille": {
+    "featureName": "Lille",
+    "alt": "Lille in France",
+    "caption": "Lille, France",
+    "photographer": "Velvet",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lille_vue_gd_place.JPG",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lille vue gd place.JPG); source https://upload.wikimedia.org/wikipedia/commons/f/f8/Lille_vue_gd_place.JPG; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "81f3bafe631006cee6c9e4d02e154be782d313c88e098655e2ede5098a5d3cb3",
+    "width": 2639,
+    "height": 1799,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lille/w640.jpg",
+        "bytes": 100296
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lille/w1280.jpg",
+        "bytes": 266377
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lille/w2048.jpg",
+        "bytes": 667032
+      }
+    ]
+  },
+  "catania": {
+    "featureName": "Catania",
+    "alt": "Catania in Italy",
+    "caption": "Catania, Italy",
+    "photographer": "Cayambe",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catania,_piazza_del_Duomo.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Catania, piazza del Duomo.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/60/Catania%2C_piazza_del_Duomo.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7ec759bc43039b439758ac4ff50ef544fc68f06ba63cf4462580c3c1f4103330",
+    "width": 3840,
+    "height": 1918,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/catania/w640.jpg",
+        "bytes": 40242
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/catania/w1280.jpg",
+        "bytes": 141959
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/catania/w2048.jpg",
+        "bytes": 412046
+      }
+    ]
+  },
+  "trieste": {
+    "featureName": "Trieste",
+    "alt": "Trieste in Italy",
+    "caption": "Trieste, Italy",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ayuntamiento,_Trieste,_Italia,_2017-04-15,_DD_10.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Ayuntamiento, Trieste, Italia, 2017-04-15, DD 10.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/3b/Ayuntamiento%2C_Trieste%2C_Italia%2C_2017-04-15%2C_DD_10.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8ab78482d07f91ee04eedf903c789141905cc38a474e3c2f849d04c745e80f83",
+    "width": 3840,
+    "height": 2356,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/trieste/w640.jpg",
+        "bytes": 44748
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/trieste/w1280.jpg",
+        "bytes": 164340
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/trieste/w2048.jpg",
+        "bytes": 497292
+      }
+    ]
+  },
+  "cali": {
+    "featureName": "Cali",
+    "alt": "Cali in Colombia",
+    "caption": "Cali, Colombia",
+    "photographer": "Reg Natarajan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Estatua_de_Cristo_Rey_-_Cali,_Colombia.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Estatua de Cristo Rey - Cali, Colombia.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e4/Estatua_de_Cristo_Rey_-_Cali%2C_Colombia.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9c2734579e8c5edba79a7661d94f789f7d4ea8a1daa58f5fa84b184fd8245f1a",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/cali/w640.jpg",
+        "bytes": 23533
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/cali/w1280.jpg",
+        "bytes": 65918
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/cali/w2048.jpg",
+        "bytes": 184597
+      }
+    ]
+  },
+  "uppsala": {
+    "featureName": "Uppsala",
+    "alt": "Uppsala in Sweden",
+    "caption": "Uppsala, Sweden",
+    "photographer": "Chris06",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Exterior_of_Uppsala_Cathedral_(6).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:2023 Exterior of Uppsala Cathedral (6).jpg); source https://upload.wikimedia.org/wikipedia/commons/8/80/2023_Exterior_of_Uppsala_Cathedral_%286%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5e699bf71ee459088074fd314a78e67fdc37a1781aa9d36105c196464babc849",
+    "width": 3406,
+    "height": 2926,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/uppsala/w640.jpg",
+        "bytes": 70568
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/uppsala/w1280.jpg",
+        "bytes": 186917
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/uppsala/w2048.jpg",
+        "bytes": 477991
+      }
+    ]
+  },
+  "trondheim": {
+    "featureName": "Trondheim",
+    "alt": "Trondheim in Norway",
+    "caption": "Trondheim, Norway",
+    "photographer": "Leonhard Lenz",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nidarosdomen_Trondheim_2022-08-18_01.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Nidarosdomen Trondheim 2022-08-18 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/20/Nidarosdomen_Trondheim_2022-08-18_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f2729e4d39a3a00409bce9392ba2819252be4e0a174138bdd2fd4129ae4bf596",
+    "width": 3840,
+    "height": 2570,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/trondheim/w640.jpg",
+        "bytes": 83609
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/trondheim/w1280.jpg",
+        "bytes": 341327
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/trondheim/w2048.jpg",
+        "bytes": 1075516
+      }
+    ]
+  },
+  "utrecht": {
+    "featureName": "Utrecht",
+    "alt": "Utrecht in Netherlands",
+    "caption": "Utrecht, Netherlands",
+    "photographer": "Michielverbeek",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Utrecht,_de_Domtoren_(RM36075)_vanaf_de_Oudegracht_230_ongeveer_foto5_2015-11-01_08.56.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Utrecht, de Domtoren (RM36075) vanaf de Oudegracht 230 ongeveer foto5 2015-11-01 08.56.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e1/Utrecht%2C_de_Domtoren_%28RM36075%29_vanaf_de_Oudegracht_230_ongeveer_foto5_2015-11-01_08.56.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "58f022f85af6113b51c2348768c220dba104906ff82d8523269e19c33cc7ca58",
+    "width": 3840,
+    "height": 2750,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/utrecht/w640.jpg",
+        "bytes": 55914
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/utrecht/w1280.jpg",
+        "bytes": 197715
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/utrecht/w2048.jpg",
+        "bytes": 549661
+      }
+    ]
+  },
+  "utah": {
+    "featureName": "Utah",
+    "alt": "Utah in United States",
+    "caption": "Utah, United States",
+    "photographer": "Luca Galuzzi ( Lucag )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:USA_10400_Arches_National_Park_Luca_Galuzzi_2007.jpg",
+    "license": "CC BY-SA 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:USA 10400 Arches National Park Luca Galuzzi 2007.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4a/USA_10400_Arches_National_Park_Luca_Galuzzi_2007.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5f7e15e2c3cdc00cfa958b37b35c82eb82f6f804f0849d4c03649c6f0ee18ae4",
+    "width": 2000,
+    "height": 1333,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/utah/w640.jpg",
+        "bytes": 66643
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/utah/w1280.jpg",
+        "bytes": 206699
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/utah/w2048.jpg",
+        "bytes": 509686
+      }
+    ]
+  },
+  "vermont": {
+    "featureName": "Vermont",
+    "alt": "Vermont in United States",
+    "caption": "Vermont, United States",
+    "photographer": "King of Hearts",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Willoughby_October_2021_003.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lake Willoughby October 2021 003.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/75/Lake_Willoughby_October_2021_003.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b2df0b31d0ecea87b86618fb81d862150fd62332dc89990ab8af19e6ef030637",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/vermont/w640.jpg",
+        "bytes": 49757
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/vermont/w1280.jpg",
+        "bytes": 188143
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/vermont/w2048.jpg",
+        "bytes": 574297
+      }
+    ]
+  },
+  "delaware": {
+    "featureName": "Delaware",
+    "alt": "Delaware in United States",
+    "caption": "Delaware, United States",
+    "photographer": "Dough4872",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rehoboth_Beach_looking_north_at_Delaware_Avenue_June_2014.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Rehoboth Beach looking north at Delaware Avenue June 2014.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f2/Rehoboth_Beach_looking_north_at_Delaware_Avenue_June_2014.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "fdd952ebecf390ac43b975da661f713d21beaf489204933a440804bdacfaf344",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/delaware/w640.jpg",
+        "bytes": 36551
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/delaware/w1280.jpg",
+        "bytes": 121062
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/delaware/w2048.jpg",
+        "bytes": 375174
+      }
+    ]
+  },
+  "praslin": {
+    "featureName": "Praslin",
+    "alt": "Praslin in Seychelles",
+    "caption": "Praslin, Seychelles",
+    "photographer": "Radosław Botev",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anse_Lazio_Praslin_Seychelles_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Anse Lazio Praslin Seychelles 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/bb/Anse_Lazio_Praslin_Seychelles_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "59e8a51ad2699c1ec613828b7b101dca182003934cd860698818daa610b2401e",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/praslin/w640.jpg",
+        "bytes": 29553
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/praslin/w1280.jpg",
+        "bytes": 94330
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/praslin/w2048.jpg",
+        "bytes": 265047
+      }
+    ]
+  },
+  "isle-of-man": {
+    "featureName": "Isle of Man",
+    "alt": "Isle of Man in United Kingdom",
+    "caption": "Isle of Man, United Kingdom",
+    "photographer": "Frank Schuengel",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Isle_of_Man_Sunrise_from_Snaefell.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Isle of Man Sunrise from Snaefell.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/95/Isle_of_Man_Sunrise_from_Snaefell.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "31939ddf59cfba8fe7891bf367dfd525be77c304c5a8717fe0681c5482e3d7ac",
+    "width": 2601,
+    "height": 1732,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/isle-of-man/w640.jpg",
+        "bytes": 63628
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/isle-of-man/w1280.jpg",
+        "bytes": 177535
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/isle-of-man/w2048.jpg",
+        "bytes": 526847
+      }
+    ]
+  },
+  "bornholm": {
+    "featureName": "Bornholm",
+    "alt": "Bornholm in Denmark",
+    "caption": "Bornholm, Denmark",
+    "photographer": "Socket0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hammershus_Castle_Ruins,_Bornholm.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Hammershus Castle Ruins, Bornholm.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/99/Hammershus_Castle_Ruins%2C_Bornholm.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "199b01c8d20a049c01366d334c719a89c4453f9a851bdeded3f52b3ff8e5ba09",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bornholm/w640.jpg",
+        "bytes": 48800
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bornholm/w1280.jpg",
+        "bytes": 215121
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bornholm/w2048.jpg",
+        "bytes": 688760
+      }
+    ]
+  },
+  "saaremaa": {
+    "featureName": "Saaremaa",
+    "alt": "Saaremaa in Estonia",
+    "caption": "Saaremaa, Estonia",
+    "photographer": "Margus Opp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:J%C3%A4rise_j%C3%A4rv_Saaremaal.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Järise järv Saaremaal.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/eb/J%C3%A4rise_j%C3%A4rv_Saaremaal.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8f0df6127246c81fcf3e6cf7e655334cfcbe86df29e6efcb4255fbc0cbf67546",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/saaremaa/w640.jpg",
+        "bytes": 36174
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/saaremaa/w1280.jpg",
+        "bytes": 136953
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/saaremaa/w2048.jpg",
+        "bytes": 409591
+      }
+    ]
+  },
+  "brac": {
+    "featureName": "Zlatni Rat",
+    "alt": "Zlatni Rat in Croatia",
+    "caption": "Zlatni Rat, Croatia",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zlatni_rat_Beach_with_a_view_to_the_peak_Vidova_gora_in_Bol,_Croatia_(48608806901).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Zlatni rat Beach with a view to the peak Vidova gora in Bol, Croatia (48608806901).jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f9/Zlatni_rat_Beach_with_a_view_to_the_peak_Vidova_gora_in_Bol%2C_Croatia_%2848608806901%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ca53fa021853c01f78a08cd6de981dae4f989514085b587577f170e4694fb69f",
+    "width": 3840,
+    "height": 2558,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/brac/w640.jpg",
+        "bytes": 57863
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/brac/w1280.jpg",
+        "bytes": 230494
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/brac/w2048.jpg",
+        "bytes": 700334
+      }
+    ]
+  },
+  "lombok": {
+    "featureName": "Lombok",
+    "alt": "Lombok in Indonesia",
+    "caption": "Lombok, Indonesia",
+    "photographer": "Vyacheslav Argenberg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lombok_Island_and_Mount_Rinjani_from_Gili_Meno_Island,_Indonesia.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lombok Island and Mount Rinjani from Gili Meno Island, Indonesia.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/01/Lombok_Island_and_Mount_Rinjani_from_Gili_Meno_Island%2C_Indonesia.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a47af9f06441c7f1dbfedf9d8d71c56baf451811979b4fc197895567292dead5",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lombok/w640.jpg",
+        "bytes": 37703
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lombok/w1280.jpg",
+        "bytes": 130409
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lombok/w2048.jpg",
+        "bytes": 382198
+      }
+    ]
+  },
+  "lorraine": {
+    "featureName": "Lorraine",
+    "alt": "Lorraine in France",
+    "caption": "Lorraine, France",
+    "photographer": "Berthold Werner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nancy_Place_Stanislas_BW_2015-07-18_13-48-46.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Nancy Place Stanislas BW 2015-07-18 13-48-46.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b4/Nancy_Place_Stanislas_BW_2015-07-18_13-48-46.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ea543d1d5e71b263d2356fea85d041dfd1cff04a62afda19601d5ec2de37797a",
+    "width": 3744,
+    "height": 2469,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lorraine/w640.jpg",
+        "bytes": 78596
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lorraine/w1280.jpg",
+        "bytes": 268401
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lorraine/w2048.jpg",
+        "bytes": 712627
+      }
+    ]
+  },
+  "auvergne": {
+    "featureName": "Auvergne",
+    "alt": "Auvergne in France",
+    "caption": "Auvergne, France",
+    "photographer": "Anthony Baratier",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_de_la_cha%C3%AEne_des_Puys.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Panorama de la chaîne des Puys.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9a/Panorama_de_la_cha%C3%AEne_des_Puys.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e02c1131e4bef0241ac98b2ad716109fb7861dbc8c530e50aa53f49b4bf54b19",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/auvergne/w640.jpg",
+        "bytes": 11998
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/auvergne/w1280.jpg",
+        "bytes": 31768
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/auvergne/w2048.jpg",
+        "bytes": 101632
+      }
+    ]
+  },
+  "saarland": {
+    "featureName": "Saarland",
+    "alt": "Saarland in Germany",
+    "caption": "Saarland, Germany",
+    "photographer": "Flocci Nivis",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20201019_Alte_Br%C3%BCcke_Saarbr%C3%BCcken.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:20201019 Alte Brücke Saarbrücken.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/4a/20201019_Alte_Br%C3%BCcke_Saarbr%C3%BCcken.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "19ad675d07c3bb2481b681d7d594721e33027e842a3c09d5672186fbe9abed99",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/saarland/w640.jpg",
+        "bytes": 47638
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/saarland/w1280.jpg",
+        "bytes": 176456
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/saarland/w2048.jpg",
+        "bytes": 534243
+      }
+    ]
+  },
+  "schleswig-holstein": {
+    "featureName": "Schleswig-Holstein",
+    "alt": "Schleswig-Holstein in Germany",
+    "caption": "Schleswig-Holstein, Germany",
+    "photographer": "Frank Schulenburg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:D%C3%B6rnsk_an_K%C3%B6%C3%B6gem,_Amrum_(2018).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Dörnsk an Köögem, Amrum (2018).jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e2/D%C3%B6rnsk_an_K%C3%B6%C3%B6gem%2C_Amrum_%282018%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0aaa4acfc61e2fb013ef42c5d0b9b28aa39d9b2277f45855390084baea9d75da",
+    "width": 3840,
+    "height": 2743,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/schleswig-holstein/w640.jpg",
+        "bytes": 69835
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/schleswig-holstein/w1280.jpg",
+        "bytes": 283431
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/schleswig-holstein/w2048.jpg",
+        "bytes": 923354
+      }
+    ]
+  },
+  "valais": {
+    "featureName": "Valais",
+    "alt": "Valais in Switzerland",
+    "caption": "Valais, Switzerland",
+    "photographer": "Christian David",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Val%C3%A8re_et_Haut_de_Cry_-_juillet_2022.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Château de Valère et Haut de Cry - juillet 2022.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/8e/Ch%C3%A2teau_de_Val%C3%A8re_et_Haut_de_Cry_-_juillet_2022.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ad92b56ad590464a99e0556c66840b19e06383a3fafa6800cf7753de64ae6886",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/valais/w640.jpg",
+        "bytes": 42895
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/valais/w1280.jpg",
+        "bytes": 153924
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/valais/w2048.jpg",
+        "bytes": 480800
+      }
+    ]
+  },
+  "herculaneum": {
+    "featureName": "Herculaneum",
+    "alt": "Herculaneum in Italy",
+    "caption": "Herculaneum, Italy",
+    "photographer": "Norbert Nagel",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Herculaneum_-_Ercolano_-_Campania_-_Italy_-_July_9th_2013_-_18.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Herculaneum - Ercolano - Campania - Italy - July 9th 2013 - 18.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7f/Herculaneum_-_Ercolano_-_Campania_-_Italy_-_July_9th_2013_-_18.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "eb2ef726df419dd306c2dda4378641f4ae05e2052223a0a115f8974c3b73c16f",
+    "width": 3840,
+    "height": 2526,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/herculaneum/w640.jpg",
+        "bytes": 54129
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/herculaneum/w1280.jpg",
+        "bytes": 199293
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/herculaneum/w2048.jpg",
+        "bytes": 600125
+      }
+    ]
+  },
+  "karnak": {
+    "featureName": "Karnak",
+    "alt": "Karnak in Egypt",
+    "caption": "Karnak, Egypt",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Templo_de_Karnak,_Luxor,_Egipto,_2022-04-03,_DD_144.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Templo de Karnak, Luxor, Egipto, 2022-04-03, DD 144.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/43/Templo_de_Karnak%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_144.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "dd629ecdafde149c15dc706ad8810a765c18c6c53ab12c76a7579d6899cc9254",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/karnak/w640.jpg",
+        "bytes": 52838
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/karnak/w1280.jpg",
+        "bytes": 184619
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/karnak/w2048.jpg",
+        "bytes": 569036
+      }
+    ]
+  },
+  "abu-simbel": {
+    "featureName": "Abu Simbel",
+    "alt": "Abu Simbel in Egypt",
+    "caption": "Abu Simbel, Egypt",
+    "photographer": "Diego Delso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Templo_de_Rams%C3%A9s_II,_Abu_Simbel,_Egipto,_2022-04-02,_DD_59-61_HDR.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 59-61 HDR.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/ee/Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_59-61_HDR.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e7048b5e707588f904e17d858f439e5eab8156ab02ceaa8d80e82e4c2a6dab79",
+    "width": 3840,
+    "height": 2666,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/abu-simbel/w640.jpg",
+        "bytes": 50643
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/abu-simbel/w1280.jpg",
+        "bytes": 185796
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/abu-simbel/w2048.jpg",
+        "bytes": 583586
+      }
+    ]
+  },
+  "valley-of-the-kings": {
+    "featureName": "Valley of the Kings",
+    "alt": "Valley of the Kings in Egypt",
+    "caption": "Valley of the Kings, Egypt",
+    "photographer": "Vyacheslav Argenberg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thebes,_Luxor,_Egypt,_Valley_of_the_Kings_in_Theban_Hills.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Thebes, Luxor, Egypt, Valley of the Kings in Theban Hills.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0c/Thebes%2C_Luxor%2C_Egypt%2C_Valley_of_the_Kings_in_Theban_Hills.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f0d7165b0b47d2f7cf183e0596b632e53917f726e07caf7977b7098df56d1caf",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/valley-of-the-kings/w640.jpg",
+        "bytes": 66714
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/valley-of-the-kings/w1280.jpg",
+        "bytes": 241286
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/valley-of-the-kings/w2048.jpg",
+        "bytes": 659492
+      }
+    ]
+  },
+  "delphi": {
+    "featureName": "Delphi",
+    "alt": "Delphi in Greece",
+    "caption": "Delphi, Greece",
+    "photographer": "Berthold Werner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delphi_BW_2017-10-08_10-37-51.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Delphi BW 2017-10-08 10-37-51.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c7/Delphi_BW_2017-10-08_10-37-51.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "5c3ce704b6b831e3597e9635dec5e086fe4401e053c5dca56590d8793e28ba35",
+    "width": 3840,
+    "height": 2553,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/delphi/w640.jpg",
+        "bytes": 56343
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/delphi/w1280.jpg",
+        "bytes": 204233
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/delphi/w2048.jpg",
+        "bytes": 586136
+      }
+    ]
+  },
+  "knossos": {
+    "featureName": "Knossos",
+    "alt": "Knossos in Greece",
+    "caption": "Knossos, Greece",
+    "photographer": "Jebulon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hills_over_Knossos_Crete_Greece.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Hills over Knossos Crete Greece.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6c/Hills_over_Knossos_Crete_Greece.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a6ba8ce9d28897ca04f1e8d4903a685c7c4b71fff07e962ca2facdaf0e64831b",
+    "width": 3840,
+    "height": 2441,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/knossos/w640.jpg",
+        "bytes": 44332
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/knossos/w1280.jpg",
+        "bytes": 179282
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/knossos/w2048.jpg",
+        "bytes": 567932
+      }
+    ]
   }
 }

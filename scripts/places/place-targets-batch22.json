@@ -1,0 +1,354 @@
+{
+  "sheffield": {
+    "name": "Sheffield",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Sheffield",
+      "Sheffield United Kingdom",
+      "Sheffield city"
+    ]
+  },
+  "bristol": {
+    "name": "Bristol",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Bristol",
+      "Bristol United Kingdom",
+      "Bristol harbour"
+    ]
+  },
+  "newcastle": {
+    "name": "Newcastle",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Newcastle upon Tyne",
+      "Newcastle United Kingdom",
+      "Newcastle Quayside"
+    ]
+  },
+  "nottingham": {
+    "name": "Nottingham",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Nottingham",
+      "Nottingham United Kingdom",
+      "Nottingham castle"
+    ]
+  },
+  "nantes": {
+    "name": "Nantes",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Nantes",
+      "Nantes France",
+      "Nantes Loire"
+    ]
+  },
+  "lille": {
+    "name": "Lille",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Lille",
+      "Lille France",
+      "Lille Grand Place"
+    ]
+  },
+  "catania": {
+    "name": "Catania",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Catania",
+      "Catania Sicily",
+      "Catania Etna"
+    ]
+  },
+  "trieste": {
+    "name": "Trieste",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Trieste",
+      "Trieste Italy",
+      "Trieste Adriatic"
+    ]
+  },
+  "cali": {
+    "name": "Cali",
+    "countrySlug": "colombia",
+    "countryName": "Colombia",
+    "kind": "City",
+    "searchNames": [
+      "Cali",
+      "Cali Colombia",
+      "Santiago de Cali"
+    ]
+  },
+  "uppsala": {
+    "name": "Uppsala",
+    "countrySlug": "sweden",
+    "countryName": "Sweden",
+    "kind": "City",
+    "searchNames": [
+      "Uppsala",
+      "Uppsala Sweden",
+      "Uppsala cathedral"
+    ]
+  },
+  "trondheim": {
+    "name": "Trondheim",
+    "countrySlug": "norway",
+    "countryName": "Norway",
+    "kind": "City",
+    "searchNames": [
+      "Trondheim",
+      "Trondheim Norway",
+      "Nidaros"
+    ]
+  },
+  "utrecht": {
+    "name": "Utrecht",
+    "countrySlug": "netherlands",
+    "countryName": "Netherlands",
+    "kind": "City",
+    "searchNames": [
+      "Utrecht",
+      "Utrecht Netherlands",
+      "Oudegracht"
+    ]
+  },
+  "utah": {
+    "name": "Utah",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Utah",
+      "Utah United States",
+      "Utah landscape"
+    ]
+  },
+  "vermont": {
+    "name": "Vermont",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Vermont",
+      "Vermont United States",
+      "Green Mountains"
+    ]
+  },
+  "delaware": {
+    "name": "Delaware",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Delaware",
+      "Delaware United States",
+      "Delaware Bay"
+    ]
+  },
+  "praslin": {
+    "name": "Praslin",
+    "countrySlug": "seychelles",
+    "countryName": "Seychelles",
+    "kind": "Island",
+    "searchNames": [
+      "Praslin",
+      "Praslin Seychelles",
+      "Vallee de Mai"
+    ]
+  },
+  "isle-of-man": {
+    "name": "Isle of Man",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Isle of Man",
+      "Isle of Man Irish Sea",
+      "Mann"
+    ]
+  },
+  "bornholm": {
+    "name": "Bornholm",
+    "countrySlug": "denmark",
+    "countryName": "Denmark",
+    "kind": "Island",
+    "searchNames": [
+      "Bornholm",
+      "Bornholm Denmark",
+      "Bornholm Baltic"
+    ]
+  },
+  "saaremaa": {
+    "name": "Saaremaa",
+    "countrySlug": "estonia",
+    "countryName": "Estonia",
+    "kind": "Island",
+    "searchNames": [
+      "Saaremaa",
+      "Saaremaa Estonia",
+      "Kuressaare"
+    ]
+  },
+  "brac": {
+    "name": "Brač",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "Island",
+    "searchNames": [
+      "Brač",
+      "Brac Croatia",
+      "Zlatni Rat"
+    ]
+  },
+  "lombok": {
+    "name": "Lombok",
+    "countrySlug": "indonesia",
+    "countryName": "Indonesia",
+    "kind": "Island",
+    "searchNames": [
+      "Lombok",
+      "Lombok Indonesia",
+      "Mount Rinjani"
+    ]
+  },
+  "lorraine": {
+    "name": "Lorraine",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Lorraine",
+      "Lorraine France",
+      "Moselle Lorraine"
+    ]
+  },
+  "auvergne": {
+    "name": "Auvergne",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Auvergne",
+      "Auvergne France",
+      "Chaîne des Puys"
+    ]
+  },
+  "saarland": {
+    "name": "Saarland",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Saarland",
+      "Saarland Germany",
+      "Saar River"
+    ]
+  },
+  "schleswig-holstein": {
+    "name": "Schleswig-Holstein",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Schleswig-Holstein",
+      "Schleswig Holstein",
+      "Schleswig-Holstein Germany"
+    ]
+  },
+  "valais": {
+    "name": "Valais",
+    "countrySlug": "switzerland",
+    "countryName": "Switzerland",
+    "kind": "Region",
+    "searchNames": [
+      "Valais",
+      "Wallis",
+      "Valais Switzerland"
+    ]
+  },
+  "herculaneum": {
+    "name": "Herculaneum",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Landmark",
+    "searchNames": [
+      "Herculaneum",
+      "Ercolano",
+      "Herculaneum ruins"
+    ]
+  },
+  "karnak": {
+    "name": "Karnak",
+    "countrySlug": "egypt",
+    "countryName": "Egypt",
+    "kind": "Landmark",
+    "searchNames": [
+      "Karnak",
+      "Karnak Temple",
+      "Temple of Karnak"
+    ]
+  },
+  "abu-simbel": {
+    "name": "Abu Simbel",
+    "countrySlug": "egypt",
+    "countryName": "Egypt",
+    "kind": "Landmark",
+    "searchNames": [
+      "Abu Simbel",
+      "Abu Simbel temples",
+      "Abu Simbel Egypt"
+    ]
+  },
+  "valley-of-the-kings": {
+    "name": "Valley of the Kings",
+    "countrySlug": "egypt",
+    "countryName": "Egypt",
+    "kind": "Landmark",
+    "searchNames": [
+      "Valley of the Kings",
+      "Kings Valley",
+      "Valley of the Kings Luxor"
+    ]
+  },
+  "delphi": {
+    "name": "Delphi",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Landmark",
+    "searchNames": [
+      "Delphi",
+      "Delphi Greece",
+      "Oracle of Delphi"
+    ]
+  },
+  "knossos": {
+    "name": "Knossos",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Landmark",
+    "searchNames": [
+      "Knossos",
+      "Palace of Knossos",
+      "Knossos Crete"
+    ]
+  }
+}
