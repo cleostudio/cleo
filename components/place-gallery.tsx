@@ -19,6 +19,7 @@ export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
             key={entry.id}
             className="photo-item"
             data-gallery-item
+            data-collection={entry.collection}
             data-search-text={entry.searchText}
           >
             <div className="photo-frame relative overflow-hidden">

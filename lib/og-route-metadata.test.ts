@@ -15,10 +15,12 @@ function metadataFor(path: string, title: string, description: string) {
 }
 
 describe('social OG image metadata', () => {
-  it('does not invent a homepage blurb when the portal intro is empty', () => {
+  it('describes the homepage artwork with the portal blurb', () => {
     const home = publicPageMetadata.home
 
-    expect(imageAlt(metadataFor('/', home.title, home.description))).toBe('Cleo')
+    expect(imageAlt(metadataFor('/', home.title, home.description))).toBe(
+      `Cleo. ${home.description}`,
+    )
   })
 
   it.each([

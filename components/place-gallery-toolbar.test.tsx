@@ -7,6 +7,7 @@ import { PlaceGalleryToolbar } from './place-gallery-toolbar'
 
 afterEach(() => {
   cleanup()
+  window.history.replaceState({}, '', '/')
 })
 
 describe('PlaceGalleryToolbar', () => {
@@ -15,10 +16,18 @@ describe('PlaceGalleryToolbar', () => {
       <div data-place-gallery>
         <PlaceGalleryToolbar />
         <ul>
-          <li data-gallery-item data-search-text="France Paris place">
+          <li
+            data-gallery-item
+            data-collection="places"
+            data-search-text="France Paris place"
+          >
             France
           </li>
-          <li data-gallery-item data-search-text="Mars space">
+          <li
+            data-gallery-item
+            data-collection="space"
+            data-search-text="Mars space"
+          >
             Mars
           </li>
         </ul>
@@ -45,15 +54,19 @@ describe('PlaceGalleryToolbar', () => {
       .closest('[data-gallery-item]') as HTMLElement | null
     expect(france?.hidden).toBe(true)
     expect(mars?.hidden).toBe(false)
+    expect(window.location.search).toContain('q=mars')
 
-    fireEvent.change(screen.getByRole('searchbox'), {
-      target: { value: 'nowhere' },
-    })
-
+    fireEvent.click(screen.getByRole('button', { name: 'Places' }))
     expect(france?.hidden).toBe(true)
     expect(mars?.hidden).toBe(true)
-    expect(
-      screen.getByText('No photographs match that search.').hidden,
-    ).toBe(false)
+    expect(window.location.search).toContain('collection=places')
+
+    fireEvent.change(screen.getByRole('searchbox'), {
+      target: { value: '' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'All' }))
+
+    expect(france?.hidden).toBe(false)
+    expect(mars?.hidden).toBe(false)
   })
 })

@@ -57,7 +57,10 @@ export function SpacePageView() {
                   className="enter text-sm font-medium text-muted-foreground"
                 >
                   {category}
-                  <span className="ml-2 tabular-nums text-muted-foreground/70">
+                  <span
+                    className="ml-2 tabular-nums text-muted-foreground/70"
+                    data-guide-count
+                  >
                     {subjects.length}
                   </span>
                 </h2>

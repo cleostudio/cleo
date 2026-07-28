@@ -39,7 +39,7 @@ describe('HomeSiteSearch', () => {
   it('exposes combobox semantics and keyboard navigation', () => {
     render(<HomeSiteSearch hits={hits} />)
 
-    const input = screen.getByRole('combobox', { name: 'Search field guides' })
+    const input = screen.getByRole('combobox', { name: 'Search the catalog' })
     expect(input.getAttribute('aria-expanded')).toBe('false')
 
     fireEvent.change(input, { target: { value: 'ma' } })

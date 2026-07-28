@@ -1,8 +1,10 @@
 export const publicPageMetadata = {
   home: {
     title: 'Cleo',
-    description: '',
-    ogDescription: '',
+    description:
+      'A general-knowledge portal — country and space field guides, photographs, writing, and Ask Cleo.',
+    ogDescription:
+      'Country and space field guides, a photograph gallery, writing, and an AI agent — a quiet portal into the world and beyond.',
   },
   blog: {
     title: 'Writing',

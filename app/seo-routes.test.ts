@@ -4,7 +4,6 @@ import robots from './robots'
 import sitemap from './sitemap'
 import { getAllPosts } from '~/lib/content'
 import { countrySlugs } from '~/lib/countries'
-import { archivedNewsletterIds } from '~/lib/newsletters'
 import { seo } from '~/lib/seo'
 import { spaceSubjectSlugs } from '~/lib/space'
 
@@ -14,7 +13,7 @@ describe('discovery routes', () => {
       rules: {
         userAgent: '*',
         allow: '/',
-        disallow: ['/confirm/', '/api/'],
+        disallow: ['/confirm/', '/api/', '/newsletters/'],
       },
       sitemap: new URL('/sitemap.xml', seo.url).href,
       host: seo.url.origin,
@@ -33,9 +32,12 @@ describe('discovery routes', () => {
       '/cleo',
       ...countrySlugs().map((slug) => `/explore/${slug}`),
       ...spaceSubjectSlugs().map((slug) => `/space/${slug}`),
-      ...archivedNewsletterIds.map((id) => `/newsletters/${id}`),
       ...getAllPosts().map((post) => `/blog/${post.slug}`),
     ]
+
+    expect(entries.some((entry) => entry.url.includes('/newsletters/'))).toBe(
+      false,
+    )
 
     for (const path of expectedPaths) {
       const url = new URL(path, seo.url).href

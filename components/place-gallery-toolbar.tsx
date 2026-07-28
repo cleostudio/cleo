@@ -2,10 +2,37 @@
 
 import { useEffect, useId, useRef, useState } from 'react'
 
+import type { GalleryCollection } from '~/lib/gallery'
+import { readQueryParam, replaceQueryParam } from '~/lib/url-query'
+
+type CollectionFilter = 'all' | GalleryCollection
+
+const SEARCH_FIELD_CLASS =
+  'w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground'
+
+function parseCollection(value: string): CollectionFilter {
+  if (value === 'places' || value === 'space') return value
+  return 'all'
+}
+
 export function PlaceGalleryToolbar() {
   const searchId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
   const [query, setQuery] = useState('')
+  const [collection, setCollection] = useState<CollectionFilter>('all')
+
+  useEffect(() => {
+    setQuery(readQueryParam('q'))
+    setCollection(parseCollection(readQueryParam('collection')))
+  }, [])
+
+  useEffect(() => {
+    replaceQueryParam('q', query)
+  }, [query])
+
+  useEffect(() => {
+    replaceQueryParam('collection', collection === 'all' ? '' : collection)
+  }, [collection])
 
   useEffect(() => {
     const root = rootRef.current?.closest<HTMLElement>('[data-place-gallery]')
@@ -18,14 +45,18 @@ export function PlaceGalleryToolbar() {
 
     for (const item of items) {
       const searchText = item.dataset.searchText ?? ''
-      const visible =
+      const itemCollection = item.dataset.collection ?? ''
+      const matchesCollection =
+        collection === 'all' || itemCollection === collection
+      const matchesQuery =
         !normalizedQuery || searchText.toLowerCase().includes(normalizedQuery)
+      const visible = matchesCollection && matchesQuery
       item.hidden = !visible
       if (visible) nextVisible += 1
     }
 
     if (empty) empty.hidden = nextVisible !== 0
-  }, [query])
+  }, [collection, query])
 
   return (
     <div
@@ -39,8 +70,38 @@ export function PlaceGalleryToolbar() {
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Country, place, or space body"
         aria-label="Search photographs"
-        className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground"
+        className={SEARCH_FIELD_CLASS}
       />
+      <div
+        className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground"
+        role="group"
+        aria-label="Photograph set"
+      >
+        {(
+          [
+            ['all', 'All'],
+            ['places', 'Places'],
+            ['space', 'Space'],
+          ] as const
+        ).map(([value, label]) => {
+          const active = collection === value
+          return (
+            <button
+              key={value}
+              type="button"
+              aria-pressed={active}
+              onClick={() => setCollection(value)}
+              className={
+                active
+                  ? 'text-foreground underline decoration-[color-mix(in_oklab,var(--foreground)_35%,transparent)] underline-offset-[0.18em] outline-none focus-visible:ring-1 focus-visible:ring-foreground'
+                  : 'outline-none transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground focus-visible:ring-1 focus-visible:ring-foreground'
+              }
+            >
+              {label}
+            </button>
+          )
+        })}
+      </div>
     </div>
   )
 }

@@ -7,14 +7,19 @@ import { GuideIndexFilter } from './guide-index-filter'
 
 afterEach(() => {
   cleanup()
+  window.history.replaceState({}, '', '/')
 })
 
 describe('GuideIndexFilter', () => {
-  it('filters guide rows and hides empty sections', () => {
+  it('filters guide rows, updates live counts, and syncs ?q=', () => {
     render(
       <div data-guide-index>
         <GuideIndexFilter label="Search countries" placeholder="Country" />
         <section data-guide-section>
+          <h2>
+            Asia
+            <span data-guide-count>2</span>
+          </h2>
           <ul>
             <li data-guide-item data-search-text="Japan Asia">
               Japan
@@ -25,6 +30,10 @@ describe('GuideIndexFilter', () => {
           </ul>
         </section>
         <section data-guide-section>
+          <h2>
+            Americas
+            <span data-guide-count>1</span>
+          </h2>
           <ul>
             <li data-guide-item data-search-text="Brazil Americas">
               Brazil
@@ -50,10 +59,15 @@ describe('GuideIndexFilter', () => {
     const brazilSection = screen
       .getByText('Brazil')
       .closest('[data-guide-section]') as HTMLElement | null
+    const asiaCount = screen
+      .getByText('Asia')
+      .querySelector('[data-guide-count]')
 
     expect(japan?.hidden).toBe(false)
     expect(france?.hidden).toBe(true)
     expect(brazilSection?.hidden).toBe(true)
+    expect(asiaCount?.textContent).toBe('1')
+    expect(window.location.search).toContain('q=japan')
     expect(screen.getByText('No countries match that search.').hidden).toBe(
       true,
     )

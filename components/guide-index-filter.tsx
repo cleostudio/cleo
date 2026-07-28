@@ -2,6 +2,11 @@
 
 import { useEffect, useId, useRef, useState } from 'react'
 
+import { readQueryParam, replaceQueryParam } from '~/lib/url-query'
+
+const SEARCH_FIELD_CLASS =
+  'w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground'
+
 /** Client filter for server-rendered Explore / Space index rows. */
 export function GuideIndexFilter({
   label,
@@ -13,6 +18,14 @@ export function GuideIndexFilter({
   const searchId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
   const [query, setQuery] = useState('')
+
+  useEffect(() => {
+    setQuery(readQueryParam('q'))
+  }, [])
+
+  useEffect(() => {
+    replaceQueryParam('q', query)
+  }, [query])
 
   useEffect(() => {
     const root = rootRef.current?.closest<HTMLElement>('[data-guide-index]')
@@ -37,6 +50,8 @@ export function GuideIndexFilter({
         '[data-guide-item]:not([hidden])',
       ).length
       section.hidden = visibleInSection === 0
+      const count = section.querySelector<HTMLElement>('[data-guide-count]')
+      if (count) count.textContent = String(visibleInSection)
     }
 
     if (empty) empty.hidden = nextVisible !== 0
@@ -55,7 +70,7 @@ export function GuideIndexFilter({
         placeholder={placeholder}
         aria-label={label}
         autoComplete="off"
-        className="w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none"
+        className={SEARCH_FIELD_CLASS}
       />
     </div>
   )

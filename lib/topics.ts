@@ -26,7 +26,7 @@ export function allTopics(): Topic[] {
         'Evergreen field guides for every country — orientation, notable places, facts, sources, and one curated photograph.',
       tally: `${countryCount} guides`,
       href: '/explore',
-      secondaryHref: '/gallery',
+      secondaryHref: '/gallery?collection=places',
       secondaryLabel: 'Gallery',
     },
     {
@@ -36,7 +36,7 @@ export function allTopics(): Topic[] {
         'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, facts, a photograph, and sources.',
       tally: `${spaceCount} guides`,
       href: '/space',
-      secondaryHref: '/gallery',
+      secondaryHref: '/gallery?collection=space',
       secondaryLabel: 'Gallery',
     },
   ]

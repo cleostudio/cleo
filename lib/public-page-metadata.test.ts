@@ -3,12 +3,12 @@ import { describe, expect, it } from 'vitest'
 import { publicPageMetadata } from './public-page-metadata'
 
 describe('public page metadata copy', () => {
-  it('uses a timeless homepage title without a portal blurb', () => {
-    expect(publicPageMetadata.home).toEqual({
-      title: 'Cleo',
-      description: '',
-      ogDescription: '',
-    })
+  it('keeps a short homepage portal description for search and social', () => {
+    expect(publicPageMetadata.home.title).toBe('Cleo')
+    expect(publicPageMetadata.home.description.length).toBeGreaterThan(20)
+    expect(publicPageMetadata.home.description.length).toBeLessThanOrEqual(160)
+    expect(publicPageMetadata.home.ogDescription.length).toBeGreaterThan(20)
+    expect(publicPageMetadata.home.ogDescription.length).toBeLessThanOrEqual(160)
   })
 
   it('keeps each public section content-specific', () => {

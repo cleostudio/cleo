@@ -44,6 +44,9 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
     )?.[1] ?? []
   const { previous, next } = guideNeighbors(categorySubjects, subject.slug)
   const askHref = `/cleo?q=${encodeURIComponent(`Tell me about ${subject.name}`)}`
+  const galleryHref = `/gallery?q=${encodeURIComponent(subject.name)}&collection=space`
+  const guideLinkClass =
+    'text-sm text-muted-foreground outline-none transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background'
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -232,12 +235,12 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
       </section>
 
       <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
-        <Link href={askHref} className="text-sm text-muted-foreground hover:text-foreground">
+        <Link href={askHref} className={guideLinkClass}>
           Ask Cleo about {subject.name} →
         </Link>
       </p>
       <p className="enter mt-3" style={{ '--enter-delay': '185ms' } as React.CSSProperties}>
-        <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link href={galleryHref} className={guideLinkClass}>
           Browse the gallery →
         </Link>
       </p>
@@ -247,17 +250,17 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         aria-label="Nearby space guides"
       >
         {previous ? (
-          <Link href={`/space/${previous.slug}`} className="hover:text-foreground">
+          <Link href={`/space/${previous.slug}`} className={guideLinkClass}>
             ← {previous.name}
           </Link>
         ) : (
           <span aria-hidden />
         )}
-        <Link href="/space" className="hover:text-foreground">
+        <Link href="/space" className={guideLinkClass}>
           All space guides
         </Link>
         {next ? (
-          <Link href={`/space/${next.slug}`} className="hover:text-foreground">
+          <Link href={`/space/${next.slug}`} className={guideLinkClass}>
             {next.name} →
           </Link>
         ) : null}
