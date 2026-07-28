@@ -472,7 +472,7 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase>. Right now the focus is{' '}
+              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase> for everyday curiosity. It begins with{' '}
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
                   <span className="home-detail-unit">countries</span>{' '}
@@ -480,7 +480,7 @@ export function HomeIntroduction() {
                   <span className="home-detail-unit">space</span>
                 </span>
               </HopPhrase>
-              ; more subjects will land over time.
+              , with more subjects joining the collection over time.
             </>
           }
         />
@@ -502,15 +502,15 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Flip through{' '}
+              Browse{' '}
               <GalleryPreviewCard>
                 <PhotoPhrase>photographs</PhotoPhrase>
               </GalleryPreviewCard>{' '}
-              when you want a sense of place, or search the{' '}
+              to get a feel for a place, or search the{' '}
               <CatalogPreviewCard>
                 <SearchPhrase>catalog</SearchPhrase>
               </CatalogPreviewCard>{' '}
-              by name.
+              when you know just what you&apos;re after.
             </>
           }
         />
@@ -526,8 +526,8 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Open <TopicsPreviewCard>Topics</TopicsPreviewCard>,{' '}
-              <ExplorePreviewCard>Explore</ExplorePreviewCard>, or{' '}
+              Start with <TopicsPreviewCard>Topics</TopicsPreviewCard>, take a closer look in{' '}
+              <ExplorePreviewCard>Explore</ExplorePreviewCard>, or bring a question to{' '}
               <AskCleoPreviewCard>Ask Cleo</AskCleoPreviewCard>.
             </>
           }
