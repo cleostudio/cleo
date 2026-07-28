@@ -23,6 +23,7 @@ export function ExplorePageView({
   initialQuery?: string
 }) {
   const regions = countriesByRegion()
+  const regionFacets = regions.map(([region]) => region)
   let totalVisible = 0
 
   const renderedRegions = regions.map(([region, regionCountries]) => {
@@ -67,6 +68,8 @@ export function ExplorePageView({
           initialQuery={initialQuery}
           noun="countries"
           nounOne="country"
+          facets={regionFacets}
+          facetGroupLabel="Region"
         />
 
         <p

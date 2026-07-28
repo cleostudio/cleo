@@ -173,4 +173,73 @@ describe('GuideIndexFilter', () => {
     expect(screen.queryByText(/Showing \d+ countr(?:y|ies)/)).toBeNull()
     expect(window.location.search).not.toContain('q=')
   })
+
+  it('browse facets set ?q=, press state, and All clears', () => {
+    render(
+      <div data-guide-index>
+        <GuideIndexFilter
+          label="Search countries"
+          placeholder="Country"
+          initialQuery="Asia"
+          noun="countries"
+          nounOne="country"
+          facets={['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']}
+          facetGroupLabel="Region"
+        />
+        <p data-guide-status>Showing 1 country</p>
+        <section data-guide-section>
+          <h2>
+            Asia
+            <span data-guide-count>1</span>
+          </h2>
+          <ul>
+            <li data-guide-item data-search-text="Japan Asia">
+              Japan
+            </li>
+            <li data-guide-item data-search-text="France Europe" hidden>
+              France
+            </li>
+          </ul>
+        </section>
+        <p data-guide-empty hidden>
+          No countries match that search.
+        </p>
+      </div>,
+    )
+
+    const asiaFacet = screen.getByRole('button', { name: 'Asia' })
+    const allFacet = screen.getByRole('button', { name: 'All' })
+    expect(asiaFacet.getAttribute('aria-pressed')).toBe('true')
+    expect(allFacet.getAttribute('aria-pressed')).toBe('false')
+    expect((screen.getByRole('searchbox') as HTMLInputElement).value).toBe(
+      'Asia',
+    )
+    expect(window.location.search).toContain('q=Asia')
+
+    fireEvent.click(screen.getByRole('button', { name: 'Europe' }))
+    expect((screen.getByRole('searchbox') as HTMLInputElement).value).toBe(
+      'Europe',
+    )
+    expect(
+      screen.getByRole('button', { name: 'Europe' }).getAttribute('aria-pressed'),
+    ).toBe('true')
+    expect(
+      (
+        screen.getByText('France').closest('[data-guide-item]') as HTMLElement
+      ).hidden,
+    ).toBe(false)
+    expect(
+      (
+        screen.getByText('Japan').closest('[data-guide-item]') as HTMLElement
+      ).hidden,
+    ).toBe(true)
+    expect(window.location.search).toContain('q=Europe')
+
+    fireEvent.click(screen.getByRole('button', { name: 'All' }))
+    expect((screen.getByRole('searchbox') as HTMLInputElement).value).toBe('')
+    expect(
+      screen.getByRole('button', { name: 'All' }).getAttribute('aria-pressed'),
+    ).toBe('true')
+    expect(window.location.search).not.toContain('q=')
+  })
 })

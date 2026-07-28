@@ -15,6 +15,10 @@ describe('PlaceGalleryToolbar', () => {
     render(
       <div data-place-gallery>
         <PlaceGalleryToolbar initialQuery="" initialCollection="all" />
+        <p data-gallery-status hidden />
+        <p data-gallery-empty hidden>
+          No photographs match that search.
+        </p>
         <ul>
           <li
             data-gallery-item
@@ -31,10 +35,6 @@ describe('PlaceGalleryToolbar', () => {
             Mars
           </li>
         </ul>
-        <p data-gallery-status hidden />
-        <p data-gallery-empty hidden>
-          No photographs match that search.
-        </p>
       </div>,
     )
 
@@ -77,6 +77,10 @@ describe('PlaceGalleryToolbar', () => {
     render(
       <div data-place-gallery>
         <PlaceGalleryToolbar initialQuery="mars" initialCollection="space" />
+        <p data-gallery-status>Showing 1 photograph</p>
+        <p data-gallery-empty hidden>
+          No photographs match that search.
+        </p>
         <ul>
           <li
             data-gallery-item
@@ -94,10 +98,6 @@ describe('PlaceGalleryToolbar', () => {
             Mars
           </li>
         </ul>
-        <p data-gallery-status>Showing 1 photograph</p>
-        <p data-gallery-empty hidden>
-          No photographs match that search.
-        </p>
       </div>,
     )
 

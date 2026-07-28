@@ -23,6 +23,7 @@ export function SpacePageView({
   initialQuery?: string
 }) {
   const categories = spaceSubjectsByCategory()
+  const categoryFacets = categories.map(([category]) => category)
   let totalVisible = 0
 
   const renderedCategories = categories.map(([category, subjects]) => {
@@ -68,6 +69,8 @@ export function SpacePageView({
           initialQuery={initialQuery}
           noun="space guides"
           nounOne="space guide"
+          facets={categoryFacets}
+          facetGroupLabel="Category"
         />
 
         <p

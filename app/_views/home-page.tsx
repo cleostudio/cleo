@@ -71,11 +71,11 @@ export async function HomePageView({ locale }: { locale: Locale }) {
             </span>
           </SectionTitle>
           <Link
-            href="/topics"
+            href="/gallery"
             className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[var(--ease-swift)] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
             style={{ '--enter-delay': '160ms' } as React.CSSProperties}
           >
-            <T zh="全部主题" en="All topics" />
+            <T zh="图库" en="Gallery" />
           </Link>
         </div>
         <div className="enter mt-5" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>

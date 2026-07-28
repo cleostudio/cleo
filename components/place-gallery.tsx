@@ -37,6 +37,26 @@ export function PlaceGallery({
         initialCollection={initialCollection}
       />
 
+      <p
+        className="mb-3 text-sm text-muted-foreground"
+        data-gallery-status
+        hidden={!filtering || initialVisible === 0 || undefined}
+        aria-live="polite"
+      >
+        {filtering && initialVisible > 0
+          ? `Showing ${initialVisible} photograph${initialVisible === 1 ? '' : 's'}`
+          : ''}
+      </p>
+
+      <p
+        className="mb-3 text-sm text-muted-foreground"
+        data-gallery-empty
+        hidden={initialVisible !== 0 || undefined}
+        aria-live="polite"
+      >
+        No photographs match that search.
+      </p>
+
       <ul className="photo-masonry">
         {entries.map((entry, index) => {
           const matches = galleryItemMatchesFilters(
@@ -99,26 +119,6 @@ export function PlaceGallery({
           )
         })}
       </ul>
-
-      <p
-        className="mt-3 text-sm text-muted-foreground"
-        data-gallery-status
-        hidden={!filtering || initialVisible === 0 || undefined}
-        aria-live="polite"
-      >
-        {filtering && initialVisible > 0
-          ? `Showing ${initialVisible} photograph${initialVisible === 1 ? '' : 's'}`
-          : ''}
-      </p>
-
-      <p
-        className="text-sm text-muted-foreground"
-        data-gallery-empty
-        hidden={initialVisible !== 0 || undefined}
-        aria-live="polite"
-      >
-        No photographs match that search.
-      </p>
     </div>
   )
 }
