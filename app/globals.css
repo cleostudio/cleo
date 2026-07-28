@@ -3425,137 +3425,130 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
-.home-intro-topic-list {
-  display: flex;
-  flex-direction: column;
+.home-intro-topics-card .service-card-head,
+.home-intro-topics-card .service-card-bio,
+.home-intro-topics-card .service-card-stat {
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 200ms var(--ease-swift);
 }
 
-.home-intro-topic-row {
+.home-intro-topics-card .service-card-bio {
+  transition-delay: 35ms;
+}
+
+.home-intro-topics-card .service-card-stat {
+  transition-delay: 70ms;
+}
+
+.home-intro-topics-card .service-card-avatar {
+  transition: transform 200ms var(--ease-swift);
+}
+
+.home-intro-topics-card[data-starting-style] .service-card-head,
+.home-intro-topics-card[data-starting-style] .service-card-bio,
+.home-intro-topics-card[data-starting-style] .service-card-stat {
+  opacity: 0;
+  transform: translateY(2px);
+}
+
+.home-intro-topics-card[data-starting-style] .service-card-avatar {
+  transform: scale(0.92);
+}
+
+.home-intro-folio-card {
+  padding: 0.7rem 0.75rem 0.65rem;
+}
+
+.home-intro-folio {
+  position: relative;
   display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr);
-  align-items: start;
-  gap: 1rem;
-  padding-block: 0.5rem;
-  animation: home-intro-search-row-in 420ms var(--ease-swift) backwards;
-  animation-delay: calc(var(--i, 0) * 55ms);
-}
-
-.home-intro-topic-row + .home-intro-topic-row {
-  border-top: var(--border-hairline) solid var(--border);
-}
-
-.home-intro-explore-card {
-  gap: 0.375rem;
-}
-
-.home-intro-explore-preview {
-  display: flex;
-  flex-direction: column;
-}
-
-.home-intro-explore-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding-bottom: 0.125rem;
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-}
-
-.home-intro-explore-heading > span:first-child {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.45rem 0.65rem;
+  min-height: 5.5rem;
   color: var(--foreground);
-  font-weight: var(--font-weight-medium);
 }
 
-.home-intro-explore-heading > span:last-child {
-  flex: none;
-  font-variant-numeric: tabular-nums;
+.home-intro-folio-stamp {
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--muted-foreground);
 }
 
-.home-intro-explore-card .country-row {
-  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
-  gap: 0.5rem;
-  padding-block: 0.5rem;
-  font-size: 0.8125rem;
-  animation: home-intro-search-row-in 420ms var(--ease-swift) backwards;
+.home-intro-folio-itinerary {
+  grid-row: 1;
+  grid-column: 2;
+  align-self: center;
+  height: 2.15rem;
+  border-radius: 2px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 0.45rem,
+      color-mix(in oklab, var(--foreground) 14%, transparent) 0.45rem 0.52rem
+    );
+  opacity: 0.85;
 }
 
-.home-intro-explore-heading,
-.home-intro-explore-card .country-row {
-  transition:
-    opacity 200ms var(--ease-swift),
-    transform 200ms var(--ease-swift);
+.home-intro-folio-map {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  height: 1.65rem;
+  border-radius: 2px;
+  background:
+    linear-gradient(
+      120deg,
+      color-mix(in oklab, var(--foreground) 8%, transparent) 0 35%,
+      transparent 35% 55%,
+      color-mix(in oklab, var(--foreground) 6%, transparent) 55% 100%
+    ),
+    color-mix(in oklab, var(--foreground) 4%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--foreground) 10%, transparent);
 }
 
-.home-intro-explore-card[data-starting-style] .home-intro-explore-heading,
-.home-intro-explore-card[data-starting-style] .country-row {
-  opacity: 0;
-  transform: translateY(2px);
-}
-
-.home-intro-cleo-card {
-  gap: 0.5rem;
-}
-
-.home-intro-cleo-preview {
+.home-intro-folio-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
-}
-
-.home-intro-cleo-label {
-  color: var(--muted-foreground);
-  font-family: var(--font-mono);
+  align-items: flex-end;
+  gap: 0.1rem;
+  padding: 0.15rem 0.2rem;
+  color: var(--foreground);
   font-size: 0.75rem;
-  letter-spacing: 0.02em;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+  background: color-mix(in oklab, var(--paper, var(--background)) 88%, transparent);
 }
 
-.home-intro-cleo-prompt {
-  display: flex;
-  min-height: 2.75rem;
-  align-items: center;
-  padding: 0.375rem;
-}
-
-.home-intro-cleo-placeholder {
-  min-width: 0;
-  flex: 1;
-  padding-inline: 0.4rem 0.5rem;
+.home-intro-folio-label span {
   color: var(--muted-foreground);
-  font-size: 0.875rem;
+  font-weight: 400;
+  font-size: 0.6875rem;
 }
 
-.home-intro-cleo-send {
-  display: grid;
-  width: 2.75rem;
-  height: 2.75rem;
-  flex: none;
-  place-items: center;
-  border-radius: 999px;
-  color: var(--primary-foreground);
-  background: var(--primary);
-  font-size: 1rem;
-  line-height: 1;
-}
-
-.home-intro-cleo-label,
-.home-intro-cleo-prompt,
-.home-intro-cleo-send {
+.home-intro-folio-stamp,
+.home-intro-folio-itinerary,
+.home-intro-folio-map,
+.home-intro-folio-label {
   transition:
     opacity 200ms var(--ease-swift),
     transform 200ms var(--ease-swift);
 }
 
-.home-intro-cleo-card[data-starting-style] .home-intro-cleo-label,
-.home-intro-cleo-card[data-starting-style] .home-intro-cleo-prompt {
+.home-intro-folio-card[data-starting-style] .home-intro-folio-stamp,
+.home-intro-folio-card[data-starting-style] .home-intro-folio-itinerary,
+.home-intro-folio-card[data-starting-style] .home-intro-folio-map,
+.home-intro-folio-card[data-starting-style] .home-intro-folio-label {
   opacity: 0;
   transform: translateY(2px);
-}
-
-.home-intro-cleo-card[data-starting-style] .home-intro-cleo-send {
-  opacity: 0;
-  transform: scale(0.9);
 }
 
 .external-link img {
@@ -3825,10 +3818,50 @@ a:focus-visible .external-label .external-mark {
 .email-envelope-flap {
   position: absolute;
   inset: auto 0 0;
+  z-index: 2;
   height: 66%;
   clip-path: polygon(0 100%, 0 75%, 50% 25%, 100% 75%, 100% 100%);
   background: color-mix(in oklab, var(--paper-ink) 3%, var(--paper));
   filter: drop-shadow(0 -1px 0 color-mix(in oklab, var(--paper-ink) 34%, transparent));
+}
+
+.email-envelope-letter {
+  position: absolute;
+  top: 2.25rem;
+  right: 1.25rem;
+  left: 1.7rem;
+  z-index: 1;
+  display: flex;
+  height: 2.2rem;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--paper) 92%, var(--paper-ink));
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--paper-ink) 16%, transparent);
+  transition:
+    opacity 200ms var(--ease-swift),
+    transform 200ms var(--ease-swift);
+}
+
+.email-envelope-letter-line {
+  display: block;
+  width: 100%;
+  height: var(--border-hairline);
+  background: color-mix(in oklab, var(--paper-ink) 36%, transparent);
+}
+
+.email-envelope-letter-line:nth-child(2) {
+  width: 72%;
+}
+
+.email-envelope-letter-line:nth-child(3) {
+  width: 86%;
+}
+
+.email-envelope-card[data-starting-style] .email-envelope-letter {
+  opacity: 0;
+  transform: translateY(0.5rem) scale(0.98);
 }
 
 .email-envelope-return {
@@ -3975,17 +4008,18 @@ a:focus-visible .external-label .external-mark {
 .link-card.preview-card-instant .home-intro-gallery-image,
 .link-card.preview-card-instant.home-intro-gallery-card :is(.link-card-site, .link-card-title),
 .link-card.preview-card-instant .home-intro-search-row,
-.link-card.preview-card-instant .home-intro-topic-row,
-.link-card.preview-card-instant.home-intro-explore-card :is(.home-intro-explore-heading, .country-row),
-.link-card.preview-card-instant.home-intro-cleo-card :is(.home-intro-cleo-label, .home-intro-cleo-prompt, .home-intro-cleo-send) {
+.link-card.preview-card-instant.home-intro-topics-card :is(.service-card-head, .service-card-avatar, .service-card-bio, .service-card-stat),
+.link-card.preview-card-instant .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
+.link-card.preview-card-instant .email-envelope-letter {
   animation: none;
   transition: none;
   transform: none;
 }
 
 .link-card.preview-card-instant.home-intro-gallery-card :is(.link-card-site, .link-card-title),
-.link-card.preview-card-instant.home-intro-explore-card :is(.home-intro-explore-heading, .country-row),
-.link-card.preview-card-instant.home-intro-cleo-card :is(.home-intro-cleo-label, .home-intro-cleo-prompt, .home-intro-cleo-send) {
+.link-card.preview-card-instant.home-intro-topics-card :is(.service-card-head, .service-card-bio, .service-card-stat),
+.link-card.preview-card-instant .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
+.link-card.preview-card-instant .email-envelope-letter {
   opacity: 1;
 }
 
@@ -3993,17 +4027,18 @@ a:focus-visible .external-label .external-mark {
   .home-intro-gallery-image,
   .home-intro-gallery-card :is(.link-card-site, .link-card-title),
   .home-intro-search-row,
-  .home-intro-topic-row,
-  .home-intro-explore-card :is(.home-intro-explore-heading, .country-row),
-  .home-intro-cleo-card :is(.home-intro-cleo-label, .home-intro-cleo-prompt, .home-intro-cleo-send) {
+  .home-intro-topics-card :is(.service-card-head, .service-card-avatar, .service-card-bio, .service-card-stat),
+  .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
+  .email-envelope-letter {
     animation: none;
     transition: none;
     transform: none;
   }
 
   .home-intro-gallery-card :is(.link-card-site, .link-card-title),
-  .home-intro-explore-card :is(.home-intro-explore-heading, .country-row),
-  .home-intro-cleo-card :is(.home-intro-cleo-label, .home-intro-cleo-prompt, .home-intro-cleo-send) {
+  .home-intro-topics-card :is(.service-card-head, .service-card-bio, .service-card-stat),
+  .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
+  .email-envelope-letter {
     opacity: 1;
   }
 }

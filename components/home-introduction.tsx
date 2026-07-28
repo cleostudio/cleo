@@ -3,8 +3,8 @@ import { SitePreviewCard } from '~/components/preview-card-timing'
 import { highlightedAtlasEntries } from '~/lib/atlas'
 import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
+import { spaceSubjects } from '~/lib/space'
 import { staticRendition } from '~/lib/static-photo'
-import { allTopics } from '~/lib/topics'
 
 function CraftMark() {
   return (
@@ -313,33 +313,43 @@ function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
   )
 }
 
-/** Compact catalog rows match the Topics index. */
+/** Service-card treatment with a restrained content develop. */
 function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
-  const topics = allTopics()
-
   return (
     <SitePreviewCard
       href="/topics"
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName="link-card home-intro-topics-card"
+      popupClassName="link-card service-card home-intro-topics-card"
       popup={
-        <span className="home-intro-topic-list" aria-hidden>
-          {topics.map((topic, index) => (
-            <span
-              className="home-intro-topic-row"
-              key={topic.slug}
-              style={{ '--i': index } as React.CSSProperties}
-            >
-              <span className="topic-index">{String(index + 1).padStart(2, '0')}</span>
-              <span className="topic-identity">
-                <span className="topic-name font-medium text-foreground">{topic.name}</span>
-                <span className="topic-tally text-muted-foreground">{topic.tally}</span>
+        <>
+          <span className="service-card-head">
+            <span className="service-card-avatar service-card-monogram" aria-hidden>
+              T
+            </span>
+            <span className="service-card-names">
+              <span className="service-card-name">
+                <T zh="主题" en="Topics" />
+              </span>
+              <span className="service-card-sub">
+                <T zh="目录" en="catalog" />
               </span>
             </span>
-          ))}
-        </span>
+          </span>
+          <span className="service-card-bio">
+            <T zh="先从现有合集读起，之后还会继续加。" en="Start with the collections on hand; more will follow." />
+          </span>
+          <span className="service-card-stat">
+            <span>
+              <b>{countries.length}</b> <T zh="国家" en="countries" />
+            </span>
+            <span aria-hidden>·</span>
+            <span>
+              <b>{spaceSubjects.length}</b> <T zh="太空" en="space" />
+            </span>
+          </span>
+        </>
       }
     >
       {children}
@@ -347,7 +357,7 @@ function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
   )
 }
 
-/** Compact country-index plate echoes the Explore list. */
+/** Travel-folio card with a quiet layer settle. */
 function ExplorePreviewCard({ children }: { children: React.ReactNode }) {
   return (
     <SitePreviewCard
@@ -355,17 +365,41 @@ function ExplorePreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName="link-card home-intro-explore-card"
+      popupClassName="link-card home-intro-folio-card"
       popup={
-        <span className="home-intro-explore-preview" aria-hidden>
-          <span className="home-intro-explore-heading">
-            <span>Explore</span>
-            <span>{countries.length} countries</span>
+        <span className="home-intro-folio" aria-hidden>
+          <span className="home-intro-folio-stamp">
+            <svg viewBox="0 0 32 32" width="28" height="28">
+              <circle
+                cx="16"
+                cy="16"
+                r="13.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.25"
+                strokeDasharray="2.2 1.6"
+              />
+              <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" strokeWidth="1" />
+              <rect
+                x="10"
+                y="13"
+                width="12"
+                height="6"
+                rx="0.75"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1"
+                transform="rotate(-18 16 16)"
+              />
+            </svg>
           </span>
-          <span className="country-row hairline-top">
-            <span className="country-code text-muted-foreground">ISO</span>
-            <span className="country-name font-medium text-foreground">Country index</span>
-            <span className="country-subregion text-muted-foreground">All regions</span>
+          <span className="home-intro-folio-itinerary" />
+          <span className="home-intro-folio-map" />
+          <span className="home-intro-folio-label">
+            <T zh="探索" en="Explore" />
+            <span>
+              <T zh={`${countries.length} 个国家`} en={`${countries.length} countries`} />
+            </span>
           </span>
         </span>
       }
@@ -375,7 +409,7 @@ function ExplorePreviewCard({ children }: { children: React.ReactNode }) {
   )
 }
 
-/** Prompt-dock plate mirrors Cleo's own input surface. */
+/** Envelope card with a single letter reveal. */
 function AskCleoPreviewCard({ children }: { children: React.ReactNode }) {
   return (
     <SitePreviewCard
@@ -383,13 +417,39 @@ function AskCleoPreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={120}
       side="top"
-      popupClassName="link-card home-intro-cleo-card"
+      popupClassName="link-card email-envelope-card"
       popup={
-        <span className="home-intro-cleo-preview" aria-hidden>
-          <span className="home-intro-cleo-label">Cleo</span>
-          <span className="glass-surface home-intro-cleo-prompt">
-            <span className="home-intro-cleo-placeholder">Ask anything</span>
-            <span className="home-intro-cleo-send">↗</span>
+        <span className="email-envelope" aria-hidden>
+          <span className="email-envelope-flap" />
+          <span className="email-envelope-letter">
+            <span className="email-envelope-letter-line" />
+            <span className="email-envelope-letter-line" />
+            <span className="email-envelope-letter-line" />
+          </span>
+          <span className="email-envelope-return">
+            <span>FROM</span>
+            YOU
+            <br />
+            HERE
+          </span>
+          <span className="email-envelope-stamps">
+            <span className="email-envelope-stamp email-envelope-stamp-monogram">
+              <span className="email-envelope-stamp-letter" aria-hidden>
+                C
+              </span>
+              <span>CLEO · 20</span>
+            </span>
+            <span className="email-envelope-stamp email-envelope-stamp-mark">
+              <span className="email-envelope-stamp-star">✦</span>
+              <span>ASK · 26</span>
+            </span>
+          </span>
+          <span className="email-envelope-postmark" />
+          <span className="email-envelope-address">
+            <span>
+              <T zh="收" en="TO" />
+            </span>
+            Ask Cleo
           </span>
         </span>
       }
