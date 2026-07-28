@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest"
 import {
   hasLiveActivity,
   hydrateRestoredMessages,
+  inFlightCheckpointDelayMs,
   markAssistantInterrupted,
   settleActivities,
   shouldStickToBottom,
@@ -150,6 +151,14 @@ describe("shouldStickToBottom", () => {
   it("returns true near the bottom and false when scrolled up", () => {
     expect(shouldStickToBottom(880, 100, 1000, 120)).toBe(true)
     expect(shouldStickToBottom(700, 100, 1000, 120)).toBe(false)
+  })
+})
+
+describe("inFlightCheckpointDelayMs", () => {
+  it("saves immediately on the first checkpoint and after the interval", () => {
+    expect(inFlightCheckpointDelayMs(0, 1000, 750)).toBe(0)
+    expect(inFlightCheckpointDelayMs(100, 900, 750)).toBe(0)
+    expect(inFlightCheckpointDelayMs(100, 500, 750)).toBe(350)
   })
 })
 

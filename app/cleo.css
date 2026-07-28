@@ -950,6 +950,14 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   margin: 0;
 }
 
+.cleo-error-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
 .cleo-error-retry {
   color: var(--destructive);
   text-decoration: underline;

@@ -99,10 +99,10 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   hard failures with a draft, activity-only dead ends, and mid-turn reload
   settle live activities as `cancelled` and keep Continue; Continue turns get
   resume guidance on the server; Escape stops generation; completed answers
-  offer Regenerate. Hard failures show Retry in the dock. Gallery/Writing tools
-  return `?q=` filtered index links. Streaming only autoscrolls when the user
-  is near the bottom of the page; a Latest control appears whenever the live
-  edge is off-screen.
+  offer Regenerate. Hard failures show Retry in the dock (and Continue when a
+  draft remains). Gallery/Writing tools return `?q=` filtered index links.
+  Streaming only autoscrolls when the user is near the bottom of the page; a
+  Latest control appears whenever the live edge is off-screen.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
   grounds matching subjects on each turn; tools can also supply paths);
@@ -121,9 +121,10 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   the site dock via `--cleo-prompt-bottom`.
 
 Conversation state is browser-only (`localStorage` via `lib/cleo/session.ts`);
-reload restores the last thread (including `inFlight` mid-turn drafts), and
-**New chat** clears it. There is no authentication, database, media library, or
-AMA booking.
+reload restores the last thread (including throttled `inFlight` mid-turn
+drafts), and **New chat** clears it with a turn-epoch guard so late abort
+handlers cannot resurrect the prior thread. There is no authentication,
+database, media library, or AMA booking.
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,

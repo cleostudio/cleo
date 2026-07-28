@@ -31,6 +31,7 @@ import { CONTINUE_PROMPT } from "~/lib/cleo/continue"
 import {
   AUTOSCROLL_BOTTOM_THRESHOLD_PX,
   hydrateRestoredMessages,
+  inFlightCheckpointDelayMs,
   markAssistantInterrupted,
 } from "~/lib/cleo/conversation-helpers"
 import {
@@ -242,6 +243,9 @@ export function AskForm() {
   const mountedRef = useRef(true)
   const stickToBottomRef = useRef(true)
   const [showJumpToLatest, setShowJumpToLatest] = useState(false)
+  /** Bumped on New chat / each send so late abort handlers cannot resurrect state. */
+  const turnEpochRef = useRef(0)
+  const lastInFlightSaveAtRef = useRef(0)
 
   const hasMessages = messages.length > 0
   const canSubmit =
@@ -298,14 +302,28 @@ export function AskForm() {
 
   useEffect(() => {
     if (!sessionReady) return
-    // Checkpoint during streaming so a mid-turn reload keeps the draft.
+    // Idle saves write the settled thread. Mid-turn saves throttle so a busy
+    // token stream still checkpoints instead of endlessly resetting a debounce.
     if (!isSubmitting) {
+      lastInFlightSaveAtRef.current = 0
       saveCleoSession(messages, messageIdRef.current)
       return
     }
+
+    const delayMs = inFlightCheckpointDelayMs(
+      lastInFlightSaveAtRef.current,
+      Date.now()
+    )
+    if (delayMs === 0) {
+      saveCleoSession(messages, messageIdRef.current, { inFlight: true })
+      lastInFlightSaveAtRef.current = Date.now()
+      return
+    }
+
     const timer = window.setTimeout(() => {
       saveCleoSession(messages, messageIdRef.current, { inFlight: true })
-    }, 750)
+      lastInFlightSaveAtRef.current = Date.now()
+    }, delayMs)
     return () => window.clearTimeout(timer)
   }, [messages, sessionReady, isSubmitting])
 
@@ -401,15 +419,22 @@ export function AskForm() {
   }
 
   function handleNewChat() {
+    // Invalidate any in-flight turn before clearing so abort handlers cannot
+    // rewrite the empty transcript or restore the prompt.
+    turnEpochRef.current += 1
     if (isSubmitting) {
       abortControllerRef.current?.abort()
     }
+    isSubmittingRef.current = false
+    setIsSubmitting(false)
     clearCleoSession()
     setMessages([])
     setInput("")
     setPendingImages([])
     setError(null)
+    setShowJumpToLatest(false)
     messageIdRef.current = 0
+    lastInFlightSaveAtRef.current = 0
     inputRef.current?.focus()
   }
 
@@ -500,6 +525,20 @@ export function AskForm() {
       return
     }
 
+    const turnEpoch = ++turnEpochRef.current
+    const isCurrentTurn = () =>
+      mountedRef.current && turnEpochRef.current === turnEpoch
+
+    // Clear stale incomplete markers up front so Continue does not keep the
+    // prior "Stopped" note visible while the new turn streams.
+    const startingHistory = clearPriorIncomplete
+      ? history.map((message) =>
+          message.role === "assistant" && message.incomplete
+            ? { ...message, incomplete: undefined }
+            : message
+        )
+      : history
+
     const userMessage: Message = {
       content: question,
       id: messageIdRef.current++,
@@ -516,7 +555,7 @@ export function AskForm() {
     }
 
     const conversation = [
-      ...toApiMessages(history),
+      ...toApiMessages(startingHistory),
       {
         role: "user" as const,
         content: question,
@@ -530,11 +569,19 @@ export function AskForm() {
     isSubmittingRef.current = true
     stickToBottomRef.current = true
     setShowJumpToLatest(false)
-    setMessages([...history, userMessage, assistantMessage])
+    setMessages([...startingHistory, userMessage, assistantMessage])
     setInput("")
     setPendingImages([])
     setError(null)
     setIsSubmitting(true)
+    // Immediate mid-turn checkpoint so a reload before the first throttle
+    // window still restores Continue.
+    saveCleoSession(
+      [...startingHistory, userMessage, assistantMessage],
+      messageIdRef.current,
+      { inFlight: true }
+    )
+    lastInFlightSaveAtRef.current = Date.now()
 
     let output = ""
     let receivedImages = false
@@ -566,6 +613,7 @@ export function AskForm() {
       let streamError: string | null = null
 
       const applyTextDelta = (delta: string) => {
+        if (!isCurrentTurn()) return
         output += delta
         setMessages((currentMessages) =>
           currentMessages.map((message) =>
@@ -577,6 +625,7 @@ export function AskForm() {
       }
 
       const applyActivity = (activity: ActivityItem) => {
+        if (!isCurrentTurn()) return
         receivedActivities = true
         setMessages((currentMessages) =>
           currentMessages.map((message) =>
@@ -591,6 +640,7 @@ export function AskForm() {
       }
 
       const applyImage = (id: string, imageUrl: string) => {
+        if (!isCurrentTurn()) return
         receivedImages = true
         setMessages((currentMessages) =>
           currentMessages.map((message) =>
@@ -608,6 +658,7 @@ export function AskForm() {
       }
 
       const applyReasoningItems = (items: EncryptedReasoningItem[]) => {
+        if (!isCurrentTurn()) return
         setMessages((currentMessages) =>
           currentMessages.map((message) =>
             message.id === assistantMessage.id
@@ -618,6 +669,7 @@ export function AskForm() {
       }
 
       const applyIncomplete = (incomplete: MessageIncomplete) => {
+        if (!isCurrentTurn()) return
         setMessages((currentMessages) =>
           currentMessages.map((message) =>
             message.id === assistantMessage.id
@@ -630,6 +682,7 @@ export function AskForm() {
       const applyStreamEvent = (
         event: NonNullable<ReturnType<typeof parseStreamLine>>
       ) => {
+        if (!isCurrentTurn()) return
         if (event.type === "text") {
           applyTextDelta(event.delta)
           return
@@ -686,6 +739,10 @@ export function AskForm() {
         if (event) applyStreamEvent(event)
       }
 
+      if (!isCurrentTurn()) {
+        return
+      }
+
       if (streamError && !abortController.signal.aborted) {
         throw new Error(streamError)
       }
@@ -717,25 +774,12 @@ export function AskForm() {
           )
         )
       }
-
-      if (clearPriorIncomplete) {
-        setMessages((currentMessages) =>
-          currentMessages.map((message) =>
-            message.role === "assistant" &&
-            message.incomplete &&
-            message.id !== assistantMessage.id
-              ? { ...message, incomplete: undefined }
-              : message
-          )
-        )
-      }
     } catch (requestError) {
       const aborted =
         isAbortError(requestError) || abortController.signal.aborted
 
-      // Ignore late aborts from an unmounted tree so a remounted empty shell
-      // is not the only surviving signal of a failed turn.
-      if (!mountedRef.current) {
+      // Ignore late work from New chat / a newer send / unmount.
+      if (!isCurrentTurn()) {
         return
       }
 
@@ -792,12 +836,18 @@ export function AskForm() {
             : "The request could not be completed."
         )
       } else {
+        // Empty hard failure: drop the blank assistant; also drop a hidden
+        // Continue user turn so orphaned resume prompts do not accumulate.
         setMessages((currentMessages) =>
-          currentMessages.filter(
-            (message) =>
-              message.id !== assistantMessage.id ||
-              messageHasVisibleContent(message)
-          )
+          currentMessages.filter((message) => {
+            if (message.id === assistantMessage.id) {
+              return messageHasVisibleContent(message)
+            }
+            if (hideUserMessage && message.id === userMessage.id) {
+              return false
+            }
+            return true
+          })
         )
         setError(
           requestError instanceof Error
@@ -809,9 +859,11 @@ export function AskForm() {
       if (abortControllerRef.current === abortController) {
         abortControllerRef.current = null
       }
-      isSubmittingRef.current = false
-      if (mountedRef.current) {
-        setIsSubmitting(false)
+      if (turnEpochRef.current === turnEpoch) {
+        isSubmittingRef.current = false
+        if (mountedRef.current) {
+          setIsSubmitting(false)
+        }
       }
     }
   }
@@ -1040,15 +1092,26 @@ export function AskForm() {
             role="alert"
           >
             <p>{error}</p>
-            {canRetryLastTurn ? (
-              <button
-                className="cleo-answer-action cleo-error-retry"
-                onClick={handleRetry}
-                type="button"
-              >
-                Retry
-              </button>
-            ) : null}
+            <div className="cleo-error-actions">
+              {canContinueIncomplete ? (
+                <button
+                  className="cleo-answer-action cleo-error-retry"
+                  onClick={handleContinue}
+                  type="button"
+                >
+                  Continue
+                </button>
+              ) : null}
+              {canRetryLastTurn ? (
+                <button
+                  className="cleo-answer-action cleo-error-retry"
+                  onClick={handleRetry}
+                  type="button"
+                >
+                  Retry
+                </button>
+              ) : null}
+            </div>
           </div>
         ) : null}
 

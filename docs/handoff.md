@@ -44,12 +44,13 @@ document (enable both products in the Vercel project dashboard).
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
   (portal tools for guides/Gallery/Writing; code interpreter in Auto/Research;
   Quick/Auto/Research modes; adaptive reasoning; browser `localStorage`
-  session restore + New chat (mid-turn `inFlight` checkpoints settle activities
-  as cancelled and keep Continue); encrypted reasoning replay for store:false
-  multi-turn; Retry / Continue for failed, stopped, truncated, or
-  activity-only answers (Continue turns get resume guidance); smart autoscroll
-  with a Latest jump when the live edge is off-screen; clickable Auto/Research
-  search sources;
+  session restore + New chat (throttled mid-turn `inFlight` checkpoints settle
+  activities as cancelled and keep Continue; turn epoch avoids New-chat races);
+  encrypted reasoning replay for store:false multi-turn; Retry / Continue for
+  failed, stopped, truncated, or activity-only answers (Continue turns get
+  resume guidance; error banner offers Continue when a draft remains); smart
+  autoscroll with a Latest jump when the live edge is off-screen; clickable
+  Auto/Research search sources;
   Gallery/Writing `?q=` deep-links from portal tools; matching turns also
   ground curated topic photo paths so replies can embed atlas/space JPEGs as
   Markdown images)

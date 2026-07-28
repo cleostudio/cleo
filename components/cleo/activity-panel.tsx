@@ -118,6 +118,9 @@ function activityLabel(activity: ActivityItem) {
     if (activity.status === "completed") {
       return "Used a portal tool"
     }
+    if (activity.status === "failed") {
+      return "Portal tool failed"
+    }
     if (activity.status === "cancelled") {
       return "Stopped a portal tool"
     }
@@ -146,6 +149,9 @@ function activityLabel(activity: ActivityItem) {
     if (activity.status === "completed") {
       return "Searched the web"
     }
+    if (activity.status === "failed") {
+      return "Web search failed"
+    }
     if (activity.status === "cancelled") {
       return "Stopped searching"
     }
@@ -158,6 +164,9 @@ function activityLabel(activity: ActivityItem) {
 
     if (activity.status === "completed") {
       return query ? `Searched “${query}”` : "Searched the web"
+    }
+    if (activity.status === "failed") {
+      return query ? `Search failed for “${query}”` : "Web search failed"
     }
     if (activity.status === "cancelled") {
       return query ? `Stopped searching “${query}”` : "Stopped searching"
@@ -172,6 +181,9 @@ function activityLabel(activity: ActivityItem) {
     if (activity.status === "completed") {
       return host ? `Opened ${host}` : "Opened a page"
     }
+    if (activity.status === "failed") {
+      return host ? `Failed to open ${host}` : "Failed to open a page"
+    }
     if (activity.status === "cancelled") {
       return host ? `Stopped opening ${host}` : "Stopped opening a page"
     }
@@ -183,6 +195,9 @@ function activityLabel(activity: ActivityItem) {
 
   if (activity.status === "completed") {
     return `Found “${action.pattern}” on ${host}`
+  }
+  if (activity.status === "failed") {
+    return `Failed to find “${action.pattern}” on ${host}`
   }
   if (activity.status === "cancelled") {
     return `Stopped looking for “${action.pattern}” on ${host}`
@@ -320,9 +335,12 @@ function summaryLabel(
   isLive: boolean,
   durationMs: number | null
 ) {
-  // Only show the completed duration after the stream finishes. Gaps between
-  // reasoning and search steps briefly clear `hasActive` and would flash this.
-  if (!isLive && durationMs !== null) {
+  const interrupted = activities.some(
+    (activity) =>
+      activity.status === "cancelled" || activity.status === "failed"
+  )
+  // Prefer stop/fail honesty over a duration summary when steps were cut short.
+  if (!isLive && durationMs !== null && !interrupted) {
     return `Thought for ${formatThoughtDuration(durationMs)}`
   }
 

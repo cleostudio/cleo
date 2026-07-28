@@ -18,6 +18,23 @@ const LIVE_ACTIVITY_STATUSES = new Set<ActivityItem["status"]>([
 ])
 
 export const AUTOSCROLL_BOTTOM_THRESHOLD_PX = 120
+/** Minimum gap between mid-turn localStorage checkpoints while streaming. */
+export const IN_FLIGHT_CHECKPOINT_MS = 750
+
+/**
+ * Delay until the next in-flight checkpoint should run.
+ * `0` means save immediately (first checkpoint or interval elapsed).
+ */
+export function inFlightCheckpointDelayMs(
+  lastSavedAt: number,
+  now: number,
+  intervalMs = IN_FLIGHT_CHECKPOINT_MS
+): number {
+  if (lastSavedAt <= 0) return 0
+  const elapsed = now - lastSavedAt
+  if (elapsed >= intervalMs) return 0
+  return intervalMs - elapsed
+}
 
 export function isLiveActivityStatus(
   status: ActivityItem["status"]
