@@ -20,7 +20,6 @@ const SECTION_IMAGE_PATHS = new Set([
   '/gallery',
   '/space',
   '/topics',
-  '/projects',
 ])
 
 export function socialImageUrl(_locale: Locale = 'en', path: string) {

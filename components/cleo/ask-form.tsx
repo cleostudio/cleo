@@ -472,7 +472,7 @@ export function AskForm() {
           <div className="mb-5 flex justify-end">
             <button
               type="button"
-              className="text-sm text-muted-foreground underline-offset-2 transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground hover:underline"
+              className="text-sm text-muted-foreground underline-offset-2 outline-none transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground hover:underline focus-visible:ring-1 focus-visible:ring-foreground"
               onClick={handleNewChat}
             >
               New chat

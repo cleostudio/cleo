@@ -75,6 +75,13 @@ export function PlaceGallery({
       </ul>
 
       <p
+        className="mt-3 text-sm text-muted-foreground"
+        data-gallery-status
+        hidden
+        aria-live="polite"
+      />
+
+      <p
         className="text-sm text-muted-foreground"
         data-gallery-empty
         hidden

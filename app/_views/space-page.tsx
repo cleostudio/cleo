@@ -16,7 +16,11 @@ export function spacePageMetadata() {
   })
 }
 
-export function SpacePageView() {
+export function SpacePageView({
+  initialQuery = '',
+}: {
+  initialQuery?: string
+}) {
   const categories = spaceSubjectsByCategory()
 
   return (
@@ -40,6 +44,7 @@ export function SpacePageView() {
         <GuideIndexFilter
           label="Search space guides"
           placeholder="Planet, moon, or deep-space body"
+          initialQuery={initialQuery}
         />
 
         <div className="flex flex-col gap-10">

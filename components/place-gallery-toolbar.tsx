@@ -55,6 +55,16 @@ export function PlaceGalleryToolbar({
       if (visible) nextVisible += 1
     }
 
+    const status = root.querySelector<HTMLElement>('[data-gallery-status]')
+    const filtering = Boolean(normalizedQuery) || collection !== 'all'
+    if (status) {
+      status.hidden = !filtering || nextVisible === 0
+      status.textContent =
+        filtering && nextVisible > 0
+          ? `Showing ${nextVisible} photograph${nextVisible === 1 ? '' : 's'}`
+          : ''
+    }
+
     if (empty) empty.hidden = nextVisible !== 0
   }, [collection, query])
 
@@ -70,6 +80,7 @@ export function PlaceGalleryToolbar({
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Country, place, or space body"
         aria-label="Search photographs"
+        data-catalog-search
         className={SEARCH_FIELD_CLASS}
       />
       <div

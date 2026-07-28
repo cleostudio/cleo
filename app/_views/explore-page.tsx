@@ -16,7 +16,11 @@ export function explorePageMetadata() {
   })
 }
 
-export function ExplorePageView() {
+export function ExplorePageView({
+  initialQuery = '',
+}: {
+  initialQuery?: string
+}) {
   const regions = countriesByRegion()
 
   return (
@@ -40,6 +44,7 @@ export function ExplorePageView() {
         <GuideIndexFilter
           label="Search countries"
           placeholder="Country, code, or region"
+          initialQuery={initialQuery}
         />
 
         <div className="flex flex-col gap-10">

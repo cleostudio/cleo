@@ -2,13 +2,8 @@ import { getAtlasEntry } from '~/lib/atlas'
 import { getPost, isPostSlug } from '~/lib/content'
 import type { Locale } from '~/lib/locale-route'
 import {
-  getArchivedNewsletter,
-  isArchivedNewsletterId,
-} from '~/lib/newsletters'
-import {
   createExploreGuideOgImage,
   createHomeOgImage,
-  createNewsletterOgImage,
   createPostOgImage,
   createSectionOgImage,
   createSpaceGuideOgImage,
@@ -16,6 +11,7 @@ import {
 import type { PublicSection } from '~/lib/public-page-metadata'
 import { getSpaceSubject } from '~/lib/space'
 
+/** Active public section indexes that still render OG artwork. */
 const PUBLIC_SECTIONS = new Set<PublicSection>([
   'blog',
   'cleo',
@@ -23,7 +19,6 @@ const PUBLIC_SECTIONS = new Set<PublicSection>([
   'gallery',
   'space',
   'topics',
-  'projects',
 ])
 
 /** Accept `en` (and legacy `zh`, treated as English) for cache-compat. */
@@ -56,16 +51,6 @@ export async function GET(request: Request) {
 
   if (section === 'blog' && segments.length === 2 && isPostSlug(segments[1])) {
     return cachedImage(await createPostOgImage(getPost(segments[1]), locale))
-  }
-
-  if (
-    section === 'newsletters' &&
-    segments.length === 2 &&
-    isArchivedNewsletterId(segments[1])
-  ) {
-    return cachedImage(
-      await createNewsletterOgImage(getArchivedNewsletter(segments[1]), locale),
-    )
   }
 
   if (section === 'explore' && segments.length === 2) {

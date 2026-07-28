@@ -16,3 +16,6 @@ export function parseGalleryQuery(
   const raw = Array.isArray(value) ? value[0] : value
   return typeof raw === 'string' ? raw.trim() : ''
 }
+
+/** Shared `?q=` parser for Explore, Space, Writing, and Gallery indexes. */
+export const parseIndexQuery = parseGalleryQuery

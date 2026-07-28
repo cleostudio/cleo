@@ -16,6 +16,7 @@ import {
 import { SiteChrome } from '~/components/site-chrome'
 import { SiteFooter } from '~/components/site-footer'
 import { SiteFooterSlot } from '~/components/site-footer-slot'
+import { CatalogSearchShortcut } from '~/components/catalog-search-shortcut'
 import { SkipToContent } from '~/components/skip-to-content'
 import { ThemeProvider } from '~/components/theme-provider'
 import { PREPAINT_SCRIPT } from '~/lib/security/inline-scripts'
@@ -59,6 +60,7 @@ export async function SiteDocument({
             <CleoRouteAttribute />
             <AmbientBackground />
             <SkipToContent />
+            <CatalogSearchShortcut />
             <SiteChrome
               footer={
                 <SiteFooterSlot>

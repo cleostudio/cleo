@@ -62,4 +62,14 @@ describe('OG image route', () => {
     expect(createExploreGuideOgImage).not.toHaveBeenCalled()
     expect(createSectionOgImage).not.toHaveBeenCalled()
   })
+
+  it('does not render retired newsletter or projects share cards', async () => {
+    const newsletter = await GET(requestFor('/newsletters/1'))
+    expect(newsletter.status).toBe(404)
+    expect(createNewsletterOgImage).not.toHaveBeenCalled()
+
+    const projects = await GET(requestFor('/projects'))
+    expect(projects.status).toBe(404)
+    expect(createSectionOgImage).not.toHaveBeenCalled()
+  })
 })

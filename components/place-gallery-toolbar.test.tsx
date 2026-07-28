@@ -31,6 +31,7 @@ describe('PlaceGalleryToolbar', () => {
             Mars
           </li>
         </ul>
+        <p data-gallery-status hidden />
         <p data-gallery-empty hidden>
           No photographs match that search.
         </p>
@@ -55,6 +56,7 @@ describe('PlaceGalleryToolbar', () => {
     expect(france?.hidden).toBe(true)
     expect(mars?.hidden).toBe(false)
     expect(window.location.search).toContain('q=mars')
+    expect(screen.getByText('Showing 1 photograph')).toBeTruthy()
 
     fireEvent.click(screen.getByRole('button', { name: 'Places' }))
     expect(france?.hidden).toBe(true)
@@ -68,5 +70,6 @@ describe('PlaceGalleryToolbar', () => {
 
     expect(france?.hidden).toBe(false)
     expect(mars?.hidden).toBe(false)
+    expect(screen.queryByText(/Showing \d+ photograph/)).toBeNull()
   })
 })

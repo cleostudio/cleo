@@ -47,7 +47,10 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
           <p className="page-eyebrow enter">
-            <Link href="/explore" className="hover:text-foreground">
+            <Link
+              href="/explore"
+              className="outline-none transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground focus-visible:ring-1 focus-visible:ring-foreground"
+            >
               Explore
             </Link>
             <span aria-hidden className="mx-2 text-muted-foreground/50">

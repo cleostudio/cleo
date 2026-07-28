@@ -53,7 +53,10 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
           <p className="page-eyebrow enter">
-            <Link href="/space" className="hover:text-foreground">
+            <Link
+              href="/space"
+              className="outline-none transition-colors duration-150 ease-[var(--ease-swift)] hover:text-foreground focus-visible:ring-1 focus-visible:ring-foreground"
+            >
               Space
             </Link>
             <span aria-hidden className="mx-2 text-muted-foreground/50">

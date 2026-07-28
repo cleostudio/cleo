@@ -124,6 +124,7 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
           activeHit ? `${listboxId}-option-${activeHit.id}` : undefined
         }
         autoComplete="off"
+        data-catalog-search
         className={SEARCH_FIELD_CLASS}
       />
       {expanded ? (
@@ -147,7 +148,7 @@ export function HomeSiteSearch({ hits }: { hits: SiteSearchHit[] }) {
           </ul>
         ) : (
           <p className="mt-2 text-sm text-muted-foreground" aria-live="polite">
-            No guides match “{query.trim()}”.
+            No matches for “{query.trim()}”.
           </p>
         )
       ) : null}

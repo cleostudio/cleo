@@ -2,26 +2,28 @@
 
 import { useEffect, useId, useRef, useState } from 'react'
 
-import { readQueryParam, replaceQueryParam } from '~/lib/url-query'
+import { replaceQueryParam } from '~/lib/url-query'
 
 const SEARCH_FIELD_CLASS =
   'w-full rounded-[2px] border border-[var(--border)] bg-transparent px-3 py-2 text-base text-foreground outline-none focus-visible:ring-1 focus-visible:ring-foreground'
 
-/** Client filter for server-rendered Explore / Space index rows. */
+/** Client filter for server-rendered Explore / Space / Writing index rows. */
 export function GuideIndexFilter({
   label,
   placeholder,
+  initialQuery = '',
 }: {
   label: string
   placeholder: string
+  initialQuery?: string
 }) {
   const searchId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState(initialQuery)
 
   useEffect(() => {
-    setQuery(readQueryParam('q'))
-  }, [])
+    setQuery(initialQuery)
+  }, [initialQuery])
 
   useEffect(() => {
     replaceQueryParam('q', query)
@@ -70,6 +72,7 @@ export function GuideIndexFilter({
         placeholder={placeholder}
         aria-label={label}
         autoComplete="off"
+        data-catalog-search
         className={SEARCH_FIELD_CLASS}
       />
     </div>

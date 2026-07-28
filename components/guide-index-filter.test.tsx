@@ -11,10 +11,54 @@ afterEach(() => {
 })
 
 describe('GuideIndexFilter', () => {
+  it('seeds from initialQuery on first paint', () => {
+    render(
+      <div data-guide-index>
+        <GuideIndexFilter
+          label="Search countries"
+          placeholder="Country"
+          initialQuery="japan"
+        />
+        <section data-guide-section>
+          <h2>
+            Asia
+            <span data-guide-count>2</span>
+          </h2>
+          <ul>
+            <li data-guide-item data-search-text="Japan Asia">
+              Japan
+            </li>
+            <li data-guide-item data-search-text="France Europe">
+              France
+            </li>
+          </ul>
+        </section>
+        <p data-guide-empty hidden>
+          No countries match that search.
+        </p>
+      </div>,
+    )
+
+    expect(
+      (screen.getByRole('searchbox') as HTMLInputElement).value,
+    ).toBe('japan')
+    const france = screen
+      .getByText('France')
+      .closest('[data-guide-item]') as HTMLElement | null
+    expect(france?.hidden).toBe(true)
+    expect(
+      screen.getByText('Asia').querySelector('[data-guide-count]')?.textContent,
+    ).toBe('1')
+  })
+
   it('filters guide rows, updates live counts, and syncs ?q=', () => {
     render(
       <div data-guide-index>
-        <GuideIndexFilter label="Search countries" placeholder="Country" />
+        <GuideIndexFilter
+          label="Search countries"
+          placeholder="Country"
+          initialQuery=""
+        />
         <section data-guide-section>
           <h2>
             Asia
