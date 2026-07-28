@@ -2,7 +2,13 @@
 
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useId, useRef, useState } from 'react'
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type ReactElement,
+} from 'react'
 import {
   AttributionControl,
   Map as MapLibreMap,
@@ -44,6 +50,7 @@ import {
   MAP_TILE_SIZE,
   MAP_TILE_URL,
   mapAttribution,
+  isSameMapCamera,
   mapCapitalCamera,
   mapCountryHref,
   mapRegionHref,
@@ -830,7 +837,7 @@ export function EarthMap({
   const [copyState, setCopyState] = useState<
     'idle' | 'copied' | 'shared' | 'failed'
   >('idle')
-  const [copyKind, setCopyKind] = useState<'view' | 'place'>('view')
+  const [copyKind, setCopyKind] = useState<'view' | 'place' | 'region'>('view')
   const [loadState, setLoadState] = useState<'loading' | 'ready' | 'degraded'>(
     'loading',
   )
@@ -1397,8 +1404,15 @@ export function EarthMap({
         return
       }
       const sharedCamera = parseMapCameraHash(window.location.hash)
+      const capitalCamera = mapCapitalCamera(entry)
+      const isCapitalCamera =
+        sharedCamera != null &&
+        capitalCamera != null &&
+        isSameMapCamera(sharedCamera, capitalCamera)
       const focusKey = sharedCamera
-        ? `country:${entry.code}@${mapEpoch}#shared`
+        ? isCapitalCamera
+          ? `country:${entry.code}@${mapEpoch}#capital`
+          : `country:${entry.code}@${mapEpoch}#shared`
         : `country:${entry.code}@${mapEpoch}`
       const countryFocus = {
         kind: 'country' as const,
@@ -1411,6 +1425,7 @@ export function EarthMap({
       flyToCountry(entry, {
         syncUrl: false,
         camera: sharedCamera,
+        preferCapital: isCapitalCamera,
       })
       return
     }
@@ -1699,20 +1714,22 @@ export function EarthMap({
     )
     const capitalName = entry.capitalName ?? countryPhotos[entry.code]?.capital
     setFocusAnnouncement(
-      camera
-        ? `Selected ${hit.name}. Restored shared view.`
-        : preferCapital && capitalName
-          ? `Selected ${hit.name}. Showing ${capitalName}.`
+      preferCapital && capitalName
+        ? `Selected ${hit.name}. Showing ${capitalName}.`
+        : camera
+          ? `Selected ${hit.name}. Restored shared view.`
           : `Selected ${hit.name}.`,
     )
     fittedFocusKeyRef.current = camera
-      ? `country:${entry.code}@${mapEpochRef.current}#shared`
+      ? preferCapital
+        ? `country:${entry.code}@${mapEpochRef.current}#capital`
+        : `country:${entry.code}@${mapEpochRef.current}#shared`
       : `country:${entry.code}@${mapEpochRef.current}`
     fitContextRef.current = {
       kind: 'country',
       id: entry.code,
-      preferCapital,
-      shared: Boolean(camera),
+      preferCapital: Boolean(preferCapital),
+      shared: Boolean(camera) && !preferCapital,
       liftAtFit: measuredDossierLiftPx,
     }
     if (syncUrl) {
@@ -1919,7 +1936,7 @@ export function EarthMap({
   async function shareDeepLink(
     href: string,
     text?: string,
-    kind: 'view' | 'place' = 'place',
+    kind: 'view' | 'place' | 'region' = 'place',
   ) {
     const map = mapRef.current
     const fitContext = fitContextRef.current
@@ -2004,13 +2021,19 @@ export function EarthMap({
       feature.properties?.country ?? feature.properties?.name ?? code,
     )
     const hit = resolveMapCountry(code, fallbackName)
-    focusDossierOnSelectRef.current = true
+    const previous = selectedCodeRef.current
+    syncSelectionFeatureState(map, previous, hit.code)
     selectedCodeRef.current = hit.code
+    focusDossierOnSelectRef.current = true
     setSelected(hit)
     setSelectedEntry(null)
     setActiveRegion(null)
     activeRegionRef.current = null
     setQuery(hit.name)
+    setCopyState('idle')
+    syncCapitalLayerPresentation(map, layersRef.current.labels, hit.code)
+    fitContextRef.current = null
+    fittedFocusKeyRef.current = `country:${hit.code}@${mapEpoch}`
     setFocusAnnouncement(`Selected ${hit.name}.`)
     syncMapFocusSearchParams(
       { kind: 'country', value: hit.country?.slug ?? hit.code },
@@ -2027,10 +2050,12 @@ export function EarthMap({
         ? `Showing ${entry.capitalName}.`
         : `Showing the capital of ${entry.name}.`,
     )
-    if (fitContextRef.current?.kind === 'country') {
-      fitContextRef.current.preferCapital = true
-      fitContextRef.current.shared = false
-      fitContextRef.current.liftAtFit = measuredDossierLiftPx
+    fitContextRef.current = {
+      kind: 'country',
+      id: entry.code,
+      preferCapital: true,
+      shared: false,
+      liftAtFit: measuredDossierLiftPx,
     }
     withCameraHashPause(map, cameraHashPausedRef, () => {
       fitCountry(map, entry, { preferCapital: true })
@@ -2094,11 +2119,15 @@ export function EarthMap({
     copyState === 'shared'
       ? copyKind === 'view'
         ? 'View link shared'
-        : 'Place link shared'
+        : copyKind === 'region'
+          ? 'Region link shared'
+          : 'Place link shared'
       : copyState === 'copied'
         ? copyKind === 'view'
           ? 'View link copied'
-          : 'Place link copied'
+          : copyKind === 'region'
+            ? 'Region link copied'
+            : 'Place link copied'
         : copyState === 'failed'
           ? 'Could not share link'
           : ''
@@ -2444,7 +2473,10 @@ export function EarthMap({
                         setFocusAnnouncement('')
                         const focusDossier = isKeyboardActivation(event)
                         if (starter.kind === 'country') {
-                          flyToCountry(starter.entry, { focusDossier })
+                          flyToCountry(starter.entry, {
+                            preferCapital: Boolean(starter.preferCapital),
+                            focusDossier,
+                          })
                           return
                         }
                         flyToRegion(starter.region, { focusDossier })
@@ -2527,15 +2559,32 @@ export function EarthMap({
                     </p>
                     <p className="earth-map-selection-name">{selected.name}</p>
                     <p className="earth-map-photo-place">
-                      {[
-                        selectedEntry?.region ?? selected.country?.region,
-                        (selectedEntry?.capitalName ?? photo.capital)
-                          ? `Capital · ${selectedEntry?.capitalName ?? photo.capital}`
-                          : null,
-                        photo.placeName,
-                      ]
-                        .filter(Boolean)
-                        .join(' · ')}
+                      {(() => {
+                        const regionLabel =
+                          selectedEntry?.region ?? selected.country?.region
+                        const capitalLabel =
+                          selectedEntry?.capitalName ?? photo.capital
+                        const parts: Array<string | ReactElement> = []
+                        if (regionLabel) parts.push(regionLabel)
+                        if (capitalLabel && selectedEntry?.capital) {
+                          parts.push(
+                            <button
+                              key="capital"
+                              type="button"
+                              className="earth-map-capital-link"
+                              onClick={showSelectedCapital}
+                            >
+                              Capital · {capitalLabel}
+                            </button>,
+                          )
+                        } else if (capitalLabel) {
+                          parts.push(`Capital · ${capitalLabel}`)
+                        }
+                        if (photo.placeName) parts.push(photo.placeName)
+                        return parts.flatMap((part, index) =>
+                          index === 0 ? [part] : [' · ', part],
+                        )
+                      })()}
                     </p>
                   </div>
                 </div>
@@ -2546,14 +2595,31 @@ export function EarthMap({
                   </p>
                   <p className="earth-map-selection-name">{selected.name}</p>
                   <p className="earth-map-photo-place">
-                    {[
-                      selectedEntry?.region ?? selected.country?.region,
-                      selectedEntry?.capitalName
-                        ? `Capital · ${selectedEntry.capitalName}`
-                        : null,
-                    ]
-                      .filter(Boolean)
-                      .join(' · ') || 'Territory on the map'}
+                    {(() => {
+                      const regionLabel =
+                        selectedEntry?.region ?? selected.country?.region
+                      const capitalLabel = selectedEntry?.capitalName
+                      const parts: Array<string | ReactElement> = []
+                      if (regionLabel) parts.push(regionLabel)
+                      if (capitalLabel && selectedEntry?.capital) {
+                        parts.push(
+                          <button
+                            key="capital"
+                            type="button"
+                            className="earth-map-capital-link"
+                            onClick={showSelectedCapital}
+                          >
+                            Capital · {capitalLabel}
+                          </button>,
+                        )
+                      } else if (capitalLabel) {
+                        parts.push(`Capital · ${capitalLabel}`)
+                      }
+                      if (parts.length === 0) return 'Territory on the map'
+                      return parts.flatMap((part, index) =>
+                        index === 0 ? [part] : [' · ', part],
+                      )
+                    })()}
                   </p>
                 </div>
               )}
@@ -2780,7 +2846,7 @@ export function EarthMap({
                     void shareDeepLink(
                       mapRegionHref(activeRegionCamera.id),
                       activeRegionCamera.label,
-                      'place',
+                      'region',
                     )
                   }}
                 >
@@ -2824,7 +2890,10 @@ export function EarthMap({
                       onClick={(event) => {
                         const focusDossier = isKeyboardActivation(event)
                         if (starter.kind === 'country') {
-                          flyToCountry(starter.entry, { focusDossier })
+                          flyToCountry(starter.entry, {
+                            preferCapital: Boolean(starter.preferCapital),
+                            focusDossier,
+                          })
                           return
                         }
                         flyToRegion(starter.region, { focusDossier })

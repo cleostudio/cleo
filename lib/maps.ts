@@ -333,7 +333,7 @@ export function findMapRegionSamples(
 /** Idle-state discovery chips when nothing is selected. */
 export const MAP_IDLE_STARTER_SPECS = [
   { kind: 'country', value: 'japan' },
-  { kind: 'country', value: 'greece' },
+  { kind: 'capital', value: 'japan' },
   { kind: 'country', value: 'iceland' },
   { kind: 'region', value: 'africa' },
   { kind: 'country', value: 'hk' },
@@ -345,6 +345,7 @@ export type MapIdleStarter =
       key: string
       label: string
       entry: MapCountryIndexEntry
+      preferCapital?: boolean
     }
   | {
       kind: 'region'
@@ -357,15 +358,26 @@ export function resolveMapIdleStarters(
   countries: readonly MapCountryIndexEntry[],
   regions: readonly MapRegionCamera[],
   specs: readonly {
-    kind: 'country' | 'region'
+    kind: 'country' | 'region' | 'capital'
     value: string
   }[] = MAP_IDLE_STARTER_SPECS,
 ): MapIdleStarter[] {
   const starters: MapIdleStarter[] = []
   for (const spec of specs) {
-    if (spec.kind === 'country') {
+    if (spec.kind === 'country' || spec.kind === 'capital') {
       const entry = findMapCountryIndexEntry(countries, spec.value)
       if (!entry) continue
+      if (spec.kind === 'capital') {
+        if (!entry.capital || !entry.capitalName) continue
+        starters.push({
+          kind: 'country',
+          key: `capital:${entry.code}`,
+          label: entry.capitalName,
+          entry,
+          preferCapital: true,
+        })
+        continue
+      }
       starters.push({
         kind: 'country',
         key: `country:${entry.code}`,
@@ -471,6 +483,17 @@ export function isDefaultMapCamera(camera: MapCamera): boolean {
     normalized.zoom === defaults.zoom &&
     normalized.center[0] === defaults.center[0] &&
     normalized.center[1] === defaults.center[1]
+  )
+}
+
+/** True when two cameras match after Maps hash normalization. */
+export function isSameMapCamera(a: MapCamera, b: MapCamera): boolean {
+  const left = normalizeMapCamera(a)
+  const right = normalizeMapCamera(b)
+  return (
+    left.zoom === right.zoom &&
+    left.center[0] === right.center[0] &&
+    left.center[1] === right.center[1]
   )
 }
 

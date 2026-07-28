@@ -60,8 +60,13 @@ function presentSiteSearchHit(hit: SiteSearchHit, q: string): SiteSearchHit {
     const { capitalName: _n, capitalHref: _h, ...rest } = hit
     return rest
   }
-  const { capitalName: _n, capitalHref, ...rest } = hit
-  return { ...rest, href: capitalHref }
+  const { capitalName, capitalHref, ...rest } = hit
+  return {
+    ...rest,
+    href: capitalHref,
+    title: capitalName,
+    subtitle: `Capital · ${hit.title} on the map`,
+  }
 }
 
 /** Filter and rank hits for a query. Empty / whitespace query → []. */

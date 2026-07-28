@@ -101,9 +101,13 @@ describe('site search catalog', () => {
       kind: 'explore',
       href: '/explore/japan',
     })
-    const mapsJapan = tokyo.find((hit) => hit.kind === 'maps' && hit.title === 'Japan')
-    expect(mapsJapan?.href.startsWith('/maps?country=japan#')).toBe(true)
-    expect(mapsJapan).not.toHaveProperty('capitalHref')
+    const mapsTokyo = tokyo.find((hit) => hit.kind === 'maps')
+    expect(mapsTokyo).toMatchObject({
+      title: 'Tokyo',
+      subtitle: 'Capital · Japan on the map',
+    })
+    expect(mapsTokyo?.href.startsWith('/maps?country=japan#')).toBe(true)
+    expect(mapsTokyo).not.toHaveProperty('capitalHref')
   })
 
   it('keeps country-fit Maps links when the query is the country name', () => {

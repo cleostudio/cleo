@@ -51,15 +51,19 @@ document (enable both products in the Vercel project dashboard).
   with camera (deep links honor shared `#zoom/lat/lng`; hydrate cleans
   country+region URLs), Cleo Maps links keep camera hashes and
   capital-camera guidance, Explore fact-plate capital → Maps capital
-  camera, Fit region / Share region, territory→region jump, recovery for
-  bad links, Maps OG + sitemap deep links, Gallery↔Maps Photos / View on
-  map round-trips (`/gallery?q=`), dossier ZoomImage + Escape nesting
-  (incl. dock G-chord), region dossiers with photo/Photos, Maps→Space
-  “Earth from space”, Explore/Space end-matter Map·Photos·All…, Space
-  index Earth row “View on map”, homepage Maps+Space CTAs + intro links,
-  dock Space (`G` then `S`), footer Index Maps/Space, lean Cleo portal
-  starters (incl. Earth↔Maps), keyboard/search dossier focus (pointer
-  clicks keep map focus); Back/`hashchange` restore camera hash;
+  camera, capital deep links arm preferCapital (Share place + “Showing
+  Tokyo”), dossier Capital · control, idle Tokyo chip + Cleo Tokyo
+  starter, homepage capital search retitles Maps hits, Share region toast,
+  Fit region / Share region, territory→region jump, recovery for bad
+  links, Maps OG + sitemap deep links, Gallery↔Maps Photos / View on map
+  round-trips (`/gallery?q=`), dossier ZoomImage + Escape nesting (incl.
+  dock G-chord), region dossiers with photo/Photos, Maps→Space “Earth
+  from space”, Explore/Space end-matter Map·Photos·All…, Space index
+  Earth row “View on map”, homepage Maps+Space CTAs + intro links, dock
+  Space (`G` then `S`), footer Index Maps/Space, lean Cleo portal
+  starters (incl. Earth↔Maps + Tokyo capital), keyboard/search dossier
+  focus (pointer clicks keep map focus); Back/`hashchange` restore
+  camera hash;
   Borders/Labels/ Graticule toggles with shareable layer query flags;
   `#zoom/lat/lng` camera hash + Share view; Back/Forward for country/region
   focus (pushState); capital-aware search + selection dossier; deep-link

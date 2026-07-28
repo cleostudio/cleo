@@ -23,6 +23,7 @@ import {
   countryLabelMinZoom,
   excerptMapAbout,
   isDefaultMapCamera,
+  isSameMapCamera,
   mapCapitalCamera,
   mapCapitalHref,
   mapCenterDistanceDeg,
@@ -176,6 +177,12 @@ describe('maps helpers', () => {
     expect(mapCapitalHref('united-states', sampleIndex[1]!)).toBe(
       '/maps?country=united-states',
     )
+    expect(
+      isSameMapCamera(mapCapitalCamera(sampleIndex[0]!)!, {
+        center: [139.69, 35.68],
+        zoom: 4.6,
+      }),
+    ).toBe(true)
   })
 
   it('formats map coordinates for the status readout', () => {
@@ -417,15 +424,22 @@ describe('maps helpers', () => {
   it('resolves idle starter chips from the country and region indexes', () => {
     const starters = resolveMapIdleStarters(sampleIndex, sampleRegions, [
       { kind: 'country', value: 'japan' },
+      { kind: 'capital', value: 'japan' },
       { kind: 'region', value: 'asia' },
       { kind: 'country', value: 'zz' },
     ])
     expect(starters.map((starter) => starter.key)).toEqual([
       'country:JP',
+      'capital:JP',
       'region:asia',
     ])
     expect(starters[0]).toMatchObject({ kind: 'country', label: 'Japan' })
-    expect(starters[1]).toMatchObject({ kind: 'region', label: 'Asia' })
+    expect(starters[1]).toMatchObject({
+      kind: 'country',
+      label: 'Tokyo',
+      preferCapital: true,
+    })
+    expect(starters[2]).toMatchObject({ kind: 'region', label: 'Asia' })
   })
 
   it('finds nearby places by bounds adjacency and prefers same-region guides', () => {

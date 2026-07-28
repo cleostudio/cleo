@@ -226,7 +226,7 @@ describe('CLEO_PORTAL_STARTERS', () => {
     )
     expect(
       CLEO_PORTAL_STARTERS.some((starter) =>
-        /maps\?country=japan/i.test(starter.prompt),
+        /maps\?country=japan#4\.6\/35\.68\/139\.69/i.test(starter.prompt),
       ),
     ).toBe(true)
     expect(

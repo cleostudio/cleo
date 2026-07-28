@@ -687,6 +687,29 @@ html[data-maps-route] body {
   color: var(--muted-foreground);
 }
 
+.earth-map-capital-link {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-underline-offset: 2px;
+  transition: color 150ms var(--ease-swift);
+}
+
+.earth-map-capital-link:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+}
+
+.earth-map-capital-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .earth-map-selection-code {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.6875rem;

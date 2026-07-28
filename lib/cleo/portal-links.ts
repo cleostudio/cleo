@@ -331,9 +331,9 @@ export const CLEO_PORTAL_STARTERS = [
       'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
   },
   {
-    label: 'Show Japan on the map',
+    label: 'Show Tokyo on the map',
     prompt:
-      'Where is Japan on Earth relative to its neighbors? Deep-link Maps with `/maps?country=japan` and its Explore field guide.',
+      'Show Tokyo on Earth. Deep-link Maps with a capital camera (`/maps?country=japan#4.6/35.68/139.69`) and Japan’s Explore field guide.',
   },
   {
     label: 'Frame Africa on the map',
