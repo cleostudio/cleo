@@ -16,6 +16,7 @@ import {
 import { SiteChrome } from '~/components/site-chrome'
 import { SiteFooter } from '~/components/site-footer'
 import { SiteFooterSlot } from '~/components/site-footer-slot'
+import { SkipToContent } from '~/components/skip-to-content'
 import { ThemeProvider } from '~/components/theme-provider'
 import { PREPAINT_SCRIPT } from '~/lib/security/inline-scripts'
 import { seo } from '~/lib/seo'
@@ -57,6 +58,7 @@ export async function SiteDocument({
             <RouteMotionController />
             <CleoRouteAttribute />
             <AmbientBackground />
+            <SkipToContent />
             <SiteChrome
               footer={
                 <SiteFooterSlot>

@@ -1,6 +1,7 @@
 import { cacheLife } from 'next/cache'
 import { ImageResponse } from 'next/og'
 
+import type { AtlasEntry } from './atlas'
 import type { Post } from './content'
 import { formatDateEn } from './date'
 import type { Locale } from './locale-route'
@@ -17,6 +18,8 @@ import {
   publicPageMetadata,
   type PublicSection,
 } from './public-page-metadata'
+import type { SpaceSubject } from './space'
+import { staticRendition } from './static-photo'
 
 const NAME = 'Cleo'
 const HOME_INTRODUCTION = publicPageMetadata.home.ogDescription
@@ -561,6 +564,127 @@ export async function createPostOgImage(post: Post, locale: Locale = 'en') {
   }
 
   return new Response(await renderPostOgImage(input, locale), {
+    headers: { 'content-type': 'image/png' },
+  })
+}
+
+type GuideOgInput = {
+  section: 'Explore' | 'Space'
+  slug: string
+  title: string
+  subtitle: string
+  photoSrc: string
+}
+
+async function renderGuideOgImage(guide: GuideOgInput, _locale: Locale = 'en') {
+  'use cache'
+  cacheLife('max')
+
+  const cover = await coverDataUri(guide.photoSrc)
+  const eyebrow = `${guide.section} · Cleo`
+
+  return new ImageResponse(
+    (
+      <OgSheet>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 64,
+            padding: '0 96px',
+            width: '100%',
+          }}
+        >
+          <OgPolaroid
+            src={cover}
+            tilt={tiltFromSlug(guide.slug)}
+            width={432}
+          />
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              flexShrink: 0,
+              width: 512,
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                fontSize: 21,
+                color: ogColors.paperInk,
+              }}
+            >
+              {eyebrow}
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                marginTop: 24,
+                fontSize: 48,
+                fontWeight: 600,
+                lineHeight: 1.25,
+                letterSpacing: '-0.02em',
+                color: ogColors.foreground,
+                textWrap: 'balance',
+              }}
+            >
+              {guide.title}
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                marginTop: 24,
+                fontSize: 24,
+                lineHeight: 1.5,
+                color: ogColors.mutedForeground,
+              }}
+            >
+              {guide.subtitle}
+            </div>
+          </div>
+        </div>
+      </OgSheet>
+    ),
+    {
+      ...IMAGE_SIZE,
+      fonts: await ogRuntimeFonts(),
+    },
+  ).arrayBuffer()
+}
+
+export async function createExploreGuideOgImage(
+  entry: AtlasEntry,
+  locale: Locale = 'en',
+) {
+  const photoSrc = staticRendition(entry.photo, 1280).src
+  const input: GuideOgInput = {
+    section: 'Explore',
+    slug: entry.slug,
+    title: entry.name,
+    subtitle: entry.photo.placeName,
+    photoSrc,
+  }
+
+  return new Response(await renderGuideOgImage(input, locale), {
+    headers: { 'content-type': 'image/png' },
+  })
+}
+
+export async function createSpaceGuideOgImage(
+  subject: SpaceSubject,
+  locale: Locale = 'en',
+) {
+  const photoSrc = staticRendition(subject.photo, 1280).src
+  const input: GuideOgInput = {
+    section: 'Space',
+    slug: subject.slug,
+    title: subject.name,
+    subtitle: subject.subtitle,
+    photoSrc,
+  }
+
+  return new Response(await renderGuideOgImage(input, locale), {
     headers: { 'content-type': 'image/png' },
   })
 }

@@ -1,8 +1,9 @@
 /**
- * Assembles the lean homepage search catalog from Explore, Space, Topics, and
- * portal surfaces. Import from Server Components only.
+ * Assembles the lean homepage search catalog from Explore, Space, Topics,
+ * Writing essays, and portal surfaces. Import from Server Components only.
  */
 
+import { getAllPosts } from '~/lib/content'
 import { countries } from '~/lib/countries'
 import type { SiteSearchHit } from '~/lib/site-search'
 import { spaceSubjects } from '~/lib/space'
@@ -91,7 +92,30 @@ function surfaceHits(): SiteSearchHit[] {
   }))
 }
 
+function writingHits(): SiteSearchHit[] {
+  return getAllPosts().map((post) => ({
+    id: `writing:${post.slug}`,
+    kind: 'writing' as const,
+    title: post.titleEn,
+    subtitle: 'Writing',
+    href: `/blog/${post.slug}`,
+    searchText: haystack(
+      post.titleEn,
+      post.descriptionEn,
+      'writing',
+      'essay',
+      'blog',
+    ),
+  }))
+}
+
 /** Full static catalog for the homepage search typeahead. */
 export function buildSiteSearchHits(): SiteSearchHit[] {
-  return [...topicHits(), ...exploreHits(), ...spaceHits(), ...surfaceHits()]
+  return [
+    ...topicHits(),
+    ...exploreHits(),
+    ...spaceHits(),
+    ...writingHits(),
+    ...surfaceHits(),
+  ]
 }

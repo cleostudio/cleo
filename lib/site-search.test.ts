@@ -9,13 +9,16 @@ import { allTopics } from './topics'
 describe('site search catalog', () => {
   const hits = buildSiteSearchHits()
 
-  it('indexes topic collections, country guides, space guides, and portal surfaces', () => {
+  it('indexes topic collections, country guides, space guides, writing, and portal surfaces', () => {
     const kinds = new Set(hits.map((hit) => hit.kind))
-    expect(kinds).toEqual(new Set(['topic', 'explore', 'space', 'surface']))
+    expect(kinds).toEqual(
+      new Set(['topic', 'explore', 'space', 'writing', 'surface']),
+    )
 
     expect(hits.filter((hit) => hit.kind === 'explore')).toHaveLength(countries.length)
     expect(hits.filter((hit) => hit.kind === 'space')).toHaveLength(spaceSubjects.length)
     expect(hits.filter((hit) => hit.kind === 'topic')).toHaveLength(allTopics().length)
+    expect(hits.some((hit) => hit.kind === 'writing')).toBe(true)
     expect(hits.some((hit) => hit.href === '/gallery')).toBe(true)
     expect(hits.some((hit) => hit.href === '/cleo')).toBe(true)
     expect(hits.some((hit) => hit.href === '/blog')).toBe(true)
@@ -67,6 +70,16 @@ describe('site search catalog', () => {
   it('ranks exact topic titles ahead of looser substring matches', () => {
     const space = filterSiteSearchHits(hits, 'space')
     expect(space[0]).toMatchObject({ kind: 'topic', title: 'Space', href: '/space' })
+  })
+
+  it('finds Writing essays by title', () => {
+    const writing = hits.filter((hit) => hit.kind === 'writing')
+    expect(writing.length).toBeGreaterThan(0)
+    const sample = writing[0]!
+    expect(filterSiteSearchHits(hits, sample.title)[0]).toMatchObject({
+      kind: 'writing',
+      href: sample.href,
+    })
   })
 
   it('returns nothing for an empty query', () => {

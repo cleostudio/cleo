@@ -34,11 +34,23 @@ describe('public error recovery', () => {
     )
   })
 
-  it('keeps the not-found proof sheet', () => {
+  it('keeps the not-found proof sheet with portal recovery links', () => {
     render(<NotFoundPageView />)
 
     expect(screen.getByText('ERR / 404')).toBeTruthy()
     expect(screen.getByText('This page slipped off the grid.')).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'Go home' }).getAttribute('href')).toBe(
+      '/',
+    )
+    expect(screen.getByRole('link', { name: 'Explore' }).getAttribute('href')).toBe(
+      '/explore',
+    )
+    expect(screen.getByRole('link', { name: 'Space' }).getAttribute('href')).toBe(
+      '/space',
+    )
+    expect(screen.getByRole('link', { name: 'Ask Cleo' }).getAttribute('href')).toBe(
+      '/cleo',
+    )
   })
 
   it('offers retry and home recovery without exposing an error message', () => {

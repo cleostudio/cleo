@@ -100,5 +100,7 @@ describe('SiteDocument', () => {
     expect(html).toContain('data-public-footer')
     expect(html).toContain('data-public-route-transition')
     expect(html).toContain('data-public-preview-cards')
+    expect(html).toContain('Skip to content')
+    expect(html).toContain('href="#main-content"')
   })
 })

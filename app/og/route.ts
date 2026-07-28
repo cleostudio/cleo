@@ -1,16 +1,20 @@
+import { getAtlasEntry } from '~/lib/atlas'
 import { getPost, isPostSlug } from '~/lib/content'
-import {
-  createHomeOgImage,
-  createNewsletterOgImage,
-  createPostOgImage,
-  createSectionOgImage,
-} from '~/lib/og-image'
 import type { Locale } from '~/lib/locale-route'
 import {
   getArchivedNewsletter,
   isArchivedNewsletterId,
 } from '~/lib/newsletters'
+import {
+  createExploreGuideOgImage,
+  createHomeOgImage,
+  createNewsletterOgImage,
+  createPostOgImage,
+  createSectionOgImage,
+  createSpaceGuideOgImage,
+} from '~/lib/og-image'
 import type { PublicSection } from '~/lib/public-page-metadata'
+import { getSpaceSubject } from '~/lib/space'
 
 const PUBLIC_SECTIONS = new Set<PublicSection>([
   'blog',
@@ -64,7 +68,24 @@ export async function GET(request: Request) {
     )
   }
 
-  if (PUBLIC_SECTIONS.has(section as PublicSection)) {
+  if (section === 'explore' && segments.length === 2) {
+    const entry = getAtlasEntry(segments[1])
+    if (entry) {
+      return cachedImage(await createExploreGuideOgImage(entry, locale))
+    }
+  }
+
+  if (section === 'space' && segments.length === 2) {
+    const subject = getSpaceSubject(segments[1])
+    if (subject) {
+      return cachedImage(await createSpaceGuideOgImage(subject, locale))
+    }
+  }
+
+  if (
+    PUBLIC_SECTIONS.has(section as PublicSection) &&
+    segments.length === 1
+  ) {
     return cachedImage(await createSectionOgImage(section as PublicSection, locale))
   }
 
