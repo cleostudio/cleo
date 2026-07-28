@@ -2,16 +2,14 @@
 
 import { useEffect, useState } from 'react'
 
-const taipeiClockTime = new Intl.DateTimeFormat('en-GB', {
-  timeZone: 'Asia/Taipei',
+const localClockTime = new Intl.DateTimeFormat('en-GB', {
   hourCycle: 'h23',
   hour: '2-digit',
   minute: '2-digit',
   second: '2-digit',
 })
 
-const taipeiTimeLabel = new Intl.DateTimeFormat('en-US', {
-  timeZone: 'Asia/Taipei',
+const localTimeLabel = new Intl.DateTimeFormat('en-US', {
   hour12: true,
   hour: 'numeric',
   minute: '2-digit',
@@ -21,7 +19,7 @@ function timeParts(date: Date | null) {
   if (!date) return { hour: 0, minute: 0, second: 0, label: '--:-- --' }
 
   const parts = Object.fromEntries(
-    taipeiClockTime
+    localClockTime
       .formatToParts(date)
       .filter((part) => part.type !== 'literal')
       .map((part) => [part.type, part.value]),
@@ -34,15 +32,30 @@ function timeParts(date: Date | null) {
     hour,
     minute,
     second,
-    label: taipeiTimeLabel.format(date),
+    label: localTimeLabel.format(date),
   }
+}
+
+function utcOffsetLabel(date: Date | null) {
+  if (!date) return 'LOCAL TIME'
+
+  const offsetMinutes = -date.getTimezoneOffset()
+  const sign = offsetMinutes >= 0 ? '+' : '-'
+  const absoluteOffset = Math.abs(offsetMinutes)
+  const hours = Math.floor(absoluteOffset / 60)
+  const minutes = absoluteOffset % 60
+
+  return `UTC${sign}${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
 }
 
 export function FooterClock() {
   const [now, setNow] = useState<Date | null>(null)
+  const [timeZone, setTimeZone] = useState<string | null>(null)
 
   useEffect(() => {
     let timer: number | undefined
+
+    setTimeZone(Intl.DateTimeFormat().resolvedOptions().timeZone ?? null)
 
     const tick = () => {
       const current = new Date()
@@ -68,6 +81,7 @@ export function FooterClock() {
   const secondAngle = second * 6
   const minuteAngle = (minute + second / 60) * 6
   const hourAngle = ((hour % 12) + minute / 60 + second / 3600) * 30
+  const offset = utcOffsetLabel(now)
 
   return (
     <div className="footer-local-time">
@@ -109,11 +123,13 @@ export function FooterClock() {
         <circle className="footer-clock-pin" cx="16" cy="16" r="1" />
       </svg>
       <span className="footer-time-readout">
-        <span>UTC+8</span>
+        <span title={timeZone ?? undefined}>{offset}</span>
         <time
           dateTime={now?.toISOString()}
           aria-label={
-            now ? `Current time in Taipei, UTC+8: ${label}` : 'Current time in Taipei, UTC+8'
+            now
+              ? `Current local time in ${timeZone ?? 'your time zone'}, ${offset}: ${label}`
+              : 'Current local time'
           }
         >
           {label}

@@ -2,6 +2,7 @@ import { cacheLife } from 'next/cache'
 import Link from 'next/link'
 
 import { FooterClock } from '~/components/footer-clock'
+import { FooterCoordinates } from '~/components/footer-coordinates'
 import { brailleText } from '~/lib/braille'
 import { T } from '~/lib/i18n'
 import { localePath, type Locale } from '~/lib/locale-route'
@@ -94,18 +95,7 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
           </div>
           <div className="flex flex-col gap-2.5">
             <FooterClock />
-            {/* geo stamp: the colophon's location line, a decorative twin of the clock */}
-            <div className="footer-geo" aria-hidden>
-              <svg className="footer-geo-globe" viewBox="0 0 20 20">
-                <circle cx="10" cy="10" r="9" />
-                <ellipse cx="10" cy="10" rx="4" ry="9" />
-                <path d="M1 10h18M1.9 6h16.2M1.9 14h16.2" />
-              </svg>
-              <span className="footer-geo-lines">
-                <span>22.4820° N</span>
-                <span>113.9247° E</span>
-              </span>
-            </div>
+            <FooterCoordinates />
           </div>
         </div>
       </div>
