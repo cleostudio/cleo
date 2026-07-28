@@ -21575,6 +21575,774 @@
       }
     ]
   },
+  "places/leicester": {
+    "collection": "places",
+    "title": "Leicester",
+    "subtitle": "Leicester",
+    "alt": "Leicester in United Kingdom",
+    "photographer": "NotFromUtrecht",
+    "license": "CC BY-SA 3.0",
+    "width": 3000,
+    "height": 2330,
+    "renditions": [
+      {
+        "src": "/images/places/leicester/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/leicester/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/leicester/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/coventry": {
+    "collection": "places",
+    "title": "Coventry",
+    "subtitle": "Coventry",
+    "alt": "Coventry in United Kingdom",
+    "photographer": "Andrew Walker ( walker44 )",
+    "license": "CC BY-SA 3.0",
+    "width": 3405,
+    "height": 2242,
+    "renditions": [
+      {
+        "src": "/images/places/coventry/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/coventry/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/coventry/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/southampton": {
+    "collection": "places",
+    "title": "Southampton",
+    "subtitle": "Southampton",
+    "alt": "Southampton in United Kingdom",
+    "photographer": "Partonez",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/southampton/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/southampton/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/southampton/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rennes": {
+    "collection": "places",
+    "title": "Rennes",
+    "subtitle": "Rennes",
+    "alt": "Rennes in France",
+    "photographer": "Oakenchips",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/rennes/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rennes/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rennes/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/montpellier": {
+    "collection": "places",
+    "title": "Montpellier",
+    "subtitle": "Montpellier",
+    "alt": "Montpellier in France",
+    "photographer": "Christian Ferrer",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 3379,
+    "renditions": [
+      {
+        "src": "/images/places/montpellier/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/montpellier/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/montpellier/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/grenoble": {
+    "collection": "places",
+    "title": "Grenoble",
+    "subtitle": "Grenoble",
+    "alt": "Grenoble in France",
+    "photographer": "Sami Mlouhi",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/grenoble/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/grenoble/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/grenoble/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/padua": {
+    "collection": "places",
+    "title": "Padua",
+    "subtitle": "Padua",
+    "alt": "Padua in Italy",
+    "photographer": "Petar Milošević at sr.wikipedia",
+    "license": "CC BY-SA 3.0 rs",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "src": "/images/places/padua/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/padua/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/padua/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/salzburg": {
+    "collection": "places",
+    "title": "Salzburg",
+    "subtitle": "Salzburg",
+    "alt": "Salzburg in Austria",
+    "photographer": "Ank Kumar",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/salzburg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/salzburg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/salzburg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/brno": {
+    "collection": "places",
+    "title": "Brno",
+    "subtitle": "Brno",
+    "alt": "Brno in Czechia",
+    "photographer": "JiriMatejicek",
+    "license": "CC BY-SA 4.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/places/brno/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/brno/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/brno/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/thessaloniki": {
+    "collection": "places",
+    "title": "Thessaloniki",
+    "subtitle": "Thessaloniki",
+    "alt": "Thessaloniki in Greece",
+    "photographer": "Annatsach",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2562,
+    "renditions": [
+      {
+        "src": "/images/places/thessaloniki/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/thessaloniki/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/thessaloniki/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/izmir": {
+    "collection": "places",
+    "title": "İzmir",
+    "subtitle": "İzmir",
+    "alt": "İzmir in Türkiye",
+    "photographer": "Mors et Vita",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/izmir/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/izmir/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/izmir/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/linz": {
+    "collection": "places",
+    "title": "Linz",
+    "subtitle": "Linz",
+    "alt": "Linz in Austria",
+    "photographer": "Andrzej Otrębski",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/linz/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/linz/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/linz/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/idaho": {
+    "collection": "places",
+    "title": "Idaho",
+    "subtitle": "Idaho",
+    "alt": "Idaho in United States",
+    "photographer": "Acroterion",
+    "license": "CC BY-SA 4.0",
+    "width": 3778,
+    "height": 2241,
+    "renditions": [
+      {
+        "src": "/images/places/idaho/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/idaho/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/idaho/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/montana": {
+    "collection": "places",
+    "title": "Montana",
+    "subtitle": "Montana",
+    "alt": "Montana in United States",
+    "photographer": "Ken Lund from Las Vegas, Nevada, USA",
+    "license": "CC BY-SA 2.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/montana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/montana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/montana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/nevada": {
+    "collection": "places",
+    "title": "Nevada",
+    "subtitle": "Nevada",
+    "alt": "Nevada in United States",
+    "photographer": "Gzzz",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/nevada/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/nevada/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/nevada/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/anglesey": {
+    "collection": "places",
+    "title": "Anglesey",
+    "subtitle": "Anglesey",
+    "alt": "Anglesey in United Kingdom",
+    "photographer": "Jeff Buck",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/anglesey/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/anglesey/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/anglesey/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hiiumaa": {
+    "collection": "places",
+    "title": "Hiiumaa",
+    "subtitle": "Hiiumaa",
+    "alt": "Hiiumaa in Estonia",
+    "photographer": "Abrget47j",
+    "license": "CC BY-SA 3.0 ee",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "src": "/images/places/hiiumaa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hiiumaa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hiiumaa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/pag": {
+    "collection": "places",
+    "title": "Pag",
+    "subtitle": "Pag",
+    "alt": "Pag in Croatia",
+    "photographer": "Anil Öztas",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/pag/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/pag/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/pag/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/kangaroo-island": {
+    "collection": "places",
+    "title": "Flinders Chase",
+    "subtitle": "Kangaroo Island",
+    "alt": "Flinders Chase in Australia",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/kangaroo-island/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/kangaroo-island/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/kangaroo-island/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/yakushima": {
+    "collection": "places",
+    "title": "Yakushima",
+    "subtitle": "Yakushima",
+    "alt": "Yakushima in Japan",
+    "photographer": "Grendelkhan",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/yakushima/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/yakushima/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/yakushima/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/la-digue": {
+    "collection": "places",
+    "title": "La Digue",
+    "subtitle": "La Digue",
+    "alt": "La Digue in Seychelles",
+    "photographer": "Giles Laurent",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "src": "/images/places/la-digue/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/la-digue/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/la-digue/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/graubunden": {
+    "collection": "places",
+    "title": "Graubünden",
+    "subtitle": "Graubünden",
+    "alt": "Graubünden in Switzerland",
+    "photographer": "Isiwal",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/graubunden/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/graubunden/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/graubunden/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/baden-wurttemberg": {
+    "collection": "places",
+    "title": "Baden-Württemberg",
+    "subtitle": "Baden-Württemberg",
+    "alt": "Baden-Württemberg in Germany",
+    "photographer": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2592,
+    "renditions": [
+      {
+        "src": "/images/places/baden-wurttemberg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/baden-wurttemberg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/baden-wurttemberg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/lower-saxony": {
+    "collection": "places",
+    "title": "Lower Saxony",
+    "subtitle": "Lower Saxony",
+    "alt": "Lower Saxony in Germany",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 3634,
+    "height": 3634,
+    "renditions": [
+      {
+        "src": "/images/places/lower-saxony/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/lower-saxony/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/lower-saxony/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/rhineland-palatinate": {
+    "collection": "places",
+    "title": "Rhineland-Palatinate",
+    "subtitle": "Rhineland-Palatinate",
+    "alt": "Rhineland-Palatinate in Germany",
+    "photographer": "Tuxyso",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2895,
+    "renditions": [
+      {
+        "src": "/images/places/rhineland-palatinate/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/rhineland-palatinate/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/rhineland-palatinate/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/castile-la-mancha": {
+    "collection": "places",
+    "title": "Castile-La Mancha",
+    "subtitle": "Castile-La Mancha",
+    "alt": "Castile-La Mancha in Spain",
+    "photographer": "Michal Osmenda from Brussels, Belgium",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "src": "/images/places/castile-la-mancha/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/castile-la-mancha/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/castile-la-mancha/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/parthenon": {
+    "collection": "places",
+    "title": "Parthenon",
+    "subtitle": "Parthenon",
+    "alt": "Parthenon in Greece",
+    "photographer": "User:Mountain",
+    "license": "Public domain",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/places/parthenon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/parthenon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/parthenon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mycenae": {
+    "collection": "places",
+    "title": "Mycenae",
+    "subtitle": "Mycenae",
+    "alt": "Mycenae in Greece",
+    "photographer": "Zde",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2555,
+    "renditions": [
+      {
+        "src": "/images/places/mycenae/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mycenae/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mycenae/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/tikal": {
+    "collection": "places",
+    "title": "Tikal",
+    "subtitle": "Tikal",
+    "alt": "Tikal in Guatemala",
+    "photographer": "Simon Burchell",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/tikal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/tikal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/tikal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/palenque": {
+    "collection": "places",
+    "title": "Palenque",
+    "subtitle": "Palenque",
+    "alt": "Palenque in Mexico",
+    "photographer": "Bernard DUPONT",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2429,
+    "renditions": [
+      {
+        "src": "/images/places/palenque/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/palenque/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/palenque/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/prambanan": {
+    "collection": "places",
+    "title": "Prambanan",
+    "subtitle": "Prambanan",
+    "alt": "Prambanan in Indonesia",
+    "photographer": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/prambanan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/prambanan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/prambanan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ayutthaya": {
+    "collection": "places",
+    "title": "Ayutthaya",
+    "subtitle": "Ayutthaya",
+    "alt": "Ayutthaya in Thailand",
+    "photographer": "Evilarry",
+    "license": "Public domain",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/places/ayutthaya/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ayutthaya/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ayutthaya/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

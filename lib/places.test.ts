@@ -14,7 +14,7 @@ import {
 
 describe('place guides', () => {
   it('ships a curated catalog with unique slugs and codes', () => {
-    expect(placeGuides.length).toBeGreaterThanOrEqual(704)
+    expect(placeGuides.length).toBeGreaterThanOrEqual(736)
 
     const slugs = placeGuides.map((place) => place.slug)
     const codes = placeGuides.map((place) => place.code)
@@ -451,6 +451,34 @@ describe('place guides', () => {
     )
     expect(matchPlaceGuideForBlurb('greece', 'Palace of Knossos')?.slug).toBe(
       'knossos',
+    )
+    expect(matchPlaceGuideForBlurb('united-kingdom', 'Coventry')?.slug).toBe(
+      'coventry',
+    )
+    expect(matchPlaceGuideForBlurb('italy', 'Padova')?.slug).toBe('padua')
+    expect(matchPlaceGuideForBlurb('greece', 'Salonika')?.slug).toBe(
+      'thessaloniki',
+    )
+    expect(matchPlaceGuideForBlurb('turkiye', 'Smyrna')?.slug).toBe('izmir')
+    expect(matchPlaceGuideForBlurb('united-states', 'Idaho')?.slug).toBe('idaho')
+    expect(matchPlaceGuideForBlurb('united-kingdom', 'Ynys Môn')?.slug).toBe(
+      'anglesey',
+    )
+    expect(matchPlaceGuideForBlurb('switzerland', 'Grisons')?.slug).toBe(
+      'graubunden',
+    )
+    expect(matchPlaceGuideForBlurb('germany', 'Niedersachsen')?.slug).toBe(
+      'lower-saxony',
+    )
+    expect(matchPlaceGuideForBlurb('spain', 'Castilla-La Mancha')?.slug).toBe(
+      'castile-la-mancha',
+    )
+    expect(matchPlaceGuideForBlurb('greece', 'Parthenon')?.slug).toBe(
+      'parthenon',
+    )
+    expect(matchPlaceGuideForBlurb('guatemala', 'Tikal')?.slug).toBe('tikal')
+    expect(matchPlaceGuideForBlurb('thailand', 'Ayudhya')?.slug).toBe(
+      'ayutthaya',
     )
   })
 

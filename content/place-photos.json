@@ -20414,5 +20414,933 @@
         "bytes": 567932
       }
     ]
+  },
+  "leicester": {
+    "featureName": "Leicester",
+    "alt": "Leicester in United Kingdom",
+    "caption": "Leicester, United Kingdom",
+    "photographer": "NotFromUtrecht",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leicester_Clock_Tower_wide_view.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Leicester Clock Tower wide view.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/32/Leicester_Clock_Tower_wide_view.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "adf1ccef14b673732c641c5691e3b8151477c46c64922488a292c85a588ba713",
+    "width": 3000,
+    "height": 2330,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/leicester/w640.jpg",
+        "bytes": 58224
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/leicester/w1280.jpg",
+        "bytes": 166278
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/leicester/w2048.jpg",
+        "bytes": 409812
+      }
+    ]
+  },
+  "coventry": {
+    "featureName": "Coventry",
+    "alt": "Coventry in United Kingdom",
+    "caption": "Coventry, United Kingdom",
+    "photographer": "Andrew Walker ( walker44 )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coventry_Cathedral_Ruins_with_Rainbow_edit.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Coventry Cathedral Ruins with Rainbow edit.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/79/Coventry_Cathedral_Ruins_with_Rainbow_edit.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bb1c45fe68e154dd3f9db81955bcbc68ca67b3ff592d4530c89d105cd89da1b2",
+    "width": 3405,
+    "height": 2242,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/coventry/w640.jpg",
+        "bytes": 65925
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/coventry/w1280.jpg",
+        "bytes": 164102
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/coventry/w2048.jpg",
+        "bytes": 376957
+      }
+    ]
+  },
+  "southampton": {
+    "featureName": "Southampton",
+    "alt": "Southampton in United Kingdom",
+    "caption": "Southampton, United Kingdom",
+    "photographer": "Partonez",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Southampton_Bargate_at_Dusk_(2).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Southampton Bargate at Dusk (2).jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7e/Southampton_Bargate_at_Dusk_%282%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "add803dd2389e42cf8ff88538eedc9345945c2356874a241f9922b613cdd2e03",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/southampton/w640.jpg",
+        "bytes": 32228
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/southampton/w1280.jpg",
+        "bytes": 109201
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/southampton/w2048.jpg",
+        "bytes": 319990
+      }
+    ]
+  },
+  "rennes": {
+    "featureName": "Rennes",
+    "alt": "Rennes in France",
+    "caption": "Rennes, France",
+    "photographer": "Oakenchips",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palais_du_parlement_de_Bretagne,_Rennes.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Palais du parlement de Bretagne, Rennes.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/fd/Palais_du_parlement_de_Bretagne%2C_Rennes.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "7e70f91b407009545f42b538e4419be747081ce3c7cf4d0ffcaaab81f9b837e8",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rennes/w640.jpg",
+        "bytes": 36335
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rennes/w1280.jpg",
+        "bytes": 137865
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rennes/w2048.jpg",
+        "bytes": 450445
+      }
+    ]
+  },
+  "montpellier": {
+    "featureName": "Montpellier",
+    "alt": "Montpellier in France",
+    "caption": "Montpellier, France",
+    "photographer": "Christian Ferrer",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_d%27eau_du_Peyrou,_Montpellier_02.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Château d'eau du Peyrou, Montpellier 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/34/Ch%C3%A2teau_d%27eau_du_Peyrou%2C_Montpellier_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "033e8b85edff3bfeed0bfba524577f9c6bfbda8ef083ed760299e3e51065faeb",
+    "width": 3840,
+    "height": 3379,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/montpellier/w640.jpg",
+        "bytes": 42064
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/montpellier/w1280.jpg",
+        "bytes": 145303
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/montpellier/w2048.jpg",
+        "bytes": 443182
+      }
+    ]
+  },
+  "grenoble": {
+    "featureName": "Grenoble",
+    "alt": "Grenoble in France",
+    "caption": "Grenoble, France",
+    "photographer": "Sami Mlouhi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grenoble-Bastille_cable_car_-_T%C3%A9l%C3%A9ph%C3%A9rique_de_Grenoble_Bastille_photo1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Grenoble-Bastille cable car - Téléphérique de Grenoble Bastille photo1.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/87/Grenoble-Bastille_cable_car_-_T%C3%A9l%C3%A9ph%C3%A9rique_de_Grenoble_Bastille_photo1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b54a6abd082d115e81da500bef0704e60dc4ae6f1056d289d3eaedf9b53f4250",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/grenoble/w640.jpg",
+        "bytes": 40341
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/grenoble/w1280.jpg",
+        "bytes": 138651
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/grenoble/w2048.jpg",
+        "bytes": 373090
+      }
+    ]
+  },
+  "padua": {
+    "featureName": "Padua",
+    "alt": "Padua in Italy",
+    "caption": "Padua, Italy",
+    "photographer": "Petar Milošević at sr.wikipedia",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prato_della_Valle_e_Santa_Giustina_Padova_2010.jpg",
+    "license": "CC BY-SA 3.0 rs",
+    "provenance": "Curated from Wikimedia Commons (File:Prato della Valle e Santa Giustina Padova 2010.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b0/Prato_della_Valle_e_Santa_Giustina_Padova_2010.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e51db0a03dbf2dee296dbb6e034d48f7cd78fa672976a0e3c6d72f3a09b19e4c",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/padua/w640.jpg",
+        "bytes": 64248
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/padua/w1280.jpg",
+        "bytes": 205739
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/padua/w2048.jpg",
+        "bytes": 531169
+      }
+    ]
+  },
+  "salzburg": {
+    "featureName": "Salzburg",
+    "alt": "Salzburg in Austria",
+    "caption": "Salzburg, Austria",
+    "photographer": "Ank Kumar",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Domplatz,_Salzburg_11.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Domplatz, Salzburg 11.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7a/Domplatz%2C_Salzburg_11.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0634168a1cb94f4294355c057bd922d4e7e5aedaaf76d1f789b487ef9857bb8c",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/salzburg/w640.jpg",
+        "bytes": 43601
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/salzburg/w1280.jpg",
+        "bytes": 150170
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/salzburg/w2048.jpg",
+        "bytes": 452161
+      }
+    ]
+  },
+  "brno": {
+    "featureName": "Brno",
+    "alt": "Brno in Czechia",
+    "caption": "Brno, Czechia",
+    "photographer": "JiriMatejicek",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brno_Spilberk_vyhled_Petrov.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Brno Spilberk vyhled Petrov.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7e/Brno_Spilberk_vyhled_Petrov.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4ea1450bf1c320dec86c9f77cc2a9e4c720abdeacc93529a178214a1f0338ad4",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/brno/w640.jpg",
+        "bytes": 62237
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/brno/w1280.jpg",
+        "bytes": 201611
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/brno/w2048.jpg",
+        "bytes": 520585
+      }
+    ]
+  },
+  "thessaloniki": {
+    "featureName": "Thessaloniki",
+    "alt": "Thessaloniki in Greece",
+    "caption": "Thessaloniki, Greece",
+    "photographer": "Annatsach",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_White_Tower_of_Thessaloniki_-_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:The White Tower of Thessaloniki - 2.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1b/The_White_Tower_of_Thessaloniki_-_2.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ee4b38a7fb0b80a62815a82198f10c5834b4f16173ba2d5137b6c89db60704cb",
+    "width": 3840,
+    "height": 2562,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/thessaloniki/w640.jpg",
+        "bytes": 44227
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/thessaloniki/w1280.jpg",
+        "bytes": 161383
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/thessaloniki/w2048.jpg",
+        "bytes": 471735
+      }
+    ]
+  },
+  "izmir": {
+    "featureName": "İzmir",
+    "alt": "İzmir in Türkiye",
+    "caption": "İzmir, Türkiye",
+    "photographer": "Mors et Vita",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Izmir_Konak_Square_and_Clock_Tower,_2026.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Izmir Konak Square and Clock Tower, 2026.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f5/Izmir_Konak_Square_and_Clock_Tower%2C_2026.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c6e9e627947670c1b286a0634e4a00d04e27348fffa61816cb28198ca64ff003",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/izmir/w640.jpg",
+        "bytes": 67256
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/izmir/w1280.jpg",
+        "bytes": 261081
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/izmir/w2048.jpg",
+        "bytes": 781989
+      }
+    ]
+  },
+  "linz": {
+    "featureName": "Linz",
+    "alt": "Linz in Austria",
+    "caption": "Linz, Austria",
+    "photographer": "Andrzej Otrębski",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Linz_Dunaj_07.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Linz Dunaj 07.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/89/Linz_Dunaj_07.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4e6ae1a20fbbff0949ffc785daec01104692dded4ad9bb9b569074f5a829b684",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/linz/w640.jpg",
+        "bytes": 32694
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/linz/w1280.jpg",
+        "bytes": 115496
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/linz/w2048.jpg",
+        "bytes": 343975
+      }
+    ]
+  },
+  "idaho": {
+    "featureName": "Idaho",
+    "alt": "Idaho in United States",
+    "caption": "Idaho, United States",
+    "photographer": "Acroterion",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sawtooth_Valley_ID1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sawtooth Valley ID1.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9d/Sawtooth_Valley_ID1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d5c22815987caf6433af0d1c80253469380bf7b0df29d6bc7b12e583f3e7ed95",
+    "width": 3778,
+    "height": 2241,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/idaho/w640.jpg",
+        "bytes": 86198
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/idaho/w1280.jpg",
+        "bytes": 286864
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/idaho/w2048.jpg",
+        "bytes": 774023
+      }
+    ]
+  },
+  "montana": {
+    "featureName": "Montana",
+    "alt": "Montana in United States",
+    "caption": "Montana, United States",
+    "photographer": "Ken Lund from Las Vegas, Nevada, USA",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sun_Road,_Glacier_National_Park.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sun Road, Glacier National Park.jpg); source https://upload.wikimedia.org/wikipedia/commons/3/30/Sun_Road%2C_Glacier_National_Park.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a2cccc93538940a67fecd165e9a7d3e8615fa60354c9a33756255a61b44d7151",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/montana/w640.jpg",
+        "bytes": 54755
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/montana/w1280.jpg",
+        "bytes": 192220
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/montana/w2048.jpg",
+        "bytes": 516451
+      }
+    ]
+  },
+  "nevada": {
+    "featureName": "Nevada",
+    "alt": "Nevada in United States",
+    "caption": "Nevada, United States",
+    "photographer": "Gzzz",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Road_in_Valley_of_Fire.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Road in Valley of Fire.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a7/Road_in_Valley_of_Fire.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ea3f56a93a3432d46a698c94f50329d448c3fa61a14cd929ea4ab628a9b404d7",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/nevada/w640.jpg",
+        "bytes": 70818
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/nevada/w1280.jpg",
+        "bytes": 273514
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/nevada/w2048.jpg",
+        "bytes": 811492
+      }
+    ]
+  },
+  "anglesey": {
+    "featureName": "Anglesey",
+    "alt": "Anglesey in United Kingdom",
+    "caption": "Anglesey, United Kingdom",
+    "photographer": "Jeff Buck",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_Stack_and_South_Stack_Lighthouse_-_geograph.org.uk_-_5482247.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:South Stack and South Stack Lighthouse - geograph.org.uk - 5482247.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b9/South_Stack_and_South_Stack_Lighthouse_-_geograph.org.uk_-_5482247.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ceb08f02ddf2bbe129e77b3b6d672f791b5ec06e2c47a5408d64b8c2a4f000bf",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/anglesey/w640.jpg",
+        "bytes": 72790
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/anglesey/w1280.jpg",
+        "bytes": 298517
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/anglesey/w2048.jpg",
+        "bytes": 885284
+      }
+    ]
+  },
+  "hiiumaa": {
+    "featureName": "Hiiumaa",
+    "alt": "Hiiumaa in Estonia",
+    "caption": "Hiiumaa, Estonia",
+    "photographer": "Abrget47j",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:K%C3%B5pu_tuletorn_Hiiumaal.jpg",
+    "license": "CC BY-SA 3.0 ee",
+    "provenance": "Curated from Wikimedia Commons (File:Kõpu tuletorn Hiiumaal.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6f/K%C3%B5pu_tuletorn_Hiiumaal.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "1b0c20196c9c4ce75dfb817e791c7bebfd548cc6fcd2820aaac9d34edc22e015",
+    "width": 3840,
+    "height": 2571,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hiiumaa/w640.jpg",
+        "bytes": 51212
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hiiumaa/w1280.jpg",
+        "bytes": 165360
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hiiumaa/w2048.jpg",
+        "bytes": 425612
+      }
+    ]
+  },
+  "pag": {
+    "featureName": "Pag",
+    "alt": "Pag in Croatia",
+    "caption": "Pag, Croatia",
+    "photographer": "Anil Öztas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pag_(HR),_Veliko_Blato_--_2022_--_0074.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Pag (HR), Veliko Blato -- 2022 -- 0074.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/dd/Pag_%28HR%29%2C_Veliko_Blato_--_2022_--_0074.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "469b71fa58df98248114537bffbed1fbf31ca0d970a6fe83d2b68736bab3bc55",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/pag/w640.jpg",
+        "bytes": 52821
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/pag/w1280.jpg",
+        "bytes": 211228
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/pag/w2048.jpg",
+        "bytes": 671435
+      }
+    ]
+  },
+  "kangaroo-island": {
+    "featureName": "Flinders Chase",
+    "alt": "Flinders Chase in Australia",
+    "caption": "Flinders Chase, Australia",
+    "photographer": "Bernard Gagnon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Chase_National_Park_01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Flinders Chase National Park 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9b/Flinders_Chase_National_Park_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c06dee7fe98e10ac4f85d8bbffe6ec54e76c971b108b354417db7b8543097266",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/kangaroo-island/w640.jpg",
+        "bytes": 46562
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/kangaroo-island/w1280.jpg",
+        "bytes": 190079
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/kangaroo-island/w2048.jpg",
+        "bytes": 611756
+      }
+    ]
+  },
+  "yakushima": {
+    "featureName": "Yakushima",
+    "alt": "Yakushima in Japan",
+    "caption": "Yakushima, Japan",
+    "photographer": "Grendelkhan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Forest_on_Yakushima_from_Route_592.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Forest on Yakushima from Route 592.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b7/Forest_on_Yakushima_from_Route_592.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "916eeb27d6f5af54672ddf9c428943712eea62318bd5e54c30457f8c1128b214",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/yakushima/w640.jpg",
+        "bytes": 42159
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/yakushima/w1280.jpg",
+        "bytes": 153521
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/yakushima/w2048.jpg",
+        "bytes": 430770
+      }
+    ]
+  },
+  "la-digue": {
+    "featureName": "La Digue",
+    "alt": "La Digue in Seychelles",
+    "caption": "La Digue, Seychelles",
+    "photographer": "Giles Laurent",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:198_Granite_rock_in_La_Digue_Island_at_sunset_Photo_by_Giles_Laurent.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:198 Granite rock in La Digue Island at sunset Photo by Giles Laurent.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e2/198_Granite_rock_in_La_Digue_Island_at_sunset_Photo_by_Giles_Laurent.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "92d10caaaf2e24c9043238f8b75deb494567a16597bf9fb8b347cf6fe9aa4e5c",
+    "width": 3840,
+    "height": 2561,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/la-digue/w640.jpg",
+        "bytes": 26877
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/la-digue/w1280.jpg",
+        "bytes": 89707
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/la-digue/w2048.jpg",
+        "bytes": 280561
+      }
+    ]
+  },
+  "graubunden": {
+    "featureName": "Graubünden",
+    "alt": "Graubünden in Switzerland",
+    "caption": "Graubünden, Switzerland",
+    "photographer": "Isiwal",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sankt_Moritz_Lake_Piz_Muragl.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Sankt Moritz Lake Piz Muragl.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ac/Sankt_Moritz_Lake_Piz_Muragl.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "b42321381b6bd680a3d55594af6b1c32864afa9cdcf7a0481c2960b8f0f8afab",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/graubunden/w640.jpg",
+        "bytes": 40496
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/graubunden/w1280.jpg",
+        "bytes": 152406
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/graubunden/w2048.jpg",
+        "bytes": 472917
+      }
+    ]
+  },
+  "baden-wurttemberg": {
+    "featureName": "Baden-Württemberg",
+    "alt": "Baden-Württemberg in Germany",
+    "caption": "Baden-Württemberg, Germany",
+    "photographer": "CEphoto, Uwe Aranas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kohlberg_Baden-W%C3%BCrttemberg_Germany_Panoramic-View-03.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Kohlberg Baden-Württemberg Germany Panoramic-View-03.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1e/Kohlberg_Baden-W%C3%BCrttemberg_Germany_Panoramic-View-03.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "718d7f6ce26cfa9112de8d2498be632f6f317842c8e31c0a4238790f5190457f",
+    "width": 3840,
+    "height": 2592,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/baden-wurttemberg/w640.jpg",
+        "bytes": 53479
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/baden-wurttemberg/w1280.jpg",
+        "bytes": 208350
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/baden-wurttemberg/w2048.jpg",
+        "bytes": 660915
+      }
+    ]
+  },
+  "lower-saxony": {
+    "featureName": "Lower Saxony",
+    "alt": "Lower Saxony in Germany",
+    "caption": "Lower Saxony, Germany",
+    "photographer": "Dietmar Rabich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Juist,_Memmertfeuer_--_2014_--_3533.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Juist, Memmertfeuer -- 2014 -- 3533.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/93/Juist%2C_Memmertfeuer_--_2014_--_3533.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "d46965a58d9e1e9f09434d300d6610538449701b37784d99d97828ec27e99b5a",
+    "width": 3634,
+    "height": 3634,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/lower-saxony/w640.jpg",
+        "bytes": 70986
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/lower-saxony/w1280.jpg",
+        "bytes": 161496
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/lower-saxony/w2048.jpg",
+        "bytes": 387944
+      }
+    ]
+  },
+  "rhineland-palatinate": {
+    "featureName": "Rhineland-Palatinate",
+    "alt": "Rhineland-Palatinate in Germany",
+    "caption": "Rhineland-Palatinate, Germany",
+    "photographer": "Tuxyso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stadtansicht-Saarburg-Leukbach-2016.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Stadtansicht-Saarburg-Leukbach-2016.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f4/Stadtansicht-Saarburg-Leukbach-2016.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f9ee6ad78ba7c65c8885a7cbb509140d40dc4ba9d4084ae2fd62754f09862df7",
+    "width": 3840,
+    "height": 2895,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/rhineland-palatinate/w640.jpg",
+        "bytes": 76083
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/rhineland-palatinate/w1280.jpg",
+        "bytes": 287704
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/rhineland-palatinate/w2048.jpg",
+        "bytes": 855527
+      }
+    ]
+  },
+  "parthenon": {
+    "featureName": "Parthenon",
+    "alt": "Parthenon in Greece",
+    "caption": "Parthenon, Greece",
+    "photographer": "User:Mountain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parthenon_from_west.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Parthenon from west.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/ad/Parthenon_from_west.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "8b1b6afb439690b651f67bb357a06422360378c1d7fe0ed67c63ad76642b8f89",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/parthenon/w640.jpg",
+        "bytes": 66126
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/parthenon/w1280.jpg",
+        "bytes": 202110
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/parthenon/w2048.jpg",
+        "bytes": 582948
+      }
+    ]
+  },
+  "mycenae": {
+    "featureName": "Mycenae",
+    "alt": "Mycenae in Greece",
+    "caption": "Mycenae, Greece",
+    "photographer": "Zde",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lion_Gate,_Mycenae,_201505.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Lion Gate, Mycenae, 201505.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/fc/Lion_Gate%2C_Mycenae%2C_201505.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0328dcb700516f828b3f5748f13d761d6622b9c4232b0785efa94fcbeb1e3af8",
+    "width": 3840,
+    "height": 2555,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mycenae/w640.jpg",
+        "bytes": 63405
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mycenae/w1280.jpg",
+        "bytes": 258724
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mycenae/w2048.jpg",
+        "bytes": 826649
+      }
+    ]
+  },
+  "tikal": {
+    "featureName": "Tikal",
+    "alt": "Tikal in Guatemala",
+    "caption": "Tikal, Guatemala",
+    "photographer": "Simon Burchell",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plaza_of_the_Seven_Temples,_Tikal_25.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Plaza of the Seven Temples, Tikal 25.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e2/Plaza_of_the_Seven_Temples%2C_Tikal_25.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "21536e2b2e956b5a5d7f63eba87eb1df8a63f2090412f9865280218ac69653fa",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/tikal/w640.jpg",
+        "bytes": 99973
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/tikal/w1280.jpg",
+        "bytes": 442172
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/tikal/w2048.jpg",
+        "bytes": 1314139
+      }
+    ]
+  },
+  "palenque": {
+    "featureName": "Palenque",
+    "alt": "Palenque in Mexico",
+    "caption": "Palenque, Mexico",
+    "photographer": "Bernard DUPONT",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_the_Inscriptions,_view_from_The_Palace_-_Palenque_Maya_Site,_Feb_2020.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Temple of the Inscriptions, view from The Palace - Palenque Maya Site, Feb 2020.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b0/Temple_of_the_Inscriptions%2C_view_from_The_Palace_-_Palenque_Maya_Site%2C_Feb_2020.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "22dd2cd8cbc3cdc0b7e1bededab8411dbdbf245d876a1fc5602014d9d60e011b",
+    "width": 3840,
+    "height": 2429,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/palenque/w640.jpg",
+        "bytes": 73863
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/palenque/w1280.jpg",
+        "bytes": 296612
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/palenque/w2048.jpg",
+        "bytes": 889582
+      }
+    ]
+  },
+  "prambanan": {
+    "featureName": "Prambanan",
+    "alt": "Prambanan in Indonesia",
+    "caption": "Prambanan, Indonesia",
+    "photographer": "CEphoto, Uwe Aranas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yogyakarta_Indonesia_Prambanan-temple-complex-05.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Yogyakarta Indonesia Prambanan-temple-complex-05.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/cf/Yogyakarta_Indonesia_Prambanan-temple-complex-05.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f02b1393021444d0ee75fcdb643a98c54953fdc3fca665bac17eba4b83f67e91",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/prambanan/w640.jpg",
+        "bytes": 47182
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/prambanan/w1280.jpg",
+        "bytes": 180572
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/prambanan/w2048.jpg",
+        "bytes": 564779
+      }
+    ]
+  },
+  "ayutthaya": {
+    "featureName": "Ayutthaya",
+    "alt": "Ayutthaya in Thailand",
+    "caption": "Ayutthaya, Thailand",
+    "photographer": "Evilarry",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ayutthaya_Thailand_2004.jpg",
+    "license": "Public domain",
+    "provenance": "Curated from Wikimedia Commons (File:Ayutthaya Thailand 2004.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f1/Ayutthaya_Thailand_2004.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c6b6686134fe590ea5ee6078ab65edccf4e5f7c411ba54b188daf8aa1357c2f4",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ayutthaya/w640.jpg",
+        "bytes": 64233
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ayutthaya/w1280.jpg",
+        "bytes": 199126
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ayutthaya/w2048.jpg",
+        "bytes": 507061
+      }
+    ]
+  },
+  "castile-la-mancha": {
+    "featureName": "Castile-La Mancha",
+    "alt": "Castile-La Mancha in Spain",
+    "caption": "Castile-La Mancha, Spain",
+    "photographer": "Michal Osmenda from Brussels, Belgium",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Windmills_of_Consuegra_(7079300441).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Windmills of Consuegra (7079300441).jpg); source https://upload.wikimedia.org/wikipedia/commons/c/cf/Windmills_of_Consuegra_%287079300441%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bf31599df6e14121648ba2462ce435990839b67303223eff604185f101911df3",
+    "width": 3840,
+    "height": 2550,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/castile-la-mancha/w640.jpg",
+        "bytes": 37003
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/castile-la-mancha/w1280.jpg",
+        "bytes": 123486
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/castile-la-mancha/w2048.jpg",
+        "bytes": 335779
+      }
+    ]
   }
 }

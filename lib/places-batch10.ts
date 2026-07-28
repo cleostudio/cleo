@@ -1172,7 +1172,7 @@ export const placeGuideDraftsBatch10: PlaceGuideDraftBatch[] = [
     kind: 'Landmark',
     countrySlug: 'greece',
     subtitle: 'Landmark · Greece',
-    matchNames: ['Acropolis of Athens', 'Acropolis', 'Parthenon'],
+    matchNames: ['Acropolis of Athens', 'Acropolis'],
     about:
       'The Acropolis of Athens crowns a rocky citadel above the ancient and modern city as the emblematic sanctuary of classical Greece. The Parthenon, Propylaea, and Erechtheion organize the summit plateau; the theater slopes fall toward the city. Attic light and marble define every view. Orientation is summit temples versus Agora and city below. The Acropolis’s primer is classical citadel — marble temples on a limestone table rock above Athens.',
     facts: {

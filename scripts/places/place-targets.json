@@ -7666,5 +7666,357 @@
       "Palace of Knossos",
       "Knossos Crete"
     ]
+  },
+  "leicester": {
+    "name": "Leicester",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Leicester",
+      "Leicester United Kingdom",
+      "Leicester city"
+    ]
+  },
+  "coventry": {
+    "name": "Coventry",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Coventry",
+      "Coventry United Kingdom",
+      "Coventry cathedral"
+    ]
+  },
+  "southampton": {
+    "name": "Southampton",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Southampton",
+      "Southampton United Kingdom",
+      "Southampton docks"
+    ]
+  },
+  "rennes": {
+    "name": "Rennes",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Rennes",
+      "Rennes France",
+      "Rennes Brittany"
+    ]
+  },
+  "montpellier": {
+    "name": "Montpellier",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Montpellier",
+      "Montpellier France",
+      "Montpellier Languedoc"
+    ]
+  },
+  "grenoble": {
+    "name": "Grenoble",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Grenoble",
+      "Grenoble France",
+      "Grenoble Alps"
+    ]
+  },
+  "padua": {
+    "name": "Padua",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Padua",
+      "Padova",
+      "Padua Italy"
+    ]
+  },
+  "salzburg": {
+    "name": "Salzburg",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "City",
+    "searchNames": [
+      "Salzburg",
+      "Salzburg Austria",
+      "Hohensalzburg"
+    ]
+  },
+  "brno": {
+    "name": "Brno",
+    "countrySlug": "czechia",
+    "countryName": "Czechia",
+    "kind": "City",
+    "searchNames": [
+      "Brno",
+      "Brno Czechia",
+      "Brno Moravia"
+    ]
+  },
+  "thessaloniki": {
+    "name": "Thessaloniki",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "City",
+    "searchNames": [
+      "Thessaloniki",
+      "Salonika",
+      "Thessaloniki Greece"
+    ]
+  },
+  "izmir": {
+    "name": "İzmir",
+    "countrySlug": "turkiye",
+    "countryName": "Türkiye",
+    "kind": "City",
+    "searchNames": [
+      "İzmir",
+      "Izmir",
+      "Smyrna"
+    ]
+  },
+  "linz": {
+    "name": "Linz",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "City",
+    "searchNames": [
+      "Linz",
+      "Linz Austria",
+      "Linz Danube"
+    ]
+  },
+  "idaho": {
+    "name": "Idaho",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Idaho",
+      "Idaho United States",
+      "Idaho landscape"
+    ]
+  },
+  "montana": {
+    "name": "Montana",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Montana",
+      "Montana United States",
+      "Montana landscape"
+    ]
+  },
+  "nevada": {
+    "name": "Nevada",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Nevada",
+      "Nevada United States",
+      "Nevada desert"
+    ]
+  },
+  "anglesey": {
+    "name": "Anglesey",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Anglesey",
+      "Ynys Môn",
+      "Anglesey Wales"
+    ]
+  },
+  "hiiumaa": {
+    "name": "Hiiumaa",
+    "countrySlug": "estonia",
+    "countryName": "Estonia",
+    "kind": "Island",
+    "searchNames": [
+      "Hiiumaa",
+      "Hiiumaa Estonia",
+      "Hiiumaa Baltic"
+    ]
+  },
+  "pag": {
+    "name": "Pag",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "Island",
+    "searchNames": [
+      "Pag",
+      "Pag Croatia",
+      "Pag island"
+    ]
+  },
+  "kangaroo-island": {
+    "name": "Kangaroo Island",
+    "countrySlug": "australia",
+    "countryName": "Australia",
+    "kind": "Island",
+    "searchNames": [
+      "Kangaroo Island",
+      "Kangaroo Island Australia",
+      "Flinders Chase"
+    ]
+  },
+  "yakushima": {
+    "name": "Yakushima",
+    "countrySlug": "japan",
+    "countryName": "Japan",
+    "kind": "Island",
+    "searchNames": [
+      "Yakushima",
+      "Yakushima Japan",
+      "Yakushima cedar"
+    ]
+  },
+  "la-digue": {
+    "name": "La Digue",
+    "countrySlug": "seychelles",
+    "countryName": "Seychelles",
+    "kind": "Island",
+    "searchNames": [
+      "La Digue",
+      "La Digue Seychelles",
+      "Anse Source d Argent"
+    ]
+  },
+  "graubunden": {
+    "name": "Graubünden",
+    "countrySlug": "switzerland",
+    "countryName": "Switzerland",
+    "kind": "Region",
+    "searchNames": [
+      "Graubünden",
+      "Graubunden",
+      "Grisons"
+    ]
+  },
+  "baden-wurttemberg": {
+    "name": "Baden-Württemberg",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Baden-Württemberg",
+      "Baden-Wurttemberg",
+      "Black Forest Baden"
+    ]
+  },
+  "lower-saxony": {
+    "name": "Lower Saxony",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Lower Saxony",
+      "Niedersachsen",
+      "Lower Saxony Germany"
+    ]
+  },
+  "rhineland-palatinate": {
+    "name": "Rhineland-Palatinate",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Rhineland-Palatinate",
+      "Rheinland-Pfalz",
+      "Moselle Rhineland"
+    ]
+  },
+  "parthenon": {
+    "name": "Parthenon",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Landmark",
+    "searchNames": [
+      "Parthenon",
+      "Parthenon Athens",
+      "Parthenon Acropolis"
+    ]
+  },
+  "mycenae": {
+    "name": "Mycenae",
+    "countrySlug": "greece",
+    "countryName": "Greece",
+    "kind": "Landmark",
+    "searchNames": [
+      "Mycenae",
+      "Mycenae Greece",
+      "Lion Gate Mycenae"
+    ]
+  },
+  "tikal": {
+    "name": "Tikal",
+    "countrySlug": "guatemala",
+    "countryName": "Guatemala",
+    "kind": "Landmark",
+    "searchNames": [
+      "Tikal",
+      "Tikal Guatemala",
+      "Tikal Maya"
+    ]
+  },
+  "palenque": {
+    "name": "Palenque",
+    "countrySlug": "mexico",
+    "countryName": "Mexico",
+    "kind": "Landmark",
+    "searchNames": [
+      "Palenque",
+      "Palenque Mexico",
+      "Palenque Maya"
+    ]
+  },
+  "prambanan": {
+    "name": "Prambanan",
+    "countrySlug": "indonesia",
+    "countryName": "Indonesia",
+    "kind": "Landmark",
+    "searchNames": [
+      "Prambanan",
+      "Prambanan Indonesia",
+      "Prambanan temple"
+    ]
+  },
+  "ayutthaya": {
+    "name": "Ayutthaya",
+    "countrySlug": "thailand",
+    "countryName": "Thailand",
+    "kind": "Landmark",
+    "searchNames": [
+      "Ayutthaya",
+      "Ayudhya",
+      "Ayutthaya Thailand"
+    ]
+  },
+  "castile-la-mancha": {
+    "name": "Castile-La Mancha",
+    "countrySlug": "spain",
+    "countryName": "Spain",
+    "kind": "Region",
+    "searchNames": [
+      "Castile-La Mancha",
+      "Castilla-La Mancha",
+      "La Mancha windmills"
+    ]
   }
 }
