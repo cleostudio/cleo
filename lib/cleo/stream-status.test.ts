@@ -12,10 +12,12 @@ describe('incomplete status helpers', () => {
       'max_output_tokens',
     )
     expect(incompleteReasonFromApi('stopped')).toBe('stopped')
+    expect(incompleteReasonFromApi('tool_budget')).toBe('tool_budget')
     expect(incompleteReasonFromApi('mystery')).toBe('other')
     expect(incompleteStatusMessage('stopped')).toBe(
       'Stopped before finishing.',
     )
+    expect(incompleteStatusMessage('tool_budget')).toContain('tool limit')
   })
 
   it('parses status incomplete events including stopped', () => {

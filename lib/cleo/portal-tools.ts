@@ -555,6 +555,11 @@ export function portalToolActivityLabel(
 
   if (name === 'search_portal_topics') {
     const query = typeof args.query === 'string' ? args.query.trim() : ''
+    if (status === 'failed') {
+      return query
+        ? `Guide search failed for “${query}”`
+        : 'Guide search failed'
+    }
     if (status === 'completed') {
       return query ? `Searched guides for “${query}”` : 'Searched portal guides'
     }
@@ -563,6 +568,9 @@ export function portalToolActivityLabel(
 
   if (name === 'lookup_guide') {
     const slug = typeof args.slug === 'string' ? args.slug.trim() : ''
+    if (status === 'failed') {
+      return slug ? `Failed to open guide “${slug}”` : 'Failed to open a field guide'
+    }
     if (status === 'completed') {
       return slug ? `Opened guide “${slug}”` : 'Opened a field guide'
     }
@@ -570,6 +578,9 @@ export function portalToolActivityLabel(
   }
 
   if (name === 'get_topic_photos') {
+    if (status === 'failed') {
+      return 'Failed to fetch topic photographs'
+    }
     if (status === 'completed') {
       return 'Fetched topic photographs'
     }
@@ -578,6 +589,11 @@ export function portalToolActivityLabel(
 
   if (name === 'search_gallery') {
     const query = typeof args.query === 'string' ? args.query.trim() : ''
+    if (status === 'failed') {
+      return query
+        ? `Gallery search failed for “${query}”`
+        : 'Gallery search failed'
+    }
     if (status === 'completed') {
       return query ? `Searched Gallery for “${query}”` : 'Searched the Gallery'
     }
@@ -586,6 +602,11 @@ export function portalToolActivityLabel(
 
   if (name === 'search_writing') {
     const query = typeof args.query === 'string' ? args.query.trim() : ''
+    if (status === 'failed') {
+      return query
+        ? `Writing search failed for “${query}”`
+        : 'Writing search failed'
+    }
     if (status === 'completed') {
       return query ? `Searched Writing for “${query}”` : 'Searched Writing'
     }
@@ -594,11 +615,19 @@ export function portalToolActivityLabel(
 
   if (name === 'lookup_writing') {
     const slug = typeof args.slug === 'string' ? args.slug.trim() : ''
+    if (status === 'failed') {
+      return slug
+        ? `Failed to open Writing “${slug}”`
+        : 'Failed to open a Writing essay'
+    }
     if (status === 'completed') {
       return slug ? `Opened Writing “${slug}”` : 'Opened a Writing essay'
     }
     return slug ? `Opening Writing “${slug}”` : 'Opening a Writing essay'
   }
 
+  if (status === 'failed') {
+    return 'Portal tool failed'
+  }
   return status === 'completed' ? 'Used a portal tool' : 'Using a portal tool'
 }

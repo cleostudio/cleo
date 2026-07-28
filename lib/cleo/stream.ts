@@ -97,6 +97,7 @@ export type IncompleteReason =
   | "max_output_tokens"
   | "content_filter"
   | "stopped"
+  | "tool_budget"
   | "other"
 
 export type StreamStatusEvent = {
@@ -120,7 +121,8 @@ export function incompleteReasonFromApi(
   if (
     reason === "max_output_tokens" ||
     reason === "content_filter" ||
-    reason === "stopped"
+    reason === "stopped" ||
+    reason === "tool_budget"
   ) {
     return reason
   }
@@ -136,6 +138,9 @@ export function incompleteStatusMessage(reason: IncompleteReason): string {
   }
   if (reason === "stopped") {
     return "Stopped before finishing."
+  }
+  if (reason === "tool_budget") {
+    return "This answer stopped after reaching the tool limit. Continue to keep going."
   }
   return "This answer stopped before it finished."
 }
@@ -320,6 +325,7 @@ export function parseStreamLine(line: string): ClientStreamEvent | null {
         (parsed.reason === "max_output_tokens" ||
           parsed.reason === "content_filter" ||
           parsed.reason === "stopped" ||
+          parsed.reason === "tool_budget" ||
           parsed.reason === "other")
       ) {
         event.reason = parsed.reason

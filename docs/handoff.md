@@ -53,8 +53,10 @@ document (enable both products in the Vercel project dashboard).
   Auto/Research search sources; Gallery/Writing `?q=` deep-links from portal
   tools; image paste/drop attach; non-destructive session save failures;
   aggregate image/body budgets on `/api/responses`; Retry after Continue
-  replays the hidden resume turn; matching turns also ground curated topic
-  photo paths so replies can embed atlas/space JPEGs as Markdown images)
+  replays the hidden resume turn; soft-capped portal tool rounds reuse the
+  full final stream consumer (`tool_budget` incomplete when more tools remain);
+  matching turns also ground curated topic photo paths so replies can embed
+  atlas/space JPEGs as Markdown images)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
 - Social footer counts: baked JSON in `content/social.json` + `content/github.json`
   (components retained; not linked from the public chrome)

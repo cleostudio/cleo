@@ -75,8 +75,9 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `search_gallery`, `search_writing`, `lookup_writing`), mode-aware reasoning /
   verbosity / `web_search.search_context_size` / `reasoning.context`,
   `prompt_cache_key` per mode, mode-aware `max_tool_calls`, `truncation: auto`
-  for long restored threads, streaming, a small tool-call loop, and
-  `store: false`. Encrypted reasoning items (`include:
+  for long restored threads, streaming, a small tool-call loop (soft-capped
+  portal rounds reuse the full stream consumer and may emit `tool_budget`
+  incomplete), and `store: false`. Encrypted reasoning items (`include:
   reasoning.encrypted_content`) are streamed to the client, persisted in the
   browser session, and replayed on later turns so Auto/Research can use
   `reasoning.context: all_turns`. Auto/Research also include

@@ -137,7 +137,7 @@
 .ai-response [data-streamdown="unordered-list"],
 .ai-response [data-streamdown="ordered-list"] {
   list-style-position: outside;
-  padding-left: 1.25rem;
+  padding-inline-start: 1.25rem;
   white-space: normal;
 }
 
@@ -152,7 +152,7 @@
 .ai-response [data-streamdown="list-item"] {
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: 0.25rem;
+  padding-inline-start: 0.25rem;
 }
 
 .ai-response [data-streamdown="list-item"] + [data-streamdown="list-item"] {
@@ -172,7 +172,7 @@
 .ai-response li [data-streamdown="ordered-list"] {
   margin-top: 0.4rem;
   margin-bottom: 0.15rem;
-  padding-left: 1.15rem;
+  padding-inline-start: 1.15rem;
 }
 
 .ai-response [data-streamdown="strong"] {
@@ -405,7 +405,7 @@
 .prompt-dock-attachment-remove {
   position: absolute;
   top: -0.35rem;
-  right: -0.35rem;
+  inset-inline-end: -0.35rem;
   display: grid;
   place-items: center;
   width: 1.25rem;
@@ -445,7 +445,7 @@
   align-items: flex-end;
   gap: 0.5rem;
   max-width: 85%;
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 
 .glass-surface.user-message {

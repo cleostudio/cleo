@@ -551,6 +551,52 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("high")
   })
 
+  function portalLookupStream(id: string, callId: string) {
+    return responseStream([
+      {
+        item: {
+          arguments: "",
+          call_id: callId,
+          id,
+          name: "lookup_guide",
+          type: "function_call",
+        },
+        type: "response.output_item.added",
+      },
+      {
+        item: {
+          arguments: JSON.stringify({
+            collection: "explore",
+            slug: "japan",
+          }),
+          call_id: callId,
+          id,
+          name: "lookup_guide",
+          status: "completed",
+          type: "function_call",
+        },
+        type: "response.output_item.done",
+      },
+      {
+        response: {
+          output: [
+            {
+              arguments: JSON.stringify({
+                collection: "explore",
+                slug: "japan",
+              }),
+              call_id: callId,
+              id,
+              name: "lookup_guide",
+              type: "function_call",
+            },
+          ],
+        },
+        type: "response.completed",
+      },
+    ])
+  }
+
   it("runs portal function tools and continues the agent loop", async () => {
     openai.create
       .mockResolvedValueOnce(
@@ -641,6 +687,113 @@ describe("POST /api/responses: streaming and upstream errors", () => {
           item.type === "function_call_output"
       )
     ).toBe(true)
+  })
+
+  it("soft-caps portal tool rounds, marks capped tools failed, and reuses the full final stream", async () => {
+    // MAX_TOOL_ROUNDS = 4 executed rounds, then a 5th capped batch + final turn.
+    openai.create
+      .mockResolvedValueOnce(portalLookupStream("fc_1", "call_1"))
+      .mockResolvedValueOnce(portalLookupStream("fc_2", "call_2"))
+      .mockResolvedValueOnce(portalLookupStream("fc_3", "call_3"))
+      .mockResolvedValueOnce(portalLookupStream("fc_4", "call_4"))
+      .mockResolvedValueOnce(portalLookupStream("fc_5", "call_5"))
+      .mockResolvedValueOnce(
+        responseStream([
+          {
+            item: {
+              id: "ig_final",
+              status: "in_progress",
+              type: "image_generation_call",
+            },
+            type: "response.output_item.added",
+          },
+          {
+            item: {
+              id: "ig_final",
+              result: "QUJDRA==",
+              status: "completed",
+              type: "image_generation_call",
+            },
+            type: "response.output_item.done",
+          },
+          {
+            delta: "Wrapping up with what I have.",
+            type: "response.output_text.delta",
+          },
+          {
+            response: {
+              output: [
+                {
+                  arguments: JSON.stringify({
+                    collection: "explore",
+                    slug: "mars",
+                  }),
+                  call_id: "call_more",
+                  id: "fc_more",
+                  name: "lookup_guide",
+                  type: "function_call",
+                },
+              ],
+            },
+            type: "response.completed",
+          },
+        ])
+      )
+
+    const events = await ndjson(
+      await POST(
+        ask({
+          messages: [{ content: "Deep dive Japan with many lookups", role: "user" }],
+        })
+      )
+    )
+
+    expect(openai.create).toHaveBeenCalledTimes(6)
+
+    const failedPortal = events.filter(
+      (event) =>
+        event.type === "activity" &&
+        event.activity?.kind === "portal_tool" &&
+        event.activity?.status === "failed"
+    )
+    expect(failedPortal.length).toBeGreaterThan(0)
+    expect(failedPortal.some((event) =>
+      String(event.activity?.action?.label ?? "").includes("Failed")
+    )).toBe(true)
+
+    // Final turn uses the shared consumer — image events still stream.
+    expect(
+      events.some(
+        (event) => event.type === "image" && event.id === "ig_final"
+      )
+    ).toBe(true)
+
+    expect(events.filter((event) => event.type === "text")).toEqual([
+      { delta: "Wrapping up with what I have.", type: "text" },
+    ])
+
+    // Final turn still requested tools → tool_budget incomplete for Continue.
+    expect(
+      events.some(
+        (event) =>
+          event.type === "status" &&
+          event.status === "incomplete" &&
+          event.reason === "tool_budget"
+      )
+    ).toBe(true)
+
+    const cappedOutput = openai.create.mock.calls[5]?.[0].input as unknown[]
+    const softErrors = cappedOutput.filter(
+      (item) =>
+        typeof item === "object" &&
+        item !== null &&
+        "type" in item &&
+        item.type === "function_call_output" &&
+        "output" in item &&
+        typeof item.output === "string" &&
+        item.output.includes("Portal tool round limit reached")
+    )
+    expect(softErrors.length).toBeGreaterThan(0)
   })
 
   it("forwards web_search sources into activity when present", async () => {

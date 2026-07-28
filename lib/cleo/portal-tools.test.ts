@@ -163,5 +163,13 @@ describe('portal tools', () => {
         'completed',
       ),
     ).toBe('Searched Gallery for “nebula”')
+
+    expect(
+      portalToolActivityLabel(
+        'lookup_guide',
+        JSON.stringify({ collection: 'explore', slug: 'japan' }),
+        'failed',
+      ),
+    ).toBe('Failed to open guide “japan”')
   })
 })

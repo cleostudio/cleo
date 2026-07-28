@@ -88,6 +88,7 @@ function sanitizeIncomplete(value: unknown): PersistedIncomplete | undefined {
     record.reason === 'max_output_tokens' ||
     record.reason === 'content_filter' ||
     record.reason === 'stopped' ||
+    record.reason === 'tool_budget' ||
     record.reason === 'other'
   ) {
     incomplete.reason = record.reason

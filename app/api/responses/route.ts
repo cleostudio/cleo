@@ -725,6 +725,8 @@ export async function POST(request: Request) {
         try {
           let toolExecutions = 0
           let incompleteNotice: IncompleteReason | null = null
+          /** After the soft portal-tool cap, run one more model turn then stop. */
+          let finalTurnOnly = false
 
           while (true) {
             const responseStream = pendingStream ?? (await createStream())
@@ -1052,7 +1054,7 @@ export async function POST(request: Request) {
                 item.type === "function_call"
             )
 
-            if (functionCalls.length === 0) {
+            if (functionCalls.length === 0 || finalTurnOnly) {
               if (!sawCompleted && !streamedText.trim()) {
                 throw new Error(
                   "The AI service stopped before finishing an answer. Try again."
@@ -1065,6 +1067,15 @@ export async function POST(request: Request) {
                   type: "reasoning_items",
                   items: reasoningItems,
                 })
+              }
+              // Soft-capped final turns that still asked for tools (or produced
+              // no text) should offer Continue; a finished answer stays final.
+              if (
+                finalTurnOnly &&
+                !incompleteNotice &&
+                (functionCalls.length > 0 || !streamedText.trim())
+              ) {
+                incompleteNotice = "tool_budget"
               }
               if (incompleteNotice) {
                 enqueue(controller, {
@@ -1089,6 +1100,24 @@ export async function POST(request: Request) {
                   })
                 : executePortalTool(call.name, call.arguments)
 
+              if (hitToolCap && isPortalToolName(call.name)) {
+                // output_item.done already marked these completed — correct to failed.
+                emitActivity(controller, {
+                  id: call.id ?? call.call_id,
+                  kind: "portal_tool",
+                  status: "failed",
+                  action: {
+                    type: "portal_tool",
+                    name: call.name,
+                    label: portalToolActivityLabel(
+                      call.name,
+                      call.arguments ?? "",
+                      "failed"
+                    ),
+                  },
+                })
+              }
+
               input = [
                 ...input,
                 {
@@ -1102,37 +1131,11 @@ export async function POST(request: Request) {
             toolExecutions += 1
 
             if (hitToolCap) {
-              // One final model turn after soft tool errors, then stop.
-              const finalStream = await createStream()
-              activeUpstream = finalStream
-              let finalOutput: ResponseOutputItem[] = []
-
-              for await (const event of finalStream) {
-                if (event.type === "response.output_text.delta") {
-                  streamedText += event.delta
-                  enqueue(controller, { type: "text", delta: event.delta })
-                } else if (event.type === "response.completed") {
-                  finalOutput = event.response.output ?? []
-                } else if (event.type === "error") {
-                  throw new Error(event.message)
-                } else if (event.type === "response.failed") {
-                  throw new Error(
-                    event.response.error?.message ??
-                      "The AI service could not complete the request."
-                  )
-                }
-              }
-
-              activeUpstream = null
-              const reasoningItems =
-                extractEncryptedReasoningItems(finalOutput)
-              if (reasoningItems.length > 0) {
-                enqueue(controller, {
-                  type: "reasoning_items",
-                  items: reasoningItems,
-                })
-              }
-              break
+              // One final model turn through the same consumer (activities,
+              // images, incomplete status), then stop even if more tools appear.
+              finalTurnOnly = true
+              pendingStream = await createStream()
+              continue
             }
           }
 

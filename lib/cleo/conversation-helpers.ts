@@ -71,7 +71,7 @@ type HydrateAssistant = {
   images?: unknown[]
   incomplete?: {
     message: string
-    reason?: IncompleteReason
+    reason?: IncompleteReason // includes tool_budget
   }
   role: "assistant" | "user"
 }
