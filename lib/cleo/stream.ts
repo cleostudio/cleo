@@ -1,8 +1,22 @@
+import {
+  isEncryptedReasoningItem,
+  type EncryptedReasoningItem,
+} from "~/lib/cleo/reasoning-items"
+
+export type { EncryptedReasoningItem }
+
+export type WebSearchSource = {
+  type: "url"
+  url: string
+}
+
 export type WebSearchAction =
   | {
       type: "search"
       queries?: string[]
       query?: string
+      /** Hosted web_search sources when requested via include. */
+      sources?: WebSearchSource[]
     }
   | {
       type: "open_page"
@@ -56,8 +70,57 @@ export type StreamErrorEvent = {
   type: "error"
 }
 
+export type StreamReasoningItemsEvent = {
+  items: EncryptedReasoningItem[]
+  type: "reasoning_items"
+}
+
+export type IncompleteReason =
+  | "max_output_tokens"
+  | "content_filter"
+  | "stopped"
+  | "other"
+
+export type StreamStatusEvent = {
+  message: string
+  reason?: IncompleteReason
+  status: "incomplete"
+  type: "status"
+}
+
 export type ClientStreamEvent =
-  StreamTextEvent | StreamActivityEvent | StreamImageEvent | StreamErrorEvent
+  | StreamTextEvent
+  | StreamActivityEvent
+  | StreamImageEvent
+  | StreamErrorEvent
+  | StreamReasoningItemsEvent
+  | StreamStatusEvent
+
+export function incompleteReasonFromApi(
+  reason: string | undefined
+): IncompleteReason {
+  if (
+    reason === "max_output_tokens" ||
+    reason === "content_filter" ||
+    reason === "stopped"
+  ) {
+    return reason
+  }
+  return "other"
+}
+
+export function incompleteStatusMessage(reason: IncompleteReason): string {
+  if (reason === "max_output_tokens") {
+    return "This answer was cut short before it finished."
+  }
+  if (reason === "content_filter") {
+    return "This answer stopped early because of a safety filter."
+  }
+  if (reason === "stopped") {
+    return "Stopped before finishing."
+  }
+  return "This answer stopped before it finished."
+}
 
 function isActivityStatus(value: unknown): value is ActivityStatus {
   return (
@@ -199,6 +262,49 @@ export function parseStreamLine(line: string): ClientStreamEvent | null {
       }
 
       return { type: "error", error: parsed.error }
+    }
+
+    if (parsed.type === "reasoning_items") {
+      if (!("items" in parsed) || !Array.isArray(parsed.items)) {
+        return null
+      }
+
+      const items = parsed.items.filter(isEncryptedReasoningItem)
+
+      if (items.length === 0) {
+        return null
+      }
+
+      return { type: "reasoning_items", items }
+    }
+
+    if (parsed.type === "status") {
+      if (
+        !("status" in parsed) ||
+        parsed.status !== "incomplete" ||
+        !("message" in parsed) ||
+        typeof parsed.message !== "string"
+      ) {
+        return null
+      }
+
+      const event: StreamStatusEvent = {
+        type: "status",
+        status: "incomplete",
+        message: parsed.message,
+      }
+
+      if (
+        "reason" in parsed &&
+        (parsed.reason === "max_output_tokens" ||
+          parsed.reason === "content_filter" ||
+          parsed.reason === "stopped" ||
+          parsed.reason === "other")
+      ) {
+        event.reason = parsed.reason
+      }
+
+      return event
     }
 
     return null
