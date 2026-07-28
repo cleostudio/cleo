@@ -161,6 +161,65 @@ describe("POST /api/responses: request validation", () => {
   })
 })
 
+describe("POST /api/responses: opt-in location context", () => {
+  it.each([
+    [
+      "coordinates outside the valid range",
+      {
+        accuracy: 12,
+        latitude: 91,
+        longitude: -122.4194,
+        timeZone: "America/Los_Angeles",
+      },
+    ],
+    [
+      "an invalid time zone",
+      {
+        accuracy: 12,
+        latitude: 37.7749,
+        longitude: -122.4194,
+        timeZone: "not/a-time-zone",
+      },
+    ],
+  ])("rejects %s", async (_label, location) => {
+    const response = await POST(ask({ ...question, location }))
+
+    expect(response.status).toBe(400)
+    await expect(response.json()).resolves.toEqual({
+      error:
+        "Location must include finite coordinates, a reported accuracy, and a valid IANA time zone.",
+    })
+    expect(openai.create).not.toHaveBeenCalled()
+  })
+
+  it("adds explicitly shared location only to private request instructions", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "A local answer.", type: "response.output_text.delta" }])
+    )
+
+    await POST(
+      ask({
+        ...question,
+        location: {
+          accuracy: 12.4,
+          latitude: 37.7749,
+          longitude: -122.4194,
+          timeZone: "America/Los_Angeles",
+        },
+      })
+    )
+
+    const request = openai.create.mock.calls[0]?.[0]
+
+    expect(request.instructions).toContain("<cleo_user_location>")
+    expect(request.instructions).toContain("Latitude: 37.77490")
+    expect(request.instructions).toContain("Longitude: -122.41940")
+    expect(request.instructions).toContain("IANA time zone: America/Los_Angeles")
+    expect(request.instructions).toContain("never volunteer it")
+    expect(request.input[0].content).toBe("Tell me about Japan")
+  })
+})
+
 describe("POST /api/responses: image attachments", () => {
   it.each([
     ["a non-image data URL", "data:text/html;base64,PHNjcmlwdD4="],

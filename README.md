@@ -30,7 +30,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides and embed
   curated topic photographs when a visual helps; topic and chat images use
-  the same click-to-zoom lightbox as Gallery)
+  the same click-to-zoom lightbox as Gallery; precise browser location and
+  time zone are sent to OpenAI only after an explicit, per-session Share
+  action)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
@@ -59,8 +61,9 @@ pnpm typecheck
 pnpm build
 ```
 
-Then manually verify `/cleo` chat, streaming, cancellation, attachments, and
-theme/dock coexistence.
+Then manually verify `/cleo` chat, streaming, cancellation, attachments,
+opt-in location sharing (including denied permission), and theme/dock
+coexistence.
 
 ## Preview deploys
 
