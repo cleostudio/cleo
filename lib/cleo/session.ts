@@ -247,7 +247,7 @@ export function saveCleoSession(
     }
     const raw = serializeCleoSession(messages, nextId, options)
     if (!raw) {
-      window.localStorage.removeItem(CLEO_SESSION_STORAGE_KEY)
+      // Keep any previous snapshot instead of wiping the last good restore.
       return false
     }
     window.localStorage.setItem(CLEO_SESSION_STORAGE_KEY, raw)

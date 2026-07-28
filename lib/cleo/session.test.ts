@@ -1,9 +1,18 @@
-import { describe, expect, it } from 'vitest'
+/** @vitest-environment jsdom */
+
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import {
+  CLEO_SESSION_STORAGE_KEY,
   parseCleoSession,
+  saveCleoSession,
   serializeCleoSession,
 } from './session'
+
+afterEach(() => {
+  window.localStorage.clear()
+  vi.restoreAllMocks()
+})
 
 describe('cleo session persistence', () => {
   it('round-trips a text conversation', () => {
@@ -146,5 +155,33 @@ describe('cleo session persistence', () => {
     const parsed = parseCleoSession(raw!)
     expect(parsed?.messages[2]?.hidden).toBe(true)
     expect(parsed?.messages[0]?.hidden).toBeUndefined()
+  })
+
+  it('keeps the previous snapshot when localStorage write fails', () => {
+    expect(
+      saveCleoSession(
+        [
+          { id: 0, role: 'user', content: 'Keep me' },
+          { id: 1, role: 'assistant', content: 'Okay.' },
+        ],
+        2,
+      ),
+    ).toBe(true)
+    const prior = window.localStorage.getItem(CLEO_SESSION_STORAGE_KEY)
+    expect(prior).toBeTruthy()
+
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('quota exceeded')
+    })
+
+    expect(
+      saveCleoSession(
+        [{ id: 0, role: 'user', content: 'Replacement that cannot save' }],
+        1,
+      ),
+    ).toBe(false)
+
+    vi.mocked(Storage.prototype.setItem).mockRestore()
+    expect(window.localStorage.getItem(CLEO_SESSION_STORAGE_KEY)).toBe(prior)
   })
 })

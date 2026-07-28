@@ -64,10 +64,10 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 
 ## Cleo agent surface
 
-- UI: `components/cleo/ask-form.tsx` owns messages, image attachments,
-  cancellation, and NDJSON stream consumption. The page shell is
-  `app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
-  (`G` then `C`).
+- UI: `components/cleo/ask-form.tsx` owns messages, image attachments
+  (file picker, paste, and drop), cancellation, and NDJSON stream
+  consumption. The page shell is `app/_views/cleo-page.tsx`, reached from the
+  bottom dock via `SayHiIcon` (`G` then `C`).
 - API: `app/api/responses/route.ts` validates messages (including image data
   URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
   `image_generation`, `code_interpreter` (auto/research modes), portal function
@@ -123,8 +123,9 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 Conversation state is browser-only (`localStorage` via `lib/cleo/session.ts`);
 reload restores the last thread (including throttled `inFlight` mid-turn
 drafts), and **New chat** clears it with a turn-epoch guard so late abort
-handlers cannot resurrect the prior thread. There is no authentication,
-database, media library, or AMA booking.
+handlers cannot resurrect the prior thread. Failed saves keep the previous
+snapshot and surface a short notice. There is no authentication, database,
+media library, or AMA booking.
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,

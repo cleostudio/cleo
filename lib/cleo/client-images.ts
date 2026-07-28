@@ -136,3 +136,35 @@ export async function filesToMessageImages(files: FileList | File[]) {
 
   return urls
 }
+
+function isAttachableImageFile(file: File) {
+  const mimeType = file.type === "image/jpg" ? "image/jpeg" : file.type
+  return isAcceptedImageMimeType(mimeType)
+}
+
+/**
+ * Collect image files from a paste or drop DataTransfer. Prefers
+ * `items` (clipboard) and falls back to `files` (OS drag-and-drop).
+ */
+export function imageFilesFromDataTransfer(
+  data: DataTransfer | null | undefined
+): File[] {
+  if (!data) return []
+
+  const fromItems: File[] = []
+  if (data.items && data.items.length > 0) {
+    for (const item of Array.from(data.items)) {
+      if (item.kind !== "file") continue
+      const file = item.getAsFile()
+      if (file && isAttachableImageFile(file)) {
+        fromItems.push(file)
+      }
+    }
+  }
+
+  if (fromItems.length > 0) {
+    return fromItems
+  }
+
+  return Array.from(data.files ?? []).filter(isAttachableImageFile)
+}

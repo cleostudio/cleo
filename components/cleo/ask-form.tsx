@@ -2,6 +2,8 @@
 
 import {
   type ChangeEvent,
+  type ClipboardEvent,
+  type DragEvent,
   type FormEvent,
   useEffect,
   useRef,
@@ -19,6 +21,7 @@ import { ZoomableMessageImage } from '~/components/cleo/zoomable-message-image'
 import {
   filesToMessageImages,
   IMAGE_ACCEPT,
+  imageFilesFromDataTransfer,
   MAX_IMAGES_PER_MESSAGE,
 } from "~/lib/cleo/client-images"
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
@@ -227,9 +230,11 @@ function messageHasVisibleContent(message: Message) {
 
 export function AskForm() {
   const [error, setError] = useState<string | null>(null)
+  const [sessionNotice, setSessionNotice] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isDragOver, setIsDragOver] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [mode, setMode] = useState<CleoMode>("auto")
   const [sessionReady, setSessionReady] = useState(false)
@@ -300,13 +305,28 @@ export function AskForm() {
     }
   }, [mode, sessionReady])
 
+  function reportSessionSave(ok: boolean, messageCount: number) {
+    if (!ok && messageCount > 0) {
+      setSessionNotice(
+        "Couldn't save this chat in the browser. Copy anything you need to keep."
+      )
+      return
+    }
+    if (ok) {
+      setSessionNotice(null)
+    }
+  }
+
   useEffect(() => {
     if (!sessionReady) return
     // Idle saves write the settled thread. Mid-turn saves throttle so a busy
     // token stream still checkpoints instead of endlessly resetting a debounce.
     if (!isSubmitting) {
       lastInFlightSaveAtRef.current = 0
-      saveCleoSession(messages, messageIdRef.current)
+      reportSessionSave(
+        saveCleoSession(messages, messageIdRef.current),
+        messages.length
+      )
       return
     }
 
@@ -315,13 +335,19 @@ export function AskForm() {
       Date.now()
     )
     if (delayMs === 0) {
-      saveCleoSession(messages, messageIdRef.current, { inFlight: true })
+      reportSessionSave(
+        saveCleoSession(messages, messageIdRef.current, { inFlight: true }),
+        messages.length
+      )
       lastInFlightSaveAtRef.current = Date.now()
       return
     }
 
     const timer = window.setTimeout(() => {
-      saveCleoSession(messages, messageIdRef.current, { inFlight: true })
+      reportSessionSave(
+        saveCleoSession(messages, messageIdRef.current, { inFlight: true }),
+        messages.length
+      )
       lastInFlightSaveAtRef.current = Date.now()
     }, delayMs)
     return () => window.clearTimeout(timer)
@@ -432,6 +458,8 @@ export function AskForm() {
     setInput("")
     setPendingImages([])
     setError(null)
+    setSessionNotice(null)
+    setIsDragOver(false)
     setShowJumpToLatest(false)
     messageIdRef.current = 0
     lastInFlightSaveAtRef.current = 0
@@ -481,13 +509,8 @@ export function AskForm() {
     setPendingImages((current) => current.filter((_, i) => i !== index))
   }
 
-  async function handleImageSelection(event: ChangeEvent<HTMLInputElement>) {
-    // FileList is live — copy files before clearing the input so the same
-    // file can be re-selected and the selection is not wiped mid-handler.
-    const selectedFiles = Array.from(event.target.files ?? [])
-    event.target.value = ""
-
-    if (selectedFiles.length === 0) {
+  async function attachImageFiles(files: File[]) {
+    if (isSubmittingRef.current || files.length === 0) {
       return
     }
 
@@ -498,13 +521,19 @@ export function AskForm() {
       return
     }
 
+    const truncated = files.length > remaining
+    const selected = files.slice(0, remaining)
+
     try {
-      const selected = selectedFiles.slice(0, remaining)
       const urls = await filesToMessageImages(selected)
       setPendingImages((current) =>
         [...current, ...urls].slice(0, MAX_IMAGES_PER_MESSAGE)
       )
-      setError(null)
+      setError(
+        truncated
+          ? `Only ${MAX_IMAGES_PER_MESSAGE} images per message — attached the first ${remaining}.`
+          : null
+      )
     } catch (selectionError) {
       setError(
         selectionError instanceof Error
@@ -512,6 +541,58 @@ export function AskForm() {
           : "Could not attach that image."
       )
     }
+  }
+
+  async function handleImageSelection(event: ChangeEvent<HTMLInputElement>) {
+    // FileList is live — copy files before clearing the input so the same
+    // file can be re-selected and the selection is not wiped mid-handler.
+    const selectedFiles = Array.from(event.target.files ?? [])
+    event.target.value = ""
+    await attachImageFiles(selectedFiles)
+  }
+
+  function handlePaste(event: ClipboardEvent<HTMLElement>) {
+    if (isSubmittingRef.current) return
+    const files = imageFilesFromDataTransfer(event.clipboardData)
+    if (files.length === 0) return
+    // Keep default text paste; only consume the clipboard for image files.
+    void attachImageFiles(files)
+  }
+
+  function dataTransferHasFiles(data: DataTransfer | null | undefined) {
+    return Boolean(
+      data && Array.from(data.types ?? []).includes("Files")
+    )
+  }
+
+  function handleDragEnter(event: DragEvent<HTMLFormElement>) {
+    if (isSubmittingRef.current) return
+    if (!dataTransferHasFiles(event.dataTransfer)) return
+    event.preventDefault()
+    setIsDragOver(true)
+  }
+
+  function handleDragOver(event: DragEvent<HTMLFormElement>) {
+    if (isSubmittingRef.current) return
+    if (!dataTransferHasFiles(event.dataTransfer)) return
+    event.preventDefault()
+    event.dataTransfer.dropEffect = "copy"
+    setIsDragOver(true)
+  }
+
+  function handleDragLeave(event: DragEvent<HTMLFormElement>) {
+    const next = event.relatedTarget
+    if (next instanceof Node && event.currentTarget.contains(next)) {
+      return
+    }
+    setIsDragOver(false)
+  }
+
+  function handleDrop(event: DragEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setIsDragOver(false)
+    if (isSubmittingRef.current) return
+    void attachImageFiles(imageFilesFromDataTransfer(event.dataTransfer))
   }
 
   async function sendTurn({
@@ -576,10 +657,10 @@ export function AskForm() {
     setIsSubmitting(true)
     // Immediate mid-turn checkpoint so a reload before the first throttle
     // window still restores Continue.
-    saveCleoSession(
-      [...startingHistory, userMessage, assistantMessage],
-      messageIdRef.current,
-      { inFlight: true }
+    const checkpoint = [...startingHistory, userMessage, assistantMessage]
+    reportSessionSave(
+      saveCleoSession(checkpoint, messageIdRef.current, { inFlight: true }),
+      checkpoint.length
     )
     lastInFlightSaveAtRef.current = Date.now()
 
@@ -943,19 +1024,20 @@ export function AskForm() {
                 ? `cleo-incomplete-${message.id}`
                 : undefined
 
+              const isLiveTurn =
+                isSubmitting && message.id === messages.at(-1)?.id
+
               return (
                 <section
                   aria-label="AI response"
-                  aria-live="polite"
+                  aria-live={isLiveTurn ? "polite" : undefined}
                   className="min-w-0"
                   key={message.id}
                 >
                   {message.activities && message.activities.length > 0 ? (
                     <ActivityPanel
                       activities={message.activities}
-                      isLive={
-                        isSubmitting && message.id === messages.at(-1)?.id
-                      }
+                      isLive={isLiveTurn}
                     />
                   ) : null}
 
@@ -973,15 +1055,10 @@ export function AskForm() {
                   ) : null}
 
                   {message.content ? (
-                    <Markdown
-                      isAnimating={
-                        isSubmitting && message.id === messages.at(-1)?.id
-                      }
-                    >
+                    <Markdown isAnimating={isLiveTurn}>
                       {message.content}
                     </Markdown>
-                  ) : isSubmitting &&
-                    message.id === messages.at(-1)?.id &&
+                  ) : isLiveTurn &&
                     !(message.activities && message.activities.length > 0) &&
                     !(message.images && message.images.length > 0) ? (
                     <ThinkingOrb
@@ -992,7 +1069,7 @@ export function AskForm() {
                     />
                   ) : null}
 
-                  {!(isSubmitting && message.id === messages.at(-1)?.id) &&
+                  {!isLiveTurn &&
                   (message.content || message.incomplete) ? (
                     <div className="cleo-answer-actions">
                       {message.incomplete ? (
@@ -1115,6 +1192,12 @@ export function AskForm() {
           </div>
         ) : null}
 
+        {sessionNotice && !error ? (
+          <p className="cleo-session-notice mb-3 px-4 text-center" role="status">
+            {sessionNotice}
+          </p>
+        ) : null}
+
         <div
           aria-label="Response mode"
           className="cleo-mode-row"
@@ -1171,6 +1254,12 @@ export function AskForm() {
         <form
           aria-busy={isSubmitting}
           className="glass-surface prompt-dock"
+          data-drag-over={isDragOver || undefined}
+          onDragEnter={handleDragEnter}
+          onDragLeave={handleDragLeave}
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
+          onPaste={handlePaste}
           onSubmit={handleSubmit}
         >
           <LiquidGlass />
@@ -1211,13 +1300,14 @@ export function AskForm() {
               type="file"
             />
             <Button
-              aria-label="Attach images"
+              aria-label="Attach images (or paste / drop)"
               className="prompt-dock-attach size-11 shrink-0 rounded-full active:!translate-y-0"
               disabled={
                 isSubmitting || pendingImages.length >= MAX_IMAGES_PER_MESSAGE
               }
               onClick={() => fileInputRef.current?.click()}
               size="icon"
+              title="Attach images — or paste / drop them here"
               type="button"
               variant="ghost"
             >
@@ -1241,6 +1331,7 @@ export function AskForm() {
               value={input}
             />
             <Button
+              aria-keyshortcuts={isSubmitting ? "Escape" : undefined}
               aria-label={isSubmitting ? "Stop generating" : "Send"}
               className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
               disabled={!isSubmitting && !canSubmit}
@@ -1252,6 +1343,7 @@ export function AskForm() {
                     }
               }
               size="icon"
+              title={isSubmitting ? "Stop (Esc)" : "Send"}
               type="button"
             >
               {isSubmitting ? (
