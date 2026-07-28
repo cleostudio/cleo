@@ -219,6 +219,11 @@
   * {
     @apply border-border outline-ring/50;
     }
+  /* Native buttons otherwise retain the browser's default arrow cursor.
+     Specialized controls below override this with their own affordance. */
+  button:not(:disabled) {
+    cursor: pointer;
+    }
   body {
     @apply bg-background text-foreground;
     }
