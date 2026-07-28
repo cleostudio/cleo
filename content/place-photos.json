@@ -18558,5 +18558,933 @@
         "bytes": 419048
       }
     ]
+  },
+  "glasgow": {
+    "featureName": "Glasgow",
+    "alt": "Glasgow in United Kingdom",
+    "caption": "Glasgow, United Kingdom",
+    "photographer": "Acediscovery",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clyde-River-Glasgow-Clyde-Tidal-Weir.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Clyde-River-Glasgow-Clyde-Tidal-Weir.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5f/Clyde-River-Glasgow-Clyde-Tidal-Weir.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "606596b343a60cf1355bb62e3ed13f81e4a2ef834872c0aca4163d6552c9b4aa",
+    "width": 3840,
+    "height": 2811,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/glasgow/w640.jpg",
+        "bytes": 32868
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/glasgow/w1280.jpg",
+        "bytes": 117261
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/glasgow/w2048.jpg",
+        "bytes": 369343
+      }
+    ]
+  },
+  "leeds": {
+    "featureName": "Leeds",
+    "alt": "Leeds in United Kingdom",
+    "caption": "Leeds, United Kingdom",
+    "photographer": "No machine-readable author provided. Jungpionier assumed (based on copyright claims).",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leeds_City_Square.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Leeds City Square.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/82/Leeds_City_Square.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "476094328061ee684d21a550281d1fc2c93e85335f1167470e282fbfe8f9ab78",
+    "width": 1552,
+    "height": 1164,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/leeds/w640.jpg",
+        "bytes": 63827
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/leeds/w1280.jpg",
+        "bytes": 185011
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/leeds/w2048.jpg",
+        "bytes": 299908
+      }
+    ]
+  },
+  "toulouse": {
+    "featureName": "Toulouse",
+    "alt": "Toulouse in France",
+    "caption": "Toulouse, France",
+    "photographer": "chantrybee",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Place_du_Capitole_Toulouse.jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Place du Capitole Toulouse.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/2f/Place_du_Capitole_Toulouse.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bf7dcde3078d4881e1cdcbbf00c41f0b6560d7063b13ca87306eff5c1d83cd0e",
+    "width": 3628,
+    "height": 1668,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/toulouse/w640.jpg",
+        "bytes": 44807
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/toulouse/w1280.jpg",
+        "bytes": 118626
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/toulouse/w2048.jpg",
+        "bytes": 295917
+      }
+    ]
+  },
+  "strasbourg": {
+    "featureName": "Strasbourg",
+    "alt": "Strasbourg in France",
+    "caption": "Strasbourg, France",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Strasbourg_Cathedral_Exterior_-_Diliff.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Strasbourg Cathedral Exterior - Diliff.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7e/Strasbourg_Cathedral_Exterior_-_Diliff.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ab1daed853d0ff97834cb97c368cfc7c684dbe296e92f1ef3970052999469f52",
+    "width": 3840,
+    "height": 4908,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/strasbourg/w640.jpg",
+        "bytes": 89968
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/strasbourg/w1280.jpg",
+        "bytes": 348757
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/strasbourg/w2048.jpg",
+        "bytes": 1055050
+      }
+    ]
+  },
+  "bari": {
+    "featureName": "Bari",
+    "alt": "Bari in Italy",
+    "caption": "Bari, Italy",
+    "photographer": "Acquario51",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bari_-_Lungomare_Nazario_Sauro_-_2023-09-23_20-07-45_002.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bari - Lungomare Nazario Sauro - 2023-09-23 20-07-45 002.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/6a/Bari_-_Lungomare_Nazario_Sauro_-_2023-09-23_20-07-45_002.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ae37df517c2a770820a91526f0da7241717cca48237148fa685c79f51256013e",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/bari/w640.jpg",
+        "bytes": 48071
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/bari/w1280.jpg",
+        "bytes": 184927
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/bari/w2048.jpg",
+        "bytes": 585307
+      }
+    ]
+  },
+  "palermo": {
+    "featureName": "Palermo",
+    "alt": "Palermo in Italy",
+    "caption": "Palermo, Italy",
+    "photographer": "Berthold Werner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palermo_Cathedral_BW_2025-04-29_11-57-44.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Palermo Cathedral BW 2025-04-29 11-57-44.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f4/Palermo_Cathedral_BW_2025-04-29_11-57-44.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "4ca90398c799b214375feb651c1e38639dfedb254880cb76ac35c6dd7f8346a0",
+    "width": 3840,
+    "height": 1825,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/palermo/w640.jpg",
+        "bytes": 37017
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/palermo/w1280.jpg",
+        "bytes": 138553
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/palermo/w2048.jpg",
+        "bytes": 435733
+      }
+    ]
+  },
+  "guayaquil": {
+    "featureName": "Guayaquil Ecuador",
+    "alt": "Guayaquil Ecuador in Ecuador",
+    "caption": "Guayaquil Ecuador, Ecuador",
+    "photographer": "Diegoarielvega",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vista_Barrio_Las_Pe%C3%B1as,_Guayaquil,_Ecuador.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Vista Barrio Las Peñas, Guayaquil, Ecuador.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/9d/Vista_Barrio_Las_Pe%C3%B1as%2C_Guayaquil%2C_Ecuador.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "48493c047488a70941c3ef922960f76e4c1de7a86407e75778dc196e3074d458",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/guayaquil/w640.jpg",
+        "bytes": 59734
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/guayaquil/w1280.jpg",
+        "bytes": 170907
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/guayaquil/w2048.jpg",
+        "bytes": 410170
+      }
+    ]
+  },
+  "surat": {
+    "featureName": "Surat",
+    "alt": "Surat in India",
+    "caption": "Surat, India",
+    "photographer": "Pravega",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cable_Bridge_Surat_India.jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:Cable Bridge Surat India.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7c/Cable_Bridge_Surat_India.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "0049ce830c938a516e62ad80ab6b3c2c23ae4d384e50fbd8dff1c21765bf2d1e",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/surat/w640.jpg",
+        "bytes": 29275
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/surat/w1280.jpg",
+        "bytes": 108250
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/surat/w2048.jpg",
+        "bytes": 333949
+      }
+    ]
+  },
+  "malmo": {
+    "featureName": "Malmö",
+    "alt": "Malmö in Sweden",
+    "caption": "Malmö, Sweden",
+    "photographer": "Arild Vågen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%C3%96resundsbron_October_2017_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Öresundsbron October 2017 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/82/%C3%96resundsbron_October_2017_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "60c44a61f75dbc323e4c749cdfba0902f7a4d9506ede8a62dfb5349849205051",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/malmo/w640.jpg",
+        "bytes": 24108
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/malmo/w1280.jpg",
+        "bytes": 73798
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/malmo/w2048.jpg",
+        "bytes": 199419
+      }
+    ]
+  },
+  "aarhus": {
+    "featureName": "Aarhus",
+    "alt": "Aarhus in Denmark",
+    "caption": "Aarhus, Denmark",
+    "photographer": "Leonora Enking",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aarhus_Cathedral.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Aarhus Cathedral.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/89/Aarhus_Cathedral.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f3dc32e917f7e8a94cd45ef884e97373a61aaf21b42fa0704d5d54e5c48efa28",
+    "width": 1680,
+    "height": 2562,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/aarhus/w640.jpg",
+        "bytes": 132345
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/aarhus/w1280.jpg",
+        "bytes": 429138
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/aarhus/w2048.jpg",
+        "bytes": 662723
+      }
+    ]
+  },
+  "innsbruck": {
+    "featureName": "Innsbruck",
+    "alt": "Innsbruck in Austria",
+    "caption": "Innsbruck, Austria",
+    "photographer": "RobertG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Innsbruck_Goldenes_Dachl.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Innsbruck Goldenes Dachl.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/93/Innsbruck_Goldenes_Dachl.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "bc541153ea5916b90c132af2f1269c5b74e613cba6d695228001281ccbf6d2cc",
+    "width": 2304,
+    "height": 3456,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/innsbruck/w640.jpg",
+        "bytes": 150512
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/innsbruck/w1280.jpg",
+        "bytes": 484206
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/innsbruck/w2048.jpg",
+        "bytes": 1207341
+      }
+    ]
+  },
+  "graz": {
+    "featureName": "Graz",
+    "alt": "Graz in Austria",
+    "caption": "Graz, Austria",
+    "photographer": "Tamirhassan~commonswiki",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:GrazerRathaus-edit.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:GrazerRathaus-edit.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0c/GrazerRathaus-edit.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ee732e630164ece6f493867207fb9883955b07cec7c029f32be4966d32eddc16",
+    "width": 3000,
+    "height": 1980,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/graz/w640.jpg",
+        "bytes": 61890
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/graz/w1280.jpg",
+        "bytes": 158503
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/graz/w2048.jpg",
+        "bytes": 393872
+      }
+    ]
+  },
+  "connecticut": {
+    "featureName": "Connecticut",
+    "alt": "Connecticut in United States",
+    "caption": "Connecticut, United States",
+    "photographer": "Elisa.rolle",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:I_Mystic_Seaport,_CT,_USA_(2).jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:I Mystic Seaport, CT, USA (2).jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a0/I_Mystic_Seaport%2C_CT%2C_USA_%282%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f03ac8be663b4a2938e906548244e56fd3dd0059d9eca49529e2c63105c38f38",
+    "width": 3745,
+    "height": 2507,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/connecticut/w640.jpg",
+        "bytes": 84764
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/connecticut/w1280.jpg",
+        "bytes": 230858
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/connecticut/w2048.jpg",
+        "bytes": 575171
+      }
+    ]
+  },
+  "maine": {
+    "featureName": "Maine",
+    "alt": "Maine in United States",
+    "caption": "Maine, United States",
+    "photographer": "King of Hearts",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bass_Harbor_October_2021_010.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Bass Harbor October 2021 010.jpg); source https://upload.wikimedia.org/wikipedia/commons/9/92/Bass_Harbor_October_2021_010.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "a46620f0983b0f6321aa0641e3b3b23805f18bf61ac17d27ee7e0c0b350a5100",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/maine/w640.jpg",
+        "bytes": 38926
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/maine/w1280.jpg",
+        "bytes": 141250
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/maine/w2048.jpg",
+        "bytes": 434777
+      }
+    ]
+  },
+  "goa": {
+    "featureName": "Goa",
+    "alt": "Goa in India",
+    "caption": "Goa, India",
+    "photographer": "Original: Vyacheslav Argenberg Derivative work: UnpetitproleX",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mandrem_Beach_and_Mandrem_River,_Mandrem,_Goa,_India_(edit).jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Mandrem Beach and Mandrem River, Mandrem, Goa, India (edit).jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7a/Mandrem_Beach_and_Mandrem_River%2C_Mandrem%2C_Goa%2C_India_%28edit%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "f011ccc5c21307006371b81dd15bdae1d60980b22ff96c50dcb0a7e44bad4355",
+    "width": 3840,
+    "height": 2004,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/goa/w640.jpg",
+        "bytes": 39899
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/goa/w1280.jpg",
+        "bytes": 164290
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/goa/w2048.jpg",
+        "bytes": 521487
+      }
+    ]
+  },
+  "guernsey": {
+    "featureName": "Guernsey",
+    "alt": "Guernsey in United Kingdom",
+    "caption": "Guernsey, United Kingdom",
+    "photographer": "Enrapture Media enrapture",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Docks_in_St._Peter_Port,_Guernsey_(Unsplash).jpg",
+    "license": "CC0",
+    "provenance": "Curated from Wikimedia Commons (File:The Docks in St. Peter Port, Guernsey (Unsplash).jpg); source https://upload.wikimedia.org/wikipedia/commons/1/13/The_Docks_in_St._Peter_Port%2C_Guernsey_%28Unsplash%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9bb8eb48aabac181d521e54f93665b65094fe94cb77a1ef83cc2e503f9b4d475",
+    "width": 3840,
+    "height": 2158,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/guernsey/w640.jpg",
+        "bytes": 38844
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/guernsey/w1280.jpg",
+        "bytes": 140101
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/guernsey/w2048.jpg",
+        "bytes": 458536
+      }
+    ]
+  },
+  "shetland": {
+    "featureName": "Shetland",
+    "alt": "Shetland in United Kingdom",
+    "caption": "Shetland, United Kingdom",
+    "photographer": "Andrew Tryon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Summer_Evening_at_Lerwick_Harbour,_Shetland_-_geograph.org.uk_-_5825734.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Summer Evening at Lerwick Harbour, Shetland - geograph.org.uk - 5825734.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/69/Summer_Evening_at_Lerwick_Harbour%2C_Shetland_-_geograph.org.uk_-_5825734.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9dd6df3480204f22cf222a388f00fd8528dbd7f25934a866cd47ce20eb00904d",
+    "width": 2750,
+    "height": 1821,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/shetland/w640.jpg",
+        "bytes": 41478
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/shetland/w1280.jpg",
+        "bytes": 87163
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/shetland/w2048.jpg",
+        "bytes": 199449
+      }
+    ]
+  },
+  "mahe": {
+    "featureName": "Mahé",
+    "alt": "Mahé in Seychelles",
+    "caption": "Mahé, Seychelles",
+    "photographer": "Tobi 87",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anse_Takamaka-Mah%C3%A9-Seychelles.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Anse Takamaka-Mahé-Seychelles.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b7/Anse_Takamaka-Mah%C3%A9-Seychelles.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "6ec993aba382d11de447ab650972380cad5f4c8ef0701fbe39e17aa9f642c2c1",
+    "width": 2736,
+    "height": 3648,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mahe/w640.jpg",
+        "bytes": 104010
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mahe/w1280.jpg",
+        "bytes": 365667
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mahe/w2048.jpg",
+        "bytes": 1004839
+      }
+    ]
+  },
+  "faroe": {
+    "featureName": "Faroe Islands",
+    "alt": "Faroe Islands in Denmark",
+    "caption": "Faroe Islands, Denmark",
+    "photographer": "Felipe Tofani",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waterfall_at_Gasadalur,_Faroe_Islands.jpg",
+    "license": "CC BY-SA 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Waterfall at Gasadalur, Faroe Islands.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/db/Waterfall_at_Gasadalur%2C_Faroe_Islands.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "da8d7f9f6203320424f9f16ac534debdf061430b63aeb5a888564b51ba9b6b2f",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/faroe/w640.jpg",
+        "bytes": 59384
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/faroe/w1280.jpg",
+        "bytes": 215727
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/faroe/w2048.jpg",
+        "bytes": 620890
+      }
+    ]
+  },
+  "korcula": {
+    "featureName": "Korčula",
+    "alt": "Korčula in Croatia",
+    "caption": "Korčula, Croatia",
+    "photographer": "Quintin Soloviev",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kor%C4%8Dula_Old_Town,_Croatia_(2024).jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Korčula Old Town, Croatia (2024).jpg); source https://upload.wikimedia.org/wikipedia/commons/8/83/Kor%C4%8Dula_Old_Town%2C_Croatia_%282024%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "40e37d6c2426a66bd69ee92bf3d185b9c2fc9fffe4d9f4068e6ac74545fc18a7",
+    "width": 3840,
+    "height": 2958,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/korcula/w640.jpg",
+        "bytes": 66331
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/korcula/w1280.jpg",
+        "bytes": 259330
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/korcula/w2048.jpg",
+        "bytes": 807032
+      }
+    ]
+  },
+  "vis": {
+    "featureName": "Vis island",
+    "alt": "Vis island in Croatia",
+    "caption": "Vis island, Croatia",
+    "photographer": "dronepicr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Komiza_on_Vis_island,_Croatia_(48608309188).jpg",
+    "license": "CC BY 2.0",
+    "provenance": "Curated from Wikimedia Commons (File:Aerial view of Komiza on Vis island, Croatia (48608309188).jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1a/Aerial_view_of_Komiza_on_Vis_island%2C_Croatia_%2848608309188%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "97bb36f258867261deb6316699546c22958c16c4a76ef3064ca096ca3425ff17",
+    "width": 3840,
+    "height": 2158,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/vis/w640.jpg",
+        "bytes": 52000
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/vis/w1280.jpg",
+        "bytes": 208209
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/vis/w2048.jpg",
+        "bytes": 643994
+      }
+    ]
+  },
+  "picardy": {
+    "featureName": "Picardy",
+    "alt": "Picardy in France",
+    "caption": "Picardy, France",
+    "photographer": "Diliff",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senlis_Cathedral_Sanctuary,_Picardy,_France_-_Diliff.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:Senlis Cathedral Sanctuary, Picardy, France - Diliff.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/55/Senlis_Cathedral_Sanctuary%2C_Picardy%2C_France_-_Diliff.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "dcf253f3090dd89d48484fcc3a0ea4582aee30449545863fb2441fe381d7b0c1",
+    "width": 3840,
+    "height": 2699,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/picardy/w640.jpg",
+        "bytes": 67782
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/picardy/w1280.jpg",
+        "bytes": 254377
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/picardy/w2048.jpg",
+        "bytes": 767146
+      }
+    ]
+  },
+  "mecklenburg": {
+    "featureName": "Mecklenburg",
+    "alt": "Mecklenburg in Germany",
+    "caption": "Mecklenburg, Germany",
+    "photographer": "Radomianin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baltic_Sea_view_from_Schmiedeberg_hill_in_Rerik,_2025-06-23.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Baltic Sea view from Schmiedeberg hill in Rerik, 2025-06-23.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/ed/Baltic_Sea_view_from_Schmiedeberg_hill_in_Rerik%2C_2025-06-23.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "68d67009877f6f9675ecc8dc9fdd49800070e99a33af0c18eccf14b4e911c632",
+    "width": 3840,
+    "height": 2549,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/mecklenburg/w640.jpg",
+        "bytes": 60592
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/mecklenburg/w1280.jpg",
+        "bytes": 233215
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/mecklenburg/w2048.jpg",
+        "bytes": 696023
+      }
+    ]
+  },
+  "ticino": {
+    "featureName": "Ticino",
+    "alt": "Ticino in Switzerland",
+    "caption": "Ticino, Switzerland",
+    "photographer": "Mænsard vokser",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:W-NW_view_from_summit_Pizzo_Ruscada_2004masl_-_Onsernone,_Locarno,_Ticino,_Switzerland_2022-01-06.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:W-NW view from summit Pizzo Ruscada 2004masl - Onsernone, Locarno, Ticino, Switzerland 2022-01-06.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/ec/W-NW_view_from_summit_Pizzo_Ruscada_2004masl_-_Onsernone%2C_Locarno%2C_Ticino%2C_Switzerland_2022-01-06.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "539c8b7954ba4b1084b1125cbe9c8d7ef0872b3dbff2d7b57800072e63ae6f68",
+    "width": 3648,
+    "height": 2052,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/ticino/w640.jpg",
+        "bytes": 43601
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/ticino/w1280.jpg",
+        "bytes": 114498
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/ticino/w2048.jpg",
+        "bytes": 290764
+      }
+    ]
+  },
+  "hesse": {
+    "featureName": "Hesse",
+    "alt": "Hesse in Germany",
+    "caption": "Hesse, Germany",
+    "photographer": "Nicolas Scheuer",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skyline_Frankfurt_am_Main.jpg",
+    "license": "CC BY-SA 2.5",
+    "provenance": "Curated from Wikimedia Commons (File:Skyline Frankfurt am Main.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/7f/Skyline_Frankfurt_am_Main.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "e9ece8589a3d81fb2c73306022f731640e39d82ac8d0214d371aa2b99cde9740",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/hesse/w640.jpg",
+        "bytes": 44432
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/hesse/w1280.jpg",
+        "bytes": 138769
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/hesse/w2048.jpg",
+        "bytes": 362855
+      }
+    ]
+  },
+  "basilicata": {
+    "featureName": "Basilicata",
+    "alt": "Basilicata in Italy",
+    "caption": "Basilicata, Italy",
+    "photographer": "Benjamin Smith",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maratea_-_Chiesa_dell%27Addolorata_-_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Maratea - Chiesa dell'Addolorata - 1.jpg); source https://upload.wikimedia.org/wikipedia/commons/7/78/Maratea_-_Chiesa_dell%27Addolorata_-_1.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c1c98f94d6a857e3a5aff9c9182529f93b9b9f6b2267584796ebccf82fe5ef61",
+    "width": 3840,
+    "height": 1920,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/basilicata/w640.jpg",
+        "bytes": 30228
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/basilicata/w1280.jpg",
+        "bytes": 116611
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/basilicata/w2048.jpg",
+        "bytes": 419524
+      }
+    ]
+  },
+  "chateau-chambord": {
+    "featureName": "Château de Chambord",
+    "alt": "Château de Chambord in France",
+    "caption": "Château de Chambord, France",
+    "photographer": "Krzysztof Golik",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:North-west_facade_of_the_Castle_of_Chambord_11.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:North-west facade of the Castle of Chambord 11.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/47/North-west_facade_of_the_Castle_of_Chambord_11.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "9e0c86f7374c1706bb6fd81854dda3131783bd2e75f92c4644af7ce7e51ce194",
+    "width": 3840,
+    "height": 2192,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/chateau-chambord/w640.jpg",
+        "bytes": 50666
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/chateau-chambord/w1280.jpg",
+        "bytes": 188958
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/chateau-chambord/w2048.jpg",
+        "bytes": 561207
+      }
+    ]
+  },
+  "prague-castle": {
+    "featureName": "Prague Castle",
+    "alt": "Prague Castle in Czechia",
+    "caption": "Prague Castle, Czechia",
+    "photographer": "BugWarp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Views_of_Prague_Castle_from_Pet%C5%99%C3%ADn_-_BugWarp_01.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Views of Prague Castle from Petřín - BugWarp 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/ca/Views_of_Prague_Castle_from_Pet%C5%99%C3%ADn_-_BugWarp_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "c8d0a8475b4c5562fbe32f893186cf57cb3942ba239ac622852bd5a35d20a59b",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/prague-castle/w640.jpg",
+        "bytes": 40774
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/prague-castle/w1280.jpg",
+        "bytes": 150812
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/prague-castle/w2048.jpg",
+        "bytes": 460478
+      }
+    ]
+  },
+  "borobudur": {
+    "featureName": "Borobudur",
+    "alt": "Borobudur in Indonesia",
+    "caption": "Borobudur, Indonesia",
+    "photographer": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borobudur,_Java,_Indonesia,_20220817_1058_8808.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Borobudur, Java, Indonesia, 20220817 1058 8808.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b2/Borobudur%2C_Java%2C_Indonesia%2C_20220817_1058_8808.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "cec68431b8a9b6cd43751c4baeb41e88faeb0c1348a0abb239d4c6f4596aeaf3",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/borobudur/w640.jpg",
+        "bytes": 65022
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/borobudur/w1280.jpg",
+        "bytes": 246172
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/borobudur/w2048.jpg",
+        "bytes": 712510
+      }
+    ]
+  },
+  "red-fort": {
+    "featureName": "Red Fort Delhi",
+    "alt": "Red Fort Delhi in India",
+    "caption": "Red Fort Delhi, India",
+    "photographer": "Vyacheslav Argenberg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delhi,_India,_Khas_Mahal_2,_Red_Fort.jpg",
+    "license": "CC BY 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Delhi, India, Khas Mahal 2, Red Fort.jpg); source https://upload.wikimedia.org/wikipedia/commons/2/28/Delhi%2C_India%2C_Khas_Mahal_2%2C_Red_Fort.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "ec17ff59b15f3f7872bb4b392d2e652f5fc8adceac886462353ad519a2181a6c",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/red-fort/w640.jpg",
+        "bytes": 45551
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/red-fort/w1280.jpg",
+        "bytes": 137069
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/red-fort/w2048.jpg",
+        "bytes": 369347
+      }
+    ]
+  },
+  "topkapi": {
+    "featureName": "Topkapı Palace",
+    "alt": "Topkapı Palace in Türkiye",
+    "caption": "Topkapı Palace, Türkiye",
+    "photographer": "Moonik",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Topkap%C4%B1_Palace_from_the_Galata_Tower,_Istanbul,_Turkey_001.jpg",
+    "license": "CC BY-SA 3.0",
+    "provenance": "Curated from Wikimedia Commons (File:View of Topkapı Palace from the Galata Tower, Istanbul, Turkey 001.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/08/View_of_Topkap%C4%B1_Palace_from_the_Galata_Tower%2C_Istanbul%2C_Turkey_001.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "87946729b263f54fe781fc46beca20299e96d4bf25528d6a480e8fb4ce52d174",
+    "width": 2803,
+    "height": 4221,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/topkapi/w640.jpg",
+        "bytes": 205502
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/topkapi/w1280.jpg",
+        "bytes": 687471
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/topkapi/w2048.jpg",
+        "bytes": 1873881
+      }
+    ]
+  },
+  "giza": {
+    "featureName": "Pyramids of Giza",
+    "alt": "Pyramids of Giza in Egypt",
+    "caption": "Pyramids of Giza, Egypt",
+    "photographer": "Mona Hassan Abo-Abda",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Giza_Pyramids_during_%22Forever_is_Now%22_exhibition.jpg",
+    "license": "CC BY-SA 4.0",
+    "provenance": "Curated from Wikimedia Commons (File:Giza Pyramids during \"Forever is Now\" exhibition.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e7/Giza_Pyramids_during_%22Forever_is_Now%22_exhibition.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+    "checksum": "3c5854f35824226f1ffc8adcb720b9d8128b60eec7d4d74010b0db8eed6f132f",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "width": 640,
+        "src": "/images/places/giza/w640.jpg",
+        "bytes": 36447
+      },
+      {
+        "width": 1280,
+        "src": "/images/places/giza/w1280.jpg",
+        "bytes": 153818
+      },
+      {
+        "width": 2048,
+        "src": "/images/places/giza/w2048.jpg",
+        "bytes": 522289
+      }
+    ]
   }
 }

@@ -1,0 +1,354 @@
+{
+  "glasgow": {
+    "name": "Glasgow",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Glasgow",
+      "Glasgow United Kingdom",
+      "Glasgow city"
+    ]
+  },
+  "leeds": {
+    "name": "Leeds",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "City",
+    "searchNames": [
+      "Leeds",
+      "Leeds United Kingdom",
+      "Leeds city"
+    ]
+  },
+  "toulouse": {
+    "name": "Toulouse",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Toulouse",
+      "Toulouse France",
+      "Toulouse city"
+    ]
+  },
+  "strasbourg": {
+    "name": "Strasbourg",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "City",
+    "searchNames": [
+      "Strasbourg",
+      "Strasbourg France",
+      "Strasbourg city"
+    ]
+  },
+  "bari": {
+    "name": "Bari",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Bari",
+      "Bari Italy",
+      "Bari city"
+    ]
+  },
+  "palermo": {
+    "name": "Palermo",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "City",
+    "searchNames": [
+      "Palermo",
+      "Palermo Italy",
+      "Palermo city"
+    ]
+  },
+  "guayaquil": {
+    "name": "Guayaquil",
+    "countrySlug": "ecuador",
+    "countryName": "Ecuador",
+    "kind": "City",
+    "searchNames": [
+      "Guayaquil",
+      "Guayaquil Ecuador",
+      "Guayaquil city"
+    ]
+  },
+  "surat": {
+    "name": "Surat",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "City",
+    "searchNames": [
+      "Surat",
+      "Surat India",
+      "Surat city"
+    ]
+  },
+  "malmo": {
+    "name": "Malmö",
+    "countrySlug": "sweden",
+    "countryName": "Sweden",
+    "kind": "City",
+    "searchNames": [
+      "Malmö",
+      "Malmo Sweden",
+      "Turning Torso"
+    ]
+  },
+  "aarhus": {
+    "name": "Aarhus",
+    "countrySlug": "denmark",
+    "countryName": "Denmark",
+    "kind": "City",
+    "searchNames": [
+      "Aarhus",
+      "Århus",
+      "Aarhus Denmark"
+    ]
+  },
+  "innsbruck": {
+    "name": "Innsbruck",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "City",
+    "searchNames": [
+      "Innsbruck",
+      "Innsbruck Austria",
+      "Innsbruck city"
+    ]
+  },
+  "graz": {
+    "name": "Graz",
+    "countrySlug": "austria",
+    "countryName": "Austria",
+    "kind": "City",
+    "searchNames": [
+      "Graz",
+      "Graz Austria",
+      "Graz city"
+    ]
+  },
+  "connecticut": {
+    "name": "Connecticut",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Connecticut",
+      "Connecticut landscape",
+      "Connecticut United States"
+    ]
+  },
+  "maine": {
+    "name": "Maine",
+    "countrySlug": "united-states",
+    "countryName": "United States",
+    "kind": "State",
+    "searchNames": [
+      "Maine",
+      "Maine landscape",
+      "Maine United States"
+    ]
+  },
+  "goa": {
+    "name": "Goa",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "State",
+    "searchNames": [
+      "Goa",
+      "Goa landscape",
+      "Goa India"
+    ]
+  },
+  "guernsey": {
+    "name": "Guernsey",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Guernsey",
+      "Guernsey island",
+      "Guernsey United Kingdom"
+    ]
+  },
+  "shetland": {
+    "name": "Shetland",
+    "countrySlug": "united-kingdom",
+    "countryName": "United Kingdom",
+    "kind": "Island",
+    "searchNames": [
+      "Shetland",
+      "Shetland Islands",
+      "Lerwick"
+    ]
+  },
+  "mahe": {
+    "name": "Mahé",
+    "countrySlug": "seychelles",
+    "countryName": "Seychelles",
+    "kind": "Island",
+    "searchNames": [
+      "Mahé",
+      "Mahe Seychelles",
+      "Victoria Seychelles"
+    ]
+  },
+  "faroe": {
+    "name": "Faroe Islands",
+    "countrySlug": "denmark",
+    "countryName": "Denmark",
+    "kind": "Island",
+    "searchNames": [
+      "Faroe Islands",
+      "Faroes",
+      "Føroyar"
+    ]
+  },
+  "korcula": {
+    "name": "Korčula",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "Island",
+    "searchNames": [
+      "Korčula",
+      "Korcula Croatia",
+      "Korcula old town"
+    ]
+  },
+  "vis": {
+    "name": "Vis",
+    "countrySlug": "croatia",
+    "countryName": "Croatia",
+    "kind": "Island",
+    "searchNames": [
+      "Vis",
+      "Vis island",
+      "Vis Croatia"
+    ]
+  },
+  "picardy": {
+    "name": "Picardy",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Region",
+    "searchNames": [
+      "Picardy",
+      "Picardie",
+      "Amiens Picardy"
+    ]
+  },
+  "mecklenburg": {
+    "name": "Mecklenburg",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Mecklenburg",
+      "Mecklenburg-Vorpommern",
+      "Mecklenburg lakes"
+    ]
+  },
+  "ticino": {
+    "name": "Ticino",
+    "countrySlug": "switzerland",
+    "countryName": "Switzerland",
+    "kind": "Region",
+    "searchNames": [
+      "Ticino",
+      "Ticino Switzerland",
+      "Ticino landscape"
+    ]
+  },
+  "hesse": {
+    "name": "Hesse",
+    "countrySlug": "germany",
+    "countryName": "Germany",
+    "kind": "Region",
+    "searchNames": [
+      "Hesse",
+      "Hesse Germany",
+      "Hesse landscape"
+    ]
+  },
+  "basilicata": {
+    "name": "Basilicata",
+    "countrySlug": "italy",
+    "countryName": "Italy",
+    "kind": "Region",
+    "searchNames": [
+      "Basilicata",
+      "Lucania",
+      "Matera Basilicata"
+    ]
+  },
+  "chateau-chambord": {
+    "name": "Château de Chambord",
+    "countrySlug": "france",
+    "countryName": "France",
+    "kind": "Landmark",
+    "searchNames": [
+      "Château de Chambord",
+      "Chambord",
+      "Chateau Chambord"
+    ]
+  },
+  "prague-castle": {
+    "name": "Prague Castle",
+    "countrySlug": "czechia",
+    "countryName": "Czechia",
+    "kind": "Landmark",
+    "searchNames": [
+      "Prague Castle",
+      "Pražský hrad",
+      "Prague Castle complex"
+    ]
+  },
+  "borobudur": {
+    "name": "Borobudur",
+    "countrySlug": "indonesia",
+    "countryName": "Indonesia",
+    "kind": "Landmark",
+    "searchNames": [
+      "Borobudur",
+      "Borobudur Indonesia",
+      "Borobudur"
+    ]
+  },
+  "red-fort": {
+    "name": "Red Fort",
+    "countrySlug": "india",
+    "countryName": "India",
+    "kind": "Landmark",
+    "searchNames": [
+      "Red Fort",
+      "Lal Qila",
+      "Red Fort Delhi"
+    ]
+  },
+  "topkapi": {
+    "name": "Topkapı Palace",
+    "countrySlug": "turkiye",
+    "countryName": "Türkiye",
+    "kind": "Landmark",
+    "searchNames": [
+      "Topkapı Palace",
+      "Topkapi Palace",
+      "Topkapı"
+    ]
+  },
+  "giza": {
+    "name": "Giza",
+    "countrySlug": "egypt",
+    "countryName": "Egypt",
+    "kind": "Landmark",
+    "searchNames": [
+      "Pyramids of Giza",
+      "Great Pyramid",
+      "Giza Sphinx"
+    ]
+  }
+}

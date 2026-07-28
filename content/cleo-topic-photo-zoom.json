@@ -20039,6 +20039,774 @@
       }
     ]
   },
+  "places/glasgow": {
+    "collection": "places",
+    "title": "Glasgow",
+    "subtitle": "Glasgow",
+    "alt": "Glasgow in United Kingdom",
+    "photographer": "Acediscovery",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2811,
+    "renditions": [
+      {
+        "src": "/images/places/glasgow/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/glasgow/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/glasgow/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/leeds": {
+    "collection": "places",
+    "title": "Leeds",
+    "subtitle": "Leeds",
+    "alt": "Leeds in United Kingdom",
+    "photographer": "No machine-readable author provided. Jungpionier assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "width": 1552,
+    "height": 1164,
+    "renditions": [
+      {
+        "src": "/images/places/leeds/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/leeds/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/leeds/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/toulouse": {
+    "collection": "places",
+    "title": "Toulouse",
+    "subtitle": "Toulouse",
+    "alt": "Toulouse in France",
+    "photographer": "chantrybee",
+    "license": "CC BY 2.0",
+    "width": 3628,
+    "height": 1668,
+    "renditions": [
+      {
+        "src": "/images/places/toulouse/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/toulouse/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/toulouse/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/strasbourg": {
+    "collection": "places",
+    "title": "Strasbourg",
+    "subtitle": "Strasbourg",
+    "alt": "Strasbourg in France",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 4908,
+    "renditions": [
+      {
+        "src": "/images/places/strasbourg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/strasbourg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/strasbourg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/bari": {
+    "collection": "places",
+    "title": "Bari",
+    "subtitle": "Bari",
+    "alt": "Bari in Italy",
+    "photographer": "Acquario51",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/bari/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/bari/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/bari/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/palermo": {
+    "collection": "places",
+    "title": "Palermo",
+    "subtitle": "Palermo",
+    "alt": "Palermo in Italy",
+    "photographer": "Berthold Werner",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1825,
+    "renditions": [
+      {
+        "src": "/images/places/palermo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/palermo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/palermo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/guayaquil": {
+    "collection": "places",
+    "title": "Guayaquil Ecuador",
+    "subtitle": "Guayaquil",
+    "alt": "Guayaquil Ecuador in Ecuador",
+    "photographer": "Diegoarielvega",
+    "license": "CC BY-SA 4.0",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "src": "/images/places/guayaquil/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/guayaquil/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/guayaquil/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/surat": {
+    "collection": "places",
+    "title": "Surat",
+    "subtitle": "Surat",
+    "alt": "Surat in India",
+    "photographer": "Pravega",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/surat/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/surat/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/surat/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/malmo": {
+    "collection": "places",
+    "title": "Malmö",
+    "subtitle": "Malmö",
+    "alt": "Malmö in Sweden",
+    "photographer": "Arild Vågen",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/places/malmo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/malmo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/malmo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/aarhus": {
+    "collection": "places",
+    "title": "Aarhus",
+    "subtitle": "Aarhus",
+    "alt": "Aarhus in Denmark",
+    "photographer": "Leonora Enking",
+    "license": "CC BY-SA 2.0",
+    "width": 1680,
+    "height": 2562,
+    "renditions": [
+      {
+        "src": "/images/places/aarhus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/aarhus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/aarhus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/innsbruck": {
+    "collection": "places",
+    "title": "Innsbruck",
+    "subtitle": "Innsbruck",
+    "alt": "Innsbruck in Austria",
+    "photographer": "RobertG",
+    "license": "CC BY-SA 3.0",
+    "width": 2304,
+    "height": 3456,
+    "renditions": [
+      {
+        "src": "/images/places/innsbruck/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/innsbruck/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/innsbruck/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/graz": {
+    "collection": "places",
+    "title": "Graz",
+    "subtitle": "Graz",
+    "alt": "Graz in Austria",
+    "photographer": "Tamirhassan~commonswiki",
+    "license": "CC BY-SA 3.0",
+    "width": 3000,
+    "height": 1980,
+    "renditions": [
+      {
+        "src": "/images/places/graz/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/graz/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/graz/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/connecticut": {
+    "collection": "places",
+    "title": "Connecticut",
+    "subtitle": "Connecticut",
+    "alt": "Connecticut in United States",
+    "photographer": "Elisa.rolle",
+    "license": "CC BY-SA 4.0",
+    "width": 3745,
+    "height": 2507,
+    "renditions": [
+      {
+        "src": "/images/places/connecticut/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/connecticut/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/connecticut/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/maine": {
+    "collection": "places",
+    "title": "Maine",
+    "subtitle": "Maine",
+    "alt": "Maine in United States",
+    "photographer": "King of Hearts",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2400,
+    "renditions": [
+      {
+        "src": "/images/places/maine/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/maine/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/maine/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/goa": {
+    "collection": "places",
+    "title": "Goa",
+    "subtitle": "Goa",
+    "alt": "Goa in India",
+    "photographer": "Original: Vyacheslav Argenberg Derivative work: UnpetitproleX",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2004,
+    "renditions": [
+      {
+        "src": "/images/places/goa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/goa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/goa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/guernsey": {
+    "collection": "places",
+    "title": "Guernsey",
+    "subtitle": "Guernsey",
+    "alt": "Guernsey in United Kingdom",
+    "photographer": "Enrapture Media enrapture",
+    "license": "CC0",
+    "width": 3840,
+    "height": 2158,
+    "renditions": [
+      {
+        "src": "/images/places/guernsey/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/guernsey/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/guernsey/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/shetland": {
+    "collection": "places",
+    "title": "Shetland",
+    "subtitle": "Shetland",
+    "alt": "Shetland in United Kingdom",
+    "photographer": "Andrew Tryon",
+    "license": "CC BY-SA 2.0",
+    "width": 2750,
+    "height": 1821,
+    "renditions": [
+      {
+        "src": "/images/places/shetland/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/shetland/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/shetland/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mahe": {
+    "collection": "places",
+    "title": "Mahé",
+    "subtitle": "Mahé",
+    "alt": "Mahé in Seychelles",
+    "photographer": "Tobi 87",
+    "license": "CC BY-SA 4.0",
+    "width": 2736,
+    "height": 3648,
+    "renditions": [
+      {
+        "src": "/images/places/mahe/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mahe/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mahe/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/faroe": {
+    "collection": "places",
+    "title": "Faroe Islands",
+    "subtitle": "Faroe Islands",
+    "alt": "Faroe Islands in Denmark",
+    "photographer": "Felipe Tofani",
+    "license": "CC BY-SA 2.0",
+    "width": 3840,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/places/faroe/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/faroe/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/faroe/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/korcula": {
+    "collection": "places",
+    "title": "Korčula",
+    "subtitle": "Korčula",
+    "alt": "Korčula in Croatia",
+    "photographer": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "width": 3840,
+    "height": 2958,
+    "renditions": [
+      {
+        "src": "/images/places/korcula/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/korcula/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/korcula/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/vis": {
+    "collection": "places",
+    "title": "Vis island",
+    "subtitle": "Vis",
+    "alt": "Vis island in Croatia",
+    "photographer": "dronepicr",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2158,
+    "renditions": [
+      {
+        "src": "/images/places/vis/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/vis/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/vis/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/picardy": {
+    "collection": "places",
+    "title": "Picardy",
+    "subtitle": "Picardy",
+    "alt": "Picardy in France",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2699,
+    "renditions": [
+      {
+        "src": "/images/places/picardy/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/picardy/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/picardy/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/mecklenburg": {
+    "collection": "places",
+    "title": "Mecklenburg",
+    "subtitle": "Mecklenburg",
+    "alt": "Mecklenburg in Germany",
+    "photographer": "Radomianin",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2549,
+    "renditions": [
+      {
+        "src": "/images/places/mecklenburg/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/mecklenburg/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/mecklenburg/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/ticino": {
+    "collection": "places",
+    "title": "Ticino",
+    "subtitle": "Ticino",
+    "alt": "Ticino in Switzerland",
+    "photographer": "Mænsard vokser",
+    "license": "CC BY-SA 4.0",
+    "width": 3648,
+    "height": 2052,
+    "renditions": [
+      {
+        "src": "/images/places/ticino/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/ticino/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/ticino/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/hesse": {
+    "collection": "places",
+    "title": "Hesse",
+    "subtitle": "Hesse",
+    "alt": "Hesse in Germany",
+    "photographer": "Nicolas Scheuer",
+    "license": "CC BY-SA 2.5",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/hesse/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/hesse/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/hesse/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/basilicata": {
+    "collection": "places",
+    "title": "Basilicata",
+    "subtitle": "Basilicata",
+    "alt": "Basilicata in Italy",
+    "photographer": "Benjamin Smith",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/places/basilicata/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/basilicata/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/basilicata/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/chateau-chambord": {
+    "collection": "places",
+    "title": "Château de Chambord",
+    "subtitle": "Château de Chambord",
+    "alt": "Château de Chambord in France",
+    "photographer": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2192,
+    "renditions": [
+      {
+        "src": "/images/places/chateau-chambord/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/chateau-chambord/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/chateau-chambord/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/prague-castle": {
+    "collection": "places",
+    "title": "Prague Castle",
+    "subtitle": "Prague Castle",
+    "alt": "Prague Castle in Czechia",
+    "photographer": "BugWarp",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2560,
+    "renditions": [
+      {
+        "src": "/images/places/prague-castle/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/prague-castle/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/prague-castle/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/borobudur": {
+    "collection": "places",
+    "title": "Borobudur",
+    "subtitle": "Borobudur",
+    "alt": "Borobudur in Indonesia",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "src": "/images/places/borobudur/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/borobudur/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/borobudur/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/red-fort": {
+    "collection": "places",
+    "title": "Red Fort Delhi",
+    "subtitle": "Red Fort",
+    "alt": "Red Fort Delhi in India",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/places/red-fort/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/red-fort/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/red-fort/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/topkapi": {
+    "collection": "places",
+    "title": "Topkapı Palace",
+    "subtitle": "Topkapı Palace",
+    "alt": "Topkapı Palace in Türkiye",
+    "photographer": "Moonik",
+    "license": "CC BY-SA 3.0",
+    "width": 2803,
+    "height": 4221,
+    "renditions": [
+      {
+        "src": "/images/places/topkapi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/topkapi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/topkapi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "places/giza": {
+    "collection": "places",
+    "title": "Pyramids of Giza",
+    "subtitle": "Giza",
+    "alt": "Pyramids of Giza in Egypt",
+    "photographer": "Mona Hassan Abo-Abda",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2564,
+    "renditions": [
+      {
+        "src": "/images/places/giza/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/places/giza/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/places/giza/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "space/sun": {
     "collection": "space",
     "title": "Full-disk Sun",

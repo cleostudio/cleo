@@ -14,7 +14,7 @@ import {
 
 describe('place guides', () => {
   it('ships a curated catalog with unique slugs and codes', () => {
-    expect(placeGuides.length).toBeGreaterThanOrEqual(640)
+    expect(placeGuides.length).toBeGreaterThanOrEqual(672)
 
     const slugs = placeGuides.map((place) => place.slug)
     const codes = placeGuides.map((place) => place.code)
@@ -404,6 +404,30 @@ describe('place guides', () => {
     )
     expect(matchPlaceGuideForBlurb('france', 'Chenonceau')?.slug).toBe(
       'chateau-chenonceau',
+    )
+    expect(matchPlaceGuideForBlurb('united-kingdom', 'Glasgow')?.slug).toBe(
+      'glasgow',
+    )
+    expect(matchPlaceGuideForBlurb('denmark', 'Århus')?.slug).toBe('aarhus')
+    expect(matchPlaceGuideForBlurb('india', 'Goa')?.slug).toBe('goa')
+    expect(matchPlaceGuideForBlurb('denmark', 'Faroes')?.slug).toBe('faroe')
+    expect(matchPlaceGuideForBlurb('croatia', 'Korcula')?.slug).toBe('korcula')
+    expect(matchPlaceGuideForBlurb('germany', 'Hessen')?.slug).toBe('hesse')
+    expect(matchPlaceGuideForBlurb('italy', 'Lucania')?.slug).toBe(
+      'basilicata',
+    )
+    expect(matchPlaceGuideForBlurb('france', 'Chambord')?.slug).toBe(
+      'chateau-chambord',
+    )
+    expect(matchPlaceGuideForBlurb('czechia', 'Pražský hrad')?.slug).toBe(
+      'prague-castle',
+    )
+    expect(matchPlaceGuideForBlurb('india', 'Lal Qila')?.slug).toBe('red-fort')
+    expect(matchPlaceGuideForBlurb('turkiye', 'Topkapi Palace')?.slug).toBe(
+      'topkapi',
+    )
+    expect(matchPlaceGuideForBlurb('egypt', 'Great Pyramid')?.slug).toBe(
+      'giza',
     )
   })
 
