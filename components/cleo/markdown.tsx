@@ -7,6 +7,7 @@ import { Streamdown } from "streamdown"
 
 import { PhotoZoomDetails } from "~/components/photo-zoom-details"
 import { ZoomImage } from "~/components/zoom-image"
+import { sanitizePortalMarkdown } from "~/lib/cleo/guardrails"
 import {
   isCuratedTopicImageSrc,
   presentPortalGuideMarkdown,
@@ -107,7 +108,7 @@ export function Markdown({
   className,
   isAnimating = false,
 }: MarkdownProps) {
-  const content = presentPortalGuideMarkdown(children)
+  const content = presentPortalGuideMarkdown(sanitizePortalMarkdown(children))
 
   return (
     <Streamdown

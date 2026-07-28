@@ -1,12 +1,18 @@
 import OpenAI, { APIError } from "openai"
 import type {
   EasyInputMessage,
+  ResponseCreateParamsStreaming,
   ResponseFunctionWebSearch,
   ResponseInput,
   ResponseInputMessageContentList,
   ResponseOutputItem,
   ResponseReasoningItem,
 } from "openai/resources/responses/responses"
+
+/** Create params plus API fields the installed SDK typings still omit. */
+type CleoResponseCreateParams = ResponseCreateParamsStreaming & {
+  max_tool_calls?: number | null
+}
 
 import { promptCacheKeyForConversation } from "~/lib/cleo/conversation-helpers"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
@@ -432,44 +438,45 @@ export async function POST(request: Request) {
   const promptCacheKey = promptCacheKeyForConversation(parsed)
 
   try {
-    const responseStream = await client.responses.create(
-      {
-        model: MODEL,
-        // Output items (encrypted reasoning) are round-tripped; the SDK input
-        // type is slightly narrower than runtime-accepted output.
-        input: input as ResponseInput,
-        instructions,
-        // Keep headroom for reasoning + tools + visible answer.
-        max_output_tokens: 16_384,
-        max_tool_calls: MAX_TOOL_CALLS,
-        // Long threads with encrypted reasoning can overflow; drop oldest items.
-        truncation: "auto",
-        reasoning: {
-          effort: reasoningEffort,
-          summary: "auto",
-          context: "all_turns",
-        },
-        stream: true,
-        text: { verbosity: "medium" },
-        tools: [
-          { type: "web_search" },
-          {
-            type: "image_generation",
-            partial_images: 2,
-            quality: "auto",
-            size: "auto",
-            output_format: "png",
-          },
-        ],
-        prompt_cache_key: promptCacheKey,
-        store: false,
-        include: [
-          "reasoning.encrypted_content",
-          "web_search_call.action.sources",
-        ],
+    const createParams: CleoResponseCreateParams = {
+      model: MODEL,
+      // Output items (encrypted reasoning) are round-tripped; the SDK input
+      // type is slightly narrower than runtime-accepted output.
+      input: input as ResponseInput,
+      instructions,
+      // Keep headroom for reasoning + tools + visible answer.
+      max_output_tokens: 16_384,
+      max_tool_calls: MAX_TOOL_CALLS,
+      // Long threads with encrypted reasoning can overflow; drop oldest items.
+      truncation: "auto",
+      reasoning: {
+        effort: reasoningEffort,
+        summary: "auto",
+        context: "all_turns",
       },
-      { signal: request.signal }
-    )
+      stream: true,
+      text: { verbosity: "medium" },
+      tools: [
+        { type: "web_search" },
+        {
+          type: "image_generation",
+          partial_images: 2,
+          quality: "auto",
+          size: "auto",
+          output_format: "png",
+        },
+      ],
+      prompt_cache_key: promptCacheKey,
+      store: false,
+      include: [
+        "reasoning.encrypted_content",
+        "web_search_call.action.sources",
+      ],
+    }
+
+    const responseStream = await client.responses.create(createParams, {
+      signal: request.signal,
+    })
     const encoder = new TextEncoder()
     const activities = new Map<string, ActivityItem>()
     const reasoningParts = new Map<string, Map<number, string>>()

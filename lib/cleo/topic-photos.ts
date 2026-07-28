@@ -38,19 +38,36 @@ function candidateKey(topic: Pick<TopicCandidate, 'collection' | 'slug'>) {
   return `${topic.collection}/${topic.slug}`
 }
 
+/** Memoized catalog subjects — rebuilt only once per process. */
+let cachedCandidates: TopicCandidate[] | null = null
+/** Longer names first so "Nigeria" wins over "Niger". */
+let cachedCandidatesByName: TopicCandidate[] | null = null
+
 function allCandidates(): TopicCandidate[] {
-  return [
-    ...spaceSubjects.map((subject) => ({
-      collection: 'space' as const,
-      slug: subject.slug,
-      name: subject.name,
-    })),
-    ...countries.map((country) => ({
-      collection: 'explore' as const,
-      slug: country.slug,
-      name: country.name,
-    })),
-  ]
+  if (!cachedCandidates) {
+    cachedCandidates = [
+      ...spaceSubjects.map((subject) => ({
+        collection: 'space' as const,
+        slug: subject.slug,
+        name: subject.name,
+      })),
+      ...countries.map((country) => ({
+        collection: 'explore' as const,
+        slug: country.slug,
+        name: country.name,
+      })),
+    ]
+  }
+  return cachedCandidates
+}
+
+function candidatesByNameLength(): TopicCandidate[] {
+  if (!cachedCandidatesByName) {
+    cachedCandidatesByName = [...allCandidates()].sort(
+      (a, b) => b.name.length - a.name.length,
+    )
+  }
+  return cachedCandidatesByName
 }
 
 function loadTopicPhoto(
@@ -143,9 +160,7 @@ export function matchTopicPhotosInText(text: string): TopicPhoto[] {
     claim(start, end, { collection, slug, name: slug })
   }
 
-  const byName = allCandidates().sort((a, b) => b.name.length - a.name.length)
-
-  for (const candidate of byName) {
+  for (const candidate of candidatesByNameLength()) {
     if (seen.has(candidateKey(candidate))) continue
     const pattern = new RegExp(
       `(?<![\\p{L}\\p{N}])${escapeRegExp(candidate.name)}(?![\\p{L}\\p{N}])`,
