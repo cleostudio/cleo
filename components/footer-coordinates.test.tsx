@@ -3,6 +3,8 @@
 import { act, cleanup, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
+import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
+
 import { FooterCoordinates } from './footer-coordinates'
 
 let originalGeolocation: PropertyDescriptor | undefined
@@ -37,13 +39,20 @@ afterEach(() => {
 })
 
 describe('FooterCoordinates', () => {
-  it('uses a fresh high-accuracy browser position', () => {
+  it('requests a fresh high-accuracy browser position only after location sync is enabled', () => {
     let resolvePosition: PositionCallback | undefined
     const getCurrentPosition = mockGeolocation((success) => {
       resolvePosition = success
     })
 
     const { container } = render(<FooterCoordinates />)
+
+    expect(getCurrentPosition).not.toHaveBeenCalled()
+    expect(screen.getByText('Location unavailable')).not.toBeNull()
+
+    act(() => {
+      setLocationSyncEnabled(true)
+    })
 
     expect(getCurrentPosition).toHaveBeenCalledWith(
       expect.any(Function),
@@ -74,12 +83,42 @@ describe('FooterCoordinates', () => {
     expect(container.textContent).not.toContain('22.4820° N')
   })
 
+  it('clears a pending position when location sync is disabled', () => {
+    let resolvePosition: PositionCallback | undefined
+    const getCurrentPosition = mockGeolocation((success) => {
+      resolvePosition = success
+    })
+
+    render(<FooterCoordinates />)
+
+    act(() => {
+      setLocationSyncEnabled(true)
+    })
+    expect(getCurrentPosition).toHaveBeenCalled()
+
+    act(() => {
+      setLocationSyncEnabled(false)
+      resolvePosition?.({
+        coords: {
+          accuracy: 8,
+          latitude: -33.86882,
+          longitude: 151.2093,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+
+    expect(screen.getByText('Location unavailable')).not.toBeNull()
+    expect(screen.queryByText('33.86882° S')).toBeNull()
+    expect(screen.queryByText('151.20930° E')).toBeNull()
+  })
+
   it('does not display stale coordinates when location access fails', () => {
     let rejectPosition: PositionErrorCallback | undefined
     mockGeolocation((_success, error) => {
       rejectPosition = error
     })
 
+    setLocationSyncEnabled(true)
     render(<FooterCoordinates />)
 
     act(() => {

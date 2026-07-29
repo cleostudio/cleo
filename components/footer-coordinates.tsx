@@ -2,6 +2,11 @@
 
 import { useEffect, useState } from 'react'
 
+import {
+  isLocationSyncEnabled,
+  subscribeToLocationSync,
+} from '~/lib/cleo/location-preference'
+
 type Coordinates = {
   accuracy: number
   latitude: number
@@ -26,41 +31,53 @@ function accuracyDescription(accuracy: number) {
 
 export function FooterCoordinates() {
   const [coordinates, setCoordinates] = useState<Coordinates | null>(null)
-  const [isLocating, setIsLocating] = useState(true)
+  const [isLocating, setIsLocating] = useState(false)
 
   useEffect(() => {
     let isCurrent = true
+    let requestId = 0
 
-    if (!('geolocation' in navigator)) {
-      setIsLocating(false)
-      return () => {
-        isCurrent = false
+    const syncLocation = (enabled: boolean) => {
+      requestId += 1
+      const currentRequestId = requestId
+
+      if (!enabled || !('geolocation' in navigator)) {
+        setCoordinates(null)
+        setIsLocating(false)
+        return
+      }
+
+      setCoordinates(null)
+      setIsLocating(true)
+
+      try {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            if (!isCurrent || requestId !== currentRequestId) return
+
+            setCoordinates({
+              accuracy: position.coords.accuracy,
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+            })
+            setIsLocating(false)
+          },
+          () => {
+            if (isCurrent && requestId === currentRequestId) setIsLocating(false)
+          },
+          locationOptions,
+        )
+      } catch {
+        if (isCurrent && requestId === currentRequestId) setIsLocating(false)
       }
     }
 
-    try {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          if (!isCurrent) return
-
-          setCoordinates({
-            accuracy: position.coords.accuracy,
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          })
-          setIsLocating(false)
-        },
-        () => {
-          if (isCurrent) setIsLocating(false)
-        },
-        locationOptions,
-      )
-    } catch {
-      setIsLocating(false)
-    }
+    syncLocation(isLocationSyncEnabled())
+    const unsubscribe = subscribeToLocationSync(syncLocation)
 
     return () => {
       isCurrent = false
+      unsubscribe()
     }
   }, [])
 
