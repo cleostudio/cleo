@@ -98,8 +98,8 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   persisted in browser storage and disabled by default. When enabled,
   `lib/cleo/client-location.ts` requests one fresh high-accuracy browser
   position; `components/cleo/ask-form.tsx` includes it and the IANA time zone
-  with each request. Turning the switch off clears the in-memory location
-  immediately.
+  with each request, and `components/footer-coordinates.tsx` may render it.
+  Turning the switch off clears in-memory location immediately.
   `lib/cleo/location.ts` validates coordinates, accuracy, and time zone
   server-side, then adds them only to private per-turn instructions, never
   visible messages. Browser location settings remain the control for granting

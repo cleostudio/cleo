@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { act, cleanup, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
 
@@ -27,8 +27,13 @@ function mockGeolocation(
   return getCurrentPosition
 }
 
+beforeEach(() => {
+  window.localStorage.clear()
+})
+
 afterEach(() => {
   cleanup()
+  window.localStorage.clear()
   if (originalGeolocation) {
     Object.defineProperty(navigator, 'geolocation', originalGeolocation)
   } else {
