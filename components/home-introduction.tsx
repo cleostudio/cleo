@@ -240,7 +240,7 @@ function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName={`link-card home-intro-preview-card home-intro-gallery-card${image ? ' link-card-with-image' : ''}`}
+      popupClassName={`link-card home-intro-gallery-card${image ? ' link-card-with-image' : ''}`}
       popup={
         <>
           {image && (
@@ -254,7 +254,6 @@ function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
                 height={133}
                 loading="eager"
               />
-              <span className="home-intro-gallery-figure">FIG. 01</span>
             </span>
           )}
           <span className="link-card-site">
@@ -288,7 +287,7 @@ function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName="link-card home-intro-preview-card home-intro-search-card"
+      popupClassName="link-card home-intro-search-card"
       popup={
         <span className="home-intro-search-body" aria-hidden>
           <span className="home-intro-search-field">
@@ -306,7 +305,6 @@ function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
               </span>
             ))}
           </span>
-          <span className="home-intro-search-foot">{rows.length} suggestions</span>
         </span>
       }
     >
@@ -323,7 +321,7 @@ function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName="link-card home-intro-preview-card service-card home-intro-topics-card"
+      popupClassName="link-card service-card home-intro-topics-card"
       popup={
         <>
           <span className="service-card-head">
@@ -337,10 +335,6 @@ function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
               <span className="service-card-sub">
                 <T zh="目录" en="catalog" />
               </span>
-            </span>
-            <span className="home-intro-topics-register" aria-hidden>
-              <span>C</span>
-              <span>S</span>
             </span>
           </span>
           <span className="service-card-bio">
@@ -371,7 +365,7 @@ function ExplorePreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName="link-card home-intro-preview-card home-intro-folio-card"
+      popupClassName="link-card home-intro-folio-card"
       popup={
         <span className="home-intro-folio" aria-hidden>
           <span className="home-intro-folio-stamp">
@@ -399,10 +393,7 @@ function ExplorePreviewCard({ children }: { children: React.ReactNode }) {
               />
             </svg>
           </span>
-          <span className="home-intro-folio-itinerary">
-            <span className="home-intro-folio-itinerary-label">COUNTRY INDEX</span>
-            <span className="home-intro-folio-itinerary-count">{countries.length} entries</span>
-          </span>
+          <span className="home-intro-folio-itinerary" />
           <span className="home-intro-folio-map" />
           <span className="home-intro-folio-label">
             <T zh="探索" en="Explore" />
@@ -426,7 +417,7 @@ function AskCleoPreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={120}
       side="top"
-      popupClassName="link-card home-intro-preview-card email-envelope-card"
+      popupClassName="link-card email-envelope-card"
       popup={
         <span className="email-envelope" aria-hidden>
           <span className="email-envelope-flap" />

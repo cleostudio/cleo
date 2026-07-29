@@ -168,20 +168,13 @@ Linked phrases use the shared `SitePreviewCard` primitive, but each popup is a
 distinct small object:
 
 - photographs → Gallery: image-led `.link-card-with-image` (curated place JPEG,
-  site line, title, and a quiet figure chip; no description)
-- catalog → homepage search: outlined field, cascading ruled result rows, and a
-  small suggestion count
-- Topics: `.service-card` identity head, bio, tally foot, and a two-cell
-  collections register
+  site line and title; no description)
+- catalog → homepage search: outlined field and cascading ruled result rows
+- Topics: `.service-card` identity head, bio, and tally foot
 - Explore: travel-folio object card (stamp, itinerary, map) with a quiet layer
-  settle; the itinerary is a labeled country-index slip
+  settle
 - Ask Cleo: `.email-envelope-card` physical note (FROM / stamps / TO) with a
   single letter reveal and question heading
-
-Home previews share a compact 200ms swift lift (4px on entry) so they read as
-one family without flattening their different object forms. Internal content
-develops in the same brief cadence; reduced motion renders each settled card
-without a transform.
 
 Fine-pointer hover opens the card; touch falls back to the plain destination
 link. Cards stay informational only (`pointer-events: none` on the plate).

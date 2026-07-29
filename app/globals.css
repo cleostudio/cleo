@@ -3326,37 +3326,9 @@ a:focus-visible .external-label .external-mark {
 
 /* Homepage intro preview cards — distinct bodies, cali.so-style species */
 
-.link-card.home-intro-preview-card[data-starting-style] {
-  transform: translateY(4px) scale(0.96);
-}
-
-.link-card.home-intro-preview-card[data-ending-style] {
-  transform: translateY(2px) scale(0.98);
-}
-
 .home-intro-gallery-image {
   transform: scale(1);
   transition: transform 300ms var(--ease-spring);
-}
-
-.home-intro-gallery-card .link-card-image-frame {
-  position: relative;
-}
-
-.home-intro-gallery-figure {
-  position: absolute;
-  bottom: 0.375rem;
-  left: 0.375rem;
-  padding: 0.125rem 0.2rem;
-  color: var(--paper-ink);
-  background: color-mix(in oklab, var(--paper) 88%, transparent);
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  transition:
-    opacity 200ms var(--ease-swift),
-    transform 200ms var(--ease-swift);
 }
 
 .home-intro-gallery-card .link-card-site,
@@ -3374,7 +3346,6 @@ a:focus-visible .external-label .external-mark {
   transform: scale(1.04);
 }
 
-.home-intro-gallery-card[data-starting-style] .home-intro-gallery-figure,
 .home-intro-gallery-card[data-starting-style] .link-card-site,
 .home-intro-gallery-card[data-starting-style] .link-card-title {
   opacity: 0;
@@ -3442,22 +3413,6 @@ a:focus-visible .external-label .external-mark {
   font-size: 0.6875rem;
 }
 
-.home-intro-search-foot {
-  padding-inline: 0.1rem;
-  color: var(--muted-foreground);
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.08em;
-  transition:
-    opacity 200ms var(--ease-swift),
-    transform 200ms var(--ease-swift);
-}
-
-.home-intro-search-card[data-starting-style] .home-intro-search-foot {
-  opacity: 0;
-  transform: translateY(2px);
-}
-
 @keyframes home-intro-search-row-in {
   from {
     opacity: 0;
@@ -3490,28 +3445,6 @@ a:focus-visible .external-label .external-mark {
   transition: transform 200ms var(--ease-swift);
 }
 
-.home-intro-topics-register {
-  display: flex;
-  gap: 0.125rem;
-  margin-left: auto;
-  color: var(--muted-foreground);
-  font-family: var(--font-mono);
-  font-size: 0.5625rem;
-  letter-spacing: 0.04em;
-  transition:
-    opacity 200ms var(--ease-swift),
-    transform 200ms var(--ease-swift);
-}
-
-.home-intro-topics-register > span {
-  display: grid;
-  width: 1rem;
-  height: 1rem;
-  place-items: center;
-  border: var(--border-hairline) solid var(--border);
-  background: color-mix(in oklab, var(--foreground) 3%, transparent);
-}
-
 .home-intro-topics-card[data-starting-style] .service-card-head,
 .home-intro-topics-card[data-starting-style] .service-card-bio,
 .home-intro-topics-card[data-starting-style] .service-card-stat {
@@ -3521,11 +3454,6 @@ a:focus-visible .external-label .external-mark {
 
 .home-intro-topics-card[data-starting-style] .service-card-avatar {
   transform: scale(0.92);
-}
-
-.home-intro-topics-card[data-starting-style] .home-intro-topics-register {
-  opacity: 0;
-  transform: translateY(2px);
 }
 
 .home-intro-folio-card {
@@ -3556,30 +3484,16 @@ a:focus-visible .external-label .external-mark {
 .home-intro-folio-itinerary {
   grid-row: 1;
   grid-column: 2;
-  display: flex;
   align-self: center;
   height: 2.15rem;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.15rem;
-  padding-inline: 0.45rem;
   border-radius: 2px;
-  background: color-mix(in oklab, var(--foreground) 4%, transparent);
-  box-shadow: inset 0 0 0 var(--border-hairline) color-mix(in oklab, var(--foreground) 10%, transparent);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 0.45rem,
+      color-mix(in oklab, var(--foreground) 14%, transparent) 0.45rem 0.52rem
+    );
   opacity: 0.85;
-}
-
-.home-intro-folio-itinerary-label {
-  color: var(--muted-foreground);
-  font-family: var(--font-mono);
-  font-size: 0.5625rem;
-  letter-spacing: 0.08em;
-}
-
-.home-intro-folio-itinerary-count {
-  color: var(--foreground);
-  font-size: 0.6875rem;
-  font-variant-numeric: tabular-nums;
 }
 
 .home-intro-folio-map {
@@ -4099,16 +4013,10 @@ a:focus-visible .external-label .external-mark {
   opacity: 0.68;
 }
 
-.link-card.home-intro-preview-card.preview-card-instant {
-  transform: none;
-  transition: none;
-}
-
 .link-card.preview-card-instant .home-intro-gallery-image,
-.link-card.preview-card-instant .home-intro-gallery-figure,
 .link-card.preview-card-instant.home-intro-gallery-card :is(.link-card-site, .link-card-title),
-.link-card.preview-card-instant :is(.home-intro-search-row, .home-intro-search-foot),
-.link-card.preview-card-instant.home-intro-topics-card :is(.service-card-head, .service-card-avatar, .service-card-bio, .service-card-stat, .home-intro-topics-register),
+.link-card.preview-card-instant .home-intro-search-row,
+.link-card.preview-card-instant.home-intro-topics-card :is(.service-card-head, .service-card-avatar, .service-card-bio, .service-card-stat),
 .link-card.preview-card-instant .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
 .link-card.preview-card-instant .email-envelope-letter {
   animation: none;
@@ -4116,26 +4024,18 @@ a:focus-visible .external-label .external-mark {
   transform: none;
 }
 
-.link-card.preview-card-instant .home-intro-gallery-figure,
 .link-card.preview-card-instant.home-intro-gallery-card :is(.link-card-site, .link-card-title),
-.link-card.preview-card-instant .home-intro-search-foot,
-.link-card.preview-card-instant.home-intro-topics-card :is(.service-card-head, .service-card-bio, .service-card-stat, .home-intro-topics-register),
+.link-card.preview-card-instant.home-intro-topics-card :is(.service-card-head, .service-card-bio, .service-card-stat),
 .link-card.preview-card-instant .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
 .link-card.preview-card-instant .email-envelope-letter {
   opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .link-card.home-intro-preview-card {
-    transition: none;
-    transform: none;
-  }
-
   .home-intro-gallery-image,
-  .home-intro-gallery-figure,
   .home-intro-gallery-card :is(.link-card-site, .link-card-title),
-  :is(.home-intro-search-row, .home-intro-search-foot),
-  .home-intro-topics-card :is(.service-card-head, .service-card-avatar, .service-card-bio, .service-card-stat, .home-intro-topics-register),
+  .home-intro-search-row,
+  .home-intro-topics-card :is(.service-card-head, .service-card-avatar, .service-card-bio, .service-card-stat),
   .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
   .email-envelope-letter {
     animation: none;
@@ -4143,10 +4043,8 @@ a:focus-visible .external-label .external-mark {
     transform: none;
   }
 
-  .home-intro-gallery-figure,
   .home-intro-gallery-card :is(.link-card-site, .link-card-title),
-  .home-intro-search-foot,
-  .home-intro-topics-card :is(.service-card-head, .service-card-bio, .service-card-stat, .home-intro-topics-register),
+  .home-intro-topics-card :is(.service-card-head, .service-card-bio, .service-card-stat),
   .home-intro-folio :is(.home-intro-folio-stamp, .home-intro-folio-itinerary, .home-intro-folio-map, .home-intro-folio-label),
   .email-envelope-letter {
     opacity: 1;
