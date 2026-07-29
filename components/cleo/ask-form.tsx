@@ -32,6 +32,7 @@ import {
 } from "~/lib/cleo/conversation-helpers"
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
 import type { EncryptedReasoningItem } from "~/lib/cleo/reasoning-items"
+import { isDocumentNearBottom } from "~/lib/cleo/stick-to-bottom"
 import {
   type ActivityItem,
   type MessageImage,
@@ -276,6 +277,7 @@ export function AskForm() {
   const isSubmittingRef = useRef(false)
   const mountedRef = useRef(true)
   const stickToBottomRef = useRef(true)
+  const lastScrollYRef = useRef(0)
 
   const hasMessages = messages.some((message) => !message.hidden)
   const lastVisibleMessage = [...messages]
@@ -293,16 +295,34 @@ export function AskForm() {
   }, [messages])
 
   useEffect(() => {
-    const onScroll = () => {
-      const end = messagesEndRef.current
-      if (!end) return
-      const rect = end.getBoundingClientRect()
-      // Stick while the clearance spacer is near the viewport bottom.
-      stickToBottomRef.current = rect.top < window.innerHeight + 120
+    lastScrollYRef.current = window.scrollY
+
+    const syncStickToBottom = () => {
+      const scrollY = window.scrollY
+      const nearBottom = isDocumentNearBottom(
+        scrollY,
+        window.innerHeight,
+        document.documentElement.scrollHeight,
+      )
+
+      // Auto-follow only scrolls downward. Any upward move is the user
+      // reading back — unstick even on short pages where "near bottom" is
+      // otherwise always true.
+      if (scrollY + 8 < lastScrollYRef.current) {
+        stickToBottomRef.current = false
+      } else if (nearBottom) {
+        stickToBottomRef.current = true
+      }
+
+      lastScrollYRef.current = scrollY
     }
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
+
+    window.addEventListener("scroll", syncStickToBottom, { passive: true })
+    window.addEventListener("resize", syncStickToBottom)
+    return () => {
+      window.removeEventListener("scroll", syncStickToBottom)
+      window.removeEventListener("resize", syncStickToBottom)
+    }
   }, [])
 
   useEffect(() => {
@@ -311,6 +331,9 @@ export function AskForm() {
       block: "end",
       behavior: "instant",
     })
+    // Keep the baseline in sync so the follow-scroll itself is not read as
+    // a user gesture on the next event.
+    lastScrollYRef.current = window.scrollY
   }, [hasMessages, scrollTick])
 
   useEffect(() => {
