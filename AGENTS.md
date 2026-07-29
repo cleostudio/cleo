@@ -18,11 +18,12 @@ length, recycled phrasing, and volatile claims before it is kept). The site
 never calls a model to render a page. `lib/atlas/prose.test.ts` holds the
 corpus to that bar — no sentence may appear in two countries.
 
-Assemble the manifest with `pnpm generate:atlas-content`, curate accurate
-Wikimedia Commons place photos with `pnpm curate:atlas-photos`, then import
-optimized local JPEG renditions with `pnpm import:atlas-photos`. Validate with
-`pnpm validate:atlas`. After atlas or space photo imports change caption or
-rendition metadata, refresh Cleo’s slim zoom index with
+Assemble the manifest with `pnpm generate:atlas-content`, curate three distinct,
+accurate Wikimedia Commons place photos per country with
+`pnpm curate:atlas-photos`, fill conservative search gaps with the reviewed
+`pnpm apply:atlas-handpicks`, then import optimized local JPEG renditions with
+`pnpm import:atlas-photos`. Validate with `pnpm validate:atlas`. After atlas or
+space photo imports change caption or rendition metadata, refresh Cleo’s slim zoom index with
 `pnpm generate:cleo-topic-photo-zoom`. Originals stay in `.atlas-originals/` (gitignored);
 public assets are under `public/images/atlas/{slug}/` and are served as static
 files with browser `srcset` — no account, CDN, or `/_next/image` re-encode at
@@ -30,10 +31,11 @@ runtime.
 
 Space field guides live in `lib/space.ts` (Solar System, Moons, Deep Space —
 planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
-`/space/[slug]`. Curated NASA photographs are imported with
-`pnpm import:space-photos` into `public/images/space/{slug}/` and
-`content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
-at `/gallery` shows both Explore place photos and Space body photos.
+`/space/[slug]`. Curate the reviewed three-image NASA set with
+`pnpm curate:space-photos`, then import it with `pnpm import:space-photos`
+into `public/images/space/{slug}/` and `content/space-photos.json`; validate
+with `pnpm validate:space`. The Gallery at `/gallery` shows every curated
+Explore place and Space body photograph.
 The Topics catalog in `lib/topics.ts` lists Countries and Space.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the

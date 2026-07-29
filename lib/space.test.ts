@@ -26,11 +26,16 @@ describe('space subjects', () => {
       expect(subject.sources.length).toBeGreaterThanOrEqual(1)
       expect(subject.facts.kind).toBeTruthy()
       expect(subject.facts.system).toBeTruthy()
-      expect(subject.photo.renditions).toHaveLength(3)
-      expect(subject.photo.renditions.every((r) => r.src.startsWith('/images/space/'))).toBe(
-        true,
-      )
-      expect(subject.photo.license).toContain('NASA')
+      expect(subject.photos).toHaveLength(3)
+      expect(new Set(subject.photos.map((photo) => photo.nasaId)).size).toBe(3)
+      expect(
+        subject.photos.every(
+          (photo) =>
+            photo.renditions.length === 3 &&
+            photo.renditions.every((rendition) => rendition.src.startsWith('/images/space/')),
+        ),
+      ).toBe(true)
+      expect(subject.photos.every((photo) => photo.license.includes('NASA'))).toBe(true)
       expect(getSpaceSubject(subject.slug)).toEqual(subject)
     }
   })

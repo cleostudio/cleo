@@ -1,0 +1,322 @@
+{
+  "somalia": [
+    {
+      "placeName": "Laas Geel",
+      "countryName": "Somalia",
+      "code": "SO",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Somaliland%2C_Las_Geel_Caves_%2828983073823%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Somaliland,_Las_Geel_Caves_(28983073823).jpg",
+      "photographer": "Clay Gilliland from Chandler, U.S.A.",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Somaliland, Las Geel Caves (28983073823).jpg",
+      "width": 4608,
+      "height": 3456,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Laas Geel",
+      "countryName": "Somalia",
+      "code": "SO",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Laas_Geel_rock_paintings.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laas_Geel_rock_paintings.JPG",
+      "photographer": "Theodor Hoffsten",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Laas Geel rock paintings.JPG",
+      "width": 3648,
+      "height": 2736,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "south-sudan": [
+    {
+      "placeName": "Nimule National Park",
+      "countryName": "South Sudan",
+      "code": "SS",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/The_view_of_River_Nile_from_REI_residential_areas_in_nimule_Game_Park.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_view_of_River_Nile_from_REI_residential_areas_in_nimule_Game_Park.jpg",
+      "photographer": "Bior ajang",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:The view of River Nile from REI residential areas in nimule Game Park.jpg",
+      "width": 4000,
+      "height": 3000,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Juba",
+      "countryName": "South Sudan",
+      "code": "SS",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Juba_City.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Juba_City.jpg",
+      "photographer": "Rigan123",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Juba City.jpg",
+      "width": 4864,
+      "height": 2736,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "sudan": [
+    {
+      "placeName": "Jebel Barkal",
+      "countryName": "Sudan",
+      "code": "SD",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Jebel_Barkal_%2834292845132%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jebel_Barkal_(34292845132).jpg",
+      "photographer": "Hans Birger Nilsen",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Jebel Barkal (34292845132).jpg",
+      "width": 3740,
+      "height": 2307,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Jebel Barkal",
+      "countryName": "Sudan",
+      "code": "SD",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/The_temple_by_the_foot_of_Jebel_Barkal_%2834252587662%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_temple_by_the_foot_of_Jebel_Barkal_(34252587662).jpg",
+      "photographer": "Hans Birger Nilsen",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:The temple by the foot of Jebel Barkal (34252587662).jpg",
+      "width": 2902,
+      "height": 1769,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "sweden": [
+    {
+      "placeName": "Icehotel Region",
+      "countryName": "Sweden",
+      "code": "SE",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Icehotel-se-01.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Icehotel-se-01.JPG",
+      "photographer": "Stephan Herz ( User:Stephan_Herz )",
+      "license": "CC BY 2.5",
+      "commonsTitle": "File:Icehotel-se-01.JPG",
+      "width": 3072,
+      "height": 2048,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Gotland",
+      "countryName": "Sweden",
+      "code": "SE",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/F%C3%A5r%C3%B6_July_2019_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:F%C3%A5r%C3%B6_July_2019_01.jpg",
+      "photographer": "Arild Vågen",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Fårö July 2019 01.jpg",
+      "width": 7068,
+      "height": 3976,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "switzerland": [
+    {
+      "placeName": "Jungfrau Region",
+      "countryName": "Switzerland",
+      "code": "CH",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Gimmelwald-Gr%C3%BCtschalp_29.07.2009_16-04-06.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gimmelwald-Gr%C3%BCtschalp_29.07.2009_16-04-06.JPG",
+      "photographer": "Hansueli Krapf",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Gimmelwald-Grütschalp 29.07.2009 16-04-06.JPG",
+      "width": 4213,
+      "height": 2848,
+      "assessments": "featured|poty",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Lake Geneva",
+      "countryName": "Switzerland",
+      "code": "CH",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Lake_Geneva_from_Chillon_Castle.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Geneva_from_Chillon_Castle.jpg",
+      "photographer": "Dmitry A. Mottl",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Lake Geneva from Chillon Castle.jpg",
+      "width": 5437,
+      "height": 3625,
+      "assessments": "quality|featured",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "tajikistan": [
+    {
+      "placeName": "Iskanderkul",
+      "countryName": "Tajikistan",
+      "code": "TJ",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Iskanderkul.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iskanderkul.jpg",
+      "photographer": "Marat Nadjibaev",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Iskanderkul.jpg",
+      "width": 8192,
+      "height": 4608,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Iskanderkul",
+      "countryName": "Tajikistan",
+      "code": "TJ",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Iskanderkul_and_Fann_Mountains.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iskanderkul_and_Fann_Mountains.jpg",
+      "photographer": "Adam Harangozó",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Iskanderkul and Fann Mountains.jpg",
+      "width": 6000,
+      "height": 4000,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "tonga": [
+    {
+      "placeName": "Ha'amonga 'a Maui",
+      "countryName": "Tonga",
+      "code": "TO",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Ha%27amonga_%27a_Maui2.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ha%27amonga_%27a_Maui2.jpg",
+      "photographer": "Sarah Kelemen",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Ha'amonga 'a Maui2.jpg",
+      "width": 3648,
+      "height": 2736,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Ha'amonga 'a Maui",
+      "countryName": "Tonga",
+      "code": "TO",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Ha%CA%BBamonga_%CA%BBa_Maui_-_2012.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ha%CA%BBamonga_%CA%BBa_Maui_-_2012.jpg",
+      "photographer": "Vilimaka Foliaki",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Haʻamonga ʻa Maui - 2012.jpg",
+      "width": 3264,
+      "height": 2448,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "trinidad-and-tobago": [
+    {
+      "placeName": "Tobago Main Ridge",
+      "countryName": "Trinidad and Tobago",
+      "code": "TT",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Tobago_-_August_2013_%281530%29.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tobago_-_August_2013_(1530).JPG",
+      "photographer": "Kalamazadkhan",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Tobago - August 2013 (1530).JPG",
+      "width": 2641,
+      "height": 2113,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Pitch Lake",
+      "countryName": "Trinidad and Tobago",
+      "code": "TT",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/STAPP_102_La_Brea_Pitch_Lake.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:STAPP_102_La_Brea_Pitch_Lake.jpg",
+      "photographer": "Grueslayer",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:STAPP 102 La Brea Pitch Lake.jpg",
+      "width": 3840,
+      "height": 2178,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "turkmenistan": [
+    {
+      "placeName": "Ancient Merv",
+      "countryName": "Turkmenistan",
+      "code": "TM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Merv_City_Walls_%281%29_%2844747335984%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Merv_City_Walls_(1)_(44747335984).jpg",
+      "photographer": "Hans Birger Nilsen",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Merv City Walls (1) (44747335984).jpg",
+      "width": 4000,
+      "height": 2590,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Yangykala Canyon",
+      "countryName": "Turkmenistan",
+      "code": "TM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Yangykala_Canyon_%2842372438192%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yangykala_Canyon_(42372438192).jpg",
+      "photographer": "John Pavelka from Austin, TX, USA",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Yangykala Canyon (42372438192).jpg",
+      "width": 5472,
+      "height": 3648,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "uzbekistan": [
+    {
+      "placeName": "Historic Bukhara",
+      "countryName": "Uzbekistan",
+      "code": "UZ",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Ark_of_Bukhara_%28%D0%A6%D0%B8%D1%82%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C_%D0%90%D1%80%D0%BA._Buxoro_arki%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ark_of_Bukhara_(%D0%A6%D0%B8%D1%82%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C_%D0%90%D1%80%D0%BA._Buxoro_arki).jpg",
+      "photographer": "Petar Milošević",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Ark of Bukhara (Цитадель Арк. Buxoro arki).jpg",
+      "width": 7136,
+      "height": 4707,
+      "assessments": "quality|featured",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Khiva Itchan Kala",
+      "countryName": "Uzbekistan",
+      "code": "UZ",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/View_over_Itchan_Kala_with_city_wall.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_over_Itchan_Kala_with_city_wall.jpg",
+      "photographer": "Adam Harangozó",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:View over Itchan Kala with city wall.jpg",
+      "width": 5953,
+      "height": 3969,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ]
+}

@@ -45,6 +45,11 @@ export function atlasDescription(entry: AtlasEntry) {
   return entry.about
 }
 
+/** The first gallery image remains the country guide hero. */
+export function atlasFeaturedPhoto(entry: AtlasEntry) {
+  return entry.photos[0]
+}
+
 export function atlasPhotoPreview(limit = 3): AtlasEntry[] {
   return allAtlasEntries().slice(0, limit)
 }

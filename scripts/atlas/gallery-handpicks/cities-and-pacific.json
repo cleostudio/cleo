@@ -1,0 +1,322 @@
+{
+  "paraguay": [
+    {
+      "placeName": "Jesuit Missions of La Santisima Trinidad",
+      "countryName": "Paraguay",
+      "code": "PY",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/General_view_-_Trinidad_%28Paraguay%29.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:General_view_-_Trinidad_(Paraguay).JPG",
+      "photographer": "Maurice Chédel",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:General view - Trinidad (Paraguay).JPG",
+      "width": 4240,
+      "height": 2832,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Itaipu Dam Region",
+      "countryName": "Paraguay",
+      "code": "PY",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/J37_805_Wasserkraftwerk_Itaip%C3%BA%2C_Hochwasserentlastung.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:J37_805_Wasserkraftwerk_Itaip%C3%BA,_Hochwasserentlastung.jpg",
+      "photographer": "Falk2",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:J37 805 Wasserkraftwerk Itaipú, Hochwasserentlastung.jpg",
+      "width": 5655,
+      "height": 3770,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "philippines": [
+    {
+      "placeName": "Palawan Lagoons",
+      "countryName": "Philippines",
+      "code": "PH",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/El_Nido_Bay%2C_Desert_tropical_island%2C_Coastline%2C_Palawan_Island%2C_Philippines.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:El_Nido_Bay,_Desert_tropical_island,_Coastline,_Palawan_Island,_Philippines.jpg",
+      "photographer": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:El Nido Bay, Desert tropical island, Coastline, Palawan Island, Philippines.jpg",
+      "width": 4000,
+      "height": 2667,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Rice Terraces of Banaue",
+      "countryName": "Philippines",
+      "code": "PH",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Banaue_Philippines_Banaue-Rice-Terraces-01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banaue_Philippines_Banaue-Rice-Terraces-01.jpg",
+      "photographer": "CEphoto, Uwe Aranas",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Banaue Philippines Banaue-Rice-Terraces-01.jpg",
+      "width": 4272,
+      "height": 2848,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "romania": [
+    {
+      "placeName": "Painted Monasteries of Bucovina",
+      "countryName": "Romania",
+      "code": "RO",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/M%C4%83n%C4%83stirea_Vorone%C8%9B_vedere_laterala_09.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%C4%83n%C4%83stirea_Vorone%C8%9B_vedere_laterala_09.jpg",
+      "photographer": "Mihai Raducanu",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Mănăstirea Voroneț vedere laterala 09.jpg",
+      "width": 5184,
+      "height": 3456,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Danube Delta",
+      "countryName": "Romania",
+      "code": "RO",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Danube_Delta_2024-09-25_-_26.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danube_Delta_2024-09-25_-_26.jpg",
+      "photographer": "Joe Mabel",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Danube Delta 2024-09-25 - 26.jpg",
+      "width": 4000,
+      "height": 6000,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "saint-kitts-and-nevis": [
+    {
+      "placeName": "Pinney's Beach",
+      "countryName": "Saint Kitts and Nevis",
+      "code": "KN",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Nevis_Pinney%27s_Beach.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nevis_Pinney%27s_Beach.jpg",
+      "photographer": "Dr. Thomas Liptak",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Nevis Pinney's Beach.jpg",
+      "width": 4828,
+      "height": 2716,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Brimstone Hill Fortress",
+      "countryName": "Saint Kitts and Nevis",
+      "code": "KN",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Saint_Kitts_-_Brimstone_Hill_Fortress_01.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saint_Kitts_-_Brimstone_Hill_Fortress_01.JPG",
+      "photographer": "Martin Falbisoner",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Saint Kitts - Brimstone Hill Fortress 01.JPG",
+      "width": 5503,
+      "height": 3003,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "samoa": [
+    {
+      "placeName": "Robert Louis Stevenson Museum",
+      "countryName": "Samoa",
+      "code": "WS",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Robert_Louis_Stevenson_Museum_Apia_Samoa.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Robert_Louis_Stevenson_Museum_Apia_Samoa.jpg",
+      "photographer": "amanderson2",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Robert Louis Stevenson Museum Apia Samoa.jpg",
+      "width": 4032,
+      "height": 3024,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "To Sua Ocean Trench",
+      "countryName": "Samoa",
+      "code": "WS",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/To_Sua_Ocean_Trench%2C_Upolu%2C_Samoa_-_August_2016.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:To_Sua_Ocean_Trench,_Upolu,_Samoa_-_August_2016.jpg",
+      "photographer": "Rickard Törnblad",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:To Sua Ocean Trench, Upolu, Samoa - August 2016.jpg",
+      "width": 4608,
+      "height": 3456,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "sao-tome-and-principe": [
+    {
+      "placeName": "Pico Cao Grande",
+      "countryName": "Sao Tome and Principe",
+      "code": "ST",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_(1).jpg",
+      "photographer": "Ji-Elle",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Cão Grande et Cão Pequeno à São Tomé (1).jpg",
+      "width": 5472,
+      "height": 3648,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Roca Agostinho Neto",
+      "countryName": "Sao Tome and Principe",
+      "code": "ST",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%2813%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ro%C3%A7a_Agostinho_Neto_(S%C3%A3o_Tom%C3%A9)_(13).jpg",
+      "photographer": "Ji-Elle",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Roça Agostinho Neto (São Tomé) (13).jpg",
+      "width": 5472,
+      "height": 3648,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "senegal": [
+    {
+      "placeName": "Lake Retba",
+      "countryName": "Senegal",
+      "code": "SN",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Lac_Retba_S%C3%A9n%C3%A9gal_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lac_Retba_S%C3%A9n%C3%A9gal_01.jpg",
+      "photographer": "Issiaga0",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Lac Retba Sénégal 01.jpg",
+      "width": 8064,
+      "height": 6038,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Djoudj National Bird Sanctuary",
+      "countryName": "Senegal",
+      "code": "SN",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Dioudj.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dioudj.jpg",
+      "photographer": "Massowka",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Dioudj.jpg",
+      "width": 6000,
+      "height": 4000,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "sierra-leone": [
+    {
+      "placeName": "Outamba-Kilimi",
+      "countryName": "Sierra Leone",
+      "code": "SL",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Outamba_Mountain_Sierra_Leone.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Outamba_Mountain_Sierra_Leone.JPG",
+      "photographer": "Leasmhar",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Outamba Mountain Sierra Leone.JPG",
+      "width": 3456,
+      "height": 5184,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Bunce Island",
+      "countryName": "Sierra Leone",
+      "code": "SL",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bunce_Island_Beach.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bunce_Island_Beach.jpg",
+      "photographer": "Pierre Chrzanowski",
+      "license": "CC0",
+      "commonsTitle": "File:Bunce Island Beach.jpg",
+      "width": 3264,
+      "height": 2448,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "singapore": [
+    {
+      "placeName": "Singapore Botanic Gardens",
+      "countryName": "Singapore",
+      "code": "SG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Alley_lined_with_vegetated_arches_at_the_National_Orchid_Garden_of_Singapore.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alley_lined_with_vegetated_arches_at_the_National_Orchid_Garden_of_Singapore.jpg",
+      "photographer": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Alley lined with vegetated arches at the National Orchid Garden of Singapore.jpg",
+      "width": 6720,
+      "height": 4480,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Chinatown and Civic District",
+      "countryName": "Singapore",
+      "code": "SG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Skyline_of_the_Central_Business_District_with_the_Old_Parliament_House_in_Singapore.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skyline_of_the_Central_Business_District_with_the_Old_Parliament_House_in_Singapore.jpg",
+      "photographer": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Skyline of the Central Business District with the Old Parliament House in Singapore.jpg",
+      "width": 3966,
+      "height": 3966,
+      "assessments": "quality|featured",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "solomon-islands": [
+    {
+      "placeName": "Marovo Lagoon",
+      "countryName": "Solomon Islands",
+      "code": "SB",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Marovo_Lagoon_%2816_August_2008%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marovo_Lagoon_(16_August_2008).jpg",
+      "photographer": "Xplore Dive from Mooloolaba, Australia",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Marovo Lagoon (16 August 2008).jpg",
+      "width": 4272,
+      "height": 2848,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Guadalcanal Battlefields",
+      "countryName": "Solomon Islands",
+      "code": "SB",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Lunga_River%2C_Guadalcanal%2C_circa_1942.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lunga_River,_Guadalcanal,_circa_1942.jpg",
+      "photographer": "Archives Branch, USMC History Division",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Lunga River, Guadalcanal, circa 1942.jpg",
+      "width": 2856,
+      "height": 2131,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ]
+}

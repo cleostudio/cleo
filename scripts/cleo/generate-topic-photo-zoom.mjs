@@ -23,7 +23,9 @@ const index = {}
 for (const item of allGalleryItems()) {
   const rootKey = item.collection === 'places' ? 'atlas' : 'space'
   const slug = item.href.replace(/^\/(explore|space)\//, '')
-  const key = `${rootKey}/${slug}`
+  const mid = item.photo.renditions.find((rendition) => rendition.width === 1280)
+  const slot = mid?.src.match(/\/w1280-(2|3)\.jpg$/)?.[1]
+  const key = `${rootKey}/${slug}${slot ? `-${slot}` : ''}`
 
   index[key] = {
     collection: item.collection,

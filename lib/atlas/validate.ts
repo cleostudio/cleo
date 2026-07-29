@@ -106,39 +106,56 @@ function validateEntry(entry: AtlasEntry, slug: string) {
     assertHttps(source.url, `${ctx} source`)
   }
 
-  const { photo } = entry
-  if (!photo.placeName.trim()) throw new AtlasValidationError(`${ctx}: photo.placeName missing`)
-  if (!photo.alt.trim()) throw new AtlasValidationError(`${ctx}: photo.alt missing`)
-  if (!photo.caption.trim()) throw new AtlasValidationError(`${ctx}: photo.caption missing`)
-  if (!photo.photographer.trim()) {
-    throw new AtlasValidationError(`${ctx}: photo.photographer missing`)
+  if (!Array.isArray(entry.photos) || entry.photos.length !== 3) {
+    throw new AtlasValidationError(`${ctx}: needs exactly three photographs`)
   }
-  assertHttps(photo.sourceUrl, `${ctx} photo.sourceUrl`)
-  if (!photo.license.trim()) {
-    throw new AtlasValidationError(`${ctx}: photo.license missing`)
-  }
-  if (!photo.provenance.trim()) throw new AtlasValidationError(`${ctx}: photo.provenance missing`)
-  if (!/^[a-f0-9]{64}$/.test(photo.checksum)) {
-    throw new AtlasValidationError(`${ctx}: photo.checksum must be sha256 hex`)
-  }
-  if (!(photo.width > 0 && photo.height > 0)) {
-    throw new AtlasValidationError(`${ctx}: photo dimensions invalid`)
-  }
-  if (photo.renditions.length !== 3) {
-    throw new AtlasValidationError(`${ctx}: photo needs 640/1280/2048 renditions`)
-  }
-  const widths = new Set(photo.renditions.map((r) => r.width))
-  for (const width of RENDITION_WIDTHS) {
-    if (!widths.has(width)) {
-      throw new AtlasValidationError(`${ctx}: missing ${width}px rendition`)
+
+  const sourceUrls = new Set<string>()
+  const checksums = new Set<string>()
+  for (const [index, photo] of entry.photos.entries()) {
+    const photoCtx = `${ctx} photos[${index}]`
+    if (!photo.placeName.trim()) throw new AtlasValidationError(`${photoCtx}: placeName missing`)
+    if (!photo.alt.trim()) throw new AtlasValidationError(`${photoCtx}: alt missing`)
+    if (!photo.caption.trim()) throw new AtlasValidationError(`${photoCtx}: caption missing`)
+    if (!photo.photographer.trim()) {
+      throw new AtlasValidationError(`${photoCtx}: photographer missing`)
     }
-  }
-  for (const rendition of photo.renditions) {
-    if (!rendition.src.startsWith('/images/atlas/')) {
-      throw new AtlasValidationError(`${ctx}: rendition must be local /images/atlas/ path`)
+    assertHttps(photo.sourceUrl, `${photoCtx} sourceUrl`)
+    if (!photo.license.trim()) {
+      throw new AtlasValidationError(`${photoCtx}: license missing`)
     }
-    if (!(rendition.bytes > 0)) {
-      throw new AtlasValidationError(`${ctx}: rendition bytes missing`)
+    if (!photo.provenance.trim()) throw new AtlasValidationError(`${photoCtx}: provenance missing`)
+    if (!/^[a-f0-9]{64}$/.test(photo.checksum)) {
+      throw new AtlasValidationError(`${photoCtx}: checksum must be sha256 hex`)
     }
+    if (!(photo.width > 0 && photo.height > 0)) {
+      throw new AtlasValidationError(`${photoCtx}: dimensions invalid`)
+    }
+    if (photo.renditions.length !== 3) {
+      throw new AtlasValidationError(`${photoCtx}: needs 640/1280/2048 renditions`)
+    }
+    const widths = new Set(photo.renditions.map((r) => r.width))
+    for (const width of RENDITION_WIDTHS) {
+      if (!widths.has(width)) {
+        throw new AtlasValidationError(`${photoCtx}: missing ${width}px rendition`)
+      }
+    }
+    for (const rendition of photo.renditions) {
+      if (!rendition.src.startsWith('/images/atlas/')) {
+        throw new AtlasValidationError(`${photoCtx}: rendition must be local /images/atlas/ path`)
+      }
+      if (!(rendition.bytes > 0)) {
+        throw new AtlasValidationError(`${photoCtx}: rendition bytes missing`)
+      }
+    }
+
+    if (sourceUrls.has(photo.sourceUrl)) {
+      throw new AtlasValidationError(`${ctx}: duplicate photograph source`)
+    }
+    if (checksums.has(photo.checksum)) {
+      throw new AtlasValidationError(`${ctx}: duplicate photograph content`)
+    }
+    sourceUrls.add(photo.sourceUrl)
+    checksums.add(photo.checksum)
   }
 }

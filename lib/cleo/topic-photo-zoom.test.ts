@@ -15,6 +15,12 @@ describe('topicPhotoZoomKeyFromSrc', () => {
     expect(topicPhotoZoomKeyFromSrc('/images/space/mars/w640.jpg')).toBe(
       'space/mars',
     )
+    expect(topicPhotoZoomKeyFromSrc('/images/atlas/japan/w1280-2.jpg')).toBe(
+      'atlas/japan-2',
+    )
+    expect(topicPhotoZoomKeyFromSrc('/images/space/mars/w2048-3.jpg')).toBe(
+      'space/mars-3',
+    )
   })
 
   it('rejects non-curated paths', () => {

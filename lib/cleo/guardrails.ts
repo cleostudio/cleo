@@ -13,7 +13,7 @@ const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
 
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space)\/([a-z0-9-]+)\/w(640|1280|2048)\.jpg$/
+  /^\/images\/(atlas|space)\/([a-z0-9-]+)\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
 function guideExists(collection: "explore" | "space", slug: string) {
   if (collection === "explore") {

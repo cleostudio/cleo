@@ -17,4 +17,11 @@ describe('atlas manifest', () => {
     japan.places = japan.places.slice(0, 2) as typeof japan.places
     expect(() => validateAtlasManifest(clone)).toThrow(AtlasValidationError)
   })
+
+  it('requires three distinct photographs for each country', () => {
+    const clone = structuredClone(atlas) as unknown as AtlasManifest
+    const japan = clone.japan!
+    japan.photos[2] = structuredClone(japan.photos[0])
+    expect(() => validateAtlasManifest(clone)).toThrow(AtlasValidationError)
+  })
 })

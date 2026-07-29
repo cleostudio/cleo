@@ -19,10 +19,11 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
 - Base UI primitives with the `@fluid` component registry
 - MDX posts under `content/blog/`; English-only public routes
-- Country guides: `content/atlas.json` + optimized static JPEGs in
-  `public/images/atlas/` (no image CDN/account at runtime)
-- Space guides: `lib/space.ts` + `content/space-photos.json` + JPEGs in
-  `public/images/space/`
+- Country guides: three curated photographs per guide in `content/atlas.json`
+  + optimized static JPEGs in `public/images/atlas/` (no image CDN/account at
+  runtime)
+- Space guides: `lib/space.ts` + three curated NASA photographs per guide in
+  `content/space-photos.json` + JPEGs in `public/images/space/`
 - **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
   `POST /api/responses`)
 - Vercel Web Analytics + Speed Insights in the root document (enable both in

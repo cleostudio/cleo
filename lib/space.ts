@@ -49,19 +49,20 @@ export interface SpaceSubject {
   /** Exactly three notable features. */
   features: [SpaceFeature, SpaceFeature, SpaceFeature]
   sources: SpaceSource[]
-  photo: SpacePhoto
+  /** Three distinct, locally hosted photographs: one hero plus two gallery views. */
+  photos: [SpacePhoto, SpacePhoto, SpacePhoto]
 }
 
-type SpaceSubjectDraft = Omit<SpaceSubject, 'photo'>
+type SpaceSubjectDraft = Omit<SpaceSubject, 'photos'>
 
-const photoManifest = spacePhotos as Record<string, SpacePhoto>
+const photoManifest = spacePhotos as Record<string, SpacePhoto[]>
 
-function withPhoto(draft: SpaceSubjectDraft): SpaceSubject {
-  const photo = photoManifest[draft.slug]
-  if (!photo) {
-    throw new Error(`Missing space photo for ${draft.slug}`)
+function withPhotos(draft: SpaceSubjectDraft): SpaceSubject {
+  const photos = photoManifest[draft.slug]
+  if (!Array.isArray(photos) || photos.length !== 3) {
+    throw new Error(`Missing three space photos for ${draft.slug}`)
   }
-  return { ...draft, photo }
+  return { ...draft, photos: photos as [SpacePhoto, SpacePhoto, SpacePhoto] }
 }
 
 /**
@@ -1152,7 +1153,12 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
   },
 ]
 
-export const spaceSubjects: SpaceSubject[] = spaceSubjectDrafts.map(withPhoto)
+export const spaceSubjects: SpaceSubject[] = spaceSubjectDrafts.map(withPhotos)
+
+/** The first gallery image remains the Space guide hero. */
+export function spaceFeaturedPhoto(subject: SpaceSubject): SpacePhoto {
+  return subject.photos[0]
+}
 
 export function spaceSubjectSlugs(): string[] {
   return spaceSubjects.map((subject) => subject.slug)

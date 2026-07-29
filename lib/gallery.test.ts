@@ -9,12 +9,14 @@ import {
 import { spaceSubjects } from './space'
 
 describe('gallery catalog', () => {
-  it('merges Explore place photos and Space body photos', () => {
+  it('merges three Explore and Space photographs per topic', () => {
     const items = allGalleryItems()
-    expect(items).toHaveLength(countries.length + spaceSubjects.length)
+    expect(items).toHaveLength((countries.length + spaceSubjects.length) * 3)
     expect(items.some((item) => item.collection === 'places')).toBe(true)
     expect(items.some((item) => item.collection === 'space')).toBe(true)
     expect(items.some((item) => item.href === '/space/mars')).toBe(true)
+    expect(items.some((item) => item.id === 'places:japan:2')).toBe(true)
+    expect(items.some((item) => item.id === 'space:mars:3')).toBe(true)
     expect(items.every((item) => item.photo.renditions.length === 3)).toBe(true)
   })
 

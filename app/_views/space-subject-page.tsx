@@ -35,6 +35,7 @@ function formatRadius(radiusKm: number | null): string {
 export function SpaceSubjectPageView({ slug }: { slug: string }) {
   const subject = getSpaceSubject(slug)
   if (!subject) notFound()
+  const photo = subject.photos[0]
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -71,34 +72,34 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
       >
         <ZoomImage
           src={
-            (subject.photo.renditions.find((r) => r.width === 1280) ??
-              subject.photo.renditions[0])!.src
+            (photo.renditions.find((r) => r.width === 1280) ??
+              photo.renditions[0])!.src
           }
-          alt={subject.photo.alt}
-          width={subject.photo.width}
-          height={subject.photo.height}
+          alt={photo.alt}
+          width={photo.width}
+          height={photo.height}
           className="photo-frame aspect-[3/2] w-full object-cover"
           sizes="(max-width: 40rem) 100vw, 42rem"
-          renditions={subject.photo.renditions.map((r) => ({
+          renditions={photo.renditions.map((r) => ({
             src: r.src,
             width: r.width,
           }))}
           expandedContent={
             <PhotoZoomDetails
               collection="space"
-              title={subject.photo.featureName}
+              title={photo.featureName}
               subtitle={subject.name}
-              photographer={subject.photo.photographer}
-              license={subject.photo.license}
+              photographer={photo.photographer}
+              license={photo.license}
             />
           }
         />
         <figcaption className="guide-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
-          <span>{subject.photo.caption}</span>
+          <span>{photo.caption}</span>
           <span>
-            {subject.photo.photographer} ·{' '}
+            {photo.photographer} ·{' '}
             <a
-              href={subject.photo.sourceUrl}
+              href={photo.sourceUrl}
               target="_blank"
               rel="noreferrer"
               className="underline-offset-2 hover:underline"

@@ -1,692 +1,2118 @@
 {
-  "sun": {
-    "featureName": "Full-disk Sun",
-    "alt": "Full-disk Sun — sun",
-    "caption": "Full-disk Sun",
-    "photographer": "NASA/SDO/AIA",
-    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002035",
-    "license": "Public Domain (NASA)",
-    "nasaId": "GSFC_20171208_Archive_e002035",
-    "provenance": "Curated from NASA image GSFC_20171208_Archive_e002035; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "96ae2d0582944a62e850186333bfe2936b3ae63feab9b2e3fa2e1ef1379e82b9",
-    "width": 1024,
-    "height": 1024,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/sun/w640.jpg",
-        "bytes": 41852
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/sun/w1280.jpg",
-        "bytes": 97266
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/sun/w2048.jpg",
-        "bytes": 125493
-      }
-    ]
-  },
-  "mercury": {
-    "featureName": "Mercury in enhanced colour",
-    "alt": "Mercury in enhanced colour — mercury",
-    "caption": "Mercury in enhanced colour",
-    "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
-    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001545",
-    "license": "Public Domain (NASA)",
-    "nasaId": "GSFC_20171208_Archive_e001545",
-    "provenance": "Curated from NASA image GSFC_20171208_Archive_e001545; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "ea804fa2b08f26406edc081ba8421a131f3c92025b11ba800e7fdf6e8fb6aae9",
-    "width": 1920,
-    "height": 1080,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/mercury/w640.jpg",
-        "bytes": 28382
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/mercury/w1280.jpg",
-        "bytes": 104112
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/mercury/w2048.jpg",
-        "bytes": 262410
-      }
-    ]
-  },
-  "venus": {
-    "featureName": "Venus hemisphere",
-    "alt": "Venus hemisphere — venus",
-    "caption": "Venus hemisphere",
-    "photographer": "NASA/JPL/USGS",
-    "sourceUrl": "https://images.nasa.gov/details/PIA00159",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA00159",
-    "provenance": "Curated from NASA image PIA00159; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "a47ea016bac4686399677a014deb66f6559034ec122b8be02bcedde586b6d95a",
-    "width": 4064,
-    "height": 4064,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/venus/w640.jpg",
-        "bytes": 104219
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/venus/w1280.jpg",
-        "bytes": 400307
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/venus/w2048.jpg",
-        "bytes": 1178580
-      }
-    ]
-  },
-  "earth": {
-    "featureName": "Blue Marble",
-    "alt": "Blue Marble — earth",
-    "caption": "Blue Marble",
-    "photographer": "NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring",
-    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001386",
-    "license": "Public Domain (NASA)",
-    "nasaId": "GSFC_20171208_Archive_e001386",
-    "provenance": "Curated from NASA image GSFC_20171208_Archive_e001386; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "7086bb4b90dc2660c3e76fdb4ddf91536a38796ea8da2e153b77758021111a8d",
-    "width": 1920,
-    "height": 1920,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/earth/w640.jpg",
-        "bytes": 65021
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/earth/w1280.jpg",
-        "bytes": 233504
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/earth/w2048.jpg",
-        "bytes": 533962
-      }
-    ]
-  },
-  "moon": {
-    "featureName": "Full Moon",
-    "alt": "Full Moon — moon",
-    "caption": "Full Moon",
-    "photographer": "NASA/Apollo 11",
-    "sourceUrl": "https://images.nasa.gov/details/as11-44-6667",
-    "license": "Public Domain (NASA)",
-    "nasaId": "as11-44-6667",
-    "provenance": "Curated from NASA image as11-44-6667; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "69629f78e3ccd939b39f31c19b89c1e2e751effd930d5a3a58f823403553f64c",
-    "width": 1920,
-    "height": 1930,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/moon/w640.jpg",
-        "bytes": 37443
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/moon/w1280.jpg",
-        "bytes": 150078
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/moon/w2048.jpg",
-        "bytes": 382739
-      }
-    ]
-  },
-  "mars": {
-    "featureName": "Global color view",
-    "alt": "Global color view — mars",
-    "caption": "Global color view",
-    "photographer": "NASA/JPL/USGS",
-    "sourceUrl": "https://images.nasa.gov/details/PIA00407",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA00407",
-    "provenance": "Curated from NASA image PIA00407; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "076d0be8f7cf603f05e8b7281709400d9d39f21c6f615e8e385b8dfffc9bafdd",
-    "width": 6787,
-    "height": 6787,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/mars/w640.jpg",
-        "bytes": 54068
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/mars/w1280.jpg",
-        "bytes": 181466
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/mars/w2048.jpg",
-        "bytes": 516617
-      }
-    ]
-  },
-  "jupiter": {
-    "featureName": "Great Red Spot",
-    "alt": "Great Red Spot — jupiter",
-    "caption": "Great Red Spot",
-    "photographer": "NASA/JPL-Caltech/SwRI/MSSS/Gerald Eichstädt/Seán Doran",
-    "sourceUrl": "https://images.nasa.gov/details/PIA21775",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA21775",
-    "provenance": "Curated from NASA image PIA21775; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "b067e9be8968a4969c250aa1b06944aa3e9c04c1bd7b8e9f812149af2d3818c9",
-    "width": 1620,
-    "height": 1440,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/jupiter/w640.jpg",
-        "bytes": 20814
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/jupiter/w1280.jpg",
-        "bytes": 69072
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/jupiter/w2048.jpg",
-        "bytes": 126049
-      }
-    ]
-  },
-  "saturn": {
-    "featureName": "The Day the Earth Smiled",
-    "alt": "The Day the Earth Smiled — saturn",
-    "caption": "The Day the Earth Smiled",
-    "photographer": "NASA/JPL-Caltech/Space Science Institute",
-    "sourceUrl": "https://images.nasa.gov/details/PIA17172",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA17172",
-    "provenance": "Curated from NASA image PIA17172; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "ff486622c38c6681ef306195ba83f3ed8a304c9937279fe38d70a088f728c6d7",
-    "width": 9000,
-    "height": 3500,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/saturn/w640.jpg",
-        "bytes": 14706
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/saturn/w1280.jpg",
-        "bytes": 29275
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/saturn/w2048.jpg",
-        "bytes": 67152
-      }
-    ]
-  },
-  "uranus": {
-    "featureName": "Uranus from Voyager 2",
-    "alt": "Uranus from Voyager 2 — uranus",
-    "caption": "Uranus from Voyager 2",
-    "photographer": "NASA/JPL-Caltech",
-    "sourceUrl": "https://images.nasa.gov/details/PIA18182",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA18182",
-    "provenance": "Curated from NASA image PIA18182; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "3dcc83114f1a25caa1ae1a1436830fffaa15a3e429666dbf4c68bcf035e8932b",
-    "width": 1720,
-    "height": 1720,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/uranus/w640.jpg",
-        "bytes": 16192
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/uranus/w1280.jpg",
-        "bytes": 36427
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/uranus/w2048.jpg",
-        "bytes": 61716
-      }
-    ]
-  },
-  "neptune": {
-    "featureName": "Neptune full disk",
-    "alt": "Neptune full disk — neptune",
-    "caption": "Neptune full disk",
-    "photographer": "NASA/JPL",
-    "sourceUrl": "https://images.nasa.gov/details/PIA01492",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA01492",
-    "provenance": "Curated from NASA image PIA01492; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "97b57802f44be2218578a98c8c26f8426ff7a95890d266d34486734f14c1edb6",
-    "width": 2188,
-    "height": 2185,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/neptune/w640.jpg",
-        "bytes": 17121
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/neptune/w1280.jpg",
-        "bytes": 74005
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/neptune/w2048.jpg",
-        "bytes": 229875
-      }
-    ]
-  },
-  "pluto": {
-    "featureName": "Pluto in true color",
-    "alt": "Pluto in true color — pluto",
-    "caption": "Pluto in true color",
-    "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute",
-    "sourceUrl": "https://images.nasa.gov/details/PIA19937",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA19937",
-    "provenance": "Curated from NASA image PIA19937; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "62ef4b19c16ad8a2c6397657ff3891cc818d161711369dd97b01ef862202b15a",
-    "width": 8000,
-    "height": 8000,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/pluto/w640.jpg",
-        "bytes": 42243
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/pluto/w1280.jpg",
-        "bytes": 161650
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/pluto/w2048.jpg",
-        "bytes": 485161
-      }
-    ]
-  },
-  "asteroid-belt": {
-    "featureName": "Vesta from Dawn",
-    "alt": "Vesta from Dawn — asteroid belt",
-    "caption": "Vesta from Dawn",
-    "photographer": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
-    "sourceUrl": "https://images.nasa.gov/details/PIA14894",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA14894",
-    "provenance": "Curated from NASA image PIA14894; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "0e5c918d36a3760a789ead3426130dca3d4e12d28454cd79fc1314002bd87efe",
-    "width": 1237,
-    "height": 1212,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/asteroid-belt/w640.jpg",
-        "bytes": 53301
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/asteroid-belt/w1280.jpg",
-        "bytes": 134903
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/asteroid-belt/w2048.jpg",
-        "bytes": 145142
-      }
-    ]
-  },
-  "milky-way": {
-    "featureName": "Galactic center",
-    "alt": "Galactic center — milky way",
-    "caption": "Galactic center",
-    "photographer": "NASA/JPL-Caltech/ESA/CXC/STScI",
-    "sourceUrl": "https://images.nasa.gov/details/PIA03653",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA03653",
-    "provenance": "Curated from NASA image PIA03653; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "a07c42bb7d00efe6393b8a1d0109a2d37e9bf141b1bd79beed1f124dac1e1b93",
-    "width": 7002,
-    "height": 5050,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/milky-way/w640.jpg",
-        "bytes": 50908
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/milky-way/w1280.jpg",
-        "bytes": 190900
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/milky-way/w2048.jpg",
-        "bytes": 573780
-      }
-    ]
-  },
-  "andromeda": {
-    "featureName": "The Andromeda Galaxy",
-    "alt": "The Andromeda Galaxy — andromeda",
-    "caption": "The Andromeda Galaxy",
-    "photographer": "NASA/JPL-Caltech",
-    "sourceUrl": "https://images.nasa.gov/details/PIA15416",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA15416",
-    "provenance": "Curated from NASA image PIA15416; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "88ed2cf29704895a32427c02be2daea6204f113e30f11aac4ff789c0de29a87d",
-    "width": 9400,
-    "height": 7000,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/andromeda/w640.jpg",
-        "bytes": 57698
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/andromeda/w1280.jpg",
-        "bytes": 224801
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/andromeda/w2048.jpg",
-        "bytes": 647081
-      }
-    ]
-  },
-  "io": {
-    "featureName": "Global view of Io",
-    "alt": "Global view of Io — io",
-    "caption": "Global view of Io",
-    "photographer": "NASA/JPL/University of Arizona",
-    "sourceUrl": "https://images.nasa.gov/details/PIA00583",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA00583",
-    "provenance": "Curated from NASA image PIA00583; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "f67a4ff8c5ba4942b91cab411c865750af106159b13cbd7aa367aad2e5b37930",
-    "width": 1817,
-    "height": 1817,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/io/w640.jpg",
-        "bytes": 74719
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/io/w1280.jpg",
-        "bytes": 225650
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/io/w2048.jpg",
-        "bytes": 427037
-      }
-    ]
-  },
-  "europa": {
-    "featureName": "Europa's icy surface",
-    "alt": "Europa's icy surface — europa",
-    "caption": "Europa's icy surface",
-    "photographer": "NASA/JPL-Caltech/SETI Institute",
-    "sourceUrl": "https://images.nasa.gov/details/PIA19048",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA19048",
-    "provenance": "Curated from NASA image PIA19048; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "f020c034750675cb0ace6c3164b18151746bfa28405e888d810312cd563d650d",
-    "width": 2300,
-    "height": 1700,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/europa/w640.jpg",
-        "bytes": 39511
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/europa/w1280.jpg",
-        "bytes": 129892
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/europa/w2048.jpg",
-        "bytes": 332585
-      }
-    ]
-  },
-  "ganymede": {
-    "featureName": "Ganymede in color",
-    "alt": "Ganymede in color — ganymede",
-    "caption": "Ganymede in color",
-    "photographer": "NASA/JPL",
-    "sourceUrl": "https://images.nasa.gov/details/PIA00716",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA00716",
-    "provenance": "Curated from NASA image PIA00716; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "6382510b125173a0490b281a1168f4bbc63d9cbf2fcabcfbb892135bb1b2c093",
-    "width": 800,
-    "height": 800,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/ganymede/w640.jpg",
-        "bytes": 36976
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/ganymede/w1280.jpg",
-        "bytes": 49185
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/ganymede/w2048.jpg",
-        "bytes": 52893
-      }
-    ]
-  },
-  "titan": {
-    "featureName": "Titan's orange and blue hazes",
-    "alt": "Titan's orange and blue hazes — titan",
-    "caption": "Titan's orange and blue hazes",
-    "photographer": "NASA/JPL-Caltech/Space Science Institute",
-    "sourceUrl": "https://images.nasa.gov/details/PIA14913",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA14913",
-    "provenance": "Curated from NASA image PIA14913; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "b7a0598bbb08e7b1c9fbefce9c1c9a78b34a338c291c2826569c0224fb36adb8",
-    "width": 924,
-    "height": 657,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/titan/w640.jpg",
-        "bytes": 11694
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/titan/w1280.jpg",
-        "bytes": 15266
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/titan/w2048.jpg",
-        "bytes": 15961
-      }
-    ]
-  },
-  "enceladus": {
-    "featureName": "Approaching Enceladus",
-    "alt": "Approaching Enceladus — enceladus",
-    "caption": "Approaching Enceladus",
-    "photographer": "NASA/JPL-Caltech/Space Science Institute",
-    "sourceUrl": "https://images.nasa.gov/details/PIA17202",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA17202",
-    "provenance": "Curated from NASA image PIA17202; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "2ef0a3e897ec47694252deef78383dda24e775ed7be173a69b77aeceb00baecf",
-    "width": 1020,
-    "height": 1020,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/enceladus/w640.jpg",
-        "bytes": 43010
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/enceladus/w1280.jpg",
-        "bytes": 91817
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/enceladus/w2048.jpg",
-        "bytes": 99743
-      }
-    ]
-  },
-  "iss": {
-    "featureName": "ISS flyaround",
-    "alt": "ISS flyaround — iss",
-    "caption": "ISS flyaround",
-    "photographer": "NASA",
-    "sourceUrl": "https://images.nasa.gov/details/iss01-389-023",
-    "license": "Public Domain (NASA)",
-    "nasaId": "iss01-389-023",
-    "provenance": "Curated from NASA image iss01-389-023; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "ce3764279f3d0567a13a7df6a37853d913e4b3077a8fe3ca2b00c35a97878f6c",
-    "width": 2976,
-    "height": 1984,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/iss/w640.jpg",
-        "bytes": 33049
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/iss/w1280.jpg",
-        "bytes": 96587
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/iss/w2048.jpg",
-        "bytes": 247758
-      }
-    ]
-  },
-  "orion-nebula": {
-    "featureName": "Heart of the Orion Nebula",
-    "alt": "Heart of the Orion Nebula — orion nebula",
-    "caption": "Heart of the Orion Nebula",
-    "photographer": "NASA/JPL-Caltech/STScI",
-    "sourceUrl": "https://images.nasa.gov/details/PIA01322",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA01322",
-    "provenance": "Curated from NASA image PIA01322; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "866c955ad3ee2b5306777aff3b51c22940278355646e7b35a7ba519e82a26a0f",
-    "width": 6000,
-    "height": 6000,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/orion-nebula/w640.jpg",
-        "bytes": 53356
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/orion-nebula/w1280.jpg",
-        "bytes": 145922
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/orion-nebula/w2048.jpg",
-        "bytes": 348765
-      }
-    ]
-  },
-  "crab-nebula": {
-    "featureName": "Crab Nebula",
-    "alt": "Crab Nebula — crab nebula",
-    "caption": "Crab Nebula",
-    "photographer": "NASA/ESA/JPL/Arizona State University",
-    "sourceUrl": "https://images.nasa.gov/details/PIA03606",
-    "license": "Public Domain (NASA)",
-    "nasaId": "PIA03606",
-    "provenance": "Curated from NASA image PIA03606; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "c9ff0251e925902c9aeffd9c92fefd06b97b9a99bc24c0c11ce5b60ef3a2906e",
-    "width": 3864,
-    "height": 3864,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/crab-nebula/w640.jpg",
-        "bytes": 78894
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/crab-nebula/w1280.jpg",
-        "bytes": 256934
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/crab-nebula/w2048.jpg",
-        "bytes": 714517
-      }
-    ]
-  },
-  "carina-nebula": {
-    "featureName": "Carina Nebula landscape",
-    "alt": "Carina Nebula landscape — carina nebula",
-    "caption": "Carina Nebula landscape",
-    "photographer": "NASA/ESA/M. Livio / Hubble Heritage Team",
-    "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002076",
-    "license": "Public Domain (NASA)",
-    "nasaId": "GSFC_20171208_Archive_e002076",
-    "provenance": "Curated from NASA image GSFC_20171208_Archive_e002076; imported locally with metadata stripped; originals kept outside the public tree.",
-    "checksum": "60969104a771b76eef7fdf600e1ab21b888cd9fab5fecc8df64a3dc30e394a16",
-    "width": 4003,
-    "height": 2719,
-    "renditions": [
-      {
-        "width": 640,
-        "src": "/images/space/carina-nebula/w640.jpg",
-        "bytes": 96935
-      },
-      {
-        "width": 1280,
-        "src": "/images/space/carina-nebula/w1280.jpg",
-        "bytes": 183738
-      },
-      {
-        "width": 2048,
-        "src": "/images/space/carina-nebula/w2048.jpg",
-        "bytes": 421667
-      }
-    ]
-  }
+  "sun": [
+    {
+      "featureName": "Full-disk Sun",
+      "alt": "Full-disk Sun — sun",
+      "caption": "Full-disk Sun",
+      "photographer": "NASA/SDO/AIA",
+      "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002035",
+      "license": "Public Domain (NASA)",
+      "nasaId": "GSFC_20171208_Archive_e002035",
+      "provenance": "Curated from NASA image GSFC_20171208_Archive_e002035; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "96ae2d0582944a62e850186333bfe2936b3ae63feab9b2e3fa2e1ef1379e82b9",
+      "width": 1024,
+      "height": 1024,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/sun/w640.jpg",
+          "bytes": 41852
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/sun/w1280.jpg",
+          "bytes": 97266
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/sun/w2048.jpg",
+          "bytes": 125493
+        }
+      ]
+    },
+    {
+      "featureName": "SDO Transit, September 2015",
+      "alt": "SDO Transit, September 2015 — sun",
+      "caption": "SDO Transit, September 2015",
+      "photographer": "NASA/GSFC/Solar Dynamics Observatory",
+      "sourceUrl": "https://images.nasa.gov/details/PIA19949",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA19949",
+      "provenance": "Curated from NASA image PIA19949; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "06bc53185aad80da162ed8ca43149d8cf66e0f534f71fe02705c16a3792e5d44",
+      "width": 4096,
+      "height": 4096,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/sun/w640-2.jpg",
+          "bytes": 35723
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/sun/w1280-2.jpg",
+          "bytes": 98545
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/sun/w2048-2.jpg",
+          "bytes": 257968
+        }
+      ]
+    },
+    {
+      "featureName": "Dynamic Loops in Profile",
+      "alt": "Dynamic Loops in Profile — sun",
+      "caption": "Dynamic Loops in Profile",
+      "photographer": "NASA/GSFC/Solar Dynamics Observatory",
+      "sourceUrl": "https://images.nasa.gov/details/PIA21583",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA21583",
+      "provenance": "Curated from NASA image PIA21583; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9d9c96fd2c62311a89f0f9cba1b707e9a1c620ba8caff3ccba6638d4df2aff6b",
+      "width": 2100,
+      "height": 1181,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/sun/w640-3.jpg",
+          "bytes": 31103
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/sun/w1280-3.jpg",
+          "bytes": 81924
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/sun/w2048-3.jpg",
+          "bytes": 198396
+        }
+      ]
+    }
+  ],
+  "mercury": [
+    {
+      "featureName": "Mercury in enhanced colour",
+      "alt": "Mercury in enhanced colour — mercury",
+      "caption": "Mercury in enhanced colour",
+      "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
+      "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001545",
+      "license": "Public Domain (NASA)",
+      "nasaId": "GSFC_20171208_Archive_e001545",
+      "provenance": "Curated from NASA image GSFC_20171208_Archive_e001545; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ea804fa2b08f26406edc081ba8421a131f3c92025b11ba800e7fdf6e8fb6aae9",
+      "width": 1920,
+      "height": 1080,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/mercury/w640.jpg",
+          "bytes": 28382
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/mercury/w1280.jpg",
+          "bytes": 104112
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/mercury/w2048.jpg",
+          "bytes": 262410
+        }
+      ]
+    },
+    {
+      "featureName": "A Detailed Look at Raditladi Basin",
+      "alt": "A Detailed Look at Raditladi Basin — mercury",
+      "caption": "A Detailed Look at Raditladi Basin",
+      "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
+      "sourceUrl": "https://images.nasa.gov/details/PIA19409",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA19409",
+      "provenance": "Curated from NASA image PIA19409; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4204cdecd011dd48d7b6be6443a05222696a443a7148b51f5f91c50465fa8bfa",
+      "width": 2700,
+      "height": 2200,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/mercury/w640-2.jpg",
+          "bytes": 90888
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/mercury/w1280-2.jpg",
+          "bytes": 301397
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/mercury/w2048-2.jpg",
+          "bytes": 741394
+        }
+      ]
+    },
+    {
+      "featureName": "Expansive Northern Volcanic Plains",
+      "alt": "Expansive Northern Volcanic Plains — mercury",
+      "caption": "Expansive Northern Volcanic Plains",
+      "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
+      "sourceUrl": "https://images.nasa.gov/details/PIA19415",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA19415",
+      "provenance": "Curated from NASA image PIA19415; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c43ee53c6f05fdfb7eb5e6e0eb85eb241d2c8f83cc00d62dcc73103aa214ade1",
+      "width": 1920,
+      "height": 1080,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/mercury/w640-3.jpg",
+          "bytes": 57659
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/mercury/w1280-3.jpg",
+          "bytes": 258658
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/mercury/w2048-3.jpg",
+          "bytes": 730038
+        }
+      ]
+    }
+  ],
+  "venus": [
+    {
+      "featureName": "Venus hemisphere",
+      "alt": "Venus hemisphere — venus",
+      "caption": "Venus hemisphere",
+      "photographer": "NASA/JPL/USGS",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00159",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00159",
+      "provenance": "Curated from NASA image PIA00159; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a47ea016bac4686399677a014deb66f6559034ec122b8be02bcedde586b6d95a",
+      "width": 4064,
+      "height": 4064,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/venus/w640.jpg",
+          "bytes": 104219
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/venus/w1280.jpg",
+          "bytes": 400307
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/venus/w2048.jpg",
+          "bytes": 1178580
+        }
+      ]
+    },
+    {
+      "featureName": "Volcanic features in Atla Regio",
+      "alt": "Volcanic features in Atla Regio — venus",
+      "caption": "Volcanic features in Atla Regio",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00201",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00201",
+      "provenance": "Curated from NASA image PIA00201; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "600e776fdcb43f9e4f95d8739fcedd5778d3e062cafdd228a793edd23b1c20be",
+      "width": 4789,
+      "height": 4682,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/venus/w640-2.jpg",
+          "bytes": 90600
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/venus/w1280-2.jpg",
+          "bytes": 375728
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/venus/w2048-2.jpg",
+          "bytes": 1238037
+        }
+      ]
+    },
+    {
+      "featureName": "Mosaic of Bahet and Onatah Coronae",
+      "alt": "Mosaic of Bahet and Onatah Coronae — venus",
+      "caption": "Mosaic of Bahet and Onatah Coronae",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00461",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00461",
+      "provenance": "Curated from NASA image PIA00461; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "82d37ae6f8913c9e34c524ef43be4d4cbc9ae7b9f1367243edeedefd5fd2db54",
+      "width": 6940,
+      "height": 5940,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/venus/w640-3.jpg",
+          "bytes": 85265
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/venus/w1280-3.jpg",
+          "bytes": 371835
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/venus/w2048-3.jpg",
+          "bytes": 1219396
+        }
+      ]
+    }
+  ],
+  "earth": [
+    {
+      "featureName": "Blue Marble",
+      "alt": "Blue Marble — earth",
+      "caption": "Blue Marble",
+      "photographer": "NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring",
+      "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001386",
+      "license": "Public Domain (NASA)",
+      "nasaId": "GSFC_20171208_Archive_e001386",
+      "provenance": "Curated from NASA image GSFC_20171208_Archive_e001386; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7086bb4b90dc2660c3e76fdb4ddf91536a38796ea8da2e153b77758021111a8d",
+      "width": 1920,
+      "height": 1920,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/earth/w640.jpg",
+          "bytes": 65021
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/earth/w1280.jpg",
+          "bytes": 233504
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/earth/w2048.jpg",
+          "bytes": 533962
+        }
+      ]
+    },
+    {
+      "featureName": "Earth triptych from NASA Juno spacecraft",
+      "alt": "Earth triptych from NASA Juno spacecraft — earth",
+      "caption": "Earth triptych from NASA Juno spacecraft",
+      "photographer": "NASA/JPL-Caltech/MSSS",
+      "sourceUrl": "https://images.nasa.gov/details/PIA14447",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA14447",
+      "provenance": "Curated from NASA image PIA14447; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c60808fd4bfb168bca946b1452b8a21af6ed7b6fba61547e1706457b4fe91ec1",
+      "width": 8500,
+      "height": 4781,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/earth/w640-2.jpg",
+          "bytes": 25455
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/earth/w1280-2.jpg",
+          "bytes": 69881
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/earth/w2048-2.jpg",
+          "bytes": 173929
+        }
+      ]
+    },
+    {
+      "featureName": "A breathtaking Earthset from Orion",
+      "alt": "A breathtaking Earthset from Orion — earth",
+      "caption": "A breathtaking Earthset from Orion",
+      "photographer": "NASA",
+      "sourceUrl": "https://images.nasa.gov/details/art002e021278",
+      "license": "Public Domain (NASA)",
+      "nasaId": "art002e021278",
+      "provenance": "Curated from NASA image art002e021278; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "22687d173e1fcd9a334f93a3074de1470365c314e2d25e9fbcb229f4f5fb507d",
+      "width": 5568,
+      "height": 3712,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/earth/w640-3.jpg",
+          "bytes": 48384
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/earth/w1280-3.jpg",
+          "bytes": 91627
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/earth/w2048-3.jpg",
+          "bytes": 189404
+        }
+      ]
+    }
+  ],
+  "moon": [
+    {
+      "featureName": "Full Moon",
+      "alt": "Full Moon — moon",
+      "caption": "Full Moon",
+      "photographer": "NASA/Apollo 11",
+      "sourceUrl": "https://images.nasa.gov/details/as11-44-6667",
+      "license": "Public Domain (NASA)",
+      "nasaId": "as11-44-6667",
+      "provenance": "Curated from NASA image as11-44-6667; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "69629f78e3ccd939b39f31c19b89c1e2e751effd930d5a3a58f823403553f64c",
+      "width": 1920,
+      "height": 1930,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/moon/w640.jpg",
+          "bytes": 37443
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/moon/w1280.jpg",
+          "bytes": 150078
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/moon/w2048.jpg",
+          "bytes": 382739
+        }
+      ]
+    },
+    {
+      "featureName": "Vallis Alpes",
+      "alt": "Vallis Alpes — moon",
+      "caption": "Vallis Alpes",
+      "photographer": "NASA/GSFC/Arizona State University",
+      "sourceUrl": "https://images.nasa.gov/details/PIA12934",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA12934",
+      "provenance": "Curated from NASA image PIA12934; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1d432a2a347c3c2949a8e8b258685c28f3108d97417bc47d0d5d91ef1bb868ec",
+      "width": 2000,
+      "height": 2000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/moon/w640-2.jpg",
+          "bytes": 50752
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/moon/w1280-2.jpg",
+          "bytes": 168305
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/moon/w2048-2.jpg",
+          "bytes": 404910
+        }
+      ]
+    },
+    {
+      "featureName": "Uplift, boulders of Tsiolkovskiy",
+      "alt": "Uplift, boulders of Tsiolkovskiy — moon",
+      "caption": "Uplift, boulders of Tsiolkovskiy",
+      "photographer": "NASA/GSFC/Arizona State University",
+      "sourceUrl": "https://images.nasa.gov/details/PIA12902",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA12902",
+      "provenance": "Curated from NASA image PIA12902; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b6c873ce0592d736c60e58246ba26c11d0a0f07e3f6c5e0a94f9c99bddb9cf70",
+      "width": 1600,
+      "height": 1600,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/moon/w640-3.jpg",
+          "bytes": 70777
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/moon/w1280-3.jpg",
+          "bytes": 219786
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/moon/w2048-3.jpg",
+          "bytes": 357879
+        }
+      ]
+    }
+  ],
+  "mars": [
+    {
+      "featureName": "Global color view",
+      "alt": "Global color view — mars",
+      "caption": "Global color view",
+      "photographer": "NASA/JPL/USGS",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00407",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00407",
+      "provenance": "Curated from NASA image PIA00407; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "076d0be8f7cf603f05e8b7281709400d9d39f21c6f615e8e385b8dfffc9bafdd",
+      "width": 6787,
+      "height": 6787,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/mars/w640.jpg",
+          "bytes": 54068
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/mars/w1280.jpg",
+          "bytes": 181466
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/mars/w2048.jpg",
+          "bytes": 516617
+        }
+      ]
+    },
+    {
+      "featureName": "Curiosity's view of sand ridges and Bolívar",
+      "alt": "Curiosity's view of sand ridges and Bolívar — mars",
+      "caption": "Curiosity's view of sand ridges and Bolívar",
+      "photographer": "NASA/JPL-Caltech/MSSS",
+      "sourceUrl": "https://images.nasa.gov/details/PIA25414",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA25414",
+      "provenance": "Curated from NASA image PIA25414; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d055cb4a735876e10ef51b605957d7140bbf455d5cad1d3f0e3207682ee0985f",
+      "width": 4161,
+      "height": 2112,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/mars/w640-2.jpg",
+          "bytes": 35984
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/mars/w1280-2.jpg",
+          "bytes": 121897
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/mars/w2048-2.jpg",
+          "bytes": 372157
+        }
+      ]
+    },
+    {
+      "featureName": "Windblown sand in Ganges Chasma",
+      "alt": "Windblown sand in Ganges Chasma — mars",
+      "caption": "Windblown sand in Ganges Chasma",
+      "photographer": "NASA/JPL-Caltech/University of Arizona",
+      "sourceUrl": "https://images.nasa.gov/details/PIA21600",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA21600",
+      "provenance": "Curated from NASA image PIA21600; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b85371673c2e888278454956263626fdc828bd76790aa7f7b71fe212cb350e6c",
+      "width": 2880,
+      "height": 1800,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/mars/w640-3.jpg",
+          "bytes": 40299
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/mars/w1280-3.jpg",
+          "bytes": 157024
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/mars/w2048-3.jpg",
+          "bytes": 445184
+        }
+      ]
+    }
+  ],
+  "jupiter": [
+    {
+      "featureName": "Great Red Spot",
+      "alt": "Great Red Spot — jupiter",
+      "caption": "Great Red Spot",
+      "photographer": "NASA/JPL-Caltech/SwRI/MSSS/Gerald Eichstädt/Seán Doran",
+      "sourceUrl": "https://images.nasa.gov/details/PIA21775",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA21775",
+      "provenance": "Curated from NASA image PIA21775; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b067e9be8968a4969c250aa1b06944aa3e9c04c1bd7b8e9f812149af2d3818c9",
+      "width": 1620,
+      "height": 1440,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/jupiter/w640.jpg",
+          "bytes": 20814
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/jupiter/w1280.jpg",
+          "bytes": 69072
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/jupiter/w2048.jpg",
+          "bytes": 126049
+        }
+      ]
+    },
+    {
+      "featureName": "Close-up views of Jupiter north pole",
+      "alt": "Close-up views of Jupiter north pole — jupiter",
+      "caption": "Close-up views of Jupiter north pole",
+      "photographer": "NASA/JPL-Caltech/SwRI/MSSS",
+      "sourceUrl": "https://images.nasa.gov/details/PIA21031",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA21031",
+      "provenance": "Curated from NASA image PIA21031; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fbffa985ac06c4776ffb47ef1534658a7d2a70b8adfab8c7bec308ac53234c15",
+      "width": 3642,
+      "height": 2380,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/jupiter/w640-2.jpg",
+          "bytes": 16582
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/jupiter/w1280-2.jpg",
+          "bytes": 39384
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/jupiter/w2048-2.jpg",
+          "bytes": 90178
+        }
+      ]
+    },
+    {
+      "featureName": "Three waves at Jupiter",
+      "alt": "Three waves at Jupiter — jupiter",
+      "caption": "Three waves at Jupiter",
+      "photographer": "NASA/JPL-Caltech/SwRI/MSSS/JunoCam",
+      "sourceUrl": "https://images.nasa.gov/details/PIA22796",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA22796",
+      "provenance": "Curated from NASA image PIA22796; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4401c1968293b02f791bae6d651bfce561f183948122da90bb6679ae9b091c9b",
+      "width": 3096,
+      "height": 1872,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/jupiter/w640-3.jpg",
+          "bytes": 26990
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/jupiter/w1280-3.jpg",
+          "bytes": 83203
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/jupiter/w2048-3.jpg",
+          "bytes": 213398
+        }
+      ]
+    }
+  ],
+  "saturn": [
+    {
+      "featureName": "The Day the Earth Smiled",
+      "alt": "The Day the Earth Smiled — saturn",
+      "caption": "The Day the Earth Smiled",
+      "photographer": "NASA/JPL-Caltech/Space Science Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA17172",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA17172",
+      "provenance": "Curated from NASA image PIA17172; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ff486622c38c6681ef306195ba83f3ed8a304c9937279fe38d70a088f728c6d7",
+      "width": 9000,
+      "height": 3500,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/saturn/w640.jpg",
+          "bytes": 14706
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/saturn/w1280.jpg",
+          "bytes": 29275
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/saturn/w2048.jpg",
+          "bytes": 67152
+        }
+      ]
+    },
+    {
+      "featureName": "Cassini “Noodle” mosaic of Saturn",
+      "alt": "Cassini “Noodle” mosaic of Saturn — saturn",
+      "caption": "Cassini “Noodle” mosaic of Saturn",
+      "photographer": "NASA/JPL-Caltech/Space Science Institute/Hampton University",
+      "sourceUrl": "https://images.nasa.gov/details/PIA21617",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA21617",
+      "provenance": "Curated from NASA image PIA21617; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6eb81d651f115a557dc27de310c7e02a0a417b4089738894680c6aeca4a00c0f",
+      "width": 5001,
+      "height": 5301,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/saturn/w640-2.jpg",
+          "bytes": 10515
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/saturn/w1280-2.jpg",
+          "bytes": 26970
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/saturn/w2048-2.jpg",
+          "bytes": 60184
+        }
+      ]
+    },
+    {
+      "featureName": "Inside-out rings: over the limb",
+      "alt": "Inside-out rings: over the limb — saturn",
+      "caption": "Inside-out rings: over the limb",
+      "photographer": "NASA/JPL-Caltech/Space Science Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA21897",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA21897",
+      "provenance": "Curated from NASA image PIA21897; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e1efd6c180411e2fc1a8b97d16f4fcf937215e0f7ccd5492e6f385cace163894",
+      "width": 3018,
+      "height": 1441,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/saturn/w640-3.jpg",
+          "bytes": 10641
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/saturn/w1280-3.jpg",
+          "bytes": 30534
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/saturn/w2048-3.jpg",
+          "bytes": 76952
+        }
+      ]
+    }
+  ],
+  "uranus": [
+    {
+      "featureName": "Uranus from Voyager 2",
+      "alt": "Uranus from Voyager 2 — uranus",
+      "caption": "Uranus from Voyager 2",
+      "photographer": "NASA/JPL-Caltech",
+      "sourceUrl": "https://images.nasa.gov/details/PIA18182",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA18182",
+      "provenance": "Curated from NASA image PIA18182; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3dcc83114f1a25caa1ae1a1436830fffaa15a3e429666dbf4c68bcf035e8932b",
+      "width": 1720,
+      "height": 1720,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/uranus/w640.jpg",
+          "bytes": 16192
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/uranus/w1280.jpg",
+          "bytes": 36427
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/uranus/w2048.jpg",
+          "bytes": 61716
+        }
+      ]
+    },
+    {
+      "featureName": "Hubble finds many bright clouds on Uranus",
+      "alt": "Hubble finds many bright clouds on Uranus — uranus",
+      "caption": "Hubble finds many bright clouds on Uranus",
+      "photographer": "NASA/JPL/STScI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA02963",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA02963",
+      "provenance": "Curated from NASA image PIA02963; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "64d59fd4d3928ca0e48b48d0e0cefaa47bc4659842d9d5945f05383179af040e",
+      "width": 2400,
+      "height": 2433,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/uranus/w640-2.jpg",
+          "bytes": 19195
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/uranus/w1280-2.jpg",
+          "bytes": 44083
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/uranus/w2048-2.jpg",
+          "bytes": 105174
+        }
+      ]
+    },
+    {
+      "featureName": "Uranus far-flung rings",
+      "alt": "Uranus far-flung rings — uranus",
+      "caption": "Uranus far-flung rings",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA01487",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA01487",
+      "provenance": "Curated from NASA image PIA01487; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c8236841d46f75a7d4f0dadbc6d548049705e48661a258118b641d5e1bfa5610",
+      "width": 1760,
+      "height": 2450,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/uranus/w640-3.jpg",
+          "bytes": 129991
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/uranus/w1280-3.jpg",
+          "bytes": 366515
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/uranus/w2048-3.jpg",
+          "bytes": 644557
+        }
+      ]
+    }
+  ],
+  "neptune": [
+    {
+      "featureName": "Neptune full disk",
+      "alt": "Neptune full disk — neptune",
+      "caption": "Neptune full disk",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA01492",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA01492",
+      "provenance": "Curated from NASA image PIA01492; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "97b57802f44be2218578a98c8c26f8426ff7a95890d266d34486734f14c1edb6",
+      "width": 2188,
+      "height": 2185,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/neptune/w640.jpg",
+          "bytes": 17121
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/neptune/w1280.jpg",
+          "bytes": 74005
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/neptune/w2048.jpg",
+          "bytes": 229875
+        }
+      ]
+    },
+    {
+      "featureName": "Neptune Great Dark Spot in high resolution",
+      "alt": "Neptune Great Dark Spot in high resolution — neptune",
+      "caption": "Neptune Great Dark Spot in high resolution",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00052",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00052",
+      "provenance": "Curated from NASA image PIA00052; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "621f3af4cc94e4d69121fe5cb88609d925f3f7f43b200cb3e08a4002ef035104",
+      "width": 700,
+      "height": 852,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/neptune/w640-2.jpg",
+          "bytes": 56227
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/neptune/w1280-2.jpg",
+          "bytes": 70581
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/neptune/w2048-2.jpg",
+          "bytes": 80099
+        }
+      ]
+    },
+    {
+      "featureName": "Neptune rings",
+      "alt": "Neptune rings — neptune",
+      "caption": "Neptune rings",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA01493",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA01493",
+      "provenance": "Curated from NASA image PIA01493; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "af4ddce5a79f95b64c68e8e04e5d6ddc896d39f368a016d016e12af0a21264ec",
+      "width": 1469,
+      "height": 1160,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/neptune/w640-3.jpg",
+          "bytes": 40574
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/neptune/w1280-3.jpg",
+          "bytes": 117642
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/neptune/w2048-3.jpg",
+          "bytes": 160191
+        }
+      ]
+    }
+  ],
+  "pluto": [
+    {
+      "featureName": "Pluto in true color",
+      "alt": "Pluto in true color — pluto",
+      "caption": "Pluto in true color",
+      "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA19937",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA19937",
+      "provenance": "Curated from NASA image PIA19937; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "62ef4b19c16ad8a2c6397657ff3891cc818d161711369dd97b01ef862202b15a",
+      "width": 8000,
+      "height": 8000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/pluto/w640.jpg",
+          "bytes": 42243
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/pluto/w1280.jpg",
+          "bytes": 161650
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/pluto/w2048.jpg",
+          "bytes": 485161
+        }
+      ]
+    },
+    {
+      "featureName": "Closer look: majestic mountains and frozen plains",
+      "alt": "Closer look: majestic mountains and frozen plains — pluto",
+      "caption": "Closer look: majestic mountains and frozen plains",
+      "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA19947",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA19947",
+      "provenance": "Curated from NASA image PIA19947; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "38500cff596088a860b5d81017d4c3a843bcd211bda82c380dc0ef21c22d634a",
+      "width": 2055,
+      "height": 1321,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/pluto/w640-2.jpg",
+          "bytes": 38265
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/pluto/w1280-2.jpg",
+          "bytes": 109966
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/pluto/w2048-2.jpg",
+          "bytes": 252414
+        }
+      ]
+    },
+    {
+      "featureName": "Blue rays: New Horizons high-res farewell to Pluto",
+      "alt": "Blue rays: New Horizons high-res farewell to Pluto — pluto",
+      "caption": "Blue rays: New Horizons high-res farewell to Pluto",
+      "photographer": "NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA21590",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA21590",
+      "provenance": "Curated from NASA image PIA21590; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b845bb688aff03f62f2ea6a90a08457b83954e3f95d5d8ae21791b360bf2cc96",
+      "width": 3200,
+      "height": 1800,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/pluto/w640-3.jpg",
+          "bytes": 13710
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/pluto/w1280-3.jpg",
+          "bytes": 26981
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/pluto/w2048-3.jpg",
+          "bytes": 57585
+        }
+      ]
+    }
+  ],
+  "asteroid-belt": [
+    {
+      "featureName": "Vesta from Dawn",
+      "alt": "Vesta from Dawn — asteroid belt",
+      "caption": "Vesta from Dawn",
+      "photographer": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
+      "sourceUrl": "https://images.nasa.gov/details/PIA14894",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA14894",
+      "provenance": "Curated from NASA image PIA14894; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "0e5c918d36a3760a789ead3426130dca3d4e12d28454cd79fc1314002bd87efe",
+      "width": 1237,
+      "height": 1212,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/asteroid-belt/w640.jpg",
+          "bytes": 53301
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/asteroid-belt/w1280.jpg",
+          "bytes": 134903
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/asteroid-belt/w2048.jpg",
+          "bytes": 145142
+        }
+      ]
+    },
+    {
+      "featureName": "High cliffs at Vesta south pole",
+      "alt": "High cliffs at Vesta south pole — asteroid belt",
+      "caption": "High cliffs at Vesta south pole",
+      "photographer": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
+      "sourceUrl": "https://images.nasa.gov/details/PIA14713",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA14713",
+      "provenance": "Curated from NASA image PIA14713; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "14ae76205fa7dc8caca6f672c4e4ef097ad2fe5c39bf8f8a7e0d40efaf195458",
+      "width": 3840,
+      "height": 2160,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/asteroid-belt/w640-2.jpg",
+          "bytes": 21170
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/asteroid-belt/w1280-2.jpg",
+          "bytes": 49717
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/asteroid-belt/w2048-2.jpg",
+          "bytes": 108577
+        }
+      ]
+    },
+    {
+      "featureName": "Occator Crater on Ceres",
+      "alt": "Occator Crater on Ceres — asteroid belt",
+      "caption": "Occator Crater on Ceres",
+      "photographer": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
+      "sourceUrl": "https://images.nasa.gov/details/PIA20132",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA20132",
+      "provenance": "Curated from NASA image PIA20132; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8baa5f53eef2eccbf8b4840270ee4b492004516edb260be2ac8f07cb19889fbb",
+      "width": 1024,
+      "height": 1024,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/asteroid-belt/w640-3.jpg",
+          "bytes": 50059
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/asteroid-belt/w1280-3.jpg",
+          "bytes": 103545
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/asteroid-belt/w2048-3.jpg",
+          "bytes": 112709
+        }
+      ]
+    }
+  ],
+  "milky-way": [
+    {
+      "featureName": "Galactic center",
+      "alt": "Galactic center — milky way",
+      "caption": "Galactic center",
+      "photographer": "NASA/JPL-Caltech/ESA/CXC/STScI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA03653",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA03653",
+      "provenance": "Curated from NASA image PIA03653; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a07c42bb7d00efe6393b8a1d0109a2d37e9bf141b1bd79beed1f124dac1e1b93",
+      "width": 7002,
+      "height": 5050,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/milky-way/w640.jpg",
+          "bytes": 50908
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/milky-way/w1280.jpg",
+          "bytes": 190900
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/milky-way/w2048.jpg",
+          "bytes": 573780
+        }
+      ]
+    },
+    {
+      "featureName": "GLIMPSE the Galaxy all the way around",
+      "alt": "GLIMPSE the Galaxy all the way around — milky way",
+      "caption": "GLIMPSE the Galaxy all the way around",
+      "photographer": "NASA/JPL-Caltech/University of Wisconsin",
+      "sourceUrl": "https://images.nasa.gov/details/PIA17996",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA17996",
+      "provenance": "Curated from NASA image PIA17996; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c75a2f18a5507a7556739c3d9897a7792ca7333767ab433ecdefd6691ff31095",
+      "width": 14400,
+      "height": 8700,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/milky-way/w640-2.jpg",
+          "bytes": 35102
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/milky-way/w1280-2.jpg",
+          "bytes": 92877
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/milky-way/w2048-2.jpg",
+          "bytes": 230521
+        }
+      ]
+    },
+    {
+      "featureName": "A royal celebration",
+      "alt": "A royal celebration — milky way",
+      "caption": "A royal celebration",
+      "photographer": "NASA/JPL-Caltech/UCLA",
+      "sourceUrl": "https://images.nasa.gov/details/PIA15256",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA15256",
+      "provenance": "Curated from NASA image PIA15256; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "31e19660d5e44e4417de711308fa14512452e758327ee542b76072699bd9beea",
+      "width": 13530,
+      "height": 4909,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/milky-way/w640-3.jpg",
+          "bytes": 37317
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/milky-way/w1280-3.jpg",
+          "bytes": 123853
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/milky-way/w2048-3.jpg",
+          "bytes": 380901
+        }
+      ]
+    }
+  ],
+  "andromeda": [
+    {
+      "featureName": "The Andromeda Galaxy",
+      "alt": "The Andromeda Galaxy — andromeda",
+      "caption": "The Andromeda Galaxy",
+      "photographer": "NASA/JPL-Caltech",
+      "sourceUrl": "https://images.nasa.gov/details/PIA15416",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA15416",
+      "provenance": "Curated from NASA image PIA15416; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "88ed2cf29704895a32427c02be2daea6204f113e30f11aac4ff789c0de29a87d",
+      "width": 9400,
+      "height": 7000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/andromeda/w640.jpg",
+          "bytes": 57698
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/andromeda/w1280.jpg",
+          "bytes": 224801
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/andromeda/w2048.jpg",
+          "bytes": 647081
+        }
+      ]
+    },
+    {
+      "featureName": "Our neighbor Andromeda",
+      "alt": "Our neighbor Andromeda — andromeda",
+      "caption": "Our neighbor Andromeda",
+      "photographer": "NASA/JPL-Caltech/UCLA",
+      "sourceUrl": "https://images.nasa.gov/details/PIA12832",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA12832",
+      "provenance": "Curated from NASA image PIA12832; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "df2850973b2992924be5aa1e0bb92e889e48e5226abf67a2c70c48f0f40c7955",
+      "width": 6666,
+      "height": 6666,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/andromeda/w640-2.jpg",
+          "bytes": 58595
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/andromeda/w1280-2.jpg",
+          "bytes": 257328
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/andromeda/w2048-2.jpg",
+          "bytes": 846071
+        }
+      ]
+    },
+    {
+      "featureName": "Amazing Andromeda in red",
+      "alt": "Amazing Andromeda in red — andromeda",
+      "caption": "Amazing Andromeda in red",
+      "photographer": "NASA/JPL-Caltech/University of Arizona",
+      "sourceUrl": "https://images.nasa.gov/details/PIA03031",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA03031",
+      "provenance": "Curated from NASA image PIA03031; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "992b23a868d0a32d30f79afb4930cfc976207ebf15fd198dfb13bd34e97ea1ae",
+      "width": 8193,
+      "height": 2410,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/andromeda/w640-3.jpg",
+          "bytes": 29556
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/andromeda/w1280-3.jpg",
+          "bytes": 100112
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/andromeda/w2048-3.jpg",
+          "bytes": 295227
+        }
+      ]
+    }
+  ],
+  "io": [
+    {
+      "featureName": "Global view of Io",
+      "alt": "Global view of Io — io",
+      "caption": "Global view of Io",
+      "photographer": "NASA/JPL/University of Arizona",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00583",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00583",
+      "provenance": "Curated from NASA image PIA00583; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f67a4ff8c5ba4942b91cab411c865750af106159b13cbd7aa367aad2e5b37930",
+      "width": 1817,
+      "height": 1817,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/io/w640.jpg",
+          "bytes": 74719
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/io/w1280.jpg",
+          "bytes": 225650
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/io/w2048.jpg",
+          "bytes": 427037
+        }
+      ]
+    },
+    {
+      "featureName": "Io Culann-Tohil region in color",
+      "alt": "Io Culann-Tohil region in color — io",
+      "caption": "Io Culann-Tohil region in color",
+      "photographer": "NASA/JPL/University of Arizona/Arizona State University",
+      "sourceUrl": "https://images.nasa.gov/details/PIA03885",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA03885",
+      "provenance": "Curated from NASA image PIA03885; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5c61486ad40e87f8f8048eddd5d5633aadb8425d3b5e3f16c015bb1ac360fc3d",
+      "width": 1907,
+      "height": 2955,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/io/w640-2.jpg",
+          "bytes": 105373
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/io/w1280-2.jpg",
+          "bytes": 310498
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/io/w2048-2.jpg",
+          "bytes": 627354
+        }
+      ]
+    },
+    {
+      "featureName": "Io plume captured by JunoCam",
+      "alt": "Io plume captured by JunoCam — io",
+      "caption": "Io plume captured by JunoCam",
+      "photographer": "NASA/JPL-Caltech/SwRI/MSSS",
+      "sourceUrl": "https://images.nasa.gov/details/PIA26235",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA26235",
+      "provenance": "Curated from NASA image PIA26235; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d188051aa54a90159095907e301f3472f0b2ffd1e7d7a6c0389aba43378dc94a",
+      "width": 1091,
+      "height": 961,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/io/w640-3.jpg",
+          "bytes": 34607
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/io/w1280-3.jpg",
+          "bytes": 86269
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/io/w2048-3.jpg",
+          "bytes": 94153
+        }
+      ]
+    }
+  ],
+  "europa": [
+    {
+      "featureName": "Europa's icy surface",
+      "alt": "Europa's icy surface — europa",
+      "caption": "Europa's icy surface",
+      "photographer": "NASA/JPL-Caltech/SETI Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA19048",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA19048",
+      "provenance": "Curated from NASA image PIA19048; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f020c034750675cb0ace6c3164b18151746bfa28405e888d810312cd563d650d",
+      "width": 2300,
+      "height": 1700,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/europa/w640.jpg",
+          "bytes": 39511
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/europa/w1280.jpg",
+          "bytes": 129892
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/europa/w2048.jpg",
+          "bytes": 332585
+        }
+      ]
+    },
+    {
+      "featureName": "First image of Europa from Juno's close flyby",
+      "alt": "First image of Europa from Juno's close flyby — europa",
+      "caption": "First image of Europa from Juno's close flyby",
+      "photographer": "NASA/JPL-Caltech/SwRI/MSSS",
+      "sourceUrl": "https://images.nasa.gov/details/PIA25330",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA25330",
+      "provenance": "Curated from NASA image PIA25330; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "66c44b2f43658d6a2b26584eff3446fe84ace0f1bf361c0c11712cdbf16d7f9a",
+      "width": 3037,
+      "height": 730,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/europa/w640-2.jpg",
+          "bytes": 12877
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/europa/w1280-2.jpg",
+          "bytes": 42136
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/europa/w2048-2.jpg",
+          "bytes": 103951
+        }
+      ]
+    },
+    {
+      "featureName": "Highest-resolution Europa image and mosaic from Galileo",
+      "alt": "Highest-resolution Europa image and mosaic from Galileo — europa",
+      "caption": "Highest-resolution Europa image and mosaic from Galileo",
+      "photographer": "NASA/JPL-Caltech",
+      "sourceUrl": "https://images.nasa.gov/details/PIA21431",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA21431",
+      "provenance": "Curated from NASA image PIA21431; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c2e93230497ad103dfd31077292367d22b467e342b40e423429f5eed9d26b3c5",
+      "width": 1338,
+      "height": 2619,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/europa/w640-3.jpg",
+          "bytes": 89022
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/europa/w1280-3.jpg",
+          "bytes": 285027
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/europa/w2048-3.jpg",
+          "bytes": 345687
+        }
+      ]
+    }
+  ],
+  "ganymede": [
+    {
+      "featureName": "Ganymede in color",
+      "alt": "Ganymede in color — ganymede",
+      "caption": "Ganymede in color",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00716",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00716",
+      "provenance": "Curated from NASA image PIA00716; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6382510b125173a0490b281a1168f4bbc63d9cbf2fcabcfbb892135bb1b2c093",
+      "width": 800,
+      "height": 800,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/ganymede/w640.jpg",
+          "bytes": 36976
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/ganymede/w1280.jpg",
+          "bytes": 49185
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/ganymede/w2048.jpg",
+          "bytes": 52893
+        }
+      ]
+    },
+    {
+      "featureName": "Juno's Ganymede close-up",
+      "alt": "Juno's Ganymede close-up — ganymede",
+      "caption": "Juno's Ganymede close-up",
+      "photographer": "NASA/JPL-Caltech/SwRI/MSSS",
+      "sourceUrl": "https://images.nasa.gov/details/PIA24681",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA24681",
+      "provenance": "Curated from NASA image PIA24681; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f55181e1a847b64a2f1cfb214180d767aa6f71f0a81eaa031474a72dbe9f5732",
+      "width": 1625,
+      "height": 2524,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/ganymede/w640-2.jpg",
+          "bytes": 81643
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/ganymede/w1280-2.jpg",
+          "bytes": 369022
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/ganymede/w2048-2.jpg",
+          "bytes": 706662
+        }
+      ]
+    },
+    {
+      "featureName": "Ganymede Uruk Sulcus region from Galileo and Voyager",
+      "alt": "Ganymede Uruk Sulcus region from Galileo and Voyager — ganymede",
+      "caption": "Ganymede Uruk Sulcus region from Galileo and Voyager",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00705",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00705",
+      "provenance": "Curated from NASA image PIA00705; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4a3fb150cc68bfb8cafd86b660bc6dcf200f86614cfacdb54464b3c5bd91850a",
+      "width": 1097,
+      "height": 885,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/ganymede/w640-3.jpg",
+          "bytes": 94264
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/ganymede/w1280-3.jpg",
+          "bytes": 233625
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/ganymede/w2048-3.jpg",
+          "bytes": 253288
+        }
+      ]
+    }
+  ],
+  "titan": [
+    {
+      "featureName": "Titan's orange and blue hazes",
+      "alt": "Titan's orange and blue hazes — titan",
+      "caption": "Titan's orange and blue hazes",
+      "photographer": "NASA/JPL-Caltech/Space Science Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA14913",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA14913",
+      "provenance": "Curated from NASA image PIA14913; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b7a0598bbb08e7b1c9fbefce9c1c9a78b34a338c291c2826569c0224fb36adb8",
+      "width": 924,
+      "height": 657,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/titan/w640.jpg",
+          "bytes": 11694
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/titan/w1280.jpg",
+          "bytes": 15266
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/titan/w2048.jpg",
+          "bytes": 15961
+        }
+      ]
+    },
+    {
+      "featureName": "Huygens Titan mosaic",
+      "alt": "Huygens Titan mosaic — titan",
+      "caption": "Huygens Titan mosaic",
+      "photographer": "NASA/JPL/ESA/University of Arizona",
+      "sourceUrl": "https://images.nasa.gov/details/PIA07870",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA07870",
+      "provenance": "Curated from NASA image PIA07870; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "639625b8800e2b99585180422ef437aa6aeb8f1c17dafab6211c6c387751031e",
+      "width": 2400,
+      "height": 2400,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/titan/w640-2.jpg",
+          "bytes": 37181
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/titan/w1280-2.jpg",
+          "bytes": 93486
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/titan/w2048-2.jpg",
+          "bytes": 212353
+        }
+      ]
+    },
+    {
+      "featureName": "Lakes on Titan",
+      "alt": "Lakes on Titan — titan",
+      "caption": "Lakes on Titan",
+      "photographer": "NASA/JPL-Caltech/ASI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA08630",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA08630",
+      "provenance": "Curated from NASA image PIA08630; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3ab7b6ee8f6702c88c9a8666874eeca925c832f438d6fc9ce100f7d65cff491e",
+      "width": 2540,
+      "height": 1800,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/titan/w640-3.jpg",
+          "bytes": 63365
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/titan/w1280-3.jpg",
+          "bytes": 285809
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/titan/w2048-3.jpg",
+          "bytes": 906404
+        }
+      ]
+    }
+  ],
+  "enceladus": [
+    {
+      "featureName": "Approaching Enceladus",
+      "alt": "Approaching Enceladus — enceladus",
+      "caption": "Approaching Enceladus",
+      "photographer": "NASA/JPL-Caltech/Space Science Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA17202",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA17202",
+      "provenance": "Curated from NASA image PIA17202; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2ef0a3e897ec47694252deef78383dda24e775ed7be173a69b77aeceb00baecf",
+      "width": 1020,
+      "height": 1020,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/enceladus/w640.jpg",
+          "bytes": 43010
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/enceladus/w1280.jpg",
+          "bytes": 91817
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/enceladus/w2048.jpg",
+          "bytes": 99743
+        }
+      ]
+    },
+    {
+      "featureName": "Bursting at the seams: the geyser basin of Enceladus",
+      "alt": "Bursting at the seams: the geyser basin of Enceladus — enceladus",
+      "caption": "Bursting at the seams: the geyser basin of Enceladus",
+      "photographer": "NASA/JPL/Space Science Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA11688",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA11688",
+      "provenance": "Curated from NASA image PIA11688; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "38a8bff26edfbf095e9ed91773315fe16616ad05c96bbcf0662bc14c30630189",
+      "width": 1580,
+      "height": 977,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/enceladus/w640-2.jpg",
+          "bytes": 15572
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/enceladus/w1280-2.jpg",
+          "bytes": 32404
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/enceladus/w2048-2.jpg",
+          "bytes": 45975
+        }
+      ]
+    },
+    {
+      "featureName": "A fractured pole",
+      "alt": "A fractured pole — enceladus",
+      "caption": "A fractured pole",
+      "photographer": "NASA/JPL-Caltech/Space Science Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA19660",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA19660",
+      "provenance": "Curated from NASA image PIA19660; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "0201a2aed98a8144dfa8a914586205ae0db2f35f5df2b551a3a6d6c8b3f62fa5",
+      "width": 1024,
+      "height": 1024,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/enceladus/w640-3.jpg",
+          "bytes": 62119
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/enceladus/w1280-3.jpg",
+          "bytes": 137933
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/enceladus/w2048-3.jpg",
+          "bytes": 151227
+        }
+      ]
+    }
+  ],
+  "iss": [
+    {
+      "featureName": "ISS flyaround",
+      "alt": "ISS flyaround — iss",
+      "caption": "ISS flyaround",
+      "photographer": "NASA",
+      "sourceUrl": "https://images.nasa.gov/details/iss01-389-023",
+      "license": "Public Domain (NASA)",
+      "nasaId": "iss01-389-023",
+      "provenance": "Curated from NASA image iss01-389-023; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ce3764279f3d0567a13a7df6a37853d913e4b3077a8fe3ca2b00c35a97878f6c",
+      "width": 2976,
+      "height": 1984,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/iss/w640.jpg",
+          "bytes": 33049
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/iss/w1280.jpg",
+          "bytes": 96587
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/iss/w2048.jpg",
+          "bytes": 247758
+        }
+      ]
+    },
+    {
+      "featureName": "ISS flyaround with Cygnus UltraFlex arrays",
+      "alt": "ISS flyaround with Cygnus UltraFlex arrays — iss",
+      "caption": "ISS flyaround with Cygnus UltraFlex arrays",
+      "photographer": "Thomas Pesquet",
+      "sourceUrl": "https://images.nasa.gov/details/iss066e080382",
+      "license": "Public Domain (NASA)",
+      "nasaId": "iss066e080382",
+      "provenance": "Curated from NASA image iss066e080382; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "bf27e3afdf0e8e20b015bea1844c6f764fbd24eb565ab13f394b97f49bcdb724",
+      "width": 5568,
+      "height": 3712,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/iss/w640-2.jpg",
+          "bytes": 69388
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/iss/w1280-2.jpg",
+          "bytes": 149933
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/iss/w2048-2.jpg",
+          "bytes": 337298
+        }
+      ]
+    },
+    {
+      "featureName": "ISS flyaround with Russian segment and visiting vehicles",
+      "alt": "ISS flyaround with Russian segment and visiting vehicles — iss",
+      "caption": "ISS flyaround with Russian segment and visiting vehicles",
+      "photographer": "Thomas Pesquet",
+      "sourceUrl": "https://images.nasa.gov/details/iss066e080481",
+      "license": "Public Domain (NASA)",
+      "nasaId": "iss066e080481",
+      "provenance": "Curated from NASA image iss066e080481; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3085fee26c094d04bfa59c8a265c0e775b0878a1ae7290f1fc28dacdc7c1e8b3",
+      "width": 5568,
+      "height": 3712,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/iss/w640-3.jpg",
+          "bytes": 64129
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/iss/w1280-3.jpg",
+          "bytes": 134559
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/iss/w2048-3.jpg",
+          "bytes": 291348
+        }
+      ]
+    }
+  ],
+  "orion-nebula": [
+    {
+      "featureName": "Heart of the Orion Nebula",
+      "alt": "Heart of the Orion Nebula — orion nebula",
+      "caption": "Heart of the Orion Nebula",
+      "photographer": "NASA/JPL-Caltech/STScI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA01322",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA01322",
+      "provenance": "Curated from NASA image PIA01322; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "866c955ad3ee2b5306777aff3b51c22940278355646e7b35a7ba519e82a26a0f",
+      "width": 6000,
+      "height": 6000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/orion-nebula/w640.jpg",
+          "bytes": 53356
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/orion-nebula/w1280.jpg",
+          "bytes": 145922
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/orion-nebula/w2048.jpg",
+          "bytes": 348765
+        }
+      ]
+    },
+    {
+      "featureName": "Orion Nebula in infrared",
+      "alt": "Orion Nebula in infrared — orion nebula",
+      "caption": "Orion Nebula in infrared",
+      "photographer": "ESA/NASA/JPL-Caltech",
+      "sourceUrl": "https://images.nasa.gov/details/PIA25434",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA25434",
+      "provenance": "Curated from NASA image PIA25434; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "df7239b486c76ba159e11d140d2d688ebbea96e9fd69dd4410cca4d0291369b2",
+      "width": 9036,
+      "height": 7646,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/orion-nebula/w640-2.jpg",
+          "bytes": 26286
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/orion-nebula/w1280-2.jpg",
+          "bytes": 69559
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/orion-nebula/w2048-2.jpg",
+          "bytes": 165385
+        }
+      ]
+    },
+    {
+      "featureName": "Orion Nebula and bow shock",
+      "alt": "Orion Nebula and bow shock — orion nebula",
+      "caption": "Orion Nebula and bow shock",
+      "photographer": "NASA and the Hubble Heritage Team STScI/AURA",
+      "sourceUrl": "https://images.nasa.gov/details/PIA04227",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA04227",
+      "provenance": "Curated from NASA image PIA04227; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "30aac3d17fb86f260d82ae22929bb21dfd817ddddf53f758454a6d32d8d24215",
+      "width": 1074,
+      "height": 895,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/orion-nebula/w640-3.jpg",
+          "bytes": 24820
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/orion-nebula/w1280-3.jpg",
+          "bytes": 60861
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/orion-nebula/w2048-3.jpg",
+          "bytes": 66552
+        }
+      ]
+    }
+  ],
+  "crab-nebula": [
+    {
+      "featureName": "Crab Nebula",
+      "alt": "Crab Nebula — crab nebula",
+      "caption": "Crab Nebula",
+      "photographer": "NASA/ESA/JPL/Arizona State University",
+      "sourceUrl": "https://images.nasa.gov/details/PIA03606",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA03606",
+      "provenance": "Curated from NASA image PIA03606; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c9ff0251e925902c9aeffd9c92fefd06b97b9a99bc24c0c11ce5b60ef3a2906e",
+      "width": 3864,
+      "height": 3864,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/crab-nebula/w640.jpg",
+          "bytes": 78894
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/crab-nebula/w1280.jpg",
+          "bytes": 256934
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/crab-nebula/w2048.jpg",
+          "bytes": 714517
+        }
+      ]
+    },
+    {
+      "featureName": "Dead star creates celestial havoc",
+      "alt": "Dead star creates celestial havoc — crab nebula",
+      "caption": "Dead star creates celestial havoc",
+      "photographer": "NASA/JPL-Caltech/ESA/CXC/University of Arizona/University of Szeged",
+      "sourceUrl": "https://images.nasa.gov/details/PIA01320",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA01320",
+      "provenance": "Curated from NASA image PIA01320; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ac8aabd0c6aad1081f6fb21747213cad2152dbab31c031a9dd4ee63c4c3e4580",
+      "width": 2448,
+      "height": 2244,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/crab-nebula/w640-2.jpg",
+          "bytes": 43949
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/crab-nebula/w1280-2.jpg",
+          "bytes": 139942
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/crab-nebula/w2048-2.jpg",
+          "bytes": 386375
+        }
+      ]
+    },
+    {
+      "featureName": "Crab Nebula as seen by Herschel and Hubble",
+      "alt": "Crab Nebula as seen by Herschel and Hubble — crab nebula",
+      "caption": "Crab Nebula as seen by Herschel and Hubble",
+      "photographer": "ESA/Herschel/PACS; NASA, ESA",
+      "sourceUrl": "https://images.nasa.gov/details/PIA17563",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA17563",
+      "provenance": "Curated from NASA image PIA17563; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e429da5006cd533b1ac84f073eb0720ad8134e050fe434abe218d63d06338b9c",
+      "width": 3864,
+      "height": 3864,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/crab-nebula/w640-3.jpg",
+          "bytes": 55298
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/crab-nebula/w1280-3.jpg",
+          "bytes": 168206
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/crab-nebula/w2048-3.jpg",
+          "bytes": 450794
+        }
+      ]
+    }
+  ],
+  "carina-nebula": [
+    {
+      "featureName": "Carina Nebula landscape",
+      "alt": "Carina Nebula landscape — carina nebula",
+      "caption": "Carina Nebula landscape",
+      "photographer": "NASA/ESA/M. Livio / Hubble Heritage Team",
+      "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002076",
+      "license": "Public Domain (NASA)",
+      "nasaId": "GSFC_20171208_Archive_e002076",
+      "provenance": "Curated from NASA image GSFC_20171208_Archive_e002076; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "60969104a771b76eef7fdf600e1ab21b888cd9fab5fecc8df64a3dc30e394a16",
+      "width": 4003,
+      "height": 2719,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/carina-nebula/w640.jpg",
+          "bytes": 96935
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/carina-nebula/w1280.jpg",
+          "bytes": 183738
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/carina-nebula/w2048.jpg",
+          "bytes": 421667
+        }
+      ]
+    },
+    {
+      "featureName": "The tortured clouds of Eta Carinae",
+      "alt": "The tortured clouds of Eta Carinae — carina nebula",
+      "caption": "The tortured clouds of Eta Carinae",
+      "photographer": "NASA/JPL-Caltech",
+      "sourceUrl": "https://images.nasa.gov/details/PIA17257",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA17257",
+      "provenance": "Curated from NASA image PIA17257; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "da99157ca898a9ee8451151307c2c06671a65998138ce00e9ee4102dfcc6f1e6",
+      "width": 6400,
+      "height": 6400,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/carina-nebula/w640-2.jpg",
+          "bytes": 80483
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/carina-nebula/w1280-2.jpg",
+          "bytes": 336663
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/carina-nebula/w2048-2.jpg",
+          "bytes": 1074829
+        }
+      ]
+    },
+    {
+      "featureName": "Cosmic Cliffs in the Carina Nebula",
+      "alt": "Cosmic Cliffs in the Carina Nebula — carina nebula",
+      "caption": "Cosmic Cliffs in the Carina Nebula",
+      "photographer": "NASA/ESA/CSA/STScI",
+      "sourceUrl": "https://images.nasa.gov/details/carina_nebula",
+      "license": "Public Domain (NASA)",
+      "nasaId": "carina_nebula",
+      "provenance": "Curated from NASA image carina_nebula; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "08b88392b4d093ebdfdff7de7bc5cacbdef134c9f2f503ffee2ae39b062e2bcd",
+      "width": 2000,
+      "height": 1158,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/carina-nebula/w640-3.jpg",
+          "bytes": 71555
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/carina-nebula/w1280-3.jpg",
+          "bytes": 212947
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/carina-nebula/w2048-3.jpg",
+          "bytes": 514973
+        }
+      ]
+    }
+  ]
 }

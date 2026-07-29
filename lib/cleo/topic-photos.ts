@@ -76,30 +76,32 @@ function loadTopicPhoto(
   if (topic.collection === 'explore') {
     const entry = getAtlasEntry(topic.slug)
     if (!entry) return null
+    const photo = entry.photos[0]
     return {
       collection: 'explore',
       slug: entry.slug,
       name: entry.name,
       href: `/explore/${entry.slug}`,
-      title: entry.photo.placeName,
-      alt: entry.photo.alt,
-      caption: entry.photo.caption,
-      src: atlasRendition(entry.photo, 1280).src,
+      title: photo.placeName,
+      alt: photo.alt,
+      caption: photo.caption,
+      src: atlasRendition(photo, 1280).src,
     }
   }
 
   const subject = getSpaceSubject(topic.slug)
   if (!subject) return null
+  const photo = subject.photos[0]
 
   return {
     collection: 'space',
     slug: subject.slug,
     name: subject.name,
     href: `/space/${subject.slug}`,
-    title: subject.photo.featureName,
-    alt: subject.photo.alt,
-    caption: subject.photo.caption,
-    src: staticRendition(subject.photo, 1280).src,
+    title: photo.featureName,
+    alt: photo.alt,
+    caption: photo.caption,
+    src: staticRendition(photo, 1280).src,
   }
 }
 

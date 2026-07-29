@@ -5,7 +5,7 @@ import { hasInventedPortalPaths, sanitizePortalMarkdown } from "./guardrails"
 describe("portal markdown guardrails", () => {
   it("keeps real guide links and curated photos", () => {
     const markdown =
-      "See [Japan](/explore/japan) and ![Mount Fuji](/images/atlas/japan/w1280.jpg)."
+      "See [Japan](/explore/japan), ![Mount Fuji](/images/atlas/japan/w1280.jpg), and ![Second view](/images/atlas/japan/w1280-2.jpg)."
 
     expect(sanitizePortalMarkdown(markdown)).toBe(markdown)
     expect(hasInventedPortalPaths(markdown)).toBe(false)
