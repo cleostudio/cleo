@@ -232,7 +232,8 @@ function SearchPhrase({ children }: { children: React.ReactNode }) {
 /** cali.so ExternalLink-with-image pattern — photo leads, no description. */
 function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
   const sample = highlightedAtlasEntries(1)[0]
-  const image = sample ? staticRendition(sample.photo, 640) : null
+  const photo = sample?.photos[0]
+  const image = photo ? staticRendition(photo, 640) : null
 
   return (
     <SitePreviewCard
@@ -260,8 +261,8 @@ function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
             <T zh="图库" en="Gallery" />
           </span>
           <span className="link-card-title">
-            {sample ? (
-              <T zh={sample.photo.placeName} en={sample.photo.placeName} />
+            {photo ? (
+              <T zh={photo.placeName} en={photo.placeName} />
             ) : (
               <T zh="精选照片" en="Curated photographs" />
             )}
