@@ -23,6 +23,12 @@ import {
   IMAGE_ACCEPT,
   MAX_IMAGES_PER_MESSAGE,
 } from "~/lib/cleo/client-images"
+import { requestUserLocation } from "~/lib/cleo/client-location"
+import type { UserLocation } from "~/lib/cleo/location"
+import {
+  isLocationSyncEnabled,
+  subscribeToLocationSync,
+} from "~/lib/cleo/location-preference"
 import {
   CONTINUE_PROMPT,
   makeIncomplete,
@@ -265,6 +271,7 @@ export function AskForm() {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])
+  const [location, setLocation] = useState<UserLocation | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [scrollTick, setScrollTick] = useState(0)
@@ -347,6 +354,41 @@ export function AskForm() {
     return () => {
       mountedRef.current = false
       abortControllerRef.current?.abort()
+    }
+  }, [])
+
+  useEffect(() => {
+    let isCurrent = true
+    let locationRequestId = 0
+
+    const syncLocation = (enabled: boolean) => {
+      locationRequestId += 1
+      const requestId = locationRequestId
+
+      if (!enabled) {
+        setLocation(null)
+        return
+      }
+
+      void requestUserLocation()
+        .then((nextLocation) => {
+          if (isCurrent && locationRequestId === requestId) {
+            setLocation(nextLocation)
+          }
+        })
+        .catch(() => {
+          if (isCurrent && locationRequestId === requestId) {
+            setLocation(null)
+          }
+        })
+    }
+
+    syncLocation(isLocationSyncEnabled())
+    const unsubscribe = subscribeToLocationSync(syncLocation)
+
+    return () => {
+      isCurrent = false
+      unsubscribe()
     }
   }, [])
 
@@ -584,7 +626,10 @@ export function AskForm() {
       const response = await fetch("/api/responses", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: conversation }),
+        body: JSON.stringify({
+          messages: conversation,
+          ...(location ? { location } : {}),
+        }),
         signal: abortController.signal,
       })
 

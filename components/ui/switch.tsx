@@ -49,8 +49,9 @@ function Switch({
       className={cn(
         // 34x20 track; the thumb travels 2px -> 16px inside it.
         "relative inline-flex h-5 w-[2.125rem] shrink-0 cursor-pointer items-center rounded-full outline-none",
-        "bg-border transition-colors duration-150 data-[checked]:bg-foreground motion-reduce:transition-none",
-        "focus-visible:ring-1 focus-visible:ring-[color:var(--focus-ring,#6B97FF)]",
+        "border border-foreground/20 bg-foreground/15 transition-colors duration-150",
+        "data-[checked]:border-primary data-[checked]:bg-primary motion-reduce:transition-none",
+        "focus-visible:ring-2 focus-visible:ring-ring/30",
         "disabled:cursor-default disabled:opacity-50",
         !label && className
       )}

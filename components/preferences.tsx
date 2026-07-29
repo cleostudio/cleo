@@ -7,7 +7,12 @@ import { PreferencesIcon } from '~/components/dock-icons'
 import { useTheme } from '~/components/theme-provider'
 import { useEffect, useState } from 'react'
 
+import { Switch } from '~/components/ui/switch'
 import { TabItem, Tabs, TabsList } from '~/components/ui/tabs'
+import {
+  isLocationSyncEnabled,
+  setLocationSyncEnabled,
+} from '~/lib/cleo/location-preference'
 import { Elevated } from '~/lib/elevated'
 import { T } from '~/lib/i18n'
 import { localize, useLocale } from '~/lib/locale-client'
@@ -32,11 +37,13 @@ function Row({ zh, en, children }: { zh: string; en: string; children: React.Rea
 export function Preferences() {
   const activeLocale = useLocale()
   const { theme, setTheme } = useTheme()
+  const [locationSync, setLocationSync] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [sound, setSound] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    setLocationSync(isLocationSyncEnabled())
     setSound(soundEnabled())
   }, [])
 
@@ -102,6 +109,18 @@ export function Preferences() {
                   <TabItem value="off" icon={VolumeX} label="" aria-label={localize(activeLocale, '关', 'Off')} />
                 </TabsList>
               </Tabs>
+            </Row>
+            <Row zh="位置" en="Location">
+              <Switch
+                aria-label={localize(activeLocale, '与 Cleo 分享位置', 'Share location with Cleo')}
+                checked={locationSync}
+                disabled={!mounted}
+                onCheckedChange={(enabled) => {
+                  setLocationSyncEnabled(enabled)
+                  setLocationSync(enabled)
+                  playPreferenceSound()
+                }}
+              />
             </Row>
           </Popover.Popup>
         </Popover.Positioner>

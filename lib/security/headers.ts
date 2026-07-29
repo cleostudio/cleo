@@ -48,7 +48,7 @@ export const securityHeaders = [
     value: [
       'accelerometer=()',
       'camera=()',
-      'geolocation=()',
+      'geolocation=(self)',
       'gyroscope=()',
       'magnetometer=()',
       'microphone=()',

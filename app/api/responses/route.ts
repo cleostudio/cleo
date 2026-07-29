@@ -17,6 +17,10 @@ type CleoResponseCreateParams = ResponseCreateParamsStreaming & {
 import { promptCacheKeyForConversation } from "~/lib/cleo/conversation-helpers"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
+  buildUserLocationInstructions,
+  parseUserLocation,
+} from "~/lib/cleo/location"
+import {
   GENERATED_IMAGE_MEDIA_TYPE,
   GENERATED_IMAGE_OUTPUT_COMPRESSION,
   GENERATED_IMAGE_OUTPUT_FORMAT,
@@ -433,6 +437,20 @@ export async function POST(request: Request) {
     return parsed
   }
 
+  const locationValue =
+    typeof body === "object" && body !== null && "location" in body
+      ? body.location
+      : undefined
+  const location =
+    locationValue === undefined ? undefined : parseUserLocation(locationValue)
+
+  if (locationValue !== undefined && !location) {
+    return errorResponse(
+      "Location must include finite coordinates, a reported accuracy, and a valid IANA time zone.",
+      400
+    )
+  }
+
   const apiKey = process.env.OPENAI_API_KEY
 
   if (!apiKey) {
@@ -444,9 +462,12 @@ export async function POST(request: Request) {
   const input = toApiInput(parsed)
   const topicPhotos = matchTopicPhotosInText(conversationTopicText(parsed))
   const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
-  const instructions = topicPhotoInstructions
-    ? `${CLEO_INSTRUCTIONS}\n\n${topicPhotoInstructions}`
-    : CLEO_INSTRUCTIONS
+  const locationInstructions = location
+    ? buildUserLocationInstructions(location)
+    : undefined
+  const instructions = [CLEO_INSTRUCTIONS, topicPhotoInstructions, locationInstructions]
+    .filter(Boolean)
+    .join("\n\n")
   const latestUserText =
     [...parsed].reverse().find((message) => message.role === "user")?.content ??
     ""
