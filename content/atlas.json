@@ -4177,28 +4177,28 @@
         "placeName": "Waza National Park",
         "alt": "Waza National Park in Cameroon",
         "caption": "Waza National Park, Cameroon",
-        "photographer": "Albert Backer",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waza-NP-Elephant.jpg",
-        "license": "CC BY-SA 3.0",
-        "provenance": "Curated from Wikimedia Commons (File:Waza-NP-Elephant.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/10/Waza-NP-Elephant.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "ee3801c067ee3d5f4564d194679cfde717ee7ea38711b96f2f2d035f60ccffbc",
-        "width": 2398,
-        "height": 1350,
+        "photographer": "Eric Joel MAMA NKE",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Montagne_du_Parc_de_Waza_-_Extreme_Nord_-_Cameroun.jpg",
+        "license": "CC BY-SA 4.0",
+        "provenance": "Curated from Wikimedia Commons (File:Montagne du Parc de Waza - Extreme Nord - Cameroun.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/8b/Montagne_du_Parc_de_Waza_-_Extreme_Nord_-_Cameroun.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "851082ed754312aafcb5f00df9aa119852163759b78157d42b24f67fb0e8fbbb",
+        "width": 2087,
+        "height": 2784,
         "renditions": [
           {
             "width": 640,
             "src": "/images/atlas/cameroon/w640.jpg",
-            "bytes": 63034
+            "bytes": 106781
           },
           {
             "width": 1280,
             "src": "/images/atlas/cameroon/w1280.jpg",
-            "bytes": 176264
+            "bytes": 459184
           },
           {
             "width": 2048,
             "src": "/images/atlas/cameroon/w2048.jpg",
-            "bytes": 389406
+            "bytes": 1345617
           }
         ]
       },
@@ -8444,27 +8444,27 @@
         "alt": "Loango National Park in Gabon",
         "caption": "Loango National Park, Gabon",
         "photographer": "Kurt Dundy at English Wikipedia",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gabon_Loango_National_Park_Wild_Buffalo_Single.jpeg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gabon_Loango_National_Park_Southern_Camping_Ground_bar_with_a_view.jpeg",
         "license": "CC BY 3.0",
-        "provenance": "Curated from Wikimedia Commons (File:Gabon Loango National Park Wild Buffalo Single.jpeg); source https://upload.wikimedia.org/wikipedia/commons/6/6b/Gabon_Loango_National_Park_Wild_Buffalo_Single.jpeg; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "ac5461ffd3d610666992727754d2d2757a337e010f64e1898ff2dde797deb505",
+        "provenance": "Curated from Wikimedia Commons (File:Gabon Loango National Park Southern Camping Ground bar with a view.jpeg); source https://upload.wikimedia.org/wikipedia/commons/4/4c/Gabon_Loango_National_Park_Southern_Camping_Ground_bar_with_a_view.jpeg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "ff34e3786454356eae22c599cbf50e6832784430b03f77c451344402596e1016",
         "width": 3648,
         "height": 2736,
         "renditions": [
           {
             "width": 640,
             "src": "/images/atlas/gabon/w640.jpg",
-            "bytes": 89044
+            "bytes": 70521
           },
           {
             "width": 1280,
             "src": "/images/atlas/gabon/w1280.jpg",
-            "bytes": 211052
+            "bytes": 239342
           },
           {
             "width": 2048,
             "src": "/images/atlas/gabon/w2048.jpg",
-            "bytes": 442979
+            "bytes": 656482
           }
         ]
       },
@@ -14346,31 +14346,31 @@
     ],
     "photos": [
       {
-        "placeName": "Petronas Towers",
-        "alt": "Petronas Towers in Malaysia",
-        "caption": "Petronas Towers, Malaysia",
-        "photographer": "James Kerwin from Tbilisi",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Twins_SE_Asia_2019_(49171985716).jpg",
-        "license": "CC BY 2.0",
-        "provenance": "Curated from Wikimedia Commons (File:The Twins SE Asia 2019 (49171985716).jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c8/The_Twins_SE_Asia_2019_%2849171985716%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "65b744903ad82a81fc9a0c81346a29eca128f0e139e3148fdf7655789609ac8d",
+        "placeName": "Gunung Mulu",
+        "alt": "Gunung Mulu in Malaysia",
+        "caption": "Gunung Mulu, Malaysia",
+        "photographer": "Nur Nafis Naim",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mulu_Pinnacles.jpg",
+        "license": "CC BY-SA 4.0",
+        "provenance": "Curated from Wikimedia Commons (File:Mulu Pinnacles.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/55/Mulu_Pinnacles.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "61b80d4bb79b78b2e8feee959966f89800246f1c7cfc83566837c544e91e5a05",
         "width": 3840,
-        "height": 2560,
+        "height": 2562,
         "renditions": [
           {
             "width": 640,
             "src": "/images/atlas/malaysia/w640.jpg",
-            "bytes": 52706
+            "bytes": 99046
           },
           {
             "width": 1280,
             "src": "/images/atlas/malaysia/w1280.jpg",
-            "bytes": 197131
+            "bytes": 249525
           },
           {
             "width": 2048,
             "src": "/images/atlas/malaysia/w2048.jpg",
-            "bytes": 577719
+            "bytes": 637035
           }
         ]
       },
@@ -14404,31 +14404,31 @@
         ]
       },
       {
-        "placeName": "Gunung Mulu",
-        "alt": "Gunung Mulu in Malaysia",
-        "caption": "Gunung Mulu, Malaysia",
-        "photographer": "(c) dhfischer, some rights reserved (CC BY)",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baram_Snakehead,_Gunung_Mulu_NP,_Sarawak,_Malaysia_iNaturalist.jpg",
-        "license": "CC BY 4.0",
-        "provenance": "Curated from Wikimedia Commons (File:Baram Snakehead, Gunung Mulu NP, Sarawak, Malaysia iNaturalist.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/17/Baram_Snakehead%2C_Gunung_Mulu_NP%2C_Sarawak%2C_Malaysia_iNaturalist.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "527b868c29bab33f03ba52606c638cbb5099c047b9a0b251e965748a186c494a",
-        "width": 2048,
-        "height": 1365,
+        "placeName": "Petronas Towers",
+        "alt": "Petronas Towers in Malaysia",
+        "caption": "Petronas Towers, Malaysia",
+        "photographer": "James Kerwin from Tbilisi",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Twins_SE_Asia_2019_(49171985716).jpg",
+        "license": "CC BY 2.0",
+        "provenance": "Curated from Wikimedia Commons (File:The Twins SE Asia 2019 (49171985716).jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c8/The_Twins_SE_Asia_2019_%2849171985716%29.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "65b744903ad82a81fc9a0c81346a29eca128f0e139e3148fdf7655789609ac8d",
+        "width": 3840,
+        "height": 2560,
         "renditions": [
           {
             "width": 640,
             "src": "/images/atlas/malaysia/w640-3.jpg",
-            "bytes": 49057
+            "bytes": 52706
           },
           {
             "width": 1280,
             "src": "/images/atlas/malaysia/w1280-3.jpg",
-            "bytes": 142561
+            "bytes": 197131
           },
           {
             "width": 2048,
             "src": "/images/atlas/malaysia/w2048-3.jpg",
-            "bytes": 345479
+            "bytes": 577719
           }
         ]
       }
@@ -17780,6 +17780,35 @@
     ],
     "photos": [
       {
+        "placeName": "Bryggen",
+        "alt": "Bryggen in Norway",
+        "caption": "Bryggen, Norway",
+        "photographer": "Diego Delso",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bryggen,_Bergen,_Noruega,_2019-09-08,_DD_115-117_PAN.jpg",
+        "license": "CC BY-SA 4.0",
+        "provenance": "Curated from Wikimedia Commons (File:Bryggen, Bergen, Noruega, 2019-09-08, DD 115-117 PAN.jpg); source https://upload.wikimedia.org/wikipedia/commons/c/c7/Bryggen%2C_Bergen%2C_Noruega%2C_2019-09-08%2C_DD_115-117_PAN.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "c7eaf0fd73d8d290f7d12fa618068ca6897ec01fd7395575d2e1d0dd8eb1be23",
+        "width": 3840,
+        "height": 1975,
+        "renditions": [
+          {
+            "width": 640,
+            "src": "/images/atlas/norway/w640.jpg",
+            "bytes": 46929
+          },
+          {
+            "width": 1280,
+            "src": "/images/atlas/norway/w1280.jpg",
+            "bytes": 165263
+          },
+          {
+            "width": 2048,
+            "src": "/images/atlas/norway/w2048.jpg",
+            "bytes": 476771
+          }
+        ]
+      },
+      {
         "placeName": "Geirangerfjord",
         "alt": "Geirangerfjord in Norway",
         "caption": "Geirangerfjord, Norway",
@@ -17793,47 +17822,18 @@
         "renditions": [
           {
             "width": 640,
-            "src": "/images/atlas/norway/w640.jpg",
+            "src": "/images/atlas/norway/w640-2.jpg",
             "bytes": 49640
           },
           {
             "width": 1280,
-            "src": "/images/atlas/norway/w1280.jpg",
+            "src": "/images/atlas/norway/w1280-2.jpg",
             "bytes": 198166
           },
           {
             "width": 2048,
-            "src": "/images/atlas/norway/w2048.jpg",
-            "bytes": 640636
-          }
-        ]
-      },
-      {
-        "placeName": "Bryggen",
-        "alt": "Bryggen in Norway",
-        "caption": "Bryggen, Norway",
-        "photographer": "Gordon Leggett",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2016-11-23_01_Live_fish_carrier_MV_HAUGBAS_%E2%80%93_IMO_9121778.jpg",
-        "license": "CC BY-SA 4.0",
-        "provenance": "Curated from Wikimedia Commons (File:2016-11-23 01 Live fish carrier MV HAUGBAS – IMO 9121778.jpg); source https://upload.wikimedia.org/wikipedia/commons/8/81/2016-11-23_01_Live_fish_carrier_MV_HAUGBAS_%E2%80%93_IMO_9121778.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "c3db87dcb5117e2d0baafef23ff03958c31dd3d9ff599b230a6eaa756681777a",
-        "width": 3840,
-        "height": 2677,
-        "renditions": [
-          {
-            "width": 640,
-            "src": "/images/atlas/norway/w640-2.jpg",
-            "bytes": 60546
-          },
-          {
-            "width": 1280,
-            "src": "/images/atlas/norway/w1280-2.jpg",
-            "bytes": 188757
-          },
-          {
-            "width": 2048,
             "src": "/images/atlas/norway/w2048-2.jpg",
-            "bytes": 459796
+            "bytes": 640636
           }
         ]
       },
@@ -17841,28 +17841,28 @@
         "placeName": "Lofoten Islands",
         "alt": "Lofoten Islands in Norway",
         "caption": "Lofoten Islands, Norway",
-        "photographer": "Giorgio Galeotti",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seagull_-_Lofoten_Islands,_Norway_-_August_1989_01.jpg",
-        "license": "CC BY 4.0",
-        "provenance": "Curated from Wikimedia Commons (File:Seagull - Lofoten Islands, Norway - August 1989 01.jpg); source https://upload.wikimedia.org/wikipedia/commons/e/e7/Seagull_-_Lofoten_Islands%2C_Norway_-_August_1989_01.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "4e6df7f994a74a9c812708cbc29224ac46dd751490efd4cf6c158b3e26e72172",
-        "width": 3000,
-        "height": 2074,
+        "photographer": "Ximonic (Simo Räsänen)",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cirrus_front_over_Austnesfjorden,_Austv%C3%A5g%C3%B8ya,_Lofoten,_Norway,_2015_April.jpg",
+        "license": "CC BY-SA 3.0",
+        "provenance": "Curated from Wikimedia Commons (File:Cirrus front over Austnesfjorden, Austvågøya, Lofoten, Norway, 2015 April.jpg); source https://upload.wikimedia.org/wikipedia/commons/f/f0/Cirrus_front_over_Austnesfjorden%2C_Austv%C3%A5g%C3%B8ya%2C_Lofoten%2C_Norway%2C_2015_April.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "a4e035126446208523dda59fe8b462121ff1ae60bbd6cbc90cd49d8ff58a528f",
+        "width": 3840,
+        "height": 2079,
         "renditions": [
           {
             "width": 640,
             "src": "/images/atlas/norway/w640-3.jpg",
-            "bytes": 33295
+            "bytes": 30300
           },
           {
             "width": 1280,
             "src": "/images/atlas/norway/w1280-3.jpg",
-            "bytes": 107894
+            "bytes": 104077
           },
           {
             "width": 2048,
             "src": "/images/atlas/norway/w2048-3.jpg",
-            "bytes": 344507
+            "bytes": 311946
           }
         ]
       }
@@ -24935,31 +24935,31 @@
     ],
     "photos": [
       {
-        "placeName": "Bwindi Impenetrable Forest",
-        "alt": "Bwindi Impenetrable Forest in Uganda",
-        "caption": "Bwindi Impenetrable Forest, Uganda",
-        "photographer": "Thomas Fuhrmann",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bwindi_Impenetrable_National_Park_02.jpg",
+        "placeName": "Murchison Falls",
+        "alt": "Murchison Falls in Uganda",
+        "caption": "Murchison Falls, Uganda",
+        "photographer": "Timothy Akolamazima",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Murchison_Falls_Image02.jpg",
         "license": "CC BY-SA 4.0",
-        "provenance": "Curated from Wikimedia Commons (File:Bwindi Impenetrable National Park 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/a/a4/Bwindi_Impenetrable_National_Park_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "37caab71b74b50032b97389d6dddafc331287dd1a6cfee345c455d14ad0a8e42",
+        "provenance": "Curated from Wikimedia Commons (File:Murchison Falls Image02.jpg); source https://upload.wikimedia.org/wikipedia/commons/1/1c/Murchison_Falls_Image02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "cd72e66ca2022d52909c0d8fc75d44c5ca1b437b8d2f24d9bf532eb33c5c779d",
         "width": 3840,
-        "height": 2560,
+        "height": 2563,
         "renditions": [
           {
             "width": 640,
             "src": "/images/atlas/uganda/w640.jpg",
-            "bytes": 27089
+            "bytes": 37242
           },
           {
             "width": 1280,
             "src": "/images/atlas/uganda/w1280.jpg",
-            "bytes": 91151
+            "bytes": 126278
           },
           {
             "width": 2048,
             "src": "/images/atlas/uganda/w2048.jpg",
-            "bytes": 264384
+            "bytes": 369584
           }
         ]
       },
@@ -24993,31 +24993,31 @@
         ]
       },
       {
-        "placeName": "Murchison Falls",
-        "alt": "Murchison Falls in Uganda",
-        "caption": "Murchison Falls, Uganda",
-        "photographer": "Kateregga1",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Giraffe_in_Murchison_Falls_National_Park_Uganda_20.jpg",
+        "placeName": "Bwindi Impenetrable Forest",
+        "alt": "Bwindi Impenetrable Forest in Uganda",
+        "caption": "Bwindi Impenetrable Forest, Uganda",
+        "photographer": "Giles Laurent",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:063_Mist_rising_from_the_Bwindi_Impenetrable_Forest_National_Park_Photo_by_Giles_Laurent.jpg",
         "license": "CC BY-SA 4.0",
-        "provenance": "Curated from Wikimedia Commons (File:Giraffe in Murchison Falls National Park Uganda 20.jpg); source https://upload.wikimedia.org/wikipedia/commons/0/0d/Giraffe_in_Murchison_Falls_National_Park_Uganda_20.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "221ab291e9991a05234ce3d85b3b3a6f9d6be2d9f5fdc80fbf4dccd15fce9616",
+        "provenance": "Curated from Wikimedia Commons (File:063 Mist rising from the Bwindi Impenetrable Forest National Park Photo by Giles Laurent.jpg); source https://upload.wikimedia.org/wikipedia/commons/6/63/063_Mist_rising_from_the_Bwindi_Impenetrable_Forest_National_Park_Photo_by_Giles_Laurent.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "0297fc1a099a5831df52ad923090b407ade909d7b63a10e0157e305a03c52fba",
         "width": 3840,
         "height": 2560,
         "renditions": [
           {
             "width": 640,
             "src": "/images/atlas/uganda/w640-3.jpg",
-            "bytes": 37283
+            "bytes": 33867
           },
           {
             "width": 1280,
             "src": "/images/atlas/uganda/w1280-3.jpg",
-            "bytes": 158049
+            "bytes": 117005
           },
           {
             "width": 2048,
             "src": "/images/atlas/uganda/w2048-3.jpg",
-            "bytes": 522201
+            "bytes": 345140
           }
         ]
       }
@@ -26582,60 +26582,60 @@
     ],
     "photos": [
       {
-        "placeName": "Victoria Falls",
-        "alt": "Victoria Falls in Zambia",
-        "caption": "Victoria Falls, Zambia",
-        "photographer": "Diego Delso",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_04.jpg",
-        "license": "CC BY-SA 4.0",
-        "provenance": "Curated from Wikimedia Commons (File:Cataratas Victoria, Zambia-Zimbabue, 2018-07-27, DD 04.jpg); source https://upload.wikimedia.org/wikipedia/commons/d/da/Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_04.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "75913fd416d53748b447a7227b0ab9e1e8e0e8be02e166cf7e09167409118e57",
-        "width": 3840,
-        "height": 5966,
-        "renditions": [
-          {
-            "width": 640,
-            "src": "/images/atlas/zambia/w640.jpg",
-            "bytes": 134827
-          },
-          {
-            "width": 1280,
-            "src": "/images/atlas/zambia/w1280.jpg",
-            "bytes": 487881
-          },
-          {
-            "width": 2048,
-            "src": "/images/atlas/zambia/w2048.jpg",
-            "bytes": 1422490
-          }
-        ]
-      },
-      {
         "placeName": "South Luangwa",
         "alt": "South Luangwa in Zambia",
         "caption": "South Luangwa, Zambia",
         "photographer": "Tagooty",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebra_Family_Luangwa_Zambia_Jul23_A7C_05903.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_Luangwa_River_Wide_Zambia_Jul23_A7C_05776.jpg",
         "license": "CC BY-SA 4.0",
-        "provenance": "Curated from Wikimedia Commons (File:Zebra Family Luangwa Zambia Jul23 A7C 05903.jpg); source https://upload.wikimedia.org/wikipedia/commons/4/42/Zebra_Family_Luangwa_Zambia_Jul23_A7C_05903.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "29d75c8ceb2f53cf90d5e14870f9c5dc04094c5fc5e15df776f555b7c7a623e0",
-        "width": 3552,
-        "height": 3552,
+        "provenance": "Curated from Wikimedia Commons (File:Sunset Luangwa River Wide Zambia Jul23 A7C 05776.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/b9/Sunset_Luangwa_River_Wide_Zambia_Jul23_A7C_05776.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "79a005f6a488f1b8aa3cb0ecc561b37228ffebf2a9a227aca408b6cfc8be8732",
+        "width": 3840,
+        "height": 2560,
+        "renditions": [
+          {
+            "width": 640,
+            "src": "/images/atlas/zambia/w640.jpg",
+            "bytes": 17443
+          },
+          {
+            "width": 1280,
+            "src": "/images/atlas/zambia/w1280.jpg",
+            "bytes": 56633
+          },
+          {
+            "width": 2048,
+            "src": "/images/atlas/zambia/w2048.jpg",
+            "bytes": 177937
+          }
+        ]
+      },
+      {
+        "placeName": "Victoria Falls",
+        "alt": "Victoria Falls in Zambia",
+        "caption": "Victoria Falls, Zambia",
+        "photographer": "Diego Delso",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_02.jpg",
+        "license": "CC BY-SA 4.0",
+        "provenance": "Curated from Wikimedia Commons (File:Cataratas Victoria, Zambia-Zimbabue, 2018-07-27, DD 02.jpg); source https://upload.wikimedia.org/wikipedia/commons/b/be/Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_02.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "6d692b06f6836bbe6a973dd9b494e3116dc8519dc364e7dfbf4a10c2b59aa25f",
+        "width": 3840,
+        "height": 2560,
         "renditions": [
           {
             "width": 640,
             "src": "/images/atlas/zambia/w640-2.jpg",
-            "bytes": 231625
+            "bytes": 49395
           },
           {
             "width": 1280,
             "src": "/images/atlas/zambia/w1280-2.jpg",
-            "bytes": 604474
+            "bytes": 188407
           },
           {
             "width": 2048,
             "src": "/images/atlas/zambia/w2048-2.jpg",
-            "bytes": 1460652
+            "bytes": 593858
           }
         ]
       },

@@ -2164,10 +2164,10 @@
     "title": "Waza National Park",
     "subtitle": "Cameroon",
     "alt": "Waza National Park in Cameroon",
-    "photographer": "Albert Backer",
-    "license": "CC BY-SA 3.0",
-    "width": 2398,
-    "height": 1350,
+    "photographer": "Eric Joel MAMA NKE",
+    "license": "CC BY-SA 4.0",
+    "width": 2087,
+    "height": 2784,
     "renditions": [
       {
         "src": "/images/atlas/cameroon/w640.jpg",
@@ -7489,13 +7489,13 @@
   },
   "atlas/malaysia": {
     "collection": "places",
-    "title": "Petronas Towers",
+    "title": "Gunung Mulu",
     "subtitle": "Malaysia",
-    "alt": "Petronas Towers in Malaysia",
-    "photographer": "James Kerwin from Tbilisi",
-    "license": "CC BY 2.0",
+    "alt": "Gunung Mulu in Malaysia",
+    "photographer": "Nur Nafis Naim",
+    "license": "CC BY-SA 4.0",
     "width": 3840,
-    "height": 2560,
+    "height": 2562,
     "renditions": [
       {
         "src": "/images/atlas/malaysia/w640.jpg",
@@ -7537,13 +7537,13 @@
   },
   "atlas/malaysia-3": {
     "collection": "places",
-    "title": "Gunung Mulu",
+    "title": "Petronas Towers",
     "subtitle": "Malaysia",
-    "alt": "Gunung Mulu in Malaysia",
-    "photographer": "(c) dhfischer, some rights reserved (CC BY)",
-    "license": "CC BY 4.0",
-    "width": 2048,
-    "height": 1365,
+    "alt": "Petronas Towers in Malaysia",
+    "photographer": "James Kerwin from Tbilisi",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2560,
     "renditions": [
       {
         "src": "/images/atlas/malaysia/w640-3.jpg",
@@ -9289,13 +9289,13 @@
   },
   "atlas/norway": {
     "collection": "places",
-    "title": "Geirangerfjord",
+    "title": "Bryggen",
     "subtitle": "Norway",
-    "alt": "Geirangerfjord in Norway",
-    "photographer": "Ximonic (Simo Räsänen)",
-    "license": "CC BY-SA 3.0",
+    "alt": "Bryggen in Norway",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
     "width": 3840,
-    "height": 2156,
+    "height": 1975,
     "renditions": [
       {
         "src": "/images/atlas/norway/w640.jpg",
@@ -9313,13 +9313,13 @@
   },
   "atlas/norway-2": {
     "collection": "places",
-    "title": "Bryggen",
+    "title": "Geirangerfjord",
     "subtitle": "Norway",
-    "alt": "Bryggen in Norway",
-    "photographer": "Gordon Leggett",
-    "license": "CC BY-SA 4.0",
+    "alt": "Geirangerfjord in Norway",
+    "photographer": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 3.0",
     "width": 3840,
-    "height": 2677,
+    "height": 2156,
     "renditions": [
       {
         "src": "/images/atlas/norway/w640-2.jpg",
@@ -9340,10 +9340,10 @@
     "title": "Lofoten Islands",
     "subtitle": "Norway",
     "alt": "Lofoten Islands in Norway",
-    "photographer": "Giorgio Galeotti",
-    "license": "CC BY 4.0",
-    "width": 3000,
-    "height": 2074,
+    "photographer": "Ximonic (Simo Räsänen)",
+    "license": "CC BY-SA 3.0",
+    "width": 3840,
+    "height": 2079,
     "renditions": [
       {
         "src": "/images/atlas/norway/w640-3.jpg",
@@ -13033,13 +13033,13 @@
   },
   "atlas/uganda": {
     "collection": "places",
-    "title": "Bwindi Impenetrable Forest",
+    "title": "Murchison Falls",
     "subtitle": "Uganda",
-    "alt": "Bwindi Impenetrable Forest in Uganda",
-    "photographer": "Thomas Fuhrmann",
+    "alt": "Murchison Falls in Uganda",
+    "photographer": "Timothy Akolamazima",
     "license": "CC BY-SA 4.0",
     "width": 3840,
-    "height": 2560,
+    "height": 2563,
     "renditions": [
       {
         "src": "/images/atlas/uganda/w640.jpg",
@@ -13081,10 +13081,10 @@
   },
   "atlas/uganda-3": {
     "collection": "places",
-    "title": "Murchison Falls",
+    "title": "Bwindi Impenetrable Forest",
     "subtitle": "Uganda",
-    "alt": "Murchison Falls in Uganda",
-    "photographer": "Kateregga1",
+    "alt": "Bwindi Impenetrable Forest in Uganda",
+    "photographer": "Giles Laurent",
     "license": "CC BY-SA 4.0",
     "width": 3840,
     "height": 2560,
@@ -13897,13 +13897,13 @@
   },
   "atlas/zambia": {
     "collection": "places",
-    "title": "Victoria Falls",
+    "title": "South Luangwa",
     "subtitle": "Zambia",
-    "alt": "Victoria Falls in Zambia",
-    "photographer": "Diego Delso",
+    "alt": "South Luangwa in Zambia",
+    "photographer": "Tagooty",
     "license": "CC BY-SA 4.0",
     "width": 3840,
-    "height": 5966,
+    "height": 2560,
     "renditions": [
       {
         "src": "/images/atlas/zambia/w640.jpg",
@@ -13921,13 +13921,13 @@
   },
   "atlas/zambia-2": {
     "collection": "places",
-    "title": "South Luangwa",
+    "title": "Victoria Falls",
     "subtitle": "Zambia",
-    "alt": "South Luangwa in Zambia",
-    "photographer": "Tagooty",
+    "alt": "Victoria Falls in Zambia",
+    "photographer": "Diego Delso",
     "license": "CC BY-SA 4.0",
-    "width": 3552,
-    "height": 3552,
+    "width": 3840,
+    "height": 2560,
     "renditions": [
       {
         "src": "/images/atlas/zambia/w640-2.jpg",

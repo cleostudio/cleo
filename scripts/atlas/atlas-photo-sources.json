@@ -1331,15 +1331,16 @@
       "placeName": "Waza National Park",
       "countryName": "Cameroon",
       "code": "CM",
-      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Waza-NP-Elephant.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waza-NP-Elephant.jpg",
-      "photographer": "Albert Backer",
-      "license": "CC BY-SA 3.0",
-      "commonsTitle": "File:Waza-NP-Elephant.jpg",
-      "width": 2398,
-      "height": 1350,
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Montagne_du_Parc_de_Waza_-_Extreme_Nord_-_Cameroun.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Montagne_du_Parc_de_Waza_-_Extreme_Nord_-_Cameroun.jpg",
+      "photographer": "Eric Joel MAMA NKE",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Montagne du Parc de Waza - Extreme Nord - Cameroun.jpg",
+      "width": 2087,
+      "height": 2784,
       "assessments": "",
-      "score": 49.62
+      "score": 0,
+      "handpick": true
     },
     {
       "placeName": "Mount Cameroon",
@@ -2670,15 +2671,16 @@
       "placeName": "Loango National Park",
       "countryName": "Gabon",
       "code": "GA",
-      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Gabon_Loango_National_Park_Wild_Buffalo_Single.jpeg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gabon_Loango_National_Park_Wild_Buffalo_Single.jpeg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Gabon_Loango_National_Park_Southern_Camping_Ground_bar_with_a_view.jpeg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gabon_Loango_National_Park_Southern_Camping_Ground_bar_with_a_view.jpeg",
       "photographer": "Kurt Dundy at English Wikipedia",
       "license": "CC BY 3.0",
-      "commonsTitle": "File:Gabon Loango National Park Wild Buffalo Single.jpeg",
+      "commonsTitle": "File:Gabon Loango National Park Southern Camping Ground bar with a view.jpeg",
       "width": 3648,
       "height": 2736,
       "assessments": "",
-      "score": 62.99
+      "score": 0,
+      "handpick": true
     },
     {
       "placeName": "Lope National Park",
@@ -4572,18 +4574,19 @@
   ],
   "malaysia": [
     {
-      "placeName": "Petronas Towers",
+      "placeName": "Gunung Mulu",
       "countryName": "Malaysia",
       "code": "MY",
-      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/The_Twins_SE_Asia_2019_%2849171985716%29.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Twins_SE_Asia_2019_(49171985716).jpg",
-      "photographer": "James Kerwin from Tbilisi",
-      "license": "CC BY 2.0",
-      "commonsTitle": "File:The Twins SE Asia 2019 (49171985716).jpg",
-      "width": 8472,
-      "height": 5648,
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Mulu_Pinnacles.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mulu_Pinnacles.jpg",
+      "photographer": "Nur Nafis Naim",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Mulu Pinnacles.jpg",
+      "width": 3840,
+      "height": 2562,
       "assessments": "featured",
-      "score": 131
+      "score": 0,
+      "handpick": true
     },
     {
       "placeName": "George Town",
@@ -4600,18 +4603,19 @@
       "score": 108.51
     },
     {
-      "placeName": "Gunung Mulu",
+      "placeName": "Petronas Towers",
       "countryName": "Malaysia",
       "code": "MY",
-      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Baram_Snakehead%2C_Gunung_Mulu_NP%2C_Sarawak%2C_Malaysia_iNaturalist.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baram_Snakehead,_Gunung_Mulu_NP,_Sarawak,_Malaysia_iNaturalist.jpg",
-      "photographer": "(c) dhfischer, some rights reserved (CC BY)",
-      "license": "CC BY 4.0",
-      "commonsTitle": "File:Baram Snakehead, Gunung Mulu NP, Sarawak, Malaysia iNaturalist.jpg",
-      "width": 2048,
-      "height": 1365,
-      "assessments": "",
-      "score": 59.4
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/The_Twins_SE_Asia_2019_%2849171985716%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Twins_SE_Asia_2019_(49171985716).jpg",
+      "photographer": "James Kerwin from Tbilisi",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:The Twins SE Asia 2019 (49171985716).jpg",
+      "width": 8472,
+      "height": 5648,
+      "assessments": "featured",
+      "score": 0,
+      "handpick": true
     }
   ],
   "maldives": [
@@ -5683,6 +5687,21 @@
   ],
   "norway": [
     {
+      "placeName": "Bryggen",
+      "countryName": "Norway",
+      "code": "NO",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Bryggen%2C_Bergen%2C_Noruega%2C_2019-09-08%2C_DD_115-117_PAN.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bryggen,_Bergen,_Noruega,_2019-09-08,_DD_115-117_PAN.jpg",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Bryggen, Bergen, Noruega, 2019-09-08, DD 115-117 PAN.jpg",
+      "width": 6491,
+      "height": 3338,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    },
+    {
       "placeName": "Geirangerfjord",
       "countryName": "Norway",
       "code": "NO",
@@ -5694,35 +5713,23 @@
       "width": 6520,
       "height": 3660,
       "assessments": "quality|featured|potd",
-      "score": 170.93
-    },
-    {
-      "placeName": "Bryggen",
-      "countryName": "Norway",
-      "code": "NO",
-      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/2016-11-23_01_Live_fish_carrier_MV_HAUGBAS_%E2%80%93_IMO_9121778.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2016-11-23_01_Live_fish_carrier_MV_HAUGBAS_%E2%80%93_IMO_9121778.jpg",
-      "photographer": "Gordon Leggett",
-      "license": "CC BY-SA 4.0",
-      "commonsTitle": "File:2016-11-23 01 Live fish carrier MV HAUGBAS – IMO 9121778.jpg",
-      "width": 4990,
-      "height": 3479,
-      "assessments": "quality|valued",
-      "score": 122.68
+      "score": 0,
+      "handpick": true
     },
     {
       "placeName": "Lofoten Islands",
       "countryName": "Norway",
       "code": "NO",
-      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Seagull_-_Lofoten_Islands%2C_Norway_-_August_1989_01.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seagull_-_Lofoten_Islands,_Norway_-_August_1989_01.jpg",
-      "photographer": "Giorgio Galeotti",
-      "license": "CC BY 4.0",
-      "commonsTitle": "File:Seagull - Lofoten Islands, Norway - August 1989 01.jpg",
-      "width": 3000,
-      "height": 2074,
-      "assessments": "",
-      "score": 61.11
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Cirrus_front_over_Austnesfjorden%2C_Austv%C3%A5g%C3%B8ya%2C_Lofoten%2C_Norway%2C_2015_April.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cirrus_front_over_Austnesfjorden,_Austv%C3%A5g%C3%B8ya,_Lofoten,_Norway,_2015_April.jpg",
+      "photographer": "Ximonic (Simo Räsänen)",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Cirrus front over Austnesfjorden, Austvågøya, Lofoten, Norway, 2015 April.jpg",
+      "width": 5560,
+      "height": 3010,
+      "assessments": "quality|featured|potd",
+      "score": 0,
+      "handpick": true
     }
   ],
   "oman": [
@@ -8018,18 +8025,19 @@
   ],
   "uganda": [
     {
-      "placeName": "Bwindi Impenetrable Forest",
+      "placeName": "Murchison Falls",
       "countryName": "Uganda",
       "code": "UG",
-      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Bwindi_Impenetrable_National_Park_02.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bwindi_Impenetrable_National_Park_02.jpg",
-      "photographer": "Thomas Fuhrmann",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Murchison_Falls_Image02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Murchison_Falls_Image02.jpg",
+      "photographer": "Timothy Akolamazima",
       "license": "CC BY-SA 4.0",
-      "commonsTitle": "File:Bwindi Impenetrable National Park 02.jpg",
-      "width": 5760,
-      "height": 3840,
+      "commonsTitle": "File:Murchison Falls Image02.jpg",
+      "width": 6016,
+      "height": 4016,
       "assessments": "",
-      "score": 0
+      "score": 0,
+      "handpick": true
     },
     {
       "placeName": "Ssese Islands",
@@ -8046,18 +8054,19 @@
       "score": 79.98
     },
     {
-      "placeName": "Murchison Falls",
+      "placeName": "Bwindi Impenetrable Forest",
       "countryName": "Uganda",
       "code": "UG",
-      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Giraffe_in_Murchison_Falls_National_Park_Uganda_20.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Giraffe_in_Murchison_Falls_National_Park_Uganda_20.jpg",
-      "photographer": "Kateregga1",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/063_Mist_rising_from_the_Bwindi_Impenetrable_Forest_National_Park_Photo_by_Giles_Laurent.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:063_Mist_rising_from_the_Bwindi_Impenetrable_Forest_National_Park_Photo_by_Giles_Laurent.jpg",
+      "photographer": "Giles Laurent",
       "license": "CC BY-SA 4.0",
-      "commonsTitle": "File:Giraffe in Murchison Falls National Park Uganda 20.jpg",
-      "width": 6000,
-      "height": 4000,
+      "commonsTitle": "File:063 Mist rising from the Bwindi Impenetrable Forest National Park Photo by Giles Laurent.jpg",
+      "width": 8640,
+      "height": 5760,
       "assessments": "",
-      "score": 70
+      "score": 0,
+      "handpick": true
     }
   ],
   "ukraine": [
@@ -8549,32 +8558,34 @@
   ],
   "zambia": [
     {
-      "placeName": "Victoria Falls",
-      "countryName": "Zambia",
-      "code": "ZM",
-      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_04.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_04.jpg",
-      "photographer": "Diego Delso",
-      "license": "CC BY-SA 4.0",
-      "commonsTitle": "File:Cataratas Victoria, Zambia-Zimbabue, 2018-07-27, DD 04.jpg",
-      "width": 4203,
-      "height": 6530,
-      "assessments": "quality|featured|poty|potd",
-      "score": 183
-    },
-    {
       "placeName": "South Luangwa",
       "countryName": "Zambia",
       "code": "ZM",
-      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Zebra_Family_Luangwa_Zambia_Jul23_A7C_05903.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebra_Family_Luangwa_Zambia_Jul23_A7C_05903.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Sunset_Luangwa_River_Wide_Zambia_Jul23_A7C_05776.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_Luangwa_River_Wide_Zambia_Jul23_A7C_05776.jpg",
       "photographer": "Tagooty",
       "license": "CC BY-SA 4.0",
-      "commonsTitle": "File:Zebra Family Luangwa Zambia Jul23 A7C 05903.jpg",
-      "width": 3552,
-      "height": 3552,
-      "assessments": "quality|featured",
-      "score": 137.31
+      "commonsTitle": "File:Sunset Luangwa River Wide Zambia Jul23 A7C 05776.jpg",
+      "width": 6000,
+      "height": 4000,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Victoria Falls",
+      "countryName": "Zambia",
+      "code": "ZM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_02.jpg",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Cataratas Victoria, Zambia-Zimbabue, 2018-07-27, DD 02.jpg",
+      "width": 7868,
+      "height": 5245,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
     },
     {
       "placeName": "Lower Zambezi",
