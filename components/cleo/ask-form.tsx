@@ -3,6 +3,8 @@
 import {
   type ChangeEvent,
   type FormEvent,
+  memo,
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -30,6 +32,7 @@ import {
 } from "~/lib/cleo/conversation-helpers"
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
 import type { EncryptedReasoningItem } from "~/lib/cleo/reasoning-items"
+import { isDocumentNearBottom } from "~/lib/cleo/stick-to-bottom"
 import {
   type ActivityItem,
   type MessageImage,
@@ -122,6 +125,142 @@ function lastUserMessageIndex(
   return -1
 }
 
+type UserMessageProps = {
+  message: Message
+}
+
+const UserMessage = memo(function UserMessage({ message }: UserMessageProps) {
+  return (
+    <div className="user-turn">
+      {message.images && message.images.length > 0 ? (
+        <div className="user-message-images">
+          {message.images.map((image, index) => (
+            <ZoomableMessageImage
+              alt={
+                message.content
+                  ? `Attachment ${index + 1}`
+                  : `Uploaded image ${index + 1}`
+              }
+              className="message-image"
+              key={image.id ?? `${message.id}-${index}`}
+              src={image.url}
+            />
+          ))}
+        </div>
+      ) : null}
+      {message.content ? (
+        <div className="glass-surface user-message">
+          <LiquidGlass />
+          <span className="user-message-text">{message.content}</span>
+        </div>
+      ) : null}
+    </div>
+  )
+})
+
+type AssistantMessageProps = {
+  canContinueIncomplete: boolean
+  canRetryLastTurn: boolean
+  isLive: boolean
+  message: Message
+  onContinue: () => void
+  onDismissIncomplete: () => void
+  onRetry: () => void
+  showIncompleteActions: boolean
+}
+
+const AssistantMessage = memo(function AssistantMessage({
+  canContinueIncomplete,
+  canRetryLastTurn,
+  isLive,
+  message,
+  onContinue,
+  onDismissIncomplete,
+  onRetry,
+  showIncompleteActions,
+}: AssistantMessageProps) {
+  const incompleteNoteId = message.incomplete
+    ? `cleo-incomplete-${message.id}`
+    : undefined
+
+  return (
+    <section aria-label="AI response" aria-live="polite" className="min-w-0">
+      {message.activities && message.activities.length > 0 ? (
+        <ActivityPanel activities={message.activities} isLive={isLive} />
+      ) : null}
+
+      {message.images && message.images.length > 0 ? (
+        <div className="assistant-message-images mb-3">
+          {message.images.map((image, index) => (
+            <ZoomableMessageImage
+              alt={`Generated image ${index + 1}`}
+              className="message-image message-image-assistant"
+              key={image.id ?? `${message.id}-${index}`}
+              src={image.url}
+            />
+          ))}
+        </div>
+      ) : null}
+
+      {message.content ? (
+        <Markdown isAnimating={isLive}>{message.content}</Markdown>
+      ) : isLive &&
+        !(message.activities && message.activities.length > 0) &&
+        !(message.images && message.images.length > 0) ? (
+        <ThinkingOrb
+          aria-label="Listening"
+          className="block"
+          size={20}
+          state="listening"
+        />
+      ) : null}
+
+      {!isLive && message.incomplete ? (
+        <div className="cleo-answer-actions">
+          <p
+            className="cleo-incomplete-note"
+            id={incompleteNoteId}
+            role="status"
+          >
+            {message.incomplete.message}
+          </p>
+          {showIncompleteActions ? (
+            <div className="cleo-answer-action-row">
+              <button
+                aria-describedby={incompleteNoteId}
+                aria-label="Continue this answer"
+                className="cleo-answer-action"
+                disabled={!canContinueIncomplete}
+                onClick={onContinue}
+                type="button"
+              >
+                Continue
+              </button>
+              <button
+                aria-label="Dismiss the incomplete notice"
+                className="cleo-answer-action"
+                onClick={onDismissIncomplete}
+                type="button"
+              >
+                Dismiss
+              </button>
+              <button
+                aria-label="Retry the last question"
+                className="cleo-answer-action"
+                disabled={!canRetryLastTurn}
+                onClick={onRetry}
+                type="button"
+              >
+                Retry
+              </button>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+    </section>
+  )
+})
+
 export function AskForm() {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
@@ -138,6 +277,7 @@ export function AskForm() {
   const isSubmittingRef = useRef(false)
   const mountedRef = useRef(true)
   const stickToBottomRef = useRef(true)
+  const lastScrollYRef = useRef(0)
 
   const hasMessages = messages.some((message) => !message.hidden)
   const lastVisibleMessage = [...messages]
@@ -155,16 +295,34 @@ export function AskForm() {
   }, [messages])
 
   useEffect(() => {
-    const onScroll = () => {
-      const end = messagesEndRef.current
-      if (!end) return
-      const rect = end.getBoundingClientRect()
-      // Stick while the clearance spacer is near the viewport bottom.
-      stickToBottomRef.current = rect.top < window.innerHeight + 120
+    lastScrollYRef.current = window.scrollY
+
+    const syncStickToBottom = () => {
+      const scrollY = window.scrollY
+      const nearBottom = isDocumentNearBottom(
+        scrollY,
+        window.innerHeight,
+        document.documentElement.scrollHeight,
+      )
+
+      // Auto-follow only scrolls downward. Any upward move is the user
+      // reading back — unstick even on short pages where "near bottom" is
+      // otherwise always true.
+      if (scrollY + 8 < lastScrollYRef.current) {
+        stickToBottomRef.current = false
+      } else if (nearBottom) {
+        stickToBottomRef.current = true
+      }
+
+      lastScrollYRef.current = scrollY
     }
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
+
+    window.addEventListener("scroll", syncStickToBottom, { passive: true })
+    window.addEventListener("resize", syncStickToBottom)
+    return () => {
+      window.removeEventListener("scroll", syncStickToBottom)
+      window.removeEventListener("resize", syncStickToBottom)
+    }
   }, [])
 
   useEffect(() => {
@@ -173,6 +331,9 @@ export function AskForm() {
       block: "end",
       behavior: "instant",
     })
+    // Keep the baseline in sync so the follow-scroll itself is not read as
+    // a user gesture on the next event.
+    lastScrollYRef.current = window.scrollY
   }, [hasMessages, scrollTick])
 
   useEffect(() => {
@@ -201,35 +362,41 @@ export function AskForm() {
     }
   }, [hasMessages])
 
+  const sendTurnRef = useRef<(request: TurnRequest) => Promise<void>>(
+    async () => undefined
+  )
+
   function handleStop() {
     abortControllerRef.current?.abort()
   }
 
-  function handleRetry() {
+  // Stable callbacks so memoized AssistantMessage rows do not churn on parent
+  // re-renders while sendTurn itself is recreated each render.
+  const handleRetry = useCallback(() => {
     if (isSubmittingRef.current) return
     const current = messagesRef.current
     const userIndex = lastUserMessageIndex(current)
     if (userIndex < 0) return
     const lastUser = current[userIndex]!
-    void sendTurn({
+    void sendTurnRef.current({
       history: current.slice(0, userIndex),
       question: lastUser.content,
       userImages: lastUser.images ?? [],
     })
-  }
+  }, [])
 
-  function handleContinue() {
+  const handleContinue = useCallback(() => {
     if (isSubmittingRef.current) return
-    void sendTurn({
+    void sendTurnRef.current({
       history: messagesRef.current,
       question: CONTINUE_PROMPT,
       userImages: [],
       hideUserMessage: true,
       clearPriorIncomplete: true,
     })
-  }
+  }, [])
 
-  function handleDismissIncomplete() {
+  const handleDismissIncomplete = useCallback(() => {
     if (isSubmittingRef.current) return
     const target = [...messagesRef.current]
       .reverse()
@@ -242,7 +409,7 @@ export function AskForm() {
           : message
       )
     )
-  }
+  }, [])
 
   function removePendingImage(index: number) {
     setPendingImages((current) => current.filter((_, i) => i !== index))
@@ -598,6 +765,8 @@ export function AskForm() {
     }
   }
 
+  sendTurnRef.current = sendTurn
+
   async function handleSubmit(
     event?: FormEvent<HTMLFormElement>,
     promptOverride?: string
@@ -632,133 +801,21 @@ export function AskForm() {
               }
 
               if (message.role === "user") {
-                return (
-                  <div className="user-turn" key={message.id}>
-                    {message.images && message.images.length > 0 ? (
-                      <div className="user-message-images">
-                        {message.images.map((image, index) => (
-                          <ZoomableMessageImage
-                            alt={
-                              message.content
-                                ? `Attachment ${index + 1}`
-                                : `Uploaded image ${index + 1}`
-                            }
-                            className="message-image"
-                            key={image.id ?? `${message.id}-${index}`}
-                            src={image.url}
-                          />
-                        ))}
-                      </div>
-                    ) : null}
-                    {message.content ? (
-                      <div className="glass-surface user-message">
-                        <LiquidGlass />
-                        <span className="user-message-text">
-                          {message.content}
-                        </span>
-                      </div>
-                    ) : null}
-                  </div>
-                )
+                return <UserMessage key={message.id} message={message} />
               }
 
-              const incompleteNoteId = message.incomplete
-                ? `cleo-incomplete-${message.id}`
-                : undefined
-
               return (
-                <section
-                  aria-label="AI response"
-                  aria-live="polite"
-                  className="min-w-0"
+                <AssistantMessage
+                  canContinueIncomplete={canContinueIncomplete}
+                  canRetryLastTurn={canRetryLastTurn}
+                  isLive={isSubmitting && message.id === messages.at(-1)?.id}
                   key={message.id}
-                >
-                  {message.activities && message.activities.length > 0 ? (
-                    <ActivityPanel
-                      activities={message.activities}
-                      isLive={
-                        isSubmitting && message.id === messages.at(-1)?.id
-                      }
-                    />
-                  ) : null}
-
-                  {message.images && message.images.length > 0 ? (
-                    <div className="assistant-message-images mb-3">
-                      {message.images.map((image, index) => (
-                        <ZoomableMessageImage
-                          alt={`Generated image ${index + 1}`}
-                          className="message-image message-image-assistant"
-                          key={image.id ?? `${message.id}-${index}`}
-                          src={image.url}
-                        />
-                      ))}
-                    </div>
-                  ) : null}
-
-                  {message.content ? (
-                    <Markdown
-                      isAnimating={
-                        isSubmitting && message.id === messages.at(-1)?.id
-                      }
-                    >
-                      {message.content}
-                    </Markdown>
-                  ) : isSubmitting &&
-                    message.id === messages.at(-1)?.id &&
-                    !(message.activities && message.activities.length > 0) &&
-                    !(message.images && message.images.length > 0) ? (
-                    <ThinkingOrb
-                      aria-label="Listening"
-                      className="block"
-                      size={20}
-                      state="listening"
-                    />
-                  ) : null}
-
-                  {!(isSubmitting && message.id === messages.at(-1)?.id) &&
-                  message.incomplete ? (
-                    <div className="cleo-answer-actions">
-                      <p
-                        className="cleo-incomplete-note"
-                        id={incompleteNoteId}
-                        role="status"
-                      >
-                        {message.incomplete.message}
-                      </p>
-                      {message.id === lastVisibleMessage?.id ? (
-                        <div className="cleo-answer-action-row">
-                          <button
-                            aria-describedby={incompleteNoteId}
-                            aria-label="Continue this answer"
-                            className="cleo-answer-action"
-                            disabled={!canContinueIncomplete}
-                            onClick={handleContinue}
-                            type="button"
-                          >
-                            Continue
-                          </button>
-                          <button
-                            aria-label="Dismiss the incomplete notice"
-                            className="cleo-answer-action"
-                            onClick={handleDismissIncomplete}
-                            type="button"
-                          >
-                            Dismiss
-                          </button>
-                          <button
-                            aria-label="Retry the last question"
-                            className="cleo-answer-action"
-                            disabled={!canRetryLastTurn}
-                            onClick={handleRetry}
-                            type="button"
-                          >
-                            Retry
-                          </button>
-                        </div>
-                      ) : null}
-                    </div>
-                  ) : null}
-                </section>
+                  message={message}
+                  onContinue={handleContinue}
+                  onDismissIncomplete={handleDismissIncomplete}
+                  onRetry={handleRetry}
+                  showIncompleteActions={message.id === lastVisibleMessage?.id}
+                />
               )
             })}
           </div>

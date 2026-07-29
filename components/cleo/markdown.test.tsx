@@ -100,6 +100,20 @@ describe('Cleo Markdown topic photos', () => {
     ).toBeNull()
   })
 
+  it('keeps duplicate guide footers while animating, then cleans them when settled', () => {
+    const source =
+      'Japan is an archipelago. Visit [Japan](/explore/japan).\n\nExplore Japan'
+
+    const { rerender } = render(<Markdown isAnimating>{source}</Markdown>)
+    expect(screen.getByText(/Explore Japan/i)).toBeTruthy()
+
+    rerender(<Markdown isAnimating={false}>{source}</Markdown>)
+    expect(screen.queryByText(/^Explore Japan$/i)).toBeNull()
+    expect(
+      screen.getByRole('link', { name: 'Japan' }).getAttribute('href'),
+    ).toBe('/explore/japan')
+  })
+
   it('strips invented Explore guide links to plain labels', () => {
     render(
       <Markdown>{'Visit [Atlantis](/explore/atlantis) sometime.'}</Markdown>,

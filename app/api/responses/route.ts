@@ -17,6 +17,10 @@ type CleoResponseCreateParams = ResponseCreateParamsStreaming & {
 import { promptCacheKeyForConversation } from "~/lib/cleo/conversation-helpers"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
+  GENERATED_IMAGE_MEDIA_TYPE,
+  GENERATED_IMAGE_OUTPUT_COMPRESSION,
+  GENERATED_IMAGE_OUTPUT_FORMAT,
+  GENERATED_IMAGE_PARTIAL_IMAGES,
   MAX_IMAGES_PER_MESSAGE,
   parseImageDataUrl,
   toImageDataUrl,
@@ -52,6 +56,18 @@ const MAX_TOOL_CALLS = 8
 
 /** Allow long tool-using turns on Vercel without cutting the NDJSON stream short. */
 export const maxDuration = 90
+
+let openAIClient: OpenAI | null = null
+let openAIClientKey: string | null = null
+
+function getOpenAIClient(apiKey: string) {
+  if (!openAIClient || openAIClientKey !== apiKey) {
+    openAIClient = new OpenAI({ apiKey })
+    openAIClientKey = apiKey
+  }
+
+  return openAIClient
+}
 
 type ConversationMessage = {
   content: string
@@ -424,7 +440,7 @@ export async function POST(request: Request) {
     return errorResponse("The AI service is not configured.", 503)
   }
 
-  const client = new OpenAI({ apiKey })
+  const client = getOpenAIClient(apiKey)
   const input = toApiInput(parsed)
   const topicPhotos = matchTopicPhotosInText(conversationTopicText(parsed))
   const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
@@ -460,10 +476,11 @@ export async function POST(request: Request) {
         { type: "web_search" },
         {
           type: "image_generation",
-          partial_images: 2,
+          partial_images: GENERATED_IMAGE_PARTIAL_IMAGES,
           quality: "auto",
           size: "auto",
-          output_format: "png",
+          output_format: GENERATED_IMAGE_OUTPUT_FORMAT,
+          output_compression: GENERATED_IMAGE_OUTPUT_COMPRESSION,
         },
       ],
       prompt_cache_key: promptCacheKey,
@@ -638,7 +655,10 @@ export async function POST(request: Request) {
               enqueue(controller, {
                 type: "image",
                 id: event.item_id,
-                imageUrl: toImageDataUrl("image/png", event.partial_image_b64),
+                imageUrl: toImageDataUrl(
+                  GENERATED_IMAGE_MEDIA_TYPE,
+                  event.partial_image_b64
+                ),
                 partial: true,
               })
               continue
@@ -690,7 +710,10 @@ export async function POST(request: Request) {
                   enqueue(controller, {
                     type: "image",
                     id: event.item.id,
-                    imageUrl: toImageDataUrl("image/png", event.item.result),
+                    imageUrl: toImageDataUrl(
+                      GENERATED_IMAGE_MEDIA_TYPE,
+                      event.item.result
+                    ),
                   })
                 }
               }
@@ -721,6 +744,8 @@ export async function POST(request: Request) {
               const reason = event.response.incomplete_details?.reason
               const mapped = incompleteReasonFromApi(reason)
 
+              // Soft-incomplete when usable content already streamed; hard
+              // error only when the turn produced nothing visible.
               if (emittedText || emittedImage) {
                 incompleteNotice = mapped
               } else {
