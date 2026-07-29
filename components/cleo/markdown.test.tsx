@@ -113,4 +113,13 @@ describe('Cleo Markdown topic photos', () => {
       screen.getByRole('link', { name: 'Japan' }).getAttribute('href'),
     ).toBe('/explore/japan')
   })
+
+  it('strips invented Explore guide links to plain labels', () => {
+    render(
+      <Markdown>{'Visit [Atlantis](/explore/atlantis) sometime.'}</Markdown>,
+    )
+
+    expect(screen.queryByRole('link', { name: 'Atlantis' })).toBeNull()
+    expect(screen.getByText(/Visit Atlantis sometime/)).toBeTruthy()
+  })
 })

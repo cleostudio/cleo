@@ -7,6 +7,7 @@ import { Streamdown } from "streamdown"
 
 import { PhotoZoomDetails } from "~/components/photo-zoom-details"
 import { ZoomImage } from "~/components/zoom-image"
+import { sanitizePortalMarkdown } from "~/lib/cleo/guardrails"
 import {
   isCuratedTopicImageSrc,
   presentPortalGuideMarkdown,
@@ -108,12 +109,12 @@ function MarkdownComponent({
   className,
   isAnimating = false,
 }: MarkdownProps) {
-  // While tokens are still arriving, only strip unsafe images. Guide-link
-  // dedupe / footer cleanup runs once the turn settles so historical messages
-  // are not re-processed on every live chunk.
+  // Guardrails always run. While tokens are still arriving, skip guide-link
+  // dedupe / footer cleanup so historical messages are not reworked every chunk.
+  const sanitized = sanitizePortalMarkdown(children)
   const content = isAnimating
-    ? presentTopicPhotoMarkdown(children)
-    : presentPortalGuideMarkdown(children)
+    ? presentTopicPhotoMarkdown(sanitized)
+    : presentPortalGuideMarkdown(sanitized)
 
   return (
     <Streamdown

@@ -38,19 +38,36 @@ function candidateKey(topic: Pick<TopicCandidate, 'collection' | 'slug'>) {
   return `${topic.collection}/${topic.slug}`
 }
 
+/** Memoized catalog subjects — rebuilt only once per process. */
+let cachedCandidates: TopicCandidate[] | null = null
+/** Longer names first so "Nigeria" wins over "Niger". */
+let cachedCandidatesByName: TopicCandidate[] | null = null
+
 function allCandidates(): TopicCandidate[] {
-  return [
-    ...spaceSubjects.map((subject) => ({
-      collection: 'space' as const,
-      slug: subject.slug,
-      name: subject.name,
-    })),
-    ...countries.map((country) => ({
-      collection: 'explore' as const,
-      slug: country.slug,
-      name: country.name,
-    })),
-  ]
+  if (!cachedCandidates) {
+    cachedCandidates = [
+      ...spaceSubjects.map((subject) => ({
+        collection: 'space' as const,
+        slug: subject.slug,
+        name: subject.name,
+      })),
+      ...countries.map((country) => ({
+        collection: 'explore' as const,
+        slug: country.slug,
+        name: country.name,
+      })),
+    ]
+  }
+  return cachedCandidates
+}
+
+function candidatesByNameLength(): TopicCandidate[] {
+  if (!cachedCandidatesByName) {
+    cachedCandidatesByName = [...allCandidates()].sort(
+      (a, b) => b.name.length - a.name.length,
+    )
+  }
+  return cachedCandidatesByName
 }
 
 type NameMatcher = {
@@ -63,17 +80,16 @@ let nameMatchersCache: NameMatcher[] | null = null
 
 function nameMatchers(): NameMatcher[] {
   if (!nameMatchersCache) {
-    nameMatchersCache = allCandidates()
-      .sort((a, b) => b.name.length - a.name.length)
-      .map((candidate) => ({
-        candidate,
-        // No `g` flag — we only need the first hit, and a shared RegExp must
-        // not retain lastIndex across requests.
-        pattern: new RegExp(
-          `(?<![\\p{L}\\p{N}])${escapeRegExp(candidate.name)}(?![\\p{L}\\p{N}])`,
-          'iu',
-        ),
-      }))
+    // Reuse the length-sorted candidate cache; compile patterns once.
+    nameMatchersCache = candidatesByNameLength().map((candidate) => ({
+      candidate,
+      // No `g` flag — we only need the first hit, and a shared RegExp must
+      // not retain lastIndex across requests.
+      pattern: new RegExp(
+        `(?<![\\p{L}\\p{N}])${escapeRegExp(candidate.name)}(?![\\p{L}\\p{N}])`,
+        'iu',
+      ),
+    }))
   }
 
   return nameMatchersCache
