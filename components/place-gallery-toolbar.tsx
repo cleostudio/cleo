@@ -2,6 +2,16 @@
 
 import { useEffect, useId, useRef, useState } from 'react'
 
+function searchTokens(value: string): string[] {
+  return (
+    value
+      .normalize('NFKD')
+      .replace(/\p{M}/gu, '')
+      .toLocaleLowerCase()
+      .match(/[\p{L}\p{N}]+/gu) ?? []
+  )
+}
+
 export function PlaceGalleryToolbar() {
   const searchId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
@@ -13,13 +23,15 @@ export function PlaceGalleryToolbar() {
 
     const items = root.querySelectorAll<HTMLElement>('[data-gallery-item]')
     const empty = root.querySelector<HTMLElement>('[data-gallery-empty]')
-    const normalizedQuery = query.trim().toLowerCase()
+    const queryTokens = searchTokens(query)
     let nextVisible = 0
 
     for (const item of items) {
       const searchText = item.dataset.searchText ?? ''
+      const itemTokens = searchTokens(searchText)
       const visible =
-        !normalizedQuery || searchText.toLowerCase().includes(normalizedQuery)
+        queryTokens.length === 0 ||
+        queryTokens.every((token) => itemTokens.includes(token))
       item.hidden = !visible
       if (visible) nextVisible += 1
     }
