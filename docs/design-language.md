@@ -165,16 +165,16 @@ shutter blinks; the magnifier tips. Decorative marks stay out of the
 accessibility tree; reduced motion keeps every mark and text unit static.
 
 Linked phrases use the shared `SitePreviewCard` primitive, but each popup is a
-different species — same split as cali.so’s OG / service / envelope cards:
+distinct small object:
 
 - photographs → Gallery: image-led `.link-card-with-image` (curated place JPEG,
-  site line, title; no description)
-- catalog → homepage search: search-tray plate with mono field + cascading
-  result rows (GitHub-card “content animates” spirit)
-- Topics: `.service-card` identity head + bio + tally foot
-- Explore: travel-folio object card (stamp / itinerary / map), from the
-  NavCards doorway vignette
-- Ask Cleo: `.email-envelope-card` physical note (FROM / stamps / TO)
+  site line and title; no description)
+- catalog → homepage search: outlined field and cascading ruled result rows
+- Topics: `.service-card` identity head, bio, and tally foot
+- Explore: travel-folio object card (stamp, itinerary, map) with a quiet layer
+  settle
+- Ask Cleo: `.email-envelope-card` physical note (FROM / stamps / TO) with a
+  single letter reveal and question heading
 
 Fine-pointer hover opens the card; touch falls back to the plain destination
 link. Cards stay informational only (`pointer-events: none` on the plate).

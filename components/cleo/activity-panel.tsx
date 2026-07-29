@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { memo, useEffect, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
 import { ThinkingOrb, type OrbState } from "thinking-orbs"
 
@@ -285,7 +285,7 @@ function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
   return hasSearch ? "searching" : "composing"
 }
 
-export function ActivityPanel({
+export const ActivityPanel = memo(function ActivityPanel({
   activities,
   isLive = false,
 }: ActivityPanelProps) {
@@ -389,4 +389,4 @@ export function ActivityPanel({
       ) : null}
     </div>
   )
-}
+})

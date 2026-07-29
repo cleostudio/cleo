@@ -240,14 +240,14 @@ function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName={`link-card${image ? ' link-card-with-image' : ''}`}
+      popupClassName={`link-card home-intro-gallery-card${image ? ' link-card-with-image' : ''}`}
       popup={
         <>
           {image && (
             <span className="link-card-image-frame" aria-hidden>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                className="link-card-image"
+                className="link-card-image home-intro-gallery-image"
                 src={image.src}
                 alt=""
                 width={236}
@@ -276,7 +276,10 @@ function GalleryPreviewCard({ children }: { children: React.ReactNode }) {
 
 /** cali.so GitHub-card spirit — content animates inside the plate. */
 function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
-  const rows = highlightedAtlasEntries(3).map((entry) => entry.name)
+  const rows = highlightedAtlasEntries(3).map((entry) => ({
+    kind: 'Country',
+    name: entry.name,
+  }))
 
   return (
     <SitePreviewCard
@@ -288,16 +291,17 @@ function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
       popup={
         <span className="home-intro-search-body" aria-hidden>
           <span className="home-intro-search-field">
-            <T zh="搜索…" en="Search…" />
+            <T zh="国家、行星、卫星或主题" en="Country, planet, moon, or topic" />
           </span>
           <span className="home-intro-search-rows">
-            {rows.map((name, index) => (
+            {rows.map((row, index) => (
               <span
-                key={name}
+                key={row.name}
                 className="home-intro-search-row"
                 style={{ '--i': index } as React.CSSProperties}
               >
-                {name}
+                <span className="home-intro-search-row-title">{row.name}</span>
+                <span className="home-intro-search-row-kind">{row.kind}</span>
               </span>
             ))}
           </span>
@@ -309,7 +313,7 @@ function CatalogPreviewCard({ children }: { children: React.ReactNode }) {
   )
 }
 
-/** cali.so service-card identity layout. */
+/** Service-card treatment with a restrained content develop. */
 function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
   return (
     <SitePreviewCard
@@ -317,7 +321,7 @@ function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
       triggerClassName="home-contact-link"
       closeDelay={100}
       side="top"
-      popupClassName="link-card service-card"
+      popupClassName="link-card service-card home-intro-topics-card"
       popup={
         <>
           <span className="service-card-head">
@@ -353,7 +357,7 @@ function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
   )
 }
 
-/** cali.so / NavCards travel-folio object card. */
+/** Travel-folio card with a quiet layer settle. */
 function ExplorePreviewCard({ children }: { children: React.ReactNode }) {
   return (
     <SitePreviewCard
@@ -405,7 +409,7 @@ function ExplorePreviewCard({ children }: { children: React.ReactNode }) {
   )
 }
 
-/** cali.so EmailCard physical-object pattern — a mailed note to Cleo. */
+/** Envelope card with a single letter reveal. */
 function AskCleoPreviewCard({ children }: { children: React.ReactNode }) {
   return (
     <SitePreviewCard
@@ -417,6 +421,12 @@ function AskCleoPreviewCard({ children }: { children: React.ReactNode }) {
       popup={
         <span className="email-envelope" aria-hidden>
           <span className="email-envelope-flap" />
+          <span className="email-envelope-letter">
+            <span className="email-envelope-letter-kicker">ASK A QUESTION</span>
+            <span className="email-envelope-letter-line" />
+            <span className="email-envelope-letter-line" />
+            <span className="email-envelope-letter-line" />
+          </span>
           <span className="email-envelope-return">
             <span>FROM</span>
             YOU
@@ -472,7 +482,7 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase>. Right now the focus is{' '}
+              Cleo is a <CraftPhrase>knowledge portal</CraftPhrase> for everyday curiosity. It begins with{' '}
               <HopPhrase>
                 <span className="home-detail-units home-detail-words">
                   <span className="home-detail-unit">countries</span>{' '}
@@ -480,7 +490,7 @@ export function HomeIntroduction() {
                   <span className="home-detail-unit">space</span>
                 </span>
               </HopPhrase>
-              ; more subjects will land over time.
+              , with more subjects joining the collection over time.
             </>
           }
         />
@@ -502,15 +512,15 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Flip through{' '}
+              Browse{' '}
               <GalleryPreviewCard>
                 <PhotoPhrase>photographs</PhotoPhrase>
               </GalleryPreviewCard>{' '}
-              when you want a sense of place, or search the{' '}
+              to get a feel for a place, or search the{' '}
               <CatalogPreviewCard>
                 <SearchPhrase>catalog</SearchPhrase>
               </CatalogPreviewCard>{' '}
-              by name.
+              when you know just what you&apos;re after.
             </>
           }
         />
@@ -526,8 +536,8 @@ export function HomeIntroduction() {
           }
           en={
             <>
-              Open <TopicsPreviewCard>Topics</TopicsPreviewCard>,{' '}
-              <ExplorePreviewCard>Explore</ExplorePreviewCard>, or{' '}
+              Start with <TopicsPreviewCard>Topics</TopicsPreviewCard>, take a closer look in{' '}
+              <ExplorePreviewCard>Explore</ExplorePreviewCard>, or bring a question to{' '}
               <AskCleoPreviewCard>Ask Cleo</AskCleoPreviewCard>.
             </>
           }

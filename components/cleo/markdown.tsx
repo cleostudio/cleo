@@ -1,6 +1,6 @@
 "use client"
 
-import type { ComponentProps } from "react"
+import { memo, type ComponentProps } from "react"
 import Link from "next/link"
 import { code } from "@streamdown/code"
 import { Streamdown } from "streamdown"
@@ -11,6 +11,7 @@ import { sanitizePortalMarkdown } from "~/lib/cleo/guardrails"
 import {
   isCuratedTopicImageSrc,
   presentPortalGuideMarkdown,
+  presentTopicPhotoMarkdown,
 } from "~/lib/cleo/portal-links"
 import { topicPhotoZoomForSrc } from "~/lib/cleo/topic-photo-zoom"
 import { cn } from "~/lib/utils"
@@ -103,12 +104,17 @@ function MarkdownImage({
   )
 }
 
-export function Markdown({
+function MarkdownComponent({
   children,
   className,
   isAnimating = false,
 }: MarkdownProps) {
-  const content = presentPortalGuideMarkdown(sanitizePortalMarkdown(children))
+  // Guardrails always run. While tokens are still arriving, skip guide-link
+  // dedupe / footer cleanup so historical messages are not reworked every chunk.
+  const sanitized = sanitizePortalMarkdown(children)
+  const content = isAnimating
+    ? presentTopicPhotoMarkdown(sanitized)
+    : presentPortalGuideMarkdown(sanitized)
 
   return (
     <Streamdown
@@ -127,3 +133,5 @@ export function Markdown({
     </Streamdown>
   )
 }
+
+export const Markdown = memo(MarkdownComponent)

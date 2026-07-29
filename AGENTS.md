@@ -72,10 +72,11 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   (`G` then `C`).
 - API: `app/api/responses/route.ts` validates messages (including image data
   URLs) and optional, browser-authorized location context before calling the
-  OpenAI Responses API with `gpt-5.6-terra`, `web_search`, `image_generation`,
-  adaptive reasoning effort, encrypted reasoning replay
-  (`reasoning.context: "all_turns"`), `max_tool_calls`, `truncation: "auto"`,
-  prompt caching, streaming, `maxDuration` 90s, and `store: false`.
+  OpenAI Responses API with `gpt-5.6-terra`, `web_search`, and
+  `image_generation` (jpeg + compression, one partial preview), adaptive
+  reasoning effort, encrypted reasoning replay (`reasoning.context: "all_turns"`),
+  `max_tool_calls`, `truncation: "auto"`, prompt caching, streaming,
+  `maxDuration` 90s, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
   `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
   Invented Explore/Space paths are stripped in Markdown via
