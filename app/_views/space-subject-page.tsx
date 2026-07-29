@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { GuidePhotoCollection } from '~/components/guide-photo-collection'
 import { GuideOrientation } from '~/components/guide-orientation'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
@@ -109,6 +110,16 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
           </span>
         </figcaption>
       </figure>
+
+      <GuidePhotoCollection
+        collection="space"
+        subject={subject.name}
+        sourceLabel="NASA"
+        photos={subject.photos.slice(1).map((companion) => ({
+          ...companion,
+          title: companion.featureName,
+        }))}
+      />
 
       <section
         className="enter mt-10"

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { GuidePhotoCollection } from '~/components/guide-photo-collection'
 import { GuideOrientation } from '~/components/guide-orientation'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
@@ -101,6 +102,16 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
           </span>
         </figcaption>
       </figure>
+
+      <GuidePhotoCollection
+        collection="places"
+        subject={entry.name}
+        sourceLabel="Source"
+        photos={entry.photos.slice(1).map((companion) => ({
+          ...companion,
+          title: companion.placeName,
+        }))}
+      />
 
       <section
         className="enter mt-10"

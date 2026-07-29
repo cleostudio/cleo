@@ -46,9 +46,9 @@ function atlasPhotoToStatic(photo: {
   }
 }
 
-export function allGalleryItems(): GalleryItem[] {
+function topicPhotoItems(includeAllPhotos: boolean): GalleryItem[] {
   const places: GalleryItem[] = allAtlasEntries().flatMap((entry) =>
-    entry.photos.map((photo, index) => ({
+    (includeAllPhotos ? entry.photos : [entry.photos[0]]).map((photo, index) => ({
       id: `places:${entry.slug}${index === 0 ? '' : `:${index + 1}`}`,
       collection: 'places' as const,
       href: `/explore/${entry.slug}`,
@@ -69,7 +69,7 @@ export function allGalleryItems(): GalleryItem[] {
   )
 
   const space: GalleryItem[] = spaceSubjects.flatMap((subject) =>
-    subject.photos.map((photo, index) => ({
+    (includeAllPhotos ? subject.photos : [subject.photos[0]]).map((photo, index) => ({
       id: `space:${subject.slug}${index === 0 ? '' : `:${index + 1}`}`,
       collection: 'space' as const,
       href: `/space/${subject.slug}`,
@@ -89,6 +89,16 @@ export function allGalleryItems(): GalleryItem[] {
   )
 
   return [...places, ...space]
+}
+
+/** Every curated photograph, used for attribution and Cleo zoom metadata. */
+export function allTopicPhotoItems(): GalleryItem[] {
+  return topicPhotoItems(true)
+}
+
+/** Gallery is a focused index: the editor-selected hero for each topic. */
+export function allGalleryItems(): GalleryItem[] {
+  return topicPhotoItems(false)
 }
 
 export function galleryFilterKeys(): string[] {

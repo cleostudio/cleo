@@ -5,7 +5,7 @@ import {
   topicPhotoZoomForSrc,
   topicPhotoZoomKeyFromSrc,
 } from '~/lib/cleo/topic-photo-zoom'
-import { allGalleryItems } from '~/lib/gallery'
+import { allTopicPhotoItems } from '~/lib/gallery'
 
 describe('topicPhotoZoomKeyFromSrc', () => {
   it('parses curated atlas and space paths', () => {
@@ -31,7 +31,7 @@ describe('topicPhotoZoomKeyFromSrc', () => {
 
 describe('topicPhotoZoomForSrc', () => {
   it('stays in parity with Gallery catalog fields', () => {
-    const items = allGalleryItems()
+    const items = allTopicPhotoItems()
     expect(items.length).toBeGreaterThan(0)
 
     for (const item of items) {

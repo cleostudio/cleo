@@ -1,12 +1,12 @@
 /** @vitest-environment node */
 import { describe, expect, it } from 'vitest'
-import { allGalleryItems } from '~/lib/gallery'
+import { allTopicPhotoItems } from '~/lib/gallery'
 import { getAtlasEntry } from '~/lib/atlas'
 import { getSpaceSubject } from '~/lib/space'
 
 describe('PhotoZoomDetails field parity', () => {
   it('gallery place items match Explore topic page fields', () => {
-    const places = allGalleryItems().filter((i) => i.collection === 'places')
+    const places = allTopicPhotoItems().filter((i) => i.collection === 'places')
     expect(places.length).toBeGreaterThan(0)
     for (const item of places) {
       const slug = item.href.replace('/explore/', '')
@@ -22,7 +22,7 @@ describe('PhotoZoomDetails field parity', () => {
   })
 
   it('gallery space items match Space topic page fields', () => {
-    const space = allGalleryItems().filter((i) => i.collection === 'space')
+    const space = allTopicPhotoItems().filter((i) => i.collection === 'space')
     expect(space.length).toBeGreaterThan(0)
     for (const item of space) {
       const slug = item.href.replace('/space/', '')

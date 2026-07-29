@@ -14,13 +14,13 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const outPath = join(root, 'content/cleo-topic-photo-zoom.json')
 
-const { allGalleryItems } = await import(
+const { allTopicPhotoItems } = await import(
   pathToFileURL(join(root, 'lib/gallery.ts')).href
 )
 
 const index = {}
 
-for (const item of allGalleryItems()) {
+for (const item of allTopicPhotoItems()) {
   const rootKey = item.collection === 'places' ? 'atlas' : 'space'
   const slug = item.href.replace(/^\/(explore|space)\//, '')
   const mid = item.photo.renditions.find((rendition) => rendition.width === 1280)
