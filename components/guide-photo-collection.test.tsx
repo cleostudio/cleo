@@ -60,11 +60,11 @@ describe('GuidePhotoCollection', () => {
       name: 'Show next photograph: Second view',
     })
     expect(screen.getByAltText('First view photo')).toBeTruthy()
-    expect(screen.getByText('1 / 3')).toBeTruthy()
+    expect(screen.getByText('Photo 01 / 03')).toBeTruthy()
 
     fireEvent.click(next)
     expect(screen.getByAltText('Second view photo')).toBeTruthy()
-    expect(screen.getByText('2 / 3')).toBeTruthy()
+    expect(screen.getByText('Photo 02 / 03')).toBeTruthy()
 
     fireEvent.click(
       screen.getByRole('button', {
@@ -72,7 +72,7 @@ describe('GuidePhotoCollection', () => {
       }),
     )
     expect(screen.getByAltText('Third view photo')).toBeTruthy()
-    expect(screen.getByText('3 / 3')).toBeTruthy()
+    expect(screen.getByText('Photo 03 / 03')).toBeTruthy()
 
     fireEvent.click(
       screen.getByRole('button', {

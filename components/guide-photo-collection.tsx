@@ -44,6 +44,9 @@ export function GuidePhotoCollection({
   const nextIndex = (activeIndex + 1) % photos.length
   const previousPhoto = photos[previousIndex]!
   const nextPhoto = photos[nextIndex]!
+  const position = `${String(activeIndex + 1).padStart(2, '0')} / ${String(
+    photos.length,
+  ).padStart(2, '0')}`
 
   function showPhoto(index: number) {
     setActiveIndex(index)
@@ -52,10 +55,10 @@ export function GuidePhotoCollection({
   return (
     <section className="enter mt-8" aria-label="Photographs">
       <figure>
-        <div className="grid grid-cols-[1fr_3fr_1fr] items-center gap-3">
+        <div className="grid grid-cols-[1fr_5fr_1fr] items-stretch gap-2 sm:gap-3">
           <button
             type="button"
-            className="photo-frame group relative block aspect-[3/2] w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="photo-frame group relative block h-full min-h-0 w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label={`Show previous photograph: ${previousPhoto.title}`}
             onClick={() => showPhoto(previousIndex)}
           >
@@ -77,7 +80,7 @@ export function GuidePhotoCollection({
             width={photo.width}
             height={photo.height}
             className="photo-frame aspect-[3/2] w-full object-cover"
-            sizes="(max-width: 40rem) 60vw, 24rem"
+            sizes="(max-width: 40rem) 72vw, 30rem"
             renditions={photo.renditions.map((rendition) => ({
               src: rendition.src,
               width: rendition.width,
@@ -95,7 +98,7 @@ export function GuidePhotoCollection({
 
           <button
             type="button"
-            className="photo-frame group relative block aspect-[3/2] w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="photo-frame group relative block h-full min-h-0 w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label={`Show next photograph: ${nextPhoto.title}`}
             onClick={() => showPhoto(nextIndex)}
           >
@@ -110,14 +113,12 @@ export function GuidePhotoCollection({
             </span>
           </button>
         </div>
-        <figcaption className="guide-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
-          <span>
-            <span className="mr-2 tabular-nums" aria-live="polite">
-              {activeIndex + 1} / {photos.length}
-            </span>
-            {photo.caption}
+        <figcaption className="guide-credit hairline-top mt-3 grid gap-2 pt-3 text-xs text-muted-foreground sm:grid-cols-[auto_1fr_auto] sm:items-baseline">
+          <span className="guide-label tabular-nums" aria-live="polite">
+            Photo {position}
           </span>
-          <span>
+          <span className="font-medium text-foreground">{photo.caption}</span>
+          <span className="sm:text-right">
             {photo.photographer} ·{' '}
             <a
               href={photo.sourceUrl}
