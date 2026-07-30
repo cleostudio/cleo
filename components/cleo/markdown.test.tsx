@@ -68,6 +68,23 @@ describe('Cleo Markdown topic photos', () => {
     )
   })
 
+  it('renders non-featured curated topic photos from the same set', () => {
+    render(
+      <Markdown>
+        {'![Hiroshima Peace Memorial](/images/atlas/japan/w1280-2.jpg)'}
+      </Markdown>,
+    )
+
+    expect(
+      screen.getByRole('button', {
+        name: 'Zoom image: Hiroshima Peace Memorial',
+      }),
+    ).toBeTruthy()
+    expect(screen.getByAltText('Hiroshima Peace Memorial').getAttribute('src')).toBe(
+      '/images/atlas/japan/w1280-2.jpg',
+    )
+  })
+
   it('opens the Gallery lightbox with Place/Country caption plate', () => {
     render(
       <Markdown>

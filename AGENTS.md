@@ -85,7 +85,8 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   partial answers; hard `error` is for true failures.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
-  grounds matching subjects on each turn); Streamdown only allows
+  grounds every image in matching subject sets on each turn, so Cleo can choose
+  one view or show all three when asked); Streamdown only allows
   `/images/atlas|space/...` paths. Those Markdown photos (and attachment /
   generated data-URL images) use the shared `ZoomImage` lightbox — curated
   topic photos resolve Gallery-parity caption plates via

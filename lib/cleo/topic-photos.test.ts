@@ -8,29 +8,48 @@ import {
 } from './topic-photos'
 
 describe('topic photos', () => {
-  it('resolves Explore and Space photographs with embeddable paths', () => {
+  it('resolves complete Explore and Space photograph sets with embeddable paths', () => {
     const photos = resolveTopicPhotos([
       { collection: 'explore', slug: 'japan' },
       { collection: 'space', slug: 'mars' },
       { collection: 'explore', slug: 'not-a-country' },
     ])
 
-    expect(photos).toHaveLength(2)
-    expect(photos[0]).toMatchObject({
-      collection: 'explore',
-      slug: 'japan',
-      name: 'Japan',
-      href: '/explore/japan',
-      title: 'Mount Fuji',
-      src: '/images/atlas/japan/w1280.jpg',
-    })
-    expect(photos[1]).toMatchObject({
+    expect(photos).toHaveLength(6)
+    expect(photos.slice(0, 3)).toMatchObject([
+      {
+        collection: 'explore',
+        slug: 'japan',
+        name: 'Japan',
+        href: '/explore/japan',
+        title: 'Mount Fuji',
+        position: 1,
+        total: 3,
+        src: '/images/atlas/japan/w1280.jpg',
+      },
+      {
+        position: 2,
+        src: '/images/atlas/japan/w1280-2.jpg',
+      },
+      {
+        position: 3,
+        src: '/images/atlas/japan/w1280-3.jpg',
+      },
+    ])
+    expect(photos[3]).toMatchObject({
       collection: 'space',
       slug: 'mars',
       name: 'Mars',
       href: '/space/mars',
+      position: 1,
+      total: 3,
       src: '/images/space/mars/w1280.jpg',
     })
+    expect(photos.slice(3).map((photo) => photo.src)).toEqual([
+      '/images/space/mars/w1280.jpg',
+      '/images/space/mars/w1280-2.jpg',
+      '/images/space/mars/w1280-3.jpg',
+    ])
   })
 
   it('matches catalog subjects by name and path in conversation text', () => {
@@ -38,24 +57,32 @@ describe('topic photos', () => {
       'Tell me about Japan and also /space/europa — what do they look like?',
     )
 
-    expect(photos.map((photo) => photo.slug).sort()).toEqual([
+    expect([...new Set(photos.map((photo) => photo.slug))].sort()).toEqual([
       'europa',
       'japan',
     ])
+    expect(photos).toHaveLength(6)
   })
 
   it('prefers longer country names over nested shorter ones', () => {
     const photos = matchTopicPhotosInText('What is Nigeria known for?')
-    expect(photos.map((photo) => photo.slug)).toEqual(['nigeria'])
+    expect(photos.map((photo) => photo.slug)).toEqual([
+      'nigeria',
+      'nigeria',
+      'nigeria',
+    ])
   })
 
-  it('builds instructions that allow Markdown image embeds', () => {
+  it('builds instructions that expose every image in a topic set', () => {
     const photos = resolveTopicPhotos([{ collection: 'explore', slug: 'japan' }])
     const block = buildTopicPhotoInstructions(photos)
 
     expect(block).toContain('<cleo_topic_photos>')
-    expect(block).toContain('You MAY and SHOULD include the curated photograph')
+    expect(block).toContain('complete curated photograph sets')
     expect(block).toContain('![Mount Fuji](/images/atlas/japan/w1280.jpg)')
+    expect(block).toContain('/images/atlas/japan/w1280-2.jpg')
+    expect(block).toContain('/images/atlas/japan/w1280-3.jpg')
+    expect(block).toContain('embed every listed photograph')
     expect(block).toContain('Prefer these curated photos over `image_generation`')
     expect(buildTopicPhotoInstructions([])).toBe('')
   })

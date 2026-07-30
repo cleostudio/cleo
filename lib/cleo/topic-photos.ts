@@ -9,17 +9,21 @@ import { countries } from '~/lib/countries'
 import { getSpaceSubject, spaceSubjects } from '~/lib/space'
 import { staticRendition } from '~/lib/static-photo'
 
-export const MAX_TOPIC_PHOTOS = 3
+/** Limit subjects, not images: each matched subject contributes its full set. */
+export const MAX_TOPIC_SUBJECTS = 3
 
 export type TopicPhoto = {
   collection: 'explore' | 'space'
   slug: string
   name: string
   href: string
-  /** Featured place or feature name. */
+  /** Place or feature name. */
   title: string
   alt: string
   caption: string
+  /** One-indexed position in this subject's complete curated set. */
+  position: number
+  total: number
   /** Mid-size static JPEG path for Markdown embedding. */
   src: string
 }
@@ -70,14 +74,13 @@ function candidatesByNameLength(): TopicCandidate[] {
   return cachedCandidatesByName
 }
 
-function loadTopicPhoto(
+function loadTopicPhotos(
   topic: Pick<TopicCandidate, 'collection' | 'slug'>,
-): TopicPhoto | null {
+): TopicPhoto[] {
   if (topic.collection === 'explore') {
     const entry = getAtlasEntry(topic.slug)
-    if (!entry) return null
-    const photo = entry.photos[0]
-    return {
+    if (!entry) return []
+    return entry.photos.map((photo, index) => ({
       collection: 'explore',
       slug: entry.slug,
       name: entry.name,
@@ -85,15 +88,16 @@ function loadTopicPhoto(
       title: photo.placeName,
       alt: photo.alt,
       caption: photo.caption,
+      position: index + 1,
+      total: entry.photos.length,
       src: atlasRendition(photo, 1280).src,
-    }
+    }))
   }
 
   const subject = getSpaceSubject(topic.slug)
-  if (!subject) return null
-  const photo = subject.photos[0]
+  if (!subject) return []
 
-  return {
+  return subject.photos.map((photo, index) => ({
     collection: 'space',
     slug: subject.slug,
     name: subject.name,
@@ -101,8 +105,10 @@ function loadTopicPhoto(
     title: photo.featureName,
     alt: photo.alt,
     caption: photo.caption,
+    position: index + 1,
+    total: subject.photos.length,
     src: staticRendition(photo, 1280).src,
-  }
+  }))
 }
 
 /** Resolve topic tokens to real photographs (drops unknown slugs). */
@@ -111,15 +117,17 @@ export function resolveTopicPhotos(
 ): TopicPhoto[] {
   const seen = new Set<string>()
   const photos: TopicPhoto[] = []
+  let subjects = 0
 
   for (const topic of topics) {
     const key = candidateKey(topic)
     if (seen.has(key)) continue
-    const loaded = loadTopicPhoto(topic)
-    if (!loaded) continue
+    const loaded = loadTopicPhotos(topic)
+    if (loaded.length === 0) continue
     seen.add(key)
-    photos.push(loaded)
-    if (photos.length >= MAX_TOPIC_PHOTOS) break
+    photos.push(...loaded)
+    subjects += 1
+    if (subjects >= MAX_TOPIC_SUBJECTS) break
   }
 
   return photos
@@ -196,7 +204,7 @@ function markdownImageAlt(value: string) {
 function formatTopicPhoto(photo: TopicPhoto): string {
   const alt = markdownImageAlt(photo.title)
   return [
-    `### ${photo.name} — ${photo.href}`,
+    `Photo ${photo.position} of ${photo.total}`,
     `Photograph title: ${photo.title}`,
     `Alt text: ${photo.alt}`,
     `Caption: ${photo.caption}`,
@@ -213,12 +221,31 @@ export function buildTopicPhotoInstructions(
 ): string {
   if (photos.length === 0) return ''
 
-  const blocks = photos.map(formatTopicPhoto).join('\n\n')
+  const photoSets = new Map<string, TopicPhoto[]>()
+  for (const photo of photos) {
+    const key = `${photo.collection}/${photo.slug}`
+    const set = photoSets.get(key)
+    if (set) {
+      set.push(photo)
+    } else {
+      photoSets.set(key, [photo])
+    }
+  }
+  const blocks = [...photoSets.values()]
+    .map((set) => {
+      const first = set[0]!
+      return [
+        `### ${first.name} — ${first.href}`,
+        ...set.map(formatTopicPhoto),
+      ].join('\n\n')
+    })
+    .join('\n\n')
 
   return `<cleo_topic_photos>
-The following curated photographs are from this website's Explore and Space topics. When the user's question is about these subjects:
-- You MAY and SHOULD include the curated photograph in your reply when appearance, landscape, what something looks like, or a visual orientation would help — or when the user asks to see a photo/image.
-- Embed with exactly one Markdown image per subject using the path shown: \`![title](/images/...)\`. Do not invent or alter image paths.
+The following complete curated photograph sets are from this website's Explore and Space topics. When the user's question is about these subjects:
+- You MAY and SHOULD include a curated photograph in your reply when appearance, landscape, what something looks like, or a visual orientation would help — or when the user asks to see a photo/image.
+- When the user asks to see all photos, images, or a gallery for a subject, embed every listed photograph for that subject in numeric order. Otherwise, choose the single photograph that best helps, usually Photo 1.
+- Embed only the exact Markdown image paths shown: \`![title](/images/...)\`. Do not invent or alter image paths.
 - Still weave one Markdown deep link to the field guide (\`[Name](/explore/…)\` or \`[Name](/space/…)\`) on first mention.
 - Prefer these curated photos over \`image_generation\` for real places and space bodies. Use \`image_generation\` only if the user asks you to create, draw, redesign, or invent a visual the curated photo cannot cover (diagram, stylized illustration, edit).
 - Do not dump every photo unprompted for a pure text fact question (e.g. capital city only). One well-chosen image is enough when a visual helps.

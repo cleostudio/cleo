@@ -15,7 +15,7 @@ const MARKDOWN_GUIDE_LINK =
 
 /** Curated static JPEGs under the site image roots. */
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space)\/[a-z0-9-]+\/w(640|1280|2048)\.jpg$/
+  /^\/images\/(atlas|space)\/[a-z0-9-]+\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
 const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g

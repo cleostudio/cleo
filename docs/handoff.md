@@ -44,8 +44,9 @@ document (enable both products in the Vercel project dashboard).
   `pnpm curate:space-photos` → `pnpm import:space-photos` → `pnpm validate:space`
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
   (instructions include Explore/Space catalog paths for guide deep-links;
-  matching turns also ground curated topic photo paths so replies can embed
-  atlas/space JPEGs as Markdown images; encrypted reasoning replay + soft
+  matching turns also ground every curated topic-photo path so replies can
+  embed one atlas/space JPEG or a requested three-image set as Markdown;
+  encrypted reasoning replay + soft
   incomplete status + Retry/Continue keep multi-turn chats reliable under
   `store: false`; conversation still clears on reload)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)

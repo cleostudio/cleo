@@ -146,15 +146,19 @@ describe('presentPortalGuideMarkdown', () => {
 describe('presentTopicPhotoMarkdown', () => {
   it('allows only curated atlas and space JPEG paths', () => {
     expect(isCuratedTopicImageSrc('/images/atlas/japan/w1280.jpg')).toBe(true)
+    expect(isCuratedTopicImageSrc('/images/atlas/japan/w1280-2.jpg')).toBe(true)
+    expect(isCuratedTopicImageSrc('/images/space/mars/w2048-3.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('/images/space/mars/w640.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('https://evil.example/x.jpg')).toBe(false)
     expect(isCuratedTopicImageSrc('/images/other/x.jpg')).toBe(false)
 
     expect(
       presentTopicPhotoMarkdown(
-        'Safe ![Mount Fuji](/images/atlas/japan/w1280.jpg) and bad ![x](https://evil.example/x.jpg).',
+        'Safe ![Mount Fuji](/images/atlas/japan/w1280.jpg), ![Kyoto](/images/atlas/japan/w1280-2.jpg), and bad ![x](https://evil.example/x.jpg).',
       ),
-    ).toBe('Safe ![Mount Fuji](/images/atlas/japan/w1280.jpg) and bad x.')
+    ).toBe(
+      'Safe ![Mount Fuji](/images/atlas/japan/w1280.jpg), ![Kyoto](/images/atlas/japan/w1280-2.jpg), and bad x.',
+    )
   })
 })
 
