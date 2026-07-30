@@ -53,6 +53,9 @@ export function GuidePhotoCollection({
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+      return
+    }
     if (event.key === 'ArrowLeft') {
       event.preventDefault()
       showPhoto(previousIndex)
@@ -97,7 +100,7 @@ export function GuidePhotoCollection({
             width={photo.width}
             height={photo.height}
             className="photo-frame aspect-[3/2] w-full object-cover"
-            triggerClassName="outline-none focus-visible:outline-none"
+            triggerClassName="outline-none focus-visible:outline-none focus-visible:opacity-95"
             sizes="(max-width: 40rem) 72vw, 30rem"
             renditions={photo.renditions.map((rendition) => ({
               src: rendition.src,

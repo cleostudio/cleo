@@ -24,4 +24,10 @@ describe('atlas manifest', () => {
     japan.photos[2] = structuredClone(japan.photos[0])
     expect(() => validateAtlasManifest(clone)).toThrow(AtlasValidationError)
   })
+
+  it('rejects a rendition path outside its country and photo slot', () => {
+    const clone = structuredClone(atlas) as unknown as AtlasManifest
+    clone.japan!.photos[1].renditions[0]!.src = '/images/atlas/china/w640.jpg'
+    expect(() => validateAtlasManifest(clone)).toThrow(AtlasValidationError)
+  })
 })

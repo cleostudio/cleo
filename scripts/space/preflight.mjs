@@ -66,11 +66,15 @@ for (const [slug, photoSet] of Object.entries(photos)) {
       continue
     }
     let previousWidth = 0
+    const slot = photoIndex === 0 ? '' : `-${photoIndex + 1}`
+    const renditionPath = new RegExp(
+      `^/images/space/${slug}/w(?:640|1280|2048)${slot}\\.jpg$`,
+    )
     for (const rendition of photo.renditions) {
       if (!(rendition.width > previousWidth)) {
         errors.push(`${ctx}: rendition widths must be strictly increasing`)
       }
-      if (!rendition.src?.startsWith(`/images/space/${slug}/`)) {
+      if (!renditionPath.test(rendition.src ?? '')) {
         errors.push(`${ctx}: bad rendition src ${rendition.src}`)
         continue
       }

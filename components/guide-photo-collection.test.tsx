@@ -63,8 +63,12 @@ describe('GuidePhotoCollection', () => {
     const next = screen.getByRole('button', {
       name: 'Show next photograph: Second view',
     })
+    const carousel = screen.getByLabelText('Photographs for Example')
     expect(screen.getByAltText('First view photo')).toBeTruthy()
     expect(screen.getByText('Photo 01 / 03')).toBeTruthy()
+
+    fireEvent.keyDown(carousel, { key: 'ArrowRight', altKey: true })
+    expect(screen.getByAltText('First view photo')).toBeTruthy()
 
     fireEvent.click(next)
     expect(screen.getByAltText('Second view photo')).toBeTruthy()
@@ -92,7 +96,6 @@ describe('GuidePhotoCollection', () => {
     )
     expect(screen.getByAltText('Third view photo')).toBeTruthy()
 
-    const carousel = screen.getByLabelText('Photographs for Example')
     fireEvent.keyDown(carousel, { key: 'ArrowRight' })
     expect(screen.getByAltText('First view photo')).toBeTruthy()
     fireEvent.keyDown(carousel, { key: 'ArrowLeft' })

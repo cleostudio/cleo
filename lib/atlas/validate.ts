@@ -112,6 +112,10 @@ function validateEntry(entry: AtlasEntry, slug: string) {
   const checksums = new Set<string>()
   for (const [index, photo] of entry.photos.entries()) {
     const photoCtx = `${ctx} photos[${index}]`
+    const slot = index === 0 ? '' : `-${index + 1}`
+    const renditionPath = new RegExp(
+      `^/images/atlas/${slug}/w(?:640|1280|2048)${slot}\\.jpg$`,
+    )
     if (!photo.placeName.trim()) throw new AtlasValidationError(`${photoCtx}: placeName missing`)
     if (!photo.alt.trim()) throw new AtlasValidationError(`${photoCtx}: alt missing`)
     if (!photo.caption.trim()) throw new AtlasValidationError(`${photoCtx}: caption missing`)
@@ -139,8 +143,10 @@ function validateEntry(entry: AtlasEntry, slug: string) {
           `${photoCtx}: rendition widths must be strictly increasing`,
         )
       }
-      if (!rendition.src.startsWith('/images/atlas/')) {
-        throw new AtlasValidationError(`${photoCtx}: rendition must be local /images/atlas/ path`)
+      if (!renditionPath.test(rendition.src)) {
+        throw new AtlasValidationError(
+          `${photoCtx}: rendition must match its local photo slot`,
+        )
       }
       if (!(rendition.bytes > 0)) {
         throw new AtlasValidationError(`${photoCtx}: rendition bytes missing`)
