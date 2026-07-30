@@ -1,6 +1,7 @@
 /** Shared static JPEG photo shape for atlas places and space subjects. */
 
-export type StaticRenditionWidth = 640 | 1280 | 2048
+/** Actual intrinsic width of a generated JPEG rendition. */
+export type StaticRenditionWidth = number
 
 export interface StaticRendition {
   width: StaticRenditionWidth

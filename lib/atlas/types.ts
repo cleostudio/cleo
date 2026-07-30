@@ -1,6 +1,7 @@
 /** Country Atlas — evergreen field-guide records for every Explore slug. */
 
-export type AtlasRenditionWidth = 640 | 1280 | 2048
+/** Actual intrinsic width of a generated JPEG rendition. */
+export type AtlasRenditionWidth = number
 
 export interface AtlasRendition {
   width: AtlasRenditionWidth

@@ -1,7 +1,5 @@
 import { countries } from '~/lib/countries'
-import type { AtlasEntry, AtlasManifest, AtlasRenditionWidth } from './types'
-
-const RENDITION_WIDTHS: AtlasRenditionWidth[] = [640, 1280, 2048]
+import type { AtlasEntry, AtlasManifest } from './types'
 const MIN_ABOUT_WORDS = 250
 const MAX_ABOUT_WORDS = 350
 
@@ -131,22 +129,23 @@ function validateEntry(entry: AtlasEntry, slug: string) {
     if (!(photo.width > 0 && photo.height > 0)) {
       throw new AtlasValidationError(`${photoCtx}: dimensions invalid`)
     }
-    if (photo.renditions.length !== 3) {
-      throw new AtlasValidationError(`${photoCtx}: needs 640/1280/2048 renditions`)
+    if (photo.renditions.length < 1 || photo.renditions.length > 3) {
+      throw new AtlasValidationError(`${photoCtx}: needs one to three renditions`)
     }
-    const widths = new Set(photo.renditions.map((r) => r.width))
-    for (const width of RENDITION_WIDTHS) {
-      if (!widths.has(width)) {
-        throw new AtlasValidationError(`${photoCtx}: missing ${width}px rendition`)
-      }
-    }
+    let previousWidth = 0
     for (const rendition of photo.renditions) {
+      if (!(rendition.width > previousWidth)) {
+        throw new AtlasValidationError(
+          `${photoCtx}: rendition widths must be strictly increasing`,
+        )
+      }
       if (!rendition.src.startsWith('/images/atlas/')) {
         throw new AtlasValidationError(`${photoCtx}: rendition must be local /images/atlas/ path`)
       }
       if (!(rendition.bytes > 0)) {
         throw new AtlasValidationError(`${photoCtx}: rendition bytes missing`)
       }
+      previousWidth = rendition.width
     }
 
     if (sourceUrls.has(photo.sourceUrl)) {

@@ -92,7 +92,6 @@ export function GuidePhotoCollection({
           </button>
 
           <ZoomImage
-            key={photo.sourceUrl}
             src={staticRendition(photo, 1280).src}
             alt={photo.alt}
             width={photo.width}

@@ -19,14 +19,9 @@
           "bytes": 41852
         },
         {
-          "width": 1280,
+          "width": 1024,
           "src": "/images/space/sun/w1280.jpg",
           "bytes": 97266
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/sun/w2048.jpg",
-          "bytes": 125493
         }
       ]
     },
@@ -116,7 +111,7 @@
           "bytes": 104112
         },
         {
-          "width": 2048,
+          "width": 1920,
           "src": "/images/space/mercury/w2048.jpg",
           "bytes": 262410
         }
@@ -176,7 +171,7 @@
           "bytes": 258658
         },
         {
-          "width": 2048,
+          "width": 1920,
           "src": "/images/space/mercury/w2048-3.jpg",
           "bytes": 730038
         }
@@ -300,7 +295,7 @@
           "bytes": 233504
         },
         {
-          "width": 2048,
+          "width": 1920,
           "src": "/images/space/earth/w2048.jpg",
           "bytes": 533962
         }
@@ -392,7 +387,7 @@
           "bytes": 150078
         },
         {
-          "width": 2048,
+          "width": 1920,
           "src": "/images/space/moon/w2048.jpg",
           "bytes": 382739
         }
@@ -422,7 +417,7 @@
           "bytes": 168305
         },
         {
-          "width": 2048,
+          "width": 2000,
           "src": "/images/space/moon/w2048-2.jpg",
           "bytes": 404910
         }
@@ -452,7 +447,7 @@
           "bytes": 219786
         },
         {
-          "width": 2048,
+          "width": 1600,
           "src": "/images/space/moon/w2048-3.jpg",
           "bytes": 357879
         }
@@ -576,7 +571,7 @@
           "bytes": 69072
         },
         {
-          "width": 2048,
+          "width": 1620,
           "src": "/images/space/jupiter/w2048.jpg",
           "bytes": 126049
         }
@@ -760,7 +755,7 @@
           "bytes": 36427
         },
         {
-          "width": 2048,
+          "width": 1720,
           "src": "/images/space/uranus/w2048.jpg",
           "bytes": 61716
         }
@@ -820,7 +815,7 @@
           "bytes": 366515
         },
         {
-          "width": 2048,
+          "width": 1760,
           "src": "/images/space/uranus/w2048-3.jpg",
           "bytes": 644557
         }
@@ -877,14 +872,9 @@
           "bytes": 56227
         },
         {
-          "width": 1280,
+          "width": 700,
           "src": "/images/space/neptune/w1280-2.jpg",
           "bytes": 70581
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/neptune/w2048-2.jpg",
-          "bytes": 80099
         }
       ]
     },
@@ -912,7 +902,7 @@
           "bytes": 117642
         },
         {
-          "width": 2048,
+          "width": 1469,
           "src": "/images/space/neptune/w2048-3.jpg",
           "bytes": 160191
         }
@@ -1031,14 +1021,9 @@
           "bytes": 53301
         },
         {
-          "width": 1280,
+          "width": 1237,
           "src": "/images/space/asteroid-belt/w1280.jpg",
           "bytes": 134903
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/asteroid-belt/w2048.jpg",
-          "bytes": 145142
         }
       ]
     },
@@ -1091,14 +1076,9 @@
           "bytes": 50059
         },
         {
-          "width": 1280,
+          "width": 1024,
           "src": "/images/space/asteroid-belt/w1280-3.jpg",
           "bytes": 103545
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/asteroid-belt/w2048-3.jpg",
-          "bytes": 112709
         }
       ]
     }
@@ -1312,7 +1292,7 @@
           "bytes": 225650
         },
         {
-          "width": 2048,
+          "width": 1817,
           "src": "/images/space/io/w2048.jpg",
           "bytes": 427037
         }
@@ -1342,7 +1322,7 @@
           "bytes": 310498
         },
         {
-          "width": 2048,
+          "width": 1907,
           "src": "/images/space/io/w2048-2.jpg",
           "bytes": 627354
         }
@@ -1367,14 +1347,9 @@
           "bytes": 34607
         },
         {
-          "width": 1280,
+          "width": 1091,
           "src": "/images/space/io/w1280-3.jpg",
           "bytes": 86269
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/io/w2048-3.jpg",
-          "bytes": 94153
         }
       ]
     }
@@ -1464,7 +1439,7 @@
           "bytes": 285027
         },
         {
-          "width": 2048,
+          "width": 1338,
           "src": "/images/space/europa/w2048-3.jpg",
           "bytes": 345687
         }
@@ -1491,14 +1466,9 @@
           "bytes": 36976
         },
         {
-          "width": 1280,
+          "width": 800,
           "src": "/images/space/ganymede/w1280.jpg",
           "bytes": 49185
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/ganymede/w2048.jpg",
-          "bytes": 52893
         }
       ]
     },
@@ -1526,7 +1496,7 @@
           "bytes": 369022
         },
         {
-          "width": 2048,
+          "width": 1625,
           "src": "/images/space/ganymede/w2048-2.jpg",
           "bytes": 706662
         }
@@ -1551,14 +1521,9 @@
           "bytes": 94264
         },
         {
-          "width": 1280,
+          "width": 1097,
           "src": "/images/space/ganymede/w1280-3.jpg",
           "bytes": 233625
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/ganymede/w2048-3.jpg",
-          "bytes": 253288
         }
       ]
     }
@@ -1583,14 +1548,9 @@
           "bytes": 11694
         },
         {
-          "width": 1280,
+          "width": 924,
           "src": "/images/space/titan/w1280.jpg",
           "bytes": 15266
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/titan/w2048.jpg",
-          "bytes": 15961
         }
       ]
     },
@@ -1675,14 +1635,9 @@
           "bytes": 43010
         },
         {
-          "width": 1280,
+          "width": 1020,
           "src": "/images/space/enceladus/w1280.jpg",
           "bytes": 91817
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/enceladus/w2048.jpg",
-          "bytes": 99743
         }
       ]
     },
@@ -1710,7 +1665,7 @@
           "bytes": 32404
         },
         {
-          "width": 2048,
+          "width": 1580,
           "src": "/images/space/enceladus/w2048-2.jpg",
           "bytes": 45975
         }
@@ -1735,14 +1690,9 @@
           "bytes": 62119
         },
         {
-          "width": 1280,
+          "width": 1024,
           "src": "/images/space/enceladus/w1280-3.jpg",
           "bytes": 137933
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/enceladus/w2048-3.jpg",
-          "bytes": 151227
         }
       ]
     }
@@ -1919,14 +1869,9 @@
           "bytes": 24820
         },
         {
-          "width": 1280,
+          "width": 1074,
           "src": "/images/space/orion-nebula/w1280-3.jpg",
           "bytes": 60861
-        },
-        {
-          "width": 2048,
-          "src": "/images/space/orion-nebula/w2048-3.jpg",
-          "bytes": 66552
         }
       ]
     }
@@ -2108,7 +2053,7 @@
           "bytes": 212947
         },
         {
-          "width": 2048,
+          "width": 2000,
           "src": "/images/space/carina-nebula/w2048-3.jpg",
           "bytes": 514973
         }

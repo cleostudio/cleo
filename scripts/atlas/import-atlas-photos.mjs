@@ -158,6 +158,7 @@ async function buildRenditions(slug, photoIndex, originalBuffer) {
   }
 
   const renditions = []
+  const emittedWidths = new Set()
   for (const targetWidth of WIDTHS) {
     const filename = renditionFilename(targetWidth, photoIndex)
     const outPath = join(dir, filename)
@@ -178,9 +179,22 @@ async function buildRenditions(slug, photoIndex, originalBuffer) {
       })
       .withMetadata({ orientation: undefined })
       .toBuffer()
+
+    const renditionMeta = await sharp(out).metadata()
+    const renditionWidth = renditionMeta.width ?? 0
+    if (!(renditionWidth > 0)) {
+      throw new Error(`Invalid rendition dimensions for ${slug}`)
+    }
+    // A source smaller than a requested breakpoint cannot be enlarged. Avoid
+    // duplicate `srcset` descriptors and stale files for repeated intrinsic widths.
+    if (emittedWidths.has(renditionWidth)) {
+      if (existsSync(outPath)) rmSync(outPath)
+      continue
+    }
     writeFileSync(outPath, out)
+    emittedWidths.add(renditionWidth)
     renditions.push({
-      width: targetWidth,
+      width: renditionWidth,
       src: `/images/atlas/${slug}/${filename}`,
       bytes: out.byteLength,
     })

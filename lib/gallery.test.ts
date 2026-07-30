@@ -18,7 +18,13 @@ describe('gallery catalog', () => {
     expect(items.some((item) => item.href === '/space/mars')).toBe(true)
     expect(items.some((item) => item.id === 'places:japan:2')).toBe(false)
     expect(items.some((item) => item.id === 'space:mars:3')).toBe(false)
-    expect(items.every((item) => item.photo.renditions.length === 3)).toBe(true)
+    expect(
+      items.every(
+        (item) =>
+          item.photo.renditions.length >= 1 &&
+          item.photo.renditions.length <= 3,
+      ),
+    ).toBe(true)
   })
 
   it('retains every three-photo topic set for guide and zoom consumers', () => {

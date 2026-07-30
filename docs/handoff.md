@@ -29,8 +29,8 @@ document (enable both products in the Vercel project dashboard).
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
 - Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
-- Place images: three import-time mozjpeg 640/1280/2048 sets per guide under
-  `public/images/atlas/` (Wikimedia Commons curation, relevance-first +
+- Place images: import-time mozjpeg renditions up to 640/1280/2048px per
+  photograph under `public/images/atlas/` (Wikimedia Commons curation, relevance-first +
   assessments; reviewed gaps in `scripts/atlas/gallery-handpicks/` when scoring
   still misses) and `public/images/space/` (NASA); rendered with static
   `srcset`. No runtime image account, API, or third-party fetch. Review aid:

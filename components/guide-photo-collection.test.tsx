@@ -6,7 +6,11 @@ import { describe, expect, it, vi } from 'vitest'
 import { GuidePhotoCollection, type GuidePhoto } from './guide-photo-collection'
 
 vi.mock('~/components/zoom-image', () => ({
-  ZoomImage: ({ alt }: { alt: string }) => <img alt={alt} />,
+  ZoomImage: ({ alt }: { alt: string }) => (
+    <button type="button" aria-label={`Zoom image: ${alt}`}>
+      <img alt={alt} />
+    </button>
+  ),
 }))
 
 const photos: GuidePhoto[] = [
@@ -93,5 +97,13 @@ describe('GuidePhotoCollection', () => {
     expect(screen.getByAltText('First view photo')).toBeTruthy()
     fireEvent.keyDown(carousel, { key: 'ArrowLeft' })
     expect(screen.getByAltText('Third view photo')).toBeTruthy()
+
+    const zoomTrigger = screen.getByRole('button', {
+      name: 'Zoom image: Third view photo',
+    })
+    zoomTrigger.focus()
+    fireEvent.keyDown(zoomTrigger, { key: 'ArrowRight' })
+    expect(screen.getByAltText('First view photo')).toBeTruthy()
+    expect(document.activeElement).toBe(zoomTrigger)
   })
 })

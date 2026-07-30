@@ -31,8 +31,11 @@ describe('space subjects', () => {
       expect(
         subject.photos.every(
           (photo) =>
-            photo.renditions.length === 3 &&
-            photo.renditions.every((rendition) => rendition.src.startsWith('/images/space/')),
+            photo.renditions.length >= 1 &&
+            photo.renditions.length <= 3 &&
+            photo.renditions.every(
+              (rendition) => rendition.src.startsWith('/images/space/'),
+            ),
         ),
       ).toBe(true)
       expect(subject.photos.every((photo) => photo.license.includes('NASA'))).toBe(true)

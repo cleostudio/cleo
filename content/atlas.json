@@ -679,7 +679,7 @@
             "bytes": 526066
           },
           {
-            "width": 2048,
+            "width": 1512,
             "src": "/images/atlas/angola/w2048-3.jpg",
             "bytes": 823606
           }
@@ -924,7 +924,7 @@
             "bytes": 275161
           },
           {
-            "width": 2048,
+            "width": 2000,
             "src": "/images/atlas/argentina/w2048-2.jpg",
             "bytes": 656577
           }
@@ -2187,7 +2187,7 @@
             "bytes": 169616
           },
           {
-            "width": 2048,
+            "width": 1600,
             "src": "/images/atlas/belarus/w2048-3.jpg",
             "bytes": 283888
           }
@@ -2601,7 +2601,7 @@
             "bytes": 140683
           },
           {
-            "width": 2048,
+            "width": 2000,
             "src": "/images/atlas/benin/w2048-3.jpg",
             "bytes": 353440
           }
@@ -3291,7 +3291,7 @@
             "bytes": 134064
           },
           {
-            "width": 2048,
+            "width": 1600,
             "src": "/images/atlas/brazil/w2048-3.jpg",
             "bytes": 241601
           }
@@ -3428,7 +3428,7 @@
             "bytes": 274759
           },
           {
-            "width": 2048,
+            "width": 1920,
             "src": "/images/atlas/brunei/w2048-3.jpg",
             "bytes": 648294
           }
@@ -3783,7 +3783,7 @@
             "bytes": 225633
           },
           {
-            "width": 2048,
+            "width": 1991,
             "src": "/images/atlas/burundi/w2048.jpg",
             "bytes": 516251
           }
@@ -3841,7 +3841,7 @@
             "bytes": 639790
           },
           {
-            "width": 2048,
+            "width": 1920,
             "src": "/images/atlas/burundi/w2048-3.jpg",
             "bytes": 1254343
           }
@@ -5189,7 +5189,7 @@
             "bytes": 429367
           },
           {
-            "width": 2048,
+            "width": 1920,
             "src": "/images/atlas/comoros/w2048-2.jpg",
             "bytes": 1140682
           }
@@ -5326,7 +5326,7 @@
             "bytes": 229539
           },
           {
-            "width": 2048,
+            "width": 1772,
             "src": "/images/atlas/congo/w2048-2.jpg",
             "bytes": 507704
           }
@@ -7418,7 +7418,7 @@
             "bytes": 92927
           },
           {
-            "width": 2048,
+            "width": 1920,
             "src": "/images/atlas/equatorial-guinea/w2048-3.jpg",
             "bytes": 217542
           }
@@ -7774,7 +7774,7 @@
             "bytes": 248519
           },
           {
-            "width": 2048,
+            "width": 1920,
             "src": "/images/atlas/eswatini/w2048.jpg",
             "bytes": 593525
           }
@@ -8491,7 +8491,7 @@
             "bytes": 361018
           },
           {
-            "width": 2048,
+            "width": 1500,
             "src": "/images/atlas/gabon/w2048-2.jpg",
             "bytes": 444124
           }
@@ -8520,7 +8520,7 @@
             "bytes": 551581
           },
           {
-            "width": 2048,
+            "width": 1536,
             "src": "/images/atlas/gabon/w2048-3.jpg",
             "bytes": 855122
           }
@@ -11676,7 +11676,7 @@
             "bytes": 234573
           },
           {
-            "width": 2048,
+            "width": 1920,
             "src": "/images/atlas/japan/w2048-3.jpg",
             "bytes": 541690
           }
@@ -13326,7 +13326,7 @@
             "bytes": 155541
           },
           {
-            "width": 2048,
+            "width": 1644,
             "src": "/images/atlas/lesotho/w2048-3.jpg",
             "bytes": 266176
           }
@@ -13571,7 +13571,7 @@
             "bytes": 99625
           },
           {
-            "width": 2048,
+            "width": 2000,
             "src": "/images/atlas/libya/w2048-2.jpg",
             "bytes": 242410
           }
@@ -14838,7 +14838,7 @@
             "bytes": 151949
           },
           {
-            "width": 2048,
+            "width": 1600,
             "src": "/images/atlas/malta/w2048-3.jpg",
             "bytes": 348535
           }
@@ -15879,7 +15879,7 @@
             "bytes": 384317
           },
           {
-            "width": 2048,
+            "width": 2026,
             "src": "/images/atlas/mongolia/w2048.jpg",
             "bytes": 1023527
           }
@@ -16978,7 +16978,7 @@
             "bytes": 137465
           },
           {
-            "width": 2048,
+            "width": 1920,
             "src": "/images/atlas/netherlands/w2048.jpg",
             "bytes": 432369
           }
@@ -17253,7 +17253,7 @@
             "bytes": 213376
           },
           {
-            "width": 2048,
+            "width": 1600,
             "src": "/images/atlas/nicaragua/w2048.jpg",
             "bytes": 333533
           }
@@ -17448,7 +17448,7 @@
             "bytes": 178026
           },
           {
-            "width": 2048,
+            "width": 1633,
             "src": "/images/atlas/niger/w2048-3.jpg",
             "bytes": 294181
           }
@@ -19924,7 +19924,7 @@
             "bytes": 105549
           },
           {
-            "width": 2048,
+            "width": 1900,
             "src": "/images/atlas/rwanda/w2048-3.jpg",
             "bytes": 235092
           }
@@ -20807,28 +20807,28 @@
         "placeName": "Al-Ula and Hegra",
         "alt": "Al-Ula and Hegra in Saudi Arabia",
         "caption": "Al-Ula and Hegra, Saudi Arabia",
-        "photographer": "Ali Lajami",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hegra,_Al-Ula,_Saudi_Arabia.png",
-        "license": "CC0",
-        "provenance": "Curated from Wikimedia Commons (File:Hegra, Al-Ula, Saudi Arabia.png); source https://upload.wikimedia.org/wikipedia/commons/d/df/Hegra%2C_Al-Ula%2C_Saudi_Arabia.png; imported locally with metadata stripped; originals kept outside the public tree.",
-        "checksum": "b277b922d74fdfff2cfe4d95a83d989ea783c28fb2d9611790835dda08ab326a",
-        "width": 2464,
-        "height": 1344,
+        "photographer": "Ahmad AlHasanat",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mada%27in_Saleh_2017.jpg",
+        "license": "CC BY-SA 4.0",
+        "provenance": "Curated from Wikimedia Commons (File:Mada'in Saleh 2017.jpg); source https://upload.wikimedia.org/wikipedia/commons/5/5e/Mada%27in_Saleh_2017.jpg; imported locally with metadata stripped; originals kept outside the public tree.",
+        "checksum": "0b98932b8d4eb05c5e34b067625a1a7b21197cc2cebfcebe2e04ca312ec88678",
+        "width": 3840,
+        "height": 2563,
         "renditions": [
           {
             "width": 640,
             "src": "/images/atlas/saudi-arabia/w640.jpg",
-            "bytes": 37206
+            "bytes": 55961
           },
           {
             "width": 1280,
             "src": "/images/atlas/saudi-arabia/w1280.jpg",
-            "bytes": 124444
+            "bytes": 203158
           },
           {
             "width": 2048,
             "src": "/images/atlas/saudi-arabia/w2048.jpg",
-            "bytes": 356670
+            "bytes": 583651
           }
         ]
       },
@@ -21240,7 +21240,7 @@
             "bytes": 161586
           },
           {
-            "width": 2048,
+            "width": 2000,
             "src": "/images/atlas/seychelles/w2048.jpg",
             "bytes": 434544
           }
@@ -21406,7 +21406,7 @@
             "bytes": 449350
           },
           {
-            "width": 2048,
+            "width": 1920,
             "src": "/images/atlas/sierra-leone/w2048-2.jpg",
             "bytes": 1034442
           }
@@ -21849,7 +21849,7 @@
             "bytes": 145677
           },
           {
-            "width": 2048,
+            "width": 1600,
             "src": "/images/atlas/slovenia/w2048-3.jpg",
             "bytes": 235150
           }
@@ -22951,7 +22951,7 @@
             "bytes": 215972
           },
           {
-            "width": 2048,
+            "width": 1600,
             "src": "/images/atlas/suriname/w2048-3.jpg",
             "bytes": 370849
           }
@@ -23884,11 +23884,6 @@
             "width": 1280,
             "src": "/images/atlas/timor-leste/w1280-2.jpg",
             "bytes": 37527
-          },
-          {
-            "width": 2048,
-            "src": "/images/atlas/timor-leste/w2048-2.jpg",
-            "bytes": 47551
           }
         ]
       },
@@ -23915,7 +23910,7 @@
             "bytes": 114076
           },
           {
-            "width": 2048,
+            "width": 1799,
             "src": "/images/atlas/timor-leste/w2048-3.jpg",
             "bytes": 238003
           }
@@ -24052,7 +24047,7 @@
             "bytes": 184009
           },
           {
-            "width": 2048,
+            "width": 1620,
             "src": "/images/atlas/togo/w2048-3.jpg",
             "bytes": 322448
           }
@@ -24573,7 +24568,7 @@
             "bytes": 328251
           },
           {
-            "width": 2048,
+            "width": 1807,
             "src": "/images/atlas/turkiye/w2048-2.jpg",
             "bytes": 630915
           }
@@ -24877,7 +24872,7 @@
             "bytes": 133766
           },
           {
-            "width": 2048,
+            "width": 1920,
             "src": "/images/atlas/tuvalu/w2048-3.jpg",
             "bytes": 273535
           }
@@ -26525,7 +26520,7 @@
             "bytes": 192636
           },
           {
-            "width": 2048,
+            "width": 2000,
             "src": "/images/atlas/yemen/w2048-3.jpg",
             "bytes": 383263
           }

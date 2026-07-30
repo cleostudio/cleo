@@ -6,6 +6,7 @@ import {
   topicPhotoZoomKeyFromSrc,
 } from '~/lib/cleo/topic-photo-zoom'
 import { allTopicPhotoItems } from '~/lib/gallery'
+import { staticRendition } from '~/lib/static-photo'
 
 describe('topicPhotoZoomKeyFromSrc', () => {
   it('parses curated atlas and space paths', () => {
@@ -35,9 +36,8 @@ describe('topicPhotoZoomForSrc', () => {
     expect(items.length).toBeGreaterThan(0)
 
     for (const item of items) {
-      const mid = item.photo.renditions.find((r) => r.width === 1280)
-      expect(mid, item.id).toBeTruthy()
-      const zoom = topicPhotoZoomForSrc(mid!.src)
+      const display = staticRendition(item.photo, 1280)
+      const zoom = topicPhotoZoomForSrc(display.src)
       expect(zoom, item.id).toBeTruthy()
       expect(zoom!.collection).toBe(item.collection)
       expect(zoom!.title).toBe(item.title)

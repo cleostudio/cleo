@@ -23,8 +23,7 @@ const index = {}
 for (const item of allTopicPhotoItems()) {
   const rootKey = item.collection === 'places' ? 'atlas' : 'space'
   const slug = item.href.replace(/^\/(explore|space)\//, '')
-  const mid = item.photo.renditions.find((rendition) => rendition.width === 1280)
-  const slot = mid?.src.match(/\/w1280-(2|3)\.jpg$/)?.[1]
+  const slot = item.photo.renditions[0]?.src.match(/\/w\d+-(2|3)\.jpg$/)?.[1]
   const key = `${rootKey}/${slug}${slot ? `-${slot}` : ''}`
 
   index[key] = {

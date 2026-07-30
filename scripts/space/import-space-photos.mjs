@@ -79,6 +79,7 @@ async function buildRenditions(slug, photoIndex, originalBuffer) {
   }
 
   const renditions = []
+  const emittedWidths = new Set()
   for (const targetWidth of WIDTHS) {
     const filename = renditionFilename(targetWidth, photoIndex)
     const outPath = join(dir, filename)
@@ -97,9 +98,22 @@ async function buildRenditions(slug, photoIndex, originalBuffer) {
       })
       .withMetadata({ orientation: undefined })
       .toBuffer()
+
+    const renditionMeta = await sharp(out).metadata()
+    const renditionWidth = renditionMeta.width ?? 0
+    if (!(renditionWidth > 0)) {
+      throw new Error(`Invalid rendition dimensions for ${slug}`)
+    }
+    // Do not emit repeated descriptors when the source is smaller than the
+    // requested breakpoints; stale duplicate files are removed on re-import.
+    if (emittedWidths.has(renditionWidth)) {
+      if (existsSync(outPath)) rmSync(outPath)
+      continue
+    }
     writeFileSync(outPath, out)
+    emittedWidths.add(renditionWidth)
     renditions.push({
-      width: targetWidth,
+      width: renditionWidth,
       src: `/images/space/${slug}/${filename}`,
       bytes: out.byteLength,
     })

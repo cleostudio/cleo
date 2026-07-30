@@ -26,16 +26,17 @@ accurate Wikimedia Commons place photos per country with
 space photo imports change caption or rendition metadata, refresh Cleo’s slim zoom index with
 `pnpm generate:cleo-topic-photo-zoom`. Originals stay in `.atlas-originals/` (gitignored);
 public assets are under `public/images/atlas/{slug}/` and are served as static
-files with browser `srcset` — no account, CDN, or `/_next/image` re-encode at
-runtime.
+files with browser `srcset` (up to 640/1280/2048px, never falsely upscaled) —
+no account, CDN, or `/_next/image` re-encode at runtime.
 
 Space field guides live in `lib/space.ts` (Solar System, Moons, Deep Space —
 planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
 `/space/[slug]`. Curate the reviewed three-image NASA set with
 `pnpm curate:space-photos`, then import it with `pnpm import:space-photos`
 into `public/images/space/{slug}/` and `content/space-photos.json`; validate
-with `pnpm validate:space`. The Gallery at `/gallery` shows every curated
-Explore place and Space body photograph.
+with `pnpm validate:space`. The Gallery at `/gallery` shows the editor-selected
+featured photograph for each Explore place and Space body; guides and Cleo
+retain all three curated views.
 The Topics catalog in `lib/topics.ts` lists Countries and Space.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the

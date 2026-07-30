@@ -10,6 +10,7 @@
 import { existsSync, readFileSync, statSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import sharp from 'sharp'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
 
@@ -43,6 +44,13 @@ for (const [slug, entry] of Object.entries(manifest)) {
       if (size !== rendition.bytes) {
         console.error(
           `Byte mismatch for ${slug} photo ${photoIndex + 1} ${rendition.width}px: manifest ${rendition.bytes}, disk ${size}`,
+        )
+        mismatched += 1
+      }
+      const metadata = await sharp(abs).metadata()
+      if (metadata.width !== rendition.width) {
+        console.error(
+          `Width mismatch for ${slug} photo ${photoIndex + 1}: manifest ${rendition.width}px, disk ${metadata.width ?? 0}px`,
         )
         mismatched += 1
       }

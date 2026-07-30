@@ -6,9 +6,9 @@
 import { existsSync, readFileSync, statSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import sharp from 'sharp'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
-const WIDTHS = [640, 1280, 2048]
 const photos = JSON.parse(
   readFileSync(join(root, 'content/space-photos.json'), 'utf8'),
 )
@@ -57,15 +57,19 @@ for (const [slug, photoSet] of Object.entries(photos)) {
     if (sourceSet?.[photoIndex]?.nasaId !== photo.nasaId) {
       errors.push(`${ctx}: nasaId does not match curated source`)
     }
-    if (!Array.isArray(photo.renditions) || photo.renditions.length !== 3) {
-      errors.push(`${ctx}: must have exactly three renditions`)
+    if (
+      !Array.isArray(photo.renditions) ||
+      photo.renditions.length < 1 ||
+      photo.renditions.length > 3
+    ) {
+      errors.push(`${ctx}: must have one to three renditions`)
       continue
     }
-    const widths = photo.renditions.map((r) => r.width).sort((a, b) => a - b)
-    if (widths.join(',') !== WIDTHS.join(',')) {
-      errors.push(`${ctx}: rendition widths must be ${WIDTHS.join(', ')}`)
-    }
+    let previousWidth = 0
     for (const rendition of photo.renditions) {
+      if (!(rendition.width > previousWidth)) {
+        errors.push(`${ctx}: rendition widths must be strictly increasing`)
+      }
       if (!rendition.src?.startsWith(`/images/space/${slug}/`)) {
         errors.push(`${ctx}: bad rendition src ${rendition.src}`)
         continue
@@ -81,6 +85,13 @@ for (const [slug, photoSet] of Object.entries(photos)) {
           `${ctx}: byte mismatch for ${rendition.src} (meta ${rendition.bytes}, disk ${bytes})`,
         )
       }
+      const metadata = await sharp(abs).metadata()
+      if (metadata.width !== rendition.width) {
+        errors.push(
+          `${ctx}: width mismatch for ${rendition.src} (meta ${rendition.width}px, disk ${metadata.width ?? 0}px)`,
+        )
+      }
+      previousWidth = rendition.width
     }
 
     if (sourceUrls.has(photo.sourceUrl)) {
@@ -99,8 +110,12 @@ if (errors.length) {
   process.exit(1)
 }
 
-const photoCount = Object.values(photos).reduce(
-  (total, photoSet) => total + (Array.isArray(photoSet) ? photoSet.length : 0),
+const renditionCount = Object.values(photos).reduce(
+  (total, photoSet) =>
+    total +
+    (Array.isArray(photoSet)
+      ? photoSet.reduce((count, photo) => count + (photo.renditions?.length ?? 0), 0)
+      : 0),
   0,
 )
-console.log(`Space photo preflight ok (${photoSlugs.length} subjects × 3 photographs, ${photoCount * 3} JPEGs)`)
+console.log(`Space photo preflight ok (${photoSlugs.length} subjects × 3 photographs, ${renditionCount} JPEGs)`)

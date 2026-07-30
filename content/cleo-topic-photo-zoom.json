@@ -355,7 +355,7 @@
       },
       {
         "src": "/images/atlas/angola/w2048-3.jpg",
-        "width": 2048
+        "width": 1512
       }
     ]
   },
@@ -475,7 +475,7 @@
       },
       {
         "src": "/images/atlas/argentina/w2048-2.jpg",
-        "width": 2048
+        "width": 2000
       }
     ]
   },
@@ -1147,7 +1147,7 @@
       },
       {
         "src": "/images/atlas/belarus/w2048-3.jpg",
-        "width": 2048
+        "width": 1600
       }
     ]
   },
@@ -1363,7 +1363,7 @@
       },
       {
         "src": "/images/atlas/benin/w2048-3.jpg",
-        "width": 2048
+        "width": 2000
       }
     ]
   },
@@ -1723,7 +1723,7 @@
       },
       {
         "src": "/images/atlas/brazil/w2048-3.jpg",
-        "width": 2048
+        "width": 1600
       }
     ]
   },
@@ -1795,7 +1795,7 @@
       },
       {
         "src": "/images/atlas/brunei/w2048-3.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -1963,7 +1963,7 @@
       },
       {
         "src": "/images/atlas/burundi/w2048.jpg",
-        "width": 2048
+        "width": 1991
       }
     ]
   },
@@ -2011,7 +2011,7 @@
       },
       {
         "src": "/images/atlas/burundi/w2048-3.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -2707,7 +2707,7 @@
       },
       {
         "src": "/images/atlas/comoros/w2048-2.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -2779,7 +2779,7 @@
       },
       {
         "src": "/images/atlas/congo/w2048-2.jpg",
-        "width": 2048
+        "width": 1772
       }
     ]
   },
@@ -3883,7 +3883,7 @@
       },
       {
         "src": "/images/atlas/equatorial-guinea/w2048-3.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -4051,7 +4051,7 @@
       },
       {
         "src": "/images/atlas/eswatini/w2048.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -4435,7 +4435,7 @@
       },
       {
         "src": "/images/atlas/gabon/w2048-2.jpg",
-        "width": 2048
+        "width": 1500
       }
     ]
   },
@@ -4459,7 +4459,7 @@
       },
       {
         "src": "/images/atlas/gabon/w2048-3.jpg",
-        "width": 2048
+        "width": 1536
       }
     ]
   },
@@ -6115,7 +6115,7 @@
       },
       {
         "src": "/images/atlas/japan/w2048-3.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -6979,7 +6979,7 @@
       },
       {
         "src": "/images/atlas/lesotho/w2048-3.jpg",
-        "width": 2048
+        "width": 1644
       }
     ]
   },
@@ -7099,7 +7099,7 @@
       },
       {
         "src": "/images/atlas/libya/w2048-2.jpg",
-        "width": 2048
+        "width": 2000
       }
     ]
   },
@@ -7771,7 +7771,7 @@
       },
       {
         "src": "/images/atlas/malta/w2048-3.jpg",
-        "width": 2048
+        "width": 1600
       }
     ]
   },
@@ -8299,7 +8299,7 @@
       },
       {
         "src": "/images/atlas/mongolia/w2048.jpg",
-        "width": 2048
+        "width": 2026
       }
     ]
   },
@@ -8875,7 +8875,7 @@
       },
       {
         "src": "/images/atlas/netherlands/w2048.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -9019,7 +9019,7 @@
       },
       {
         "src": "/images/atlas/nicaragua/w2048.jpg",
-        "width": 2048
+        "width": 1600
       }
     ]
   },
@@ -9139,7 +9139,7 @@
       },
       {
         "src": "/images/atlas/niger/w2048-3.jpg",
-        "width": 2048
+        "width": 1633
       }
     ]
   },
@@ -10435,7 +10435,7 @@
       },
       {
         "src": "/images/atlas/rwanda/w2048-3.jpg",
-        "width": 2048
+        "width": 1900
       }
     ]
   },
@@ -10876,10 +10876,10 @@
     "title": "Al-Ula and Hegra",
     "subtitle": "Saudi Arabia",
     "alt": "Al-Ula and Hegra in Saudi Arabia",
-    "photographer": "Ali Lajami",
-    "license": "CC0",
-    "width": 2464,
-    "height": 1344,
+    "photographer": "Ahmad AlHasanat",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2563,
     "renditions": [
       {
         "src": "/images/atlas/saudi-arabia/w640.jpg",
@@ -11107,7 +11107,7 @@
       },
       {
         "src": "/images/atlas/seychelles/w2048.jpg",
-        "width": 2048
+        "width": 2000
       }
     ]
   },
@@ -11203,7 +11203,7 @@
       },
       {
         "src": "/images/atlas/sierra-leone/w2048-2.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -11443,7 +11443,7 @@
       },
       {
         "src": "/images/atlas/slovenia/w2048-3.jpg",
-        "width": 2048
+        "width": 1600
       }
     ]
   },
@@ -12019,7 +12019,7 @@
       },
       {
         "src": "/images/atlas/suriname/w2048-3.jpg",
-        "width": 2048
+        "width": 1600
       }
     ]
   },
@@ -12496,10 +12496,6 @@
       {
         "src": "/images/atlas/timor-leste/w1280-2.jpg",
         "width": 1280
-      },
-      {
-        "src": "/images/atlas/timor-leste/w2048-2.jpg",
-        "width": 2048
       }
     ]
   },
@@ -12523,7 +12519,7 @@
       },
       {
         "src": "/images/atlas/timor-leste/w2048-3.jpg",
-        "width": 2048
+        "width": 1799
       }
     ]
   },
@@ -12595,7 +12591,7 @@
       },
       {
         "src": "/images/atlas/togo/w2048-3.jpg",
-        "width": 2048
+        "width": 1620
       }
     ]
   },
@@ -12859,7 +12855,7 @@
       },
       {
         "src": "/images/atlas/turkiye/w2048-2.jpg",
-        "width": 2048
+        "width": 1807
       }
     ]
   },
@@ -13027,7 +13023,7 @@
       },
       {
         "src": "/images/atlas/tuvalu/w2048-3.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -13891,7 +13887,7 @@
       },
       {
         "src": "/images/atlas/yemen/w2048-3.jpg",
-        "width": 2048
+        "width": 2000
       }
     ]
   },
@@ -14055,11 +14051,7 @@
       },
       {
         "src": "/images/space/sun/w1280.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/sun/w2048.jpg",
-        "width": 2048
+        "width": 1024
       }
     ]
   },
@@ -14131,7 +14123,7 @@
       },
       {
         "src": "/images/space/mercury/w2048.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -14179,7 +14171,7 @@
       },
       {
         "src": "/images/space/mercury/w2048-3.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -14275,7 +14267,7 @@
       },
       {
         "src": "/images/space/earth/w2048.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -14347,7 +14339,7 @@
       },
       {
         "src": "/images/space/moon/w2048.jpg",
-        "width": 2048
+        "width": 1920
       }
     ]
   },
@@ -14371,7 +14363,7 @@
       },
       {
         "src": "/images/space/moon/w2048-2.jpg",
-        "width": 2048
+        "width": 2000
       }
     ]
   },
@@ -14395,7 +14387,7 @@
       },
       {
         "src": "/images/space/moon/w2048-3.jpg",
-        "width": 2048
+        "width": 1600
       }
     ]
   },
@@ -14491,7 +14483,7 @@
       },
       {
         "src": "/images/space/jupiter/w2048.jpg",
-        "width": 2048
+        "width": 1620
       }
     ]
   },
@@ -14635,7 +14627,7 @@
       },
       {
         "src": "/images/space/uranus/w2048.jpg",
-        "width": 2048
+        "width": 1720
       }
     ]
   },
@@ -14683,7 +14675,7 @@
       },
       {
         "src": "/images/space/uranus/w2048-3.jpg",
-        "width": 2048
+        "width": 1760
       }
     ]
   },
@@ -14727,11 +14719,7 @@
       },
       {
         "src": "/images/space/neptune/w1280-2.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/neptune/w2048-2.jpg",
-        "width": 2048
+        "width": 700
       }
     ]
   },
@@ -14755,7 +14743,7 @@
       },
       {
         "src": "/images/space/neptune/w2048-3.jpg",
-        "width": 2048
+        "width": 1469
       }
     ]
   },
@@ -14847,11 +14835,7 @@
       },
       {
         "src": "/images/space/asteroid-belt/w1280.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/asteroid-belt/w2048.jpg",
-        "width": 2048
+        "width": 1237
       }
     ]
   },
@@ -14895,11 +14879,7 @@
       },
       {
         "src": "/images/space/asteroid-belt/w1280-3.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/asteroid-belt/w2048-3.jpg",
-        "width": 2048
+        "width": 1024
       }
     ]
   },
@@ -14995,7 +14975,7 @@
       },
       {
         "src": "/images/space/io/w2048.jpg",
-        "width": 2048
+        "width": 1817
       }
     ]
   },
@@ -15019,7 +14999,7 @@
       },
       {
         "src": "/images/space/io/w2048-2.jpg",
-        "width": 2048
+        "width": 1907
       }
     ]
   },
@@ -15039,11 +15019,7 @@
       },
       {
         "src": "/images/space/io/w1280-3.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/io/w2048-3.jpg",
-        "width": 2048
+        "width": 1091
       }
     ]
   },
@@ -15115,7 +15091,7 @@
       },
       {
         "src": "/images/space/europa/w2048-3.jpg",
-        "width": 2048
+        "width": 1338
       }
     ]
   },
@@ -15135,11 +15111,7 @@
       },
       {
         "src": "/images/space/ganymede/w1280.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/ganymede/w2048.jpg",
-        "width": 2048
+        "width": 800
       }
     ]
   },
@@ -15163,7 +15135,7 @@
       },
       {
         "src": "/images/space/ganymede/w2048-2.jpg",
-        "width": 2048
+        "width": 1625
       }
     ]
   },
@@ -15183,11 +15155,7 @@
       },
       {
         "src": "/images/space/ganymede/w1280-3.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/ganymede/w2048-3.jpg",
-        "width": 2048
+        "width": 1097
       }
     ]
   },
@@ -15207,11 +15175,7 @@
       },
       {
         "src": "/images/space/titan/w1280.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/titan/w2048.jpg",
-        "width": 2048
+        "width": 924
       }
     ]
   },
@@ -15279,11 +15243,7 @@
       },
       {
         "src": "/images/space/enceladus/w1280.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/enceladus/w2048.jpg",
-        "width": 2048
+        "width": 1020
       }
     ]
   },
@@ -15307,7 +15267,7 @@
       },
       {
         "src": "/images/space/enceladus/w2048-2.jpg",
-        "width": 2048
+        "width": 1580
       }
     ]
   },
@@ -15327,11 +15287,7 @@
       },
       {
         "src": "/images/space/enceladus/w1280-3.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/enceladus/w2048-3.jpg",
-        "width": 2048
+        "width": 1024
       }
     ]
   },
@@ -15543,11 +15499,7 @@
       },
       {
         "src": "/images/space/orion-nebula/w1280-3.jpg",
-        "width": 1280
-      },
-      {
-        "src": "/images/space/orion-nebula/w2048-3.jpg",
-        "width": 2048
+        "width": 1074
       }
     ]
   },
@@ -15691,7 +15643,7 @@
       },
       {
         "src": "/images/space/carina-nebula/w2048-3.jpg",
-        "width": 2048
+        "width": 2000
       }
     ]
   }

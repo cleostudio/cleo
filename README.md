@@ -30,8 +30,8 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   the Vercel project dashboard)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides and embed
-  all three curated topic photographs when a visual helps or the user asks for
-  the full set; topic and chat images use
+  one curated topic photograph when a visual helps or all three when the user
+  asks for the full set; topic and chat images use
   the same click-to-zoom lightbox as Gallery; precise browser location and
   time zone are sent to OpenAI only when users enable Location in dock
   Preferences and allow browser location services; multi-turn turns replay
