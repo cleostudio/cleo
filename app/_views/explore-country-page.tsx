@@ -3,9 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { GuidePhotoCollection } from '~/components/guide-photo-collection'
 import { GuideOrientation } from '~/components/guide-orientation'
-import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
-import { ZoomImage } from '~/components/zoom-image'
 import { countrySlugs, getCountry } from '~/lib/countries'
 import { atlasDescription, getAtlasEntry } from '~/lib/atlas'
 import { localeMetadata } from '~/lib/locale-metadata'
@@ -31,10 +29,6 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
   if (!country) notFound()
   const entry = getAtlasEntry(slug)
   if (!entry) notFound()
-
-  const photo = entry.photos[0]
-  const hero = photo.renditions.find((r) => r.width === 1280) ?? photo.renditions[0]!
-  const renditions = photo.renditions.map((r) => ({ src: r.src, width: r.width }))
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -65,51 +59,13 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         <PixelCluster variant={5} className="enter shrink-0" />
       </div>
 
-      <figure
-        className="enter mt-8"
-        style={{ '--enter-delay': '70ms' } as React.CSSProperties}
-      >
-        <ZoomImage
-          src={hero.src}
-          alt={photo.alt}
-          width={photo.width}
-          height={photo.height}
-          className="photo-frame aspect-[3/2] w-full object-cover"
-          sizes="(max-width: 40rem) 100vw, 42rem"
-          renditions={renditions}
-          expandedContent={
-            <PhotoZoomDetails
-              collection="places"
-              title={photo.placeName}
-              subtitle={entry.name}
-              photographer={photo.photographer}
-              license={photo.license}
-            />
-          }
-        />
-        <figcaption className="guide-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
-          <span>{photo.caption}</span>
-          <span>
-            {photo.photographer} ·{' '}
-            <a
-              href={photo.sourceUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="underline-offset-2 hover:underline"
-            >
-              Source
-            </a>
-          </span>
-        </figcaption>
-      </figure>
-
       <GuidePhotoCollection
         collection="places"
         subject={entry.name}
         sourceLabel="Source"
-        photos={entry.photos.slice(1).map((companion) => ({
-          ...companion,
-          title: companion.placeName,
+        photos={entry.photos.map((photo) => ({
+          ...photo,
+          title: photo.placeName,
         }))}
       />
 

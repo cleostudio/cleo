@@ -3,9 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { GuidePhotoCollection } from '~/components/guide-photo-collection'
 import { GuideOrientation } from '~/components/guide-orientation'
-import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
-import { ZoomImage } from '~/components/zoom-image'
 import {
   getSpaceSubject,
   spaceDescription,
@@ -36,7 +34,6 @@ function formatRadius(radiusKm: number | null): string {
 export function SpaceSubjectPageView({ slug }: { slug: string }) {
   const subject = getSpaceSubject(slug)
   if (!subject) notFound()
-  const photo = subject.photos[0]
 
   return (
     <article className="field-guide mx-auto w-full max-w-content px-6">
@@ -67,57 +64,13 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         <PixelCluster variant={7} className="enter shrink-0" />
       </div>
 
-      <figure
-        className="enter mt-8"
-        style={{ '--enter-delay': '70ms' } as React.CSSProperties}
-      >
-        <ZoomImage
-          src={
-            (photo.renditions.find((r) => r.width === 1280) ??
-              photo.renditions[0])!.src
-          }
-          alt={photo.alt}
-          width={photo.width}
-          height={photo.height}
-          className="photo-frame aspect-[3/2] w-full object-cover"
-          sizes="(max-width: 40rem) 100vw, 42rem"
-          renditions={photo.renditions.map((r) => ({
-            src: r.src,
-            width: r.width,
-          }))}
-          expandedContent={
-            <PhotoZoomDetails
-              collection="space"
-              title={photo.featureName}
-              subtitle={subject.name}
-              photographer={photo.photographer}
-              license={photo.license}
-            />
-          }
-        />
-        <figcaption className="guide-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
-          <span>{photo.caption}</span>
-          <span>
-            {photo.photographer} ·{' '}
-            <a
-              href={photo.sourceUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="underline-offset-2 hover:underline"
-            >
-              NASA
-            </a>
-          </span>
-        </figcaption>
-      </figure>
-
       <GuidePhotoCollection
         collection="space"
         subject={subject.name}
         sourceLabel="NASA"
-        photos={subject.photos.slice(1).map((companion) => ({
-          ...companion,
-          title: companion.featureName,
+        photos={subject.photos.map((photo) => ({
+          ...photo,
+          title: photo.featureName,
         }))}
       />
 
