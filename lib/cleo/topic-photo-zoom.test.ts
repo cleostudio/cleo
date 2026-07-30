@@ -27,6 +27,7 @@ describe('topicPhotoZoomKeyFromSrc', () => {
   it('rejects non-curated paths', () => {
     expect(topicPhotoZoomKeyFromSrc('https://evil.example/x.jpg')).toBeNull()
     expect(topicPhotoZoomKeyFromSrc('/images/other/x.jpg')).toBeNull()
+    expect(topicPhotoZoomForSrc('/images/space/sun/w2048.jpg')).toBeNull()
   })
 })
 

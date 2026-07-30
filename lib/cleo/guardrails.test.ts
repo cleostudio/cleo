@@ -25,4 +25,11 @@ describe("portal markdown guardrails", () => {
     expect(sanitizePortalMarkdown(markdown)).toBe("Photo: Fake done.")
     expect(hasInventedPortalPaths(markdown)).toBe(true)
   })
+
+  it("drops rendition-shaped paths that are not shipped", () => {
+    const markdown = "Photo: ![Missing](/images/space/sun/w2048.jpg) done."
+
+    expect(sanitizePortalMarkdown(markdown)).toBe("Photo: Missing done.")
+    expect(hasInventedPortalPaths(markdown)).toBe(true)
+  })
 })

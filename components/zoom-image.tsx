@@ -283,6 +283,11 @@ export function ZoomImage({
             aria-modal="true"
             aria-label={alt || localize(locale, '图片', 'Image')}
             onClick={() => close('overlay')}
+            onKeyDown={(event) => {
+              if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                event.stopPropagation()
+              }
+            }}
           >
             <div className="zoom-overlay-backdrop" />
             <Image

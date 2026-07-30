@@ -37,5 +37,9 @@ export function topicPhotoZoomForSrc(
 ): TopicPhotoZoomRecord | null {
   const key = topicPhotoZoomKeyFromSrc(src)
   if (!key) return null
-  return index[key] ?? null
+  const record = index[key]
+  if (!record?.renditions.some((rendition) => rendition.src === src)) {
+    return null
+  }
+  return record
 }

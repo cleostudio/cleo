@@ -65,7 +65,7 @@ export function GuidePhotoCollection({
 
   return (
     <section
-      className="enter mt-8 outline-none"
+      className="enter mt-8 outline-none focus-visible:[&_.guide-photo-status]:text-foreground"
       tabIndex={0}
       aria-label={`Photographs for ${subject}`}
       aria-roledescription="carousel"
@@ -76,7 +76,7 @@ export function GuidePhotoCollection({
         <div className="grid grid-cols-[1fr_5fr_1fr] items-stretch gap-2 sm:gap-3">
           <button
             type="button"
-            className="photo-frame group relative block h-full min-h-0 w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100"
+            className="photo-frame group relative block h-full min-h-0 w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:opacity-100"
             aria-label={`Show previous photograph: ${previousPhoto.title}`}
             onClick={() => showPhoto(previousIndex)}
           >
@@ -116,7 +116,7 @@ export function GuidePhotoCollection({
 
           <button
             type="button"
-            className="photo-frame group relative block h-full min-h-0 w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100"
+            className="photo-frame group relative block h-full min-h-0 w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:opacity-100"
             aria-label={`Show next photograph: ${nextPhoto.title}`}
             onClick={() => showPhoto(nextIndex)}
           >
@@ -132,7 +132,10 @@ export function GuidePhotoCollection({
           </button>
         </div>
         <figcaption className="guide-credit hairline-top mt-3 grid gap-2 pt-3 text-xs text-muted-foreground sm:grid-cols-[auto_1fr_auto] sm:items-baseline">
-          <span className="guide-label tabular-nums" aria-live="polite">
+          <span
+            className="guide-label guide-photo-status tabular-nums transition-colors duration-150"
+            aria-live="polite"
+          >
             Photo {position}
           </span>
           <span className="font-medium text-foreground">{photo.caption}</span>
