@@ -76,7 +76,7 @@ export function GuidePhotoCollection({
         <div className="grid grid-cols-[1fr_5fr_1fr] items-stretch gap-2 sm:gap-3">
           <button
             type="button"
-            className="photo-frame group relative block h-full min-h-0 w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="photo-frame group relative block h-full min-h-0 w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100"
             aria-label={`Show previous photograph: ${previousPhoto.title}`}
             onClick={() => showPhoto(previousIndex)}
           >
@@ -97,6 +97,7 @@ export function GuidePhotoCollection({
             width={photo.width}
             height={photo.height}
             className="photo-frame aspect-[3/2] w-full object-cover"
+            triggerClassName="outline-none focus-visible:outline-none"
             sizes="(max-width: 40rem) 72vw, 30rem"
             renditions={photo.renditions.map((rendition) => ({
               src: rendition.src,
@@ -115,7 +116,7 @@ export function GuidePhotoCollection({
 
           <button
             type="button"
-            className="photo-frame group relative block h-full min-h-0 w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="photo-frame group relative block h-full min-h-0 w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100"
             aria-label={`Show next photograph: ${nextPhoto.title}`}
             onClick={() => showPhoto(nextIndex)}
           >
