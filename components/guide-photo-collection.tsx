@@ -65,7 +65,7 @@ export function GuidePhotoCollection({
 
   return (
     <section
-      className="enter mt-8 outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      className="enter mt-8 outline-none"
       tabIndex={0}
       aria-label={`Photographs for ${subject}`}
       aria-roledescription="carousel"
