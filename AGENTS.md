@@ -93,8 +93,9 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `content/cleo-topic-photo-zoom.json` (`pnpm generate:cleo-topic-photo-zoom`,
   kept in sync by `lib/cleo/topic-photo-zoom.test.ts`).
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
-  `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
-  are inline Markdown in the reply (no separate chip row).
+  `components/cleo/ask-form.tsx` (click submits immediately, including the
+  full Japan photo-set prompt). Guide deep-links are inline Markdown in the
+  reply (no separate chip row).
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 

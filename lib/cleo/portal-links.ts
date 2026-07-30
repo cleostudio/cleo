@@ -194,6 +194,11 @@ export const CLEO_PORTAL_STARTERS = [
       'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
   },
   {
+    label: 'Show Japan photos',
+    prompt:
+      'Show me all three curated photos of Japan and deep-link its field guide.',
+  },
+  {
     label: 'Why is Europa interesting?',
     prompt:
       'Why is Europa interesting as an ocean world? Deep-link the Space guide when you name it.',

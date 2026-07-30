@@ -1,7 +1,7 @@
 'use client'
 
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { useState } from 'react'
+import { useState, type KeyboardEvent } from 'react'
 
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { ZoomImage } from '~/components/zoom-image'
@@ -52,8 +52,26 @@ export function GuidePhotoCollection({
     setActiveIndex(index)
   }
 
+  function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault()
+      showPhoto(previousIndex)
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault()
+      showPhoto(nextIndex)
+    }
+  }
+
   return (
-    <section className="enter mt-8" aria-label="Photographs">
+    <section
+      className="enter mt-8"
+      tabIndex={0}
+      aria-label={`Photographs for ${subject}`}
+      aria-roledescription="carousel"
+      aria-keyshortcuts="ArrowLeft ArrowRight"
+      onKeyDown={handleKeyDown}
+    >
       <figure>
         <div className="grid grid-cols-[1fr_5fr_1fr] items-stretch gap-2 sm:gap-3">
           <button

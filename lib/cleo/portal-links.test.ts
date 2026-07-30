@@ -168,5 +168,10 @@ describe('CLEO_PORTAL_STARTERS', () => {
     expect(CLEO_PORTAL_STARTERS.every((starter) => starter.prompt.length > 20)).toBe(
       true,
     )
+    expect(CLEO_PORTAL_STARTERS).toContainEqual({
+      label: 'Show Japan photos',
+      prompt:
+        'Show me all three curated photos of Japan and deep-link its field guide.',
+    })
   })
 })
