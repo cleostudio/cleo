@@ -46,7 +46,7 @@ const photos: GuidePhoto[] = [
 ]
 
 describe('GuidePhotoCollection', () => {
-  it('shows one photo at a time and navigates through the full set', () => {
+  it('shows adjacent previews and wraps through the full set', () => {
     render(
       <GuidePhotoCollection
         collection="places"
@@ -56,24 +56,36 @@ describe('GuidePhotoCollection', () => {
       />,
     )
 
-    const previous = screen.getByRole('button', { name: 'Previous photograph' })
-    const next = screen.getByRole('button', { name: 'Next photograph' })
+    const next = screen.getByRole('button', {
+      name: 'Show next photograph: Second view',
+    })
     expect(screen.getByAltText('First view photo')).toBeTruthy()
     expect(screen.getByText('1 / 3')).toBeTruthy()
-    expect((previous as HTMLButtonElement).disabled).toBe(true)
-    expect((next as HTMLButtonElement).disabled).toBe(false)
 
     fireEvent.click(next)
     expect(screen.getByAltText('Second view photo')).toBeTruthy()
     expect(screen.getByText('2 / 3')).toBeTruthy()
-    expect((previous as HTMLButtonElement).disabled).toBe(false)
 
-    fireEvent.click(next)
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Show next photograph: Third view',
+      }),
+    )
     expect(screen.getByAltText('Third view photo')).toBeTruthy()
     expect(screen.getByText('3 / 3')).toBeTruthy()
-    expect((next as HTMLButtonElement).disabled).toBe(true)
 
-    fireEvent.click(previous)
-    expect(screen.getByAltText('Second view photo')).toBeTruthy()
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Show next photograph: First view',
+      }),
+    )
+    expect(screen.getByAltText('First view photo')).toBeTruthy()
+
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Show previous photograph: Third view',
+      }),
+    )
+    expect(screen.getByAltText('Third view photo')).toBeTruthy()
   })
 })

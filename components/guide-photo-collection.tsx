@@ -4,7 +4,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
-import { Button } from '~/components/ui/button'
 import { ZoomImage } from '~/components/zoom-image'
 import type { GalleryCollection } from '~/lib/gallery'
 import { staticRendition, type StaticPhoto } from '~/lib/static-photo'
@@ -24,8 +23,8 @@ export type GuidePhoto = Pick<
 }
 
 /**
- * Guides keep one photograph in focus at a time. The first image is the
- * editor-selected hero; previous/next controls reveal the other two views.
+ * Guides keep one photograph in focus while adjacent images preview the
+ * previous and next choices. The first image is the editor-selected hero.
  */
 export function GuidePhotoCollection({
   collection,
@@ -41,13 +40,36 @@ export function GuidePhotoCollection({
   const [activeIndex, setActiveIndex] = useState(0)
   const photo = photos[activeIndex] ?? photos[0]
   if (!photo) return null
-  const hasPrevious = activeIndex > 0
-  const hasNext = activeIndex < photos.length - 1
+  const previousIndex = (activeIndex - 1 + photos.length) % photos.length
+  const nextIndex = (activeIndex + 1) % photos.length
+  const previousPhoto = photos[previousIndex]!
+  const nextPhoto = photos[nextIndex]!
+
+  function showPhoto(index: number) {
+    setActiveIndex(index)
+  }
 
   return (
     <section className="enter mt-8" aria-label="Photographs">
       <figure>
-        <div className="relative">
+        <div className="grid grid-cols-[1fr_3fr_1fr] items-center gap-3">
+          <button
+            type="button"
+            className="photo-frame group relative block aspect-[3/2] w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            aria-label={`Show previous photograph: ${previousPhoto.title}`}
+            onClick={() => showPhoto(previousIndex)}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={staticRendition(previousPhoto, 640).src}
+              alt=""
+              className="h-full w-full object-cover transition-transform duration-150 group-hover:scale-[1.02]"
+            />
+            <span className="absolute inset-0 flex items-center justify-center bg-background/35 text-foreground transition-colors duration-150 group-hover:bg-background/50">
+              <ChevronLeft aria-hidden />
+            </span>
+          </button>
+
           <ZoomImage
             key={photo.sourceUrl}
             src={staticRendition(photo, 1280).src}
@@ -55,7 +77,7 @@ export function GuidePhotoCollection({
             width={photo.width}
             height={photo.height}
             className="photo-frame aspect-[3/2] w-full object-cover"
-            sizes="(max-width: 40rem) 100vw, 42rem"
+            sizes="(max-width: 40rem) 60vw, 24rem"
             renditions={photo.renditions.map((rendition) => ({
               src: rendition.src,
               width: rendition.width,
@@ -70,30 +92,23 @@ export function GuidePhotoCollection({
               />
             }
           />
-          <div className="absolute inset-x-3 top-1/2 flex -translate-y-1/2 justify-between">
-            <Button
-              type="button"
-              variant="secondary"
-              size="icon-lg"
-              aria-label="Previous photograph"
-              disabled={!hasPrevious}
-              onClick={() => setActiveIndex((index) => index - 1)}
-              expandHitArea
-            >
-              <ChevronLeft aria-hidden />
-            </Button>
-            <Button
-              type="button"
-              variant="secondary"
-              size="icon-lg"
-              aria-label="Next photograph"
-              disabled={!hasNext}
-              onClick={() => setActiveIndex((index) => index + 1)}
-              expandHitArea
-            >
+
+          <button
+            type="button"
+            className="photo-frame group relative block aspect-[3/2] w-full overflow-hidden opacity-70 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            aria-label={`Show next photograph: ${nextPhoto.title}`}
+            onClick={() => showPhoto(nextIndex)}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={staticRendition(nextPhoto, 640).src}
+              alt=""
+              className="h-full w-full object-cover transition-transform duration-150 group-hover:scale-[1.02]"
+            />
+            <span className="absolute inset-0 flex items-center justify-center bg-background/35 text-foreground transition-colors duration-150 group-hover:bg-background/50">
               <ChevronRight aria-hidden />
-            </Button>
-          </div>
+            </span>
+          </button>
         </div>
         <figcaption className="guide-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
           <span>
