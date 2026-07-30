@@ -1,0 +1,120 @@
+{
+  "gabon": [
+    {
+      "index": 0,
+      "photo": {
+        "placeName": "Loango National Park",
+        "countryName": "Gabon",
+        "code": "GA",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Gabon_Loango_National_Park_Southern_Camping_Ground_bar_with_a_view.jpeg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gabon_Loango_National_Park_Southern_Camping_Ground_bar_with_a_view.jpeg",
+        "photographer": "Kurt Dundy at English Wikipedia",
+        "license": "CC BY 3.0",
+        "commonsTitle": "File:Gabon Loango National Park Southern Camping Ground bar with a view.jpeg",
+        "width": 3648,
+        "height": 2736,
+        "assessments": "",
+        "score": 0,
+        "handpick": true
+      }
+    }
+  ],
+  "malaysia": [
+    {
+      "index": 2,
+      "photo": {
+        "placeName": "Petronas Towers",
+        "countryName": "Malaysia",
+        "code": "MY",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/The_Twins_SE_Asia_2019_%2849171985716%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Twins_SE_Asia_2019_(49171985716).jpg",
+        "photographer": "James Kerwin from Tbilisi",
+        "license": "CC BY 2.0",
+        "commonsTitle": "File:The Twins SE Asia 2019 (49171985716).jpg",
+        "width": 8472,
+        "height": 5648,
+        "assessments": "featured",
+        "score": 0,
+        "handpick": true
+      }
+    }
+  ],
+  "norway": [
+    {
+      "index": 1,
+      "photo": {
+        "placeName": "Geirangerfjord",
+        "countryName": "Norway",
+        "code": "NO",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Geirangerfjord_from_%C3%98rnesvingen%2C_2013_June.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geirangerfjord_from_%C3%98rnesvingen,_2013_June.jpg",
+        "photographer": "Ximonic (Simo Räsänen)",
+        "license": "CC BY-SA 3.0",
+        "commonsTitle": "File:Geirangerfjord from Ørnesvingen, 2013 June.jpg",
+        "width": 6520,
+        "height": 3660,
+        "assessments": "quality|featured|potd",
+        "score": 0,
+        "handpick": true
+      }
+    },
+    {
+      "index": 2,
+      "photo": {
+        "placeName": "Lofoten Islands",
+        "countryName": "Norway",
+        "code": "NO",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Cirrus_front_over_Austnesfjorden%2C_Austv%C3%A5g%C3%B8ya%2C_Lofoten%2C_Norway%2C_2015_April.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cirrus_front_over_Austnesfjorden,_Austv%C3%A5g%C3%B8ya,_Lofoten,_Norway,_2015_April.jpg",
+        "photographer": "Ximonic (Simo Räsänen)",
+        "license": "CC BY-SA 3.0",
+        "commonsTitle": "File:Cirrus front over Austnesfjorden, Austvågøya, Lofoten, Norway, 2015 April.jpg",
+        "width": 5560,
+        "height": 3010,
+        "assessments": "quality|featured|potd",
+        "score": 0,
+        "handpick": true
+      }
+    }
+  ],
+  "uganda": [
+    {
+      "index": 2,
+      "photo": {
+        "placeName": "Bwindi Impenetrable Forest",
+        "countryName": "Uganda",
+        "code": "UG",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/063_Mist_rising_from_the_Bwindi_Impenetrable_Forest_National_Park_Photo_by_Giles_Laurent.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:063_Mist_rising_from_the_Bwindi_Impenetrable_Forest_National_Park_Photo_by_Giles_Laurent.jpg",
+        "photographer": "Giles Laurent",
+        "license": "CC BY-SA 4.0",
+        "commonsTitle": "File:063 Mist rising from the Bwindi Impenetrable Forest National Park Photo by Giles Laurent.jpg",
+        "width": 8640,
+        "height": 5760,
+        "assessments": "",
+        "score": 0,
+        "handpick": true
+      }
+    }
+  ],
+  "zambia": [
+    {
+      "index": 1,
+      "photo": {
+        "placeName": "Victoria Falls",
+        "countryName": "Zambia",
+        "code": "ZM",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_02.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_02.jpg",
+        "photographer": "Diego Delso",
+        "license": "CC BY-SA 4.0",
+        "commonsTitle": "File:Cataratas Victoria, Zambia-Zimbabue, 2018-07-27, DD 02.jpg",
+        "width": 7868,
+        "height": 5245,
+        "assessments": "quality",
+        "score": 0,
+        "handpick": true
+      }
+    }
+  ]
+}

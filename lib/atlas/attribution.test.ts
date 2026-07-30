@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { allGalleryItems } from '~/lib/gallery'
+import { allTopicPhotoItems } from '~/lib/gallery'
 
 /**
  * Every photograph carries a licence that requires attribution, and the
@@ -9,7 +9,7 @@ import { allGalleryItems } from '~/lib/gallery'
  * in the Artist field, which credits nobody; one of those shipped for a while.
  */
 
-const photos = allGalleryItems().map((item) => ({
+const photos = allTopicPhotoItems().map((item) => ({
   credit: item.photo.photographer,
   license: item.photo.license,
   slug: item.id,

@@ -46,45 +46,59 @@ function atlasPhotoToStatic(photo: {
   }
 }
 
-export function allGalleryItems(): GalleryItem[] {
-  const places: GalleryItem[] = allAtlasEntries().map((entry) => ({
-    id: `places:${entry.slug}`,
-    collection: 'places',
-    href: `/explore/${entry.slug}`,
-    title: entry.photo.placeName,
-    subtitle: entry.name,
-    filterKey: entry.region,
-    searchText: [
-      entry.name,
-      entry.photo.placeName,
-      entry.subregion,
-      entry.code,
-      entry.region,
-      'place',
-      'country',
-    ].join(' '),
-    photo: atlasPhotoToStatic(entry.photo),
-  }))
+function topicPhotoItems(includeAllPhotos: boolean): GalleryItem[] {
+  const places: GalleryItem[] = allAtlasEntries().flatMap((entry) =>
+    (includeAllPhotos ? entry.photos : [entry.photos[0]]).map((photo, index) => ({
+      id: `places:${entry.slug}${index === 0 ? '' : `:${index + 1}`}`,
+      collection: 'places' as const,
+      href: `/explore/${entry.slug}`,
+      title: photo.placeName,
+      subtitle: entry.name,
+      filterKey: entry.region,
+      searchText: [
+        entry.name,
+        photo.placeName,
+        entry.subregion,
+        entry.code,
+        entry.region,
+        'place',
+        'country',
+      ].join(' '),
+      photo: atlasPhotoToStatic(photo),
+    })),
+  )
 
-  const space: GalleryItem[] = spaceSubjects.map((subject) => ({
-    id: `space:${subject.slug}`,
-    collection: 'space',
-    href: `/space/${subject.slug}`,
-    title: subject.photo.featureName,
-    subtitle: subject.name,
-    filterKey: subject.category,
-    searchText: [
-      subject.name,
-      subject.photo.featureName,
-      subject.code,
-      subject.category,
-      subject.facts.kind,
-      'space',
-    ].join(' '),
-    photo: subject.photo,
-  }))
+  const space: GalleryItem[] = spaceSubjects.flatMap((subject) =>
+    (includeAllPhotos ? subject.photos : [subject.photos[0]]).map((photo, index) => ({
+      id: `space:${subject.slug}${index === 0 ? '' : `:${index + 1}`}`,
+      collection: 'space' as const,
+      href: `/space/${subject.slug}`,
+      title: photo.featureName,
+      subtitle: subject.name,
+      filterKey: subject.category,
+      searchText: [
+        subject.name,
+        photo.featureName,
+        subject.code,
+        subject.category,
+        subject.facts.kind,
+        'space',
+      ].join(' '),
+      photo,
+    })),
+  )
 
   return [...places, ...space]
+}
+
+/** Every curated photograph, used for attribution and Cleo zoom metadata. */
+export function allTopicPhotoItems(): GalleryItem[] {
+  return topicPhotoItems(true)
+}
+
+/** Gallery is a focused index: the editor-selected hero for each topic. */
+export function allGalleryItems(): GalleryItem[] {
+  return topicPhotoItems(false)
 }
 
 export function galleryFilterKeys(): string[] {

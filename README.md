@@ -19,20 +19,23 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
 - Base UI primitives with the `@fluid` component registry
 - MDX posts under `content/blog/`; English-only public routes
-- Country guides: `content/atlas.json` + optimized static JPEGs in
-  `public/images/atlas/` (no image CDN/account at runtime)
-- Space guides: `lib/space.ts` + `content/space-photos.json` + JPEGs in
-  `public/images/space/`
+- Country guides: three curated photographs per guide in `content/atlas.json`
+  + optimized static JPEGs in `public/images/atlas/` (no image CDN/account at
+  runtime)
+- Space guides: `lib/space.ts` + three curated NASA photographs per guide in
+  `content/space-photos.json` + JPEGs in `public/images/space/`
 - **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
   `POST /api/responses`)
 - Vercel Web Analytics + Speed Insights in the root document (enable both in
   the Vercel project dashboard)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
   Explore/Space catalog so replies can deep-link field guides and embed
-  curated topic photographs when a visual helps; topic and chat images use
+  one curated topic photograph when a visual helps or all three when the user
+  asks for the full set; topic and chat images use
   the same click-to-zoom lightbox as Gallery; precise browser location and
   time zone are sent to OpenAI only when users enable Location in dock
-  Preferences and allow browser location services; multi-turn turns replay encrypted reasoning under
+  Preferences and allow browser location services; multi-turn turns replay
+  encrypted reasoning under
   `store: false`; incomplete/stopped answers offer Retry/Continue)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 

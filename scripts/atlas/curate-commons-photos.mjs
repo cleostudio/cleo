@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * Curate one accurate Wikimedia Commons photograph per country featured place.
+ * Curate three distinct Wikimedia Commons photographs per country.
  *
  * Writes scripts/atlas/atlas-photo-sources.json for import-atlas-photos.mjs.
  * Polite Commons API usage — no API key required.
  *
- *   node scripts/atlas/curate-commons-photos.mjs                 # fill gaps
+ *   node scripts/atlas/curate-commons-photos.mjs                 # fill photo slots
  *   node scripts/atlas/curate-commons-photos.mjs --force         # re-pick all
  *   node scripts/atlas/curate-commons-photos.mjs --only=china,peru
  *   node scripts/atlas/curate-commons-photos.mjs --dry-run       # print, don't write
@@ -263,7 +263,14 @@ function assessmentPoints(info) {
     .reduce((total, points) => total + points, 0)
 }
 
-function scoreCandidate(page, placeName, countryName, usedUrls, relaxed = false) {
+function scoreCandidate(
+  page,
+  placeName,
+  countryName,
+  usedUrls,
+  relaxed = false,
+  allowPlaceOnly = false,
+) {
   const info = (page.imageinfo || [])[0]
   if (!info) return null
   if (!['image/jpeg', 'image/png', 'image/webp'].includes(info.mime)) return null
@@ -292,7 +299,9 @@ function scoreCandidate(page, placeName, countryName, usedUrls, relaxed = false)
 
   const relevance = relevanceOf(title, categories, placeName)
   if (relevance === 0) return null
-  if (!inCountry(title, categories, countryName)) return null
+  if (!inCountry(title, categories, countryName) && (!allowPlaceOnly || relevance < 40)) {
+    return null
+  }
 
   const hasPlaceCategory = categories.some((category) =>
     PLACE_CATEGORY.test(category),
@@ -339,7 +348,13 @@ function scoreCandidate(page, placeName, countryName, usedUrls, relaxed = false)
   }
 }
 
-async function pickPhoto(placeName, countryName, usedUrls, relaxed = false) {
+async function pickPhoto(
+  placeName,
+  countryName,
+  usedUrls,
+  relaxed = false,
+  allowPlaceOnly = false,
+) {
   // Assessment-scoped passes first: they usually settle it outright.
   const queries = [
     `"${placeName}" incategory:"Featured pictures on Wikimedia Commons"`,
@@ -361,7 +376,14 @@ async function pickPhoto(placeName, countryName, usedUrls, relaxed = false) {
     }
 
     for (const page of pages) {
-      const candidate = scoreCandidate(page, placeName, countryName, usedUrls, relaxed)
+      const candidate = scoreCandidate(
+        page,
+        placeName,
+        countryName,
+        usedUrls,
+        relaxed,
+        allowPlaceOnly,
+      )
       if (!candidate) continue
       if (!best || candidate.score > best.score) best = candidate
     }
@@ -393,15 +415,77 @@ const existing = (() => {
   }
 })()
 
-const sources = { ...existing }
+function sourceRows(value) {
+  if (!value) return []
+  return Array.isArray(value) ? value : [value]
+}
+
+const sources = Object.fromEntries(
+  Object.entries(existing).map(([slug, value]) => [slug, sourceRows(value)]),
+)
 const usedUrls = new Set(
   Object.values(sources)
+    .flat()
     .map((row) => row.downloadUrl)
     .filter(Boolean),
 )
 const errors = []
 const list = countries.filter((country) => !only || only.includes(country.slug))
 let index = 0
+
+function samePlace(a, b) {
+  return fold(a) === fold(b)
+}
+
+function sourceRecord(country, placeName, picked) {
+  return {
+    placeName,
+    countryName: country.name,
+    code: country.code,
+    downloadUrl: picked.url,
+    sourceUrl: picked.descriptionUrl,
+    photographer: picked.photographer,
+    license: picked.license,
+    commonsTitle: picked.title,
+    width: picked.width,
+    height: picked.height,
+    assessments: picked.assessments,
+    score: Number(picked.score.toFixed(2)),
+  }
+}
+
+async function pickDistinctPhoto(placeNames, countryName, rows) {
+  const represented = rows.map((row) => row.placeName)
+  const preferred = placeNames.filter(
+    (place) => !represented.some((existingPlace) => samePlace(existingPlace, place)),
+  )
+  const candidates = preferred.length > 0 ? preferred : placeNames
+
+  for (const options of [
+    { relaxed: false, allowPlaceOnly: false },
+    { relaxed: true, allowPlaceOnly: false },
+    { relaxed: true, allowPlaceOnly: true },
+  ]) {
+    const picks = []
+    for (const placeName of candidates) {
+      const picked = await pickPhoto(
+        placeName,
+        countryName,
+        usedUrls,
+        options.relaxed,
+        options.allowPlaceOnly,
+      )
+      if (picked) picks.push({ placeName, picked })
+    }
+    if (picks.length > 0) {
+      return picks.reduce((best, current) =>
+        current.picked.score > best.picked.score ? current : best,
+      )
+    }
+  }
+
+  return null
+}
 
 for (const country of list) {
   index++
@@ -417,66 +501,33 @@ for (const country of list) {
   }
 
   const label = `[${index}/${list.length}] ${country.slug}`
-  if (!process.argv.includes('--force') && sources[country.slug]?.downloadUrl) {
-    console.log(`${label} skip (cached source)`)
-    usedUrls.add(sources[country.slug].downloadUrl)
+  const cached = sourceRows(sources[country.slug])
+  if (!process.argv.includes('--force') && cached.length >= 3) {
+    console.log(`${label} skip (three cached sources)`)
     continue
   }
 
   try {
-    process.stdout.write(`${label} ${placeNames[0]}… `)
-    // Allow replacing a cached URL for this slug.
-    if (sources[country.slug]?.downloadUrl) {
-      usedUrls.delete(sources[country.slug].downloadUrl)
+    const rows = process.argv.includes('--force') ? [] : [...cached]
+    if (process.argv.includes('--force')) {
+      for (const row of cached) usedUrls.delete(row.downloadUrl)
     }
 
-    // A country whose headline place has no usable photograph is better served
-    // by an accurate photograph of its second or third than by a wrong one.
-    let picked = null
-    let placeName = placeNames[0]
-
-    for (const candidatePlace of placeNames) {
-      picked = await pickPhoto(candidatePlace, country.name, usedUrls)
-
-      if (picked) {
-        placeName = candidatePlace
-        break
+    process.stdout.write(`${label} ${rows.length}/3… `)
+    while (rows.length < 3) {
+      const next = await pickDistinctPhoto(placeNames, country.name, rows)
+      if (!next) {
+        throw new Error(`no relevant Commons photo for ${placeNames.join(' / ')}`)
       }
+      rows.push(sourceRecord(country, next.placeName, next.picked))
+      usedUrls.add(next.picked.url)
     }
 
-    // Still nothing: keep the place and country requirements but drop the
-    // size floor and the title-shape rule.
-    if (!picked) {
-      for (const candidatePlace of placeNames) {
-        picked = await pickPhoto(candidatePlace, country.name, usedUrls, true)
-
-        if (picked) {
-          placeName = candidatePlace
-          break
-        }
-      }
-    }
-
-    if (!picked) {
-      throw new Error(`no relevant Commons photo for ${placeNames.join(' / ')}`)
-    }
-    usedUrls.add(picked.url)
-    sources[country.slug] = {
-      placeName,
-      countryName: country.name,
-      code: country.code,
-      downloadUrl: picked.url,
-      sourceUrl: picked.descriptionUrl,
-      photographer: picked.photographer,
-      license: picked.license,
-      commonsTitle: picked.title,
-      width: picked.width,
-      height: picked.height,
-      assessments: picked.assessments,
-      score: Number(picked.score.toFixed(2)),
-    }
+    sources[country.slug] = rows
     console.log(
-      `ok ${picked.score.toFixed(0)}pt ${picked.assessments || 'unassessed'} ${picked.width}×${picked.height} — ${picked.title.replace(/^File:/, '').slice(0, 52)}`,
+      `ok ${rows
+        .map((row) => `${row.placeName} ${row.score?.toFixed?.(0) ?? 'handpicked'}pt`)
+        .join(' · ')}`,
     )
   } catch (error) {
     console.log('FAIL')
@@ -491,8 +542,9 @@ if (!dryRun) {
   console.log('\nDry run — nothing written.')
 }
 
-const assessed = Object.values(sources).filter((row) => row.assessments).length
-console.log(`Commons-assessed picks: ${assessed}/${Object.keys(sources).length}`)
+const allRows = Object.values(sources).flat()
+const assessed = allRows.filter((row) => row.assessments).length
+console.log(`Commons-assessed picks: ${assessed}/${allRows.length}`)
 
 if (errors.length) {
   console.error('\nCuration failures:\n' + errors.join('\n'))

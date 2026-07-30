@@ -1,0 +1,322 @@
+{
+  "barbados": [
+    {
+      "placeName": "Historic Bridgetown",
+      "countryName": "Barbados",
+      "code": "BB",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Historic_Bridgetown_and_its_Garrison-115167.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Historic_Bridgetown_and_its_Garrison-115167.jpg",
+      "photographer": "Sachiko Haraguchi",
+      "license": "CC BY-SA 3.0 igo",
+      "commonsTitle": "File:Historic Bridgetown and its Garrison-115167.jpg",
+      "width": 2592,
+      "height": 1944,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Animal Flower Cave",
+      "countryName": "Barbados",
+      "code": "BB",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/ANIMAL_FLOWER_CAVE_-_BARBADOS.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:ANIMAL_FLOWER_CAVE_-_BARBADOS.jpg",
+      "photographer": "JERRYE AND ROY KLOTZ MD",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:ANIMAL FLOWER CAVE - BARBADOS.jpg",
+      "width": 3008,
+      "height": 1960,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "burkina-faso": [
+    {
+      "placeName": "Ruins of Loropeni",
+      "countryName": "Burkina Faso",
+      "code": "BF",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/2016.05-441-131ap_wall_Lorop%C3%A9ni_Ruins_nr.Lorop%C3%A9ni%28Poni_Prv.%29%2CBF_sun15may2016-1106h.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2016.05-441-131ap_wall_Lorop%C3%A9ni_Ruins_nr.Lorop%C3%A9ni(Poni_Prv.),BF_sun15may2016-1106h.jpg",
+      "photographer": "Rik Schuiling / TropCrop-TCS",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:2016.05-441-131ap wall Loropéni Ruins nr.Loropéni(Poni Prv.),BF sun15may2016-1106h.jpg",
+      "width": 3591,
+      "height": 2394,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Sindou Peaks",
+      "countryName": "Burkina Faso",
+      "code": "BF",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/PicsdeSindou.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PicsdeSindou.jpg",
+      "photographer": "Croucrou",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:PicsdeSindou.jpg",
+      "width": 4201,
+      "height": 1161,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "cameroon": [
+    {
+      "placeName": "Mount Cameroon",
+      "countryName": "Cameroon",
+      "code": "CM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Mt_Cameroon%2C_the_active_volcano.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt_Cameroon,_the_active_volcano.jpg",
+      "photographer": "Raphel Etoyiva Abine",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Mt Cameroon, the active volcano.jpg",
+      "width": 4608,
+      "height": 3072,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Mount Cameroon",
+      "countryName": "Cameroon",
+      "code": "CM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Magnanimous_Mt_Cameroon%2C_view_from_Ndongo%2C_Buea.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Magnanimous_Mt_Cameroon,_view_from_Ndongo,_Buea.jpg",
+      "photographer": "A.R. Etoyiva",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Magnanimous Mt Cameroon, view from Ndongo, Buea.jpg",
+      "width": 4608,
+      "height": 3072,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "central-african-republic": [
+    {
+      "placeName": "Dzanga-Sangha",
+      "countryName": "Central African Republic",
+      "code": "CF",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Morning_mist_over_the_Sangha_River_near_Bayanga.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Morning_mist_over_the_Sangha_River_near_Bayanga.jpg",
+      "photographer": "JosepMGracia",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Morning mist over the Sangha River near Bayanga.jpg",
+      "width": 4288,
+      "height": 2848,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Boali Falls",
+      "countryName": "Central African Republic",
+      "code": "CF",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Chute_de_Boaoli_07.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chute_de_Boaoli_07.jpg",
+      "photographer": "Kondotikodro",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Chute de Boaoli 07.jpg",
+      "width": 6000,
+      "height": 4000,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "comoros": [
+    {
+      "placeName": "Mount Karthala",
+      "countryName": "Comoros",
+      "code": "KM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Volcan_Karthala_vue_de_la_caldeira_13_ao%C3%BBt_2019.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Volcan_Karthala_vue_de_la_caldeira_13_ao%C3%BBt_2019.jpg",
+      "photographer": "Lolodevenelles",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Volcan Karthala vue de la caldeira 13 août 2019.jpg",
+      "width": 3024,
+      "height": 4032,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Medina of Moroni",
+      "countryName": "Comoros",
+      "code": "KM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Moroni_Medina_Comoros_1.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moroni_Medina_Comoros_1.jpg",
+      "photographer": "Radosław Botev",
+      "license": "CC BY 3.0 pl",
+      "commonsTitle": "File:Moroni Medina Comoros 1.jpg",
+      "width": 4000,
+      "height": 3000,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "congo-democratic-republic-of-the": [
+    {
+      "placeName": "Virunga National Park",
+      "countryName": "Congo, Democratic Republic of the",
+      "code": "CD",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Mount_Mikeno_%E2%80%93_Virunga_National_Park.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Mikeno_%E2%80%93_Virunga_National_Park.jpg",
+      "photographer": "Fanny Schertzer",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Mount Mikeno – Virunga National Park.jpg",
+      "width": 6000,
+      "height": 4000,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Boyoma Falls",
+      "countryName": "Congo, Democratic Republic of the",
+      "code": "CD",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Zaire_kisangani_stroom_12_copy.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zaire_kisangani_stroom_12_copy.jpg",
+      "photographer": "Ad Meskens",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Zaire kisangani stroom 12 copy.jpg",
+      "width": 2701,
+      "height": 1813,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "dominica": [
+    {
+      "placeName": "Emerald Pool",
+      "countryName": "Dominica",
+      "code": "DM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/Emerald_Pool%2C_Dominica%2C2.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emerald_Pool,_Dominica,2.jpg",
+      "photographer": "XeresNelro",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Emerald Pool, Dominica,2.jpg",
+      "width": 3264,
+      "height": 2448,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Emerald Pool",
+      "countryName": "Dominica",
+      "code": "DM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Emerald_Pool_Dominica.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emerald_Pool_Dominica.JPG",
+      "photographer": "Aneil Lutchman",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Emerald Pool Dominica.JPG",
+      "width": 4912,
+      "height": 3181,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "el-salvador": [
+    {
+      "placeName": "Joyas de Ceren",
+      "countryName": "El Salvador",
+      "code": "SV",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/El_Tamazcal_en_Joya_de_Cer%C3%A9n.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:El_Tamazcal_en_Joya_de_Cer%C3%A9n.JPG",
+      "photographer": "BelenM",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:El Tamazcal en Joya de Cerén.JPG",
+      "width": 4205,
+      "height": 2803,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Santa Ana Volcano",
+      "countryName": "El Salvador",
+      "code": "SV",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Ilamatepec_Lake.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ilamatepec_Lake.jpg",
+      "photographer": "Dead.rabbit",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Ilamatepec Lake.jpg",
+      "width": 5712,
+      "height": 3213,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "eritrea": [
+    {
+      "placeName": "Asmara Modernist Architecture",
+      "countryName": "Eritrea",
+      "code": "ER",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Fiat_Building_Asmara.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fiat_Building_Asmara.jpg",
+      "photographer": "Martin Schibbye",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Fiat Building Asmara.jpg",
+      "width": 4928,
+      "height": 3264,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Qohaito",
+      "countryName": "Eritrea",
+      "code": "ER",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Kohaito%2C_paesaggio_resti_di_un_palazzo_axumita_con_quattro_pilastri_01.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kohaito,_paesaggio_resti_di_un_palazzo_axumita_con_quattro_pilastri_01.JPG",
+      "photographer": "Sailko",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Kohaito, paesaggio resti di un palazzo axumita con quattro pilastri 01.JPG",
+      "width": 3456,
+      "height": 2304,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "eswatini": [
+    {
+      "placeName": "Mlilwane Wildlife Sanctuary",
+      "countryName": "Eswatini",
+      "code": "SZ",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Lake_in_Mlilwane_Wildlife_Sanctuary.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_in_Mlilwane_Wildlife_Sanctuary.jpg",
+      "photographer": "Bernard Gagnon",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Lake in Mlilwane Wildlife Sanctuary.jpg",
+      "width": 4568,
+      "height": 3041,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Malolotja Nature Reserve",
+      "countryName": "Eswatini",
+      "code": "SZ",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Malolotja_Scenery_%2832380407282%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malolotja_Scenery_(32380407282).jpg",
+      "photographer": "Bernard DUPONT from FRANCE",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Malolotja Scenery (32380407282).jpg",
+      "width": 7232,
+      "height": 1920,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ]
+}

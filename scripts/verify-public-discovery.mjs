@@ -36,9 +36,9 @@ const publicPages = [
     {
       title: 'Writing',
       description:
-        'Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
+        'Creative essays about Earth, the ocean, deep time, and the wider universe — place, scale, and what endures.',
     },
-    'Writing · Cleo. Essays by Cleo about design, engineering, products, and the people and ideas that matter along the way.',
+    'Writing · Cleo. Creative essays about Earth, the ocean, deep time, and the wider universe — place, scale, and what endures.',
   ),
   englishPage(
     '/gallery',
@@ -276,7 +276,7 @@ async function verifyDiscoveryFiles(baseUrl) {
     new RegExp(`Sitemap: ${new URL('/sitemap.xml', productionOrigin).href}`),
   )
 
-  const icon = await fetch(new URL('/icon.png', baseUrl))
+  const icon = await fetch(new URL('/icon', baseUrl))
   assert.equal(icon.status, 200)
   assert.match(icon.headers.get('content-type') ?? '', /^image\/png/)
   const iconBytes = new Uint8Array(await icon.arrayBuffer())

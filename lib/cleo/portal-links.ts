@@ -15,7 +15,7 @@ const MARKDOWN_GUIDE_LINK =
 
 /** Curated static JPEGs under the site image roots. */
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space)\/[a-z0-9-]+\/w(640|1280|2048)\.jpg$/
+  /^\/images\/(atlas|space)\/[a-z0-9-]+\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
 const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
@@ -192,6 +192,11 @@ export const CLEO_PORTAL_STARTERS = [
     label: 'Orient me to Japan',
     prompt:
       'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
+  },
+  {
+    label: 'Show Japan photos',
+    prompt:
+      'Show me all three curated photos of Japan and deep-link its field guide.',
   },
   {
     label: 'Why is Europa interesting?',

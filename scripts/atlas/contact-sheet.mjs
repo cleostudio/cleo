@@ -31,21 +31,23 @@ function items() {
     const photos = JSON.parse(
       readFileSync(join(root, 'content/space-photos.json'), 'utf8'),
     )
-    return Object.entries(photos).map(([slug, photo]) => ({
-      file: photo.renditions.find((r) => r.width === 640) ?? photo.renditions[0],
-      subtitle: photo.featureName ?? '',
-      title: slug,
-    }))
+    return Object.entries(photos).flatMap(([slug, photoSet]) =>
+      photoSet.map((photo, index) => ({
+        file: photo.renditions.find((r) => r.width === 640) ?? photo.renditions[0],
+        subtitle: photo.featureName ?? '',
+        title: `${slug}${index === 0 ? '' : ` #${index + 1}`}`,
+      })),
+    )
   }
 
   const atlas = JSON.parse(readFileSync(join(root, 'content/atlas.json'), 'utf8'))
-  return Object.entries(atlas).map(([slug, entry]) => ({
-    file:
-      entry.photo.renditions.find((r) => r.width === 640) ??
-      entry.photo.renditions[0],
-    subtitle: entry.photo.placeName,
-    title: slug,
-  }))
+  return Object.entries(atlas).flatMap(([slug, entry]) =>
+    entry.photos.map((photo, index) => ({
+      file: photo.renditions.find((r) => r.width === 640) ?? photo.renditions[0],
+      subtitle: photo.placeName,
+      title: `${slug}${index === 0 ? '' : ` #${index + 1}`}`,
+    })),
+  )
 }
 
 function escapeXml(value) {

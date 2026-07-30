@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
 import { AtlasImage } from '~/components/atlas-image'
-import { allAtlasEntries, atlasPhotoPreview } from '~/lib/atlas'
+import { atlasFeaturedPhoto, atlasPhotoPreview } from '~/lib/atlas'
+import { allGalleryItems } from '~/lib/gallery'
 import { T } from '~/lib/i18n'
 import { localePath, type Locale } from '~/lib/locale-route'
 
@@ -100,7 +101,7 @@ export function PhotoNavCard({ locale = 'en' }: { locale?: Locale }) {
 
 export function GalleryNavCard({ locale = 'en' }: { locale?: Locale }) {
   const previews = atlasPhotoPreview(3)
-  const count = allAtlasEntries().length
+  const count = allGalleryItems().length
 
   return (
     <Link
@@ -116,7 +117,7 @@ export function GalleryNavCard({ locale = 'en' }: { locale?: Locale }) {
             style={{ '--i': i } as React.CSSProperties}
           >
             <AtlasImage
-              photo={entry.photo}
+              photo={atlasFeaturedPhoto(entry)}
               width={640}
               alt=""
               className="object-cover"
@@ -130,7 +131,7 @@ export function GalleryNavCard({ locale = 'en' }: { locale?: Locale }) {
         <T zh="图库" en="Gallery" />
       </span>
       <span className="nc-sub">
-        <T zh={`${count} 张照片`} en={`${count} places`} />
+        <T zh={`${count} 张照片`} en={`${count} photographs`} />
       </span>
     </Link>
   )

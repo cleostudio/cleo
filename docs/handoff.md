@@ -29,22 +29,24 @@ document (enable both products in the Vercel project dashboard).
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
 - Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
-- Place images: import-time mozjpeg 640/1280/2048 under `public/images/atlas/`
-  (Wikimedia Commons curation, relevance-first + assessments; hand-picks via
-  `scripts/atlas/apply-handpicks.mjs` when scoring still misses) and
-  `public/images/space/` (NASA); rendered with static `srcset`. No runtime
-  image account, API, or third-party fetch. Review aid:
+- Place images: import-time mozjpeg renditions up to 640/1280/2048px per
+  photograph under `public/images/atlas/` (Wikimedia Commons curation, relevance-first +
+  assessments; reviewed gaps in `scripts/atlas/gallery-handpicks/` when scoring
+  still misses) and `public/images/space/` (NASA); rendered with static
+  `srcset`. No runtime image account, API, or third-party fetch. Review aid:
   `tsx scripts/atlas/contact-sheet.mjs --collection=places|space`.
 - Country prose: curated in `scripts/atlas/atlas-about.json` via
   `pnpm write:atlas-about` (one-time, needs `OPENAI_API_KEY`); never generated
   at build or request time
 - Media workflow: `pnpm generate:atlas-content` → `pnpm curate:atlas-photos` →
-  `pnpm import:atlas-photos` → `pnpm validate:atlas`; Space via
-  `pnpm import:space-photos` → `pnpm validate:space`
+  `pnpm apply:atlas-handpicks` → `pnpm import:atlas-photos` →
+  `pnpm validate:atlas`; Space via
+  `pnpm curate:space-photos` → `pnpm import:space-photos` → `pnpm validate:space`
 - Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
   (instructions include Explore/Space catalog paths for guide deep-links;
-  matching turns also ground curated topic photo paths so replies can embed
-  atlas/space JPEGs as Markdown images; encrypted reasoning replay + soft
+  matching turns also ground every curated topic-photo path so replies can
+  embed one atlas/space JPEG or a requested three-image set as Markdown;
+  encrypted reasoning replay + soft
   incomplete status + Retry/Continue keep multi-turn chats reliable under
   `store: false`; conversation still clears on reload)
 - Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)

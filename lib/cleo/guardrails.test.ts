@@ -5,7 +5,7 @@ import { hasInventedPortalPaths, sanitizePortalMarkdown } from "./guardrails"
 describe("portal markdown guardrails", () => {
   it("keeps real guide links and curated photos", () => {
     const markdown =
-      "See [Japan](/explore/japan) and ![Mount Fuji](/images/atlas/japan/w1280.jpg)."
+      "See [Japan](/explore/japan), ![Mount Fuji](/images/atlas/japan/w1280.jpg), and ![Second view](/images/atlas/japan/w1280-2.jpg)."
 
     expect(sanitizePortalMarkdown(markdown)).toBe(markdown)
     expect(hasInventedPortalPaths(markdown)).toBe(false)
@@ -23,6 +23,13 @@ describe("portal markdown guardrails", () => {
       "Photo: ![Fake](/images/atlas/not-a-country/w1280.jpg) done."
 
     expect(sanitizePortalMarkdown(markdown)).toBe("Photo: Fake done.")
+    expect(hasInventedPortalPaths(markdown)).toBe(true)
+  })
+
+  it("drops rendition-shaped paths that are not shipped", () => {
+    const markdown = "Photo: ![Missing](/images/space/sun/w2048.jpg) done."
+
+    expect(sanitizePortalMarkdown(markdown)).toBe("Photo: Missing done.")
     expect(hasInventedPortalPaths(markdown)).toBe(true)
   })
 })

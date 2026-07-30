@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * Curated place photographs → optimized local atlas renditions.
+ * Curated place photograph sets → optimized local atlas renditions.
  *
  * Prefer scripts/atlas/atlas-photo-sources.json (Wikimedia Commons curation).
  * Falls back to legacy Pexels IDs in content/atlas.content.json when needed.
  *
  * Import-time only (no account/API key required at runtime):
  * 1. Download the curated JPEG/PNG once
- * 2. Strip metadata, write mozjpeg 640 / 1280 / 2048px files under
- *    public/images/atlas/{slug}/
+ * 2. Strip metadata, write three mozjpeg renditions for each of three
+ *    photographs under public/images/atlas/{slug}/
  * 3. Merge credits + checksum + rendition metadata into content/atlas.json
  *
  * The app serves those static files directly — never via a CDN account or
@@ -37,9 +37,15 @@ const content = JSON.parse(
   readFileSync(join(root, 'content/atlas.content.json'), 'utf8'),
 )
 const sourcesPath = join(root, 'scripts/atlas/atlas-photo-sources.json')
-const photoSources = existsSync(sourcesPath)
+const rawPhotoSources = existsSync(sourcesPath)
   ? JSON.parse(readFileSync(sourcesPath, 'utf8'))
   : {}
+const photoSources = Object.fromEntries(
+  Object.entries(rawPhotoSources).map(([slug, value]) => [
+    slug,
+    Array.isArray(value) ? value : [value],
+  ]),
+)
 
 mkdirSync(ORIGINALS, { recursive: true })
 mkdirSync(PUBLIC_ATLAS, { recursive: true })
@@ -137,7 +143,11 @@ async function downloadPexels(pexelsId, dest) {
   return downloadUrl(url, dest)
 }
 
-async function buildRenditions(slug, originalBuffer) {
+function renditionFilename(width, photoIndex) {
+  return `w${width}${photoIndex === 0 ? '' : `-${photoIndex + 1}`}.jpg`
+}
+
+async function buildRenditions(slug, photoIndex, originalBuffer) {
   const dir = join(PUBLIC_ATLAS, slug)
   mkdirSync(dir, { recursive: true })
   const meta = await sharp(originalBuffer).metadata()
@@ -148,8 +158,10 @@ async function buildRenditions(slug, originalBuffer) {
   }
 
   const renditions = []
+  const emittedWidths = new Set()
   for (const targetWidth of WIDTHS) {
-    const outPath = join(dir, `w${targetWidth}.jpg`)
+    const filename = renditionFilename(targetWidth, photoIndex)
+    const outPath = join(dir, filename)
     const out = await sharp(originalBuffer)
       .rotate()
       .resize({
@@ -167,10 +179,23 @@ async function buildRenditions(slug, originalBuffer) {
       })
       .withMetadata({ orientation: undefined })
       .toBuffer()
+
+    const renditionMeta = await sharp(out).metadata()
+    const renditionWidth = renditionMeta.width ?? 0
+    if (!(renditionWidth > 0)) {
+      throw new Error(`Invalid rendition dimensions for ${slug}`)
+    }
+    // A source smaller than a requested breakpoint cannot be enlarged. Avoid
+    // duplicate `srcset` descriptors and stale files for repeated intrinsic widths.
+    if (emittedWidths.has(renditionWidth)) {
+      if (existsSync(outPath)) rmSync(outPath)
+      continue
+    }
     writeFileSync(outPath, out)
+    emittedWidths.add(renditionWidth)
     renditions.push({
-      width: targetWidth,
-      src: `/images/atlas/${slug}/w${targetWidth}.jpg`,
+      width: renditionWidth,
+      src: `/images/atlas/${slug}/${filename}`,
       bytes: out.byteLength,
     })
   }
@@ -203,28 +228,39 @@ for (const slug of slugs) {
     errors.push(`${slug}: missing from atlas.content.json`)
     continue
   }
-  const source = photoSources[slug]
+  const sources = photoSources[slug] ?? []
   const label = `[${index}/${slugs.length}] ${slug}`
-  const cacheKey = source?.downloadUrl || `pexels:${entry.pexelsId}`
-  if (
-    !force &&
-    atlas[slug]?.photo?.renditions?.length === 3 &&
-    atlas[slug]?.photo?.provenance?.includes(cacheKey.slice(0, 48))
-  ) {
-    console.log(`${label} skip (cached)`)
+  if (sources.length !== 3) {
+    errors.push(`${slug}: needs exactly three curated Commons sources`)
     continue
   }
 
   try {
     process.stdout.write(`${label}… `)
-    // Be polite to Wikimedia / upstream CDNs.
-    await sleep(350)
-    let original
-    let photoMeta
-    if (source?.downloadUrl) {
+    const existingPhotos = Array.isArray(atlas[slug]?.photos)
+      ? atlas[slug].photos
+      : atlas[slug]?.photo
+        ? [atlas[slug].photo]
+        : []
+    const photos = []
+
+    for (const [photoIndex, source] of sources.entries()) {
+      const cacheKey = source.downloadUrl
+      const cached = existingPhotos[photoIndex]
+      if (
+        !force &&
+        cached?.renditions?.length === 3 &&
+        cached.provenance?.includes(cacheKey.slice(0, 48))
+      ) {
+        photos.push(cached)
+        continue
+      }
+
+      // Be polite to Wikimedia / upstream CDNs.
+      await sleep(350)
       const originalPath = join(
         ORIGINALS,
-        `commons-${slug}-${createHash('sha1').update(source.downloadUrl).digest('hex').slice(0, 12)}.bin`,
+        `commons-${slug}-${photoIndex + 1}-${createHash('sha1').update(source.downloadUrl).digest('hex').slice(0, 12)}.bin`,
       )
       if (existsSync(originalPath) && readFileSync(originalPath).byteLength < 1000) {
         rmSync(originalPath)
@@ -234,11 +270,11 @@ for (const slug of slugs) {
         source.width ?? 0,
         2560,
       )
-      original = await downloadUrl(thumbUrl ?? source.downloadUrl, originalPath)
+      const original = await downloadUrl(thumbUrl ?? source.downloadUrl, originalPath)
       const checksum = createHash('sha256').update(original).digest('hex')
-      const { width, height, renditions } = await buildRenditions(slug, original)
-      const placeName = source.placeName || entry.featuredPlaceName
-      photoMeta = {
+      const { width, height, renditions } = await buildRenditions(slug, photoIndex, original)
+      const placeName = source.placeName
+      photos.push({
         placeName,
         alt: `${placeName} in ${entry.name}`,
         caption: `${placeName}, ${entry.name}`,
@@ -250,30 +286,7 @@ for (const slug of slugs) {
         width,
         height,
         renditions,
-      }
-    } else {
-      const originalPath = join(ORIGINALS, `${entry.pexelsId}.jpg`)
-      if (existsSync(originalPath) && readFileSync(originalPath).byteLength < 1000) {
-        rmSync(originalPath)
-      }
-      original = await downloadPexels(entry.pexelsId, originalPath)
-      const checksum = createHash('sha256').update(original).digest('hex')
-      const { width, height, renditions } = await buildRenditions(slug, original)
-      const photographer = await fetchPhotographer(entry.pexelsId)
-      const placeName = entry.featuredPlaceName
-      photoMeta = {
-        placeName,
-        alt: `${placeName} in ${entry.name}`,
-        caption: `${placeName}, ${entry.name}`,
-        photographer,
-        sourceUrl: `https://www.pexels.com/photo/${entry.pexelsId}/`,
-        license: 'Pexels License',
-        provenance: `Curated from Pexels photo ${entry.pexelsId}; imported locally with metadata stripped; originals kept outside the public tree.`,
-        checksum,
-        width,
-        height,
-        renditions,
-      }
+      })
     }
 
     atlas[slug] = {
@@ -286,7 +299,7 @@ for (const slug of slugs) {
       facts: entry.facts,
       places: entry.places,
       sources: entry.sources,
-      photo: photoMeta,
+      photos,
     }
     console.log('ok')
   } catch (error) {
@@ -302,6 +315,6 @@ if (errors.length) {
 }
 
 writeFileSync(atlasPath, `${JSON.stringify(atlas, null, 2)}\n`)
-console.log(`\nWrote content/atlas.json (${Object.keys(atlas).length} countries)`)
+console.log(`\nWrote content/atlas.json (${Object.keys(atlas).length} countries × 3 photographs)`)
 console.log(`Renditions under public/images/atlas/`)
 console.log(`Originals under .atlas-originals/ (keep gitignored)`)

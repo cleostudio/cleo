@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { GuidePhotoCollection } from '~/components/guide-photo-collection'
 import { GuideOrientation } from '~/components/guide-orientation'
-import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PixelCluster } from '~/components/pixel-cluster'
-import { ZoomImage } from '~/components/zoom-image'
 import {
   getSpaceSubject,
   spaceDescription,
@@ -65,49 +64,15 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         <PixelCluster variant={7} className="enter shrink-0" />
       </div>
 
-      <figure
-        className="enter mt-8"
-        style={{ '--enter-delay': '70ms' } as React.CSSProperties}
-      >
-        <ZoomImage
-          src={
-            (subject.photo.renditions.find((r) => r.width === 1280) ??
-              subject.photo.renditions[0])!.src
-          }
-          alt={subject.photo.alt}
-          width={subject.photo.width}
-          height={subject.photo.height}
-          className="photo-frame aspect-[3/2] w-full object-cover"
-          sizes="(max-width: 40rem) 100vw, 42rem"
-          renditions={subject.photo.renditions.map((r) => ({
-            src: r.src,
-            width: r.width,
-          }))}
-          expandedContent={
-            <PhotoZoomDetails
-              collection="space"
-              title={subject.photo.featureName}
-              subtitle={subject.name}
-              photographer={subject.photo.photographer}
-              license={subject.photo.license}
-            />
-          }
-        />
-        <figcaption className="guide-credit mt-3 flex flex-wrap items-baseline justify-between gap-2 text-xs text-muted-foreground">
-          <span>{subject.photo.caption}</span>
-          <span>
-            {subject.photo.photographer} ·{' '}
-            <a
-              href={subject.photo.sourceUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="underline-offset-2 hover:underline"
-            >
-              NASA
-            </a>
-          </span>
-        </figcaption>
-      </figure>
+      <GuidePhotoCollection
+        collection="space"
+        subject={subject.name}
+        sourceLabel="NASA"
+        photos={subject.photos.map((photo) => ({
+          ...photo,
+          title: photo.featureName,
+        }))}
+      />
 
       <section
         className="enter mt-10"

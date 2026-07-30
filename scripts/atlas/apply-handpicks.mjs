@@ -12,7 +12,13 @@ import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const path = join(root, 'scripts/atlas/atlas-photo-sources.json')
-const sources = JSON.parse(readFileSync(path, 'utf8'))
+const rawSources = JSON.parse(readFileSync(path, 'utf8'))
+const sources = Object.fromEntries(
+  Object.entries(rawSources).map(([slug, value]) => [
+    slug,
+    Array.isArray(value) ? value : [value],
+  ]),
+)
 const UA =
   'cleo-atlas-curate/2.0 (https://github.com/cleostudio/cleo; knowledge portal photo curation)'
 
@@ -120,15 +126,16 @@ for (const [slug, title, placeName] of picks) {
         [stripHtml(em.Artist?.value || ''), stripHtml(em.Credit?.value || ''), ii.user || '']
           .find(isCredit) || 'Wikimedia Commons contributor'
 
-      if (!sources[slug]) {
+      const rows = sources[slug]
+      if (!rows?.[0]) {
         console.log('NO SOURCE SLOT', slug)
         break
       }
 
-      sources[slug] = {
+      rows[0] = {
         placeName,
-        countryName: sources[slug].countryName,
-        code: sources[slug].code,
+        countryName: rows[0].countryName,
+        code: rows[0].code,
         downloadUrl: ii.url,
         sourceUrl: ii.descriptionurl,
         photographer: credit,

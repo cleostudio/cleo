@@ -18,22 +18,25 @@ length, recycled phrasing, and volatile claims before it is kept). The site
 never calls a model to render a page. `lib/atlas/prose.test.ts` holds the
 corpus to that bar — no sentence may appear in two countries.
 
-Assemble the manifest with `pnpm generate:atlas-content`, curate accurate
-Wikimedia Commons place photos with `pnpm curate:atlas-photos`, then import
-optimized local JPEG renditions with `pnpm import:atlas-photos`. Validate with
-`pnpm validate:atlas`. After atlas or space photo imports change caption or
-rendition metadata, refresh Cleo’s slim zoom index with
+Assemble the manifest with `pnpm generate:atlas-content`, curate three distinct,
+accurate Wikimedia Commons place photos per country with
+`pnpm curate:atlas-photos`, fill conservative search gaps with the reviewed
+`pnpm apply:atlas-handpicks`, then import optimized local JPEG renditions with
+`pnpm import:atlas-photos`. Validate with `pnpm validate:atlas`. After atlas or
+space photo imports change caption or rendition metadata, refresh Cleo’s slim zoom index with
 `pnpm generate:cleo-topic-photo-zoom`. Originals stay in `.atlas-originals/` (gitignored);
 public assets are under `public/images/atlas/{slug}/` and are served as static
-files with browser `srcset` — no account, CDN, or `/_next/image` re-encode at
-runtime.
+files with browser `srcset` (up to 640/1280/2048px, never falsely upscaled) —
+no account, CDN, or `/_next/image` re-encode at runtime.
 
 Space field guides live in `lib/space.ts` (Solar System, Moons, Deep Space —
 planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
-`/space/[slug]`. Curated NASA photographs are imported with
-`pnpm import:space-photos` into `public/images/space/{slug}/` and
-`content/space-photos.json`; validate with `pnpm validate:space`. The Gallery
-at `/gallery` shows both Explore place photos and Space body photos.
+`/space/[slug]`. Curate the reviewed three-image NASA set with
+`pnpm curate:space-photos`, then import it with `pnpm import:space-photos`
+into `public/images/space/{slug}/` and `content/space-photos.json`; validate
+with `pnpm validate:space`. The Gallery at `/gallery` shows the editor-selected
+featured photograph for each Explore place and Space body; guides and Cleo
+retain all three curated views.
 The Topics catalog in `lib/topics.ts` lists Countries and Space.
 
 Picking up work? Read `docs/handoff.md` for site status, then this file for the
@@ -86,15 +89,17 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   partial answers; hard `error` is for true failures.
 - Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
   may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
-  grounds matching subjects on each turn); Streamdown only allows
+  grounds every image in matching subject sets on each turn, so Cleo can choose
+  one view or show all three when asked); Streamdown only allows
   `/images/atlas|space/...` paths. Those Markdown photos (and attachment /
   generated data-URL images) use the shared `ZoomImage` lightbox — curated
   topic photos resolve Gallery-parity caption plates via
   `content/cleo-topic-photo-zoom.json` (`pnpm generate:cleo-topic-photo-zoom`,
   kept in sync by `lib/cleo/topic-photo-zoom.test.ts`).
 - Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
-  `components/cleo/ask-form.tsx` (click submits immediately). Guide deep-links
-  are inline Markdown in the reply (no separate chip row).
+  `components/cleo/ask-form.tsx` (click submits immediately, including the
+  full Japan photo-set prompt). Guide deep-links are inline Markdown in the
+  reply (no separate chip row).
 - Location: the dock’s Preferences panel owns an opt-in Location switch,
   persisted in browser storage and disabled by default. When enabled,
   `lib/cleo/client-location.ts` requests one fresh high-accuracy browser

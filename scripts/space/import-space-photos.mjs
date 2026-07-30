@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * NASA / agency imagery → optimized local Space renditions.
+ * NASA / agency image sets → optimized local Space renditions.
  *
  * Import-time only (no account/API key required at runtime):
  * 1. Download each curated JPEG once
- * 2. Strip metadata, write mozjpeg 640 / 1280 / 2048px files under
- *    public/images/space/{slug}/
+ * 2. Strip metadata, write three mozjpeg renditions for each of three
+ *    photographs under public/images/space/{slug}/
  * 3. Write credits + checksum + rendition metadata into content/space-photos.json
  *
  * The app serves those static files directly — never via a CDN account or
@@ -31,7 +31,13 @@ const PUBLIC_SPACE = join(root, 'public/images/space')
 const sourcesPath = join(root, 'scripts/space/space-photo-sources.json')
 const outputPath = join(root, 'content/space-photos.json')
 
-const sources = JSON.parse(readFileSync(sourcesPath, 'utf8'))
+const rawSources = JSON.parse(readFileSync(sourcesPath, 'utf8'))
+const sources = Object.fromEntries(
+  Object.entries(rawSources).map(([slug, value]) => [
+    slug,
+    Array.isArray(value) ? value : [value],
+  ]),
+)
 const existing = existsSync(outputPath)
   ? JSON.parse(readFileSync(outputPath, 'utf8'))
   : {}
@@ -58,7 +64,11 @@ async function downloadOriginal(slug, url, dest) {
   return buffer
 }
 
-async function buildRenditions(slug, originalBuffer) {
+function renditionFilename(width, photoIndex) {
+  return `w${width}${photoIndex === 0 ? '' : `-${photoIndex + 1}`}.jpg`
+}
+
+async function buildRenditions(slug, photoIndex, originalBuffer) {
   const dir = join(PUBLIC_SPACE, slug)
   mkdirSync(dir, { recursive: true })
   const meta = await sharp(originalBuffer).metadata()
@@ -69,8 +79,10 @@ async function buildRenditions(slug, originalBuffer) {
   }
 
   const renditions = []
+  const emittedWidths = new Set()
   for (const targetWidth of WIDTHS) {
-    const outPath = join(dir, `w${targetWidth}.jpg`)
+    const filename = renditionFilename(targetWidth, photoIndex)
+    const outPath = join(dir, filename)
     const out = await sharp(originalBuffer)
       .rotate()
       .resize({
@@ -86,10 +98,23 @@ async function buildRenditions(slug, originalBuffer) {
       })
       .withMetadata({ orientation: undefined })
       .toBuffer()
+
+    const renditionMeta = await sharp(out).metadata()
+    const renditionWidth = renditionMeta.width ?? 0
+    if (!(renditionWidth > 0)) {
+      throw new Error(`Invalid rendition dimensions for ${slug}`)
+    }
+    // Do not emit repeated descriptors when the source is smaller than the
+    // requested breakpoints; stale duplicate files are removed on re-import.
+    if (emittedWidths.has(renditionWidth)) {
+      if (existsSync(outPath)) rmSync(outPath)
+      continue
+    }
     writeFileSync(outPath, out)
+    emittedWidths.add(renditionWidth)
     renditions.push({
-      width: targetWidth,
-      src: `/images/space/${slug}/w${targetWidth}.jpg`,
+      width: renditionWidth,
+      src: `/images/space/${slug}/${filename}`,
       bytes: out.byteLength,
     })
   }
@@ -102,51 +127,64 @@ const only = process.argv.includes('--only')
   : null
 const force = process.argv.includes('--force')
 const slugs = only ?? Object.keys(sources)
-const photos = { ...existing }
+const photoSets = { ...existing }
 const errors = []
 let index = 0
 
 for (const slug of slugs) {
   index++
-  const source = sources[slug]
+  const sourceRows = sources[slug]
   const label = `[${index}/${slugs.length}] ${slug}`
-  if (!source) {
-    errors.push(`${slug}: missing from space-photo-sources.json`)
-    continue
-  }
-  if (
-    !force &&
-    photos[slug]?.renditions?.length === 3 &&
-    photos[slug]?.nasaId === source.nasaId
-  ) {
-    console.log(`${label} skip (cached)`)
+  if (!Array.isArray(sourceRows) || sourceRows.length !== 3) {
+    errors.push(`${slug}: needs exactly three curated NASA sources`)
     continue
   }
 
   try {
     process.stdout.write(`${label}… `)
-    const originalPath = join(ORIGINALS, `${source.nasaId}.jpg`)
-    if (existsSync(originalPath) && readFileSync(originalPath).byteLength < 1000) {
-      rmSync(originalPath)
-    }
-    const original = await downloadOriginal(slug, source.downloadUrl, originalPath)
-    const checksum = createHash('sha256').update(original).digest('hex')
-    const { width, height, renditions } = await buildRenditions(slug, original)
+    const existingRows = Array.isArray(photoSets[slug])
+      ? photoSets[slug]
+      : photoSets[slug]
+        ? [photoSets[slug]]
+        : []
+    const records = []
 
-    photos[slug] = {
-      featureName: source.featureName,
-      alt: `${source.featureName} — ${slug.replace(/-/g, ' ')}`,
-      caption: `${source.featureName}`,
-      photographer: source.credit,
-      sourceUrl: source.sourceUrl,
-      license: source.license,
-      nasaId: source.nasaId,
-      provenance: `Curated from NASA image ${source.nasaId}; imported locally with metadata stripped; originals kept outside the public tree.`,
-      checksum,
-      width,
-      height,
-      renditions,
+    for (const [photoIndex, source] of sourceRows.entries()) {
+      const cached = existingRows[photoIndex]
+      if (
+        !force &&
+        cached?.renditions?.length === 3 &&
+        cached.nasaId === source.nasaId
+      ) {
+        records.push(cached)
+        continue
+      }
+
+      const originalPath = join(ORIGINALS, `${source.nasaId}-${photoIndex + 1}.jpg`)
+      if (existsSync(originalPath) && readFileSync(originalPath).byteLength < 1000) {
+        rmSync(originalPath)
+      }
+      const original = await downloadOriginal(slug, source.downloadUrl, originalPath)
+      const checksum = createHash('sha256').update(original).digest('hex')
+      const { width, height, renditions } = await buildRenditions(slug, photoIndex, original)
+
+      records.push({
+        featureName: source.featureName,
+        alt: `${source.featureName} — ${slug.replace(/-/g, ' ')}`,
+        caption: `${source.featureName}`,
+        photographer: source.credit,
+        sourceUrl: source.sourceUrl,
+        license: source.license,
+        nasaId: source.nasaId,
+        provenance: `Curated from NASA image ${source.nasaId}; imported locally with metadata stripped; originals kept outside the public tree.`,
+        checksum,
+        width,
+        height,
+        renditions,
+      })
     }
+
+    photoSets[slug] = records
     console.log('ok')
   } catch (error) {
     console.log('FAIL')
@@ -154,13 +192,13 @@ for (const slug of slugs) {
   }
 }
 
-writeFileSync(outputPath, `${JSON.stringify(photos, null, 2)}\n`)
+writeFileSync(outputPath, `${JSON.stringify(photoSets, null, 2)}\n`)
 
 if (errors.length) {
   console.error('\nImport failures:\n' + errors.join('\n'))
   process.exit(1)
 }
 
-console.log(`\nWrote content/space-photos.json (${Object.keys(photos).length} subjects)`)
+console.log(`\nWrote content/space-photos.json (${Object.keys(photoSets).length} subjects × 3 photographs)`)
 console.log(`Renditions under public/images/space/`)
 console.log(`Originals under .space-originals/ (keep gitignored)`)

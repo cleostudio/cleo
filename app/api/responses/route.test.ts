@@ -650,7 +650,7 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     })
   })
 
-  it("grounds topic photograph paths when the user asks about a catalog subject", async () => {
+  it("grounds complete topic photograph sets when the user asks about a catalog subject", async () => {
     openai.create.mockResolvedValueOnce(
       responseStream([{ delta: "ok", type: "response.output_text.delta" }])
     )
@@ -660,6 +660,10 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     const instructions = openai.create.mock.calls[0]?.[0].instructions as string
     expect(instructions).toContain("<cleo_topic_photos>")
     expect(instructions).toContain("![Mount Fuji](/images/atlas/japan/w1280.jpg)")
-    expect(instructions).toContain("You MAY and SHOULD include the curated photograph")
+    expect(instructions).toContain(
+      "![Hiroshima Peace Memorial](/images/atlas/japan/w1280-2.jpg)"
+    )
+    expect(instructions).toContain("![Kyoto Temples](/images/atlas/japan/w1280-3.jpg)")
+    expect(instructions).toContain("embed every listed photograph")
   })
 })

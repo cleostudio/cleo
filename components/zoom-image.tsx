@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState, type MouseEvent } from 'react
 import { createPortal } from 'react-dom'
 
 import { localize, useLocale } from '~/lib/locale-client'
+import { cn } from '~/lib/utils'
 
 const VIEWPORT_PAD = 32
 const DEFAULT_ROOT_FONT_SIZE = 16
@@ -33,6 +34,7 @@ interface ZoomImageProps {
   height: number
   sizes?: string
   className?: string
+  triggerClassName?: string
   style?: React.CSSProperties
   renditions?: ReadonlyArray<ZoomImageRendition>
   expandedContent?: React.ReactNode
@@ -72,6 +74,7 @@ export function ZoomImage({
   height,
   sizes,
   className,
+  triggerClassName,
   style,
   renditions,
   expandedContent,
@@ -246,7 +249,7 @@ export function ZoomImage({
       <button
         ref={triggerRef}
         type="button"
-        className="zoom-trigger"
+        className={cn('zoom-trigger', triggerClassName)}
         style={style}
         aria-label={
           alt
@@ -280,6 +283,11 @@ export function ZoomImage({
             aria-modal="true"
             aria-label={alt || localize(locale, '图片', 'Image')}
             onClick={() => close('overlay')}
+            onKeyDown={(event) => {
+              if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                event.stopPropagation()
+              }
+            }}
           >
             <div className="zoom-overlay-backdrop" />
             <Image

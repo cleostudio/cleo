@@ -1,6 +1,7 @@
 /** Country Atlas — evergreen field-guide records for every Explore slug. */
 
-export type AtlasRenditionWidth = 640 | 1280 | 2048
+/** Actual intrinsic width of a generated JPEG rendition. */
+export type AtlasRenditionWidth = number
 
 export interface AtlasRendition {
   width: AtlasRenditionWidth
@@ -55,7 +56,8 @@ export interface AtlasEntry {
   places: [AtlasPlace, AtlasPlace, AtlasPlace]
   /** 2–4 source links; at least one authoritative country source. */
   sources: AtlasSource[]
-  photo: AtlasPhoto
+  /** Three distinct, locally hosted photographs: one hero plus two gallery views. */
+  photos: [AtlasPhoto, AtlasPhoto, AtlasPhoto]
 }
 
 export type AtlasManifest = Record<string, AtlasEntry>

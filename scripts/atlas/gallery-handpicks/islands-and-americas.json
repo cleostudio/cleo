@@ -1,0 +1,322 @@
+{
+  "fiji": [
+    {
+      "placeName": "Mamanuca Islands",
+      "countryName": "Fiji",
+      "code": "FJ",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Monuriki_Island_20150108.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monuriki_Island_20150108.jpg",
+      "photographer": "KhufuOsiris",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Monuriki Island 20150108.jpg",
+      "width": 5312,
+      "height": 2988,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Mamanuca Islands",
+      "countryName": "Fiji",
+      "code": "FJ",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Yanuya_shoreline.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yanuya_shoreline.jpg",
+      "photographer": "Christian Haugen",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Yanuya shoreline.jpg",
+      "width": 3900,
+      "height": 2598,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "guinea-bissau": [
+    {
+      "placeName": "Bijagos Archipelago",
+      "countryName": "Guinea-Bissau",
+      "code": "GW",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Bubaque_Rubane_view.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bubaque_Rubane_view.jpg",
+      "photographer": "Mooonswimmer",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Bubaque Rubane view.jpg",
+      "width": 2048,
+      "height": 1536,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Fortaleza d'Amura",
+      "countryName": "Guinea-Bissau",
+      "code": "GW",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Fortaleza_de_Amura%2C_entrance%2C_Bissau.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fortaleza_de_Amura,_entrance,_Bissau.jpg",
+      "photographer": "Jcornelius",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Fortaleza de Amura, entrance, Bissau.jpg",
+      "width": 4608,
+      "height": 2592,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "jamaica": [
+    {
+      "placeName": "Dunn's River Falls",
+      "countryName": "Jamaica",
+      "code": "JM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Ocho_R%C3%ADos-Jamaica03.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ocho_R%C3%ADos-Jamaica03.JPG",
+      "photographer": "Diego Delso",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Ocho Ríos-Jamaica03.JPG",
+      "width": 3264,
+      "height": 2448,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Blue Mountains",
+      "countryName": "Jamaica",
+      "code": "JM",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Fog_hangs_over_the_village_of_Section_in_the_Blue_Mountains_of_Portland_Parish%2C_Jamaica.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fog_hangs_over_the_village_of_Section_in_the_Blue_Mountains_of_Portland_Parish,_Jamaica.jpg",
+      "photographer": "Matthew.kowal",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Fog hangs over the village of Section in the Blue Mountains of Portland Parish, Jamaica.jpg",
+      "width": 6000,
+      "height": 4000,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "liberia": [
+    {
+      "placeName": "Robertsport",
+      "countryName": "Liberia",
+      "code": "LR",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/Robertsport_Liberia.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Robertsport_Liberia.jpg",
+      "photographer": "Erik Cleves Kristensen",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Robertsport Liberia.jpg",
+      "width": 4000,
+      "height": 2248,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Robertsport",
+      "countryName": "Liberia",
+      "code": "LR",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/Robertsport_hillside.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Robertsport_hillside.jpg",
+      "photographer": "mjmkeating",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Robertsport hillside.jpg",
+      "width": 3872,
+      "height": 2592,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "libya": [
+    {
+      "placeName": "Acacus Mountains",
+      "countryName": "Libya",
+      "code": "LY",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Libya_4985_Tadrart_Acacus_Luca_Galuzzi_2007.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Libya_4985_Tadrart_Acacus_Luca_Galuzzi_2007.jpg",
+      "photographer": "Luca Galuzzi ( Lucag )",
+      "license": "CC BY-SA 2.5",
+      "commonsTitle": "File:Libya 4985 Tadrart Acacus Luca Galuzzi 2007.jpg",
+      "width": 2000,
+      "height": 1333,
+      "assessments": "quality|featured|potd|poty",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Cyrene",
+      "countryName": "Libya",
+      "code": "LY",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/1Roman_theater_ancient_Cyrene_%28Cyrene%2C_Libya%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:1Roman_theater_ancient_Cyrene_(Cyrene,_Libya).jpg",
+      "photographer": "Saleh Tarab",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:1Roman theater ancient Cyrene (Cyrene, Libya).jpg",
+      "width": 6000,
+      "height": 4000,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "maldives": [
+    {
+      "placeName": "Addu Atoll",
+      "countryName": "Maldives",
+      "code": "MV",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Uninhabited_Island_%28431048502%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uninhabited_Island_(431048502).jpg",
+      "photographer": "╚ DD╔ from Male, Maldives",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Uninhabited Island (431048502).jpg",
+      "width": 2816,
+      "height": 2112,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Hulhumale",
+      "countryName": "Maldives",
+      "code": "MV",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Malediven_R%C3%BCckflug_Hulhumale_2.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malediven_R%C3%BCckflug_Hulhumale_2.jpg",
+      "photographer": "Zairon",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Malediven Rückflug Hulhumale 2.jpg",
+      "width": 4542,
+      "height": 3380,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "marshall-islands": [
+    {
+      "placeName": "Bikini Atoll",
+      "countryName": "Marshall Islands",
+      "code": "MH",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/BikiniAtoll.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:BikiniAtoll.jpg",
+      "photographer": "Fashionby He",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:BikiniAtoll.jpg",
+      "width": 3456,
+      "height": 2304,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Majuro Lagoon",
+      "countryName": "Marshall Islands",
+      "code": "MH",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Bikrin_Islet_28.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bikrin_Islet_28.JPG",
+      "photographer": "Cliff Hansen",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Bikrin Islet 28.JPG",
+      "width": 2592,
+      "height": 1944,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "nauru": [
+    {
+      "placeName": "Anibare Bay",
+      "countryName": "Nauru",
+      "code": "NR",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Evening_Reflections_-_Nauru_-_South_Pacific.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Evening_Reflections_-_Nauru_-_South_Pacific.jpg",
+      "photographer": "Hadi Zaher from Melbourne, Australia",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Evening Reflections - Nauru - South Pacific.jpg",
+      "width": 6000,
+      "height": 4000,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Buada Lagoon",
+      "countryName": "Nauru",
+      "code": "NR",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Buada_Lagoon%2C_Nauru_2007.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Buada_Lagoon,_Nauru_2007.jpg",
+      "photographer": "Lorrie Graham/AusAID",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Buada Lagoon, Nauru 2007.jpg",
+      "width": 4288,
+      "height": 2848,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "netherlands": [
+    {
+      "placeName": "Kinderdijk",
+      "countryName": "Netherlands",
+      "code": "NL",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Overwaard_Mill_No.4%2C_sunrise.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Overwaard_Mill_No.4,_sunrise.jpg",
+      "photographer": "Dmytro Balkhovitin",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Overwaard Mill No.4, sunrise.jpg",
+      "width": 4256,
+      "height": 2832,
+      "assessments": "featured",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Keukenhof Region",
+      "countryName": "Netherlands",
+      "code": "NL",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Keukenhof_2018_DSC_0013.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Keukenhof_2018_DSC_0013.jpg",
+      "photographer": "Atamari",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Keukenhof 2018 DSC 0013.jpg",
+      "width": 6000,
+      "height": 4000,
+      "assessments": "quality",
+      "score": 0,
+      "handpick": true
+    }
+  ],
+  "papua-new-guinea": [
+    {
+      "placeName": "Rabaul Volcanoes",
+      "countryName": "Papua New Guinea",
+      "code": "PG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Tavurvur_volcano_edit.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tavurvur_volcano_edit.jpg",
+      "photographer": "Taro Taylor edit by Richard Bartz",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Tavurvur volcano edit.jpg",
+      "width": 3844,
+      "height": 2544,
+      "assessments": "featured|potd|poty",
+      "score": 0,
+      "handpick": true
+    },
+    {
+      "placeName": "Sepik River",
+      "countryName": "Papua New Guinea",
+      "code": "PG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sepik_River_IMG_2197.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sepik_River_IMG_2197.jpg",
+      "photographer": "David Bacon",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Sepik River IMG 2197.jpg",
+      "width": 2816,
+      "height": 2112,
+      "assessments": "",
+      "score": 0,
+      "handpick": true
+    }
+  ]
+}

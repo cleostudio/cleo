@@ -21,6 +21,9 @@ describe('PlaceGalleryToolbar', () => {
           <li data-gallery-item data-search-text="Mars space">
             Mars
           </li>
+          <li data-gallery-item data-search-text="Marshall Islands Majuro Lagoon country">
+            Marshall Islands
+          </li>
         </ul>
         <p data-gallery-empty hidden>
           No photographs match that search.
@@ -43,8 +46,12 @@ describe('PlaceGalleryToolbar', () => {
     const mars = screen
       .getByText('Mars')
       .closest('[data-gallery-item]') as HTMLElement | null
+    const marshall = screen
+      .getByText('Marshall Islands')
+      .closest('[data-gallery-item]') as HTMLElement | null
     expect(france?.hidden).toBe(true)
     expect(mars?.hidden).toBe(false)
+    expect(marshall?.hidden).toBe(true)
 
     fireEvent.change(screen.getByRole('searchbox'), {
       target: { value: 'nowhere' },

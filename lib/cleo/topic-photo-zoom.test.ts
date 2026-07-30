@@ -5,7 +5,8 @@ import {
   topicPhotoZoomForSrc,
   topicPhotoZoomKeyFromSrc,
 } from '~/lib/cleo/topic-photo-zoom'
-import { allGalleryItems } from '~/lib/gallery'
+import { allTopicPhotoItems } from '~/lib/gallery'
+import { staticRendition } from '~/lib/static-photo'
 
 describe('topicPhotoZoomKeyFromSrc', () => {
   it('parses curated atlas and space paths', () => {
@@ -15,23 +16,29 @@ describe('topicPhotoZoomKeyFromSrc', () => {
     expect(topicPhotoZoomKeyFromSrc('/images/space/mars/w640.jpg')).toBe(
       'space/mars',
     )
+    expect(topicPhotoZoomKeyFromSrc('/images/atlas/japan/w1280-2.jpg')).toBe(
+      'atlas/japan-2',
+    )
+    expect(topicPhotoZoomKeyFromSrc('/images/space/mars/w2048-3.jpg')).toBe(
+      'space/mars-3',
+    )
   })
 
   it('rejects non-curated paths', () => {
     expect(topicPhotoZoomKeyFromSrc('https://evil.example/x.jpg')).toBeNull()
     expect(topicPhotoZoomKeyFromSrc('/images/other/x.jpg')).toBeNull()
+    expect(topicPhotoZoomForSrc('/images/space/sun/w2048.jpg')).toBeNull()
   })
 })
 
 describe('topicPhotoZoomForSrc', () => {
   it('stays in parity with Gallery catalog fields', () => {
-    const items = allGalleryItems()
+    const items = allTopicPhotoItems()
     expect(items.length).toBeGreaterThan(0)
 
     for (const item of items) {
-      const mid = item.photo.renditions.find((r) => r.width === 1280)
-      expect(mid, item.id).toBeTruthy()
-      const zoom = topicPhotoZoomForSrc(mid!.src)
+      const display = staticRendition(item.photo, 1280)
+      const zoom = topicPhotoZoomForSrc(display.src)
       expect(zoom, item.id).toBeTruthy()
       expect(zoom!.collection).toBe(item.collection)
       expect(zoom!.title).toBe(item.title)

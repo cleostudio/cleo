@@ -28,8 +28,10 @@
     "generate:atlas-content": "tsx scripts/atlas/generate-atlas-content.mjs",
     "write:atlas-about": "tsx scripts/atlas/write-atlas-about.mjs",
     "curate:atlas-photos": "node scripts/atlas/curate-commons-photos.mjs",
+    "apply:atlas-handpicks": "node scripts/atlas/apply-gallery-handpicks.mjs",
     "import:atlas-photos": "node scripts/atlas/import-atlas-photos.mjs",
     "validate:atlas": "tsx scripts/atlas/preflight.mjs",
+    "curate:space-photos": "node scripts/space/curate-space-photos.mjs",
     "import:space-photos": "node scripts/space/import-space-photos.mjs",
     "validate:space": "node scripts/space/preflight.mjs",
     "generate:cleo-topic-photo-zoom": "tsx scripts/cleo/generate-topic-photo-zoom.mjs",
@@ -81,6 +83,7 @@
     "tailwindcss": "^4.3.3",
     "tsx": "4.23.1",
     "typescript": "^6.0.3",
+    "vercel": "^58.4.0",
     "vitest": "^4.1.10"
   }
 }

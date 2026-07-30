@@ -20,7 +20,7 @@ export type TopicPhotoZoomRecord = {
 }
 
 const CURATED_TOPIC_IMAGE_PATH =
-  /^\/images\/(atlas|space)\/([a-z0-9-]+)\/w(640|1280|2048)\.jpg$/
+  /^\/images\/(atlas|space)\/([a-z0-9-]+)\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
 const index = topicPhotoZoom as Record<string, TopicPhotoZoomRecord>
 
@@ -28,7 +28,7 @@ const index = topicPhotoZoom as Record<string, TopicPhotoZoomRecord>
 export function topicPhotoZoomKeyFromSrc(src: string): string | null {
   const match = CURATED_TOPIC_IMAGE_PATH.exec(src)
   if (!match) return null
-  return `${match[1]}/${match[2]}`
+  return `${match[1]}/${match[2]}${match[4] ? `-${match[4]}` : ''}`
 }
 
 /** Resolve Gallery-parity zoom metadata for a curated topic photo src. */
@@ -37,5 +37,9 @@ export function topicPhotoZoomForSrc(
 ): TopicPhotoZoomRecord | null {
   const key = topicPhotoZoomKeyFromSrc(src)
   if (!key) return null
-  return index[key] ?? null
+  const record = index[key]
+  if (!record?.renditions.some((rendition) => rendition.src === src)) {
+    return null
+  }
+  return record
 }

@@ -13,7 +13,7 @@ const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
 
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space)\/([a-z0-9-]+)\/w(640|1280|2048)\.jpg$/
+  /^\/images\/(atlas|space)\/([a-z0-9-]+)\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
 function guideExists(collection: "explore" | "space", slug: string) {
   if (collection === "explore") {
@@ -28,9 +28,19 @@ function curatedImageExists(src: string) {
   const collection = match[1]
   const slug = match[2]!
   if (collection === "atlas") {
-    return Boolean(getAtlasEntry(slug))
+    const entry = getAtlasEntry(slug)
+    return Boolean(
+      entry?.photos.some((photo) =>
+        photo.renditions.some((rendition) => rendition.src === src),
+      ),
+    )
   }
-  return Boolean(getSpaceSubject(slug))
+  const subject = getSpaceSubject(slug)
+  return Boolean(
+    subject?.photos.some((photo) =>
+      photo.renditions.some((rendition) => rendition.src === src),
+    ),
+  )
 }
 
 /**
