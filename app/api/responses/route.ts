@@ -17,6 +17,14 @@ type CleoResponseCreateParams = ResponseCreateParamsStreaming & {
 import { promptCacheKeyForConversation } from "~/lib/cleo/conversation-helpers"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
+  buildUserLocationInstructions,
+  parseUserLocation,
+} from "~/lib/cleo/location"
+import {
+  GENERATED_IMAGE_MEDIA_TYPE,
+  GENERATED_IMAGE_OUTPUT_COMPRESSION,
+  GENERATED_IMAGE_OUTPUT_FORMAT,
+  GENERATED_IMAGE_PARTIAL_IMAGES,
   MAX_IMAGES_PER_MESSAGE,
   parseImageDataUrl,
   toImageDataUrl,
@@ -52,6 +60,18 @@ const MAX_TOOL_CALLS = 8
 
 /** Allow long tool-using turns on Vercel without cutting the NDJSON stream short. */
 export const maxDuration = 90
+
+let openAIClient: OpenAI | null = null
+let openAIClientKey: string | null = null
+
+function getOpenAIClient(apiKey: string) {
+  if (!openAIClient || openAIClientKey !== apiKey) {
+    openAIClient = new OpenAI({ apiKey })
+    openAIClientKey = apiKey
+  }
+
+  return openAIClient
+}
 
 type ConversationMessage = {
   content: string
@@ -417,6 +437,20 @@ export async function POST(request: Request) {
     return parsed
   }
 
+  const locationValue =
+    typeof body === "object" && body !== null && "location" in body
+      ? body.location
+      : undefined
+  const location =
+    locationValue === undefined ? undefined : parseUserLocation(locationValue)
+
+  if (locationValue !== undefined && !location) {
+    return errorResponse(
+      "Location must include finite coordinates, a reported accuracy, and a valid IANA time zone.",
+      400
+    )
+  }
+
   const apiKey = process.env.OPENAI_API_KEY
 
   if (!apiKey) {
@@ -424,13 +458,16 @@ export async function POST(request: Request) {
     return errorResponse("The AI service is not configured.", 503)
   }
 
-  const client = new OpenAI({ apiKey })
+  const client = getOpenAIClient(apiKey)
   const input = toApiInput(parsed)
   const topicPhotos = matchTopicPhotosInText(conversationTopicText(parsed))
   const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
-  const instructions = topicPhotoInstructions
-    ? `${CLEO_INSTRUCTIONS}\n\n${topicPhotoInstructions}`
-    : CLEO_INSTRUCTIONS
+  const locationInstructions = location
+    ? buildUserLocationInstructions(location)
+    : undefined
+  const instructions = [CLEO_INSTRUCTIONS, topicPhotoInstructions, locationInstructions]
+    .filter(Boolean)
+    .join("\n\n")
   const latestUserText =
     [...parsed].reverse().find((message) => message.role === "user")?.content ??
     ""
@@ -460,10 +497,11 @@ export async function POST(request: Request) {
         { type: "web_search" },
         {
           type: "image_generation",
-          partial_images: 2,
+          partial_images: GENERATED_IMAGE_PARTIAL_IMAGES,
           quality: "auto",
           size: "auto",
-          output_format: "png",
+          output_format: GENERATED_IMAGE_OUTPUT_FORMAT,
+          output_compression: GENERATED_IMAGE_OUTPUT_COMPRESSION,
         },
       ],
       prompt_cache_key: promptCacheKey,
@@ -638,7 +676,10 @@ export async function POST(request: Request) {
               enqueue(controller, {
                 type: "image",
                 id: event.item_id,
-                imageUrl: toImageDataUrl("image/png", event.partial_image_b64),
+                imageUrl: toImageDataUrl(
+                  GENERATED_IMAGE_MEDIA_TYPE,
+                  event.partial_image_b64
+                ),
                 partial: true,
               })
               continue
@@ -690,7 +731,10 @@ export async function POST(request: Request) {
                   enqueue(controller, {
                     type: "image",
                     id: event.item.id,
-                    imageUrl: toImageDataUrl("image/png", event.item.result),
+                    imageUrl: toImageDataUrl(
+                      GENERATED_IMAGE_MEDIA_TYPE,
+                      event.item.result
+                    ),
                   })
                 }
               }
@@ -721,6 +765,8 @@ export async function POST(request: Request) {
               const reason = event.response.incomplete_details?.reason
               const mapped = incompleteReasonFromApi(reason)
 
+              // Soft-incomplete when usable content already streamed; hard
+              // error only when the turn produced nothing visible.
               if (emittedText || emittedImage) {
                 incompleteNotice = mapped
               } else {

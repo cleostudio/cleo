@@ -161,6 +161,65 @@ describe("POST /api/responses: request validation", () => {
   })
 })
 
+describe("POST /api/responses: opt-in location context", () => {
+  it.each([
+    [
+      "coordinates outside the valid range",
+      {
+        accuracy: 12,
+        latitude: 91,
+        longitude: -122.4194,
+        timeZone: "America/Los_Angeles",
+      },
+    ],
+    [
+      "an invalid time zone",
+      {
+        accuracy: 12,
+        latitude: 37.7749,
+        longitude: -122.4194,
+        timeZone: "not/a-time-zone",
+      },
+    ],
+  ])("rejects %s", async (_label, location) => {
+    const response = await POST(ask({ ...question, location }))
+
+    expect(response.status).toBe(400)
+    await expect(response.json()).resolves.toEqual({
+      error:
+        "Location must include finite coordinates, a reported accuracy, and a valid IANA time zone.",
+    })
+    expect(openai.create).not.toHaveBeenCalled()
+  })
+
+  it("adds explicitly shared location only to private request instructions", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "A local answer.", type: "response.output_text.delta" }])
+    )
+
+    await POST(
+      ask({
+        ...question,
+        location: {
+          accuracy: 12.4,
+          latitude: 37.7749,
+          longitude: -122.4194,
+          timeZone: "America/Los_Angeles",
+        },
+      })
+    )
+
+    const request = openai.create.mock.calls[0]?.[0]
+
+    expect(request.instructions).toContain("<cleo_user_location>")
+    expect(request.instructions).toContain("Latitude: 37.77490")
+    expect(request.instructions).toContain("Longitude: -122.41940")
+    expect(request.instructions).toContain("IANA time zone: America/Los_Angeles")
+    expect(request.instructions).toContain("never volunteer it")
+    expect(request.input[0].content).toBe("Tell me about Japan")
+  })
+})
+
 describe("POST /api/responses: image attachments", () => {
   it.each([
     ["a non-image data URL", "data:text/html;base64,PHNjcmlwdD4="],
@@ -393,6 +452,61 @@ describe("POST /api/responses: streaming and upstream errors", () => {
         (tool: { type: string }) => tool.type
       )
     ).toEqual(["web_search", "image_generation"])
+    expect(
+      openai.create.mock.calls[0]?.[0].tools.find(
+        (tool: { type: string }) => tool.type === "image_generation"
+      )
+    ).toMatchObject({
+      output_compression: 85,
+      output_format: "jpeg",
+      partial_images: 1,
+    })
+  })
+
+  it("streams generated images as jpeg data URLs", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        {
+          item: {
+            id: "img_1",
+            status: "in_progress",
+            type: "image_generation_call",
+          },
+          type: "response.output_item.added",
+        },
+        {
+          item_id: "img_1",
+          partial_image_b64: "partialbytes",
+          type: "response.image_generation_call.partial_image",
+        },
+        {
+          item: {
+            id: "img_1",
+            result: "finalbytes",
+            status: "completed",
+            type: "image_generation_call",
+          },
+          type: "response.output_item.done",
+        },
+      ])
+    )
+
+    const events = await ndjson(await POST(ask(question)))
+    const images = events.filter((event) => event.type === "image")
+
+    expect(images).toEqual([
+      {
+        id: "img_1",
+        imageUrl: "data:image/jpeg;base64,partialbytes",
+        partial: true,
+        type: "image",
+      },
+      {
+        id: "img_1",
+        imageUrl: "data:image/jpeg;base64,finalbytes",
+        type: "image",
+      },
+    ])
   })
 
   it("uses low reasoning effort for short social turns", async () => {

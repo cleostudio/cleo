@@ -4,6 +4,12 @@ export const MAX_IMAGES_PER_MESSAGE = 4
 export const MAX_IMAGE_BYTES = 4 * 1024 * 1024
 export const MAX_IMAGE_DIMENSION = 2048
 
+/** Responses `image_generation` output — jpeg keeps multi-turn payloads smaller. */
+export const GENERATED_IMAGE_MEDIA_TYPE = "image/jpeg" as const
+export const GENERATED_IMAGE_OUTPUT_FORMAT = "jpeg" as const
+export const GENERATED_IMAGE_OUTPUT_COMPRESSION = 85
+export const GENERATED_IMAGE_PARTIAL_IMAGES = 1
+
 export const ACCEPTED_IMAGE_MIME_TYPES = [
   "image/png",
   "image/jpeg",

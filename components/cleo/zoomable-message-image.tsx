@@ -26,6 +26,8 @@ export function ZoomableMessageImage({
 
   useEffect(() => {
     let cancelled = false
+    // Drop stale geometry while a partial → final (or swapped) src loads.
+    setSize(null)
     const probe = new window.Image()
     probe.decoding = 'async'
     probe.onload = () => {

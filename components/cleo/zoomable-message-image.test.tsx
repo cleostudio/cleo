@@ -67,4 +67,39 @@ describe('ZoomableMessageImage', () => {
       await Promise.resolve()
     })
   })
+
+  it('resets measured size when the image src changes', async () => {
+    const { rerender } = render(
+      <ZoomableMessageImage
+        alt="Generated image 1"
+        src="data:image/jpeg;base64,partial"
+      />,
+    )
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole('button', { name: 'Zoom image: Generated image 1' }),
+      ).toBeTruthy()
+    })
+
+    rerender(
+      <ZoomableMessageImage
+        alt="Generated image 1"
+        src="data:image/jpeg;base64,final"
+      />,
+    )
+
+    expect(
+      screen.queryByRole('button', { name: 'Zoom image: Generated image 1' }),
+    ).toBeNull()
+    expect(screen.getByAltText('Generated image 1').getAttribute('src')).toBe(
+      'data:image/jpeg;base64,final',
+    )
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole('button', { name: 'Zoom image: Generated image 1' }),
+      ).toBeTruthy()
+    })
+  })
 })

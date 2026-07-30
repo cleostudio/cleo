@@ -67,15 +67,18 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 ## Cleo agent surface
 
 - UI: `components/cleo/ask-form.tsx` owns messages, image attachments,
-  cancellation, NDJSON stream consumption, rAF-batched UI updates, and
-  Retry/Continue recovery for incomplete or failed turns. The page shell is
+  cancellation, browser-permission location sync, NDJSON stream consumption,
+  rAF-batched UI updates, and Retry/Continue recovery for incomplete or failed
+  turns. The page shell is
   `app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
   (`G` then `C`).
 - API: `app/api/responses/route.ts` validates messages (including image data
-  URLs) and calls the OpenAI Responses API with `gpt-5.6-terra`, `web_search`,
-  `image_generation`, adaptive reasoning effort, encrypted reasoning replay
-  (`reasoning.context: "all_turns"`), `max_tool_calls`, `truncation: "auto"`,
-  prompt caching, streaming, `maxDuration` 90s, and `store: false`.
+  URLs) and optional, browser-authorized location context before calling the
+  OpenAI Responses API with `gpt-5.6-terra`, `web_search`, and
+  `image_generation` (jpeg + compression, one partial preview), adaptive
+  reasoning effort, encrypted reasoning replay (`reasoning.context: "all_turns"`),
+  `max_tool_calls`, `truncation: "auto"`, prompt caching, streaming,
+  `maxDuration` 90s, and `store: false`.
 - Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
   `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
   Invented Explore/Space paths are stripped in Markdown via
@@ -96,13 +99,25 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   `components/cleo/ask-form.tsx` (click submits immediately, including the
   full Japan photo-set prompt). Guide deep-links are inline Markdown in the
   reply (no separate chip row).
+- Location: the dock’s Preferences panel owns an opt-in Location switch,
+  persisted in browser storage and disabled by default. When enabled,
+  `lib/cleo/client-location.ts` requests one fresh high-accuracy browser
+  position; `components/cleo/ask-form.tsx` includes it and the IANA time zone
+  with each request, and `components/footer-coordinates.tsx` may render it.
+  Turning the switch off clears in-memory location immediately.
+  `lib/cleo/location.ts` validates coordinates, accuracy, and time zone
+  server-side, then adds them only to private per-turn instructions, never
+  visible messages. Browser location settings remain the control for granting
+  or revoking device access.
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 
-Conversation state is browser-only and clears on reload. Encrypted reasoning
-items are kept in memory for the tab session so multi-turn replies stay
-coherent under `store: false`. There is no authentication, database, media
-library, or AMA booking.
+Conversation state, the current location value, and encrypted reasoning items
+are browser-only. Conversation state clears on reload; the dock’s location
+preference persists in browser storage and controls whether the next session
+can refresh location. Reasoning items keep multi-turn replies coherent under
+`store: false`. There is no authentication, database, media library, or AMA
+booking.
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,
@@ -112,7 +127,11 @@ endpoints are served after deploy.
 
 `POST /api/responses` accepts at most 50 messages, 10,000 characters each and
 100,000 total, with a final `user` message. User and assistant messages may
-include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF).
+include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF). A browser-authorized
+`location` object may include finite latitude, longitude, reported accuracy,
+and a valid IANA time zone; the dock preference plus browser authorization
+control automatic inclusion, and it is ephemeral developer context rather than
+chat text.
 
 ## External APIs
 
