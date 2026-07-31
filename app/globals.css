@@ -903,25 +903,26 @@
   min-width: 0;
   align-items: baseline;
   gap: 0.5rem;
+}
+
+/* The name stays one inline run: its matched and unmatched pieces must read as
+   a single word, so no flex gap may fall between them. */
+.home-site-search-row-name {
+  min-width: 0;
   overflow: hidden;
   font-weight: var(--font-weight-medium);
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.home-site-search-row-title > span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Matched letters keep full ink and weight; the rest of a matched title
-   steps back — the selective-focus grammar applied inside one word. */
+/* Matched letters keep full ink and weight; the rest of a matched name steps
+   back — the selective-focus grammar applied inside one word. */
 .home-site-search-match {
   color: var(--foreground);
   font-weight: var(--font-weight-semibold);
 }
 
-.home-site-search-row-title[data-emphasis]
-  > span:not(.home-site-search-match, .home-site-search-row-kind) {
+.home-site-search-row-name[data-emphasis] > span:not(.home-site-search-match) {
   color: color-mix(in oklab, var(--foreground) 68%, transparent);
   font-weight: var(--font-weight-normal);
 }

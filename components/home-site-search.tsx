@@ -356,17 +356,16 @@ function SearchOptionRow({
       tabIndex={-1}
     >
       {option.row === 'ask' ? (
-        <>
-          <span className="home-site-search-row-title">
+        <span className="home-site-search-row-title">
+          <span className="home-site-search-row-name">
             <span className="home-site-search-match">{option.prompt}</span>
-            <span className="home-site-search-row-kind">Ask Cleo</span>
           </span>
-          <span className="home-site-search-row-meta">AI answer</span>
-        </>
+          <span className="home-site-search-row-kind">Ask Cleo</span>
+        </span>
       ) : (
-        <>
+        <span className="home-site-search-row-title">
           <span
-            className="home-site-search-row-title"
+            className="home-site-search-row-name"
             data-emphasis={option.result.titleMatches.length > 0 || undefined}
           >
             {splitTitleMatches(
@@ -381,15 +380,15 @@ function SearchOptionRow({
                 <span key={partIndex}>{part.text}</span>
               ),
             )}
-            <span className="home-site-search-row-kind">
-              {SITE_SEARCH_KIND_LABEL[option.result.hit.kind]}
-            </span>
           </span>
-          <span className="home-site-search-row-meta">
-            {option.result.hit.subtitle}
+          <span className="home-site-search-row-kind">
+            {SITE_SEARCH_KIND_LABEL[option.result.hit.kind]}
           </span>
-        </>
+        </span>
       )}
+      <span className="home-site-search-row-meta">
+        {option.row === 'ask' ? 'AI answer' : option.result.hit.subtitle}
+      </span>
     </Link>
   )
 }

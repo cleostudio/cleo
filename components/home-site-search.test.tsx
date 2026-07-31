@@ -130,6 +130,22 @@ describe('HomeSiteSearch', () => {
     )
   })
 
+  it('keeps a split name in one run so the pieces still read as one word', () => {
+    const field = setup()
+    type(field, 'jap')
+
+    // The pieces share a parent that sets no gap between them; hoisting them
+    // into the row's flex layout would space "Jap" away from "an".
+    const name = screen
+      .getAllByRole('option')[0]!
+      .querySelector('.home-site-search-row-name')
+    expect(name?.textContent).toBe('Japan')
+    expect([...name!.children].map((piece) => piece.textContent)).toEqual([
+      'Jap',
+      'an',
+    ])
+  })
+
   it('offers an Ask Cleo row for every query and links it to /cleo', () => {
     const field = setup()
     type(field, 'japan')
