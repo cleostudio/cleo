@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 
+import { StrictMode } from 'react'
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -226,12 +227,25 @@ describe('AskForm location context', () => {
 })
 
 describe('AskForm arrivals', () => {
+  /** Answers on the next tick, and honours the abort signal like `fetch` does. */
   function stubStream(text: string) {
     const fetchMock = vi.fn<
       (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
     >()
-    fetchMock.mockResolvedValue(
-      new Response(`${JSON.stringify({ type: 'text', delta: text })}\n`),
+    fetchMock.mockImplementation(
+      (_input, init) =>
+        new Promise((resolve, reject) => {
+          const fail = () => reject(new DOMException('Aborted', 'AbortError'))
+          if (init?.signal?.aborted) return fail()
+          init?.signal?.addEventListener('abort', fail)
+          setTimeout(
+            () =>
+              resolve(
+                new Response(`${JSON.stringify({ type: 'text', delta: text })}\n`),
+              ),
+            0,
+          )
+        }),
     )
     vi.stubGlobal('fetch', fetchMock)
     return fetchMock
@@ -286,5 +300,23 @@ describe('AskForm arrivals', () => {
     expect(sentMessages(fetchMock)).toEqual([
       { content: 'Compare Mars and Earth', role: 'user' },
     ])
+  })
+
+  it('survives a Strict Mode remount without aborting the turn', async () => {
+    const fetchMock = stubStream('Europa hides an ocean.')
+    window.history.replaceState(null, '', '/cleo?q=Why%20is%20Europa%20interesting')
+
+    render(
+      <StrictMode>
+        <AskForm />
+      </StrictMode>,
+    )
+
+    await waitFor(() => {
+      expect(screen.getByText('Europa hides an ocean.')).toBeTruthy()
+    })
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(fetchMock.mock.calls[0]?.[1]?.signal?.aborted).toBe(false)
+    expect(screen.getByRole('button', { name: 'Send' })).toBeTruthy()
   })
 })

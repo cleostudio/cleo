@@ -813,11 +813,11 @@
   appearance: none;
 }
 
-/* The keyboard affordance retires once the field is in use. */
+/* The keyboard affordance retires once the field is in use, and never shows
+   on a touch layout where there is no key to press. */
 .home-site-search-key {
   position: absolute;
   right: 0.625rem;
-  display: none;
   min-width: 1.25rem;
   padding: 0.0625rem 0.25rem;
   border: var(--border-hairline) solid var(--border);
@@ -830,15 +830,15 @@
   pointer-events: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (hover: none), (pointer: coarse) {
   .home-site-search-key {
-    display: block;
-  }
-
-  .home-site-search-input:focus ~ .home-site-search-key,
-  .home-site-search-input:not(:placeholder-shown) ~ .home-site-search-key {
     display: none;
   }
+}
+
+.home-site-search-input:focus ~ .home-site-search-key,
+.home-site-search-input:not(:placeholder-shown) ~ .home-site-search-key {
+  display: none;
 }
 
 .home-site-search-panel {
@@ -923,6 +923,7 @@
 .home-site-search-row-title[data-emphasis]
   > span:not(.home-site-search-match, .home-site-search-row-kind) {
   color: color-mix(in oklab, var(--foreground) 68%, transparent);
+  font-weight: var(--font-weight-normal);
 }
 
 .home-site-search-row-kind {

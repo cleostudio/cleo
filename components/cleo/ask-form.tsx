@@ -408,16 +408,31 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string } = {}) {
   const sendTurnRef = useRef<(request: TurnRequest) => Promise<void>>(
     async () => undefined
   )
-  const askedOnArrivalRef = useRef(false)
+  // undefined: not read yet · string: waiting to be asked · null: done or none.
+  const arrivalQuestionRef = useRef<string | null | undefined>(undefined)
 
   // A handoff from elsewhere on the site — the homepage search bar, or a shared
   // `/cleo?q=…` link — asks its question once, on arrival.
+  //
+  // The question is read from the URL on the first pass and held here, because
+  // reading it also strips the parameter. Sending waits a tick and cancels on
+  // cleanup, so a remount cancels the attempt outright instead of aborting a
+  // request that is already in flight.
   useEffect(() => {
-    if (askedOnArrivalRef.current) return
-    const question = (initialPrompt ?? takeCleoPromptFromLocation())?.trim()
+    if (arrivalQuestionRef.current === undefined) {
+      arrivalQuestionRef.current =
+        (initialPrompt ?? takeCleoPromptFromLocation())?.trim() || null
+    }
+
+    const question = arrivalQuestionRef.current
     if (!question) return
-    askedOnArrivalRef.current = true
-    void sendTurnRef.current({ history: [], question, userImages: [] })
+
+    const timer = window.setTimeout(() => {
+      arrivalQuestionRef.current = null
+      void sendTurnRef.current({ history: [], question, userImages: [] })
+    }, 0)
+
+    return () => window.clearTimeout(timer)
   }, [initialPrompt])
 
   function handleStop() {
