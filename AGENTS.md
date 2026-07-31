@@ -2,8 +2,8 @@
 
 This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
 portal starting with countries and space. The homepage is a neutral portal
-(unified topic search, highlighted places, topic discovery, recent Writing
-posts). Explore field guides live
+(one search bar over everything, highlighted places, topic discovery, recent
+Writing posts). Explore field guides live
 at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
 `/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
 layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
@@ -60,6 +60,34 @@ colors only — never a hex, never a raw `--gray-N` in a component. Two easings
 cali.so is a design decision: record it in both the deviations table and
 `presetDeviations`.
 
+## Homepage search
+
+One field searches the whole portal and can hand the question to Cleo.
+
+- Catalog: `lib/site-search-catalog.ts` (Server Components only) indexes topic
+ collections, every country guide, every Space guide, the editor-selected
+ photograph for each subject, every Writing post, and the portal surfaces.
+ Hits stay thin — `keywords` holds only terms the title and subtitle miss, and
+ each kind's vocabulary ("photograph", "essay") is indexed on the client.
+- Engine: `lib/site-search.ts` (client-safe, pure) folds accents, drops
+ function words, scores each query token against titles / initialisms /
+ keywords, tolerates one typo in words of five letters or more, and gates the
+ tail on coverage and minimum relevance. It also returns the matched title
+ ranges the UI emphasizes, and `looksLikeCleoRequest` for question-shaped
+ queries.
+- UI: `components/home-site-search.tsx` is a grouped ARIA combobox with
+ keyboard navigation, `/` and ⌘K focus, and an Ask Cleo row (last for a
+ lookup, first for a question). Return opens the highlighted row;
+ ⌘/Ctrl-Return always asks Cleo.
+- Handoff: `lib/cleo/ask-link.ts` builds `/cleo?q=…`. `AskForm` reads it from
+ `location` on mount, asks once, and strips the parameter — so `/cleo` stays
+ prerendered and a reload does not re-run the turn.
+- Photo results deep-link to their gallery tile via `galleryItemDomId`
+ (`lib/gallery.ts`), which `components/place-gallery.tsx` renders as the tile
+ id. `components/place-gallery-target.tsx` rings the arriving tile — browsers
+ do not recompute `:target` for App Router hash pushes, so CSS alone would
+ only mark it on a cold load.
+
 ## Design notes
 
 Homepage doorway vignettes: `docs/design-language.md` § Paper-artifact doorway
@@ -68,11 +96,12 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 ## Cleo agent surface
 
 - UI: `components/cleo/ask-form.tsx` owns messages, image attachments,
-  cancellation, browser-permission location sync, NDJSON stream consumption,
-  rAF-batched UI updates, and Retry/Continue recovery for incomplete or failed
-  turns. The page shell is
-  `app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
-  (`G` then `C`).
+ cancellation, browser-permission location sync, NDJSON stream consumption,
+ rAF-batched UI updates, and Retry/Continue recovery for incomplete or failed
+ turns. It also asks the handoff question from `/cleo?q=…` (or an
+ `initialPrompt` prop) once on arrival. The page shell is
+ `app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
+ (`G` then `C`) or from the homepage search bar.
 - API: `app/api/responses/route.ts` validates messages (including image data
   URLs) and optional, browser-authorized location context before calling the
   OpenAI Responses API with `gpt-5.6-terra`, `web_search`, and
@@ -114,6 +143,9 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   settings remain the control for granting or revoking device access.
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
+
+A `/cleo?q=…` link is the only way in from outside the page. It carries at most
+1,000 characters, is consumed once, and leaves no trace in the URL afterwards.
 
 Conversation state, the current location value, and encrypted reasoning items
 are browser-only. Conversation state clears on reload; the dock’s location
@@ -163,7 +195,10 @@ Tencent, or Upstash without an explicit product decision.
 - Country media: `pnpm validate:atlas` before deploying image or manifest changes.
 - Site: relevant unit tests via `pnpm test:unit` / `pnpm test:security`.
 - Cleo: multi-turn chat, reasoning activity, web search, image attach/vision,
-  image generation, streaming, cancellation, and relevant errors.
+ image generation, streaming, cancellation, and relevant errors.
+- Homepage search: typing, keyboard navigation, the Ask Cleo row, and the
+ `/cleo?q=…` handoff (`lib/site-search.test.ts`,
+ `components/home-site-search.test.tsx`, `lib/cleo/ask-link.test.ts`).
 - UI: manually verify changed flows on desktop/mobile and light/dark.
 
 ## Cursor Cloud / Previews

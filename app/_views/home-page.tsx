@@ -9,7 +9,10 @@ import { highlightedAtlasEntries } from '~/lib/atlas'
 import { getAllPosts } from '~/lib/content'
 import { T } from '~/lib/i18n'
 import type { Locale } from '~/lib/locale-route'
-import { buildSiteSearchHits } from '~/lib/site-search-catalog'
+import {
+  buildSiteSearchHits,
+  siteSearchSpotlightIds,
+} from '~/lib/site-search-catalog'
 import { allTopics } from '~/lib/topics'
 
 const HOME_WRITING_POST_COUNT = 5
@@ -59,7 +62,10 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 
       <section className="mt-6" aria-label="Search">
         <div className="enter" style={{ '--enter-delay': '100ms' } as React.CSSProperties}>
-          <HomeSiteSearch hits={searchHits} />
+          <HomeSiteSearch
+            hits={searchHits}
+            spotlightIds={siteSearchSpotlightIds(searchHits)}
+          />
         </div>
       </section>
 

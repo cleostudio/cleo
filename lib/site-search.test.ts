@@ -1,75 +1,275 @@
 import { describe, expect, it } from 'vitest'
 
+import { allGalleryItems } from './gallery'
+import { getAllPosts } from './content'
 import { countries } from './countries'
+import {
+  createSiteSearchIndex,
+  looksLikeCleoRequest,
+  meaningfulTokens,
+  searchSiteCatalog,
+  splitTitleMatches,
+  type SiteSearchHit,
+  type SiteSearchKind,
+} from './site-search'
+import {
+  buildSiteSearchHits,
+  siteSearchSpotlightIds,
+} from './site-search-catalog'
 import { spaceSubjects } from './space'
-import { buildSiteSearchHits } from './site-search-catalog'
-import { filterSiteSearchHits } from './site-search'
 import { allTopics } from './topics'
 
+const hits = buildSiteSearchHits()
+const index = createSiteSearchIndex(hits)
+
+function search(query: string, limit = 8) {
+  return searchSiteCatalog(index, query, limit)
+}
+
+function hrefs(query: string, limit = 8) {
+  return search(query, limit).map((result) => result.hit.href)
+}
+
+function kindOf(query: string): SiteSearchKind | undefined {
+  return search(query)[0]?.hit.kind
+}
+
 describe('site search catalog', () => {
-  const hits = buildSiteSearchHits()
+  it('indexes every surface of the portal, not just the guides', () => {
+    const byKind = (kind: SiteSearchKind) =>
+      hits.filter((entry) => entry.kind === kind)
 
-  it('indexes topic collections, country guides, space guides, and portal surfaces', () => {
-    const kinds = new Set(hits.map((hit) => hit.kind))
-    expect(kinds).toEqual(new Set(['topic', 'explore', 'space', 'surface']))
+    expect(new Set(hits.map((entry) => entry.kind))).toEqual(
+      new Set(['topic', 'explore', 'space', 'photo', 'writing', 'surface']),
+    )
+    expect(byKind('topic')).toHaveLength(allTopics().length)
+    expect(byKind('explore')).toHaveLength(countries.length)
+    expect(byKind('space')).toHaveLength(spaceSubjects.length)
+    expect(byKind('photo')).toHaveLength(allGalleryItems().length)
+    expect(byKind('writing')).toHaveLength(getAllPosts().length)
 
-    expect(hits.filter((hit) => hit.kind === 'explore')).toHaveLength(countries.length)
-    expect(hits.filter((hit) => hit.kind === 'space')).toHaveLength(spaceSubjects.length)
-    expect(hits.filter((hit) => hit.kind === 'topic')).toHaveLength(allTopics().length)
-    expect(hits.some((hit) => hit.href === '/gallery')).toBe(true)
-    expect(hits.some((hit) => hit.href === '/cleo')).toBe(true)
-    expect(hits.some((hit) => hit.href === '/blog')).toBe(true)
-  })
-
-  it('keeps hits lean for the client (no guide prose fields)', () => {
-    for (const hit of hits) {
-      expect(hit).toEqual(
-        expect.objectContaining({
-          id: expect.any(String),
-          kind: expect.any(String),
-          title: expect.any(String),
-          subtitle: expect.any(String),
-          href: expect.any(String),
-          searchText: expect.any(String),
-        }),
-      )
-      expect(hit.searchText).toBe(hit.searchText.toLowerCase())
-      expect(Object.keys(hit).sort()).toEqual([
-        'href',
-        'id',
-        'kind',
-        'searchText',
-        'subtitle',
-        'title',
-      ])
+    for (const href of ['/gallery', '/cleo', '/blog', '/topics', '/']) {
+      expect(hits.some((entry) => entry.href === href)).toBe(true)
     }
   })
 
-  it('finds countries by name, code, and region', () => {
-    expect(filterSiteSearchHits(hits, 'japan')[0]).toMatchObject({
-      href: '/explore/japan',
-      kind: 'explore',
-    })
-    expect(filterSiteSearchHits(hits, 'jp')[0]?.href).toBe('/explore/japan')
-    expect(filterSiteSearchHits(hits, 'western europe').some((hit) => hit.kind === 'explore')).toBe(
+  it('keeps hits lean — no guide prose, no repeated title words', () => {
+    for (const entry of hits) {
+      expect(Object.keys(entry).sort()).toEqual(
+        entry.keywords
+          ? ['href', 'id', 'keywords', 'kind', 'subtitle', 'title']
+          : ['href', 'id', 'kind', 'subtitle', 'title'],
+      )
+
+      const keywords = entry.keywords?.split(' ') ?? []
+      const indexed = new Set(
+        `${entry.title} ${entry.subtitle}`.toLowerCase().match(/[\p{L}\p{N}]+/gu),
+      )
+      expect(keywords).toEqual([...new Set(keywords)])
+      for (const term of keywords) {
+        expect(term).toBe(term.toLowerCase())
+        expect(indexed.has(term)).toBe(false)
+      }
+    }
+  })
+
+  it('gives every hit a unique id', () => {
+    expect(new Set(hits.map((entry) => entry.id)).size).toBe(hits.length)
+  })
+
+  it('points photo hits at their gallery tile', () => {
+    const photo = hits.find((entry) => entry.kind === 'photo')
+    expect(photo?.href).toMatch(/^\/gallery#photo-(places|space)-[a-z0-9-]+$/)
+  })
+
+  it('offers spotlight ids that exist in the catalog', () => {
+    const spotlight = siteSearchSpotlightIds(hits)
+    expect(spotlight.length).toBeGreaterThan(0)
+    for (const id of spotlight) {
+      expect(hits.some((entry) => entry.id === id)).toBe(true)
+    }
+  })
+})
+
+describe('searchSiteCatalog', () => {
+  it('returns nothing for an empty query', () => {
+    expect(search('   ')).toEqual([])
+  })
+
+  it('finds countries by name, code, region, capital, and currency', () => {
+    expect(hrefs('japan')[0]).toBe('/explore/japan')
+    expect(hrefs('jp')[0]).toBe('/explore/japan')
+    expect(hrefs('tokyo')[0]).toBe('/explore/japan')
+    expect(hrefs('yen')[0]).toBe('/explore/japan')
+    expect(hrefs('western europe').every((href) => href.startsWith('/explore/'))).toBe(
       true,
     )
   })
 
-  it('finds space guides alongside countries', () => {
-    const mars = filterSiteSearchHits(hits, 'mars')
-    expect(mars[0]).toMatchObject({ href: '/space/mars', kind: 'space' })
-
-    const moon = filterSiteSearchHits(hits, 'moon')
-    expect(moon.some((hit) => hit.href === '/space/moon')).toBe(true)
+  it('resolves a whole initialism to the country it stands for', () => {
+    expect(hrefs('us')[0]).toBe('/explore/united-states')
+    expect(hrefs('uk')[0]).toBe('/explore/united-kingdom')
   })
 
-  it('ranks exact topic titles ahead of looser substring matches', () => {
-    const space = filterSiteSearchHits(hits, 'space')
-    expect(space[0]).toMatchObject({ kind: 'topic', title: 'Space', href: '/space' })
+  it('finds space guides and their features', () => {
+    expect(hrefs('mars')[0]).toBe('/space/mars')
+    expect(hrefs('europa')[0]).toBe('/space/europa')
+    expect(hrefs('moon').includes('/space/moon')).toBe(true)
+    expect(hrefs('nebula')[0]).toMatch(/^\/space\/[a-z-]+nebula$/)
+    expect(
+      search('nebula', 12).every(
+        (result) => result.hit.kind === 'space' || result.hit.kind === 'photo',
+      ),
+    ).toBe(true)
   })
 
-  it('returns nothing for an empty query', () => {
-    expect(filterSiteSearchHits(hits, '   ')).toEqual([])
+  it('finds curated photographs by the place they show', () => {
+    const [first] = search('mount fuji')
+    expect(first?.hit.kind).toBe('photo')
+    expect(first?.hit.href).toBe('/gallery#photo-places-japan')
+    expect(kindOf('blue lagoon')).toBe('photo')
   })
+
+  it('finds Writing posts by title, description, and section heading', () => {
+    const posts = getAllPosts()
+    const post = posts[0]!
+    expect(hrefs(post.title)[0]).toBe(`/blog/${post.slug}`)
+    expect(hrefs('essays')[0]).toBe('/blog')
+    expect(
+      search('essay', 12).some((result) => result.hit.kind === 'writing'),
+    ).toBe(true)
+  })
+
+  it('reaches portal surfaces by name', () => {
+    expect(hrefs('gallery')[0]).toBe('/gallery')
+    expect(hrefs('cleo')[0]).toBe('/cleo')
+    expect(hrefs('topics')[0]).toBe('/topics')
+  })
+
+  it('ranks an exact title above every looser match', () => {
+    expect(search('space')[0]?.hit).toMatchObject({
+      kind: 'topic',
+      title: 'Space',
+      href: '/space',
+    })
+    expect(search('mars')[0]?.hit.title).toBe('Mars')
+  })
+
+  it('forgives a typo in a long name', () => {
+    expect(hrefs('swizerland')[0]).toBe('/explore/switzerland')
+    expect(hrefs('portgual')[0]).toBe('/explore/portugal')
+  })
+
+  it('does not treat a short word as a typo for another', () => {
+    expect(hrefs('mars').includes('/explore/mali')).toBe(false)
+    expect(search('home')[0]?.hit.href).toBe('/')
+  })
+
+  it('folds accents so a plain-ASCII query still lands', () => {
+    expect(hrefs('cote divoire')[0]).toBe('/explore/cote-divoire')
+    expect(hrefs("côte d'ivoire")[0]).toBe('/explore/cote-divoire')
+  })
+
+  it('narrows as words are added rather than widening', () => {
+    const iceland = search('iceland', 20)
+    expect(iceland.some((result) => result.hit.kind === 'explore')).toBe(true)
+
+    // "photo" pins the intent: only photographs survive.
+    const photos = search('iceland photo', 20)
+    expect(photos.length).toBeGreaterThan(0)
+    expect(photos.every((result) => result.hit.kind === 'photo')).toBe(true)
+  })
+
+  it('drops matches that cover less of the query than the best match does', () => {
+    // "Mount Nimba" matches "mount" but not "fuji".
+    expect(hrefs('mount fuji', 20)).not.toContain('/gallery#photo-places-guinea')
+  })
+
+  it('ignores function words that would otherwise steer the ranking', () => {
+    expect(meaningfulTokens('images of iceland')).toEqual(['images', 'iceland'])
+    // "Cliffs of Moher" would win on the "of" alone.
+    expect(hrefs('images of iceland')[0]).toBe('/gallery#photo-places-iceland')
+  })
+
+  it('still matches a query made only of function words', () => {
+    expect(meaningfulTokens('is')).toEqual(['is'])
+    // IS is Iceland's country code; Israel wins the row on its title prefix.
+    expect(hrefs('is', 20)).toContain('/explore/iceland')
+    expect(hrefs('is')[0]).toBe('/explore/israel')
+  })
+
+  it('honours the result limit', () => {
+    expect(search('country', 3)).toHaveLength(3)
+  })
+
+  it('marks the matched letters of the title', () => {
+    const [japan] = search('jap')
+    expect(japan?.hit.title).toBe('Japan')
+    expect(splitTitleMatches(japan!.hit.title, japan!.titleMatches)).toEqual([
+      { text: 'Jap', match: true },
+      { text: 'an', match: false },
+    ])
+  })
+
+  it('marks accented letters at their source offsets', () => {
+    const [ivoire] = search('cote')
+    expect(ivoire?.hit.title).toBe("Côte d'Ivoire")
+    expect(splitTitleMatches(ivoire!.hit.title, ivoire!.titleMatches)).toEqual([
+      { text: 'Côte', match: true },
+      { text: " d'Ivoire", match: false },
+    ])
+  })
+
+  it('marks every matched word of a multi-word query', () => {
+    const [fuji] = search('mount fuji')
+    expect(splitTitleMatches(fuji!.hit.title, fuji!.titleMatches)).toEqual([
+      { text: 'Mount', match: true },
+      { text: ' ', match: false },
+      { text: 'Fuji', match: true },
+    ])
+  })
+
+  it('leaves a title unmarked when nothing in it matched', () => {
+    const [tokyo] = search('tokyo')
+    expect(tokyo?.hit.title).toBe('Japan')
+    expect(tokyo?.titleMatches).toEqual([])
+  })
+})
+
+describe('createSiteSearchIndex', () => {
+  it('indexes the kind label and its vocabulary without storing them per hit', () => {
+    const catalog: SiteSearchHit[] = [
+      {
+        id: 'photo:test',
+        kind: 'photo',
+        title: 'Somewhere',
+        subtitle: 'Nowhere',
+        href: '/gallery#photo-test',
+      },
+    ]
+    const results = searchSiteCatalog(
+      createSiteSearchIndex(catalog),
+      'photograph',
+    )
+    expect(results[0]?.hit.id).toBe('photo:test')
+  })
+})
+
+describe('looksLikeCleoRequest', () => {
+  it.each([
+    'why is europa interesting?',
+    'compare mars and earth',
+    'how do rivers draw nations',
+    'show me all three photos of japan',
+    'what is the capital of peru',
+  ])('reads "%s" as a question for Cleo', (query) => {
+    expect(looksLikeCleoRequest(query)).toBe(true)
+  })
+
+  it.each(['japan', 'mount fuji', 'united states', 'iss', '', '   '])(
+    'reads "%s" as a catalog lookup',
+    (query) => {
+      expect(looksLikeCleoRequest(query)).toBe(false)
+    },
+  )
 })

@@ -6,9 +6,11 @@ Current as of July 2026 (Cleo fork).
 
 English-only general-knowledge portal with:
 
-- Homepage: unified topic search (countries, space, collections, portal
-  surfaces), highlighted places, topic discovery, recent Writing posts (no
-  personal contact / music / books / photo-wall sections)
+- Homepage: one search bar over the whole portal — countries, Space bodies,
+  curated photographs, Writing posts, topic collections, portal surfaces — with
+  an Ask Cleo row that hands the question to `/cleo?q=…`; highlighted places,
+  topic discovery, recent Writing posts (no personal contact / music / books /
+  photo-wall sections)
 - MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
   country field guides, Space field guides, Topics catalog (countries and
   space first; more topics later)
@@ -28,7 +30,13 @@ document (enable both products in the Vercel project dashboard).
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
-- Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
+- Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`;
+  `galleryItemDomId` gives each tile a stable anchor for homepage photo results
+  and `components/place-gallery-target.tsx` rings the arriving tile
+- Homepage search: `lib/site-search-catalog.ts` (server catalog),
+  `lib/site-search.ts` (client ranking, accent folding, typo tolerance, match
+  emphasis), `components/home-site-search.tsx` (grouped combobox, `/` and ⌘K,
+  Ask Cleo row), `lib/cleo/ask-link.ts` (`/cleo?q=…` handoff)
 - Place images: import-time mozjpeg renditions up to 640/1280/2048px per
   photograph under `public/images/atlas/` (Wikimedia Commons curation, relevance-first +
   assessments; reviewed gaps in `scripts/atlas/gallery-handpicks/` when scoring

@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 
+import { StrictMode } from 'react'
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -74,6 +75,7 @@ beforeEach(() => {
 afterEach(() => {
   cleanup()
   window.localStorage.clear()
+  window.history.replaceState(null, '', '/')
   if (originalGeolocation) {
     Object.defineProperty(navigator, 'geolocation', originalGeolocation)
   } else {
@@ -303,5 +305,100 @@ describe('AskForm location context', () => {
       longitude: 2.3522,
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     })
+  })
+})
+
+describe('AskForm arrivals', () => {
+  /** Answers on the next tick, and honours the abort signal like `fetch` does. */
+  function stubStream(text: string) {
+    const fetchMock = vi.fn<
+      (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
+    >()
+    fetchMock.mockImplementation(
+      (_input, init) =>
+        new Promise((resolve, reject) => {
+          const fail = () => reject(new DOMException('Aborted', 'AbortError'))
+          if (init?.signal?.aborted) return fail()
+          init?.signal?.addEventListener('abort', fail)
+          setTimeout(
+            () =>
+              resolve(
+                new Response(`${JSON.stringify({ type: 'text', delta: text })}\n`),
+              ),
+            0,
+          )
+        }),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+    return fetchMock
+  }
+
+  function sentMessages(fetchMock: ReturnType<typeof stubStream>) {
+    return JSON.parse(fetchMock.mock.calls[0]?.[1]?.body as string).messages
+  }
+
+  it('waits for a question on an ordinary visit', async () => {
+    const fetchMock = stubStream('Hi')
+    window.history.replaceState(null, '', '/cleo')
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(screen.getByRole('textbox', { name: 'Message' })).toBeTruthy()
+    })
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('asks the question handed over in the URL, once, then clears it', async () => {
+    const fetchMock = stubStream('Japan sits on four plates.')
+    window.history.replaceState(null, '', '/cleo?q=Orient%20me%20to%20Japan')
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+    expect(sentMessages(fetchMock)).toEqual([
+      { content: 'Orient me to Japan', role: 'user' },
+    ])
+
+    // The transcript owns the question now, so a reload starts clean.
+    expect(window.location.search).toBe('')
+    await waitFor(() => {
+      expect(screen.getByText('Orient me to Japan')).toBeTruthy()
+      expect(screen.getByText('Japan sits on four plates.')).toBeTruthy()
+    })
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('asks a question passed in as a prop', async () => {
+    const fetchMock = stubStream('Both are rocky.')
+
+    render(<AskForm initialPrompt="Compare Mars and Earth" />)
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+    expect(sentMessages(fetchMock)).toEqual([
+      { content: 'Compare Mars and Earth', role: 'user' },
+    ])
+  })
+
+  it('survives a Strict Mode remount without aborting the turn', async () => {
+    const fetchMock = stubStream('Europa hides an ocean.')
+    window.history.replaceState(null, '', '/cleo?q=Why%20is%20Europa%20interesting')
+
+    render(
+      <StrictMode>
+        <AskForm />
+      </StrictMode>,
+    )
+
+    await waitFor(() => {
+      expect(screen.getByText('Europa hides an ocean.')).toBeTruthy()
+    })
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(fetchMock.mock.calls[0]?.[1]?.signal?.aborted).toBe(false)
+    expect(screen.getByRole('button', { name: 'Send' })).toBeTruthy()
   })
 })

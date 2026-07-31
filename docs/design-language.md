@@ -170,6 +170,7 @@ distinct small object:
 - photographs → Gallery: image-led `.link-card-with-image` (curated place JPEG,
   site line and title; no description)
 - catalog → homepage search: outlined field and cascading ruled result rows
+  (see § Homepage search for the live field)
 - Topics: `.service-card` identity head, bio, and tally foot
 - Explore: travel-folio object card (stamp, itinerary, map) with a quiet layer
   settle
@@ -178,6 +179,33 @@ distinct small object:
 
 Fine-pointer hover opens the card; touch falls back to the plain destination
 link. Cards stay informational only (`pointer-events: none` on the plate).
+
+## Homepage search
+
+One outlined field, and under it a floating plate of suggestions. The plate
+borrows the preview-card vocabulary — 2px corner, `--surface-3`, the
+printed-label shadow — so it reads as a sheet laid over the page rather than a
+second panel style. It overlays instead of pushing: the sections below stay put
+while the visitor types. On a fine pointer the field carries a small `/` key
+cap, which retires as soon as the field takes focus or content.
+
+Results arrive grouped — Topics, Countries, Space, Photographs, Writing,
+Portal — under quiet mono group labels, in the machine-text register the page
+eyebrow and section tags already use. Rows are title · kind, with the subject's
+own meta right-aligned (dropped below 40rem, where the title needs the width).
+Selective focus applies inside the title: the letters the query matched keep
+full ink at semibold, and the rest of a matched title steps back to 68%. An
+unmatched title stays whole, since there is nothing to attend to.
+
+The highlight is single and shared: arrow keys move it, and the pointer sets
+where the keyboard is, so exactly one row is ever marked. Return opens the
+marked row; ⌘/Ctrl-Return hands the query to Cleo instead. The Ask Cleo row
+closes the list for a plain name and opens it for a question — the same rows,
+reordered by what the query is asking for.
+
+A photograph result lands on its Gallery tile, which takes the ink hairline in
+place of its usual faint one — enough to say "this one" in a page of two
+hundred, and nothing more.
 
 ## Entrance choreography
 

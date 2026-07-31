@@ -18,6 +18,7 @@ import { Markdown } from "~/components/cleo/markdown"
 import { Button } from "~/components/cleo/ui/button"
 import { Input } from "~/components/cleo/ui/input"
 import { ZoomableMessageImage } from "~/components/cleo/zoomable-message-image"
+import { takeCleoPromptFromLocation } from "~/lib/cleo/ask-link"
 import {
   filesToMessageImages,
   IMAGE_ACCEPT,
@@ -267,7 +268,7 @@ const AssistantMessage = memo(function AssistantMessage({
   )
 })
 
-export function AskForm() {
+export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])
@@ -412,6 +413,32 @@ export function AskForm() {
   const sendTurnRef = useRef<(request: TurnRequest) => Promise<void>>(
     async () => undefined
   )
+  // undefined: not read yet · string: waiting to be asked · null: done or none.
+  const arrivalQuestionRef = useRef<string | null | undefined>(undefined)
+
+  // A handoff from elsewhere on the site — the homepage search bar, or a shared
+  // `/cleo?q=…` link — asks its question once, on arrival.
+  //
+  // The question is read from the URL on the first pass and held here, because
+  // reading it also strips the parameter. Sending waits a tick and cancels on
+  // cleanup, so a remount cancels the attempt outright instead of aborting a
+  // request that is already in flight.
+  useEffect(() => {
+    if (arrivalQuestionRef.current === undefined) {
+      arrivalQuestionRef.current =
+        (initialPrompt ?? takeCleoPromptFromLocation())?.trim() || null
+    }
+
+    const question = arrivalQuestionRef.current
+    if (!question) return
+
+    const timer = window.setTimeout(() => {
+      arrivalQuestionRef.current = null
+      void sendTurnRef.current({ history: [], question, userImages: [] })
+    }, 0)
+
+    return () => window.clearTimeout(timer)
+  }, [initialPrompt])
 
   function handleStop() {
     abortControllerRef.current?.abort()
