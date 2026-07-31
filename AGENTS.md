@@ -1,213 +1,88 @@
-# Cleo
+# Cleo — agent instructions
 
-This repository hosts the **Cleo** site (v3, English-only): a general-knowledge
-portal starting with countries and space. The homepage is a neutral portal
-(one search bar over everything, highlighted places, topic discovery, recent
-Writing posts). Explore field guides live
-at `/explore/[slug]`, Space guides at `/space/[slug]`, the place Gallery at
-`/gallery`, Topics at `/topics`, Writing at `/blog` (future encyclopedia-like
-layer), and the AI agent at `/cleo`. `/photos` permanently redirects to
-`/gallery`; `/projects` permanently redirects to `/topics`. Projects UI,
-vinyl/bookshelf, and social card components remain in the repo for later reuse.
+English-only general-knowledge portal (countries + space first) with a browser
+chat agent at `/cleo`. Stack: Next.js App Router, React 19, TypeScript,
+Tailwind CSS v4, Base UI. **OpenAI is the only app third-party API.**
 
-Country guide records live in `content/atlas.json` (one entry per Explore slug).
-Orientation prose is curated, not generated at build time. It lives in
-`scripts/atlas/atlas-about.json` and is written once by hand with
-`pnpm write:atlas-about` (needs `OPENAI_API_KEY`; every draft is checked for
-length, recycled phrasing, and volatile claims before it is kept). The site
-never calls a model to render a page. `lib/atlas/prose.test.ts` holds the
-corpus to that bar — no sentence may appear in two countries.
+## Start here
 
-Assemble the manifest with `pnpm generate:atlas-content`, curate three distinct,
-accurate Wikimedia Commons place photos per country with
-`pnpm curate:atlas-photos`, fill conservative search gaps with the reviewed
-`pnpm apply:atlas-handpicks`, then import optimized local JPEG renditions with
-`pnpm import:atlas-photos`. Validate with `pnpm validate:atlas`. After atlas or
-space photo imports change caption or rendition metadata, refresh Cleo’s slim zoom index with
-`pnpm generate:cleo-topic-photo-zoom`. Originals stay in `.atlas-originals/` (gitignored);
-public assets are under `public/images/atlas/{slug}/` and are served as static
-files with browser `srcset` (up to 640/1280/2048px, never falsely upscaled) —
-no account, CDN, or `/_next/image` re-encode at runtime.
+1. [`docs/handoff.md`](docs/handoff.md) — current product/status
+2. [`docs/README.md`](docs/README.md) — doc map (“read when…”)
+3. The matching runbook below before editing that subsystem
 
-Space field guides live in `lib/space.ts` (Solar System, Moons, Deep Space —
-planets, major moons, ISS, galaxies, nebulae) and render at `/space` and
-`/space/[slug]`. Curate the reviewed three-image NASA set with
-`pnpm curate:space-photos`, then import it with `pnpm import:space-photos`
-into `public/images/space/{slug}/` and `content/space-photos.json`; validate
-with `pnpm validate:space`. The Gallery at `/gallery` shows the editor-selected
-featured photograph for each Explore place and Space body; guides and Cleo
-retain all three curated views.
-The Topics catalog in `lib/topics.ts` lists Countries and Space.
+| Concern | Doc |
+| --- | --- |
+| Cleo chat / API / location / topic photos | [`docs/cleo.md`](docs/cleo.md) |
+| Homepage portal search + Ask Cleo handoff | [`docs/homepage-search.md`](docs/homepage-search.md) |
+| Explore countries, prose, Wikimedia photos | [`docs/atlas.md`](docs/atlas.md) |
+| Space guides + NASA photos | [`docs/space.md`](docs/space.md) |
+| Tokens, deviations from cali.so | [`docs/theme-preset.md`](docs/theme-preset.md) |
+| Full visual/interaction spec | [`docs/design-language.md`](docs/design-language.md) |
 
-Picking up work? Read `docs/handoff.md` for site status, then this file for the
-Cleo agent surface.
+Human onboarding: [`README.md`](README.md).
 
-## UI/UX theme preset
+## Invariants
 
-The theme is inherited from [cali.so](https://github.com/CaliCastle/cali.so),
-which this repo forks. Treat it as upstream for anything visual.
+- Public site is English-only. Legacy `/en/...` redirects to unprefixed paths.
+- `/photos` → `/gallery`, `/projects` → `/topics` (permanent). Do not restore
+  AMA, owner admin, Media Library, Clerk, Neon, Bunny, Stripe, Resend, Google,
+  Tencent, or Upstash without an explicit product decision.
+- Country orientation prose is curated (`scripts/atlas/atlas-about.json`), never
+  generated at build or request time. The site never calls a model to render a
+  page.
+- Place/space images are static JPEGs under `public/images/{atlas,space}/` with
+  browser `srcset`. No image CDN, account, or `/_next/image` re-encode at runtime.
+- Theme: semantic tokens only — never hex or raw `--gray-N` in components. Two
+  easings (`--ease-swift`, `--ease-spring`). Column widths via `max-w-content` /
+  `max-w-content-narrow`. Departures from [cali.so](https://github.com/CaliCastle/cali.so)
+  go in `docs/theme-preset.md` **and** `presetDeviations` in `lib/theme-preset.ts`.
+- Render model output through Streamdown, never raw HTML. Invented Explore/Space
+  paths are stripped by `lib/cleo/guardrails.ts`.
+- Keep `OPENAI_API_KEY` and OpenAI calls server-side. Never `NEXT_PUBLIC_` the key.
+- Path alias: `~/*`. Prefer `cn` and `components/ui/*`.
+- Package manager: **pnpm only**.
 
-- Contract: `lib/theme-preset.ts` names every token the UI may depend on and
- pins the values that define the look. `lib/theme-preset.test.ts` enforces it
- against `app/globals.css`.
-- Rules and deviations: `docs/theme-preset.md`.
-- Full visual spec: `docs/design-language.md`.
+## How to work
 
-Before adding a color, duration, radius, or width, find the token. Semantic
-colors only — never a hex, never a raw `--gray-N` in a component. Two easings
-(`--ease-swift`, `--ease-spring`) and nothing else. The page column is
-`max-w-content` / `max-w-content-narrow`, never a literal. Departing from
-cali.so is a design decision: record it in both the deviations table and
-`presetDeviations`.
+```bash
+pnpm install
+cp .env.example .env.local   # OPENAI_API_KEY for /cleo
+pnpm dev                     # only service; default Next port
+pnpm typecheck
+pnpm test:unit               # and/or pnpm test:security when relevant
+pnpm build                   # when changing routes/config
+```
 
-## Homepage search
+Before changing Next.js framework usage, read the matching guide under
+`node_modules/next/dist/docs/` — this App Router stack differs from older Next.
 
-One field searches the whole portal and can hand the question to Cleo.
+Update [`README.md`](README.md) and this file when setup or Cleo **boundaries**
+change; update the matching `docs/*` runbook when subsystem behavior changes.
 
-- Catalog: `lib/site-search-catalog.ts` (Server Components only) indexes topic
- collections, every country guide, every Space guide, the editor-selected
- photograph for each subject, every Writing post, and the portal surfaces.
- Hits stay thin — `keywords` holds only terms the title and subtitle miss, and
- each kind's vocabulary ("photograph", "essay") is indexed on the client.
-- Engine: `lib/site-search.ts` (client-safe, pure) folds accents, drops
- function words, scores each query token against titles / initialisms /
- keywords, tolerates one typo in words of five letters or more, and gates the
- tail on coverage and minimum relevance. It also returns the matched title
- ranges the UI emphasizes, and `looksLikeCleoRequest` for question-shaped
- queries.
-- UI: `components/home-site-search.tsx` is a grouped ARIA combobox with
- keyboard navigation, `/` and ⌘K focus, and an Ask Cleo row (last for a
- lookup, first for a question). Return opens the highlighted row;
- ⌘/Ctrl-Return always asks Cleo.
-- Handoff: `lib/cleo/ask-link.ts` builds `/cleo?q=…`. `AskForm` reads it from
- `location` on mount, asks once, and strips the parameter — so `/cleo` stays
- prerendered and a reload does not re-run the turn.
-- Photo results deep-link to their gallery tile via `galleryItemDomId`
- (`lib/gallery.ts`), which `components/place-gallery.tsx` renders as the tile
- id. `components/place-gallery-target.tsx` rings the arriving tile — browsers
- do not recompute `:target` for App Router hash pushes, so CSS alone would
- only mark it on a cold load.
+## Verification bar
 
-## Design notes
+| Change | Check |
+| --- | --- |
+| Code / types | `pnpm typecheck` |
+| Routes / config | `pnpm build` |
+| Atlas media / manifest | `pnpm validate:atlas` |
+| Space media | `pnpm validate:space` |
+| Unit / security | `pnpm test:unit` / `pnpm test:security` |
+| Homepage search | `lib/site-search.test.ts`, `components/home-site-search.test.tsx`, `lib/cleo/ask-link.test.ts` |
+| Cleo topic-photo zoom index | after atlas/space caption or rendition changes: `pnpm generate:cleo-topic-photo-zoom` |
+| UI | Changed flows on desktop/mobile and light/dark |
 
-Homepage doorway vignettes: `docs/design-language.md` § Paper-artifact doorway
-vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
-
-## Cleo agent surface
-
-- UI: `components/cleo/ask-form.tsx` owns messages, image attachments,
- cancellation, browser-permission location sync, NDJSON stream consumption,
- rAF-batched UI updates, and Retry/Continue recovery for incomplete or failed
- turns. It also asks the handoff question from `/cleo?q=…` (or an
- `initialPrompt` prop) once on arrival. The page shell is
- `app/_views/cleo-page.tsx`, reached from the bottom dock via `SayHiIcon`
- (`G` then `C`) or from the homepage search bar.
-- API: `app/api/responses/route.ts` validates messages (including image data
-  URLs) and optional, browser-authorized location context before calling the
-  OpenAI Responses API with `gpt-5.6-terra`, `web_search`, and
-  `image_generation` (jpeg + compression, one partial preview), adaptive
-  reasoning effort, encrypted reasoning replay (`reasoning.context: "all_turns"`),
-  `max_tool_calls`, `truncation: "auto"`, prompt caching, streaming,
-  `maxDuration` 90s, and `store: false`.
-- Behavior: `lib/cleo/instructions.ts` (base voice + portal catalog from
-  `lib/cleo/portal-catalog.ts` so Cleo deep-links Explore/Space guides).
-  Invented Explore/Space paths are stripped in Markdown via
-  `lib/cleo/guardrails.ts`.
-- Protocol: `lib/cleo/stream.ts` (`text`, `activity`, `image`,
-  `reasoning_items`, `status` incomplete, `error`). Soft incomplete keeps
-  partial answers; hard `error` is for true failures.
-- Images: `lib/cleo/images.ts` and `lib/cleo/client-images.ts`. Topic answers
-  may embed curated Explore/Space JPEGs via Markdown (`lib/cleo/topic-photos.ts`
-  grounds every image in matching subject sets on each turn, so Cleo can choose
-  one view or show all three when asked); Streamdown only allows
-  `/images/atlas|space/...` paths. Those Markdown photos (and attachment /
-  generated data-URL images) use the shared `ZoomImage` lightbox — curated
-  topic photos resolve Gallery-parity caption plates via
-  `content/cleo-topic-photo-zoom.json` (`pnpm generate:cleo-topic-photo-zoom`,
-  kept in sync by `lib/cleo/topic-photo-zoom.test.ts`).
-- Portal starters: `lib/cleo/portal-links.ts` empty-state prompts consumed by
-  `components/cleo/ask-form.tsx` (click submits immediately, including the
-  full Japan photo-set prompt). Guide deep-links are inline Markdown in the
-  reply (no separate chip row).
-- Location: the dock’s Preferences panel owns an opt-in Location switch,
-  persisted in browser storage and disabled by default. Toggling it on may
-  open the browser geolocation dialog; `lib/cleo/client-location.ts` then
-  requests one fresh high-accuracy position. On refresh, the remembered
-  preference restores quietly only when the browser permission is already
-  `granted` — it never re-prompts automatically. `components/cleo/ask-form.tsx`
-  includes coordinates and the IANA time zone with each request, and
-  `components/footer-coordinates.tsx` may render them. Turning the switch off
-  clears in-memory location immediately. `lib/cleo/location.ts` validates
-  coordinates, accuracy, and time zone server-side, then adds them only to
-  private per-turn instructions, never visible messages. Browser location
-  settings remain the control for granting or revoking device access.
-- Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
-  the site dock via `--cleo-prompt-bottom`.
-
-A `/cleo?q=…` link is the only way in from outside the page. It carries at most
-1,000 characters, is consumed once, and leaves no trace in the URL afterwards.
-
-Conversation state, the current location value, and encrypted reasoning items
-are browser-only. Conversation state clears on reload; the dock’s location
-preference persists in browser storage and, when the browser has already
-granted geolocation, quietly refreshes coordinates on the next session.
-Reasoning items keep multi-turn replies coherent under `store: false`. There
-is no authentication, database, media library, or AMA booking.
-
-Vercel Web Analytics and Speed Insights are mounted in
-`app/_components/site-document.tsx` (`@vercel/analytics/next`,
-`@vercel/speed-insights/next`). Enable both in the Vercel project dashboard
-so the first-party `/_vercel/insights/*` and `/_vercel/speed-insights/*`
-endpoints are served after deploy.
-
-`POST /api/responses` accepts at most 50 messages, 10,000 characters each and
-100,000 total, with a final `user` message. User and assistant messages may
-include up to 4 image data URLs each (PNG, JPEG, WEBP, GIF). A browser-authorized
-`location` object may include finite latitude, longitude, reported accuracy,
-and a valid IANA time zone; the dock preference plus browser authorization
-control automatic inclusion, and it is ephemeral developer context rather than
-chat text.
-
-## External APIs
-
-**OpenAI is the only third-party API** for application features. Configure
-`OPENAI_API_KEY`. Site URLs use `PUBLIC_SITE_URL` / `SITE_URL`. Platform
-observability uses Vercel Web Analytics and Speed Insights (no API keys in
-the app). Do not reintroduce Clerk, Neon, Bunny, Stripe, Resend, Google,
-Tencent, or Upstash without an explicit product decision.
-
-## Development rules
-
-- Use `pnpm` only. Scripts include `dev`, `build`, `start`, `typecheck`, plus
-  unit/security suites listed in `package.json`.
-- Before changing framework code, read the relevant Next.js guide in
-  `node_modules/next/dist/docs/` — this App Router stack has breaking changes
-  vs older Next.js.
-- Keep OpenAI calls and `OPENAI_API_KEY` on the server.
-- Path alias is `~/*`. Prefer existing `cn` helpers and `components/ui/*`.
-- Preserve the accessible, responsive glass/paper UI. Render model output
-  through Streamdown, never raw HTML.
-- Update `README.md` and this file when setup or Cleo behavior changes.
-
-## Verification
-
-- Code: `pnpm typecheck` (and `pnpm build` when changing routes/config).
-- Country media: `pnpm validate:atlas` before deploying image or manifest changes.
-- Site: relevant unit tests via `pnpm test:unit` / `pnpm test:security`.
-- Cleo: multi-turn chat, reasoning activity, web search, image attach/vision,
- image generation, streaming, cancellation, and relevant errors.
-- Homepage search: typing, keyboard navigation, the Ask Cleo row, and the
- `/cleo?q=…` handoff (`lib/site-search.test.ts`,
- `components/home-site-search.test.tsx`, `lib/cleo/ask-link.test.ts`).
-- UI: manually verify changed flows on desktop/mobile and light/dark.
+Cleo manual smoke (when touching the agent): multi-turn chat, reasoning activity,
+web search, image attach/vision, image generation, streaming, cancellation,
+Retry/Continue, Location preference (including denied permission).
 
 ## Cursor Cloud / Previews
 
-- `pnpm dev` starts the only service (default Next port).
-- `OPENAI_API_KEY` is injected when available. Without it, `/api/responses`
-  returns HTTP 503 while the page remains available for UI work.
-- Previews do not need Neon/Bunny/Clerk. `scripts/ensure-preview-env.mjs`
-  stubs missing `SITE_URL` / `PUBLIC_SITE_URL` during `prebuild`.
+- `pnpm dev` is the only service.
+- `OPENAI_API_KEY` is injected when available; without it `/api/responses`
+  returns HTTP 503 and the rest of the site stays usable for UI work.
+- Previews stub missing `SITE_URL` / `PUBLIC_SITE_URL` via
+  `scripts/ensure-preview-env.mjs` during `prebuild`. No Neon/Bunny/Clerk.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

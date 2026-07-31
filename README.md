@@ -1,82 +1,65 @@
 # Cleo
 
-**Cleo** is an English-only general-knowledge portal with a chat agent on the
-dock at `/cleo`.
+**Cleo** is an English-only general-knowledge portal. Start with countries and
+space; ask the dock chat agent at `/cleo` when you need a conversation.
 
-The public site includes a homepage whose single search bar covers the whole
-portal — countries, Space bodies, curated photographs, Writing posts, topic
-collections, and the pages themselves — and hands anything it cannot answer to
-Cleo; highlighted places, topic discovery, and recent Writing posts; Explore
-country field guides; Space field guides at `/space`; a place Gallery at
-`/gallery`; a Topics catalog; Writing (for a future encyclopedia layer); and a
-browser-only agent with streamed Markdown, vision, image generation, and live
-reasoning / web-search activity.
+The homepage is a neutral portal: one search bar over countries, Space bodies,
+curated photographs, Writing posts, topic collections, and site surfaces, plus
+highlighted places, topic discovery, and recent Writing. Explore field guides
+live at `/explore/[slug]`, Space at `/space/[slug]`, photographs at `/gallery`,
+topics at `/topics`, Writing at `/blog`, and the agent at `/cleo`.
 
-Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
-`/photos` permanently redirects to `/gallery`.
+Legacy `/en/...` URLs permanently redirect to unprefixed English paths.
+`/photos` → `/gallery`. `/projects` → `/topics`.
 
-## Architecture
-
-- Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
-- Base UI primitives with the `@fluid` component registry
-- MDX posts under `content/blog/`; English-only public routes
-- Country guides: three curated photographs per guide in `content/atlas.json`
-  + optimized static JPEGs in `public/images/atlas/` (no image CDN/account at
-  runtime)
-- Space guides: `lib/space.ts` + three curated NASA photographs per guide in
-  `content/space-photos.json` + JPEGs in `public/images/space/`
-- **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
-  `POST /api/responses`)
-- Vercel Web Analytics + Speed Insights in the root document (enable both in
-  the Vercel project dashboard)
-- Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
-  Explore/Space catalog so replies can deep-link field guides and embed
-  one curated topic photograph when a visual helps or all three when the user
-  asks for the full set; topic and chat images use
-  the same click-to-zoom lightbox as Gallery; precise browser location and
-  time zone are sent to OpenAI only when users enable Location in dock
-  Preferences and allow browser location services (the preference persists;
-  refresh restores quietly when the browser already granted access and does
-  not re-prompt); multi-turn turns replay encrypted reasoning under
-  `store: false`; incomplete/stopped answers offer Retry/Continue)
-- Homepage search: `lib/site-search-catalog.ts` builds the catalog on the
-  server, `lib/site-search.ts` ranks it in the browser, and
-  `components/home-site-search.tsx` renders the grouped combobox. Return opens
-  the highlighted result; ⌘/Ctrl-Return (or the Ask Cleo row) hands the
-  question to `/cleo?q=…`
-- Bottom dock: Writing, Gallery, Explore, Topics, Cleo
-
-Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
-[`docs/design-language.md`](./docs/design-language.md). Site status:
-[`docs/handoff.md`](./docs/handoff.md). Agent notes:
-[`AGENTS.md`](./AGENTS.md).
-
-## Local development
+## Quick start
 
 ```bash
 corepack enable
 pnpm install
 cp .env.example .env.local
-# Set OPENAI_API_KEY for /cleo
+# Set OPENAI_API_KEY for /cleo (optional for the rest of the site)
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Cleo is on the dock (or
-`/cleo`). The OpenAI key stays server-side; never expose it through
-`NEXT_PUBLIC_` or commit `.env.local`.
+Open [http://localhost:3000](http://localhost:3000). Keep the OpenAI key
+server-side — never expose it with `NEXT_PUBLIC_` or commit `.env.local`.
 
-## Validation
+## Stack
+
+- Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
+- Base UI primitives (`@fluid` registry)
+- MDX Writing under `content/blog/`
+- Country guides: `content/atlas.json` + static JPEGs in `public/images/atlas/`
+- Space guides: `lib/space.ts` + `content/space-photos.json` + `public/images/space/`
+- OpenAI Responses API for `/api/responses` only
+- Vercel Web Analytics + Speed Insights (enable both in the Vercel dashboard)
+
+## Docs
+
+| Doc | Purpose |
+| --- | --- |
+| [`docs/handoff.md`](./docs/handoff.md) | Current product status |
+| [`docs/README.md`](./docs/README.md) | Full documentation map |
+| [`AGENTS.md`](./AGENTS.md) | Instructions for coding agents |
+| [`docs/theme-preset.md`](./docs/theme-preset.md) | Enforced visual token contract |
+| [`docs/design-language.md`](./docs/design-language.md) | Full UI/UX spec |
+
+## Validate
 
 ```bash
 pnpm typecheck
+pnpm test:unit
 pnpm build
 ```
 
-Then manually verify the homepage search bar (typing, arrow keys, Ask Cleo),
-`/cleo` chat, streaming, cancellation, attachments, the dock Location
-preference (including denied permission), and theme/dock coexistence.
+After media or manifest edits: `pnpm validate:atlas` and/or `pnpm validate:space`.
+
+Manually check homepage search (typing, arrows, Ask Cleo), `/cleo` streaming and
+cancellation, the dock Location preference (including denied permission), and
+theme/dock coexistence on desktop and mobile.
 
 ## Preview deploys
 
-Vercel Git deployments build previews. `pnpm build` stubs `SITE_URL` /
-`PUBLIC_SITE_URL` when missing via `scripts/ensure-preview-env.mjs`.
+Vercel Git deployments build previews. `pnpm build` stubs missing `SITE_URL` /
+`PUBLIC_SITE_URL` via `scripts/ensure-preview-env.mjs`.

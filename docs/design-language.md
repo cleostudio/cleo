@@ -1,18 +1,71 @@
-# v3 Design Language
+# Design language
 
-The visual and interaction spec for **Cleo** (v3). Motion is information, not
-decoration. Rules here are written to be buildable: when a value is stated,
-use it; when a component is described, its behavior spec is the contract.
+Visual and interaction contract for **Cleo** (v3). Values stated here are
+buildable requirements. Component behavior described here is the contract.
 
-This system is inherited from [cali.so](https://github.com/CaliCastle/cali.so),
-which Cleo forks. [`theme-preset.md`](./theme-preset.md) is the shorter,
-enforced contract — the token list, the pinned values, and the deviations Cleo
-takes on purpose. Read that first; read this for how the tokens compose.
+Inherited from [cali.so](https://github.com/CaliCastle/cali.so). Start with
+[`theme-preset.md`](./theme-preset.md) for the enforced token list, pinned
+values, and intentional deviations. Use this doc for how those tokens compose.
 
-The primary navigation is a fixed bottom-center pill dock at z `--z-nav`.
-Viewport-edge fades and the bent rulers remain ambient rather than navigation
-chrome. On desktop, the footer is a single Swiss grid with a quiet,
-left-aligned colophon first, followed by the contact and index trees.
+Primary navigation: fixed bottom-center pill dock at z `--z-nav`. Viewport-edge
+fades and bent rulers are ambient, not chrome. Desktop footer: Swiss grid with
+a quiet left-aligned colophon, then contact and index trees.
+
+## How to use this doc
+
+| Reader | Path |
+| --- | --- |
+| Adding a token or changing a pinned value | [`theme-preset.md`](./theme-preset.md) first |
+| Implementing a surface/component | Jump via [Contents](#contents) to the matching section |
+| Reviewing motion/a11y | [Motion system](#motion-system) + every section's reduced-motion note |
+| Homepage portal copy/marks | [Homepage introduction](#homepage-introduction), [Homepage search](#homepage-search) |
+
+## Hard rules (implementers)
+
+- Animate `transform` and `opacity` only. Never `height`, `width`, `margin`,
+  `padding`, or blur above 20px.
+- Every animation has a `prefers-reduced-motion: reduce` branch
+  (`animation: none` / `transition: none`) — including opacity fades.
+- Frequency principle: anything used 100+ times a day gets no entrance
+  animation. Keyboard-initiated actions are never animated.
+- Semantic colors only; `--signal` appears only as the lit 5px dither cell in
+  its sanctioned roles (see Color).
+- Page column via `max-w-content` / `max-w-content-narrow`.
+- Zero layout shift is a merge gate for skeletons and dynamic slots.
+- Do not restore AMA, owner admin, Media Library, or liquid-glass dock
+  refraction without an explicit product decision.
+
+## Contents
+
+- [Motion system](#motion-system)
+- [Typography](#typography)
+- [Color, borders, dark mode](#color-borders-dark-mode)
+- [Writing style](#writing-style)
+- [Homepage introduction](#homepage-introduction)
+- [Homepage search](#homepage-search)
+- [Entrance choreography](#entrance-choreography)
+- [Paper-artifact doorway vignettes](#paper-artifact-doorway-vignettes)
+- [Hover cards as craft objects](#hover-cards-as-craft-objects)
+- [Image lightbox](#image-lightbox)
+- [Portrait & avatar](#portrait--avatar)
+- [Technical print](#technical-print)
+- [Entrance swing (lists)](#entrance-swing-lists)
+- [Selective focus](#selective-focus)
+- [Post marginalia](#post-marginalia)
+- [Language](#language)
+- [Footer colophon](#footer-colophon)
+- [Project index](#project-index)
+- [AMA, owner admin, Media Library](#ama-owner-admin-media-library)
+- [Photo index / Gallery](#photo-index--gallery)
+- [Frosted dock](#frosted-dock)
+- [Fluid page transitions](#fluid-page-transitions)
+- [Instant-photo cover treatment](#instant-photo-cover-treatment)
+- [Ambient background: paper, grain, and guides](#ambient-background-paper-grain-and-guides)
+- [Micro-interaction craft](#micro-interaction-craft)
+- [Illustration accents](#illustration-accents)
+- [Static by default](#static-by-default)
+
+---
 
 ## Motion system
 
@@ -181,6 +234,9 @@ Fine-pointer hover opens the card; touch falls back to the plain destination
 link. Cards stay informational only (`pointer-events: none` on the plate).
 
 ## Homepage search
+
+Behavior and file map: [`homepage-search.md`](./homepage-search.md). Visual
+contract below.
 
 One outlined field, and under it a floating plate of suggestions. The plate
 borrows the preview-card vocabulary — 2px corner, `--surface-3`, the
@@ -831,6 +887,9 @@ booking, owner admin (Clerk), or the Media Library without an explicit product
 decision. OpenAI is the only third-party API.
 
 ## Photo index / Gallery
+
+Media pipelines: [`atlas.md`](./atlas.md), [`space.md`](./space.md). Visual
+contract below.
 
 Photo tiles are quiet objects: no hover captions or overlays, and the only
 fine-pointer response on the print itself is the calibration corner brackets,
