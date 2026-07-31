@@ -844,16 +844,13 @@ destination storm.
 
 The Gallery is a fully static Instant Navigation surface: the sync local
 catalog (Explore places + Space bodies) renders in the page shell with no
-Suspense fallback swap, so dock arrivals paint the real toolbar and masonry
-immediately. The page eyebrow skips entrance choreography (frequency: dock-
-frequent). Instant dock navigation also skips View Transition snapshots and
-destination enter/swing choreography so the tall masonry does not jank the
-swap. The search / collection toolbar is a small client island over
-server-rendered tiles. The
-sticky toolbar uses an opaque paper fill (no backdrop-blur) so long masonry
-scrolls stay calm. Dock links use `prefetch` so the full destination UI is
-warm before click. `scrollbar-gutter: stable` keeps the page from shifting
-sideways when the tall Gallery scrollbar appears.
+Suspense fallback swap, so dock arrivals paint the real masonry immediately.
+The page eyebrow skips entrance choreography (frequency: dock-frequent).
+Instant dock navigation also skips View Transition snapshots and destination
+enter/swing choreography so the tall masonry does not jank the swap. Dock
+links use `prefetch` so the full destination UI is warm before click.
+`scrollbar-gutter: stable` keeps the page from shifting sideways when the tall
+Gallery scrollbar appears.
 
 
 

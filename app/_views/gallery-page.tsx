@@ -16,7 +16,7 @@ export function galleryPageMetadata() {
 
 /**
  * Fully static gallery: sync local catalog, no Suspense swap.
- * Instant Navigation paints the real toolbar + tiles on first click —
+ * Instant Navigation paints the real tiles on first click —
  * a placeholder masonry was what made dock arrivals feel shaky.
  */
 export function GalleryPageView() {
