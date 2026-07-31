@@ -1,8 +1,8 @@
 # Cleo — agent instructions
 
-English-only general-knowledge portal (countries + space first) with a browser
-chat agent at `/cleo`. Stack: Next.js App Router, React 19, TypeScript,
-Tailwind CSS v4, Base UI. **OpenAI is the only app third-party API.**
+General-knowledge portal (countries + space first) with a browser chat agent at
+`/cleo`. Stack: Next.js App Router, React 19, TypeScript, Tailwind CSS v4,
+Base UI. **OpenAI is the only app third-party API.**
 
 ## Start here
 
@@ -23,8 +23,8 @@ Human onboarding: [`README.md`](README.md).
 
 ## Invariants
 
-- Public site is English-only. Legacy `/en/...` redirects to unprefixed paths.
-- `/photos` → `/gallery`, `/projects` → `/topics` (permanent). Do not restore
+- Legacy `/en/...` redirects to unprefixed paths. `/photos` → `/gallery`,
+  `/projects` → `/topics` (permanent). Do not restore
   AMA, owner admin, Media Library, Clerk, Neon, Bunny, Stripe, Resend, Google,
   Tencent, or Upstash without an explicit product decision.
 - Country orientation prose is curated (`scripts/atlas/atlas-about.json`), never

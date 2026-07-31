@@ -1,7 +1,7 @@
 # Cleo
 
-**Cleo** is an English-only general-knowledge portal. Start with countries and
-space; ask the dock chat agent at `/cleo` when you need a conversation.
+**Cleo** is a general-knowledge portal. Start with countries and space; ask the
+dock chat agent at `/cleo` when you need a conversation.
 
 The homepage is a neutral portal: one search bar over countries, Space bodies,
 curated photographs, Writing posts, topic collections, and site surfaces, plus
@@ -9,7 +9,7 @@ highlighted places, topic discovery, and recent Writing. Explore field guides
 live at `/explore/[slug]`, Space at `/space/[slug]`, photographs at `/gallery`,
 topics at `/topics`, Writing at `/blog`, and the agent at `/cleo`.
 
-Legacy `/en/...` URLs permanently redirect to unprefixed English paths.
+Legacy `/en/...` URLs permanently redirect to the unprefixed paths.
 `/photos` → `/gallery`. `/projects` → `/topics`.
 
 ## Quick start

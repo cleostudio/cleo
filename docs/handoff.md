@@ -4,7 +4,7 @@ Current as of July 2026 (Cleo fork).
 
 ## Product
 
-English-only general-knowledge portal:
+General-knowledge portal:
 
 - **Homepage** — one search bar over the whole portal (countries, Space bodies,
   curated photographs, Writing, topic collections, portal surfaces) with an Ask

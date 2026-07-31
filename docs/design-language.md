@@ -822,12 +822,11 @@ directional timing, and no map motion changes width, height, or layout geometry.
 
 ## Language
 
-Public routes are **English-only**. Legacy `/en/...` URLs permanently redirect
-to the matching unprefixed paths. Helpers in `lib/i18n.tsx` (`<T zh en>`,
-`<LocalDate>`) remain for retained bilingual strings and tests; the public
-chrome does not offer a language switcher. Server metadata, canonical links,
-feeds, and OG images share the English route identity. Writing posts live as
-English MDX under `content/blog/<slug>/`.
+Legacy `/en/...` URLs permanently redirect to the matching unprefixed paths.
+Helpers in `lib/i18n.tsx` (`<T zh en>`, `<LocalDate>`) remain for retained
+bilingual strings and tests; the public chrome does not offer a language
+switcher. Server metadata, canonical links, feeds, and OG images share one
+route identity. Writing posts live as MDX under `content/blog/<slug>/`.
 
 ## Footer colophon
 

@@ -82,7 +82,7 @@ Everything else should match cali.so.
 
 | Token | Upstream | Cleo | Why |
 | --- | --- | --- | --- |
-| `--font-sans` | Geist, then Frex Sans GB for CJK | Geist only | English-only; CJK face is unused |
+| `--font-sans` | Geist, then Frex Sans GB for CJK | Geist only | CJK face is unused |
 | `--content-column` | `37.5rem` | `42rem` | Guide borders removed; wider column without a boxed frame |
 
 ## Changing the preset
