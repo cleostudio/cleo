@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PlaceGalleryToolbar } from '~/components/place-gallery-toolbar'
 import { ZoomImage } from '~/components/zoom-image'
-import type { GalleryItem } from '~/lib/gallery'
+import { galleryItemDomId, type GalleryItem } from '~/lib/gallery'
 import { staticRendition } from '~/lib/static-photo'
 
 const LOADING_ASPECT_RATIOS = ['4 / 3', '3 / 4', '1 / 1', '3 / 4', '4 / 3', '1 / 1']
@@ -17,6 +17,7 @@ export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
         {entries.map((entry) => (
           <li
             key={entry.id}
+            id={galleryItemDomId(entry)}
             className="photo-item"
             data-gallery-item
             data-search-text={entry.searchText}

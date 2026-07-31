@@ -18,6 +18,7 @@ import { Markdown } from "~/components/cleo/markdown"
 import { Button } from "~/components/cleo/ui/button"
 import { Input } from "~/components/cleo/ui/input"
 import { ZoomableMessageImage } from "~/components/cleo/zoomable-message-image"
+import { takeCleoPromptFromLocation } from "~/lib/cleo/ask-link"
 import {
   filesToMessageImages,
   IMAGE_ACCEPT,
@@ -267,7 +268,7 @@ const AssistantMessage = memo(function AssistantMessage({
   )
 })
 
-export function AskForm() {
+export function AskForm({ initialPrompt }: { initialPrompt?: string } = {}) {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])
@@ -407,6 +408,17 @@ export function AskForm() {
   const sendTurnRef = useRef<(request: TurnRequest) => Promise<void>>(
     async () => undefined
   )
+  const askedOnArrivalRef = useRef(false)
+
+  // A handoff from elsewhere on the site — the homepage search bar, or a shared
+  // `/cleo?q=…` link — asks its question once, on arrival.
+  useEffect(() => {
+    if (askedOnArrivalRef.current) return
+    const question = (initialPrompt ?? takeCleoPromptFromLocation())?.trim()
+    if (!question) return
+    askedOnArrivalRef.current = true
+    void sendTurnRef.current({ history: [], question, userImages: [] })
+  }, [initialPrompt])
 
   function handleStop() {
     abortControllerRef.current?.abort()

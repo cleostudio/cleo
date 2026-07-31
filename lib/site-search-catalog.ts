@@ -1,97 +1,235 @@
 /**
- * Assembles the lean homepage search catalog from Explore, Space, Topics, and
- * portal surfaces. Import from Server Components only.
+ * Assembles the homepage search catalog: topic collections, country and space
+ * guides, curated photographs, Writing posts, and portal surfaces. Import from
+ * Server Components only — it pulls every guide record, reads the post files,
+ * and walks the photo manifests.
+ *
+ * Hits stay deliberately thin. Titles, subtitles, and each kind's own
+ * vocabulary are indexed by `lib/site-search.ts` on the client, so `keywords`
+ * carries only the terms those fields miss.
  */
 
-import { countries } from '~/lib/countries'
-import type { SiteSearchHit } from '~/lib/site-search'
+import { allAtlasEntries } from '~/lib/atlas'
+import { buildPostRail, getAllPosts, type Post } from '~/lib/content'
+import { allGalleryItems, galleryItemDomId } from '~/lib/gallery'
+import type { SiteSearchHit, SiteSearchKind } from '~/lib/site-search'
 import { spaceSubjects } from '~/lib/space'
 import { allTopics } from '~/lib/topics'
 
-const PORTAL_SURFACES: Omit<SiteSearchHit, 'id' | 'searchText'>[] = [
+const WORD = /[\p{L}\p{N}]+/gu
+
+/** Section names carry a post's subject; the whole body would not stay lean. */
+const MAX_POST_HEADINGS = 12
+
+type SurfaceSeed = {
+  title: string
+  subtitle: string
+  href: string
+  keywords: string
+}
+
+const PORTAL_SURFACES: SurfaceSeed[] = [
   {
-    kind: 'surface',
     title: 'Gallery',
     subtitle: 'Photographs',
     href: '/gallery',
+    keywords: 'curated places bodies photos images',
   },
   {
-    kind: 'surface',
     title: 'Ask Cleo',
     subtitle: 'AI agent',
     href: '/cleo',
+    keywords: 'ai assistant question answer chat search web',
   },
   {
-    kind: 'surface',
     title: 'Writing',
     subtitle: 'Essays',
     href: '/blog',
+    keywords: 'notes articles index',
+  },
+  {
+    title: 'Topics',
+    subtitle: 'Collections',
+    href: '/topics',
+    keywords: 'catalog subjects collections',
+  },
+  {
+    title: 'Home',
+    subtitle: 'Portal',
+    href: '/',
+    keywords: 'start overview front',
   },
 ]
 
-function haystack(...parts: string[]): string {
-  return parts
-    .map((part) => part.trim().toLowerCase())
-    .filter(Boolean)
-    .join(' ')
+/**
+ * Distinct lowercase terms the title and subtitle do not already cover. The
+ * catalog ships to the browser with the page, so every repeated word costs
+ * bytes on the homepage.
+ */
+function extraKeywords(
+  indexed: string,
+  ...parts: (string | undefined)[]
+): string {
+  const seen = new Set(indexed.toLocaleLowerCase().match(WORD) ?? [])
+  const terms: string[] = []
+
+  for (const part of parts) {
+    for (const token of (part ?? '').toLocaleLowerCase().match(WORD) ?? []) {
+      if (token.length < 2 || seen.has(token)) continue
+      seen.add(token)
+      terms.push(token)
+    }
+  }
+
+  return terms.join(' ')
 }
 
-function exploreHits(): SiteSearchHit[] {
-  return countries.map((country) => ({
-    id: `explore:${country.slug}`,
-    kind: 'explore',
-    title: country.name,
-    subtitle: `${country.code} · ${country.region}`,
-    href: `/explore/${country.slug}`,
-    searchText: haystack(
-      country.name,
-      country.code,
-      country.region,
-      country.subregion,
-      'country',
-      'explore',
-    ),
-  }))
-}
-
-function spaceHits(): SiteSearchHit[] {
-  return spaceSubjects.map((subject) => ({
-    id: `space:${subject.slug}`,
-    kind: 'space',
-    title: subject.name,
-    subtitle: `${subject.code} · ${subject.category}`,
-    href: `/space/${subject.slug}`,
-    searchText: haystack(
-      subject.name,
-      subject.code,
-      subject.category,
-      subject.facts.kind,
-      subject.subtitle,
-      'space',
-    ),
-  }))
+function hit(
+  kind: SiteSearchKind,
+  id: string,
+  title: string,
+  subtitle: string,
+  href: string,
+  ...keywordParts: (string | undefined)[]
+): SiteSearchHit {
+  const keywords = extraKeywords(`${title} ${subtitle}`, ...keywordParts)
+  return {
+    id,
+    kind,
+    title,
+    subtitle,
+    href,
+    ...(keywords ? { keywords } : {}),
+  }
 }
 
 function topicHits(): SiteSearchHit[] {
-  return allTopics().map((topic) => ({
-    id: `topic:${topic.slug}`,
-    kind: 'topic',
-    title: topic.name,
-    subtitle: topic.tally,
-    href: topic.href,
-    searchText: haystack(topic.name, topic.description, topic.tally, 'topic'),
-  }))
+  return allTopics().map((topic) =>
+    hit(
+      'topic',
+      `topic:${topic.slug}`,
+      topic.name,
+      topic.tally,
+      topic.href,
+      topic.description,
+    ),
+  )
+}
+
+function exploreHits(): SiteSearchHit[] {
+  return allAtlasEntries().map((entry) =>
+    hit(
+      'explore',
+      `explore:${entry.slug}`,
+      entry.name,
+      `${entry.code} · ${entry.region}`,
+      `/explore/${entry.slug}`,
+      entry.subregion,
+      entry.facts.capital,
+      entry.facts.languages.join(' '),
+      entry.facts.currency,
+      entry.places.map((place) => place.name).join(' '),
+    ),
+  )
+}
+
+function spaceHits(): SiteSearchHit[] {
+  return spaceSubjects.map((subject) =>
+    hit(
+      'space',
+      `space:${subject.slug}`,
+      subject.name,
+      `${subject.code} · ${subject.category}`,
+      `/space/${subject.slug}`,
+      subject.subtitle,
+      subject.facts.kind,
+      subject.facts.system,
+      subject.features.map((feature) => feature.name).join(' '),
+    ),
+  )
+}
+
+/**
+ * The editor-selected photograph for each place and body — the same focused
+ * index `/gallery` shows, so every photo result has a tile to land on.
+ */
+function photoHits(): SiteSearchHit[] {
+  return allGalleryItems().map((item) =>
+    hit(
+      'photo',
+      `photo:${item.id}`,
+      item.title,
+      item.subtitle,
+      `/gallery#${galleryItemDomId(item)}`,
+      item.filterKey,
+    ),
+  )
+}
+
+const postMonth = new Intl.DateTimeFormat('en', {
+  month: 'short',
+  year: 'numeric',
+})
+
+function postHeadings(post: Post): string {
+  return buildPostRail(post.title, post.body)
+    .filter((node) => node.kind === 'landmark' && node.variant === 'heading')
+    .slice(0, MAX_POST_HEADINGS)
+    .map((node) => (node.kind === 'landmark' ? node.label : ''))
+    .join(' ')
+}
+
+function writingHits(): SiteSearchHit[] {
+  return getAllPosts().map((post) =>
+    hit(
+      'writing',
+      `writing:${post.slug}`,
+      post.title,
+      postMonth.format(post.publishedAt),
+      `/blog/${post.slug}`,
+      post.description,
+      postHeadings(post),
+    ),
+  )
 }
 
 function surfaceHits(): SiteSearchHit[] {
-  return PORTAL_SURFACES.map((surface) => ({
-    ...surface,
-    id: `surface:${surface.href}`,
-    searchText: haystack(surface.title, surface.subtitle, surface.kind),
-  }))
+  return PORTAL_SURFACES.map((surface) =>
+    hit(
+      'surface',
+      `surface:${surface.href}`,
+      surface.title,
+      surface.subtitle,
+      surface.href,
+      surface.keywords,
+    ),
+  )
 }
 
 /** Full static catalog for the homepage search typeahead. */
 export function buildSiteSearchHits(): SiteSearchHit[] {
-  return [...topicHits(), ...exploreHits(), ...spaceHits(), ...surfaceHits()]
+  return [
+    ...topicHits(),
+    ...exploreHits(),
+    ...spaceHits(),
+    ...photoHits(),
+    ...writingHits(),
+    ...surfaceHits(),
+  ]
+}
+
+/** Starting points offered before the visitor has typed anything. */
+const SPOTLIGHT_IDS = [
+  'topic:countries',
+  'topic:space',
+  'explore:japan',
+  'space:mars',
+  'surface:/gallery',
+  'surface:/cleo',
+]
+
+/** Spotlight ids that exist in the catalog, so the empty state cannot drift. */
+export function siteSearchSpotlightIds(hits: SiteSearchHit[]): string[] {
+  const known = new Set(hits.map((entry) => entry.id))
+  return SPOTLIGHT_IDS.filter((id) => known.has(id))
 }

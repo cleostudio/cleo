@@ -3,13 +3,14 @@
 **Cleo** is an English-only general-knowledge portal with a chat agent on the
 dock at `/cleo`.
 
-The public site includes a homepage with unified topic search (countries, space,
-collections), highlighted places, topic discovery, and recent Writing posts;
-Explore country field
-guides; Space field guides at `/space`; a place Gallery at `/gallery`; a Topics
-catalog; Writing (for a future encyclopedia layer); and a browser-only agent
-with streamed Markdown, vision, image generation, and live reasoning /
-web-search activity.
+The public site includes a homepage whose single search bar covers the whole
+portal — countries, Space bodies, curated photographs, Writing posts, topic
+collections, and the pages themselves — and hands anything it cannot answer to
+Cleo; highlighted places, topic discovery, and recent Writing posts; Explore
+country field guides; Space field guides at `/space`; a place Gallery at
+`/gallery`; a Topics catalog; Writing (for a future encyclopedia layer); and a
+browser-only agent with streamed Markdown, vision, image generation, and live
+reasoning / web-search activity.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
 `/photos` permanently redirects to `/gallery`.
@@ -37,6 +38,11 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   Preferences and allow browser location services; multi-turn turns replay
   encrypted reasoning under
   `store: false`; incomplete/stopped answers offer Retry/Continue)
+- Homepage search: `lib/site-search-catalog.ts` builds the catalog on the
+  server, `lib/site-search.ts` ranks it in the browser, and
+  `components/home-site-search.tsx` renders the grouped combobox. Return opens
+  the highlighted result; ⌘/Ctrl-Return (or the Ask Cleo row) hands the
+  question to `/cleo?q=…`
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 
 Design contract: [`docs/theme-preset.md`](./docs/theme-preset.md) and
@@ -65,9 +71,9 @@ pnpm typecheck
 pnpm build
 ```
 
-Then manually verify `/cleo` chat, streaming, cancellation, attachments,
-the dock Location preference (including denied permission), and theme/dock
-coexistence.
+Then manually verify the homepage search bar (typing, arrow keys, Ask Cleo),
+`/cleo` chat, streaming, cancellation, attachments, the dock Location
+preference (including denied permission), and theme/dock coexistence.
 
 ## Preview deploys
 

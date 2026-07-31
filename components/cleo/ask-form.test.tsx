@@ -63,6 +63,7 @@ beforeEach(() => {
 afterEach(() => {
   cleanup()
   window.localStorage.clear()
+  window.history.replaceState(null, '', '/')
   if (originalGeolocation) {
     Object.defineProperty(navigator, 'geolocation', originalGeolocation)
   } else {
@@ -221,5 +222,69 @@ describe('AskForm location context', () => {
 
     expect(payload).not.toHaveProperty('location')
     expect(screen.queryByRole('alert')).toBeNull()
+  })
+})
+
+describe('AskForm arrivals', () => {
+  function stubStream(text: string) {
+    const fetchMock = vi.fn<
+      (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
+    >()
+    fetchMock.mockResolvedValue(
+      new Response(`${JSON.stringify({ type: 'text', delta: text })}\n`),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+    return fetchMock
+  }
+
+  function sentMessages(fetchMock: ReturnType<typeof stubStream>) {
+    return JSON.parse(fetchMock.mock.calls[0]?.[1]?.body as string).messages
+  }
+
+  it('waits for a question on an ordinary visit', async () => {
+    const fetchMock = stubStream('Hi')
+    window.history.replaceState(null, '', '/cleo')
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(screen.getByRole('textbox', { name: 'Message' })).toBeTruthy()
+    })
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('asks the question handed over in the URL, once, then clears it', async () => {
+    const fetchMock = stubStream('Japan sits on four plates.')
+    window.history.replaceState(null, '', '/cleo?q=Orient%20me%20to%20Japan')
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+    expect(sentMessages(fetchMock)).toEqual([
+      { content: 'Orient me to Japan', role: 'user' },
+    ])
+
+    // The transcript owns the question now, so a reload starts clean.
+    expect(window.location.search).toBe('')
+    await waitFor(() => {
+      expect(screen.getByText('Orient me to Japan')).toBeTruthy()
+      expect(screen.getByText('Japan sits on four plates.')).toBeTruthy()
+    })
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('asks a question passed in as a prop', async () => {
+    const fetchMock = stubStream('Both are rocky.')
+
+    render(<AskForm initialPrompt="Compare Mars and Earth" />)
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+    expect(sentMessages(fetchMock)).toEqual([
+      { content: 'Compare Mars and Earth', role: 'user' },
+    ])
   })
 })

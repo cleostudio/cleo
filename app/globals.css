@@ -772,8 +772,204 @@
   }
 }
 
+/* ── Homepage search: one field over the whole portal ─────────────────
+   An outlined field with a floating results plate. The plate borrows the
+   preview-card vocabulary (2px corner, surface ladder, printed-label
+   shadow) so the suggestions read as a sheet laid over the page rather
+   than a new panel style. It overlays instead of pushing the page so the
+   sections below stay put while the visitor types. */
+
+.home-site-search {
+  position: relative;
+}
+
+.home-site-search-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.home-site-search-input {
+  width: 100%;
+  padding: 0.625rem 2.75rem 0.625rem 0.75rem;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 150ms var(--ease-swift);
+}
+
+.home-site-search-input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.home-site-search-input:focus-visible {
+  border-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+}
+
 .home-site-search [type='search']::-webkit-search-cancel-button {
   appearance: none;
+}
+
+/* The keyboard affordance retires once the field is in use. */
+.home-site-search-key {
+  position: absolute;
+  right: 0.625rem;
+  display: none;
+  min-width: 1.25rem;
+  padding: 0.0625rem 0.25rem;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: 2px;
+  color: var(--muted-foreground);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  text-align: center;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-site-search-key {
+    display: block;
+  }
+
+  .home-site-search-input:focus ~ .home-site-search-key,
+  .home-site-search-input:not(:placeholder-shown) ~ .home-site-search-key {
+    display: none;
+  }
+}
+
+.home-site-search-panel {
+  position: absolute;
+  z-index: var(--z-card);
+  top: calc(100% + 0.375rem);
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--surface-3);
+  box-shadow: 0 0 0 1px var(--border), var(--shadow-tooltip), var(--shadow-medium);
+  animation: home-site-search-panel-in 160ms var(--ease-swift) backwards;
+}
+
+@keyframes home-site-search-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+}
+
+.home-site-search-groups {
+  max-height: min(24rem, 60vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.home-site-search-group + .home-site-search-group {
+  border-top: var(--border-hairline) solid var(--border);
+}
+
+.home-site-search-group-label {
+  padding: 0.5rem 0.75rem 0.25rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-site-search-row {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.4375rem 0.75rem;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  outline: none;
+}
+
+/* Highlight follows the keyboard, and the pointer sets the keyboard's place —
+   so there is only ever one marked row. */
+.home-site-search-row[data-active] {
+  background: var(--hover);
+}
+
+.home-site-search-row-title {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 0.5rem;
+  overflow: hidden;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.home-site-search-row-title > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Matched letters keep full ink and weight; the rest of a matched title
+   steps back — the selective-focus grammar applied inside one word. */
+.home-site-search-match {
+  color: var(--foreground);
+  font-weight: var(--font-weight-semibold);
+}
+
+.home-site-search-row-title[data-emphasis]
+  > span:not(.home-site-search-match, .home-site-search-row-kind) {
+  color: color-mix(in oklab, var(--foreground) 68%, transparent);
+}
+
+.home-site-search-row-kind {
+  flex: none;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-normal);
+}
+
+.home-site-search-row-meta {
+  flex: none;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-site-search-footer {
+  display: flex;
+  gap: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  border-top: var(--border-hairline) solid var(--border);
+  color: var(--muted-foreground);
+  font-size: 0.6875rem;
+}
+
+.home-site-search-footer kbd {
+  padding: 0 0.1875rem;
+  border: var(--border-hairline) solid var(--border);
+  border-radius: 2px;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+}
+
+@media (max-width: 39.99rem) {
+  .home-site-search-row-meta {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-site-search-panel {
+    animation: none;
+  }
+
+  .home-site-search-input {
+    transition: none;
+  }
 }
 
 /* ── Topics catalog: knowledge collections (reuses project stage UX) ─ */
@@ -5972,11 +6168,18 @@ a:focus-visible .external-label .external-mark {
 .photo-item {
   break-inside: avoid;
   margin-bottom: 0.75rem;
+  /* clear the sticky toolbar when a homepage photo result lands here */
+  scroll-margin-top: 4.5rem;
 }
 
 /* tiles sit on the register's 2px corner, matching the loading shell */
 .photo-frame {
   border-radius: 2px;
+}
+
+/* A deep-linked tile says which one it is, then stays quiet. */
+.photo-item:target .zoom-trigger img {
+  box-shadow: 0 0 0 1px var(--foreground);
 }
 
 .photo-masonry-placeholder {

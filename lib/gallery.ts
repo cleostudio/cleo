@@ -91,6 +91,14 @@ function topicPhotoItems(includeAllPhotos: boolean): GalleryItem[] {
   return [...places, ...space]
 }
 
+/**
+ * Stable tile anchor, so homepage photo results can deep-link to the tile
+ * (`/gallery#photo-places-japan`) instead of the top of the page.
+ */
+export function galleryItemDomId(item: Pick<GalleryItem, 'id'>): string {
+  return `photo-${item.id.replaceAll(':', '-')}`
+}
+
 /** Every curated photograph, used for attribution and Cleo zoom metadata. */
 export function allTopicPhotoItems(): GalleryItem[] {
   return topicPhotoItems(true)
