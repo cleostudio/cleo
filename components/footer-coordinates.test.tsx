@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { act, cleanup, render, screen } from '@testing-library/react'
+import { act, cleanup, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
@@ -8,6 +8,7 @@ import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
 import { FooterCoordinates } from './footer-coordinates'
 
 let originalGeolocation: PropertyDescriptor | undefined
+let originalPermissions: PropertyDescriptor | undefined
 
 function mockGeolocation(
   implementation: (
@@ -27,6 +28,16 @@ function mockGeolocation(
   return getCurrentPosition
 }
 
+function mockPermissions(state: PermissionState) {
+  originalPermissions ??= Object.getOwnPropertyDescriptor(navigator, 'permissions')
+  Object.defineProperty(navigator, 'permissions', {
+    configurable: true,
+    value: {
+      query: vi.fn(async () => ({ state })),
+    },
+  })
+}
+
 beforeEach(() => {
   window.localStorage.clear()
 })
@@ -39,12 +50,18 @@ afterEach(() => {
   } else {
     Reflect.deleteProperty(navigator, 'geolocation')
   }
+  if (originalPermissions) {
+    Object.defineProperty(navigator, 'permissions', originalPermissions)
+  } else {
+    Reflect.deleteProperty(navigator, 'permissions')
+  }
   originalGeolocation = undefined
+  originalPermissions = undefined
   vi.restoreAllMocks()
 })
 
 describe('FooterCoordinates', () => {
-  it('requests a fresh high-accuracy browser position only after location sync is enabled', () => {
+  it('requests a fresh high-accuracy browser position only after location sync is enabled', async () => {
     let resolvePosition: PositionCallback | undefined
     const getCurrentPosition = mockGeolocation((success) => {
       resolvePosition = success
@@ -55,7 +72,7 @@ describe('FooterCoordinates', () => {
     expect(getCurrentPosition).not.toHaveBeenCalled()
     expect(screen.getByText('Location unavailable')).not.toBeNull()
 
-    act(() => {
+    await act(async () => {
       setLocationSyncEnabled(true)
     })
 
@@ -70,7 +87,7 @@ describe('FooterCoordinates', () => {
     )
     expect(screen.getByText('Locating…')).not.toBeNull()
 
-    act(() => {
+    await act(async () => {
       resolvePosition?.({
         coords: {
           accuracy: 8,
@@ -88,7 +105,50 @@ describe('FooterCoordinates', () => {
     expect(container.textContent).not.toContain('22.4820° N')
   })
 
-  it('clears a pending position when location sync is disabled', () => {
+  it('does not re-prompt on refresh when the preference is remembered but permission is still prompt', async () => {
+    mockPermissions('prompt')
+    const getCurrentPosition = mockGeolocation(() => {
+      throw new Error('should not prompt on restore')
+    })
+
+    setLocationSyncEnabled(true)
+    render(<FooterCoordinates />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Location unavailable')).not.toBeNull()
+    })
+    expect(getCurrentPosition).not.toHaveBeenCalled()
+  })
+
+  it('quietly restores coordinates on refresh when browser permission is already granted', async () => {
+    mockPermissions('granted')
+    let resolvePosition: PositionCallback | undefined
+    const getCurrentPosition = mockGeolocation((success) => {
+      resolvePosition = success
+    })
+
+    setLocationSyncEnabled(true)
+    render(<FooterCoordinates />)
+
+    await waitFor(() => {
+      expect(getCurrentPosition).toHaveBeenCalledTimes(1)
+    })
+
+    await act(async () => {
+      resolvePosition?.({
+        coords: {
+          accuracy: 8,
+          latitude: -33.86882,
+          longitude: 151.2093,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+
+    expect(screen.getByText('33.86882° S')).not.toBeNull()
+    expect(screen.getByText('151.20930° E')).not.toBeNull()
+  })
+
+  it('clears a pending position when location sync is disabled', async () => {
     let resolvePosition: PositionCallback | undefined
     const getCurrentPosition = mockGeolocation((success) => {
       resolvePosition = success
@@ -96,12 +156,12 @@ describe('FooterCoordinates', () => {
 
     render(<FooterCoordinates />)
 
-    act(() => {
+    await act(async () => {
       setLocationSyncEnabled(true)
     })
     expect(getCurrentPosition).toHaveBeenCalled()
 
-    act(() => {
+    await act(async () => {
       setLocationSyncEnabled(false)
       resolvePosition?.({
         coords: {
@@ -117,7 +177,8 @@ describe('FooterCoordinates', () => {
     expect(screen.queryByText('151.20930° E')).toBeNull()
   })
 
-  it('does not display stale coordinates when location access fails', () => {
+  it('does not display stale coordinates when location access fails', async () => {
+    mockPermissions('granted')
     let rejectPosition: PositionErrorCallback | undefined
     mockGeolocation((_success, error) => {
       rejectPosition = error
@@ -126,8 +187,18 @@ describe('FooterCoordinates', () => {
     setLocationSyncEnabled(true)
     render(<FooterCoordinates />)
 
-    act(() => {
-      rejectPosition?.({} as GeolocationPositionError)
+    await waitFor(() => {
+      expect(rejectPosition).toBeTypeOf('function')
+    })
+
+    await act(async () => {
+      rejectPosition?.({
+        PERMISSION_DENIED: 1,
+        POSITION_UNAVAILABLE: 2,
+        TIMEOUT: 3,
+        code: 2,
+        message: 'unavailable',
+      } as GeolocationPositionError)
     })
 
     expect(screen.getByText('Location unavailable')).not.toBeNull()

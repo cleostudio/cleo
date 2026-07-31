@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
+import { requestUserLocation } from '~/lib/cleo/client-location'
 import {
   isLocationSyncEnabled,
   subscribeToLocationSync,
@@ -11,12 +12,6 @@ type Coordinates = {
   accuracy: number
   latitude: number
   longitude: number
-}
-
-const locationOptions: PositionOptions = {
-  enableHighAccuracy: true,
-  maximumAge: 0,
-  timeout: 10_000,
 }
 
 function formatCoordinate(value: number, positiveDirection: string, negativeDirection: string) {
@@ -37,11 +32,11 @@ export function FooterCoordinates() {
     let isCurrent = true
     let requestId = 0
 
-    const syncLocation = (enabled: boolean) => {
+    const syncLocation = (enabled: boolean, allowPrompt: boolean) => {
       requestId += 1
       const currentRequestId = requestId
 
-      if (!enabled || !('geolocation' in navigator)) {
+      if (!enabled) {
         setCoordinates(null)
         setIsLocating(false)
         return
@@ -50,30 +45,29 @@ export function FooterCoordinates() {
       setCoordinates(null)
       setIsLocating(true)
 
-      try {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            if (!isCurrent || requestId !== currentRequestId) return
+      void requestUserLocation({ allowPrompt })
+        .then((location) => {
+          if (!isCurrent || requestId !== currentRequestId) return
 
-            setCoordinates({
-              accuracy: position.coords.accuracy,
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
-            })
+          setCoordinates({
+            accuracy: location.accuracy,
+            latitude: location.latitude,
+            longitude: location.longitude,
+          })
+          setIsLocating(false)
+        })
+        .catch(() => {
+          if (isCurrent && requestId === currentRequestId) {
+            setCoordinates(null)
             setIsLocating(false)
-          },
-          () => {
-            if (isCurrent && requestId === currentRequestId) setIsLocating(false)
-          },
-          locationOptions,
-        )
-      } catch {
-        if (isCurrent && requestId === currentRequestId) setIsLocating(false)
-      }
+          }
+        })
     }
 
-    syncLocation(isLocationSyncEnabled())
-    const unsubscribe = subscribeToLocationSync(syncLocation)
+    syncLocation(isLocationSyncEnabled(), false)
+    const unsubscribe = subscribeToLocationSync(({ allowPrompt, enabled }) => {
+      syncLocation(enabled, allowPrompt)
+    })
 
     return () => {
       isCurrent = false

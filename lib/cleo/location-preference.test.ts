@@ -6,6 +6,7 @@ import {
   isLocationSyncEnabled,
   setLocationSyncEnabled,
   subscribeToLocationSync,
+  type LocationSyncChange,
 } from './location-preference'
 
 afterEach(() => {
@@ -18,14 +19,34 @@ describe('location sync preference', () => {
   })
 
   it('notifies the active Cleo view when the dock setting changes', () => {
-    const observed: boolean[] = []
-    const unsubscribe = subscribeToLocationSync((enabled) => observed.push(enabled))
+    const observed: LocationSyncChange[] = []
+    const unsubscribe = subscribeToLocationSync((change) => observed.push(change))
 
     setLocationSyncEnabled(true)
     setLocationSyncEnabled(false)
     unsubscribe()
 
-    expect(observed).toEqual([true, false])
+    expect(observed).toEqual([
+      { allowPrompt: true, enabled: true },
+      { allowPrompt: true, enabled: false },
+    ])
     expect(isLocationSyncEnabled()).toBe(false)
+  })
+
+  it('keeps cross-tab storage sync silent so other tabs do not re-prompt', () => {
+    const observed: LocationSyncChange[] = []
+    const unsubscribe = subscribeToLocationSync((change) => observed.push(change))
+
+    window.localStorage.setItem('cleo-location-sync', 'enabled')
+    window.dispatchEvent(
+      new StorageEvent('storage', {
+        key: 'cleo-location-sync',
+        newValue: 'enabled',
+        storageArea: window.localStorage,
+      }),
+    )
+    unsubscribe()
+
+    expect(observed).toEqual([{ allowPrompt: false, enabled: true }])
   })
 })

@@ -361,7 +361,7 @@ export function AskForm() {
     let isCurrent = true
     let locationRequestId = 0
 
-    const syncLocation = (enabled: boolean) => {
+    const syncLocation = (enabled: boolean, allowPrompt: boolean) => {
       locationRequestId += 1
       const requestId = locationRequestId
 
@@ -370,7 +370,10 @@ export function AskForm() {
         return
       }
 
-      void requestUserLocation()
+      // Page restore must not re-open the browser permission dialog. Only an
+      // explicit Preferences toggle may prompt; refresh restores quietly when
+      // the browser already granted geolocation.
+      void requestUserLocation({ allowPrompt })
         .then((nextLocation) => {
           if (isCurrent && locationRequestId === requestId) {
             setLocation(nextLocation)
@@ -383,8 +386,10 @@ export function AskForm() {
         })
     }
 
-    syncLocation(isLocationSyncEnabled())
-    const unsubscribe = subscribeToLocationSync(syncLocation)
+    syncLocation(isLocationSyncEnabled(), false)
+    const unsubscribe = subscribeToLocationSync(({ allowPrompt, enabled }) => {
+      syncLocation(enabled, allowPrompt)
+    })
 
     return () => {
       isCurrent = false
