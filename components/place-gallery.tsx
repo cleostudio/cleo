@@ -2,7 +2,6 @@ import Link from 'next/link'
 
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
 import { PlaceGalleryTarget } from '~/components/place-gallery-target'
-import { PlaceGalleryToolbar } from '~/components/place-gallery-toolbar'
 import { ZoomImage } from '~/components/zoom-image'
 import { galleryItemDomId, type GalleryItem } from '~/lib/gallery'
 import { staticRendition } from '~/lib/static-photo'
@@ -12,7 +11,6 @@ const LOADING_ASPECT_RATIOS = ['4 / 3', '3 / 4', '1 / 1', '3 / 4', '4 / 3', '1 /
 export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
   return (
     <div className="place-gallery" data-place-gallery>
-      <PlaceGalleryToolbar />
       <PlaceGalleryTarget />
 
       <ul className="photo-masonry">
@@ -22,7 +20,6 @@ export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
             id={galleryItemDomId(entry)}
             className="photo-item"
             data-gallery-item
-            data-search-text={entry.searchText}
           >
             <div className="photo-frame relative overflow-hidden">
               <ZoomImage
@@ -63,10 +60,6 @@ export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
           </li>
         ))}
       </ul>
-
-      <p className="text-sm text-muted-foreground" data-gallery-empty hidden>
-        No photographs match that search.
-      </p>
     </div>
   )
 }

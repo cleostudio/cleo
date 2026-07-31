@@ -14,7 +14,6 @@ export interface GalleryItem {
   subtitle: string
   /** Region (places) or category (space). */
   filterKey: string
-  searchText: string
   photo: StaticPhoto
 }
 
@@ -55,15 +54,6 @@ function topicPhotoItems(includeAllPhotos: boolean): GalleryItem[] {
       title: photo.placeName,
       subtitle: entry.name,
       filterKey: entry.region,
-      searchText: [
-        entry.name,
-        photo.placeName,
-        entry.subregion,
-        entry.code,
-        entry.region,
-        'place',
-        'country',
-      ].join(' '),
       photo: atlasPhotoToStatic(photo),
     })),
   )
@@ -76,14 +66,6 @@ function topicPhotoItems(includeAllPhotos: boolean): GalleryItem[] {
       title: photo.featureName,
       subtitle: subject.name,
       filterKey: subject.category,
-      searchText: [
-        subject.name,
-        photo.featureName,
-        subject.code,
-        subject.category,
-        subject.facts.kind,
-        'space',
-      ].join(' '),
       photo,
     })),
   )
