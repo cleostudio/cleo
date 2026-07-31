@@ -101,24 +101,26 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
   full Japan photo-set prompt). Guide deep-links are inline Markdown in the
   reply (no separate chip row).
 - Location: the dock’s Preferences panel owns an opt-in Location switch,
-  persisted in browser storage and disabled by default. When enabled,
-  `lib/cleo/client-location.ts` requests one fresh high-accuracy browser
-  position; `components/cleo/ask-form.tsx` includes it and the IANA time zone
-  with each request, and `components/footer-coordinates.tsx` may render it.
-  Turning the switch off clears in-memory location immediately.
-  `lib/cleo/location.ts` validates coordinates, accuracy, and time zone
-  server-side, then adds them only to private per-turn instructions, never
-  visible messages. Browser location settings remain the control for granting
-  or revoking device access.
+  persisted in browser storage and disabled by default. Toggling it on may
+  open the browser geolocation dialog; `lib/cleo/client-location.ts` then
+  requests one fresh high-accuracy position. On refresh, the remembered
+  preference restores quietly only when the browser permission is already
+  `granted` — it never re-prompts automatically. `components/cleo/ask-form.tsx`
+  includes coordinates and the IANA time zone with each request, and
+  `components/footer-coordinates.tsx` may render them. Turning the switch off
+  clears in-memory location immediately. `lib/cleo/location.ts` validates
+  coordinates, accuracy, and time zone server-side, then adds them only to
+  private per-turn instructions, never visible messages. Browser location
+  settings remain the control for granting or revoking device access.
 - Styles: `app/cleo.css` (streamdown + prompt dock). Keep the prompt dock above
   the site dock via `--cleo-prompt-bottom`.
 
 Conversation state, the current location value, and encrypted reasoning items
 are browser-only. Conversation state clears on reload; the dock’s location
-preference persists in browser storage and controls whether the next session
-can refresh location. Reasoning items keep multi-turn replies coherent under
-`store: false`. There is no authentication, database, media library, or AMA
-booking.
+preference persists in browser storage and, when the browser has already
+granted geolocation, quietly refreshes coordinates on the next session.
+Reasoning items keep multi-turn replies coherent under `store: false`. There
+is no authentication, database, media library, or AMA booking.
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,

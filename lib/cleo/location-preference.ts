@@ -33,20 +33,33 @@ export function setLocationSyncEnabled(enabled: boolean) {
   window.dispatchEvent(new Event(LOCATION_SYNC_CHANGE_EVENT))
 }
 
+export type LocationSyncChange = {
+  /** True when the user toggled Location in this tab (may show a browser prompt). */
+  allowPrompt: boolean
+  enabled: boolean
+}
+
 /** Subscribe to settings changes from the dock or another browser tab. */
-export function subscribeToLocationSync(onChange: (enabled: boolean) => void) {
+export function subscribeToLocationSync(
+  onChange: (change: LocationSyncChange) => void,
+) {
   if (!canUseStorage()) return () => undefined
 
-  const notify = () => onChange(isLocationSyncEnabled())
+  const notifyLocal = () => {
+    onChange({ allowPrompt: true, enabled: isLocationSyncEnabled() })
+  }
   const onStorage = (event: StorageEvent) => {
-    if (event.key === LOCATION_SYNC_STORAGE_KEY) notify()
+    if (event.key === LOCATION_SYNC_STORAGE_KEY) {
+      // Other-tab sync must stay silent — this tab has no user gesture.
+      onChange({ allowPrompt: false, enabled: isLocationSyncEnabled() })
+    }
   }
 
-  window.addEventListener(LOCATION_SYNC_CHANGE_EVENT, notify)
+  window.addEventListener(LOCATION_SYNC_CHANGE_EVENT, notifyLocal)
   window.addEventListener('storage', onStorage)
 
   return () => {
-    window.removeEventListener(LOCATION_SYNC_CHANGE_EVENT, notify)
+    window.removeEventListener(LOCATION_SYNC_CHANGE_EVENT, notifyLocal)
     window.removeEventListener('storage', onStorage)
   }
 }

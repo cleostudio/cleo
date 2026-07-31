@@ -28,6 +28,7 @@ import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
 import { AskForm } from './ask-form'
 
 let originalGeolocation: PropertyDescriptor | undefined
+let originalPermissions: PropertyDescriptor | undefined
 let originalScrollIntoView: PropertyDescriptor | undefined
 
 function mockGeolocation(
@@ -46,6 +47,16 @@ function mockGeolocation(
   })
 
   return getCurrentPosition
+}
+
+function mockPermissions(state: PermissionState) {
+  originalPermissions ??= Object.getOwnPropertyDescriptor(navigator, 'permissions')
+  Object.defineProperty(navigator, 'permissions', {
+    configurable: true,
+    value: {
+      query: vi.fn(async () => ({ state })),
+    },
+  })
 }
 
 beforeEach(() => {
@@ -68,12 +79,18 @@ afterEach(() => {
   } else {
     Reflect.deleteProperty(navigator, 'geolocation')
   }
+  if (originalPermissions) {
+    Object.defineProperty(navigator, 'permissions', originalPermissions)
+  } else {
+    Reflect.deleteProperty(navigator, 'permissions')
+  }
   if (originalScrollIntoView) {
     Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', originalScrollIntoView)
   } else {
     Reflect.deleteProperty(HTMLElement.prototype, 'scrollIntoView')
   }
   originalGeolocation = undefined
+  originalPermissions = undefined
   originalScrollIntoView = undefined
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
@@ -221,5 +238,70 @@ describe('AskForm location context', () => {
 
     expect(payload).not.toHaveProperty('location')
     expect(screen.queryByRole('alert')).toBeNull()
+  })
+
+  it('does not re-prompt on refresh when preference is on but browser permission is still prompt', async () => {
+    mockPermissions('prompt')
+    const getCurrentPosition = mockGeolocation(() => {
+      throw new Error('should not prompt on restore')
+    })
+
+    setLocationSyncEnabled(true)
+    render(<AskForm />)
+
+    await act(async () => {
+      await Promise.resolve()
+    })
+
+    expect(getCurrentPosition).not.toHaveBeenCalled()
+  })
+
+  it('quietly restores location on refresh when browser permission is already granted', async () => {
+    mockPermissions('granted')
+    let resolvePosition: PositionCallback | undefined
+    const getCurrentPosition = mockGeolocation((success) => {
+      resolvePosition = success
+    })
+    const fetchMock = vi.fn<
+      (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
+    >()
+    fetchMock.mockResolvedValue(new Response('{"type":"text","delta":"Hi"}\n'))
+    vi.stubGlobal('fetch', fetchMock)
+
+    setLocationSyncEnabled(true)
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(getCurrentPosition).toHaveBeenCalledTimes(1)
+    })
+
+    await act(async () => {
+      resolvePosition?.({
+        coords: {
+          accuracy: 12,
+          latitude: 48.8566,
+          longitude: 2.3522,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+
+    fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), {
+      target: { value: 'What is nearby?' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+
+    const request = fetchMock.mock.calls[0]?.[1]
+    const payload = JSON.parse(request?.body as string)
+
+    expect(payload.location).toEqual({
+      accuracy: 12,
+      latitude: 48.8566,
+      longitude: 2.3522,
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    })
   })
 })

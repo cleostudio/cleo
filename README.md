@@ -34,8 +34,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   asks for the full set; topic and chat images use
   the same click-to-zoom lightbox as Gallery; precise browser location and
   time zone are sent to OpenAI only when users enable Location in dock
-  Preferences and allow browser location services; multi-turn turns replay
-  encrypted reasoning under
+  Preferences and allow browser location services (the preference persists;
+  refresh restores quietly when the browser already granted access and does
+  not re-prompt); multi-turn turns replay encrypted reasoning under
   `store: false`; incomplete/stopped answers offer Retry/Continue)
 - Bottom dock: Writing, Gallery, Explore, Topics, Cleo
 
