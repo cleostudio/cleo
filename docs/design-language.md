@@ -9,7 +9,7 @@ values, and intentional deviations. Use this doc for how those tokens compose.
 
 Primary navigation: fixed bottom-center pill dock at z `--z-nav`. Viewport-edge
 fades and bent rulers are ambient, not chrome. Desktop footer: Swiss grid with
-a quiet left-aligned colophon, then contact and index trees.
+a quiet left-aligned colophon, then topics and index trees.
 
 ## How to use this doc
 
@@ -367,26 +367,19 @@ open rich hover cards. The contract:
   fine)` and are simply absent on touch — the trigger is a plain link to the
   destination (or inert text if there is no destination). The card is an
   enhancement, never the content.
-- **Data before interaction.** Card data is fetched through static generation
-  or ISR, never on hover; an open card never shows a network spinner.
+- **Data before interaction.** Card data is ready at render (static generation
+  or baked snapshots), never fetched on hover; an open card never shows a
+  network spinner.
 - All content animations inside cards respect `prefers-reduced-motion`.
-- **Implemented service cards** (`components/social-cards.tsx`, chrome
-  social links): the X card (monogram mark, name/@handle, bio, follower and following stats) and
-  the code card: a recent 26×7 contribution grid, 4px cells on 1px gaps,
-  ink = foreground alpha ramp (7/30/52/74/100%), each cell cascading in
-  (`translateY(4px) scale(0.92)`, 480ms, ~1.1ms/cell stagger). GitHub data
-  revalidates through the Next data cache every 6 hours and the YouTube count
-  every 12 hours. `content/social.json` and `content/github.json` are committed
-  fallback seeds; X remains manual because it has no public endpoint. There is
-  zero network work on hover. Touch follows the plain link.
-- **Homepage contact line.** X, GitHub, and email reuse the exact footer card
-  bodies through alternate inline trigger labels. The Chinese-only
-  Xiaohongshu trigger opens a fixed-size service card with a text monogram mark,
-  Xiaohongshu's official text wordmark, profile name and account number,
-  two-line bio, and follower/engagement snapshot; it links directly to
-  `https://xhslink.com/m/7vluP5ANiNE`. Its
-  popup is informational and noninteractive, and touch follows that link
-  without opening a separate surface.
+- **Retained service cards** (`components/social-cards.tsx`): kept for reuse,
+  not mounted in the public chrome. The X card (monogram mark, name/@handle,
+  bio, follower and following stats) and the code card (recent 26×7
+  contribution grid, 4px cells on 1px gaps, ink = foreground alpha ramp
+  7/30/52/74/100%, each cell cascading in from `translateY(4px) scale(0.92)`,
+  480ms, ~1.1ms/cell stagger) still define the craft contract. Snapshot data
+  comes from committed `content/social.json` and `content/github.json` via
+  `lib/social-live.ts` — baked only, no live third-party fetches. Zero network
+  work on hover. Touch follows the plain link.
 - **The implemented base: external-link previews.** Every external link in
   prose carries a 14px inline favicon (fixed slot, no layout shift) — always
   requested against the link's root domain, never the deep URL, so a page
@@ -830,23 +823,29 @@ route identity. Writing posts live as MDX under `content/blog/<slug>/`.
 
 ## Footer colophon
 
-The leftmost desktop colophon puts the copyright at the top and Cleo's local
-clock at the bottom. The clock shows the `UTC+8` timezone, a muted tabular live
-Asia/Taipei time in 12-hour `h:mm AM/PM` format without seconds, and a small
-redundant analog face. The readout is set as a small spec plate: the `UTC+8`
-label in 11px tracked uppercase mono over the 13px mono time value. Below the
-clock sits the geo stamp (`.footer-geo`): a hairline graticule globe beside a
-pinned coordinate (`22.4820° N / 113.9247° E`) — a quiet easter egg for anyone
-who plots it. The globe shares the clock face's size and left edge, and the
-coordinate shares the digital clock's 13px mono size and colour, so the two
-rows read as one instrument. Decorative and `aria-hidden`. The colophon also
-carries the name in braille (`.footer-braille`) beneath the copyright as a
-printer's mark. The digital `<time>` is the accessible source; the clock
-face is decorative and deliberately quieter than the footer trees. Its fixed
+The leftmost desktop colophon puts the copyright at the top and the visitor's
+local clock at the bottom (`components/footer-clock.tsx`). The clock shows the
+visitor's UTC offset label (e.g. `UTC+08:00`), a muted tabular live local time
+in 12-hour `h:mm AM/PM` format without seconds, and a small redundant analog
+face. The readout is a small spec plate: the offset in 11px tracked uppercase
+mono over the 13px mono time value. The digital `<time>` is the accessible
+source; the clock face is decorative and quieter than the footer trees. Fixed
 placeholder dimensions avoid hydration shift, and the second-aligned timer
-pauses while the page is hidden. On mobile, contact and index remain a
-two-column row and the colophon follows them as the final row; inside it,
-copyright and clock occupy opposite halves of a two-column grid.
+pauses while the page is hidden.
+
+Below the clock sits the geo stamp (`.footer-geo`,
+`components/footer-coordinates.tsx`): a hairline graticule globe beside the
+visitor's coordinates when Location is enabled in dock Preferences and the
+browser has authorized geolocation; otherwise it reads “Location unavailable”
+(or “Locating…” while a request is in flight). The globe shares the clock
+face's size and left edge; the coordinate lines share the digital clock's 13px
+mono size and colour, so the two rows read as one instrument. See
+[`cleo.md`](./cleo.md) § Location.
+
+The colophon also carries the name in braille (`.footer-braille`) beneath the
+copyright as a printer's mark. On mobile, topics and index remain a two-column
+row and the colophon follows them as the final row; inside it, copyright and
+clock occupy opposite halves of a two-column grid.
 
 ## Project index
 
@@ -1026,8 +1025,8 @@ reduced motion. Decorative instances set `role="img"` + `aria-label` (or
 
 Blog and feeds are statically generated. OG images render from repository-owned
 inputs through the long-lived cached, same-origin `/og` route so custom staging
-aliases never advertise deployment-host assets. GitHub and YouTube social data
-revalidate on ISR timers and fall back to committed snapshots. Fonts are
-preloaded (except the CJK fallback, which loads on demand); above-the-fold images
-get `rel="preload"`. Page scrollbars are never customized; code-block scrollbars
-may be.
+aliases never advertise deployment-host assets. Retained social card data is
+baked from committed `content/social.json` / `content/github.json` (no live
+third-party fetches). Fonts are Geist + Geist Mono (Latin), preloaded; there is
+no CJK fallback face. Above-the-fold images get `rel="preload"`. Page
+scrollbars are never customized; code-block scrollbars may be.

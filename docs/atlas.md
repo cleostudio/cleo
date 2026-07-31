@@ -21,8 +21,8 @@ request time — the site never calls a model to render a page.
 
 Written once with `pnpm write:atlas-about` (needs `OPENAI_API_KEY`). Every draft
 is checked for length, recycled phrasing, and volatile claims before it is
-kept. `lib/atlas/prose.test.ts` enforces: **no sentence may appear in two
-countries.**
+kept. `lib/atlas/prose.test.ts` enforces: no sentence of six or more words may
+appear in two countries.
 
 ## Photo pipeline
 
