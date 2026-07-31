@@ -84,7 +84,9 @@ One field searches the whole portal and can hand the question to Cleo.
  prerendered and a reload does not re-run the turn.
 - Photo results deep-link to their gallery tile via `galleryItemDomId`
  (`lib/gallery.ts`), which `components/place-gallery.tsx` renders as the tile
- id.
+ id. `components/place-gallery-target.tsx` rings the arriving tile — browsers
+ do not recompute `:target` for App Router hash pushes, so CSS alone would
+ only mark it on a cold load.
 
 ## Design notes
 

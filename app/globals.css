@@ -6179,8 +6179,11 @@ a:focus-visible .external-label .external-mark {
   border-radius: 2px;
 }
 
-/* A deep-linked tile says which one it is, then stays quiet. */
-.photo-item:target .zoom-trigger img {
+/* A deep-linked tile says which one it is, then stays quiet. `:target` covers
+   a cold load; the attribute covers App Router hash pushes, which do not
+   recompute it (components/place-gallery-target.tsx). */
+.photo-item:target .zoom-trigger img,
+.photo-item[data-gallery-target] .zoom-trigger img {
   box-shadow: 0 0 0 1px var(--foreground);
 }
 

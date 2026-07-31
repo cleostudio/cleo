@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import { PhotoZoomDetails } from '~/components/photo-zoom-details'
+import { PlaceGalleryTarget } from '~/components/place-gallery-target'
 import { PlaceGalleryToolbar } from '~/components/place-gallery-toolbar'
 import { ZoomImage } from '~/components/zoom-image'
 import { galleryItemDomId, type GalleryItem } from '~/lib/gallery'
@@ -12,6 +13,7 @@ export function PlaceGallery({ entries }: { entries: GalleryItem[] }) {
   return (
     <div className="place-gallery" data-place-gallery>
       <PlaceGalleryToolbar />
+      <PlaceGalleryTarget />
 
       <ul className="photo-masonry">
         {entries.map((entry) => (

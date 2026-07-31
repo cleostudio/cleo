@@ -203,6 +203,10 @@ marked row; ⌘/Ctrl-Return hands the query to Cleo instead. The Ask Cleo row
 closes the list for a plain name and opens it for a question — the same rows,
 reordered by what the query is asking for.
 
+A photograph result lands on its Gallery tile, which takes the ink hairline in
+place of its usual faint one — enough to say "this one" in a page of two
+hundred, and nothing more.
+
 ## Entrance choreography
 
 Entrances continue the selective-focus grammar: blocks *develop* into

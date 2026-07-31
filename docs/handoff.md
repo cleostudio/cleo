@@ -32,6 +32,7 @@ document (enable both products in the Vercel project dashboard).
   (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
 - Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`;
   `galleryItemDomId` gives each tile a stable anchor for homepage photo results
+  and `components/place-gallery-target.tsx` rings the arriving tile
 - Homepage search: `lib/site-search-catalog.ts` (server catalog),
   `lib/site-search.ts` (client ranking, accent folding, typo tolerance, match
   emphasis), `components/home-site-search.tsx` (grouped combobox, `/` and ⌘K,
