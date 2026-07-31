@@ -268,7 +268,7 @@ const AssistantMessage = memo(function AssistantMessage({
   )
 })
 
-export function AskForm({ initialPrompt }: { initialPrompt?: string } = {}) {
+export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])

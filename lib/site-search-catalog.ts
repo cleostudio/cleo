@@ -11,6 +11,7 @@
 
 import { allAtlasEntries } from '~/lib/atlas'
 import { buildPostRail, getAllPosts, type Post } from '~/lib/content'
+import { formatMonthYear } from '~/lib/date'
 import { allGalleryItems, galleryItemDomId } from '~/lib/gallery'
 import type { SiteSearchHit, SiteSearchKind } from '~/lib/site-search'
 import { spaceSubjects } from '~/lib/space'
@@ -70,11 +71,13 @@ function extraKeywords(
   indexed: string,
   ...parts: (string | undefined)[]
 ): string {
-  const seen = new Set(indexed.toLocaleLowerCase().match(WORD) ?? [])
+  // Locale-invariant, so a build machine's locale cannot lowercase a term
+  // differently from the way the browser folds it back at index time.
+  const seen = new Set(indexed.toLowerCase().match(WORD) ?? [])
   const terms: string[] = []
 
   for (const part of parts) {
-    for (const token of (part ?? '').toLocaleLowerCase().match(WORD) ?? []) {
+    for (const token of (part ?? '').toLowerCase().match(WORD) ?? []) {
       if (token.length < 2 || seen.has(token)) continue
       seen.add(token)
       terms.push(token)
@@ -166,16 +169,12 @@ function photoHits(): SiteSearchHit[] {
   )
 }
 
-const postMonth = new Intl.DateTimeFormat('en', {
-  month: 'short',
-  year: 'numeric',
-})
-
 function postHeadings(post: Post): string {
   return buildPostRail(post.title, post.body)
-    .filter((node) => node.kind === 'landmark' && node.variant === 'heading')
+    .flatMap((node) =>
+      node.kind === 'landmark' && node.variant === 'heading' ? [node.label] : [],
+    )
     .slice(0, MAX_POST_HEADINGS)
-    .map((node) => (node.kind === 'landmark' ? node.label : ''))
     .join(' ')
 }
 
@@ -185,7 +184,7 @@ function writingHits(): SiteSearchHit[] {
       'writing',
       `writing:${post.slug}`,
       post.title,
-      postMonth.format(post.publishedAt),
+      formatMonthYear(post.publishedAt),
       `/blog/${post.slug}`,
       post.description,
       postHeadings(post),

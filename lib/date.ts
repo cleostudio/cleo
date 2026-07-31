@@ -20,6 +20,12 @@ const monthDayFormatter = new Intl.DateTimeFormat('en-US', {
   timeZone: SITE_TIME_ZONE,
 })
 
+const monthYearFormatter = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  year: 'numeric',
+  timeZone: SITE_TIME_ZONE,
+})
+
 const shortDateFormatter = new Intl.DateTimeFormat('en-US', {
   year: '2-digit',
   month: '2-digit',
@@ -37,6 +43,11 @@ export function formatDateEn(date: Date): string {
 
 export function formatMonthDay(date: Date): string {
   return monthDayFormatter.format(date)
+}
+
+/** Quiet "Jul 2026" stamp, e.g. beside a post in the homepage search. */
+export function formatMonthYear(date: Date): string {
+  return monthYearFormatter.format(date)
 }
 
 export function formatShortDate(date: Date): string {

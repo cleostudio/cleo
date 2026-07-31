@@ -7,7 +7,7 @@ import { AskForm } from '~/components/cleo/ask-form'
  * a `/cleo?q=…` link are read from the URL inside `AskForm`, which keeps this
  * route prerendered.
  */
-export function CleoPageView({ initialPrompt }: { initialPrompt?: string } = {}) {
+export function CleoPageView({ initialPrompt }: { initialPrompt?: string }) {
   return (
     <div className="w-full">
       <AskForm initialPrompt={initialPrompt} />
