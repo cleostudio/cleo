@@ -4,70 +4,53 @@ Current as of July 2026 (Cleo fork).
 
 ## Product
 
-English-only general-knowledge portal with:
+General-knowledge portal:
 
-- Homepage: one search bar over the whole portal — countries, Space bodies,
-  curated photographs, Writing posts, topic collections, portal surfaces — with
-  an Ask Cleo row that hands the question to `/cleo?q=…`; highlighted places,
-  topic discovery, recent Writing posts (no personal contact / music / books /
-  photo-wall sections)
-- MDX Writing (kept for a future Wikipedia-like knowledge layer), Explore
-  country field guides, Space field guides, Topics catalog (countries and
-  space first; more topics later)
-- Gallery: photographs from Explore places and Space guides
-  (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
-- Cleo AI agent at `/cleo` powered by **OpenAI only**
+- **Homepage** — one search bar over the whole portal (countries, Space bodies,
+  curated photographs, Writing, topic collections, portal surfaces) with an Ask
+  Cleo row → `/cleo?q=…`; highlighted places; topic discovery; recent Writing.
+  No personal contact / music / books / photo-wall sections.
+- **Explore** — country field guides at `/explore/[slug]`
+- **Space** — Solar System, Moons, Deep Space at `/space` and `/space/[slug]`
+- **Gallery** — editor-selected featured photo per Explore place and Space body
+- **Topics** — catalog in `lib/topics.ts` (Countries + Space first)
+- **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)
+- **Cleo** — browser-only agent at `/cleo`, OpenAI only
 
-There is **no** Clerk auth, Neon/Postgres, Bunny media, AMA booking, Stripe,
-Resend, Google, Tencent, or Upstash. Vercel Web Analytics and Speed Insights
-are enabled via `@vercel/analytics` / `@vercel/speed-insights` in the root
-document (enable both products in the Vercel project dashboard).
+**Not in product:** Clerk, Neon/Postgres, Bunny media, AMA booking, Stripe,
+Resend, Google, Tencent, Upstash. Vercel Web Analytics and Speed Insights are
+mounted in the root document — enable both products in the Vercel dashboard.
 
-## Architecture
+Former `/ama`, `/admin` redirect away. `/projects` → `/topics`, `/photos` →
+`/gallery`. Projects UI, vinyl/bookshelf, and social cards remain in-repo for
+reuse.
 
-- Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4, Base UI
-- Posts: `content/blog/<slug>/` via owned content route
-- Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
-- Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
-  (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
-- Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`;
-  `galleryItemDomId` gives each tile a stable anchor for homepage photo results
-  and `components/place-gallery-target.tsx` rings the arriving tile
-- Homepage search: `lib/site-search-catalog.ts` (server catalog),
-  `lib/site-search.ts` (client ranking, accent folding, typo tolerance, match
-  emphasis), `components/home-site-search.tsx` (grouped combobox, `/` and ⌘K,
-  Ask Cleo row), `lib/cleo/ask-link.ts` (`/cleo?q=…` handoff)
-- Place images: import-time mozjpeg renditions up to 640/1280/2048px per
-  photograph under `public/images/atlas/` (Wikimedia Commons curation, relevance-first +
-  assessments; reviewed gaps in `scripts/atlas/gallery-handpicks/` when scoring
-  still misses) and `public/images/space/` (NASA); rendered with static
-  `srcset`. No runtime image account, API, or third-party fetch. Review aid:
-  `tsx scripts/atlas/contact-sheet.mjs --collection=places|space`.
-- Country prose: curated in `scripts/atlas/atlas-about.json` via
-  `pnpm write:atlas-about` (one-time, needs `OPENAI_API_KEY`); never generated
-  at build or request time
-- Media workflow: `pnpm generate:atlas-content` → `pnpm curate:atlas-photos` →
-  `pnpm apply:atlas-handpicks` → `pnpm import:atlas-photos` →
-  `pnpm validate:atlas`; Space via
-  `pnpm curate:space-photos` → `pnpm import:space-photos` → `pnpm validate:space`
-- Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
-  (instructions include Explore/Space catalog paths for guide deep-links;
-  matching turns also ground every curated topic-photo path so replies can
-  embed one atlas/space JPEG or a requested three-image set as Markdown;
-  encrypted reasoning replay + soft
-  incomplete status + Retry/Continue keep multi-turn chats reliable under
-  `store: false`; conversation still clears on reload)
-- Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
-- Social footer counts: baked JSON in `content/social.json` + `content/github.json`
-  (components retained; not linked from the public chrome)
-- Former `/ama`, `/admin`, `/projects`, and `/photos` URLs redirect away
+## Architecture map
+
+| Area | Key paths |
+| --- | --- |
+| Posts | `content/blog/<slug>/` |
+| Explore / atlas | `lib/countries.ts`, `lib/atlas/*`, `content/atlas.json`, `/explore` |
+| Space | `lib/space.ts`, `content/space-photos.json`, `/space` |
+| Gallery | `lib/gallery.ts`, `/gallery` (`galleryItemDomId` + `place-gallery-target`) |
+| Homepage search | `lib/site-search-catalog.ts`, `lib/site-search.ts`, `components/home-site-search.tsx` |
+| Cleo | `components/cleo/*`, `lib/cleo/*`, `POST /api/responses` |
+| Place images | `public/images/atlas/`, `public/images/space/` (static `srcset`) |
+| Country prose | `scripts/atlas/atlas-about.json` via `pnpm write:atlas-about` |
+| Env | `OPENAI_API_KEY`, optional `PUBLIC_SITE_URL` / `SITE_URL` (`.env.example`) |
+| Social seeds | `content/social.json`, `content/github.json` (components retained; not in chrome) |
+
+Deep runbooks: [`cleo.md`](./cleo.md), [`homepage-search.md`](./homepage-search.md),
+[`atlas.md`](./atlas.md), [`space.md`](./space.md).
 
 ## Design
 
-Visual contract: `docs/design-language.md` (including § Paper-artifact doorway
-vignettes — `NavCards` retained for reuse, not mounted on the current
-homepage). Country pages use the warm-paper field-guide layout (passport
-labels, hairline rules, zoomable contact-print hero).
+- Token contract: [`theme-preset.md`](./theme-preset.md)
+- Full visual/interaction spec: [`design-language.md`](./design-language.md)
+  (incl. paper-artifact doorway vignettes — `NavCards` retained, not mounted on
+  the current homepage)
+- Country pages: warm-paper field-guide layout (passport labels, hairline rules,
+  zoomable contact-print hero)
 
 ## Local / Preview
 

@@ -115,7 +115,7 @@ export const layerTokens = {
  */
 export const presetDeviations = [
   {
-    reason: 'Cleo is English-only, so the CJK fallback face is not loaded.',
+    reason: 'The CJK fallback face is unused, so it is not loaded.',
     token: '--font-sans',
     upstream: 'Geist followed by Frex Sans GB for CJK coverage',
   },
