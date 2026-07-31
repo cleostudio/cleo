@@ -23,7 +23,7 @@ export interface SiteSearchHit {
   /**
    * Extra search terms beyond title and subtitle — codes, capitals, place
    * names, post descriptions. Title, subtitle, and the kind's own vocabulary
-   * are indexed automatically, so neither needs repeating here.
+   * are all indexed automatically, so none of them need repeating here.
    */
   keywords?: string
 }
@@ -63,18 +63,11 @@ const KIND_TERMS: Record<SiteSearchKind, string> = {
   surface: 'portal page section',
 }
 
-/** Kinds in catalog order — also the tie-break order for equal scores. */
-export const SITE_SEARCH_KIND_ORDER: SiteSearchKind[] = [
-  'topic',
-  'explore',
-  'space',
-  'photo',
-  'writing',
-  'surface',
-]
-
-const KIND_RANK = new Map(
-  SITE_SEARCH_KIND_ORDER.map((kind, index) => [kind, index]),
+/** Catalog order, which is also the tie-break order for equal scores. */
+const KIND_RANK = new Map<SiteSearchKind, number>(
+  (['topic', 'explore', 'space', 'photo', 'writing', 'surface'] as const).map(
+    (kind, index) => [kind, index],
+  ),
 )
 
 /** A nudge, not a verdict: match quality decides the order first. */
@@ -130,12 +123,12 @@ function fold(value: string): FoldedText {
 }
 
 /** Accent-insensitive lowercase form used for every comparison. */
-export function foldForSearch(value: string): string {
+function foldForSearch(value: string): string {
   return fold(value).text
 }
 
 /** Folded word tokens, e.g. "Côte d'Ivoire" → ["cote", "d", "ivoire"]. */
-export function searchTokens(value: string): string[] {
+function searchTokens(value: string): string[] {
   return foldForSearch(value).match(WORD) ?? []
 }
 
@@ -203,7 +196,7 @@ const SCORE = {
 
 /**
  * Mid-word matches need a token with something to say: "us" inside
- * "Australia" is noise, "ande" inside "Andes" is a match.
+ * "Australia" is noise, "bourg" inside "Luxembourg" is a match.
  */
 const MIN_INSIDE_LENGTH = 3
 

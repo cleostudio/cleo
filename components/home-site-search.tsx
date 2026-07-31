@@ -18,6 +18,9 @@ import {
 
 const RESULT_LIMIT = 9
 
+/** Stable default so the memoized index and option list do not churn. */
+const NO_SPOTLIGHT: string[] = []
+
 /** A row the visitor can highlight and open. */
 type SearchOption =
   | { key: string; href: string; row: 'hit'; result: SiteSearchResult }
@@ -88,7 +91,7 @@ function isTypingElsewhere(target: EventTarget | null) {
 
 export function HomeSiteSearch({
   hits,
-  spotlightIds = [],
+  spotlightIds = NO_SPOTLIGHT,
 }: {
   hits: SiteSearchHit[]
   /** Catalog ids offered before the visitor has typed anything. */
@@ -171,7 +174,7 @@ export function HomeSiteSearch({
       ?.scrollIntoView({ block: 'nearest' })
   }, [activeIndex, isPanelOpen])
 
-  function open(option: SearchOption | undefined) {
+  function openOption(option: SearchOption | undefined) {
     if (!option) return
     setIsOpen(false)
     router.push(option.href)
@@ -195,12 +198,12 @@ export function HomeSiteSearch({
       // ⌘/Ctrl-Return hands the question to Cleo whatever is highlighted.
       if (isSearching && (event.metaKey || event.ctrlKey)) {
         event.preventDefault()
-        open(askOption(trimmed))
+        openOption(askOption(trimmed))
         return
       }
       if (!activeOption) return
       event.preventDefault()
-      open(activeOption)
+      openOption(activeOption)
       return
     }
 
