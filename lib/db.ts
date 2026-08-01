@@ -2,10 +2,10 @@ import { attachDatabasePool } from '@vercel/functions'
 import { drizzle } from 'drizzle-orm/node-postgres'
 import { Pool } from 'pg'
 
-import * as schema from '~/lib/auth-schema'
+import * as schema from '~/lib/schema'
 
 /**
- * Lazy Postgres access for Better Auth (and later Stage 2b tables).
+ * Lazy Postgres access for Better Auth and application tables.
  *
  * Uses `pg` so the same code path works with a Neon `DATABASE_URL` and with
  * local Postgres. Do not call `neon()` at module scope — it throws during
