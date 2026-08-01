@@ -82,6 +82,11 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
               <T zh="询问" en="Ask" />
             </Link>
           </li>
+          <li>
+            <Link href={localePath(locale, '/sign-in')} className="footer-tree-link">
+              <T zh="登录" en="Sign in" />
+            </Link>
+          </li>
         </Tree>
         <div className="footer-colophon col-span-2 sm:order-first sm:col-span-1">
           <div>

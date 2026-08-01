@@ -14,6 +14,7 @@ noindex and do not gate Explore / Space / Cleo.
 | `POST/GET /api/auth/*` | Better Auth handler (`toNextJsHandler`) |
 | `/sign-in`, `/sign-up` | Email/password forms |
 | `/account` | Session summary + sign out |
+| Footer → **Sign in** | Discoverable entry in the site footer index |
 
 Without `DATABASE_URL` + `BETTER_AUTH_SECRET` (≥32 chars), `/api/auth/*`
 returns **HTTP 503**; the rest of the site keeps working (same pattern as
