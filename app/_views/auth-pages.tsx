@@ -56,7 +56,13 @@ function AuthForm({ mode }: { mode: AuthMode }) {
   }
 
   return (
-    <form className="mt-6 flex max-w-sm flex-col gap-4" onSubmit={onSubmit}>
+    <form
+      // Prefer POST if the browser submits before hydration (default GET
+      // would put the password in the query string / history).
+      method="post"
+      className="mt-6 flex max-w-sm flex-col gap-4"
+      onSubmit={onSubmit}
+    >
       {mode === 'sign-up' ? (
         <Input
           label={<T zh="名称" en="Name" />}
