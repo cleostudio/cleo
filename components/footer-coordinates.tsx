@@ -1,17 +1,27 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
 
 import { requestUserLocation } from '~/lib/cleo/client-location'
 import {
   isLocationSyncEnabled,
   subscribeToLocationSync,
 } from '~/lib/cleo/location-preference'
+import { unlocalizedPathname } from '~/lib/locale-route'
 
 type Coordinates = {
   accuracy: number
   latitude: number
   longitude: number
+}
+
+/** Survives remounts so the footer stamp does not flash “Locating…”. */
+let rememberedCoordinates: Coordinates | null = null
+
+/** @internal Vitest helper — clears the module cache between cases. */
+export function resetFooterCoordinatesCacheForTests() {
+  rememberedCoordinates = null
 }
 
 function formatCoordinate(value: number, positiveDirection: string, negativeDirection: string) {
@@ -24,9 +34,27 @@ function accuracyDescription(accuracy: number) {
   return ` Accuracy reported within about ${Math.round(accuracy)} meters.`
 }
 
+function initialCoordinates() {
+  return isLocationSyncEnabled() ? rememberedCoordinates : null
+}
+
+function isPermissionLossError(error: unknown) {
+  if (!(error instanceof Error)) return false
+  return (
+    error.message.includes('explicit allow') ||
+    error.message.includes('blocked')
+  )
+}
+
 export function FooterCoordinates() {
-  const [coordinates, setCoordinates] = useState<Coordinates | null>(null)
-  const [isLocating, setIsLocating] = useState(false)
+  const isCleoRoute = unlocalizedPathname(usePathname()) === '/cleo'
+  const wasCleoRouteRef = useRef(isCleoRoute)
+  const syncLocationRef = useRef<(enabled: boolean, allowPrompt: boolean) => void>(() => {})
+
+  const [coordinates, setCoordinates] = useState<Coordinates | null>(initialCoordinates)
+  const [isLocating, setIsLocating] = useState(
+    () => isLocationSyncEnabled() && rememberedCoordinates === null,
+  )
 
   useEffect(() => {
     let isCurrent = true
@@ -37,33 +65,49 @@ export function FooterCoordinates() {
       const currentRequestId = requestId
 
       if (!enabled) {
+        rememberedCoordinates = null
         setCoordinates(null)
         setIsLocating(false)
         return
       }
 
-      setCoordinates(null)
-      setIsLocating(true)
+      // Keep the last stamp visible while a refresh is in flight. Only show
+      // “Locating…” when we have nothing to display yet.
+      if (rememberedCoordinates === null) {
+        setCoordinates(null)
+        setIsLocating(true)
+      } else {
+        setCoordinates(rememberedCoordinates)
+        setIsLocating(false)
+      }
 
       void requestUserLocation({ allowPrompt })
         .then((location) => {
           if (!isCurrent || requestId !== currentRequestId) return
 
-          setCoordinates({
+          const next = {
             accuracy: location.accuracy,
             latitude: location.latitude,
             longitude: location.longitude,
-          })
+          }
+          rememberedCoordinates = next
+          setCoordinates(next)
           setIsLocating(false)
         })
-        .catch(() => {
-          if (isCurrent && requestId === currentRequestId) {
+        .catch((error) => {
+          if (!isCurrent || requestId !== currentRequestId) return
+
+          // Drop the stamp when access was revoked/blocked; keep it for
+          // transient GPS failures so a quiet refresh cannot blank the footer.
+          if (rememberedCoordinates === null || isPermissionLossError(error)) {
+            rememberedCoordinates = null
             setCoordinates(null)
-            setIsLocating(false)
           }
+          setIsLocating(false)
         })
     }
 
+    syncLocationRef.current = syncLocation
     syncLocation(isLocationSyncEnabled(), false)
     const unsubscribe = subscribeToLocationSync(({ allowPrompt, enabled }) => {
       syncLocation(enabled, allowPrompt)
@@ -74,6 +118,17 @@ export function FooterCoordinates() {
       unsubscribe()
     }
   }, [])
+
+  useEffect(() => {
+    const wasCleoRoute = wasCleoRouteRef.current
+    wasCleoRouteRef.current = isCleoRoute
+
+    // Footer stays mounted (hidden) on /cleo — quietly re-validate when it
+    // becomes visible again so a revoked permission cannot leave a stale stamp.
+    if (wasCleoRoute && !isCleoRoute) {
+      syncLocationRef.current(isLocationSyncEnabled(), false)
+    }
+  }, [isCleoRoute])
 
   const latitude = coordinates && formatCoordinate(coordinates.latitude, 'N', 'S')
   const longitude = coordinates && formatCoordinate(coordinates.longitude, 'E', 'W')

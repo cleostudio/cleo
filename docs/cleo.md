@@ -89,6 +89,10 @@ Built by `lib/cleo/ask-link.ts`.
 - Server validates in `location.ts` and adds coords + IANA TZ only to private
   per-turn instructions. Browser settings remain the grant/revoke control.
 - `components/footer-coordinates.tsx` may render coordinates when present.
+  The site footer stays mounted (CSS-hidden) on `/cleo` so leaving chat does
+  not remount the stamp into a “Locating…” wait. The last reading stays
+  visible, and leaving `/cleo` triggers a quiet revalidation (clearing the
+  stamp if browser permission was revoked).
 
 ## Client-only state
 
