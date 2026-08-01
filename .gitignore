@@ -55,3 +55,7 @@ static/
 # Space photo import originals (never public)
 .space-originals/
 
+
+# Stage 0/throwaway auth spike
+.spike-auth.sqlite
+.spike-auth.sqlite-*
