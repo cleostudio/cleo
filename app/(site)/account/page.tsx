@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   robots: nonPublicRobots,
 }
 
+// Session lookup uses headers(); do not prerender a shared shell.
+export const instant = false
+
 export default async function AccountPage() {
   const session = await getSession(await headers())
   const user = session?.user
