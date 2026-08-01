@@ -41,7 +41,8 @@ AskForm keeps working in memory exactly as before Stage 1.
   `history.replaceState`s to `/cleo/[threadId]`. `/cleo?q=…` creates a thread,
   strips `q`, asks once.
 - `/cleo/[threadId]` — client-loaded resume from IndexedDB; shell stays
-  prerenderable (`generateStaticParams` → `[]`).
+  prerenderable (`generateStaticParams` returns one placeholder UUID for
+  Cache Components build validation).
 
 ## UI
 
