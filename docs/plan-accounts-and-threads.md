@@ -295,9 +295,22 @@ cross-origin iframes, which `frame-ancestors 'none'` already forbids.
 ### 5.2 The non-nullable email column
 
 Better Auth's core `user.email` is not nullable, and `resolveUser` returns no
-email field. Supply a synthetic address, following the pattern Better Auth's
-own anonymous plugin uses (`temp@{id}.com`, domain configurable). Document the
-format and guarantee uniqueness from the user id. Never surface it in the UI.
+email field. Supply a synthetic address unique to the user id, document the
+format, and never surface it in the UI.
+
+**Use a reserved TLD, not `.com`.** Better Auth's anonymous plugin defaults to
+`temp@{id}.com`, but its domain is configurable precisely so you can choose
+something safer. A user id is a valid domain label, so `temp@{uuid}.com` sits
+in a namespace someone can actually register. Nothing sends mail today, so the
+impact is currently nil — but if email is ever added, or any third-party tool
+attempts delivery or a DNS lookup, those addresses resolve to a stranger.
+RFC 2606 reserves `.invalid` for exactly this and guarantees it can never be
+registered. Choosing it costs nothing now; changing it later is a data
+migration across every user row.
+
+Tie the "is this synthetic?" predicate to the actual id shape rather than to
+any address at the synthetic domain, so a real address that happens to share
+the prefix is never misclassified.
 
 ### 5.3 No email provider
 
@@ -752,6 +765,27 @@ mobile, light and dark, per the existing UI rule in AGENTS.md.
 - A short ADR recording the Better Auth versus Clerk decision and the
   `store: false` versus Conversations API decision, since both reverse or
   qualify prior product decisions.
+
+### 13.1 Editing the legacy URL contract
+
+`content/legacy-url-manifest.json` is the cutover contract with the outside
+world — old inbound links and search engines. `pnpm verify:legacy-urls`
+validates the app **against the manifest**, so deleting a rule together with
+its probes leaves the check green while the external contract silently breaks.
+The probe count is the tell: it should never fall.
+
+Rules when a stage wants a path the manifest already owns:
+
+- Never delete an entry. Retarget its `destination` instead.
+- When a redirected path becomes a real page, narrow the rule to `:path+`
+  (one or more segments) rather than removing it, so the page serves at the
+  bare path while sub-paths still redirect instead of 404ing.
+- Keep at least one probe per surviving rule.
+
+Stage 2a hit this exactly: reclaiming `/sign-in` removed `/sign-in/:path*`
+outright, which turned `/sign-in/legacy` from a 308 into a 404 while
+`verify:legacy-urls` still passed. Restoring the rule as `/sign-in/:path+ →
+/sign-in` fixes it with no effect on the new page.
 
 ---
 
