@@ -72,8 +72,7 @@ export async function SiteDocument({
             <Suspense fallback={<DockFallback locale="en" />}>
               <Dock />
             </Suspense>
-            {/* Stage 0: client-only fallback — Suspense RSC session reads
-                change ○ → ◐ on every page that mounts SiteDocument. */}
+            {/* Stage 0 follow-up: client-only useSession probe (site-wide). */}
             <DockAuthSessionClient />
             <Analytics />
             <SpeedInsights />

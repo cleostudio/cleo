@@ -8,17 +8,14 @@ adding Better Auth session reads keep existing routes classified the same as
 
 ## Verdict
 
-**NO-GO for Suspense-wrapped RSC session reads in the site shell.**
+**NO-GO for Suspense-wrapped RSC session reads in `SiteDocument` (site-wide
+shell).** That turns every content route ○ → ◐.
 
-**GO for Stage 2 if auth-aware chrome is fully client-side (`useSession`) with
-no RSC `getSession` / `headers()` in `SiteDocument` or other static shells.**
+**GO for `/cleo`-scoped RSC `getSession` under Suspense** when ◐ is acceptable
+for `/cleo` only. Content routes stay ○. ○ → ƒ was not observed.
 
-Suspense wrapping does **not** preserve ○ classification. It converts those
-routes to ◐ (Partial Prerender). They still get a static shell, but that fails
-the Stage 0 acceptance bar of “same classification as `main`”.
-
-The documented fallback — client-only auth surface — restores every existing
-route to the same ○ / ◐ / ƒ marks as `main` (plus a new `ƒ /api/auth/[...all]`).
+**GO for client-only chrome (`useSession`)**, with a **non-httpOnly session
+hint cookie** so signed-out visitors skip `/api/auth/get-session`.
 
 ## What was wired
 
@@ -137,10 +134,64 @@ Classification matches `main` for every pre-existing route. Only addition:
    older Next 15.2 middleware examples are unsafe to copy on this stack.
 3. No Clerk / CSP changes were required; `/api/auth/*` is same-origin.
 
+## Follow-up A — RSC `getSession` on `/cleo` only
+
+Moved the Suspense RSC probe out of `SiteDocument` and into
+`app/(site)/cleo/page.tsx` only.
+
+| Route | `main` | `/cleo`-only RSC | Notes |
+| --- | --- | --- | --- |
+| `/`, `/blog`, `/gallery`, `/topics`, `/explore`, `/space` | ○ | ○ | unchanged |
+| concrete `/explore/*`, `/space/*`, `/blog/*` | ○ | ○ | unchanged |
+| `/cleo` | ○ | ◐ | only classification change among pages |
+| `/api/auth/[...all]` | — | ƒ | new |
+
+No ○ → ƒ. Content routes stay ○ as expected. ◐ on `/cleo` is acceptable.
+
+## Follow-up B — does signed-out `useSession` hit get-session?
+
+Client-only probe mounted site-wide. `pnpm build` + `pnpm start`, then load `/`
+with no cookies (Chrome via measurement script).
+
+**Yes.** Better Auth’s session atom always `$fetch("/get-session")` on mount:
+
+```json
+{
+  "probeState": "signed-out",
+  "cookiesAfter": [],
+  "authRequests": [
+    {
+      "method": "GET",
+      "url": "http://localhost:3000/api/auth/get-session",
+      "resourceType": "fetch"
+    }
+  ],
+  "getSessionRequested": true
+}
+```
+
+### Hint-cookie gate prototype
+
+`cleo.session-hint` (non-httpOnly). `DockAuthSessionClient` reads it before
+mounting the `useSession` subtree — without the hint, `useSession` is never
+mounted, so no fetch.
+
+| Load `/` | Hint cookie | `get-session`? | Probe state |
+| --- | --- | --- | --- |
+| signed-out | absent | **no** | `signed-out-no-hint` |
+| signed-out | `cleo.session-hint=1` | **yes** | `signed-out` |
+
+Gate works. Real session tokens remain httpOnly; the hint is only a
+“maybe signed in” signal for skipping the round-trip.
+
+Re-run: `node scripts/stage0-measure-get-session.mjs` (needs `puppeteer-core`
++ Chrome; not a product dependency).
+
 ## Recommendation for Stage 2
 
-Proceed with Better Auth, but treat the plan’s “Suspense RSC or client
-`useSession`” choice as settled: **client `useSession` for dock / chrome**.
-Keep Server Component shells session-free. Resolve sessions with
-`auth.api.getSession({ headers })` only inside Route Handlers / Server Actions
-(where dynamic is expected), never in `SiteDocument` or static page shells.
+- **Dock / site chrome:** client `useSession`, gated on a non-httpOnly hint
+  cookie (`lib/auth-session-hint.ts` prototype). Set the hint on sign-in;
+  clear it on sign-out.
+- **`/cleo` only:** Suspense RSC `getSession` is fine if ◐ is acceptable there.
+- **Never** put RSC session reads in `SiteDocument` / shared static shells.
+- Route Handlers / Server Actions may call `auth.api.getSession` freely.

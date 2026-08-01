@@ -500,10 +500,11 @@ Acceptance: build output shows the same static/dynamic classification as `main`
 for every existing route. **Everything else is gated on this.** If it fails, the
 fallback is a fully client-side auth surface with no RSC session reads at all.
 
-**Result (2026-08-01):** Suspense-wrapped RSC `getSession` fails acceptance —
-every previously-○ shell route becomes ◐. Client-only `useSession` preserves
-`main`’s classification. Full tables in `docs/stage0-prerender-findings.md`.
-Stage 2 must use the client-only chrome path.
+**Result (2026-08-01):** Site-wide Suspense RSC `getSession` turns every ○
+shell route into ◐. Follow-ups: `/cleo`-only RSC leaves content routes ○
+(`/cleo` ○→◐, acceptable); client `useSession` always hits
+`/api/auth/get-session` when mounted, so Stage 2 should gate it behind a
+non-httpOnly hint cookie. Details in `docs/stage0-prerender-findings.md`.
 
 ### Stage 1 — Local threads, zero infrastructure
 

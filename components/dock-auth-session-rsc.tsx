@@ -6,10 +6,9 @@ import { auth } from '~/lib/auth'
  * Stage 0: Suspense-wrapped Server Component session read.
  * Calls `headers()` via Better Auth — the prerender risk under test.
  *
- * Result (Next.js 16.3.0-preview.9, cacheComponents): mounting this in
- * `SiteDocument` changes every previously-○ route to ◐ (Partial Prerender).
- * Routes stay prerendered with a static shell, but classification is not
- * identical to `main`. Kept unmounted; client `useSession` is the fallback.
+ * SiteDocument mount: every previously-○ route → ◐.
+ * /cleo-only mount (this follow-up): expect content routes to stay ○;
+ * /cleo becoming ◐ is acceptable (○ → ƒ would be the failure).
  */
 export async function DockAuthSessionRsc() {
   const session = await auth.api.getSession({
