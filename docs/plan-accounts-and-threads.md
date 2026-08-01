@@ -378,6 +378,12 @@ Rules:
   dock re-fetch it.
 - Nothing server-side may read the hint cookie. A server read would make the
   reading route dynamic and defeat the entire mechanism.
+- Dynamic routes whose params cannot be enumerated — `/cleo/[threadId]` — opt
+  out of static shell validation with `export const instant = false`, following
+  the precedent in `app/(site)/confirm/[token]/page.tsx`. Do **not** satisfy the
+  validator with a placeholder `generateStaticParams` entry: that prerenders a
+  real, publicly reachable junk URL, and it buys nothing. Verified on the
+  Stage 1 branch — both approaches produce an identical ◐ classification.
 - Server Components cannot set cookies, so the session cookie cache never
   refreshes from an RSC render. Refresh happens in Server Actions and route
   handlers.
@@ -490,6 +496,14 @@ classic source of pain in this feature.
 
 On first sign-in, offer to adopt local threads, then clear local copies on
 success. Never silently discard them.
+
+Stage 1 shipped byte caps with oldest-first thread eviction. Until Stage 2
+lands there is no server copy, so that eviction is **irreversible data loss**,
+and the caps are reachable sooner than they look: a single message can carry
+16 MiB of images against a 32 MiB per-thread cap. Surface storage use in the
+History dialog and warn before dropping a thread. Once threads sync to
+Postgres, the same eviction becomes ordinary cache behaviour and the warning
+can soften.
 
 ### 7.3 Deletion and export
 
