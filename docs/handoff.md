@@ -16,10 +16,13 @@ General-knowledge portal:
 - **Topics** — catalog in `lib/topics.ts` (Countries + Space first)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)
 - **Cleo** — browser-only agent at `/cleo`, OpenAI only
+- **Account** — Better Auth email/password on Neon (`/sign-in`, `/sign-up`,
+  `/account`); portal content stays public
 
-**Not in product:** Clerk, Neon/Postgres, Bunny media, AMA booking, Stripe,
-Resend, Google, Tencent, Upstash. Vercel Web Analytics and Speed Insights are
-mounted in the root document — enable both products in the Vercel dashboard.
+**Not in product:** Clerk, Bunny media, AMA booking, Stripe, Resend, Google,
+Tencent, Upstash. Neon + Better Auth are in product (see [`auth.md`](./auth.md)).
+Vercel Web Analytics and Speed Insights are mounted in the root document —
+enable both products in the Vercel dashboard.
 
 Former `/ama`, `/admin` redirect away. `/projects` → `/topics`, `/photos` →
 `/gallery`. Projects UI, vinyl/bookshelf, and social cards remain in-repo for
@@ -35,13 +38,14 @@ reuse.
 | Gallery | `lib/gallery.ts`, `/gallery` (`galleryItemDomId` + `place-gallery-target`) |
 | Homepage search | `lib/site-search-catalog.ts`, `lib/site-search.ts`, `components/home-site-search.tsx` |
 | Cleo | `components/cleo/*`, `lib/cleo/*`, `POST /api/responses` |
+| Auth | `lib/auth.ts`, `lib/db/*`, `/api/auth/[...all]`, `/sign-in` |
 | Place images | `public/images/atlas/`, `public/images/space/` (static `srcset`) |
 | Country prose | `scripts/atlas/atlas-about.json` via `pnpm write:atlas-about` |
-| Env | `OPENAI_API_KEY`, optional `PUBLIC_SITE_URL` / `SITE_URL` (`.env.example`) |
+| Env | `OPENAI_API_KEY`; Neon `DATABASE_URL` + `BETTER_AUTH_SECRET` for account; optional `PUBLIC_SITE_URL` / `SITE_URL` (`.env.example`) |
 | Social seeds | `content/social.json`, `content/github.json` (components retained; not in chrome) |
 
 Deep runbooks: [`cleo.md`](./cleo.md), [`homepage-search.md`](./homepage-search.md),
-[`atlas.md`](./atlas.md), [`space.md`](./space.md).
+[`atlas.md`](./atlas.md), [`space.md`](./space.md), [`auth.md`](./auth.md).
 
 ## Design
 
@@ -56,11 +60,12 @@ Deep runbooks: [`cleo.md`](./cleo.md), [`homepage-search.md`](./homepage-search.
 
 ```bash
 pnpm install
-cp .env.example .env.local   # set OPENAI_API_KEY
+cp .env.example .env.local   # set OPENAI_API_KEY; Neon + BETTER_AUTH_SECRET for account
 pnpm validate:atlas
 pnpm dev
 pnpm typecheck && pnpm build
 ```
 
 Previews stub missing site URLs via `scripts/ensure-preview-env.mjs`. Without
-`OPENAI_API_KEY`, `/api/responses` returns 503; the rest of the site works.
+`OPENAI_API_KEY`, `/api/responses` returns 503. Without Neon /
+`BETTER_AUTH_SECRET`, `/api/auth/*` returns 503; the rest of the site works.

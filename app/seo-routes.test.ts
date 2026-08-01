@@ -14,7 +14,13 @@ describe('discovery routes', () => {
       rules: {
         userAgent: '*',
         allow: '/',
-        disallow: ['/confirm/', '/api/'],
+        disallow: [
+          '/confirm/',
+          '/api/',
+          '/sign-in',
+          '/sign-up',
+          '/account',
+        ],
       },
       sitemap: new URL('/sitemap.xml', seo.url).href,
       host: seo.url.origin,
