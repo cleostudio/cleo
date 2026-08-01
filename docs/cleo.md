@@ -19,6 +19,7 @@ Read this when changing `/cleo`, `POST /api/responses`, or anything under
 | Empty-state starters | `lib/cleo/portal-links.ts` |
 | Ask link builder | `lib/cleo/ask-link.ts` |
 | Location (client / preference / cache / server validate) | `lib/cleo/client-location.ts`, `lib/cleo/location-preference.ts`, `lib/cleo/location-preference-account.ts`, `lib/cleo/location-cache.ts`, `lib/cleo/location.ts` |
+| Signed-in name for personalization | `lib/cleo/user-profile.ts` (via `getSession` in the API route) |
 | Styles | `app/cleo.css` (keep prompt dock above site dock via `--cleo-prompt-bottom`) |
 | Route layout flag | `components/cleo-route-attribute.tsx` (`html[data-cleo-route]`, cleared in `useLayoutEffect` before destination paint) |
 
@@ -34,6 +35,8 @@ optional browser-authorized location, then calls the OpenAI Responses API with:
 - Adaptive reasoning effort; encrypted reasoning replay (`reasoning.context: "all_turns"`)
 - `max_tool_calls`, `truncation: "auto"`, prompt caching, streaming
 - `maxDuration` 90s, `store: false`
+- Signed-in account name from Better Auth session (private instructions; see
+  § Account name)
 
 ### Request limits
 
@@ -42,6 +45,8 @@ optional browser-authorized location, then calls the OpenAI Responses API with:
 - User/assistant messages: ≤ 4 image data URLs each (PNG, JPEG, WEBP, GIF)
 - Optional `location`: finite lat/lng, reported accuracy, valid IANA time zone —
   ephemeral developer context, never chat text
+- Account name is **not** accepted on the request body — the route reads it from
+  the Better Auth session cookie via `getSession`
 
 Without `OPENAI_API_KEY`, the route returns HTTP 503.
 
@@ -76,6 +81,20 @@ Only external entry into a pre-filled turn. Max 1,000 characters. `AskForm`
 consumes it once on mount (or via `initialPrompt`), asks, then strips the
 parameter so `/cleo` stays prerenderable and reload does not re-run the turn.
 Built by `lib/cleo/ask-link.ts`.
+
+## Account name
+
+When the request carries a signed-in Better Auth session, Cleo receives the
+account `user.name` as ephemeral developer context
+(`lib/cleo/user-profile.ts` → `<cleo_user_profile>`), the same privacy pattern
+as opt-in location:
+
+- Server-only: `getSession(request.headers)` in `POST /api/responses`. A
+  client-supplied `name` field is ignored.
+- Guests and unconfigured auth get no profile block.
+- Instructions tell Cleo to use the name for natural personalization (greetings,
+  direct address) without forcing it every turn or inventing other personal
+  details. Email is never included.
 
 ## Location
 
@@ -117,6 +136,8 @@ reload. Location preference persists (localStorage for guests; account field
 when signed in). The last successful fix also persists while Location is on
 (`cleo-location-last`) so refresh can restore coordinates without
 re-prompting. Reasoning items keep multi-turn coherent under `store: false`.
+Signed-in account name is read per turn from the session on the server — it
+is not stored in the browser conversation transcript.
 
 Account auth is Better Auth + Neon (see [`auth.md`](./auth.md)). No media
 library or AMA booking.
@@ -136,5 +157,7 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
   re-prompt; Safari/`unknown` Permissions API restores after a prior grant;
   signed-in restore across devices without re-prompt; toggle while session
   is loading is not wiped by a stale account `false`)
+- Signed-in personalization: after login, Cleo can address the account name;
+  guests get no name context
 - After atlas/space caption or rendition metadata changes:
   `pnpm generate:cleo-topic-photo-zoom`

@@ -13,6 +13,10 @@ const openai = vi.hoisted(() => {
   return { APIError, create: vi.fn() }
 })
 
+const auth = vi.hoisted(() => ({
+  getSession: vi.fn(),
+}))
+
 vi.mock("openai", () => {
   class OpenAI {
     responses = { create: openai.create }
@@ -20,6 +24,10 @@ vi.mock("openai", () => {
 
   return { APIError: openai.APIError, default: OpenAI }
 })
+
+vi.mock("~/lib/auth", () => ({
+  getSession: auth.getSession,
+}))
 
 import { POST } from "./route"
 
@@ -61,6 +69,8 @@ async function ndjson(response: Response) {
 
 beforeEach(() => {
   openai.create.mockReset()
+  auth.getSession.mockReset()
+  auth.getSession.mockResolvedValue(null)
   vi.stubEnv("OPENAI_API_KEY", "test-key")
   vi.spyOn(console, "error").mockImplementation(() => undefined)
 })
@@ -217,6 +227,53 @@ describe("POST /api/responses: opt-in location context", () => {
     expect(request.instructions).toContain("IANA time zone: America/Los_Angeles")
     expect(request.instructions).toContain("never volunteer it")
     expect(request.input[0].content).toBe("Tell me about Japan")
+  })
+})
+
+describe("POST /api/responses: signed-in user profile", () => {
+  it("adds the session account name only to private request instructions", async () => {
+    auth.getSession.mockResolvedValueOnce({
+      user: { name: "Ada Lovelace", email: "ada@example.com" },
+    })
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "Hi Ada.", type: "response.output_text.delta" }])
+    )
+
+    await POST(ask(question))
+
+    const request = openai.create.mock.calls[0]?.[0]
+
+    expect(request.instructions).toContain("<cleo_user_profile>")
+    expect(request.instructions).toContain("Preferred name: Ada Lovelace")
+    expect(request.instructions).toContain("Do not force the name into every reply")
+    expect(request.instructions).not.toContain("ada@example.com")
+    expect(request.input[0].content).toBe("Tell me about Japan")
+  })
+
+  it("omits profile instructions for guests", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "Hello.", type: "response.output_text.delta" }])
+    )
+
+    await POST(ask(question))
+
+    const request = openai.create.mock.calls[0]?.[0]
+
+    expect(request.instructions).not.toContain("<cleo_user_profile>")
+  })
+
+  it("ignores a client-supplied name on the request body", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "Hello.", type: "response.output_text.delta" }])
+    )
+
+    await POST(ask({ ...question, name: "Spoofed Name" }))
+
+    const request = openai.create.mock.calls[0]?.[0]
+
+    expect(auth.getSession).toHaveBeenCalled()
+    expect(request.instructions).not.toContain("Spoofed Name")
+    expect(request.instructions).not.toContain("<cleo_user_profile>")
   })
 })
 

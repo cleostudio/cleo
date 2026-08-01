@@ -38,6 +38,7 @@ missing `OPENAI_API_KEY` for `/api/responses`).
 | `lib/auth-user-fields.ts` | Shared `user.additionalFields` (e.g. Location preference) |
 | `lib/auth.ts` | Server `betterAuth` + `getSession` |
 | `lib/auth-client.ts` | React `createAuthClient` + `inferAdditionalFields` |
+| `lib/cleo/user-profile.ts` | Signed-in `user.name` → Cleo private instructions |
 | `app/api/auth/[...all]/route.ts` | Next.js route handler |
 | `drizzle.config.ts` | Migrations / push |
 | `app/_views/auth-pages.tsx` | Sign-in / sign-up / account UI |
@@ -110,6 +111,8 @@ in again. Confirm `/api/auth/ok` (or any auth path) returns 503 when Neon
 env is stripped. With a signed-in session, toggle Preferences → Location on,
 sign out and back in (or another browser) and confirm Location restores
 without a fresh geolocation prompt when browser permission is already granted.
+With a signed-in session, ask Cleo something casual (e.g. “Hey Cleo”) and
+confirm she can use the account name; signed-out turns must not.
 
 ## Boundaries
 
