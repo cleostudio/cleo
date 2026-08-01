@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it } from 'vitest'
 
 import {
+  getAllowedAuthHosts,
   getBetterAuthSecret,
   getBetterAuthUrl,
   isAuthConfigured,
@@ -16,6 +17,8 @@ const keys = [
   'PUBLIC_SITE_URL',
   'SITE_URL',
   'VERCEL_URL',
+  'VERCEL_BRANCH_URL',
+  'VERCEL_PROJECT_PRODUCTION_URL',
   'VERCEL_ENV',
 ] as const
 
@@ -71,7 +74,7 @@ describe('auth env helpers', () => {
     expect(isAuthConfigured()).toBe(true)
   })
 
-  it('resolves base URL from BETTER_AUTH_URL then site URL then Vercel', () => {
+  it('resolves fallback URL from BETTER_AUTH_URL then site URL then Vercel', () => {
     stashEnv()
     expect(getBetterAuthUrl()).toBe('http://localhost:3000')
 
@@ -85,17 +88,20 @@ describe('auth env helpers', () => {
     expect(getBetterAuthUrl()).toBe('https://auth.example.com')
   })
 
-  it('prefers VERCEL_URL over site URL stubs on Preview', () => {
+  it('allows Vercel preview hosts so Origin checks do not reject branch URLs', () => {
     stashEnv()
-    process.env.VERCEL_ENV = 'preview'
-    process.env.VERCEL_URL = 'cleo-git-auth-preview.vercel.app'
-    process.env.PUBLIC_SITE_URL = 'https://cleoalpha.vercel.app'
-    process.env.SITE_URL = 'https://cleoalpha.vercel.app'
-    expect(getBetterAuthUrl()).toBe(
-      'https://cleo-git-auth-preview.vercel.app',
-    )
+    process.env.VERCEL_URL = 'cleo-abc123-cleostudio.vercel.app'
+    process.env.VERCEL_BRANCH_URL =
+      'cleo-git-cursor-better-auth-neon-7cdf-cleostudio.vercel.app'
+    process.env.BETTER_AUTH_URL = 'https://cleoalpha.vercel.app'
 
-    process.env.BETTER_AUTH_URL = 'https://auth.example.com'
-    expect(getBetterAuthUrl()).toBe('https://auth.example.com')
+    const hosts = getAllowedAuthHosts()
+    expect(hosts).toContain('*.vercel.app')
+    expect(hosts).toContain('localhost:*')
+    expect(hosts).toContain('cleo-abc123-cleostudio.vercel.app')
+    expect(hosts).toContain(
+      'cleo-git-cursor-better-auth-neon-7cdf-cleostudio.vercel.app',
+    )
+    expect(hosts).toContain('cleoalpha.vercel.app')
   })
 })

@@ -9,25 +9,59 @@ export function getBetterAuthSecret(): string {
   return process.env.BETTER_AUTH_SECRET?.trim() || ''
 }
 
-/** Base URL for Better Auth cookies and callbacks. */
-export function getBetterAuthUrl(): string {
-  const explicit = process.env.BETTER_AUTH_URL?.trim()
-  if (explicit) return explicit
-
-  // Preview deployments must use the deployment host. `ensure-preview-env`
-  // (and project SITE_URL) point at the canonical alpha origin; using that
-  // as Better Auth baseURL mints cookies / CSRF for the wrong host.
-  const vercelUrl = process.env.VERCEL_URL?.trim()
-  if (process.env.VERCEL_ENV === 'preview' && vercelUrl) {
-    return `https://${vercelUrl}`
+function hostFromUrlOrHost(value: string | undefined): string | null {
+  const raw = value?.trim()
+  if (!raw) return null
+  try {
+    if (raw.includes('://')) return new URL(raw).host
+    return raw.replace(/^\/\//, '')
+  } catch {
+    return null
   }
+}
 
+/**
+ * Fallback base URL when the request host is unknown.
+ * Production should set BETTER_AUTH_URL to the live origin.
+ */
+export function getBetterAuthUrl(): string {
   return (
+    process.env.BETTER_AUTH_URL?.trim() ||
     process.env.PUBLIC_SITE_URL?.trim() ||
     process.env.SITE_URL?.trim() ||
-    (vercelUrl ? `https://${vercelUrl}` : '') ||
+    (process.env.VERCEL_URL?.trim()
+      ? `https://${process.env.VERCEL_URL.trim()}`
+      : '') ||
     'http://localhost:3000'
   )
+}
+
+/**
+ * Hosts Better Auth may mint cookies for / trust as Origin.
+ * Includes `*.vercel.app` so Preview branch + deployment URLs both work.
+ */
+export function getAllowedAuthHosts(): string[] {
+  const hosts = new Set<string>([
+    'localhost',
+    'localhost:*',
+    '127.0.0.1',
+    '127.0.0.1:*',
+    '*.vercel.app',
+  ])
+
+  for (const value of [
+    process.env.BETTER_AUTH_URL,
+    process.env.PUBLIC_SITE_URL,
+    process.env.SITE_URL,
+    process.env.VERCEL_URL,
+    process.env.VERCEL_BRANCH_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+  ]) {
+    const host = hostFromUrlOrHost(value)
+    if (host) hosts.add(host)
+  }
+
+  return [...hosts]
 }
 
 export function isAuthConfigured(): boolean {
@@ -47,7 +81,12 @@ function createAuth() {
       enabled: true,
     },
     secret: getBetterAuthSecret(),
-    baseURL: getBetterAuthUrl(),
+    // Dynamic base URL: Preview hosts differ from VERCEL_URL vs branch alias.
+    // allowedHosts are also added to trustedOrigins (fixes "Invalid origin").
+    baseURL: {
+      allowedHosts: getAllowedAuthHosts(),
+      fallback: getBetterAuthUrl(),
+    },
     plugins: [nextCookies()],
   })
 }

@@ -63,7 +63,7 @@ Required for auth:
 | --- | --- |
 | `DATABASE_URL` | Neon Marketplace (or `POSTGRES_URL`) |
 | `BETTER_AUTH_SECRET` | You — random ≥32 characters |
-| `BETTER_AUTH_URL` | Optional; on Vercel Preview uses `VERCEL_URL`, else `PUBLIC_SITE_URL` / `SITE_URL` / `VERCEL_URL` / localhost. Do not hardcode `localhost` in Preview/Production. |
+| `BETTER_AUTH_URL` | **Production only** — live origin. Leave unset for Preview/Development. Preview trusts `*.vercel.app` via dynamic `baseURL.allowedHosts` (avoids “Invalid origin”). |
 
 ## Schema migrate
 
