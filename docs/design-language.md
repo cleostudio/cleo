@@ -623,21 +623,23 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   pinned top-right of the content column on the title/eyebrow line, and the
   single home of the signal accent (see Color). It appears on every public
   view — the home masthead (as a wordmark mark beside the name), index /
-  service eyebrows (Writing, Gallery, Explore, Topics, and retained
-  Projects), and the post title line. A mark, never a control
+  service eyebrows (Writing, Gallery, Explore, Topics, Account, and
+  retained Projects), and the post title line. A mark, never a control
   (`aria-hidden`, out of the accessibility tree). On the retained Projects
   page it sits over the faint ghost schematic, which stays behind it as an
   ambient layer — the stamp is a mark, exempt from the one-instrument rule
   that governs full rasters. The arrangement varies per page (a `variant`
   picks which corner is lit and how the ink cells fall) so no two stamps
   read identically; every variant still keeps exactly one lit signal cell.
-  Posts derive their variant from the slug, stable per post.
+  Posts derive their variant from the slug, stable per post. Account
+  surfaces (`/sign-in`, `/sign-up`, `/account`) share one stamp variant.
 - **Page eyebrows** (`.page-eyebrow`): page h1s on the index and service
-  surfaces (Writing, Gallery, Explore, Topics, and retained Projects) are
-  set as mono section marks — 12px, +0.08em tracking, uppercase Latin —
-  prefixed by a faded `//` drawn in CSS with empty alt text so it never
-  reaches the accessible name. Homepage section headers and in-page h2s
-  keep the plain 14px treatment; the comment mark stays rare.
+  surfaces (Writing, Gallery, Explore, Topics, Account, and retained
+  Projects) are set as mono section marks — 12px, +0.08em tracking,
+  uppercase Latin — prefixed by a faded `//` drawn in CSS with empty alt
+  text so it never reaches the accessible name. Homepage section headers
+  and in-page h2s keep the plain 14px treatment; the comment mark stays
+  rare.
 - **Posts like this** (`.post-related`): the article foot carries up to
   three related posts as standard catalog rows — the blog-index row
   reused whole (dithered print thumb, title, dotted leader, tabular
@@ -884,6 +886,20 @@ away and unmounts only after the pointer leaves the full list.
 booking, owner admin (Clerk), or the Media Library without an explicit product
 decision. OpenAI is the only **model** third-party API; account auth is
 self-hosted Better Auth on Neon (see [`auth.md`](./auth.md)).
+
+## Account (sign-in / sign-up / account)
+
+Service surfaces for Better Auth email/password. Composition matches other
+index/service pages — not a centered card or marketing auth shell:
+
+- Shared shell in `app/_views/auth-pages.tsx`: `page-eyebrow` h1 + supporting
+  sentence + one `PixelCluster` on the title line.
+- Form column stays narrow (`max-w-sm`); page column is `max-w-content`.
+- Controls use shared `Input` / `Button` (`loading` + `expandHitArea` on the
+  primary action). Form-level errors use `role="alert"` in destructive ink.
+- Signed-in `/account` shows name and email in a `.spec-nameplate` (real
+  selectable data). Sign out is a tertiary pill — quiet, not destructive-filled.
+- No cards, hero panels, or social-provider chrome. Portal content stays public.
 
 ## Photo index / Gallery
 

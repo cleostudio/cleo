@@ -44,6 +44,12 @@ export function Preferences() {
   const [mounted, setMounted] = useState(false)
   const [sound, setSound] = useState(false)
 
+  // Keep the Better Auth session atom subscribed for the dock's lifetime.
+  // The Preferences portal unmounts when closed; without this warm
+  // subscription every open remounts useSession into isPending and the
+  // account row flashes the wrong label.
+  authClient.useSession()
+
   useEffect(() => {
     setMounted(true)
     setLocationSync(isLocationSyncEnabled())
@@ -133,7 +139,12 @@ export function Preferences() {
   )
 }
 
-function AccountPreferenceRows({ locale }: { locale: ReturnType<typeof useLocale> }) {
+/** Exported for unit tests; keeps the Preferences account row logic isolated. */
+export function AccountPreferenceRows({
+  locale,
+}: {
+  locale: ReturnType<typeof useLocale>
+}) {
   const router = useRouter()
   const { data: session, isPending } = authClient.useSession()
   const [signingOut, setSigningOut] = useState(false)
@@ -150,21 +161,14 @@ function AccountPreferenceRows({ locale }: { locale: ReturnType<typeof useLocale
     }
   }
 
-  if (isPending) {
-    return (
-      <div className="prefs-row prefs-admin" aria-busy="true">
-        <span className="prefs-row-label">
-          <T zh="账户" en="Account" />
-        </span>
-      </div>
-    )
-  }
-
-  if (!signedIn) {
+  // Anonymous is the default: while the session is unresolved, keep the
+  // Sign in row so guests never see Account flash into Sign in.
+  if (isPending || !signedIn) {
     return (
       <Link
         href={localePath(locale, '/sign-in')}
         className="prefs-row prefs-admin"
+        aria-busy={isPending || undefined}
         onClick={() => playPreferenceSound()}
       >
         <span className="prefs-row-label">
