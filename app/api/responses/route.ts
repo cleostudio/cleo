@@ -14,6 +14,7 @@ type CleoResponseCreateParams = ResponseCreateParamsStreaming & {
   max_tool_calls?: number | null
 }
 
+import { getSession } from "~/lib/auth"
 import { promptCacheKeyForConversation } from "~/lib/cleo/conversation-helpers"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
@@ -39,6 +40,7 @@ import {
   conversationTopicText,
   matchTopicPhotosInText,
 } from "~/lib/cleo/topic-photos"
+import { buildUserProfileInstructions } from "~/lib/cleo/user-profile"
 import {
   type ActivityItem,
   type ActivityStatus,
@@ -465,7 +467,24 @@ export async function POST(request: Request) {
   const locationInstructions = location
     ? buildUserLocationInstructions(location)
     : undefined
-  const instructions = [CLEO_INSTRUCTIONS, topicPhotoInstructions, locationInstructions]
+  // Account name comes from the Better Auth session cookie — never trust a
+  // client-supplied name field on the request body. Fail open if session
+  // lookup errors so a Neon blip cannot take Cleo down.
+  let profileInstructions: string | undefined
+  try {
+    const session = await getSession(request.headers)
+    if (session?.user?.name) {
+      profileInstructions = buildUserProfileInstructions(session.user.name)
+    }
+  } catch (error) {
+    console.error("Failed to load auth session for Cleo personalization.", error)
+  }
+  const instructions = [
+    CLEO_INSTRUCTIONS,
+    topicPhotoInstructions,
+    profileInstructions,
+    locationInstructions,
+  ]
     .filter(Boolean)
     .join("\n\n")
   const latestUserText =
