@@ -45,7 +45,7 @@ import {
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
-import { newMessageId } from "~/lib/cleo/thread-id"
+import { newMessageId, newThreadId } from "~/lib/cleo/thread-id"
 
 const MAX_INPUT_LENGTH = 10_000
 
@@ -277,12 +277,19 @@ export function AskForm({
   initialPrompt,
   initialMessages,
   onConversationChange,
+  persistence = 'local',
+  threadId = null,
+  onThreadId,
 }: {
   initialPrompt?: string
   /** Hydrate a resumed local thread. Remount with a new `key` when switching. */
   initialMessages?: AskFormMessage[]
   /** Fired when the transcript is idle (not streaming). Never includes location. */
   onConversationChange?: (messages: AskFormMessage[]) => void
+  /** `server` = signed-in Postgres path; `local` = Stage 1 IndexedDB / legacy body. */
+  persistence?: 'local' | 'server'
+  threadId?: string | null
+  onThreadId?: (threadId: string) => void
 }) {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
@@ -683,13 +690,34 @@ export function AskForm({
     }
 
     try {
+      let requestBody: Record<string, unknown>
+      if (persistence === "server") {
+        let activeThreadId = threadId
+        if (!activeThreadId) {
+          activeThreadId = newThreadId()
+          onThreadId?.(activeThreadId)
+        }
+        requestBody = {
+          threadId: activeThreadId,
+          message: {
+            id: userMessage.stableId,
+            content: question,
+            ...(userImages.length > 0 ? { images: userImages } : {}),
+          },
+          ...(location ? { location } : {}),
+        }
+      } else {
+        requestBody = {
+          messages: conversation,
+          ...(location ? { location } : {}),
+        }
+      }
+
       const response = await fetch("/api/responses", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          messages: conversation,
-          ...(location ? { location } : {}),
-        }),
+        credentials: "same-origin",
+        body: JSON.stringify(requestBody),
         signal: abortController.signal,
       })
 

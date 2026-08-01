@@ -3,14 +3,24 @@
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
-import { ThreadSession } from '~/components/cleo/thread-session'
+import { CleoPageView } from './cleo-page'
+import type { AskFormMessage } from '~/components/cleo/ask-form'
 import { isThreadId } from '~/lib/cleo/thread-id'
+import type { StoredThreadMeta } from '~/lib/cleo/thread-store'
 
 /**
- * `/cleo/[threadId]` shell. Params are read on the client so the route can
- * keep a prerendered shell; the thread body loads from IndexedDB after hydrate.
+ * `/cleo/[threadId]` client shell. When the RSC parent already resolved a
+ * session, messages arrive as `initialServerMessages`.
  */
-export function CleoThreadPageView() {
+export function CleoThreadPageView({
+  signedIn = false,
+  initialServerThreads,
+  initialServerMessages,
+}: {
+  signedIn?: boolean
+  initialServerThreads?: StoredThreadMeta[]
+  initialServerMessages?: AskFormMessage[]
+} = {}) {
   const params = useParams<{ threadId: string }>()
   const router = useRouter()
   const threadId = typeof params?.threadId === 'string' ? params.threadId : ''
@@ -22,8 +32,20 @@ export function CleoThreadPageView() {
   }, [router, threadId])
 
   if (!threadId || !isThreadId(threadId)) {
-    return <ThreadSession />
+    return (
+      <CleoPageView
+        signedIn={signedIn}
+        initialServerThreads={initialServerThreads}
+      />
+    )
   }
 
-  return <ThreadSession routeThreadId={threadId} />
+  return (
+    <CleoPageView
+      signedIn={signedIn}
+      initialServerThreads={initialServerThreads}
+      initialServerMessages={initialServerMessages}
+      routeThreadId={threadId}
+    />
+  )
 }

@@ -14,6 +14,12 @@ import {
   DialogTitle,
 } from '~/components/ui/dialog'
 import {
+  deleteServerThreadAction,
+  exportServerThreadsAction,
+  listServerThreadsAction,
+  renameServerThreadAction,
+} from '~/lib/cleo/thread-actions'
+import {
   deleteThread,
   listThreads,
   renameThread,
@@ -40,21 +46,43 @@ export function ThreadToolbar({
   onNewThread,
   onOpenThread,
   onThreadsChanged,
+  persistence = 'local',
+  initialServerThreads,
 }: {
   currentThreadId: string | null
   listVersion: number
   onNewThread: () => void
   onOpenThread: (threadId: string) => void
   onThreadsChanged: () => void
+  persistence?: 'local' | 'server'
+  initialServerThreads?: StoredThreadMeta[]
 }) {
   const [open, setOpen] = useState(false)
-  const [threads, setThreads] = useState<StoredThreadMeta[]>([])
+  const [threads, setThreads] = useState<StoredThreadMeta[]>(
+    () => initialServerThreads ?? [],
+  )
   const [available, setAvailable] = useState(true)
   const [renamingId, setRenamingId] = useState<string | null>(null)
   const [renameValue, setRenameValue] = useState('')
 
   useEffect(() => {
     let cancelled = false
+    if (persistence === 'server') {
+      void listServerThreadsAction().then((result) => {
+        if (cancelled) return
+        if (result.ok) {
+          setThreads(result.threads)
+          setAvailable(true)
+        } else {
+          setThreads([])
+          setAvailable(false)
+        }
+      })
+      return () => {
+        cancelled = true
+      }
+    }
+
     void listThreads()
       .then((rows) => {
         if (!cancelled) {
@@ -71,10 +99,15 @@ export function ThreadToolbar({
     return () => {
       cancelled = true
     }
-  }, [listVersion, open])
+  }, [listVersion, open, persistence])
 
   async function handleDelete(threadId: string) {
-    await deleteThread(threadId)
+    if (persistence === 'server') {
+      const result = await deleteServerThreadAction(threadId)
+      if (!result.ok) return
+    } else {
+      await deleteThread(threadId)
+    }
     setThreads((current) => current.filter((thread) => thread.id !== threadId))
     onThreadsChanged()
     if (threadId === currentThreadId) {
@@ -84,19 +117,38 @@ export function ThreadToolbar({
   }
 
   async function handleRenameSubmit(threadId: string) {
-    const ok = await renameThread(threadId, renameValue)
-    if (ok) {
-      setThreads((current) =>
-        current.map((thread) =>
-          thread.id === threadId
-            ? { ...thread, title: renameValue.trim() }
-            : thread,
-        ),
-      )
-      onThreadsChanged()
+    if (persistence === 'server') {
+      const result = await renameServerThreadAction(threadId, renameValue)
+      if (!result.ok) return
+    } else {
+      const ok = await renameThread(threadId, renameValue)
+      if (!ok) return
     }
+    setThreads((current) =>
+      current.map((thread) =>
+        thread.id === threadId
+          ? { ...thread, title: renameValue.trim() }
+          : thread,
+      ),
+    )
+    onThreadsChanged()
     setRenamingId(null)
     setRenameValue('')
+  }
+
+  async function handleExport() {
+    if (persistence !== 'server') return
+    const result = await exportServerThreadsAction()
+    if (!result.ok) return
+    const blob = new Blob([JSON.stringify(result.payload, null, 2)], {
+      type: 'application/json',
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = `cleo-threads-${new Date().toISOString().slice(0, 10)}.json`
+    anchor.click()
+    URL.revokeObjectURL(url)
   }
 
   return (
@@ -122,8 +174,9 @@ export function ThreadToolbar({
           <DialogBody>
             {!available ? (
               <p className="text-sm text-muted-foreground">
-                Local history is unavailable in this browser. Cleo still works;
-                conversations just will not survive a reload.
+                {persistence === 'server'
+                  ? 'Could not load account history. Try signing in again.'
+                  : 'Local history is unavailable in this browser. Cleo still works; conversations just will not survive a reload.'}
               </p>
             ) : threads.length === 0 ? (
               <p className="text-sm text-muted-foreground">
@@ -213,6 +266,18 @@ export function ThreadToolbar({
             )}
           </DialogBody>
           <DialogFooter>
+            {persistence === 'server' ? (
+              <Button
+                onClick={() => {
+                  void handleExport()
+                }}
+                size="sm"
+                type="button"
+                variant="ghost"
+              >
+                Export
+              </Button>
+            ) : null}
             <Button
               onClick={() => {
                 setOpen(false)

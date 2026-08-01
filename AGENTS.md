@@ -147,20 +147,27 @@ vignettes (`NavCards` retained for reuse, not mounted on the current homepage).
 A `/cleo?q=…` link is the only way in from outside the page. It carries at most
 1,000 characters, is consumed once, and leaves no trace in the URL afterwards.
 
-Conversation state, the current location value, and encrypted reasoning items
-are browser-only for now (Stage 1 IndexedDB threads on `/cleo` /
-`/cleo/[threadId]`; durable server threads land in Stage 2b). The dock’s
-location preference persists in browser storage and, when the browser has
-already granted geolocation, quietly refreshes coordinates on the next session.
-Reasoning items keep multi-turn replies coherent under `store: false`. There
-is no media library or AMA booking.
+Conversation state and encrypted reasoning items are durable for signed-in
+users (Postgres threads via `lib/cleo/thread-repository.ts`, client UUID PKs
+shared with Stage 1 IndexedDB). Signed-out visitors keep Stage 1 IndexedDB
+threads on `/cleo` / `/cleo/[threadId]`. Location coordinates stay ephemeral
+per-turn context and are never persisted. The dock’s location preference
+persists in browser storage and, when the browser has already granted
+geolocation, quietly refreshes coordinates on the next session. Reasoning
+items are a TTL’d cache (`message_reasoning`); threads render and continue
+when they are absent. `store: false` stays. There is no media library or AMA
+booking.
 
-Accounts (Stage 2a): Better Auth with passkeys + GitHub OAuth, Neon/Postgres
-via `DATABASE_URL`, schema in `lib/auth-schema.ts`. Sign-in UI at `/sign-in`;
-dock Preferences shows auth chrome gated by the non-httpOnly
-`cleo.session-hint` cookie (never read server-side; never mount `useSession`
-without it). Synthetic passkey emails (`temp@{userId}.com`) are never shown in
-the UI. Content routes stay session-free.
+Accounts (Stage 2a/2b): Better Auth with passkeys + GitHub OAuth, Neon/Postgres
+via `DATABASE_URL`, schemas in `lib/auth-schema.ts` and
+`lib/cleo/thread-schema.ts`. Sign-in UI at `/sign-in`; dock Preferences shows
+auth chrome gated by the non-httpOnly `cleo.session-hint` cookie (never read
+server-side; never mount `useSession` without it). Synthetic passkey emails
+(`temp@{userId}.com`) are never shown in the UI. Content routes stay
+session-free; `/cleo` may read the session in an RSC (◐). Signed-in
+`POST /api/responses` sends `threadId` + the new user message; signed-out
+keeps the full-conversation body. CSRF origin / `Sec-Fetch-Site` screening
+guards the ambient-credential route.
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,

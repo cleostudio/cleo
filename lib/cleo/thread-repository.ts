@@ -7,7 +7,10 @@ import {
   thread,
 } from '~/lib/cleo/thread-schema'
 import { ThreadAuthError, requireUserId } from '~/lib/cleo/thread-errors'
-import { REASONING_TTL_MS } from '~/lib/cleo/thread-limits'
+import {
+  MAX_REASONING_BYTES_PER_THREAD,
+  REASONING_TTL_MS,
+} from '~/lib/cleo/thread-limits'
 import { newMessageId } from '~/lib/cleo/thread-id'
 import { titleFromFirstUserMessage } from '~/lib/cleo/thread-title'
 import {
@@ -196,6 +199,22 @@ export async function appendUserMessage(input: {
   }
 }
 
+async function reasoningBytesForThread(
+  // Transaction client from `db().transaction` — same query surface as getDb().
+  tx: Pick<ReturnType<typeof getDb>, 'select'>,
+  threadId: string,
+) {
+  const [row] = await tx
+    .select({
+      total: sql<number>`coalesce(sum(${messageReasoning.bytes}), 0)`,
+    })
+    .from(messageReasoning)
+    .innerJoin(message, eq(message.id, messageReasoning.messageId))
+    .where(eq(message.threadId, threadId))
+
+  return Number(row?.total ?? 0)
+}
+
 export async function appendAssistantMessage(input: {
   userId: string | null | undefined
   threadId: string
@@ -211,7 +230,7 @@ export async function appendAssistantMessage(input: {
   const now = new Date()
   const sanitized = sanitizeReasoningItems(input.reasoningItems)
 
-  await db().transaction(async (tx) => {
+  const finalSeq = await db().transaction(async (tx) => {
     const owned = await tx
       .select({ id: thread.id })
       .from(thread)
@@ -234,12 +253,12 @@ export async function appendAssistantMessage(input: {
       .from(message)
       .where(eq(message.threadId, input.threadId))
 
-    const finalSeq = (agg?.maxSeq ?? 0) + 1
+    const nextSeq = (agg?.maxSeq ?? 0) + 1
 
     await tx.insert(message).values({
       id,
       threadId: input.threadId,
-      seq: finalSeq,
+      seq: nextSeq,
       role: 'assistant',
       content: input.content,
       status: input.status,
@@ -248,24 +267,31 @@ export async function appendAssistantMessage(input: {
 
     if (sanitized?.length) {
       const payload = JSON.stringify(sanitized)
-      await tx.insert(messageReasoning).values({
-        messageId: id,
-        items: sanitized,
-        bytes: Buffer.byteLength(payload, 'utf8'),
-        expiresAt: new Date(Date.now() + REASONING_TTL_MS),
-      })
+      const bytes = Buffer.byteLength(payload, 'utf8')
+      const used = await reasoningBytesForThread(tx, input.threadId)
+      // Cache only — drop rather than fail the assistant row when over cap.
+      if (used + bytes <= MAX_REASONING_BYTES_PER_THREAD) {
+        await tx.insert(messageReasoning).values({
+          messageId: id,
+          items: sanitized,
+          bytes,
+          expiresAt: new Date(Date.now() + REASONING_TTL_MS),
+        })
+      }
     }
 
     await tx
       .update(thread)
       .set({ updatedAt: now, lastMessageAt: now })
       .where(and(eq(thread.id, input.threadId), eq(thread.userId, ownerId)))
+
+    return nextSeq
   })
 
   return {
     id,
     threadId: input.threadId,
-    seq: 0,
+    seq: finalSeq,
     role: 'assistant',
     content: input.content,
     status: input.status,
@@ -450,6 +476,7 @@ export async function adoptLocalThread(input: {
       lastMessageAt: new Date(input.thread.lastMessageAt),
     })
 
+    let reasoningUsed = 0
     for (const msg of input.messages) {
       await tx.insert(message).values({
         id: msg.id,
@@ -463,12 +490,16 @@ export async function adoptLocalThread(input: {
       const sanitized = sanitizeReasoningItems(msg.reasoningItems)
       if (sanitized?.length) {
         const payload = JSON.stringify(sanitized)
-        await tx.insert(messageReasoning).values({
-          messageId: msg.id,
-          items: sanitized,
-          bytes: Buffer.byteLength(payload, 'utf8'),
-          expiresAt: new Date(Date.now() + REASONING_TTL_MS),
-        })
+        const bytes = Buffer.byteLength(payload, 'utf8')
+        if (reasoningUsed + bytes <= MAX_REASONING_BYTES_PER_THREAD) {
+          await tx.insert(messageReasoning).values({
+            messageId: msg.id,
+            items: sanitized,
+            bytes,
+            expiresAt: new Date(Date.now() + REASONING_TTL_MS),
+          })
+          reasoningUsed += bytes
+        }
       }
     }
   })
