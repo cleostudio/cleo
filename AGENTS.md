@@ -163,11 +163,11 @@ via `DATABASE_URL`, schemas in `lib/auth-schema.ts` and
 `lib/cleo/thread-schema.ts`. Sign-in UI at `/sign-in`; dock Preferences shows
 auth chrome gated by the non-httpOnly `cleo.session-hint` cookie (never read
 server-side; never mount `useSession` without it). Synthetic passkey emails
-(`temp@{userId}.com`) are never shown in the UI. Content routes stay
-session-free; `/cleo` may read the session in an RSC (◐). Signed-in
-`POST /api/responses` sends `threadId` + the new user message; signed-out
-keeps the full-conversation body. CSRF origin / `Sec-Fetch-Site` screening
-guards the ambient-credential route.
+(`temp@{userId}.invalid`, an RFC 2606 reserved TLD) are never shown in the UI.
+Content routes stay session-free; `/cleo` may read the session in an RSC (◐).
+Signed-in `POST /api/responses` sends `threadId` + the new user message;
+signed-out keeps the full-conversation body. CSRF origin / `Sec-Fetch-Site`
+screening guards the ambient-credential route.
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,

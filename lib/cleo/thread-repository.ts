@@ -1,6 +1,7 @@
 import { and, asc, desc, eq, isNull, max, sql } from 'drizzle-orm'
 
 import { user } from '~/lib/auth-schema'
+import { syntheticEmailForUserId } from '~/lib/auth-synthetic-email'
 import {
   message,
   messageReasoning,
@@ -512,7 +513,7 @@ export async function insertTestUser(id: string, name = 'Test user') {
     .values({
       id,
       name,
-      email: `temp@${id}.com`,
+      email: syntheticEmailForUserId(id),
       emailVerified: false,
       createdAt: new Date(),
       updatedAt: new Date(),
