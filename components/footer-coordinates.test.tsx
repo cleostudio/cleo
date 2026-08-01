@@ -5,7 +5,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
 
-import { FooterCoordinates } from './footer-coordinates'
+import {
+  FooterCoordinates,
+  resetFooterCoordinatesCacheForTests,
+} from './footer-coordinates'
 
 let originalGeolocation: PropertyDescriptor | undefined
 let originalPermissions: PropertyDescriptor | undefined
@@ -40,11 +43,13 @@ function mockPermissions(state: PermissionState) {
 
 beforeEach(() => {
   window.localStorage.clear()
+  resetFooterCoordinatesCacheForTests()
 })
 
 afterEach(() => {
   cleanup()
   window.localStorage.clear()
+  resetFooterCoordinatesCacheForTests()
   if (originalGeolocation) {
     Object.defineProperty(navigator, 'geolocation', originalGeolocation)
   } else {
@@ -204,5 +209,57 @@ describe('FooterCoordinates', () => {
     expect(screen.getByText('Location unavailable')).not.toBeNull()
     expect(screen.queryByText('22.4820° N')).toBeNull()
     expect(screen.queryByText('113.9247° E')).toBeNull()
+  })
+
+  it('keeps the last stamp visible across remount while a refresh is in flight', async () => {
+    mockPermissions('granted')
+    let resolvePosition: PositionCallback | undefined
+    const getCurrentPosition = mockGeolocation((success) => {
+      resolvePosition = success
+    })
+
+    setLocationSyncEnabled(true)
+    const first = render(<FooterCoordinates />)
+
+    await waitFor(() => {
+      expect(getCurrentPosition).toHaveBeenCalledTimes(1)
+    })
+
+    await act(async () => {
+      resolvePosition?.({
+        coords: {
+          accuracy: 8,
+          latitude: -33.86882,
+          longitude: 151.2093,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+
+    expect(screen.getByText('33.86882° S')).not.toBeNull()
+    first.unmount()
+
+    resolvePosition = undefined
+    render(<FooterCoordinates />)
+
+    expect(screen.getByText('33.86882° S')).not.toBeNull()
+    expect(screen.getByText('151.20930° E')).not.toBeNull()
+    expect(screen.queryByText('Locating…')).toBeNull()
+
+    await waitFor(() => {
+      expect(getCurrentPosition).toHaveBeenCalledTimes(2)
+    })
+
+    await act(async () => {
+      resolvePosition?.({
+        coords: {
+          accuracy: 12,
+          latitude: -33.87,
+          longitude: 151.21,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+
+    expect(screen.getByText('33.87000° S')).not.toBeNull()
+    expect(screen.getByText('151.21000° E')).not.toBeNull()
   })
 })

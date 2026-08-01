@@ -14,6 +14,14 @@ type Coordinates = {
   longitude: number
 }
 
+/** Survives remounts so the footer stamp does not flash “Locating…”. */
+let rememberedCoordinates: Coordinates | null = null
+
+/** @internal Vitest helper — clears the module cache between cases. */
+export function resetFooterCoordinatesCacheForTests() {
+  rememberedCoordinates = null
+}
+
 function formatCoordinate(value: number, positiveDirection: string, negativeDirection: string) {
   const direction = value >= 0 ? positiveDirection : negativeDirection
   return `${Math.abs(value).toFixed(5)}° ${direction}`
@@ -24,9 +32,15 @@ function accuracyDescription(accuracy: number) {
   return ` Accuracy reported within about ${Math.round(accuracy)} meters.`
 }
 
+function initialCoordinates() {
+  return isLocationSyncEnabled() ? rememberedCoordinates : null
+}
+
 export function FooterCoordinates() {
-  const [coordinates, setCoordinates] = useState<Coordinates | null>(null)
-  const [isLocating, setIsLocating] = useState(false)
+  const [coordinates, setCoordinates] = useState<Coordinates | null>(initialCoordinates)
+  const [isLocating, setIsLocating] = useState(
+    () => isLocationSyncEnabled() && rememberedCoordinates === null,
+  )
 
   useEffect(() => {
     let isCurrent = true
@@ -37,30 +51,42 @@ export function FooterCoordinates() {
       const currentRequestId = requestId
 
       if (!enabled) {
+        rememberedCoordinates = null
         setCoordinates(null)
         setIsLocating(false)
         return
       }
 
-      setCoordinates(null)
-      setIsLocating(true)
+      // Keep the last stamp visible while a refresh is in flight. Only show
+      // “Locating…” when we have nothing to display yet.
+      if (rememberedCoordinates === null) {
+        setCoordinates(null)
+        setIsLocating(true)
+      } else {
+        setCoordinates(rememberedCoordinates)
+        setIsLocating(false)
+      }
 
       void requestUserLocation({ allowPrompt })
         .then((location) => {
           if (!isCurrent || requestId !== currentRequestId) return
 
-          setCoordinates({
+          const next = {
             accuracy: location.accuracy,
             latitude: location.latitude,
             longitude: location.longitude,
-          })
+          }
+          rememberedCoordinates = next
+          setCoordinates(next)
           setIsLocating(false)
         })
         .catch(() => {
-          if (isCurrent && requestId === currentRequestId) {
+          if (!isCurrent || requestId !== currentRequestId) return
+
+          if (rememberedCoordinates === null) {
             setCoordinates(null)
-            setIsLocating(false)
           }
+          setIsLocating(false)
         })
     }
 
