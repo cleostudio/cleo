@@ -79,8 +79,9 @@ Built by `lib/cleo/ask-link.ts`.
 
 ## Location
 
-- Dock Preferences: opt-in Location switch, persisted, **off by default**.
-- Toggle on may open the browser geolocation dialog; `client-location.ts`
+- Dock Preferences: opt-in Location tabs (same fluid On/Off control as Sound),
+  persisted, **off by default**.
+- Turning on may open the browser geolocation dialog; `client-location.ts`
   requests one fresh high-accuracy position.
 - On refresh: restore quietly only if permission is already `granted` — never
   re-prompt automatically.
