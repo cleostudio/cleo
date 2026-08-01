@@ -33,6 +33,17 @@ describe('location sync preference', () => {
     expect(isLocationSyncEnabled()).toBe(false)
   })
 
+  it('restores account preference silently so sign-in does not re-prompt', () => {
+    const observed: LocationSyncChange[] = []
+    const unsubscribe = subscribeToLocationSync((change) => observed.push(change))
+
+    setLocationSyncEnabled(true, { allowPrompt: false })
+    unsubscribe()
+
+    expect(observed).toEqual([{ allowPrompt: false, enabled: true }])
+    expect(isLocationSyncEnabled()).toBe(true)
+  })
+
   it('keeps cross-tab storage sync silent so other tabs do not re-prompt', () => {
     const observed: LocationSyncChange[] = []
     const unsubscribe = subscribeToLocationSync((change) => observed.push(change))

@@ -17,7 +17,18 @@ export function isLocationSyncEnabled() {
   }
 }
 
-export function setLocationSyncEnabled(enabled: boolean) {
+export type SetLocationSyncOptions = {
+  /**
+   * When false, listeners must not open the browser geolocation prompt
+   * (account hydrate / cross-device restore). Defaults to true for dock toggles.
+   */
+  allowPrompt?: boolean
+}
+
+export function setLocationSyncEnabled(
+  enabled: boolean,
+  options: SetLocationSyncOptions = {},
+) {
   if (!canUseStorage()) return
 
   try {
@@ -30,7 +41,12 @@ export function setLocationSyncEnabled(enabled: boolean) {
     return
   }
 
-  window.dispatchEvent(new Event(LOCATION_SYNC_CHANGE_EVENT))
+  const allowPrompt = options.allowPrompt ?? true
+  window.dispatchEvent(
+    new CustomEvent<LocationSyncChange>(LOCATION_SYNC_CHANGE_EVENT, {
+      detail: { allowPrompt, enabled },
+    }),
+  )
 }
 
 export type LocationSyncChange = {
@@ -45,8 +61,14 @@ export function subscribeToLocationSync(
 ) {
   if (!canUseStorage()) return () => undefined
 
-  const notifyLocal = () => {
-    onChange({ allowPrompt: true, enabled: isLocationSyncEnabled() })
+  const notifyLocal = (event: Event) => {
+    const detail =
+      event instanceof CustomEvent ? (event.detail as LocationSyncChange | null) : null
+    onChange({
+      allowPrompt:
+        typeof detail?.allowPrompt === 'boolean' ? detail.allowPrompt : true,
+      enabled: isLocationSyncEnabled(),
+    })
   }
   const onStorage = (event: StorageEvent) => {
     if (event.key === LOCATION_SYNC_STORAGE_KEY) {

@@ -18,7 +18,7 @@ Read this when changing `/cleo`, `POST /api/responses`, or anything under
 | Zoom caption index | `content/cleo-topic-photo-zoom.json` (`pnpm generate:cleo-topic-photo-zoom`) |
 | Empty-state starters | `lib/cleo/portal-links.ts` |
 | Ask link builder | `lib/cleo/ask-link.ts` |
-| Location (client / preference / server validate) | `lib/cleo/client-location.ts`, `lib/cleo/location-preference.ts`, `lib/cleo/location.ts` |
+| Location (client / preference / server validate) | `lib/cleo/client-location.ts`, `lib/cleo/location-preference.ts`, `lib/cleo/location-preference-account.ts`, `lib/cleo/location.ts` |
 | Styles | `app/cleo.css` (keep prompt dock above site dock via `--cleo-prompt-bottom`) |
 | Route layout flag | `components/cleo-route-attribute.tsx` (`html[data-cleo-route]`, cleared in `useLayoutEffect` before destination paint) |
 
@@ -80,11 +80,16 @@ Built by `lib/cleo/ask-link.ts`.
 ## Location
 
 - Dock Preferences: opt-in Location tabs (same fluid On/Off control as Sound),
-  persisted, **off by default**.
+  **off by default**.
+- Persistence:
+  - Guests: `localStorage` (`cleo-location-sync`).
+  - Signed-in: Better Auth user field `locationSyncEnabled` (Neon) via
+    `authClient.updateUser`. Account is canonical on session load —
+    `hydrateLocationSyncFromAccount` restores quietly (`allowPrompt: false`).
 - Turning on may open the browser geolocation dialog; `client-location.ts`
   requests one fresh high-accuracy position.
 - On refresh: restore quietly only if permission is already `granted` — never
-  re-prompt automatically.
+  re-prompt automatically (including after account hydrate / sign-in).
 - Off clears in-memory location immediately.
 - Server validates in `location.ts` and adds coords + IANA TZ only to private
   per-turn instructions. Browser settings remain the grant/revoke control.
@@ -97,10 +102,12 @@ Built by `lib/cleo/ask-link.ts`.
 ## Client-only state
 
 Conversation, current location value, and encrypted reasoning items are
-browser-only. Conversation clears on reload. Location preference persists.
-Reasoning items keep multi-turn coherent under `store: false`.
+browser-only. Conversation clears on reload. Location preference persists
+(localStorage for guests; account field when signed in). Reasoning items keep
+multi-turn coherent under `store: false`.
 
-No authentication, database, media library, or AMA booking.
+Account auth is Better Auth + Neon (see [`auth.md`](./auth.md)). No media
+library or AMA booking.
 
 ## Analytics
 
@@ -113,6 +120,7 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
 - Multi-turn chat, reasoning activity, web search
 - Image attach/vision, image generation, streaming, cancellation
 - Retry/Continue on incomplete/failed turns
-- Location preference (grant, deny, refresh without re-prompt)
+- Location preference (grant, deny, refresh without re-prompt; signed-in
+  restore across devices without re-prompt)
 - After atlas/space caption or rendition metadata changes:
   `pnpm generate:cleo-topic-photo-zoom`

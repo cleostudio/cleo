@@ -10,6 +10,7 @@ import { PreferencesIcon } from '~/components/dock-icons'
 import { useTheme } from '~/components/theme-provider'
 import { TabItem, Tabs, TabsList } from '~/components/ui/tabs'
 import { authClient } from '~/lib/auth-client'
+import { hydrateLocationSyncFromAccount } from '~/lib/cleo/location-preference-account'
 import {
   isLocationSyncEnabled,
   setLocationSyncEnabled,
@@ -47,13 +48,22 @@ export function Preferences() {
   // The Preferences portal unmounts when closed; without this warm
   // subscription every open remounts useSession into isPending and the
   // account row flashes the wrong label.
-  authClient.useSession()
+  const { data: session } = authClient.useSession()
+  const signedInUserId = session?.user?.id
+  const accountLocationSync = session?.user?.locationSyncEnabled
 
   useEffect(() => {
     setMounted(true)
     setLocationSync(isLocationSyncEnabled())
     setSound(soundEnabled())
   }, [])
+
+  // Signed-in account is canonical: restore quietly (no geolocation prompt).
+  useEffect(() => {
+    if (!signedInUserId) return
+    const enabled = hydrateLocationSyncFromAccount(accountLocationSync)
+    if (enabled !== null) setLocationSync(enabled)
+  }, [signedInUserId, accountLocationSync])
 
   return (
     <Popover.Root>
@@ -126,6 +136,9 @@ export function Preferences() {
                   if (!on) playPreferenceSound()
                   setLocationSyncEnabled(on)
                   setLocationSync(on)
+                  if (signedInUserId) {
+                    void authClient.updateUser({ locationSyncEnabled: on })
+                  }
                   if (on) playPreferenceSound()
                 }}
               >

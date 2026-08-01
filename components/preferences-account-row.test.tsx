@@ -10,6 +10,7 @@ vi.mock('~/lib/auth-client', () => ({
   authClient: {
     useSession: () => useSession(),
     signOut: vi.fn(),
+    updateUser: vi.fn(),
   },
 }))
 

@@ -2,6 +2,7 @@ import { betterAuth } from 'better-auth'
 import { drizzleAdapter } from '@better-auth/drizzle-adapter'
 import { nextCookies } from 'better-auth/next-js'
 
+import { userAdditionalFields } from '~/lib/auth-user-fields'
 import { getDb, isDatabaseConfigured } from '~/lib/db'
 import * as schema from '~/lib/db/auth-schema'
 
@@ -79,6 +80,9 @@ function createAuth() {
     }),
     emailAndPassword: {
       enabled: true,
+    },
+    user: {
+      additionalFields: userAdditionalFields,
     },
     secret: getBetterAuthSecret(),
     // Dynamic base URL: Preview hosts differ from VERCEL_URL vs branch alias.
