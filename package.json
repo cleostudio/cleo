@@ -35,10 +35,10 @@
     "import:space-photos": "node scripts/space/import-space-photos.mjs",
     "validate:space": "node scripts/space/preflight.mjs",
     "generate:cleo-topic-photo-zoom": "tsx scripts/cleo/generate-topic-photo-zoom.mjs",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
-    "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio",
+    "db:generate": "pnpm exec drizzle-kit generate",
+    "db:migrate": "pnpm exec drizzle-kit migrate",
+    "db:push": "pnpm exec drizzle-kit push",
+    "db:studio": "pnpm exec drizzle-kit studio",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

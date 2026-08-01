@@ -67,7 +67,8 @@ Required for auth:
 ## Schema migrate
 
 ```bash
-pnpm db:push          # or: pnpm db:generate && pnpm db:migrate
+pnpm db:push          # uses `pnpm exec drizzle-kit` (reliable PATH)
+# or: pnpm db:generate && pnpm db:migrate
 ```
 
 Re-generate the Drizzle schema from Better Auth when plugins change:
