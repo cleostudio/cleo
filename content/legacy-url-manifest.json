@@ -535,18 +535,18 @@
     },
     {
       "kind": "redirect",
-      "source": "/sign-in/:path*",
-      "destination": "/",
+      "source": "/sign-in/:path+",
+      "destination": "/sign-in",
       "probes": [
-        "/sign-in",
-        "/sign-in/legacy"
+        "/sign-in/legacy",
+        "/sign-in/foo/bar"
       ],
       "status": 308
     },
     {
       "kind": "redirect",
       "source": "/sign-up/:path*",
-      "destination": "/",
+      "destination": "/sign-in",
       "probes": [
         "/sign-up",
         "/sign-up/legacy"

@@ -13,6 +13,23 @@ const openai = vi.hoisted(() => {
   return { APIError, create: vi.fn() }
 })
 
+const authMock = vi.hoisted(() => ({
+  getSession: vi.fn(async () => null as { user: { id: string } } | null),
+}))
+
+const threadRepo = vi.hoisted(() => ({
+  ensureThreadForUser: vi.fn(),
+  appendUserMessage: vi.fn(),
+  listMessagesForUser: vi.fn(),
+  appendAssistantMessage: vi.fn(),
+}))
+
+const afterMock = vi.hoisted(() => ({
+  after: vi.fn((fn: () => unknown) => {
+    void Promise.resolve().then(fn)
+  }),
+}))
+
 vi.mock("openai", () => {
   class OpenAI {
     responses = { create: openai.create }
@@ -21,14 +38,32 @@ vi.mock("openai", () => {
   return { APIError: openai.APIError, default: OpenAI }
 })
 
+vi.mock("~/lib/auth", () => ({
+  auth: { api: { getSession: authMock.getSession } },
+}))
+
+vi.mock("~/lib/cleo/thread-repository", () => threadRepo)
+
+vi.mock("next/server", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("next/server")>()
+  return { ...actual, after: afterMock.after }
+})
+
 import { POST } from "./route"
 
 function ask(body: unknown, init: RequestInit = {}) {
+  const headers = new Headers({ "content-type": "application/json" })
+  if (init.headers) {
+    new Headers(init.headers).forEach((value, key) => {
+      headers.set(key, value)
+    })
+  }
+  const { headers: _ignored, ...rest } = init
   return new Request("https://cleo.example/api/responses", {
     body: typeof body === "string" ? body : JSON.stringify(body),
-    headers: { "content-type": "application/json" },
     method: "POST",
-    ...init,
+    ...rest,
+    headers,
   })
 }
 
@@ -61,6 +96,12 @@ async function ndjson(response: Response) {
 
 beforeEach(() => {
   openai.create.mockReset()
+  authMock.getSession.mockReset()
+  authMock.getSession.mockResolvedValue(null)
+  afterMock.after.mockClear()
+  for (const fn of Object.values(threadRepo)) {
+    fn.mockReset()
+  }
   vi.stubEnv("OPENAI_API_KEY", "test-key")
   vi.spyOn(console, "error").mockImplementation(() => undefined)
 })
@@ -665,5 +706,105 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     )
     expect(instructions).toContain("![Kyoto Temples](/images/atlas/japan/w1280-3.jpg)")
     expect(instructions).toContain("embed every listed photograph")
+  })
+})
+
+describe("POST /api/responses: CSRF and dual contract", () => {
+  it("rejects cross-site browser posts", async () => {
+    const response = await POST(
+      ask(question, {
+        headers: {
+          "content-type": "application/json",
+          "sec-fetch-site": "cross-site",
+        },
+      })
+    )
+
+    expect(response.status).toBe(403)
+    expect(openai.create).not.toHaveBeenCalled()
+    expect(threadRepo.appendUserMessage).not.toHaveBeenCalled()
+  })
+
+  it("signed-out legacy shape streams and writes nothing to the thread store", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "Hi.", type: "response.output_text.delta" }])
+    )
+
+    const events = await ndjson(await POST(ask(question)))
+
+    expect(events).toContainEqual({ type: "text", delta: "Hi." })
+    expect(authMock.getSession).toHaveBeenCalled()
+    expect(threadRepo.ensureThreadForUser).not.toHaveBeenCalled()
+    expect(threadRepo.appendUserMessage).not.toHaveBeenCalled()
+    expect(threadRepo.appendAssistantMessage).not.toHaveBeenCalled()
+    expect(afterMock.after).not.toHaveBeenCalled()
+  })
+
+  it("signed-in threadId shape loads history and persists via after()", async () => {
+    const threadId = "11111111-1111-4111-8111-111111111111"
+    const userId = "user-signed-in"
+    authMock.getSession.mockResolvedValue({ user: { id: userId } })
+    threadRepo.ensureThreadForUser.mockResolvedValue({ id: threadId, created: true })
+    threadRepo.appendUserMessage.mockResolvedValue({
+      id: "msg-user",
+      seq: 1,
+      role: "user",
+      content: "Tell me about Japan",
+    })
+    threadRepo.listMessagesForUser.mockResolvedValue([
+      {
+        id: "msg-user",
+        threadId,
+        seq: 1,
+        role: "user",
+        content: "Tell me about Japan",
+        status: "complete",
+        createdAt: new Date(),
+      },
+    ])
+    threadRepo.appendAssistantMessage.mockResolvedValue({
+      id: "msg-assistant",
+      seq: 2,
+      role: "assistant",
+      content: "Japan is…",
+      status: "complete",
+    })
+
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "Japan is…", type: "response.output_text.delta" },
+      ])
+    )
+
+    const events = await ndjson(
+      await POST(
+        ask({
+          threadId,
+          message: { content: "Tell me about Japan" },
+        })
+      )
+    )
+
+    expect(events).toContainEqual({ type: "text", delta: "Japan is…" })
+    expect(threadRepo.ensureThreadForUser).toHaveBeenCalledWith({
+      userId,
+      threadId,
+    })
+    expect(threadRepo.appendUserMessage).toHaveBeenCalled()
+    expect(threadRepo.listMessagesForUser).toHaveBeenCalledWith(userId, threadId, {
+      includeReasoning: true,
+    })
+    // Wait for after() callback scheduled at stream end.
+    await vi.waitFor(() => {
+      expect(threadRepo.appendAssistantMessage).toHaveBeenCalled()
+    })
+    expect(threadRepo.appendAssistantMessage).toHaveBeenCalledWith(
+      expect.objectContaining({
+        userId,
+        threadId,
+        content: "Japan is…",
+        status: "complete",
+      })
+    )
   })
 })

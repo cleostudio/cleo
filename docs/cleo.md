@@ -9,6 +9,9 @@ Read this when changing `/cleo`, `POST /api/responses`, or anything under
 | --- | --- |
 | UI (messages, attachments, stream, Retry/Continue, `?q=` handoff) | `components/cleo/ask-form.tsx` |
 | Page shell | `app/_views/cleo-page.tsx` |
+| Thread route shell | `app/_views/cleo-thread-page.tsx`, `/cleo/[threadId]` (`instant = false`) |
+| History / session UI | `components/cleo/thread-list.tsx`, `components/cleo/thread-session.tsx` |
+| Local → server adoption | `components/cleo/adopt-local-threads.tsx` |
 | API route | `app/api/responses/route.ts` |
 | Voice + portal catalog | `lib/cleo/instructions.ts`, `lib/cleo/portal-catalog.ts` |
 | Guardrails (strip invented Explore/Space paths) | `lib/cleo/guardrails.ts` |
@@ -19,6 +22,10 @@ Read this when changing `/cleo`, `POST /api/responses`, or anything under
 | Empty-state starters | `lib/cleo/portal-links.ts` |
 | Ask link builder | `lib/cleo/ask-link.ts` |
 | Location (client / preference / server validate) | `lib/cleo/client-location.ts`, `lib/cleo/location-preference.ts`, `lib/cleo/location.ts` |
+| Signed-out threads | IndexedDB `lib/cleo/thread-store.ts` |
+| Signed-in threads | Postgres `lib/cleo/thread-repository.ts`, schema `lib/cleo/thread-schema.ts`, actions `lib/cleo/thread-actions.ts` |
+| Auth session helper | `lib/cleo/auth-session.ts` |
+| CSRF for ambient-credential POSTs | `lib/security/csrf-guard.ts` |
 | Styles | `app/cleo.css` (keep prompt dock above site dock via `--cleo-prompt-bottom`) |
 
 Entry: bottom dock `SayHiIcon` (`G` then `C`) or homepage search Ask Cleo row.
@@ -33,6 +40,18 @@ optional browser-authorized location, then calls the OpenAI Responses API with:
 - Adaptive reasoning effort; encrypted reasoning replay (`reasoning.context: "all_turns"`)
 - `max_tool_calls`, `truncation: "auto"`, prompt caching, streaming
 - `maxDuration` 90s, `store: false`
+
+### Dual request contract
+
+- **Signed-in + `threadId`:** body is `{ threadId, message, location? }`;
+  server loads prior turns from Postgres, appends the user row, streams, then
+  persists the assistant row (+ reasoning cache) in `after()`. Disconnect /
+  stream `cancel` still schedules `after()` with status `incomplete`.
+- **Signed-out (or no `threadId`):** legacy `{ messages, location? }` exactly;
+  nothing persisted server-side.
+- `seq` allocation: `FOR UPDATE` on the owned thread row, then `max(seq)+1` in
+  the same transaction.
+- CSRF: `screenCsrf` (Origin / `Sec-Fetch-Site`); live cross-site → 403.
 
 ### Request limits
 
@@ -88,13 +107,24 @@ Built by `lib/cleo/ask-link.ts`.
   per-turn instructions. Browser settings remain the grant/revoke control.
 - `components/footer-coordinates.tsx` may render coordinates when present.
 
-## Client-only state
+## Threads and accounts
 
-Conversation, current location value, and encrypted reasoning items are
-browser-only. Conversation clears on reload. Location preference persists.
-Reasoning items keep multi-turn coherent under `store: false`.
-
-No authentication, database, media library, or AMA booking.
+- **Signed-out:** Stage 1 IndexedDB threads (`thread-store.ts`) on `/cleo` and
+  `/cleo/[threadId]`. Client-generated UUID primary keys.
+- **Signed-in:** Postgres threads via `thread-repository.ts`. Same UUID PKs;
+  adoption copies local threads then clears IndexedDB only after success.
+- `/cleo` may read the session in an RSC (◐). Content routes stay session-free.
+- Dock auth chrome is gated by non-httpOnly `cleo.session-hint` — never mount
+  `useSession` without it; never read the hint server-side. Details:
+  [`adr-better-auth.md`](./adr-better-auth.md),
+  [`plan-accounts-and-threads.md`](./plan-accounts-and-threads.md).
+- `message_image` exists but is unused until Stage 3 (private Blob). Signed-in
+  history currently strips attachments / generated images after reload;
+  current-turn vision still works via data URLs.
+- Location coordinates stay ephemeral per-turn context and are never persisted.
+  Location preference persists in browser storage.
+- Reasoning rows are a TTL’d cache; threads render and continue when absent.
+  `store: false` stays. No media library or AMA booking.
 
 ## Analytics
 
@@ -108,5 +138,7 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
 - Image attach/vision, image generation, streaming, cancellation
 - Retry/Continue on incomplete/failed turns
 - Location preference (grant, deny, refresh without re-prompt)
+- Signed-out IndexedDB history; signed-in History, adoption, soft delete, export
+- Authz / persist unit suites against a live `DATABASE_URL` (CI fails loud if absent)
 - After atlas/space caption or rendition metadata changes:
   `pnpm generate:cleo-topic-photo-zoom`

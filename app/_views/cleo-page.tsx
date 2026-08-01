@@ -1,16 +1,30 @@
 'use client'
 
-import { AskForm } from '~/components/cleo/ask-form'
+import { ThreadSession } from '~/components/cleo/thread-session'
+import type { AskFormMessage } from '~/components/cleo/ask-form'
+import type { StoredThreadMeta } from '~/lib/cleo/thread-store'
 
 /**
- * `initialPrompt` is for callers that already hold the question. Arrivals from
- * a `/cleo?q=…` link are read from the URL inside `AskForm`, which keeps this
- * route prerendered.
+ * `/cleo` shell. Thread identity and hydration are owned by `ThreadSession`.
+ * When `signedIn` is true, persistence is Postgres; otherwise Stage 1 IndexedDB.
  */
-export function CleoPageView({ initialPrompt }: { initialPrompt?: string }) {
+export function CleoPageView({
+  signedIn = false,
+  initialServerThreads,
+  initialServerMessages,
+  routeThreadId,
+}: {
+  signedIn?: boolean
+  initialServerThreads?: StoredThreadMeta[]
+  initialServerMessages?: AskFormMessage[]
+  routeThreadId?: string
+}) {
   return (
-    <div className="w-full">
-      <AskForm initialPrompt={initialPrompt} />
-    </div>
+    <ThreadSession
+      signedIn={signedIn}
+      initialServerThreads={initialServerThreads}
+      initialServerMessages={initialServerMessages}
+      routeThreadId={routeThreadId}
+    />
   )
 }

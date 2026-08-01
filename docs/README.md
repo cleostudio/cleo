@@ -11,6 +11,10 @@ these runbooks.
 | [`homepage-search.md`](./homepage-search.md) | Changing portal search or the Ask Cleo handoff |
 | [`atlas.md`](./atlas.md) | Changing country guides, prose, or Explore photos |
 | [`space.md`](./space.md) | Changing Space guides or NASA photo imports |
+| [`plan-accounts-and-threads.md`](./plan-accounts-and-threads.md) | Accounts, Neon, thread sync, Stage 3+ roadmap |
+| [`adr-better-auth.md`](./adr-better-auth.md) | Why Better Auth (not Clerk); session-hint rules |
+| [`stage0-prerender-findings.md`](./stage0-prerender-findings.md) | Session / prerender go/no-go measurements |
+| [`stage1-local-threads.md`](./stage1-local-threads.md) | IndexedDB thread store details |
 | [`theme-preset.md`](./theme-preset.md) | Adding/changing a color, motion, radius, or width token |
 | [`design-language.md`](./design-language.md) | Implementing or reviewing UI/UX composition |
 

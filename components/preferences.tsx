@@ -3,6 +3,7 @@
 import { Popover } from '@base-ui/react/popover'
 import { Monitor, Moon, Sun, Volume2, VolumeX } from 'lucide-react'
 
+import { DockAuthPreferencesRows } from '~/components/auth/dock-auth'
 import { PreferencesIcon } from '~/components/dock-icons'
 import { useTheme } from '~/components/theme-provider'
 import { useEffect, useState } from 'react'
@@ -122,6 +123,7 @@ export function Preferences() {
                 }}
               />
             </Row>
+            {mounted ? <DockAuthPreferencesRows /> : null}
           </Popover.Popup>
         </Popover.Positioner>
       </Popover.Portal>

@@ -7,12 +7,21 @@
  */
 
 import { existsSync, readFileSync, appendFileSync } from 'node:fs'
+import { randomBytes } from 'node:crypto'
 
 const stubs = {
   // Default alpha deploy origin when VERCEL_ENV is absent/local. Override in
   // the deployment environment when the canonical host changes.
   SITE_URL: 'https://cleoalpha.vercel.app',
   PUBLIC_SITE_URL: 'https://cleoalpha.vercel.app',
+  // Auth / DB stubs so preview builds can import Better Auth without a live
+  // Neon project. Replace with `vercel install neon` + real secrets in the
+  // Vercel project dashboard before signing in on a preview.
+  DATABASE_URL: 'postgres://cleo:cleo@127.0.0.1:5432/cleo',
+  BETTER_AUTH_SECRET: randomBytes(32).toString('base64url'),
+  BETTER_AUTH_URL: 'https://cleoalpha.vercel.app',
+  GITHUB_CLIENT_ID: 'preview-stub-github-client-id',
+  GITHUB_CLIENT_SECRET: 'preview-stub-github-client-secret',
 }
 
 const target = '.env.production.local'

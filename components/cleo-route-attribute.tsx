@@ -10,8 +10,12 @@ import { unlocalizedPathname } from '~/lib/locale-route'
  * shell as soon as pathname leaves /cleo — even while a view transition still
  * keeps the old chat DOM mounted (body:has([data-cleo-*]) would stay locked).
  */
+function isCleoPath(pathname: string) {
+  return pathname === '/cleo' || pathname.startsWith('/cleo/')
+}
+
 export function CleoRouteAttribute() {
-  const isCleo = unlocalizedPathname(usePathname()) === '/cleo'
+  const isCleo = isCleoPath(unlocalizedPathname(usePathname()))
 
   useEffect(() => {
     const root = document.documentElement

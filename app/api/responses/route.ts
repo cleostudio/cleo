@@ -8,13 +8,24 @@ import type {
   ResponseOutputItem,
   ResponseReasoningItem,
 } from "openai/resources/responses/responses"
+import { after } from "next/server"
 
 /** Create params plus API fields the installed SDK typings still omit. */
 type CleoResponseCreateParams = ResponseCreateParamsStreaming & {
   max_tool_calls?: number | null
 }
 
+import { auth } from "~/lib/auth"
 import { promptCacheKeyForConversation } from "~/lib/cleo/conversation-helpers"
+import { isThreadId, newMessageId } from "~/lib/cleo/thread-id"
+import {
+  appendAssistantMessage,
+  appendUserMessage,
+  ensureThreadForUser,
+  listMessagesForUser,
+} from "~/lib/cleo/thread-repository"
+import { ThreadAuthError } from "~/lib/cleo/thread-errors"
+import { screenCsrf } from "~/lib/security/csrf-guard"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
   buildUserLocationInstructions,
@@ -244,6 +255,65 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
   return messages
 }
 
+type SignedInTurn = {
+  threadId: string
+  userMessage: ConversationMessage & { id?: string }
+}
+
+function parseSignedInTurn(body: unknown): SignedInTurn | Response {
+  if (typeof body !== "object" || body === null) {
+    return errorResponse("The request body must be a JSON object.", 400)
+  }
+
+  if (!("threadId" in body) || typeof body.threadId !== "string") {
+    return errorResponse("A threadId is required when signed in.", 400)
+  }
+
+  if (!isThreadId(body.threadId)) {
+    return errorResponse("threadId must be a UUID.", 400)
+  }
+
+  if (!("message" in body) || typeof body.message !== "object" || body.message === null) {
+    return errorResponse("A message object is required when signed in.", 400)
+  }
+
+  const item = body.message as Record<string, unknown>
+  if (typeof item.content !== "string") {
+    return errorResponse("Message content must be a string.", 400)
+  }
+
+  const content = item.content
+  if (!content.trim() && !("images" in item)) {
+    return errorResponse("Messages cannot be empty.", 400)
+  }
+  if (content.length > MAX_INPUT_LENGTH) {
+    return errorResponse(
+      `Messages must be ${MAX_INPUT_LENGTH.toLocaleString()} characters or fewer.`,
+      400
+    )
+  }
+
+  const imagesResult = parseMessageImages(
+    "images" in item ? item.images : undefined
+  )
+  if (imagesResult instanceof Response) {
+    return imagesResult
+  }
+
+  const userMessage: SignedInTurn["userMessage"] = {
+    role: "user",
+    content,
+  }
+  if (imagesResult.length > 0) {
+    userMessage.images = imagesResult
+  }
+  if (typeof item.id === "string" && item.id.trim()) {
+    userMessage.id = item.id.trim()
+  }
+
+  return { threadId: body.threadId, userMessage }
+}
+
 function toUserContent(
   text: string,
   images: MessageImage[]
@@ -423,6 +493,11 @@ function joinReasoningParts(parts: Map<number, string>) {
 }
 
 export async function POST(request: Request) {
+  const csrfRejection = screenCsrf(request)
+  if (csrfRejection) {
+    return csrfRejection
+  }
+
   let body: unknown
 
   try {
@@ -431,10 +506,70 @@ export async function POST(request: Request) {
     return errorResponse("The request body must be valid JSON.", 400)
   }
 
-  const parsed = parseMessages(body)
+  const session = await auth.api.getSession({ headers: request.headers })
+  const sessionUserId = session?.user?.id ?? null
 
-  if (parsed instanceof Response) {
-    return parsed
+  const wantsPersistent =
+    Boolean(sessionUserId) &&
+    typeof body === "object" &&
+    body !== null &&
+    "threadId" in body
+
+  let parsed: ConversationMessage[]
+  let persist:
+    | {
+        userId: string
+        threadId: string
+        assistantMessageId: string
+      }
+    | null = null
+
+  if (wantsPersistent) {
+    const turn = parseSignedInTurn(body)
+    if (turn instanceof Response) {
+      return turn
+    }
+
+    try {
+      await ensureThreadForUser({
+        userId: sessionUserId,
+        threadId: turn.threadId,
+      })
+      await appendUserMessage({
+        userId: sessionUserId,
+        threadId: turn.threadId,
+        messageId: turn.userMessage.id,
+        content: turn.userMessage.content,
+      })
+      const prior = await listMessagesForUser(sessionUserId, turn.threadId, {
+        includeReasoning: true,
+      })
+      // Prior includes the user message we just inserted; drop it and use the
+      // request's message (which may carry attachment data URLs for this turn).
+      const history: ConversationMessage[] = prior.slice(0, -1).map((row) => ({
+        role: row.role,
+        content: row.content,
+        ...(row.reasoningItems ? { reasoningItems: row.reasoningItems } : {}),
+      }))
+      parsed = [...history, turn.userMessage]
+      persist = {
+        userId: sessionUserId!,
+        threadId: turn.threadId,
+        assistantMessageId: newMessageId(),
+      }
+    } catch (error) {
+      if (error instanceof ThreadAuthError) {
+        return errorResponse(error.message, error.status)
+      }
+      console.error("Failed to prepare persistent thread turn.", error)
+      return errorResponse("Could not prepare the conversation.", 500)
+    }
+  } else {
+    const legacy = parseMessages(body)
+    if (legacy instanceof Response) {
+      return legacy
+    }
+    parsed = legacy
   }
 
   const locationValue =
@@ -521,6 +656,36 @@ export async function POST(request: Request) {
     const collectedReasoningItems: EncryptedReasoningItem[] = []
     let emittedText = false
     let emittedImage = false
+    let assistantContent = ""
+    let assistantStatus: "complete" | "incomplete" | "error" = "complete"
+    let persisted = false
+
+    const schedulePersist = () => {
+      if (!persist || persisted) return
+      persisted = true
+      const snapshot = {
+        userId: persist.userId,
+        threadId: persist.threadId,
+        messageId: persist.assistantMessageId,
+        content: assistantContent,
+        status: assistantStatus,
+        reasoningItems: extractEncryptedReasoningItems(collectedReasoningItems),
+      }
+      after(async () => {
+        try {
+          await appendAssistantMessage({
+            userId: snapshot.userId,
+            threadId: snapshot.threadId,
+            messageId: snapshot.messageId,
+            content: snapshot.content,
+            status: snapshot.status,
+            reasoningItems: snapshot.reasoningItems,
+          })
+        } catch (error) {
+          console.error("Failed to persist assistant message.", error)
+        }
+      })
+    }
 
     const enqueue = (
       controller: ReadableStreamDefaultController<Uint8Array>,
@@ -583,6 +748,7 @@ export async function POST(request: Request) {
           for await (const event of responseStream) {
             if (event.type === "response.output_text.delta") {
               emittedText = true
+              assistantContent += event.delta
               enqueue(controller, { type: "text", delta: event.delta })
               continue
             }
@@ -769,6 +935,7 @@ export async function POST(request: Request) {
               // error only when the turn produced nothing visible.
               if (emittedText || emittedImage) {
                 incompleteNotice = mapped
+                assistantStatus = "incomplete"
               } else {
                 throw new Error(
                   reason === "max_output_tokens"
@@ -790,10 +957,13 @@ export async function POST(request: Request) {
             })
           }
 
+          schedulePersist()
           controller.close()
         } catch (streamError) {
           if (request.signal.aborted) {
-            // The client is gone. End the stream rather than leaving it open.
+            // Persist the partial as incomplete so Retry/Continue can resume.
+            assistantStatus = "incomplete"
+            schedulePersist()
             try {
               controller.close()
             } catch {
@@ -801,6 +971,8 @@ export async function POST(request: Request) {
             }
           } else {
             console.error("OpenAI Responses API stream failed.", streamError)
+            assistantStatus = "error"
+            schedulePersist()
 
             try {
               emitCollectedReasoningItems(controller)
@@ -819,6 +991,8 @@ export async function POST(request: Request) {
         }
       },
       cancel() {
+        assistantStatus = "incomplete"
+        schedulePersist()
         responseStream.controller.abort()
       },
     })

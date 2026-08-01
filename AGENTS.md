@@ -2,7 +2,8 @@
 
 General-knowledge portal (countries + space first) with a browser chat agent at
 `/cleo`. Stack: Next.js App Router, React 19, TypeScript, Tailwind CSS v4,
-Base UI. **OpenAI is the only app third-party API.**
+Base UI. **OpenAI is the only third-party API for app features.** Accounts use
+in-process Better Auth against Marketplace Neon (no auth-vendor origin).
 
 ## Start here
 
@@ -12,10 +13,11 @@ Base UI. **OpenAI is the only app third-party API.**
 
 | Concern | Doc |
 | --- | --- |
-| Cleo chat / API / location / topic photos | [`docs/cleo.md`](docs/cleo.md) |
+| Cleo chat / API / location / topic photos / threads | [`docs/cleo.md`](docs/cleo.md) |
 | Homepage portal search + Ask Cleo handoff | [`docs/homepage-search.md`](docs/homepage-search.md) |
 | Explore countries, prose, Wikimedia photos | [`docs/atlas.md`](docs/atlas.md) |
 | Space guides + NASA photos | [`docs/space.md`](docs/space.md) |
+| Accounts + thread history plan / ADR | [`docs/plan-accounts-and-threads.md`](docs/plan-accounts-and-threads.md), [`docs/adr-better-auth.md`](docs/adr-better-auth.md) |
 | Tokens, deviations from cali.so | [`docs/theme-preset.md`](docs/theme-preset.md) |
 | Full visual/interaction spec | [`docs/design-language.md`](docs/design-language.md) |
 
@@ -24,9 +26,12 @@ Human onboarding: [`README.md`](README.md).
 ## Invariants
 
 - Legacy `/en/...` redirects to unprefixed paths. `/photos` → `/gallery`,
-  `/projects` → `/topics` (permanent). Do not restore
-  AMA, owner admin, Media Library, Clerk, Neon, Bunny, Stripe, Resend, Google,
-  Tencent, or Upstash without an explicit product decision.
+  `/projects` → `/topics` (permanent). `/sign-in` is the live Better Auth page;
+  keep `/sign-in/:path+` → `/sign-in` so sub-paths stay 308s (never delete a
+  legacy rule and its probes together — that greens `verify:legacy-urls`
+  while shipping 404s). Do not restore AMA, owner admin, Media Library,
+  Clerk, Bunny, Stripe, Resend, Google, Tencent, or Upstash without an
+  explicit product decision. Neon + Better Auth are the chosen account stack.
 - Country orientation prose is curated (`scripts/atlas/atlas-about.json`), never
   generated at build or request time. The site never calls a model to render a
   page.
@@ -39,6 +44,12 @@ Human onboarding: [`README.md`](README.md).
 - Render model output through Streamdown, never raw HTML. Invented Explore/Space
   paths are stripped by `lib/cleo/guardrails.ts`.
 - Keep `OPENAI_API_KEY` and OpenAI calls server-side. Never `NEXT_PUBLIC_` the key.
+- Content routes stay session-free (○). Only `/cleo` may read the session in an
+  RSC (◐ expected). Dock auth chrome is gated by the non-httpOnly
+  `cleo.session-hint` cookie — never mount `useSession` without it; never read
+  the hint server-side.
+- Synthetic passkey emails use `temp@{userId}.invalid` (RFC 2606); never show
+  them in the UI.
 - Path alias: `~/*`. Prefer `cn` and `components/ui/*`.
 - Package manager: **pnpm only**.
 
@@ -46,7 +57,8 @@ Human onboarding: [`README.md`](README.md).
 
 ```bash
 pnpm install
-cp .env.example .env.local   # OPENAI_API_KEY for /cleo
+cp .env.example .env.local   # OPENAI_API_KEY; DATABASE_URL + BETTER_AUTH_* for accounts
+pnpm db:push                 # apply Better Auth + thread schema (load .env.local yourself)
 pnpm dev                     # only service; default Next port
 pnpm typecheck
 pnpm test:unit               # and/or pnpm test:security when relevant
@@ -69,20 +81,24 @@ change; update the matching `docs/*` runbook when subsystem behavior changes.
 | Space media | `pnpm validate:space` |
 | Unit / security | `pnpm test:unit` / `pnpm test:security` |
 | Homepage search | `lib/site-search.test.ts`, `components/home-site-search.test.tsx`, `lib/cleo/ask-link.test.ts` |
+| Thread authz / persist | live `DATABASE_URL` (fail loud in CI when absent) |
 | Cleo topic-photo zoom index | after atlas/space caption or rendition changes: `pnpm generate:cleo-topic-photo-zoom` |
 | UI | Changed flows on desktop/mobile and light/dark |
 
 Cleo manual smoke (when touching the agent): multi-turn chat, reasoning activity,
 web search, image attach/vision, image generation, streaming, cancellation,
-Retry/Continue, Location preference (including denied permission).
+Retry/Continue, Location preference (including denied permission), signed-out
+IndexedDB history, signed-in History + adoption when auth is configured.
 
 ## Cursor Cloud / Previews
 
 - `pnpm dev` is the only service.
 - `OPENAI_API_KEY` is injected when available; without it `/api/responses`
   returns HTTP 503 and the rest of the site stays usable for UI work.
-- Previews stub missing `SITE_URL` / `PUBLIC_SITE_URL` via
-  `scripts/ensure-preview-env.mjs` during `prebuild`. No Neon/Bunny/Clerk.
+- Previews stub missing `SITE_URL` / `PUBLIC_SITE_URL` and auth/DB placeholders
+  via `scripts/ensure-preview-env.mjs` during `prebuild`. Real Neon
+  (`vercel install neon`) and GitHub OAuth credentials are required before
+  sign-in works on a preview. Do not reintroduce Clerk or Bunny.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
