@@ -22,8 +22,12 @@ Use **Better Auth** as an in-process library with:
 ## Consequences
 
 - Same-origin `/api/auth/*` keeps `connect-src 'self'`
-- Synthetic `user.email` values (`temp@{userId}.com`) fill Better Auth’s
-  non-nullable column for passkey-first signup and are never shown in the UI
+- Synthetic `user.email` values (`temp@{userId}.invalid`) fill Better Auth’s
+  non-nullable column for passkey-first signup and are never shown in the UI.
+  The TLD is RFC 2606 reserved rather than Better Auth’s `.com` default: a user
+  id is a valid domain label, so `.com` would place every address in a
+  registrable namespace, and a reserved TLD additionally makes
+  `isSyntheticEmail` sound because no real inbox can exist there
 - Account recovery is a second passkey + GitHub linking, not inbox reset
 - Neon outage takes auth down with it (accepted)
 

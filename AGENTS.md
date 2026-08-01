@@ -159,8 +159,8 @@ Accounts (Stage 2a): Better Auth with passkeys + GitHub OAuth, Neon/Postgres
 via `DATABASE_URL`, schema in `lib/auth-schema.ts`. Sign-in UI at `/sign-in`;
 dock Preferences shows auth chrome gated by the non-httpOnly
 `cleo.session-hint` cookie (never read server-side; never mount `useSession`
-without it). Synthetic passkey emails (`temp@{userId}.com`) are never shown in
-the UI. Content routes stay session-free.
+without it). Synthetic passkey emails (`temp@{userId}.invalid`, an RFC 2606
+reserved TLD) are never shown in the UI. Content routes stay session-free.
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,
