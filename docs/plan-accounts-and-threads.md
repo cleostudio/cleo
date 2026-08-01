@@ -1,6 +1,7 @@
 # Plan: accounts and Cleo thread history
 
-Status: proposed, not started. No implementation exists yet.
+Status: Stage 0 measured (2026-08-01, see `docs/stage0-prerender-findings.md`
+and PR #105). Stages 1+ not started.
 
 This plan adds signed-in accounts and durable Cleo conversation threads to a
 site that today has no authentication, no database, and no server-side writes.
@@ -375,6 +376,56 @@ The `/cleo?q=…` handoff changes meaning: instead of being consumed and strippe
 it creates a new thread for signed-in users. For signed-out users it behaves
 exactly as today.
 
+### 6.1 Measured result (Stage 0, 2026-08-01)
+
+The spike mounted a Suspense-wrapped `auth.api.getSession()` in
+`app/_components/site-document.tsx` and measured `next build` classification
+against `main`:
+
+| Placement | Result |
+| --- | --- |
+| RSC `getSession` in `SiteDocument` | every ○ route becomes ◐ |
+| Client-only `useSession()` | identical to `main`; only `ƒ /api/auth/[...all]` added |
+
+Three conclusions, in order of importance.
+
+**◐ is not a failure state.** Next's own Cache Components guide presents ◐ as
+the intended outcome of Suspense-wrapping dynamic content — "the prerendered
+part is served instantly from a CDN node close to the user" — and the `instant`
+route config names `<Suspense>` as one of its two prescribed fixes. `instant`
+is a dev-time navigation-feel assertion, not a rendering mode, so it is
+compatible with ◐. The original Stage 0 acceptance criterion ("same
+classification as `main`") was written too strictly; the real failure state is
+○ → ƒ, which did not occur.
+
+**The rule in §6 still holds, for a cost reason rather than a correctness
+one.** ◐ means request-time server work on every content page view, on a site
+whose traffic is overwhelmingly anonymous readers of static pages. Paying a
+function invocation on `/explore/[slug]` to render a sign-in avatar is a poor
+trade. Content routes stay session-free and ○.
+
+**The blast radius was a placement artifact, so keep the `/cleo` option open.**
+`SiteDocument` is the root shell for every route, so a probe there necessarily
+converts everything. RSC session reads scoped to `/cleo` and `/cleo/[threadId]`
+would leave content routes ○ while letting the thread list render server-side,
+and ◐ is harmless on an already-interactive app page. This was not measured and
+should be, before deciding the thread list must be client-fetched.
+
+### 6.2 Consequence to measure before Stage 2 UI work
+
+Client-only session reads move a cost rather than removing it. The session
+cookie is `httpOnly`, so the client cannot know whether a session exists
+without asking the server. If `useSession()` fires unconditionally on mount,
+every anonymous visitor to every content page triggers a
+`/api/auth/get-session` invocation after hydration — plausibly worse than the ◐
+it was chosen to avoid, because it is a round trip layered on top of an
+otherwise static page.
+
+Measure this first. If it fires unconditionally, gate it behind a
+non-`httpOnly` "has session" hint cookie set at sign-in and cleared at
+sign-out, so signed-out visitors skip the request entirely. Better Auth's
+`session.cookieCache` is the other lever.
+
 ---
 
 ## 7. Thread lifecycle
@@ -495,9 +546,24 @@ session read in the dock, and confirm from the build output that `/`,
 `/gallery`, and `/explore/[slug]` are still prerendered and `/cleo` still has a
 static shell on Next.js `16.3.0-preview.9`.
 
-Acceptance: build output shows the same static/dynamic classification as `main`
-for every existing route. **Everything else is gated on this.** If it fails, the
-fallback is a fully client-side auth surface with no RSC session reads at all.
+Acceptance (as originally written): build output shows the same static/dynamic
+classification as `main` for every existing route. **Everything else is gated
+on this.** If it fails, the fallback is a fully client-side auth surface with
+no RSC session reads at all.
+
+**Done — 2026-08-01.** Measured in PR #105; tables in
+`docs/stage0-prerender-findings.md`. Result and corrected reading in §6.1: no
+route became ƒ, so nothing is blocked. Content routes stay client-only for cost
+reasons, and the acceptance bar above should be read as "no route becomes ƒ,"
+not "no route becomes ◐."
+
+Two follow-ups the spike did not cover, both cheap and both worth doing before
+Stage 2 UI work: measure RSC session reads scoped to `/cleo` only (§6.1), and
+measure whether `useSession()` fetches for signed-out visitors (§6.2).
+
+Spike-only artifact, not a Stage 2 risk: `node:sqlite` with `auth migrate`
+failed (`stmt.columns is not a function`), worked with `better-sqlite3`. Stage 2
+uses Neon Postgres through the Drizzle adapter and never touches this path.
 
 ### Stage 1 — Local threads, zero infrastructure
 
@@ -611,8 +677,9 @@ mobile, light and dark, per the existing UI rule in AGENTS.md.
 
 | Risk | Severity | Mitigation |
 | --- | --- | --- |
-| `cacheComponents` + session reads break prerendering | High | Stage 0 gate; client-only fallback |
-| Next `16.3.0-preview.9` ahead of Better Auth's tested versions | Medium | Stage 0 spike; pin exact versions |
+| ~~`cacheComponents` + session reads break prerendering~~ | Resolved | Measured in Stage 0; no route became ƒ. See §6.1 |
+| Client-only session fetch on every anonymous page view | Medium | Measure, then gate behind a hint cookie. See §6.2 |
+| Next `16.3.0-preview.9` ahead of Better Auth's tested versions | Low | `better-auth@1.6.25` wired cleanly in Stage 0; pin exact versions |
 | Thread ownership bug leaks another user's history | High | Dedicated tests before any UI work |
 | No self-service account recovery | Medium | Second passkey + GitHub at sign-up |
 | Neon outage takes auth down with it | Medium | Accepted; DB sessions are the point |
