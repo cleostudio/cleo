@@ -91,7 +91,9 @@ as opt-in location:
 
 - Server-only: `getSession(request.headers)` in `POST /api/responses`. A
   client-supplied `name` field is ignored.
-- Guests and unconfigured auth get no profile block.
+- Guests and unconfigured auth get no profile block. Session lookup failures
+  fail open (chat continues without the name) so Neon blips cannot take Cleo
+  down.
 - Instructions tell Cleo to use the name for natural personalization (greetings,
   direct address) without forcing it every turn or inventing other personal
   details. Email is never included.

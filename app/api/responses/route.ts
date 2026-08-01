@@ -468,11 +468,17 @@ export async function POST(request: Request) {
     ? buildUserLocationInstructions(location)
     : undefined
   // Account name comes from the Better Auth session cookie — never trust a
-  // client-supplied name field on the request body.
-  const session = await getSession(request.headers)
-  const profileInstructions = session?.user?.name
-    ? buildUserProfileInstructions(session.user.name)
-    : undefined
+  // client-supplied name field on the request body. Fail open if session
+  // lookup errors so a Neon blip cannot take Cleo down.
+  let profileInstructions: string | undefined
+  try {
+    const session = await getSession(request.headers)
+    if (session?.user?.name) {
+      profileInstructions = buildUserProfileInstructions(session.user.name)
+    }
+  } catch (error) {
+    console.error("Failed to load auth session for Cleo personalization.", error)
+  }
   const instructions = [
     CLEO_INSTRUCTIONS,
     topicPhotoInstructions,

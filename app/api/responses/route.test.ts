@@ -275,6 +275,62 @@ describe("POST /api/responses: signed-in user profile", () => {
     expect(request.instructions).not.toContain("Spoofed Name")
     expect(request.instructions).not.toContain("<cleo_user_profile>")
   })
+
+  it("fails open when session lookup throws", async () => {
+    auth.getSession.mockRejectedValueOnce(new Error("database unavailable"))
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "Hello.", type: "response.output_text.delta" }])
+    )
+
+    const response = await POST(ask(question))
+    const request = openai.create.mock.calls[0]?.[0]
+
+    expect(response.status).toBe(200)
+    expect(request.instructions).not.toContain("<cleo_user_profile>")
+  })
+
+  it("skips profile instructions when the session name is unusable", async () => {
+    auth.getSession.mockResolvedValueOnce({
+      user: { name: "   <>   ", email: "ada@example.com" },
+    })
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "Hello.", type: "response.output_text.delta" }])
+    )
+
+    await POST(ask(question))
+
+    const request = openai.create.mock.calls[0]?.[0]
+
+    expect(request.instructions).not.toContain("<cleo_user_profile>")
+  })
+
+  it("can combine signed-in name with opt-in location instructions", async () => {
+    auth.getSession.mockResolvedValueOnce({
+      user: { name: "Ada Lovelace", email: "ada@example.com" },
+    })
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "Hi Ada.", type: "response.output_text.delta" }])
+    )
+
+    await POST(
+      ask({
+        ...question,
+        location: {
+          accuracy: 12.4,
+          latitude: 37.7749,
+          longitude: -122.4194,
+          timeZone: "America/Los_Angeles",
+        },
+      })
+    )
+
+    const request = openai.create.mock.calls[0]?.[0]
+
+    expect(request.instructions).toContain("<cleo_user_profile>")
+    expect(request.instructions).toContain("Preferred name: Ada Lovelace")
+    expect(request.instructions).toContain("<cleo_user_location>")
+    expect(request.instructions).toContain("America/Los_Angeles")
+  })
 })
 
 describe("POST /api/responses: image attachments", () => {
