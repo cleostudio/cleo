@@ -2,13 +2,15 @@
 
 import { Popover } from '@base-ui/react/popover'
 import { Monitor, Moon, Sun, Volume2, VolumeX } from 'lucide-react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 import { PreferencesIcon } from '~/components/dock-icons'
 import { useTheme } from '~/components/theme-provider'
-import { useEffect, useState } from 'react'
-
 import { Switch } from '~/components/ui/switch'
 import { TabItem, Tabs, TabsList } from '~/components/ui/tabs'
+import { authClient } from '~/lib/auth-client'
 import {
   isLocationSyncEnabled,
   setLocationSyncEnabled,
@@ -16,6 +18,7 @@ import {
 import { Elevated } from '~/lib/elevated'
 import { T } from '~/lib/i18n'
 import { localize, useLocale } from '~/lib/locale-client'
+import { localePath } from '~/lib/locale-route'
 import {
   playPreferenceSound,
   setSoundEnabled,
@@ -122,9 +125,76 @@ export function Preferences() {
                 }}
               />
             </Row>
+            <AccountPreferenceRows locale={activeLocale} />
           </Popover.Popup>
         </Popover.Positioner>
       </Popover.Portal>
     </Popover.Root>
+  )
+}
+
+function AccountPreferenceRows({ locale }: { locale: ReturnType<typeof useLocale> }) {
+  const router = useRouter()
+  const { data: session, isPending } = authClient.useSession()
+  const [signingOut, setSigningOut] = useState(false)
+  const signedIn = Boolean(session?.user)
+
+  async function signOut() {
+    setSigningOut(true)
+    try {
+      await authClient.signOut()
+      playPreferenceSound()
+      router.refresh()
+    } finally {
+      setSigningOut(false)
+    }
+  }
+
+  if (isPending) {
+    return (
+      <div className="prefs-row prefs-admin" aria-busy="true">
+        <span className="prefs-row-label">
+          <T zh="账户" en="Account" />
+        </span>
+      </div>
+    )
+  }
+
+  if (!signedIn) {
+    return (
+      <Link
+        href={localePath(locale, '/sign-in')}
+        className="prefs-row prefs-admin"
+        onClick={() => playPreferenceSound()}
+      >
+        <span className="prefs-row-label">
+          <T zh="登录" en="Sign in" />
+        </span>
+      </Link>
+    )
+  }
+
+  return (
+    <>
+      <Link
+        href={localePath(locale, '/account')}
+        className="prefs-row prefs-admin"
+        onClick={() => playPreferenceSound()}
+      >
+        <span className="prefs-row-label">
+          <T zh="账户" en="Account" />
+        </span>
+      </Link>
+      <button
+        type="button"
+        className="prefs-row prefs-admin prefs-signout"
+        disabled={signingOut}
+        onClick={() => void signOut()}
+      >
+        <span className="prefs-row-label">
+          <T zh="退出登录" en={signingOut ? 'Signing out…' : 'Sign out'} />
+        </span>
+      </button>
+    </>
   )
 }
