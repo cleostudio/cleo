@@ -45,6 +45,7 @@ import {
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
+import { newMessageId } from "~/lib/cleo/thread-id"
 
 const MAX_INPUT_LENGTH = 10_000
 
@@ -52,7 +53,7 @@ type ResponsePayload = {
   error?: string
 }
 
-type Message = {
+export type AskFormMessage = {
   activities?: ActivityItem[]
   content: string
   /** Hide from the transcript UI (still sent to the API). */
@@ -62,7 +63,11 @@ type Message = {
   incomplete?: MessageIncomplete
   reasoningItems?: EncryptedReasoningItem[]
   role: "assistant" | "user"
+  /** Durable client UUID for Stage 1 IndexedDB / Stage 2 Postgres. */
+  stableId?: string
 }
+
+type Message = AskFormMessage
 
 type TurnRequest = {
   /** Clear incomplete markers on prior assistant turns after success. */
@@ -268,24 +273,39 @@ const AssistantMessage = memo(function AssistantMessage({
   )
 })
 
-export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
+export function AskForm({
+  initialPrompt,
+  initialMessages,
+  onConversationChange,
+}: {
+  initialPrompt?: string
+  /** Hydrate a resumed local thread. Remount with a new `key` when switching. */
+  initialMessages?: AskFormMessage[]
+  /** Fired when the transcript is idle (not streaming). Never includes location. */
+  onConversationChange?: (messages: AskFormMessage[]) => void
+}) {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])
   const [location, setLocation] = useState<UserLocation | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [messages, setMessages] = useState<Message[]>([])
+  const [messages, setMessages] = useState<Message[]>(() => initialMessages ?? [])
   const [scrollTick, setScrollTick] = useState(0)
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const messageIdRef = useRef(0)
+  const messageIdRef = useRef(
+    (initialMessages?.reduce((max, message) => Math.max(max, message.id), -1) ??
+      -1) + 1
+  )
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const messagesRef = useRef<Message[]>([])
   const isSubmittingRef = useRef(false)
   const mountedRef = useRef(true)
   const stickToBottomRef = useRef(true)
   const lastScrollYRef = useRef(0)
+  const onConversationChangeRef = useRef(onConversationChange)
+  onConversationChangeRef.current = onConversationChange
 
   const hasMessages = messages.some((message) => !message.hidden)
   const lastVisibleMessage = [...messages]
@@ -301,6 +321,12 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   useEffect(() => {
     messagesRef.current = messages
   }, [messages])
+
+  // Persist only when idle so mid-stream rAF flushes do not thrash IndexedDB.
+  useEffect(() => {
+    if (isSubmitting) return
+    onConversationChangeRef.current?.(messages)
+  }, [messages, isSubmitting])
 
   useEffect(() => {
     lastScrollYRef.current = window.scrollY
@@ -534,6 +560,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     const userMessage: Message = {
       content: question,
       id: messageIdRef.current++,
+      stableId: newMessageId(),
       role: "user",
       ...(hideUserMessage ? { hidden: true } : {}),
       ...(userImages.length > 0 ? { images: userImages } : {}),
@@ -542,6 +569,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       activities: [],
       content: "",
       id: messageIdRef.current++,
+      stableId: newMessageId(),
       images: [],
       role: "assistant",
     }

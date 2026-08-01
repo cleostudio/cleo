@@ -508,6 +508,141 @@
   transform: translate(-50%, -50%);
 }
 
+/* Local thread chrome — sits above the chat, clear of the fixed prompt. */
+.cleo-thread-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: calc(var(--z-nav) - 2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.25rem;
+}
+
+.cleo-thread-toolbar-button {
+  gap: 0.35rem;
+  color: var(--muted-foreground);
+}
+
+.cleo-thread-toolbar-button:hover:not(:disabled) {
+  color: var(--foreground);
+}
+
+.cleo-thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cleo-thread-list-item {
+  display: flex;
+  align-items: stretch;
+  gap: 0.35rem;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  padding: 0.15rem;
+}
+
+.cleo-thread-list-item-active {
+  border-color: var(--border);
+  background: color-mix(in oklab, var(--muted) 55%, transparent);
+}
+
+.cleo-thread-list-open {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0.45rem 0.5rem;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.cleo-thread-list-open:hover {
+  background: color-mix(in oklab, var(--muted) 70%, transparent);
+}
+
+.cleo-thread-list-title {
+  overflow: hidden;
+  max-width: 100%;
+  color: var(--foreground);
+  font-size: 0.925rem;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cleo-thread-list-when {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.cleo-thread-list-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  padding-right: 0.15rem;
+}
+
+.cleo-thread-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  padding: 0.4rem;
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.cleo-thread-icon-button:hover {
+  color: var(--foreground);
+  background: color-mix(in oklab, var(--muted) 70%, transparent);
+}
+
+.cleo-thread-rename {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem;
+}
+
+.cleo-thread-rename-input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--background);
+  padding: 0.35rem 0.5rem;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.cleo-thread-rename-input:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 1px;
+}
+
 .cleo-starters {
   display: flex;
   flex-wrap: wrap;
