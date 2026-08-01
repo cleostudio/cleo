@@ -71,8 +71,8 @@ Source of truth: `lib/theme-preset.ts`.
 --duration-route-morph: 320ms;
 --radius: 0.625rem;
 --border-hairline: 1px;      /* 0.5px above 192dpi */
---content-column: 42rem;
---content-column-narrow: 38.5rem;
+--content-column: 46rem;
+--content-column-narrow: 42.5rem;
 --z-nav: 100;  --z-card: 200;  --z-toast: 300;
 ```
 
@@ -83,7 +83,7 @@ Everything else should match cali.so.
 | Token | Upstream | Cleo | Why |
 | --- | --- | --- | --- |
 | `--font-sans` | Geist, then Frex Sans GB for CJK | Geist only | CJK face is unused |
-| `--content-column` | `37.5rem` | `42rem` | Guide borders removed; wider column without a boxed frame |
+| `--content-column` | `37.5rem` | `46rem` | Guide borders removed; wider column without a boxed frame |
 
 ## Changing the preset
 

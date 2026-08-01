@@ -148,7 +148,7 @@ Hard rules:
   32px; prose h2 is 18px/1.35 and h3 is
   16px/1.45. Code remains 13px. Form inputs stay ≥16px to prevent iOS zoom.
   Headings use `text-wrap: balance` and tighter letter-spacing as size grows.
-- Content column is compact: ~672px (`42rem`) plus padding.
+- Content column is compact: ~736px (`46rem`) plus padding.
 - `font-variant-numeric: tabular-nums` on anything that counts: dates in
   lists, reading time, subscriber counts.
 - Curly quotes, real ellipsis (…), full-width CJK punctuation left alone.
@@ -560,7 +560,8 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   corner wear, at most two short localized creases, and no more than 0.34° lean
   or 1.1px settling variation. There is no runtime randomness. Covers keep the
   default cursor and only inactive sleeves lift slightly on a
-  fine-pointer hover. The shelf is clipped to a centered 42rem frame. Pointer
+  fine-pointer hover. The shelf is clipped to a centered content-column frame.
+  Pointer
   drag and horizontal trackpad wheel input pan the stack continuously; vertical
   wheel input remains native page scrolling. Releasing the pointer or ending a
   horizontal wheel gesture commits the new front sleeve and annotation, then

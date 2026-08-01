@@ -260,8 +260,8 @@
   /* Page column. cali.so runs 37.5rem; Cleo opened this up when the drafting
      guide borders came off. Everything that spans the column reads it from
      here so the shell, the shelf frame, and the guides cannot drift apart. */
-  --content-column: 42rem;
-  --content-column-narrow: 38.5rem;
+  --content-column: 46rem;
+  --content-column-narrow: 42.5rem;
 
   --grain-opacity: 0.3;
   --guide-opacity: 0.5;
