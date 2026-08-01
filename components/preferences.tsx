@@ -4,12 +4,16 @@ import { Popover } from '@base-ui/react/popover'
 import { MapPin, MapPinOff, Monitor, Moon, Sun, Volume2, VolumeX } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { PreferencesIcon } from '~/components/dock-icons'
 import { useTheme } from '~/components/theme-provider'
 import { TabItem, Tabs, TabsList } from '~/components/ui/tabs'
 import { authClient } from '~/lib/auth-client'
+import {
+  hydrateLocationSyncFromAccount,
+  persistLocationSyncToAccount,
+} from '~/lib/cleo/location-preference-account'
 import {
   isLocationSyncEnabled,
   setLocationSyncEnabled,
@@ -47,13 +51,31 @@ export function Preferences() {
   // The Preferences portal unmounts when closed; without this warm
   // subscription every open remounts useSession into isPending and the
   // account row flashes the wrong label.
-  authClient.useSession()
+  const { data: session } = authClient.useSession()
+  const signedInUserId = session?.user?.id
+  const accountLocationSync = session?.user?.locationSyncEnabled
+  // Hydrate once per signed-in user so a mid-toggle session refresh cannot
+  // overwrite a local change before updateUser finishes.
+  const hydratedUserIdRef = useRef<string | null>(null)
 
   useEffect(() => {
     setMounted(true)
     setLocationSync(isLocationSyncEnabled())
     setSound(soundEnabled())
   }, [])
+
+  // Signed-in account is canonical: restore quietly (no geolocation prompt).
+  useEffect(() => {
+    if (!signedInUserId) {
+      hydratedUserIdRef.current = null
+      return
+    }
+    if (hydratedUserIdRef.current === signedInUserId) return
+    const enabled = hydrateLocationSyncFromAccount(accountLocationSync)
+    if (enabled === null) return
+    hydratedUserIdRef.current = signedInUserId
+    setLocationSync(enabled)
+  }, [signedInUserId, accountLocationSync])
 
   return (
     <Popover.Root>
@@ -123,9 +145,19 @@ export function Preferences() {
                 value={mounted && locationSync ? 'on' : 'off'}
                 onValueChange={(v) => {
                   const on = v === 'on'
+                  const previous = locationSync
                   if (!on) playPreferenceSound()
                   setLocationSyncEnabled(on)
                   setLocationSync(on)
+                  if (signedInUserId) {
+                    void persistLocationSyncToAccount({
+                      enabled: on,
+                      previous,
+                      updateUser: (data) => authClient.updateUser(data),
+                    }).then((ok) => {
+                      if (!ok) setLocationSync(previous)
+                    })
+                  }
                   if (on) playPreferenceSound()
                 }}
               >

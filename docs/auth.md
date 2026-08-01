@@ -35,11 +35,18 @@ missing `OPENAI_API_KEY` for `/api/responses`).
 | --- | --- |
 | `lib/db/index.ts` | Lazy Neon HTTP + Drizzle client |
 | `lib/db/auth-schema.ts` | Better Auth tables (`user`, `session`, `account`, `verification`) |
+| `lib/auth-user-fields.ts` | Shared `user.additionalFields` (e.g. Location preference) |
 | `lib/auth.ts` | Server `betterAuth` + `getSession` |
-| `lib/auth-client.ts` | React `createAuthClient` |
+| `lib/auth-client.ts` | React `createAuthClient` + `inferAdditionalFields` |
 | `app/api/auth/[...all]/route.ts` | Next.js route handler |
 | `drizzle.config.ts` | Migrations / push |
 | `app/_views/auth-pages.tsx` | Sign-in / sign-up / account UI |
+
+### User additional fields
+
+| Field | Purpose |
+| --- | --- |
+| `locationSyncEnabled` | Dock Preferences → Location. Boolean, default `false`, writable via `updateUser`. Guests still use `localStorage` only; signed-in sessions hydrate from this field quietly (see [`cleo.md`](./cleo.md) § Location). |
 
 ## Provision Neon (Marketplace)
 
@@ -100,7 +107,9 @@ pnpm build
 
 Manual: open `/sign-up`, create a user, land on `/account`, sign out, sign
 in again. Confirm `/api/auth/ok` (or any auth path) returns 503 when Neon
-env is stripped.
+env is stripped. With a signed-in session, toggle Preferences → Location on,
+sign out and back in (or another browser) and confirm Location restores
+without a fresh geolocation prompt when browser permission is already granted.
 
 ## Boundaries
 
