@@ -27,9 +27,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   `content/space-photos.json` + JPEGs in `public/images/space/`
 - **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
   `POST /api/responses`)
-- **Accounts (Stage 2a):** Better Auth (passkeys + GitHub) against Neon /
-  Postgres (`DATABASE_URL`). Sign-in at `/sign-in`. Conversation durability is
-  still device-local IndexedDB until Stage 2b.
+- **Accounts + threads (Stage 2a/2b):** Better Auth (passkeys + GitHub) against
+  Neon / Postgres (`DATABASE_URL`). Sign-in at `/sign-in`. Signed-in Cleo
+  threads sync to Postgres; signed-out visitors keep Stage 1 IndexedDB.
 - Vercel Web Analytics + Speed Insights in the root document (enable both in
   the Vercel project dashboard)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
