@@ -52,7 +52,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
   const writingCenter = (writingPosts.length - 1) / 2
 
   return (
-    <div className="mx-auto w-full max-w-content px-6">
+    <div className="mx-auto w-full max-w-content">
       <div className="enter max-w-content-narrow">
         <div className="flex items-center gap-2">
           <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>

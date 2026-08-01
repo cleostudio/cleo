@@ -4,7 +4,7 @@ import { T } from '~/lib/i18n'
 
 export function ForbiddenPageView() {
   return (
-    <div className="mx-auto w-full max-w-content px-6">
+    <div className="mx-auto w-full max-w-content">
       <section aria-labelledby="forbidden-title" className="mx-auto max-w-sm">
         <p className="text-sm text-muted-foreground">ERROR / 403</p>
         <h1 id="forbidden-title" className="mt-3 text-sm font-semibold">

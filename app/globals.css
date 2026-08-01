@@ -6755,10 +6755,8 @@ a:focus-visible .external-label .external-mark {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 3.5rem;
-  /* bleed to the column's outer edges (through the px-6 padding), not
-     the viewport */
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
+  /* Full content-column width — shell padding sits outside max-w-content,
+     so these hairlines share an edge with search, places, and the footer. */
   border-top: var(--border-hairline) solid var(--border);
   border-bottom: var(--border-hairline) solid var(--border);
 }

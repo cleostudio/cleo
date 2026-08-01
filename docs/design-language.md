@@ -148,7 +148,8 @@ Hard rules:
   32px; prose h2 is 18px/1.35 and h3 is
   16px/1.45. Code remains 13px. Form inputs stay ≥16px to prevent iOS zoom.
   Headings use `text-wrap: balance` and tighter letter-spacing as size grows.
-- Content column is compact: ~736px (`46rem`) plus padding.
+- Content column is compact: ~736px (`46rem`). Shell gutters sit outside the
+  column so doorway card hairlines and page content share one edge.
 - `font-variant-numeric: tabular-nums` on anything that counts: dates in
   lists, reading time, subscriber counts.
 - Curly quotes, real ellipsis (…), full-width CJK punctuation left alone.
@@ -320,7 +321,9 @@ card is hovered (fine pointer) or `:focus-visible` (keyboard).
   with protruding tabs and ruled entry lines.
 
 Layout: four equal columns on wide viewports; a 2×2 grid below 40rem, with
-row-separating hairlines so the band still reads as one instrument.
+row-separating hairlines so the band still reads as one instrument. The band
+spans the full `max-w-content` column (shell gutters sit outside), so its
+hairlines align with search, section rows, and the footer.
 
 ### Adding another doorway
 

@@ -37,7 +37,7 @@ function AuthShell({
   footer?: ReactNode
 }) {
   return (
-    <div className="mx-auto w-full max-w-content px-6">
+    <div className="mx-auto w-full max-w-content">
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
           <h1 id={titleId} className="page-eyebrow enter">

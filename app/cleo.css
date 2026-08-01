@@ -574,7 +574,15 @@ html[data-cleo-route] .site-chrome {
 }
 
 html[data-cleo-route] .site-chrome-main {
+  /* Cleo owns its gutters via --app-column-gutter; don't double-inset. */
   padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+html[data-cleo-route] .site-chrome-footer {
+  padding-right: 0;
+  padding-left: 0;
 }
 
 html[data-cleo-route] .column-rulers {

@@ -16,7 +16,7 @@ export function ProjectsPageView() {
   const center = (projects.length - 1) / 2
 
   return (
-    <div className="relative mx-auto w-full max-w-content px-6">
+    <div className="relative mx-auto w-full max-w-content">
       <GhostSchematic className="top-4 right-6 hidden w-56 sm:block" />
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">

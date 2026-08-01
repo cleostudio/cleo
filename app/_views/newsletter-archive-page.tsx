@@ -62,7 +62,7 @@ export function NewsletterArchivePageView({
   const english = locale === 'en'
 
   return (
-    <article className="mx-auto box-border w-full max-w-content px-6">
+    <article className="mx-auto box-border w-full max-w-content">
       <header className="hairline-bottom mb-10 pb-8">
         <p className="font-mono text-sm tracking-[-0.011em] text-muted-foreground">
           <T

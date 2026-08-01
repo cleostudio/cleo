@@ -52,8 +52,10 @@ stamps). Weights 400 / 500 / 600. Chrome at 14px with `-0.011em`. Counts use
 `tabular-nums`.
 
 **Layout.** Column via `--content-column` → `max-w-content` (or
-`max-w-content-narrow`). Literal widths desync the shell from ambient guides;
-the test suite rejects them.
+`max-w-content-narrow`). Shell horizontal padding (`SiteChrome` `px-6`) sits
+*outside* the column so page content and homepage doorway card hairlines share
+one edge. Literal widths desync the shell from ambient guides; the test suite
+rejects them.
 
 **Radius.** Scale from `--radius`. Print-register corners are flat `2px`; pills
 are `999px`. Nothing in between.

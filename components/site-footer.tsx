@@ -40,7 +40,7 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
   const topics = allTopics()
 
   return (
-    <footer className="mx-auto mt-24 w-full max-w-content px-6 pb-24 text-sm text-muted-foreground sm:pb-12">
+    <footer className="mx-auto mt-24 w-full max-w-content pb-24 text-sm text-muted-foreground sm:pb-12">
       <div className="hairline-top grid grid-cols-2 gap-x-6 gap-y-8 pt-8 sm:grid-cols-3">
         <Tree zh="主题" en="topics">
           <li>

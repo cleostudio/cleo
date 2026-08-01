@@ -20,6 +20,10 @@ describe('SiteChrome', () => {
     expect(shell?.className).toContain('min-h-screen')
     expect(shell?.querySelector('main')?.className).toContain('site-chrome-main')
     expect(shell?.querySelector('main')?.className).toContain('pt-14')
+    expect(shell?.querySelector('main')?.className).toContain('px-6')
+    expect(shell?.querySelector('.site-chrome-footer')?.className).toContain(
+      'px-6',
+    )
     expect(container.querySelector('[data-footer]')).not.toBeNull()
   })
 })

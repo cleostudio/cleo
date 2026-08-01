@@ -21,7 +21,7 @@ export function BlogIndexPageView({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-content px-6">
+    <div className="mx-auto w-full max-w-content">
       <header className="enter flex items-center justify-between">
         <h1 className="page-eyebrow">
           <T zh="写作" en="Writing" />
