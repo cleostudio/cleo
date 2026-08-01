@@ -19,8 +19,12 @@ afterEach(() => {
 })
 
 describe('CleoRouteAttribute', () => {
-  it('marks the document while on /cleo and clears it elsewhere', () => {
+  it('marks the document while on /cleo and /cleo/[threadId], clears elsewhere', () => {
     const { rerender, unmount } = render(<CleoRouteAttribute />)
+    expect(document.documentElement.hasAttribute('data-cleo-route')).toBe(true)
+
+    usePathname.mockReturnValue('/cleo/11111111-1111-4111-8111-111111111111')
+    rerender(<CleoRouteAttribute />)
     expect(document.documentElement.hasAttribute('data-cleo-route')).toBe(true)
 
     usePathname.mockReturnValue('/')

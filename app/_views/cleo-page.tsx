@@ -1,16 +1,11 @@
 'use client'
 
-import { AskForm } from '~/components/cleo/ask-form'
+import { ThreadSession } from '~/components/cleo/thread-session'
 
 /**
- * `initialPrompt` is for callers that already hold the question. Arrivals from
- * a `/cleo?q=…` link are read from the URL inside `AskForm`, which keeps this
- * route prerendered.
+ * `/cleo` shell. Thread identity, IndexedDB hydration, and the `/cleo?q=…`
+ * handoff are owned by `ThreadSession` so this route stays prerenderable.
  */
-export function CleoPageView({ initialPrompt }: { initialPrompt?: string }) {
-  return (
-    <div className="w-full">
-      <AskForm initialPrompt={initialPrompt} />
-    </div>
-  )
+export function CleoPageView() {
+  return <ThreadSession />
 }
