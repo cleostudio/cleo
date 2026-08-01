@@ -47,3 +47,12 @@ AskForm keeps working in memory exactly as before Stage 1.
 
 History dialog: list / resume / rename / delete / new. Auto title from the
 first user message (word-boundary truncate); manual rename wins on later saves.
+
+## Manual verification
+
+With `pnpm build && pnpm start`, `scripts/stage1-verify-threads.mjs` (needs
+`puppeteer-core` + Chrome locally; not a product dependency) confirmed:
+
+1. History dialog opens
+2. `/cleo?q=…` strips `q` and lands on `/cleo/[uuid]`
+3. A seeded IndexedDB thread resumes transcript content and appears in History
