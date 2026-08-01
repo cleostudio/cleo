@@ -13,6 +13,12 @@ import {
 
 const hasDatabase = Boolean(process.env.DATABASE_URL?.trim())
 
+if (!hasDatabase && process.env.CI) {
+  throw new Error(
+    'DATABASE_URL is required to run thread persistence tests in CI.',
+  )
+}
+
 describe.skipIf(!hasDatabase)('thread repository persistence', () => {
   const userId = newThreadId()
 

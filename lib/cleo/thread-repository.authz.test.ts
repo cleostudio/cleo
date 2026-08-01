@@ -26,6 +26,14 @@ const threadA = newThreadId()
 
 const hasDatabase = Boolean(process.env.DATABASE_URL?.trim())
 
+// These tests are the Stage 2b security floor. Skipping them silently in CI
+// would greenwash a missing DATABASE_URL; fail loud there, skip only locally.
+if (!hasDatabase && process.env.CI) {
+  throw new Error(
+    'DATABASE_URL is required to run thread authorization tests in CI.',
+  )
+}
+
 describe.skipIf(!hasDatabase)('thread repository authorization', () => {
   beforeAll(async () => {
     await insertTestUser(userA, 'User A')
