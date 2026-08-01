@@ -1,8 +1,11 @@
 // @vitest-environment jsdom
 
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { hydrateLocationSyncFromAccount } from './location-preference-account'
+import {
+  hydrateLocationSyncFromAccount,
+  persistLocationSyncToAccount,
+} from './location-preference-account'
 import {
   isLocationSyncEnabled,
   setLocationSyncEnabled,
@@ -54,5 +57,42 @@ describe('hydrateLocationSyncFromAccount', () => {
 
     expect(observed).toEqual([])
     expect(isLocationSyncEnabled()).toBe(true)
+  })
+})
+
+describe('persistLocationSyncToAccount', () => {
+  it('keeps the local preference when the account write succeeds', async () => {
+    setLocationSyncEnabled(true)
+    const updateUser = vi.fn(async () => ({}))
+
+    await expect(
+      persistLocationSyncToAccount({
+        enabled: true,
+        previous: false,
+        updateUser,
+      }),
+    ).resolves.toBe(true)
+
+    expect(updateUser).toHaveBeenCalledWith({ locationSyncEnabled: true })
+    expect(isLocationSyncEnabled()).toBe(true)
+  })
+
+  it('reverts local preference silently when the account write fails', async () => {
+    setLocationSyncEnabled(true)
+    const observed: LocationSyncChange[] = []
+    const unsubscribe = subscribeToLocationSync((change) => observed.push(change))
+    const updateUser = vi.fn(async () => ({ error: new Error('network') }))
+
+    await expect(
+      persistLocationSyncToAccount({
+        enabled: true,
+        previous: false,
+        updateUser,
+      }),
+    ).resolves.toBe(false)
+    unsubscribe()
+
+    expect(isLocationSyncEnabled()).toBe(false)
+    expect(observed).toEqual([{ allowPrompt: false, enabled: false }])
   })
 })

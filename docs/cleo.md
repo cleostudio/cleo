@@ -84,8 +84,10 @@ Built by `lib/cleo/ask-link.ts`.
 - Persistence:
   - Guests: `localStorage` (`cleo-location-sync`).
   - Signed-in: Better Auth user field `locationSyncEnabled` (Neon) via
-    `authClient.updateUser`. Account is canonical on session load —
-    `hydrateLocationSyncFromAccount` restores quietly (`allowPrompt: false`).
+    `persistLocationSyncToAccount` / `authClient.updateUser` (reverts local
+    quietly if the write fails). Account is canonical once per sign-in —
+    `hydrateLocationSyncFromAccount` restores quietly (`allowPrompt: false`)
+    without racing a mid-toggle session refresh.
 - Turning on may open the browser geolocation dialog; `client-location.ts`
   requests one fresh high-accuracy position.
 - On refresh: restore quietly only if permission is already `granted` — never
