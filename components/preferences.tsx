@@ -1,14 +1,13 @@
 'use client'
 
 import { Popover } from '@base-ui/react/popover'
-import { Monitor, Moon, Sun, Volume2, VolumeX } from 'lucide-react'
+import { MapPin, MapPinOff, Monitor, Moon, Sun, Volume2, VolumeX } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { PreferencesIcon } from '~/components/dock-icons'
 import { useTheme } from '~/components/theme-provider'
-import { Switch } from '~/components/ui/switch'
 import { TabItem, Tabs, TabsList } from '~/components/ui/tabs'
 import { authClient } from '~/lib/auth-client'
 import {
@@ -36,7 +35,7 @@ function Row({ zh, en, children }: { zh: string; en: string; children: React.Rea
   )
 }
 
-// Preferences panel: theme and UI sound as full-width fluid tabs.
+// Preferences panel: theme, UI sound, and location as full-width fluid tabs.
 export function Preferences() {
   const activeLocale = useLocale()
   const { theme, setTheme } = useTheme()
@@ -120,16 +119,33 @@ export function Preferences() {
               </Tabs>
             </Row>
             <Row zh="位置" en="Location">
-              <Switch
-                aria-label={localize(activeLocale, '与 Cleo 分享位置', 'Share location with Cleo')}
-                checked={locationSync}
-                disabled={!mounted}
-                onCheckedChange={(enabled) => {
-                  setLocationSyncEnabled(enabled)
-                  setLocationSync(enabled)
-                  playPreferenceSound()
+              <Tabs
+                value={mounted && locationSync ? 'on' : 'off'}
+                onValueChange={(v) => {
+                  const on = v === 'on'
+                  if (!on) playPreferenceSound()
+                  setLocationSyncEnabled(on)
+                  setLocationSync(on)
+                  if (on) playPreferenceSound()
                 }}
-              />
+              >
+                <TabsList
+                  aria-label={localize(activeLocale, '与 Cleo 分享位置', 'Share location with Cleo')}
+                >
+                  <TabItem
+                    value="on"
+                    icon={MapPin}
+                    label=""
+                    aria-label={localize(activeLocale, '开', 'On')}
+                  />
+                  <TabItem
+                    value="off"
+                    icon={MapPinOff}
+                    label=""
+                    aria-label={localize(activeLocale, '关', 'Off')}
+                  />
+                </TabsList>
+              </Tabs>
             </Row>
             <AccountPreferenceRows locale={activeLocale} />
           </Popover.Popup>
