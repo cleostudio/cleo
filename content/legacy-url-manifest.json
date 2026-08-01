@@ -534,24 +534,49 @@
       "status": 308
     },
     {
+      "kind": "page",
+      "source": "/sign-in",
+      "probes": [
+        "/sign-in"
+      ],
+      "status": 200,
+      "contains": "Sign in"
+    },
+    {
       "kind": "redirect",
-      "source": "/sign-in/:path*",
+      "source": "/sign-in/legacy",
       "destination": "/",
       "probes": [
-        "/sign-in",
         "/sign-in/legacy"
       ],
       "status": 308
     },
     {
+      "kind": "page",
+      "source": "/sign-up",
+      "probes": [
+        "/sign-up"
+      ],
+      "status": 200,
+      "contains": "Create account"
+    },
+    {
       "kind": "redirect",
-      "source": "/sign-up/:path*",
+      "source": "/sign-up/legacy",
       "destination": "/",
       "probes": [
-        "/sign-up",
         "/sign-up/legacy"
       ],
       "status": 308
+    },
+    {
+      "kind": "page",
+      "source": "/account",
+      "probes": [
+        "/account"
+      ],
+      "status": 200,
+      "contains": "Account"
     },
     {
       "kind": "redirect",
