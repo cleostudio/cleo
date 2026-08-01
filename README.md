@@ -27,6 +27,9 @@ Legacy `/en/...` URLs permanently redirect to the unprefixed English paths.
   `content/space-photos.json` + JPEGs in `public/images/space/`
 - **OpenAI** is the only third-party API for app features (`OPENAI_API_KEY` →
   `POST /api/responses`)
+- **Accounts (Stage 2a):** Better Auth (passkeys + GitHub) against Neon /
+  Postgres (`DATABASE_URL`). Sign-in at `/sign-in`. Conversation durability is
+  still device-local IndexedDB until Stage 2b.
 - Vercel Web Analytics + Speed Insights in the root document (enable both in
   the Vercel project dashboard)
 - Cleo agent: `components/cleo/*`, `lib/cleo/*` (instructions include the
@@ -58,12 +61,20 @@ corepack enable
 pnpm install
 cp .env.example .env.local
 # Set OPENAI_API_KEY for /cleo
+# Set DATABASE_URL + BETTER_AUTH_SECRET (+ optional GitHub OAuth) for /sign-in
+# Local Postgres works; on Vercel use `vercel install neon`.
+pnpm db:push
 pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000). Cleo is on the dock (or
-`/cleo`). The OpenAI key stays server-side; never expose it through
-`NEXT_PUBLIC_` or commit `.env.local`.
+`/cleo`). Sign-in is under dock Preferences → Sign in, or `/sign-in`. The
+OpenAI key stays server-side; never expose it through `NEXT_PUBLIC_` or commit
+`.env.local`.
+
+Auth schema is generated with `npx auth@latest generate` and applied with
+`pnpm db:push` (`drizzle-kit`; load `.env.local` yourself — drizzle-kit does
+not). See `docs/plan-accounts-and-threads.md` and `docs/adr-better-auth.md`.
 
 ## Validation
 

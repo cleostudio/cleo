@@ -1,6 +1,6 @@
 # Handoff
 
-Current as of July 2026 (Cleo fork).
+Current as of August 2026 (Cleo fork).
 
 ## Product
 
@@ -17,11 +17,16 @@ English-only general-knowledge portal with:
 - Gallery: photographs from Explore places and Space guides
   (`content/atlas.json`, `content/space-photos.json`, optimized static JPEGs)
 - Cleo AI agent at `/cleo` powered by **OpenAI only**
+- **Accounts (Stage 2a):** Better Auth passkeys + GitHub at `/sign-in`. Cleo
+  behaviour is unchanged for signed-in and signed-out visitors; Stage 1
+  IndexedDB threads still own conversation durability on the device. Server
+  thread sync is Stage 2b.
 
-There is **no** Clerk auth, Neon/Postgres, Bunny media, AMA booking, Stripe,
-Resend, Google, Tencent, or Upstash. Vercel Web Analytics and Speed Insights
-are enabled via `@vercel/analytics` / `@vercel/speed-insights` in the root
-document (enable both products in the Vercel project dashboard).
+There is **no** Clerk, Bunny media, AMA booking, Stripe, Resend, Google,
+Tencent, or Upstash. Neon Postgres holds Better Auth tables only so far.
+Vercel Web Analytics and Speed Insights are enabled via `@vercel/analytics` /
+`@vercel/speed-insights` in the root document (enable both products in the
+Vercel project dashboard).
 
 ## Architecture
 
@@ -29,55 +34,31 @@ document (enable both products in the Vercel project dashboard).
 - Posts: `content/blog/<slug>/` via owned content route
 - Explore / Gallery: `lib/countries.ts`, `lib/atlas/*`, `/explore`, `/gallery`
 - Space: `lib/space.ts`, `content/space-photos.json`, `/space`, `/space/[slug]`
-  (Solar System, Moons, Deep Space — planets, major moons, ISS, galaxies, nebulae)
-- Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`;
-  `galleryItemDomId` gives each tile a stable anchor for homepage photo results
-  and `components/place-gallery-target.tsx` rings the arriving tile
-- Homepage search: `lib/site-search-catalog.ts` (server catalog),
-  `lib/site-search.ts` (client ranking, accent folding, typo tolerance, match
-  emphasis), `components/home-site-search.tsx` (grouped combobox, `/` and ⌘K,
-  Ask Cleo row), `lib/cleo/ask-link.ts` (`/cleo?q=…` handoff)
-- Place images: import-time mozjpeg renditions up to 640/1280/2048px per
-  photograph under `public/images/atlas/` (Wikimedia Commons curation, relevance-first +
-  assessments; reviewed gaps in `scripts/atlas/gallery-handpicks/` when scoring
-  still misses) and `public/images/space/` (NASA); rendered with static
-  `srcset`. No runtime image account, API, or third-party fetch. Review aid:
-  `tsx scripts/atlas/contact-sheet.mjs --collection=places|space`.
-- Country prose: curated in `scripts/atlas/atlas-about.json` via
-  `pnpm write:atlas-about` (one-time, needs `OPENAI_API_KEY`); never generated
-  at build or request time
-- Media workflow: `pnpm generate:atlas-content` → `pnpm curate:atlas-photos` →
-  `pnpm apply:atlas-handpicks` → `pnpm import:atlas-photos` →
-  `pnpm validate:atlas`; Space via
-  `pnpm curate:space-photos` → `pnpm import:space-photos` → `pnpm validate:space`
-- Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`
-  (instructions include Explore/Space catalog paths for guide deep-links;
-  matching turns also ground every curated topic-photo path so replies can
-  embed one atlas/space JPEG or a requested three-image set as Markdown;
-  encrypted reasoning replay + soft
-  incomplete status + Retry/Continue keep multi-turn chats reliable under
-  `store: false`; conversation still clears on reload)
-- Env: `OPENAI_API_KEY`, `PUBLIC_SITE_URL`, `SITE_URL` (see `.env.example`)
-- Social footer counts: baked JSON in `content/social.json` + `content/github.json`
-  (components retained; not linked from the public chrome)
-- Former `/ama`, `/admin`, `/projects`, and `/photos` URLs redirect away
-
-## Design
-
-Visual contract: `docs/design-language.md` (including § Paper-artifact doorway
-vignettes — `NavCards` retained for reuse, not mounted on the current
-homepage). Country pages use the warm-paper field-guide layout (passport
-labels, hairline rules, zoomable contact-print hero).
+- Gallery: `lib/gallery.ts` unifies atlas + space photos for `/gallery`
+- Homepage search: `lib/site-search-catalog.ts`, `lib/site-search.ts`,
+  `components/home-site-search.tsx`, `lib/cleo/ask-link.ts`
+- Cleo: `components/cleo/*`, `lib/cleo/*`, `POST /api/responses`; local threads
+  in IndexedDB (`lib/cleo/thread-store.ts`, `/cleo/[threadId]`)
+- Auth: `lib/auth.ts`, `lib/auth-client.ts`, `app/api/auth/[...all]/route.ts`,
+  session hint `cleo.session-hint` (`lib/auth-session-hint.ts`), dock chrome in
+  Preferences. Content routes never read the session.
+- Env: see `.env.example` (`OPENAI_API_KEY`, site URLs, `DATABASE_URL`,
+  `BETTER_AUTH_*`, GitHub OAuth)
+- Plan: `docs/plan-accounts-and-threads.md`
 
 ## Local / Preview
 
 ```bash
 pnpm install
-cp .env.example .env.local   # set OPENAI_API_KEY
+cp .env.example .env.local   # set OPENAI_API_KEY; DATABASE_URL + BETTER_AUTH_*
+# Local Postgres is fine when Neon is not provisioned yet.
+pnpm db:push                 # apply Better Auth schema (drizzle-kit)
 pnpm validate:atlas
 pnpm dev
 pnpm typecheck && pnpm build
 ```
 
-Previews stub missing site URLs via `scripts/ensure-preview-env.mjs`. Without
-`OPENAI_API_KEY`, `/api/responses` returns 503; the rest of the site works.
+On Vercel: `vercel install neon`, set `BETTER_AUTH_SECRET`, create a GitHub
+OAuth app with callback `{origin}/api/auth/callback/github` for production and
+preview URLs. `scripts/ensure-preview-env.mjs` stubs missing auth/DB vars so
+`prebuild` does not fail without a live database.

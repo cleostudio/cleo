@@ -148,11 +148,19 @@ A `/cleo?q=…` link is the only way in from outside the page. It carries at mos
 1,000 characters, is consumed once, and leaves no trace in the URL afterwards.
 
 Conversation state, the current location value, and encrypted reasoning items
-are browser-only. Conversation state clears on reload; the dock’s location
-preference persists in browser storage and, when the browser has already
-granted geolocation, quietly refreshes coordinates on the next session.
+are browser-only for now (Stage 1 IndexedDB threads on `/cleo` /
+`/cleo/[threadId]`; durable server threads land in Stage 2b). The dock’s
+location preference persists in browser storage and, when the browser has
+already granted geolocation, quietly refreshes coordinates on the next session.
 Reasoning items keep multi-turn replies coherent under `store: false`. There
-is no authentication, database, media library, or AMA booking.
+is no media library or AMA booking.
+
+Accounts (Stage 2a): Better Auth with passkeys + GitHub OAuth, Neon/Postgres
+via `DATABASE_URL`, schema in `lib/auth-schema.ts`. Sign-in UI at `/sign-in`;
+dock Preferences shows auth chrome gated by the non-httpOnly
+`cleo.session-hint` cookie (never read server-side; never mount `useSession`
+without it). Synthetic passkey emails (`temp@{userId}.com`) are never shown in
+the UI. Content routes stay session-free.
 
 Vercel Web Analytics and Speed Insights are mounted in
 `app/_components/site-document.tsx` (`@vercel/analytics/next`,
@@ -171,10 +179,12 @@ chat text.
 ## External APIs
 
 **OpenAI is the only third-party API** for application features. Configure
-`OPENAI_API_KEY`. Site URLs use `PUBLIC_SITE_URL` / `SITE_URL`. Platform
+`OPENAI_API_KEY`. Site URLs use `PUBLIC_SITE_URL` / `SITE_URL`. Accounts use
+Better Auth in-process (no auth vendor origin) against Marketplace Neon
+(`DATABASE_URL`, plus `BETTER_AUTH_SECRET`, optional GitHub OAuth). Platform
 observability uses Vercel Web Analytics and Speed Insights (no API keys in
-the app). Do not reintroduce Clerk, Neon, Bunny, Stripe, Resend, Google,
-Tencent, or Upstash without an explicit product decision.
+the app). Do not reintroduce Clerk, Bunny, Stripe, Resend, Google, Tencent,
+or Upstash without an explicit product decision.
 
 ## Development rules
 
@@ -206,8 +216,10 @@ Tencent, or Upstash without an explicit product decision.
 - `pnpm dev` starts the only service (default Next port).
 - `OPENAI_API_KEY` is injected when available. Without it, `/api/responses`
   returns HTTP 503 while the page remains available for UI work.
-- Previews do not need Neon/Bunny/Clerk. `scripts/ensure-preview-env.mjs`
-  stubs missing `SITE_URL` / `PUBLIC_SITE_URL` during `prebuild`.
+- Previews stub `SITE_URL` / `PUBLIC_SITE_URL` and auth/DB placeholders via
+ `scripts/ensure-preview-env.mjs` during `prebuild`. Real Neon
+ (`vercel install neon`) and GitHub OAuth credentials are required before
+ sign-in works on a preview. Do not reintroduce Clerk or Bunny.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
