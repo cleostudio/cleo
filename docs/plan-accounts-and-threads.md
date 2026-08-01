@@ -672,6 +672,9 @@ Acceptance: sign up with a passkey, sign out, sign back in on a second device;
 a signed-out visitor to `/` issues zero auth requests; no content route changes
 classification; `pnpm test:security` passes unmodified.
 
+**Done — PR #107.** Follow-up fixed the `/sign-in/:path+` legacy contract and
+moved synthetic emails to RFC 2606 `.invalid` (§5.2, §13.1).
+
 #### Stage 2b — Thread sync
 
 Thread, message, image-metadata and reasoning-cache tables. The
@@ -683,15 +686,35 @@ Acceptance: a thread started on one device appears on a second; ownership tests
 pass; a mid-stream disconnect leaves a resumable `incomplete` row; the legacy
 signed-out request shape still works and persists nothing.
 
+**Done — PR #108** (draft). Authz-first tests (cross-user + 401),
+`FOR UPDATE` then `max(seq)+1` in the same txn, CSRF via `screenCsrf`
+(live cross-site → 403), dual `/api/responses` contract, disconnect /
+stream `cancel` → `incomplete` via `after()`, local adoption with same
+UUID PKs (IndexedDB cleared only after success), soft delete + export,
+`/cleo` ◐ with content routes still ○. Authz / persist suites need a live
+`DATABASE_URL` and fail loud in CI when it is absent. Verified:
+`typecheck`, `test:security` (unmodified), `test:unit` (~490+ with DB),
+`build`, `verify:public-discovery`, `verify:legacy-urls` (76 probes);
+manual signed-out `/cleo` light/dark + mobile.
+
+**Image durability gap until Stage 3.** `message_image` exists but is unused;
+signed-in history rebuilds strip attachments and generated images. Current-turn
+vision still works. After reload, signed-in threads lose images while
+signed-out IndexedDB keeps them — so for image-heavy chats, signed-in is
+temporarily worse. Stage 3 closes this; do not leave a long gap between
+merging 2b and starting 3 if image chats matter.
+
 ### Stage 3 — Image persistence
 
 Private Blob, client upload for attachments, `after()` upload for generated
 images, same-origin `/api/thread-image/[id]` with authorization and immutable
-caching.
+caching. Also restores generated-image replay across reloads for signed-in
+threads (§4.4), which 2b cannot do without durable image bytes.
 
 Acceptance: a thread with attachments and a generated image renders correctly
 after reload on another device; `img-src` unchanged; deleting a thread removes
-its Blob objects.
+its Blob objects; signed-in image durability is at least as good as Stage 1
+IndexedDB.
 
 ### Stage 4 — Durability and economics
 
