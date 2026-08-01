@@ -1,7 +1,8 @@
 # Plan: accounts and Cleo thread history
 
-Status: Stage 0 measured (2026-08-01, see `docs/stage0-prerender-findings.md`
-and PR #105). Stages 1+ not started.
+Status: Stages 0–2b implemented on feature branches (Stage 0 PR #105; Stage 1
+local threads; Stage 2a accounts; Stage 2b thread sync). See
+`docs/stage0-prerender-findings.md`. Image bytes remain Stage 3.
 
 This plan adds signed-in accounts and durable Cleo conversation threads to a
 site that today has no authentication, no database, and no server-side writes.
