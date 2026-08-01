@@ -283,11 +283,10 @@ follows that section's timing instead of this ordinary entrance budget.
 ## Paper-artifact doorway vignettes
 
 Reusable doorway pattern (`.nav-card` + `.nc-vignette` in
-`components/nav-cards.tsx` / `app/globals.css`). The component is retained for
-reuse; the current homepage portal does not mount it. Each doorway is a small
-stack of physical paper objects — not a flat icon in a rounded square — that
-fans open when the card is hovered (fine pointer) or `:focus-visible`
-(keyboard).
+`components/nav-cards.tsx` / `app/globals.css`). The homepage mounts four
+doorways after the introduction. Each doorway is a small stack of physical
+paper objects — not a flat icon in a rounded square — that fans open when the
+card is hovered (fine pointer) or `:focus-visible` (keyboard).
 
 ### Contract
 
@@ -312,18 +311,24 @@ fans open when the card is hovered (fine pointer) or `:focus-visible`
 
 - **Writing** (`.nc-sheets`): three ruled manuscript pages.
 - **Gallery** (`.nc-polaroids`): three polaroid minis (`--i` fan), live
-  renditions when published, placeholders while pending.
+  atlas featured photos.
 - **Explore** (`.nc-folio`): layered travel folio — circular passport stamp
   (`.nc-folio-stamp`, hairline SVG rings on `--paper`), tall itinerary slip
   (`.nc-folio-itinerary`, margin rule + schedule bars), folded map
   (`.nc-folio-map`, graticule + crease).
+- **Topics** (`.nc-catalog`): three tabbed subject cards (`.nc-catalog-a/b/c`)
+  with protruding tabs and ruled entry lines.
+
+Layout: four equal columns on wide viewports; a 2×2 grid below 40rem, with
+row-separating hairlines so the band still reads as one instrument.
 
 ### Adding another doorway
 
 Reuse `.nav-card` / `.nc-vignette`, invent a new vignette class with three
 named layers, and copy the rested → fanned transform pairs from Writing or
 Explore. Keep count/subtitle copy in `.nc-label` / `.nc-sub`. Do not replace
-this pattern with a dock-style line icon for homepage doorways.
+this pattern with a dock-style line icon for homepage doorways. Adjust the
+`.nav-cards` grid when the doorway count changes.
 
 ## Hover cards as craft objects
 
@@ -852,8 +857,8 @@ clock occupy opposite halves of a two-column grid.
 ## Project index
 
 Projects UI is retained for reuse; `/projects` permanently redirects to
-`/topics`. The paper-artifact vignette pattern above remains available for
-homepage doorways when remounted.
+`/topics`. Homepage doorways use the paper-artifact vignette pattern (Writing,
+Gallery, Explore, Topics).
 
 The retained project page opens with a short note, then one intentionally
 ordered list. Each linked row is a compact artifact: a fixed 36px project icon,
