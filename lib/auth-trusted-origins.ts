@@ -39,7 +39,9 @@ export function isProductionAuthEnv(env: EnvLike = process.env): boolean {
   if (env.VERCEL_ENV === 'preview' || env.VERCEL_ENV === 'development') {
     return false
   }
-  return env.NODE_ENV === 'production'
+  // Local `next start` sets NODE_ENV=production without Vercel system env —
+  // keep localhost in trustedOrigins there.
+  return env.NODE_ENV === 'production' && Boolean(env.VERCEL)
 }
 
 export function trustedOriginsFromEnv(env: EnvLike = process.env): string[] {
@@ -59,6 +61,10 @@ export function trustedOriginsFromEnv(env: EnvLike = process.env): string[] {
 
   const production = isProductionAuthEnv(env)
   if (!production) {
+    // Wildcard ports for local `next start` / verify scripts on alternate ports.
+    // Better Auth's matchesOriginPattern treats `*` as a hostname/port wildcard.
+    origins.add('http://localhost:*')
+    origins.add('http://127.0.0.1:*')
     origins.add('http://localhost:3000')
     origins.add('http://127.0.0.1:3000')
   }

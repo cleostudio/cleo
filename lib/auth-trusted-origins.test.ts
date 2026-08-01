@@ -20,7 +20,8 @@ describe('trustedOriginsFromEnv', () => {
         'https://cleoalpha.vercel.app',
         'https://cleo-git-feature-user.vercel.app',
         'https://cleo-abc123.vercel.app',
-        'http://localhost:3000',
+        'http://localhost:*',
+        'http://127.0.0.1:*',
       ]),
     )
   })

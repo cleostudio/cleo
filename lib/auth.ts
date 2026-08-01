@@ -75,8 +75,9 @@ function createAuth() {
     plugins: [
       passkey({
         rpName: 'Cleo',
+        // Hostname only; omit `origin` so verify uses the request Origin
+        // (production, preview, and local ports all work).
         rpID: new URL(baseURL).hostname,
-        origin: baseURL,
         registration: {
           requireSession: false,
           resolveUser: async ({ ctx, context }) => {
