@@ -10,12 +10,9 @@ export const metadata = localeMetadata({
   ...copy,
 })
 
-// Cache Components requires at least one sample for build-time validation.
-// Real thread ids are client UUIDs; the shell loads an empty transcript when
-// IndexedDB has no row for this placeholder (plan §6 — ◐ is fine here).
-export function generateStaticParams() {
-  return [{ threadId: '00000000-0000-4000-8000-000000000000' }]
-}
+// Unenumerable client UUIDs — opt out of static shell validation (plan §6).
+// Do not seed generateStaticParams with a placeholder id.
+export const instant = false
 
 export default function EnglishCleoThreadPage() {
   return <CleoThreadPageView />
