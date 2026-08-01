@@ -1,3 +1,8 @@
+import {
+  clearCachedUserLocation,
+  readCachedUserLocation,
+  writeCachedUserLocation,
+} from '~/lib/cleo/location-cache'
 import type { UserLocation } from '~/lib/cleo/location'
 
 const LOCATION_BROWSER_GRANT_KEY = 'cleo-location-browser-granted'
@@ -71,6 +76,7 @@ export function resetRememberedGeolocationGrantForTests() {
 function locationError(error: GeolocationPositionError) {
   if (error.code === error.PERMISSION_DENIED) {
     clearRememberedGeolocationGrant()
+    clearCachedUserLocation()
     return new Error('Location sharing was blocked. Allow it in your browser settings and try again.')
   }
 
@@ -123,18 +129,26 @@ function readPosition(
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        rememberGeolocationGrant()
-        resolve({
+        const next: UserLocation = {
           accuracy: position.coords.accuracy,
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
           timeZone,
-        })
+        }
+        rememberGeolocationGrant()
+        writeCachedUserLocation(next)
+        resolve(next)
       },
       (error) => reject(locationError(error)),
       positionOptions,
     )
   })
+}
+
+function cachedLocationOrReject(reason: Error): Promise<UserLocation> {
+  const cached = readCachedUserLocation()
+  if (cached) return Promise.resolve(cached)
+  return Promise.reject(reason)
 }
 
 /**
@@ -183,16 +197,43 @@ export async function requestUserLocation(
   if (!allowPrompt) {
     const permission = await getGeolocationPermissionState()
 
-    // Only restore quietly when it cannot open a permission dialog.
-    // `prompt` must not call getCurrentPosition — that re-opens the dialog
-    // on every refresh for "Allow once" / ephemeral grants.
+    // Only call getCurrentPosition when it cannot open a permission dialog.
+    // `prompt` must not be called — that re-opens the dialog on every refresh
+    // for "Allow once" / ephemeral grants. Fall back to the last cached fix
+    // so refresh/exit still shows coordinates while Location stays on.
+    // `denied` means the browser revoked access — drop the cache.
     if (!canRestoreGeolocationWithoutPrompt(permission)) {
-      return Promise.reject(
+      if (permission === 'denied') {
+        clearRememberedGeolocationGrant()
+        clearCachedUserLocation()
+        return Promise.reject(
+          new Error(
+            'Location sharing was blocked. Allow it in your browser settings and try again.',
+          ),
+        )
+      }
+
+      return cachedLocationOrReject(
         new Error('Location sharing needs an explicit allow before it can restore.'),
       )
     }
 
-    return readPosition(timeZone, restoreLocationOptions)
+    try {
+      return await readPosition(timeZone, restoreLocationOptions)
+    } catch (error) {
+      // Keep a recent reading through transient GPS timeouts/failures.
+      if (
+        error instanceof Error &&
+        (error.message.includes('blocked') || error.message.includes('explicit allow'))
+      ) {
+        throw error
+      }
+      return cachedLocationOrReject(
+        error instanceof Error
+          ? error
+          : new Error('Your location could not be determined. Try again.'),
+      )
+    }
   }
 
   return readPosition(timeZone, interactiveLocationOptions)

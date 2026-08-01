@@ -3,6 +3,7 @@
 import { act, cleanup, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { resetLocationCacheForTests, writeCachedUserLocation } from '~/lib/cleo/location-cache'
 import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
 
 const usePathname = vi.hoisted(() => vi.fn(() => '/topics'))
@@ -50,6 +51,7 @@ function mockPermissions(state: PermissionState) {
 beforeEach(() => {
   window.localStorage.clear()
   resetFooterCoordinatesCacheForTests()
+  resetLocationCacheForTests()
   usePathname.mockReturnValue('/topics')
 })
 
@@ -57,6 +59,7 @@ afterEach(() => {
   cleanup()
   window.localStorage.clear()
   resetFooterCoordinatesCacheForTests()
+  resetLocationCacheForTests()
   if (originalGeolocation) {
     Object.defineProperty(navigator, 'geolocation', originalGeolocation)
   } else {
@@ -130,6 +133,30 @@ describe('FooterCoordinates', () => {
       expect(screen.getByText('Location unavailable')).not.toBeNull()
     })
     expect(getCurrentPosition).not.toHaveBeenCalled()
+  })
+
+  it('restores the last cached fix on refresh when permission is still prompt', async () => {
+    mockPermissions('prompt')
+    const getCurrentPosition = mockGeolocation(() => {
+      throw new Error('should not prompt on restore')
+    })
+    writeCachedUserLocation({
+      accuracy: 8,
+      latitude: -33.86882,
+      longitude: 151.2093,
+      timeZone: 'Australia/Sydney',
+    })
+    setLocationSyncEnabled(true)
+
+    render(<FooterCoordinates />)
+
+    expect(screen.getByText('33.86882° S')).not.toBeNull()
+    expect(screen.getByText('151.20930° E')).not.toBeNull()
+
+    await waitFor(() => {
+      expect(getCurrentPosition).not.toHaveBeenCalled()
+    })
+    expect(screen.getByText('33.86882° S')).not.toBeNull()
   })
 
   it('quietly restores coordinates on refresh when browser permission is already granted', async () => {

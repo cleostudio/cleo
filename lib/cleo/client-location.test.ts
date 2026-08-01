@@ -9,6 +9,11 @@ import {
   requestUserLocation,
   resetRememberedGeolocationGrantForTests,
 } from './client-location'
+import {
+  readCachedUserLocation,
+  resetLocationCacheForTests,
+  writeCachedUserLocation,
+} from './location-cache'
 
 let originalGeolocation: PropertyDescriptor | undefined
 let originalPermissions: PropertyDescriptor | undefined
@@ -67,6 +72,7 @@ afterEach(() => {
 
   window.localStorage.clear()
   resetRememberedGeolocationGrantForTests()
+  resetLocationCacheForTests()
   vi.restoreAllMocks()
 })
 
@@ -174,16 +180,88 @@ describe('requestUserLocation', () => {
     expect(getCurrentPosition).not.toHaveBeenCalled()
   })
 
+  it('returns the cached fix on silent restore when permission is still prompt', async () => {
+    mockPermissions('prompt')
+    const getCurrentPosition = mockGeolocation(() => {
+      throw new Error('should not prompt')
+    })
+    writeCachedUserLocation({
+      accuracy: 15,
+      latitude: 40.7128,
+      longitude: -74.006,
+      timeZone: 'America/New_York',
+    })
+
+    await expect(requestUserLocation({ allowPrompt: false })).resolves.toEqual({
+      accuracy: 15,
+      latitude: 40.7128,
+      longitude: -74.006,
+      timeZone: 'America/New_York',
+    })
+    expect(getCurrentPosition).not.toHaveBeenCalled()
+  })
+
+  it('falls back to the cached fix when a quiet GPS restore times out', async () => {
+    mockPermissions('granted')
+    mockGeolocation((_success, error) => {
+      error({
+        PERMISSION_DENIED: 1,
+        POSITION_UNAVAILABLE: 2,
+        TIMEOUT: 3,
+        code: 3,
+        message: 'timeout',
+      } as GeolocationPositionError)
+    })
+    writeCachedUserLocation({
+      accuracy: 15,
+      latitude: 40.7128,
+      longitude: -74.006,
+      timeZone: 'America/New_York',
+    })
+
+    await expect(requestUserLocation({ allowPrompt: false })).resolves.toEqual({
+      accuracy: 15,
+      latitude: 40.7128,
+      longitude: -74.006,
+      timeZone: 'America/New_York',
+    })
+  })
+
+  it('writes a cache entry when an interactive fix succeeds', async () => {
+    mockGeolocation((success) => {
+      success({
+        coords: {
+          accuracy: 8,
+          latitude: 35.6895,
+          longitude: 139.6917,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+
+    await requestUserLocation()
+    expect(readCachedUserLocation()).toMatchObject({
+      latitude: 35.6895,
+      longitude: 139.6917,
+    })
+  })
+
   it('does not call getCurrentPosition on silent restore when permission is denied', async () => {
     mockPermissions('denied')
     const getCurrentPosition = mockGeolocation(() => {
       throw new Error('should not prompt')
     })
+    writeCachedUserLocation({
+      accuracy: 15,
+      latitude: 40.7128,
+      longitude: -74.006,
+      timeZone: 'America/New_York',
+    })
 
     await expect(requestUserLocation({ allowPrompt: false })).rejects.toThrow(
-      'Location sharing needs an explicit allow before it can restore.',
+      'Location sharing was blocked. Allow it in your browser settings and try again.',
     )
     expect(getCurrentPosition).not.toHaveBeenCalled()
+    expect(readCachedUserLocation()).toBeNull()
   })
 
   it('does not call getCurrentPosition on silent restore when Permissions API is unavailable and no prior grant', async () => {

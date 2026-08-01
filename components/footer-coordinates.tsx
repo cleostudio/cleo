@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
 import { requestUserLocation } from '~/lib/cleo/client-location'
+import { readCachedUserLocation } from '~/lib/cleo/location-cache'
 import {
   isLocationSyncEnabled,
   subscribeToLocationSync,
@@ -18,6 +19,18 @@ type Coordinates = {
 
 /** Survives remounts so the footer stamp does not flash “Locating…”. */
 let rememberedCoordinates: Coordinates | null = null
+
+function coordinatesFromLocation(location: {
+  accuracy: number
+  latitude: number
+  longitude: number
+}): Coordinates {
+  return {
+    accuracy: location.accuracy,
+    latitude: location.latitude,
+    longitude: location.longitude,
+  }
+}
 
 /** @internal Vitest helper — clears the module cache between cases. */
 export function resetFooterCoordinatesCacheForTests() {
@@ -35,7 +48,16 @@ function accuracyDescription(accuracy: number) {
 }
 
 function initialCoordinates() {
-  return isLocationSyncEnabled() ? rememberedCoordinates : null
+  if (!isLocationSyncEnabled()) return null
+  if (rememberedCoordinates) return rememberedCoordinates
+
+  // Full page reload clears the in-memory stamp — seed from the last fix so
+  // refresh does not flash “Location unavailable” while quiet restore runs.
+  const cached = readCachedUserLocation()
+  if (!cached) return null
+
+  rememberedCoordinates = coordinatesFromLocation(cached)
+  return rememberedCoordinates
 }
 
 function isPermissionLossError(error: unknown) {
@@ -85,11 +107,7 @@ export function FooterCoordinates() {
         .then((location) => {
           if (!isCurrent || requestId !== currentRequestId) return
 
-          const next = {
-            accuracy: location.accuracy,
-            latitude: location.latitude,
-            longitude: location.longitude,
-          }
+          const next = coordinatesFromLocation(location)
           rememberedCoordinates = next
           setCoordinates(next)
           setIsLocating(false)
