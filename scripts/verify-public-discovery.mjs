@@ -269,6 +269,9 @@ async function verifyDiscoveryFiles(baseUrl) {
   assert.match(robotsText, /Allow: \//)
   assert.match(robotsText, /Disallow: \/confirm\//)
   assert.match(robotsText, /Disallow: \/api\//)
+  assert.match(robotsText, /Disallow: \/sign-in/)
+  assert.match(robotsText, /Disallow: \/sign-up/)
+  assert.match(robotsText, /Disallow: \/account/)
   assert.doesNotMatch(robotsText, /Disallow: \/en\//)
   assert.doesNotMatch(robotsText, /Disallow: \/admin/)
   assert.match(

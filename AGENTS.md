@@ -2,7 +2,8 @@
 
 General-knowledge portal (countries + space first) with a browser chat agent at
 `/cleo`. Stack: Next.js App Router, React 19, TypeScript, Tailwind CSS v4,
-Base UI. **OpenAI is the only app third-party API.**
+Base UI. **OpenAI is the only model third-party API.** Auth uses self-hosted
+Better Auth on Neon Postgres (Marketplace).
 
 ## Start here
 
@@ -16,6 +17,7 @@ Base UI. **OpenAI is the only app third-party API.**
 | Homepage portal search + Ask Cleo handoff | [`docs/homepage-search.md`](docs/homepage-search.md) |
 | Explore countries, prose, Wikimedia photos | [`docs/atlas.md`](docs/atlas.md) |
 | Space guides + NASA photos | [`docs/space.md`](docs/space.md) |
+| Better Auth + Neon | [`docs/auth.md`](docs/auth.md) |
 | Tokens, deviations from cali.so | [`docs/theme-preset.md`](docs/theme-preset.md) |
 | Full visual/interaction spec | [`docs/design-language.md`](docs/design-language.md) |
 
@@ -25,8 +27,9 @@ Human onboarding: [`README.md`](README.md).
 
 - Legacy `/en/...` redirects to unprefixed paths. `/photos` → `/gallery`,
   `/projects` → `/topics` (permanent). Do not restore
-  AMA, owner admin, Media Library, Clerk, Neon, Bunny, Stripe, Resend, Google,
-  Tencent, or Upstash without an explicit product decision.
+  AMA, owner admin, Media Library, Clerk, Bunny, Stripe, Resend, Google,
+  Tencent, or Upstash without an explicit product decision. Neon + Better Auth
+  are in product — see [`docs/auth.md`](docs/auth.md).
 - Country orientation prose is curated (`scripts/atlas/atlas-about.json`), never
   generated at build or request time. The site never calls a model to render a
   page.
@@ -38,7 +41,8 @@ Human onboarding: [`README.md`](README.md).
   go in `docs/theme-preset.md` **and** `presetDeviations` in `lib/theme-preset.ts`.
 - Render model output through Streamdown, never raw HTML. Invented Explore/Space
   paths are stripped by `lib/cleo/guardrails.ts`.
-- Keep `OPENAI_API_KEY` and OpenAI calls server-side. Never `NEXT_PUBLIC_` the key.
+- Keep `OPENAI_API_KEY`, `BETTER_AUTH_SECRET`, and database URLs server-side.
+  Never `NEXT_PUBLIC_` those secrets.
 - Path alias: `~/*`. Prefer `cn` and `components/ui/*`.
 - Package manager: **pnpm only**.
 
@@ -46,11 +50,13 @@ Human onboarding: [`README.md`](README.md).
 
 ```bash
 pnpm install
-cp .env.example .env.local   # OPENAI_API_KEY for /cleo
+cp .env.example .env.local   # OPENAI_API_KEY for /cleo; Neon + Better Auth for account
 pnpm dev                     # only service; default Next port
 pnpm typecheck
 pnpm test:unit               # and/or pnpm test:security when relevant
 pnpm build                   # when changing routes/config
+# Auth schema (when DATABASE_URL is set):
+pnpm db:push
 ```
 
 Before changing Next.js framework usage, read the matching guide under
@@ -81,8 +87,10 @@ Retry/Continue, Location preference (including denied permission).
 - `pnpm dev` is the only service.
 - `OPENAI_API_KEY` is injected when available; without it `/api/responses`
   returns HTTP 503 and the rest of the site stays usable for UI work.
+- Neon + Better Auth: without `DATABASE_URL` / `BETTER_AUTH_SECRET`,
+  `/api/auth/*` returns HTTP 503; portal pages stay usable.
 - Previews stub missing `SITE_URL` / `PUBLIC_SITE_URL` via
-  `scripts/ensure-preview-env.mjs` during `prebuild`. No Neon/Bunny/Clerk.
+  `scripts/ensure-preview-env.mjs` during `prebuild`. No Bunny/Clerk.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

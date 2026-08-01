@@ -882,7 +882,8 @@ away and unmounts only after the pointer leaves the full list.
 
 **Removed.** `/ama` and `/admin` permanently redirect away. Do not restore AMA
 booking, owner admin (Clerk), or the Media Library without an explicit product
-decision. OpenAI is the only third-party API.
+decision. OpenAI is the only **model** third-party API; account auth is
+self-hosted Better Auth on Neon (see [`auth.md`](./auth.md)).
 
 ## Photo index / Gallery
 

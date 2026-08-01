@@ -19,11 +19,14 @@ corepack enable
 pnpm install
 cp .env.example .env.local
 # Set OPENAI_API_KEY for /cleo (optional for the rest of the site)
+# For account auth: provision Neon via Vercel Marketplace, pull DATABASE_URL,
+# set BETTER_AUTH_SECRET, then `pnpm db:push` (see docs/auth.md)
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Keep the OpenAI key
-server-side — never expose it with `NEXT_PUBLIC_` or commit `.env.local`.
+Open [http://localhost:3000](http://localhost:3000). Keep the OpenAI key,
+`BETTER_AUTH_SECRET`, and database URLs server-side — never expose them with
+`NEXT_PUBLIC_` or commit `.env.local`.
 
 ## Stack
 
@@ -33,6 +36,7 @@ server-side — never expose it with `NEXT_PUBLIC_` or commit `.env.local`.
 - Country guides: `content/atlas.json` + static JPEGs in `public/images/atlas/`
 - Space guides: `lib/space.ts` + `content/space-photos.json` + `public/images/space/`
 - OpenAI Responses API for `/api/responses` only
+- Better Auth (email/password) on Neon Postgres for `/sign-in` / `/account`
 - Vercel Web Analytics + Speed Insights (enable both in the Vercel dashboard)
 
 ## Docs
@@ -44,6 +48,7 @@ server-side — never expose it with `NEXT_PUBLIC_` or commit `.env.local`.
 | [`AGENTS.md`](./AGENTS.md) | Instructions for coding agents |
 | [`docs/theme-preset.md`](./docs/theme-preset.md) | Enforced visual token contract |
 | [`docs/design-language.md`](./docs/design-language.md) | Full UI/UX spec |
+| [`docs/auth.md`](./docs/auth.md) | Better Auth + Neon account setup |
 
 ## Validate
 
