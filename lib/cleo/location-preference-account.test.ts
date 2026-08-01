@@ -5,6 +5,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   hydrateLocationSyncFromAccount,
   persistLocationSyncToAccount,
+  reconcileLocationSyncOnSession,
 } from './location-preference-account'
 import {
   isLocationSyncEnabled,
@@ -57,6 +58,36 @@ describe('hydrateLocationSyncFromAccount', () => {
 
     expect(observed).toEqual([])
     expect(isLocationSyncEnabled()).toBe(true)
+  })
+})
+
+describe('reconcileLocationSyncOnSession', () => {
+  it('hydrates from the account on a fresh load', () => {
+    expect(
+      reconcileLocationSyncOnSession({
+        accountEnabled: false,
+        localEnabled: true,
+        toggledSinceMount: false,
+      }),
+    ).toEqual({ action: 'hydrate', enabled: false })
+
+    expect(
+      reconcileLocationSyncOnSession({
+        accountEnabled: true,
+        localEnabled: false,
+        toggledSinceMount: false,
+      }),
+    ).toEqual({ action: 'hydrate', enabled: true })
+  })
+
+  it('keeps a local toggle made while the session was still pending', () => {
+    expect(
+      reconcileLocationSyncOnSession({
+        accountEnabled: false,
+        localEnabled: true,
+        toggledSinceMount: true,
+      }),
+    ).toEqual({ action: 'push-local', enabled: true })
   })
 })
 

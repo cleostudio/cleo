@@ -3,8 +3,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import {
+  canRestoreGeolocationWithoutPrompt,
   getGeolocationPermissionState,
+  hasRememberedGeolocationGrant,
   requestUserLocation,
+  resetRememberedGeolocationGrantForTests,
 } from './client-location'
 
 let originalGeolocation: PropertyDescriptor | undefined
@@ -62,6 +65,8 @@ afterEach(() => {
   }
   originalPermissions = undefined
 
+  window.localStorage.clear()
+  resetRememberedGeolocationGrantForTests()
   vi.restoreAllMocks()
 })
 
@@ -98,6 +103,7 @@ describe('requestUserLocation', () => {
       longitude: 139.6917,
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     })
+    expect(hasRememberedGeolocationGrant()).toBe(true)
   })
 
   it('explains a denied browser permission without exposing location data', async () => {
@@ -131,7 +137,15 @@ describe('requestUserLocation', () => {
     const location = requestUserLocation({ allowPrompt: false })
 
     await vi.waitFor(() => {
-      expect(getCurrentPosition).toHaveBeenCalledTimes(1)
+      expect(getCurrentPosition).toHaveBeenCalledWith(
+        expect.any(Function),
+        expect.any(Function),
+        {
+          enableHighAccuracy: true,
+          maximumAge: 60_000,
+          timeout: 15_000,
+        },
+      )
     })
 
     resolvePosition?.({
@@ -172,7 +186,7 @@ describe('requestUserLocation', () => {
     expect(getCurrentPosition).not.toHaveBeenCalled()
   })
 
-  it('does not call getCurrentPosition on silent restore when Permissions API is unavailable', async () => {
+  it('does not call getCurrentPosition on silent restore when Permissions API is unavailable and no prior grant', async () => {
     mockPermissions(null)
     const getCurrentPosition = mockGeolocation(() => {
       throw new Error('should not prompt')
@@ -182,6 +196,98 @@ describe('requestUserLocation', () => {
       'Location sharing needs an explicit allow before it can restore.',
     )
     expect(getCurrentPosition).not.toHaveBeenCalled()
+  })
+
+  it('quietly restores when Permissions API is unavailable but this browser previously granted', async () => {
+    mockPermissions(null)
+
+    // Prior interactive grant remembers that this origin already authorized.
+    mockGeolocation((success) => {
+      success({
+        coords: {
+          accuracy: 8,
+          latitude: 35.6895,
+          longitude: 139.6917,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+    await requestUserLocation()
+    expect(hasRememberedGeolocationGrant()).toBe(true)
+
+    let resolvePosition: PositionCallback | undefined
+    const restoreGetCurrentPosition = mockGeolocation((success) => {
+      resolvePosition = success
+    })
+
+    const location = requestUserLocation({ allowPrompt: false })
+
+    await vi.waitFor(() => {
+      expect(restoreGetCurrentPosition).toHaveBeenCalledWith(
+        expect.any(Function),
+        expect.any(Function),
+        {
+          enableHighAccuracy: true,
+          maximumAge: 60_000,
+          timeout: 15_000,
+        },
+      )
+    })
+
+    resolvePosition?.({
+      coords: {
+        accuracy: 10,
+        latitude: 35.6895,
+        longitude: 139.6917,
+      } as GeolocationCoordinates,
+    } as GeolocationPosition)
+
+    await expect(location).resolves.toMatchObject({
+      latitude: 35.6895,
+      longitude: 139.6917,
+    })
+  })
+
+  it('clears the remembered grant when the browser later denies access', async () => {
+    mockPermissions(null)
+    mockGeolocation((success) => {
+      success({
+        coords: {
+          accuracy: 8,
+          latitude: 35.6895,
+          longitude: 139.6917,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+    await requestUserLocation()
+    expect(hasRememberedGeolocationGrant()).toBe(true)
+
+    mockGeolocation((_success, error) => {
+      error({
+        PERMISSION_DENIED: 1,
+        POSITION_UNAVAILABLE: 2,
+        TIMEOUT: 3,
+        code: 1,
+        message: 'denied',
+      } as GeolocationPositionError)
+    })
+
+    await expect(requestUserLocation()).rejects.toThrow(
+      'Location sharing was blocked. Allow it in your browser settings and try again.',
+    )
+    expect(hasRememberedGeolocationGrant()).toBe(false)
+  })
+})
+
+describe('canRestoreGeolocationWithoutPrompt', () => {
+  it('allows granted, and unknown only after a remembered grant', () => {
+    expect(canRestoreGeolocationWithoutPrompt('granted')).toBe(true)
+    expect(canRestoreGeolocationWithoutPrompt('prompt')).toBe(false)
+    expect(canRestoreGeolocationWithoutPrompt('denied')).toBe(false)
+    expect(canRestoreGeolocationWithoutPrompt('unknown')).toBe(false)
+
+    window.localStorage.setItem('cleo-location-browser-granted', '1')
+    expect(canRestoreGeolocationWithoutPrompt('unknown')).toBe(true)
+    expect(canRestoreGeolocationWithoutPrompt('prompt')).toBe(false)
   })
 })
 

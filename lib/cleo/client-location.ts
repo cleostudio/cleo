@@ -1,9 +1,23 @@
 import type { UserLocation } from '~/lib/cleo/location'
 
-const locationOptions: PositionOptions = {
+const LOCATION_BROWSER_GRANT_KEY = 'cleo-location-browser-granted'
+const LOCATION_BROWSER_GRANTED = '1'
+
+/** Interactive toggle: always prefer a fresh high-accuracy fix. */
+const interactiveLocationOptions: PositionOptions = {
   enableHighAccuracy: true,
   maximumAge: 0,
   timeout: 10_000,
+}
+
+/**
+ * Quiet restore after refresh: accept a recent cached fix so leaving/reloading
+ * the app does not depend on an immediate GPS lock.
+ */
+const restoreLocationOptions: PositionOptions = {
+  enableHighAccuracy: true,
+  maximumAge: 60_000,
+  timeout: 15_000,
 }
 
 export type GeolocationPermissionState = 'granted' | 'prompt' | 'denied' | 'unknown'
@@ -17,8 +31,46 @@ export type RequestUserLocationOptions = {
   allowPrompt?: boolean
 }
 
+function canUseStorage() {
+  return typeof window !== 'undefined'
+}
+
+/** True after this browser successfully returned a position at least once. */
+export function hasRememberedGeolocationGrant() {
+  if (!canUseStorage()) return false
+  try {
+    return window.localStorage.getItem(LOCATION_BROWSER_GRANT_KEY) === LOCATION_BROWSER_GRANTED
+  } catch {
+    return false
+  }
+}
+
+function rememberGeolocationGrant() {
+  if (!canUseStorage()) return
+  try {
+    window.localStorage.setItem(LOCATION_BROWSER_GRANT_KEY, LOCATION_BROWSER_GRANTED)
+  } catch {
+    /* private mode */
+  }
+}
+
+function clearRememberedGeolocationGrant() {
+  if (!canUseStorage()) return
+  try {
+    window.localStorage.removeItem(LOCATION_BROWSER_GRANT_KEY)
+  } catch {
+    /* private mode */
+  }
+}
+
+/** @internal Vitest helper — clears the remembered browser grant between cases. */
+export function resetRememberedGeolocationGrantForTests() {
+  clearRememberedGeolocationGrant()
+}
+
 function locationError(error: GeolocationPositionError) {
   if (error.code === error.PERMISSION_DENIED) {
+    clearRememberedGeolocationGrant()
     return new Error('Location sharing was blocked. Allow it in your browser settings and try again.')
   }
 
@@ -64,10 +116,14 @@ export async function getGeolocationPermissionState(): Promise<GeolocationPermis
   }
 }
 
-function readPosition(timeZone: string): Promise<UserLocation> {
+function readPosition(
+  timeZone: string,
+  positionOptions: PositionOptions,
+): Promise<UserLocation> {
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        rememberGeolocationGrant()
         resolve({
           accuracy: position.coords.accuracy,
           latitude: position.coords.latitude,
@@ -76,9 +132,27 @@ function readPosition(timeZone: string): Promise<UserLocation> {
         })
       },
       (error) => reject(locationError(error)),
-      locationOptions,
+      positionOptions,
     )
   })
+}
+
+/**
+ * Whether a quiet restore may call getCurrentPosition without risking a
+ * permission dialog.
+ *
+ * - `granted` — browser already authorized; safe.
+ * - `prompt` / `denied` — never auto-call (would re-prompt or fail loudly).
+ * - `unknown` — Permissions API missing/unsupported (notably some Safari
+ *   builds). Only proceed when this origin previously returned a position,
+ *   so refresh can restore without re-prompting first-time visitors.
+ */
+export function canRestoreGeolocationWithoutPrompt(
+  permission: GeolocationPermissionState,
+) {
+  if (permission === 'granted') return true
+  if (permission === 'unknown' && hasRememberedGeolocationGrant()) return true
+  return false
 }
 
 /**
@@ -109,15 +183,17 @@ export async function requestUserLocation(
   if (!allowPrompt) {
     const permission = await getGeolocationPermissionState()
 
-    // Only restore quietly when the browser already granted access. `prompt`
-    // and unknown must not call getCurrentPosition — that re-opens the dialog
+    // Only restore quietly when it cannot open a permission dialog.
+    // `prompt` must not call getCurrentPosition — that re-opens the dialog
     // on every refresh for "Allow once" / ephemeral grants.
-    if (permission !== 'granted') {
+    if (!canRestoreGeolocationWithoutPrompt(permission)) {
       return Promise.reject(
         new Error('Location sharing needs an explicit allow before it can restore.'),
       )
     }
+
+    return readPosition(timeZone, restoreLocationOptions)
   }
 
-  return readPosition(timeZone)
+  return readPosition(timeZone, interactiveLocationOptions)
 }

@@ -85,13 +85,19 @@ Built by `lib/cleo/ask-link.ts`.
   - Guests: `localStorage` (`cleo-location-sync`).
   - Signed-in: Better Auth user field `locationSyncEnabled` (Neon) via
     `persistLocationSyncToAccount` / `authClient.updateUser` (reverts local
-    quietly if the write fails). Account is canonical once per sign-in —
-    `hydrateLocationSyncFromAccount` restores quietly (`allowPrompt: false`)
-    without racing a mid-toggle session refresh.
+    quietly if the write fails). Account is canonical on a fresh load —
+    `hydrateLocationSyncFromAccount` restores quietly (`allowPrompt: false`).
+    If the user toggles Location while the session is still resolving,
+    `reconcileLocationSyncOnSession` keeps the local choice and pushes it to
+    the account instead of letting a stale `false` wipe the preference.
 - Turning on may open the browser geolocation dialog; `client-location.ts`
-  requests one fresh high-accuracy position.
-- On refresh: restore quietly only if permission is already `granted` — never
-  re-prompt automatically (including after account hydrate / sign-in).
+  requests one fresh high-accuracy position and remembers a successful browser
+  grant in `localStorage` (`cleo-location-browser-granted`).
+- On refresh / leaving and returning: restore quietly when permission is
+  already `granted`, or when the Permissions API is unavailable/`unknown`
+  but this origin previously returned a position (Safari). Never re-prompt
+  automatically for `prompt` / “Allow once” (including after account hydrate /
+  sign-in). Quiet restore accepts a recent cached fix (`maximumAge` 60s).
 - Off clears in-memory location immediately.
 - Server validates in `location.ts` and adds coords + IANA TZ only to private
   per-turn instructions. Browser settings remain the grant/revoke control.
@@ -122,7 +128,9 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
 - Multi-turn chat, reasoning activity, web search
 - Image attach/vision, image generation, streaming, cancellation
 - Retry/Continue on incomplete/failed turns
-- Location preference (grant, deny, refresh without re-prompt; signed-in
-  restore across devices without re-prompt)
+- Location preference (grant, deny, refresh/leave-and-return without
+  re-prompt; Safari/`unknown` Permissions API restores after a prior grant;
+  signed-in restore across devices without re-prompt; toggle while session
+  is loading is not wiped by a stale account `false`)
 - After atlas/space caption or rendition metadata changes:
   `pnpm generate:cleo-topic-photo-zoom`
