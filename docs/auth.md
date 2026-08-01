@@ -12,9 +12,13 @@ noindex and do not gate Explore / Space / Cleo.
 | Path | Role |
 | --- | --- |
 | `POST/GET /api/auth/*` | Better Auth handler (`toNextJsHandler`) |
-| `/sign-in`, `/sign-up` | Email/password forms |
-| `/account` | Session summary + sign out |
+| `/sign-in`, `/sign-up` | Email/password forms (print-register service UI) |
+| `/account` | Session nameplate + sign out |
 | Dock → Preferences → **Sign in** / **Account** | Discoverable entry in the Preferences panel |
+
+UI composition: same service-page register as Explore / Topics — `page-eyebrow`
++ `PixelCluster`, shared `Input` / `Button`, signed-in details in
+`.spec-nameplate`. See [Account in design-language.md](./design-language.md#account-sign-in--sign-up--account).
 
 Without `DATABASE_URL` + `BETTER_AUTH_SECRET` (≥32 chars), `/api/auth/*`
 returns **HTTP 503**; the rest of the site keeps working (same pattern as
