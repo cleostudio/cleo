@@ -20,6 +20,7 @@ Read this when changing `/cleo`, `POST /api/responses`, or anything under
 | Ask link builder | `lib/cleo/ask-link.ts` |
 | Location (client / preference / server validate) | `lib/cleo/client-location.ts`, `lib/cleo/location-preference.ts`, `lib/cleo/location.ts` |
 | Styles | `app/cleo.css` (keep prompt dock above site dock via `--cleo-prompt-bottom`) |
+| Route layout flag | `components/cleo-route-attribute.tsx` (`html[data-cleo-route]`, cleared in `useLayoutEffect` before destination paint) |
 
 Entry: bottom dock `SayHiIcon` (`G` then `C`) or homepage search Ask Cleo row.
 
