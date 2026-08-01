@@ -638,14 +638,37 @@ threads at all before we take on a database.
 
 ### Stage 2 — Accounts and sync
 
-`vercel install neon`. Better Auth with passkeys and GitHub OAuth, schema
-generated into the Neon database, sign-in UI built entirely from our own
-components and tokens. Thread sync, and adoption of Stage 1 local threads on
-first sign-in.
+Split in two. Stage 2 as a single unit touches provisioning, auth, schema, UI,
+the `/api/responses` contract, and a data migration at once, which is more than
+one reviewable change. 2a de-risks 2b: sign-in either works or it does not,
+before any thread data depends on it.
 
-Acceptance: sign up with a passkey on one device, see the same threads on a
-second; ownership tests pass; CSP test passes unchanged; signed-out Cleo
-behaves exactly as before.
+#### Stage 2a — Accounts only
+
+`vercel install neon`. Better Auth with passkeys and GitHub OAuth, its schema
+generated into the Neon database, and sign-in / sign-out UI built entirely from
+our own components and tokens. The session hint cookie from §6.2, implemented
+with its full lifecycle. Dock chrome becomes auth-aware.
+
+Nothing else changes: no thread tables, no `/api/responses` edits, no RSC
+session read on `/cleo`. Cleo behaves exactly as it does today for signed-in
+and signed-out visitors alike, and Stage 1 local threads keep working
+untouched.
+
+Acceptance: sign up with a passkey, sign out, sign back in on a second device;
+a signed-out visitor to `/` issues zero auth requests; no content route changes
+classification; `pnpm test:security` passes unmodified.
+
+#### Stage 2b — Thread sync
+
+Thread, message, image-metadata and reasoning-cache tables. The
+`/api/responses` contract change from §4.1, server-side persistence via
+`after()` per §4.2, the RSC session read on `/cleo` per §6, and adoption of
+Stage 1 local threads on first sign-in per §7.2.
+
+Acceptance: a thread started on one device appears on a second; ownership tests
+pass; a mid-stream disconnect leaves a resumable `incomplete` row; the legacy
+signed-out request shape still works and persists nothing.
 
 ### Stage 3 — Image persistence
 
