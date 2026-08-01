@@ -34,6 +34,17 @@ describe('SiteFooterSlot', () => {
     expect(container.firstElementChild?.getAttribute('aria-hidden')).toBe('true')
   })
 
+  it('also hides legacy /en/cleo paths', () => {
+    usePathname.mockReturnValue('/en/cleo')
+    const { container } = render(
+      <SiteFooterSlot>
+        <span>footer body</span>
+      </SiteFooterSlot>,
+    )
+
+    expect(container.firstElementChild?.classList.contains('hidden')).toBe(true)
+  })
+
   it('exposes the footer on public routes without an extra layout box', () => {
     const { container } = render(
       <SiteFooterSlot>

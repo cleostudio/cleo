@@ -5,6 +5,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
 
+const usePathname = vi.hoisted(() => vi.fn(() => '/topics'))
+
+vi.mock('next/navigation', () => ({
+  usePathname: () => usePathname(),
+}))
+
 import {
   FooterCoordinates,
   resetFooterCoordinatesCacheForTests,
@@ -44,6 +50,7 @@ function mockPermissions(state: PermissionState) {
 beforeEach(() => {
   window.localStorage.clear()
   resetFooterCoordinatesCacheForTests()
+  usePathname.mockReturnValue('/topics')
 })
 
 afterEach(() => {
@@ -261,5 +268,86 @@ describe('FooterCoordinates', () => {
 
     expect(screen.getByText('33.87000° S')).not.toBeNull()
     expect(screen.getByText('151.21000° E')).not.toBeNull()
+  })
+
+  it('quietly revalidates when leaving /cleo without flashing Locating…', async () => {
+    mockPermissions('granted')
+    let resolvePosition: PositionCallback | undefined
+    const getCurrentPosition = mockGeolocation((success) => {
+      resolvePosition = success
+    })
+
+    usePathname.mockReturnValue('/cleo')
+    setLocationSyncEnabled(true)
+    const { rerender } = render(<FooterCoordinates />)
+
+    await waitFor(() => {
+      expect(getCurrentPosition).toHaveBeenCalledTimes(1)
+    })
+
+    await act(async () => {
+      resolvePosition?.({
+        coords: {
+          accuracy: 8,
+          latitude: -33.86882,
+          longitude: 151.2093,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+
+    expect(screen.getByText('33.86882° S')).not.toBeNull()
+
+    resolvePosition = undefined
+    usePathname.mockReturnValue('/topics')
+    rerender(<FooterCoordinates />)
+
+    expect(screen.getByText('33.86882° S')).not.toBeNull()
+    expect(screen.queryByText('Locating…')).toBeNull()
+
+    await waitFor(() => {
+      expect(getCurrentPosition).toHaveBeenCalledTimes(2)
+    })
+  })
+
+  it('clears the stamp when leaving /cleo after permission was revoked', async () => {
+    mockPermissions('granted')
+    let resolvePosition: PositionCallback | undefined
+    const getCurrentPosition = mockGeolocation((success) => {
+      resolvePosition = success
+    })
+
+    usePathname.mockReturnValue('/cleo')
+    setLocationSyncEnabled(true)
+    const { rerender } = render(<FooterCoordinates />)
+
+    await waitFor(() => {
+      expect(getCurrentPosition).toHaveBeenCalledTimes(1)
+    })
+
+    await act(async () => {
+      resolvePosition?.({
+        coords: {
+          accuracy: 8,
+          latitude: -33.86882,
+          longitude: 151.2093,
+        } as GeolocationCoordinates,
+      } as GeolocationPosition)
+    })
+
+    expect(screen.getByText('33.86882° S')).not.toBeNull()
+
+    mockPermissions('denied')
+    getCurrentPosition.mockImplementation(() => {
+      throw new Error('should not prompt after revoke')
+    })
+
+    usePathname.mockReturnValue('/topics')
+    rerender(<FooterCoordinates />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Location unavailable')).not.toBeNull()
+    })
+    expect(screen.queryByText('33.86882° S')).toBeNull()
+    expect(screen.queryByText('Locating…')).toBeNull()
   })
 })

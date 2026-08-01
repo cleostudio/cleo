@@ -852,9 +852,10 @@ browser has authorized geolocation; otherwise it reads “Location unavailable�
 (or “Locating…” while a first request is in flight — later refreshes keep the
 previous stamp visible). The footer itself stays mounted but hidden on `/cleo`
 so chat → Topics (and other public routes) do not remount into a locating
-flash. The globe shares the clock face's size and left edge; the coordinate
-lines share the digital clock's 13px mono size and colour, so the two rows
-read as one instrument. See [`cleo.md`](./cleo.md) § Location.
+flash; leaving `/cleo` quietly revalidates and clears the stamp if permission
+was revoked. The globe shares the clock face's size and left edge; the
+coordinate lines share the digital clock's 13px mono size and colour, so the
+two rows read as one instrument. See [`cleo.md`](./cleo.md) § Location.
 
 The colophon also carries the name in braille (`.footer-braille`) beneath the
 copyright as a printer's mark. On mobile, topics and index remain a two-column
