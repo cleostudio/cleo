@@ -350,24 +350,34 @@ Do not copy Better Auth's Next.js 15.2 proxy example: it sets
 
 ## 6. Rendering and the prerender contract
 
-This is the highest-risk part of the plan and the reason Stage 0 exists.
-
 Under `cacheComponents: true`, calling `headers()` outside a `<Suspense>`
-boundary prevents a route from being prerendered. `auth.api.getSession()`
-requires `await headers()`. Left unmanaged, adding auth silently converts the
-statically prerendered site into a dynamic one.
+boundary prevents a route from being prerendered, and `auth.api.getSession()`
+requires `await headers()`. Left unmanaged, adding auth converts a statically
+prerendered site into a dynamic one.
+
+Stage 0 measured all of this (§6.1, §6.2). The settled architecture is a
+**hybrid**, not one uniform approach:
+
+| Surface | Session read | Build classification |
+| --- | --- | --- |
+| Content routes (`/`, `/blog`, `/gallery`, `/topics`, `/explore/*`, `/space/*`) | none | ○ |
+| Global dock chrome | client `useSession()`, gated by hint cookie | unchanged (○) |
+| `/cleo`, `/cleo/[threadId]` | RSC `getSession()` in `<Suspense>` | ◐ |
 
 Rules:
 
-- No Server Component in the static shell reads the session. `/`, `/blog`,
-  `/gallery`, `/topics`, `/explore/[slug]`, `/space/[slug]` stay session-free
-  and keep `instant = true` where it is set.
-- Auth-aware chrome (dock avatar, sign-in entry point) is a Client Component
-  using `useSession()`, or is wrapped in `<Suspense>` with a static fallback.
-- `/cleo` keeps its prerendered shell. The thread list and messages load
-  client-side after hydration.
-- `/cleo/[threadId]` follows the same pattern: prerendered shell, client-fetched
-  thread.
+- No Server Component in a content route reads the session. Those routes stay
+  session-free, stay ○, and keep `instant = true` where it is set.
+- Global auth chrome (dock avatar, sign-in entry) is a Client Component. It
+  must not mount `useSession()` unless the hint cookie is present — see §6.2.
+- `/cleo` and `/cleo/[threadId]` may read the session in an RSC behind
+  `<Suspense>`. ◐ is the correct outcome there: it is already an interactive
+  app page, and a server-rendered thread list beats a client-fetched one on
+  first paint. Measured in follow-up A: this leaves every content route ○.
+- On `/cleo`, pass the server-resolved session down rather than letting the
+  dock re-fetch it.
+- Nothing server-side may read the hint cookie. A server read would make the
+  reading route dynamic and defeat the entire mechanism.
 - Server Components cannot set cookies, so the session cookie cache never
   refreshes from an RSC render. Refresh happens in Server Actions and route
   handlers.
@@ -404,27 +414,61 @@ whose traffic is overwhelmingly anonymous readers of static pages. Paying a
 function invocation on `/explore/[slug]` to render a sign-in avatar is a poor
 trade. Content routes stay session-free and ○.
 
-**The blast radius was a placement artifact, so keep the `/cleo` option open.**
-`SiteDocument` is the root shell for every route, so a probe there necessarily
-converts everything. RSC session reads scoped to `/cleo` and `/cleo/[threadId]`
-would leave content routes ○ while letting the thread list render server-side,
-and ◐ is harmless on an already-interactive app page. This was not measured and
-should be, before deciding the thread list must be client-fetched.
+**The blast radius was a placement artifact.** `SiteDocument` is the root shell
+for every route, so a probe there necessarily converts everything.
 
-### 6.2 Consequence to measure before Stage 2 UI work
+Follow-up A measured the scoped alternative. RSC `getSession()` on `/cleo`
+only:
+
+| Route | `main` | Scoped RSC |
+| --- | --- | --- |
+| `/`, `/blog`, `/gallery`, `/topics`, `/explore`, `/space` | ○ | ○ |
+| concrete `/explore/*`, `/space/*`, `/blog/*` | ○ | ○ |
+| `/cleo` | ○ | ◐ |
+| `/api/auth/[...all]` | — | ƒ (new) |
+
+No route became ƒ. This is the arrangement §6 adopts.
+
+### 6.2 The session hint cookie
 
 Client-only session reads move a cost rather than removing it. The session
 cookie is `httpOnly`, so the client cannot know whether a session exists
-without asking the server. If `useSession()` fires unconditionally on mount,
-every anonymous visitor to every content page triggers a
-`/api/auth/get-session` invocation after hydration — plausibly worse than the ◐
-it was chosen to avoid, because it is a round trip layered on top of an
-otherwise static page.
+without asking the server, and Better Auth's `useSession()` fetches on mount
+unconditionally.
 
-Measure this first. If it fires unconditionally, gate it behind a
-non-`httpOnly` "has session" hint cookie set at sign-in and cleared at
-sign-out, so signed-out visitors skip the request entirely. Better Auth's
-`session.cookieCache` is the other lever.
+Follow-up B confirmed both halves: signed-out visitors did fire
+`GET /api/auth/get-session` on every page load, and gating fixed it. A
+non-`httpOnly` `cleo.session-hint` cookie, read client-side before deciding
+whether to mount `useSession()` at all, eliminates the request for visitors
+with no hint. Conditional mounting is required — checking inside the hook is
+too late.
+
+Prototype: `lib/auth-session-hint.ts` and the gated `DockAuthSessionClient` in
+PR #105.
+
+Correctness rules for Stage 2, none of which the prototype implements yet:
+
+- **Set** on sign-in, **clear** on sign-out.
+- **Clear whenever a `get-session` call resolves to null.** Otherwise a user
+  whose session expired or was revoked pays the round trip on every page load
+  indefinitely.
+- `Max-Age` tracks session expiry (Better Auth defaults to 7 days, sliding) so
+  a stale hint self-expires.
+- `Path=/`, `SameSite=Lax`, `Secure` in production. Never `httpOnly` — that is
+  the point. Never authoritative for anything: it decides whether to make a
+  request, never what the user may do.
+- Handle the inverse state too. A missing hint alongside a live session (cookie
+  cleared by privacy tooling, or a session predating the mechanism) leaves the
+  user looking signed out. The `/cleo` RSC read from §6.1 is authoritative, so
+  landing there repairs the hint — the two measurements compose.
+
+**Avoid the hydration flicker using the existing prepaint convention.** Reading
+the hint in `useEffect` means first paint always renders the signed-out state,
+so a signed-in avatar pops in after hydration. `lib/security/inline-scripts.ts`
+already runs a pre-paint inline script that sets `data-visited`, `data-locale`
+and the theme class before first paint; extend it to read the hint cookie and
+set a `data-session-hint` attribute. The CSP already permits this script, so
+there is no policy change.
 
 ---
 
@@ -557,9 +601,10 @@ route became ƒ, so nothing is blocked. Content routes stay client-only for cost
 reasons, and the acceptance bar above should be read as "no route becomes ƒ,"
 not "no route becomes ◐."
 
-Two follow-ups the spike did not cover, both cheap and both worth doing before
-Stage 2 UI work: measure RSC session reads scoped to `/cleo` only (§6.1), and
-measure whether `useSession()` fetches for signed-out visitors (§6.2).
+Both follow-ups are now also measured. Scoped RSC reads on `/cleo` leave every
+content route ○ (§6.1), and the hint cookie removes the signed-out
+`get-session` request (§6.2). Stage 0 is closed; §6 records the resulting
+hybrid architecture.
 
 Spike-only artifact, not a Stage 2 risk: `node:sqlite` with `auth migrate`
 failed (`stmt.columns is not a function`), worked with `better-sqlite3`. Stage 2
@@ -678,7 +723,8 @@ mobile, light and dark, per the existing UI rule in AGENTS.md.
 | Risk | Severity | Mitigation |
 | --- | --- | --- |
 | ~~`cacheComponents` + session reads break prerendering~~ | Resolved | Measured in Stage 0; no route became ƒ. See §6.1 |
-| Client-only session fetch on every anonymous page view | Medium | Measure, then gate behind a hint cookie. See §6.2 |
+| ~~Client-only session fetch on every anonymous page view~~ | Resolved | Hint cookie removes it; measured in Stage 0. See §6.2 |
+| Stale or missing session hint | Low | Clear on null session; `/cleo` RSC read repairs it. See §6.2 |
 | Next `16.3.0-preview.9` ahead of Better Auth's tested versions | Low | `better-auth@1.6.25` wired cleanly in Stage 0; pin exact versions |
 | Thread ownership bug leaks another user's history | High | Dedicated tests before any UI work |
 | No self-service account recovery | Medium | Second passkey + GitHub at sign-up |
