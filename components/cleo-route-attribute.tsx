@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 
 import { unlocalizedPathname } from '~/lib/locale-route'
 
@@ -9,11 +9,16 @@ import { unlocalizedPathname } from '~/lib/locale-route'
  * Mirrors the active route onto <html> so Cleo layout CSS can unlock the
  * shell as soon as pathname leaves /cleo — even while a view transition still
  * keeps the old chat DOM mounted (body:has([data-cleo-*]) would stay locked).
+ *
+ * Must run in useLayoutEffect (not useEffect): destination pages like Topics
+ * otherwise paint one frame under Cleo's zero padding / hidden rulers /
+ * empty-state overflow lock, which reads as a laggy entry only when leaving
+ * `/cleo`.
  */
 export function CleoRouteAttribute() {
   const isCleo = unlocalizedPathname(usePathname()) === '/cleo'
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = document.documentElement
 
     if (isCleo) {
