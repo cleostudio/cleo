@@ -6756,9 +6756,8 @@ a:focus-visible .external-label .external-mark {
   grid-template-columns: repeat(4, 1fr);
   margin-top: 3.5rem;
   /* Full content-column width — shell padding sits outside max-w-content,
-     so these hairlines share an edge with search, places, and the footer. */
-  border-top: var(--border-hairline) solid var(--border);
-  border-bottom: var(--border-hairline) solid var(--border);
+     so this frame shares an edge with search, places, and the footer. */
+  border: var(--border-hairline) solid var(--border);
 }
 
 .nav-card {

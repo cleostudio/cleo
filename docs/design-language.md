@@ -322,8 +322,9 @@ card is hovered (fine pointer) or `:focus-visible` (keyboard).
 
 Layout: four equal columns on wide viewports; a 2×2 grid below 40rem, with
 row-separating hairlines so the band still reads as one instrument. The band
-spans the full `max-w-content` column (shell gutters sit outside), so its
-hairlines align with search, section rows, and the footer.
+is a full hairline frame (all four sides) spanning `max-w-content` (shell
+gutters sit outside), so its edges align with search, section rows, and the
+footer.
 
 ### Adding another doorway
 
