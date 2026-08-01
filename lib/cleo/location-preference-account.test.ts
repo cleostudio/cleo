@@ -89,6 +89,16 @@ describe('reconcileLocationSyncOnSession', () => {
       }),
     ).toEqual({ action: 'push-local', enabled: true })
   })
+
+  it('hydrates from the account when there was no in-tab toggle', () => {
+    expect(
+      reconcileLocationSyncOnSession({
+        accountEnabled: true,
+        localEnabled: false,
+        toggledSinceMount: false,
+      }),
+    ).toEqual({ action: 'hydrate', enabled: true })
+  })
 })
 
 describe('persistLocationSyncToAccount', () => {

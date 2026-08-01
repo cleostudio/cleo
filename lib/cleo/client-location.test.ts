@@ -228,6 +228,8 @@ describe('requestUserLocation', () => {
   })
 
   it('writes a cache entry when an interactive fix succeeds', async () => {
+    const { setLocationSyncEnabled } = await import('./location-preference')
+    setLocationSyncEnabled(true)
     mockGeolocation((success) => {
       success({
         coords: {
@@ -243,6 +245,33 @@ describe('requestUserLocation', () => {
       latitude: 35.6895,
       longitude: 139.6917,
     })
+  })
+
+  it('does not rewrite the cache when Location is turned off before GPS returns', async () => {
+    const { setLocationSyncEnabled } = await import('./location-preference')
+    setLocationSyncEnabled(true)
+
+    let resolvePosition: PositionCallback | undefined
+    mockGeolocation((success) => {
+      resolvePosition = success
+    })
+
+    const pending = requestUserLocation()
+    setLocationSyncEnabled(false)
+
+    resolvePosition?.({
+      coords: {
+        accuracy: 8,
+        latitude: 35.6895,
+        longitude: 139.6917,
+      } as GeolocationCoordinates,
+    } as GeolocationPosition)
+
+    await expect(pending).resolves.toMatchObject({
+      latitude: 35.6895,
+      longitude: 139.6917,
+    })
+    expect(readCachedUserLocation()).toBeNull()
   })
 
   it('does not call getCurrentPosition on silent restore when permission is denied', async () => {

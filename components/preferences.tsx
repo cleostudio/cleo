@@ -75,17 +75,23 @@ export function Preferences() {
   // instead of letting a stale `false` wipe the preference.
   useEffect(() => {
     if (!signedInUserId) {
+      // Sign-out / anonymous: drop hydrate + toggle markers so the next
+      // sign-in hydrates from that account instead of pushing a stale local
+      // toggle from the previous session.
       hydratedUserIdRef.current = null
+      localToggledAtRef.current = 0
       return
     }
     if (hydratedUserIdRef.current === signedInUserId) return
     if (typeof accountLocationSync !== 'boolean') return
 
-    hydratedUserIdRef.current = signedInUserId
-
     const toggledSinceMount =
       localToggledAtRef.current > 0 &&
       localToggledAtRef.current >= mountedAtRef.current
+    // Consume the in-tab toggle marker once this user hydrates.
+    localToggledAtRef.current = 0
+    hydratedUserIdRef.current = signedInUserId
+
     const reconcile = reconcileLocationSyncOnSession({
       accountEnabled: accountLocationSync,
       localEnabled: isLocationSyncEnabled(),

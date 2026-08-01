@@ -3,6 +3,7 @@ import {
   readCachedUserLocation,
   writeCachedUserLocation,
 } from '~/lib/cleo/location-cache'
+import { isLocationSyncEnabled } from '~/lib/cleo/location-preference'
 import type { UserLocation } from '~/lib/cleo/location'
 
 const LOCATION_BROWSER_GRANT_KEY = 'cleo-location-browser-granted'
@@ -135,8 +136,15 @@ function readPosition(
           longitude: position.coords.longitude,
           timeZone,
         }
+        // Browser grant is independent of the dock preference.
         rememberGeolocationGrant()
-        writeCachedUserLocation(next)
+        // Preference may have been turned off while GPS was in flight —
+        // never resurrect the last-fix cache after an explicit Off.
+        if (isLocationSyncEnabled()) {
+          writeCachedUserLocation(next)
+        } else {
+          clearCachedUserLocation()
+        }
         resolve(next)
       },
       (error) => reject(locationError(error)),
@@ -222,6 +230,7 @@ export async function requestUserLocation(
       return await readPosition(timeZone, restoreLocationOptions)
     } catch (error) {
       // Keep a recent reading through transient GPS timeouts/failures.
+      // Do not resurrect a fix after revoke.
       if (
         error instanceof Error &&
         (error.message.includes('blocked') || error.message.includes('explicit allow'))

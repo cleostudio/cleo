@@ -27,7 +27,7 @@ export function hydrateLocationSyncFromAccount(
 }
 
 export type LocationSyncSessionReconcile = {
-  /** Apply account → local quietly. */
+  /** `hydrate`: account → local. `push-local`: keep local and sync up. */
   action: 'hydrate' | 'push-local'
   enabled: boolean
 }
