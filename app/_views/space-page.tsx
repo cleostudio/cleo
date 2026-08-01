@@ -19,7 +19,7 @@ export function SpacePageView() {
   const categories = spaceSubjectsByCategory()
 
   return (
-    <div className="mx-auto w-full max-w-content px-6">
+    <div className="mx-auto w-full max-w-content">
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
           <h1 className="page-eyebrow enter">

@@ -52,8 +52,10 @@ stamps). Weights 400 / 500 / 600. Chrome at 14px with `-0.011em`. Counts use
 `tabular-nums`.
 
 **Layout.** Column via `--content-column` → `max-w-content` (or
-`max-w-content-narrow`). Literal widths desync the shell from ambient guides;
-the test suite rejects them.
+`max-w-content-narrow`). Shell horizontal padding (`SiteChrome` `px-6`) sits
+*outside* the column so page content and homepage doorway card hairlines share
+one edge. Literal widths desync the shell from ambient guides; the test suite
+rejects them.
 
 **Radius.** Scale from `--radius`. Print-register corners are flat `2px`; pills
 are `999px`. Nothing in between.
@@ -71,8 +73,8 @@ Source of truth: `lib/theme-preset.ts`.
 --duration-route-morph: 320ms;
 --radius: 0.625rem;
 --border-hairline: 1px;      /* 0.5px above 192dpi */
---content-column: 42rem;
---content-column-narrow: 38.5rem;
+--content-column: 46rem;
+--content-column-narrow: 42.5rem;
 --z-nav: 100;  --z-card: 200;  --z-toast: 300;
 ```
 
@@ -83,7 +85,7 @@ Everything else should match cali.so.
 | Token | Upstream | Cleo | Why |
 | --- | --- | --- | --- |
 | `--font-sans` | Geist, then Frex Sans GB for CJK | Geist only | CJK face is unused |
-| `--content-column` | `37.5rem` | `42rem` | Guide borders removed; wider column without a boxed frame |
+| `--content-column` | `37.5rem` | `46rem` | Guide borders removed; wider column without a boxed frame |
 
 ## Changing the preset
 

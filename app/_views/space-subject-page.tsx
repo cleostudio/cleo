@@ -36,7 +36,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
   if (!subject) notFound()
 
   return (
-    <article className="field-guide mx-auto w-full max-w-content px-6">
+    <article className="field-guide mx-auto w-full max-w-content">
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
           <p className="page-eyebrow enter">

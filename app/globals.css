@@ -260,8 +260,8 @@
   /* Page column. cali.so runs 37.5rem; Cleo opened this up when the drafting
      guide borders came off. Everything that spans the column reads it from
      here so the shell, the shelf frame, and the guides cannot drift apart. */
-  --content-column: 42rem;
-  --content-column-narrow: 38.5rem;
+  --content-column: 46rem;
+  --content-column-narrow: 42.5rem;
 
   --grain-opacity: 0.3;
   --guide-opacity: 0.5;
@@ -6753,14 +6753,11 @@ a:focus-visible .external-label .external-mark {
 
 .nav-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   margin-top: 3.5rem;
-  /* bleed to the column's outer edges (through the px-6 padding), not
-     the viewport */
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
-  border-top: var(--border-hairline) solid var(--border);
-  border-bottom: var(--border-hairline) solid var(--border);
+  /* Full content-column width — shell padding sits outside max-w-content,
+     so this frame shares an edge with search, places, and the footer. */
+  border: var(--border-hairline) solid var(--border);
 }
 
 .nav-card {
@@ -7002,6 +6999,90 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
+/* tabbed catalog cards: three subject dividers with ruled entries */
+.nc-catalog-card {
+  position: absolute;
+  width: 2.125rem;
+  height: 2.5rem;
+  transition: transform 300ms var(--ease-spring);
+  background:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--paper-ink) 40%, transparent) 0 55%,
+      transparent 55%
+    )
+    5px 14px / calc(100% - 8px) 1.25px no-repeat,
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--paper-ink) 34%, transparent) 0 70%,
+      transparent 70%
+    )
+    5px 19px / calc(100% - 8px) 1.25px no-repeat,
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--paper-ink) 30%, transparent) 0 42%,
+      transparent 42%
+    )
+    5px 24px / calc(100% - 8px) 1.25px no-repeat,
+    var(--paper);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08), 0 1px 2px rgb(0 0 0 / 0.12);
+}
+
+.nc-catalog-card::before {
+  position: absolute;
+  top: -0.375rem;
+  height: 0.375rem;
+  border-radius: 1px 1px 0 0;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08);
+  content: '';
+}
+
+.nc-catalog-a {
+  z-index: 1;
+  transform: rotate(-8deg) translateX(-11px) translateY(2px);
+}
+
+.nc-catalog-a::before {
+  left: 2px;
+  width: 0.7rem;
+}
+
+.nc-catalog-b {
+  z-index: 2;
+  transform: rotate(7deg) translateX(11px) translateY(1px);
+}
+
+.nc-catalog-b::before {
+  right: 2px;
+  width: 0.7rem;
+}
+
+.nc-catalog-c {
+  z-index: 3;
+  transform: rotate(-1deg) translateY(-2px);
+}
+
+.nc-catalog-c::before {
+  left: 50%;
+  width: 0.85rem;
+  transform: translateX(-50%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-card:hover .nc-catalog-a {
+    transform: rotate(-14deg) translateX(-18px) translateY(-2px);
+  }
+
+  .nav-card:hover .nc-catalog-b {
+    transform: rotate(13deg) translateX(18px) translateY(-2px);
+  }
+
+  .nav-card:hover .nc-catalog-c {
+    transform: rotate(-2deg) translateY(-6px);
+  }
+}
+
 /* Keyboard focus fans open even when fine-pointer hover media is off. */
 .nav-card:focus-visible .nc-sheets span:nth-child(1) {
   transform: rotate(-13deg) translateX(-16px) translateY(-2px);
@@ -7032,7 +7113,32 @@ a:focus-visible .external-label .external-mark {
   transform: rotate(-3deg) translateY(-7px);
 }
 
+.nav-card:focus-visible .nc-catalog-a {
+  transform: rotate(-14deg) translateX(-18px) translateY(-2px);
+}
+
+.nav-card:focus-visible .nc-catalog-b {
+  transform: rotate(13deg) translateX(18px) translateY(-2px);
+}
+
+.nav-card:focus-visible .nc-catalog-c {
+  transform: rotate(-2deg) translateY(-6px);
+}
+
 @media (max-width: 39.99rem) {
+  .nav-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-card:nth-child(3),
+  .nav-card:nth-child(4) {
+    border-top: var(--border-hairline) solid var(--border);
+  }
+
+  .nav-card:nth-child(odd) {
+    border-left: none;
+  }
+
   .nav-card {
     min-width: 0;
     gap: 0.125rem;
@@ -7075,7 +7181,8 @@ a:focus-visible .external-label .external-mark {
 @media (prefers-reduced-motion: reduce) {
   .nc-sheets span,
   .nc-polaroid,
-  .nc-folio > span {
+  .nc-folio > span,
+  .nc-catalog-card {
     transition: none;
   }
 }

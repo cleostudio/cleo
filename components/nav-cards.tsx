@@ -6,18 +6,20 @@ import { allGalleryItems } from '~/lib/gallery'
 import { T } from '~/lib/i18n'
 import { localePath, type Locale } from '~/lib/locale-route'
 
-// The three doorways, greeting visitors who never look at the dock:
+// Four doorways, greeting visitors who never look at the dock:
 // paper-artifact vignettes — manuscript pages for writing, a polaroid
-// fan for photos, a travel folio (stamp / itinerary / map) for Explore.
-// Pattern: docs/design-language.md § Paper-artifact doorway vignettes.
+// fan for gallery, a travel folio for Explore, and tabbed catalog cards
+// for Topics. Pattern: docs/design-language.md § Paper-artifact doorway vignettes.
 export function NavCards({
   postCount,
   exploreCount,
+  topicCount,
   photoCard,
   locale = 'en',
 }: {
   postCount: number
   exploreCount: number
+  topicCount: number
   photoCard: React.ReactNode
   locale?: Locale
 }) {
@@ -89,6 +91,24 @@ export function NavCards({
         </span>
         <span className="nc-sub">
           <T zh={`${exploreCount} 个国家`} en={`${exploreCount} countries`} />
+        </span>
+      </Link>
+
+      <Link
+        href={localePath(locale, '/topics')}
+        className="nav-card enter-swing"
+        style={{ '--enter-delay': '290ms' } as React.CSSProperties}
+      >
+        <span className="nc-vignette nc-catalog" aria-hidden>
+          <span className="nc-catalog-card nc-catalog-a" />
+          <span className="nc-catalog-card nc-catalog-b" />
+          <span className="nc-catalog-card nc-catalog-c" />
+        </span>
+        <span className="nc-label">
+          <T zh="主题" en="Topics" />
+        </span>
+        <span className="nc-sub">
+          <T zh={`${topicCount} 个主题`} en={`${topicCount} topics`} />
         </span>
       </Link>
     </div>

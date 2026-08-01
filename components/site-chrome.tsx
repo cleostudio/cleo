@@ -10,8 +10,10 @@ export function SiteChrome({
 }) {
   return (
     <div className="site-chrome flex min-h-screen flex-col pb-20">
-      <main className="site-chrome-main flex-1 pt-14">{children}</main>
-      {footer}
+      {/* Horizontal padding lives on the shell so max-w-content is the true
+          column edge — same line the homepage doorway card borders use. */}
+      <main className="site-chrome-main flex-1 px-6 pt-14">{children}</main>
+      <div className="site-chrome-footer px-6">{footer}</div>
     </div>
   )
 }

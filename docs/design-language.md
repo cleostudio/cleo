@@ -148,7 +148,8 @@ Hard rules:
   32px; prose h2 is 18px/1.35 and h3 is
   16px/1.45. Code remains 13px. Form inputs stay ≥16px to prevent iOS zoom.
   Headings use `text-wrap: balance` and tighter letter-spacing as size grows.
-- Content column is compact: ~672px (`42rem`) plus padding.
+- Content column is compact: ~736px (`46rem`). Shell gutters sit outside the
+  column so doorway card hairlines and page content share one edge.
 - `font-variant-numeric: tabular-nums` on anything that counts: dates in
   lists, reading time, subscriber counts.
 - Curly quotes, real ellipsis (…), full-width CJK punctuation left alone.
@@ -283,11 +284,10 @@ follows that section's timing instead of this ordinary entrance budget.
 ## Paper-artifact doorway vignettes
 
 Reusable doorway pattern (`.nav-card` + `.nc-vignette` in
-`components/nav-cards.tsx` / `app/globals.css`). The component is retained for
-reuse; the current homepage portal does not mount it. Each doorway is a small
-stack of physical paper objects — not a flat icon in a rounded square — that
-fans open when the card is hovered (fine pointer) or `:focus-visible`
-(keyboard).
+`components/nav-cards.tsx` / `app/globals.css`). The homepage mounts four
+doorways after the introduction. Each doorway is a small stack of physical
+paper objects — not a flat icon in a rounded square — that fans open when the
+card is hovered (fine pointer) or `:focus-visible` (keyboard).
 
 ### Contract
 
@@ -312,18 +312,27 @@ fans open when the card is hovered (fine pointer) or `:focus-visible`
 
 - **Writing** (`.nc-sheets`): three ruled manuscript pages.
 - **Gallery** (`.nc-polaroids`): three polaroid minis (`--i` fan), live
-  renditions when published, placeholders while pending.
+  atlas featured photos.
 - **Explore** (`.nc-folio`): layered travel folio — circular passport stamp
   (`.nc-folio-stamp`, hairline SVG rings on `--paper`), tall itinerary slip
   (`.nc-folio-itinerary`, margin rule + schedule bars), folded map
   (`.nc-folio-map`, graticule + crease).
+- **Topics** (`.nc-catalog`): three tabbed subject cards (`.nc-catalog-a/b/c`)
+  with protruding tabs and ruled entry lines.
+
+Layout: four equal columns on wide viewports; a 2×2 grid below 40rem, with
+row-separating hairlines so the band still reads as one instrument. The band
+is a full hairline frame (all four sides) spanning `max-w-content` (shell
+gutters sit outside), so its edges align with search, section rows, and the
+footer.
 
 ### Adding another doorway
 
 Reuse `.nav-card` / `.nc-vignette`, invent a new vignette class with three
 named layers, and copy the rested → fanned transform pairs from Writing or
 Explore. Keep count/subtitle copy in `.nc-label` / `.nc-sub`. Do not replace
-this pattern with a dock-style line icon for homepage doorways.
+this pattern with a dock-style line icon for homepage doorways. Adjust the
+`.nav-cards` grid when the doorway count changes.
 
 ## Hover cards as craft objects
 
@@ -555,7 +564,8 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   corner wear, at most two short localized creases, and no more than 0.34° lean
   or 1.1px settling variation. There is no runtime randomness. Covers keep the
   default cursor and only inactive sleeves lift slightly on a
-  fine-pointer hover. The shelf is clipped to a centered 42rem frame. Pointer
+  fine-pointer hover. The shelf is clipped to a centered content-column frame.
+  Pointer
   drag and horizontal trackpad wheel input pan the stack continuously; vertical
   wheel input remains native page scrolling. Releasing the pointer or ending a
   horizontal wheel gesture commits the new front sleeve and annotation, then
@@ -852,8 +862,8 @@ clock occupy opposite halves of a two-column grid.
 ## Project index
 
 Projects UI is retained for reuse; `/projects` permanently redirects to
-`/topics`. The paper-artifact vignette pattern above remains available for
-homepage doorways when remounted.
+`/topics`. Homepage doorways use the paper-artifact vignette pattern (Writing,
+Gallery, Explore, Topics).
 
 The retained project page opens with a short note, then one intentionally
 ordered list. Each linked row is a compact artifact: a fixed 36px project icon,

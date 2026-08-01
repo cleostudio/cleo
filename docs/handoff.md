@@ -6,7 +6,8 @@ Current as of July 2026 (Cleo fork).
 
 General-knowledge portal:
 
-- **Homepage** — one search bar over the whole portal (countries, Space bodies,
+- **Homepage** — paper-artifact doorway cards (Writing, Gallery, Explore,
+  Topics); one search bar over the whole portal (countries, Space bodies,
   curated photographs, Writing, topic collections, portal surfaces) with an Ask
   Cleo row → `/cleo?q=…`; highlighted places; topic discovery; recent Writing.
   No personal contact / music / books / photo-wall sections.
@@ -36,6 +37,7 @@ reuse.
 | Explore / atlas | `lib/countries.ts`, `lib/atlas/*`, `content/atlas.json`, `/explore` |
 | Space | `lib/space.ts`, `content/space-photos.json`, `/space` |
 | Gallery | `lib/gallery.ts`, `/gallery` (`galleryItemDomId` + `place-gallery-target`) |
+| Homepage doorways | `components/nav-cards.tsx`, `.nav-card` / `.nc-*` in `app/globals.css` |
 | Homepage search | `lib/site-search-catalog.ts`, `lib/site-search.ts`, `components/home-site-search.tsx` |
 | Cleo | `components/cleo/*`, `lib/cleo/*`, `POST /api/responses` |
 | Auth | `lib/auth.ts`, `lib/db/*`, `/api/auth/[...all]`, `/sign-in` |
@@ -51,8 +53,8 @@ Deep runbooks: [`cleo.md`](./cleo.md), [`homepage-search.md`](./homepage-search.
 
 - Token contract: [`theme-preset.md`](./theme-preset.md)
 - Full visual/interaction spec: [`design-language.md`](./design-language.md)
-  (incl. paper-artifact doorway vignettes — `NavCards` retained, not mounted on
-  the current homepage)
+  (incl. paper-artifact doorway vignettes — `NavCards` on the homepage for
+  Writing, Gallery, Explore, and Topics)
 - Country pages: warm-paper field-guide layout (passport labels, hairline rules,
   zoomable contact-print hero)
 

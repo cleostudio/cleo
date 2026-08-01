@@ -95,8 +95,8 @@ export const typeWeightTokens = {
  * shell from the ambient guides.
  */
 export const layoutTokens = {
-  '--content-column': '42rem',
-  '--content-column-narrow': '38.5rem',
+  '--content-column': '46rem',
+  '--content-column-narrow': '42.5rem',
   '--radius': '0.625rem',
   '--border-hairline': '1px',
 } as const

@@ -35,7 +35,7 @@ export function newsletterRetiredMetadata(_locale: Locale = 'en'): Metadata {
 
 export function NewsletterRetiredPageView({ locale }: { locale: Locale }) {
   return (
-    <div className="mx-auto box-border w-full max-w-content px-6">
+    <div className="mx-auto box-border w-full max-w-content">
       <section
         className="hairline-y py-8"
         aria-labelledby="newsletter-retired-title"

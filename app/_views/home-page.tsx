@@ -3,10 +3,12 @@ import Link from 'next/link'
 import { HomeHighlightedPlaces } from '~/components/home-highlighted-places'
 import { HomeIntroduction } from '~/components/home-introduction'
 import { HomeSiteSearch } from '~/components/home-site-search'
+import { GalleryNavCard, NavCards } from '~/components/nav-cards'
 import { HOME_MASTHEAD_VARIANT, PixelCluster } from '~/components/pixel-cluster'
 import { PostRow } from '~/components/post-row'
 import { highlightedAtlasEntries } from '~/lib/atlas'
 import { getAllPosts } from '~/lib/content'
+import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
 import type { Locale } from '~/lib/locale-route'
 import {
@@ -42,14 +44,15 @@ function SectionTitle({
 
 export async function HomePageView({ locale }: { locale: Locale }) {
   const topics = allTopics()
+  const posts = getAllPosts()
   const highlights = highlightedAtlasEntries(6)
-  const writingPosts = getAllPosts().slice(0, HOME_WRITING_POST_COUNT)
+  const writingPosts = posts.slice(0, HOME_WRITING_POST_COUNT)
   const searchHits = buildSiteSearchHits()
   const topicCenter = (topics.length - 1) / 2
   const writingCenter = (writingPosts.length - 1) / 2
 
   return (
-    <div className="mx-auto w-full max-w-content px-6">
+    <div className="mx-auto w-full max-w-content">
       <div className="enter max-w-content-narrow">
         <div className="flex items-center gap-2">
           <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
@@ -59,6 +62,14 @@ export async function HomePageView({ locale }: { locale: Locale }) {
           <HomeIntroduction />
         </div>
       </div>
+
+      <NavCards
+        postCount={posts.length}
+        exploreCount={countries.length}
+        topicCount={topics.length}
+        locale={locale}
+        photoCard={<GalleryNavCard locale={locale} />}
+      />
 
       <section className="mt-6" aria-label="Search">
         <div className="enter" style={{ '--enter-delay': '100ms' } as React.CSSProperties}>
