@@ -7,6 +7,7 @@ import { Suspense } from 'react'
 
 import { AmbientBackground } from '~/components/ambient-background'
 import { CleoRouteAttribute } from '~/components/cleo-route-attribute'
+import { DockAuthSessionClient } from '~/components/dock-auth-session-client'
 import { Dock, DockFallback } from '~/components/dock'
 import { PreviewCardTimingProvider } from '~/components/preview-card-timing'
 import {
@@ -71,6 +72,9 @@ export async function SiteDocument({
             <Suspense fallback={<DockFallback locale="en" />}>
               <Dock />
             </Suspense>
+            {/* Stage 0: client-only fallback — Suspense RSC session reads
+                change ○ → ◐ on every page that mounts SiteDocument. */}
+            <DockAuthSessionClient />
             <Analytics />
             <SpeedInsights />
           </PreviewCardTimingProvider>

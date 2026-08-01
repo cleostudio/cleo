@@ -1,6 +1,7 @@
 # Plan: accounts and Cleo thread history
 
-Status: proposed, not started. No implementation exists yet.
+Status: Stage 0 complete (see `docs/stage0-prerender-findings.md`). Stages 1+
+not started.
 
 This plan adds signed-in accounts and durable Cleo conversation threads to a
 site that today has no authentication, no database, and no server-side writes.
@@ -498,6 +499,11 @@ static shell on Next.js `16.3.0-preview.9`.
 Acceptance: build output shows the same static/dynamic classification as `main`
 for every existing route. **Everything else is gated on this.** If it fails, the
 fallback is a fully client-side auth surface with no RSC session reads at all.
+
+**Result (2026-08-01):** Suspense-wrapped RSC `getSession` fails acceptance —
+every previously-○ shell route becomes ◐. Client-only `useSession` preserves
+`main`’s classification. Full tables in `docs/stage0-prerender-findings.md`.
+Stage 2 must use the client-only chrome path.
 
 ### Stage 1 — Local threads, zero infrastructure
 

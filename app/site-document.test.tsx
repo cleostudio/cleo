@@ -20,6 +20,9 @@ vi.mock('~/components/dock', () => ({
   Dock: () => <span data-public-dock="" />,
   DockFallback: () => <span data-public-dock-fallback="" />,
 }))
+vi.mock('~/components/dock-auth-session-client', () => ({
+  DockAuthSessionClient: () => <span data-stage0-auth-client="signed-out" />,
+}))
 vi.mock('~/components/preview-card-timing', () => ({
   PreviewCardTimingProvider: ({ children }: { children: React.ReactNode }) => (
     <div data-public-preview-cards="">{children}</div>
