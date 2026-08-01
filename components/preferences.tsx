@@ -13,6 +13,7 @@ import { authClient } from '~/lib/auth-client'
 import {
   hydrateLocationSyncFromAccount,
   persistLocationSyncToAccount,
+  reconcileLocationSyncOnSession,
 } from '~/lib/cleo/location-preference-account'
 import {
   isLocationSyncEnabled,
@@ -57,23 +58,64 @@ export function Preferences() {
   // Hydrate once per signed-in user so a mid-toggle session refresh cannot
   // overwrite a local change before updateUser finishes.
   const hydratedUserIdRef = useRef<string | null>(null)
+  // Wall-clock of this mount. A Location toggle after mount means the user
+  // acted while the session may still be resolving — keep that choice.
+  const mountedAtRef = useRef(0)
+  const localToggledAtRef = useRef(0)
 
   useEffect(() => {
+    mountedAtRef.current = Date.now()
     setMounted(true)
     setLocationSync(isLocationSyncEnabled())
     setSound(soundEnabled())
   }, [])
 
-  // Signed-in account is canonical: restore quietly (no geolocation prompt).
+  // Signed-in account is canonical on a fresh load. If the user toggled
+  // Location after this mount (session still pending), push local → account
+  // instead of letting a stale `false` wipe the preference.
   useEffect(() => {
     if (!signedInUserId) {
+      // Sign-out / anonymous: drop hydrate + toggle markers so the next
+      // sign-in hydrates from that account instead of pushing a stale local
+      // toggle from the previous session.
       hydratedUserIdRef.current = null
+      localToggledAtRef.current = 0
       return
     }
     if (hydratedUserIdRef.current === signedInUserId) return
-    const enabled = hydrateLocationSyncFromAccount(accountLocationSync)
-    if (enabled === null) return
+    if (typeof accountLocationSync !== 'boolean') return
+
+    const toggledSinceMount =
+      localToggledAtRef.current > 0 &&
+      localToggledAtRef.current >= mountedAtRef.current
+    // Consume the in-tab toggle marker once this user hydrates.
+    localToggledAtRef.current = 0
     hydratedUserIdRef.current = signedInUserId
+
+    const reconcile = reconcileLocationSyncOnSession({
+      accountEnabled: accountLocationSync,
+      localEnabled: isLocationSyncEnabled(),
+      toggledSinceMount,
+    })
+
+    if (reconcile.action === 'push-local') {
+      setLocationSync(reconcile.enabled)
+      if (reconcile.enabled !== accountLocationSync) {
+        void persistLocationSyncToAccount({
+          enabled: reconcile.enabled,
+          previous: accountLocationSync,
+          updateUser: (data) => authClient.updateUser(data),
+        }).then((ok) => {
+          if (!ok) {
+            setLocationSync(accountLocationSync)
+          }
+        })
+      }
+      return
+    }
+
+    const enabled = hydrateLocationSyncFromAccount(reconcile.enabled)
+    if (enabled === null) return
     setLocationSync(enabled)
   }, [signedInUserId, accountLocationSync])
 
@@ -147,9 +189,15 @@ export function Preferences() {
                   const on = v === 'on'
                   const previous = locationSync
                   if (!on) playPreferenceSound()
+                  localToggledAtRef.current = Date.now()
                   setLocationSyncEnabled(on)
                   setLocationSync(on)
-                  if (signedInUserId) {
+                  // Persist immediately when this user has already hydrated.
+                  // Pre-hydrate toggles are flushed by the session effect.
+                  if (
+                    signedInUserId &&
+                    hydratedUserIdRef.current === signedInUserId
+                  ) {
                     void persistLocationSyncToAccount({
                       enabled: on,
                       previous,

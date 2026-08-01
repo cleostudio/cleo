@@ -1,3 +1,5 @@
+import { clearCachedUserLocation } from '~/lib/cleo/location-cache'
+
 const LOCATION_SYNC_CHANGE_EVENT = 'cleo-location-sync-change'
 const LOCATION_SYNC_STORAGE_KEY = 'cleo-location-sync'
 const LOCATION_SYNC_ENABLED = 'enabled'
@@ -36,6 +38,8 @@ export function setLocationSyncEnabled(
       window.localStorage.setItem(LOCATION_SYNC_STORAGE_KEY, LOCATION_SYNC_ENABLED)
     } else {
       window.localStorage.removeItem(LOCATION_SYNC_STORAGE_KEY)
+      // Drop the last fix with the preference so refresh cannot resurrect it.
+      clearCachedUserLocation()
     }
   } catch {
     return

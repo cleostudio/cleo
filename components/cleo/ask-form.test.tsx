@@ -24,6 +24,7 @@ vi.mock('./zoomable-message-image', () => ({
   ZoomableMessageImage: () => null,
 }))
 
+import { writeCachedUserLocation } from '~/lib/cleo/location-cache'
 import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
 
 import { AskForm } from './ask-form'
@@ -256,6 +257,50 @@ describe('AskForm location context', () => {
     })
 
     expect(getCurrentPosition).not.toHaveBeenCalled()
+  })
+
+  it('uses the cached fix on refresh when permission is still prompt', async () => {
+    mockPermissions('prompt')
+    const getCurrentPosition = mockGeolocation(() => {
+      throw new Error('should not prompt on restore')
+    })
+    const fetchMock = vi.fn<
+      (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
+    >()
+    fetchMock.mockResolvedValue(new Response('{"type":"text","delta":"Hi"}\n'))
+    vi.stubGlobal('fetch', fetchMock)
+
+    writeCachedUserLocation({
+      accuracy: 12,
+      latitude: 48.8566,
+      longitude: 2.3522,
+      timeZone: 'Europe/Paris',
+    })
+    setLocationSyncEnabled(true)
+    render(<AskForm />)
+
+    await act(async () => {
+      await Promise.resolve()
+    })
+    expect(getCurrentPosition).not.toHaveBeenCalled()
+
+    fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), {
+      target: { value: 'What is nearby?' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+
+    const request = fetchMock.mock.calls[0]?.[1]
+    const payload = JSON.parse(String(request?.body)) as {
+      location?: { latitude: number; longitude: number }
+    }
+    expect(payload.location).toMatchObject({
+      latitude: 48.8566,
+      longitude: 2.3522,
+    })
   })
 
   it('quietly restores location on refresh when browser permission is already granted', async () => {

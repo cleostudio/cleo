@@ -3,6 +3,11 @@
 import { afterEach, describe, expect, it } from 'vitest'
 
 import {
+  readCachedUserLocation,
+  resetLocationCacheForTests,
+  writeCachedUserLocation,
+} from './location-cache'
+import {
   isLocationSyncEnabled,
   setLocationSyncEnabled,
   subscribeToLocationSync,
@@ -11,6 +16,7 @@ import {
 
 afterEach(() => {
   window.localStorage.clear()
+  resetLocationCacheForTests()
 })
 
 describe('location sync preference', () => {
@@ -42,6 +48,21 @@ describe('location sync preference', () => {
 
     expect(observed).toEqual([{ allowPrompt: false, enabled: true }])
     expect(isLocationSyncEnabled()).toBe(true)
+  })
+
+  it('clears the cached fix when Location is turned off', () => {
+    writeCachedUserLocation({
+      accuracy: 8,
+      latitude: 35.6895,
+      longitude: 139.6917,
+      timeZone: 'Asia/Tokyo',
+    })
+    setLocationSyncEnabled(true)
+    expect(readCachedUserLocation()).not.toBeNull()
+
+    setLocationSyncEnabled(false)
+    expect(isLocationSyncEnabled()).toBe(false)
+    expect(readCachedUserLocation()).toBeNull()
   })
 
   it('keeps cross-tab storage sync silent so other tabs do not re-prompt', () => {

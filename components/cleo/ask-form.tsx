@@ -25,6 +25,7 @@ import {
   MAX_IMAGES_PER_MESSAGE,
 } from "~/lib/cleo/client-images"
 import { requestUserLocation } from "~/lib/cleo/client-location"
+import { readCachedUserLocation } from "~/lib/cleo/location-cache"
 import type { UserLocation } from "~/lib/cleo/location"
 import {
   isLocationSyncEnabled,
@@ -272,7 +273,9 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const [error, setError] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [pendingImages, setPendingImages] = useState<string[]>([])
-  const [location, setLocation] = useState<UserLocation | null>(null)
+  const [location, setLocation] = useState<UserLocation | null>(() =>
+    isLocationSyncEnabled() ? readCachedUserLocation() : null,
+  )
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [scrollTick, setScrollTick] = useState(0)
@@ -373,7 +376,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
 
       // Page restore must not re-open the browser permission dialog. Only an
       // explicit Preferences toggle may prompt; refresh restores quietly when
-      // the browser already granted geolocation.
+      // the browser already granted geolocation, or from the last cached fix.
       void requestUserLocation({ allowPrompt })
         .then((nextLocation) => {
           if (isCurrent && locationRequestId === requestId) {
@@ -382,7 +385,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
         })
         .catch(() => {
           if (isCurrent && locationRequestId === requestId) {
-            setLocation(null)
+            setLocation(readCachedUserLocation())
           }
         })
     }

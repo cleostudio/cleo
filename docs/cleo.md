@@ -18,7 +18,7 @@ Read this when changing `/cleo`, `POST /api/responses`, or anything under
 | Zoom caption index | `content/cleo-topic-photo-zoom.json` (`pnpm generate:cleo-topic-photo-zoom`) |
 | Empty-state starters | `lib/cleo/portal-links.ts` |
 | Ask link builder | `lib/cleo/ask-link.ts` |
-| Location (client / preference / server validate) | `lib/cleo/client-location.ts`, `lib/cleo/location-preference.ts`, `lib/cleo/location-preference-account.ts`, `lib/cleo/location.ts` |
+| Location (client / preference / cache / server validate) | `lib/cleo/client-location.ts`, `lib/cleo/location-preference.ts`, `lib/cleo/location-preference-account.ts`, `lib/cleo/location-cache.ts`, `lib/cleo/location.ts` |
 | Styles | `app/cleo.css` (keep prompt dock above site dock via `--cleo-prompt-bottom`) |
 | Route layout flag | `components/cleo-route-attribute.tsx` (`html[data-cleo-route]`, cleared in `useLayoutEffect` before destination paint) |
 
@@ -85,14 +85,23 @@ Built by `lib/cleo/ask-link.ts`.
   - Guests: `localStorage` (`cleo-location-sync`).
   - Signed-in: Better Auth user field `locationSyncEnabled` (Neon) via
     `persistLocationSyncToAccount` / `authClient.updateUser` (reverts local
-    quietly if the write fails). Account is canonical once per sign-in —
-    `hydrateLocationSyncFromAccount` restores quietly (`allowPrompt: false`)
-    without racing a mid-toggle session refresh.
+    quietly if the write fails). Account is canonical on a fresh load —
+    `hydrateLocationSyncFromAccount` restores quietly (`allowPrompt: false`).
+    If the user toggles Location while the session is still resolving,
+    `reconcileLocationSyncOnSession` keeps the local choice and pushes it to
+    the account instead of letting a stale `false` wipe the preference.
 - Turning on may open the browser geolocation dialog; `client-location.ts`
-  requests one fresh high-accuracy position.
-- On refresh: restore quietly only if permission is already `granted` — never
-  re-prompt automatically (including after account hydrate / sign-in).
-- Off clears in-memory location immediately.
+  requests one fresh high-accuracy position and remembers a successful browser
+  grant in `localStorage` (`cleo-location-browser-granted`).
+- On refresh / leaving and returning: restore quietly when permission is
+  already `granted`, or when the Permissions API is unavailable/`unknown`
+  but this origin previously returned a position (Safari). Never re-prompt
+  automatically for `prompt` / “Allow once” (including after account hydrate /
+  sign-in). Quiet restore accepts a recent GPS fix (`maximumAge` 60s) and
+  falls back to the last reading in `localStorage` (`cleo-location-last`,
+  24h TTL) so the footer / Cleo do not show “unavailable” after refresh when
+  Location is still on.
+- Off clears the in-memory location and the cached last reading immediately.
 - Server validates in `location.ts` and adds coords + IANA TZ only to private
   per-turn instructions. Browser settings remain the grant/revoke control.
 - `components/footer-coordinates.tsx` may render coordinates when present.
@@ -103,10 +112,11 @@ Built by `lib/cleo/ask-link.ts`.
 
 ## Client-only state
 
-Conversation, current location value, and encrypted reasoning items are
-browser-only. Conversation clears on reload. Location preference persists
-(localStorage for guests; account field when signed in). Reasoning items keep
-multi-turn coherent under `store: false`.
+Conversation and encrypted reasoning items are browser-only and clear on
+reload. Location preference persists (localStorage for guests; account field
+when signed in). The last successful fix also persists while Location is on
+(`cleo-location-last`) so refresh can restore coordinates without
+re-prompting. Reasoning items keep multi-turn coherent under `store: false`.
 
 Account auth is Better Auth + Neon (see [`auth.md`](./auth.md)). No media
 library or AMA booking.
@@ -122,7 +132,9 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
 - Multi-turn chat, reasoning activity, web search
 - Image attach/vision, image generation, streaming, cancellation
 - Retry/Continue on incomplete/failed turns
-- Location preference (grant, deny, refresh without re-prompt; signed-in
-  restore across devices without re-prompt)
+- Location preference (grant, deny, refresh/leave-and-return without
+  re-prompt; Safari/`unknown` Permissions API restores after a prior grant;
+  signed-in restore across devices without re-prompt; toggle while session
+  is loading is not wiped by a stale account `false`)
 - After atlas/space caption or rendition metadata changes:
   `pnpm generate:cleo-topic-photo-zoom`
