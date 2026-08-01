@@ -16,6 +16,7 @@ const keys = [
   'PUBLIC_SITE_URL',
   'SITE_URL',
   'VERCEL_URL',
+  'VERCEL_ENV',
 ] as const
 
 const previous = new Map<string, string | undefined>()
@@ -79,6 +80,20 @@ describe('auth env helpers', () => {
 
     process.env.PUBLIC_SITE_URL = 'https://cleoalpha.vercel.app'
     expect(getBetterAuthUrl()).toBe('https://cleoalpha.vercel.app')
+
+    process.env.BETTER_AUTH_URL = 'https://auth.example.com'
+    expect(getBetterAuthUrl()).toBe('https://auth.example.com')
+  })
+
+  it('prefers VERCEL_URL over site URL stubs on Preview', () => {
+    stashEnv()
+    process.env.VERCEL_ENV = 'preview'
+    process.env.VERCEL_URL = 'cleo-git-auth-preview.vercel.app'
+    process.env.PUBLIC_SITE_URL = 'https://cleoalpha.vercel.app'
+    process.env.SITE_URL = 'https://cleoalpha.vercel.app'
+    expect(getBetterAuthUrl()).toBe(
+      'https://cleo-git-auth-preview.vercel.app',
+    )
 
     process.env.BETTER_AUTH_URL = 'https://auth.example.com'
     expect(getBetterAuthUrl()).toBe('https://auth.example.com')

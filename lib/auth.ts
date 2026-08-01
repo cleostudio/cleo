@@ -11,13 +11,21 @@ export function getBetterAuthSecret(): string {
 
 /** Base URL for Better Auth cookies and callbacks. */
 export function getBetterAuthUrl(): string {
+  const explicit = process.env.BETTER_AUTH_URL?.trim()
+  if (explicit) return explicit
+
+  // Preview deployments must use the deployment host. `ensure-preview-env`
+  // (and project SITE_URL) point at the canonical alpha origin; using that
+  // as Better Auth baseURL mints cookies / CSRF for the wrong host.
+  const vercelUrl = process.env.VERCEL_URL?.trim()
+  if (process.env.VERCEL_ENV === 'preview' && vercelUrl) {
+    return `https://${vercelUrl}`
+  }
+
   return (
-    process.env.BETTER_AUTH_URL?.trim() ||
     process.env.PUBLIC_SITE_URL?.trim() ||
     process.env.SITE_URL?.trim() ||
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL.trim()}`
-      : '') ||
+    (vercelUrl ? `https://${vercelUrl}` : '') ||
     'http://localhost:3000'
   )
 }
