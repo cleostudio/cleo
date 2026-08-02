@@ -66,7 +66,7 @@ describe('civilization subjects', () => {
   })
 
   it('covers a broad starter set across regions', () => {
-    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(12)
+    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(18)
     expect(civilizationSubjectSlugs()).toEqual(
       expect.arrayContaining([
         'mesopotamia',
@@ -74,6 +74,11 @@ describe('civilization subjects', () => {
         'han-china',
         'inca',
         'mali-empire',
+        'achaemenid-persia',
+        'ottoman-empire',
+        'mongol-empire',
+        'tang-china',
+        'classical-japan',
       ]),
     )
   })

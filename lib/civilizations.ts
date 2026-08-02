@@ -67,8 +67,8 @@ function withPhotos(draft: CivilizationSubjectDraft): CivilizationSubject {
 }
 
 /**
- * Curated catalog — Africa & Near East, Mediterranean, Asia, and Americas.
- * Expand here as new Civilizations guides ship.
+ * Curated catalog — Africa & Near East, Mediterranean, Asia, and Americas
+ * (twenty guides). Expand here as new Civilizations guides ship.
  */
 const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
   {
@@ -169,6 +169,57 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       {
         label: 'UNESCO — Samarra Archaeological City',
         url: 'https://whc.unesco.org/en/list/276',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'achaemenid-persia',
+    code: 'ACH',
+    name: 'Achaemenid Persia',
+    category: 'Africa & Near East',
+    subtitle: 'Imperial continuum · Iranian plateau',
+    about:
+      'The Achaemenid Empire was the first state to treat the Near East, Egypt, and parts of Central Asia as one administrative problem. From an Iranian highland core, Cyrus, Darius, and Xerxes built satrapies, royal roads, and a multilingual bureaucracy that collected tribute without erasing every local cult. Orientation is infrastructural and ceremonial: Persepolis staged the empire’s New Year theatre; Pasargadae kept Cyrus’s tomb as founder myth in stone; cliff inscriptions at Behistun broadcast legitimacy in three scripts. Aramaic traveled as a chancery language beside Old Persian; Greek cities on the Aegean fringe became both partners and flashpoints. The empire fell to Alexander in the late fourth century BCE, but its habits of road, archive, and provincial rule outlived the dynasty. This primer stays with plateau heartland, satrapy, and ceremonial capitals rather than every campaign.',
+    facts: {
+      kind: 'Imperial continuum',
+      heartland: 'Iranian plateau · Fars & Media',
+      era: 'c. 550 – 330 BCE',
+      peak: 'Darius I and Xerxes I, late 6th–early 5th centuries BCE',
+      writing: 'Old Persian cuneiform; Imperial Aramaic',
+      exploreLinks: 'Iran, Iraq, Turkey, Egypt, Afghanistan, Uzbekistan',
+    },
+    features: [
+      {
+        name: 'Persepolis',
+        description:
+          'The ceremonial terrace of the Achaemenid kings — Apadana stairways and ruined columns where subject peoples were staged in stone relief.',
+      },
+      {
+        name: 'Gate of All Nations',
+        description:
+          'Xerxes’ colossal entrance at Persepolis, flanked by lamassu-like guardians — an imperial threshold designed for processions from every satrapy.',
+      },
+      {
+        name: 'Tomb of Cyrus',
+        description:
+          'The gabled stone tomb at Pasargadae — a spare founder’s monument in the first Achaemenid capital’s plain.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Achaemenian Dynasty',
+        url: 'https://www.britannica.com/topic/Achaemenian-Dynasty',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — The Achaemenid Persian Empire',
+        url: 'https://www.metmuseum.org/toah/hd/acha/hd_acha.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Persepolis',
+        url: 'https://whc.unesco.org/en/list/114',
         kind: 'catalog',
       },
     ],
@@ -429,6 +480,57 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
     ],
   },
   {
+    slug: 'ottoman-empire',
+    code: 'OTT',
+    name: 'Ottoman Empire',
+    category: 'Mediterranean',
+    subtitle: 'Imperial continuum · Anatolia & Balkans',
+    about:
+      'The Ottoman Empire grew from a northwestern Anatolian principality into a multi-continental state that outlasted medieval neighbors by centuries. Constantinople’s fall in 1453 made the city — Istanbul — an imperial capital that fused Byzantine geography with Islamic dynasty, law, and patronage. Orientation is administrative and architectural: a millet system that managed difference, a Janissary corps that became both strength and liability, and mosque complexes that organized charity, learning, and urban skyline together. Süleyman’s sixteenth-century high tide reached deep into Europe, the Maghreb, and the Arab lands; later centuries were reform, rivalry, and slow territorial loss rather than a single collapse date. Turkish, Arabic, and Persian literatures shared court space; Greek, Armenian, Jewish, and Slavic communities remained part of the imperial fabric. This primer stays with capital, mosque-complex statecraft, and long continuity from the late medieval to the early modern world.',
+    facts: {
+      kind: 'Imperial continuum',
+      heartland: 'Anatolia · Balkans · eastern Mediterranean',
+      era: 'c. 1299 – 1922 CE',
+      peak: 'Süleymanic 16th century',
+      writing: 'Ottoman Turkish (Arabic script); Arabic & Persian literary registers',
+      exploreLinks: 'Turkey, Greece, Egypt, Syria, Iraq, Bulgaria, Serbia, Hungary',
+    },
+    features: [
+      {
+        name: 'Süleymaniye Mosque',
+        description:
+          'Mimar Sinan’s hilltop complex for Süleyman — mosque, madrasas, and charitable institutions as Ottoman urban statecraft in stone.',
+      },
+      {
+        name: 'Topkapı Palace',
+        description:
+          'The walled imperial residence above the Golden Horn — courtyards and kiosks where sultanic household, council, and treasury shared one precinct.',
+      },
+      {
+        name: 'Sultan Ahmed Mosque',
+        description:
+          'The early-seventeenth-century Blue Mosque facing Hagia Sophia — six minarets and a cascading dome profile that reset Istanbul’s sacred skyline.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Ottoman Empire',
+        url: 'https://www.britannica.com/place/Ottoman-Empire',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — The Art of the Ottomans',
+        url: 'https://www.metmuseum.org/toah/hd/otto1/hd_otto1.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Historic Areas of Istanbul',
+        url: 'https://whc.unesco.org/en/list/356',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
     slug: 'carthage',
     code: 'CAR',
     name: 'Carthage',
@@ -582,6 +684,57 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
     ],
   },
   {
+    slug: 'tang-china',
+    code: 'TNG',
+    name: 'Tang China',
+    category: 'Asia',
+    subtitle: 'Cosmopolitan dynasty · Chang’an',
+    about:
+      'The Tang dynasty made Chang’an a world city: a planned capital where Silk Road goods, Buddhist pilgrims, poets, and foreign enclaves met under an imperial canopy. Orientation is cosmopolitan and institutional — civil-service exams matured, equal-field ideas tried to stabilize peasantry, and frontier protectorates pushed influence deep into Central Asia before contraction. Buddhism left monumental traces in cliff grottoes and river-carved Buddhas even as court taste swung between patronage and purge. Poetry and painting set canons later ages treated as classical; Japan and Korea borrowed Tang models of law, capital layout, and court culture. The An Lushan rebellion cracked the high Tang; the dynasty limped to 907, but the memory of openness and literary brilliance stayed. This primer stays with capital, Buddhism in stone, and cross-border exchange rather than every eunuch faction.',
+    facts: {
+      kind: 'Cosmopolitan dynasty',
+      heartland: 'Guanzhong basin · Yellow River China',
+      era: '618 – 907 CE',
+      peak: 'High Tang, 7th–mid-8th centuries',
+      writing: 'Classical Chinese',
+      exploreLinks: 'China, Mongolia, Vietnam, North Korea, South Korea',
+    },
+    features: [
+      {
+        name: 'Giant Wild Goose Pagoda',
+        description:
+          'A brick pagoda in Xi’an associated with Xuanzang’s scripture translations — Tang Buddhist cosmopolitanism rising over the old Chang’an plain.',
+      },
+      {
+        name: 'Longmen Grottoes',
+        description:
+          'Cliff-carved Buddha assemblies near Luoyang — imperial and popular patronage cut into limestone along the Yi River.',
+      },
+      {
+        name: 'Leshan Giant Buddha',
+        description:
+          'A colossal riverside Buddha begun in the Tang era — engineering and devotion scaled to calm a dangerous confluence.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Tang dynasty',
+        url: 'https://www.britannica.com/topic/Tang-dynasty',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Tang Dynasty',
+        url: 'https://www.metmuseum.org/toah/hd/tang/hd_tang.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Longmen Grottoes',
+        url: 'https://whc.unesco.org/en/list/1003',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
     slug: 'khmer',
     code: 'KHM',
     name: 'Khmer Empire',
@@ -679,6 +832,108 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       {
         label: 'UNESCO — Buddhist Monuments at Sanchi',
         url: 'https://whc.unesco.org/en/list/524',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'mongol-empire',
+    code: 'MNG',
+    name: 'Mongol Empire',
+    category: 'Asia',
+    subtitle: 'Steppe empire · Eurasian corridors',
+    about:
+      'The Mongol Empire was the largest contiguous land empire in history — a steppe political machine that turned mobility into administration. From the Orkhon heartland, Chinggis Khan and his successors linked China, Central Asia, Iran, and Eastern Europe through conquest, relay posts, and a legal order that prized submission and census. Orientation is pastoral and logistical: horse herds, seasonal camps, and a Yam courier network that made distance negotiable. Karakorum served as an early capital; later the realm fractured into khanates (Yuan, Ilkhanate, Chagatai, Golden Horde) that still shared kinship idioms and trade incentives. Religious pluralism was often pragmatic; merchants and craftsmen moved under imperial safe-conduct when the system worked. The empire’s thirteenth-century shock rewrote maps; its afterlives reshaped states from Beijing to Moscow. This primer stays with steppe logistics, Orkhon geography, and imperial scale rather than only battlefield terror.',
+    facts: {
+      kind: 'Steppe empire',
+      heartland: 'Mongolian plateau · Orkhon Valley',
+      era: '1206 – late 14th century (unified to successor khanates)',
+      peak: 'Mid–13th century under Möngke and the early successor states',
+      writing: 'Mongolian script (Uyghur-derived); multilingual chanceries',
+      exploreLinks: 'Mongolia, China, Russia, Kazakhstan, Uzbekistan, Iran, Ukraine',
+    },
+    features: [
+      {
+        name: 'Orkhon Valley',
+        description:
+          'The riverine steppe heartland of successive Inner Asian powers — pasture, memorial culture, and the geographic stage for Mongol state formation.',
+      },
+      {
+        name: 'Erdene Zuu Monastery',
+        description:
+          'A walled monastery complex at Karakorum’s site — later Buddhist architecture marking the old imperial capital’s plain.',
+      },
+      {
+        name: 'Karakorum',
+        description:
+          'The early Mongol capital in the Orkhon — a crossroads town of tents, workshops, and envoys before power shifted to regional khanate seats.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Mongol empire',
+        url: 'https://www.britannica.com/place/Mongol-empire',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — The Mongol Empire',
+        url: 'https://www.metmuseum.org/toah/hd/mgol/hd_mgol.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Orkhon Valley Cultural Landscape',
+        url: 'https://whc.unesco.org/en/list/1081',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'classical-japan',
+    code: 'JPN',
+    name: 'Classical Japan',
+    category: 'Asia',
+    subtitle: 'Island courts · Heian to Edo',
+    about:
+      'Classical Japan’s Heian-to-Edo arc is an island story of imported forms remade locally. From the Heian court’s poetry and Pure Land aesthetics, through warrior governments that still needed Kyoto’s cultural capital, to the Tokugawa peace that froze status and urbanized consumption, the archipelago built dense traditions without becoming a continental empire. Orientation is courtly and spatial: shrine and temple precincts, castle towns, and a writing culture that braided Chinese classics with kana vernacular. Byōdō-in’s Phoenix Hall freezes Heian Pure Land longing in architecture; Muromachi Zen and Ashikaga patronage shaped gardens and ink taste; Edo-period castles and cities organized a closed-country order that still traded selectively. Shinto and Buddhism intertwined more often than they competed cleanly. This primer stays with Heian–Edo continuity — courts, temples, and castle authority — rather than Meiji industrialization or a single clan chronicle.',
+    facts: {
+      kind: 'Island court civilization',
+      heartland: 'Kinai basin · Japanese archipelago',
+      era: 'Heian to Edo, c. 794 – 1868 CE (primer span)',
+      peak: 'Heian court culture; Edo urban peace, 17th–18th centuries',
+      writing: 'Classical Chinese & Japanese (kanji/kana)',
+      exploreLinks: 'Japan',
+    },
+    features: [
+      {
+        name: 'Byōdō-in Phoenix Hall',
+        description:
+          'A Heian Pure Land pavilion at Uji — symmetrical wings and reflecting pond as aristocratic Buddhism made architecture.',
+      },
+      {
+        name: 'Kinkaku-ji',
+        description:
+          'The Golden Pavilion in Kyoto — a Muromachi villa-temple whose mirrored gold became an emblem of Ashikaga cultural power.',
+      },
+      {
+        name: 'Himeji Castle',
+        description:
+          'A white multi-keep fortress perfected in the early Edo order — castle-town authority expressed as elegant military architecture.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Japan',
+        url: 'https://www.britannica.com/place/Japan',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Heian Period',
+        url: 'https://www.metmuseum.org/toah/hd/heia/hd_heia.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Himeji-jo',
+        url: 'https://whc.unesco.org/en/list/661',
         kind: 'catalog',
       },
     ],

@@ -1373,5 +1373,465 @@
         }
       ]
     }
+  ],
+  "achaemenid-persia": [
+    {
+      "featureName": "Persepolis",
+      "alt": "Persepolis — achaemenid persia",
+      "caption": "Persepolis",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APers%C3%A9polis%2C_Ir%C3%A1n%2C_2016-09-24%2C_DD_53.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Persépolis, Irán, 2016-09-24, DD 53.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Persépolis, Irán, 2016-09-24, DD 53.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8a8337eb7eee6999fe1a72ab3281a2d6f2ce23fe1c7d3c6893c220aaed0ed766",
+      "width": 6961,
+      "height": 5231,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/achaemenid-persia/w640.jpg",
+          "bytes": 62440
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/achaemenid-persia/w1280.jpg",
+          "bytes": 200742
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/achaemenid-persia/w2048.jpg",
+          "bytes": 543105
+        }
+      ]
+    },
+    {
+      "featureName": "Gate of All Nations",
+      "alt": "Gate of All Nations — achaemenid persia",
+      "caption": "Gate of All Nations",
+      "photographer": "Skot",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APersepolis_%E2%80%93_Gate_of_All_Nations_01.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Persepolis – Gate of All Nations 01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Persepolis – Gate of All Nations 01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3f1f32eed3d3083783f0dc9fa4f15d693a7cfb0e1a07aded3b5e7526df6a611d",
+      "width": 4810,
+      "height": 3207,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/achaemenid-persia/w640-2.jpg",
+          "bytes": 82517
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/achaemenid-persia/w1280-2.jpg",
+          "bytes": 181196
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/achaemenid-persia/w2048-2.jpg",
+          "bytes": 448896
+        }
+      ]
+    },
+    {
+      "featureName": "Tomb of Cyrus",
+      "alt": "Tomb of Cyrus — achaemenid persia",
+      "caption": "Tomb of Cyrus",
+      "photographer": "Bernd81",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APasargad_Tomb_Cyrus3.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Pasargad Tomb Cyrus3.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Pasargad Tomb Cyrus3.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "358c9ab3fc4d0bc5cd8ed20b8ef498fabe6684420f49b6888f8dec04e796c986",
+      "width": 5996,
+      "height": 4000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/achaemenid-persia/w640-3.jpg",
+          "bytes": 77265
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/achaemenid-persia/w1280-3.jpg",
+          "bytes": 183804
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/achaemenid-persia/w2048-3.jpg",
+          "bytes": 486864
+        }
+      ]
+    }
+  ],
+  "ottoman-empire": [
+    {
+      "featureName": "Süleymaniye Mosque",
+      "alt": "Süleymaniye Mosque — ottoman empire",
+      "caption": "Süleymaniye Mosque",
+      "photographer": "Arild Vågen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AS%C3%BCleymaniye_Mosque_February_2013_01.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Süleymaniye Mosque February 2013 01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Süleymaniye Mosque February 2013 01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c5af3291675c0eb2d44d6e6c5495acc69126c760e55a508d39713827babe2d1e",
+      "width": 6008,
+      "height": 4408,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/ottoman-empire/w640.jpg",
+          "bytes": 66087
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/ottoman-empire/w1280.jpg",
+          "bytes": 229894
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/ottoman-empire/w2048.jpg",
+          "bytes": 626675
+        }
+      ]
+    },
+    {
+      "featureName": "Topkapı Palace",
+      "alt": "Topkapı Palace — ottoman empire",
+      "caption": "Topkapı Palace",
+      "photographer": "A.Savin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIstanbul_asv2020-02_img23_Topkap%C4%B1_Palace.jpg",
+      "license": "FAL",
+      "commonsTitle": "File:Istanbul asv2020-02 img23 Topkapı Palace.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Istanbul asv2020-02 img23 Topkapı Palace.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a4225ca69196e393351cea21fe1a7584e78b0b21c0b9c9953ad2514299ea4ff3",
+      "width": 6515,
+      "height": 4343,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/ottoman-empire/w640-2.jpg",
+          "bytes": 116112
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/ottoman-empire/w1280-2.jpg",
+          "bytes": 373124
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/ottoman-empire/w2048-2.jpg",
+          "bytes": 1033522
+        }
+      ]
+    },
+    {
+      "featureName": "Sultan Ahmed Mosque",
+      "alt": "Sultan Ahmed Mosque — ottoman empire",
+      "caption": "Sultan Ahmed Mosque",
+      "photographer": "Benh LIEU SONG ( Flickr )",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABlue_Mosque_Courtyard_Dusk_Wikimedia_Commons.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Blue Mosque Courtyard Dusk Wikimedia Commons.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Blue Mosque Courtyard Dusk Wikimedia Commons.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "927a79ab5bfbc38a950715e021940b3398eda99294e93d985d04061df0f7c437",
+      "width": 7937,
+      "height": 5580,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/ottoman-empire/w640-3.jpg",
+          "bytes": 124439
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/ottoman-empire/w1280-3.jpg",
+          "bytes": 227627
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/ottoman-empire/w2048-3.jpg",
+          "bytes": 486013
+        }
+      ]
+    }
+  ],
+  "mongol-empire": [
+    {
+      "featureName": "Orkhon Valley",
+      "alt": "Orkhon Valley — mongol empire",
+      "caption": "Orkhon Valley",
+      "photographer": "Jonashtand",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A202408_Orkhon_Valley_08.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:202408 Orkhon Valley 08.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:202408 Orkhon Valley 08.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7790bc0ffb33fa6d9481546eb0bda0f8788f9f47a4d1b7e798f7ac667ba59236",
+      "width": 6000,
+      "height": 4000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mongol-empire/w640.jpg",
+          "bytes": 56299
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mongol-empire/w1280.jpg",
+          "bytes": 152482
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mongol-empire/w2048.jpg",
+          "bytes": 421889
+        }
+      ]
+    },
+    {
+      "featureName": "Erdene Zuu Monastery",
+      "alt": "Erdene Zuu Monastery — mongol empire",
+      "caption": "Erdene Zuu Monastery",
+      "photographer": "Alexandr frolov",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AErdene_Zuu_Monastery_02.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Erdene Zuu Monastery 02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Erdene Zuu Monastery 02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d013e084f05ddabb2edf4dd22c88367c7da04fa566fea2af61e8032a6c35e573",
+      "width": 5256,
+      "height": 3558,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mongol-empire/w640-2.jpg",
+          "bytes": 46382
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mongol-empire/w1280-2.jpg",
+          "bytes": 107044
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mongol-empire/w2048-2.jpg",
+          "bytes": 277556
+        }
+      ]
+    },
+    {
+      "featureName": "Karakorum",
+      "alt": "Karakorum — mongol empire",
+      "caption": "Karakorum",
+      "photographer": "Marcin Konsek",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWidok_na_miasto_Karakorum_03.JPG",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Widok na miasto Karakorum 03.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Widok na miasto Karakorum 03.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "359032f331f15b0724aa472f74fad67ed7261f3274e0fb832712d932b91b20d6",
+      "width": 3248,
+      "height": 2166,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mongol-empire/w640-3.jpg",
+          "bytes": 44315
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mongol-empire/w1280-3.jpg",
+          "bytes": 118175
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mongol-empire/w2048-3.jpg",
+          "bytes": 281815
+        }
+      ]
+    }
+  ],
+  "tang-china": [
+    {
+      "featureName": "Giant Wild Goose Pagoda",
+      "alt": "Giant Wild Goose Pagoda — tang china",
+      "caption": "Giant Wild Goose Pagoda",
+      "photographer": "Alexey Komarov",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGiant_Wild_Goose_Pagoda%2C_Xi'an%2C_May%2C_2018-1.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Giant Wild Goose Pagoda, Xi'an, May, 2018-1.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Giant Wild Goose Pagoda, Xi'an, May, 2018-1.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "42b9635c64feafe8bd8bee572bf09d7410820920db33e6a5e90a2c09e6ea21f7",
+      "width": 5574,
+      "height": 3819,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/tang-china/w640.jpg",
+          "bytes": 71860
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/tang-china/w1280.jpg",
+          "bytes": 199880
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/tang-china/w2048.jpg",
+          "bytes": 518405
+        }
+      ]
+    },
+    {
+      "featureName": "Longmen Grottoes",
+      "alt": "Longmen Grottoes — tang china",
+      "caption": "Longmen Grottoes",
+      "photographer": "沈澄心",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALongmen_Grottoes_20240810_039.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Longmen Grottoes 20240810 039.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Longmen Grottoes 20240810 039.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "16902dea4c8b8923a4db7d72bbca767e2299521acfc256f42cc651ff37816649",
+      "width": 3904,
+      "height": 2928,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/tang-china/w640-2.jpg",
+          "bytes": 125145
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/tang-china/w1280-2.jpg",
+          "bytes": 336715
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/tang-china/w2048-2.jpg",
+          "bytes": 863368
+        }
+      ]
+    },
+    {
+      "featureName": "Leshan Giant Buddha",
+      "alt": "Leshan Giant Buddha — tang china",
+      "caption": "Leshan Giant Buddha",
+      "photographer": "Calistemon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALeshan_Giant_Buddha%2C_March_2000_04.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Leshan Giant Buddha, March 2000 04.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Leshan Giant Buddha, March 2000 04.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "68dda38c815cb0e4c92623f9256bec68e50a9564ba9dfca3ca248ca22b6dcbc5",
+      "width": 3360,
+      "height": 5184,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/tang-china/w640-3.jpg",
+          "bytes": 121809
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/tang-china/w1280-3.jpg",
+          "bytes": 352501
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/tang-china/w2048-3.jpg",
+          "bytes": 795352
+        }
+      ]
+    }
+  ],
+  "classical-japan": [
+    {
+      "featureName": "Byōdō-in Phoenix Hall",
+      "alt": "Byōdō-in Phoenix Hall — classical japan",
+      "caption": "Byōdō-in Phoenix Hall",
+      "photographer": "Martin Falbisoner",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APhoenix_Hall%2C_Byodo-in%2C_November_2016_-01.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Phoenix Hall, Byodo-in, November 2016 -01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Phoenix Hall, Byodo-in, November 2016 -01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "48cad9f483c1a901015ab3ef6f54542252a6849048b0f649c5590e73cd7f9436",
+      "width": 5377,
+      "height": 2812,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/classical-japan/w640.jpg",
+          "bytes": 62319
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/classical-japan/w1280.jpg",
+          "bytes": 173375
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/classical-japan/w2048.jpg",
+          "bytes": 462642
+        }
+      ]
+    },
+    {
+      "featureName": "Kinkaku-ji",
+      "alt": "Kinkaku-ji — classical japan",
+      "caption": "Kinkaku-ji",
+      "photographer": "Basile Morin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWater_reflection_of_Kinkaku-ji_Temple_a_sunny_day%2C_Kyoto%2C_Japan.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Water reflection of Kinkaku-ji Temple a sunny day, Kyoto, Japan.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Water reflection of Kinkaku-ji Temple a sunny day, Kyoto, Japan.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8c398db97f17de15c29089a2a9b372b3d127c51f507e37ad0fac79c7ce06eea4",
+      "width": 5928,
+      "height": 3335,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/classical-japan/w640-2.jpg",
+          "bytes": 90399
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/classical-japan/w1280-2.jpg",
+          "bytes": 220841
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/classical-japan/w2048-2.jpg",
+          "bytes": 561972
+        }
+      ]
+    },
+    {
+      "featureName": "Himeji Castle",
+      "alt": "Himeji Castle — classical japan",
+      "caption": "Himeji Castle",
+      "photographer": "Martin Falbisoner",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHimeji_Castle%2C_November_2016_-02.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Himeji Castle, November 2016 -02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Himeji Castle, November 2016 -02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1915493550eb3c25d5d58a72d4568331abcf6529614b40a2d65bca4890d4bacc",
+      "width": 5179,
+      "height": 2688,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/classical-japan/w640-3.jpg",
+          "bytes": 63963
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/classical-japan/w1280-3.jpg",
+          "bytes": 200445
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/classical-japan/w2048-3.jpg",
+          "bytes": 576807
+        }
+      ]
+    }
   ]
 }

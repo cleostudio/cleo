@@ -15787,6 +15787,78 @@
       }
     ]
   },
+  "civilizations/achaemenid-persia": {
+    "collection": "civilizations",
+    "title": "Persepolis",
+    "subtitle": "Achaemenid Persia",
+    "alt": "Persepolis — achaemenid persia",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 6961,
+    "height": 5231,
+    "renditions": [
+      {
+        "src": "/images/civilizations/achaemenid-persia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/achaemenid-persia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/achaemenid-persia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/achaemenid-persia-2": {
+    "collection": "civilizations",
+    "title": "Gate of All Nations",
+    "subtitle": "Achaemenid Persia",
+    "alt": "Gate of All Nations — achaemenid persia",
+    "photographer": "Skot",
+    "license": "CC BY-SA 4.0",
+    "width": 4810,
+    "height": 3207,
+    "renditions": [
+      {
+        "src": "/images/civilizations/achaemenid-persia/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/achaemenid-persia/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/achaemenid-persia/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/achaemenid-persia-3": {
+    "collection": "civilizations",
+    "title": "Tomb of Cyrus",
+    "subtitle": "Achaemenid Persia",
+    "alt": "Tomb of Cyrus — achaemenid persia",
+    "photographer": "Bernd81",
+    "license": "CC BY-SA 4.0",
+    "width": 5996,
+    "height": 4000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/achaemenid-persia/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/achaemenid-persia/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/achaemenid-persia/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "civilizations/mali-empire": {
     "collection": "civilizations",
     "title": "Great Mosque of Djenné",
@@ -16147,6 +16219,78 @@
       }
     ]
   },
+  "civilizations/ottoman-empire": {
+    "collection": "civilizations",
+    "title": "Süleymaniye Mosque",
+    "subtitle": "Ottoman Empire",
+    "alt": "Süleymaniye Mosque — ottoman empire",
+    "photographer": "Arild Vågen",
+    "license": "CC BY-SA 3.0",
+    "width": 6008,
+    "height": 4408,
+    "renditions": [
+      {
+        "src": "/images/civilizations/ottoman-empire/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/ottoman-empire/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/ottoman-empire/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/ottoman-empire-2": {
+    "collection": "civilizations",
+    "title": "Topkapı Palace",
+    "subtitle": "Ottoman Empire",
+    "alt": "Topkapı Palace — ottoman empire",
+    "photographer": "A.Savin",
+    "license": "FAL",
+    "width": 6515,
+    "height": 4343,
+    "renditions": [
+      {
+        "src": "/images/civilizations/ottoman-empire/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/ottoman-empire/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/ottoman-empire/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/ottoman-empire-3": {
+    "collection": "civilizations",
+    "title": "Sultan Ahmed Mosque",
+    "subtitle": "Ottoman Empire",
+    "alt": "Sultan Ahmed Mosque — ottoman empire",
+    "photographer": "Benh LIEU SONG ( Flickr )",
+    "license": "CC BY-SA 3.0",
+    "width": 7937,
+    "height": 5580,
+    "renditions": [
+      {
+        "src": "/images/civilizations/ottoman-empire/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/ottoman-empire/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/ottoman-empire/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "civilizations/carthage": {
     "collection": "civilizations",
     "title": "Antonine Baths",
@@ -16363,6 +16507,78 @@
       }
     ]
   },
+  "civilizations/tang-china": {
+    "collection": "civilizations",
+    "title": "Giant Wild Goose Pagoda",
+    "subtitle": "Tang China",
+    "alt": "Giant Wild Goose Pagoda — tang china",
+    "photographer": "Alexey Komarov",
+    "license": "CC BY-SA 4.0",
+    "width": 5574,
+    "height": 3819,
+    "renditions": [
+      {
+        "src": "/images/civilizations/tang-china/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/tang-china/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/tang-china/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/tang-china-2": {
+    "collection": "civilizations",
+    "title": "Longmen Grottoes",
+    "subtitle": "Tang China",
+    "alt": "Longmen Grottoes — tang china",
+    "photographer": "沈澄心",
+    "license": "CC0",
+    "width": 3904,
+    "height": 2928,
+    "renditions": [
+      {
+        "src": "/images/civilizations/tang-china/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/tang-china/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/tang-china/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/tang-china-3": {
+    "collection": "civilizations",
+    "title": "Leshan Giant Buddha",
+    "subtitle": "Tang China",
+    "alt": "Leshan Giant Buddha — tang china",
+    "photographer": "Calistemon",
+    "license": "CC BY-SA 4.0",
+    "width": 3360,
+    "height": 5184,
+    "renditions": [
+      {
+        "src": "/images/civilizations/tang-china/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/tang-china/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/tang-china/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "civilizations/khmer": {
     "collection": "civilizations",
     "title": "Angkor Wat",
@@ -16503,6 +16719,150 @@
       },
       {
         "src": "/images/civilizations/maurya/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/mongol-empire": {
+    "collection": "civilizations",
+    "title": "Orkhon Valley",
+    "subtitle": "Mongol Empire",
+    "alt": "Orkhon Valley — mongol empire",
+    "photographer": "Jonashtand",
+    "license": "CC BY-SA 4.0",
+    "width": 6000,
+    "height": 4000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/mongol-empire/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/mongol-empire/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/mongol-empire/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/mongol-empire-2": {
+    "collection": "civilizations",
+    "title": "Erdene Zuu Monastery",
+    "subtitle": "Mongol Empire",
+    "alt": "Erdene Zuu Monastery — mongol empire",
+    "photographer": "Alexandr frolov",
+    "license": "CC BY-SA 4.0",
+    "width": 5256,
+    "height": 3558,
+    "renditions": [
+      {
+        "src": "/images/civilizations/mongol-empire/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/mongol-empire/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/mongol-empire/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/mongol-empire-3": {
+    "collection": "civilizations",
+    "title": "Karakorum",
+    "subtitle": "Mongol Empire",
+    "alt": "Karakorum — mongol empire",
+    "photographer": "Marcin Konsek",
+    "license": "CC BY-SA 4.0",
+    "width": 3248,
+    "height": 2166,
+    "renditions": [
+      {
+        "src": "/images/civilizations/mongol-empire/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/mongol-empire/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/mongol-empire/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/classical-japan": {
+    "collection": "civilizations",
+    "title": "Byōdō-in Phoenix Hall",
+    "subtitle": "Classical Japan",
+    "alt": "Byōdō-in Phoenix Hall — classical japan",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 5377,
+    "height": 2812,
+    "renditions": [
+      {
+        "src": "/images/civilizations/classical-japan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/classical-japan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/classical-japan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/classical-japan-2": {
+    "collection": "civilizations",
+    "title": "Kinkaku-ji",
+    "subtitle": "Classical Japan",
+    "alt": "Kinkaku-ji — classical japan",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 5928,
+    "height": 3335,
+    "renditions": [
+      {
+        "src": "/images/civilizations/classical-japan/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/classical-japan/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/classical-japan/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/classical-japan-3": {
+    "collection": "civilizations",
+    "title": "Himeji Castle",
+    "subtitle": "Classical Japan",
+    "alt": "Himeji Castle — classical japan",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 5179,
+    "height": 2688,
+    "renditions": [
+      {
+        "src": "/images/civilizations/classical-japan/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/classical-japan/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/classical-japan/w2048-3.jpg",
         "width": 2048
       }
     ]
