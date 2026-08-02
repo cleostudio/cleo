@@ -190,6 +190,16 @@ describe('HomeSiteSearch', () => {
     expect(push).toHaveBeenCalledWith('/explore/japan')
   })
 
+  it('clears the query after a result is clicked', () => {
+    const field = setup()
+    type(field, 'japan')
+
+    fireEvent.click(screen.getAllByRole('option')[0]!)
+
+    expect((field as HTMLInputElement).value).toBe('')
+    expect(screen.queryByRole('listbox')).toBeNull()
+  })
+
   it('moves the highlight with the arrow keys and wraps around', () => {
     const field = setup()
     type(field, 'japan')

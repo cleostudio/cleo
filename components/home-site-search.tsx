@@ -174,9 +174,15 @@ export function HomeSiteSearch({
       ?.scrollIntoView({ block: 'nearest' })
   }, [activeIndex, isPanelOpen])
 
+  function closeAndClear() {
+    setQuery('')
+    setActiveKey(null)
+    setIsOpen(false)
+  }
+
   function openOption(option: SearchOption | undefined) {
     if (!option) return
-    setIsOpen(false)
+    closeAndClear()
     router.push(option.href)
   }
 
@@ -298,7 +304,7 @@ export function HomeSiteSearch({
                     id={`${baseId}-${option.key}`}
                     isActive={option.key === activeOption?.key}
                     key={option.key}
-                    onActivate={() => setIsOpen(false)}
+                    onActivate={closeAndClear}
                     onHover={() => setActiveKey(option.key)}
                     option={option}
                   />
