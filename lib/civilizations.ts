@@ -25,8 +25,8 @@ export interface CivilizationFacts {
   peak: string
   /** Primary writing system or record-keeping tradition. */
   writing: string
-  /** Modern Explore countries that hold major remains (comma-separated names). */
-  exploreLinks: string
+  /** Modern Explore countries that hold major remains (exact catalog names). */
+  exploreLinks: string[]
 }
 
 export interface CivilizationPhoto extends StaticPhoto {
@@ -85,7 +85,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 3100 BCE – 30 BCE',
       peak: 'New Kingdom, c. 1550–1070 BCE',
       writing: 'Egyptian hieroglyphs (and hieratic)',
-      exploreLinks: 'Egypt, Sudan',
+      exploreLinks: ["Egypt", "Sudan"],
     },
     features: [
       {
@@ -136,7 +136,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 3500 BCE – 539 BCE (as independent Mesopotamian states)',
       peak: 'Old Babylonian & Neo-Assyrian high points, 2nd–1st millennia BCE',
       writing: 'Cuneiform (Sumerian, Akkadian)',
-      exploreLinks: 'Iraq, Syria, Iran, Turkey',
+      exploreLinks: ["Iraq", "Syria", "Iran", "Türkiye"],
     },
     features: [
       {
@@ -187,7 +187,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 550 – 330 BCE',
       peak: 'Darius I and Xerxes I, late 6th–early 5th centuries BCE',
       writing: 'Old Persian cuneiform; Imperial Aramaic',
-      exploreLinks: 'Iran, Iraq, Turkey, Egypt, Afghanistan, Uzbekistan',
+      exploreLinks: ["Iran", "Iraq", "Türkiye", "Egypt", "Afghanistan", "Uzbekistan"],
     },
     features: [
       {
@@ -238,7 +238,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 1230 – 1600 CE',
       peak: '14th century under Mansa Musa and successors',
       writing: 'Arabic (with rich Mandé oral traditions)',
-      exploreLinks: 'Mali, Guinea, Senegal, Mauritania, Niger',
+      exploreLinks: ["Mali", "Guinea", "Senegal", "Mauritania", "Niger"],
     },
     features: [
       {
@@ -289,7 +289,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 100 – 940 CE',
       peak: '3rd–6th centuries CE',
       writing: 'Geʿez (with Greek on coinage and inscriptions)',
-      exploreLinks: 'Ethiopia, Eritrea',
+      exploreLinks: ["Ethiopia", "Eritrea"],
     },
     features: [
       {
@@ -340,7 +340,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'Archaic to Hellenistic; Classical core c. 480–323 BCE',
       peak: '5th century BCE (Athens’ high classical moment)',
       writing: 'Greek alphabet',
-      exploreLinks: 'Greece, Turkey, Italy, Cyprus',
+      exploreLinks: ["Greece", "Türkiye", "Italy", "Cyprus"],
     },
     features: [
       {
@@ -391,7 +391,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: '27 BCE – 476 CE (West); East continues as Byzantium',
       peak: 'Principate high empire, 1st–2nd centuries CE',
       writing: 'Latin (Greek in the East)',
-      exploreLinks: 'Italy, Greece, Spain, France, Turkey, Egypt',
+      exploreLinks: ["Italy", "Greece", "Spain", "France", "Türkiye", "Egypt"],
     },
     features: [
       {
@@ -442,7 +442,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: '330 – 1453 CE (conventional imperial span)',
       peak: 'Justinianic 6th century; Macedonian revival 10th–11th',
       writing: 'Medieval Greek',
-      exploreLinks: 'Turkey, Greece, Italy, Bulgaria, Egypt',
+      exploreLinks: ["Türkiye", "Greece", "Italy", "Bulgaria", "Egypt"],
     },
     features: [
       {
@@ -493,7 +493,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 1299 – 1922 CE',
       peak: 'Süleymanic 16th century',
       writing: 'Ottoman Turkish (Arabic script); Arabic & Persian literary registers',
-      exploreLinks: 'Turkey, Greece, Egypt, Syria, Iraq, Bulgaria, Serbia, Hungary',
+      exploreLinks: ["Türkiye", "Greece", "Egypt", "Syria", "Iraq", "Bulgaria", "Serbia", "Hungary"],
     },
     features: [
       {
@@ -544,7 +544,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 814 BCE – 146 BCE (Punic city)',
       peak: '3rd century BCE before and during the Punic Wars',
       writing: 'Punic (Phoenician-derived script)',
-      exploreLinks: 'Tunisia, Spain, Italy, Algeria',
+      exploreLinks: ["Tunisia", "Spain", "Italy", "Algeria"],
     },
     features: [
       {
@@ -595,7 +595,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'Mature Harappan c. 2600 – 1900 BCE',
       peak: 'Mature urban phase, mid–late 3rd millennium BCE',
       writing: 'Indus script (undeciphered)',
-      exploreLinks: 'Pakistan, India',
+      exploreLinks: ["Pakistan", "India"],
     },
     features: [
       {
@@ -646,7 +646,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: '206 BCE – 220 CE',
       peak: 'Western Han high empire, 1st century BCE – 1st century CE',
       writing: 'Classical Chinese (seal, clerical scripts)',
-      exploreLinks: 'China, Mongolia, Vietnam, North Korea',
+      exploreLinks: ["China", "Mongolia", "Vietnam", "Korea, North"],
     },
     features: [
       {
@@ -697,7 +697,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: '618 – 907 CE',
       peak: 'High Tang, 7th–mid-8th centuries',
       writing: 'Classical Chinese',
-      exploreLinks: 'China, Mongolia, Vietnam, North Korea, South Korea',
+      exploreLinks: ["China", "Mongolia", "Vietnam", "Korea, North", "Korea, South"],
     },
     features: [
       {
@@ -748,7 +748,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 802 – 1431 CE',
       peak: 'Angkor Wat era, 12th century CE',
       writing: 'Old Khmer / Sanskrit inscriptions',
-      exploreLinks: 'Cambodia, Thailand, Laos, Vietnam',
+      exploreLinks: ["Cambodia", "Thailand", "Laos", "Vietnam"],
     },
     features: [
       {
@@ -799,7 +799,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 322 – 185 BCE',
       peak: 'Ashoka’s reign, mid–3rd century BCE',
       writing: 'Brahmi / Prakrit edicts (and related scripts)',
-      exploreLinks: 'India, Pakistan, Nepal, Bangladesh, Afghanistan',
+      exploreLinks: ["India", "Pakistan", "Nepal", "Bangladesh", "Afghanistan"],
     },
     features: [
       {
@@ -850,7 +850,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: '1206 – late 14th century (unified to successor khanates)',
       peak: 'Mid–13th century under Möngke and the early successor states',
       writing: 'Mongolian script (Uyghur-derived); multilingual chanceries',
-      exploreLinks: 'Mongolia, China, Russia, Kazakhstan, Uzbekistan, Iran, Ukraine',
+      exploreLinks: ["Mongolia", "China", "Russia", "Kazakhstan", "Uzbekistan", "Iran", "Ukraine"],
     },
     features: [
       {
@@ -901,7 +901,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'Heian to Edo, c. 794 – 1868 CE (primer span)',
       peak: 'Heian court culture; Edo urban peace, 17th–18th centuries',
       writing: 'Classical Chinese & Japanese (kanji/kana)',
-      exploreLinks: 'Japan',
+      exploreLinks: ["Japan"],
     },
     features: [
       {
@@ -952,7 +952,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'Preclassic to Postclassic; Classic peak c. 250–900 CE',
       peak: 'Southern lowland Classic, c. 600–800 CE',
       writing: 'Maya logosyllabic script',
-      exploreLinks: 'Mexico, Guatemala, Belize, Honduras, El Salvador',
+      exploreLinks: ["Mexico", "Guatemala", "Belize", "Honduras", "El Salvador"],
     },
     features: [
       {
@@ -1003,7 +1003,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 1325 – 1521 CE',
       peak: 'Late Postclassic, mid–late 15th century',
       writing: 'Nahuatl (pictorial books and colonial alphabetic texts)',
-      exploreLinks: 'Mexico',
+      exploreLinks: ["Mexico"],
     },
     features: [
       {
@@ -1054,7 +1054,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       era: 'c. 1438 – 1533 CE (imperial expansion to conquest)',
       peak: 'Late Horizon under Pachacuti and successors, 15th century',
       writing: 'Quipu record-keeping (Quechua language)',
-      exploreLinks: 'Peru, Bolivia, Ecuador, Chile, Argentina, Colombia',
+      exploreLinks: ["Peru", "Bolivia", "Ecuador", "Chile", "Argentina", "Colombia"],
     },
     features: [
       {

@@ -142,7 +142,7 @@ export function CivilizationSubjectPageView({ slug }: { slug: string }) {
           </div>
           <div>
             <dt>Explore</dt>
-            <dd>{subject.facts.exploreLinks}</dd>
+            <dd>{subject.facts.exploreLinks.join(', ')}</dd>
           </div>
           <div>
             <dt>Catalog</dt>

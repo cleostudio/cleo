@@ -72,6 +72,29 @@ describe('topic photos', () => {
       'japan',
     ])
     expect(photos).toHaveLength(6)
+    expect(photos.every((photo) => photo.collection === 'explore' || photo.collection === 'space')).toBe(
+      true,
+    )
+  })
+
+  it('keeps Classical Japan distinct from Explore Japan for topic photos', () => {
+    const explore = matchTopicPhotosInText('Tell me about Japan')
+    expect(explore.map((photo) => photo.collection)).toEqual([
+      'explore',
+      'explore',
+      'explore',
+    ])
+    expect(explore.every((photo) => photo.slug === 'japan')).toBe(true)
+
+    const classical = matchTopicPhotosInText('Orient me to Classical Japan')
+    expect(classical.map((photo) => photo.collection)).toEqual([
+      'civilizations',
+      'civilizations',
+      'civilizations',
+    ])
+    expect(classical.every((photo) => photo.slug === 'classical-japan')).toBe(
+      true,
+    )
   })
 
   it('matches Civilizations guides by path', () => {

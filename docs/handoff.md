@@ -45,7 +45,7 @@ reuse.
 | Homepage search | `lib/site-search-catalog.ts`, `lib/site-search.ts`, `components/home-site-search.tsx` |
 | Cleo | `components/cleo/*`, `lib/cleo/*`, `POST /api/responses` |
 | Auth | `lib/auth.ts`, `lib/db/*`, `/api/auth/[...all]`, `/sign-in` |
-| Place images | `public/images/atlas/`, `public/images/space/` (static `srcset`) |
+| Place images | `public/images/atlas/`, `public/images/space/`, `public/images/civilizations/` (static `srcset`) |
 | Country prose | `scripts/atlas/atlas-about.json` via `pnpm write:atlas-about` |
 | Env | `OPENAI_API_KEY`; Neon `DATABASE_URL` + `BETTER_AUTH_SECRET` for account; optional `PUBLIC_SITE_URL` / `SITE_URL` (`.env.example`) |
 | Social seeds | `content/social.json`, `content/github.json` (components retained; not in chrome) |

@@ -6,6 +6,7 @@ import {
   civilizationSubjectsByCategory,
   getCivilizationSubject,
 } from './civilizations'
+import { countries } from './countries'
 
 describe('civilization subjects', () => {
   it('ships a starter catalog with unique slugs and codes', () => {
@@ -81,5 +82,15 @@ describe('civilization subjects', () => {
         'classical-japan',
       ]),
     )
+  })
+
+  it('lists Explore countries by exact catalog names', () => {
+    const names = new Set(countries.map((country) => country.name))
+    for (const subject of civilizationSubjects) {
+      expect(subject.facts.exploreLinks.length).toBeGreaterThan(0)
+      for (const part of subject.facts.exploreLinks) {
+        expect(names.has(part), `${subject.slug}: ${part}`).toBe(true)
+      }
+    }
   })
 })
