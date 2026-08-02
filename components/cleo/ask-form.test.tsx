@@ -1,7 +1,15 @@
 // @vitest-environment jsdom
 
 import { StrictMode } from 'react'
-import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 vi.mock('thinking-orbs', () => ({
@@ -71,6 +79,20 @@ class ResizeObserverStub {
 beforeEach(() => {
   window.localStorage.clear()
   vi.stubGlobal('ResizeObserver', ResizeObserverStub)
+  Object.defineProperty(window, 'matchMedia', {
+    configurable: true,
+    writable: true,
+    value: vi.fn().mockImplementation((query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    })),
+  })
   originalScrollIntoView ??= Object.getOwnPropertyDescriptor(
     HTMLElement.prototype,
     'scrollIntoView',
@@ -459,11 +481,27 @@ describe('AskForm arrivals', () => {
 
 describe('AskForm chat sidebar', () => {
   it('lists a New chat control and persists a finished turn into history', async () => {
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      writable: true,
+      value: vi.fn().mockImplementation((query: string) => ({
+        matches: query.includes('min-width: 64rem'),
+        media: query,
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    })
+
     const fetchMock = stubStream('A cold desert world.')
     render(<AskForm />)
 
-    expect(screen.getByRole('button', { name: 'New chat' })).toBeTruthy()
-    expect(screen.getByRole('complementary', { name: 'Chat history' })).toBeTruthy()
+    const history = screen.getByRole('complementary', { name: 'Chat history' })
+    expect(within(history).getByRole('button', { name: 'New chat' })).toBeTruthy()
+    expect(within(history).getByText('New chat')).toBeTruthy()
 
     fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), {
       target: { value: 'What is Mars like?' },
@@ -484,6 +522,21 @@ describe('AskForm chat sidebar', () => {
   })
 
   it('restores the active thread from localStorage on mount', async () => {
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      writable: true,
+      value: vi.fn().mockImplementation((query: string) => ({
+        matches: query.includes('min-width: 64rem'),
+        media: query,
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    })
+
     upsertThread({
       id: 'thread-restore-1',
       nextMessageId: 3,
@@ -502,7 +555,7 @@ describe('AskForm chat sidebar', () => {
       )
     })
     expect(
-      screen
+      within(screen.getByRole('complementary', { name: 'Chat history' }))
         .getByRole('button', { name: 'Orient me to Japan' })
         .getAttribute('aria-current'),
     ).toBe('true')
@@ -576,6 +629,11 @@ describe('AskForm chat sidebar', () => {
       expect(window.localStorage.getItem('cleo-sidebar-collapsed')).toBe('1')
     })
 
+    // Closed chrome is icon-only: open history + new chat (no visible label).
+    expect(screen.getByRole('button', { name: 'Open chat history' })).toBeTruthy()
+    const closedNewChat = screen.getByRole('button', { name: 'New chat' })
+    expect(closedNewChat.textContent?.replace(/\s+/g, '')).toBe('')
+
     fireEvent.click(screen.getByRole('button', { name: 'Open chat history' }))
 
     await waitFor(() => {
@@ -583,9 +641,29 @@ describe('AskForm chat sidebar', () => {
         document.documentElement.hasAttribute('data-cleo-sidebar-collapsed'),
       ).toBe(false)
     })
+    expect(
+      within(screen.getByRole('complementary', { name: 'Chat history' })).getByText(
+        'New chat',
+      ),
+    ).toBeTruthy()
   })
 
   it('starts a blank composer when New chat is pressed', async () => {
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      writable: true,
+      value: vi.fn().mockImplementation((query: string) => ({
+        matches: query.includes('min-width: 64rem'),
+        media: query,
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    })
+
     stubStream('Kept in history.')
     render(<AskForm />)
 
@@ -598,7 +676,12 @@ describe('AskForm chat sidebar', () => {
       expect(screen.getByText('Kept in history.')).toBeTruthy()
     })
 
-    fireEvent.click(screen.getByRole('button', { name: 'New chat' }))
+    fireEvent.click(
+      within(screen.getByRole('complementary', { name: 'Chat history' })).getByRole(
+        'button',
+        { name: 'New chat' },
+      ),
+    )
 
     await waitFor(() => {
       expect(screen.queryByText('Kept in history.')).toBeNull()

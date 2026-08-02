@@ -303,7 +303,18 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const [sidebarMobileOpen, setSidebarMobileOpen] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [sidebarPreferenceReady, setSidebarPreferenceReady] = useState(false)
+  const [isDesktopSidebar, setIsDesktopSidebar] = useState(() => {
+    if (typeof window === "undefined") return false
+    if (typeof window.matchMedia !== "function") return false
+    return window.matchMedia("(min-width: 64rem)").matches
+  })
   const [threadsHydrated, setThreadsHydrated] = useState(false)
+  const sidebarLandmarkActive = isDesktopSidebar
+    ? !sidebarCollapsed
+    : sidebarMobileOpen
+  const sidebarClosedControlsActive = isDesktopSidebar
+    ? sidebarCollapsed
+    : !sidebarMobileOpen
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -391,6 +402,15 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       root.removeAttribute("data-cleo-sidebar-collapsed")
     }
     setSidebarPreferenceReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return
+    const media = window.matchMedia("(min-width: 64rem)")
+    const sync = () => setIsDesktopSidebar(media.matches)
+    sync()
+    media.addEventListener("change", sync)
+    return () => media.removeEventListener("change", sync)
   }, [])
 
   useEffect(() => {
@@ -1139,6 +1159,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     <div className="cleo-layout">
       <CleoSidebar
         activeThreadId={activeThreadId}
+        landmarkActive={sidebarLandmarkActive}
         mobileOpen={sidebarMobileOpen}
         onCollapseDesktop={() => setSidebarCollapsed(true)}
         onCloseMobile={() => setSidebarMobileOpen(false)}
@@ -1148,7 +1169,9 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
         threads={threadSummaries}
       />
       <CleoSidebarToggle
+        active={sidebarClosedControlsActive}
         mobileOpen={sidebarMobileOpen}
+        onNewChat={handleNewChat}
         onOpenDesktop={() => setSidebarCollapsed(false)}
         onToggleMobile={() => setSidebarMobileOpen((open) => !open)}
       />

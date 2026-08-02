@@ -17,6 +17,8 @@ const SIDEBAR_BACKDROP_STYLE = {
 
 type CleoSidebarProps = {
   activeThreadId: string | null
+  /** False while the rail/drawer is closed so landmark controls leave the a11y tree. */
+  landmarkActive: boolean
   mobileOpen: boolean
   onCollapseDesktop: () => void
   onCloseMobile: () => void
@@ -28,6 +30,7 @@ type CleoSidebarProps = {
 
 export function CleoSidebar({
   activeThreadId,
+  landmarkActive,
   mobileOpen,
   onCollapseDesktop,
   onCloseMobile,
@@ -46,6 +49,7 @@ export function CleoSidebar({
         style={mobileOpen ? SIDEBAR_BACKDROP_STYLE : undefined}
       />
       <aside
+        aria-hidden={landmarkActive ? undefined : true}
         aria-label="Chat history"
         aria-modal={mobileOpen || undefined}
         className="cleo-sidebar"
@@ -134,40 +138,63 @@ export function CleoSidebar({
 }
 
 type CleoSidebarToggleProps = {
-  /** True when the mobile drawer is open (hides this FAB). */
+  /** True when these icon-only controls should be interactive (rail/drawer closed). */
+  active: boolean
+  /** True when the mobile drawer is open. */
   mobileOpen: boolean
+  onNewChat: () => void
   onOpenDesktop: () => void
   onToggleMobile: () => void
 }
 
+/** Icon-only controls shown while the rail/drawer is closed. */
 export function CleoSidebarToggle({
+  active,
   mobileOpen,
+  onNewChat,
   onOpenDesktop,
   onToggleMobile,
 }: CleoSidebarToggleProps) {
   return (
-    <Button
-      aria-controls="cleo-sidebar"
-      aria-expanded={mobileOpen}
-      aria-label={mobileOpen ? "Close chat history" : "Open chat history"}
-      className="cleo-sidebar-toggle"
-      onClick={() => {
-        // Desktop collapsed: expand the rail. Mobile: toggle the drawer.
-        if (window.matchMedia("(min-width: 64rem)").matches) {
-          onOpenDesktop()
-          return
-        }
-        onToggleMobile()
-      }}
-      size="icon-sm"
-      type="button"
-      variant="ghost"
+    <div
+      aria-hidden={active ? undefined : true}
+      className="cleo-sidebar-closed-controls"
     >
-      {mobileOpen ? (
-        <PanelLeftClose aria-hidden="true" />
-      ) : (
-        <PanelLeftOpen aria-hidden="true" />
-      )}
-    </Button>
+      <Button
+        aria-controls="cleo-sidebar"
+        aria-expanded={mobileOpen}
+        aria-label={mobileOpen ? "Close chat history" : "Open chat history"}
+        className="cleo-sidebar-toggle"
+        onClick={() => {
+          // Desktop collapsed: expand the rail. Mobile: toggle the drawer.
+          if (window.matchMedia("(min-width: 64rem)").matches) {
+            onOpenDesktop()
+            return
+          }
+          onToggleMobile()
+        }}
+        size="icon-sm"
+        tabIndex={active ? undefined : -1}
+        type="button"
+        variant="ghost"
+      >
+        {mobileOpen ? (
+          <PanelLeftClose aria-hidden="true" />
+        ) : (
+          <PanelLeftOpen aria-hidden="true" />
+        )}
+      </Button>
+      <Button
+        aria-label="New chat"
+        className="cleo-sidebar-toggle cleo-sidebar-toggle-new"
+        onClick={onNewChat}
+        size="icon-sm"
+        tabIndex={active ? undefined : -1}
+        type="button"
+        variant="ghost"
+      >
+        <SquarePen aria-hidden="true" />
+      </Button>
+    </div>
   )
 }

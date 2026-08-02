@@ -839,22 +839,27 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   box-sizing: border-box;
 }
 
-.cleo-sidebar-toggle {
+/* Icon-only cluster while the rail/drawer is closed. */
+.cleo-sidebar-closed-controls {
   position: fixed;
   top: max(0.75rem, env(safe-area-inset-top, 0px));
   left: max(0.65rem, env(safe-area-inset-left, 0px));
   z-index: calc(var(--z-nav) - 1);
-  color: var(--muted-foreground);
-  background: color-mix(in oklab, var(--background) 82%, transparent);
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--border) 70%, transparent);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
   opacity: 1;
   transform: translate3d(0, 0, 0);
   transition:
     opacity 150ms var(--ease-swift),
     transform 150ms var(--ease-swift),
-    color 150ms ease,
-    background-color 150ms ease,
     visibility 0s linear 0s;
+}
+
+.cleo-sidebar-toggle {
+  color: var(--muted-foreground);
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--border) 70%, transparent);
 }
 
 .cleo-sidebar-toggle:hover {
@@ -862,8 +867,8 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   background: var(--background);
 }
 
-/* Drawer open — header owns dismissal; fade the FAB out (no display snap). */
-html[data-cleo-sidebar-open] .cleo-sidebar-toggle {
+/* Drawer open — header owns dismissal; fade the cluster out (no display snap). */
+html[data-cleo-sidebar-open] .cleo-sidebar-closed-controls {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -875,8 +880,8 @@ html[data-cleo-sidebar-open] .cleo-sidebar-toggle {
 }
 
 @media (min-width: 64rem) {
-  /* Expanded rail: hide the floating open control immediately. */
-  html[data-cleo-route]:not([data-cleo-sidebar-collapsed]) .cleo-sidebar-toggle {
+  /* Expanded rail: hide the closed-state icon cluster immediately. */
+  html[data-cleo-route]:not([data-cleo-sidebar-collapsed]) .cleo-sidebar-closed-controls {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -887,8 +892,8 @@ html[data-cleo-sidebar-open] .cleo-sidebar-toggle {
       visibility 0s linear var(--cleo-sidebar-exit-duration);
   }
 
-  /* Collapsed: fade the open control in after the rail has mostly left. */
-  html[data-cleo-route][data-cleo-sidebar-collapsed] .cleo-sidebar-toggle {
+  /* Collapsed: fade icon-only controls in after the rail has mostly left. */
+  html[data-cleo-route][data-cleo-sidebar-collapsed] .cleo-sidebar-closed-controls {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -896,9 +901,7 @@ html[data-cleo-sidebar-open] .cleo-sidebar-toggle {
     transition:
       opacity 150ms var(--ease-swift) 80ms,
       transform 150ms var(--ease-swift) 80ms,
-      visibility 0s linear 80ms,
-      color 150ms ease,
-      background-color 150ms ease;
+      visibility 0s linear 80ms;
   }
 }
 
@@ -994,7 +997,7 @@ html[data-cleo-sidebar-open] body {
 @media (prefers-reduced-motion: reduce) {
   .cleo-sidebar,
   .cleo-sidebar-backdrop,
-  .cleo-sidebar-toggle {
+  .cleo-sidebar-closed-controls {
     transition: none;
   }
 }
