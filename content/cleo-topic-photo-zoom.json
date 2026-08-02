@@ -19027,6 +19027,366 @@
       }
     ]
   },
+  "oceans/mediterranean-sea": {
+    "collection": "oceans",
+    "title": "Santorini caldera",
+    "subtitle": "Mediterranean Sea",
+    "alt": "Santorini caldera — mediterranean sea",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 5472,
+    "height": 3648,
+    "renditions": [
+      {
+        "src": "/images/oceans/mediterranean-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/mediterranean-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/mediterranean-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/mediterranean-sea-2": {
+    "collection": "oceans",
+    "title": "Strait of Gibraltar",
+    "subtitle": "Mediterranean Sea",
+    "alt": "Strait of Gibraltar — mediterranean sea",
+    "photographer": "NASA Earth Observatory",
+    "license": "Public domain",
+    "width": 5090,
+    "height": 3393,
+    "renditions": [
+      {
+        "src": "/images/oceans/mediterranean-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/mediterranean-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/mediterranean-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/mediterranean-sea-3": {
+    "collection": "oceans",
+    "title": "Mediterranean from orbit",
+    "subtitle": "Mediterranean Sea",
+    "alt": "Mediterranean from orbit — mediterranean sea",
+    "photographer": "NASA MODIS",
+    "license": "Public domain",
+    "width": 7079,
+    "height": 6626,
+    "renditions": [
+      {
+        "src": "/images/oceans/mediterranean-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/mediterranean-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/mediterranean-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/caribbean-sea": {
+    "collection": "oceans",
+    "title": "Caribbean reef",
+    "subtitle": "Caribbean Sea",
+    "alt": "Caribbean reef — caribbean sea",
+    "photographer": "Paul Harrison",
+    "license": "CC BY-SA 4.0",
+    "width": 6000,
+    "height": 4000,
+    "renditions": [
+      {
+        "src": "/images/oceans/caribbean-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/caribbean-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/caribbean-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/caribbean-sea-2": {
+    "collection": "oceans",
+    "title": "Caribbean coast",
+    "subtitle": "Caribbean Sea",
+    "alt": "Caribbean coast — caribbean sea",
+    "photographer": "Óðinn",
+    "license": "CC BY-SA 2.5 ca",
+    "width": 3573,
+    "height": 2500,
+    "renditions": [
+      {
+        "src": "/images/oceans/caribbean-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/caribbean-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/caribbean-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/caribbean-sea-3": {
+    "collection": "oceans",
+    "title": "Caribbean from orbit",
+    "subtitle": "Caribbean Sea",
+    "alt": "Caribbean from orbit — caribbean sea",
+    "photographer": "NASA MODIS",
+    "license": "Public domain",
+    "width": 5600,
+    "height": 4400,
+    "renditions": [
+      {
+        "src": "/images/oceans/caribbean-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/caribbean-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/caribbean-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/south-china-sea": {
+    "collection": "oceans",
+    "title": "Hạ Long Bay",
+    "subtitle": "South China Sea",
+    "alt": "Hạ Long Bay — south china sea",
+    "photographer": "Pasztilla aka Attila Terbócs",
+    "license": "CC BY-SA 4.0",
+    "width": 9514,
+    "height": 3139,
+    "renditions": [
+      {
+        "src": "/images/oceans/south-china-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/south-china-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/south-china-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/south-china-sea-2": {
+    "collection": "oceans",
+    "title": "El Nido limestone coast",
+    "subtitle": "South China Sea",
+    "alt": "El Nido limestone coast — south china sea",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 4000,
+    "height": 2667,
+    "renditions": [
+      {
+        "src": "/images/oceans/south-china-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/south-china-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/south-china-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/south-china-sea-3": {
+    "collection": "oceans",
+    "title": "South China Sea from orbit",
+    "subtitle": "South China Sea",
+    "alt": "South China Sea from orbit — south china sea",
+    "photographer": "Unknown",
+    "license": "Public domain",
+    "width": 3961,
+    "height": 4549,
+    "renditions": [
+      {
+        "src": "/images/oceans/south-china-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/south-china-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/south-china-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/red-sea": {
+    "collection": "oceans",
+    "title": "Red Sea coast",
+    "subtitle": "Red Sea",
+    "alt": "Red Sea coast — red sea",
+    "photographer": "Mohammad Chawki",
+    "license": "CC BY-SA 4.0",
+    "width": 5312,
+    "height": 2988,
+    "renditions": [
+      {
+        "src": "/images/oceans/red-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/red-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/red-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/red-sea-2": {
+    "collection": "oceans",
+    "title": "Red Sea coral",
+    "subtitle": "Red Sea",
+    "alt": "Red Sea coral — red sea",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 5361,
+    "height": 3574,
+    "renditions": [
+      {
+        "src": "/images/oceans/red-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/red-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/red-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/red-sea-3": {
+    "collection": "oceans",
+    "title": "Gulf of Suez & Aqaba",
+    "subtitle": "Red Sea",
+    "alt": "Gulf of Suez & Aqaba — red sea",
+    "photographer": "NASA",
+    "license": "Public domain",
+    "width": 8256,
+    "height": 5504,
+    "renditions": [
+      {
+        "src": "/images/oceans/red-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/red-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/red-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/arabian-sea": {
+    "collection": "oceans",
+    "title": "Arabian Sea from orbit",
+    "subtitle": "Arabian Sea",
+    "alt": "Arabian Sea from orbit — arabian sea",
+    "photographer": "NASA MODIS",
+    "license": "Public domain",
+    "width": 5200,
+    "height": 5000,
+    "renditions": [
+      {
+        "src": "/images/oceans/arabian-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/arabian-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/arabian-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/arabian-sea-2": {
+    "collection": "oceans",
+    "title": "Arabian Sea at Goa",
+    "subtitle": "Arabian Sea",
+    "alt": "Arabian Sea at Goa — arabian sea",
+    "photographer": "May Hachem93",
+    "license": "CC BY 3.0",
+    "width": 4608,
+    "height": 3456,
+    "renditions": [
+      {
+        "src": "/images/oceans/arabian-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/arabian-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/arabian-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/arabian-sea-3": {
+    "collection": "oceans",
+    "title": "Dust over Arabian Sea",
+    "subtitle": "Arabian Sea",
+    "alt": "Dust over Arabian Sea — arabian sea",
+    "photographer": "NASA MODIS",
+    "license": "Public domain",
+    "width": 4000,
+    "height": 3200,
+    "renditions": [
+      {
+        "src": "/images/oceans/arabian-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/arabian-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/arabian-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "oceans/arctic-ocean": {
     "collection": "oceans",
     "title": "Arctic sea ice",

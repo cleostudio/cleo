@@ -48,7 +48,7 @@ describe('social OG image metadata', () => {
     [
       '/oceans',
       publicPageMetadata.oceans,
-      'Oceans · Cleo. Evergreen field guides for world ocean basins and polar seas — orientation, features, circulation, and sources.',
+      'Oceans · Cleo. Evergreen field guides for world ocean basins, major seas, and polar seas — orientation, features, circulation, and sources.',
     ],
     [
       '/rivers',

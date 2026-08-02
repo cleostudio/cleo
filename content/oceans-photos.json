@@ -458,5 +458,465 @@
         }
       ]
     }
+  ],
+  "mediterranean-sea": [
+    {
+      "featureName": "Santorini caldera",
+      "alt": "Santorini caldera — mediterranean sea",
+      "caption": "Santorini caldera",
+      "photographer": "Dietmar Rabich",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASantorin%20%28GR%29%2C%20Fira%2C%20Caldera%20--%202017%20--%202615.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Santorin (GR), Fira, Caldera -- 2017 -- 2615.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Santorin (GR), Fira, Caldera -- 2017 -- 2615.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f2d715371af4b0149cef0ba2f1988a15a92ff607563df72b3172d66af5032824",
+      "width": 5472,
+      "height": 3648,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/mediterranean-sea/w640.jpg",
+          "bytes": 117791
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/mediterranean-sea/w1280.jpg",
+          "bytes": 329327
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/mediterranean-sea/w2048.jpg",
+          "bytes": 864045
+        }
+      ]
+    },
+    {
+      "featureName": "Strait of Gibraltar",
+      "alt": "Strait of Gibraltar — mediterranean sea",
+      "caption": "Strait of Gibraltar",
+      "photographer": "NASA Earth Observatory",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe%20Strait%20of%20Gibraltar%2C%20April%202023.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:The Strait of Gibraltar, April 2023.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Strait of Gibraltar, April 2023.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "bc720e82066cec22c7ee36d5b84082f70fe350715830a3ba4aa4094171585778",
+      "width": 5090,
+      "height": 3393,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/mediterranean-sea/w640-2.jpg",
+          "bytes": 39725
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/mediterranean-sea/w1280-2.jpg",
+          "bytes": 144494
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/mediterranean-sea/w2048-2.jpg",
+          "bytes": 456188
+        }
+      ]
+    },
+    {
+      "featureName": "Mediterranean from orbit",
+      "alt": "Mediterranean from orbit — mediterranean sea",
+      "caption": "Mediterranean from orbit",
+      "photographer": "NASA MODIS",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMediterranean%20Sea%20%28MODIS%202019-04-04%29.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Mediterranean Sea (MODIS 2019-04-04).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mediterranean Sea (MODIS 2019-04-04).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f0becf5da41a7eacb064b4c8e40a0e7e5fa8ee1aeac6d7ecc029ed15cf5bd975",
+      "width": 7079,
+      "height": 6626,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/mediterranean-sea/w640-3.jpg",
+          "bytes": 59992
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/mediterranean-sea/w1280-3.jpg",
+          "bytes": 215263
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/mediterranean-sea/w2048-3.jpg",
+          "bytes": 621640
+        }
+      ]
+    }
+  ],
+  "caribbean-sea": [
+    {
+      "featureName": "Caribbean reef",
+      "alt": "Caribbean reef — caribbean sea",
+      "caption": "Caribbean reef",
+      "photographer": "Paul Harrison",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACoral%20Reef%20from%20above%202.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Coral Reef from above 2.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Coral Reef from above 2.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7df67f5d455464e2e4cd9540346029229dbe847094978f462ddf74dc37424902",
+      "width": 6000,
+      "height": 4000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/caribbean-sea/w640.jpg",
+          "bytes": 117842
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/caribbean-sea/w1280.jpg",
+          "bytes": 396708
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/caribbean-sea/w2048.jpg",
+          "bytes": 1058210
+        }
+      ]
+    },
+    {
+      "featureName": "Caribbean coast",
+      "alt": "Caribbean coast — caribbean sea",
+      "caption": "Caribbean coast",
+      "photographer": "Óðinn",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACosta%20del%20mar%20Caribe%20en%20Pil%C3%B3n.jpg",
+      "license": "CC BY-SA 2.5 ca",
+      "commonsTitle": "File:Costa del mar Caribe en Pilón.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Costa del mar Caribe en Pilón.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "40828d596746d46fbd185eefcbb00ac1b971feddba6ff5668287fefef24e46e8",
+      "width": 3573,
+      "height": 2500,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/caribbean-sea/w640-2.jpg",
+          "bytes": 62477
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/caribbean-sea/w1280-2.jpg",
+          "bytes": 249513
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/caribbean-sea/w2048-2.jpg",
+          "bytes": 751822
+        }
+      ]
+    },
+    {
+      "featureName": "Caribbean from orbit",
+      "alt": "Caribbean from orbit — caribbean sea",
+      "caption": "Caribbean from orbit",
+      "photographer": "NASA MODIS",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACuba%20and%20the%20Bahamas%20%28MODIS%202016-03-25%29.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Cuba and the Bahamas (MODIS 2016-03-25).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Cuba and the Bahamas (MODIS 2016-03-25).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5ff8d892d22099c6ab3c0dc3f249d5e2d4cf08421b79e69abc15ec2b0674d1af",
+      "width": 5600,
+      "height": 4400,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/caribbean-sea/w640-3.jpg",
+          "bytes": 53700
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/caribbean-sea/w1280-3.jpg",
+          "bytes": 190992
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/caribbean-sea/w2048-3.jpg",
+          "bytes": 554002
+        }
+      ]
+    }
+  ],
+  "south-china-sea": [
+    {
+      "featureName": "Hạ Long Bay",
+      "alt": "Hạ Long Bay — south china sea",
+      "caption": "Hạ Long Bay",
+      "photographer": "Pasztilla aka Attila Terbócs",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHa%20Long%20Bay%202019-09%2002.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Ha Long Bay 2019-09 02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ha Long Bay 2019-09 02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2baa70d09bfbcb74c5e77bc2b866afb55fae4cfa23a43396188713e16826f68f",
+      "width": 9514,
+      "height": 3139,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/south-china-sea/w640.jpg",
+          "bytes": 39068
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/south-china-sea/w1280.jpg",
+          "bytes": 107728
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/south-china-sea/w2048.jpg",
+          "bytes": 298547
+        }
+      ]
+    },
+    {
+      "featureName": "El Nido limestone coast",
+      "alt": "El Nido limestone coast — south china sea",
+      "caption": "El Nido limestone coast",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALimestone%20island%20in%20Bacuit%20Bay%2C%20El%20Nido%2C%20Palawan%2C%20Philippines.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Limestone island in Bacuit Bay, El Nido, Palawan, Philippines.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Limestone island in Bacuit Bay, El Nido, Palawan, Philippines.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2a335349b1d4bbae222d899150bf7300ea62afe2afd0669cc1301b2f12e449d1",
+      "width": 4000,
+      "height": 2667,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/south-china-sea/w640-2.jpg",
+          "bytes": 54583
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/south-china-sea/w1280-2.jpg",
+          "bytes": 173397
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/south-china-sea/w2048-2.jpg",
+          "bytes": 475106
+        }
+      ]
+    },
+    {
+      "featureName": "South China Sea from orbit",
+      "alt": "South China Sea from orbit — south china sea",
+      "caption": "South China Sea from orbit",
+      "photographer": "Unknown",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChinese%20South%20Sea.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Chinese South Sea.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Chinese South Sea.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9cc969b22c081bbdda2fd28d714f5dd3a81e94b4d4ca63903f58db9c5c91a093",
+      "width": 3961,
+      "height": 4549,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/south-china-sea/w640-3.jpg",
+          "bytes": 141871
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/south-china-sea/w1280-3.jpg",
+          "bytes": 545250
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/south-china-sea/w2048-3.jpg",
+          "bytes": 1473275
+        }
+      ]
+    }
+  ],
+  "red-sea": [
+    {
+      "featureName": "Red Sea coast",
+      "alt": "Red Sea coast — red sea",
+      "caption": "Red Sea coast",
+      "photographer": "Mohammad Chawki",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARed%20Sea%2040.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Red Sea 40.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Red Sea 40.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c207f8569fc6838d6c44a52701ffb23a54806309653cdea30b9d64698e7ca942",
+      "width": 5312,
+      "height": 2988,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/red-sea/w640.jpg",
+          "bytes": 41947
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/red-sea/w1280.jpg",
+          "bytes": 108286
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/red-sea/w2048.jpg",
+          "bytes": 253789
+        }
+      ]
+    },
+    {
+      "featureName": "Red Sea coral",
+      "alt": "Red Sea coral — red sea",
+      "caption": "Red Sea coral",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACoral%20%28Galaxea%20fascicularis%29%2C%20mar%20Rojo%2C%20Egipto%2C%202023-04-18%2C%20DD%20128.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Coral (Galaxea fascicularis), mar Rojo, Egipto, 2023-04-18, DD 128.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Coral (Galaxea fascicularis), mar Rojo, Egipto, 2023-04-18, DD 128.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "524af693d47cba221a265ca61e0b90d563f59f44d084b9c63f6d50a5d022fa55",
+      "width": 5361,
+      "height": 3574,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/red-sea/w640-2.jpg",
+          "bytes": 149588
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/red-sea/w1280-2.jpg",
+          "bytes": 340156
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/red-sea/w2048-2.jpg",
+          "bytes": 734922
+        }
+      ]
+    },
+    {
+      "featureName": "Gulf of Suez & Aqaba",
+      "alt": "Gulf of Suez & Aqaba — red sea",
+      "caption": "Gulf of Suez & Aqaba",
+      "photographer": "NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe%20Gulf%20of%20Aqaba%20and%20Gulf%20of%20Suez%20%28iss071e183804%29.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:The Gulf of Aqaba and Gulf of Suez (iss071e183804).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Gulf of Aqaba and Gulf of Suez (iss071e183804).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d215d3b9625c6bc09e4d615743cb484cf7132dd2b17f6a7a18aa735edaaba6b0",
+      "width": 8256,
+      "height": 5504,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/red-sea/w640-3.jpg",
+          "bytes": 64500
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/red-sea/w1280-3.jpg",
+          "bytes": 161270
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/red-sea/w2048-3.jpg",
+          "bytes": 438985
+        }
+      ]
+    }
+  ],
+  "arabian-sea": [
+    {
+      "featureName": "Arabian Sea from orbit",
+      "alt": "Arabian Sea from orbit — arabian sea",
+      "caption": "Arabian Sea from orbit",
+      "photographer": "NASA MODIS",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANorthern%20Arabian%20Sea%20%28MODIS%202015-11-02%29.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Northern Arabian Sea (MODIS 2015-11-02).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Northern Arabian Sea (MODIS 2015-11-02).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8c6c83fe8a6f9367b123477f49cbc37c7a20e3d668dac44ec5680153ab02f137",
+      "width": 5200,
+      "height": 5000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/arabian-sea/w640.jpg",
+          "bytes": 46174
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/arabian-sea/w1280.jpg",
+          "bytes": 166446
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/arabian-sea/w2048.jpg",
+          "bytes": 500479
+        }
+      ]
+    },
+    {
+      "featureName": "Arabian Sea at Goa",
+      "alt": "Arabian Sea at Goa — arabian sea",
+      "caption": "Arabian Sea at Goa",
+      "photographer": "May Hachem93",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AArabian%20Sea%20in%20Goa-%20India.JPG",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Arabian Sea in Goa- India.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Arabian Sea in Goa- India.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "dbdb589e089f43ec095f2099c80edd7958546fbc8cb3a584583a7c652ad035e2",
+      "width": 4608,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/arabian-sea/w640-2.jpg",
+          "bytes": 56006
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/arabian-sea/w1280-2.jpg",
+          "bytes": 125720
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/arabian-sea/w2048-2.jpg",
+          "bytes": 289852
+        }
+      ]
+    },
+    {
+      "featureName": "Dust over Arabian Sea",
+      "alt": "Dust over Arabian Sea — arabian sea",
+      "caption": "Dust over Arabian Sea",
+      "photographer": "NASA MODIS",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADust%20Over%20the%20Arabian%20Sea%20%2835484%29.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Dust Over the Arabian Sea (35484).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Dust Over the Arabian Sea (35484).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5228ef30d806a7ecd02062a21dfc740a814830a28e5a72f60e9981a54623c517",
+      "width": 4000,
+      "height": 3200,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/arabian-sea/w640-3.jpg",
+          "bytes": 24839
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/arabian-sea/w1280-3.jpg",
+          "bytes": 82207
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/arabian-sea/w2048-3.jpg",
+          "bytes": 244586
+        }
+      ]
+    }
   ]
 }

@@ -10,7 +10,7 @@ import {
 
 describe('ocean subjects', () => {
   it('ships a starter catalog with unique slugs and codes', () => {
-    expect(oceanSubjects.length).toBeGreaterThanOrEqual(5)
+    expect(oceanSubjects.length).toBeGreaterThanOrEqual(10)
 
     const slugs = oceanSubjects.map((subject) => subject.slug)
     const codes = oceanSubjects.map((subject) => subject.code)
@@ -51,13 +51,17 @@ describe('ocean subjects', () => {
     const groups = oceanSubjectsByCategory()
     expect(groups.map(([category]) => category)).toEqual([
       'World ocean basins',
+      'Major seas',
       'Polar seas',
     ])
     expect(
       groups[0]?.[1].some((subject) => subject.slug === 'pacific-ocean'),
     ).toBe(true)
     expect(
-      groups[1]?.[1].some((subject) => subject.slug === 'arctic-ocean'),
+      groups[1]?.[1].some((subject) => subject.slug === 'mediterranean-sea'),
+    ).toBe(true)
+    expect(
+      groups[2]?.[1].some((subject) => subject.slug === 'arctic-ocean'),
     ).toBe(true)
   })
 
