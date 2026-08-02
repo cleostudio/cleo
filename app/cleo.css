@@ -912,7 +912,7 @@ html[data-cleo-sidebar-open] .cleo-sidebar-closed-controls {
   }
 
   html[data-cleo-route][data-cleo-sidebar-collapsed] .cleo-sidebar-toggle:hover {
-    background: var(--muted);
+    background: var(--active);
     box-shadow: none;
   }
 }
@@ -986,7 +986,7 @@ html[data-cleo-sidebar-open] body {
     transform: translate3d(0, 0, 0);
     visibility: visible;
     pointer-events: auto;
-    background: color-mix(in oklab, var(--background) 92%, var(--muted));
+    background: var(--background);
     transition:
       transform var(--cleo-sidebar-duration) var(--ease-swift),
       visibility 0s linear 0s;
@@ -1031,7 +1031,7 @@ html[data-cleo-sidebar-open] body {
 }
 
 .cleo-sidebar-new-chat:hover {
-  background: var(--muted);
+  background: var(--active);
 }
 
 .cleo-sidebar-collapse {
@@ -1040,6 +1040,7 @@ html[data-cleo-sidebar-open] body {
 
 .cleo-sidebar-collapse:hover {
   color: var(--foreground);
+  background: var(--active);
 }
 
 .cleo-sidebar-scroll {
