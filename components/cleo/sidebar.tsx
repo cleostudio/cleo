@@ -59,17 +59,16 @@ export function CleoSidebar({
       >
         <div className="cleo-sidebar-header">
           <Button
-            aria-label="New chat"
             className="cleo-sidebar-new-chat"
             onClick={() => {
               onNewChat()
               onCloseMobile()
             }}
-            size="icon-sm"
             type="button"
             variant="outline"
           >
-            <SquarePen aria-hidden="true" />
+            <SquarePen aria-hidden="true" data-icon="inline-start" />
+            New chat
           </Button>
           <Button
             aria-label="Close sidebar"

@@ -500,10 +500,8 @@ describe('AskForm chat sidebar', () => {
     render(<AskForm />)
 
     const history = screen.getByRole('complementary', { name: 'Chat history' })
-    const newChat = within(history).getByRole('button', { name: 'New chat' })
-    expect(newChat).toBeTruthy()
-    // Open sidebar keeps New chat as an icon-only control.
-    expect(newChat.textContent?.replace(/\s+/g, '')).toBe('')
+    expect(within(history).getByRole('button', { name: 'New chat' })).toBeTruthy()
+    expect(within(history).getByText('New chat')).toBeTruthy()
 
     fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), {
       target: { value: 'What is Mars like?' },
@@ -643,10 +641,11 @@ describe('AskForm chat sidebar', () => {
         document.documentElement.hasAttribute('data-cleo-sidebar-collapsed'),
       ).toBe(false)
     })
-    const openNewChat = within(
-      screen.getByRole('complementary', { name: 'Chat history' }),
-    ).getByRole('button', { name: 'New chat' })
-    expect(openNewChat.textContent?.replace(/\s+/g, '')).toBe('')
+    expect(
+      within(screen.getByRole('complementary', { name: 'Chat history' })).getByText(
+        'New chat',
+      ),
+    ).toBeTruthy()
   })
 
   it('starts a blank composer when New chat is pressed', async () => {
