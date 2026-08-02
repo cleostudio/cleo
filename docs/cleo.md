@@ -10,6 +10,7 @@ Read this when changing `/cleo`, `POST /api/responses`, or anything under
 | UI (messages, attachments, stream, Retry/Continue, `?q=` handoff) | `components/cleo/ask-form.tsx` |
 | Sidebar (New chat + thread history) | `components/cleo/sidebar.tsx` |
 | Thread persistence (localStorage) | `lib/cleo/threads.ts` |
+| Desktop rail collapsed preference | `lib/cleo/sidebar-preference.ts` |
 | Page shell | `app/_views/cleo-page.tsx` |
 | API route | `app/api/responses/route.ts` |
 | Voice + portal catalog | `lib/cleo/instructions.ts`, `lib/cleo/portal-catalog.ts` |
@@ -161,8 +162,9 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
 ## Verify
 
 - Multi-turn chat, reasoning activity, web search
-- Sidebar: New chat, switch threads, delete, restore after reload (desktop rail
-  from 64rem; below that a drawer above the prompt/site dock)
+- Sidebar: New chat, switch threads, delete, restore after reload (collapsible
+  desktop rail from 64rem with preference in `cleo-sidebar-collapsed`; below
+  that a drawer above the prompt/site dock)
 - Image attach/vision, image generation, streaming, cancellation
 - Retry/Continue on incomplete/failed turns
 - Location preference (grant, deny, refresh/leave-and-return without

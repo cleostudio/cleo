@@ -27,12 +27,14 @@ export function CleoRouteAttribute() {
       root.removeAttribute('data-cleo-route')
       root.removeAttribute('data-cleo-empty')
       root.removeAttribute('data-cleo-sidebar-open')
+      root.removeAttribute('data-cleo-sidebar-collapsed')
     }
 
     return () => {
       root.removeAttribute('data-cleo-route')
       root.removeAttribute('data-cleo-empty')
       root.removeAttribute('data-cleo-sidebar-open')
+      root.removeAttribute('data-cleo-sidebar-collapsed')
     }
   }, [isCleo])
 

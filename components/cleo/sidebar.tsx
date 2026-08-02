@@ -18,6 +18,7 @@ const SIDEBAR_BACKDROP_STYLE = {
 type CleoSidebarProps = {
   activeThreadId: string | null
   mobileOpen: boolean
+  onCollapseDesktop: () => void
   onCloseMobile: () => void
   onDeleteThread: (threadId: string) => void
   onNewChat: () => void
@@ -28,6 +29,7 @@ type CleoSidebarProps = {
 export function CleoSidebar({
   activeThreadId,
   mobileOpen,
+  onCollapseDesktop,
   onCloseMobile,
   onDeleteThread,
   onNewChat,
@@ -66,8 +68,15 @@ export function CleoSidebar({
           </Button>
           <Button
             aria-label="Close sidebar"
-            className="cleo-sidebar-close-mobile"
-            onClick={onCloseMobile}
+            className="cleo-sidebar-collapse"
+            onClick={() => {
+              // Mobile dismisses the drawer; desktop collapses the rail.
+              if (window.matchMedia("(min-width: 64rem)").matches) {
+                onCollapseDesktop()
+              } else {
+                onCloseMobile()
+              }
+            }}
             size="icon-sm"
             type="button"
             variant="ghost"
@@ -125,13 +134,16 @@ export function CleoSidebar({
 }
 
 type CleoSidebarToggleProps = {
+  /** True when the mobile drawer is open (hides this FAB). */
   mobileOpen: boolean
-  onToggle: () => void
+  onOpenDesktop: () => void
+  onToggleMobile: () => void
 }
 
 export function CleoSidebarToggle({
   mobileOpen,
-  onToggle,
+  onOpenDesktop,
+  onToggleMobile,
 }: CleoSidebarToggleProps) {
   return (
     <Button
@@ -139,7 +151,14 @@ export function CleoSidebarToggle({
       aria-expanded={mobileOpen}
       aria-label={mobileOpen ? "Close chat history" : "Open chat history"}
       className="cleo-sidebar-toggle"
-      onClick={onToggle}
+      onClick={() => {
+        // Desktop collapsed: expand the rail. Mobile: toggle the drawer.
+        if (window.matchMedia("(min-width: 64rem)").matches) {
+          onOpenDesktop()
+          return
+        }
+        onToggleMobile()
+      }}
       size="icon-sm"
       type="button"
       variant="ghost"

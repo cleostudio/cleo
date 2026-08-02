@@ -19,9 +19,10 @@
   }
 }
 
-/* Persistent rail only when there is room beside the chat column (~1024px). */
+/* Persistent rail when there is room beside the chat column (~1024px),
+   unless the user has collapsed it. */
 @media (min-width: 64rem) {
-  html[data-cleo-route] {
+  html[data-cleo-route]:not([data-cleo-sidebar-collapsed]) {
     --cleo-sidebar-offset: var(--cleo-sidebar-width);
   }
 }
@@ -811,13 +812,14 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   background: var(--background);
 }
 
-/* Drawer is open — the rail's close control owns dismissal; hide the FAB. */
+/* Drawer / rail is open — the header control owns dismissal; hide the FAB. */
 html[data-cleo-sidebar-open] .cleo-sidebar-toggle {
   display: none;
 }
 
 @media (min-width: 64rem) {
-  .cleo-sidebar-toggle {
+  /* Expanded rail: hide the floating open control. */
+  html[data-cleo-route]:not([data-cleo-sidebar-collapsed]) .cleo-sidebar-toggle {
     display: none;
   }
 }
@@ -877,19 +879,20 @@ html[data-cleo-sidebar-open] body {
   .cleo-sidebar {
     z-index: calc(var(--z-nav) - 2);
     width: var(--cleo-sidebar-width);
-    transform: none;
-    transition: none;
+    transform: translateX(0);
     visibility: visible;
     pointer-events: auto;
     background: color-mix(in oklab, var(--background) 92%, var(--muted));
   }
 
-  .cleo-sidebar-backdrop {
-    display: none !important;
+  html[data-cleo-sidebar-collapsed] .cleo-sidebar {
+    transform: translateX(-105%);
+    visibility: hidden;
+    pointer-events: none;
   }
 
-  .cleo-sidebar-close-mobile {
-    display: none;
+  .cleo-sidebar-backdrop {
+    display: none !important;
   }
 }
 
@@ -919,8 +922,12 @@ html[data-cleo-sidebar-open] body {
   background: var(--muted);
 }
 
-.cleo-sidebar-close-mobile {
+.cleo-sidebar-collapse {
   color: var(--muted-foreground);
+}
+
+.cleo-sidebar-collapse:hover {
+  color: var(--foreground);
 }
 
 .cleo-sidebar-scroll {

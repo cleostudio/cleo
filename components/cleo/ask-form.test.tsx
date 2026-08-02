@@ -509,6 +509,21 @@ describe('AskForm chat sidebar', () => {
   })
 
   it('opens the mobile history drawer above page chrome', async () => {
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      writable: true,
+      value: vi.fn().mockImplementation((query: string) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    })
+
     render(<AskForm />)
 
     fireEvent.click(screen.getByRole('button', { name: 'Open chat history' }))
@@ -530,6 +545,42 @@ describe('AskForm chat sidebar', () => {
     await waitFor(() => {
       expect(
         document.documentElement.hasAttribute('data-cleo-sidebar-open'),
+      ).toBe(false)
+    })
+  })
+
+  it('collapses the desktop rail from the header sidebar control', async () => {
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      writable: true,
+      value: vi.fn().mockImplementation((query: string) => ({
+        matches: query.includes('min-width: 64rem'),
+        media: query,
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    })
+
+    render(<AskForm />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Close sidebar' }))
+
+    await waitFor(() => {
+      expect(
+        document.documentElement.hasAttribute('data-cleo-sidebar-collapsed'),
+      ).toBe(true)
+      expect(window.localStorage.getItem('cleo-sidebar-collapsed')).toBe('1')
+    })
+
+    fireEvent.click(screen.getByRole('button', { name: 'Open chat history' }))
+
+    await waitFor(() => {
+      expect(
+        document.documentElement.hasAttribute('data-cleo-sidebar-collapsed'),
       ).toBe(false)
     })
   })

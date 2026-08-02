@@ -6,6 +6,7 @@ import {
   memo,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
 } from "react"
@@ -47,6 +48,10 @@ import {
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
+import {
+  isSidebarCollapsed,
+  setSidebarCollapsed as persistSidebarCollapsed,
+} from "~/lib/cleo/sidebar-preference"
 import {
   createThreadId,
   deleteThread,
@@ -296,6 +301,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   )
   const [activeThreadId, setActiveThreadId] = useState<string | null>(null)
   const [sidebarMobileOpen, setSidebarMobileOpen] = useState(false)
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [threadsHydrated, setThreadsHydrated] = useState(false)
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -371,8 +377,31 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     })
   }, [])
 
+  // Desktop rail collapsed preference — restore before paint so the column
+  // offset does not flash open then shut.
+  useLayoutEffect(() => {
+    const collapsed = isSidebarCollapsed()
+    setSidebarCollapsed(collapsed)
+    const root = document.documentElement
+    if (collapsed) {
+      root.setAttribute("data-cleo-sidebar-collapsed", "")
+    } else {
+      root.removeAttribute("data-cleo-sidebar-collapsed")
+    }
+  }, [])
+
+  useEffect(() => {
+    const root = document.documentElement
+    if (sidebarCollapsed) {
+      root.setAttribute("data-cleo-sidebar-collapsed", "")
+    } else {
+      root.removeAttribute("data-cleo-sidebar-collapsed")
+    }
+    persistSidebarCollapsed(sidebarCollapsed)
+  }, [sidebarCollapsed])
+
   // Mobile drawer: mirror open state onto <html> for overlay CSS / scroll lock,
-  // dismiss on Escape, and collapse when the viewport grows into the rail.
+  // dismiss on Escape, and close the drawer when the viewport grows into the rail.
   useEffect(() => {
     const root = document.documentElement
     if (sidebarMobileOpen) {
@@ -1107,6 +1136,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       <CleoSidebar
         activeThreadId={activeThreadId}
         mobileOpen={sidebarMobileOpen}
+        onCollapseDesktop={() => setSidebarCollapsed(true)}
         onCloseMobile={() => setSidebarMobileOpen(false)}
         onDeleteThread={handleDeleteThread}
         onNewChat={handleNewChat}
@@ -1115,7 +1145,8 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       />
       <CleoSidebarToggle
         mobileOpen={sidebarMobileOpen}
-        onToggle={() => setSidebarMobileOpen((open) => !open)}
+        onOpenDesktop={() => setSidebarCollapsed(false)}
+        onToggleMobile={() => setSidebarMobileOpen((open) => !open)}
       />
 
       <div className="cleo-main">
