@@ -1,4 +1,10 @@
 /* Column geometry for the Cleo chat surface — same width as portal pages */
+@property --cleo-sidebar-offset {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
 :root {
   --app-column-max: var(--content-column);
   --app-column-gutter: 1.5rem;
@@ -10,6 +16,8 @@
   /* Chat history rail — offset is 0 until the viewport can host a fixed rail */
   --cleo-sidebar-width: 16.5rem;
   --cleo-sidebar-offset: 0px;
+  --cleo-sidebar-duration: 200ms;
+  --cleo-sidebar-exit-duration: 133ms;
 }
 
 @media (max-width: 39.99rem) {
@@ -20,10 +28,25 @@
 }
 
 /* Persistent rail when there is room beside the chat column (~1024px),
-   unless the user has collapsed it. */
+   unless the user has collapsed it. Interpolated so content + chrome move
+   with the rail (transform/opacity elsewhere; this drives shared geometry). */
 @media (min-width: 64rem) {
+  html[data-cleo-route] {
+    transition: --cleo-sidebar-offset var(--cleo-sidebar-duration) var(--ease-swift);
+  }
+
   html[data-cleo-route]:not([data-cleo-sidebar-collapsed]) {
     --cleo-sidebar-offset: var(--cleo-sidebar-width);
+  }
+
+  html[data-cleo-route][data-cleo-sidebar-collapsed] {
+    transition-duration: var(--cleo-sidebar-exit-duration);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-cleo-route] {
+    transition: none;
   }
 }
 
@@ -507,8 +530,8 @@
   position: fixed;
   top: 50%;
   bottom: auto;
-  /* Center in the main column (viewport minus sidebar offset). */
-  left: calc(50% + (var(--cleo-sidebar-offset) / 2));
+  /* Center in the main column; shift via transform so it can ease with the rail. */
+  left: 50%;
   z-index: calc(var(--z-nav) - 1);
   display: flex;
   width: min(
@@ -517,7 +540,11 @@
   );
   flex-direction: column;
   gap: 0.85rem;
-  transform: translate(-50%, -50%);
+  transform: translate3d(
+    calc(-50% + (var(--cleo-sidebar-offset) / 2)),
+    -50%,
+    0
+  );
 }
 
 .cleo-starters {
@@ -563,7 +590,11 @@
 .prompt-dock-shell[data-docked] {
   top: auto;
   bottom: var(--cleo-prompt-bottom);
-  transform: translateX(-50%);
+  transform: translate3d(
+    calc(-50% + (var(--cleo-sidebar-offset) / 2)),
+    0,
+    0
+  );
 }
 
 @media (max-width: 39.99rem) {
@@ -587,7 +618,18 @@ html[data-cleo-route] .site-chrome {
 
 /* Keep the site dock aligned with the prompt column beside the history rail. */
 html[data-cleo-route] .dock {
-  left: calc(50% + (var(--cleo-sidebar-offset) / 2));
+  left: 50%;
+  transform: translate3d(
+    calc(-50% + (var(--cleo-sidebar-offset) / 2)),
+    0,
+    0
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-cleo-route] .dock {
+    transition: none;
+  }
 }
 
 html[data-cleo-route] .site-chrome-main {
@@ -805,6 +847,14 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   color: var(--muted-foreground);
   background: color-mix(in oklab, var(--background) 82%, transparent);
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--border) 70%, transparent);
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 150ms var(--ease-swift),
+    transform 150ms var(--ease-swift),
+    color 150ms ease,
+    background-color 150ms ease,
+    visibility 0s linear 0s;
 }
 
 .cleo-sidebar-toggle:hover {
@@ -812,21 +862,57 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   background: var(--background);
 }
 
-/* Drawer / rail is open — the header control owns dismissal; hide the FAB. */
+/* Drawer open — header owns dismissal; fade the FAB out (no display snap). */
 html[data-cleo-sidebar-open] .cleo-sidebar-toggle {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(-0.2rem, 0, 0);
+  transition:
+    opacity var(--cleo-sidebar-exit-duration) var(--ease-swift),
+    transform var(--cleo-sidebar-exit-duration) var(--ease-swift),
+    visibility 0s linear var(--cleo-sidebar-exit-duration);
 }
 
 @media (min-width: 64rem) {
-  /* Expanded rail: hide the floating open control. */
+  /* Expanded rail: hide the floating open control immediately. */
   html[data-cleo-route]:not([data-cleo-sidebar-collapsed]) .cleo-sidebar-toggle {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate3d(-0.2rem, 0, 0);
+    transition:
+      opacity var(--cleo-sidebar-exit-duration) var(--ease-swift),
+      transform var(--cleo-sidebar-exit-duration) var(--ease-swift),
+      visibility 0s linear var(--cleo-sidebar-exit-duration);
+  }
+
+  /* Collapsed: fade the open control in after the rail has mostly left. */
+  html[data-cleo-route][data-cleo-sidebar-collapsed] .cleo-sidebar-toggle {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate3d(0, 0, 0);
+    transition:
+      opacity 150ms var(--ease-swift) 80ms,
+      transform 150ms var(--ease-swift) 80ms,
+      visibility 0s linear 80ms,
+      color 150ms ease,
+      background-color 150ms ease;
   }
 }
 
 .cleo-sidebar-backdrop {
-  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-card);
+  display: block;
   pointer-events: none;
+  opacity: 0;
+  /* Same paper veil as dialogs — not a foreground grey fog. */
+  background: color-mix(in oklab, var(--background) 72%, transparent);
+  transition: opacity var(--cleo-sidebar-duration) var(--ease-swift);
+  visibility: hidden;
 }
 
 .cleo-sidebar {
@@ -847,26 +933,29 @@ html[data-cleo-sidebar-open] .cleo-sidebar-toggle {
     max(0.75rem, env(safe-area-inset-left, 0px));
   background: var(--background);
   box-shadow: 1px 0 0 0 var(--border);
-  transform: translateX(-105%);
-  transition: transform 180ms var(--ease-swift);
+  transform: translate3d(-105%, 0, 0);
+  /* Delay visibility until the slide finishes so exit is not cut short. */
+  transition:
+    transform var(--cleo-sidebar-exit-duration) var(--ease-swift),
+    visibility 0s linear var(--cleo-sidebar-exit-duration);
   visibility: hidden;
   pointer-events: none;
+  will-change: transform;
 }
 
 .cleo-sidebar[data-open] {
-  transform: translateX(0);
+  transform: translate3d(0, 0, 0);
   visibility: visible;
   pointer-events: auto;
+  transition:
+    transform var(--cleo-sidebar-duration) var(--ease-swift),
+    visibility 0s linear 0s;
 }
 
 .cleo-sidebar-backdrop[data-open] {
-  display: block;
-  position: fixed;
-  inset: 0;
-  z-index: var(--z-card);
+  opacity: 1;
+  visibility: visible;
   pointer-events: auto;
-  /* Same paper veil as dialogs — not a foreground grey fog. */
-  background: color-mix(in oklab, var(--background) 72%, transparent);
 }
 
 /* While the drawer covers chrome, keep the page from scrolling underneath. */
@@ -879,16 +968,22 @@ html[data-cleo-sidebar-open] body {
   .cleo-sidebar {
     z-index: calc(var(--z-nav) - 2);
     width: var(--cleo-sidebar-width);
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
     visibility: visible;
     pointer-events: auto;
     background: color-mix(in oklab, var(--background) 92%, var(--muted));
+    transition:
+      transform var(--cleo-sidebar-duration) var(--ease-swift),
+      visibility 0s linear 0s;
   }
 
   html[data-cleo-sidebar-collapsed] .cleo-sidebar {
-    transform: translateX(-105%);
+    transform: translate3d(-105%, 0, 0);
     visibility: hidden;
     pointer-events: none;
+    transition:
+      transform var(--cleo-sidebar-exit-duration) var(--ease-swift),
+      visibility 0s linear var(--cleo-sidebar-exit-duration);
   }
 
   .cleo-sidebar-backdrop {
@@ -897,7 +992,9 @@ html[data-cleo-sidebar-open] body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cleo-sidebar {
+  .cleo-sidebar,
+  .cleo-sidebar-backdrop,
+  .cleo-sidebar-toggle {
     transition: none;
   }
 }

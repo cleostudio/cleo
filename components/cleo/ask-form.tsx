@@ -302,6 +302,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const [activeThreadId, setActiveThreadId] = useState<string | null>(null)
   const [sidebarMobileOpen, setSidebarMobileOpen] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+  const [sidebarPreferenceReady, setSidebarPreferenceReady] = useState(false)
   const [threadsHydrated, setThreadsHydrated] = useState(false)
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -378,7 +379,8 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   }, [])
 
   // Desktop rail collapsed preference — restore before paint so the column
-  // offset does not flash open then shut.
+  // offset does not flash open then shut. Wait to persist until after hydrate
+  // so the initial `false` state cannot wipe a stored collapse.
   useLayoutEffect(() => {
     const collapsed = isSidebarCollapsed()
     setSidebarCollapsed(collapsed)
@@ -388,9 +390,11 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     } else {
       root.removeAttribute("data-cleo-sidebar-collapsed")
     }
+    setSidebarPreferenceReady(true)
   }, [])
 
   useEffect(() => {
+    if (!sidebarPreferenceReady) return
     const root = document.documentElement
     if (sidebarCollapsed) {
       root.setAttribute("data-cleo-sidebar-collapsed", "")
@@ -398,7 +402,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       root.removeAttribute("data-cleo-sidebar-collapsed")
     }
     persistSidebarCollapsed(sidebarCollapsed)
-  }, [sidebarCollapsed])
+  }, [sidebarCollapsed, sidebarPreferenceReady])
 
   // Mobile drawer: mirror open state onto <html> for overlay CSS / scroll lock,
   // dismiss on Escape, and close the drawer when the viewport grows into the rail.
