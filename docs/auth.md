@@ -37,7 +37,8 @@ missing `OPENAI_API_KEY` for `/api/responses`).
 | `lib/db/auth-schema.ts` | Better Auth tables (`user`, `session`, `account`, `verification`) |
 | `lib/auth-user-fields.ts` | Shared `user.additionalFields` (e.g. Location preference) |
 | `lib/auth.ts` | Server `betterAuth` + `getSession` |
-| `lib/auth-client.ts` | React `createAuthClient` + `inferAdditionalFields` |
+| `lib/auth-client.ts` | React `createAuthClient` + `inferAdditionalFields` + Sentinel identify URL |
+| `lib/better-auth-kv.ts` | Resolve / validate project-scoped KV identify URL |
 | `lib/cleo/user-profile.ts` | Signed-in `user.name` → Cleo private instructions |
 | `app/api/auth/[...all]/route.ts` | Next.js route handler |
 | `drizzle.config.ts` | Migrations / push |
@@ -82,6 +83,8 @@ Required for auth:
 | `BETTER_AUTH_SECRET` | You — random ≥32 characters |
 | `BETTER_AUTH_URL` | **Production only** — live origin. Leave unset for Preview/Development. Preview trusts `*.vercel.app` via dynamic `baseURL.allowedHosts` (avoids “Invalid origin”). |
 | `BETTER_AUTH_API_KEY` | Optional — [Better Auth Infrastructure](https://dash.better-auth.com) project API key for the `dash()` plugin |
+| `NEXT_PUBLIC_BETTER_AUTH_KV_URL` | Optional — project-scoped Sentinel identify URL from Infra project settings (`https://kv.better-auth.com/projects/{id}`). Public ingestion endpoint, not a secret. |
+| `BETTER_AUTH_KV_URL` | Optional — same URL for server-side `dash()` / Infra KV (package default when set). |
 
 ## Better Auth Infrastructure (dashboard)
 
@@ -91,8 +94,8 @@ analytics / admin APIs. Core email/password auth works without it.
 | Piece | Location |
 | --- | --- |
 | `@better-auth/infra` | dependency |
-| `dash()` | `lib/auth.ts` plugins (reads `BETTER_AUTH_API_KEY`) |
-| `sentinelClient()` | `lib/auth-client.ts` |
+| `dash()` | `lib/auth.ts` plugins (reads `BETTER_AUTH_API_KEY`, optional `BETTER_AUTH_KV_URL`) |
+| `sentinelClient({ identifyUrl })` | `lib/auth-client.ts` (from `NEXT_PUBLIC_BETTER_AUTH_KV_URL` via `lib/better-auth-kv.ts`) |
 
 After setting `BETTER_AUTH_API_KEY` (local `.env.local`, Cursor cloud secrets,
 and Vercel Production/Preview), redeploy or restart `pnpm dev`. In the Infra
@@ -101,6 +104,13 @@ wizard **Connect** step use:
 - **Base URL** — your deployed origin (e.g. `https://cleoalpha.vercel.app`) or
   `http://localhost:3000` when testing locally
 - **Base Path** — `/api/auth` (default)
+
+Also copy the **ingestion / identify URL** from the same project settings page
+and set both `NEXT_PUBLIC_BETTER_AUTH_KV_URL` and `BETTER_AUTH_KV_URL` to
+`https://kv.better-auth.com/projects/{id}`. Without it, `sentinelClient()`
+falls back to the global `https://kv.better-auth.com` host and logs a build /
+runtime warning. The URL is not secret; still do not put `BETTER_AUTH_API_KEY`
+in any `NEXT_PUBLIC_*` variable.
 
 Do not enable `activityTracking` on `dash()` unless you also migrate a
 `user.lastActiveAt` column (see Better Auth Infra docs).
