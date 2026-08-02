@@ -1,11 +1,19 @@
 "use client"
 
+import type { CSSProperties } from "react"
 import { PanelLeftClose, PanelLeftOpen, SquarePen, Trash2, X } from "lucide-react"
 
 import { Button } from "~/components/cleo/ui/button"
 import { ScrollAreaY } from "~/components/ui/scroll-area"
 import type { CleoThreadSummary } from "~/lib/cleo/threads"
 import { cn } from "~/lib/utils"
+
+// Keep backdrop-filter inline — LightningCSS strips it from stylesheets
+// (same constraint as DockGlass / dialog glass).
+const SIDEBAR_BACKDROP_STYLE = {
+  backdropFilter: "blur(6px) saturate(1.1)",
+  WebkitBackdropFilter: "blur(6px) saturate(1.1)",
+} satisfies CSSProperties
 
 type CleoSidebarProps = {
   activeThreadId: string | null
@@ -33,6 +41,7 @@ export function CleoSidebar({
         className="cleo-sidebar-backdrop"
         data-open={mobileOpen || undefined}
         onClick={onCloseMobile}
+        style={mobileOpen ? SIDEBAR_BACKDROP_STYLE : undefined}
       />
       <aside
         aria-label="Chat history"

@@ -863,7 +863,8 @@ html[data-cleo-sidebar-open] .cleo-sidebar-toggle {
   inset: 0;
   z-index: var(--z-card);
   pointer-events: auto;
-  background: color-mix(in oklab, var(--foreground) 28%, transparent);
+  /* Same paper veil as dialogs — not a foreground grey fog. */
+  background: color-mix(in oklab, var(--background) 72%, transparent);
 }
 
 /* While the drawer covers chrome, keep the page from scrolling underneath. */
