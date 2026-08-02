@@ -19467,6 +19467,366 @@
       }
     ]
   },
+  "cities/marrakech": {
+    "collection": "cities",
+    "title": "Koutoubia Mosque",
+    "subtitle": "Marrakech",
+    "alt": "Koutoubia Mosque — marrakech",
+    "photographer": "Schorle",
+    "license": "CC BY-SA 4.0",
+    "width": 5184,
+    "height": 3456,
+    "renditions": [
+      {
+        "src": "/images/cities/marrakech/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/marrakech/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/marrakech/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/marrakech-2": {
+    "collection": "cities",
+    "title": "Jemaa el-Fnaa",
+    "subtitle": "Marrakech",
+    "alt": "Jemaa el-Fnaa — marrakech",
+    "photographer": "Herokk",
+    "license": "CC BY-SA 4.0",
+    "width": 4096,
+    "height": 3072,
+    "renditions": [
+      {
+        "src": "/images/cities/marrakech/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/marrakech/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/marrakech/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/marrakech-3": {
+    "collection": "cities",
+    "title": "Bahia Palace",
+    "subtitle": "Marrakech",
+    "alt": "Bahia Palace — marrakech",
+    "photographer": "Val Traveler",
+    "license": "CC BY-SA 4.0",
+    "width": 4873,
+    "height": 3253,
+    "renditions": [
+      {
+        "src": "/images/cities/marrakech/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/marrakech/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/marrakech/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/lagos": {
+    "collection": "cities",
+    "title": "Lagos skyline",
+    "subtitle": "Lagos",
+    "alt": "Lagos skyline — lagos",
+    "photographer": "Clara Sanchiz",
+    "license": "CC BY-SA 2.0",
+    "width": 3726,
+    "height": 1970,
+    "renditions": [
+      {
+        "src": "/images/cities/lagos/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/lagos/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/lagos/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/lagos-2": {
+    "collection": "cities",
+    "title": "National Arts Theatre",
+    "subtitle": "Lagos",
+    "alt": "National Arts Theatre — lagos",
+    "photographer": "Juganutt",
+    "license": "CC BY-SA 4.0",
+    "width": 3992,
+    "height": 2992,
+    "renditions": [
+      {
+        "src": "/images/cities/lagos/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/lagos/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/lagos/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/lagos-3": {
+    "collection": "cities",
+    "title": "Third Mainland Bridge",
+    "subtitle": "Lagos",
+    "alt": "Third Mainland Bridge — lagos",
+    "photographer": "Dan Flore",
+    "license": "CC BY-SA 4.0",
+    "width": 2014,
+    "height": 1314,
+    "renditions": [
+      {
+        "src": "/images/cities/lagos/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/lagos/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/lagos/w2048-3.jpg",
+        "width": 2014
+      }
+    ]
+  },
+  "cities/buenos-aires": {
+    "collection": "cities",
+    "title": "Casa Rosada",
+    "subtitle": "Buenos Aires",
+    "alt": "Casa Rosada — buenos aires",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3694,
+    "height": 2144,
+    "renditions": [
+      {
+        "src": "/images/cities/buenos-aires/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/buenos-aires/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/buenos-aires/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/buenos-aires-2": {
+    "collection": "cities",
+    "title": "Obelisco",
+    "subtitle": "Buenos Aires",
+    "alt": "Obelisco — buenos aires",
+    "photographer": "Dpalma01",
+    "license": "CC BY-SA 4.0",
+    "width": 3192,
+    "height": 1886,
+    "renditions": [
+      {
+        "src": "/images/cities/buenos-aires/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/buenos-aires/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/buenos-aires/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/buenos-aires-3": {
+    "collection": "cities",
+    "title": "Teatro Colón",
+    "subtitle": "Buenos Aires",
+    "alt": "Teatro Colón — buenos aires",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 4.0",
+    "width": 4914,
+    "height": 3306,
+    "renditions": [
+      {
+        "src": "/images/cities/buenos-aires/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/buenos-aires/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/buenos-aires/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/rio-de-janeiro": {
+    "collection": "cities",
+    "title": "Christ the Redeemer",
+    "subtitle": "Rio de Janeiro",
+    "alt": "Christ the Redeemer — rio de janeiro",
+    "photographer": "Arne Müseler",
+    "license": "CC BY-SA 3.0",
+    "width": 2497,
+    "height": 3744,
+    "renditions": [
+      {
+        "src": "/images/cities/rio-de-janeiro/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/rio-de-janeiro/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/rio-de-janeiro/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/rio-de-janeiro-2": {
+    "collection": "cities",
+    "title": "Sugarloaf Mountain",
+    "subtitle": "Rio de Janeiro",
+    "alt": "Sugarloaf Mountain — rio de janeiro",
+    "photographer": "Wilfredor",
+    "license": "CC0",
+    "width": 7482,
+    "height": 4629,
+    "renditions": [
+      {
+        "src": "/images/cities/rio-de-janeiro/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/rio-de-janeiro/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/rio-de-janeiro/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/rio-de-janeiro-3": {
+    "collection": "cities",
+    "title": "Guanabara Bay shoreline",
+    "subtitle": "Rio de Janeiro",
+    "alt": "Guanabara Bay shoreline — rio de janeiro",
+    "photographer": "Wilfredor",
+    "license": "CC0",
+    "width": 8256,
+    "height": 5504,
+    "renditions": [
+      {
+        "src": "/images/cities/rio-de-janeiro/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/rio-de-janeiro/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/rio-de-janeiro/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/bogota": {
+    "collection": "cities",
+    "title": "Monserrate",
+    "subtitle": "Bogotá",
+    "alt": "Monserrate — bogota",
+    "photographer": "Felipe Restrepo Acosta",
+    "license": "CC BY-SA 4.0",
+    "width": 5184,
+    "height": 3888,
+    "renditions": [
+      {
+        "src": "/images/cities/bogota/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/bogota/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/bogota/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/bogota-2": {
+    "collection": "cities",
+    "title": "Plaza de Bolívar",
+    "subtitle": "Bogotá",
+    "alt": "Plaza de Bolívar — bogota",
+    "photographer": "José Luiz",
+    "license": "CC BY-SA 4.0",
+    "width": 4608,
+    "height": 2184,
+    "renditions": [
+      {
+        "src": "/images/cities/bogota/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/bogota/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/bogota/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/bogota-3": {
+    "collection": "cities",
+    "title": "Primatial Cathedral",
+    "subtitle": "Bogotá",
+    "alt": "Primatial Cathedral — bogota",
+    "photographer": "Kamilokardona",
+    "license": "CC BY-SA 3.0",
+    "width": 2592,
+    "height": 1944,
+    "renditions": [
+      {
+        "src": "/images/cities/bogota/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/bogota/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/bogota/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "oceans/pacific-ocean": {
     "collection": "oceans",
     "title": "Great Barrier Reef",

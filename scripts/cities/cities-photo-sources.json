@@ -510,5 +510,165 @@
       "height": 3572,
       "featureName": "Palacio de Bellas Artes"
     }
+  ],
+  "marrakech": [
+    {
+      "commonsTitle": "File:Koutoubia minaret from the city.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Koutoubia_minaret_from_the_city.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKoutoubia_minaret_from_the_city.JPG",
+      "photographer": "Schorle",
+      "license": "CC BY-SA 4.0",
+      "width": 5184,
+      "height": 3456,
+      "featureName": "Koutoubia Mosque"
+    },
+    {
+      "commonsTitle": "File:Jemaa el-Fnaa Marrakech at sunset.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Jemaa_el-Fnaa_Marrakech_at_sunset.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AJemaa_el-Fnaa_Marrakech_at_sunset.jpg",
+      "photographer": "Herokk",
+      "license": "CC BY-SA 4.0",
+      "width": 4096,
+      "height": 3072,
+      "featureName": "Jemaa el-Fnaa"
+    },
+    {
+      "commonsTitle": "File:Bahia Palace large court.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Bahia_Palace_large_court.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABahia_Palace_large_court.jpg",
+      "photographer": "Val Traveler",
+      "license": "CC BY-SA 4.0",
+      "width": 4873,
+      "height": 3253,
+      "featureName": "Bahia Palace"
+    }
+  ],
+  "lagos": [
+    {
+      "commonsTitle": "File:Lagos skyline.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Lagos_skyline.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALagos_skyline.jpg",
+      "photographer": "Clara Sanchiz",
+      "license": "CC BY-SA 2.0",
+      "width": 3726,
+      "height": 1970,
+      "featureName": "Lagos skyline"
+    },
+    {
+      "commonsTitle": "File:National Arts Theatre, Lagos.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/National_Arts_Theatre%2C_Lagos.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANational_Arts_Theatre%2C_Lagos.jpg",
+      "photographer": "Juganutt",
+      "license": "CC BY-SA 4.0",
+      "width": 3992,
+      "height": 2992,
+      "featureName": "National Arts Theatre"
+    },
+    {
+      "commonsTitle": "File:Dan Flore Lagos-Nigeria-3rd-Mainland-Bridge-2006.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Dan_Flore_Lagos-Nigeria-3rd-Mainland-Bridge-2006.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADan_Flore_Lagos-Nigeria-3rd-Mainland-Bridge-2006.jpg",
+      "photographer": "Dan Flore",
+      "license": "CC BY-SA 4.0",
+      "width": 2014,
+      "height": 1314,
+      "featureName": "Third Mainland Bridge"
+    }
+  ],
+  "buenos-aires": [
+    {
+      "commonsTitle": "File:Casa Rosada, Buenos Aires, Argentina.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Casa_Rosada%2C_Buenos_Aires%2C_Argentina.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACasa_Rosada%2C_Buenos_Aires%2C_Argentina.jpg",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "width": 3694,
+      "height": 2144,
+      "featureName": "Casa Rosada"
+    },
+    {
+      "commonsTitle": "File:Obelisco de Buenos Aires at sunset.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Obelisco_de_Buenos_Aires_at_sunset.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AObelisco_de_Buenos_Aires_at_sunset.jpg",
+      "photographer": "Dpalma01",
+      "license": "CC BY-SA 4.0",
+      "width": 3192,
+      "height": 1886,
+      "featureName": "Obelisco"
+    },
+    {
+      "commonsTitle": "File:Teatro Colón, Buenos Aires 01.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Teatro_Col%C3%B3n%2C_Buenos_Aires_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATeatro_Col%C3%B3n%2C_Buenos_Aires_01.jpg",
+      "photographer": "Bernard Gagnon",
+      "license": "CC BY-SA 4.0",
+      "width": 4914,
+      "height": 3306,
+      "featureName": "Teatro Colón"
+    }
+  ],
+  "rio-de-janeiro": [
+    {
+      "commonsTitle": "File:Christ the Redeemer - Cristo Redentor.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Christ_the_Redeemer_-_Cristo_Redentor.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChrist_the_Redeemer_-_Cristo_Redentor.jpg",
+      "photographer": "Arne Müseler",
+      "license": "CC BY-SA 3.0",
+      "width": 2497,
+      "height": 3744,
+      "featureName": "Christ the Redeemer"
+    },
+    {
+      "commonsTitle": "File:Sugarloaf Mountain, Rio de Janeiro, Brazil.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Sugarloaf_Mountain%2C_Rio_de_Janeiro%2C_Brazil.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASugarloaf_Mountain%2C_Rio_de_Janeiro%2C_Brazil.jpg",
+      "photographer": "Wilfredor",
+      "license": "CC0",
+      "width": 7482,
+      "height": 4629,
+      "featureName": "Sugarloaf Mountain"
+    },
+    {
+      "commonsTitle": "File:Rio de Janeiro, Brazil -08.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Rio_de_Janeiro%2C_Brazil_-08.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARio_de_Janeiro%2C_Brazil_-08.jpg",
+      "photographer": "Wilfredor",
+      "license": "CC0",
+      "width": 8256,
+      "height": 5504,
+      "featureName": "Guanabara Bay shoreline"
+    }
+  ],
+  "bogota": [
+    {
+      "commonsTitle": "File:2019 Bogotá - Monserrate desde la Estación Hospitales de Transmilenio.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fd/2019_Bogot%C3%A1_-_Monserrate_desde_la_Estaci%C3%B3n_Hospitales_de_Transmilenio.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A2019_Bogot%C3%A1_-_Monserrate_desde_la_Estaci%C3%B3n_Hospitales_de_Transmilenio.jpg",
+      "photographer": "Felipe Restrepo Acosta",
+      "license": "CC BY-SA 4.0",
+      "width": 5184,
+      "height": 3888,
+      "featureName": "Monserrate"
+    },
+    {
+      "commonsTitle": "File:Plaza de Bolívar - Bogotá - Colombia 2024.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Plaza_de_Bol%C3%ADvar_-_Bogot%C3%A1_-_Colombia_2024.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APlaza_de_Bol%C3%ADvar_-_Bogot%C3%A1_-_Colombia_2024.jpg",
+      "photographer": "José Luiz",
+      "license": "CC BY-SA 4.0",
+      "width": 4608,
+      "height": 2184,
+      "featureName": "Plaza de Bolívar"
+    },
+    {
+      "commonsTitle": "File:Catedral Primada de Colombia.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Catedral_Primada_de_Colombia.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACatedral_Primada_de_Colombia.jpg",
+      "photographer": "Kamilokardona",
+      "license": "CC BY-SA 3.0",
+      "width": 2592,
+      "height": 1944,
+      "featureName": "Primatial Cathedral"
+    }
   ]
 }

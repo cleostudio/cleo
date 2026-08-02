@@ -62,6 +62,21 @@ describe('city subjects', () => {
     expect(
       groups[2]?.[1].some((subject) => subject.slug === 'mexico-city'),
     ).toBe(true)
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'marrakech')).toBe(
+      true,
+    )
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'lagos')).toBe(
+      true,
+    )
+    expect(
+      groups[2]?.[1].some((subject) => subject.slug === 'buenos-aires'),
+    ).toBe(true)
+    expect(
+      groups[2]?.[1].some((subject) => subject.slug === 'rio-de-janeiro'),
+    ).toBe(true)
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'bogota')).toBe(
+      true,
+    )
   })
 
   it('lists Explore countries by exact catalog names', () => {

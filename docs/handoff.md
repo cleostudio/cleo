@@ -21,7 +21,7 @@ General-knowledge portal:
   `/civilizations/[slug]` (Africa & Near East, Mediterranean, Asia, Americas,
   Oceania; twenty-eight regional guides)
 - **Cities** — capital and route-city field guides at `/cities` and
-  `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; sixteen
+  `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; twenty-one
   guides)
 - **Oceans** — world ocean basin, major-sea, and polar-sea field guides at
   `/oceans` and `/oceans/[slug]` (world basins, major seas, polar seas; ten
