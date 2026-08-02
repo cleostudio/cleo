@@ -6,6 +6,10 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 
 const push = vi.fn()
 
+type MockNavigateEvent = {
+  preventDefault: () => void
+}
+
 // jsdom has no layout, so it ships no scrollIntoView.
 Element.prototype.scrollIntoView = vi.fn()
 
@@ -17,14 +21,34 @@ vi.mock('next/link', () => ({
   default: ({
     children,
     href,
+    onClick,
+    onNavigate,
     prefetch: _prefetch,
     ...rest
   }: AnchorHTMLAttributes<HTMLAnchorElement> & {
     children: ReactNode
     href: string
+    onNavigate?: (event: MockNavigateEvent) => void
     prefetch?: boolean
   }) => (
-    <a href={href} {...rest}>
+    <a
+      href={href}
+      {...rest}
+      onClick={(event) => {
+        onClick?.(event)
+        if (
+          !event.defaultPrevented &&
+          event.button === 0 &&
+          !event.metaKey &&
+          !event.ctrlKey &&
+          !event.shiftKey &&
+          !event.altKey
+        ) {
+          onNavigate?.({ preventDefault: () => event.preventDefault() })
+        }
+        event.preventDefault()
+      }}
+    >
       {children}
     </a>
   ),
@@ -188,6 +212,27 @@ describe('HomeSiteSearch', () => {
 
     fireEvent.keyDown(field, { key: 'Enter' })
     expect(push).toHaveBeenCalledWith('/explore/japan')
+    expect((field as HTMLInputElement).value).toBe('')
+  })
+
+  it('clears the query after a result is clicked', () => {
+    const field = setup()
+    type(field, 'japan')
+
+    fireEvent.click(screen.getAllByRole('option')[0]!)
+
+    expect((field as HTMLInputElement).value).toBe('')
+    expect(screen.queryByRole('listbox')).toBeNull()
+  })
+
+  it('keeps the query when a result is modifier-clicked into another tab', () => {
+    const field = setup()
+    type(field, 'japan')
+
+    fireEvent.click(screen.getAllByRole('option')[0]!, { ctrlKey: true })
+
+    expect((field as HTMLInputElement).value).toBe('japan')
+    expect(screen.getByRole('listbox')).toBeTruthy()
   })
 
   it('moves the highlight with the arrow keys and wraps around', () => {

@@ -40,6 +40,7 @@ Keep hits thin:
 - Keyboard navigation; `/` and Cmd/Ctrl-K focus
 - Ask Cleo row: last for a lookup, first for a question
 - Return opens the highlighted row
+- Opening a result clears the query and closes the result panel
 - Cmd/Ctrl-Return always asks Cleo
 - Photo results deep-link to their gallery tile via `galleryItemDomId`
   (`components/place-gallery.tsx` renders the id). Browsers do not recompute

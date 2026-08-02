@@ -174,9 +174,15 @@ export function HomeSiteSearch({
       ?.scrollIntoView({ block: 'nearest' })
   }, [activeIndex, isPanelOpen])
 
+  function closeAndClear() {
+    setQuery('')
+    setActiveKey(null)
+    setIsOpen(false)
+  }
+
   function openOption(option: SearchOption | undefined) {
     if (!option) return
-    setIsOpen(false)
+    closeAndClear()
     router.push(option.href)
   }
 
@@ -298,7 +304,7 @@ export function HomeSiteSearch({
                     id={`${baseId}-${option.key}`}
                     isActive={option.key === activeOption?.key}
                     key={option.key}
-                    onActivate={() => setIsOpen(false)}
+                    onActivate={closeAndClear}
                     onHover={() => setActiveKey(option.key)}
                     option={option}
                   />
@@ -350,7 +356,7 @@ function SearchOptionRow({
       data-active={isActive || undefined}
       href={option.href}
       id={id}
-      onClick={onActivate}
+      onNavigate={onActivate}
       // Keep focus — and so the open panel — in the field while a row is clicked.
       onMouseDown={(event) => event.preventDefault()}
       onMouseMove={onHover}
