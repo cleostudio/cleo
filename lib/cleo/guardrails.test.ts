@@ -18,6 +18,37 @@ describe("portal markdown guardrails", () => {
     expect(hasInventedPortalPaths(markdown)).toBe(true)
   })
 
+  it("strips invented guide links that carry Markdown titles", () => {
+    const markdown =
+      'See [Atlantis](/explore/atlantis "Lost city") and [Mars](/space/mars "Planet").'
+
+    expect(sanitizePortalMarkdown(markdown)).toBe(
+      "See Atlantis and [Mars](/space/mars).",
+    )
+    expect(hasInventedPortalPaths(markdown)).toBe(true)
+  })
+
+  it("strips invented angle-bracket destinations", () => {
+    const markdown = "See [Atlantis](</explore/atlantis>) next."
+
+    expect(sanitizePortalMarkdown(markdown)).toBe("See Atlantis next.")
+    expect(hasInventedPortalPaths(markdown)).toBe(true)
+  })
+
+  it("strips invented reference-style guide links", () => {
+    const markdown = [
+      "Read [Atlantis][lost] and [Japan][jp].",
+      "",
+      "[lost]: /explore/atlantis \"Myth\"",
+      "[jp]: /explore/japan",
+    ].join("\n")
+
+    expect(sanitizePortalMarkdown(markdown)).toBe(
+      ["Read Atlantis and [Japan][jp].", "", "[jp]: /explore/japan"].join("\n"),
+    )
+    expect(hasInventedPortalPaths(markdown)).toBe(true)
+  })
+
   it("drops invented curated image paths", () => {
     const markdown =
       "Photo: ![Fake](/images/atlas/not-a-country/w1280.jpg) done."

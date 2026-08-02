@@ -29,6 +29,8 @@ vi.mock("~/lib/auth", () => ({
   getSession: auth.getSession,
 }))
 
+import { resetCleoRateLimitForTests } from "~/lib/cleo/rate-limit"
+
 import { POST } from "./route"
 
 function ask(body: unknown, init: RequestInit = {}) {
@@ -71,6 +73,7 @@ beforeEach(() => {
   openai.create.mockReset()
   auth.getSession.mockReset()
   auth.getSession.mockResolvedValue(null)
+  resetCleoRateLimitForTests()
   vi.stubEnv("OPENAI_API_KEY", "test-key")
   vi.spyOn(console, "error").mockImplementation(() => undefined)
 })
@@ -142,6 +145,59 @@ describe("POST /api/responses: request validation", () => {
     expect(response.status).toBe(400)
     await expect(response.json()).resolves.toEqual({
       error: "Conversations must be 100,000 characters or fewer.",
+    })
+  })
+
+  it("rejects an oversized Content-Length before parsing JSON", async () => {
+    const response = await POST(
+      ask(question, {
+        headers: {
+          "content-type": "application/json",
+          "content-length": String(17 * 1024 * 1024),
+        },
+      })
+    )
+
+    expect(response.status).toBe(413)
+    await expect(response.json()).resolves.toEqual({
+      error: "The request body is too large.",
+    })
+    expect(openai.create).not.toHaveBeenCalled()
+  })
+
+  it("rate-limits repeated turns from the same client", async () => {
+    openai.create.mockResolvedValue(
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        { type: "response.completed" },
+      ])
+    )
+
+    for (let i = 0; i < 12; i++) {
+      const response = await POST(
+        ask(question, {
+          headers: {
+            "content-type": "application/json",
+            "x-forwarded-for": "203.0.113.50",
+          },
+        })
+      )
+      expect(response.status).toBe(200)
+    }
+
+    const blocked = await POST(
+      ask(question, {
+        headers: {
+          "content-type": "application/json",
+          "x-forwarded-for": "203.0.113.50",
+        },
+      })
+    )
+
+    expect(blocked.status).toBe(429)
+    expect(blocked.headers.get("retry-after")).toBeTruthy()
+    await expect(blocked.json()).resolves.toEqual({
+      error: "Too many requests. Try again shortly.",
     })
   })
 
@@ -368,6 +424,25 @@ describe("POST /api/responses: image attachments", () => {
     expect(response.status).toBe(400)
     await expect(response.json()).resolves.toEqual({
       error: "Attach up to 4 images per message.",
+    })
+  })
+
+  it("rejects more than sixteen images across the conversation", async () => {
+    const response = await POST(
+      ask({
+        messages: Array.from({ length: 5 }, (_, index) => ({
+          content: `batch ${index}`,
+          images: Array.from({ length: 4 }, () => ({
+            url: imageDataUrl(64),
+          })),
+          role: index % 2 === 0 ? "user" : "assistant",
+        })),
+      })
+    )
+
+    expect(response.status).toBe(400)
+    await expect(response.json()).resolves.toEqual({
+      error: "Conversations must include 16 images or fewer.",
     })
   })
 

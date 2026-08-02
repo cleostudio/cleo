@@ -12,6 +12,7 @@ Read this when changing `/cleo`, `POST /api/responses`, or anything under
 | API route | `app/api/responses/route.ts` |
 | Voice + portal catalog | `lib/cleo/instructions.ts`, `lib/cleo/portal-catalog.ts` |
 | Guardrails (strip invented Explore/Space paths) | `lib/cleo/guardrails.ts` |
+| Public turn rate limit | `lib/cleo/rate-limit.ts` |
 | NDJSON protocol | `lib/cleo/stream.ts` |
 | Images (server / client) | `lib/cleo/images.ts`, `lib/cleo/client-images.ts` |
 | Curated topic photos in Markdown | `lib/cleo/topic-photos.ts` |
@@ -43,6 +44,10 @@ optional browser-authorized location, then calls the OpenAI Responses API with:
 - ≤ 50 messages; ≤ 10,000 characters each; ≤ 100,000 total
 - Final message must be `user`
 - User/assistant messages: ≤ 4 image data URLs each (PNG, JPEG, WEBP, GIF)
+- ≤ 16 images and ≤ ~12MB decoded image bytes across the whole request
+- ≤ ~240k characters of encrypted reasoning across the whole request
+- `Content-Length` over 16MB → HTTP 413
+- Best-effort per-IP rate limit (12 turns / minute / warm isolate) → HTTP 429
 - Optional `location`: finite lat/lng, reported accuracy, valid IANA time zone —
   ephemeral developer context, never chat text
 - Account name is **not** accepted on the request body — the route reads it from
@@ -61,7 +66,8 @@ Without `OPENAI_API_KEY`, the route returns HTTP 503.
 ## Behavior rules
 
 - Base voice + Explore/Space catalog so replies deep-link real guides.
-- Invented Explore/Space Markdown paths are stripped (`guardrails.ts`).
+- Invented Explore/Space Markdown paths are stripped (`guardrails.ts`), including
+  titled inline links, angle-bracket destinations, and reference-style forms.
 - Topic answers may embed curated atlas/space JPEGs as Markdown.
   `topic-photos.ts` grounds every image in matching subject sets each turn
   (one view, or all three when asked). The UI allowlists only

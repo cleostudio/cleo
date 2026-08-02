@@ -11,7 +11,7 @@ noindex and do not gate Explore / Space / Cleo.
 
 | Path | Role |
 | --- | --- |
-| `POST/GET /api/auth/*` | Better Auth handler (`toNextJsHandler`) |
+| `GET/POST/PUT/PATCH/DELETE /api/auth/*` | Better Auth handler (`toNextJsHandler`) |
 | `/sign-in`, `/sign-up` | Email/password forms (print-register service UI) |
 | `/account` | Session nameplate + sign out |
 | Dock → Preferences → **Sign in** / **Account** | Discoverable entry in the Preferences panel |

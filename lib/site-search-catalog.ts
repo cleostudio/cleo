@@ -31,6 +31,12 @@ type SurfaceSeed = {
 
 const PORTAL_SURFACES: SurfaceSeed[] = [
   {
+    title: 'Explore',
+    subtitle: 'Country guides',
+    href: '/explore',
+    keywords: 'atlas field guides places world map',
+  },
+  {
     title: 'Gallery',
     subtitle: 'Photographs',
     href: '/gallery',
