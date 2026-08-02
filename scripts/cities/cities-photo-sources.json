@@ -31,6 +31,102 @@
       "featureName": "Bosphorus Bridge"
     }
   ],
+  "rome": [
+    {
+      "commonsTitle": "File:Colosseum in Rome, Italy - April 2007.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AColosseum_in_Rome%2C_Italy_-_April_2007.jpg",
+      "photographer": "Diliff",
+      "license": "CC BY-SA 2.5",
+      "width": 4827,
+      "height": 2833,
+      "featureName": "Colosseum"
+    },
+    {
+      "commonsTitle": "File:Rome (IT), Pantheon -- 2013 -- 3572.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Rome_%28IT%29%2C_Pantheon_--_2013_--_3572.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARome_(IT)%2C_Pantheon_--_2013_--_3572.jpg",
+      "photographer": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "width": 5184,
+      "height": 3456,
+      "featureName": "Pantheon"
+    },
+    {
+      "commonsTitle": "File:Rome (IT), Forum Romanum -- 2013 -- 3358.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Rome_%28IT%29%2C_Forum_Romanum_--_2013_--_3358.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARome_(IT)%2C_Forum_Romanum_--_2013_--_3358.jpg",
+      "photographer": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "width": 4917,
+      "height": 3278,
+      "featureName": "Roman Forum"
+    }
+  ],
+  "paris": [
+    {
+      "commonsTitle": "File:Tour Eiffel Wikimedia Commons.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATour_Eiffel_Wikimedia_Commons.jpg",
+      "photographer": "Benh LIEU SONG",
+      "license": "Public domain",
+      "width": 2900,
+      "height": 5367,
+      "featureName": "Eiffel Tower"
+    },
+    {
+      "commonsTitle": "File:Notre Dame Paris front facade lower.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Notre_Dame_Paris_front_facade_lower.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANotre_Dame_Paris_front_facade_lower.jpg",
+      "photographer": "Benh LIEU SONG",
+      "license": "CC BY-SA 3.0",
+      "width": 3880,
+      "height": 2097,
+      "featureName": "Notre-Dame"
+    },
+    {
+      "commonsTitle": "File:Louvre Museum Wikimedia Commons.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Louvre_Museum_Wikimedia_Commons.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALouvre_Museum_Wikimedia_Commons.jpg",
+      "photographer": "Benh LIEU SONG (Flickr)",
+      "license": "CC BY-SA 3.0",
+      "width": 6740,
+      "height": 2832,
+      "featureName": "Louvre"
+    }
+  ],
+  "venice": [
+    {
+      "commonsTitle": "File:(Venice) Doge's Palace and campanile of St. Mark's Basilica facing the sea.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/%28Venice%29_Doge%27s_Palace_and_campanile_of_St._Mark%27s_Basilica_facing_the_sea.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A(Venice)_Doge%27s_Palace_and_campanile_of_St._Mark%27s_Basilica_facing_the_sea.jpg",
+      "photographer": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "width": 12096,
+      "height": 8352,
+      "featureName": "St Mark's Basilica"
+    },
+    {
+      "commonsTitle": "File:Canal Grande Chiesa della Salute e Dogana dal ponte dell Accademia.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Canal_Grande_Chiesa_della_Salute_e_Dogana_dal_ponte_dell_Accademia.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACanal_Grande_Chiesa_della_Salute_e_Dogana_dal_ponte_dell_Accademia.jpg",
+      "photographer": "Wolfgang Moroder",
+      "license": "CC BY-SA 3.0",
+      "width": 7307,
+      "height": 4912,
+      "featureName": "Grand Canal"
+    },
+    {
+      "commonsTitle": "File:Ponte di Rialto facciata ovest di sera.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Ponte_di_Rialto_facciata_ovest_di_sera.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APonte_di_Rialto_facciata_ovest_di_sera.jpg",
+      "photographer": "Wolfgang Moroder",
+      "license": "CC BY-SA 3.0",
+      "width": 7360,
+      "height": 4912,
+      "featureName": "Rialto Bridge"
+    }
+  ],
   "cairo": [
     {
       "commonsTitle": "File:Muhammad Ali Mosque, Citadel, Cairo, Egypt3.jpg",
@@ -63,6 +159,70 @@
       "featureName": "Khan el-Khalili"
     }
   ],
+  "timbuktu": [
+    {
+      "commonsTitle": "File:Djinguereber Mosque, Timbuktu.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Djinguereber_Mosque%2C_Timbuktu.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADjinguereber_Mosque%2C_Timbuktu.jpg",
+      "photographer": "upyernoz",
+      "license": "CC BY 2.0",
+      "width": 2796,
+      "height": 1804,
+      "featureName": "Djinguereber Mosque"
+    },
+    {
+      "commonsTitle": "File:Sankore Madrasah.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Sankore_Madrasah.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASankore_Madrasah.jpg",
+      "photographer": "Dr. Ondřej Havelka (cestovatel)",
+      "license": "CC BY-SA 4.0",
+      "width": 1899,
+      "height": 2529,
+      "featureName": "Sankore Madrasah"
+    },
+    {
+      "commonsTitle": "File:ASC Leiden - van Achterberg Collection - 05 - 37 - La mosquée de Sidi Yahya - Tombouctou, Mali - Novembre-décembre 1993.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/ASC_Leiden_-_van_Achterberg_Collection_-_05_-_37_-_La_mosqu%C3%A9e_de_Sidi_Yahya_-_Tombouctou%2C_Mali_-_Novembre-d%C3%A9cembre_1993.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AASC_Leiden_-_van_Achterberg_Collection_-_05_-_37_-_La_mosqu%C3%A9e_de_Sidi_Yahya_-_Tombouctou%2C_Mali_-_Novembre-d%C3%A9cembre_1993.jpg",
+      "photographer": "Angeline A. van Achterberg",
+      "license": "CC BY-SA 4.0",
+      "width": 6756,
+      "height": 4450,
+      "featureName": "Sidi Yahya Mosque"
+    }
+  ],
+  "cusco": [
+    {
+      "commonsTitle": "File:Catedral, Plaza de Armas, Cusco, Perú, 2015-07-31, DD 77.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Catedral%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_77.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACatedral%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_77.JPG",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "width": 6115,
+      "height": 3679,
+      "featureName": "Plaza de Armas"
+    },
+    {
+      "commonsTitle": "File:Sacsayhuamán, Cusco, Perú, 2015-07-31, DD 27.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/60/Sacsayhuam%C3%A1n%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_27.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASacsayhuam%C3%A1n%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_27.JPG",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "width": 8688,
+      "height": 4770,
+      "featureName": "Sacsayhuamán"
+    },
+    {
+      "commonsTitle": "File:Coricancha Eingang.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Coricancha_Eingang.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACoricancha_Eingang.jpg",
+      "photographer": "5snake5",
+      "license": "CC0",
+      "width": 2881,
+      "height": 3893,
+      "featureName": "Qorikancha"
+    }
+  ],
   "kyoto": [
     {
       "commonsTitle": "File:Kiyomizu-dera, Kyoto, November 2016 -01.jpg",
@@ -93,6 +253,102 @@
       "width": 6558,
       "height": 4372,
       "featureName": "Arashiyama Bamboo Grove"
+    }
+  ],
+  "beijing": [
+    {
+      "commonsTitle": "File:The Forbidden City - View from Coal Hill.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/The_Forbidden_City_-_View_from_Coal_Hill.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Forbidden_City_-_View_from_Coal_Hill.jpg",
+      "photographer": "Pixelflake",
+      "license": "CC BY-SA 3.0",
+      "width": 4092,
+      "height": 2046,
+      "featureName": "Forbidden City"
+    },
+    {
+      "commonsTitle": "File:Hall of Prayer for Good Harvest.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Hall_of_Prayer_for_Good_Harvest.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHall_of_Prayer_for_Good_Harvest.JPG",
+      "photographer": "Fong Chen",
+      "license": "Public domain",
+      "width": 3000,
+      "height": 2000,
+      "featureName": "Temple of Heaven"
+    },
+    {
+      "commonsTitle": "File:Beijing China Summer-Palace-02.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Beijing_China_Summer-Palace-02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABeijing_China_Summer-Palace-02.jpg",
+      "photographer": "CEphoto, Uwe Aranas",
+      "license": "CC BY-SA 3.0",
+      "width": 3554,
+      "height": 2369,
+      "featureName": "Summer Palace"
+    }
+  ],
+  "delhi": [
+    {
+      "commonsTitle": "File:Red Fort in Delhi 03-2016 img3.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Red_Fort_in_Delhi_03-2016_img3.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARed_Fort_in_Delhi_03-2016_img3.jpg",
+      "photographer": "A.Savin",
+      "license": "FAL",
+      "width": 5387,
+      "height": 3030,
+      "featureName": "Red Fort"
+    },
+    {
+      "commonsTitle": "File:Qutub Minar in Delhi 03-2016.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Qutub_Minar_in_Delhi_03-2016.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AQutub_Minar_in_Delhi_03-2016.jpg",
+      "photographer": "A.Savin",
+      "license": "FAL",
+      "width": 2755,
+      "height": 3673,
+      "featureName": "Qutb Minar"
+    },
+    {
+      "commonsTitle": "File:20191203 Wielki Meczet w Delhi 0700 6459 DxO.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/20191203_Wielki_Meczet_w_Delhi_0700_6459_DxO.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20191203_Wielki_Meczet_w_Delhi_0700_6459_DxO.jpg",
+      "photographer": "Jakub Hałun",
+      "license": "CC BY-SA 4.0",
+      "width": 5605,
+      "height": 3726,
+      "featureName": "Jama Masjid"
+    }
+  ],
+  "samarkand": [
+    {
+      "commonsTitle": "File:Registan square Samarkand.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Registan_square_Samarkand.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARegistan_square_Samarkand.jpg",
+      "photographer": "Ekrem Canli",
+      "license": "CC BY-SA 3.0",
+      "width": 3752,
+      "height": 2530,
+      "featureName": "Registan"
+    },
+    {
+      "commonsTitle": "File:Northern iwan of Bibi-Khanym Mosque 02.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Northern_iwan_of_Bibi-Khanym_Mosque_02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANorthern_iwan_of_Bibi-Khanym_Mosque_02.jpg",
+      "photographer": "Bgag",
+      "license": "CC0",
+      "width": 3214,
+      "height": 4212,
+      "featureName": "Bibi-Khanym Mosque"
+    },
+    {
+      "commonsTitle": "File:Shah-i-Zinda 01.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Shah-i-Zinda_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AShah-i-Zinda_01.jpg",
+      "photographer": "Bgag",
+      "license": "CC0",
+      "width": 4568,
+      "height": 2983,
+      "featureName": "Shah-i-Zinda"
     }
   ]
 }

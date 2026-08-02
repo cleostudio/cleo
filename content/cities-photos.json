@@ -274,5 +274,741 @@
         }
       ]
     }
+  ],
+  "rome": [
+    {
+      "featureName": "Colosseum",
+      "alt": "Colosseum — rome",
+      "caption": "Colosseum",
+      "photographer": "Diliff",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AColosseum_in_Rome%2C_Italy_-_April_2007.jpg",
+      "license": "CC BY-SA 2.5",
+      "commonsTitle": "File:Colosseum in Rome, Italy - April 2007.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Colosseum in Rome, Italy - April 2007.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "26a01fe516963531c5d57390b55bbef1ebda82e0a53d3ed583eaab35d1850f92",
+      "width": 4827,
+      "height": 2833,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/rome/w640.jpg",
+          "bytes": 56951
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/rome/w1280.jpg",
+          "bytes": 154116
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/rome/w2048.jpg",
+          "bytes": 412717
+        }
+      ]
+    },
+    {
+      "featureName": "Pantheon",
+      "alt": "Pantheon — rome",
+      "caption": "Pantheon",
+      "photographer": "Dietmar Rabich",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARome_(IT)%2C_Pantheon_--_2013_--_3572.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Rome (IT), Pantheon -- 2013 -- 3572.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Rome (IT), Pantheon -- 2013 -- 3572.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "771e144b8dee09372120c1b4e665085dff20d263b02b85e76ba35460f9cfb7ed",
+      "width": 5184,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/rome/w640-2.jpg",
+          "bytes": 116177
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/rome/w1280-2.jpg",
+          "bytes": 329310
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/rome/w2048-2.jpg",
+          "bytes": 851647
+        }
+      ]
+    },
+    {
+      "featureName": "Roman Forum",
+      "alt": "Roman Forum — rome",
+      "caption": "Roman Forum",
+      "photographer": "Dietmar Rabich",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARome_(IT)%2C_Forum_Romanum_--_2013_--_3358.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Rome (IT), Forum Romanum -- 2013 -- 3358.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Rome (IT), Forum Romanum -- 2013 -- 3358.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2ca9ce4566ce0534214870d0f7d903b91154e8b44ce0f7528bb954297eef845c",
+      "width": 4917,
+      "height": 3278,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/rome/w640-3.jpg",
+          "bytes": 74772
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/rome/w1280-3.jpg",
+          "bytes": 187166
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/rome/w2048-3.jpg",
+          "bytes": 477378
+        }
+      ]
+    }
+  ],
+  "paris": [
+    {
+      "featureName": "Eiffel Tower",
+      "alt": "Eiffel Tower — paris",
+      "caption": "Eiffel Tower",
+      "photographer": "Benh LIEU SONG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATour_Eiffel_Wikimedia_Commons.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Tour Eiffel Wikimedia Commons.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Tour Eiffel Wikimedia Commons.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f133c17bfc2cfabaf358e8bba786459ecd80970c037ced907b6ab41381386c8a",
+      "width": 2900,
+      "height": 5367,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/paris/w640.jpg",
+          "bytes": 78173
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/paris/w1280.jpg",
+          "bytes": 306074
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/paris/w2048.jpg",
+          "bytes": 935827
+        }
+      ]
+    },
+    {
+      "featureName": "Notre-Dame",
+      "alt": "Notre-Dame — paris",
+      "caption": "Notre-Dame",
+      "photographer": "Benh LIEU SONG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANotre_Dame_Paris_front_facade_lower.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Notre Dame Paris front facade lower.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Notre Dame Paris front facade lower.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a78b1a63aaa677072cf77f35870ce3129a06cfeb190f3c07a7bda8b09d87ffa7",
+      "width": 3880,
+      "height": 2097,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/paris/w640-2.jpg",
+          "bytes": 50943
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/paris/w1280-2.jpg",
+          "bytes": 200784
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/paris/w2048-2.jpg",
+          "bytes": 616679
+        }
+      ]
+    },
+    {
+      "featureName": "Louvre",
+      "alt": "Louvre — paris",
+      "caption": "Louvre",
+      "photographer": "Benh LIEU SONG (Flickr)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALouvre_Museum_Wikimedia_Commons.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Louvre Museum Wikimedia Commons.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Louvre Museum Wikimedia Commons.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e325fe5552b89d93ab02c705756c9c6c3da6f3be6f419442c5faade172a3e852",
+      "width": 6740,
+      "height": 2832,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/paris/w640-3.jpg",
+          "bytes": 42561
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/paris/w1280-3.jpg",
+          "bytes": 105589
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/paris/w2048-3.jpg",
+          "bytes": 272667
+        }
+      ]
+    }
+  ],
+  "venice": [
+    {
+      "featureName": "St Mark's Basilica",
+      "alt": "St Mark's Basilica — venice",
+      "caption": "St Mark's Basilica",
+      "photographer": "Didier Descouens",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A(Venice)_Doge%27s_Palace_and_campanile_of_St._Mark%27s_Basilica_facing_the_sea.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:(Venice) Doge's Palace and campanile of St. Mark's Basilica facing the sea.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:(Venice) Doge's Palace and campanile of St. Mark's Basilica facing the sea.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "0f998d8347bb5ebf27edbb1073b278b93ccb0c195ede3c0aa52f17c2b392d5d9",
+      "width": 12096,
+      "height": 8352,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/venice/w640.jpg",
+          "bytes": 83262
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/venice/w1280.jpg",
+          "bytes": 209101
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/venice/w2048.jpg",
+          "bytes": 525180
+        }
+      ]
+    },
+    {
+      "featureName": "Grand Canal",
+      "alt": "Grand Canal — venice",
+      "caption": "Grand Canal",
+      "photographer": "Wolfgang Moroder",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACanal_Grande_Chiesa_della_Salute_e_Dogana_dal_ponte_dell_Accademia.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Canal Grande Chiesa della Salute e Dogana dal ponte dell Accademia.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Canal Grande Chiesa della Salute e Dogana dal ponte dell Accademia.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d1ab30dbc168fd1d9b387a5303ed8781d779a0ebe31da41fa6b016a3cf939630",
+      "width": 7307,
+      "height": 4912,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/venice/w640-2.jpg",
+          "bytes": 70398
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/venice/w1280-2.jpg",
+          "bytes": 176210
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/venice/w2048-2.jpg",
+          "bytes": 459111
+        }
+      ]
+    },
+    {
+      "featureName": "Rialto Bridge",
+      "alt": "Rialto Bridge — venice",
+      "caption": "Rialto Bridge",
+      "photographer": "Wolfgang Moroder",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APonte_di_Rialto_facciata_ovest_di_sera.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Ponte di Rialto facciata ovest di sera.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ponte di Rialto facciata ovest di sera.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "56b1037f76f5c483b8b65c0e461ea8d1d3bb46bb4ab3daa78fc5293bcefb6c8f",
+      "width": 7360,
+      "height": 4912,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/venice/w640-3.jpg",
+          "bytes": 78975
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/venice/w1280-3.jpg",
+          "bytes": 193006
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/venice/w2048-3.jpg",
+          "bytes": 486081
+        }
+      ]
+    }
+  ],
+  "timbuktu": [
+    {
+      "featureName": "Djinguereber Mosque",
+      "alt": "Djinguereber Mosque — timbuktu",
+      "caption": "Djinguereber Mosque",
+      "photographer": "upyernoz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADjinguereber_Mosque%2C_Timbuktu.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Djinguereber Mosque, Timbuktu.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Djinguereber Mosque, Timbuktu.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "910e783c5c8f50ed365bb51fc40cbaf00e0b3c2c6a85e9bf6b0c357513136285",
+      "width": 2796,
+      "height": 1804,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/timbuktu/w640.jpg",
+          "bytes": 20496
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/timbuktu/w1280.jpg",
+          "bytes": 75299
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/timbuktu/w2048.jpg",
+          "bytes": 284990
+        }
+      ]
+    },
+    {
+      "featureName": "Sankore Madrasah",
+      "alt": "Sankore Madrasah — timbuktu",
+      "caption": "Sankore Madrasah",
+      "photographer": "Dr. Ondřej Havelka (cestovatel)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASankore_Madrasah.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Sankore Madrasah.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Sankore Madrasah.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a3636e396f9bb751e5fd9986baaa051a21e5593ba4c6a09db907b00a34de3b6d",
+      "width": 1899,
+      "height": 2529,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/timbuktu/w640-2.jpg",
+          "bytes": 93090
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/timbuktu/w1280-2.jpg",
+          "bytes": 221587
+        },
+        {
+          "width": 1899,
+          "src": "/images/cities/timbuktu/w2048-2.jpg",
+          "bytes": 479505
+        }
+      ]
+    },
+    {
+      "featureName": "Sidi Yahya Mosque",
+      "alt": "Sidi Yahya Mosque — timbuktu",
+      "caption": "Sidi Yahya Mosque",
+      "photographer": "Angeline A. van Achterberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AASC_Leiden_-_van_Achterberg_Collection_-_05_-_37_-_La_mosqu%C3%A9e_de_Sidi_Yahya_-_Tombouctou%2C_Mali_-_Novembre-d%C3%A9cembre_1993.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:ASC Leiden - van Achterberg Collection - 05 - 37 - La mosquée de Sidi Yahya - Tombouctou, Mali - Novembre-décembre 1993.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:ASC Leiden - van Achterberg Collection - 05 - 37 - La mosquée de Sidi Yahya - Tombouctou, Mali - Novembre-décembre 1993.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3021c39e16c6ac8b9a70ef411b371ca26271458a41c3f84155851b671436ae2b",
+      "width": 6756,
+      "height": 4450,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/timbuktu/w640-3.jpg",
+          "bytes": 42657
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/timbuktu/w1280-3.jpg",
+          "bytes": 121844
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/timbuktu/w2048-3.jpg",
+          "bytes": 364243
+        }
+      ]
+    }
+  ],
+  "cusco": [
+    {
+      "featureName": "Plaza de Armas",
+      "alt": "Plaza de Armas — cusco",
+      "caption": "Plaza de Armas",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACatedral%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_77.JPG",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Catedral, Plaza de Armas, Cusco, Perú, 2015-07-31, DD 77.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Catedral, Plaza de Armas, Cusco, Perú, 2015-07-31, DD 77.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d9c1c5d114e5b3235c93cbda4090763d41f3dbfc5b0c948783c2f7a514fc185a",
+      "width": 6115,
+      "height": 3679,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/cusco/w640.jpg",
+          "bytes": 53372
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/cusco/w1280.jpg",
+          "bytes": 167394
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/cusco/w2048.jpg",
+          "bytes": 445340
+        }
+      ]
+    },
+    {
+      "featureName": "Sacsayhuamán",
+      "alt": "Sacsayhuamán — cusco",
+      "caption": "Sacsayhuamán",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASacsayhuam%C3%A1n%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_27.JPG",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Sacsayhuamán, Cusco, Perú, 2015-07-31, DD 27.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Sacsayhuamán, Cusco, Perú, 2015-07-31, DD 27.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "989bf69d814bafaf2838ab3499273bca57183d1e498df05d8f97fd2f4138c222",
+      "width": 8688,
+      "height": 4770,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/cusco/w640-2.jpg",
+          "bytes": 49357
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/cusco/w1280-2.jpg",
+          "bytes": 169680
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/cusco/w2048-2.jpg",
+          "bytes": 511576
+        }
+      ]
+    },
+    {
+      "featureName": "Qorikancha",
+      "alt": "Qorikancha — cusco",
+      "caption": "Qorikancha",
+      "photographer": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACoricancha_Eingang.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Coricancha Eingang.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Coricancha Eingang.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c8308b50587c2e2f6ebf73511698699088f20cd4ce5a5994e645ec480593e10a",
+      "width": 2881,
+      "height": 3893,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/cusco/w640-3.jpg",
+          "bytes": 169424
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/cusco/w1280-3.jpg",
+          "bytes": 584635
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/cusco/w2048-3.jpg",
+          "bytes": 1547655
+        }
+      ]
+    }
+  ],
+  "beijing": [
+    {
+      "featureName": "Forbidden City",
+      "alt": "Forbidden City — beijing",
+      "caption": "Forbidden City",
+      "photographer": "Pixelflake",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Forbidden_City_-_View_from_Coal_Hill.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:The Forbidden City - View from Coal Hill.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Forbidden City - View from Coal Hill.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ceec88d92af0a9c328fe46abddc10e7f9132b1d0f7106d58565172e0f88270df",
+      "width": 4092,
+      "height": 2046,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/beijing/w640.jpg",
+          "bytes": 44966
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/beijing/w1280.jpg",
+          "bytes": 88360
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/beijing/w2048.jpg",
+          "bytes": 218347
+        }
+      ]
+    },
+    {
+      "featureName": "Temple of Heaven",
+      "alt": "Temple of Heaven — beijing",
+      "caption": "Temple of Heaven",
+      "photographer": "Fong Chen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHall_of_Prayer_for_Good_Harvest.JPG",
+      "license": "Public domain",
+      "commonsTitle": "File:Hall of Prayer for Good Harvest.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Hall of Prayer for Good Harvest.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4e365b83d59941d9dd0f70d8c4bfad986c4ea68f3f162e03daa0399292cd4e38",
+      "width": 3000,
+      "height": 2000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/beijing/w640-2.jpg",
+          "bytes": 45819
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/beijing/w1280-2.jpg",
+          "bytes": 131275
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/beijing/w2048-2.jpg",
+          "bytes": 310211
+        }
+      ]
+    },
+    {
+      "featureName": "Summer Palace",
+      "alt": "Summer Palace — beijing",
+      "caption": "Summer Palace",
+      "photographer": "CEphoto, Uwe Aranas",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABeijing_China_Summer-Palace-02.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Beijing China Summer-Palace-02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Beijing China Summer-Palace-02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e0ffc6a3d64f0b1c74e0ef980e8ba873b10ed0b5b15b92f8ee3fe78f41c658f0",
+      "width": 3554,
+      "height": 2369,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/beijing/w640-3.jpg",
+          "bytes": 84892
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/beijing/w1280-3.jpg",
+          "bytes": 216369
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/beijing/w2048-3.jpg",
+          "bytes": 520997
+        }
+      ]
+    }
+  ],
+  "delhi": [
+    {
+      "featureName": "Red Fort",
+      "alt": "Red Fort — delhi",
+      "caption": "Red Fort",
+      "photographer": "A.Savin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARed_Fort_in_Delhi_03-2016_img3.jpg",
+      "license": "FAL",
+      "commonsTitle": "File:Red Fort in Delhi 03-2016 img3.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Red Fort in Delhi 03-2016 img3.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fb3435f2966a880d3a85f7d90d61bfaae18e66a0757c81652015dc3ecbabb373",
+      "width": 5387,
+      "height": 3030,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/delhi/w640.jpg",
+          "bytes": 62664
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/delhi/w1280.jpg",
+          "bytes": 167614
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/delhi/w2048.jpg",
+          "bytes": 440449
+        }
+      ]
+    },
+    {
+      "featureName": "Qutb Minar",
+      "alt": "Qutb Minar — delhi",
+      "caption": "Qutb Minar",
+      "photographer": "A.Savin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AQutub_Minar_in_Delhi_03-2016.jpg",
+      "license": "FAL",
+      "commonsTitle": "File:Qutub Minar in Delhi 03-2016.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Qutub Minar in Delhi 03-2016.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e3e6f79b5cfdac99cb11c1d781690b0511e076e9d969026cf75f7d231a7d5653",
+      "width": 2755,
+      "height": 3673,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/delhi/w640-2.jpg",
+          "bytes": 161734
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/delhi/w1280-2.jpg",
+          "bytes": 538978
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/delhi/w2048-2.jpg",
+          "bytes": 1367873
+        }
+      ]
+    },
+    {
+      "featureName": "Jama Masjid",
+      "alt": "Jama Masjid — delhi",
+      "caption": "Jama Masjid",
+      "photographer": "Jakub Hałun",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20191203_Wielki_Meczet_w_Delhi_0700_6459_DxO.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:20191203 Wielki Meczet w Delhi 0700 6459 DxO.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:20191203 Wielki Meczet w Delhi 0700 6459 DxO.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b6958eb2b34b2c6faa88cddfbfd1e1168d15a8aae4d9abc5f2245027bd49cc37",
+      "width": 5605,
+      "height": 3726,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/delhi/w640-3.jpg",
+          "bytes": 73842
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/delhi/w1280-3.jpg",
+          "bytes": 169555
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/delhi/w2048-3.jpg",
+          "bytes": 402968
+        }
+      ]
+    }
+  ],
+  "samarkand": [
+    {
+      "featureName": "Registan",
+      "alt": "Registan — samarkand",
+      "caption": "Registan",
+      "photographer": "Ekrem Canli",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARegistan_square_Samarkand.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Registan square Samarkand.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Registan square Samarkand.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f8108ae361c09456ecf450bb53a1a517a748f0ca368b0c1455cde4f9bc95044b",
+      "width": 3752,
+      "height": 2530,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/samarkand/w640.jpg",
+          "bytes": 69828
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/samarkand/w1280.jpg",
+          "bytes": 184163
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/samarkand/w2048.jpg",
+          "bytes": 500608
+        }
+      ]
+    },
+    {
+      "featureName": "Bibi-Khanym Mosque",
+      "alt": "Bibi-Khanym Mosque — samarkand",
+      "caption": "Bibi-Khanym Mosque",
+      "photographer": "Bgag",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANorthern_iwan_of_Bibi-Khanym_Mosque_02.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Northern iwan of Bibi-Khanym Mosque 02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Northern iwan of Bibi-Khanym Mosque 02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "69f6bdc7c3061daa0cf5c074d07d8864c014f9133e30e6d35c69946bfcf9b083",
+      "width": 3214,
+      "height": 4212,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/samarkand/w640-2.jpg",
+          "bytes": 111366
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/samarkand/w1280-2.jpg",
+          "bytes": 379030
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/samarkand/w2048-2.jpg",
+          "bytes": 935206
+        }
+      ]
+    },
+    {
+      "featureName": "Shah-i-Zinda",
+      "alt": "Shah-i-Zinda — samarkand",
+      "caption": "Shah-i-Zinda",
+      "photographer": "Bgag",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AShah-i-Zinda_01.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Shah-i-Zinda 01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Shah-i-Zinda 01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "eaefebd1fa2cd0a5dcaee2b2ea72dab481e33380abf881e5021bff05ea0ef908",
+      "width": 4568,
+      "height": 2983,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/samarkand/w640-3.jpg",
+          "bytes": 68326
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/samarkand/w1280-3.jpg",
+          "bytes": 198401
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/samarkand/w2048-3.jpg",
+          "bytes": 536643
+        }
+      ]
+    }
   ]
 }

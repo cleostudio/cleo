@@ -1,9 +1,10 @@
 # Cities field guides
 
 Cities guides at `/cities` and `/cities/[slug]`. Catalog in `lib/cities.ts`:
-capitals and route cities — orientation, signature sites, facts, sources, and
-curated photographs. Topics catalog lists Cities alongside Countries, Space,
-and Civilizations (`lib/topics.ts`).
+capitals and route cities across Mediterranean & Europe, Asia, and Africa &
+Americas — orientation, signature sites, facts, sources, and curated
+photographs (eleven guides). Topics catalog lists Cities alongside Countries,
+Space, and Civilizations (`lib/topics.ts`).
 
 ## Map
 
