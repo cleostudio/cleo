@@ -9,6 +9,7 @@ import {
   civilizationSubjectSlugs,
   getCivilizationSubject,
 } from '~/lib/civilizations'
+import { getCountryByName } from '~/lib/countries'
 import { localeMetadata } from '~/lib/locale-metadata'
 
 export function civilizationSubjectStaticParams() {
@@ -142,7 +143,32 @@ export function CivilizationSubjectPageView({ slug }: { slug: string }) {
           </div>
           <div>
             <dt>Explore</dt>
-            <dd>{subject.facts.exploreLinks.join(', ')}</dd>
+            <dd>
+              {subject.facts.exploreLinks.map((name, index) => {
+                const country = getCountryByName(name)
+                const separator =
+                  index < subject.facts.exploreLinks.length - 1 ? ', ' : null
+                if (!country) {
+                  return (
+                    <span key={name}>
+                      {name}
+                      {separator}
+                    </span>
+                  )
+                }
+                return (
+                  <span key={country.slug}>
+                    <Link
+                      href={`/explore/${country.slug}`}
+                      className="underline-offset-2 hover:underline"
+                    >
+                      {country.name}
+                    </Link>
+                    {separator}
+                  </span>
+                )
+              })}
+            </dd>
           </div>
           <div>
             <dt>Catalog</dt>

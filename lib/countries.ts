@@ -1378,6 +1378,7 @@ export const countries: Country[] = [
 
 const bySlug = new Map(countries.map((country) => [country.slug, country]))
 const byCode = new Map(countries.map((country) => [country.code, country]))
+const byName = new Map(countries.map((country) => [country.name, country]))
 
 export function getCountry(slug: string) {
   return bySlug.get(slug)
@@ -1389,6 +1390,11 @@ export function isCountrySlug(slug: string): slug is string {
 
 export function getCountryByCode(code: string) {
   return byCode.get(code.toUpperCase())
+}
+
+/** Resolve an Explore country by its exact catalog display name. */
+export function getCountryByName(name: string) {
+  return byName.get(name)
 }
 
 export function countrySlugs() {

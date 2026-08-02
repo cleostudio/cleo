@@ -2293,5 +2293,281 @@
         }
       ]
     }
+  ],
+  "chola-empire": [
+    {
+      "featureName": "Brihadisvara Temple",
+      "alt": "Brihadisvara Temple — chola empire",
+      "caption": "Brihadisvara Temple",
+      "photographer": "Vengolis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABrihadeeswarar_Temple_3624.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Brihadeeswarar Temple 3624.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Brihadeeswarar Temple 3624.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8eb65e3f8bc6ba2464c97b8e4d90bc044749ee4b7903e2d535baea67db48cb8b",
+      "width": 5074,
+      "height": 3385,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/chola-empire/w640.jpg",
+          "bytes": 95550
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/chola-empire/w1280.jpg",
+          "bytes": 214658
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/chola-empire/w2048.jpg",
+          "bytes": 488998
+        }
+      ]
+    },
+    {
+      "featureName": "Gangaikonda Cholapuram",
+      "alt": "Gangaikonda Cholapuram — chola empire",
+      "caption": "Gangaikonda Cholapuram",
+      "photographer": "Saranya Chidambaram",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGangaikonda_Cholapuram_view.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Gangaikonda Cholapuram view.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Gangaikonda Cholapuram view.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5d34fb418e5dab0ae747f37c98edc7125443b497ce272439e5285d65ae6577a8",
+      "width": 3128,
+      "height": 1819,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/chola-empire/w640-2.jpg",
+          "bytes": 62558
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/chola-empire/w1280-2.jpg",
+          "bytes": 191401
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/chola-empire/w2048-2.jpg",
+          "bytes": 537702
+        }
+      ]
+    },
+    {
+      "featureName": "Airavatesvara Temple",
+      "alt": "Airavatesvara Temple — chola empire",
+      "caption": "Airavatesvara Temple",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADarasuram%2C_Airavatesvara_Temple%2C_India.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Darasuram, Airavatesvara Temple, India.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Darasuram, Airavatesvara Temple, India.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4e3ecb6bfe37284e16fb376a0399e67943e715b4376cae364d65a8462f57fc9e",
+      "width": 4032,
+      "height": 2688,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/chola-empire/w640-3.jpg",
+          "bytes": 58639
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/chola-empire/w1280-3.jpg",
+          "bytes": 165765
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/chola-empire/w2048-3.jpg",
+          "bytes": 418331
+        }
+      ]
+    }
+  ],
+  "olmec": [
+    {
+      "featureName": "Olmec Colossal Head",
+      "alt": "Olmec Colossal Head — olmec",
+      "caption": "Olmec Colossal Head",
+      "photographer": "Infrogmation",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AParque_Museo_La_Venta%2C_Villahermosa_Tabasco%2C_1977_02.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Parque Museo La Venta, Villahermosa Tabasco, 1977 02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Parque Museo La Venta, Villahermosa Tabasco, 1977 02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5e493b09aac3d8c7ec3fcc49d7b03a6b8fed3c52fe056b22c7546befca0f73a8",
+      "width": 4070,
+      "height": 5280,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/olmec/w640.jpg",
+          "bytes": 83603
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/olmec/w1280.jpg",
+          "bytes": 275479
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/olmec/w2048.jpg",
+          "bytes": 706966
+        }
+      ]
+    },
+    {
+      "featureName": "La Venta",
+      "alt": "La Venta — olmec",
+      "caption": "La Venta",
+      "photographer": "Mario E. Fuente Cid",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AComplejo_A%2C_Monumentos_2_y_3%2C_sitio_la_Venta_Tabasco.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Complejo A, Monumentos 2 y 3, sitio la Venta Tabasco.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Complejo A, Monumentos 2 y 3, sitio la Venta Tabasco.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "836529e52b96ef7e06b28b2fd7ea36c1b4ae2bbc5ed8497d6cffb4a7f55c2d04",
+      "width": 3724,
+      "height": 1840,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/olmec/w640-2.jpg",
+          "bytes": 80770
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/olmec/w1280-2.jpg",
+          "bytes": 323543
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/olmec/w2048-2.jpg",
+          "bytes": 894659
+        }
+      ]
+    },
+    {
+      "featureName": "San Lorenzo Head",
+      "alt": "San Lorenzo Head — olmec",
+      "caption": "San Lorenzo Head",
+      "photographer": "Gary Todd",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOlmec_Colossal_Head%2C_San_Lorenzo%2C_Veracruz%2C_1200-600_BC.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Olmec Colossal Head, San Lorenzo, Veracruz, 1200-600 BC.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Olmec Colossal Head, San Lorenzo, Veracruz, 1200-600 BC.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c363f82d6409e2a1877a1c605cf547ddddc0f5d9c682e1da5a015b586430816b",
+      "width": 3456,
+      "height": 5184,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/olmec/w640-3.jpg",
+          "bytes": 82108
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/olmec/w1280-3.jpg",
+          "bytes": 256243
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/olmec/w2048-3.jpg",
+          "bytes": 713697
+        }
+      ]
+    }
+  ],
+  "early-caliphates": [
+    {
+      "featureName": "Umayyad Mosque",
+      "alt": "Umayyad Mosque — early caliphates",
+      "caption": "Umayyad Mosque",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Umayyad_Mosque%2C_Great_Mosque_of_Damascus%2C_Damascus%2C_Syria.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:The Umayyad Mosque, Great Mosque of Damascus, Damascus, Syria.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Umayyad Mosque, Great Mosque of Damascus, Damascus, Syria.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c6cd317a87e50e72706c84963919e2e0f3ab817cb174dd30069d5759caa0f525",
+      "width": 3610,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/early-caliphates/w640.jpg",
+          "bytes": 72655
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/early-caliphates/w1280.jpg",
+          "bytes": 222941
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/early-caliphates/w2048.jpg",
+          "bytes": 577822
+        }
+      ]
+    },
+    {
+      "featureName": "Dome of the Rock",
+      "alt": "Dome of the Rock — early caliphates",
+      "caption": "Dome of the Rock",
+      "photographer": "Godot13",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AJerusalem-2013(2)-Temple_Mount-Dome_of_the_Rock_(SE_exposure).jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Jerusalem-2013(2)-Temple Mount-Dome of the Rock (SE exposure).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Jerusalem-2013(2)-Temple Mount-Dome of the Rock (SE exposure).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f3388939342e70084dbd8d7a5ebdcf9cffbb34302a194f48151fbc69a7c2296b",
+      "width": 7500,
+      "height": 5425,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/early-caliphates/w640-2.jpg",
+          "bytes": 80918
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/early-caliphates/w1280-2.jpg",
+          "bytes": 198695
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/early-caliphates/w2048-2.jpg",
+          "bytes": 530636
+        }
+      ]
+    },
+    {
+      "featureName": "Great Mosque of Córdoba",
+      "alt": "Great Mosque of Córdoba — early caliphates",
+      "caption": "Great Mosque of Córdoba",
+      "photographer": "Graham Beards",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMezquita_Cordoba_3.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Mezquita Cordoba 3.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mezquita Cordoba 3.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9ffc14b840222684c74b44fe7ff57e6a791acae6618e9290ef2912676f4c30c1",
+      "width": 5152,
+      "height": 3864,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/early-caliphates/w640-3.jpg",
+          "bytes": 83057
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/early-caliphates/w1280-3.jpg",
+          "bytes": 212331
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/early-caliphates/w2048-3.jpg",
+          "bytes": 544579
+        }
+      ]
+    }
   ]
 }

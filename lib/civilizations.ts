@@ -429,6 +429,65 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
     ],
   },
   {
+    slug: 'early-caliphates',
+    code: 'CLP',
+    name: 'Early Caliphates',
+    category: 'Africa & Near East',
+    subtitle: 'Umayyad to Abbasid · Islamic Near East',
+    about:
+      'The early caliphates turned the late antique Near East into a new imperial grammar of faith, law, and Arabic administration. From the Umayyad capital at Damascus to the Abbasid courts of Baghdad and Samarra, rulers claimed succession to the Prophet while governing populations that remained religiously diverse. Orientation is architectural and administrative: congregational mosques that reused and reinvented Roman and Sasanian urban space, coinage and chancery Arabic, and a trade world stretching from Al-Andalus to the Indian Ocean. The Dome of the Rock staged sacred geography in Jerusalem; Córdoba’s great mosque showed how western Umayyad heirs built a parallel center of learning and power. This primer stays with the Umayyad–Abbasid arc — capital, mosque, and empire — rather than every dynastic schism.',
+    facts: {
+      kind: 'Imperial caliphate',
+      heartland: 'Syria & Iraq · with western Umayyad Spain',
+      era: '661 – c. 1258 CE (Umayyad to high Abbasid; Córdoba Umayyads parallel)',
+      peak: 'Umayyad Damascus 7th–8th c.; Abbasid Baghdad 8th–9th c.',
+      writing: 'Classical Arabic',
+      exploreLinks: [
+        'Syria',
+        'Iraq',
+        'Israel',
+        'Spain',
+        'Egypt',
+        'Saudi Arabia',
+        'Jordan',
+      ],
+    },
+    features: [
+      {
+        name: 'Umayyad Mosque',
+        description:
+          'The Great Mosque of Damascus — a congregational complex that remade a late antique sacred site into an Umayyad imperial emblem.',
+      },
+      {
+        name: 'Dome of the Rock',
+        description:
+          'An early Islamic shrine on the Temple Mount — an octagonal monument of mosaic and dome that marks sacred claim in Jerusalem.',
+      },
+      {
+        name: 'Great Mosque of Córdoba',
+        description:
+          'The hypostyle mosque of Umayyad Córdoba — red-and-white arches as the architectural signature of Islamic Spain’s capital.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — caliphate',
+        url: 'https://www.britannica.com/place/Caliphate',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — The Umayyads',
+        url: 'https://www.metmuseum.org/toah/hd/umay/hd_umay.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Ancient City of Damascus',
+        url: 'https://whc.unesco.org/en/list/20',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
     slug: 'classical-greece',
     code: 'GRK',
     name: 'Classical Greece',
@@ -990,6 +1049,57 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
     ],
   },
   {
+    slug: 'chola-empire',
+    code: 'CHO',
+    name: 'Chola Empire',
+    category: 'Asia',
+    subtitle: 'Temple empire · Tamil South India',
+    about:
+      'The Chola Empire made the Tamil country a temple-centered maritime power. From the Kaveri delta, Chola kings built towering stone vimanas, irrigated rice landscapes, and sent fleets that touched Sri Lanka and Southeast Asia. Orientation is sacral and naval together: Brihadisvara and its sibling “Great Living Chola Temples” staged royal devotion as urban anchors, while bronze sculpture and Tamil literature flourished under court and temple patronage. Administration rested on village assemblies and temple economies as much as on conquest. The imperial high point under Rajaraja I and Rajendra I left monuments that still structure South Indian sacred geography. This primer stays with temple architecture, delta ecology, and Bay of Bengal reach rather than a king-by-king chronicle.',
+    facts: {
+      kind: 'Temple empire',
+      heartland: 'Kaveri delta · Tamil Nadu',
+      era: 'c. 850 – 1279 CE (imperial Cholas)',
+      peak: 'Rajaraja I and Rajendra I, late 10th–early 11th centuries',
+      writing: 'Tamil & Sanskrit (Grantha / Tamil scripts)',
+      exploreLinks: ['India', 'Sri Lanka', 'Malaysia', 'Indonesia'],
+    },
+    features: [
+      {
+        name: 'Brihadisvara Temple',
+        description:
+          'Rajaraja I’s great temple at Thanjavur — a soaring granite vimana that reset the scale of South Indian temple architecture.',
+      },
+      {
+        name: 'Gangaikonda Cholapuram',
+        description:
+          'Rajendra I’s capital temple — a companion Great Living Chola Temple built to mark northern conquest and a new royal city.',
+      },
+      {
+        name: 'Airavatesvara Temple',
+        description:
+          'The ornate Chola temple at Darasuram — dense sculpture and a chariot-form mandapa from the later imperial phase.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Chola dynasty',
+        url: 'https://www.britannica.com/topic/Chola-dynasty',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Chola Period',
+        url: 'https://www.metmuseum.org/toah/hd/chola/hd_chola.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Great Living Chola Temples',
+        url: 'https://whc.unesco.org/en/list/250',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
     slug: 'mongol-empire',
     code: 'MNG',
     name: 'Mongol Empire',
@@ -1088,6 +1198,57 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
         label: 'UNESCO — Himeji-jo',
         url: 'https://whc.unesco.org/en/list/661',
         kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'olmec',
+    code: 'OLM',
+    name: 'Olmec',
+    category: 'Americas',
+    subtitle: 'Formative civilization · Gulf lowlands',
+    about:
+      'The Olmec are often called Mesoamerica’s “mother culture” — an early complex society of the Gulf lowlands whose colossal heads, jade, and ceremonial centers shaped later regional styles. Orientation is formative and sculptural: San Lorenzo and La Venta organized earthen platforms, drains, and offerings long before Teotihuacan’s avenues; basalt portraits of rulers still define the public image of the culture. Trade in obsidian, serpentine, and prestige goods linked the coast to the highlands. Writing and calendar ideas that bloom later in Mesoamerica have debated Olmec roots; what is clear is monumental labor and a shared visual language of power. This primer stays with Gulf centers, colossal sculpture, and formative statecraft rather than forcing every later civilization into an Olmec origin myth.',
+    facts: {
+      kind: 'Formative civilization',
+      heartland: 'Gulf lowlands · Veracruz & Tabasco',
+      era: 'c. 1500 – 400 BCE',
+      peak: 'San Lorenzo then La Venta florescences, 1200–400 BCE',
+      writing: 'Debated early glyphic signs; mainly archaeological & iconographic',
+      exploreLinks: ['Mexico'],
+    },
+    features: [
+      {
+        name: 'Olmec Colossal Head',
+        description:
+          'Monumental basalt portrait heads — the signature Olmec image of rulership, now often seen in museums and outdoor parks.',
+      },
+      {
+        name: 'La Venta',
+        description:
+          'A major middle Formative center in Tabasco — earthen mounds, offerings, and sculpture that mark Olmec ceremonial planning.',
+      },
+      {
+        name: 'San Lorenzo Head',
+        description:
+          'A colossal head associated with San Lorenzo, Veracruz — early Olmec political portraiture at massive scale.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Olmec',
+        url: 'https://www.britannica.com/topic/Olmec',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Olmec',
+        url: 'https://www.metmuseum.org/toah/hd/olmc/hd_olmc.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'Encyclopaedia Britannica — La Venta',
+        url: 'https://www.britannica.com/place/La-Venta-ancient-city-Mexico',
+        kind: 'reference',
       },
     ],
   },

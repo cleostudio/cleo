@@ -6,7 +6,7 @@ import {
   civilizationSubjectsByCategory,
   getCivilizationSubject,
 } from './civilizations'
-import { countries } from './countries'
+import { countries, getCountryByName } from './countries'
 
 describe('civilization subjects', () => {
   it('ships a starter catalog with unique slugs and codes', () => {
@@ -71,7 +71,7 @@ describe('civilization subjects', () => {
   })
 
   it('covers a broad starter set across regions', () => {
-    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(24)
+    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(27)
     expect(civilizationSubjectSlugs()).toEqual(
       expect.arrayContaining([
         'mesopotamia',
@@ -89,6 +89,9 @@ describe('civilization subjects', () => {
         'gupta-empire',
         'teotihuacan',
         'polynesia',
+        'chola-empire',
+        'olmec',
+        'early-caliphates',
       ]),
     )
   })
@@ -99,6 +102,7 @@ describe('civilization subjects', () => {
       expect(subject.facts.exploreLinks.length).toBeGreaterThan(0)
       for (const part of subject.facts.exploreLinks) {
         expect(names.has(part), `${subject.slug}: ${part}`).toBe(true)
+        expect(getCountryByName(part)?.name).toBe(part)
       }
     }
   })

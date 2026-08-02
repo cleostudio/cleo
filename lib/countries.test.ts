@@ -5,6 +5,7 @@ import {
   countriesByRegion,
   countrySlugs,
   getCountry,
+  getCountryByName,
   isCountrySlug,
 } from './countries'
 
@@ -28,6 +29,17 @@ describe('countries catalog', () => {
       region: 'Asia',
     })
     expect(getCountry('not-a-country')).toBeUndefined()
+  })
+
+  it('resolves countries by exact catalog name', () => {
+    expect(getCountryByName('Türkiye')).toMatchObject({
+      slug: 'turkiye',
+      code: 'TR',
+    })
+    expect(getCountryByName('Korea, North')).toMatchObject({
+      slug: 'korea-north',
+    })
+    expect(getCountryByName('Turkey')).toBeUndefined()
   })
 
   it('groups countries by region without dropping any', () => {
