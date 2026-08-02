@@ -674,6 +674,65 @@ describe('AskForm chat sidebar', () => {
     })
   })
 
+  it('keeps the selected transcript intact during rapid thread switches', async () => {
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      writable: true,
+      value: vi.fn().mockImplementation((query: string) => ({
+        matches: query.includes('min-width: 64rem'),
+        media: query,
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    })
+    mockDocumentScroll()
+
+    upsertThread({
+      id: 'thread-japan',
+      nextMessageId: 3,
+      messages: [
+        { id: 1, role: 'user', content: 'Japan question' },
+        { id: 2, role: 'assistant', content: 'Japan sections 8–10' },
+      ],
+    })
+    upsertThread({
+      id: 'thread-mars',
+      nextMessageId: 3,
+      messages: [
+        { id: 1, role: 'user', content: 'Mars question' },
+        { id: 2, role: 'assistant', content: 'Mars sections 4–5' },
+      ],
+    })
+    setActiveThreadId('thread-japan')
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Japan sections 8–10')).toBeTruthy()
+    })
+
+    const history = screen.getByRole('complementary', { name: 'Chat history' })
+    await act(async () => {
+      within(history).getByRole('button', { name: 'Mars question' }).click()
+      within(history).getByRole('button', { name: 'Japan question' }).click()
+      within(history).getByRole('button', { name: 'Mars question' }).click()
+    })
+
+    await waitFor(() => {
+      expect(
+        within(history)
+          .getByRole('button', { name: 'Mars question' })
+          .getAttribute('aria-current'),
+      ).toBe('true')
+      expect(screen.getByText('Mars sections 4–5')).toBeTruthy()
+      expect(screen.queryByText('Japan sections 8–10')).toBeNull()
+    })
+  })
+
   it('opens the mobile history drawer above page chrome', async () => {
     Object.defineProperty(window, 'matchMedia', {
       configurable: true,
