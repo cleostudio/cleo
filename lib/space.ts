@@ -1151,6 +1151,241 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
       },
     ],
   },
+  {
+    slug: 'eagle-nebula',
+    code: 'EGL',
+    name: 'Eagle Nebula',
+    category: 'Deep Space',
+    subtitle: 'Star-forming nebula · Serpens',
+    about:
+      'The Eagle Nebula (M16) is a bright star-forming complex in Serpens whose cold pillars of gas and dust — the Pillars of Creation — became one of astronomy’s most recognizable landscapes. Hot young stars in the cluster NGC 6611 carve cavities and silhouette denser columns against glowing hydrogen; infrared light pierces the haze to show embedded protostars still assembling inside. Orientation is stellar nursery as public icon: roughly 5,700–7,000 light-years away, close enough for Hubble and other telescopes to resolve individual ridges while still distant enough that light left before recorded history. The durable story is feedback — how massive stars reshape the cloud that made them — not a single photograph’s fame. This primer stays with the nebula’s architecture and role in the Galactic disk.',
+    facts: {
+      kind: 'Nebula',
+      system: 'Milky Way · Serpens',
+      meanDistance: '~5,700–7,000 light-years',
+      radiusKm: null,
+      orbitalPeriod: 'Co-rotating with the local Galactic disk',
+      rotationPeriod: 'Turbulent; not a solid body',
+      companions: 'Open cluster NGC 6611',
+    },
+    features: [
+      {
+        name: 'Pillars of Creation',
+        description:
+          'Dense columns of gas and dust silhouetted against ionizing radiation from nearby massive stars.',
+      },
+      {
+        name: 'NGC 6611',
+        description:
+          'A young open cluster whose hottest members light and sculpt the surrounding nebula.',
+      },
+      {
+        name: 'Embedded star formation',
+        description:
+          'Protostars still forming inside the pillars — revealed most clearly at infrared wavelengths.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Eagle Nebula / Pillars of Creation',
+        url: 'https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-16/',
+        kind: 'agency',
+      },
+      {
+        label: 'ESA Hubble — Pillars of Creation',
+        url: 'https://esahubble.org/images/heic1501a/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'whirlpool-galaxy',
+    code: 'WHP',
+    name: 'Whirlpool Galaxy',
+    category: 'Deep Space',
+    subtitle: 'Spiral galaxy · Canes Venatici',
+    about:
+      'The Whirlpool Galaxy (M51) is a face-on grand-design spiral locked in a close dance with a smaller companion, NGC 5195. Its arms are unusually sharp — lanes of dust and knots of star formation winding out from a bright nucleus — which made it an early proof that “spiral nebulae” are galaxies in their own right. Orientation is interaction physics you can see: tidal bridges and triggered star formation drawn across tens of thousands of light-years, about 23–31 million light-years from Earth in Canes Venatici. Multiwavelength portraits peel the same disk into stars, warm dust, and high-energy glow. This primer stays with structure and companionship — a textbook interacting spiral — rather than transient outburst headlines.',
+    facts: {
+      kind: 'Galaxy',
+      system: 'Canes Venatici · M51 group',
+      meanDistance: '~23–31 million light-years',
+      radiusKm: null,
+      orbitalPeriod: 'Interacting with NGC 5195',
+      rotationPeriod: 'Differential disk rotation',
+      companions: 'NGC 5195',
+    },
+    features: [
+      {
+        name: 'Grand-design spiral arms',
+        description:
+          'Two prominent arms rich in dust lanes and star-forming knots — a classic face-on spiral silhouette.',
+      },
+      {
+        name: 'NGC 5195 encounter',
+        description:
+          'A smaller companion whose gravity tugs bridges of gas and helps organize M51’s spiral pattern.',
+      },
+      {
+        name: 'Multiwavelength disk',
+        description:
+          'Optical, infrared, and X-ray views that separate old stars, warm dust, and energetic processes in the same galaxy.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Whirlpool Galaxy (M51)',
+        url: 'https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/',
+        kind: 'agency',
+      },
+      {
+        label: 'ESA Hubble — Whirlpool Galaxy',
+        url: 'https://esahubble.org/images/heic0506a/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'large-magellanic-cloud',
+    code: 'LMC',
+    name: 'Large Magellanic Cloud',
+    category: 'Deep Space',
+    subtitle: 'Satellite galaxy · Local Group',
+    about:
+      'The Large Magellanic Cloud (LMC) is the Milky Way’s brightest satellite galaxy — an irregular, barred system of stars, gas, and dust visible to the unaided eye from the southern sky. It hosts the Tarantula Nebula, one of the most vigorous nearby star-forming regions, and a rich census of clusters, remnants, and young massive stars that let astronomers study stellar life cycles up close. Orientation is neighborliness: roughly 160,000 light-years away, near enough that individual clouds resolve while still outside the Milky Way’s main disk. The Magellanic Clouds share a history of tidal interaction with each other and with our Galaxy; the durable story is that extended Local Group family. This primer stays with the LMC’s structure and role as a satellite laboratory, not with short-lived survey campaigns.',
+    facts: {
+      kind: 'Galaxy',
+      system: 'Local Group · Magellanic Clouds',
+      meanDistance: '~160,000 light-years',
+      radiusKm: null,
+      orbitalPeriod: 'Orbiting the Milky Way (Gyr-scale)',
+      rotationPeriod: 'Irregular / barred disk kinematics',
+      companions: 'Small Magellanic Cloud; Magellanic Stream',
+    },
+    features: [
+      {
+        name: 'Tarantula Nebula',
+        description:
+          '30 Doradus — a vast star-forming complex and one of the most active nearby stellar nurseries.',
+      },
+      {
+        name: 'Barred irregular structure',
+        description:
+          'A bar and asymmetric arms of stars and gas shaped by internal dynamics and tidal forces.',
+      },
+      {
+        name: 'Local Group satellite',
+        description:
+          'A bound companion of the Milky Way, linked to the Small Magellanic Cloud and the Magellanic Stream.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Large Magellanic Cloud',
+        url: 'https://science.nasa.gov/resource/the-large-magellanic-cloud/',
+        kind: 'agency',
+      },
+      {
+        label: 'ESA Hubble — Large Magellanic Cloud',
+        url: 'https://esahubble.org/images/heic1301a/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'helix-nebula',
+    code: 'HLX',
+    name: 'Helix Nebula',
+    category: 'Deep Space',
+    subtitle: 'Planetary nebula · Aquarius',
+    about:
+      'The Helix Nebula (NGC 7293) is one of the nearest bright planetary nebulae — the glowing shell of gas cast off by a Sun-like star as it leaves the red-giant phase and becomes a hot white dwarf. From Earth it spans nearly half a degree on the sky in Aquarius, earning nicknames like the “Eye of God” for its round, layered look. Infrared views reveal dusty knots and comet-shaped globules pointing away from the central star; ultraviolet maps show the hot ionized cavity. Orientation is stellar fate at a human-friendly distance: about 650–700 light-years away, a preview of what stars like the Sun will leave behind on gigayear clocks. This primer stays with the nebula’s geometry and engine, not with day-to-day amateur imaging alerts.',
+    facts: {
+      kind: 'Nebula',
+      system: 'Milky Way · Aquarius',
+      meanDistance: '~650–700 light-years',
+      radiusKm: null,
+      orbitalPeriod: 'Co-rotating with the local Galactic disk',
+      rotationPeriod: 'Expanding shell; not a solid body',
+      companions: 'Central white dwarf',
+    },
+    features: [
+      {
+        name: 'Central white dwarf',
+        description:
+          'The hot remnant core whose ultraviolet light ionizes the surrounding ejected envelope.',
+      },
+      {
+        name: 'Cometary knots',
+        description:
+          'Dense dusty globules with tails pointing away from the center — sculpted by radiation and wind.',
+      },
+      {
+        name: 'Layered planetary shell',
+        description:
+          'Nested rings and disks of gas that give the Helix its eye-like appearance across wavelengths.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Helix Nebula',
+        url: 'https://www.nasa.gov/image-article/helix-nebula/',
+        kind: 'agency',
+      },
+      {
+        label: 'ESA Hubble — Helix Nebula',
+        url: 'https://esahubble.org/images/heic0307a/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'horsehead-nebula',
+    code: 'HRS',
+    name: 'Horsehead Nebula',
+    category: 'Deep Space',
+    subtitle: 'Dark nebula · Orion',
+    about:
+      'The Horsehead Nebula (Barnard 33) is a dark cloud of cold dust silhouetted against the bright emission nebula IC 434 in Orion — a seahorse-shaped notch in glowing hydrogen just south of Alnitak in Orion’s Belt. Behind and around it lie the Flame Nebula and a broader molecular complex where stars continue to form. Optical images show the famous silhouette; infrared light turns the horse’s head into a glowing landscape of warm dust. Orientation is night-sky familiarity at modest distance: roughly 1,375–1,500 light-years away, part of the same Orion molecular neighborhood that includes the Orion Nebula. The durable story is contrast — dense dust against ionized gas — and how wavelength changes what we see. This primer stays with that structure rather than photographic folklore alone.',
+    facts: {
+      kind: 'Nebula',
+      system: 'Milky Way · Orion Molecular Cloud',
+      meanDistance: '~1,375–1,500 light-years',
+      radiusKm: null,
+      orbitalPeriod: 'Co-rotating with the local Galactic disk',
+      rotationPeriod: 'Turbulent; not a solid body',
+      companions: 'IC 434 emission nebula; Flame Nebula nearby',
+    },
+    features: [
+      {
+        name: 'Dark silhouette',
+        description:
+          'A dense dust cloud that blocks background light and carves the iconic horse-head shape against IC 434.',
+      },
+      {
+        name: 'IC 434 glow',
+        description:
+          'The bright hydrogen emission backdrop that makes the Horsehead visible in optical light.',
+      },
+      {
+        name: 'Infrared landscape',
+        description:
+          'Warm dust and embedded structure revealed when the nebula is viewed beyond visible wavelengths.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Horsehead Nebula',
+        url: 'https://science.nasa.gov/asset/hubble/horsehead-nebula/',
+        kind: 'agency',
+      },
+      {
+        label: 'ESA Hubble — Horsehead Nebula',
+        url: 'https://esahubble.org/images/heic1307a/',
+        kind: 'agency',
+      },
+    ],
+  },
 ]
 
 export const spaceSubjects: SpaceSubject[] = spaceSubjectDrafts.map(withPhotos)
