@@ -41,8 +41,8 @@ Human onboarding: [`README.md`](README.md).
   go in `docs/theme-preset.md` **and** `presetDeviations` in `lib/theme-preset.ts`.
 - Render model output through Streamdown, never raw HTML. Invented Explore/Space
   paths are stripped by `lib/cleo/guardrails.ts`.
-- Keep `OPENAI_API_KEY`, `BETTER_AUTH_SECRET`, and database URLs server-side.
-  Never `NEXT_PUBLIC_` those secrets.
+- Keep `OPENAI_API_KEY`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_API_KEY`, and
+  database URLs server-side. Never `NEXT_PUBLIC_` those secrets.
 - Path alias: `~/*`. Prefer `cn` and `components/ui/*`.
 - Package manager: **pnpm only**.
 

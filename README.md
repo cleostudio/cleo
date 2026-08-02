@@ -25,7 +25,7 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000). Keep the OpenAI key,
-`BETTER_AUTH_SECRET`, and database URLs server-side — never expose them with
+`BETTER_AUTH_SECRET`, `BETTER_AUTH_API_KEY`, and database URLs server-side — never expose them with
 `NEXT_PUBLIC_` or commit `.env.local`.
 
 ## Stack

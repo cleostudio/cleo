@@ -81,6 +81,29 @@ Required for auth:
 | `DATABASE_URL` | Neon Marketplace (or `POSTGRES_URL`) |
 | `BETTER_AUTH_SECRET` | You — random ≥32 characters |
 | `BETTER_AUTH_URL` | **Production only** — live origin. Leave unset for Preview/Development. Preview trusts `*.vercel.app` via dynamic `baseURL.allowedHosts` (avoids “Invalid origin”). |
+| `BETTER_AUTH_API_KEY` | Optional — [Better Auth Infrastructure](https://dash.better-auth.com) project API key for the `dash()` plugin |
+
+## Better Auth Infrastructure (dashboard)
+
+Optional connection to [dash.better-auth.com](https://dash.better-auth.com) for
+analytics / admin APIs. Core email/password auth works without it.
+
+| Piece | Location |
+| --- | --- |
+| `@better-auth/infra` | dependency |
+| `dash()` | `lib/auth.ts` plugins (reads `BETTER_AUTH_API_KEY`) |
+| `sentinelClient()` | `lib/auth-client.ts` |
+
+After setting `BETTER_AUTH_API_KEY` (local `.env.local`, Cursor cloud secrets,
+and Vercel Production/Preview), redeploy or restart `pnpm dev`. In the Infra
+wizard **Connect** step use:
+
+- **Base URL** — your deployed origin (e.g. `https://cleoalpha.vercel.app`) or
+  `http://localhost:3000` when testing locally
+- **Base Path** — `/api/auth` (default)
+
+Do not enable `activityTracking` on `dash()` unless you also migrate a
+`user.lastActiveAt` column (see Better Auth Infra docs).
 
 ## Schema migrate
 
@@ -116,8 +139,11 @@ confirm she can use the account name; signed-out turns must not.
 
 ## Boundaries
 
-- Do **not** put `BETTER_AUTH_SECRET` or database URLs in `NEXT_PUBLIC_*`.
+- Do **not** put `BETTER_AUTH_SECRET`, `BETTER_AUTH_API_KEY`, or database URLs
+  in `NEXT_PUBLIC_*`.
 - Do **not** restore Clerk for this stack unless product explicitly switches.
 - OpenAI remains the only **model** third-party API; Neon is infrastructure.
 - Neon **Managed Better Auth** (`@neondatabase/auth`) is a different product —
-  this repo uses self-hosted `better-auth` + Drizzle.
+  this repo uses self-hosted `better-auth` + Drizzle. Better Auth
+  **Infrastructure** (`@better-auth/infra` / dash.better-auth.com) is optional
+  observability for that self-hosted stack — not Neon Auth.
