@@ -12,6 +12,8 @@ import {
 } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+const markdownTestConfig = vi.hoisted(() => ({ deferUpdates: false }))
+
 vi.mock('thinking-orbs', () => ({
   ThinkingOrb: () => <span>Thinking</span>,
 }))
@@ -24,9 +26,30 @@ vi.mock('./liquid-glass', () => ({
   LiquidGlass: () => null,
 }))
 
-vi.mock('./markdown', () => ({
-  Markdown: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
-}))
+vi.mock('./markdown', async () => {
+  const { startTransition, useEffect, useState } = await import('react')
+
+  return {
+    Markdown: ({ children }: { children: string }) => {
+      // Mirror Streamdown's deferred block commit. This proves transcript
+      // identity is part of the rendered component boundary.
+      const [displayedChildren, setDisplayedChildren] = useState(children)
+      useEffect(() => {
+        if (!markdownTestConfig.deferUpdates) {
+          setDisplayedChildren(children)
+          return
+        }
+
+        const timer = window.setTimeout(() => {
+          startTransition(() => setDisplayedChildren(children))
+        }, 0)
+        return () => window.clearTimeout(timer)
+      }, [children])
+
+      return <div>{displayedChildren}</div>
+    },
+  }
+})
 
 vi.mock('./zoomable-message-image', () => ({
   ZoomableMessageImage: () => null,
@@ -135,6 +158,7 @@ beforeEach(() => {
 
 afterEach(() => {
   cleanup()
+  markdownTestConfig.deferUpdates = false
   window.localStorage.clear()
   window.history.replaceState(null, '', '/')
   if (originalGeolocation) {
@@ -731,6 +755,61 @@ describe('AskForm chat sidebar', () => {
       expect(screen.getByText('Mars sections 4–5')).toBeTruthy()
       expect(screen.queryByText('Japan sections 8–10')).toBeNull()
     })
+  })
+
+  it('remounts stateful transcript renderers when thread message ids overlap', async () => {
+    markdownTestConfig.deferUpdates = true
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      writable: true,
+      value: vi.fn().mockImplementation((query: string) => ({
+        matches: query.includes('min-width: 64rem'),
+        media: query,
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    })
+
+    upsertThread({
+      id: 'thread-render-japan',
+      nextMessageId: 3,
+      messages: [
+        { id: 1, role: 'user', content: 'Japan renderer question' },
+        { id: 2, role: 'assistant', content: 'Japan renderer transcript' },
+      ],
+    })
+    upsertThread({
+      id: 'thread-render-mars',
+      nextMessageId: 3,
+      messages: [
+        { id: 1, role: 'user', content: 'Mars renderer question' },
+        { id: 2, role: 'assistant', content: 'Mars renderer transcript' },
+      ],
+    })
+    setActiveThreadId('thread-render-japan')
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Japan renderer transcript')).toBeTruthy()
+    })
+
+    const history = screen.getByRole('complementary', { name: 'Chat history' })
+    fireEvent.click(
+      within(history).getByRole('button', { name: 'Mars renderer question' }),
+    )
+
+    expect(
+      within(history)
+        .getByRole('button', { name: 'Mars renderer question' })
+        .getAttribute('aria-current'),
+    ).toBe('true')
+    expect(screen.getByText('Mars renderer transcript')).toBeTruthy()
+    expect(screen.queryByText('Japan renderer transcript')).toBeNull()
   })
 
   it('opens the mobile history drawer above page chrome', async () => {

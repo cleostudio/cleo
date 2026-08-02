@@ -1400,7 +1400,13 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
         <div className="app-column min-w-0">
           {hasMessages ? (
             <div className="cleo-messages pt-8 sm:pt-10">
-              <div className="flex flex-col gap-7">
+              {/* A message id is only unique within its thread. Remount this
+                  stateful renderer boundary when the selected transcript changes,
+                  so Streamdown cannot retain blocks from the prior thread. */}
+              <div
+                className="flex flex-col gap-7"
+                key={activeThreadId ?? "new-thread"}
+              >
                 {messages.map((message) => {
                   if (message.hidden) {
                     return null
