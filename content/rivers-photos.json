@@ -458,5 +458,557 @@
         }
       ]
     }
+  ],
+  "congo": [
+    {
+      "featureName": "Congo at Kinshasa",
+      "alt": "Congo at Kinshasa — congo",
+      "caption": "Congo at Kinshasa",
+      "photographer": "Serein",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFleuve%20Congo%20Kinshasa%208.JPG",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Fleuve Congo Kinshasa 8.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Fleuve Congo Kinshasa 8.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a2bdfa70aecd884b85a0937d6f6fbf8fd28e9f6c2533437479e552080be2540d",
+      "width": 4000,
+      "height": 2664,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/congo/w640.jpg",
+          "bytes": 46775
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/congo/w1280.jpg",
+          "bytes": 145876
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/congo/w2048.jpg",
+          "bytes": 405873
+        }
+      ]
+    },
+    {
+      "featureName": "Inga Dam",
+      "alt": "Inga Dam — congo",
+      "caption": "Inga Dam",
+      "photographer": "Χρίστος Ιμμανοελ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AInga%20Dam.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Inga Dam.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Inga Dam.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ba33c2ce081383310228dac7c42d3b221072033a977be9e3a40108e73cfb5933",
+      "width": 3264,
+      "height": 2448,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/congo/w640-2.jpg",
+          "bytes": 63096
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/congo/w1280-2.jpg",
+          "bytes": 178370
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/congo/w2048-2.jpg",
+          "bytes": 431123
+        }
+      ]
+    },
+    {
+      "featureName": "Pool Malebo reach",
+      "alt": "Pool Malebo reach — congo",
+      "caption": "Pool Malebo reach",
+      "photographer": "Serein",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFleuve%20Congo%20Kinshasa%209.JPG",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Fleuve Congo Kinshasa 9.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Fleuve Congo Kinshasa 9.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8d90a2af562512c1ba956e4490c99dbe5ce15fdd54003311d84aa8a01447d78a",
+      "width": 3960,
+      "height": 2031,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/congo/w640-3.jpg",
+          "bytes": 40627
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/congo/w1280-3.jpg",
+          "bytes": 107732
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/congo/w2048-3.jpg",
+          "bytes": 260336
+        }
+      ]
+    }
+  ],
+  "ganges": [
+    {
+      "featureName": "Ganges at Varanasi",
+      "alt": "Ganges at Varanasi — ganges",
+      "caption": "Ganges at Varanasi",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVaranasi%2C%20India%2C%20Ganges%20River.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Varanasi, India, Ganges River.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Varanasi, India, Ganges River.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "46f39bb14873603298e2a71354929366df91ffff401a19d33be5363613ed6d79",
+      "width": 3072,
+      "height": 2048,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/ganges/w640.jpg",
+          "bytes": 46548
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/ganges/w1280.jpg",
+          "bytes": 134631
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/ganges/w2048.jpg",
+          "bytes": 346378
+        }
+      ]
+    },
+    {
+      "featureName": "Varanasi boats",
+      "alt": "Varanasi boats — ganges",
+      "caption": "Varanasi boats",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVaranasi%2C%20India%2C%20Sunset%20in%20Varanasi%2C%20Boats%20on%20Ganges%20River.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Varanasi, India, Sunset in Varanasi, Boats on Ganges River.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Varanasi, India, Sunset in Varanasi, Boats on Ganges River.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e8f54dedf98264a1c25b8edf9378eb1e965976325f7497c2356c96fca16b08b0",
+      "width": 3072,
+      "height": 2048,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/ganges/w640-2.jpg",
+          "bytes": 43748
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/ganges/w1280-2.jpg",
+          "bytes": 130186
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/ganges/w2048-2.jpg",
+          "bytes": 342320
+        }
+      ]
+    },
+    {
+      "featureName": "Ganges Delta",
+      "alt": "Ganges Delta — ganges",
+      "caption": "Ganges Delta",
+      "photographer": "NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGanges%20River%20Delta%2C%20Bangladesh%2C%20India.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Ganges River Delta, Bangladesh, India.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ganges River Delta, Bangladesh, India.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "17b4175dc7fb22bfac30cbbc28c4252f36db365335805589c7b7ae32528c5537",
+      "width": 1400,
+      "height": 1370,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/ganges/w640-3.jpg",
+          "bytes": 111963
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/ganges/w1280-3.jpg",
+          "bytes": 293759
+        },
+        {
+          "width": 1400,
+          "src": "/images/rivers/ganges/w2048-3.jpg",
+          "bytes": 392556
+        }
+      ]
+    }
+  ],
+  "mekong": [
+    {
+      "featureName": "Mekong at Luang Prabang",
+      "alt": "Mekong at Luang Prabang — mekong",
+      "caption": "Mekong at Luang Prabang",
+      "photographer": "Basile Morin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABoats%20on%20the%20Mekong%20with%20dark%20clouds%20and%20blue%20sky%20in%20the%20late%20afternoon%20in%20Luang%20Prabang%20Laos.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Boats on the Mekong with dark clouds and blue sky in the late afternoon in Luang Prabang Laos.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Boats on the Mekong with dark clouds and blue sky in the late afternoon in Luang Prabang Laos.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "64df806f8a6407260f9386a3ef31ce92a99400f694cdb796243873b681dff2fa",
+      "width": 6262,
+      "height": 3914,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/mekong/w640.jpg",
+          "bytes": 68341
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/mekong/w1280.jpg",
+          "bytes": 166108
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/mekong/w2048.jpg",
+          "bytes": 421357
+        }
+      ]
+    },
+    {
+      "featureName": "Tonlé Sap",
+      "alt": "Tonlé Sap — mekong",
+      "caption": "Tonlé Sap",
+      "photographer": "Jakub Hałun",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20171129%20Rybak%20na%20Tonle%20Sap%20w%20Kambod%C5%BCy%206131%20DxO.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:20171129 Rybak na Tonle Sap w Kambodży 6131 DxO.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:20171129 Rybak na Tonle Sap w Kambodży 6131 DxO.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4534d286fc6318f72707f151e27152aed9136ee15285c37e5bd8bf858aac5494",
+      "width": 4326,
+      "height": 2871,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/mekong/w640-2.jpg",
+          "bytes": 61714
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/mekong/w1280-2.jpg",
+          "bytes": 154249
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/mekong/w2048-2.jpg",
+          "bytes": 355345
+        }
+      ]
+    },
+    {
+      "featureName": "Mekong Delta",
+      "alt": "Mekong Delta — mekong",
+      "caption": "Mekong Delta",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVietnam%2C%20Phong%20Dien%2C%20Mekong%20Delta%2C%20River.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Vietnam, Phong Dien, Mekong Delta, River.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Vietnam, Phong Dien, Mekong Delta, River.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9326eb031e8e94b6a8dff5388e12cd154cc04aacebb0586133e0060deb0eabe1",
+      "width": 3072,
+      "height": 2048,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/mekong/w640-3.jpg",
+          "bytes": 55985
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/mekong/w1280-3.jpg",
+          "bytes": 186546
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/mekong/w2048-3.jpg",
+          "bytes": 487338
+        }
+      ]
+    }
+  ],
+  "yellow-river": [
+    {
+      "featureName": "Hukou Waterfall",
+      "alt": "Hukou Waterfall — yellow river",
+      "caption": "Hukou Waterfall",
+      "photographer": "N509FZ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHukou%20Waterfalls%20%2820170930163540%29.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Hukou Waterfalls (20170930163540).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Hukou Waterfalls (20170930163540).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "29dae40309548f843265c803ed6c4d48285b195f9a8df29bee93a718e313ad51",
+      "width": 4608,
+      "height": 3072,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/yellow-river/w640.jpg",
+          "bytes": 57355
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/yellow-river/w1280.jpg",
+          "bytes": 135897
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/yellow-river/w2048.jpg",
+          "bytes": 383832
+        }
+      ]
+    },
+    {
+      "featureName": "Yellow River at Lanzhou",
+      "alt": "Yellow River at Lanzhou — yellow river",
+      "caption": "Yellow River at Lanzhou",
+      "photographer": "Extua",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APeople%20playing%20by%20the%20Yellow%20River%20in%20Lanzhou%2C%20May%202024.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:People playing by the Yellow River in Lanzhou, May 2024.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:People playing by the Yellow River in Lanzhou, May 2024.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b7eb1ddbdd142149667eb012cfd07fd99548524f525e757be28addbee9778182",
+      "width": 4096,
+      "height": 3072,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/yellow-river/w640-2.jpg",
+          "bytes": 63883
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/yellow-river/w1280-2.jpg",
+          "bytes": 244887
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/yellow-river/w2048-2.jpg",
+          "bytes": 716961
+        }
+      ]
+    },
+    {
+      "featureName": "Yellow River Delta",
+      "alt": "Yellow River Delta — yellow river",
+      "caption": "Yellow River Delta",
+      "photographer": "NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYellow%20River%20Delta%201999-10-07.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Yellow River Delta 1999-10-07.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Yellow River Delta 1999-10-07.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ee032b9d562a17254f85f0e890da1036d0f2373e3e081a1ac9f8028d274fa5cf",
+      "width": 3001,
+      "height": 2004,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/yellow-river/w640-3.jpg",
+          "bytes": 39272
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/yellow-river/w1280-3.jpg",
+          "bytes": 132149
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/yellow-river/w2048-3.jpg",
+          "bytes": 366626
+        }
+      ]
+    }
+  ],
+  "rhine": [
+    {
+      "featureName": "Loreley",
+      "alt": "Loreley — rhine",
+      "caption": "Loreley",
+      "photographer": "Jörg Braukmann",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALoreleyblick%20Maria%20Ruh%202020.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Loreleyblick Maria Ruh 2020.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Loreleyblick Maria Ruh 2020.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "80335efbef6cd515fa7c6cb72b9e7832a1864b25df60e9ed0cc4f2c2d3f06b72",
+      "width": 12425,
+      "height": 5000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/rhine/w640.jpg",
+          "bytes": 53044
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/rhine/w1280.jpg",
+          "bytes": 149070
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/rhine/w2048.jpg",
+          "bytes": 404977
+        }
+      ]
+    },
+    {
+      "featureName": "Rhine Falls",
+      "alt": "Rhine Falls — rhine",
+      "caption": "Rhine Falls",
+      "photographer": "Ymblanter",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANeuhausen%20Rhine%20Falls%20from%20above%201.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Neuhausen Rhine Falls from above 1.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Neuhausen Rhine Falls from above 1.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fbd301e46e69c5eca25c68a24c6d14d3148c6f5b44ba37ecae5ad02a83bf6604",
+      "width": 5704,
+      "height": 4000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/rhine/w640-2.jpg",
+          "bytes": 74507
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/rhine/w1280-2.jpg",
+          "bytes": 212256
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/rhine/w2048-2.jpg",
+          "bytes": 555195
+        }
+      ]
+    },
+    {
+      "featureName": "Rhine at Cologne",
+      "alt": "Rhine at Cologne — rhine",
+      "caption": "Rhine at Cologne",
+      "photographer": "Raimond Spekking",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AK%C3%B6lner%20Dom%2C%20Hohenzollernbr%C3%BCcke%2C%20Rhein%20in%20K%C3%B6ln%20-%20Luftaufnahme-0255.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Kölner Dom, Hohenzollernbrücke, Rhein in Köln - Luftaufnahme-0255.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Kölner Dom, Hohenzollernbrücke, Rhein in Köln - Luftaufnahme-0255.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "57aa1d5ab112091cec006e74773918ed5d4bdfb54dbe96c3070a345c8e658a75",
+      "width": 5464,
+      "height": 3640,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/rhine/w640-3.jpg",
+          "bytes": 114571
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/rhine/w1280-3.jpg",
+          "bytes": 283373
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/rhine/w2048-3.jpg",
+          "bytes": 709204
+        }
+      ]
+    }
+  ],
+  "volga": [
+    {
+      "featureName": "Volga at Nizhny Novgorod",
+      "alt": "Volga at Nizhny Novgorod — volga",
+      "caption": "Volga at Nizhny Novgorod",
+      "photographer": "Nick shul",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AView%20to%20Volga%20in%20Nizhny%20Novgorod.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:View to Volga in Nizhny Novgorod.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:View to Volga in Nizhny Novgorod.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ddbc58fd524e7daeb7d6484139ecb99ae4e7936efd5146a00486a915f1383072",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/volga/w640.jpg",
+          "bytes": 71652
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/volga/w1280.jpg",
+          "bytes": 174862
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/volga/w2048.jpg",
+          "bytes": 488971
+        }
+      ]
+    },
+    {
+      "featureName": "Volga mainstream",
+      "alt": "Volga mainstream — volga",
+      "caption": "Volga mainstream",
+      "photographer": "Alexxx1979",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVolga%20river%20P6190247%202600.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Volga river P6190247 2600.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Volga river P6190247 2600.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5a14ad9bc0e1fdcffc5a4334913e8257e79f78c0f605e786f560fd688786cdd9",
+      "width": 3900,
+      "height": 2600,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/volga/w640-2.jpg",
+          "bytes": 74228
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/volga/w1280-2.jpg",
+          "bytes": 213254
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/volga/w2048-2.jpg",
+          "bytes": 568127
+        }
+      ]
+    },
+    {
+      "featureName": "Volga Delta",
+      "alt": "Volga Delta — volga",
+      "caption": "Volga Delta",
+      "photographer": "Alexander Gerst",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVolga%20Delta.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Volga Delta.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Volga Delta.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4e1d2d7649d7d85045c0c3edf85c4f5fc63ba2acd072cb0cc1c8217c624cc53c",
+      "width": 5568,
+      "height": 3712,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/volga/w640-3.jpg",
+          "bytes": 59983
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/volga/w1280-3.jpg",
+          "bytes": 169236
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/volga/w2048-3.jpg",
+          "bytes": 434612
+        }
+      ]
+    }
   ]
 }

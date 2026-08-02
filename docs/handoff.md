@@ -25,7 +25,7 @@ General-knowledge portal:
 - **Oceans** — world ocean basin and polar-sea field guides at `/oceans` and
   `/oceans/[slug]` (Pacific, Atlantic, Indian, Arctic, Southern)
 - **Rivers** — major world-river field guides at `/rivers` and `/rivers/[slug]`
-  (Nile, Amazon, Yangtze, Danube, Mississippi)
+  (Africa, Asia, Europe & Americas; eleven guides)
 - **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations,
   Cities, Oceans, Rivers)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)

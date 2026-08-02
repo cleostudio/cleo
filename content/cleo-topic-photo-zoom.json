@@ -18883,75 +18883,75 @@
       }
     ]
   },
-  "rivers/amazon": {
+  "rivers/congo": {
     "collection": "rivers",
-    "title": "Amazon mainstream",
-    "subtitle": "Amazon",
-    "alt": "Amazon mainstream — amazon",
-    "photographer": "Alexander Gerst",
-    "license": "CC BY-SA 2.0",
-    "width": 5568,
-    "height": 3712,
+    "title": "Congo at Kinshasa",
+    "subtitle": "Congo River",
+    "alt": "Congo at Kinshasa — congo",
+    "photographer": "Serein",
+    "license": "CC BY-SA 3.0",
+    "width": 4000,
+    "height": 2664,
     "renditions": [
       {
-        "src": "/images/rivers/amazon/w640.jpg",
+        "src": "/images/rivers/congo/w640.jpg",
         "width": 640
       },
       {
-        "src": "/images/rivers/amazon/w1280.jpg",
+        "src": "/images/rivers/congo/w1280.jpg",
         "width": 1280
       },
       {
-        "src": "/images/rivers/amazon/w2048.jpg",
+        "src": "/images/rivers/congo/w2048.jpg",
         "width": 2048
       }
     ]
   },
-  "rivers/amazon-2": {
+  "rivers/congo-2": {
     "collection": "rivers",
-    "title": "Amazon mouth",
-    "subtitle": "Amazon",
-    "alt": "Amazon mouth — amazon",
-    "photographer": "INPE / Coordenação-Geral de Observação da Terra",
-    "license": "CC BY-SA 2.0",
-    "width": 9579,
-    "height": 5393,
+    "title": "Inga Dam",
+    "subtitle": "Congo River",
+    "alt": "Inga Dam — congo",
+    "photographer": "Χρίστος Ιμμανοελ",
+    "license": "CC BY-SA 4.0",
+    "width": 3264,
+    "height": 2448,
     "renditions": [
       {
-        "src": "/images/rivers/amazon/w640-2.jpg",
+        "src": "/images/rivers/congo/w640-2.jpg",
         "width": 640
       },
       {
-        "src": "/images/rivers/amazon/w1280-2.jpg",
+        "src": "/images/rivers/congo/w1280-2.jpg",
         "width": 1280
       },
       {
-        "src": "/images/rivers/amazon/w2048-2.jpg",
+        "src": "/images/rivers/congo/w2048-2.jpg",
         "width": 2048
       }
     ]
   },
-  "rivers/amazon-3": {
+  "rivers/congo-3": {
     "collection": "rivers",
-    "title": "Amazon from orbit",
-    "subtitle": "Amazon",
-    "alt": "Amazon from orbit — amazon",
-    "photographer": "European Space Agency",
-    "license": "CC BY-SA 3.0 igo",
-    "width": 1920,
-    "height": 1920,
+    "title": "Pool Malebo reach",
+    "subtitle": "Congo River",
+    "alt": "Pool Malebo reach — congo",
+    "photographer": "Serein",
+    "license": "CC BY-SA 3.0",
+    "width": 3960,
+    "height": 2031,
     "renditions": [
       {
-        "src": "/images/rivers/amazon/w640-3.jpg",
+        "src": "/images/rivers/congo/w640-3.jpg",
         "width": 640
       },
       {
-        "src": "/images/rivers/amazon/w1280-3.jpg",
+        "src": "/images/rivers/congo/w1280-3.jpg",
         "width": 1280
       },
       {
-        "src": "/images/rivers/amazon/w2048-3.jpg",
-        "width": 1920
+        "src": "/images/rivers/congo/w2048-3.jpg",
+        "width": 2048
       }
     ]
   },
@@ -19027,6 +19027,222 @@
       }
     ]
   },
+  "rivers/ganges": {
+    "collection": "rivers",
+    "title": "Ganges at Varanasi",
+    "subtitle": "Ganges",
+    "alt": "Ganges at Varanasi — ganges",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/rivers/ganges/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/ganges/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/ganges/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/ganges-2": {
+    "collection": "rivers",
+    "title": "Varanasi boats",
+    "subtitle": "Ganges",
+    "alt": "Varanasi boats — ganges",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/rivers/ganges/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/ganges/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/ganges/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/ganges-3": {
+    "collection": "rivers",
+    "title": "Ganges Delta",
+    "subtitle": "Ganges",
+    "alt": "Ganges Delta — ganges",
+    "photographer": "NASA",
+    "license": "Public domain",
+    "width": 1400,
+    "height": 1370,
+    "renditions": [
+      {
+        "src": "/images/rivers/ganges/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/ganges/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/ganges/w2048-3.jpg",
+        "width": 1400
+      }
+    ]
+  },
+  "rivers/mekong": {
+    "collection": "rivers",
+    "title": "Mekong at Luang Prabang",
+    "subtitle": "Mekong",
+    "alt": "Mekong at Luang Prabang — mekong",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 6262,
+    "height": 3914,
+    "renditions": [
+      {
+        "src": "/images/rivers/mekong/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/mekong/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/mekong/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/mekong-2": {
+    "collection": "rivers",
+    "title": "Tonlé Sap",
+    "subtitle": "Mekong",
+    "alt": "Tonlé Sap — mekong",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "width": 4326,
+    "height": 2871,
+    "renditions": [
+      {
+        "src": "/images/rivers/mekong/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/mekong/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/mekong/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/mekong-3": {
+    "collection": "rivers",
+    "title": "Mekong Delta",
+    "subtitle": "Mekong",
+    "alt": "Mekong Delta — mekong",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/rivers/mekong/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/mekong/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/mekong/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/yellow-river": {
+    "collection": "rivers",
+    "title": "Hukou Waterfall",
+    "subtitle": "Yellow River",
+    "alt": "Hukou Waterfall — yellow river",
+    "photographer": "N509FZ",
+    "license": "CC BY-SA 4.0",
+    "width": 4608,
+    "height": 3072,
+    "renditions": [
+      {
+        "src": "/images/rivers/yellow-river/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/yellow-river/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/yellow-river/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/yellow-river-2": {
+    "collection": "rivers",
+    "title": "Yellow River at Lanzhou",
+    "subtitle": "Yellow River",
+    "alt": "Yellow River at Lanzhou — yellow river",
+    "photographer": "Extua",
+    "license": "CC BY 4.0",
+    "width": 4096,
+    "height": 3072,
+    "renditions": [
+      {
+        "src": "/images/rivers/yellow-river/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/yellow-river/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/yellow-river/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/yellow-river-3": {
+    "collection": "rivers",
+    "title": "Yellow River Delta",
+    "subtitle": "Yellow River",
+    "alt": "Yellow River Delta — yellow river",
+    "photographer": "NASA",
+    "license": "Public domain",
+    "width": 3001,
+    "height": 2004,
+    "renditions": [
+      {
+        "src": "/images/rivers/yellow-river/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/yellow-river/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/yellow-river/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "rivers/danube": {
     "collection": "rivers",
     "title": "Danube at Budapest",
@@ -19096,6 +19312,222 @@
       {
         "src": "/images/rivers/danube/w2048-3.jpg",
         "width": 2048
+      }
+    ]
+  },
+  "rivers/rhine": {
+    "collection": "rivers",
+    "title": "Loreley",
+    "subtitle": "Rhine",
+    "alt": "Loreley — rhine",
+    "photographer": "Jörg Braukmann",
+    "license": "CC BY-SA 4.0",
+    "width": 12425,
+    "height": 5000,
+    "renditions": [
+      {
+        "src": "/images/rivers/rhine/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/rhine/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/rhine/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/rhine-2": {
+    "collection": "rivers",
+    "title": "Rhine Falls",
+    "subtitle": "Rhine",
+    "alt": "Rhine Falls — rhine",
+    "photographer": "Ymblanter",
+    "license": "CC BY-SA 4.0",
+    "width": 5704,
+    "height": 4000,
+    "renditions": [
+      {
+        "src": "/images/rivers/rhine/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/rhine/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/rhine/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/rhine-3": {
+    "collection": "rivers",
+    "title": "Rhine at Cologne",
+    "subtitle": "Rhine",
+    "alt": "Rhine at Cologne — rhine",
+    "photographer": "Raimond Spekking",
+    "license": "CC BY-SA 4.0",
+    "width": 5464,
+    "height": 3640,
+    "renditions": [
+      {
+        "src": "/images/rivers/rhine/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/rhine/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/rhine/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/volga": {
+    "collection": "rivers",
+    "title": "Volga at Nizhny Novgorod",
+    "subtitle": "Volga",
+    "alt": "Volga at Nizhny Novgorod — volga",
+    "photographer": "Nick shul",
+    "license": "CC BY-SA 4.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/rivers/volga/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/volga/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/volga/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/volga-2": {
+    "collection": "rivers",
+    "title": "Volga mainstream",
+    "subtitle": "Volga",
+    "alt": "Volga mainstream — volga",
+    "photographer": "Alexxx1979",
+    "license": "CC BY-SA 4.0",
+    "width": 3900,
+    "height": 2600,
+    "renditions": [
+      {
+        "src": "/images/rivers/volga/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/volga/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/volga/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/volga-3": {
+    "collection": "rivers",
+    "title": "Volga Delta",
+    "subtitle": "Volga",
+    "alt": "Volga Delta — volga",
+    "photographer": "Alexander Gerst",
+    "license": "CC BY-SA 2.0",
+    "width": 5568,
+    "height": 3712,
+    "renditions": [
+      {
+        "src": "/images/rivers/volga/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/volga/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/volga/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/amazon": {
+    "collection": "rivers",
+    "title": "Amazon mainstream",
+    "subtitle": "Amazon",
+    "alt": "Amazon mainstream — amazon",
+    "photographer": "Alexander Gerst",
+    "license": "CC BY-SA 2.0",
+    "width": 5568,
+    "height": 3712,
+    "renditions": [
+      {
+        "src": "/images/rivers/amazon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/amazon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/amazon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/amazon-2": {
+    "collection": "rivers",
+    "title": "Amazon mouth",
+    "subtitle": "Amazon",
+    "alt": "Amazon mouth — amazon",
+    "photographer": "INPE / Coordenação-Geral de Observação da Terra",
+    "license": "CC BY-SA 2.0",
+    "width": 9579,
+    "height": 5393,
+    "renditions": [
+      {
+        "src": "/images/rivers/amazon/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/amazon/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/amazon/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/amazon-3": {
+    "collection": "rivers",
+    "title": "Amazon from orbit",
+    "subtitle": "Amazon",
+    "alt": "Amazon from orbit — amazon",
+    "photographer": "European Space Agency",
+    "license": "CC BY-SA 3.0 igo",
+    "width": 1920,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/rivers/amazon/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/amazon/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/amazon/w2048-3.jpg",
+        "width": 1920
       }
     ]
   },

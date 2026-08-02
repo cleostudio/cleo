@@ -81,7 +81,7 @@ export function allTopics(): Topic[] {
       slug: 'rivers',
       name: 'Rivers',
       description:
-        'Evergreen field guides for world rivers — orientation, course features, facts, sources, and curated photographs.',
+        'Evergreen field guides for major rivers across Africa, Asia, and Europe & Americas — orientation, course features, facts, sources, and curated photographs.',
       tally: `${riverCount} guides`,
       href: '/rivers',
       secondaryHref: '/gallery',

@@ -50,7 +50,7 @@ export const publicPageMetadata = {
   rivers: {
     title: 'Rivers',
     description:
-      'Evergreen field guides for world rivers — orientation, course, basin, hydrology, and sources.',
+      'Evergreen field guides for major rivers — orientation, course, basin, hydrology, and sources.',
   },
   cleo: {
     title: 'Cleo',

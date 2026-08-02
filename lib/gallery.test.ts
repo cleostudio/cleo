@@ -83,7 +83,8 @@ describe('gallery catalog', () => {
     expect(keys).toContain('Africa & Americas')
     expect(keys).toContain('World ocean basins')
     expect(keys).toContain('Polar seas')
-    expect(keys).toContain('World rivers')
+    expect(keys).toContain('Africa')
+    expect(keys).toContain('Europe & Americas')
   })
 
   it('describes the combined photograph count', () => {

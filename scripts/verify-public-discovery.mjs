@@ -105,9 +105,9 @@ const publicPages = [
     {
       title: 'Rivers',
       description:
-        'Evergreen field guides for world rivers — orientation, course, basin, hydrology, and sources.',
+        'Evergreen field guides for major rivers — orientation, course, basin, hydrology, and sources.',
     },
-    'Rivers · Cleo. Evergreen field guides for world rivers — orientation, course, basin, hydrology, and sources.',
+    'Rivers · Cleo. Evergreen field guides for major rivers — orientation, course, basin, hydrology, and sources.',
   ),
   englishPage(
     '/cleo',

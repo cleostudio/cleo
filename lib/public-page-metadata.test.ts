@@ -52,7 +52,7 @@ describe('public page metadata copy', () => {
     expect(publicPageMetadata.rivers).toEqual({
       title: 'Rivers',
       description:
-        'Evergreen field guides for world rivers — orientation, course, basin, hydrology, and sources.',
+        'Evergreen field guides for major rivers — orientation, course, basin, hydrology, and sources.',
     })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',

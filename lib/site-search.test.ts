@@ -212,12 +212,20 @@ describe('searchSiteCatalog', () => {
 
   it('finds river guides and their features', () => {
     expect(hrefs('nile')[0]).toBe('/rivers/nile')
+    expect(hrefs('congo river')[0]).toBe('/rivers/congo')
     expect(hrefs('amazon')[0]).toBe('/rivers/amazon')
     expect(hrefs('yangtze')[0]).toBe('/rivers/yangtze')
+    expect(hrefs('ganges')[0]).toBe('/rivers/ganges')
+    expect(hrefs('mekong')[0]).toBe('/rivers/mekong')
+    expect(hrefs('yellow river')[0]).toBe('/rivers/yellow-river')
     expect(hrefs('danube')[0]).toBe('/rivers/danube')
+    expect(hrefs('rhine')[0]).toBe('/rivers/rhine')
+    expect(hrefs('volga')[0]).toBe('/rivers/volga')
     expect(hrefs('mississippi')[0]).toBe('/rivers/mississippi')
     expect(hrefs('iron gates')[0]).toBe('/rivers/danube')
     expect(hrefs('blue nile falls')[0]).toBe('/rivers/nile')
+    expect(hrefs('loess sediment')[0]).toBe('/rivers/yellow-river')
+    expect(hrefs('middle rhine gorge')[0]).toBe('/rivers/rhine')
   })
 
   it('finds curated photographs by the place they show', () => {

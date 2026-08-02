@@ -158,5 +158,197 @@
       "height": 1910,
       "featureName": "Mississippi Delta"
     }
+  ],
+  "congo": [
+    {
+      "commonsTitle": "File:Fleuve Congo Kinshasa 8.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Fleuve_Congo_Kinshasa_8.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFleuve%20Congo%20Kinshasa%208.JPG",
+      "photographer": "Serein",
+      "license": "CC BY-SA 3.0",
+      "width": 4000,
+      "height": 2664,
+      "featureName": "Congo at Kinshasa"
+    },
+    {
+      "commonsTitle": "File:Inga Dam.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Inga_Dam.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AInga%20Dam.jpg",
+      "photographer": "Χρίστος Ιμμανοελ",
+      "license": "CC BY-SA 4.0",
+      "width": 3264,
+      "height": 2448,
+      "featureName": "Inga Dam"
+    },
+    {
+      "commonsTitle": "File:Fleuve Congo Kinshasa 9.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Fleuve_Congo_Kinshasa_9.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFleuve%20Congo%20Kinshasa%209.JPG",
+      "photographer": "Serein",
+      "license": "CC BY-SA 3.0",
+      "width": 3960,
+      "height": 2031,
+      "featureName": "Pool Malebo reach"
+    }
+  ],
+  "ganges": [
+    {
+      "commonsTitle": "File:Varanasi, India, Ganges River.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Varanasi%2C_India%2C_Ganges_River.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVaranasi%2C%20India%2C%20Ganges%20River.jpg",
+      "photographer": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "width": 3072,
+      "height": 2048,
+      "featureName": "Ganges at Varanasi"
+    },
+    {
+      "commonsTitle": "File:Varanasi, India, Sunset in Varanasi, Boats on Ganges River.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Varanasi%2C_India%2C_Sunset_in_Varanasi%2C_Boats_on_Ganges_River.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVaranasi%2C%20India%2C%20Sunset%20in%20Varanasi%2C%20Boats%20on%20Ganges%20River.jpg",
+      "photographer": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "width": 3072,
+      "height": 2048,
+      "featureName": "Varanasi boats"
+    },
+    {
+      "commonsTitle": "File:Ganges River Delta, Bangladesh, India.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Ganges_River_Delta%2C_Bangladesh%2C_India.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGanges%20River%20Delta%2C%20Bangladesh%2C%20India.jpg",
+      "photographer": "NASA",
+      "license": "Public domain",
+      "width": 1400,
+      "height": 1370,
+      "featureName": "Ganges Delta"
+    }
+  ],
+  "mekong": [
+    {
+      "commonsTitle": "File:Boats on the Mekong with dark clouds and blue sky in the late afternoon in Luang Prabang Laos.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Boats_on_the_Mekong_with_dark_clouds_and_blue_sky_in_the_late_afternoon_in_Luang_Prabang_Laos.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABoats%20on%20the%20Mekong%20with%20dark%20clouds%20and%20blue%20sky%20in%20the%20late%20afternoon%20in%20Luang%20Prabang%20Laos.jpg",
+      "photographer": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "width": 6262,
+      "height": 3914,
+      "featureName": "Mekong at Luang Prabang"
+    },
+    {
+      "commonsTitle": "File:20171129 Rybak na Tonle Sap w Kambodży 6131 DxO.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/20171129_Rybak_na_Tonle_Sap_w_Kambod%C5%BCy_6131_DxO.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20171129%20Rybak%20na%20Tonle%20Sap%20w%20Kambod%C5%BCy%206131%20DxO.jpg",
+      "photographer": "Jakub Hałun",
+      "license": "CC BY-SA 4.0",
+      "width": 4326,
+      "height": 2871,
+      "featureName": "Tonlé Sap"
+    },
+    {
+      "commonsTitle": "File:Vietnam, Phong Dien, Mekong Delta, River.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Vietnam%2C_Phong_Dien%2C_Mekong_Delta%2C_River.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVietnam%2C%20Phong%20Dien%2C%20Mekong%20Delta%2C%20River.jpg",
+      "photographer": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "width": 3072,
+      "height": 2048,
+      "featureName": "Mekong Delta"
+    }
+  ],
+  "yellow-river": [
+    {
+      "commonsTitle": "File:Hukou Waterfalls (20170930163540).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Hukou_Waterfalls_%2820170930163540%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHukou%20Waterfalls%20%2820170930163540%29.jpg",
+      "photographer": "N509FZ",
+      "license": "CC BY-SA 4.0",
+      "width": 4608,
+      "height": 3072,
+      "featureName": "Hukou Waterfall"
+    },
+    {
+      "commonsTitle": "File:People playing by the Yellow River in Lanzhou, May 2024.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/People_playing_by_the_Yellow_River_in_Lanzhou%2C_May_2024.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APeople%20playing%20by%20the%20Yellow%20River%20in%20Lanzhou%2C%20May%202024.jpg",
+      "photographer": "Extua",
+      "license": "CC BY 4.0",
+      "width": 4096,
+      "height": 3072,
+      "featureName": "Yellow River at Lanzhou"
+    },
+    {
+      "commonsTitle": "File:Yellow River Delta 1999-10-07.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Yellow_River_Delta_1999-10-07.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYellow%20River%20Delta%201999-10-07.jpg",
+      "photographer": "NASA",
+      "license": "Public domain",
+      "width": 3001,
+      "height": 2004,
+      "featureName": "Yellow River Delta"
+    }
+  ],
+  "rhine": [
+    {
+      "commonsTitle": "File:Loreleyblick Maria Ruh 2020.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/Loreleyblick_Maria_Ruh_2020.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALoreleyblick%20Maria%20Ruh%202020.jpg",
+      "photographer": "Jörg Braukmann",
+      "license": "CC BY-SA 4.0",
+      "width": 12425,
+      "height": 5000,
+      "featureName": "Loreley"
+    },
+    {
+      "commonsTitle": "File:Neuhausen Rhine Falls from above 1.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Neuhausen_Rhine_Falls_from_above_1.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANeuhausen%20Rhine%20Falls%20from%20above%201.jpg",
+      "photographer": "Ymblanter",
+      "license": "CC BY-SA 4.0",
+      "width": 5704,
+      "height": 4000,
+      "featureName": "Rhine Falls"
+    },
+    {
+      "commonsTitle": "File:Kölner Dom, Hohenzollernbrücke, Rhein in Köln - Luftaufnahme-0255.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/K%C3%B6lner_Dom%2C_Hohenzollernbr%C3%BCcke%2C_Rhein_in_K%C3%B6ln_-_Luftaufnahme-0255.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AK%C3%B6lner%20Dom%2C%20Hohenzollernbr%C3%BCcke%2C%20Rhein%20in%20K%C3%B6ln%20-%20Luftaufnahme-0255.jpg",
+      "photographer": "Raimond Spekking",
+      "license": "CC BY-SA 4.0",
+      "width": 5464,
+      "height": 3640,
+      "featureName": "Rhine at Cologne"
+    }
+  ],
+  "volga": [
+    {
+      "commonsTitle": "File:View to Volga in Nizhny Novgorod.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/View_to_Volga_in_Nizhny_Novgorod.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AView%20to%20Volga%20in%20Nizhny%20Novgorod.jpg",
+      "photographer": "Nick shul",
+      "license": "CC BY-SA 4.0",
+      "width": 4000,
+      "height": 3000,
+      "featureName": "Volga at Nizhny Novgorod"
+    },
+    {
+      "commonsTitle": "File:Volga river P6190247 2600.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Volga_river_P6190247_2600.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVolga%20river%20P6190247%202600.jpg",
+      "photographer": "Alexxx1979",
+      "license": "CC BY-SA 4.0",
+      "width": 3900,
+      "height": 2600,
+      "featureName": "Volga mainstream"
+    },
+    {
+      "commonsTitle": "File:Volga Delta.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Volga_Delta.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVolga%20Delta.jpg",
+      "photographer": "Alexander Gerst",
+      "license": "CC BY-SA 2.0",
+      "width": 5568,
+      "height": 3712,
+      "featureName": "Volga Delta"
+    }
   ]
 }

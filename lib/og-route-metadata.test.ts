@@ -53,7 +53,7 @@ describe('social OG image metadata', () => {
     [
       '/rivers',
       publicPageMetadata.rivers,
-      'Rivers · Cleo. Evergreen field guides for world rivers — orientation, course, basin, hydrology, and sources.',
+      'Rivers · Cleo. Evergreen field guides for major rivers — orientation, course, basin, hydrology, and sources.',
     ],
     [
       '/cleo',
