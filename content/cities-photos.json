@@ -1930,5 +1930,465 @@
         }
       ]
     }
+  ],
+  "seoul": [
+    {
+      "featureName": "Gyeongbokgung",
+      "alt": "Gyeongbokgung — seoul",
+      "caption": "Gyeongbokgung",
+      "photographer": "Frank Schulenburg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Gyeonghoeru (Royal Banquet Hall) at Gyeongbokgung Palace, Seoul.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Gyeonghoeru (Royal Banquet Hall) at Gyeongbokgung Palace, Seoul.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "04c1c38433107ffb386cf7337617adaf3db2d365e9a7465e1b953b413fc587c3",
+      "width": 6425,
+      "height": 4283,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/seoul/w640.jpg",
+          "bytes": 77302
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/seoul/w1280.jpg",
+          "bytes": 180337
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/seoul/w2048.jpg",
+          "bytes": 453122
+        }
+      ]
+    },
+    {
+      "featureName": "N Seoul Tower",
+      "alt": "N Seoul Tower — seoul",
+      "caption": "N Seoul Tower",
+      "photographer": "kallerna",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AN_Seoul_Tower_view_2.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:N Seoul Tower view 2.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:N Seoul Tower view 2.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7c4bb1ddc61ecf100b021f7b44cf743f949606d637f060abef3cb8e86672605b",
+      "width": 4600,
+      "height": 2500,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/seoul/w640-2.jpg",
+          "bytes": 72678
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/seoul/w1280-2.jpg",
+          "bytes": 211699
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/seoul/w2048-2.jpg",
+          "bytes": 544016
+        }
+      ]
+    },
+    {
+      "featureName": "Bukchon Hanok Village",
+      "alt": "Bukchon Hanok Village — seoul",
+      "caption": "Bukchon Hanok Village",
+      "photographer": "Basile Morin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABukchon-ro_11-gil_street_with_hanok_houses_at_blue_hour_in_Bukchon_Hanok_Village_Seoul.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Bukchon-ro 11-gil street with hanok houses at blue hour in Bukchon Hanok Village Seoul.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Bukchon-ro 11-gil street with hanok houses at blue hour in Bukchon Hanok Village Seoul.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5e30c6f1e73eeaac7ce2200e345742786a141847cfe0d2cd85deb9647c7c3c3d",
+      "width": 6404,
+      "height": 4269,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/seoul/w640-3.jpg",
+          "bytes": 89738
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/seoul/w1280-3.jpg",
+          "bytes": 212846
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/seoul/w2048-3.jpg",
+          "bytes": 531051
+        }
+      ]
+    }
+  ],
+  "bangkok": [
+    {
+      "featureName": "Wat Arun",
+      "alt": "Wat Arun — bangkok",
+      "caption": "Wat Arun",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATemplo_Wat_Arun%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_30.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Templo Wat Arun, Bangkok, Tailandia, 2013-08-22, DD 30.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Templo Wat Arun, Bangkok, Tailandia, 2013-08-22, DD 30.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "56a229435329b7db9650ea1c72481dd320083d8a13a66d50782a733752524b80",
+      "width": 4837,
+      "height": 3231,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/bangkok/w640.jpg",
+          "bytes": 72623
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/bangkok/w1280.jpg",
+          "bytes": 241231
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/bangkok/w2048.jpg",
+          "bytes": 664779
+        }
+      ]
+    },
+    {
+      "featureName": "Grand Palace",
+      "alt": "Grand Palace — bangkok",
+      "caption": "Grand Palace",
+      "photographer": "Basile Morin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B1%E0%B8%95%E0%B8%99%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_-_Wat_Phra_Kaew%2C_Temple_of_Emerald_Buddha%2C_Bangkok%2C_Thailand.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:วัดพระศรีรัตนศาสดาราม วัดพระแก้ว กรุงเทพมหานคร - Wat Phra Kaew, Temple of Emerald Buddha, Bangkok, Thailand.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:วัดพระศรีรัตนศาสดาราม วัดพระแก้ว กรุงเทพมหานคร - Wat Phra Kaew, Temple of Emerald Buddha, Bangkok, Thailand.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8047b449ad457bb0d8f5a6df5dfe7b81fded6946f46ee5003c41f39e4f664953",
+      "width": 4156,
+      "height": 3014,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/bangkok/w640-2.jpg",
+          "bytes": 98825
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/bangkok/w1280-2.jpg",
+          "bytes": 232107
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/bangkok/w2048-2.jpg",
+          "bytes": 574985
+        }
+      ]
+    },
+    {
+      "featureName": "Wat Pho",
+      "alt": "Wat Pho — bangkok",
+      "caption": "Wat Pho",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_07.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Wat Pho, Bangkok, Tailandia, 2013-08-22, DD 07.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Wat Pho, Bangkok, Tailandia, 2013-08-22, DD 07.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "777be7334330f4746662ded6d618de0c339ba098a7aca53b80d75bf052bbcbc9",
+      "width": 2790,
+      "height": 4222,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/bangkok/w640-3.jpg",
+          "bytes": 160512
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/bangkok/w1280-3.jpg",
+          "bytes": 494171
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/bangkok/w2048-3.jpg",
+          "bytes": 1211316
+        }
+      ]
+    }
+  ],
+  "singapore": [
+    {
+      "featureName": "Marina Bay Sands",
+      "alt": "Marina Bay Sands — singapore",
+      "caption": "Marina Bay Sands",
+      "photographer": "Basile Morin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMarina_Bay_Sands_and_illuminated_polyhedral_building_Louis_Vuitton_over_the_water_at_blue_hour_with_pink_clouds_in_Singapore.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Marina Bay Sands and illuminated polyhedral building Louis Vuitton over the water at blue hour with pink clouds in Singapore.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Marina Bay Sands and illuminated polyhedral building Louis Vuitton over the water at blue hour with pink clouds in Singapore.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4773a8d764fccf1ae402c8074bb65577995e401e377460e62555126756f69ea5",
+      "width": 5629,
+      "height": 3234,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/singapore/w640.jpg",
+          "bytes": 67709
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/singapore/w1280.jpg",
+          "bytes": 157584
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/singapore/w2048.jpg",
+          "bytes": 391338
+        }
+      ]
+    },
+    {
+      "featureName": "Merlion",
+      "alt": "Merlion — singapore",
+      "caption": "Merlion",
+      "photographer": "Dietmar Rabich",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASingapore_%28SG%29%2C_Merlion_--_2019_--_4496.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Singapore (SG), Merlion -- 2019 -- 4496.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Singapore (SG), Merlion -- 2019 -- 4496.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d4d5a2a3de63828e981ffc1cb5723413999a071c8148a34d5cb633ff9602fcb9",
+      "width": 5133,
+      "height": 3422,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/singapore/w640-2.jpg",
+          "bytes": 119891
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/singapore/w1280-2.jpg",
+          "bytes": 296872
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/singapore/w2048-2.jpg",
+          "bytes": 707504
+        }
+      ]
+    },
+    {
+      "featureName": "Gardens by the Bay",
+      "alt": "Gardens by the Bay — singapore",
+      "caption": "Gardens by the Bay",
+      "photographer": "Dietmar Rabich",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASingapore_%28SG%29%2C_Gardens_By_The_Bay_--_2019_--_4725.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Singapore (SG), Gardens By The Bay -- 2019 -- 4725.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Singapore (SG), Gardens By The Bay -- 2019 -- 4725.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7414464702c9eb8a2fd36f39b4308015ecd64b0803ce4e66291e5d8625d73a03",
+      "width": 6720,
+      "height": 4480,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/singapore/w640-3.jpg",
+          "bytes": 134857
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/singapore/w1280-3.jpg",
+          "bytes": 342327
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/singapore/w2048-3.jpg",
+          "bytes": 869437
+        }
+      ]
+    }
+  ],
+  "mumbai": [
+    {
+      "featureName": "Gateway of India",
+      "alt": "Gateway of India — mumbai",
+      "caption": "Gateway of India",
+      "photographer": "A.Savin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMumbai_03-2016_30_Gateway_of_India.jpg",
+      "license": "FAL",
+      "commonsTitle": "File:Mumbai 03-2016 30 Gateway of India.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mumbai 03-2016 30 Gateway of India.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5e718c78a25250a7081b388e754dd3b79e3ae3251855fb9ff0cba01c9813aacd",
+      "width": 3585,
+      "height": 3585,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/mumbai/w640.jpg",
+          "bytes": 117272
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/mumbai/w1280.jpg",
+          "bytes": 352267
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/mumbai/w2048.jpg",
+          "bytes": 906154
+        }
+      ]
+    },
+    {
+      "featureName": "Chhatrapati Shivaji Terminus",
+      "alt": "Chhatrapati Shivaji Terminus — mumbai",
+      "caption": "Chhatrapati Shivaji Terminus",
+      "photographer": "Joe Ravi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChhatrapati_Shivaji_Terminus_%28Victoria_Terminus%29.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Chhatrapati Shivaji Terminus (Victoria Terminus).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Chhatrapati Shivaji Terminus (Victoria Terminus).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7958acbe47bbb8cf762b1ba1588147d78752905ce7562aaf4b0b90e8e40877cd",
+      "width": 4045,
+      "height": 2360,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/mumbai/w640-2.jpg",
+          "bytes": 62430
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/mumbai/w1280-2.jpg",
+          "bytes": 178619
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/mumbai/w2048-2.jpg",
+          "bytes": 461348
+        }
+      ]
+    },
+    {
+      "featureName": "Marine Drive",
+      "alt": "Marine Drive — mumbai",
+      "caption": "Marine Drive",
+      "photographer": "A.Savin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMumbai_03-2016_46_evening_at_Marine_Drive.jpg",
+      "license": "FAL",
+      "commonsTitle": "File:Mumbai 03-2016 46 evening at Marine Drive.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mumbai 03-2016 46 evening at Marine Drive.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b980fa6c4d2c40ff2ad24f971326692bfc99b7dc9b784e73d28f38c05f6b32c6",
+      "width": 5386,
+      "height": 3030,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/mumbai/w640-3.jpg",
+          "bytes": 48257
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/mumbai/w1280-3.jpg",
+          "bytes": 122447
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/mumbai/w2048-3.jpg",
+          "bytes": 317468
+        }
+      ]
+    }
+  ],
+  "shanghai": [
+    {
+      "featureName": "Oriental Pearl Tower",
+      "alt": "Oriental Pearl Tower — shanghai",
+      "caption": "Oriental Pearl Tower",
+      "photographer": "Dmitry A. Mottl",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOriental_Pearl_Tower_in_Shanghai.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Oriental Pearl Tower in Shanghai.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Oriental Pearl Tower in Shanghai.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "54ddbbf47fe33df03c3074ca981d95c94ce08b2aa2284f1dd57ff62af21c58be",
+      "width": 2000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/shanghai/w640.jpg",
+          "bytes": 72439
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/shanghai/w1280.jpg",
+          "bytes": 169756
+        },
+        {
+          "width": 2000,
+          "src": "/images/cities/shanghai/w2048.jpg",
+          "bytes": 530486
+        }
+      ]
+    },
+    {
+      "featureName": "The Bund",
+      "alt": "The Bund — shanghai",
+      "caption": "The Bund",
+      "photographer": "Dllu",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABlue_hour_view_of_the_Bund_from_the_Shanghai_World_Financial_Center_dllu.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Blue hour view of the Bund from the Shanghai World Financial Center dllu.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Blue hour view of the Bund from the Shanghai World Financial Center dllu.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e2a216728952b74bfef41aaba9050de652feda3dc666c813ee3153e3796f9042",
+      "width": 7451,
+      "height": 4926,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/shanghai/w640-2.jpg",
+          "bytes": 92388
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/shanghai/w1280-2.jpg",
+          "bytes": 207658
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/shanghai/w2048-2.jpg",
+          "bytes": 519220
+        }
+      ]
+    },
+    {
+      "featureName": "Yu Garden",
+      "alt": "Yu Garden — shanghai",
+      "caption": "Yu Garden",
+      "photographer": "Stefan Fussan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AShanghai_-_Yu_Garden_-_0035.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Shanghai - Yu Garden - 0035.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Shanghai - Yu Garden - 0035.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6c187881856a78885da3a1878c088898cf4e07ee909a35148c3a784f88c748d2",
+      "width": 4990,
+      "height": 2930,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/shanghai/w640-3.jpg",
+          "bytes": 93095
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/shanghai/w1280-3.jpg",
+          "bytes": 276018
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/shanghai/w2048-3.jpg",
+          "bytes": 747479
+        }
+      ]
+    }
   ]
 }

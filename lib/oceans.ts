@@ -70,7 +70,7 @@ function withPhotos(draft: OceanSubjectDraft): OceanSubject {
 
 /**
  * Curated catalog — world ocean basins, major seas, and polar seas
- * (fifteen guides). Expand here as new Oceans guides ship.
+ * (twenty guides). Expand here as new Oceans guides ship.
  */
 const oceanSubjectDrafts: OceanSubjectDraft[] = [
   {
@@ -849,6 +849,266 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
       {
         label: 'NASA Earth Observatory — Circumpolar Current',
         url: 'https://earthobservatory.nasa.gov/images/146007/the-antarctic-circumpolar-current',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'bering-sea',
+    code: 'BER',
+    name: 'Bering Sea',
+    category: 'Polar seas',
+    subtitle: 'North Pacific gateway · seasonal ice',
+    about:
+      'The Bering Sea is a broad subarctic sea of the North Pacific — bounded by Alaska and the Aleutian chain to the east and Russia’s Kamchatka and Chukotka coasts to the west, with the Bering Strait as its narrow Arctic gateway. Orientation is ice and exchange: winter sea ice that advances from the north, productive shelf waters that feed fisheries, and the strait as a choke point between Pacific and Arctic systems. The Pribilof Islands rise from the shelf as volcanic stepping stones in open water. This primer stays with seasonal ice, strait geography, and rim exchange rather than every coastal embayment.',
+    facts: {
+      kind: 'Polar marginal sea',
+      extent: 'Broad North Pacific sea between Alaska and Russia; seasonal ice cover',
+      region: 'Bering Strait gateway between the Pacific and Arctic',
+      circulation: 'Alaskan Stream and coastal currents; Bering Strait throughflow to the Arctic',
+      bathymetry: 'Wide continental shelf; Aleutian arc; Pribilof Islands on the shelf',
+      climateRole: 'Pacific–Arctic heat and freshwater exchange; major subarctic fisheries',
+      exploreLinks: ['United States', 'Russia'],
+    },
+    features: [
+      {
+        name: 'Bering Sea ice',
+        description:
+          'Seasonal pack ice that advances from the Arctic margin — a mobile winter lid over productive shelf waters.',
+      },
+      {
+        name: 'Pribilof Islands',
+        description:
+          'Volcanic islands on the central shelf — rookeries and open sea in the heart of the Bering system.',
+      },
+      {
+        name: 'Bering Strait',
+        description:
+          'The narrow gateway between the Pacific and Arctic oceans — a choke point for water, ice, and migration.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Bering Sea',
+        url: 'https://www.britannica.com/place/Bering-Sea',
+        kind: 'reference',
+      },
+      {
+        label: 'NOAA — Bering Sea',
+        url: 'https://www.noaa.gov/education/resource-collections/ocean-coasts',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Earth Observatory — Bering Sea ice',
+        url: 'https://earthobservatory.nasa.gov/images/77461/bering-sea-teeming-with-ice',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'greenland-sea',
+    code: 'GRL',
+    name: 'Greenland Sea',
+    category: 'Polar seas',
+    subtitle: 'North Atlantic polar sea · iceberg drift',
+    about:
+      'The Greenland Sea is a polar arm of the North Atlantic between Greenland’s east coast, Iceland’s north rim, and the Svalbard–Jan Mayen island arc — a corridor where Arctic pack ice and Greenland icebergs drift south toward warmer Atlantic water. Orientation is ice export and ridge geography: the East Greenland Current carrying ice and cold water; Scoresby Sund as a major glacier-fed fjord system; and Jan Mayen’s Beerenberg volcano rising from the polar sea. It is a mixing zone between Arctic and Atlantic systems. This primer stays with iceberg drift, current exchange, and island gateways rather than every fjord name.',
+    facts: {
+      kind: 'Polar Atlantic sea',
+      extent: 'North Atlantic polar sea between Greenland, Iceland, and the Norwegian Sea',
+      region: 'East Greenland coast · Jan Mayen · Svalbard approaches',
+      circulation: 'East Greenland Current; Norwegian Atlantic inflow; Denmark Strait exchange',
+      bathymetry: 'Deep Greenland Basin; Mohn Ridge; Scoresby Sund fjord system',
+      climateRole: 'Arctic freshwater and ice export to the Atlantic; deep-water formation partner',
+      exploreLinks: ['Denmark', 'Iceland', 'Norway'],
+    },
+    features: [
+      {
+        name: 'Greenland Sea icebergs',
+        description:
+          'Calved ice drifting in open polar water — Greenland’s glaciers meeting the North Atlantic in floating form.',
+      },
+      {
+        name: 'Scoresby Sund glaciers',
+        description:
+          'A vast East Greenland fjord system — tidewater glaciers pouring ice into the Greenland Sea.',
+      },
+      {
+        name: 'Jan Mayen Beerenberg',
+        description:
+          'An Arctic island volcano rising from the polar sea — ice, cloud, and basalt at the Greenland Sea’s gateway.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Greenland Sea',
+        url: 'https://www.britannica.com/place/Greenland-Sea',
+        kind: 'reference',
+      },
+      {
+        label: 'NSIDC — Greenland ice sheet',
+        url: 'https://nsidc.org/learn/parts-cryosphere/greenland-ice-sheet',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Earth Observatory — Greenland',
+        url: 'https://earthobservatory.nasa.gov/world-of-change/greenland',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'barents-sea',
+    code: 'BAR',
+    name: 'Barents Sea',
+    category: 'Polar seas',
+    subtitle: 'Arctic Atlantic shelf · ice edge',
+    about:
+      'The Barents Sea is a broad Arctic marginal sea north of Norway and European Russia — where warm Atlantic water meets polar cold and sets the northern edge of ice-free winter navigation. Orientation is Atlantic warmth and ice margin: the North Cape as a landmark on the Norwegian rim; Honningsvåg and fishing towns facing open polar water; and summer phytoplankton blooms visible from orbit. It is one of the Arctic’s most productive and strategically watched shelves. This primer stays with Atlantic inflow, ice-edge geography, and rim ports rather than every offshore field.',
+    facts: {
+      kind: 'Arctic marginal sea',
+      extent: 'Broad shelf sea north of Norway and northwest Russia',
+      region: 'Norwegian Sea gateway · Svalbard approaches · Kola Peninsula rim',
+      circulation: 'Norwegian Atlantic Current inflow; polar front and seasonal ice retreat',
+      bathymetry: 'Wide Barents Shelf; Bear Island; deep Norwegian Sea connection to the west',
+      climateRole: 'Atlantic heat delivery to the Arctic; ice-edge fisheries and bloom productivity',
+      exploreLinks: ['Norway', 'Russia'],
+    },
+    features: [
+      {
+        name: 'Honningsvåg and Barents Sea',
+        description:
+          'A North Cape gateway town on the Barents rim — harbor, cliff, and open polar water at Norway’s northern edge.',
+      },
+      {
+        name: 'Nordkapp approach',
+        description:
+          'The famous North Cape plateau seen from the sea — a landmark where the Barents meets the Norwegian Atlantic.',
+      },
+      {
+        name: 'Barents Sea bloom',
+        description:
+          'Summer phytoplankton color in polar water — Atlantic warmth and light writing biology onto the Arctic shelf.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Barents Sea',
+        url: 'https://www.britannica.com/place/Barents-Sea',
+        kind: 'reference',
+      },
+      {
+        label: 'NOAA — Arctic marginal seas',
+        url: 'https://www.noaa.gov/education/resource-collections/ocean-coasts',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Earth Observatory — Barents Sea bloom',
+        url: 'https://earthobservatory.nasa.gov/images/8127/bloom-in-the-barents-sea',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'weddell-sea',
+    code: 'WED',
+    name: 'Weddell Sea',
+    category: 'Polar seas',
+    subtitle: 'Antarctic embayment · pack-ice factory',
+    about:
+      'The Weddell Sea is a vast embayment of the Southern Ocean along Antarctica’s east coast — bounded by the Antarctic Peninsula and the Filchner–Ronne ice shelves, and famous as a factory of thick pack ice and cold bottom water. Orientation is ice and embayment: floes that consolidate under persistent cold; ice shelves that calve into the sea; and orbit-scale views that show the embayment as a white cap on the continent’s margin. Historic exploration routes crossed its floes toward the pole. This primer stays with pack-ice geography, shelf margins, and embayment scale rather than territorial claims alone.',
+    facts: {
+      kind: 'Antarctic embayment',
+      extent: 'Large ice-covered embayment of the Southern Ocean along east Antarctica',
+      region: 'Antarctic Peninsula east · Filchner–Ronne ice shelf margin',
+      circulation: 'Weddell Gyre; coastal currents under ice; bottom-water formation sites',
+      bathymetry: 'Weddell Basin; continental shelf under ice shelves; embayment bounded by peninsula and ice',
+      climateRole: 'Major Antarctic sea-ice production; cold bottom-water export',
+      exploreLinks: ['Argentina', 'Chile', 'South Africa', 'Australia', 'New Zealand'],
+    },
+    features: [
+      {
+        name: 'Weddell Sea pack ice',
+        description:
+          'Thick, consolidated floes that cover much of the embayment — the Southern Ocean’s great ice factory.',
+      },
+      {
+        name: 'Flying over the Weddell',
+        description:
+          'Aerial views of floe fields and open leads — scale and texture of an Antarctic sea seen from above.',
+      },
+      {
+        name: 'Weddell from orbit',
+        description:
+          'Space-station and satellite views of the embayment — ice, cloud, and coastline as one polar system.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Weddell Sea',
+        url: 'https://www.britannica.com/place/Weddell-Sea',
+        kind: 'reference',
+      },
+      {
+        label: 'NSIDC — Antarctic sea ice',
+        url: 'https://nsidc.org/learn/parts-cryosphere/antarctic-sea-ice',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Earth Observatory — Weddell Sea',
+        url: 'https://earthobservatory.nasa.gov/images/144397/thick-and-thin-ice-in-the-weddell-sea',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'ross-sea',
+    code: 'ROS',
+    name: 'Ross Sea',
+    category: 'Polar seas',
+    subtitle: 'Antarctic embayment · ice-shelf margin',
+    about:
+      'The Ross Sea is a deep embayment of the Southern Ocean south of New Zealand — bounded by the Ross Ice Shelf, one of Antarctica’s largest floating ice platforms, and ringed by volcanic peaks on Ross Island near McMurdo Sound. Orientation is shelf and sound: pancake ice forming in autumn freeze-up; the ice shelf as a horizontal glacier front; and McMurdo Sound as a gateway for research stations and historic expeditions. It is among the most biologically productive Antarctic seas. This primer stays with ice-shelf geography, sound access, and embayment ecology rather than every base name.',
+    facts: {
+      kind: 'Antarctic embayment',
+      extent: 'Deep Southern Ocean embayment south of New Zealand; Ross Ice Shelf margin',
+      region: 'Ross Island · McMurdo Sound · Transantarctic Mountains approaches',
+      circulation: 'Ross Gyre; coastal currents under ice shelf; polynya formation near the sound',
+      bathymetry: 'Deep Ross Basin; broad continental shelf; Ross Ice Shelf floating front',
+      climateRole: 'Major Antarctic polynya and productivity; ice-shelf–ocean coupling',
+      exploreLinks: ['New Zealand', 'Australia', 'United States'],
+    },
+    features: [
+      {
+        name: 'Pancake ice',
+        description:
+          'Rounded floes in early freeze-up — the Ross Sea’s first winter skin forming on open polar water.',
+      },
+      {
+        name: 'Ross Ice Shelf',
+        description:
+          'A vast floating ice platform at the embayment’s southern margin — Antarctica’s horizontal glacier front.',
+      },
+      {
+        name: 'McMurdo Sound',
+        description:
+          'An ice-choked sound beside Ross Island — gateway water between open sea and the continental ice sheet.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Ross Sea',
+        url: 'https://www.britannica.com/place/Ross-Sea',
+        kind: 'reference',
+      },
+      {
+        label: 'NSIDC — Antarctic ice shelves',
+        url: 'https://nsidc.org/learn/parts-cryosphere/antarctic-ice-shelves',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Earth Observatory — Ross Ice Shelf',
+        url: 'https://earthobservatory.nasa.gov/images/50184/ross-ice-shelf',
         kind: 'agency',
       },
     ],

@@ -670,5 +670,165 @@
       "height": 3100,
       "featureName": "Lena Delta"
     }
+  ],
+  "amur": [
+    {
+      "commonsTitle": "File:Amur River and Heihe.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Amur_River_and_Heihe.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAmur_River_and_Heihe.jpg",
+      "photographer": "Baycrest",
+      "license": "CC BY-SA 2.5",
+      "width": 1800,
+      "height": 1200,
+      "featureName": "Amur at Heihe"
+    },
+    {
+      "commonsTitle": "File:Amursk Amur River P7290102 2200.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Amursk_Amur_River_P7290102_2200.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAmursk_Amur_River_P7290102_2200.jpg",
+      "photographer": "Alexxx1979",
+      "license": "CC BY-SA 4.0",
+      "width": 3299,
+      "height": 2200,
+      "featureName": "Amur near Amursk"
+    },
+    {
+      "commonsTitle": "File:Riverfront on the Amur River, Khabarovsk, Russia (14599202559).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Riverfront_on_the_Amur_River%2C_Khabarovsk%2C_Russia_%2814599202559%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARiverfront_on_the_Amur_River%2C_Khabarovsk%2C_Russia_%2814599202559%29.jpg",
+      "photographer": "amanderson2",
+      "license": "CC BY 2.0",
+      "width": 4896,
+      "height": 3672,
+      "featureName": "Khabarovsk riverfront"
+    }
+  ],
+  "brahmaputra": [
+    {
+      "commonsTitle": "File:Brahmaputra river view from a boat ride.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/Brahmaputra_river_view_from_a_boat_ride.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABrahmaputra_river_view_from_a_boat_ride.jpg",
+      "photographer": "Akashdoley13",
+      "license": "CC BY-SA 4.0",
+      "width": 3472,
+      "height": 4640,
+      "featureName": "Brahmaputra boat view"
+    },
+    {
+      "commonsTitle": "File:Brahmaputra River,Guwahati,Assam,India.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Brahmaputra_River%2CGuwahati%2CAssam%2CIndia.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABrahmaputra_River%2CGuwahati%2CAssam%2CIndia.jpg",
+      "photographer": "Nilotpal Hazarika123",
+      "license": "CC BY-SA 4.0",
+      "width": 4080,
+      "height": 3060,
+      "featureName": "Brahmaputra at Guwahati"
+    },
+    {
+      "commonsTitle": "File:Yarlung Tsangpo - Tibet - 02.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Yarlung_Tsangpo_-_Tibet_-_02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYarlung_Tsangpo_-_Tibet_-_02.jpg",
+      "photographer": "Carlos Delgado",
+      "license": "CC BY-SA 3.0",
+      "width": 2816,
+      "height": 2112,
+      "featureName": "Yarlung Tsangpo"
+    }
+  ],
+  "irrawaddy": [
+    {
+      "commonsTitle": "File:20160801 Irrawaddy River Bagan 6788.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/20160801_Irrawaddy_River_Bagan_6788.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20160801_Irrawaddy_River_Bagan_6788.jpg",
+      "photographer": "Jakub Hałun",
+      "license": "CC BY-SA 4.0",
+      "width": 4821,
+      "height": 3208,
+      "featureName": "Irrawaddy at Bagan"
+    },
+    {
+      "commonsTitle": "File:Sagaing, Irrawaddy River, Ayeyarwady, Myanmar.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Sagaing%2C_Irrawaddy_River%2C_Ayeyarwady%2C_Myanmar.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASagaing%2C_Irrawaddy_River%2C_Ayeyarwady%2C_Myanmar.jpg",
+      "photographer": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "width": 4000,
+      "height": 3000,
+      "featureName": "Sagaing shore"
+    },
+    {
+      "commonsTitle": "File:Nyaung-U, Bagan, Myanmar, Buddhist temple on the shores of Irrawaddy River.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Nyaung-U%2C_Bagan%2C_Myanmar%2C_Buddhist_temple_on_the_shores_of_Irrawaddy_River.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANyaung-U%2C_Bagan%2C_Myanmar%2C_Buddhist_temple_on_the_shores_of_Irrawaddy_River.jpg",
+      "photographer": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "width": 4000,
+      "height": 3000,
+      "featureName": "Bagan riverside temple"
+    }
+  ],
+  "euphrates": [
+    {
+      "commonsTitle": "File:Kemaliye Taş Yolu and Karanlik Kanyon.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Kemaliye_Ta%C5%9F_Yolu_and_Karanlik_Kanyon.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKemaliye_Ta%C5%9F_Yolu_and_Karanlik_Kanyon.jpg",
+      "photographer": "Bodrumlu60",
+      "license": "CC BY-SA 4.0",
+      "width": 4608,
+      "height": 3456,
+      "featureName": "Euphrates canyon road"
+    },
+    {
+      "commonsTitle": "File:The Euphrates River in Turkey (52032008594).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/The_Euphrates_River_in_Turkey_%2852032008594%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Euphrates_River_in_Turkey_%2852032008594%29.jpg",
+      "photographer": "Carole Raddato from FRANKFURT, Germany",
+      "license": "CC BY-SA 2.0",
+      "width": 3936,
+      "height": 2624,
+      "featureName": "Euphrates in Turkey"
+    },
+    {
+      "commonsTitle": "File:Lake Assad Euphrates River S2A 1282 crop 10 (35838727946).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Lake_Assad_Euphrates_River_S2A_1282_crop_10_%2835838727946%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALake_Assad_Euphrates_River_S2A_1282_crop_10_%2835838727946%29.jpg",
+      "photographer": "Pierre Markuse",
+      "license": "CC BY 2.0",
+      "width": 7816,
+      "height": 4587,
+      "featureName": "Lake Assad"
+    }
+  ],
+  "tigris": [
+    {
+      "commonsTitle": "File:Tigris river from Al Shohada' bridge.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Tigris_river_from_Al_Shohada%27_bridge.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATigris_river_from_Al_Shohada%27_bridge.jpg",
+      "photographer": "Samir Al-Ibrahem",
+      "license": "CC BY-SA 4.0",
+      "width": 7728,
+      "height": 4354,
+      "featureName": "Tigris from Al Shohada Bridge"
+    },
+    {
+      "commonsTitle": "File:The Old Bridge and The Tigris River-Mosul 01.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/The_Old_Bridge_and_The_Tigris_River-Mosul_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Old_Bridge_and_The_Tigris_River-Mosul_01.jpg",
+      "photographer": "Abdulsalam Al Dabbagh",
+      "license": "CC BY-SA 4.0",
+      "width": 4000,
+      "height": 2252,
+      "featureName": "Tigris at Mosul"
+    },
+    {
+      "commonsTitle": "File:160731-D-PB383-021 Tigris River flows through Baghdad, July 2016.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/160731-D-PB383-021_Tigris_River_flows_through_Baghdad%2C_July_2016.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A160731-D-PB383-021_Tigris_River_flows_through_Baghdad%2C_July_2016.JPG",
+      "photographer": "DoD photo by Navy Petty Officer 2nd Class Dominique A. Pineiro",
+      "license": "Public domain",
+      "width": 3000,
+      "height": 2000,
+      "featureName": "Tigris through Baghdad"
+    }
   ]
 }

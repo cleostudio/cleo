@@ -70,7 +70,7 @@ function withPhotos(draft: RiverSubjectDraft): RiverSubject {
 
 /**
  * Curated catalog — major rivers across Africa, Asia, and Europe, Americas & Oceania
- * (twenty-one guides). Expand here as new Rivers guides ship.
+ * (twenty-six guides). Expand here as new Rivers guides ship.
  */
 const riverSubjectDrafts: RiverSubjectDraft[] = [
   {
@@ -813,6 +813,266 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
         label: 'NASA Earth Observatory — Lena River Delta',
         url: 'https://earthobservatory.nasa.gov/images/14768/lena-river-delta',
         kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'amur',
+    code: 'AMU',
+    name: 'Amur',
+    category: 'Asia',
+    subtitle: 'Russia–China border · Pacific outlet',
+    about:
+      'The Amur (Heilong Jiang) is East Asia’s great border river — rising in Mongolia and northeastern China and forming much of the Russia–China frontier before reaching the Pacific near Nikolaevsk. Orientation is frontier and floodplain: Heihe facing Blagoveshchensk across the water; timber and fishing towns on the Russian Far East reach; and a vast forested basin that freezes hard in winter. It is one of the world’s longest largely undammed major rivers. This primer stays with course, border geography, and Siberian–Manchurian hydrology rather than every tributary treaty.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Mongolian/Chinese headwaters → Russia–China border corridor → Russian Far East → Sea of Okhotsk approaches',
+      region: 'Northeast Asia · Amur Basin',
+      basin: 'Shared Russian–Chinese drainage; Ussuri and Songhua as major tributary systems',
+      hydrology: 'Snowmelt-dominated spring floods; long winter ice cover; limited main-stem damming',
+      climateRole: 'Taiga freshwater corridor; Pacific salmon and wetland habitats at the outlet',
+      exploreLinks: ['Russia', 'China'],
+    },
+    features: [
+      {
+        name: 'Amur at Heihe',
+        description:
+          'The China–Russia border reach — twin riverfront cities facing each other across the main stem.',
+      },
+      {
+        name: 'Amur near Amursk',
+        description:
+          'A working Russian Far East town reach — timber, fishing, and floodplain life on the middle course.',
+      },
+      {
+        name: 'Khabarovsk riverfront',
+        description:
+          'The regional capital’s embankment — where the Amur becomes a civic waterfront in the Russian east.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Amur River',
+        url: 'https://www.britannica.com/place/Amur-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Autumn Along the Amur',
+        url: 'https://earthobservatory.nasa.gov/images/145707/autumn-along-the-amur',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Central Sikhote-Alin',
+        url: 'https://whc.unesco.org/en/list/766',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'brahmaputra',
+    code: 'BRH',
+    name: 'Brahmaputra',
+    category: 'Asia',
+    subtitle: 'Himalayan gorge · Bengal delta',
+    about:
+      'The Brahmaputra is South Asia’s great eastern Himalayan river — rising as the Yarlung Tsangpo on the Tibetan Plateau, cutting through Assam’s gorges, and joining the Ganges in a vast Bangladesh delta. Orientation is monsoon and gorge: the Tsangpo’s high plateau source; Guwahati’s working riverfront on the Assam plain; and the braided lower reaches that pulse with monsoon floods into Bengal. Dams and embankments are remaking the sediment budget. This primer stays with course, gorge, and delta geography rather than every border dispute.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Tibetan Plateau (Yarlung Tsangpo) → Assam gorge → Indo-Bangladesh plain → Bay of Bengal delta',
+      region: 'South Asia · Brahmaputra–Ganges system',
+      basin: 'Major Himalayan-fed drainage shared across China, India, and Bangladesh',
+      hydrology: 'Strong monsoon flood pulse; snow and glacier melt on the upper course',
+      climateRole: 'Eastern plain freshwater and sediment engine; delta wetland and cyclone-exposed coast',
+      exploreLinks: ['India', 'Bangladesh', 'China'],
+    },
+    features: [
+      {
+        name: 'Brahmaputra boat view',
+        description:
+          'Working river traffic on the broad Assam channel — boats that stage the Brahmaputra as daily transport.',
+      },
+      {
+        name: 'Brahmaputra at Guwahati',
+        description:
+          'The Assam capital’s riverfront — bridges and ghats where the gorge country opens onto the plain.',
+      },
+      {
+        name: 'Yarlung Tsangpo',
+        description:
+          'The high Tibetan source reach — where the Brahmaputra still reads as a plateau river under mountain light.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Brahmaputra River',
+        url: 'https://www.britannica.com/place/Brahmaputra-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Ganges River Delta',
+        url: 'https://earthobservatory.nasa.gov/images/147255/ganges-river-delta',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — The Sundarbans',
+        url: 'https://whc.unesco.org/en/list/798',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'irrawaddy',
+    code: 'IRR',
+    name: 'Irrawaddy',
+    category: 'Asia',
+    subtitle: 'Myanmar main stem · Andaman delta',
+    about:
+      'The Irrawaddy (Ayeyarwady) is Myanmar’s great north–south artery — rising in the Himalaya approaches and running through the dry central basin to an Andaman Sea delta. Orientation is pagoda and sandbar: Bagan’s temple plains beside the water; Sagaing’s monastery hills on the west bank; and a seasonal flood pulse that still remakes sandbars and rice plains. It is the structural spine of Burmese settlement and transport. This primer stays with course, central basin, and delta rather than every irrigation scheme.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Himalayan approaches → central Myanmar basin → Andaman Sea delta',
+      region: 'Southeast Asia · Irrawaddy Basin',
+      basin: 'Myanmar’s principal drainage; Chindwin as a major western tributary',
+      hydrology: 'Monsoon flood pulse; seasonal sandbars and shifting channels on the lower course',
+      climateRole: 'Central plain freshwater and sediment corridor; delta rice and wetland engine',
+      exploreLinks: ['Myanmar'],
+    },
+    features: [
+      {
+        name: 'Irrawaddy at Bagan',
+        description:
+          'The classic temple-plain reach — pagodas and river light that stage Myanmar’s historic heartland.',
+      },
+      {
+        name: 'Sagaing shore',
+        description:
+          'Monastery hills above the west bank — a sacred waterfront on the middle Irrawaddy.',
+      },
+      {
+        name: 'Bagan riverside temple',
+        description:
+          'A stupa at the water’s edge — where the Irrawaddy and temple geography meet in one frame.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Irrawaddy River',
+        url: 'https://www.britannica.com/place/Irrawaddy-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Monsoon Transforms the Irrawaddy River',
+        url: 'https://earthobservatory.nasa.gov/images/51633/monsoon-transforms-the-irrawaddy-river',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Pyu Ancient Cities',
+        url: 'https://whc.unesco.org/en/list/1444',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'euphrates',
+    code: 'EUP',
+    name: 'Euphrates',
+    category: 'Asia',
+    subtitle: 'Mesopotamian west stem · Shatt al-Arab',
+    about:
+      'The Euphrates is Mesopotamia’s western great river — rising in eastern Anatolia and running through Syria and Iraq to join the Tigris in a shared Shatt al-Arab delta. Orientation is canyon, reservoir, and cradle: Kemaliye’s dramatic gorge reaches in Türkiye; Lake Assad’s regulated Syrian stem; and the irrigated plain where ancient and modern civilizations drew water from the same channel. Dams and diversion have remade the historic flood regime. This primer stays with course, gorge, and plain geography rather than every canal headwork.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Anatolian highlands → Syrian plateau → Iraqi plain → Shatt al-Arab → Persian Gulf',
+      region: 'Western Asia · Mesopotamia',
+      basin: 'Shared Türkiye–Syria–Iraq drainage; major tributaries feed the Syrian and Iraqi plain',
+      hydrology: 'Snowmelt and winter rainfall in the headwaters; heavily regulated by large dams and reservoirs',
+      climateRole: 'Desert-edge irrigation spine; cradle-of-civilization freshwater corridor',
+      exploreLinks: ['Türkiye', 'Syria', 'Iraq'],
+    },
+    features: [
+      {
+        name: 'Euphrates canyon road',
+        description:
+          'Kemaliye’s dramatic gorge reach — where the Euphrates cuts a canyon through eastern Anatolia.',
+      },
+      {
+        name: 'Euphrates in Turkey',
+        description:
+          'The upper–middle stem in Türkiye — working water between gorge country and the regulated plain.',
+      },
+      {
+        name: 'Lake Assad',
+        description:
+          'Syria’s great Euphrates reservoir — a modern hydraulic hinge on the middle course.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Euphrates River',
+        url: 'https://www.britannica.com/place/Euphrates-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Mesopotamian Marshes',
+        url: 'https://earthobservatory.nasa.gov/images/2240/mesopotamian-marshes',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Ahwar of Southern Iraq',
+        url: 'https://whc.unesco.org/en/list/1481',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'tigris',
+    code: 'TIG',
+    name: 'Tigris',
+    category: 'Asia',
+    subtitle: 'Mesopotamian east stem · Baghdad corridor',
+    about:
+      'The Tigris is Mesopotamia’s eastern great river — rising in eastern Anatolia and running southeast through Iraq to meet the Euphrates at the head of the Persian Gulf. Orientation is capital and bridge: Mosul’s historic crossings on the upper reach; Baghdad stretching along both banks; and the irrigated Mesopotamian plain that made the river a cradle of urban civilization. Dams and upstream use have reduced the historic flood pulse. This primer stays with course, gorge source, and plain corridor rather than every irrigation dispute.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Anatolian highlands → Syrian–Iraqi border approaches → Iraqi plain → Shatt al-Arab',
+      region: 'Western Asia · Mesopotamia',
+      basin: 'Shared Türkiye–Syria–Iraq drainage; shorter and steeper than the parallel Euphrates',
+      hydrology: 'Snowmelt headwaters; seasonal floods moderated by dams and irrigation offtakes',
+      climateRole: 'Mesopotamian irrigation and urban water spine; delta wetland at the Gulf outlet',
+      exploreLinks: ['Iraq', 'Türkiye', 'Syria'],
+    },
+    features: [
+      {
+        name: 'Tigris from Al Shohada Bridge',
+        description:
+          'A capital crossing on the Baghdad reach — bridges that stage the Tigris as civic geography.',
+      },
+      {
+        name: 'Tigris at Mosul',
+        description:
+          'The upper Iraqi waterfront — historic bridges and embankments on the northern plain.',
+      },
+      {
+        name: 'Tigris through Baghdad',
+        description:
+          'The river as an urban spine — embankments and districts stretched along both banks of the capital.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Tigris-Euphrates river system',
+        url: 'https://www.britannica.com/place/Tigris-Euphrates-river-system',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Mesopotamian Marshes',
+        url: 'https://earthobservatory.nasa.gov/images/2240/mesopotamian-marshes',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Ahwar of Southern Iraq',
+        url: 'https://whc.unesco.org/en/list/1481',
+        kind: 'catalog',
       },
     ],
   },

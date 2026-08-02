@@ -19467,6 +19467,366 @@
       }
     ]
   },
+  "cities/seoul": {
+    "collection": "cities",
+    "title": "Gyeongbokgung",
+    "subtitle": "Seoul",
+    "alt": "Gyeongbokgung — seoul",
+    "photographer": "Frank Schulenburg",
+    "license": "CC BY-SA 4.0",
+    "width": 6425,
+    "height": 4283,
+    "renditions": [
+      {
+        "src": "/images/cities/seoul/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/seoul/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/seoul/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/seoul-2": {
+    "collection": "cities",
+    "title": "N Seoul Tower",
+    "subtitle": "Seoul",
+    "alt": "N Seoul Tower — seoul",
+    "photographer": "kallerna",
+    "license": "CC BY-SA 4.0",
+    "width": 4600,
+    "height": 2500,
+    "renditions": [
+      {
+        "src": "/images/cities/seoul/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/seoul/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/seoul/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/seoul-3": {
+    "collection": "cities",
+    "title": "Bukchon Hanok Village",
+    "subtitle": "Seoul",
+    "alt": "Bukchon Hanok Village — seoul",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 6404,
+    "height": 4269,
+    "renditions": [
+      {
+        "src": "/images/cities/seoul/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/seoul/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/seoul/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/bangkok": {
+    "collection": "cities",
+    "title": "Wat Arun",
+    "subtitle": "Bangkok",
+    "alt": "Wat Arun — bangkok",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 4837,
+    "height": 3231,
+    "renditions": [
+      {
+        "src": "/images/cities/bangkok/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/bangkok/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/bangkok/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/bangkok-2": {
+    "collection": "cities",
+    "title": "Grand Palace",
+    "subtitle": "Bangkok",
+    "alt": "Grand Palace — bangkok",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 4156,
+    "height": 3014,
+    "renditions": [
+      {
+        "src": "/images/cities/bangkok/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/bangkok/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/bangkok/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/bangkok-3": {
+    "collection": "cities",
+    "title": "Wat Pho",
+    "subtitle": "Bangkok",
+    "alt": "Wat Pho — bangkok",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 2790,
+    "height": 4222,
+    "renditions": [
+      {
+        "src": "/images/cities/bangkok/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/bangkok/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/bangkok/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/singapore": {
+    "collection": "cities",
+    "title": "Marina Bay Sands",
+    "subtitle": "Singapore",
+    "alt": "Marina Bay Sands — singapore",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 5629,
+    "height": 3234,
+    "renditions": [
+      {
+        "src": "/images/cities/singapore/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/singapore/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/singapore/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/singapore-2": {
+    "collection": "cities",
+    "title": "Merlion",
+    "subtitle": "Singapore",
+    "alt": "Merlion — singapore",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 5133,
+    "height": 3422,
+    "renditions": [
+      {
+        "src": "/images/cities/singapore/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/singapore/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/singapore/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/singapore-3": {
+    "collection": "cities",
+    "title": "Gardens by the Bay",
+    "subtitle": "Singapore",
+    "alt": "Gardens by the Bay — singapore",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 6720,
+    "height": 4480,
+    "renditions": [
+      {
+        "src": "/images/cities/singapore/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/singapore/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/singapore/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/mumbai": {
+    "collection": "cities",
+    "title": "Gateway of India",
+    "subtitle": "Mumbai",
+    "alt": "Gateway of India — mumbai",
+    "photographer": "A.Savin",
+    "license": "FAL",
+    "width": 3585,
+    "height": 3585,
+    "renditions": [
+      {
+        "src": "/images/cities/mumbai/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/mumbai/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/mumbai/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/mumbai-2": {
+    "collection": "cities",
+    "title": "Chhatrapati Shivaji Terminus",
+    "subtitle": "Mumbai",
+    "alt": "Chhatrapati Shivaji Terminus — mumbai",
+    "photographer": "Joe Ravi",
+    "license": "CC BY-SA 3.0",
+    "width": 4045,
+    "height": 2360,
+    "renditions": [
+      {
+        "src": "/images/cities/mumbai/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/mumbai/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/mumbai/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/mumbai-3": {
+    "collection": "cities",
+    "title": "Marine Drive",
+    "subtitle": "Mumbai",
+    "alt": "Marine Drive — mumbai",
+    "photographer": "A.Savin",
+    "license": "FAL",
+    "width": 5386,
+    "height": 3030,
+    "renditions": [
+      {
+        "src": "/images/cities/mumbai/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/mumbai/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/mumbai/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/shanghai": {
+    "collection": "cities",
+    "title": "Oriental Pearl Tower",
+    "subtitle": "Shanghai",
+    "alt": "Oriental Pearl Tower — shanghai",
+    "photographer": "Dmitry A. Mottl",
+    "license": "CC BY-SA 4.0",
+    "width": 2000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/cities/shanghai/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/shanghai/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/shanghai/w2048.jpg",
+        "width": 2000
+      }
+    ]
+  },
+  "cities/shanghai-2": {
+    "collection": "cities",
+    "title": "The Bund",
+    "subtitle": "Shanghai",
+    "alt": "The Bund — shanghai",
+    "photographer": "Dllu",
+    "license": "CC BY-SA 4.0",
+    "width": 7451,
+    "height": 4926,
+    "renditions": [
+      {
+        "src": "/images/cities/shanghai/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/shanghai/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/shanghai/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/shanghai-3": {
+    "collection": "cities",
+    "title": "Yu Garden",
+    "subtitle": "Shanghai",
+    "alt": "Yu Garden — shanghai",
+    "photographer": "Stefan Fussan",
+    "license": "CC BY-SA 3.0",
+    "width": 4990,
+    "height": 2930,
+    "renditions": [
+      {
+        "src": "/images/cities/shanghai/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/shanghai/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/shanghai/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "cities/cairo": {
     "collection": "cities",
     "title": "Mosque of Muhammad Ali",
@@ -21195,6 +21555,366 @@
       }
     ]
   },
+  "oceans/bering-sea": {
+    "collection": "oceans",
+    "title": "Bering Sea ice",
+    "subtitle": "Bering Sea",
+    "alt": "Bering Sea ice — bering sea",
+    "photographer": "European Union , Copernicus Sentinel-3 imagery",
+    "license": "Attribution",
+    "width": 3506,
+    "height": 2533,
+    "renditions": [
+      {
+        "src": "/images/oceans/bering-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/bering-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/bering-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/bering-sea-2": {
+    "collection": "oceans",
+    "title": "Pribilof Islands",
+    "subtitle": "Bering Sea",
+    "alt": "Pribilof Islands — bering sea",
+    "photographer": "NASA Earth Observatory images by Jesse Allen and Norman Kuring, using Landsat 8 data from the U.S. Geological Survey.",
+    "license": "Public domain",
+    "width": 4000,
+    "height": 4800,
+    "renditions": [
+      {
+        "src": "/images/oceans/bering-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/bering-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/bering-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/bering-sea-3": {
+    "collection": "oceans",
+    "title": "Bering Strait",
+    "subtitle": "Bering Sea",
+    "alt": "Bering Strait — bering sea",
+    "photographer": "Suevic",
+    "license": "CC BY-SA 4.0",
+    "width": 4912,
+    "height": 3264,
+    "renditions": [
+      {
+        "src": "/images/oceans/bering-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/bering-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/bering-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/greenland-sea": {
+    "collection": "oceans",
+    "title": "Greenland Sea icebergs",
+    "subtitle": "Greenland Sea",
+    "alt": "Greenland Sea icebergs — greenland sea",
+    "photographer": "Buiobuione",
+    "license": "CC BY-SA 4.0",
+    "width": 5882,
+    "height": 3921,
+    "renditions": [
+      {
+        "src": "/images/oceans/greenland-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/greenland-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/greenland-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/greenland-sea-2": {
+    "collection": "oceans",
+    "title": "Scoresby Sund glaciers",
+    "subtitle": "Greenland Sea",
+    "alt": "Scoresby Sund glaciers — greenland sea",
+    "photographer": "European Space Agency, Monja Šebela, Sentinel-2",
+    "license": "CC BY 2.0",
+    "width": 9360,
+    "height": 5856,
+    "renditions": [
+      {
+        "src": "/images/oceans/greenland-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/greenland-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/greenland-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/greenland-sea-3": {
+    "collection": "oceans",
+    "title": "Jan Mayen Beerenberg",
+    "subtitle": "Greenland Sea",
+    "alt": "Jan Mayen Beerenberg — greenland sea",
+    "photographer": "Dreizung",
+    "license": "CC BY-SA 3.0",
+    "width": 3888,
+    "height": 2592,
+    "renditions": [
+      {
+        "src": "/images/oceans/greenland-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/greenland-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/greenland-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/barents-sea": {
+    "collection": "oceans",
+    "title": "Honningsvåg and Barents Sea",
+    "subtitle": "Barents Sea",
+    "alt": "Honningsvåg and Barents Sea — barents sea",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 7426,
+    "height": 3857,
+    "renditions": [
+      {
+        "src": "/images/oceans/barents-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/barents-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/barents-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/barents-sea-2": {
+    "collection": "oceans",
+    "title": "Nordkapp approach",
+    "subtitle": "Barents Sea",
+    "alt": "Nordkapp approach — barents sea",
+    "photographer": "Virtual-Pano",
+    "license": "CC BY-SA 4.0",
+    "width": 6843,
+    "height": 4564,
+    "renditions": [
+      {
+        "src": "/images/oceans/barents-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/barents-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/barents-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/barents-sea-3": {
+    "collection": "oceans",
+    "title": "Barents Sea bloom",
+    "subtitle": "Barents Sea",
+    "alt": "Barents Sea bloom — barents sea",
+    "photographer": "Jeff Schmaltz",
+    "license": "Public domain",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/oceans/barents-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/barents-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/barents-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/weddell-sea": {
+    "collection": "oceans",
+    "title": "Weddell Sea pack ice",
+    "subtitle": "Weddell Sea",
+    "alt": "Weddell Sea pack ice — weddell sea",
+    "photographer": "Coordenação-Geral de Observação da Terra/INPE",
+    "license": "CC BY-SA 2.0",
+    "width": 10457,
+    "height": 5882,
+    "renditions": [
+      {
+        "src": "/images/oceans/weddell-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/weddell-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/weddell-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/weddell-sea-2": {
+    "collection": "oceans",
+    "title": "Flying over the Weddell",
+    "subtitle": "Weddell Sea",
+    "alt": "Flying over the Weddell — weddell sea",
+    "photographer": "Michael Studinger via NASA Goddard Space Flight Center from USA",
+    "license": "CC BY 2.0",
+    "width": 2000,
+    "height": 1339,
+    "renditions": [
+      {
+        "src": "/images/oceans/weddell-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/weddell-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/weddell-sea/w2048-2.jpg",
+        "width": 2000
+      }
+    ]
+  },
+  "oceans/weddell-sea-3": {
+    "collection": "oceans",
+    "title": "Weddell from orbit",
+    "subtitle": "Weddell Sea",
+    "alt": "Weddell from orbit — weddell sea",
+    "photographer": "Earth Science and Remote Sensing Unit, Lyndon B. Johnson Space Center",
+    "license": "Public domain",
+    "width": 3032,
+    "height": 2008,
+    "renditions": [
+      {
+        "src": "/images/oceans/weddell-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/weddell-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/weddell-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/ross-sea": {
+    "collection": "oceans",
+    "title": "Pancake ice",
+    "subtitle": "Ross Sea",
+    "alt": "Pancake ice — ross sea",
+    "photographer": "owamux",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/oceans/ross-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/ross-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/ross-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/ross-sea-2": {
+    "collection": "oceans",
+    "title": "Ross Ice Shelf",
+    "subtitle": "Ross Sea",
+    "alt": "Ross Ice Shelf — ross sea",
+    "photographer": "Michael Van Woert, NOAA NESDIS, ORA",
+    "license": "Public domain",
+    "width": 1784,
+    "height": 1156,
+    "renditions": [
+      {
+        "src": "/images/oceans/ross-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/ross-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/ross-sea/w2048-2.jpg",
+        "width": 1784
+      }
+    ]
+  },
+  "oceans/ross-sea-3": {
+    "collection": "oceans",
+    "title": "McMurdo Sound",
+    "subtitle": "Ross Sea",
+    "alt": "McMurdo Sound — ross sea",
+    "photographer": "owamux",
+    "license": "CC BY 2.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/oceans/ross-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/ross-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/ross-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "rivers/nile": {
     "collection": "rivers",
     "title": "Nile at Luxor",
@@ -22199,6 +22919,366 @@
       },
       {
         "src": "/images/rivers/lena/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/amur": {
+    "collection": "rivers",
+    "title": "Amur at Heihe",
+    "subtitle": "Amur",
+    "alt": "Amur at Heihe — amur",
+    "photographer": "Baycrest",
+    "license": "CC BY-SA 2.5",
+    "width": 1800,
+    "height": 1200,
+    "renditions": [
+      {
+        "src": "/images/rivers/amur/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/amur/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/amur/w2048.jpg",
+        "width": 1800
+      }
+    ]
+  },
+  "rivers/amur-2": {
+    "collection": "rivers",
+    "title": "Amur near Amursk",
+    "subtitle": "Amur",
+    "alt": "Amur near Amursk — amur",
+    "photographer": "Alexxx1979",
+    "license": "CC BY-SA 4.0",
+    "width": 3299,
+    "height": 2200,
+    "renditions": [
+      {
+        "src": "/images/rivers/amur/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/amur/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/amur/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/amur-3": {
+    "collection": "rivers",
+    "title": "Khabarovsk riverfront",
+    "subtitle": "Amur",
+    "alt": "Khabarovsk riverfront — amur",
+    "photographer": "amanderson2",
+    "license": "CC BY 2.0",
+    "width": 4896,
+    "height": 3672,
+    "renditions": [
+      {
+        "src": "/images/rivers/amur/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/amur/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/amur/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/brahmaputra": {
+    "collection": "rivers",
+    "title": "Brahmaputra boat view",
+    "subtitle": "Brahmaputra",
+    "alt": "Brahmaputra boat view — brahmaputra",
+    "photographer": "Akashdoley13",
+    "license": "CC BY-SA 4.0",
+    "width": 4640,
+    "height": 3472,
+    "renditions": [
+      {
+        "src": "/images/rivers/brahmaputra/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/brahmaputra/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/brahmaputra/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/brahmaputra-2": {
+    "collection": "rivers",
+    "title": "Brahmaputra at Guwahati",
+    "subtitle": "Brahmaputra",
+    "alt": "Brahmaputra at Guwahati — brahmaputra",
+    "photographer": "Nilotpal Hazarika123",
+    "license": "CC BY-SA 4.0",
+    "width": 4080,
+    "height": 3060,
+    "renditions": [
+      {
+        "src": "/images/rivers/brahmaputra/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/brahmaputra/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/brahmaputra/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/brahmaputra-3": {
+    "collection": "rivers",
+    "title": "Yarlung Tsangpo",
+    "subtitle": "Brahmaputra",
+    "alt": "Yarlung Tsangpo — brahmaputra",
+    "photographer": "Carlos Delgado",
+    "license": "CC BY-SA 3.0",
+    "width": 2816,
+    "height": 2112,
+    "renditions": [
+      {
+        "src": "/images/rivers/brahmaputra/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/brahmaputra/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/brahmaputra/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/irrawaddy": {
+    "collection": "rivers",
+    "title": "Irrawaddy at Bagan",
+    "subtitle": "Irrawaddy",
+    "alt": "Irrawaddy at Bagan — irrawaddy",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "width": 4821,
+    "height": 3208,
+    "renditions": [
+      {
+        "src": "/images/rivers/irrawaddy/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/irrawaddy/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/irrawaddy/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/irrawaddy-2": {
+    "collection": "rivers",
+    "title": "Sagaing shore",
+    "subtitle": "Irrawaddy",
+    "alt": "Sagaing shore — irrawaddy",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/rivers/irrawaddy/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/irrawaddy/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/irrawaddy/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/irrawaddy-3": {
+    "collection": "rivers",
+    "title": "Bagan riverside temple",
+    "subtitle": "Irrawaddy",
+    "alt": "Bagan riverside temple — irrawaddy",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/rivers/irrawaddy/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/irrawaddy/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/irrawaddy/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/euphrates": {
+    "collection": "rivers",
+    "title": "Euphrates canyon road",
+    "subtitle": "Euphrates",
+    "alt": "Euphrates canyon road — euphrates",
+    "photographer": "Bodrumlu60",
+    "license": "CC BY-SA 4.0",
+    "width": 4608,
+    "height": 3456,
+    "renditions": [
+      {
+        "src": "/images/rivers/euphrates/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/euphrates/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/euphrates/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/euphrates-2": {
+    "collection": "rivers",
+    "title": "Euphrates in Turkey",
+    "subtitle": "Euphrates",
+    "alt": "Euphrates in Turkey — euphrates",
+    "photographer": "Carole Raddato from FRANKFURT, Germany",
+    "license": "CC BY-SA 2.0",
+    "width": 3936,
+    "height": 2624,
+    "renditions": [
+      {
+        "src": "/images/rivers/euphrates/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/euphrates/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/euphrates/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/euphrates-3": {
+    "collection": "rivers",
+    "title": "Lake Assad",
+    "subtitle": "Euphrates",
+    "alt": "Lake Assad — euphrates",
+    "photographer": "Pierre Markuse",
+    "license": "CC BY 2.0",
+    "width": 7816,
+    "height": 4587,
+    "renditions": [
+      {
+        "src": "/images/rivers/euphrates/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/euphrates/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/euphrates/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/tigris": {
+    "collection": "rivers",
+    "title": "Tigris from Al Shohada Bridge",
+    "subtitle": "Tigris",
+    "alt": "Tigris from Al Shohada Bridge — tigris",
+    "photographer": "Samir Al-Ibrahem",
+    "license": "CC BY-SA 4.0",
+    "width": 7728,
+    "height": 4354,
+    "renditions": [
+      {
+        "src": "/images/rivers/tigris/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/tigris/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/tigris/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/tigris-2": {
+    "collection": "rivers",
+    "title": "Tigris at Mosul",
+    "subtitle": "Tigris",
+    "alt": "Tigris at Mosul — tigris",
+    "photographer": "Abdulsalam Al Dabbagh",
+    "license": "CC BY-SA 4.0",
+    "width": 4000,
+    "height": 2252,
+    "renditions": [
+      {
+        "src": "/images/rivers/tigris/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/tigris/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/tigris/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/tigris-3": {
+    "collection": "rivers",
+    "title": "Tigris through Baghdad",
+    "subtitle": "Tigris",
+    "alt": "Tigris through Baghdad — tigris",
+    "photographer": "DoD photo by Navy Petty Officer 2nd Class Dominique A. Pineiro",
+    "license": "Public domain",
+    "width": 3000,
+    "height": 2000,
+    "renditions": [
+      {
+        "src": "/images/rivers/tigris/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/tigris/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/tigris/w2048-3.jpg",
         "width": 2048
       }
     ]

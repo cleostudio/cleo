@@ -70,7 +70,7 @@ function withPhotos(draft: CitySubjectDraft): CitySubject {
 
 /**
  * Curated catalog — capitals and route cities across Mediterranean & Europe,
- * Asia, and Africa & Americas (twenty-one guides). Expand here as new Cities
+ * Asia, and Africa & Americas (twenty-six guides). Expand here as new Cities
  * guides ship.
  */
 const citySubjectDrafts: CitySubjectDraft[] = [
@@ -694,6 +694,266 @@ const citySubjectDrafts: CitySubjectDraft[] = [
       {
         label: 'Meiji Jingu — Shrine overview',
         url: 'https://www.meijijingu.or.jp/en/',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'seoul',
+    code: 'SEL',
+    name: 'Seoul',
+    category: 'Asia',
+    subtitle: 'Han River capital · Joseon seat',
+    about:
+      'Seoul is a Han River capital that grew from a walled Joseon seat into one of East Asia’s densest metropolitan regions. Orientation is river and ridge: palaces and shrines on lower slopes; hanok quarters climbing narrow lanes; modern towers marking a rebuilt postwar skyline without erasing the old capital’s north–south logic. The city stacks dynasty, occupation, and rapid industrial growth into neighborhoods that still treat palace walls, markets, and mountain parks as anchors. Buddhist temples, Confucian rites, and contemporary design districts coexist along corridors that once carried royal processions and now carry subway lines. This primer stays with river capital form, palace-and-village texture, and skyline markers rather than every district’s shopping specialty.',
+    facts: {
+      kind: 'Han River capital',
+      country: 'South Korea',
+      region: 'Han River basin · northwestern Korean Peninsula',
+      founded: 'Joseon dynasty capital from 1394; modern Seoul grew across the river and surrounding basins',
+      capitalRole: 'Capital of South Korea',
+      corridors: 'Han River; historic Gyeongbu corridor; national rail and expressway networks',
+      exploreLinks: ['Korea, South'],
+    },
+    features: [
+      {
+        name: 'Gyeongbokgung',
+        description:
+          'The main Joseon palace compound — throne halls, gates, and courtyards that still stage the capital’s royal geography.',
+      },
+      {
+        name: 'N Seoul Tower',
+        description:
+          'The broadcast tower on Namsan — a modern vertical marker above the historic downtown and river plain.',
+      },
+      {
+        name: 'Bukchon Hanok Village',
+        description:
+          'A preserved hanok quarter on palace-adjacent slopes — tiled lanes that keep Joseon residential scale in the modern city.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Seoul',
+        url: 'https://www.britannica.com/place/Seoul',
+        kind: 'reference',
+      },
+      {
+        label: 'Cultural Heritage Administration — Gyeongbokgung Palace',
+        url: 'https://www.heritage.go.kr/eng/heri/heritage/royalPalace.do',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Changdeokgung Palace Complex',
+        url: 'https://whc.unesco.org/en/list/816',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'bangkok',
+    code: 'BKK',
+    name: 'Bangkok',
+    category: 'Asia',
+    subtitle: 'River capital · Chao Phraya plain',
+    about:
+      'Bangkok is a Chao Phraya river capital where canal networks, royal compounds, and market streets turned a delta plain into Thailand’s political and commercial center. Orientation is water and spire: wats with glittering prangs along the river; palace walls enclosing sacred and administrative courts; Chinatown and old districts threading commerce beside khlongs even as expressways stack overhead. The city absorbed nineteenth-century treaty-port architecture, twentieth-century modernization, and a contemporary megacity scale without losing the river as its ceremonial spine. Floating markets, ferry piers, and temple fairs still mark seasonal and daily rhythms on the water. This primer stays with river capital, royal-temple pairs, and plain geography rather than every shopping mall corridor.',
+    facts: {
+      kind: 'River capital',
+      country: 'Thailand',
+      region: 'Chao Phraya River delta · central Thailand',
+      founded: 'Capital moved to Bangkok after Ayutthaya’s fall; Rattanakosin foundation from 1782',
+      capitalRole: 'Capital of Thailand',
+      corridors: 'Chao Phraya River; Gulf of Thailand approaches; national rail and highway hub',
+      exploreLinks: ['Thailand'],
+    },
+    features: [
+      {
+        name: 'Wat Arun',
+        description:
+          'The Temple of Dawn on the river’s Thonburi bank — a prang-studded landmark that catches morning light above the water.',
+      },
+      {
+        name: 'Grand Palace',
+        description:
+          'The walled royal and temple precinct on Rattanakosin Island — throne halls and sacred courts at the heart of the capital.',
+      },
+      {
+        name: 'Wat Pho',
+        description:
+          'The temple of the Reclining Buddha south of the palace — a major monastic complex and traditional learning center.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Bangkok',
+        url: 'https://www.britannica.com/place/Bangkok',
+        kind: 'reference',
+      },
+      {
+        label: 'Tourism Authority of Thailand — Bangkok',
+        url: 'https://www.tourismthailand.org/Destinations/Provinces/Bangkok',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Historic City of Ayutthaya',
+        url: 'https://whc.unesco.org/en/list/576',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'singapore',
+    code: 'SIN',
+    name: 'Singapore',
+    category: 'Asia',
+    subtitle: 'Island city-state · Straits port',
+    about:
+      'Singapore is an island city-state at the Strait of Malacca — a port that turned harbor geography into a dense, multilingual capital. Orientation is water and reclamation: colonial-era quays beside container terminals; ethnic quarters that still map migration routes; gardens and reservoirs squeezed between towers on a tropical island with limited land. Independence made the city both nation and metropolis: public housing estates, business districts, and heritage shophouse rows share a compact shoreline. Heat, monsoon rain, and maritime trade shaped building form as much as any master plan. This primer stays with straits port logic, reclaimed waterfront, and garden-city landmarks rather than every financial-district tower.',
+    facts: {
+      kind: 'Island city-state',
+      country: 'Singapore',
+      region: 'Strait of Malacca · southern Malay Peninsula',
+      founded: 'Modern port settlement from the nineteenth century; independent republic from 1965',
+      capitalRole: 'Capital and nation-state of Singapore',
+      corridors: 'Strait of Malacca shipping lanes; Johor Strait; regional air and sea hub',
+      exploreLinks: ['Singapore'],
+    },
+    features: [
+      {
+        name: 'Marina Bay Sands',
+        description:
+          'The integrated resort on reclaimed Marina Bay — a skyline terrace and waterfront landmark of contemporary Singapore.',
+      },
+      {
+        name: 'Merlion',
+        description:
+          'The lion-fish fountain at the downtown waterfront — a civic symbol of harbor city and nation.',
+      },
+      {
+        name: 'Gardens by the Bay',
+        description:
+          'The bay-side garden park with cooled conservatories and supertrees — engineered nature on reclaimed shore.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Singapore',
+        url: 'https://www.britannica.com/place/Singapore',
+        kind: 'reference',
+      },
+      {
+        label: 'Singapore Tourism Board — About Singapore',
+        url: 'https://www.visitsingapore.com/',
+        kind: 'agency',
+      },
+      {
+        label: 'National Parks Board — Gardens by the Bay',
+        url: 'https://www.nparks.gov.sg/gardensbythebay',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'mumbai',
+    code: 'BOM',
+    name: 'Mumbai',
+    category: 'Asia',
+    subtitle: 'Bay port megacity · Arabian Sea coast',
+    about:
+      'Mumbai is a bay port megacity on India’s Arabian Sea coast — a harbor that absorbed fishing villages, colonial fort towns, and textile-mill suburbs into one of the world’s most populous urban regions. Orientation is peninsula and rail: Victorian Gothic stations and seaside promenades beside dense bazaar streets; former mill lands now hosting finance and film; islands linked by causeways and bridges. Monsoon rain, tidal flats, and limited land pushed vertical growth while the port kept global shipping at the city’s edge. Bollywood, banking, and neighborhood temples share corridors that once carried cotton and passengers toward the hinterland. This primer stays with harbor geography, colonial port architecture, and seaside boulevards rather than every suburb’s commute pattern.',
+    facts: {
+      kind: 'Bay port megacity',
+      country: 'India',
+      region: 'Konkan coast · Mumbai harbour · Arabian Sea',
+      founded: 'Colonial port and fort settlement from the seventeenth century; modern megacity growth through the twentieth century',
+      capitalRole: 'Capital of Maharashtra; major national financial and media center',
+      corridors: 'Arabian Sea harbor; Western Railway; historic trade links to Gujarat and the Deccan',
+      exploreLinks: ['India'],
+    },
+    features: [
+      {
+        name: 'Gateway of India',
+        description:
+          'The ceremonial arch on Apollo Bunder — a harbor-facing monument that greeted arriving ships to the colonial port.',
+      },
+      {
+        name: 'Chhatrapati Shivaji Terminus',
+        description:
+          'The Victorian Gothic rail terminus — a UNESCO-listed station that still anchors Mumbai’s suburban and long-distance trains.',
+      },
+      {
+        name: 'Marine Drive',
+        description:
+          'The curved seaside boulevard along Back Bay — Art Deco apartments and evening promenade above the Arabian Sea.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Mumbai',
+        url: 'https://www.britannica.com/place/Mumbai',
+        kind: 'reference',
+      },
+      {
+        label: 'Mumbai Port Authority — Port overview',
+        url: 'https://mumbaiport.gov.in/',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Chhatrapati Shivaji Terminus',
+        url: 'https://whc.unesco.org/en/list/945',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'shanghai',
+    code: 'SHA',
+    name: 'Shanghai',
+    category: 'Asia',
+    subtitle: 'Yangtze river port · treaty-era hub',
+    about:
+      'Shanghai is a Yangtze river port that turned estuary geography into China’s largest metropolis — a city where treaty-era Bund banks, lilong lanes, and Pudong towers stack along the Huangpu. Orientation is river bend and concession: foreign-built waterfront facing Pudong’s skyline; gardens and temples tucked between lane housing; rail and container ports linking the Yangtze basin to global trade. Republican glamour, industrial growth, and reform-era finance each left districts that still read as separate urban chapters on one waterfront. This primer stays with river port form, Bund-and-tower contrast, and classical garden pockets rather than every shopping district’s brand map.',
+    facts: {
+      kind: 'River port megacity',
+      country: 'China',
+      region: 'Yangtze River delta · Huangpu River estuary',
+      founded: 'Historic trading town; treaty-port and industrial expansion from the nineteenth century onward',
+      capitalRole: 'Municipality directly under the central government; major financial and port center',
+      corridors: 'Yangtze River; Huangpu River; East China Sea approaches; national rail and metro networks',
+      exploreLinks: ['China'],
+    },
+    features: [
+      {
+        name: 'Oriental Pearl Tower',
+        description:
+          'The Pudong broadcast tower — a 1990s skyline marker that faces the historic Bund across the Huangpu.',
+      },
+      {
+        name: 'The Bund',
+        description:
+          'The riverside promenade of colonial banks and customs houses — Shanghai’s classic waterfront room facing Pudong.',
+      },
+      {
+        name: 'Yu Garden',
+        description:
+          'The Ming-era classical garden in the old city — rockeries, pavilions, and market lanes beside the modern core.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Shanghai',
+        url: 'https://www.britannica.com/place/Shanghai',
+        kind: 'reference',
+      },
+      {
+        label: 'Shanghai Municipal Government — About Shanghai',
+        url: 'https://www.shanghai.gov.cn/english/',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Classical Gardens of Suzhou',
+        url: 'https://whc.unesco.org/en/list/813',
         kind: 'catalog',
       },
     ],

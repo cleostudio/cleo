@@ -10,7 +10,7 @@ import { getCountryByName } from './countries'
 
 describe('city subjects', () => {
   it('ships a regional catalog with unique slugs and codes', () => {
-    expect(citySubjects.length).toBeGreaterThanOrEqual(16)
+    expect(citySubjects.length).toBeGreaterThanOrEqual(26)
 
     const slugs = citySubjects.map((subject) => subject.slug)
     const codes = citySubjects.map((subject) => subject.code)
@@ -57,6 +57,21 @@ describe('city subjects', () => {
       true,
     )
     expect(groups[1]?.[1].some((subject) => subject.slug === 'tokyo')).toBe(
+      true,
+    )
+    expect(groups[1]?.[1].some((subject) => subject.slug === 'seoul')).toBe(
+      true,
+    )
+    expect(groups[1]?.[1].some((subject) => subject.slug === 'bangkok')).toBe(
+      true,
+    )
+    expect(groups[1]?.[1].some((subject) => subject.slug === 'singapore')).toBe(
+      true,
+    )
+    expect(groups[1]?.[1].some((subject) => subject.slug === 'mumbai')).toBe(
+      true,
+    )
+    expect(groups[1]?.[1].some((subject) => subject.slug === 'shanghai')).toBe(
       true,
     )
     expect(

@@ -1378,5 +1378,465 @@
         }
       ]
     }
+  ],
+  "bering-sea": [
+    {
+      "featureName": "Bering Sea ice",
+      "alt": "Bering Sea ice — bering sea",
+      "caption": "Bering Sea ice",
+      "photographer": "European Union , Copernicus Sentinel-3 imagery",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASea_ice_in_the_Bering_Sea.jpg",
+      "license": "Attribution",
+      "commonsTitle": "File:Sea ice in the Bering Sea.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Sea ice in the Bering Sea.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c2a078b0aa69d19e0d975bc3b2a4efcfac937974146e04a099d8268e83c3b5b6",
+      "width": 3506,
+      "height": 2533,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/bering-sea/w640.jpg",
+          "bytes": 62331
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/bering-sea/w1280.jpg",
+          "bytes": 206098
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/bering-sea/w2048.jpg",
+          "bytes": 510949
+        }
+      ]
+    },
+    {
+      "featureName": "Pribilof Islands",
+      "alt": "Pribilof Islands — bering sea",
+      "caption": "Pribilof Islands",
+      "photographer": "NASA Earth Observatory images by Jesse Allen and Norman Kuring, using Landsat 8 data from the U.S. Geological Survey.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APribilof_oli_2014265_lrg.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Pribilof oli 2014265 lrg.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Pribilof oli 2014265 lrg.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "df867706207e452289e38f18ca2c095a2c2643ddf50082639e56a456a204c02a",
+      "width": 4000,
+      "height": 4800,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/bering-sea/w640-2.jpg",
+          "bytes": 100342
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/bering-sea/w1280-2.jpg",
+          "bytes": 282412
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/bering-sea/w2048-2.jpg",
+          "bytes": 708763
+        }
+      ]
+    },
+    {
+      "featureName": "Bering Strait",
+      "alt": "Bering Strait — bering sea",
+      "caption": "Bering Strait",
+      "photographer": "Suevic",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABering_Strait_Expedition.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Bering Strait Expedition.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Bering Strait Expedition.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f4e2025053132a7c0a7f6aacd43ce059dceea39f20ff93777e577fd4d889219f",
+      "width": 4912,
+      "height": 3264,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/bering-sea/w640-3.jpg",
+          "bytes": 74312
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/bering-sea/w1280-3.jpg",
+          "bytes": 119945
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/bering-sea/w2048-3.jpg",
+          "bytes": 220983
+        }
+      ]
+    }
+  ],
+  "greenland-sea": [
+    {
+      "featureName": "Greenland Sea icebergs",
+      "alt": "Greenland Sea icebergs — greenland sea",
+      "caption": "Greenland Sea icebergs",
+      "photographer": "Buiobuione",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIcebergs_off_Greenland_in_the_Greenland_Sea_02.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Icebergs off Greenland in the Greenland Sea 02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Icebergs off Greenland in the Greenland Sea 02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "17a2d4f9ccba0497f6937078fe999fbc7fab5da37df8d4b8372f92a11cfdab96",
+      "width": 5882,
+      "height": 3921,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/greenland-sea/w640.jpg",
+          "bytes": 80494
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/greenland-sea/w1280.jpg",
+          "bytes": 169738
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/greenland-sea/w2048.jpg",
+          "bytes": 357524
+        }
+      ]
+    },
+    {
+      "featureName": "Scoresby Sund glaciers",
+      "alt": "Scoresby Sund glaciers — greenland sea",
+      "caption": "Scoresby Sund glaciers",
+      "photographer": "European Space Agency, Monja Šebela, Sentinel-2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGlaciers_of_Scoresby_Sund%2C_Greenland_%2851966500298%29.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Glaciers of Scoresby Sund, Greenland (51966500298).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Glaciers of Scoresby Sund, Greenland (51966500298).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9b73193a801413f8c9b0306ab9d0026a57410436f58833f40dc33f630af3dcd9",
+      "width": 9360,
+      "height": 5856,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/greenland-sea/w640-2.jpg",
+          "bytes": 61836
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/greenland-sea/w1280-2.jpg",
+          "bytes": 215199
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/greenland-sea/w2048-2.jpg",
+          "bytes": 606479
+        }
+      ]
+    },
+    {
+      "featureName": "Jan Mayen Beerenberg",
+      "alt": "Jan Mayen Beerenberg — greenland sea",
+      "caption": "Jan Mayen Beerenberg",
+      "photographer": "Dreizung",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABeerenberg_Jan_Mayen.JPG",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Beerenberg Jan Mayen.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Beerenberg Jan Mayen.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f7cfc336c1811b0eb3d4dbce5bafaf201eca95b5e4e952907009ca25e6cea180",
+      "width": 3888,
+      "height": 2592,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/greenland-sea/w640-3.jpg",
+          "bytes": 41406
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/greenland-sea/w1280-3.jpg",
+          "bytes": 107466
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/greenland-sea/w2048-3.jpg",
+          "bytes": 282198
+        }
+      ]
+    }
+  ],
+  "barents-sea": [
+    {
+      "featureName": "Honningsvåg and Barents Sea",
+      "alt": "Honningsvåg and Barents Sea — barents sea",
+      "caption": "Honningsvåg and Barents Sea",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APresa_y_mar_de_Barents%2C_Honningsv%C3%A5g%2C_Noruega%2C_2019-09-03%2C_DD_47.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Presa y mar de Barents, Honningsvåg, Noruega, 2019-09-03, DD 47.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Presa y mar de Barents, Honningsvåg, Noruega, 2019-09-03, DD 47.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e53188222fad54e53fae3d1b5e6d58fa88dc5172abe7b5721be2f0939ac95e4d",
+      "width": 7426,
+      "height": 3857,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/barents-sea/w640.jpg",
+          "bytes": 47989
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/barents-sea/w1280.jpg",
+          "bytes": 136024
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/barents-sea/w2048.jpg",
+          "bytes": 368253
+        }
+      ]
+    },
+    {
+      "featureName": "Nordkapp approach",
+      "alt": "Nordkapp approach — barents sea",
+      "caption": "Nordkapp approach",
+      "photographer": "Virtual-Pano",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A0525_Nordkapp_approaching_Honnigsvag%2C_Norway_-_V-P.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:0525 Nordkapp approaching Honnigsvag, Norway - V-P.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:0525 Nordkapp approaching Honnigsvag, Norway - V-P.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "770b34d0fedce0abdd613549bd0c915b883e556bc030bf4adb1bcc1462eb7f50",
+      "width": 6843,
+      "height": 4564,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/barents-sea/w640-2.jpg",
+          "bytes": 75508
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/barents-sea/w1280-2.jpg",
+          "bytes": 254626
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/barents-sea/w2048-2.jpg",
+          "bytes": 734887
+        }
+      ]
+    },
+    {
+      "featureName": "Barents Sea bloom",
+      "alt": "Barents Sea bloom — barents sea",
+      "caption": "Barents Sea bloom",
+      "photographer": "Jeff Schmaltz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABloom_in_the_Barents_Sea.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Bloom in the Barents Sea.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Bloom in the Barents Sea.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3a8c2c685a6a0bcf5aaa22c9d0aa869b2ef6a7f1b4e98faf268e43f2897e6cd6",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/barents-sea/w640-3.jpg",
+          "bytes": 81678
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/barents-sea/w1280-3.jpg",
+          "bytes": 221983
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/barents-sea/w2048-3.jpg",
+          "bytes": 567930
+        }
+      ]
+    }
+  ],
+  "weddell-sea": [
+    {
+      "featureName": "Weddell Sea pack ice",
+      "alt": "Weddell Sea pack ice — weddell sea",
+      "caption": "Weddell Sea pack ice",
+      "photographer": "Coordenação-Geral de Observação da Terra/INPE",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWeddell_Sea%2C_Antartica.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Weddell Sea, Antartica.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Weddell Sea, Antartica.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "152672a8cfb9480265717bfcfeadfe2d2be4ac50fe1dd8a5b1a9e34a752984a4",
+      "width": 10457,
+      "height": 5882,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/weddell-sea/w640.jpg",
+          "bytes": 56145
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/weddell-sea/w1280.jpg",
+          "bytes": 214690
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/weddell-sea/w2048.jpg",
+          "bytes": 603549
+        }
+      ]
+    },
+    {
+      "featureName": "Flying over the Weddell",
+      "alt": "Flying over the Weddell — weddell sea",
+      "caption": "Flying over the Weddell",
+      "photographer": "Michael Studinger via NASA Goddard Space Flight Center from USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFlying_over_the_Weddell_Sea%2C_Antarctica_-a.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Flying over the Weddell Sea, Antarctica -a.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Flying over the Weddell Sea, Antarctica -a.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fac3433d3c692c99da547981d2277644e51b982c5824e463f5da8279369af853",
+      "width": 2000,
+      "height": 1339,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/weddell-sea/w640-2.jpg",
+          "bytes": 74321
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/weddell-sea/w1280-2.jpg",
+          "bytes": 188821
+        },
+        {
+          "width": 2000,
+          "src": "/images/oceans/weddell-sea/w2048-2.jpg",
+          "bytes": 470969
+        }
+      ]
+    },
+    {
+      "featureName": "Weddell from orbit",
+      "alt": "Weddell from orbit — weddell sea",
+      "caption": "Weddell from orbit",
+      "photographer": "Earth Science and Remote Sensing Unit, Lyndon B. Johnson Space Center",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AISS011-E-12091_-_View_of_the_Weddell_Sea.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:ISS011-E-12091 - View of the Weddell Sea.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:ISS011-E-12091 - View of the Weddell Sea.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c4929ac39966dbe6f4f26b4295e83d14c821a638ea6385f479ee79b2f7100282",
+      "width": 3032,
+      "height": 2008,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/weddell-sea/w640-3.jpg",
+          "bytes": 13997
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/weddell-sea/w1280-3.jpg",
+          "bytes": 40348
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/weddell-sea/w2048-3.jpg",
+          "bytes": 136703
+        }
+      ]
+    }
+  ],
+  "ross-sea": [
+    {
+      "featureName": "Pancake ice",
+      "alt": "Pancake ice — ross sea",
+      "caption": "Pancake ice",
+      "photographer": "owamux",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APancake_Ice_In_Ross_Sea%2C_Antarctica.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Pancake Ice In Ross Sea, Antarctica.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Pancake Ice In Ross Sea, Antarctica.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "473d6798a309be625e81fa07e8518e2ec9329f0ac21012a92f93df503aa64e82",
+      "width": 3840,
+      "height": 2160,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/ross-sea/w640.jpg",
+          "bytes": 66924
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/ross-sea/w1280.jpg",
+          "bytes": 238191
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/ross-sea/w2048.jpg",
+          "bytes": 623016
+        }
+      ]
+    },
+    {
+      "featureName": "Ross Ice Shelf",
+      "alt": "Ross Ice Shelf — ross sea",
+      "caption": "Ross Ice Shelf",
+      "photographer": "Michael Van Woert, NOAA NESDIS, ORA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARoss_Ice_Shelf_1997.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Ross Ice Shelf 1997.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ross Ice Shelf 1997.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "77fd71582776ff01f162f231d2c946832d2ef553c9e47d392c5e5b30e63ad6ff",
+      "width": 1784,
+      "height": 1156,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/ross-sea/w640-2.jpg",
+          "bytes": 37909
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/ross-sea/w1280-2.jpg",
+          "bytes": 122311
+        },
+        {
+          "width": 1784,
+          "src": "/images/oceans/ross-sea/w2048-2.jpg",
+          "bytes": 251932
+        }
+      ]
+    },
+    {
+      "featureName": "McMurdo Sound",
+      "alt": "McMurdo Sound — ross sea",
+      "caption": "McMurdo Sound",
+      "photographer": "owamux",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIcescape_In_McMurdo_Sound.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Icescape In McMurdo Sound.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Icescape In McMurdo Sound.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b7f2cadcc20db442334606f0aa7a1dba988ace79ea2075de887b6806a8324cfa",
+      "width": 3840,
+      "height": 2160,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/ross-sea/w640-3.jpg",
+          "bytes": 41328
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/ross-sea/w1280-3.jpg",
+          "bytes": 143392
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/ross-sea/w2048-3.jpg",
+          "bytes": 405843
+        }
+      ]
+    }
   ]
 }

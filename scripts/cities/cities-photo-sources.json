@@ -670,5 +670,165 @@
       "height": 1944,
       "featureName": "Primatial Cathedral"
     }
+  ],
+  "seoul": [
+    {
+      "commonsTitle": "File:Gyeonghoeru (Royal Banquet Hall) at Gyeongbokgung Palace, Seoul.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg",
+      "photographer": "Frank Schulenburg",
+      "license": "CC BY-SA 4.0",
+      "width": 6425,
+      "height": 4283,
+      "featureName": "Gyeongbokgung"
+    },
+    {
+      "commonsTitle": "File:N Seoul Tower view 2.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/N_Seoul_Tower_view_2.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AN_Seoul_Tower_view_2.jpg",
+      "photographer": "kallerna",
+      "license": "CC BY-SA 4.0",
+      "width": 4600,
+      "height": 2500,
+      "featureName": "N Seoul Tower"
+    },
+    {
+      "commonsTitle": "File:Bukchon-ro 11-gil street with hanok houses at blue hour in Bukchon Hanok Village Seoul.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/Bukchon-ro_11-gil_street_with_hanok_houses_at_blue_hour_in_Bukchon_Hanok_Village_Seoul.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABukchon-ro_11-gil_street_with_hanok_houses_at_blue_hour_in_Bukchon_Hanok_Village_Seoul.jpg",
+      "photographer": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "width": 6404,
+      "height": 4269,
+      "featureName": "Bukchon Hanok Village"
+    }
+  ],
+  "bangkok": [
+    {
+      "commonsTitle": "File:Templo Wat Arun, Bangkok, Tailandia, 2013-08-22, DD 30.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Templo_Wat_Arun%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_30.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATemplo_Wat_Arun%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_30.jpg",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "width": 4837,
+      "height": 3231,
+      "featureName": "Wat Arun"
+    },
+    {
+      "commonsTitle": "File:วัดพระศรีรัตนศาสดาราม วัดพระแก้ว กรุงเทพมหานคร - Wat Phra Kaew, Temple of Emerald Buddha, Bangkok, Thailand.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B1%E0%B8%95%E0%B8%99%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_-_Wat_Phra_Kaew%2C_Temple_of_Emerald_Buddha%2C_Bangkok%2C_Thailand.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B1%E0%B8%95%E0%B8%99%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_-_Wat_Phra_Kaew%2C_Temple_of_Emerald_Buddha%2C_Bangkok%2C_Thailand.jpg",
+      "photographer": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "width": 4156,
+      "height": 3014,
+      "featureName": "Grand Palace"
+    },
+    {
+      "commonsTitle": "File:Wat Pho, Bangkok, Tailandia, 2013-08-22, DD 07.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Wat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_07.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_07.jpg",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "width": 2790,
+      "height": 4222,
+      "featureName": "Wat Pho"
+    }
+  ],
+  "singapore": [
+    {
+      "commonsTitle": "File:Marina Bay Sands and illuminated polyhedral building Louis Vuitton over the water at blue hour with pink clouds in Singapore.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Marina_Bay_Sands_and_illuminated_polyhedral_building_Louis_Vuitton_over_the_water_at_blue_hour_with_pink_clouds_in_Singapore.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMarina_Bay_Sands_and_illuminated_polyhedral_building_Louis_Vuitton_over_the_water_at_blue_hour_with_pink_clouds_in_Singapore.jpg",
+      "photographer": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "width": 5629,
+      "height": 3234,
+      "featureName": "Marina Bay Sands"
+    },
+    {
+      "commonsTitle": "File:Singapore (SG), Merlion -- 2019 -- 4496.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Singapore_%28SG%29%2C_Merlion_--_2019_--_4496.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASingapore_%28SG%29%2C_Merlion_--_2019_--_4496.jpg",
+      "photographer": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "width": 5133,
+      "height": 3422,
+      "featureName": "Merlion"
+    },
+    {
+      "commonsTitle": "File:Singapore (SG), Gardens By The Bay -- 2019 -- 4725.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Singapore_%28SG%29%2C_Gardens_By_The_Bay_--_2019_--_4725.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASingapore_%28SG%29%2C_Gardens_By_The_Bay_--_2019_--_4725.jpg",
+      "photographer": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "width": 6720,
+      "height": 4480,
+      "featureName": "Gardens by the Bay"
+    }
+  ],
+  "mumbai": [
+    {
+      "commonsTitle": "File:Mumbai 03-2016 30 Gateway of India.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Mumbai_03-2016_30_Gateway_of_India.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMumbai_03-2016_30_Gateway_of_India.jpg",
+      "photographer": "A.Savin",
+      "license": "FAL",
+      "width": 3585,
+      "height": 3585,
+      "featureName": "Gateway of India"
+    },
+    {
+      "commonsTitle": "File:Chhatrapati Shivaji Terminus (Victoria Terminus).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Chhatrapati_Shivaji_Terminus_%28Victoria_Terminus%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChhatrapati_Shivaji_Terminus_%28Victoria_Terminus%29.jpg",
+      "photographer": "Joe Ravi",
+      "license": "CC BY-SA 3.0",
+      "width": 4045,
+      "height": 2360,
+      "featureName": "Chhatrapati Shivaji Terminus"
+    },
+    {
+      "commonsTitle": "File:Mumbai 03-2016 46 evening at Marine Drive.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Mumbai_03-2016_46_evening_at_Marine_Drive.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMumbai_03-2016_46_evening_at_Marine_Drive.jpg",
+      "photographer": "A.Savin",
+      "license": "FAL",
+      "width": 5386,
+      "height": 3030,
+      "featureName": "Marine Drive"
+    }
+  ],
+  "shanghai": [
+    {
+      "commonsTitle": "File:Oriental Pearl Tower in Shanghai.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Oriental_Pearl_Tower_in_Shanghai.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOriental_Pearl_Tower_in_Shanghai.jpg",
+      "photographer": "Dmitry A. Mottl",
+      "license": "CC BY-SA 4.0",
+      "width": 2000,
+      "height": 3000,
+      "featureName": "Oriental Pearl Tower"
+    },
+    {
+      "commonsTitle": "File:Blue hour view of the Bund from the Shanghai World Financial Center dllu.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Blue_hour_view_of_the_Bund_from_the_Shanghai_World_Financial_Center_dllu.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABlue_hour_view_of_the_Bund_from_the_Shanghai_World_Financial_Center_dllu.jpg",
+      "photographer": "Dllu",
+      "license": "CC BY-SA 4.0",
+      "width": 7451,
+      "height": 4926,
+      "featureName": "The Bund"
+    },
+    {
+      "commonsTitle": "File:Shanghai - Yu Garden - 0035.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/Shanghai_-_Yu_Garden_-_0035.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AShanghai_-_Yu_Garden_-_0035.jpg",
+      "photographer": "Stefan Fussan",
+      "license": "CC BY-SA 3.0",
+      "width": 4990,
+      "height": 2930,
+      "featureName": "Yu Garden"
+    }
   ]
 }

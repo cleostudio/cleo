@@ -478,5 +478,165 @@
       "height": 4374,
       "featureName": "Fog over East China Sea"
     }
+  ],
+  "bering-sea": [
+    {
+      "commonsTitle": "File:Sea ice in the Bering Sea.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Sea_ice_in_the_Bering_Sea.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASea_ice_in_the_Bering_Sea.jpg",
+      "photographer": "European Union , Copernicus Sentinel-3 imagery",
+      "license": "Attribution",
+      "width": 3506,
+      "height": 2533,
+      "featureName": "Bering Sea ice"
+    },
+    {
+      "commonsTitle": "File:Pribilof oli 2014265 lrg.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Pribilof_oli_2014265_lrg.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APribilof_oli_2014265_lrg.jpg",
+      "photographer": "NASA Earth Observatory images by Jesse Allen and Norman Kuring, using Landsat 8 data from the U.S. Geological Survey.",
+      "license": "Public domain",
+      "width": 4000,
+      "height": 4800,
+      "featureName": "Pribilof Islands"
+    },
+    {
+      "commonsTitle": "File:Bering Strait Expedition.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Bering_Strait_Expedition.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABering_Strait_Expedition.jpg",
+      "photographer": "Suevic",
+      "license": "CC BY-SA 4.0",
+      "width": 4912,
+      "height": 3264,
+      "featureName": "Bering Strait"
+    }
+  ],
+  "greenland-sea": [
+    {
+      "commonsTitle": "File:Icebergs off Greenland in the Greenland Sea 02.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Icebergs_off_Greenland_in_the_Greenland_Sea_02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIcebergs_off_Greenland_in_the_Greenland_Sea_02.jpg",
+      "photographer": "Buiobuione",
+      "license": "CC BY-SA 4.0",
+      "width": 5882,
+      "height": 3921,
+      "featureName": "Greenland Sea icebergs"
+    },
+    {
+      "commonsTitle": "File:Glaciers of Scoresby Sund, Greenland (51966500298).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Glaciers_of_Scoresby_Sund%2C_Greenland_%2851966500298%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGlaciers_of_Scoresby_Sund%2C_Greenland_%2851966500298%29.jpg",
+      "photographer": "European Space Agency, Monja Šebela, Sentinel-2",
+      "license": "CC BY 2.0",
+      "width": 9360,
+      "height": 5856,
+      "featureName": "Scoresby Sund glaciers"
+    },
+    {
+      "commonsTitle": "File:Beerenberg Jan Mayen.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Beerenberg_Jan_Mayen.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABeerenberg_Jan_Mayen.JPG",
+      "photographer": "Dreizung",
+      "license": "CC BY-SA 3.0",
+      "width": 3888,
+      "height": 2592,
+      "featureName": "Jan Mayen Beerenberg"
+    }
+  ],
+  "barents-sea": [
+    {
+      "commonsTitle": "File:Presa y mar de Barents, Honningsvåg, Noruega, 2019-09-03, DD 47.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Presa_y_mar_de_Barents%2C_Honningsv%C3%A5g%2C_Noruega%2C_2019-09-03%2C_DD_47.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APresa_y_mar_de_Barents%2C_Honningsv%C3%A5g%2C_Noruega%2C_2019-09-03%2C_DD_47.jpg",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "width": 7426,
+      "height": 3857,
+      "featureName": "Honningsvåg and Barents Sea"
+    },
+    {
+      "commonsTitle": "File:0525 Nordkapp approaching Honnigsvag, Norway - V-P.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/0525_Nordkapp_approaching_Honnigsvag%2C_Norway_-_V-P.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A0525_Nordkapp_approaching_Honnigsvag%2C_Norway_-_V-P.jpg",
+      "photographer": "Virtual-Pano",
+      "license": "CC BY-SA 4.0",
+      "width": 6843,
+      "height": 4564,
+      "featureName": "Nordkapp approach"
+    },
+    {
+      "commonsTitle": "File:Bloom in the Barents Sea.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Bloom_in_the_Barents_Sea.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABloom_in_the_Barents_Sea.jpg",
+      "photographer": "Jeff Schmaltz",
+      "license": "Public domain",
+      "width": 4000,
+      "height": 3000,
+      "featureName": "Barents Sea bloom"
+    }
+  ],
+  "weddell-sea": [
+    {
+      "commonsTitle": "File:Weddell Sea, Antartica.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Weddell_Sea%2C_Antartica.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWeddell_Sea%2C_Antartica.jpg",
+      "photographer": "Coordenação-Geral de Observação da Terra/INPE",
+      "license": "CC BY-SA 2.0",
+      "width": 10457,
+      "height": 5882,
+      "featureName": "Weddell Sea pack ice"
+    },
+    {
+      "commonsTitle": "File:Flying over the Weddell Sea, Antarctica -a.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Flying_over_the_Weddell_Sea%2C_Antarctica_-a.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFlying_over_the_Weddell_Sea%2C_Antarctica_-a.jpg",
+      "photographer": "Michael Studinger via NASA Goddard Space Flight Center from USA",
+      "license": "CC BY 2.0",
+      "width": 2000,
+      "height": 1339,
+      "featureName": "Flying over the Weddell"
+    },
+    {
+      "commonsTitle": "File:ISS011-E-12091 - View of the Weddell Sea.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/ISS011-E-12091_-_View_of_the_Weddell_Sea.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AISS011-E-12091_-_View_of_the_Weddell_Sea.jpg",
+      "photographer": "Earth Science and Remote Sensing Unit, Lyndon B. Johnson Space Center",
+      "license": "Public domain",
+      "width": 3032,
+      "height": 2008,
+      "featureName": "Weddell from orbit"
+    }
+  ],
+  "ross-sea": [
+    {
+      "commonsTitle": "File:Pancake Ice In Ross Sea, Antarctica.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Pancake_Ice_In_Ross_Sea%2C_Antarctica.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APancake_Ice_In_Ross_Sea%2C_Antarctica.jpg",
+      "photographer": "owamux",
+      "license": "CC BY 2.0",
+      "width": 3840,
+      "height": 2160,
+      "featureName": "Pancake ice"
+    },
+    {
+      "commonsTitle": "File:Ross Ice Shelf 1997.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Ross_Ice_Shelf_1997.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARoss_Ice_Shelf_1997.jpg",
+      "photographer": "Michael Van Woert, NOAA NESDIS, ORA",
+      "license": "Public domain",
+      "width": 1784,
+      "height": 1156,
+      "featureName": "Ross Ice Shelf"
+    },
+    {
+      "commonsTitle": "File:Icescape In McMurdo Sound.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Icescape_In_McMurdo_Sound.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIcescape_In_McMurdo_Sound.jpg",
+      "photographer": "owamux",
+      "license": "CC BY 2.0",
+      "width": 3840,
+      "height": 2160,
+      "featureName": "McMurdo Sound"
+    }
   ]
 }

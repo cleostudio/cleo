@@ -21,13 +21,13 @@ General-knowledge portal:
   `/civilizations/[slug]` (Africa & Near East, Mediterranean, Asia, Americas,
   Oceania; thirty-two regional guides)
 - **Cities** — capital and route-city field guides at `/cities` and
-  `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; twenty-one
+  `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; twenty-six
   guides)
 - **Oceans** — world ocean basin, major-sea, and polar-sea field guides at
-  `/oceans` and `/oceans/[slug]` (world basins, major seas, polar seas; fifteen
+  `/oceans` and `/oceans/[slug]` (world basins, major seas, polar seas; twenty
   guides)
 - **Rivers** — major world-river field guides at `/rivers` and `/rivers/[slug]`
-  (Africa, Asia, Europe, Americas & Oceania; twenty-one guides)
+  (Africa, Asia, Europe, Americas & Oceania; twenty-six guides)
 - **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations,
   Cities, Oceans, Rivers)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)

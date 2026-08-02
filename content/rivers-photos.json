@@ -1930,5 +1930,465 @@
         }
       ]
     }
+  ],
+  "amur": [
+    {
+      "featureName": "Amur at Heihe",
+      "alt": "Amur at Heihe — amur",
+      "caption": "Amur at Heihe",
+      "photographer": "Baycrest",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAmur_River_and_Heihe.jpg",
+      "license": "CC BY-SA 2.5",
+      "commonsTitle": "File:Amur River and Heihe.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Amur River and Heihe.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e954d1cd1295e01a9d690099dc64a7e3e0debfa96fda2a1bdc752cd16b28e583",
+      "width": 1800,
+      "height": 1200,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/amur/w640.jpg",
+          "bytes": 36873
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/amur/w1280.jpg",
+          "bytes": 120059
+        },
+        {
+          "width": 1800,
+          "src": "/images/rivers/amur/w2048.jpg",
+          "bytes": 276068
+        }
+      ]
+    },
+    {
+      "featureName": "Amur near Amursk",
+      "alt": "Amur near Amursk — amur",
+      "caption": "Amur near Amursk",
+      "photographer": "Alexxx1979",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAmursk_Amur_River_P7290102_2200.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Amursk Amur River P7290102 2200.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Amursk Amur River P7290102 2200.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4655dbab921d5fe9dab3f63f5b2f55d664e3f694a1dc82a0ce4cabce7adb4612",
+      "width": 3299,
+      "height": 2200,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/amur/w640-2.jpg",
+          "bytes": 74063
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/amur/w1280-2.jpg",
+          "bytes": 238772
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/amur/w2048-2.jpg",
+          "bytes": 603153
+        }
+      ]
+    },
+    {
+      "featureName": "Khabarovsk riverfront",
+      "alt": "Khabarovsk riverfront — amur",
+      "caption": "Khabarovsk riverfront",
+      "photographer": "amanderson2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARiverfront_on_the_Amur_River%2C_Khabarovsk%2C_Russia_%2814599202559%29.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Riverfront on the Amur River, Khabarovsk, Russia (14599202559).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Riverfront on the Amur River, Khabarovsk, Russia (14599202559).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "701536742e6c1b4cf53869c147d9cf28be8a63c7ee8b19bbd298db7060119840",
+      "width": 4896,
+      "height": 3672,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/amur/w640-3.jpg",
+          "bytes": 79571
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/amur/w1280-3.jpg",
+          "bytes": 160925
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/amur/w2048-3.jpg",
+          "bytes": 369315
+        }
+      ]
+    }
+  ],
+  "brahmaputra": [
+    {
+      "featureName": "Brahmaputra boat view",
+      "alt": "Brahmaputra boat view — brahmaputra",
+      "caption": "Brahmaputra boat view",
+      "photographer": "Akashdoley13",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABrahmaputra_river_view_from_a_boat_ride.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Brahmaputra river view from a boat ride.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Brahmaputra river view from a boat ride.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "26b9b762b0c4d9db874816a98fc030afe5666be76a4ff222c17b863947eaf911",
+      "width": 4640,
+      "height": 3472,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/brahmaputra/w640.jpg",
+          "bytes": 24847
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/brahmaputra/w1280.jpg",
+          "bytes": 83977
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/brahmaputra/w2048.jpg",
+          "bytes": 288376
+        }
+      ]
+    },
+    {
+      "featureName": "Brahmaputra at Guwahati",
+      "alt": "Brahmaputra at Guwahati — brahmaputra",
+      "caption": "Brahmaputra at Guwahati",
+      "photographer": "Nilotpal Hazarika123",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABrahmaputra_River%2CGuwahati%2CAssam%2CIndia.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Brahmaputra River,Guwahati,Assam,India.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Brahmaputra River,Guwahati,Assam,India.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "13d65274641ee022228b6b9113ddd0a780109242de119645d686a2975aade265",
+      "width": 4080,
+      "height": 3060,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/brahmaputra/w640-2.jpg",
+          "bytes": 89785
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/brahmaputra/w1280-2.jpg",
+          "bytes": 190100
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/brahmaputra/w2048-2.jpg",
+          "bytes": 451393
+        }
+      ]
+    },
+    {
+      "featureName": "Yarlung Tsangpo",
+      "alt": "Yarlung Tsangpo — brahmaputra",
+      "caption": "Yarlung Tsangpo",
+      "photographer": "Carlos Delgado",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYarlung_Tsangpo_-_Tibet_-_02.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Yarlung Tsangpo - Tibet - 02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Yarlung Tsangpo - Tibet - 02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3a7a0a5431ecdcd93e4fad1845c313fbcf24c68e9ced8eae89e9d0d12126c453",
+      "width": 2816,
+      "height": 2112,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/brahmaputra/w640-3.jpg",
+          "bytes": 80835
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/brahmaputra/w1280-3.jpg",
+          "bytes": 170393
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/brahmaputra/w2048-3.jpg",
+          "bytes": 414951
+        }
+      ]
+    }
+  ],
+  "irrawaddy": [
+    {
+      "featureName": "Irrawaddy at Bagan",
+      "alt": "Irrawaddy at Bagan — irrawaddy",
+      "caption": "Irrawaddy at Bagan",
+      "photographer": "Jakub Hałun",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20160801_Irrawaddy_River_Bagan_6788.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:20160801 Irrawaddy River Bagan 6788.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:20160801 Irrawaddy River Bagan 6788.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "bf1de2ffd566c87249a03f0b6495db031be22d6c98d60de38e4a2940b629ab85",
+      "width": 4821,
+      "height": 3208,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/irrawaddy/w640.jpg",
+          "bytes": 60851
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/irrawaddy/w1280.jpg",
+          "bytes": 170237
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/irrawaddy/w2048.jpg",
+          "bytes": 434465
+        }
+      ]
+    },
+    {
+      "featureName": "Sagaing shore",
+      "alt": "Sagaing shore — irrawaddy",
+      "caption": "Sagaing shore",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASagaing%2C_Irrawaddy_River%2C_Ayeyarwady%2C_Myanmar.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Sagaing, Irrawaddy River, Ayeyarwady, Myanmar.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Sagaing, Irrawaddy River, Ayeyarwady, Myanmar.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1d0c37b282947e4b750eba896c49d9d05a77a7160fd28199fc99615786f5f271",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/irrawaddy/w640-2.jpg",
+          "bytes": 48531
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/irrawaddy/w1280-2.jpg",
+          "bytes": 160593
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/irrawaddy/w2048-2.jpg",
+          "bytes": 469292
+        }
+      ]
+    },
+    {
+      "featureName": "Bagan riverside temple",
+      "alt": "Bagan riverside temple — irrawaddy",
+      "caption": "Bagan riverside temple",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANyaung-U%2C_Bagan%2C_Myanmar%2C_Buddhist_temple_on_the_shores_of_Irrawaddy_River.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Nyaung-U, Bagan, Myanmar, Buddhist temple on the shores of Irrawaddy River.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Nyaung-U, Bagan, Myanmar, Buddhist temple on the shores of Irrawaddy River.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "70e8c1d5a7dfebc82b5ad09c7c18afd51e0c30a911fde40c4729efc2751bdcf3",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/irrawaddy/w640-3.jpg",
+          "bytes": 55862
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/irrawaddy/w1280-3.jpg",
+          "bytes": 191297
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/irrawaddy/w2048-3.jpg",
+          "bytes": 567441
+        }
+      ]
+    }
+  ],
+  "euphrates": [
+    {
+      "featureName": "Euphrates canyon road",
+      "alt": "Euphrates canyon road — euphrates",
+      "caption": "Euphrates canyon road",
+      "photographer": "Bodrumlu60",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKemaliye_Ta%C5%9F_Yolu_and_Karanlik_Kanyon.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Kemaliye Taş Yolu and Karanlik Kanyon.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Kemaliye Taş Yolu and Karanlik Kanyon.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "60d4706438568ce6dfbd0573655e4b5c8e31c45b9b523a9bdf0ddc49c20bbd25",
+      "width": 4608,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/euphrates/w640.jpg",
+          "bytes": 110237
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/euphrates/w1280.jpg",
+          "bytes": 324465
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/euphrates/w2048.jpg",
+          "bytes": 889684
+        }
+      ]
+    },
+    {
+      "featureName": "Euphrates in Turkey",
+      "alt": "Euphrates in Turkey — euphrates",
+      "caption": "Euphrates in Turkey",
+      "photographer": "Carole Raddato from FRANKFURT, Germany",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Euphrates_River_in_Turkey_%2852032008594%29.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:The Euphrates River in Turkey (52032008594).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Euphrates River in Turkey (52032008594).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "24abd4a90903adf3cabe29eea3baef6cb9ec3134aeb29163c64111129f57055d",
+      "width": 3936,
+      "height": 2624,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/euphrates/w640-2.jpg",
+          "bytes": 58165
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/euphrates/w1280-2.jpg",
+          "bytes": 164609
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/euphrates/w2048-2.jpg",
+          "bytes": 445400
+        }
+      ]
+    },
+    {
+      "featureName": "Lake Assad",
+      "alt": "Lake Assad — euphrates",
+      "caption": "Lake Assad",
+      "photographer": "Pierre Markuse",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALake_Assad_Euphrates_River_S2A_1282_crop_10_%2835838727946%29.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Lake Assad Euphrates River S2A 1282 crop 10 (35838727946).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Lake Assad Euphrates River S2A 1282 crop 10 (35838727946).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "bc29f4dc73f0103651208dbfecc539c2ebc7450e88ecb4a4bec79e7d20348ec3",
+      "width": 7816,
+      "height": 4587,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/euphrates/w640-3.jpg",
+          "bytes": 54493
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/euphrates/w1280-3.jpg",
+          "bytes": 201428
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/euphrates/w2048-3.jpg",
+          "bytes": 569611
+        }
+      ]
+    }
+  ],
+  "tigris": [
+    {
+      "featureName": "Tigris from Al Shohada Bridge",
+      "alt": "Tigris from Al Shohada Bridge — tigris",
+      "caption": "Tigris from Al Shohada Bridge",
+      "photographer": "Samir Al-Ibrahem",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATigris_river_from_Al_Shohada%27_bridge.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Tigris river from Al Shohada' bridge.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Tigris river from Al Shohada' bridge.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4071c8aab5b80c46eae6ecf0ec9ee73214f318800efbda9cd040dba57c77fb1b",
+      "width": 7728,
+      "height": 4354,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/tigris/w640.jpg",
+          "bytes": 46688
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/tigris/w1280.jpg",
+          "bytes": 117774
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/tigris/w2048.jpg",
+          "bytes": 318840
+        }
+      ]
+    },
+    {
+      "featureName": "Tigris at Mosul",
+      "alt": "Tigris at Mosul — tigris",
+      "caption": "Tigris at Mosul",
+      "photographer": "Abdulsalam Al Dabbagh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Old_Bridge_and_The_Tigris_River-Mosul_01.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:The Old Bridge and The Tigris River-Mosul 01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Old Bridge and The Tigris River-Mosul 01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a33e85cb217801e5430a43da77c3e56872b8e7e4b95e0fc2f1f9278cd1e2e8d4",
+      "width": 4000,
+      "height": 2252,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/tigris/w640-2.jpg",
+          "bytes": 45448
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/tigris/w1280-2.jpg",
+          "bytes": 149188
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/tigris/w2048-2.jpg",
+          "bytes": 363444
+        }
+      ]
+    },
+    {
+      "featureName": "Tigris through Baghdad",
+      "alt": "Tigris through Baghdad — tigris",
+      "caption": "Tigris through Baghdad",
+      "photographer": "DoD photo by Navy Petty Officer 2nd Class Dominique A. Pineiro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A160731-D-PB383-021_Tigris_River_flows_through_Baghdad%2C_July_2016.JPG",
+      "license": "Public domain",
+      "commonsTitle": "File:160731-D-PB383-021 Tigris River flows through Baghdad, July 2016.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:160731-D-PB383-021 Tigris River flows through Baghdad, July 2016.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3d0abe1ea440b38d7b9629efe7cf9f29cc501399d6665df52509186d0a3dfba2",
+      "width": 3000,
+      "height": 2000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/tigris/w640-3.jpg",
+          "bytes": 59217
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/tigris/w1280-3.jpg",
+          "bytes": 202462
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/tigris/w2048-3.jpg",
+          "bytes": 540782
+        }
+      ]
+    }
   ]
 }
