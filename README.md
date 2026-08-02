@@ -1,14 +1,15 @@
 # Cleo
 
 **Cleo** is a general-knowledge portal. Start with countries, space,
-civilizations, and cities; ask the dock chat agent at `/cleo` when you need a
+civilizations, cities, and oceans; ask the dock chat agent at `/cleo` when you need a
 conversation.
 
 The homepage is a neutral portal: one search bar over countries, Space bodies,
-civilizations, cities, curated photographs, Writing posts, topic collections,
+civilizations, cities, oceans, curated photographs, Writing posts, topic collections,
 and site surfaces, plus highlighted places, topic discovery, and recent Writing.
 Explore field guides live at `/explore/[slug]`, Space at `/space/[slug]`,
-Civilizations at `/civilizations/[slug]`, Cities at `/cities/[slug]`,
+Civilizations at `/civilizations/[slug]`, Cities at `/cities/[slug]`, Oceans at
+`/oceans/[slug]`,
 photographs at `/gallery`, topics at `/topics`, Writing at `/blog`, and the
 agent at `/cleo`.
 
@@ -40,6 +41,7 @@ Open [http://localhost:3000](http://localhost:3000). Keep the OpenAI key,
 - Space guides: `lib/space.ts` + `content/space-photos.json` + `public/images/space/`
 - Civilizations guides: `lib/civilizations.ts` + `content/civilizations-photos.json` + `public/images/civilizations/`
 - Cities guides: `lib/cities.ts` + `content/cities-photos.json` + `public/images/cities/`
+- Oceans guides: `lib/oceans.ts` + `content/oceans-photos.json` + `public/images/oceans/`
 - OpenAI Responses API for `/api/responses` only
 - Better Auth (email/password) on Neon Postgres for `/sign-in` / `/account`
 - Vercel Web Analytics + Speed Insights (enable both in the Vercel dashboard)
@@ -64,7 +66,8 @@ pnpm build
 ```
 
 After media or manifest edits: `pnpm validate:atlas`, `pnpm validate:space`,
-`pnpm validate:civilizations`, and/or `pnpm validate:cities`.
+`pnpm validate:civilizations`, `pnpm validate:cities`, and/or
+`pnpm validate:oceans`.
 
 Manually check homepage search (typing, arrows, Ask Cleo), `/cleo` streaming and
 cancellation, the dock Location preference (including denied permission), and

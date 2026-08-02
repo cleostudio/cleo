@@ -46,6 +46,11 @@ describe('social OG image metadata', () => {
       'Cities · Cleo. Evergreen field guides for capitals and route cities — orientation, signature sites, facts, and sources.',
     ],
     [
+      '/oceans',
+      publicPageMetadata.oceans,
+      'Oceans · Cleo. Evergreen field guides for world ocean basins and polar seas — orientation, features, circulation, and sources.',
+    ],
+    [
       '/cleo',
       publicPageMetadata.cleo,
       'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',

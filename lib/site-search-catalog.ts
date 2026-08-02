@@ -1,8 +1,8 @@
 /**
  * Assembles the homepage search catalog: topic collections, country, space,
- * civilization, and city guides, curated photographs, Writing posts, and
- * portal surfaces. Import from Server Components only — it pulls every guide
- * record, reads the post files, and walks the photo manifests.
+ * civilization, city, and ocean guides, curated photographs, Writing posts,
+ * and portal surfaces. Import from Server Components only — it pulls every
+ * guide record, reads the post files, and walks the photo manifests.
  *
  * Hits stay deliberately thin. Titles, subtitles, and each kind's own
  * vocabulary are indexed by `lib/site-search.ts` on the client, so `keywords`
@@ -15,6 +15,7 @@ import { civilizationSubjects } from '~/lib/civilizations'
 import { buildPostRail, getAllPosts, type Post } from '~/lib/content'
 import { formatMonthYear } from '~/lib/date'
 import { allGalleryItems, galleryItemDomId } from '~/lib/gallery'
+import { oceanSubjects } from '~/lib/oceans'
 import type { SiteSearchHit, SiteSearchKind } from '~/lib/site-search'
 import { spaceSubjects } from '~/lib/space'
 import { allTopics } from '~/lib/topics'
@@ -55,6 +56,12 @@ const PORTAL_SURFACES: SurfaceSeed[] = [
     subtitle: 'City guides',
     href: '/cities',
     keywords: 'capitals routes urban metropolis field guides',
+  },
+  {
+    title: 'Oceans',
+    subtitle: 'Ocean guides',
+    href: '/oceans',
+    keywords: 'basins seas polar circulation bathymetry field guides',
   },
   {
     title: 'Gallery',
@@ -215,6 +222,26 @@ function cityHits(): SiteSearchHit[] {
   )
 }
 
+function oceanHits(): SiteSearchHit[] {
+  return oceanSubjects.map((subject) =>
+    hit(
+      'oceans',
+      `oceans:${subject.slug}`,
+      subject.name,
+      `${subject.code} · ${subject.category}`,
+      `/oceans/${subject.slug}`,
+      subject.subtitle,
+      subject.facts.kind,
+      subject.facts.extent,
+      subject.facts.region,
+      subject.facts.circulation,
+      subject.facts.bathymetry,
+      subject.facts.climateRole,
+      subject.features.map((feature) => feature.name).join(' '),
+    ),
+  )
+}
+
 /**
  * The editor-selected photograph for each place and body — the same focused
  * index `/gallery` shows, so every photo result has a tile to land on.
@@ -276,6 +303,7 @@ export function buildSiteSearchHits(): SiteSearchHit[] {
     ...spaceHits(),
     ...civilizationHits(),
     ...cityHits(),
+    ...oceanHits(),
     ...photoHits(),
     ...writingHits(),
     ...surfaceHits(),
@@ -288,10 +316,12 @@ const SPOTLIGHT_IDS = [
   'topic:space',
   'topic:civilizations',
   'topic:cities',
+  'topic:oceans',
   'explore:japan',
   'space:mars',
   'civilizations:ancient-egypt',
   'cities:istanbul',
+  'oceans:pacific-ocean',
   'surface:/gallery',
   'surface:/cleo',
 ]

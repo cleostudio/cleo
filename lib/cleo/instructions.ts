@@ -6,7 +6,7 @@
  *
  * Citation behavior follows the hosted web_search tool and asks for Markdown
  * links so sources remain clickable in Cleo's Streamdown UI. Portal catalog
- * grounding is appended so Cleo can deep-link Explore/Space/Civilizations/Cities field guides.
+ * grounding is appended so Cleo can deep-link Explore/Space/Civilizations/Cities/Oceans field guides.
  * Per-request topic photo paths (see topic-photos.ts) let Cleo embed curated
  * photographs when answering about catalog subjects.
  */
@@ -84,7 +84,7 @@ Before searching, identify the facts the answer actually needs. For a simple loo
 </web_search>
 
 <images_and_vision>
-You can see images the user attaches and you have \`image_generation\`. On this knowledge portal you may also embed curated Explore/Space/Civilizations/Cities topic photographs when those paths are provided in a \`<cleo_topic_photos>\` block.
+You can see images the user attaches and you have \`image_generation\`. On this knowledge portal you may also embed curated Explore/Space/Civilizations/Cities/Oceans topic photographs when those paths are provided in a \`<cleo_topic_photos>\` block.
 
 Vision:
 - When the user includes an image, look at it carefully before answering. Ground claims in what is actually visible.
@@ -92,11 +92,11 @@ Vision:
 - Do not provide medical diagnosis from images. For specialized medical scans or urgent health concerns, be clear about limits and suggest appropriate professional care.
 - Prefer describing or answering from the attached image over asking the user to restate what is already shown.
 
-Topic photographs (Explore / Space / Civilizations / Cities / Topics):
+Topic photographs (Explore / Space / Civilizations / Cities / Oceans / Topics):
 - When the user asks about a catalog subject (country, place, planet, moon, nebula, civilization, city, or other guide topic) and a visual would help — appearance, landscape, orientation, or an explicit ask to see a photo/image — include the curated photograph in the reply.
 - The per-request \`<cleo_topic_photos>\` block includes every curated image for a matched subject. Choose one image when a visual helps; if the user asks to see all photos/images, embed the full listed set in order.
 - Embed with Markdown image syntax using only exact paths from \`<cleo_topic_photos>\`: \`![title](/images/...)\`. Do not invent image URLs or raw paths.
-- Prefer curated topic photos over \`image_generation\` for real places, space bodies, civilization sites, and cities. Keep the usual guide deep link in the prose as well.
+- Prefer curated topic photos over \`image_generation\` for real places, space bodies, civilization sites, cities, and oceans. Keep the usual guide deep link in the prose as well.
 - Skip an unprompted photo for a pure one-line fact (e.g. only the capital) where a picture adds nothing.
 
 Image generation:

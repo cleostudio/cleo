@@ -1,5 +1,5 @@
 /**
- * Resolve curated Explore/Space/Civilizations/Cities photographs for a Cleo
+ * Resolve curated Explore/Space/Civilizations/Cities/Oceans photographs for a Cleo
  * turn so the agent can embed real site photos (not synthetic generations)
  * when answering about catalog topics.
  */
@@ -11,6 +11,7 @@ import {
   getCivilizationSubject,
 } from '~/lib/civilizations'
 import { countries } from '~/lib/countries'
+import { getOceanSubject, oceanSubjects } from '~/lib/oceans'
 import { getSpaceSubject, spaceSubjects } from '~/lib/space'
 import { staticRendition } from '~/lib/static-photo'
 
@@ -22,6 +23,7 @@ export type TopicPhotoCollection =
   | 'space'
   | 'civilizations'
   | 'cities'
+  | 'oceans'
 
 export type TopicPhoto = {
   collection: TopicPhotoCollection
@@ -73,6 +75,11 @@ function allCandidates(): TopicCandidate[] {
       })),
       ...citySubjects.map((subject) => ({
         collection: 'cities' as const,
+        slug: subject.slug,
+        name: subject.name,
+      })),
+      ...oceanSubjects.map((subject) => ({
+        collection: 'oceans' as const,
         slug: subject.slug,
         name: subject.name,
       })),
@@ -174,6 +181,23 @@ function loadTopicPhotos(
     }))
   }
 
+  if (topic.collection === 'oceans') {
+    const subject = getOceanSubject(topic.slug)
+    if (!subject) return []
+    return subject.photos.map((photo, index) => ({
+      collection: 'oceans' as const,
+      slug: subject.slug,
+      name: subject.name,
+      href: `/oceans/${subject.slug}`,
+      title: photo.featureName,
+      alt: photo.alt,
+      caption: photo.caption,
+      position: index + 1,
+      total: subject.photos.length,
+      src: staticRendition(photo, 1280).src,
+    }))
+  }
+
   const subject = getSpaceSubject(topic.slug)
   if (!subject) return []
 
@@ -237,7 +261,7 @@ export function matchTopicPhotosInText(text: string): TopicPhoto[] {
   }
 
   const pathPattern =
-    /(?:^|[^A-Za-z0-9])\/(explore|space|civilizations|cities)\/([a-z0-9-]+)(?![a-z0-9-])/gi
+    /(?:^|[^A-Za-z0-9])\/(explore|space|civilizations|cities|oceans)\/([a-z0-9-]+)(?![a-z0-9-])/gi
   for (const match of haystack.matchAll(pathPattern)) {
     const collection = match[1] as TopicPhotoCollection
     const slug = match[2]!

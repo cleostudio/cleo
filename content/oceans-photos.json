@@ -1,0 +1,462 @@
+{
+  "pacific-ocean": [
+    {
+      "featureName": "Great Barrier Reef",
+      "alt": "Great Barrier Reef — pacific ocean",
+      "caption": "Great Barrier Reef",
+      "photographer": "Ank Kumar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAerial_View_of_Great_Barrier_Reef_(Ank_Kumar)_02.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Aerial View of Great Barrier Reef (Ank Kumar) 02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Aerial View of Great Barrier Reef (Ank Kumar) 02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c4f114bce5573db268f69775d35664587facd0d2c6a8e5ca44ac6794f071d072",
+      "width": 6000,
+      "height": 4000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/pacific-ocean/w640.jpg",
+          "bytes": 50425
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/pacific-ocean/w1280.jpg",
+          "bytes": 188973
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/pacific-ocean/w2048.jpg",
+          "bytes": 574818
+        }
+      ]
+    },
+    {
+      "featureName": "Pacific Ring of Fire",
+      "alt": "Pacific Ring of Fire — pacific ocean",
+      "caption": "Pacific Ring of Fire",
+      "photographer": "Alexander Gerst",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARing_of_Fire_-_Feuerring.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Ring of Fire - Feuerring.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ring of Fire - Feuerring.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fc6eb6c4210d02bef07b54fe97fe539db5b2e405687db67e7488b6bd914bf5ee",
+      "width": 5568,
+      "height": 3712,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/pacific-ocean/w640-2.jpg",
+          "bytes": 86602
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/pacific-ocean/w1280-2.jpg",
+          "bytes": 271201
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/pacific-ocean/w2048-2.jpg",
+          "bytes": 677280
+        }
+      ]
+    },
+    {
+      "featureName": "Open Pacific",
+      "alt": "Open Pacific — pacific ocean",
+      "caption": "Open Pacific",
+      "photographer": "ISS Expedition 34 / NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AISS034E016601_-_Stratocumulus_Clouds_-_Pacific_Ocean.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:ISS034E016601 - Stratocumulus Clouds - Pacific Ocean.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:ISS034E016601 - Stratocumulus Clouds - Pacific Ocean.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d76b5a28971003ec0848991de7d904028fbee6165ed6ced0305a0783926b2ba4",
+      "width": 4256,
+      "height": 2832,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/pacific-ocean/w640-3.jpg",
+          "bytes": 111347
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/pacific-ocean/w1280-3.jpg",
+          "bytes": 272349
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/pacific-ocean/w2048-3.jpg",
+          "bytes": 642267
+        }
+      ]
+    }
+  ],
+  "atlantic-ocean": [
+    {
+      "featureName": "Mid-Atlantic Ridge",
+      "alt": "Mid-Atlantic Ridge — atlantic ocean",
+      "caption": "Mid-Atlantic Ridge",
+      "photographer": "NOAA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAtlantic_bathymetry.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Atlantic bathymetry.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Atlantic bathymetry.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d67e6d14299843e2178ea66a54d12d94ec2be0cf1264d30c0cedd0639695fb24",
+      "width": 4000,
+      "height": 5000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/atlantic-ocean/w640.jpg",
+          "bytes": 148527
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/atlantic-ocean/w1280.jpg",
+          "bytes": 619737
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/atlantic-ocean/w2048.jpg",
+          "bytes": 1733628
+        }
+      ]
+    },
+    {
+      "featureName": "Thingvellir rift",
+      "alt": "Thingvellir rift — atlantic ocean",
+      "caption": "Thingvellir rift",
+      "photographer": "Bar Harel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIceland's_Mid-Atlantic_Ridge_during_snow.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Iceland's Mid-Atlantic Ridge during snow.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Iceland's Mid-Atlantic Ridge during snow.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "dd32c4285b122be0c9dd615b90c6b942fa363da8b0f1c5539b7890ddee9e6bff",
+      "width": 5975,
+      "height": 3609,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/atlantic-ocean/w640-2.jpg",
+          "bytes": 71063
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/atlantic-ocean/w1280-2.jpg",
+          "bytes": 180334
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/atlantic-ocean/w2048-2.jpg",
+          "bytes": 460085
+        }
+      ]
+    },
+    {
+      "featureName": "Gulf Stream",
+      "alt": "Gulf Stream — atlantic ocean",
+      "caption": "Gulf Stream",
+      "photographer": "NASA/Goddard Space Flight Center",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGulf_Stream_meander.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Gulf Stream meander.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Gulf Stream meander.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7d3e4f0340fbb4a0529aad32c03ef2a1ece3c7638ce411ffb262abd2c133ff39",
+      "width": 6840,
+      "height": 2304,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/atlantic-ocean/w640-3.jpg",
+          "bytes": 34367
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/atlantic-ocean/w1280-3.jpg",
+          "bytes": 137645
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/atlantic-ocean/w2048-3.jpg",
+          "bytes": 410608
+        }
+      ]
+    }
+  ],
+  "indian-ocean": [
+    {
+      "featureName": "Monsoon circulation",
+      "alt": "Monsoon circulation — indian ocean",
+      "caption": "Monsoon circulation",
+      "photographer": "Matthew Fontaine Maury et al. / Library of Congress",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMonsoon_%26_trade_wind_chart_of_the_Indian_Ocean_LOC_2009575919.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Monsoon & trade wind chart of the Indian Ocean LOC 2009575919.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Monsoon & trade wind chart of the Indian Ocean LOC 2009575919.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5ed34d8fcf85ed6ea6b82ea023e1e2dad2a04bf892035d69ee741606fd64170c",
+      "width": 10907,
+      "height": 5209,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/indian-ocean/w640.jpg",
+          "bytes": 50404
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/indian-ocean/w1280.jpg",
+          "bytes": 182934
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/indian-ocean/w2048.jpg",
+          "bytes": 478744
+        }
+      ]
+    },
+    {
+      "featureName": "Agulhas Current",
+      "alt": "Agulhas Current — indian ocean",
+      "caption": "Agulhas Current",
+      "photographer": "Oggmus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABenguela_and_Agulhas_Currents.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Benguela and Agulhas Currents.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Benguela and Agulhas Currents.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "cb9425604549cf5b6cb8d43e949ea7f9ab460ee30d6afc557aad3e9535f527f7",
+      "width": 4920,
+      "height": 5368,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/indian-ocean/w640-2.jpg",
+          "bytes": 51590
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/indian-ocean/w1280-2.jpg",
+          "bytes": 124469
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/indian-ocean/w2048-2.jpg",
+          "bytes": 256092
+        }
+      ]
+    },
+    {
+      "featureName": "Bay of Bengal",
+      "alt": "Bay of Bengal — indian ocean",
+      "caption": "Bay of Bengal",
+      "photographer": "Riaz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABay_of_Bengal_at_Moheshkhali_Point_02.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Bay of Bengal at Moheshkhali Point 02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Bay of Bengal at Moheshkhali Point 02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d06d390d47f6977b207ad25b8d1d7da814e6f824ace0baf48bb4c4229cc8ec2c",
+      "width": 4080,
+      "height": 2296,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/indian-ocean/w640-3.jpg",
+          "bytes": 9297
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/indian-ocean/w1280-3.jpg",
+          "bytes": 32055
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/indian-ocean/w2048-3.jpg",
+          "bytes": 109583
+        }
+      ]
+    }
+  ],
+  "arctic-ocean": [
+    {
+      "featureName": "Arctic sea ice",
+      "alt": "Arctic sea ice — arctic ocean",
+      "caption": "Arctic sea ice",
+      "photographer": "Jeff Schmaltz / NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASea_Ice_off_Baffin_Island.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Sea Ice off Baffin Island.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Sea Ice off Baffin Island.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "13988376093b74a69e6fecb86de4fbbda2f7f1879f2bbddabd215853b40198ba",
+      "width": 4400,
+      "height": 6000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/arctic-ocean/w640.jpg",
+          "bytes": 89832
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/arctic-ocean/w1280.jpg",
+          "bytes": 315089
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/arctic-ocean/w2048.jpg",
+          "bytes": 870451
+        }
+      ]
+    },
+    {
+      "featureName": "Pack ice",
+      "alt": "Pack ice — arctic ocean",
+      "caption": "Pack ice",
+      "photographer": "AWeith",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AArctic_pack_ice_at_81%C2%B0_north.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Arctic pack ice at 81° north.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Arctic pack ice at 81° north.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a11bc4ec69b52c2de93fd185152664a6e3945ad4799454cd99d0fc9b64d2afa8",
+      "width": 5580,
+      "height": 3139,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/arctic-ocean/w640-2.jpg",
+          "bytes": 70089
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/arctic-ocean/w1280-2.jpg",
+          "bytes": 157039
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/arctic-ocean/w2048-2.jpg",
+          "bytes": 350604
+        }
+      ]
+    },
+    {
+      "featureName": "Arctic mosaic",
+      "alt": "Arctic mosaic — arctic ocean",
+      "caption": "Arctic mosaic",
+      "photographer": "NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMosaic_of_the_Arctic.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Mosaic of the Arctic.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mosaic of the Arctic.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "80025cf8ab73e123cfb2b8e182d8fc51c7b3017725c32121429fec87db4c9aab",
+      "width": 5000,
+      "height": 3333,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/arctic-ocean/w640-3.jpg",
+          "bytes": 30746
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/arctic-ocean/w1280-3.jpg",
+          "bytes": 106510
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/arctic-ocean/w2048-3.jpg",
+          "bytes": 299484
+        }
+      ]
+    }
+  ],
+  "southern-ocean": [
+    {
+      "featureName": "Antarctic Circumpolar Current",
+      "alt": "Antarctic Circumpolar Current — southern ocean",
+      "caption": "Antarctic Circumpolar Current",
+      "photographer": "EdoB99",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFlow_from_the_Antarctic_Circumpolar_Current_to_the_other_ocean_basins.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Flow from the Antarctic Circumpolar Current to the other ocean basins.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Flow from the Antarctic Circumpolar Current to the other ocean basins.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1e5b5c48af398fe3056e00322914a2f0bcfc5a0d778da42960da390792a4d1ad",
+      "width": 15496,
+      "height": 10040,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/southern-ocean/w640.jpg",
+          "bytes": 55494
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/southern-ocean/w1280.jpg",
+          "bytes": 146031
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/southern-ocean/w2048.jpg",
+          "bytes": 324748
+        }
+      ]
+    },
+    {
+      "featureName": "Drake Passage",
+      "alt": "Drake Passage — southern ocean",
+      "caption": "Drake Passage",
+      "photographer": "W. Bulach",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A00_1922_Drake_Passage_-_(South_America_-_Antarctic).jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:00 1922 Drake Passage - (South America - Antarctic).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:00 1922 Drake Passage - (South America - Antarctic).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6b400b2c8b08ce3cb5d1f6d15a9ec72985a35aa1a7ac261741c2be459f6da70d",
+      "width": 2409,
+      "height": 1600,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/southern-ocean/w640-2.jpg",
+          "bytes": 42777
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/southern-ocean/w1280-2.jpg",
+          "bytes": 122571
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/southern-ocean/w2048-2.jpg",
+          "bytes": 372198
+        }
+      ]
+    },
+    {
+      "featureName": "Weddell Sea",
+      "alt": "Weddell Sea — southern ocean",
+      "caption": "Weddell Sea",
+      "photographer": "INPE / Coordenação-Geral de Observação da Terra",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWeddell_Sea%2C_Antartica.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Weddell Sea, Antartica.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Weddell Sea, Antartica.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "152672a8cfb9480265717bfcfeadfe2d2be4ac50fe1dd8a5b1a9e34a752984a4",
+      "width": 10457,
+      "height": 5882,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/southern-ocean/w640-3.jpg",
+          "bytes": 56145
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/southern-ocean/w1280-3.jpg",
+          "bytes": 214690
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/southern-ocean/w2048-3.jpg",
+          "bytes": 603549
+        }
+      ]
+    }
+  ]
+}

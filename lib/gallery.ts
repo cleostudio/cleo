@@ -1,10 +1,16 @@
 import { allAtlasEntries, atlasRegions } from '~/lib/atlas'
 import { citySubjects } from '~/lib/cities'
 import { civilizationSubjects } from '~/lib/civilizations'
+import { oceanSubjects } from '~/lib/oceans'
 import type { StaticPhoto } from '~/lib/static-photo'
 import { spaceSubjects } from '~/lib/space'
 
-export type GalleryCollection = 'places' | 'space' | 'civilizations' | 'cities'
+export type GalleryCollection =
+  | 'places'
+  | 'space'
+  | 'civilizations'
+  | 'cities'
+  | 'oceans'
 
 export interface GalleryItem {
   id: string
@@ -12,9 +18,9 @@ export interface GalleryItem {
   href: string
   /** Featured place / feature name on the tile. */
   title: string
-  /** Country, space-subject, civilization, or city name under the title. */
+  /** Country, space-subject, civilization, city, or ocean name under the title. */
   subtitle: string
-  /** Region (places), category (space), or category (civilizations/cities). */
+  /** Region (places) or category (space/civilizations/cities/oceans). */
   filterKey: string
   photo: StaticPhoto
 }
@@ -96,7 +102,19 @@ function topicPhotoItems(includeAllPhotos: boolean): GalleryItem[] {
     })),
   )
 
-  return [...places, ...space, ...civilizations, ...cities]
+  const oceans: GalleryItem[] = oceanSubjects.flatMap((subject) =>
+    (includeAllPhotos ? subject.photos : [subject.photos[0]]).map((photo, index) => ({
+      id: `oceans:${subject.slug}${index === 0 ? '' : `:${index + 1}`}`,
+      collection: 'oceans' as const,
+      href: `/oceans/${subject.slug}`,
+      title: photo.featureName,
+      subtitle: subject.name,
+      filterKey: subject.category,
+      photo,
+    })),
+  )
+
+  return [...places, ...space, ...civilizations, ...cities, ...oceans]
 }
 
 /**
@@ -128,14 +146,18 @@ export function galleryFilterKeys(): string[] {
   const cityCategories = [
     ...new Set(citySubjects.map((subject) => subject.category)),
   ]
+  const oceanCategories = [
+    ...new Set(oceanSubjects.map((subject) => subject.category)),
+  ]
   return [
     ...placeRegions,
     ...spaceCategories,
     ...civilizationCategories,
     ...cityCategories,
+    ...oceanCategories,
   ]
 }
 
 export function galleryDescription(count: number): string {
-  return `${count} curated photographs — places from Explore, bodies from Space, sites from Civilizations, and views from Cities.`
+  return `${count} curated photographs — places from Explore, bodies from Space, sites from Civilizations, views from Cities, and basins from Oceans.`
 }

@@ -1,6 +1,7 @@
 import { citySubjects } from '~/lib/cities'
 import { civilizationSubjects } from '~/lib/civilizations'
 import { countries } from '~/lib/countries'
+import { oceanSubjects } from '~/lib/oceans'
 import { spaceSubjects } from '~/lib/space'
 
 /** Knowledge collections shown on /topics. Expand this list as new topics ship. */
@@ -22,6 +23,7 @@ export function allTopics(): Topic[] {
   const spaceCount = spaceSubjects.length
   const civilizationCount = civilizationSubjects.length
   const cityCount = citySubjects.length
+  const oceanCount = oceanSubjects.length
   return [
     {
       slug: 'countries',
@@ -60,6 +62,16 @@ export function allTopics(): Topic[] {
         'Evergreen field guides for capitals and route cities — orientation, signature sites, facts, sources, and curated photographs.',
       tally: `${cityCount} guides`,
       href: '/cities',
+      secondaryHref: '/gallery',
+      secondaryLabel: 'Gallery',
+    },
+    {
+      slug: 'oceans',
+      name: 'Oceans',
+      description:
+        'Evergreen field guides for world ocean basins and polar seas — orientation, features, facts, sources, and curated photographs.',
+      tally: `${oceanCount} guides`,
+      href: '/oceans',
       secondaryHref: '/gallery',
       secondaryLabel: 'Gallery',
     },

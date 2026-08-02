@@ -1,29 +1,30 @@
 /**
  * Sanitize assistant Markdown so Cleo cannot invent
- * Explore/Space/Civilizations/Cities guide paths or curated image URLs that
+ * Explore/Space/Civilizations/Cities/Oceans guide paths or curated image URLs that
  * are not in the site catalog.
  */
 
 import { getAtlasEntry } from "~/lib/atlas"
 import { getCitySubject } from "~/lib/cities"
 import { getCivilizationSubject } from "~/lib/civilizations"
+import { getOceanSubject } from "~/lib/oceans"
 import { getSpaceSubject } from "~/lib/space"
 
-type GuideCollection = "explore" | "space" | "civilizations" | "cities"
+type GuideCollection = "explore" | "space" | "civilizations" | "cities" | "oceans"
 
 /** Inline guide links, including optional title / angle-bracket destinations. */
 const MARKDOWN_GUIDE_LINK =
-  /\[([^\]]*)\]\(\s*<?(\/(explore|space|civilizations|cities)\/([a-z0-9-]+))>?(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/gi
+  /\[([^\]]*)\]\(\s*<?(\/(explore|space|civilizations|cities|oceans)\/([a-z0-9-]+))>?(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/gi
 
 /** Reference definitions: `[id]: /explore/slug "title"`. */
 const MARKDOWN_GUIDE_REF_DEF =
-  /^[ \t]*\[([^\]]+)\]:[ \t]*<?(\/(explore|space|civilizations|cities)\/([a-z0-9-]+))>?(?:[ \t]+(?:"[^"]*"|'[^']*'|\([^)]*\)))?[ \t]*$/gim
+  /^[ \t]*\[([^\]]+)\]:[ \t]*<?(\/(explore|space|civilizations|cities|oceans)\/([a-z0-9-]+))>?(?:[ \t]+(?:"[^"]*"|'[^']*'|\([^)]*\)))?[ \t]*$/gim
 
 const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
 
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space|civilizations|cities)\/([a-z0-9-]+)\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
+  /^\/images\/(atlas|space|civilizations|cities|oceans)\/([a-z0-9-]+)\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
 function guideExists(collection: GuideCollection, slug: string) {
   if (collection === "explore") {
@@ -34,6 +35,9 @@ function guideExists(collection: GuideCollection, slug: string) {
   }
   if (collection === "cities") {
     return Boolean(getCitySubject(slug))
+  }
+  if (collection === "oceans") {
+    return Boolean(getOceanSubject(slug))
   }
   return Boolean(getSpaceSubject(slug))
 }
@@ -61,6 +65,14 @@ function curatedImageExists(src: string) {
   }
   if (collection === "cities") {
     const subject = getCitySubject(slug)
+    return Boolean(
+      subject?.photos.some((photo) =>
+        photo.renditions.some((rendition) => rendition.src === src),
+      ),
+    )
+  }
+  if (collection === "oceans") {
+    const subject = getOceanSubject(slug)
     return Boolean(
       subject?.photos.some((photo) =>
         photo.renditions.some((rendition) => rendition.src === src),
@@ -100,7 +112,8 @@ export function sanitizePortalMarkdown(markdown: string): string {
         (collection === "explore" ||
           collection === "space" ||
           collection === "civilizations" ||
-          collection === "cities") &&
+          collection === "cities" ||
+          collection === "oceans") &&
         guideExists(collection, slug)
       ) {
         return `[${id}]: ${href}`
@@ -134,7 +147,8 @@ export function sanitizePortalMarkdown(markdown: string): string {
         src.startsWith("/images/atlas/") ||
         src.startsWith("/images/space/") ||
         src.startsWith("/images/civilizations/") ||
-        src.startsWith("/images/cities/")
+        src.startsWith("/images/cities/") ||
+        src.startsWith("/images/oceans/")
       ) {
         return alt.trim() || ""
       }
@@ -150,7 +164,8 @@ export function sanitizePortalMarkdown(markdown: string): string {
           (collection === "explore" ||
             collection === "space" ||
             collection === "civilizations" ||
-            collection === "cities") &&
+            collection === "cities" ||
+            collection === "oceans") &&
           guideExists(collection, slug)
         ) {
           return `[${label}](${href})`
@@ -185,7 +200,8 @@ export function hasInventedPortalPaths(markdown: string): boolean {
       (src.startsWith("/images/atlas/") ||
         src.startsWith("/images/space/") ||
         src.startsWith("/images/civilizations/") ||
-        src.startsWith("/images/cities/")) &&
+        src.startsWith("/images/cities/") ||
+        src.startsWith("/images/oceans/")) &&
       !curatedImageExists(src)
     ) {
       return true

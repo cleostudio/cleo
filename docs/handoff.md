@@ -22,8 +22,10 @@ General-knowledge portal:
 - **Cities** — capital and route-city field guides at `/cities` and
   `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; eleven
   guides)
+- **Oceans** — world ocean basin and polar-sea field guides at `/oceans` and
+  `/oceans/[slug]` (Pacific, Atlantic, Indian, Arctic, Southern)
 - **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations,
-  Cities)
+  Cities, Oceans)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)
 - **Cleo** — browser-only agent at `/cleo`, OpenAI only
 - **Account** — Better Auth email/password on Neon (`/sign-in`, `/sign-up`,
@@ -47,12 +49,13 @@ reuse.
 | Space | `lib/space.ts`, `content/space-photos.json`, `/space` |
 | Civilizations | `lib/civilizations.ts`, `content/civilizations-photos.json`, `/civilizations` |
 | Cities | `lib/cities.ts`, `content/cities-photos.json`, `/cities` |
+| Oceans | `lib/oceans.ts`, `content/oceans-photos.json`, `/oceans` |
 | Gallery | `lib/gallery.ts`, `/gallery` (`galleryItemDomId` + `place-gallery-target`) |
 | Homepage doorways | `components/nav-cards.tsx`, `.nav-card` / `.nc-*` in `app/globals.css` |
 | Homepage search | `lib/site-search-catalog.ts`, `lib/site-search.ts`, `components/home-site-search.tsx` |
 | Cleo | `components/cleo/*`, `lib/cleo/*`, `POST /api/responses` |
 | Auth | `lib/auth.ts`, `lib/db/*`, `/api/auth/[...all]`, `/sign-in` |
-| Place images | `public/images/atlas/`, `public/images/space/`, `public/images/civilizations/`, `public/images/cities/` (static `srcset`) |
+| Place images | `public/images/atlas/`, `public/images/space/`, `public/images/civilizations/`, `public/images/cities/`, `public/images/oceans/` (static `srcset`) |
 | Country prose | `scripts/atlas/atlas-about.json` via `pnpm write:atlas-about` |
 | Env | `OPENAI_API_KEY`; Neon `DATABASE_URL` + `BETTER_AUTH_SECRET` for account; optional `PUBLIC_SITE_URL` / `SITE_URL` (`.env.example`) |
 | Social seeds | `content/social.json`, `content/github.json` (components retained; not in chrome) |
@@ -60,7 +63,7 @@ reuse.
 Deep runbooks: [`cleo.md`](./cleo.md), [`homepage-search.md`](./homepage-search.md),
 [`atlas.md`](./atlas.md), [`space.md`](./space.md),
 [`civilizations.md`](./civilizations.md), [`cities.md`](./cities.md),
-[`auth.md`](./auth.md).
+[`oceans.md`](./oceans.md), [`auth.md`](./auth.md).
 
 ## Design
 

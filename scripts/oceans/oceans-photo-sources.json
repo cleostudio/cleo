@@ -1,0 +1,162 @@
+{
+  "pacific-ocean": [
+    {
+      "commonsTitle": "File:Aerial View of Great Barrier Reef (Ank Kumar) 02.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Aerial_View_of_Great_Barrier_Reef_%28Ank_Kumar%29_02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAerial_View_of_Great_Barrier_Reef_(Ank_Kumar)_02.jpg",
+      "photographer": "Ank Kumar",
+      "license": "CC BY-SA 4.0",
+      "width": 6000,
+      "height": 4000,
+      "featureName": "Great Barrier Reef"
+    },
+    {
+      "commonsTitle": "File:Ring of Fire - Feuerring.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Ring_of_Fire_-_Feuerring.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARing_of_Fire_-_Feuerring.jpg",
+      "photographer": "Alexander Gerst",
+      "license": "CC BY-SA 2.0",
+      "width": 5568,
+      "height": 3712,
+      "featureName": "Pacific Ring of Fire"
+    },
+    {
+      "commonsTitle": "File:ISS034E016601 - Stratocumulus Clouds - Pacific Ocean.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/ISS034E016601_-_Stratocumulus_Clouds_-_Pacific_Ocean.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AISS034E016601_-_Stratocumulus_Clouds_-_Pacific_Ocean.jpg",
+      "photographer": "ISS Expedition 34 / NASA",
+      "license": "Public domain",
+      "width": 4256,
+      "height": 2832,
+      "featureName": "Open Pacific"
+    }
+  ],
+  "atlantic-ocean": [
+    {
+      "commonsTitle": "File:Atlantic bathymetry.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Atlantic_bathymetry.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAtlantic_bathymetry.jpg",
+      "photographer": "NOAA",
+      "license": "Public domain",
+      "width": 4000,
+      "height": 5000,
+      "featureName": "Mid-Atlantic Ridge"
+    },
+    {
+      "commonsTitle": "File:Iceland's Mid-Atlantic Ridge during snow.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Iceland%27s_Mid-Atlantic_Ridge_during_snow.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIceland's_Mid-Atlantic_Ridge_during_snow.jpg",
+      "photographer": "Bar Harel",
+      "license": "CC BY-SA 4.0",
+      "width": 5975,
+      "height": 3609,
+      "featureName": "Thingvellir rift"
+    },
+    {
+      "commonsTitle": "File:Gulf Stream meander.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Gulf_Stream_meander.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGulf_Stream_meander.jpg",
+      "photographer": "NASA/Goddard Space Flight Center",
+      "license": "Public domain",
+      "width": 6840,
+      "height": 2304,
+      "featureName": "Gulf Stream"
+    }
+  ],
+  "indian-ocean": [
+    {
+      "commonsTitle": "File:Monsoon & trade wind chart of the Indian Ocean LOC 2009575919.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Monsoon_%26_trade_wind_chart_of_the_Indian_Ocean_LOC_2009575919.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMonsoon_%26_trade_wind_chart_of_the_Indian_Ocean_LOC_2009575919.jpg",
+      "photographer": "Matthew Fontaine Maury et al. / Library of Congress",
+      "license": "Public domain",
+      "width": 10907,
+      "height": 5209,
+      "featureName": "Monsoon circulation"
+    },
+    {
+      "commonsTitle": "File:Benguela and Agulhas Currents.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Benguela_and_Agulhas_Currents.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABenguela_and_Agulhas_Currents.jpg",
+      "photographer": "Oggmus",
+      "license": "CC BY-SA 4.0",
+      "width": 4920,
+      "height": 5368,
+      "featureName": "Agulhas Current"
+    },
+    {
+      "commonsTitle": "File:Bay of Bengal at Moheshkhali Point 02.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Bay_of_Bengal_at_Moheshkhali_Point_02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABay_of_Bengal_at_Moheshkhali_Point_02.jpg",
+      "photographer": "Riaz",
+      "license": "CC BY-SA 4.0",
+      "width": 4080,
+      "height": 2296,
+      "featureName": "Bay of Bengal"
+    }
+  ],
+  "arctic-ocean": [
+    {
+      "commonsTitle": "File:Sea Ice off Baffin Island.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Sea_Ice_off_Baffin_Island.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASea_Ice_off_Baffin_Island.jpg",
+      "photographer": "Jeff Schmaltz / NASA",
+      "license": "Public domain",
+      "width": 4400,
+      "height": 6000,
+      "featureName": "Arctic sea ice"
+    },
+    {
+      "commonsTitle": "File:Arctic pack ice at 81° north.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Arctic_pack_ice_at_81%C2%B0_north.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AArctic_pack_ice_at_81%C2%B0_north.jpg",
+      "photographer": "AWeith",
+      "license": "CC BY-SA 4.0",
+      "width": 5580,
+      "height": 3139,
+      "featureName": "Pack ice"
+    },
+    {
+      "commonsTitle": "File:Mosaic of the Arctic.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Mosaic_of_the_Arctic.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMosaic_of_the_Arctic.jpg",
+      "photographer": "NASA",
+      "license": "Public domain",
+      "width": 5000,
+      "height": 3333,
+      "featureName": "Arctic mosaic"
+    }
+  ],
+  "southern-ocean": [
+    {
+      "commonsTitle": "File:Flow from the Antarctic Circumpolar Current to the other ocean basins.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Flow_from_the_Antarctic_Circumpolar_Current_to_the_other_ocean_basins.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFlow_from_the_Antarctic_Circumpolar_Current_to_the_other_ocean_basins.jpg",
+      "photographer": "EdoB99",
+      "license": "CC BY-SA 4.0",
+      "width": 15496,
+      "height": 10040,
+      "featureName": "Antarctic Circumpolar Current"
+    },
+    {
+      "commonsTitle": "File:00 1922 Drake Passage - (South America - Antarctic).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/00_1922_Drake_Passage_-_%28South_America_-_Antarctic%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A00_1922_Drake_Passage_-_(South_America_-_Antarctic).jpg",
+      "photographer": "W. Bulach",
+      "license": "CC BY-SA 4.0",
+      "width": 2409,
+      "height": 1600,
+      "featureName": "Drake Passage"
+    },
+    {
+      "commonsTitle": "File:Weddell Sea, Antartica.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Weddell_Sea%2C_Antartica.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWeddell_Sea%2C_Antartica.jpg",
+      "photographer": "INPE / Coordenação-Geral de Observação da Terra",
+      "license": "CC BY-SA 2.0",
+      "width": 10457,
+      "height": 5882,
+      "featureName": "Weddell Sea"
+    }
+  ]
+}
