@@ -92,6 +92,15 @@ const publicPages = [
     'Cities · Cleo. Evergreen field guides for capitals and route cities — orientation, signature sites, facts, and sources.',
   ),
   englishPage(
+    '/oceans',
+    {
+      title: 'Oceans',
+      description:
+        'Evergreen field guides for world ocean basins and polar seas — orientation, features, circulation, and sources.',
+    },
+    'Oceans · Cleo. Evergreen field guides for world ocean basins and polar seas — orientation, features, circulation, and sources.',
+  ),
+  englishPage(
     '/cleo',
     {
       title: 'Cleo',

@@ -20,6 +20,7 @@ const PUBLIC_SECTIONS = new Set<PublicSection>([
   'space',
   'civilizations',
   'cities',
+  'oceans',
   'topics',
   'projects',
 ])

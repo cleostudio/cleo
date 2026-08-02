@@ -35,7 +35,9 @@ export function PhotoZoomDetails({
         ? 'Civilization'
         : collection === 'cities'
           ? 'City'
-          : 'Subject'
+          : collection === 'oceans'
+            ? 'Ocean'
+            : 'Subject'
   const fields = [
     { label: titleLabel, value: title },
     { label: subjectLabel, value: subtitle },

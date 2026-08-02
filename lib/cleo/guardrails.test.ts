@@ -26,6 +26,21 @@ describe("portal markdown guardrails", () => {
     expect(hasInventedPortalPaths(markdown)).toBe(true)
   })
 
+  it("keeps real Oceans guide links and curated ocean photos", () => {
+    const markdown =
+      "See [Pacific Ocean](/oceans/pacific-ocean) and ![Great Barrier Reef](/images/oceans/pacific-ocean/w1280.jpg)."
+
+    expect(sanitizePortalMarkdown(markdown)).toBe(markdown)
+    expect(hasInventedPortalPaths(markdown)).toBe(false)
+  })
+
+  it("strips invented Oceans guide links", () => {
+    const markdown = "Visit [Panthalassa](/oceans/panthalassa) sometime."
+
+    expect(sanitizePortalMarkdown(markdown)).toBe("Visit Panthalassa sometime.")
+    expect(hasInventedPortalPaths(markdown)).toBe(true)
+  })
+
   it("strips invented guide links to plain labels", () => {
     const markdown = "Visit [Atlantis](/explore/atlantis) sometime."
 

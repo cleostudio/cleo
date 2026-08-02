@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { citySubjects } from './cities'
 import { civilizationSubjects } from './civilizations'
 import { countries } from './countries'
+import { oceanSubjects } from './oceans'
 import {
   allGalleryItems,
   allTopicPhotoItems,
@@ -18,17 +19,20 @@ describe('gallery catalog', () => {
       countries.length +
         spaceSubjects.length +
         civilizationSubjects.length +
-        citySubjects.length,
+        citySubjects.length +
+        oceanSubjects.length,
     )
     expect(items.some((item) => item.collection === 'places')).toBe(true)
     expect(items.some((item) => item.collection === 'space')).toBe(true)
     expect(items.some((item) => item.collection === 'civilizations')).toBe(true)
     expect(items.some((item) => item.collection === 'cities')).toBe(true)
+    expect(items.some((item) => item.collection === 'oceans')).toBe(true)
     expect(items.some((item) => item.href === '/space/mars')).toBe(true)
     expect(items.some((item) => item.href === '/civilizations/ancient-egypt')).toBe(
       true,
     )
     expect(items.some((item) => item.href === '/cities/istanbul')).toBe(true)
+    expect(items.some((item) => item.href === '/oceans/pacific-ocean')).toBe(true)
     expect(items.some((item) => item.id === 'places:japan:2')).toBe(false)
     expect(items.some((item) => item.id === 'space:mars:3')).toBe(false)
     expect(
@@ -46,13 +50,17 @@ describe('gallery catalog', () => {
       (countries.length +
         spaceSubjects.length +
         civilizationSubjects.length +
-        citySubjects.length) *
+        citySubjects.length +
+        oceanSubjects.length) *
         3,
     )
     expect(items.some((item) => item.id === 'places:japan:2')).toBe(true)
     expect(items.some((item) => item.id === 'space:mars:3')).toBe(true)
     expect(items.some((item) => item.id === 'civilizations:maya:3')).toBe(true)
     expect(items.some((item) => item.id === 'cities:istanbul:3')).toBe(true)
+    expect(items.some((item) => item.id === 'oceans:pacific-ocean:3')).toBe(
+      true,
+    )
   })
 
   it('exposes place regions and topic categories as filter keys', () => {
@@ -67,11 +75,13 @@ describe('gallery catalog', () => {
     expect(keys).toContain('Americas')
     expect(keys).toContain('Mediterranean & Europe')
     expect(keys).toContain('Africa & Americas')
+    expect(keys).toContain('World ocean basins')
+    expect(keys).toContain('Polar seas')
   })
 
   it('describes the combined photograph count', () => {
     expect(galleryDescription(210)).toBe(
-      '210 curated photographs — places from Explore, bodies from Space, sites from Civilizations, and views from Cities.',
+      '210 curated photographs — places from Explore, bodies from Space, sites from Civilizations, views from Cities, and basins from Oceans.',
     )
   })
 })

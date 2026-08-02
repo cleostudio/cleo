@@ -90,4 +90,23 @@ describe('PhotoZoomDetails', () => {
     expect(screen.queryByText('Feature')).toBeNull()
     expect(screen.queryByText('Civilization')).toBeNull()
   })
+
+  it('shows feature capture cells for Oceans photographs', () => {
+    render(
+      <PhotoZoomDetails
+        collection="oceans"
+        title="Great Barrier Reef"
+        subtitle="Pacific Ocean"
+        photographer="Ank Kumar"
+        license="CC BY-SA 4.0"
+      />,
+    )
+
+    expect(screen.getByText('Feature')).toBeTruthy()
+    expect(screen.getByText('Great Barrier Reef')).toBeTruthy()
+    expect(screen.getByText('Ocean')).toBeTruthy()
+    expect(screen.getByText('Pacific Ocean')).toBeTruthy()
+    expect(screen.queryByText('Place')).toBeNull()
+    expect(screen.queryByText('City')).toBeNull()
+  })
 })

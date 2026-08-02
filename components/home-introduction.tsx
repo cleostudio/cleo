@@ -5,6 +5,7 @@ import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
 import { citySubjects } from '~/lib/cities'
 import { civilizationSubjects } from '~/lib/civilizations'
+import { oceanSubjects } from '~/lib/oceans'
 import { spaceSubjects } from '~/lib/space'
 import { staticRendition } from '~/lib/static-photo'
 
@@ -359,6 +360,10 @@ function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
             <span aria-hidden>·</span>
             <span>
               <b>{citySubjects.length}</b> <T zh="城市" en="cities" />
+            </span>
+            <span aria-hidden>·</span>
+            <span>
+              <b>{oceanSubjects.length}</b> <T zh="海洋" en="oceans" />
             </span>
           </span>
         </>

@@ -276,6 +276,39 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'oceans') {
+    // Layered wave arcs for world-ocean basin guides.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <path
+            d="M40 92c24-18 48-18 72 0s48 18 72 0"
+            stroke={faint}
+            strokeWidth="1.4"
+          />
+          <path
+            d="M40 122c24-18 48-18 72 0s48 18 72 0"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path
+            d="M40 152c24-18 48-18 72 0s48 18 72 0"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <circle cx="56" cy="58" r="2" stroke={stroke} strokeWidth="1.3" />
+          <circle cx="176" cy="66" r="1.6" stroke={stroke} strokeWidth="1.3" />
+        </g>
+      </svg>
+    )
+  }
+
   if (section === 'gallery') {
     return (
       <svg

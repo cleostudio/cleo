@@ -39,6 +39,8 @@
     "validate:civilizations": "node scripts/civilizations/preflight.mjs",
     "import:cities-photos": "node scripts/cities/import-cities-photos.mjs",
     "validate:cities": "node scripts/cities/preflight.mjs",
+    "import:oceans-photos": "node scripts/oceans/import-oceans-photos.mjs",
+    "validate:oceans": "node scripts/oceans/preflight.mjs",
     "generate:cleo-topic-photo-zoom": "tsx scripts/cleo/generate-topic-photo-zoom.mjs",
     "db:generate": "pnpm exec drizzle-kit generate",
     "db:migrate": "pnpm exec drizzle-kit migrate",

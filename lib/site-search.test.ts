@@ -18,6 +18,7 @@ import {
 } from './site-search-catalog'
 import { citySubjects } from './cities'
 import { civilizationSubjects } from './civilizations'
+import { oceanSubjects } from './oceans'
 import { spaceSubjects } from './space'
 import { allTopics } from './topics'
 
@@ -48,6 +49,7 @@ describe('site search catalog', () => {
         'space',
         'civilizations',
         'cities',
+        'oceans',
         'photo',
         'writing',
         'surface',
@@ -58,6 +60,7 @@ describe('site search catalog', () => {
     expect(byKind('space')).toHaveLength(spaceSubjects.length)
     expect(byKind('civilizations')).toHaveLength(civilizationSubjects.length)
     expect(byKind('cities')).toHaveLength(citySubjects.length)
+    expect(byKind('oceans')).toHaveLength(oceanSubjects.length)
     expect(byKind('photo')).toHaveLength(allGalleryItems().length)
     expect(byKind('writing')).toHaveLength(getAllPosts().length)
 
@@ -66,6 +69,7 @@ describe('site search catalog', () => {
       '/space',
       '/civilizations',
       '/cities',
+      '/oceans',
       '/gallery',
       '/cleo',
       '/blog',
@@ -192,6 +196,14 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('andean imperial capital')[0]).toBe('/cities/cusco')
     expect(hrefs('bosphorus')[0]).toBe('/cities/istanbul')
     expect(hrefs('strait capital')[0]).toBe('/cities/istanbul')
+  })
+
+  it('finds ocean guides and their features', () => {
+    expect(hrefs('pacific ocean')[0]).toBe('/oceans/pacific-ocean')
+    expect(hrefs('atlantic ocean')[0]).toBe('/oceans/atlantic-ocean')
+    expect(hrefs('southern ocean')[0]).toBe('/oceans/southern-ocean')
+    expect(hrefs('drake passage')[0]).toBe('/oceans/southern-ocean')
+    expect(hrefs('monsoon moisture engine')[0]).toBe('/oceans/indian-ocean')
   })
 
   it('finds curated photographs by the place they show', () => {

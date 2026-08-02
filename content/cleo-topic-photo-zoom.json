@@ -18450,5 +18450,365 @@
         "width": 2048
       }
     ]
+  },
+  "oceans/pacific-ocean": {
+    "collection": "oceans",
+    "title": "Great Barrier Reef",
+    "subtitle": "Pacific Ocean",
+    "alt": "Great Barrier Reef — pacific ocean",
+    "photographer": "Ank Kumar",
+    "license": "CC BY-SA 4.0",
+    "width": 6000,
+    "height": 4000,
+    "renditions": [
+      {
+        "src": "/images/oceans/pacific-ocean/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/pacific-ocean/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/pacific-ocean/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/pacific-ocean-2": {
+    "collection": "oceans",
+    "title": "Pacific Ring of Fire",
+    "subtitle": "Pacific Ocean",
+    "alt": "Pacific Ring of Fire — pacific ocean",
+    "photographer": "Alexander Gerst",
+    "license": "CC BY-SA 2.0",
+    "width": 5568,
+    "height": 3712,
+    "renditions": [
+      {
+        "src": "/images/oceans/pacific-ocean/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/pacific-ocean/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/pacific-ocean/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/pacific-ocean-3": {
+    "collection": "oceans",
+    "title": "Open Pacific",
+    "subtitle": "Pacific Ocean",
+    "alt": "Open Pacific — pacific ocean",
+    "photographer": "ISS Expedition 34 / NASA",
+    "license": "Public domain",
+    "width": 4256,
+    "height": 2832,
+    "renditions": [
+      {
+        "src": "/images/oceans/pacific-ocean/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/pacific-ocean/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/pacific-ocean/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/atlantic-ocean": {
+    "collection": "oceans",
+    "title": "Mid-Atlantic Ridge",
+    "subtitle": "Atlantic Ocean",
+    "alt": "Mid-Atlantic Ridge — atlantic ocean",
+    "photographer": "NOAA",
+    "license": "Public domain",
+    "width": 4000,
+    "height": 5000,
+    "renditions": [
+      {
+        "src": "/images/oceans/atlantic-ocean/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/atlantic-ocean/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/atlantic-ocean/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/atlantic-ocean-2": {
+    "collection": "oceans",
+    "title": "Thingvellir rift",
+    "subtitle": "Atlantic Ocean",
+    "alt": "Thingvellir rift — atlantic ocean",
+    "photographer": "Bar Harel",
+    "license": "CC BY-SA 4.0",
+    "width": 5975,
+    "height": 3609,
+    "renditions": [
+      {
+        "src": "/images/oceans/atlantic-ocean/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/atlantic-ocean/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/atlantic-ocean/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/atlantic-ocean-3": {
+    "collection": "oceans",
+    "title": "Gulf Stream",
+    "subtitle": "Atlantic Ocean",
+    "alt": "Gulf Stream — atlantic ocean",
+    "photographer": "NASA/Goddard Space Flight Center",
+    "license": "Public domain",
+    "width": 6840,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/oceans/atlantic-ocean/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/atlantic-ocean/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/atlantic-ocean/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/indian-ocean": {
+    "collection": "oceans",
+    "title": "Monsoon circulation",
+    "subtitle": "Indian Ocean",
+    "alt": "Monsoon circulation — indian ocean",
+    "photographer": "Matthew Fontaine Maury et al. / Library of Congress",
+    "license": "Public domain",
+    "width": 10907,
+    "height": 5209,
+    "renditions": [
+      {
+        "src": "/images/oceans/indian-ocean/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/indian-ocean/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/indian-ocean/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/indian-ocean-2": {
+    "collection": "oceans",
+    "title": "Agulhas Current",
+    "subtitle": "Indian Ocean",
+    "alt": "Agulhas Current — indian ocean",
+    "photographer": "Oggmus",
+    "license": "CC BY-SA 4.0",
+    "width": 4920,
+    "height": 5368,
+    "renditions": [
+      {
+        "src": "/images/oceans/indian-ocean/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/indian-ocean/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/indian-ocean/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/indian-ocean-3": {
+    "collection": "oceans",
+    "title": "Bay of Bengal",
+    "subtitle": "Indian Ocean",
+    "alt": "Bay of Bengal — indian ocean",
+    "photographer": "Riaz",
+    "license": "CC BY-SA 4.0",
+    "width": 4080,
+    "height": 2296,
+    "renditions": [
+      {
+        "src": "/images/oceans/indian-ocean/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/indian-ocean/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/indian-ocean/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/arctic-ocean": {
+    "collection": "oceans",
+    "title": "Arctic sea ice",
+    "subtitle": "Arctic Ocean",
+    "alt": "Arctic sea ice — arctic ocean",
+    "photographer": "Jeff Schmaltz / NASA",
+    "license": "Public domain",
+    "width": 4400,
+    "height": 6000,
+    "renditions": [
+      {
+        "src": "/images/oceans/arctic-ocean/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/arctic-ocean/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/arctic-ocean/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/arctic-ocean-2": {
+    "collection": "oceans",
+    "title": "Pack ice",
+    "subtitle": "Arctic Ocean",
+    "alt": "Pack ice — arctic ocean",
+    "photographer": "AWeith",
+    "license": "CC BY-SA 4.0",
+    "width": 5580,
+    "height": 3139,
+    "renditions": [
+      {
+        "src": "/images/oceans/arctic-ocean/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/arctic-ocean/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/arctic-ocean/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/arctic-ocean-3": {
+    "collection": "oceans",
+    "title": "Arctic mosaic",
+    "subtitle": "Arctic Ocean",
+    "alt": "Arctic mosaic — arctic ocean",
+    "photographer": "NASA",
+    "license": "Public domain",
+    "width": 5000,
+    "height": 3333,
+    "renditions": [
+      {
+        "src": "/images/oceans/arctic-ocean/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/arctic-ocean/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/arctic-ocean/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/southern-ocean": {
+    "collection": "oceans",
+    "title": "Antarctic Circumpolar Current",
+    "subtitle": "Southern Ocean",
+    "alt": "Antarctic Circumpolar Current — southern ocean",
+    "photographer": "EdoB99",
+    "license": "CC BY-SA 4.0",
+    "width": 15496,
+    "height": 10040,
+    "renditions": [
+      {
+        "src": "/images/oceans/southern-ocean/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/southern-ocean/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/southern-ocean/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/southern-ocean-2": {
+    "collection": "oceans",
+    "title": "Drake Passage",
+    "subtitle": "Southern Ocean",
+    "alt": "Drake Passage — southern ocean",
+    "photographer": "W. Bulach",
+    "license": "CC BY-SA 4.0",
+    "width": 2409,
+    "height": 1600,
+    "renditions": [
+      {
+        "src": "/images/oceans/southern-ocean/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/southern-ocean/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/southern-ocean/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/southern-ocean-3": {
+    "collection": "oceans",
+    "title": "Weddell Sea",
+    "subtitle": "Southern Ocean",
+    "alt": "Weddell Sea — southern ocean",
+    "photographer": "INPE / Coordenação-Geral de Observação da Terra",
+    "license": "CC BY-SA 2.0",
+    "width": 10457,
+    "height": 5882,
+    "renditions": [
+      {
+        "src": "/images/oceans/southern-ocean/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/southern-ocean/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/southern-ocean/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
   }
 }

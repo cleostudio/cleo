@@ -147,6 +147,32 @@ describe('topic photos', () => {
     ])
   })
 
+  it('resolves and matches Oceans guides by name and path', () => {
+    const photos = resolveTopicPhotos([
+      { collection: 'oceans', slug: 'pacific-ocean' },
+      { collection: 'oceans', slug: 'not-an-ocean' },
+    ])
+    expect(photos).toHaveLength(3)
+    expect(photos[0]).toMatchObject({
+      collection: 'oceans',
+      slug: 'pacific-ocean',
+      name: 'Pacific Ocean',
+      href: '/oceans/pacific-ocean',
+      src: '/images/oceans/pacific-ocean/w1280.jpg',
+    })
+
+    const byName = matchTopicPhotosInText('Orient me to the Pacific Ocean')
+    expect(byName.every((photo) => photo.slug === 'pacific-ocean')).toBe(true)
+
+    const byPath = matchTopicPhotosInText(
+      'Compare /oceans/atlantic-ocean with the Southern Ocean.',
+    )
+    expect([...new Set(byPath.map((photo) => photo.slug))].sort()).toEqual([
+      'atlantic-ocean',
+      'southern-ocean',
+    ])
+  })
+
   it('prefers longer country names over nested shorter ones', () => {
     const photos = matchTopicPhotosInText('What is Nigeria known for?')
     expect(photos.map((photo) => photo.slug)).toEqual([

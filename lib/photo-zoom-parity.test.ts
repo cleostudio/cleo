@@ -4,6 +4,7 @@ import { allTopicPhotoItems } from '~/lib/gallery'
 import { getAtlasEntry } from '~/lib/atlas'
 import { getCitySubject } from '~/lib/cities'
 import { getCivilizationSubject } from '~/lib/civilizations'
+import { getOceanSubject } from '~/lib/oceans'
 import { getSpaceSubject } from '~/lib/space'
 
 describe('PhotoZoomDetails field parity', () => {
@@ -65,6 +66,24 @@ describe('PhotoZoomDetails field parity', () => {
     for (const item of cities) {
       const slug = item.href.replace('/cities/', '')
       const subject = getCitySubject(slug)
+      expect(subject, slug).toBeTruthy()
+      const photo = subject!.photos.find(
+        (photo) => photo.sourceUrl === item.photo.sourceUrl,
+      )
+      expect(photo, item.id).toBeTruthy()
+      expect(item.title).toBe(photo!.featureName)
+      expect(item.subtitle).toBe(subject!.name)
+      expect(item.photo.photographer).toBe(photo!.photographer)
+      expect(item.photo.license).toBe(photo!.license)
+    }
+  })
+
+  it('gallery ocean items match Oceans topic page fields', () => {
+    const oceans = allTopicPhotoItems().filter((i) => i.collection === 'oceans')
+    expect(oceans.length).toBeGreaterThan(0)
+    for (const item of oceans) {
+      const slug = item.href.replace('/oceans/', '')
+      const subject = getOceanSubject(slug)
       expect(subject, slug).toBeTruthy()
       const photo = subject!.photos.find(
         (photo) => photo.sourceUrl === item.photo.sourceUrl,

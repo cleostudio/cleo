@@ -42,6 +42,11 @@ export const publicPageMetadata = {
     description:
       'Evergreen field guides for capitals and route cities — orientation, signature sites, facts, and sources.',
   },
+  oceans: {
+    title: 'Oceans',
+    description:
+      'Evergreen field guides for world ocean basins and polar seas — orientation, features, circulation, and sources.',
+  },
   cleo: {
     title: 'Cleo',
     description:

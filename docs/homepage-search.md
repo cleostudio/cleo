@@ -17,7 +17,7 @@ One field searches the whole portal and can hand the question to Cleo.
 ## Catalog
 
 Indexes topic collections, every country guide, every Space guide, every
-Civilizations guide, every Cities guide, the editor-selected photograph per
+Civilizations guide, every Cities guide, every Oceans guide, the editor-selected photograph per
 subject, every Writing post, and portal surfaces (including `/explore` — the
 Countries topic alone does not match the word “explore”).
 
