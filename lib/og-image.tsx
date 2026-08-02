@@ -215,6 +215,34 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'civilizations') {
+    // A stepped pyramid / ziggurat silhouette for history guides.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <path
+            d="M40 178h152M56 178l20-36h80l20 36M76 142l16-28h48l16 28M92 114l14-24h20l14 24"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path
+            d="M106 90h20M116 90v-16"
+            stroke={faint}
+            strokeWidth="1.4"
+          />
+          <circle cx="52" cy="56" r="2.2" stroke={stroke} strokeWidth="1.3" />
+          <circle cx="178" cy="64" r="1.8" stroke={stroke} strokeWidth="1.3" />
+        </g>
+      </svg>
+    )
+  }
+
   if (section === 'gallery') {
     return (
       <svg

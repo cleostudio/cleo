@@ -200,7 +200,7 @@ are short, concrete, and conversational — "为什么按钮不需要手指光�
 ## Homepage introduction
 
 The homepage opens with three short bilingual paragraphs: Cleo is a knowledge
-portal focused on countries and space for now, with more subjects over time;
+portal focused on countries, space, and civilizations, with more subjects over time;
 flip through photographs for a sense of place, or search the catalog by name;
 and a final line opens Topics, Explore, or Ask Cleo. Keep the voice natural and
 product-facing — no craft-romance phrasing, no exclusion lists. Avoid the word
@@ -917,7 +917,8 @@ index/service pages — not a centered card or marketing auth shell:
 
 ## Photo index / Gallery
 
-Media pipelines: [`atlas.md`](./atlas.md), [`space.md`](./space.md). Visual
+Media pipelines: [`atlas.md`](./atlas.md), [`space.md`](./space.md),
+[`civilizations.md`](./civilizations.md). Visual
 contract below.
 
 Photo tiles are quiet objects: no hover captions or overlays, and the only

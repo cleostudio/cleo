@@ -32,6 +32,11 @@ export const publicPageMetadata = {
     description:
       'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
   },
+  civilizations: {
+    title: 'Civilizations',
+    description:
+      'Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
+  },
   cleo: {
     title: 'Cleo',
     description:

@@ -122,7 +122,7 @@ function MarkdownComponent({
       className={cn("ai-response space-y-0", className)}
       components={{ a: MarkdownLink, img: MarkdownImage }}
       isAnimating={isAnimating}
-      // Same-site Explore/Space paths should navigate in-tab; keep external
+      // Same-site Explore/Space/Civilizations paths should navigate in-tab; keep external
       // citations as ordinary new-tab anchors instead of Streamdown's modal.
       linkSafety={{ enabled: false }}
       lineNumbers={false}

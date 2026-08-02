@@ -1,8 +1,8 @@
 /**
- * Assembles the homepage search catalog: topic collections, country and space
- * guides, curated photographs, Writing posts, and portal surfaces. Import from
- * Server Components only — it pulls every guide record, reads the post files,
- * and walks the photo manifests.
+ * Assembles the homepage search catalog: topic collections, country, space,
+ * and civilization guides, curated photographs, Writing posts, and portal
+ * surfaces. Import from Server Components only — it pulls every guide record,
+ * reads the post files, and walks the photo manifests.
  *
  * Hits stay deliberately thin. Titles, subtitles, and each kind's own
  * vocabulary are indexed by `lib/site-search.ts` on the client, so `keywords`
@@ -10,6 +10,7 @@
  */
 
 import { allAtlasEntries } from '~/lib/atlas'
+import { civilizationSubjects } from '~/lib/civilizations'
 import { buildPostRail, getAllPosts, type Post } from '~/lib/content'
 import { formatMonthYear } from '~/lib/date'
 import { allGalleryItems, galleryItemDomId } from '~/lib/gallery'
@@ -37,10 +38,22 @@ const PORTAL_SURFACES: SurfaceSeed[] = [
     keywords: 'atlas field guides places world map',
   },
   {
+    title: 'Space',
+    subtitle: 'Space guides',
+    href: '/space',
+    keywords: 'astronomy planets moons solar system',
+  },
+  {
+    title: 'Civilizations',
+    subtitle: 'History guides',
+    href: '/civilizations',
+    keywords: 'history ancient empires cultures archaeology',
+  },
+  {
     title: 'Gallery',
     subtitle: 'Photographs',
     href: '/gallery',
-    keywords: 'curated places bodies photos images',
+    keywords: 'curated places bodies sites photos images',
   },
   {
     title: 'Ask Cleo',
@@ -158,6 +171,24 @@ function spaceHits(): SiteSearchHit[] {
   )
 }
 
+function civilizationHits(): SiteSearchHit[] {
+  return civilizationSubjects.map((subject) =>
+    hit(
+      'civilizations',
+      `civilizations:${subject.slug}`,
+      subject.name,
+      `${subject.code} · ${subject.category}`,
+      `/civilizations/${subject.slug}`,
+      subject.subtitle,
+      subject.facts.kind,
+      subject.facts.heartland,
+      subject.facts.era,
+      subject.facts.writing,
+      subject.features.map((feature) => feature.name).join(' '),
+    ),
+  )
+}
+
 /**
  * The editor-selected photograph for each place and body — the same focused
  * index `/gallery` shows, so every photo result has a tile to land on.
@@ -217,6 +248,7 @@ export function buildSiteSearchHits(): SiteSearchHit[] {
     ...topicHits(),
     ...exploreHits(),
     ...spaceHits(),
+    ...civilizationHits(),
     ...photoHits(),
     ...writingHits(),
     ...surfaceHits(),
@@ -227,8 +259,10 @@ export function buildSiteSearchHits(): SiteSearchHit[] {
 const SPOTLIGHT_IDS = [
   'topic:countries',
   'topic:space',
+  'topic:civilizations',
   'explore:japan',
   'space:mars',
+  'civilizations:ancient-egypt',
   'surface:/gallery',
   'surface:/cleo',
 ]

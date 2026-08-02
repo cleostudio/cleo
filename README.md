@@ -1,13 +1,14 @@
 # Cleo
 
-**Cleo** is a general-knowledge portal. Start with countries and space; ask the
-dock chat agent at `/cleo` when you need a conversation.
+**Cleo** is a general-knowledge portal. Start with countries, space, and
+civilizations; ask the dock chat agent at `/cleo` when you need a conversation.
 
 The homepage is a neutral portal: one search bar over countries, Space bodies,
-curated photographs, Writing posts, topic collections, and site surfaces, plus
-highlighted places, topic discovery, and recent Writing. Explore field guides
-live at `/explore/[slug]`, Space at `/space/[slug]`, photographs at `/gallery`,
-topics at `/topics`, Writing at `/blog`, and the agent at `/cleo`.
+civilizations, curated photographs, Writing posts, topic collections, and site
+surfaces, plus highlighted places, topic discovery, and recent Writing. Explore
+field guides live at `/explore/[slug]`, Space at `/space/[slug]`, Civilizations
+at `/civilizations/[slug]`, photographs at `/gallery`, topics at `/topics`,
+Writing at `/blog`, and the agent at `/cleo`.
 
 Legacy `/en/...` URLs permanently redirect to the unprefixed paths.
 `/photos` → `/gallery`. `/projects` → `/topics`.
@@ -35,6 +36,7 @@ Open [http://localhost:3000](http://localhost:3000). Keep the OpenAI key,
 - MDX Writing under `content/blog/`
 - Country guides: `content/atlas.json` + static JPEGs in `public/images/atlas/`
 - Space guides: `lib/space.ts` + `content/space-photos.json` + `public/images/space/`
+- Civilizations guides: `lib/civilizations.ts` + `content/civilizations-photos.json` + `public/images/civilizations/`
 - OpenAI Responses API for `/api/responses` only
 - Better Auth (email/password) on Neon Postgres for `/sign-in` / `/account`
 - Vercel Web Analytics + Speed Insights (enable both in the Vercel dashboard)
@@ -58,7 +60,8 @@ pnpm test:unit
 pnpm build
 ```
 
-After media or manifest edits: `pnpm validate:atlas` and/or `pnpm validate:space`.
+After media or manifest edits: `pnpm validate:atlas`, `pnpm validate:space`,
+and/or `pnpm validate:civilizations`.
 
 Manually check homepage search (typing, arrows, Ask Cleo), `/cleo` streaming and
 cancellation, the dock Location preference (including denied permission), and

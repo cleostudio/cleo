@@ -9,19 +9,25 @@ import { allTopicPhotoItems } from '~/lib/gallery'
 import { staticRendition } from '~/lib/static-photo'
 
 describe('topicPhotoZoomKeyFromSrc', () => {
-  it('parses curated atlas and space paths', () => {
+  it('parses curated atlas, space, and civilizations paths', () => {
     expect(topicPhotoZoomKeyFromSrc('/images/atlas/japan/w1280.jpg')).toBe(
       'atlas/japan',
     )
     expect(topicPhotoZoomKeyFromSrc('/images/space/mars/w640.jpg')).toBe(
       'space/mars',
     )
+    expect(
+      topicPhotoZoomKeyFromSrc('/images/civilizations/ancient-egypt/w1280.jpg'),
+    ).toBe('civilizations/ancient-egypt')
     expect(topicPhotoZoomKeyFromSrc('/images/atlas/japan/w1280-2.jpg')).toBe(
       'atlas/japan-2',
     )
     expect(topicPhotoZoomKeyFromSrc('/images/space/mars/w2048-3.jpg')).toBe(
       'space/mars-3',
     )
+    expect(
+      topicPhotoZoomKeyFromSrc('/images/civilizations/maya/w2048-3.jpg'),
+    ).toBe('civilizations/maya-3')
   })
 
   it('rejects non-curated paths', () => {

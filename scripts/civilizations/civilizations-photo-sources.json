@@ -1,0 +1,98 @@
+{
+  "ancient-egypt": [
+    {
+      "commonsTitle": "File:Kheops-Pyramid.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Kheops-Pyramid.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKheops-Pyramid.jpg",
+      "photographer": "Nina",
+      "license": "CC BY 2.5",
+      "width": 1581,
+      "height": 971,
+      "featureName": "Great Pyramid of Giza"
+    },
+    {
+      "commonsTitle": "File:Templo de Karnak, Luxor, Egipto, 2022-04-03, DD 142.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Templo_de_Karnak%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_142.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATemplo_de_Karnak%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_142.jpg",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "width": 8016,
+      "height": 4295,
+      "featureName": "Karnak Temple"
+    },
+    {
+      "commonsTitle": "File:Temple of Hatshepsut.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Temple_of_Hatshepsut.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATemple_of_Hatshepsut.jpg",
+      "photographer": "Hesham Ebaid",
+      "license": "CC0",
+      "width": 5000,
+      "height": 3347,
+      "featureName": "Temple of Hatshepsut"
+    }
+  ],
+  "roman-empire": [
+    {
+      "commonsTitle": "File:Colosseo 2020.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AColosseo_2020.jpg",
+      "photographer": "FeaturedPics",
+      "license": "CC BY-SA 4.0",
+      "width": 12051,
+      "height": 8442,
+      "featureName": "Colosseum"
+    },
+    {
+      "commonsTitle": "File:Foro Romano visto dal Vittoriano Roma.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Foro_Romano_visto_dal_Vittoriano_Roma.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AForo_Romano_visto_dal_Vittoriano_Roma.jpg",
+      "photographer": "Wolfgang Moroder",
+      "license": "CC BY-SA 3.0",
+      "width": 11183,
+      "height": 6152,
+      "featureName": "Roman Forum"
+    },
+    {
+      "commonsTitle": "File:Pantheon (Rome) - Exterior 01.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Pantheon_%28Rome%29_-_Exterior_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APantheon_%28Rome%29_-_Exterior_01.jpg",
+      "photographer": "John Samuel",
+      "license": "CC BY-SA 4.0",
+      "width": 4272,
+      "height": 2848,
+      "featureName": "Pantheon"
+    }
+  ],
+  "maya": [
+    {
+      "commonsTitle": "File:Tikal Temple I 2026.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Tikal_Temple_I_2026.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATikal_Temple_I_2026.jpg",
+      "photographer": "Tikalphotos",
+      "license": "CC0",
+      "width": 3024,
+      "height": 4032,
+      "featureName": "Tikal Temple I"
+    },
+    {
+      "commonsTitle": "File:Chichen Itza 3.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/Chichen_Itza_3.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChichen_Itza_3.jpg",
+      "photographer": "Daniel Schwen",
+      "license": "CC BY-SA 4.0",
+      "width": 9771,
+      "height": 5197,
+      "featureName": "El Castillo, Chich\u00e9n Itz\u00e1"
+    },
+    {
+      "commonsTitle": "File:Temple of the Inscriptions, view from The Palace - Palenque Maya Site, Feb 2020.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Temple_of_the_Inscriptions%2C_view_from_The_Palace_-_Palenque_Maya_Site%2C_Feb_2020.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATemple_of_the_Inscriptions%2C_view_from_The_Palace_-_Palenque_Maya_Site%2C_Feb_2020.jpg",
+      "photographer": "Bernard DUPONT",
+      "license": "CC BY-SA 2.0",
+      "width": 4990,
+      "height": 3157,
+      "featureName": "Temple of the Inscriptions"
+    }
+  ]
+}

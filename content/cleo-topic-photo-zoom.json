@@ -15646,5 +15646,221 @@
         "width": 2000
       }
     ]
+  },
+  "civilizations/ancient-egypt": {
+    "collection": "civilizations",
+    "title": "Great Pyramid of Giza",
+    "subtitle": "Ancient Egypt",
+    "alt": "Great Pyramid of Giza — ancient egypt",
+    "photographer": "Nina",
+    "license": "CC BY 2.5",
+    "width": 1581,
+    "height": 971,
+    "renditions": [
+      {
+        "src": "/images/civilizations/ancient-egypt/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/ancient-egypt/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/ancient-egypt/w2048.jpg",
+        "width": 1581
+      }
+    ]
+  },
+  "civilizations/ancient-egypt-2": {
+    "collection": "civilizations",
+    "title": "Karnak Temple",
+    "subtitle": "Ancient Egypt",
+    "alt": "Karnak Temple — ancient egypt",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 8016,
+    "height": 4295,
+    "renditions": [
+      {
+        "src": "/images/civilizations/ancient-egypt/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/ancient-egypt/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/ancient-egypt/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/ancient-egypt-3": {
+    "collection": "civilizations",
+    "title": "Temple of Hatshepsut",
+    "subtitle": "Ancient Egypt",
+    "alt": "Temple of Hatshepsut — ancient egypt",
+    "photographer": "Hesham Ebaid",
+    "license": "CC0",
+    "width": 5000,
+    "height": 3347,
+    "renditions": [
+      {
+        "src": "/images/civilizations/ancient-egypt/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/ancient-egypt/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/ancient-egypt/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/roman-empire": {
+    "collection": "civilizations",
+    "title": "Colosseum",
+    "subtitle": "Roman Empire",
+    "alt": "Colosseum — roman empire",
+    "photographer": "FeaturedPics",
+    "license": "CC BY-SA 4.0",
+    "width": 12051,
+    "height": 8442,
+    "renditions": [
+      {
+        "src": "/images/civilizations/roman-empire/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/roman-empire/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/roman-empire/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/roman-empire-2": {
+    "collection": "civilizations",
+    "title": "Roman Forum",
+    "subtitle": "Roman Empire",
+    "alt": "Roman Forum — roman empire",
+    "photographer": "Wolfgang Moroder",
+    "license": "CC BY-SA 3.0",
+    "width": 11183,
+    "height": 6152,
+    "renditions": [
+      {
+        "src": "/images/civilizations/roman-empire/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/roman-empire/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/roman-empire/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/roman-empire-3": {
+    "collection": "civilizations",
+    "title": "Pantheon",
+    "subtitle": "Roman Empire",
+    "alt": "Pantheon — roman empire",
+    "photographer": "John Samuel",
+    "license": "CC BY-SA 4.0",
+    "width": 4272,
+    "height": 2848,
+    "renditions": [
+      {
+        "src": "/images/civilizations/roman-empire/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/roman-empire/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/roman-empire/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/maya": {
+    "collection": "civilizations",
+    "title": "Tikal Temple I",
+    "subtitle": "Maya",
+    "alt": "Tikal Temple I — maya",
+    "photographer": "Tikalphotos",
+    "license": "CC0",
+    "width": 4032,
+    "height": 3024,
+    "renditions": [
+      {
+        "src": "/images/civilizations/maya/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/maya/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/maya/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/maya-2": {
+    "collection": "civilizations",
+    "title": "El Castillo, Chichén Itzá",
+    "subtitle": "Maya",
+    "alt": "El Castillo, Chichén Itzá — maya",
+    "photographer": "Daniel Schwen",
+    "license": "CC BY-SA 4.0",
+    "width": 9771,
+    "height": 5197,
+    "renditions": [
+      {
+        "src": "/images/civilizations/maya/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/maya/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/maya/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/maya-3": {
+    "collection": "civilizations",
+    "title": "Temple of the Inscriptions",
+    "subtitle": "Maya",
+    "alt": "Temple of the Inscriptions — maya",
+    "photographer": "Bernard DUPONT",
+    "license": "CC BY-SA 2.0",
+    "width": 4990,
+    "height": 3157,
+    "renditions": [
+      {
+        "src": "/images/civilizations/maya/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/maya/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/maya/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
   }
 }

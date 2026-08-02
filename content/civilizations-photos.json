@@ -1,0 +1,278 @@
+{
+  "ancient-egypt": [
+    {
+      "featureName": "Great Pyramid of Giza",
+      "alt": "Great Pyramid of Giza — ancient egypt",
+      "caption": "Great Pyramid of Giza",
+      "photographer": "Nina",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKheops-Pyramid.jpg",
+      "license": "CC BY 2.5",
+      "commonsTitle": "File:Kheops-Pyramid.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Kheops-Pyramid.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "bc98a27d277b1b0c5df769560a7fc39849911b1145521690ba62fb040e187f76",
+      "width": 1581,
+      "height": 971,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/ancient-egypt/w640.jpg",
+          "bytes": 55935
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/ancient-egypt/w1280.jpg",
+          "bytes": 144982
+        },
+        {
+          "width": 1581,
+          "src": "/images/civilizations/ancient-egypt/w2048.jpg",
+          "bytes": 242301
+        }
+      ]
+    },
+    {
+      "featureName": "Karnak Temple",
+      "alt": "Karnak Temple — ancient egypt",
+      "caption": "Karnak Temple",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATemplo_de_Karnak%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_142.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Templo de Karnak, Luxor, Egipto, 2022-04-03, DD 142.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Templo de Karnak, Luxor, Egipto, 2022-04-03, DD 142.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "efc323dd348e4c8af238e4083fa4433b0c6ad0cd53f8fa4637b2c8a9b17a6062",
+      "width": 8016,
+      "height": 4295,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/ancient-egypt/w640-2.jpg",
+          "bytes": 79433
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/ancient-egypt/w1280-2.jpg",
+          "bytes": 173875
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/ancient-egypt/w2048-2.jpg",
+          "bytes": 422422
+        }
+      ]
+    },
+    {
+      "featureName": "Temple of Hatshepsut",
+      "alt": "Temple of Hatshepsut — ancient egypt",
+      "caption": "Temple of Hatshepsut",
+      "photographer": "Hesham Ebaid",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATemple_of_Hatshepsut.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Temple of Hatshepsut.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Temple of Hatshepsut.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "52c8d7f69f48b255cf09f4890c30014ef04e21448dc7b6a28430f31bc6b946c4",
+      "width": 5000,
+      "height": 3347,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/ancient-egypt/w640-3.jpg",
+          "bytes": 87078
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/ancient-egypt/w1280-3.jpg",
+          "bytes": 204798
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/ancient-egypt/w2048-3.jpg",
+          "bytes": 504869
+        }
+      ]
+    }
+  ],
+  "roman-empire": [
+    {
+      "featureName": "Colosseum",
+      "alt": "Colosseum — roman empire",
+      "caption": "Colosseum",
+      "photographer": "FeaturedPics",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AColosseo_2020.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Colosseo 2020.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Colosseo 2020.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ef3fcd9cfd1b0b10d88334b8de8353a9edd894f9732dfb1d9cd527c8abc9133c",
+      "width": 12051,
+      "height": 8442,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/roman-empire/w640.jpg",
+          "bytes": 73762
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/roman-empire/w1280.jpg",
+          "bytes": 199024
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/roman-empire/w2048.jpg",
+          "bytes": 543092
+        }
+      ]
+    },
+    {
+      "featureName": "Roman Forum",
+      "alt": "Roman Forum — roman empire",
+      "caption": "Roman Forum",
+      "photographer": "Wolfgang Moroder",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AForo_Romano_visto_dal_Vittoriano_Roma.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Foro Romano visto dal Vittoriano Roma.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Foro Romano visto dal Vittoriano Roma.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "de0b48578daa9ffb0282a8542122d9d9e68ffb557a9d8d60e6920225a9298fb1",
+      "width": 11183,
+      "height": 6152,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/roman-empire/w640-2.jpg",
+          "bytes": 75698
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/roman-empire/w1280-2.jpg",
+          "bytes": 204879
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/roman-empire/w2048-2.jpg",
+          "bytes": 533148
+        }
+      ]
+    },
+    {
+      "featureName": "Pantheon",
+      "alt": "Pantheon — roman empire",
+      "caption": "Pantheon",
+      "photographer": "John Samuel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APantheon_%28Rome%29_-_Exterior_01.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Pantheon (Rome) - Exterior 01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Pantheon (Rome) - Exterior 01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "de9d717ca8376d2cf45b48c67f5ab542a879d6bb1eace1a41b78a50c79e69f54",
+      "width": 4272,
+      "height": 2848,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/roman-empire/w640-3.jpg",
+          "bytes": 81217
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/roman-empire/w1280-3.jpg",
+          "bytes": 216522
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/roman-empire/w2048-3.jpg",
+          "bytes": 553082
+        }
+      ]
+    }
+  ],
+  "maya": [
+    {
+      "featureName": "Tikal Temple I",
+      "alt": "Tikal Temple I — maya",
+      "caption": "Tikal Temple I",
+      "photographer": "Tikalphotos",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATikal_Temple_I_2026.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Tikal Temple I 2026.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Tikal Temple I 2026.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fbb003c7b390e6385b11d452f0c506e518db15304c1daeee4f01b9c9ae87eeb8",
+      "width": 4032,
+      "height": 3024,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/maya/w640.jpg",
+          "bytes": 124561
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/maya/w1280.jpg",
+          "bytes": 398115
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/maya/w2048.jpg",
+          "bytes": 941780
+        }
+      ]
+    },
+    {
+      "featureName": "El Castillo, Chichén Itzá",
+      "alt": "El Castillo, Chichén Itzá — maya",
+      "caption": "El Castillo, Chichén Itzá",
+      "photographer": "Daniel Schwen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChichen_Itza_3.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Chichen Itza 3.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Chichen Itza 3.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "54a461e8ae8fb72aa6094e0daad064e8ec3bbf31fd8429ca610d4f387c8542c1",
+      "width": 9771,
+      "height": 5197,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/maya/w640-2.jpg",
+          "bytes": 35468
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/maya/w1280-2.jpg",
+          "bytes": 123132
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/maya/w2048-2.jpg",
+          "bytes": 347676
+        }
+      ]
+    },
+    {
+      "featureName": "Temple of the Inscriptions",
+      "alt": "Temple of the Inscriptions — maya",
+      "caption": "Temple of the Inscriptions",
+      "photographer": "Bernard DUPONT",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATemple_of_the_Inscriptions%2C_view_from_The_Palace_-_Palenque_Maya_Site%2C_Feb_2020.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Temple of the Inscriptions, view from The Palace - Palenque Maya Site, Feb 2020.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Temple of the Inscriptions, view from The Palace - Palenque Maya Site, Feb 2020.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "76881cc063bfb933e877f06f51f17845bbd0cffda3fbf0503800c1dd318e940b",
+      "width": 4990,
+      "height": 3157,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/maya/w640-3.jpg",
+          "bytes": 111528
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/maya/w1280-3.jpg",
+          "bytes": 321099
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/maya/w2048-3.jpg",
+          "bytes": 835302
+        }
+      ]
+    }
+  ]
+}

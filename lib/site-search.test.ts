@@ -16,6 +16,7 @@ import {
   buildSiteSearchHits,
   siteSearchSpotlightIds,
 } from './site-search-catalog'
+import { civilizationSubjects } from './civilizations'
 import { spaceSubjects } from './space'
 import { allTopics } from './topics'
 
@@ -40,16 +41,27 @@ describe('site search catalog', () => {
       hits.filter((entry) => entry.kind === kind)
 
     expect(new Set(hits.map((entry) => entry.kind))).toEqual(
-      new Set(['topic', 'explore', 'space', 'photo', 'writing', 'surface']),
+      new Set([
+        'topic',
+        'explore',
+        'space',
+        'civilizations',
+        'photo',
+        'writing',
+        'surface',
+      ]),
     )
     expect(byKind('topic')).toHaveLength(allTopics().length)
     expect(byKind('explore')).toHaveLength(countries.length)
     expect(byKind('space')).toHaveLength(spaceSubjects.length)
+    expect(byKind('civilizations')).toHaveLength(civilizationSubjects.length)
     expect(byKind('photo')).toHaveLength(allGalleryItems().length)
     expect(byKind('writing')).toHaveLength(getAllPosts().length)
 
     for (const href of [
       '/explore',
+      '/space',
+      '/civilizations',
       '/gallery',
       '/cleo',
       '/blog',
@@ -86,7 +98,9 @@ describe('site search catalog', () => {
 
   it('points photo hits at their gallery tile', () => {
     const photo = hits.find((entry) => entry.kind === 'photo')
-    expect(photo?.href).toMatch(/^\/gallery#photo-(places|space)-[a-z0-9-]+$/)
+    expect(photo?.href).toMatch(
+      /^\/gallery#photo-(places|space|civilizations)-[a-z0-9-]+$/,
+    )
   })
 
   it('offers spotlight ids that exist in the catalog', () => {
@@ -128,6 +142,14 @@ describe('searchSiteCatalog', () => {
         (result) => result.hit.kind === 'space' || result.hit.kind === 'photo',
       ),
     ).toBe(true)
+  })
+
+  it('finds civilization guides and their sites', () => {
+    expect(hrefs('ancient egypt')[0]).toBe('/civilizations/ancient-egypt')
+    expect(hrefs('roman empire')[0]).toBe('/civilizations/roman-empire')
+    expect(hrefs('maya')[0]).toBe('/civilizations/maya')
+    expect(hrefs('hatshepsut')[0]).toBe('/civilizations/ancient-egypt')
+    expect(hrefs('el castillo')[0]).toBe('/civilizations/maya')
   })
 
   it('finds curated photographs by the place they show', () => {

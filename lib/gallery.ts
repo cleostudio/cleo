@@ -1,8 +1,9 @@
 import { allAtlasEntries, atlasRegions } from '~/lib/atlas'
+import { civilizationSubjects } from '~/lib/civilizations'
 import type { StaticPhoto } from '~/lib/static-photo'
 import { spaceSubjects } from '~/lib/space'
 
-export type GalleryCollection = 'places' | 'space'
+export type GalleryCollection = 'places' | 'space' | 'civilizations'
 
 export interface GalleryItem {
   id: string
@@ -10,9 +11,9 @@ export interface GalleryItem {
   href: string
   /** Featured place / feature name on the tile. */
   title: string
-  /** Country or space-subject name under the title. */
+  /** Country, space-subject, or civilization name under the title. */
   subtitle: string
-  /** Region (places) or category (space). */
+  /** Region (places), category (space), or category (civilizations). */
   filterKey: string
   photo: StaticPhoto
 }
@@ -70,7 +71,19 @@ function topicPhotoItems(includeAllPhotos: boolean): GalleryItem[] {
     })),
   )
 
-  return [...places, ...space]
+  const civilizations: GalleryItem[] = civilizationSubjects.flatMap((subject) =>
+    (includeAllPhotos ? subject.photos : [subject.photos[0]]).map((photo, index) => ({
+      id: `civilizations:${subject.slug}${index === 0 ? '' : `:${index + 1}`}`,
+      collection: 'civilizations' as const,
+      href: `/civilizations/${subject.slug}`,
+      title: photo.featureName,
+      subtitle: subject.name,
+      filterKey: subject.category,
+      photo,
+    })),
+  )
+
+  return [...places, ...space, ...civilizations]
 }
 
 /**
@@ -96,9 +109,12 @@ export function galleryFilterKeys(): string[] {
   const spaceCategories = [
     ...new Set(spaceSubjects.map((subject) => subject.category)),
   ]
-  return [...placeRegions, ...spaceCategories]
+  const civilizationCategories = [
+    ...new Set(civilizationSubjects.map((subject) => subject.category)),
+  ]
+  return [...placeRegions, ...spaceCategories, ...civilizationCategories]
 }
 
 export function galleryDescription(count: number): string {
-  return `${count} curated photographs — places from Explore and bodies from Space.`
+  return `${count} curated photographs — places from Explore, bodies from Space, and sites from Civilizations.`
 }

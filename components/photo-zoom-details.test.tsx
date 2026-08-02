@@ -51,4 +51,23 @@ describe('PhotoZoomDetails', () => {
     expect(screen.queryByText('Place')).toBeNull()
     expect(screen.queryByText('Country')).toBeNull()
   })
+
+  it('shows site capture cells for Civilizations photographs', () => {
+    render(
+      <PhotoZoomDetails
+        collection="civilizations"
+        title="Colosseum"
+        subtitle="Roman Empire"
+        photographer="FeaturedPics"
+        license="CC BY-SA 4.0"
+      />,
+    )
+
+    expect(screen.getByText('Site')).toBeTruthy()
+    expect(screen.getByText('Colosseum')).toBeTruthy()
+    expect(screen.getByText('Civilization')).toBeTruthy()
+    expect(screen.getByText('Roman Empire')).toBeTruthy()
+    expect(screen.queryByText('Place')).toBeNull()
+    expect(screen.queryByText('Feature')).toBeNull()
+  })
 })

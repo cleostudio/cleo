@@ -17,15 +17,22 @@ export function PhotoZoomDetails({
   collection: GalleryCollection
   /** Featured place / feature name. */
   title: string
-  /** Country or space-subject name. */
+  /** Country, space-subject, or civilization name. */
   subtitle: string
   photographer: string
   license: string
 }) {
-  const isSpace = collection === 'space'
+  const titleLabel =
+    collection === 'places' ? 'Place' : collection === 'civilizations' ? 'Site' : 'Feature'
+  const subjectLabel =
+    collection === 'places'
+      ? 'Country'
+      : collection === 'civilizations'
+        ? 'Civilization'
+        : 'Subject'
   const fields = [
-    { label: isSpace ? 'Feature' : 'Place', value: title },
-    { label: isSpace ? 'Subject' : 'Country', value: subtitle },
+    { label: titleLabel, value: title },
+    { label: subjectLabel, value: subtitle },
     { label: 'Photograph', value: photographer },
     { label: 'License', value: license },
   ]

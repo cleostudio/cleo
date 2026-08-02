@@ -3,6 +3,7 @@ import { SitePreviewCard } from '~/components/preview-card-timing'
 import { highlightedAtlasEntries } from '~/lib/atlas'
 import { countries } from '~/lib/countries'
 import { T } from '~/lib/i18n'
+import { civilizationSubjects } from '~/lib/civilizations'
 import { spaceSubjects } from '~/lib/space'
 import { staticRendition } from '~/lib/static-photo'
 
@@ -348,6 +349,11 @@ function TopicsPreviewCard({ children }: { children: React.ReactNode }) {
             <span aria-hidden>·</span>
             <span>
               <b>{spaceSubjects.length}</b> <T zh="太空" en="space" />
+            </span>
+            <span aria-hidden>·</span>
+            <span>
+              <b>{civilizationSubjects.length}</b>{' '}
+              <T zh="文明" en="civilizations" />
             </span>
           </span>
         </>

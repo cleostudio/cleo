@@ -11,7 +11,7 @@ Read this when changing `/cleo`, `POST /api/responses`, or anything under
 | Page shell | `app/_views/cleo-page.tsx` |
 | API route | `app/api/responses/route.ts` |
 | Voice + portal catalog | `lib/cleo/instructions.ts`, `lib/cleo/portal-catalog.ts` |
-| Guardrails (strip invented Explore/Space paths) | `lib/cleo/guardrails.ts` |
+| Guardrails (strip invented Explore/Space/Civilizations paths) | `lib/cleo/guardrails.ts` |
 | Public turn rate limit | `lib/cleo/rate-limit.ts` |
 | NDJSON protocol | `lib/cleo/stream.ts` |
 | Images (server / client) | `lib/cleo/images.ts`, `lib/cleo/client-images.ts` |
@@ -65,13 +65,13 @@ Without `OPENAI_API_KEY`, the route returns HTTP 503.
 
 ## Behavior rules
 
-- Base voice + Explore/Space catalog so replies deep-link real guides.
-- Invented Explore/Space Markdown paths are stripped (`guardrails.ts`), including
+- Base voice + Explore/Space/Civilizations catalog so replies deep-link real guides.
+- Invented Explore/Space/Civilizations Markdown paths are stripped (`guardrails.ts`), including
   titled inline links, angle-bracket destinations, and reference-style forms.
 - Topic answers may embed curated atlas/space JPEGs as Markdown.
   `topic-photos.ts` grounds every image in matching subject sets each turn
   (one view, or all three when asked). The UI allowlists only
-  `/images/atlas|space/...` paths via `isCuratedTopicImageSrc`
+  `/images/atlas|space|civilizations/...` paths via `isCuratedTopicImageSrc`
   (`lib/cleo/portal-links.ts`) before Streamdown renders them.
 - Markdown topic photos and attachment/generated data-URL images use shared
   `ZoomImage`. Curated topic photos resolve Gallery-parity caption plates via
