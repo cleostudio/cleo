@@ -16147,6 +16147,78 @@
       }
     ]
   },
+  "civilizations/early-caliphates": {
+    "collection": "civilizations",
+    "title": "Umayyad Mosque",
+    "subtitle": "Early Caliphates",
+    "alt": "Umayyad Mosque — early caliphates",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3610,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/early-caliphates/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/early-caliphates/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/early-caliphates/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/early-caliphates-2": {
+    "collection": "civilizations",
+    "title": "Dome of the Rock",
+    "subtitle": "Early Caliphates",
+    "alt": "Dome of the Rock — early caliphates",
+    "photographer": "Godot13",
+    "license": "CC BY-SA 4.0",
+    "width": 7500,
+    "height": 5425,
+    "renditions": [
+      {
+        "src": "/images/civilizations/early-caliphates/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/early-caliphates/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/early-caliphates/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/early-caliphates-3": {
+    "collection": "civilizations",
+    "title": "Great Mosque of Córdoba",
+    "subtitle": "Early Caliphates",
+    "alt": "Great Mosque of Córdoba — early caliphates",
+    "photographer": "Graham Beards",
+    "license": "CC BY-SA 4.0",
+    "width": 5152,
+    "height": 3864,
+    "renditions": [
+      {
+        "src": "/images/civilizations/early-caliphates/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/early-caliphates/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/early-caliphates/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "civilizations/classical-greece": {
     "collection": "civilizations",
     "title": "Parthenon",
@@ -16939,6 +17011,78 @@
       }
     ]
   },
+  "civilizations/chola-empire": {
+    "collection": "civilizations",
+    "title": "Brihadisvara Temple",
+    "subtitle": "Chola Empire",
+    "alt": "Brihadisvara Temple — chola empire",
+    "photographer": "Vengolis",
+    "license": "CC BY-SA 4.0",
+    "width": 5074,
+    "height": 3385,
+    "renditions": [
+      {
+        "src": "/images/civilizations/chola-empire/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/chola-empire/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/chola-empire/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/chola-empire-2": {
+    "collection": "civilizations",
+    "title": "Gangaikonda Cholapuram",
+    "subtitle": "Chola Empire",
+    "alt": "Gangaikonda Cholapuram — chola empire",
+    "photographer": "Saranya Chidambaram",
+    "license": "CC BY-SA 4.0",
+    "width": 3128,
+    "height": 1819,
+    "renditions": [
+      {
+        "src": "/images/civilizations/chola-empire/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/chola-empire/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/chola-empire/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/chola-empire-3": {
+    "collection": "civilizations",
+    "title": "Airavatesvara Temple",
+    "subtitle": "Chola Empire",
+    "alt": "Airavatesvara Temple — chola empire",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 4032,
+    "height": 2688,
+    "renditions": [
+      {
+        "src": "/images/civilizations/chola-empire/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/chola-empire/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/chola-empire/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "civilizations/mongol-empire": {
     "collection": "civilizations",
     "title": "Orkhon Valley",
@@ -17079,6 +17223,78 @@
       },
       {
         "src": "/images/civilizations/classical-japan/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/olmec": {
+    "collection": "civilizations",
+    "title": "Olmec Colossal Head",
+    "subtitle": "Olmec",
+    "alt": "Olmec Colossal Head — olmec",
+    "photographer": "Infrogmation",
+    "license": "CC BY-SA 4.0",
+    "width": 4070,
+    "height": 5280,
+    "renditions": [
+      {
+        "src": "/images/civilizations/olmec/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/olmec/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/olmec/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/olmec-2": {
+    "collection": "civilizations",
+    "title": "La Venta",
+    "subtitle": "Olmec",
+    "alt": "La Venta — olmec",
+    "photographer": "Mario E. Fuente Cid",
+    "license": "CC BY 4.0",
+    "width": 3724,
+    "height": 1840,
+    "renditions": [
+      {
+        "src": "/images/civilizations/olmec/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/olmec/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/olmec/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/olmec-3": {
+    "collection": "civilizations",
+    "title": "San Lorenzo Head",
+    "subtitle": "Olmec",
+    "alt": "San Lorenzo Head — olmec",
+    "photographer": "Gary Todd",
+    "license": "CC0",
+    "width": 3456,
+    "height": 5184,
+    "renditions": [
+      {
+        "src": "/images/civilizations/olmec/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/olmec/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/olmec/w2048-3.jpg",
         "width": 2048
       }
     ]

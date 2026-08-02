@@ -798,5 +798,101 @@
       "height": 2592,
       "featureName": "Puʻukoholā Heiau"
     }
+  ],
+  "chola-empire": [
+    {
+      "commonsTitle": "File:Brihadeeswarar Temple 3624.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Brihadeeswarar_Temple_3624.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABrihadeeswarar_Temple_3624.jpg",
+      "photographer": "Vengolis",
+      "license": "CC BY-SA 4.0",
+      "width": 5074,
+      "height": 3385,
+      "featureName": "Brihadisvara Temple"
+    },
+    {
+      "commonsTitle": "File:Gangaikonda Cholapuram view.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Gangaikonda_Cholapuram_view.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGangaikonda_Cholapuram_view.jpg",
+      "photographer": "Saranya Chidambaram",
+      "license": "CC BY-SA 4.0",
+      "width": 3128,
+      "height": 1819,
+      "featureName": "Gangaikonda Cholapuram"
+    },
+    {
+      "commonsTitle": "File:Darasuram, Airavatesvara Temple, India.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Darasuram%2C_Airavatesvara_Temple%2C_India.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADarasuram%2C_Airavatesvara_Temple%2C_India.jpg",
+      "photographer": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "width": 4032,
+      "height": 2688,
+      "featureName": "Airavatesvara Temple"
+    }
+  ],
+  "olmec": [
+    {
+      "commonsTitle": "File:Parque Museo La Venta, Villahermosa Tabasco, 1977 02.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Parque_Museo_La_Venta%2C_Villahermosa_Tabasco%2C_1977_02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AParque_Museo_La_Venta%2C_Villahermosa_Tabasco%2C_1977_02.jpg",
+      "photographer": "Infrogmation",
+      "license": "CC BY-SA 4.0",
+      "width": 4070,
+      "height": 5280,
+      "featureName": "Olmec Colossal Head"
+    },
+    {
+      "commonsTitle": "File:Complejo A, Monumentos 2 y 3, sitio la Venta Tabasco.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Complejo_A%2C_Monumentos_2_y_3%2C_sitio_la_Venta_Tabasco.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AComplejo_A%2C_Monumentos_2_y_3%2C_sitio_la_Venta_Tabasco.jpg",
+      "photographer": "Mario E. Fuente Cid",
+      "license": "CC BY 4.0",
+      "width": 3724,
+      "height": 1840,
+      "featureName": "La Venta"
+    },
+    {
+      "commonsTitle": "File:Olmec Colossal Head, San Lorenzo, Veracruz, 1200-600 BC.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Olmec_Colossal_Head%2C_San_Lorenzo%2C_Veracruz%2C_1200-600_BC.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOlmec_Colossal_Head%2C_San_Lorenzo%2C_Veracruz%2C_1200-600_BC.jpg",
+      "photographer": "Gary Todd",
+      "license": "CC0",
+      "width": 3456,
+      "height": 5184,
+      "featureName": "San Lorenzo Head"
+    }
+  ],
+  "early-caliphates": [
+    {
+      "commonsTitle": "File:The Umayyad Mosque, Great Mosque of Damascus, Damascus, Syria.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/The_Umayyad_Mosque%2C_Great_Mosque_of_Damascus%2C_Damascus%2C_Syria.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Umayyad_Mosque%2C_Great_Mosque_of_Damascus%2C_Damascus%2C_Syria.jpg",
+      "photographer": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "width": 3610,
+      "height": 3000,
+      "featureName": "Umayyad Mosque"
+    },
+    {
+      "commonsTitle": "File:Jerusalem-2013(2)-Temple Mount-Dome of the Rock (SE exposure).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Jerusalem-2013%282%29-Temple_Mount-Dome_of_the_Rock_%28SE_exposure%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AJerusalem-2013(2)-Temple_Mount-Dome_of_the_Rock_(SE_exposure).jpg",
+      "photographer": "Godot13",
+      "license": "CC BY-SA 4.0",
+      "width": 7500,
+      "height": 5425,
+      "featureName": "Dome of the Rock"
+    },
+    {
+      "commonsTitle": "File:Mezquita Cordoba 3.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Mezquita_Cordoba_3.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMezquita_Cordoba_3.jpg",
+      "photographer": "Graham Beards",
+      "license": "CC BY-SA 4.0",
+      "width": 5152,
+      "height": 3864,
+      "featureName": "Great Mosque of Córdoba"
+    }
   ]
 }

@@ -16,7 +16,7 @@ General-knowledge portal:
 - **Gallery** — editor-selected featured photo per Explore place and Space body
 - **Civilizations** — historical field guides at `/civilizations` and
   `/civilizations/[slug]` (Africa & Near East, Mediterranean, Asia, Americas,
-  Oceania; twenty-five regional guides)
+  Oceania; twenty-eight regional guides)
 - **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)
 - **Cleo** — browser-only agent at `/cleo`, OpenAI only
