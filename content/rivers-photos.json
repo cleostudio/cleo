@@ -1470,5 +1470,465 @@
         }
       ]
     }
+  ],
+  "zambezi": [
+    {
+      "featureName": "Victoria Falls",
+      "alt": "Victoria Falls — zambezi",
+      "caption": "Victoria Falls",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACataratas%20Victoria,%20Zambia-Zimbabue,%202018-07-27,%20DD%2005.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Cataratas Victoria, Zambia-Zimbabue, 2018-07-27, DD 05.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Cataratas Victoria, Zambia-Zimbabue, 2018-07-27, DD 05.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "71d3a32ac46015f39995abee608b2af39f4c6cb1c86d930e38fc81c36a216b10",
+      "width": 6819,
+      "height": 3891,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/zambezi/w640.jpg",
+          "bytes": 58546
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/zambezi/w1280.jpg",
+          "bytes": 170303
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/zambezi/w2048.jpg",
+          "bytes": 450854
+        }
+      ]
+    },
+    {
+      "featureName": "Lake Kariba",
+      "alt": "Lake Kariba — zambezi",
+      "caption": "Lake Kariba",
+      "photographer": "ISS Expedition 4 Crew / NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALake%20Kariba.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Lake Kariba.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Lake Kariba.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7450684ee4074d2f5bf2d8616f183e0f122779176cb1893beb9a7726335c1db0",
+      "width": 3032,
+      "height": 2008,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/zambezi/w640-2.jpg",
+          "bytes": 36018
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/zambezi/w1280-2.jpg",
+          "bytes": 133622
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/zambezi/w2048-2.jpg",
+          "bytes": 383987
+        }
+      ]
+    },
+    {
+      "featureName": "Zambezi Delta",
+      "alt": "Zambezi Delta — zambezi",
+      "caption": "Zambezi Delta",
+      "photographer": "NASA Johnson Space Center",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AZambezi%20delta.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Zambezi delta.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Zambezi delta.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e9127c36917075a2224c51c2db99469e340d6aad8bedf45a61879aeca9b65aca",
+      "width": 5253,
+      "height": 5294,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/zambezi/w640-3.jpg",
+          "bytes": 38087
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/zambezi/w1280-3.jpg",
+          "bytes": 147394
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/zambezi/w2048-3.jpg",
+          "bytes": 580149
+        }
+      ]
+    }
+  ],
+  "orange-river": [
+    {
+      "featureName": "Orange River Canyon",
+      "alt": "Orange River Canyon — orange river",
+      "caption": "Orange River Canyon",
+      "photographer": "Bernard DUPONT",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOrange%20River%20Canyon%20...%20(6437018713).jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Orange River Canyon ... (6437018713).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Orange River Canyon ... (6437018713).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "38649e182d1410a9a44e997bebcfb91c289c2d24302df785a052d8bab6b7d82e",
+      "width": 4218,
+      "height": 2531,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/orange-river/w640.jpg",
+          "bytes": 49958
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/orange-river/w1280.jpg",
+          "bytes": 167632
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/orange-river/w2048.jpg",
+          "bytes": 446337
+        }
+      ]
+    },
+    {
+      "featureName": "Augrabies Falls",
+      "alt": "Augrabies Falls — orange river",
+      "caption": "Augrabies Falls",
+      "photographer": "NJR ZA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAugrabies%20-%20Twin%20Falls%20-%20001.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Augrabies - Twin Falls - 001.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Augrabies - Twin Falls - 001.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "705b978469deca4f490c91e90bd5f53766a63a9fea8244e74c8a2cf8001a3406",
+      "width": 2448,
+      "height": 3264,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/orange-river/w640-2.jpg",
+          "bytes": 109992
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/orange-river/w1280-2.jpg",
+          "bytes": 369119
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/orange-river/w2048-2.jpg",
+          "bytes": 928458
+        }
+      ]
+    },
+    {
+      "featureName": "Gariep Dam",
+      "alt": "Gariep Dam — orange river",
+      "caption": "Gariep Dam",
+      "photographer": "South African Tourism",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGariep%20Dam,%20Free%20State,%20South%20Africa%20(19917037743).jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Gariep Dam, Free State, South Africa (19917037743).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Gariep Dam, Free State, South Africa (19917037743).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4e5b4e9e66b48e3a6023272fa6087c58f48f224d1e09d62a98a1b9ea19e28e60",
+      "width": 4928,
+      "height": 3280,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/orange-river/w640-3.jpg",
+          "bytes": 70720
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/orange-river/w1280-3.jpg",
+          "bytes": 158330
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/orange-river/w2048-3.jpg",
+          "bytes": 397137
+        }
+      ]
+    }
+  ],
+  "senegal": [
+    {
+      "featureName": "Senegal at Dagana",
+      "alt": "Senegal at Dagana — senegal",
+      "caption": "Senegal at Dagana",
+      "photographer": "Catjacket",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AView%20of%20the%20Senegal%20River%20in%20Dagana.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:View of the Senegal River in Dagana.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:View of the Senegal River in Dagana.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8fc18616db69feff4968a99bc0874439b51ee720aeede61fabcceaa0ab53ee77",
+      "width": 4032,
+      "height": 3024,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/senegal/w640.jpg",
+          "bytes": 42884
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/senegal/w1280.jpg",
+          "bytes": 157672
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/senegal/w2048.jpg",
+          "bytes": 453067
+        }
+      ]
+    },
+    {
+      "featureName": "Rosso crossing",
+      "alt": "Rosso crossing — senegal",
+      "caption": "Rosso crossing",
+      "photographer": "WILLAV-FR",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWL-Sénégal-Rosso-Traversée%20du%20fleuve%20Sénégal.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:WL-Sénégal-Rosso-Traversée du fleuve Sénégal.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:WL-Sénégal-Rosso-Traversée du fleuve Sénégal.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a6adc808372c452ca2cc3e88239a80f472957dae33e16be4b37ac9ff0c320ad0",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/senegal/w640-2.jpg",
+          "bytes": 39174
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/senegal/w1280-2.jpg",
+          "bytes": 102699
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/senegal/w2048-2.jpg",
+          "bytes": 258421
+        }
+      ]
+    },
+    {
+      "featureName": "Senegal from orbit",
+      "alt": "Senegal from orbit — senegal",
+      "caption": "Senegal from orbit",
+      "photographer": "NASA / Apollo 6",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAS06-02-0943%20-%20Apollo%206%20-%20Apollo%206%20Mission%20Image%20-%20Mauritania%20and%20Senegal%20and%20Mali%20-%20NARA%20-%2016658566.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:AS06-02-0943 - Apollo 6 - Apollo 6 Mission Image - Mauritania and Senegal and Mali - NARA - 16658566.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:AS06-02-0943 - Apollo 6 - Apollo 6 Mission Image - Mauritania and Senegal and Mali - NARA - 16658566.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f233bf13d4ca58446c30da9386c78f2e3e281659140432c04e0cddc248b680db",
+      "width": 4400,
+      "height": 4600,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/senegal/w640-3.jpg",
+          "bytes": 42039
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/senegal/w1280-3.jpg",
+          "bytes": 102194
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/senegal/w2048-3.jpg",
+          "bytes": 261039
+        }
+      ]
+    }
+  ],
+  "limpopo": [
+    {
+      "featureName": "Limpopo channel",
+      "alt": "Limpopo channel — limpopo",
+      "caption": "Limpopo channel",
+      "photographer": "Bernard DUPONT",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALimpopo%20River%20(6032363991).jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Limpopo River (6032363991).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Limpopo River (6032363991).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "babff390d06fa7f108bc86f85241af2abfa6cb5db7c763d5dfa11afc46ff0e89",
+      "width": 4256,
+      "height": 2394,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/limpopo/w640.jpg",
+          "bytes": 53210
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/limpopo/w1280.jpg",
+          "bytes": 188939
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/limpopo/w2048.jpg",
+          "bytes": 493785
+        }
+      ]
+    },
+    {
+      "featureName": "Limpopo floodplain",
+      "alt": "Limpopo floodplain — limpopo",
+      "caption": "Limpopo floodplain",
+      "photographer": "krugergirl26",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A2000%20floods,%20Limpopo%20River%20(6331098058).jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:2000 floods, Limpopo River (6331098058).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:2000 floods, Limpopo River (6331098058).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1c52a006afb06b716e479d2b2d3969b2f631f639106202943810a1483ee42228",
+      "width": 2520,
+      "height": 1680,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/limpopo/w640-2.jpg",
+          "bytes": 37854
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/limpopo/w1280-2.jpg",
+          "bytes": 98208
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/limpopo/w2048-2.jpg",
+          "bytes": 239048
+        }
+      ]
+    },
+    {
+      "featureName": "Limpopo sandbanks",
+      "alt": "Limpopo sandbanks — limpopo",
+      "caption": "Limpopo sandbanks",
+      "photographer": "Bernard DUPONT",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASaddle-billed%20Stork%20(Ephippiorhynchus%20senegalensis)%20male%20resting%20on%20a%20sandbank%20in%20Limpopo%20River%20(11755716174).jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Saddle-billed Stork (Ephippiorhynchus senegalensis) male resting on a sandbank in Limpopo River (11755716174).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Saddle-billed Stork (Ephippiorhynchus senegalensis) male resting on a sandbank in Limpopo River (11755716174).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8e21536cd47cbf5006a9ee028064f7570172340b1cb75c830b23d03a756cf664",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/limpopo/w640-3.jpg",
+          "bytes": 46224
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/limpopo/w1280-3.jpg",
+          "bytes": 174818
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/limpopo/w2048-3.jpg",
+          "bytes": 542160
+        }
+      ]
+    }
+  ],
+  "okavango": [
+    {
+      "featureName": "Okavango Delta",
+      "alt": "Okavango Delta — okavango",
+      "caption": "Okavango Delta",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVista%20aérea%20del%20delta%20del%20Okavango,%20Botsuana,%202018-08-01,%20DD%2044.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Vista aérea del delta del Okavango, Botsuana, 2018-08-01, DD 44.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Vista aérea del delta del Okavango, Botsuana, 2018-08-01, DD 44.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "411d2fe22a7e44e0a46293b66ea579bb49f2ee2bb204aeafbc35a945d03d3fd1",
+      "width": 7358,
+      "height": 4755,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/okavango/w640.jpg",
+          "bytes": 64385
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/okavango/w1280.jpg",
+          "bytes": 198817
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/okavango/w2048.jpg",
+          "bytes": 543845
+        }
+      ]
+    },
+    {
+      "featureName": "Okavango channels",
+      "alt": "Okavango channels — okavango",
+      "caption": "Okavango channels",
+      "photographer": "Joachim Huber",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkavango%20Delta,%20Botswana.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Okavango Delta, Botswana.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Okavango Delta, Botswana.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6e3b1d164565ef161f2dcde0d885cd5ba961c6b4afdc3e54920cbd5864af039c",
+      "width": 3008,
+      "height": 2000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/okavango/w640-2.jpg",
+          "bytes": 50733
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/okavango/w1280-2.jpg",
+          "bytes": 155966
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/okavango/w2048-2.jpg",
+          "bytes": 413294
+        }
+      ]
+    },
+    {
+      "featureName": "Okavango from orbit",
+      "alt": "Okavango from orbit — okavango",
+      "caption": "Okavango from orbit",
+      "photographer": "NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AISS-48%20Okavango%20Delta,%20Botswana.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:ISS-48 Okavango Delta, Botswana.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:ISS-48 Okavango Delta, Botswana.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c961e3c2498b8f8484cbdcec40f0b28689822c9db80c68571cbaa823a684c0b9",
+      "width": 4928,
+      "height": 3280,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/okavango/w640-3.jpg",
+          "bytes": 63542
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/okavango/w1280-3.jpg",
+          "bytes": 232042
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/okavango/w2048-3.jpg",
+          "bytes": 649767
+        }
+      ]
+    }
   ]
 }
