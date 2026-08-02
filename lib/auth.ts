@@ -1,5 +1,6 @@
 import { betterAuth } from 'better-auth'
 import { drizzleAdapter } from '@better-auth/drizzle-adapter'
+import { dash } from '@better-auth/infra'
 import { nextCookies } from 'better-auth/next-js'
 
 import { userAdditionalFields } from '~/lib/auth-user-fields'
@@ -91,7 +92,9 @@ function createAuth() {
       allowedHosts: getAllowedAuthHosts(),
       fallback: getBetterAuthUrl(),
     },
-    plugins: [nextCookies()],
+    // dash() connects this app to dash.better-auth.com (reads BETTER_AUTH_API_KEY).
+    // nextCookies() must stay last for Next.js cookie writes on Server Actions.
+    plugins: [dash(), nextCookies()],
   })
 }
 
