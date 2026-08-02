@@ -3,9 +3,9 @@
 Civilizations guides at `/civilizations` and `/civilizations/[slug]`. Catalog in
 `lib/civilizations.ts`: historical civilizations across Africa & Near East,
 Mediterranean, Asia, the Americas, and Oceania — orientation, signature sites,
-facts, sources, and curated photographs (twenty-eight guides in the starter
-catalog). Explore fact-plate names deep-link to `/explore/[slug]`. Topics
-catalog lists Civilizations alongside Countries and Space (`lib/topics.ts`).
+facts, sources, and curated photographs (thirty-two guides). Explore fact-plate
+names deep-link to `/explore/[slug]`. Topics catalog lists Civilizations
+alongside Countries and Space (`lib/topics.ts`).
 
 ## Map
 

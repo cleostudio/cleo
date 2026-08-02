@@ -1507,6 +1507,223 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       },
     ],
   },
+  {
+    slug: 'maori',
+    code: 'MAO',
+    name: 'Māori',
+    category: 'Oceania',
+    subtitle: 'Aotearoa · Polynesian settlement',
+    about:
+      'Māori civilization is the Polynesian settlement and ongoing culture of Aotearoa (New Zealand) — a people who arrived by ocean voyaging and built a dense world of iwi, hapū, and marae across two large islands. Orientation is genealogical and territorial: mountain and river as ancestors, fortified pā on volcanic cones and ridges, and carved meeting houses that stage kinship in timber and ritual. Oral literature, carving, weaving, and performing arts carry law and memory alongside later written Māori and English. The Treaty of Waitangi (1840) and its contested aftermath remade politics without ending Māori nationhood. This primer stays with settlement, pā and marae architecture, and treaty-era geography rather than a single war narrative.',
+    facts: {
+      kind: 'Island Polynesian society',
+      heartland: 'Aotearoa / New Zealand',
+      era: 'Settlement from c. 1250–1300 CE; enduring culture',
+      peak: 'Classic Māori florescence c. 1500–1800 CE; continuous present',
+      writing: 'Oral tradition; later written Māori in Latin script',
+      exploreLinks: ['New Zealand'],
+    },
+    features: [
+      {
+        name: 'Te Whare Rūnanga',
+        description:
+          'The carved meeting house at Waitangi — a modern marae landmark of Māori ceremonial architecture on the treaty grounds.',
+      },
+      {
+        name: 'Waitangi Treaty Grounds',
+        description:
+          'The national reserve where the 1840 Treaty of Waitangi was first signed — political geography still central to Aotearoa.',
+      },
+      {
+        name: 'Maungakiekie',
+        description:
+          'One Tree Hill in Tāmaki Makaurau — a volcanic cone pā landscape of terraces and ditches above Auckland.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Māori',
+        url: 'https://www.britannica.com/topic/Maori',
+        kind: 'reference',
+      },
+      {
+        label: 'Te Ara — Story: Māori',
+        url: 'https://teara.govt.nz/en/maori',
+        kind: 'agency',
+      },
+      {
+        label: 'Waitangi Treaty Grounds',
+        url: 'https://www.waitangi.org.nz/',
+        kind: 'reference',
+      },
+    ],
+  },
+  {
+    slug: 'aboriginal-australia',
+    code: 'ABD',
+    name: 'Aboriginal Australia',
+    category: 'Oceania',
+    subtitle: 'Continental cultures · deep time',
+    about:
+      'Aboriginal Australia names the continent’s First Peoples — hundreds of nations with languages, Law, and Country relationships that reach into deep time. Orientation is landscape as archive: songlines linking waterholes and ranges; rock art galleries that record ceremony and ecology; and sacred sites such as Uluru and Kata Tjuta where geology and kinship meet. Coastal, desert, riverine, and tropical societies differ sharply, yet many share long continuity of fire management, trade, and oral knowledge. British colonization from 1788 onward violently disrupted demography and land tenure; Aboriginal cultures did not end with contact. This primer stays with Country, rock art, and iconic central Australian sacred geography rather than a single nation’s entire Law.',
+    facts: {
+      kind: 'Continental Indigenous network',
+      heartland: 'Australian continent and surrounding islands',
+      era: 'Deep time settlement (tens of thousands of years); enduring cultures',
+      peak: 'Regional florescences across deep time; continuous present',
+      writing: 'Oral tradition, rock art, later Latin-script Aboriginal languages',
+      exploreLinks: ['Australia'],
+    },
+    features: [
+      {
+        name: 'Uluru',
+        description:
+          'The great sandstone monolith of Anangu Country — a sacred and geographic centerpiece of central Australia.',
+      },
+      {
+        name: 'Ubirr rock art',
+        description:
+          'Painted galleries in Kakadu — layered figures and x-ray styles recording ceremony, animals, and long occupation.',
+      },
+      {
+        name: 'Kata Tjuta',
+        description:
+          'The clustered domes west of Uluru — another Anangu sacred massif in the same desert basin.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Australian Aboriginal peoples',
+        url: 'https://www.britannica.com/topic/Australian-Aboriginal',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Uluru-Kata Tjuta National Park',
+        url: 'https://whc.unesco.org/en/list/447',
+        kind: 'catalog',
+      },
+      {
+        label: 'UNESCO — Kakadu National Park',
+        url: 'https://whc.unesco.org/en/list/147',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'melanesia',
+    code: 'MEL',
+    name: 'Melanesia',
+    category: 'Oceania',
+    subtitle: 'Island mosaic · Lapita to present',
+    about:
+      'Melanesia is a civilizational mosaic of western Pacific islands — Papua New Guinea, the Solomons, Vanuatu, New Caledonia, and Fiji — marked by extraordinary linguistic diversity and deep agricultural histories. Orientation is forest, coast, and exchange: haus tambaran and ceremonial houses; Lapita pottery as the archaeological signature of early Oceanic expansion; and highland–island trade networks that long predate colonial borders. Societies range from dense New Guinea valleys to coral-island chiefdoms; Melanesia is not one polity but a region of related and neighboring worlds. European and indenture-era contact remade labor and missions without erasing local cosmologies. This primer stays with ceremonial architecture, Lapita ancestry, and highland village form rather than a single country’s modern politics.',
+    facts: {
+      kind: 'Island mosaic',
+      heartland: 'Western Pacific · New Guinea to Fiji',
+      era: 'Lapita expansion c. 1500–500 BCE; enduring cultures',
+      peak: 'Regional florescences vary by island and valley; continuous present',
+      writing: 'Oral tradition; later Latin scripts; archaeological Lapita ceramics',
+      exploreLinks: [
+        'Papua New Guinea',
+        'Fiji',
+        'Vanuatu',
+        'Solomon Islands',
+        'France',
+      ],
+    },
+    features: [
+      {
+        name: 'Haus Tambaran',
+        description:
+          'Towering spirit houses of the Sepik–Maprik region — painted façades that stage initiation and ancestral presence.',
+      },
+      {
+        name: 'Navala',
+        description:
+          'A highland Fijian village of thatched bure — living vernacular architecture in the Nausori Highlands.',
+      },
+      {
+        name: 'Lapita pottery',
+        description:
+          'Dentate-stamped ceramics of the Lapita cultural complex — the archaeological trail of early Oceanic voyaging.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Melanesian culture',
+        url: 'https://www.britannica.com/topic/Melanesian-culture',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Melanesia',
+        url: 'https://www.metmuseum.org/toah/hd/mela/hd_mela.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Chief Roi Mata’s Domain',
+        url: 'https://whc.unesco.org/en/list/1280',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'micronesian-cultures',
+    code: 'MIC',
+    name: 'Micronesian cultures',
+    category: 'Oceania',
+    subtitle: 'Coral & basalt · western Pacific',
+    about:
+      'Micronesian cultures span small islands and vast ocean — coral atolls and volcanic high islands across the western Pacific, including the Carolines, Marianas, Marshalls, and Kiribati. Orientation is navigational and monumental in different keys: stone money of Yap; latte house-posts of the Marianas; and the basalt islet city of Nan Madol off Pohnpei. Seafaring, reef fishing, and ranked exchange linked communities across distances that look empty on a continental map. Colonial partition by Spain, Germany, Japan, and the United States redrew flags; Micronesian cultures kept canoe knowledge, chiefly systems, and island-specific arts. This primer stays with megalithic platforms, stone currency, and latte architecture rather than every atoll’s modern status.',
+    facts: {
+      kind: 'Oceanic island network',
+      heartland: 'Western Pacific · Caroline, Mariana, Marshall, and Kiribati seas',
+      era: 'Settlement across millennia BCE–CE; enduring cultures',
+      peak: 'Regional florescences (e.g. Nan Madol period); continuous present',
+      writing: 'Oral tradition; later Latin scripts',
+      exploreLinks: [
+        'Micronesia',
+        'Palau',
+        'Marshall Islands',
+        'Kiribati',
+        'United States',
+        'Nauru',
+      ],
+    },
+    features: [
+      {
+        name: 'Nan Madol',
+        description:
+          'A basalt-walled islet city off Pohnpei — canals and platforms of a former chiefly center in the Carolines.',
+      },
+      {
+        name: 'Yap stone money',
+        description:
+          'Massive rai disks quarried in Palau and valued on Yap — monumental currency in an island exchange system.',
+      },
+      {
+        name: 'Latte stones',
+        description:
+          'Pillar-and-cap house supports of the Marianas — stone architecture tied to ancestral Chamorro settlement.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Micronesian culture',
+        url: 'https://www.britannica.com/topic/Micronesian-culture',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Nan Madol: Ceremonial Centre of Eastern Micronesia',
+        url: 'https://whc.unesco.org/en/list/1503',
+        kind: 'catalog',
+      },
+      {
+        label: 'Metropolitan Museum — Micronesia',
+        url: 'https://www.metmuseum.org/toah/hd/micr/hd_micr.htm',
+        kind: 'reference',
+      },
+    ],
+  },
 ]
 
 export const civilizationSubjects: CivilizationSubject[] =
