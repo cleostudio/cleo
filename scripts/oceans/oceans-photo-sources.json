@@ -318,5 +318,165 @@
       "height": 3200,
       "featureName": "Dust over Arabian Sea"
     }
+  ],
+  "black-sea": [
+    {
+      "commonsTitle": "File:Black Sea coast of Georgia (country), with skyline of Batumi on the horizon.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Black_Sea_coast_of_Georgia_%28country%29%2C_with_skyline_of_Batumi_on_the_horizon.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABlack%20Sea%20coast%20of%20Georgia%20(country),%20with%20skyline%20of%20Batumi%20on%20the%20horizon.jpg",
+      "photographer": "Jagermesh",
+      "license": "CC BY-SA 2.0",
+      "width": 4577,
+      "height": 2927,
+      "featureName": "Black Sea coast"
+    },
+    {
+      "commonsTitle": "File:WHITE TRADER Crude Oil Tanker, Bosphorus Strait, Istanbul, Turkiye (Ank Kumar, Infosys Limited) 02.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/WHITE_TRADER_Crude_Oil_Tanker%2C_Bosphorus_Strait%2C_Istanbul%2C_Turkiye_%28Ank_Kumar%2C_Infosys_Limited%29_02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWHITE%20TRADER%20Crude%20Oil%20Tanker,%20Bosphorus%20Strait,%20Istanbul,%20Turkiye%20(Ank%20Kumar,%20Infosys%20Limited)%2002.jpg",
+      "photographer": "Ank Kumar",
+      "license": "CC BY-SA 4.0",
+      "width": 4534,
+      "height": 3023,
+      "featureName": "Bosporus Strait"
+    },
+    {
+      "commonsTitle": "File:Odesa Black Sea coast.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Odesa_Black_Sea_coast.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOdesa%20Black%20Sea%20coast.jpg",
+      "photographer": "Юлія Рядченко",
+      "license": "CC BY 4.0",
+      "width": 4160,
+      "height": 3120,
+      "featureName": "Odesa coast"
+    }
+  ],
+  "baltic-sea": [
+    {
+      "commonsTitle": "File:Stockholm Archipelago Silja Baltic Princess 04.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Stockholm_Archipelago_Silja_Baltic_Princess_04.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AStockholm%20Archipelago%20Silja%20Baltic%20Princess%2004.jpg",
+      "photographer": "Ad Meskens",
+      "license": "CC BY-SA 4.0",
+      "width": 5016,
+      "height": 2783,
+      "featureName": "Stockholm Archipelago"
+    },
+    {
+      "commonsTitle": "File:Baltic Sea view from Schmiedeberg hill in Rerik, 2025-06-23.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Baltic_Sea_view_from_Schmiedeberg_hill_in_Rerik%2C_2025-06-23.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABaltic%20Sea%20view%20from%20Schmiedeberg%20hill%20in%20Rerik,%202025-06-23.jpg",
+      "photographer": "Radomianin",
+      "license": "CC BY-SA 4.0",
+      "width": 5978,
+      "height": 3968,
+      "featureName": "German Baltic coast"
+    },
+    {
+      "commonsTitle": "File:Baltic Sea coast near Miķeļtornis.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Baltic_Sea_coast_near_Mi%C4%B7e%C4%BCtornis.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABaltic%20Sea%20coast%20near%20Miķeļtornis.jpg",
+      "photographer": "Ymblanter",
+      "license": "CC BY-SA 4.0",
+      "width": 3528,
+      "height": 2604,
+      "featureName": "Latvian Baltic coast"
+    }
+  ],
+  "north-sea": [
+    {
+      "commonsTitle": "File:Heligoland 07-2016 photo14.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Heligoland_07-2016_photo14.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHeligoland%2007-2016%20photo14.jpg",
+      "photographer": "A.Savin",
+      "license": "FAL",
+      "width": 4748,
+      "height": 2671,
+      "featureName": "Heligoland"
+    },
+    {
+      "commonsTitle": "File:13-09-29-nordfriesisches-wattenmeer-RalfR-15.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/13-09-29-nordfriesisches-wattenmeer-RalfR-15.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A13-09-29-nordfriesisches-wattenmeer-RalfR-15.jpg",
+      "photographer": "Ralf Roletschek",
+      "license": "CC BY-SA 3.0",
+      "width": 4288,
+      "height": 2848,
+      "featureName": "Wadden Sea"
+    },
+    {
+      "commonsTitle": "File:The North Sea Coast - geograph.org.uk - 6632611.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/The_North_Sea_Coast_-_geograph.org.uk_-_6632611.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe%20North%20Sea%20Coast%20-%20geograph.org.uk%20-%206632611.jpg",
+      "photographer": "Bob Harvey",
+      "license": "CC BY-SA 2.0",
+      "width": 6252,
+      "height": 4164,
+      "featureName": "North Sea coast"
+    }
+  ],
+  "gulf-of-mexico": [
+    {
+      "commonsTitle": "File:Sunset over the gulf of Mexico - iss042e034066.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Sunset_over_the_gulf_of_Mexico_-_iss042e034066.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASunset%20over%20the%20gulf%20of%20Mexico%20-%20iss042e034066.jpg",
+      "photographer": "NASA/Terry Virts",
+      "license": "Public domain",
+      "width": 4928,
+      "height": 3280,
+      "featureName": "Gulf from orbit"
+    },
+    {
+      "commonsTitle": "File:Gulf of Mexico - Sarasota, Florida 2023-01-22 (01).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/Gulf_of_Mexico_-_Sarasota%2C_Florida_2023-01-22_%2801%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGulf%20of%20Mexico%20-%20Sarasota,%20Florida%202023-01-22%20(01).jpg",
+      "photographer": "Ryan Hodnett",
+      "license": "CC BY-SA 4.0",
+      "width": 5935,
+      "height": 3338,
+      "featureName": "Florida Gulf coast"
+    },
+    {
+      "commonsTitle": "File:Mississippi River Delta (MODIS 2018-11-21).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Mississippi_River_Delta_%28MODIS_2018-11-21%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMississippi%20River%20Delta%20(MODIS%202018-11-21).jpg",
+      "photographer": "MODIS Land Rapid Response Team, NASA GSFC",
+      "license": "Public domain",
+      "width": 2106,
+      "height": 1697,
+      "featureName": "Mississippi River Delta"
+    }
+  ],
+  "east-china-sea": [
+    {
+      "commonsTitle": "File:ISS039-E-4475 - View of East China Sea.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/ISS039-E-4475_-_View_of_East_China_Sea.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AISS039-E-4475%20-%20View%20of%20East%20China%20Sea.jpg",
+      "photographer": "Earth Science and Remote Sensing Unit, Lyndon B. Johnson Space Center",
+      "license": "Public domain",
+      "width": 4256,
+      "height": 2832,
+      "featureName": "East China Sea from orbit"
+    },
+    {
+      "commonsTitle": "File:Breaking waves off the northern coast of Iheya Island 202603.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Breaking_waves_off_the_northern_coast_of_Iheya_Island_202603.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABreaking%20waves%20off%20the%20northern%20coast%20of%20Iheya%20Island%20202603.jpg",
+      "photographer": "Kugel~commonswiki",
+      "license": "CC BY-SA 4.0",
+      "width": 7008,
+      "height": 4672,
+      "featureName": "Ryukyu coast"
+    },
+    {
+      "commonsTitle": "File:Fog patch over the East China Sea April 15 2013 0240Z.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Fog_patch_over_the_East_China_Sea_April_15_2013_0240Z.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFog%20patch%20over%20the%20East%20China%20Sea%20April%2015%202013%200240Z.jpg",
+      "photographer": "NASA, Terra MODIS Rapid Response System",
+      "license": "Public domain",
+      "width": 4519,
+      "height": 4374,
+      "featureName": "Fog over East China Sea"
+    }
   ]
 }

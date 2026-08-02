@@ -70,7 +70,7 @@ function withPhotos(draft: OceanSubjectDraft): OceanSubject {
 
 /**
  * Curated catalog — world ocean basins, major seas, and polar seas
- * (ten guides). Expand here as new Oceans guides ship.
+ * (fifteen guides). Expand here as new Oceans guides ship.
  */
 const oceanSubjectDrafts: OceanSubjectDraft[] = [
   {
@@ -485,6 +485,266 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
       {
         label: 'NOAA — Indian Ocean / Arabian Sea',
         url: 'https://www.noaa.gov/education/resource-collections/ocean-coasts/indian-ocean',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'black-sea',
+    code: 'BLA',
+    name: 'Black Sea',
+    category: 'Major seas',
+    subtitle: 'Enclosed Eurasian sea · Bosporus gateway',
+    about:
+      'The Black Sea is a nearly enclosed Eurasian sea between southeast Europe and western Asia — linked to the Mediterranean only through the Bosporus, Sea of Marmara, and Dardanelles. Orientation is gateway and stratification: a deep, poorly ventilated lower layer beneath fresher surface water fed by large rivers; steep Crimean and Caucasus coasts; and a long rim of ports from Odesa to Batumi. Limited exchange at the Turkish straits keeps the basin chemically and historically distinct from the open Atlantic system. This primer stays with enclosure, Bosporus exchange, and Pontic rim geography rather than every coastal gulf.',
+    facts: {
+      kind: 'Enclosed sea',
+      extent: 'Nearly landlocked basin between southeast Europe and western Asia',
+      region: 'Pontic rim · southeast Europe · Caucasus · Anatolia',
+      circulation: 'River-fed surface layer; limited exchange through the Turkish straits; weak deep ventilation',
+      bathymetry: 'Deep central basin; broad northwestern shelf; steep southern and eastern margins',
+      climateRole: 'Temperate enclosed heat and moisture reservoir; river–sea salinity contrast',
+      exploreLinks: ['Türkiye', 'Ukraine', 'Romania', 'Bulgaria', 'Georgia', 'Russia'],
+    },
+    features: [
+      {
+        name: 'Black Sea coast',
+        description:
+          'Pontic shorelines from Georgia to Ukraine — where mountain and steppe rims meet a nearly enclosed sea.',
+      },
+      {
+        name: 'Bosporus Strait',
+        description:
+          'The narrow gateway at Istanbul — the choke point that links the Black Sea to the Mediterranean system.',
+      },
+      {
+        name: 'Odesa coast',
+        description:
+          'A northwestern Black Sea shoreline and historic port rim — open water meeting the Ukrainian steppe coast.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Black Sea',
+        url: 'https://www.britannica.com/place/Black-Sea',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Black Sea',
+        url: 'https://earthobservatory.nasa.gov/images/146349/phytoplankton-bloom-in-the-black-sea',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Historic Areas of Istanbul',
+        url: 'https://whc.unesco.org/en/list/356',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'baltic-sea',
+    code: 'BAL',
+    name: 'Baltic Sea',
+    category: 'Major seas',
+    subtitle: 'Brackish shelf sea · northern Europe',
+    about:
+      'The Baltic Sea is a shallow, brackish shelf sea of northern Europe — nearly enclosed by Scandinavia, the Baltic states, and the North European Plain, and linked to the North Sea through the Danish straits. Orientation is salinity and archipelago: heavy freshwater inflow, limited tidal range, and island coasts such as Stockholm’s skärgård that blur land and water. Winter ice can cover northern reaches; summer blooms mark nutrient-rich surface layers. This primer stays with brackish hydrology, gateway exchange, and rim geography rather than every gulf name.',
+    facts: {
+      kind: 'Brackish shelf sea',
+      extent: 'Shallow, nearly enclosed sea of northern Europe',
+      region: 'Scandinavia · Baltic states · North European Plain',
+      circulation: 'Low-salinity outflow through the Danish straits; weak tides; seasonal ice in the north',
+      bathymetry: 'Shallow basins and sills; broad archipelagos; limited deep water',
+      climateRole: 'Temperate moisture and ice-margin basin; sensitive brackish ecosystem',
+      exploreLinks: ['Sweden', 'Finland', 'Poland', 'Germany', 'Denmark', 'Estonia', 'Latvia', 'Lithuania'],
+    },
+    features: [
+      {
+        name: 'Stockholm Archipelago',
+        description:
+          'A dense skärgård of islands and channels — Baltic geography as a blurred edge between land and sea.',
+      },
+      {
+        name: 'German Baltic coast',
+        description:
+          'Sandy and cliffed shores of the southern Baltic — the North European Plain meeting brackish open water.',
+      },
+      {
+        name: 'Latvian Baltic coast',
+        description:
+          'Dune and forest shorelines on the eastern rim — a quieter Baltic face of wind, sand, and shallow seas.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Baltic Sea',
+        url: 'https://www.britannica.com/place/Baltic-Sea',
+        kind: 'reference',
+      },
+      {
+        label: 'HELCOM — Baltic Sea',
+        url: 'https://helcom.fi/baltic-sea-trends/',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — High Coast / Kvarken Archipelago',
+        url: 'https://whc.unesco.org/en/list/898',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'north-sea',
+    code: 'NOR',
+    name: 'North Sea',
+    category: 'Major seas',
+    subtitle: 'Northwest European shelf · storm sea',
+    about:
+      'The North Sea is a shallow northwest European shelf sea between Britain, Scandinavia, and the Low Countries — open to the Atlantic in the north and linked to the Baltic through the Skagerrak and Kattegat. Orientation is shelf and storm: strong tides, frequent gales, productive fisheries, and coasts engineered against surge — from Wadden Sea mudflats to Heligoland’s red cliffs. It has long been a corridor of trade, energy, and weather for northern Europe. This primer stays with shelf geometry, tidal coasts, and gateway roles rather than every estuary.',
+    facts: {
+      kind: 'Shelf sea',
+      extent: 'Shallow sea between Britain, Scandinavia, and northwest Europe',
+      region: 'Northwest European shelf',
+      circulation: 'Atlantic inflow from the north; strong tides; connections to the Baltic and English Channel',
+      bathymetry: 'Broad continental shelf; Dogger Bank and other banks; Wadden Sea tidal flats',
+      climateRole: 'Storm-track moisture and heat exchange; major European weather theater',
+      exploreLinks: ['United Kingdom', 'Norway', 'Netherlands', 'Germany', 'Denmark', 'Belgium'],
+    },
+    features: [
+      {
+        name: 'Heligoland',
+        description:
+          'A red-cliff island in the German Bight — a rocky outcrop that makes the shallow North Sea feel vertical.',
+      },
+      {
+        name: 'Wadden Sea',
+        description:
+          'Tidal mudflats and barrier islands along the southeastern rim — a living shelf-sea margin shaped by tide and wind.',
+      },
+      {
+        name: 'North Sea coast',
+        description:
+          'British and continental shorelines under Atlantic weather — beaches, cliffs, and sea defenses facing a stormy shelf.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — North Sea',
+        url: 'https://www.britannica.com/place/North-Sea',
+        kind: 'reference',
+      },
+      {
+        label: 'NOAA — North Sea / European shelf seas',
+        url: 'https://www.noaa.gov/education/resource-collections/ocean-coasts',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Wadden Sea',
+        url: 'https://whc.unesco.org/en/list/1314',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'gulf-of-mexico',
+    code: 'GOM',
+    name: 'Gulf of Mexico',
+    category: 'Major seas',
+    subtitle: 'American marginal sea · Loop Current',
+    about:
+      'The Gulf of Mexico is a large American marginal sea bounded by the United States, Mexico, and Cuba — linked to the Atlantic through the Straits of Florida and to the Caribbean through the Yucatán Channel. Orientation is loop and delta: the Loop Current that feeds the Gulf Stream; the Mississippi River Delta as a major sediment and freshwater injector; and warm, hurricane-prone waters over a broad continental shelf. Coral and carbonate coasts mark Florida and Yucatán margins. This primer stays with basin enclosure, Loop Current exchange, and rim geography rather than every bayou.',
+    facts: {
+      kind: 'Marginal sea',
+      extent: 'Large semi-enclosed sea between North America and Cuba',
+      region: 'Gulf Coast · Mexico · Cuba approaches',
+      circulation: 'Loop Current; Yucatán and Florida Strait exchange; river-influenced coastal waters',
+      bathymetry: 'Broad northern shelf; deep Sigsbee basin; Mississippi Fan and carbonate platforms',
+      climateRole: 'Warm tropical–subtropical heat reservoir; major Atlantic hurricane nursery',
+      exploreLinks: ['United States', 'Mexico', 'Cuba'],
+    },
+    features: [
+      {
+        name: 'Gulf from orbit',
+        description:
+          'Basin-scale views of a warm American sea — cloud, sunset, and coastline that read as one enclosed theater.',
+      },
+      {
+        name: 'Florida Gulf coast',
+        description:
+          'Low, sandy Gulf shores of western Florida — a subtropical rim facing open Loop Current waters.',
+      },
+      {
+        name: 'Mississippi River Delta',
+        description:
+          'A bird’s-foot sediment plain entering the northern Gulf — river, wetland, and shelf meeting in one system.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Gulf of Mexico',
+        url: 'https://www.britannica.com/place/Gulf-of-Mexico',
+        kind: 'reference',
+      },
+      {
+        label: 'NOAA — Gulf of Mexico',
+        url: 'https://www.noaa.gov/education/resource-collections/ocean-coasts/gulf-of-mexico',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Earth Observatory — Gulf of Mexico',
+        url: 'https://earthobservatory.nasa.gov/images/148355/sediment-in-the-gulf-of-mexico',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'east-china-sea',
+    code: 'ECS',
+    name: 'East China Sea',
+    category: 'Major seas',
+    subtitle: 'East Asian shelf sea · Kuroshio rim',
+    about:
+      'The East China Sea is a broad East Asian marginal sea of the western Pacific — rimmed by China, the Korean Peninsula, and the Ryukyu chain toward Japan, and linked southward toward the Taiwan Strait approaches. Orientation is shelf and Kuroshio: wide continental shelves, monsoon and typhoon seasons, and a warm western-boundary current that skirts the basin’s eastern edge. Fishing grounds, shipping lanes, and fog banks mark a productive temperate–subtropical sea. This primer stays with shelf geometry, Kuroshio influence, and rim geography rather than maritime boundary disputes.',
+    facts: {
+      kind: 'Shelf marginal sea',
+      extent: 'Broad western Pacific marginal sea between China, Korea, and the Ryukyus',
+      region: 'East Asia · western Pacific shelf',
+      circulation: 'Kuroshio influence on the eastern rim; monsoon winds; exchange toward the Yellow Sea and Taiwan Strait',
+      bathymetry: 'Wide continental shelf; Okinawa Trough; island-arc approaches along the Ryukyus',
+      climateRole: 'Monsoon and typhoon moisture corridor; productive temperate–subtropical shelf sea',
+      exploreLinks: ['China', 'Japan', 'Korea, South'],
+    },
+    features: [
+      {
+        name: 'East China Sea from orbit',
+        description:
+          'Basin-scale satellite and ISS views — shelf, islands, and open water framing the East Asian marginal sea.',
+      },
+      {
+        name: 'Ryukyu coast',
+        description:
+          'Island shores on the eastern rim — where Pacific swell and East China Sea waters meet coral and cliff coasts.',
+      },
+      {
+        name: 'Fog over East China Sea',
+        description:
+          'Seasonal fog banks over the shelf — atmosphere writing climate onto a productive East Asian sea.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — East China Sea',
+        url: 'https://www.britannica.com/place/East-China-Sea',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — East China Sea',
+        url: 'https://earthobservatory.nasa.gov/images/80891/fog-over-the-east-china-sea',
+        kind: 'agency',
+      },
+      {
+        label: 'NOAA — Kuroshio / western Pacific',
+        url: 'https://www.noaa.gov/education/resource-collections/ocean-coasts',
         kind: 'agency',
       },
     ],

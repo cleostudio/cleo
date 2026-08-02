@@ -20691,6 +20691,366 @@
       }
     ]
   },
+  "oceans/black-sea": {
+    "collection": "oceans",
+    "title": "Black Sea coast",
+    "subtitle": "Black Sea",
+    "alt": "Black Sea coast — black sea",
+    "photographer": "Jagermesh",
+    "license": "CC BY-SA 2.0",
+    "width": 4577,
+    "height": 2927,
+    "renditions": [
+      {
+        "src": "/images/oceans/black-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/black-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/black-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/black-sea-2": {
+    "collection": "oceans",
+    "title": "Bosporus Strait",
+    "subtitle": "Black Sea",
+    "alt": "Bosporus Strait — black sea",
+    "photographer": "Ank Kumar",
+    "license": "CC BY-SA 4.0",
+    "width": 4534,
+    "height": 3023,
+    "renditions": [
+      {
+        "src": "/images/oceans/black-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/black-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/black-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/black-sea-3": {
+    "collection": "oceans",
+    "title": "Odesa coast",
+    "subtitle": "Black Sea",
+    "alt": "Odesa coast — black sea",
+    "photographer": "Юлія Рядченко",
+    "license": "CC BY 4.0",
+    "width": 4160,
+    "height": 3120,
+    "renditions": [
+      {
+        "src": "/images/oceans/black-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/black-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/black-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/baltic-sea": {
+    "collection": "oceans",
+    "title": "Stockholm Archipelago",
+    "subtitle": "Baltic Sea",
+    "alt": "Stockholm Archipelago — baltic sea",
+    "photographer": "Ad Meskens",
+    "license": "CC BY-SA 4.0",
+    "width": 5016,
+    "height": 2783,
+    "renditions": [
+      {
+        "src": "/images/oceans/baltic-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/baltic-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/baltic-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/baltic-sea-2": {
+    "collection": "oceans",
+    "title": "German Baltic coast",
+    "subtitle": "Baltic Sea",
+    "alt": "German Baltic coast — baltic sea",
+    "photographer": "Radomianin",
+    "license": "CC BY-SA 4.0",
+    "width": 5978,
+    "height": 3968,
+    "renditions": [
+      {
+        "src": "/images/oceans/baltic-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/baltic-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/baltic-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/baltic-sea-3": {
+    "collection": "oceans",
+    "title": "Latvian Baltic coast",
+    "subtitle": "Baltic Sea",
+    "alt": "Latvian Baltic coast — baltic sea",
+    "photographer": "Ymblanter",
+    "license": "CC BY-SA 4.0",
+    "width": 3528,
+    "height": 2604,
+    "renditions": [
+      {
+        "src": "/images/oceans/baltic-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/baltic-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/baltic-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/north-sea": {
+    "collection": "oceans",
+    "title": "Heligoland",
+    "subtitle": "North Sea",
+    "alt": "Heligoland — north sea",
+    "photographer": "A.Savin",
+    "license": "FAL",
+    "width": 4748,
+    "height": 2671,
+    "renditions": [
+      {
+        "src": "/images/oceans/north-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/north-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/north-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/north-sea-2": {
+    "collection": "oceans",
+    "title": "Wadden Sea",
+    "subtitle": "North Sea",
+    "alt": "Wadden Sea — north sea",
+    "photographer": "Ralf Roletschek",
+    "license": "CC BY-SA 3.0",
+    "width": 4288,
+    "height": 2848,
+    "renditions": [
+      {
+        "src": "/images/oceans/north-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/north-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/north-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/north-sea-3": {
+    "collection": "oceans",
+    "title": "North Sea coast",
+    "subtitle": "North Sea",
+    "alt": "North Sea coast — north sea",
+    "photographer": "Bob Harvey",
+    "license": "CC BY-SA 2.0",
+    "width": 6252,
+    "height": 4164,
+    "renditions": [
+      {
+        "src": "/images/oceans/north-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/north-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/north-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/gulf-of-mexico": {
+    "collection": "oceans",
+    "title": "Gulf from orbit",
+    "subtitle": "Gulf of Mexico",
+    "alt": "Gulf from orbit — gulf of mexico",
+    "photographer": "NASA/Terry Virts",
+    "license": "Public domain",
+    "width": 4928,
+    "height": 3280,
+    "renditions": [
+      {
+        "src": "/images/oceans/gulf-of-mexico/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/gulf-of-mexico/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/gulf-of-mexico/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/gulf-of-mexico-2": {
+    "collection": "oceans",
+    "title": "Florida Gulf coast",
+    "subtitle": "Gulf of Mexico",
+    "alt": "Florida Gulf coast — gulf of mexico",
+    "photographer": "Ryan Hodnett",
+    "license": "CC BY-SA 4.0",
+    "width": 5935,
+    "height": 3338,
+    "renditions": [
+      {
+        "src": "/images/oceans/gulf-of-mexico/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/gulf-of-mexico/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/gulf-of-mexico/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/gulf-of-mexico-3": {
+    "collection": "oceans",
+    "title": "Mississippi River Delta",
+    "subtitle": "Gulf of Mexico",
+    "alt": "Mississippi River Delta — gulf of mexico",
+    "photographer": "MODIS Land Rapid Response Team, NASA GSFC",
+    "license": "Public domain",
+    "width": 2106,
+    "height": 1697,
+    "renditions": [
+      {
+        "src": "/images/oceans/gulf-of-mexico/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/gulf-of-mexico/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/gulf-of-mexico/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/east-china-sea": {
+    "collection": "oceans",
+    "title": "East China Sea from orbit",
+    "subtitle": "East China Sea",
+    "alt": "East China Sea from orbit — east china sea",
+    "photographer": "Earth Science and Remote Sensing Unit, Lyndon B. Johnson Space Center",
+    "license": "Public domain",
+    "width": 4256,
+    "height": 2832,
+    "renditions": [
+      {
+        "src": "/images/oceans/east-china-sea/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/east-china-sea/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/east-china-sea/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/east-china-sea-2": {
+    "collection": "oceans",
+    "title": "Ryukyu coast",
+    "subtitle": "East China Sea",
+    "alt": "Ryukyu coast — east china sea",
+    "photographer": "Kugel~commonswiki",
+    "license": "CC BY-SA 4.0",
+    "width": 7008,
+    "height": 4672,
+    "renditions": [
+      {
+        "src": "/images/oceans/east-china-sea/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/east-china-sea/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/east-china-sea/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "oceans/east-china-sea-3": {
+    "collection": "oceans",
+    "title": "Fog over East China Sea",
+    "subtitle": "East China Sea",
+    "alt": "Fog over East China Sea — east china sea",
+    "photographer": "NASA, Terra MODIS Rapid Response System",
+    "license": "Public domain",
+    "width": 4519,
+    "height": 4374,
+    "renditions": [
+      {
+        "src": "/images/oceans/east-china-sea/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/oceans/east-china-sea/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/oceans/east-china-sea/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "oceans/arctic-ocean": {
     "collection": "oceans",
     "title": "Arctic sea ice",

@@ -2,9 +2,9 @@
 
 Oceans guides at `/oceans` and `/oceans/[slug]`. Catalog in `lib/oceans.ts`:
 world ocean basins, major seas, and polar seas — orientation, features,
-circulation, bathymetry, climate role, sources, and curated photographs (ten
-guides). Topics catalog lists Oceans alongside Countries, Space, Civilizations,
-Cities, and Rivers (`lib/topics.ts`).
+circulation, bathymetry, climate role, sources, and curated photographs
+(fifteen guides). Topics catalog lists Oceans alongside Countries, Space,
+Civilizations, Cities, and Rivers (`lib/topics.ts`).
 
 ## Map
 

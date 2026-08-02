@@ -24,7 +24,7 @@ General-knowledge portal:
   `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; twenty-one
   guides)
 - **Oceans** — world ocean basin, major-sea, and polar-sea field guides at
-  `/oceans` and `/oceans/[slug]` (world basins, major seas, polar seas; ten
+  `/oceans` and `/oceans/[slug]` (world basins, major seas, polar seas; fifteen
   guides)
 - **Rivers** — major world-river field guides at `/rivers` and `/rivers/[slug]`
   (Africa, Asia, Europe, Americas & Oceania; sixteen guides)
