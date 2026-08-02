@@ -284,6 +284,11 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('mississippi')[0]).toBe('/rivers/mississippi')
     expect(hrefs('indus')[0]).toBe('/rivers/indus')
     expect(hrefs('niger river')[0]).toBe('/rivers/niger')
+    expect(hrefs('zambezi')[0]).toBe('/rivers/zambezi')
+    expect(hrefs('orange river')[0]).toBe('/rivers/orange-river')
+    expect(hrefs('senegal river')[0]).toBe('/rivers/senegal')
+    expect(hrefs('limpopo')[0]).toBe('/rivers/limpopo')
+    expect(hrefs('okavango')[0]).toBe('/rivers/okavango')
     expect(hrefs('paraná')[0]).toBe('/rivers/parana')
     expect(hrefs('murray–darling')[0]).toBe('/rivers/murray-darling')
     expect(hrefs('lena')[0]).toBe('/rivers/lena')
@@ -293,6 +298,11 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('middle rhine gorge')[0]).toBe('/rivers/rhine')
     expect(hrefs('siberian trunk')[0]).toBe('/rivers/lena')
     expect(hrefs('inner niger delta')[0]).toBe('/rivers/niger')
+    expect(hrefs('lake kariba')[0]).toBe('/rivers/zambezi')
+    expect(hrefs('augrabies falls')[0]).toBe('/rivers/orange-river')
+    expect(hrefs('rosso crossing')[0]).toBe('/rivers/senegal')
+    expect(hrefs('limpopo sandbanks')[0]).toBe('/rivers/limpopo')
+    expect(hrefs('okavango channels')[0]).toBe('/rivers/okavango')
   })
 
   it('finds curated photographs by the place they show', () => {

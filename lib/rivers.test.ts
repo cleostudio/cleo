@@ -10,7 +10,7 @@ import {
 
 describe('river subjects', () => {
   it('ships a starter catalog with unique slugs and codes', () => {
-    expect(riverSubjects.length).toBeGreaterThanOrEqual(16)
+    expect(riverSubjects.length).toBeGreaterThanOrEqual(21)
 
     const slugs = riverSubjects.map((subject) => subject.slug)
     const codes = riverSubjects.map((subject) => subject.code)

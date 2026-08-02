@@ -70,7 +70,7 @@ function withPhotos(draft: RiverSubjectDraft): RiverSubject {
 
 /**
  * Curated catalog — major rivers across Africa, Asia, and Europe, Americas & Oceania
- * (sixteen guides). Expand here as new Rivers guides ship.
+ * (twenty-one guides). Expand here as new Rivers guides ship.
  */
 const riverSubjectDrafts: RiverSubjectDraft[] = [
   {
@@ -231,6 +231,275 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
       {
         label: 'UNESCO — Cliff of Bandiagara',
         url: 'https://whc.unesco.org/en/list/516',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'zambezi',
+    code: 'ZAM',
+    name: 'Zambezi',
+    category: 'Africa',
+    subtitle: 'Victoria Falls · Kariba to delta',
+    about:
+      'The Zambezi is southern Africa’s great east-flowing trunk — rising in the uplands of northwestern Zambia and Angola, plunging at Victoria Falls, and running through Lake Kariba and Cahora Bassa before spreading into a Mozambique Channel delta. Orientation is falls, reservoir, and outlet: Mosi-oa-Tunya as a continental landmark; large hydropower lakes that remade the middle course; and a coastal floodplain that meets the Indian Ocean. Shared borders and wildlife corridors shape its human geography as much as discharge does. This primer stays with course structure, falls-to-delta hinges, and basin hydrology rather than every tributary state.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Central African uplands → Victoria Falls → Kariba / Cahora Bassa → Mozambique delta → Indian Ocean',
+      region: 'Southern Africa · Zambezi Basin',
+      basin: 'Large southern African drainage shared by multiple riparian states; major reservoir cascade on the middle stem',
+      hydrology: 'Seasonal flood pulse moderated by large dams; Victoria Falls as a free-falling gorge hinge',
+      climateRole: 'Southern African freshwater corridor; wetland and delta moisture engine',
+      exploreLinks: [
+        'Zambia',
+        'Zimbabwe',
+        'Mozambique',
+        'Angola',
+        'Namibia',
+        'Botswana',
+        'Malawi',
+        'Tanzania',
+      ],
+    },
+    features: [
+      {
+        name: 'Victoria Falls',
+        description:
+          'Mosi-oa-Tunya on the Zambia–Zimbabwe border — where the Zambezi drops into a basalt gorge in a curtain of spray.',
+      },
+      {
+        name: 'Lake Kariba',
+        description:
+          'A vast mid-course reservoir on the Zambia–Zimbabwe reach — hydropower and shoreline remade from the flooded valley.',
+      },
+      {
+        name: 'Zambezi Delta',
+        description:
+          'The Mozambique Channel outlet’s channel maze — where the trunk spreads into coastal wetland before the Indian Ocean.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Zambezi River',
+        url: 'https://www.britannica.com/place/Zambezi-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Victoria Falls',
+        url: 'https://earthobservatory.nasa.gov/images/92078/victoria-falls',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Mosi-oa-Tunya / Victoria Falls',
+        url: 'https://whc.unesco.org/en/list/509',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'orange-river',
+    code: 'ORG',
+    name: 'Orange River',
+    category: 'Africa',
+    subtitle: 'Lesotho highlands · Atlantic outlet',
+    about:
+      'The Orange River (Gariep) is southern Africa’s long west-flowing trunk — rising in the Lesotho highlands, crossing the South African interior, and forming much of the Namibia border before reaching the Atlantic. Orientation is highland source, arid canyon, and regulated middle course: Gariep Dam as a major hydraulic hinge; Augrabies Falls where the river cuts a granite gorge; and a desert-edge lower reach that delivers scarce freshwater to the west coast. This primer stays with course, canyon hydrology, and basin storage rather than every irrigation scheme.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Lesotho Drakensberg sources → South African interior → Augrabies gorge → Namibia border → Atlantic',
+      region: 'Southern Africa · Orange–Senqu Basin',
+      basin: 'Largest river system in South Africa; highland Senqu headwaters and arid western catchment',
+      hydrology: 'Seasonal highland runoff regulated by large dams; canyon and desert-edge lower reaches',
+      climateRole: 'Interior water transfer and irrigation spine; arid-west freshwater corridor',
+      exploreLinks: ['South Africa', 'Lesotho', 'Namibia'],
+    },
+    features: [
+      {
+        name: 'Orange River Canyon',
+        description:
+          'Arid canyon walls along the western course — where the river cuts a green line through desert rock.',
+      },
+      {
+        name: 'Augrabies Falls',
+        description:
+          'A granite gorge cascade on the lower–middle Orange — a thunderous hinge where the river drops through the plateau.',
+      },
+      {
+        name: 'Gariep Dam',
+        description:
+          'A major storage reservoir on the South African stem — the hydraulic hinge of Orange–Senqu regulation.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Orange River',
+        url: 'https://www.britannica.com/place/Orange-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Orange River',
+        url: 'https://earthobservatory.nasa.gov/images/147511/orange-river',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Maloti-Drakensberg Park',
+        url: 'https://whc.unesco.org/en/list/985',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'senegal',
+    code: 'SEN',
+    name: 'Senegal River',
+    category: 'Africa',
+    subtitle: 'Sahel border river · Atlantic outlet',
+    about:
+      'The Senegal River is West Africa’s great Sahel border waterway — rising in the Guinean highlands, marking much of the Senegal–Mauritania frontier, and reaching the Atlantic near Saint-Louis. Orientation is valley agriculture and shared basin: floodplain farming along the lower course; ferry and bridge crossings such as Rosso; and seasonal floods that still pulse the valley even where dams and irrigation remake the edges. It is a desert-edge corridor rather than a rainforest trunk. This primer stays with course, border geography, and Sahel hydrology rather than every canal project.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Guinean highlands → Mali–Senegal–Mauritania valley → Saint-Louis approaches → Atlantic',
+      region: 'West Africa · Senegal Basin',
+      basin: 'Shared Sahel drainage; valley floodplains as seasonal storage and farmland',
+      hydrology: 'Monsoon flood pulse; regulated reaches with dams and irrigation offtakes',
+      climateRole: 'Sahel freshwater corridor; floodplain agriculture engine on the desert edge',
+      exploreLinks: ['Senegal', 'Mauritania', 'Mali', 'Guinea'],
+    },
+    features: [
+      {
+        name: 'Senegal at Dagana',
+        description:
+          'A working lower-valley reach — where Sahel settlement and floodplain farming meet the border river.',
+      },
+      {
+        name: 'Rosso crossing',
+        description:
+          'The Senegal–Mauritania ferry hinge — a daily border crossing that makes the shared river visible as infrastructure.',
+      },
+      {
+        name: 'Senegal from orbit',
+        description:
+          'Basin-scale views of the Sahel valley — a green corridor written across arid West Africa.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Senegal River',
+        url: 'https://www.britannica.com/place/Senegal-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Visible Earth — Senegal Valley',
+        url: 'https://visibleearth.nasa.gov/images/147334',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Island of Saint-Louis',
+        url: 'https://whc.unesco.org/en/list/956',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'limpopo',
+    code: 'LIM',
+    name: 'Limpopo',
+    category: 'Africa',
+    subtitle: 'Southern Africa arc · Indian Ocean',
+    about:
+      'The Limpopo is a major southern African arc river — gathering water from South Africa, Botswana, and Zimbabwe before turning east through Mozambique to the Indian Ocean. Orientation is sandbank and flood: a wide, often seasonal channel that can seem nearly dry in drought and expansive in flood years; wildlife corridors along Kruger and neighboring parks; and a lower Mozambique reach that concentrates settlement and cyclone risk. It is a boundary and lifeline more than a navigable trunk. This primer stays with course arc, flood regime, and rim geography rather than every tributary name.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Southern African interior sources → South Africa–Botswana–Zimbabwe borders → Mozambique → Indian Ocean',
+      region: 'Southern Africa · Limpopo Basin',
+      basin: 'Shared drainage of the southern African plateau; seasonal tributaries and sand-filled channels',
+      hydrology: 'Strongly seasonal; drought sandbanks and major flood years on the same course',
+      climateRole: 'Semi-arid freshwater corridor; floodplain and wildlife-water hinge',
+      exploreLinks: ['South Africa', 'Botswana', 'Zimbabwe', 'Mozambique'],
+    },
+    features: [
+      {
+        name: 'Limpopo channel',
+        description:
+          'A broad sand-filled course under southern African skies — the river as a seasonal corridor rather than a permanent flood.',
+      },
+      {
+        name: 'Limpopo floodplain',
+        description:
+          'Wide inundation flats in wet years — where the arc river remakes its banks and villages at once.',
+      },
+      {
+        name: 'Limpopo sandbanks',
+        description:
+          'Exposed bars and wildlife edges along the park reaches — dry-season geography written in sand and waterholes.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Limpopo River',
+        url: 'https://www.britannica.com/place/Limpopo-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Mozambique floods',
+        url: 'https://earthobservatory.nasa.gov/images/14592/flooding-in-mozambique',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Mapungubwe Cultural Landscape',
+        url: 'https://whc.unesco.org/en/list/1099',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'okavango',
+    code: 'OKA',
+    name: 'Okavango',
+    category: 'Africa',
+    subtitle: 'Endorheic inland delta · Kalahari',
+    about:
+      'The Okavango is southern Africa’s great endorheic river — rising in the Angolan highlands, crossing the Caprivi approaches of Namibia, and spreading into an inland delta in Botswana’s Kalahari rather than reaching the sea. Orientation is flood pulse and fan: seasonal waters that expand a labyrinth of channels, lagoons, and islands; wildlife concentrated where desert meets wetland; and an inland terminus that makes the system a climate and ecology laboratory. It is a river defined by where it ends as much as where it begins. This primer stays with course, inland delta geometry, and endorheic hydrology rather than every safari camp.',
+    facts: {
+      kind: 'Endorheic river',
+      course: 'Angolan highlands → Namibia Caprivi approaches → Okavango Delta (Botswana) — no ocean outlet',
+      region: 'Southern Africa · Okavango Basin',
+      basin: 'Endorheic drainage ending in a Kalahari inland delta; shared Angola–Namibia–Botswana waters',
+      hydrology: 'Strong seasonal flood pulse that expands and contracts the inland delta',
+      climateRole: 'Desert-edge wetland moisture and biodiversity engine; inland evaporative terminus',
+      exploreLinks: ['Angola', 'Namibia', 'Botswana'],
+    },
+    features: [
+      {
+        name: 'Okavango Delta',
+        description:
+          'The inland fan of channels and islands — where the river spreads into the Kalahari instead of the sea.',
+      },
+      {
+        name: 'Okavango channels',
+        description:
+          'Aerial mazes of water and papyrus — the working geometry of an endorheic flood pulse.',
+      },
+      {
+        name: 'Okavango from orbit',
+        description:
+          'Basin-scale views of the inland delta — a green handprint of water written on arid southern Africa.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Okavango River',
+        url: 'https://www.britannica.com/place/Okavango-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Okavango Delta',
+        url: 'https://earthobservatory.nasa.gov/world-of-change/Okavango',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Okavango Delta',
+        url: 'https://whc.unesco.org/en/list/1432',
         kind: 'catalog',
       },
     ],

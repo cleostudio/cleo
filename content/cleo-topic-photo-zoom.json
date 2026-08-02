@@ -21411,6 +21411,366 @@
       }
     ]
   },
+  "rivers/zambezi": {
+    "collection": "rivers",
+    "title": "Victoria Falls",
+    "subtitle": "Zambezi",
+    "alt": "Victoria Falls — zambezi",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 6819,
+    "height": 3891,
+    "renditions": [
+      {
+        "src": "/images/rivers/zambezi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/zambezi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/zambezi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/zambezi-2": {
+    "collection": "rivers",
+    "title": "Lake Kariba",
+    "subtitle": "Zambezi",
+    "alt": "Lake Kariba — zambezi",
+    "photographer": "ISS Expedition 4 Crew / NASA",
+    "license": "Public domain",
+    "width": 3032,
+    "height": 2008,
+    "renditions": [
+      {
+        "src": "/images/rivers/zambezi/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/zambezi/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/zambezi/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/zambezi-3": {
+    "collection": "rivers",
+    "title": "Zambezi Delta",
+    "subtitle": "Zambezi",
+    "alt": "Zambezi Delta — zambezi",
+    "photographer": "NASA Johnson Space Center",
+    "license": "Public domain",
+    "width": 5253,
+    "height": 5294,
+    "renditions": [
+      {
+        "src": "/images/rivers/zambezi/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/zambezi/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/zambezi/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/orange-river": {
+    "collection": "rivers",
+    "title": "Orange River Canyon",
+    "subtitle": "Orange River",
+    "alt": "Orange River Canyon — orange river",
+    "photographer": "Bernard DUPONT",
+    "license": "CC BY-SA 2.0",
+    "width": 4218,
+    "height": 2531,
+    "renditions": [
+      {
+        "src": "/images/rivers/orange-river/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/orange-river/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/orange-river/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/orange-river-2": {
+    "collection": "rivers",
+    "title": "Augrabies Falls",
+    "subtitle": "Orange River",
+    "alt": "Augrabies Falls — orange river",
+    "photographer": "NJR ZA",
+    "license": "CC BY-SA 3.0",
+    "width": 2448,
+    "height": 3264,
+    "renditions": [
+      {
+        "src": "/images/rivers/orange-river/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/orange-river/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/orange-river/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/orange-river-3": {
+    "collection": "rivers",
+    "title": "Gariep Dam",
+    "subtitle": "Orange River",
+    "alt": "Gariep Dam — orange river",
+    "photographer": "South African Tourism",
+    "license": "CC BY 2.0",
+    "width": 4928,
+    "height": 3280,
+    "renditions": [
+      {
+        "src": "/images/rivers/orange-river/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/orange-river/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/orange-river/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/senegal": {
+    "collection": "rivers",
+    "title": "Senegal at Dagana",
+    "subtitle": "Senegal River",
+    "alt": "Senegal at Dagana — senegal",
+    "photographer": "Catjacket",
+    "license": "CC BY-SA 4.0",
+    "width": 4032,
+    "height": 3024,
+    "renditions": [
+      {
+        "src": "/images/rivers/senegal/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/senegal/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/senegal/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/senegal-2": {
+    "collection": "rivers",
+    "title": "Rosso crossing",
+    "subtitle": "Senegal River",
+    "alt": "Rosso crossing — senegal",
+    "photographer": "WILLAV-FR",
+    "license": "CC BY-SA 4.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/rivers/senegal/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/senegal/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/senegal/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/senegal-3": {
+    "collection": "rivers",
+    "title": "Senegal from orbit",
+    "subtitle": "Senegal River",
+    "alt": "Senegal from orbit — senegal",
+    "photographer": "NASA / Apollo 6",
+    "license": "Public domain",
+    "width": 4400,
+    "height": 4600,
+    "renditions": [
+      {
+        "src": "/images/rivers/senegal/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/senegal/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/senegal/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/limpopo": {
+    "collection": "rivers",
+    "title": "Limpopo channel",
+    "subtitle": "Limpopo",
+    "alt": "Limpopo channel — limpopo",
+    "photographer": "Bernard DUPONT",
+    "license": "CC BY-SA 2.0",
+    "width": 4256,
+    "height": 2394,
+    "renditions": [
+      {
+        "src": "/images/rivers/limpopo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/limpopo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/limpopo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/limpopo-2": {
+    "collection": "rivers",
+    "title": "Limpopo floodplain",
+    "subtitle": "Limpopo",
+    "alt": "Limpopo floodplain — limpopo",
+    "photographer": "krugergirl26",
+    "license": "CC BY 2.0",
+    "width": 2520,
+    "height": 1680,
+    "renditions": [
+      {
+        "src": "/images/rivers/limpopo/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/limpopo/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/limpopo/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/limpopo-3": {
+    "collection": "rivers",
+    "title": "Limpopo sandbanks",
+    "subtitle": "Limpopo",
+    "alt": "Limpopo sandbanks — limpopo",
+    "photographer": "Bernard DUPONT",
+    "license": "CC BY-SA 2.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/rivers/limpopo/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/limpopo/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/limpopo/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/okavango": {
+    "collection": "rivers",
+    "title": "Okavango Delta",
+    "subtitle": "Okavango",
+    "alt": "Okavango Delta — okavango",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 7358,
+    "height": 4755,
+    "renditions": [
+      {
+        "src": "/images/rivers/okavango/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/okavango/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/okavango/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/okavango-2": {
+    "collection": "rivers",
+    "title": "Okavango channels",
+    "subtitle": "Okavango",
+    "alt": "Okavango channels — okavango",
+    "photographer": "Joachim Huber",
+    "license": "CC BY-SA 2.0",
+    "width": 3008,
+    "height": 2000,
+    "renditions": [
+      {
+        "src": "/images/rivers/okavango/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/okavango/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/okavango/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/okavango-3": {
+    "collection": "rivers",
+    "title": "Okavango from orbit",
+    "subtitle": "Okavango",
+    "alt": "Okavango from orbit — okavango",
+    "photographer": "NASA",
+    "license": "Public domain",
+    "width": 4928,
+    "height": 3280,
+    "renditions": [
+      {
+        "src": "/images/rivers/okavango/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/okavango/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/okavango/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "rivers/yangtze": {
     "collection": "rivers",
     "title": "Qutang Gorge",
