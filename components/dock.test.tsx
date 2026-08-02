@@ -1,7 +1,19 @@
 // @vitest-environment jsdom
 
 import { cleanup, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+
+// DockFallback does not render Preferences, but importing `./dock` still
+// evaluates that module — which pulls in Better Auth Sentinel. Sentinel
+// schedules an identify call against `window`; after jsdom teardown that
+// becomes an unhandled `window is not defined` rejection in the full suite.
+vi.mock('~/lib/auth-client', () => ({
+  authClient: {
+    useSession: () => ({ data: null, isPending: false }),
+    signOut: vi.fn(),
+    updateUser: vi.fn(),
+  },
+}))
 
 import { DockFallback } from './dock'
 

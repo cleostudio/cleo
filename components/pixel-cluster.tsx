@@ -15,7 +15,7 @@ const VARIANTS = [
   ['b', '', 's', 'a'],
   ['a', 'b', 's', ''],
   ['', 'a', 'b', 's'],
-  // admin surfaces: Overview, AMA, Media, Photos, Booking detail
+  // Extra stamps for service pages (account, topics, explore indexes).
   ['s', '', 'a', 'b'],
   ['b', 's', 'a', ''],
   ['', 'b', 's', 'a'],

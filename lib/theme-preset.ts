@@ -37,6 +37,8 @@ export const semanticColorTokens = [
   '--input',
   '--ring',
   '--focus-ring',
+  /** Body / intro ink between muted and full foreground. */
+  '--readable',
 ] as const
 
 /**

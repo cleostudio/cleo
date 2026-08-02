@@ -322,6 +322,7 @@
   --input: var(--gray-4);
   --ring: var(--gray-8);
   --focus-ring: var(--gray-9);
+  --readable: var(--gray-10);
 
   /* the surface ladder, warm-tuned: elevated sheets stay on the paper */
   --surface-1: oklch(0.968 0.0018 95);
@@ -614,7 +615,7 @@
 }
 
 .page-introduction {
-  color: var(--gray-10, var(--foreground));
+  color: var(--readable);
   font-size: 0.875rem;
   line-height: 1.7;
 }
@@ -677,7 +678,7 @@
 
 .project-name {
   max-width: 100%;
-  color: var(--gray-11, var(--foreground));
+  color: var(--secondary-foreground);
   text-wrap: balance;
 }
 
@@ -691,7 +692,7 @@
 
 .project-description {
   min-width: 0;
-  color: var(--gray-8, var(--muted-foreground));
+  color: var(--muted-foreground);
   line-height: 1.55;
   text-wrap: balance;
 }
@@ -1466,7 +1467,7 @@
 /* ── Post prose ───────────────────────────────────────────────────── */
 
 .prose {
-  color: var(--gray-10, var(--foreground));
+  color: var(--readable);
   font-size: 0.875rem;
   line-height: 1.72;
 }
@@ -1486,7 +1487,7 @@
 
 .prose h2 {
   margin-top: 2.5em;
-  color: var(--gray-12, var(--foreground));
+  color: var(--foreground);
   font-size: 1.125rem;
   line-height: 1.35;
   font-weight: var(--font-weight-semibold);
@@ -1530,7 +1531,7 @@
 
 .prose h3 {
   margin-top: 2em;
-  color: var(--gray-12, var(--foreground));
+  color: var(--foreground);
   font-size: 1rem;
   line-height: 1.45;
   font-weight: var(--font-weight-semibold);
@@ -1539,7 +1540,7 @@
 }
 
 .prose a {
-  color: var(--gray-10, var(--foreground));
+  color: var(--readable);
   text-decoration-line: underline;
   text-decoration-style: dotted;
   text-decoration-thickness: 0.1em;
@@ -1551,18 +1552,18 @@
 
 @media (hover: hover) and (pointer: fine) {
   .prose a:hover {
-    color: var(--gray-12, var(--foreground));
+    color: var(--foreground);
     text-decoration-color: currentColor;
   }
 }
 
 .prose a:focus-visible {
-  color: var(--gray-12, var(--foreground));
+  color: var(--foreground);
   text-decoration-color: currentColor;
 }
 
 .prose strong {
-  color: var(--gray-12, var(--foreground));
+  color: var(--foreground);
   font-weight: var(--font-weight-semibold);
 }
 
@@ -1570,7 +1571,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.2em;
-  color: var(--gray-12, var(--foreground));
+  color: var(--foreground);
   font-weight: var(--font-weight-medium);
   vertical-align: -0.08em;
   white-space: nowrap;
@@ -1596,14 +1597,14 @@
 }
 
 .post-title-card h1 {
-  color: var(--gray-12, var(--foreground));
+  color: var(--foreground);
   font-size: clamp(1.75rem, 4vw, 2rem);
   line-height: 1.18;
   letter-spacing: -0.03em;
 }
 
 .post-title-meta {
-  color: var(--gray-8, var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 /* the post plate breathes under the title (wins over .spec-plate margin: 0) */
@@ -1641,7 +1642,7 @@
 
 .spec-plate dd {
   margin: 0.1875rem 0 0;
-  color: var(--gray-9, var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.8125rem;
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -1772,7 +1773,7 @@
 }
 
 .status-ladder [data-state='current'] {
-  color: var(--gray-10, var(--foreground));
+  color: var(--readable);
 }
 
 .status-ladder [data-state='current'] .status-ladder-cell {
@@ -1791,7 +1792,7 @@
   gap: 0.5rem;
   padding: 0.375rem 0.75rem;
   border: var(--border-hairline) solid color-mix(in oklab, var(--foreground) 55%, transparent);
-  color: var(--gray-11, var(--foreground));
+  color: var(--secondary-foreground);
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.1em;
@@ -1805,7 +1806,7 @@
   display: inline-flex;
   align-items: stretch;
   gap: 0;
-  color: var(--gray-8, var(--muted-foreground));
+  color: var(--muted-foreground);
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.75rem;
   font-weight: var(--font-weight-normal);
@@ -1841,9 +1842,9 @@
   padding-left: 0.625rem;
 }
 
-/* Softer hover/selected fills for large choice groups (the AMA booking
-   form's fluid checkbox/radio rows): the merged selection slab reads heavy
-   at the global --hover/--active strengths, so this dials both down. */
+/* Softer hover/selected fills for large choice groups: the merged selection
+   slab reads heavy at the global --hover/--active strengths, so this dials
+   both down. */
 .quiet-selection {
   --hover: color-mix(in oklab, var(--foreground) 4%, transparent);
   --active: color-mix(in oklab, var(--foreground) 7%, transparent);
@@ -1984,7 +1985,7 @@
 /* ── Page eyebrows: mono section marks with a comment prefix ─────── */
 
 .page-eyebrow {
-  color: var(--gray-8, var(--muted-foreground));
+  color: var(--muted-foreground);
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.75rem;
   font-weight: var(--font-weight-normal);
@@ -2407,7 +2408,7 @@ figure[data-rehype-pretty-code-figure] {
 
 .time-allocation-chart__title {
   margin: 0.375rem 0 0;
-  color: var(--gray-12, var(--foreground));
+  color: var(--foreground);
   font-size: clamp(1rem, 3.5vw, 1.125rem);
   font-weight: var(--font-weight-semibold);
   letter-spacing: -0.02em;
@@ -2427,14 +2428,14 @@ figure[data-rehype-pretty-code-figure] {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 0.375rem;
-  color: var(--gray-11, var(--foreground));
+  color: var(--secondary-foreground);
   font-size: 0.8125rem;
   line-height: 1.5;
 }
 
 .time-allocation-chart__value {
   flex: none;
-  color: var(--gray-12, var(--foreground));
+  color: var(--foreground);
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-variant-numeric: tabular-nums;
 }
@@ -2460,19 +2461,19 @@ figure[data-rehype-pretty-code-figure] {
 }
 
 .time-allocation-chart__bar[data-tone='primary'] {
-  background: var(--gray-12, var(--foreground));
+  background: var(--foreground);
 }
 
 .time-allocation-chart__bar[data-tone='secondary'] {
   background: repeating-linear-gradient(
     -45deg,
-    color-mix(in oklab, var(--gray-11, var(--foreground)) 76%, transparent) 0,
-    color-mix(in oklab, var(--gray-11, var(--foreground)) 76%, transparent) 1px,
+    color-mix(in oklab, var(--secondary-foreground) 76%, transparent) 0,
+    color-mix(in oklab, var(--secondary-foreground) 76%, transparent) 1px,
     transparent 1px,
     transparent 3.5px
   );
   box-shadow: inset 0 0 0 var(--border-hairline)
-    color-mix(in oklab, var(--gray-11, var(--foreground)) 55%, transparent);
+    color-mix(in oklab, var(--secondary-foreground) 55%, transparent);
 }
 
 /* ── Mermaid diagrams (beautiful-mermaid, server-rendered svg) ────── */
@@ -3122,7 +3123,7 @@ a:focus-visible .external-label .external-mark {
 /* ── Homepage introduction: small marks, deliberate responses ───── */
 
 .home-introduction p {
-  color: var(--gray-10, var(--muted-foreground));
+  color: var(--readable);
   font-size: 0.875rem;
   line-height: 1.72;
 }
@@ -3252,7 +3253,7 @@ a:focus-visible .external-label .external-mark {
 
 .home-zolplay-link .external-link,
 .home-contact-link {
-  color: var(--gray-10, var(--foreground));
+  color: var(--readable);
   text-decoration-line: underline;
   text-decoration-style: dotted;
   text-decoration-thickness: 0.1em;
@@ -3277,7 +3278,7 @@ a:focus-visible .external-label .external-mark {
 @media (hover: hover) and (pointer: fine) {
   .home-zolplay-link .external-link:hover,
   .home-contact-link:hover {
-    color: var(--gray-12, var(--foreground));
+    color: var(--foreground);
     text-decoration-color: currentColor;
   }
 }
@@ -3814,8 +3815,7 @@ a:focus-visible .external-label .external-mark {
 }
 
 .external-link img[data-failed],
-.link-card img[data-failed],
-.ama-product-logo[data-failed] {
+.link-card img[data-failed] {
   visibility: hidden;
 }
 
@@ -3828,46 +3828,38 @@ a:focus-visible .external-label .external-mark {
    near-white tiles just get an edge on the light page. */
 .external-link img[data-tone='light-mono'],
 .link-card-site img[data-tone='light-mono'],
-.ama-product-logo[data-tone='light-mono'],
 .dark .external-link img[data-tone='dark-mono'],
-.dark .link-card-site img[data-tone='dark-mono'],
-.dark .ama-product-logo[data-tone='dark-mono'] {
+.dark .link-card-site img[data-tone='dark-mono'] {
   filter: invert(1);
 }
 
 .dark .external-link img[data-tone='light-mono'],
-.dark .link-card-site img[data-tone='light-mono'],
-.dark .ama-product-logo[data-tone='light-mono'] {
+.dark .link-card-site img[data-tone='light-mono'] {
   filter: none;
 }
 
 .external-link img[data-tone='light'],
 .link-card-site img[data-tone='light'],
-.ama-product-logo[data-tone='light'],
 .dark .external-link img[data-tone='dark'],
-.dark .link-card-site img[data-tone='dark'],
-.dark .ama-product-logo[data-tone='dark'] {
+.dark .link-card-site img[data-tone='dark'] {
   box-sizing: border-box;
   padding: 2px;
   background: color-mix(in oklab, var(--primary) 88%, var(--background));
 }
 
 .dark .external-link img[data-tone='light'],
-.dark .link-card-site img[data-tone='light'],
-.dark .ama-product-logo[data-tone='light'] {
+.dark .link-card-site img[data-tone='light'] {
   padding: 0;
   background: none;
 }
 
 .external-link img[data-tone='flat'],
-.link-card-site img[data-tone='flat'],
-.ama-product-logo[data-tone='flat'] {
+.link-card-site img[data-tone='flat'] {
   box-shadow: inset 0 0 0 1px var(--border);
 }
 
 .dark .external-link img[data-tone='flat'],
-.dark .link-card-site img[data-tone='flat'],
-.dark .ama-product-logo[data-tone='flat'] {
+.dark .link-card-site img[data-tone='flat'] {
   box-shadow: none;
 }
 
@@ -5274,7 +5266,7 @@ a:focus-visible .external-label .external-mark {
 
 .blog-row-title {
   min-width: 0;
-  color: var(--gray-11, var(--foreground));
+  color: var(--secondary-foreground);
   font-weight: var(--font-weight-medium);
   white-space: nowrap;
   overflow: hidden;
@@ -7199,306 +7191,13 @@ a:focus-visible .external-label .external-mark {
   }
 }
 
-/* ── AMA booking: calm waiting dots (no spinner) ─────────────────── */
-
-.ama-introduction-stage {
-  position: relative;
-  isolation: isolate;
-  margin-inline: -1rem;
-  overflow: visible;
-  padding: 1rem;
-}
-
-.ama-introduction-stage::before,
-.ama-conversation-static,
-.ama-conversation-shader-layer,
-.ama-conversation-shader-shell,
-.ama-conversation-shader-canvas {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  user-select: none;
-}
-
-.ama-introduction-stage::before {
-  background: radial-gradient(
-    ellipse at center,
-    color-mix(in oklab, var(--surface-2) 62%, transparent) 0%,
-    color-mix(in oklab, var(--surface-1) 38%, transparent) 48%,
-    transparent 78%
-  );
-  content: '';
-}
-
-.ama-conversation-static,
-.ama-conversation-shader-layer {
-  mask-image: radial-gradient(ellipse at center, black 42%, transparent 78%);
-  transform: translateY(-5rem);
-}
-
-.ama-conversation-static {
-  color: var(--foreground);
-  opacity: 0.045;
-  transition: opacity 350ms var(--ease-swift);
-}
-
-.ama-conversation-static svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 0.8;
-  vector-effect: non-scaling-stroke;
-}
-
-.ama-conversation-shader-layer {
-  opacity: 0;
-  transition: opacity 350ms var(--ease-swift);
-}
-
-.ama-introduction-stage[data-shader-ready='true'] .ama-conversation-static {
-  opacity: 0;
-}
-
-.ama-introduction-stage[data-shader-ready='true']
-  .ama-conversation-shader-layer {
-  opacity: 0.06;
-}
-
-.dark
-  .ama-introduction-stage[data-shader-ready='true']
-  .ama-conversation-shader-layer {
-  opacity: 0.075;
-}
-
-.ama-introduction-content {
-  position: relative;
-}
-
-.ama-product-name {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2em;
-  vertical-align: -0.08em;
-  white-space: nowrap;
-}
-
-.ama-product-logo {
-  flex: none;
-  width: 0.875em;
-  height: 0.875em;
-  border-radius: 0.18em;
-  object-fit: contain;
-  pointer-events: none;
-  user-select: none;
-}
-
-.ama-waiting-dots::after {
-  display: inline-block;
-  min-width: 1.5em;
-  animation: ama-waiting-dots 1.6s steps(1) infinite;
-  content: '…';
-  text-align: left;
-}
-
-body:has(.ama-success-stage) {
-  --background: #08070a;
-  --border: rgb(241 238 229 / 0.16);
-  --foreground: #f1eee5;
-  --muted-foreground: rgb(241 238 229 / 0.68);
-  --muted: rgb(241 238 229 / 0.09);
-  --hover: rgb(241 238 229 / 0.08);
-  --active: rgb(241 238 229 / 0.14);
-  /* A solid stage surface ramp so ladder-riding sheets (dialogs, popovers)
-     stay dark here regardless of the page theme. */
-  --surface-1: #121014;
-  --surface-2: #161418;
-  --surface-3: #1a181d;
-  --surface-4: #1f1d22;
-  --surface-5: #242227;
-  --surface-6: #29272c;
-  --surface-7: #2e2c31;
-  --surface-8: #333136;
-
-  background: #08070a;
-  color: #f1eee5;
-}
-
-body:has(.ama-success-stage) main {
-  isolation: isolate;
-}
-
-.ama-success-stage {
-  position: relative;
-  display: grid;
-  min-height: max(32rem, calc(100svh - 10.5rem));
-  place-items: center;
-  color: #f1eee5;
-}
-
-.ama-success-static-background,
-.ama-success-shader-layer,
-.ama-success-confetti {
-  position: fixed;
-  inset: 0;
-  display: block;
-  pointer-events: none;
-  user-select: none;
-}
-
-.ama-success-shader-shell,
-.ama-success-shader-canvas {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  user-select: none;
-}
-
-.ama-success-static-background {
-  z-index: -2;
-  background:
-    linear-gradient(164deg, transparent 18%, rgb(118 24 219 / 0.2) 42%, transparent 62%),
-    linear-gradient(150deg, #030304 10%, #18181a 52%, #050407 90%);
-}
-
-.ama-success-shader-layer {
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 350ms var(--ease-swift);
-}
-
-.ama-success-stage[data-shader-ready='true'] .ama-success-shader-layer {
-  opacity: 1;
-}
-
-.ama-success-confetti {
-  z-index: 1;
-  overflow: hidden;
-}
-
-/* Ballistic confetti in three layers: the piece drives horizontally with a
-   touch of drag, the fall layer rises and drops with gravity easings that
-   flip at the apex, and the card tumbles in 3D. All transform/opacity,
-   nothing loops. */
-.ama-success-confetti-piece {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  will-change: transform, opacity;
-  animation: ama-confetti-drive var(--ama-confetti-duration)
-    cubic-bezier(0.22, 0.52, 0.56, 0.9) var(--ama-confetti-delay) both;
-}
-
-.ama-success-confetti-fall {
-  display: block;
-  animation: ama-confetti-fall var(--ama-confetti-duration) linear
-    var(--ama-confetti-delay) both;
-}
-
-.ama-success-confetti-card {
-  display: block;
-  width: 0.35rem;
-  height: 0.7rem;
-  border-radius: 1px;
-  background: var(--ama-confetti-color);
-  transform-origin: center;
-  animation: ama-confetti-tumble var(--ama-confetti-duration) linear
-    var(--ama-confetti-delay) both;
-}
-
-.ama-success-confetti-piece:nth-child(3n) .ama-success-confetti-card {
-  width: 0.5rem;
-  height: 0.18rem;
-}
-
-.ama-success-confetti-piece:nth-child(4n) .ama-success-confetti-card {
-  border-radius: 50%;
-}
-
-.ama-success-stage-content {
-  position: relative;
-  z-index: 2;
-  width: min(100%, 31rem);
-  padding: 4rem 2rem calc(6rem + env(safe-area-inset-bottom));
-  text-align: center;
-}
-
-.ama-success-stage-content [role='status'] {
-  align-items: center;
-}
-
-/* Form-like stage content (the guest manage page) stays left-aligned. */
-.ama-success-stage-content--start {
-  text-align: left;
-}
-
-.ama-success-stage-content--start [role='status'] {
-  align-items: stretch;
-}
-
-.ama-success-stage .text-muted-foreground {
-  color: rgb(241 238 229 / 0.72);
-}
-
-/* The ladder and cert stamp read in the stage's paper ink on the dark
-   field, independent of the page theme — their default token colors would
-   vanish here in light mode. The lit signal cell stays chromatic. */
-.ama-success-stage .status-ladder {
-  min-width: 10rem;
-  color: rgb(241 238 229 / 0.6);
-}
-
-.ama-success-stage .status-ladder [data-state='current'] {
-  color: rgb(241 238 229 / 0.92);
-}
-
-.ama-success-stage .status-ladder [data-state='done'] .status-ladder-cell {
-  background: rgb(241 238 229 / 0.62);
-}
-
-.ama-success-stage .status-ladder [data-state='pending'] .status-ladder-cell {
-  box-shadow: inset 0 0 0 var(--border-hairline) rgb(241 238 229 / 0.45);
-}
-
-.ama-success-stage .cert-stamp {
-  border-color: rgb(241 238 229 / 0.5);
-  color: rgb(241 238 229 / 0.9);
-}
-
-/* The confirmation's status stamp: the heading-ornament (section-tag)
-   composition — boxed signal cell, hazard-hatch chip, tracked mono label —
-   pressed at a slight angle over the session plate's top rule, like a
-   rubber stamp on the document. Static; a stamp never animates. */
-.ama-plate-stamp {
-  position: relative;
-  z-index: 1;
-  margin-bottom: -0.5625rem;
-  margin-right: 0.75rem;
-  transform: rotate(-3deg);
-  background: rgb(8 7 10 / 0.82);
-  color: rgb(241 238 229 / 0.85);
-}
-
-.ama-plate-stamp .section-tag-index {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* ── Dialog glass + section-tag hatch edge ───────────────────────── */
 
 /* Dialog glass: keep the ladder's surface color but drop its alpha so the
    page reads through the sheet, with a blur so text over it stays legible.
    color-mix against transparent preserves whatever surface level Elevated
-   assigned (warm paper in the admin, the dark ramp on the AMA stage).
-   backdrop-filter must stay in a stylesheet rule the CSS pipeline keeps —
-   it is a class here, not a raw property on a utility. */
+   assigned. backdrop-filter must stay in a stylesheet rule the CSS pipeline
+   keeps — it is a class here, not a raw property on a utility. */
 .dialog-glass {
   background: color-mix(in oklab, var(--surface-5) 82%, transparent);
   backdrop-filter: blur(20px) saturate(1.4);
@@ -7514,248 +7213,4 @@ body:has(.ama-success-stage) main {
 .section-tag-hatch:first-child {
   border-left: var(--border-hairline) solid
     color-mix(in oklab, var(--muted-foreground) 45%, transparent);
-}
-
-/* The cancel dialog is a hazard-marked sheet: a full-width tape band
-   along its top edge, clipped by the panel's own radius. */
-.ama-cancel-dialog {
-  overflow: hidden;
-}
-
-.ama-cancel-dialog::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 0.5rem;
-  pointer-events: none;
-  border-bottom: var(--border-hairline) solid
-    color-mix(in oklab, var(--destructive) 40%, transparent);
-  background: repeating-linear-gradient(
-    -45deg,
-    color-mix(in oklab, var(--destructive) 50%, transparent) 0,
-    color-mix(in oklab, var(--destructive) 50%, transparent) var(--border-hairline),
-    transparent var(--border-hairline),
-    transparent 5px
-  );
-}
-
-/* Hazard tape flanking a destructive doorway: a short bordered strip of
-   fine diagonal strokes in destructive ink at low alpha. */
-.ama-hazard-strip {
-  width: 2.5rem;
-  height: 0.875rem;
-  border: var(--border-hairline) solid
-    color-mix(in oklab, var(--destructive) 45%, transparent);
-  background: repeating-linear-gradient(
-    -45deg,
-    color-mix(in oklab, var(--destructive) 55%, transparent) 0,
-    color-mix(in oklab, var(--destructive) 55%, transparent) var(--border-hairline),
-    transparent var(--border-hairline),
-    transparent 5px
-  );
-}
-
-/* The session plate prints in the stage's paper ink, same theme
-   independence as the ladder above. */
-.ama-success-stage .spec-nameplate {
-  border-color: rgb(241 238 229 / 0.3);
-}
-
-.ama-success-stage .spec-nameplate > div + div {
-  border-top-color: rgb(241 238 229 / 0.3);
-}
-
-.ama-success-stage .spec-nameplate dt {
-  border-right-color: rgb(241 238 229 / 0.3);
-  color: rgb(241 238 229 / 0.55);
-}
-
-/* Ornamental proof-sheet foot; the label sets in the plate's faded ink. */
-.ama-success-barcode {
-  align-self: center;
-  margin-top: 1.25rem;
-  width: 8.5rem;
-  color: rgb(241 238 229 / 0.44);
-}
-
-.ama-success-barcode svg {
-  /* The strip fills the container so bars and label share one box and one
-     center; preserveAspectRatio="none" keeps the stretch harmless. */
-  width: 100%;
-}
-
-.ama-success-barcode .barcode-label {
-  text-align: center;
-  letter-spacing: 0.22em;
-}
-
-/* The confirmation seal in the print register: a square hairline plate on
-   the 2px corner with calibration brackets outside it, stamped at the
-   arrive animation's settled -4° — an inspection stamp, not a badge. */
-.ama-success-mark {
-  position: relative;
-  display: grid;
-  width: 4rem;
-  height: 4rem;
-  margin: 0 auto 1.75rem;
-  place-items: center;
-  border-radius: 2px;
-  border: var(--border-hairline) solid rgb(241 238 229 / 0.55);
-  background: rgb(241 238 229 / 0.05);
-  color: #f1eee5;
-  font-size: 1.375rem;
-  line-height: 1;
-  animation: ama-success-mark-arrive 350ms var(--ease-swift) both;
-}
-
-/* Hazard-hatch bands along the plate's top and bottom edges — the fine
-   diagonal-stroke chip from the section-tag register, behind the check. */
-.ama-success-mark::after {
-  content: '';
-  position: absolute;
-  inset: 3px;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    repeating-linear-gradient(
-        -45deg,
-        currentColor 0,
-        currentColor var(--border-hairline),
-        transparent var(--border-hairline),
-        transparent 4px
-      )
-      top / 100% 0.4375rem no-repeat,
-    repeating-linear-gradient(
-        -45deg,
-        currentColor 0,
-        currentColor var(--border-hairline),
-        transparent var(--border-hairline),
-        transparent 4px
-      )
-      bottom / 100% 0.4375rem no-repeat;
-  opacity: 0.34;
-}
-
-/* Viewfinder corner brackets, 8px outside the plate (9px arms). */
-.ama-success-mark::before {
-  content: '';
-  position: absolute;
-  inset: -0.5rem;
-  pointer-events: none;
-  opacity: 0.62;
-  background:
-    linear-gradient(currentColor, currentColor) left top / 9px var(--border-hairline) no-repeat,
-    linear-gradient(currentColor, currentColor) left top / var(--border-hairline) 9px no-repeat,
-    linear-gradient(currentColor, currentColor) right top / 9px var(--border-hairline) no-repeat,
-    linear-gradient(currentColor, currentColor) right top / var(--border-hairline) 9px no-repeat,
-    linear-gradient(currentColor, currentColor) left bottom / 9px var(--border-hairline) no-repeat,
-    linear-gradient(currentColor, currentColor) left bottom / var(--border-hairline) 9px no-repeat,
-    linear-gradient(currentColor, currentColor) right bottom / 9px var(--border-hairline) no-repeat,
-    linear-gradient(currentColor, currentColor) right bottom / var(--border-hairline) 9px no-repeat;
-}
-
-/* Horizontal drive: launch speed decays to a drift (air drag); the piece
-   fades while still moving, never hanging in place. */
-@keyframes ama-confetti-drive {
-  0% {
-    opacity: 0;
-    transform: translate3d(var(--ama-confetti-x-from), 0, 0);
-  }
-
-  5% {
-    opacity: 1;
-  }
-
-  72% {
-    opacity: 0.95;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate3d(var(--ama-confetti-x-to), 0, 0);
-  }
-}
-
-/* Vertical ballistics: decelerate to the apex, then gravity takes over —
-   the easing flips per keyframe so the arc reads as a true parabola. */
-@keyframes ama-confetti-fall {
-  0% {
-    transform: translate3d(0, var(--ama-confetti-y-from), 0);
-    animation-timing-function: cubic-bezier(0.16, 0.8, 0.38, 1);
-  }
-
-  44% {
-    transform: translate3d(0, var(--ama-confetti-y-apex), 0);
-    animation-timing-function: cubic-bezier(0.52, 0.04, 0.86, 0.42);
-  }
-
-  100% {
-    transform: translate3d(0, var(--ama-confetti-y-fall), 0);
-  }
-}
-
-/* Finite 3D tumble — the rotateX flutter shows the paper's thin edge. */
-@keyframes ama-confetti-tumble {
-  0% {
-    transform: rotateZ(var(--ama-confetti-tilt)) rotateX(0deg);
-  }
-
-  100% {
-    transform: rotateZ(calc(var(--ama-confetti-tilt) + var(--ama-confetti-spin-z)))
-      rotateX(var(--ama-confetti-spin-x));
-  }
-}
-
-@keyframes ama-success-mark-arrive {
-  0% {
-    opacity: 0;
-    transform: scale(0.72) rotate(-10deg);
-  }
-
-  58% {
-    opacity: 1;
-    transform: scale(1.08) rotate(-2deg);
-  }
-
-  100% {
-    transform: scale(1) rotate(-4deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ama-conversation-static,
-  .ama-conversation-shader-layer {
-    transition: none;
-  }
-
-  .ama-conversation-shader-layer {
-    display: none;
-  }
-
-  .ama-success-shader-layer {
-    display: none;
-    transition: none;
-  }
-
-  .ama-success-confetti {
-    display: none;
-  }
-
-  .ama-success-mark {
-    animation: none;
-  }
-}
-
-@keyframes ama-waiting-dots {
-  0% {
-    content: '·';
-  }
-
-  33% {
-    content: '· ·';
-  }
-
-  66% {
-    content: '· · ·';
-  }
 }
