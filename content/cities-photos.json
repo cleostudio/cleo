@@ -1470,5 +1470,465 @@
         }
       ]
     }
+  ],
+  "marrakech": [
+    {
+      "featureName": "Koutoubia Mosque",
+      "alt": "Koutoubia Mosque — marrakech",
+      "caption": "Koutoubia Mosque",
+      "photographer": "Schorle",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKoutoubia_minaret_from_the_city.JPG",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Koutoubia minaret from the city.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Koutoubia minaret from the city.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f337d18fcc593d456de897dac963d4a2ad887f523072496fc8fce0b0ba77ed49",
+      "width": 5184,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/marrakech/w640.jpg",
+          "bytes": 62628
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/marrakech/w1280.jpg",
+          "bytes": 148987
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/marrakech/w2048.jpg",
+          "bytes": 358057
+        }
+      ]
+    },
+    {
+      "featureName": "Jemaa el-Fnaa",
+      "alt": "Jemaa el-Fnaa — marrakech",
+      "caption": "Jemaa el-Fnaa",
+      "photographer": "Herokk",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AJemaa_el-Fnaa_Marrakech_at_sunset.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Jemaa el-Fnaa Marrakech at sunset.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Jemaa el-Fnaa Marrakech at sunset.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "08e92dc81bfc975d17674375c5e2c6bb9599d16939f86934729618dd2a40f2c3",
+      "width": 4096,
+      "height": 3072,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/marrakech/w640-2.jpg",
+          "bytes": 63949
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/marrakech/w1280-2.jpg",
+          "bytes": 205217
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/marrakech/w2048-2.jpg",
+          "bytes": 553815
+        }
+      ]
+    },
+    {
+      "featureName": "Bahia Palace",
+      "alt": "Bahia Palace — marrakech",
+      "caption": "Bahia Palace",
+      "photographer": "Val Traveler",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABahia_Palace_large_court.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Bahia Palace large court.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Bahia Palace large court.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "eb4668f8f5780563d4405ec9834dadc1ff94b80a467aac1ea0ce1ac4e0bc4976",
+      "width": 4873,
+      "height": 3253,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/marrakech/w640-3.jpg",
+          "bytes": 118809
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/marrakech/w1280-3.jpg",
+          "bytes": 288397
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/marrakech/w2048-3.jpg",
+          "bytes": 698315
+        }
+      ]
+    }
+  ],
+  "lagos": [
+    {
+      "featureName": "Lagos skyline",
+      "alt": "Lagos skyline — lagos",
+      "caption": "Lagos skyline",
+      "photographer": "Clara Sanchiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALagos_skyline.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Lagos skyline.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Lagos skyline.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "cf5bcdc67c916f9de09b08e33bb5bbfca6904325b1a6e505b13e8223aef441c0",
+      "width": 3726,
+      "height": 1970,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/lagos/w640.jpg",
+          "bytes": 33876
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/lagos/w1280.jpg",
+          "bytes": 99978
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/lagos/w2048.jpg",
+          "bytes": 263402
+        }
+      ]
+    },
+    {
+      "featureName": "National Arts Theatre",
+      "alt": "National Arts Theatre — lagos",
+      "caption": "National Arts Theatre",
+      "photographer": "Juganutt",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANational_Arts_Theatre%2C_Lagos.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:National Arts Theatre, Lagos.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:National Arts Theatre, Lagos.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "dee9e154076b7dc989d9f2e9f5591e1e9f52700249a43939750f93f5d70d31e1",
+      "width": 3992,
+      "height": 2992,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/lagos/w640-2.jpg",
+          "bytes": 65019
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/lagos/w1280-2.jpg",
+          "bytes": 213655
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/lagos/w2048-2.jpg",
+          "bytes": 602888
+        }
+      ]
+    },
+    {
+      "featureName": "Third Mainland Bridge",
+      "alt": "Third Mainland Bridge — lagos",
+      "caption": "Third Mainland Bridge",
+      "photographer": "Dan Flore",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADan_Flore_Lagos-Nigeria-3rd-Mainland-Bridge-2006.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Dan Flore Lagos-Nigeria-3rd-Mainland-Bridge-2006.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Dan Flore Lagos-Nigeria-3rd-Mainland-Bridge-2006.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "93c0fc958972803dfd961fb650498b71137b3fc653a8059fa9f31f5d15acb620",
+      "width": 2014,
+      "height": 1314,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/lagos/w640-3.jpg",
+          "bytes": 35747
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/lagos/w1280-3.jpg",
+          "bytes": 104599
+        },
+        {
+          "width": 2014,
+          "src": "/images/cities/lagos/w2048-3.jpg",
+          "bytes": 290938
+        }
+      ]
+    }
+  ],
+  "buenos-aires": [
+    {
+      "featureName": "Casa Rosada",
+      "alt": "Casa Rosada — buenos aires",
+      "caption": "Casa Rosada",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACasa_Rosada%2C_Buenos_Aires%2C_Argentina.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Casa Rosada, Buenos Aires, Argentina.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Casa Rosada, Buenos Aires, Argentina.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "90b65fe0b2c62be95eb384ad5dd1aab3346ea6efff645706f45b1a0849a26b43",
+      "width": 3694,
+      "height": 2144,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/buenos-aires/w640.jpg",
+          "bytes": 76281
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/buenos-aires/w1280.jpg",
+          "bytes": 171043
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/buenos-aires/w2048.jpg",
+          "bytes": 399394
+        }
+      ]
+    },
+    {
+      "featureName": "Obelisco",
+      "alt": "Obelisco — buenos aires",
+      "caption": "Obelisco",
+      "photographer": "Dpalma01",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AObelisco_de_Buenos_Aires_at_sunset.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Obelisco de Buenos Aires at sunset.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Obelisco de Buenos Aires at sunset.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a50eede50d99d5d31c7d5ad2926e36682594511ea6801a4bf8fb8308e6e9b9dc",
+      "width": 3192,
+      "height": 1886,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/buenos-aires/w640-2.jpg",
+          "bytes": 39924
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/buenos-aires/w1280-2.jpg",
+          "bytes": 119212
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/buenos-aires/w2048-2.jpg",
+          "bytes": 291321
+        }
+      ]
+    },
+    {
+      "featureName": "Teatro Colón",
+      "alt": "Teatro Colón — buenos aires",
+      "caption": "Teatro Colón",
+      "photographer": "Bernard Gagnon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATeatro_Col%C3%B3n%2C_Buenos_Aires_01.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Teatro Colón, Buenos Aires 01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Teatro Colón, Buenos Aires 01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fc7508c0c30e79e450245fac09f5c6165107570acd7b76154dff6aafbbe2b6de",
+      "width": 4914,
+      "height": 3306,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/buenos-aires/w640-3.jpg",
+          "bytes": 90933
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/buenos-aires/w1280-3.jpg",
+          "bytes": 217711
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/buenos-aires/w2048-3.jpg",
+          "bytes": 523561
+        }
+      ]
+    }
+  ],
+  "rio-de-janeiro": [
+    {
+      "featureName": "Christ the Redeemer",
+      "alt": "Christ the Redeemer — rio de janeiro",
+      "caption": "Christ the Redeemer",
+      "photographer": "Arne Müseler",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChrist_the_Redeemer_-_Cristo_Redentor.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Christ the Redeemer - Cristo Redentor.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Christ the Redeemer - Cristo Redentor.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5c79107c2d6509a2ed8444975c7f062034b60707d0a2cba8838c0e55674c7783",
+      "width": 2497,
+      "height": 3744,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/rio-de-janeiro/w640.jpg",
+          "bytes": 180190
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/rio-de-janeiro/w1280.jpg",
+          "bytes": 563049
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/rio-de-janeiro/w2048.jpg",
+          "bytes": 1501180
+        }
+      ]
+    },
+    {
+      "featureName": "Sugarloaf Mountain",
+      "alt": "Sugarloaf Mountain — rio de janeiro",
+      "caption": "Sugarloaf Mountain",
+      "photographer": "Wilfredor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASugarloaf_Mountain%2C_Rio_de_Janeiro%2C_Brazil.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Sugarloaf Mountain, Rio de Janeiro, Brazil.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Sugarloaf Mountain, Rio de Janeiro, Brazil.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4342ec0516092835d6d44637cbfe1df47a69eb495b35568a71012dc5793e1905",
+      "width": 7482,
+      "height": 4629,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/rio-de-janeiro/w640-2.jpg",
+          "bytes": 73233
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/rio-de-janeiro/w1280-2.jpg",
+          "bytes": 200987
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/rio-de-janeiro/w2048-2.jpg",
+          "bytes": 542595
+        }
+      ]
+    },
+    {
+      "featureName": "Guanabara Bay shoreline",
+      "alt": "Guanabara Bay shoreline — rio de janeiro",
+      "caption": "Guanabara Bay shoreline",
+      "photographer": "Wilfredor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARio_de_Janeiro%2C_Brazil_-08.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Rio de Janeiro, Brazil -08.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Rio de Janeiro, Brazil -08.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f6c06fdbb6cf4f8c57f8848703a7501e77ee318a2f09400a29cd7fcda8a55f2a",
+      "width": 8256,
+      "height": 5504,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/rio-de-janeiro/w640-3.jpg",
+          "bytes": 80350
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/rio-de-janeiro/w1280-3.jpg",
+          "bytes": 236982
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/rio-de-janeiro/w2048-3.jpg",
+          "bytes": 624388
+        }
+      ]
+    }
+  ],
+  "bogota": [
+    {
+      "featureName": "Monserrate",
+      "alt": "Monserrate — bogota",
+      "caption": "Monserrate",
+      "photographer": "Felipe Restrepo Acosta",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A2019_Bogot%C3%A1_-_Monserrate_desde_la_Estaci%C3%B3n_Hospitales_de_Transmilenio.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:2019 Bogotá - Monserrate desde la Estación Hospitales de Transmilenio.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:2019 Bogotá - Monserrate desde la Estación Hospitales de Transmilenio.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ce985a9e09fb6de94bc76d40722e9c4edc01cebc414bcb6989e146f3649215c9",
+      "width": 5184,
+      "height": 3888,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/bogota/w640.jpg",
+          "bytes": 61821
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/bogota/w1280.jpg",
+          "bytes": 160295
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/bogota/w2048.jpg",
+          "bytes": 385663
+        }
+      ]
+    },
+    {
+      "featureName": "Plaza de Bolívar",
+      "alt": "Plaza de Bolívar — bogota",
+      "caption": "Plaza de Bolívar",
+      "photographer": "José Luiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APlaza_de_Bol%C3%ADvar_-_Bogot%C3%A1_-_Colombia_2024.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Plaza de Bolívar - Bogotá - Colombia 2024.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Plaza de Bolívar - Bogotá - Colombia 2024.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "751c9c6445b1433d3d005d7b65db73dd860212086890325f714ff3e505adb8d6",
+      "width": 4608,
+      "height": 2184,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/bogota/w640-2.jpg",
+          "bytes": 37878
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/bogota/w1280-2.jpg",
+          "bytes": 103994
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/bogota/w2048-2.jpg",
+          "bytes": 268084
+        }
+      ]
+    },
+    {
+      "featureName": "Primatial Cathedral",
+      "alt": "Primatial Cathedral — bogota",
+      "caption": "Primatial Cathedral",
+      "photographer": "Kamilokardona",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACatedral_Primada_de_Colombia.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Catedral Primada de Colombia.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Catedral Primada de Colombia.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "288f2c3ee40da10870cbc1ddcedf8727c16c7f6ed6ff4494edbbae480f8cb879",
+      "width": 2592,
+      "height": 1944,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/bogota/w640-3.jpg",
+          "bytes": 89265
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/bogota/w1280-3.jpg",
+          "bytes": 225722
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/bogota/w2048-3.jpg",
+          "bytes": 546692
+        }
+      ]
+    }
   ]
 }

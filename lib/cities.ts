@@ -70,7 +70,7 @@ function withPhotos(draft: CitySubjectDraft): CitySubject {
 
 /**
  * Curated catalog — capitals and route cities across Mediterranean & Europe,
- * Asia, and Africa & Americas (sixteen guides). Expand here as new Cities
+ * Asia, and Africa & Americas (twenty-one guides). Expand here as new Cities
  * guides ship.
  */
 const citySubjectDrafts: CitySubjectDraft[] = [
@@ -903,6 +903,246 @@ const citySubjectDrafts: CitySubjectDraft[] = [
         label: 'INAH — Templo Mayor',
         url: 'https://www.templomayor.inah.gob.mx/',
         kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'marrakech',
+    code: 'MRK',
+    name: 'Marrakech',
+    category: 'Africa & Americas',
+    subtitle: 'Atlas foothill · medina routes',
+    about:
+      'Marrakech is a red-walled city of the Haouz plain where Atlas foothills meet long-distance Maghreb routes. Founded as an Almoravid capital, it grew a medina of souks, mosques, and palaces around Jemaa el-Fnaa — a square that still stages evening trade, food, and performance. Orientation is adobe and oasis: Koutoubia’s minaret marking the skyline; packed lanes of leather, metal, and spice; gardens and riads cooling the heat behind blank walls. The city was never Morocco’s sole political capital for every dynasty, yet it remains a southern commercial and cultural magnet. This primer stays with medina form, square, and Atlas-edge geography rather than a riad booking list.',
+    facts: {
+      kind: 'Medina market city',
+      country: 'Morocco',
+      region: 'Haouz plain · High Atlas foothills',
+      founded: 'Almoravid foundation c. 1070; continuous medina life thereafter',
+      capitalRole: 'Historic dynastic capital; major Moroccan regional city (Rabat is the political capital)',
+      corridors: 'Atlas passes; Atlantic approaches; trans-Saharan / Maghreb caravan links',
+      exploreLinks: ['Morocco'],
+    },
+    features: [
+      {
+        name: 'Koutoubia Mosque',
+        description:
+          'The Almohad minaret that still orients Marrakech’s skyline — a brick landmark of the medina’s congregational core.',
+      },
+      {
+        name: 'Jemaa el-Fnaa',
+        description:
+          'The great open square of storytellers, stalls, and evening crowds — the social stage of the old city.',
+      },
+      {
+        name: 'Bahia Palace',
+        description:
+          'A nineteenth-century palace of courtyards and carved cedar — elite domestic architecture inside the medina fabric.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Marrakech',
+        url: 'https://www.britannica.com/place/Marrakech',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Medina of Marrakesh',
+        url: 'https://whc.unesco.org/en/list/331',
+        kind: 'catalog',
+      },
+      {
+        label: 'UNESCO — Cultural space of Jemaa el-Fna Square',
+        url: 'https://ich.unesco.org/en/RL/cultural-space-of-jemaa-el-fna-square-00014',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'lagos',
+    code: 'LAG',
+    name: 'Lagos',
+    category: 'Africa & Americas',
+    subtitle: 'Lagoon megacity · Gulf of Guinea',
+    about:
+      'Lagos is a lagoon and Atlantic megacity — Nigeria’s commercial engine spread across islands, mainland bridges, and dense waterfront districts. Portuguese and later British port history layered onto Yoruba settlements; today the city absorbs migrants and trade from across West Africa. Orientation is water and congestion: lagoon creeks, Third Mainland Bridge arcs, and a skyline rising from older markets and new towers. It is not Nigeria’s political capital (that role moved to Abuja), yet Lagos remains the country’s primary port and media center. This primer stays with lagoon geography, bridge corridors, and commercial primacy rather than a neighborhood nightlife map.',
+    facts: {
+      kind: 'Lagoon port megacity',
+      country: 'Nigeria',
+      region: 'Lagos Lagoon · Gulf of Guinea coast',
+      founded: 'Island and mainland settlements with Portuguese contact from the 15th century; colonial port expansion',
+      capitalRole: 'Former federal capital; Nigeria’s largest city and commercial capital (Abuja is the political capital)',
+      corridors: 'Lagoon creeks; Third Mainland and other bridges; Gulf of Guinea shipping',
+      exploreLinks: ['Nigeria'],
+    },
+    features: [
+      {
+        name: 'Lagos skyline',
+        description:
+          'Towers and waterfront districts along the lagoon — the vertical face of Nigeria’s commercial capital.',
+      },
+      {
+        name: 'National Arts Theatre',
+        description:
+          'The futurist cultural landmark at Iganmu — a late-twentieth-century emblem of national performance and gathering.',
+      },
+      {
+        name: 'Third Mainland Bridge',
+        description:
+          'The long lagoon crossing that stitches mainland districts to the island core — infrastructure as urban geography.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Lagos',
+        url: 'https://www.britannica.com/place/Lagos-Nigeria',
+        kind: 'reference',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Lagos Lagoon',
+        url: 'https://www.britannica.com/place/Lagos-Lagoon',
+        kind: 'reference',
+      },
+    ],
+  },
+  {
+    slug: 'buenos-aires',
+    code: 'BUE',
+    name: 'Buenos Aires',
+    category: 'Africa & Americas',
+    subtitle: 'River-plate capital · Pampas edge',
+    about:
+      'Buenos Aires is Argentina’s port capital on the western shore of the Río de la Plata — a city that turned a muddy estuary into a national doorway. Grid avenues, immigrant barrios, and a dense cultural life grew where Pampas agriculture met Atlantic shipping. Orientation is riverine and civic: Plaza de Mayo and the Casa Rosada as the political stage; the Obelisco marking the modern axis; theaters and cafés that made the capital a Spanish-language cultural hub. The estuary’s brown water and flat horizon shape the city’s light as much as its politics. This primer stays with river-plate geography, capital form, and civic landmarks rather than a tango itinerary alone.',
+    facts: {
+      kind: 'River-plate capital',
+      country: 'Argentina',
+      region: 'Río de la Plata · Pampas edge',
+      founded: 'Spanish foundations 1536 and 1580; continuous capital growth thereafter',
+      capitalRole: 'Capital of Argentina',
+      corridors: 'Río de la Plata estuary; Atlantic shipping; Pampas rail and road approaches',
+      exploreLinks: ['Argentina'],
+    },
+    features: [
+      {
+        name: 'Casa Rosada',
+        description:
+          'The pink presidential palace on Plaza de Mayo — the civic face of Argentine public life.',
+      },
+      {
+        name: 'Obelisco',
+        description:
+          'The white needle at Avenida 9 de Julio — a twentieth-century axis marker of the modern capital.',
+      },
+      {
+        name: 'Teatro Colón',
+        description:
+          'The great opera house — an acoustic and architectural landmark of Buenos Aires as a cultural capital.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Buenos Aires',
+        url: 'https://www.britannica.com/place/Buenos-Aires',
+        kind: 'reference',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Casa Rosada',
+        url: 'https://www.britannica.com/topic/Casa-Rosada',
+        kind: 'reference',
+      },
+    ],
+  },
+  {
+    slug: 'rio-de-janeiro',
+    code: 'RIO',
+    name: 'Rio de Janeiro',
+    category: 'Africa & Americas',
+    subtitle: 'Bay capital · Atlantic Forest slopes',
+    about:
+      'Rio de Janeiro occupies a broken shoreline where granite peaks, Atlantic Forest remnants, and Guanabara Bay meet a dense coastal city. Once Brazil’s capital, it remains a cultural and tourist emblem of the country’s Atlantic face. Orientation is topographic: Sugarloaf and Corcovado rising above beaches and neighborhoods squeezed onto narrow shelves of level land; Christ the Redeemer watching the meeting of mountain, city, and ocean. Colonial and imperial layers sit under twentieth-century growth without erasing the bay’s working harbor. This primer stays with bay geography, forested slopes, and skyline landmarks rather than Carnival logistics alone.',
+    facts: {
+      kind: 'Bay coastal metropolis',
+      country: 'Brazil',
+      region: 'Guanabara Bay · southeastern Atlantic coast',
+      founded: 'Portuguese foundation 1565; imperial and republican capital until 1960',
+      capitalRole: 'Former national capital; major Brazilian metropolis (Brasília is the political capital)',
+      corridors: 'Guanabara Bay harbor; coastal routes; Atlantic Forest mountain passes',
+      exploreLinks: ['Brazil'],
+    },
+    features: [
+      {
+        name: 'Christ the Redeemer',
+        description:
+          'The Art Deco statue on Corcovado — Rio’s skyline emblem above bay, forest, and city.',
+      },
+      {
+        name: 'Sugarloaf Mountain',
+        description:
+          'The granite dome at the bay mouth — a cable-car landmark of Rio’s coastal topography.',
+      },
+      {
+        name: 'Guanabara Bay shoreline',
+        description:
+          'The working harbor and curved waterfront where mountains press close to the Atlantic city.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Rio de Janeiro',
+        url: 'https://www.britannica.com/place/Rio-de-Janeiro-Brazil',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Rio de Janeiro: Carioca Landscapes',
+        url: 'https://whc.unesco.org/en/list/1100',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'bogota',
+    code: 'BOG',
+    name: 'Bogotá',
+    category: 'Africa & Americas',
+    subtitle: 'Andean plateau capital · Eastern Hills',
+    about:
+      'Bogotá is Colombia’s highland capital on the Bogotá savanna — a cool plateau city watched by the Eastern Hills and the sanctuary peak of Monserrate. Muisca settlement, Spanish colonial founding, and republican ministries stack around Plaza de Bolívar, while twentieth-century growth spreads across the flat basin. Orientation is altitude and axis: thin air, frequent cloud on the ridges, and a historic core of cathedral, capitol, and museums that still organizes national politics. Gold-working heritage and Andean trade routes sit in the city’s longer memory. This primer stays with plateau geography, civic square, and hill sanctuary rather than every barrio’s mural.',
+    facts: {
+      kind: 'Andean plateau capital',
+      country: 'Colombia',
+      region: 'Bogotá savanna · Eastern Cordillera',
+      founded: 'Spanish foundation 1538 on Muisca settlement patterns',
+      capitalRole: 'Capital of Colombia',
+      corridors: 'Highland plateau routes; Magdalena valley approaches; Eastern Hills passes',
+      exploreLinks: ['Colombia'],
+    },
+    features: [
+      {
+        name: 'Monserrate',
+        description:
+          'The sanctuary mountain above the city — a pilgrimage ridge and viewpoint over the plateau capital.',
+      },
+      {
+        name: 'Plaza de Bolívar',
+        description:
+          'The main civic square with cathedral and national buildings — Bogotá’s political and ceremonial room.',
+      },
+      {
+        name: 'Primatial Cathedral',
+        description:
+          'The neoclassical cathedral on Plaza de Bolívar — the sacred façade of the historic highland core.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Bogotá',
+        url: 'https://www.britannica.com/place/Bogota',
+        kind: 'reference',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Monserrate',
+        url: 'https://www.britannica.com/place/Monserrate',
+        kind: 'reference',
       },
     ],
   },

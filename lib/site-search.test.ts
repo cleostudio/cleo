@@ -211,6 +211,11 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('jerusalem')[0]).toBe('/cities/jerusalem')
     expect(hrefs('tokyo')[0]).toBe('/cities/tokyo')
     expect(hrefs('mexico city')[0]).toBe('/cities/mexico-city')
+    expect(hrefs('marrakech')[0]).toBe('/cities/marrakech')
+    expect(hrefs('lagos')[0]).toBe('/cities/lagos')
+    expect(hrefs('buenos aires')[0]).toBe('/cities/buenos-aires')
+    expect(hrefs('rio de janeiro')[0]).toBe('/cities/rio-de-janeiro')
+    expect(hrefs('bogota')[0]).toBe('/cities/bogota')
     expect(hrefs('galata tower')[0]).toBe('/cities/istanbul')
     expect(hrefs('fushimi inari')[0]).toBe('/cities/kyoto')
     expect(hrefs('pantheon')[0]).toBe('/cities/rome')
@@ -222,6 +227,11 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('imperial port')[0]).toBe('/cities/london')
     expect(hrefs('stoa of attalos')[0]).toBe('/cities/athens')
     expect(hrefs('highland basin capital')[0]).toBe('/cities/mexico-city')
+    expect(hrefs('medina market city')[0]).toBe('/cities/marrakech')
+    expect(hrefs('lagoon port megacity')[0]).toBe('/cities/lagos')
+    expect(hrefs('river-plate capital')[0]).toBe('/cities/buenos-aires')
+    expect(hrefs('bay coastal metropolis')[0]).toBe('/cities/rio-de-janeiro')
+    expect(hrefs('andean plateau capital')[0]).toBe('/cities/bogota')
   })
 
   it('finds ocean guides and their features', () => {
