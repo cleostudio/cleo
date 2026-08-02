@@ -177,6 +177,29 @@ describe('theme preset: conformance', () => {
     layoutTokens['--content-column-narrow'],
   ]
 
+  it('keeps retired AMA styles out of the stylesheet', () => {
+    expect(globals).not.toMatch(/\.ama-/)
+    expect(globals).not.toMatch(/@keyframes\s+ama-/)
+  })
+
+  it('keeps raw gray-ramp reads out of component rules', () => {
+    const offenders = globals
+      .split('\n')
+      .map((line, index) => ({ line: line.trim(), index: index + 1 }))
+      .filter(({ line }) => {
+        if (!line.includes('var(--gray-')) return false
+        // Palette definitions and semantic→ramp mappings may read the ramp.
+        if (/^--[\w-]+:\s*var\(--gray-\d+/.test(line)) return false
+        if (/^--gray-\d+:/.test(line)) return false
+        return true
+      })
+
+    expect(
+      offenders,
+      'use semantic tokens (--foreground, --readable, --muted-foreground, …)',
+    ).toEqual([])
+  })
+
   it('exposes the column to Tailwind so utilities and CSS share one source', () => {
     expect(globals).toContain('--container-content: var(--content-column)')
     expect(globals).toContain(

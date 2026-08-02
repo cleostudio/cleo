@@ -39,9 +39,10 @@ Dark mode inverts the ramp. Do not restate twenty semantic colors.
 
 ## Rules
 
-**Color.** Use semantic tokens (`--foreground`, `--muted-foreground`,
-`--border`, `--surface-3`). The ramp is private. `--signal` is the single
-accent — using it twice on one screen spends it twice.
+**Color.** Use semantic tokens (`--foreground`, `--readable`,
+`--muted-foreground`, `--border`, `--surface-3`). The ramp is private.
+`--readable` is body/intro ink between muted and full foreground.
+`--signal` is the single accent — using it twice on one screen spends it twice.
 
 **Motion.** `--ease-swift` at 150–200ms for chrome; `--ease-spring` at
 300–350ms for physical objects. No ad-hoc cubic-beziers. Animate `transform`
