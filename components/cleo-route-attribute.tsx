@@ -26,11 +26,13 @@ export function CleoRouteAttribute() {
     } else {
       root.removeAttribute('data-cleo-route')
       root.removeAttribute('data-cleo-empty')
+      root.removeAttribute('data-cleo-sidebar-open')
     }
 
     return () => {
       root.removeAttribute('data-cleo-route')
       root.removeAttribute('data-cleo-empty')
+      root.removeAttribute('data-cleo-sidebar-open')
     }
   }, [isCleo])
 

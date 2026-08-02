@@ -36,9 +36,11 @@ export function CleoSidebar({
       />
       <aside
         aria-label="Chat history"
+        aria-modal={mobileOpen || undefined}
         className="cleo-sidebar"
         data-open={mobileOpen || undefined}
         id="cleo-sidebar"
+        role={mobileOpen ? "dialog" : undefined}
       >
         <div className="cleo-sidebar-header">
           <Button

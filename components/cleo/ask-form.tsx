@@ -371,6 +371,38 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     })
   }, [])
 
+  // Mobile drawer: mirror open state onto <html> for overlay CSS / scroll lock,
+  // dismiss on Escape, and collapse when the viewport grows into the rail.
+  useEffect(() => {
+    const root = document.documentElement
+    if (sidebarMobileOpen) {
+      root.setAttribute("data-cleo-sidebar-open", "")
+    } else {
+      root.removeAttribute("data-cleo-sidebar-open")
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSidebarMobileOpen(false)
+      }
+    }
+    const onResize = () => {
+      if (window.matchMedia("(min-width: 64rem)").matches) {
+        setSidebarMobileOpen(false)
+      }
+    }
+
+    if (sidebarMobileOpen) {
+      window.addEventListener("keydown", onKeyDown)
+    }
+    window.addEventListener("resize", onResize)
+    return () => {
+      root.removeAttribute("data-cleo-sidebar-open")
+      window.removeEventListener("keydown", onKeyDown)
+      window.removeEventListener("resize", onResize)
+    }
+  }, [sidebarMobileOpen])
+
   // Persist the active thread (debounced while streaming so localStorage is
   // not rewritten on every token).
   useEffect(() => {

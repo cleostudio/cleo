@@ -162,7 +162,7 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
 
 - Multi-turn chat, reasoning activity, web search
 - Sidebar: New chat, switch threads, delete, restore after reload (desktop rail
-  + mobile drawer)
+  from 64rem; below that a drawer above the prompt/site dock)
 - Image attach/vision, image generation, streaming, cancellation
 - Retry/Continue on incomplete/failed turns
 - Location preference (grant, deny, refresh/leave-and-return without

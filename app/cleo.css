@@ -7,7 +7,7 @@
   --cleo-prompt-bottom-mobile: calc(4.5rem + env(safe-area-inset-bottom, 0px));
   /* Clearance under the last message: prompt bottom offset + prompt height + air */
   --cleo-content-pad: calc(var(--cleo-prompt-bottom) + 5rem);
-  /* Chat history rail — offset is 0 on small screens (drawer), width on desktop */
+  /* Chat history rail — offset is 0 until the viewport can host a fixed rail */
   --cleo-sidebar-width: 16.5rem;
   --cleo-sidebar-offset: 0px;
 }
@@ -19,7 +19,8 @@
   }
 }
 
-@media (min-width: 40rem) {
+/* Persistent rail only when there is room beside the chat column (~1024px). */
+@media (min-width: 64rem) {
   html[data-cleo-route] {
     --cleo-sidebar-offset: var(--cleo-sidebar-width);
   }
@@ -810,7 +811,12 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   background: var(--background);
 }
 
-@media (min-width: 40rem) {
+/* Drawer is open — the rail's close control owns dismissal; hide the FAB. */
+html[data-cleo-sidebar-open] .cleo-sidebar-toggle {
+  display: none;
+}
+
+@media (min-width: 64rem) {
   .cleo-sidebar-toggle {
     display: none;
   }
@@ -818,6 +824,7 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
 
 .cleo-sidebar-backdrop {
   display: none;
+  pointer-events: none;
 }
 
 .cleo-sidebar {
@@ -825,9 +832,10 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: calc(var(--z-nav) - 2);
+  /* Above the prompt (z-nav - 1) and site dock (z-nav) while the drawer is open. */
+  z-index: calc(var(--z-card) + 1);
   display: flex;
-  width: var(--cleo-sidebar-width);
+  width: min(var(--cleo-sidebar-width), 85vw);
   flex-direction: column;
   gap: 0.75rem;
   padding:
@@ -835,28 +843,44 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
     0.75rem
     max(5.5rem, calc(env(safe-area-inset-bottom, 0px) + 4.5rem))
     max(0.75rem, env(safe-area-inset-left, 0px));
-  background: color-mix(in oklab, var(--background) 92%, var(--muted));
+  background: var(--background);
   box-shadow: 1px 0 0 0 var(--border);
   transform: translateX(-105%);
   transition: transform 180ms var(--ease-swift);
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .cleo-sidebar[data-open] {
   transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .cleo-sidebar-backdrop[data-open] {
   display: block;
   position: fixed;
   inset: 0;
-  z-index: calc(var(--z-nav) - 3);
-  background: color-mix(in oklab, var(--foreground) 18%, transparent);
+  z-index: var(--z-card);
+  pointer-events: auto;
+  background: color-mix(in oklab, var(--foreground) 28%, transparent);
 }
 
-@media (min-width: 40rem) {
+/* While the drawer covers chrome, keep the page from scrolling underneath. */
+html[data-cleo-sidebar-open],
+html[data-cleo-sidebar-open] body {
+  overflow: hidden;
+}
+
+@media (min-width: 64rem) {
   .cleo-sidebar {
+    z-index: calc(var(--z-nav) - 2);
+    width: var(--cleo-sidebar-width);
     transform: none;
     transition: none;
+    visibility: visible;
+    pointer-events: auto;
+    background: color-mix(in oklab, var(--background) 92%, var(--muted));
   }
 
   .cleo-sidebar-backdrop {

@@ -508,6 +508,32 @@ describe('AskForm chat sidebar', () => {
     ).toBe('true')
   })
 
+  it('opens the mobile history drawer above page chrome', async () => {
+    render(<AskForm />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Open chat history' }))
+
+    await waitFor(() => {
+      expect(
+        document.documentElement.hasAttribute('data-cleo-sidebar-open'),
+      ).toBe(true)
+      expect(
+        document.getElementById('cleo-sidebar')?.hasAttribute('data-open'),
+      ).toBe(true)
+      expect(document.getElementById('cleo-sidebar')?.getAttribute('role')).toBe(
+        'dialog',
+      )
+    })
+
+    fireEvent.keyDown(window, { key: 'Escape' })
+
+    await waitFor(() => {
+      expect(
+        document.documentElement.hasAttribute('data-cleo-sidebar-open'),
+      ).toBe(false)
+    })
+  })
+
   it('starts a blank composer when New chat is pressed', async () => {
     stubStream('Kept in history.')
     render(<AskForm />)

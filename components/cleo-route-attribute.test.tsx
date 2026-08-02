@@ -19,6 +19,7 @@ afterEach(() => {
   usePathname.mockReturnValue('/cleo')
   document.documentElement.removeAttribute('data-cleo-route')
   document.documentElement.removeAttribute('data-cleo-empty')
+  document.documentElement.removeAttribute('data-cleo-sidebar-open')
 })
 
 describe('CleoRouteAttribute', () => {
@@ -30,13 +31,20 @@ describe('CleoRouteAttribute', () => {
     rerender(<CleoRouteAttribute />)
     expect(document.documentElement.hasAttribute('data-cleo-route')).toBe(false)
     expect(document.documentElement.hasAttribute('data-cleo-empty')).toBe(false)
+    expect(document.documentElement.hasAttribute('data-cleo-sidebar-open')).toBe(
+      false,
+    )
 
     usePathname.mockReturnValue('/cleo')
     rerender(<CleoRouteAttribute />)
     document.documentElement.setAttribute('data-cleo-empty', '')
+    document.documentElement.setAttribute('data-cleo-sidebar-open', '')
     unmount()
     expect(document.documentElement.hasAttribute('data-cleo-route')).toBe(false)
     expect(document.documentElement.hasAttribute('data-cleo-empty')).toBe(false)
+    expect(document.documentElement.hasAttribute('data-cleo-sidebar-open')).toBe(
+      false,
+    )
   })
 
   it('clears empty-state overflow when leaving /cleo', () => {
