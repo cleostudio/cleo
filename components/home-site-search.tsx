@@ -356,7 +356,7 @@ function SearchOptionRow({
       data-active={isActive || undefined}
       href={option.href}
       id={id}
-      onClick={onActivate}
+      onNavigate={onActivate}
       // Keep focus — and so the open panel — in the field while a row is clicked.
       onMouseDown={(event) => event.preventDefault()}
       onMouseMove={onHover}
