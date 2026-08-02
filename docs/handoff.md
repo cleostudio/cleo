@@ -8,16 +8,21 @@ General-knowledge portal:
 
 - **Homepage** — paper-artifact doorway cards (Writing, Gallery, Explore,
   Topics); one search bar over the whole portal (countries, Space bodies,
-  curated photographs, Writing, topic collections, portal surfaces) with an Ask
-  Cleo row → `/cleo?q=…`; highlighted places; topic discovery; recent Writing.
-  No personal contact / music / books / photo-wall sections.
+  civilizations, cities, curated photographs, Writing, topic collections,
+  portal surfaces) with an Ask Cleo row → `/cleo?q=…`; highlighted places;
+  topic discovery; recent Writing. No personal contact / music / books /
+  photo-wall sections.
 - **Explore** — country field guides at `/explore/[slug]`
 - **Space** — Solar System, Moons, Deep Space at `/space` and `/space/[slug]`
-- **Gallery** — editor-selected featured photo per Explore place and Space body
+- **Gallery** — editor-selected featured photo per Explore place, Space body,
+  Civilizations site, and Cities guide
 - **Civilizations** — historical field guides at `/civilizations` and
   `/civilizations/[slug]` (Africa & Near East, Mediterranean, Asia, Americas,
   Oceania; twenty-eight regional guides)
-- **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations)
+- **Cities** — capital and route-city field guides at `/cities` and
+  `/cities/[slug]` (Istanbul, Cairo, Kyoto to start)
+- **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations,
+  Cities)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)
 - **Cleo** — browser-only agent at `/cleo`, OpenAI only
 - **Account** — Better Auth email/password on Neon (`/sign-in`, `/sign-up`,
@@ -40,19 +45,21 @@ reuse.
 | Explore / atlas | `lib/countries.ts`, `lib/atlas/*`, `content/atlas.json`, `/explore` |
 | Space | `lib/space.ts`, `content/space-photos.json`, `/space` |
 | Civilizations | `lib/civilizations.ts`, `content/civilizations-photos.json`, `/civilizations` |
+| Cities | `lib/cities.ts`, `content/cities-photos.json`, `/cities` |
 | Gallery | `lib/gallery.ts`, `/gallery` (`galleryItemDomId` + `place-gallery-target`) |
 | Homepage doorways | `components/nav-cards.tsx`, `.nav-card` / `.nc-*` in `app/globals.css` |
 | Homepage search | `lib/site-search-catalog.ts`, `lib/site-search.ts`, `components/home-site-search.tsx` |
 | Cleo | `components/cleo/*`, `lib/cleo/*`, `POST /api/responses` |
 | Auth | `lib/auth.ts`, `lib/db/*`, `/api/auth/[...all]`, `/sign-in` |
-| Place images | `public/images/atlas/`, `public/images/space/`, `public/images/civilizations/` (static `srcset`) |
+| Place images | `public/images/atlas/`, `public/images/space/`, `public/images/civilizations/`, `public/images/cities/` (static `srcset`) |
 | Country prose | `scripts/atlas/atlas-about.json` via `pnpm write:atlas-about` |
 | Env | `OPENAI_API_KEY`; Neon `DATABASE_URL` + `BETTER_AUTH_SECRET` for account; optional `PUBLIC_SITE_URL` / `SITE_URL` (`.env.example`) |
 | Social seeds | `content/social.json`, `content/github.json` (components retained; not in chrome) |
 
 Deep runbooks: [`cleo.md`](./cleo.md), [`homepage-search.md`](./homepage-search.md),
 [`atlas.md`](./atlas.md), [`space.md`](./space.md),
-[`civilizations.md`](./civilizations.md), [`auth.md`](./auth.md).
+[`civilizations.md`](./civilizations.md), [`cities.md`](./cities.md),
+[`auth.md`](./auth.md).
 
 ## Design
 

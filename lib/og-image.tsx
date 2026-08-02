@@ -243,6 +243,39 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'cities') {
+    // A compact skyline with a dome for capital / route-city guides.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <path
+            d="M36 178h160M48 178V132h28v46M76 178V108h36v70M112 178V124h24v54M136 178V96h28v82M164 178V140h24v38"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path
+            d="M88 108c0-18 12-32 24-32s24 14 24 32"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path
+            d="M112 76v-12"
+            stroke={faint}
+            strokeWidth="1.4"
+          />
+          <circle cx="56" cy="64" r="2" stroke={stroke} strokeWidth="1.3" />
+          <circle cx="176" cy="72" r="1.6" stroke={stroke} strokeWidth="1.3" />
+        </g>
+      </svg>
+    )
+  }
+
   if (section === 'gallery') {
     return (
       <svg

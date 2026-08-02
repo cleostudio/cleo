@@ -10,6 +10,7 @@ export type SiteSearchKind =
   | 'explore'
   | 'space'
   | 'civilizations'
+  | 'cities'
   | 'photo'
   | 'writing'
   | 'surface'
@@ -35,6 +36,7 @@ export const SITE_SEARCH_KIND_LABEL: Record<SiteSearchKind, string> = {
   explore: 'Country',
   space: 'Space',
   civilizations: 'Civilization',
+  cities: 'City',
   photo: 'Photograph',
   writing: 'Writing',
   surface: 'Portal',
@@ -46,6 +48,7 @@ export const SITE_SEARCH_GROUP_LABEL: Record<SiteSearchKind, string> = {
   explore: 'Countries',
   space: 'Space',
   civilizations: 'Civilizations',
+  cities: 'Cities',
   photo: 'Photographs',
   writing: 'Writing',
   surface: 'Portal',
@@ -62,6 +65,7 @@ const KIND_TERMS: Record<SiteSearchKind, string> = {
   space: 'space astronomy astronomical body guide',
   civilizations:
     'civilization civilizations history historical empire culture ancient guide',
+  cities: 'city cities capital capitals urban metropolis guide',
   // Not "gallery": that word belongs to the portal surface of the same name.
   photo: 'photo photos photograph photographs photography image images picture pictures view',
   writing: 'writing essay essays post posts article articles blog note notes',
@@ -76,6 +80,7 @@ const KIND_RANK = new Map<SiteSearchKind, number>(
       'explore',
       'space',
       'civilizations',
+      'cities',
       'photo',
       'writing',
       'surface',
@@ -89,6 +94,7 @@ const KIND_PRIOR: Record<SiteSearchKind, number> = {
   explore: 10,
   space: 10,
   civilizations: 10,
+  cities: 10,
   surface: 8,
   writing: 6,
   photo: 2,

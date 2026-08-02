@@ -1,10 +1,11 @@
 /**
- * Resolve curated Explore/Space/Civilizations photographs for a Cleo turn so
- * the agent can embed real site photos (not synthetic generations) when
- * answering about catalog topics.
+ * Resolve curated Explore/Space/Civilizations/Cities photographs for a Cleo
+ * turn so the agent can embed real site photos (not synthetic generations)
+ * when answering about catalog topics.
  */
 
 import { atlasRendition, getAtlasEntry } from '~/lib/atlas'
+import { citySubjects, getCitySubject } from '~/lib/cities'
 import {
   civilizationSubjects,
   getCivilizationSubject,
@@ -16,7 +17,11 @@ import { staticRendition } from '~/lib/static-photo'
 /** Limit subjects, not images: each matched subject contributes its full set. */
 export const MAX_TOPIC_SUBJECTS = 3
 
-export type TopicPhotoCollection = 'explore' | 'space' | 'civilizations'
+export type TopicPhotoCollection =
+  | 'explore'
+  | 'space'
+  | 'civilizations'
+  | 'cities'
 
 export type TopicPhoto = {
   collection: TopicPhotoCollection
@@ -63,6 +68,11 @@ function allCandidates(): TopicCandidate[] {
       })),
       ...civilizationSubjects.map((subject) => ({
         collection: 'civilizations' as const,
+        slug: subject.slug,
+        name: subject.name,
+      })),
+      ...citySubjects.map((subject) => ({
+        collection: 'cities' as const,
         slug: subject.slug,
         name: subject.name,
       })),
@@ -147,6 +157,23 @@ function loadTopicPhotos(
     }))
   }
 
+  if (topic.collection === 'cities') {
+    const subject = getCitySubject(topic.slug)
+    if (!subject) return []
+    return subject.photos.map((photo, index) => ({
+      collection: 'cities' as const,
+      slug: subject.slug,
+      name: subject.name,
+      href: `/cities/${subject.slug}`,
+      title: photo.featureName,
+      alt: photo.alt,
+      caption: photo.caption,
+      position: index + 1,
+      total: subject.photos.length,
+      src: staticRendition(photo, 1280).src,
+    }))
+  }
+
   const subject = getSpaceSubject(topic.slug)
   if (!subject) return []
 
@@ -210,7 +237,7 @@ export function matchTopicPhotosInText(text: string): TopicPhoto[] {
   }
 
   const pathPattern =
-    /(?:^|[^A-Za-z0-9])\/(explore|space|civilizations)\/([a-z0-9-]+)(?![a-z0-9-])/gi
+    /(?:^|[^A-Za-z0-9])\/(explore|space|civilizations|cities)\/([a-z0-9-]+)(?![a-z0-9-])/gi
   for (const match of haystack.matchAll(pathPattern)) {
     const collection = match[1] as TopicPhotoCollection
     const slug = match[2]!
@@ -291,12 +318,12 @@ export function buildTopicPhotoInstructions(
     .join('\n\n')
 
   return `<cleo_topic_photos>
-The following complete curated photograph sets are from this website's Explore, Space, and Civilizations topics. When the user's question is about these subjects:
+The following complete curated photograph sets are from this website's Explore, Space, Civilizations, and Cities topics. When the user's question is about these subjects:
 - You MAY and SHOULD include a curated photograph in your reply when appearance, landscape, what something looks like, or a visual orientation would help — or when the user asks to see a photo/image.
 - When the user asks to see all photos, images, or a gallery for a subject, embed every listed photograph for that subject in numeric order. Otherwise, choose the single photograph that best helps, usually Photo 1.
 - Embed only the exact Markdown image paths shown: \`![title](/images/...)\`. Do not invent or alter image paths.
-- Still weave one Markdown deep link to the field guide (\`[Name](/explore/…)\`, \`[Name](/space/…)\`, or \`[Name](/civilizations/…)\`) on first mention.
-- Prefer these curated photos over \`image_generation\` for real places, space bodies, and civilization sites. Use \`image_generation\` only if the user asks you to create, draw, redesign, or invent a visual the curated photo cannot cover (diagram, stylized illustration, edit).
+- Still weave one Markdown deep link to the field guide (\`[Name](/explore/…)\`, \`[Name](/space/…)\`, \`[Name](/civilizations/…)\`, or \`[Name](/cities/…)\`) on first mention.
+- Prefer these curated photos over \`image_generation\` for real places, space bodies, civilization sites, and cities. Use \`image_generation\` only if the user asks you to create, draw, redesign, or invent a visual the curated photo cannot cover (diagram, stylized illustration, edit).
 - Do not dump every photo unprompted for a pure text fact question (e.g. capital city only). One well-chosen image is enough when a visual helps.
 - Never claim a photo is yours or generated when you used a curated site path.
 

@@ -12,6 +12,7 @@ these runbooks.
 | [`atlas.md`](./atlas.md) | Changing country guides, prose, or Explore photos |
 | [`space.md`](./space.md) | Changing Space guides or NASA photo imports |
 | [`civilizations.md`](./civilizations.md) | Changing Civilizations guides or Commons photo imports |
+| [`cities.md`](./cities.md) | Changing Cities guides or Commons photo imports |
 | [`auth.md`](./auth.md) | Changing Better Auth, Neon, or account routes |
 | [`theme-preset.md`](./theme-preset.md) | Adding/changing a color, motion, radius, or width token |
 | [`design-language.md`](./design-language.md) | Implementing or reviewing UI/UX composition |

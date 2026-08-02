@@ -11,6 +11,21 @@ describe("portal markdown guardrails", () => {
     expect(hasInventedPortalPaths(markdown)).toBe(false)
   })
 
+  it("keeps real Cities guide links and curated city photos", () => {
+    const markdown =
+      "See [Istanbul](/cities/istanbul) and ![Hagia Sophia](/images/cities/istanbul/w1280.jpg)."
+
+    expect(sanitizePortalMarkdown(markdown)).toBe(markdown)
+    expect(hasInventedPortalPaths(markdown)).toBe(false)
+  })
+
+  it("strips invented Cities guide links", () => {
+    const markdown = "Visit [El Dorado](/cities/el-dorado) sometime."
+
+    expect(sanitizePortalMarkdown(markdown)).toBe("Visit El Dorado sometime.")
+    expect(hasInventedPortalPaths(markdown)).toBe(true)
+  })
+
   it("strips invented guide links to plain labels", () => {
     const markdown = "Visit [Atlantis](/explore/atlantis) sometime."
 

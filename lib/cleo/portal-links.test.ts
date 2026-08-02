@@ -144,11 +144,17 @@ describe('presentPortalGuideMarkdown', () => {
 })
 
 describe('presentTopicPhotoMarkdown', () => {
-  it('allows only curated atlas and space JPEG paths', () => {
+  it('allows only curated atlas, space, civilizations, and cities JPEG paths', () => {
     expect(isCuratedTopicImageSrc('/images/atlas/japan/w1280.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('/images/atlas/japan/w1280-2.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('/images/space/mars/w2048-3.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('/images/space/mars/w640.jpg')).toBe(true)
+    expect(
+      isCuratedTopicImageSrc('/images/civilizations/ancient-egypt/w1280.jpg'),
+    ).toBe(true)
+    expect(isCuratedTopicImageSrc('/images/cities/istanbul/w1280.jpg')).toBe(
+      true,
+    )
     expect(isCuratedTopicImageSrc('https://evil.example/x.jpg')).toBe(false)
     expect(isCuratedTopicImageSrc('/images/other/x.jpg')).toBe(false)
 
@@ -172,6 +178,11 @@ describe('CLEO_PORTAL_STARTERS', () => {
       label: 'Show Japan photos',
       prompt:
         'Show me all three curated photos of Japan and deep-link its field guide.',
+    })
+    expect(CLEO_PORTAL_STARTERS).toContainEqual({
+      label: 'Orient me to Istanbul',
+      prompt:
+        'Give me a quick orientation to Istanbul. Deep-link its Cities guide when you mention the city.',
     })
   })
 })

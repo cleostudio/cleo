@@ -70,4 +70,24 @@ describe('PhotoZoomDetails', () => {
     expect(screen.queryByText('Place')).toBeNull()
     expect(screen.queryByText('Feature')).toBeNull()
   })
+
+  it('shows site capture cells for Cities photographs', () => {
+    render(
+      <PhotoZoomDetails
+        collection="cities"
+        title="Hagia Sophia"
+        subtitle="Istanbul"
+        photographer="Arild Vågen"
+        license="CC BY-SA 4.0"
+      />,
+    )
+
+    expect(screen.getByText('Site')).toBeTruthy()
+    expect(screen.getByText('Hagia Sophia')).toBeTruthy()
+    expect(screen.getByText('City')).toBeTruthy()
+    expect(screen.getByText('Istanbul')).toBeTruthy()
+    expect(screen.queryByText('Place')).toBeNull()
+    expect(screen.queryByText('Feature')).toBeNull()
+    expect(screen.queryByText('Civilization')).toBeNull()
+  })
 })

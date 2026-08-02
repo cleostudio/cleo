@@ -83,6 +83,15 @@ const publicPages = [
     'Civilizations · Cleo. Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
   ),
   englishPage(
+    '/cities',
+    {
+      title: 'Cities',
+      description:
+        'Evergreen field guides for capitals and route cities — orientation, signature sites, facts, and sources.',
+    },
+    'Cities · Cleo. Evergreen field guides for capitals and route cities — orientation, signature sites, facts, and sources.',
+  ),
+  englishPage(
     '/cleo',
     {
       title: 'Cleo',
