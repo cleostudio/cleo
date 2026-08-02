@@ -482,6 +482,23 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     })
   })
 
+  it("redacts an internal failure instead of echoing it to the browser", async () => {
+    openai.create.mockResolvedValueOnce({
+      controller: { abort: vi.fn() },
+      async *[Symbol.asyncIterator]() {
+        yield { delta: "partial", type: "response.output_text.delta" }
+        throw new Error("connect ECONNREFUSED 10.0.0.7:5432")
+      },
+    })
+
+    const events = await ndjson(await POST(ask(question)))
+
+    expect(events.at(-1)).toEqual({
+      error: "The AI service could not complete the request.",
+      type: "error",
+    })
+  })
+
   it("explains an answer cut short by the output token ceiling", async () => {
     openai.create.mockResolvedValueOnce(
       responseStream([

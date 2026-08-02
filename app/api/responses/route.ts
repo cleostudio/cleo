@@ -88,6 +88,21 @@ function errorResponse(error: string, status: number) {
   return Response.json({ error }, { status })
 }
 
+const GENERIC_STREAM_FAILURE =
+  "The AI service could not complete the request."
+
+/**
+ * A turn failure whose message is written for the reader — either reported by
+ * the upstream API or composed here from its incomplete reason. Every other
+ * exception is internal and must not reach the browser.
+ */
+class UpstreamResponseError extends Error {
+  constructor(message: string) {
+    super(message || GENERIC_STREAM_FAILURE)
+    this.name = "UpstreamResponseError"
+  }
+}
+
 function parseMessageImages(value: unknown): MessageImage[] | Response {
   if (value === undefined) {
     return []
@@ -770,13 +785,12 @@ export async function POST(request: Request) {
             }
 
             if (event.type === "error") {
-              throw new Error(event.message)
+              throw new UpstreamResponseError(event.message)
             }
 
             if (event.type === "response.failed") {
-              throw new Error(
-                event.response.error?.message ??
-                  "The AI service could not complete the request."
+              throw new UpstreamResponseError(
+                event.response.error?.message ?? GENERIC_STREAM_FAILURE
               )
             }
 
@@ -789,7 +803,7 @@ export async function POST(request: Request) {
               if (emittedText || emittedImage) {
                 incompleteNotice = mapped
               } else {
-                throw new Error(
+                throw new UpstreamResponseError(
                   reason === "max_output_tokens"
                     ? "The AI service ran out of room before finishing an answer. Try a shorter question."
                     : "The AI service stopped before finishing an answer. Try again."
@@ -825,10 +839,12 @@ export async function POST(request: Request) {
               emitCollectedReasoningItems(controller)
               enqueue(controller, {
                 type: "error",
+                // Only upstream-reported text is safe to echo; internal
+                // exception messages stay in the server log.
                 error:
-                  streamError instanceof Error
+                  streamError instanceof UpstreamResponseError
                     ? streamError.message
-                    : "The AI service could not complete the request.",
+                    : GENERIC_STREAM_FAILURE,
               })
               controller.close()
             } catch {

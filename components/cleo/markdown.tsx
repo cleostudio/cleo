@@ -57,7 +57,7 @@ function MarkdownLink({
       className={linkClassName}
       data-streamdown="link"
       href={href}
-      rel="noreferrer"
+      rel="noopener noreferrer"
       target="_blank"
     >
       {children}
