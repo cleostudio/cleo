@@ -57,9 +57,9 @@ export function readCleoPromptFromLocation(): string | null {
  * Drop the handoff parameter once the transcript owns the question, so a reload
  * starts clean and a later visit to `/cleo` does not re-run the turn.
  *
- * The current history state is passed straight back through: Next.js only
- * treats a `replaceState` as an app-initiated route change when the state is
- * its own, and the URL here carries no routing meaning.
+ * The existing history state is passed straight back through because it carries
+ * the router's own marker, which is what keeps Next.js from reading this edit as
+ * a navigation. The parameter is Cleo's alone and means nothing to routing.
  */
 export function clearCleoPromptFromLocation(): void {
   if (typeof window === 'undefined') return
