@@ -145,6 +145,23 @@ describe("POST /api/responses: request validation", () => {
     })
   })
 
+  it("rejects a request whose Content-Length exceeds the body budget", async () => {
+    const response = await POST(
+      ask(question, {
+        headers: {
+          "content-type": "application/json",
+          "content-length": String(21 * 1024 * 1024),
+        },
+      })
+    )
+
+    expect(response.status).toBe(413)
+    await expect(response.json()).resolves.toEqual({
+      error: "Request body is too large.",
+    })
+    expect(openai.create).not.toHaveBeenCalled()
+  })
+
   it("requires the conversation to end with a user turn", async () => {
     const response = await POST(
       ask({
@@ -387,6 +404,76 @@ describe("POST /api/responses: image attachments", () => {
     expect(response.status).toBe(400)
   })
 
+  it("rejects conversations past the total image byte budget", async () => {
+    // Six ~3 MiB images stay under the per-image ceiling but exceed the
+    // conversation-wide 16 MiB budget.
+    const response = await POST(
+      ask({
+        messages: [
+          {
+            content: "one",
+            images: Array.from({ length: 4 }, () => ({
+              url: imageDataUrl(3 * 1024 * 1024),
+            })),
+            role: "user",
+          },
+          { content: "ok", role: "assistant" },
+          {
+            content: "two",
+            images: Array.from({ length: 2 }, () => ({
+              url: imageDataUrl(3 * 1024 * 1024),
+            })),
+            role: "user",
+          },
+        ],
+      })
+    )
+
+    expect(response.status).toBe(400)
+    await expect(response.json()).resolves.toEqual({
+      error: "Conversations must include 16,777,216 bytes of images or fewer.",
+    })
+    expect(openai.create).not.toHaveBeenCalled()
+  })
+
+  it("rejects conversations past the total encrypted reasoning budget", async () => {
+    const blob = "r".repeat(120_000)
+    const response = await POST(
+      ask({
+        messages: [
+          { content: "one", role: "user" },
+          {
+            content: "a",
+            role: "assistant",
+            reasoningItems: Array.from({ length: 4 }, (_, index) => ({
+              type: "reasoning",
+              id: `rs_a_${index}`,
+              encrypted_content: blob,
+            })),
+          },
+          { content: "two", role: "user" },
+          {
+            content: "b",
+            role: "assistant",
+            reasoningItems: Array.from({ length: 1 }, (_, index) => ({
+              type: "reasoning",
+              id: `rs_b_${index}`,
+              encrypted_content: blob,
+            })),
+          },
+          { content: "three", role: "user" },
+        ],
+      })
+    )
+
+    expect(response.status).toBe(400)
+    await expect(response.json()).resolves.toEqual({
+      error:
+        "Conversations must include 480,000 characters of reasoning context or fewer.",
+    })
+    expect(openai.create).not.toHaveBeenCalled()
+  })
+
   it("forwards an accepted attachment as vision input", async () => {
     openai.create.mockResolvedValueOnce(
       responseStream([{ delta: "A photo.", type: "response.output_text.delta" }])
@@ -477,7 +564,7 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     const events = await ndjson(await POST(ask(question)))
 
     expect(events.at(-1)).toEqual({
-      error: "upstream exploded",
+      error: "The AI service could not complete the request. Try again.",
       type: "error",
     })
   })
@@ -498,9 +585,12 @@ describe("POST /api/responses: streaming and upstream errors", () => {
   })
 
   it.each([
-    [429, "The AI service is receiving too many requests. Try again shortly."],
-    [400, "the model refused that input"],
-  ])("maps an upstream %i to the same status", async (status, error) => {
+    [
+      429,
+      "The AI service is receiving too many requests. Try again shortly.",
+    ],
+    [400, "The request could not be completed."],
+  ])("maps an upstream %i to a client-safe message", async (status, error) => {
     openai.create.mockRejectedValueOnce(
       new openai.APIError(status, "the model refused that input")
     )

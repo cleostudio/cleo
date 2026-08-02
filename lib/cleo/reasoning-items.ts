@@ -19,6 +19,8 @@ export type EncryptedReasoningItem = {
 /** Soft limits so request bodies stay bounded. */
 export const MAX_REASONING_ITEMS_PER_MESSAGE = 8
 export const MAX_ENCRYPTED_REASONING_CHARS = 120_000
+/** Cap encrypted reasoning payload across the whole conversation. */
+export const MAX_TOTAL_ENCRYPTED_REASONING_CHARS = 480_000
 
 function isSummaryPart(value: unknown): value is EncryptedReasoningSummaryPart {
   if (typeof value !== "object" || value === null) return false

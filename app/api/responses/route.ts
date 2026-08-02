@@ -27,11 +27,13 @@ import {
   GENERATED_IMAGE_OUTPUT_FORMAT,
   GENERATED_IMAGE_PARTIAL_IMAGES,
   MAX_IMAGES_PER_MESSAGE,
+  MAX_TOTAL_IMAGE_BYTES,
   parseImageDataUrl,
   toImageDataUrl,
 } from "~/lib/cleo/images"
 import { selectReasoningEffort } from "~/lib/cleo/reasoning-effort"
 import {
+  MAX_TOTAL_ENCRYPTED_REASONING_CHARS,
   sanitizeReasoningItems,
   type EncryptedReasoningItem,
 } from "~/lib/cleo/reasoning-items"
@@ -57,8 +59,13 @@ const MODEL = "gpt-5.6-terra"
 const MAX_INPUT_LENGTH = 10_000
 const MAX_MESSAGES = 50
 const MAX_TOTAL_INPUT_LENGTH = 100_000
+/** Reject oversized bodies before JSON.parse (header when present). */
+const MAX_REQUEST_BODY_BYTES = 20 * 1024 * 1024
 /** Cap hosted tool churn (web_search + image_generation) per turn. */
 const MAX_TOOL_CALLS = 8
+/** Stable client-facing copy — never forward raw OpenAI / stream messages. */
+const CLIENT_SAFE_UPSTREAM_ERROR =
+  "The AI service could not complete the request. Try again."
 
 /** Allow long tool-using turns on Vercel without cutting the NDJSON stream short. */
 export const maxDuration = 90
@@ -88,7 +95,10 @@ function errorResponse(error: string, status: number) {
   return Response.json({ error }, { status })
 }
 
-function parseMessageImages(value: unknown): MessageImage[] | Response {
+function parseMessageImages(
+  value: unknown,
+  totals: { imageBytes: number }
+): MessageImage[] | Response {
   if (value === undefined) {
     return []
   }
@@ -126,6 +136,15 @@ function parseMessageImages(value: unknown): MessageImage[] | Response {
     if (!parsed) {
       return errorResponse(
         "Images must be PNG, JPEG, WEBP, or GIF data URLs within the size limit.",
+        400
+      )
+    }
+
+    totals.imageBytes += parsed.estimatedBytes
+
+    if (totals.imageBytes > MAX_TOTAL_IMAGE_BYTES) {
+      return errorResponse(
+        `Conversations must include ${MAX_TOTAL_IMAGE_BYTES.toLocaleString()} bytes of images or fewer.`,
         400
       )
     }
@@ -173,6 +192,7 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
 
   const messages: ConversationMessage[] = []
   let totalLength = 0
+  const totals = { imageBytes: 0, reasoningChars: 0 }
 
   for (const item of body.messages) {
     if (
@@ -191,7 +211,8 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
 
     const content = item.content.trim()
     const imagesResult = parseMessageImages(
-      "images" in item ? item.images : undefined
+      "images" in item ? item.images : undefined,
+      totals
     )
 
     if (imagesResult instanceof Response) {
@@ -232,6 +253,17 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
         "reasoningItems" in item ? item.reasoningItems : undefined
       )
       if (reasoningItems) {
+        for (const reasoningItem of reasoningItems) {
+          totals.reasoningChars += reasoningItem.encrypted_content.length
+        }
+
+        if (totals.reasoningChars > MAX_TOTAL_ENCRYPTED_REASONING_CHARS) {
+          return errorResponse(
+            `Conversations must include ${MAX_TOTAL_ENCRYPTED_REASONING_CHARS.toLocaleString()} characters of reasoning context or fewer.`,
+            400
+          )
+        }
+
         message.reasoningItems = reasoningItems
       }
     }
@@ -424,7 +456,18 @@ function joinReasoningParts(parts: Map<number, string>) {
     .join("\n\n")
 }
 
+function requestBodyTooLarge(request: Request): boolean {
+  const header = request.headers.get("content-length")
+  if (!header) return false
+  const length = Number(header)
+  return Number.isFinite(length) && length > MAX_REQUEST_BODY_BYTES
+}
+
 export async function POST(request: Request) {
+  if (requestBodyTooLarge(request)) {
+    return errorResponse("Request body is too large.", 413)
+  }
+
   let body: unknown
 
   try {
@@ -770,14 +813,11 @@ export async function POST(request: Request) {
             }
 
             if (event.type === "error") {
-              throw new Error(event.message)
+              throw new Error(CLIENT_SAFE_UPSTREAM_ERROR)
             }
 
             if (event.type === "response.failed") {
-              throw new Error(
-                event.response.error?.message ??
-                  "The AI service could not complete the request."
-              )
+              throw new Error(CLIENT_SAFE_UPSTREAM_ERROR)
             }
 
             if (event.type === "response.incomplete") {
@@ -826,9 +866,14 @@ export async function POST(request: Request) {
               enqueue(controller, {
                 type: "error",
                 error:
-                  streamError instanceof Error
+                  streamError instanceof Error &&
+                  (streamError.message === CLIENT_SAFE_UPSTREAM_ERROR ||
+                    streamError.message.startsWith("The AI service ran out of room") ||
+                    streamError.message.startsWith(
+                      "The AI service stopped before finishing"
+                    ))
                     ? streamError.message
-                    : "The AI service could not complete the request.",
+                    : CLIENT_SAFE_UPSTREAM_ERROR,
               })
               controller.close()
             } catch {
@@ -861,15 +906,9 @@ export async function POST(request: Request) {
     }
 
     if (error instanceof APIError && error.status === 400) {
-      return errorResponse(
-        error.message || "The request could not be completed.",
-        400
-      )
+      return errorResponse("The request could not be completed.", 400)
     }
 
-    return errorResponse(
-      "The AI service could not complete the request. Try again.",
-      502
-    )
+    return errorResponse(CLIENT_SAFE_UPSTREAM_ERROR, 502)
   }
 }

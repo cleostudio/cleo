@@ -912,6 +912,8 @@ index/service pages — not a centered card or marketing auth shell:
   primary action). Form-level errors use `role="alert"` in destructive ink.
 - Signed-in `/account` shows name and email in a `.spec-nameplate` (real
   selectable data). Sign out is a tertiary pill — quiet, not destructive-filled.
+- `/account` streams the session behind Suspense (`AccountLoadingShell`) so the
+  route keeps a prerenderable shell under Cache Components.
 - No cards, hero panels, or social-provider chrome. Portal content stays public.
 
 ## Photo index / Gallery

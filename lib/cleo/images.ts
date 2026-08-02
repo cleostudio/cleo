@@ -2,6 +2,8 @@
 
 export const MAX_IMAGES_PER_MESSAGE = 4
 export const MAX_IMAGE_BYTES = 4 * 1024 * 1024
+/** Cap decoded image bytes across the whole conversation (not per message). */
+export const MAX_TOTAL_IMAGE_BYTES = 16 * 1024 * 1024
 export const MAX_IMAGE_DIMENSION = 2048
 
 /** Responses `image_generation` output — jpeg keeps multi-turn payloads smaller. */
@@ -31,6 +33,7 @@ export function isAcceptedImageMimeType(
 export function parseImageDataUrl(url: string): {
   mediaType: AcceptedImageMimeType
   base64: string
+  estimatedBytes: number
 } | null {
   const match = DATA_URL_PATTERN.exec(url.trim())
 
@@ -45,14 +48,13 @@ export function parseImageDataUrl(url: string): {
     return null
   }
 
-  // Rough decoded size: 3/4 of base64 length.
   const estimatedBytes = Math.floor((base64.length * 3) / 4)
 
   if (estimatedBytes > MAX_IMAGE_BYTES) {
     return null
   }
 
-  return { mediaType, base64 }
+  return { mediaType, base64, estimatedBytes }
 }
 
 export function toImageDataUrl(

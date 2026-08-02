@@ -13,7 +13,7 @@ noindex and do not gate Explore / Space / Cleo.
 | --- | --- |
 | `POST/GET /api/auth/*` | Better Auth handler (`toNextJsHandler`) |
 | `/sign-in`, `/sign-up` | Email/password forms (print-register service UI) |
-| `/account` | Session nameplate + sign out |
+| `/account` | Session nameplate + sign out (session lookup streams behind `Suspense`) |
 | Dock → Preferences → **Sign in** / **Account** | Discoverable entry in the Preferences panel |
 
 UI composition: same service-page register as Explore / Topics — `page-eyebrow`
@@ -37,6 +37,7 @@ missing `OPENAI_API_KEY` for `/api/responses`).
 | `lib/db/auth-schema.ts` | Better Auth tables (`user`, `session`, `account`, `verification`) |
 | `lib/auth-user-fields.ts` | Shared `user.additionalFields` (e.g. Location preference) |
 | `lib/auth.ts` | Server `betterAuth` + `getSession` |
+| `lib/auth-logger.ts` | Redacting Better Auth `logger` (no SQL/params) |
 | `lib/auth-client.ts` | React `createAuthClient` + `inferAdditionalFields` |
 | `lib/cleo/user-profile.ts` | Signed-in `user.name` → Cleo private instructions |
 | `app/api/auth/[...all]/route.ts` | Next.js route handler |
@@ -114,6 +115,16 @@ without a fresh geolocation prompt when browser permission is already granted.
 With a signed-in session, ask Cleo something casual (e.g. “Hey Cleo”) and
 confirm she can use the account name; signed-out turns must not.
 
+## Logging
+
+Better Auth is configured with a custom `logger` (`lib/auth-logger.ts`) that
+redacts SQL-shaped messages and never dumps Error objects or request objects
+that can carry session tokens / emails. Prefer `warn`+ only in production.
+
+`/account` reads the session inside a `<Suspense>` boundary so Cache Components
+can prerender a static shell; do not move `headers()` / `getSession` back to the
+page top level (that hung Neon fetches during prerender on Vercel).
+
 ## Boundaries
 
 - Do **not** put `BETTER_AUTH_SECRET` or database URLs in `NEXT_PUBLIC_*`.
@@ -121,3 +132,5 @@ confirm she can use the account name; signed-out turns must not.
 - OpenAI remains the only **model** third-party API; Neon is infrastructure.
 - Neon **Managed Better Auth** (`@neondatabase/auth`) is a different product —
   this repo uses self-hosted `better-auth` + Drizzle.
+- Do **not** log raw Better Auth / Drizzle errors to clients or shared log
+  drains without redaction.

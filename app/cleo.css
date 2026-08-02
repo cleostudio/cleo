@@ -637,7 +637,8 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
 .prompt-dock-input:focus-visible {
   border: 0 !important;
   box-shadow: none !important;
-  outline: none;
+  outline: 1px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 .prompt-dock-send {
@@ -669,6 +670,8 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   background: var(--primary);
   color: var(--primary-foreground);
   box-shadow: none;
+  outline: 1px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 .prompt-dock-send:disabled {

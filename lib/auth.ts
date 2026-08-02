@@ -2,6 +2,7 @@ import { betterAuth } from 'better-auth'
 import { drizzleAdapter } from '@better-auth/drizzle-adapter'
 import { nextCookies } from 'better-auth/next-js'
 
+import { logAuthEvent } from '~/lib/auth-logger'
 import { userAdditionalFields } from '~/lib/auth-user-fields'
 import { getDb, isDatabaseConfigured } from '~/lib/db'
 import * as schema from '~/lib/db/auth-schema'
@@ -90,6 +91,12 @@ function createAuth() {
     baseURL: {
       allowedHosts: getAllowedAuthHosts(),
       fallback: getBetterAuthUrl(),
+    },
+    // Adapter errors can embed SQL + bind params (session tokens). Never dump
+    // raw Error objects or query text into platform logs.
+    logger: {
+      level: 'warn',
+      log: logAuthEvent,
     },
     plugins: [nextCookies()],
   })

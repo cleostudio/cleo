@@ -42,13 +42,22 @@ optional browser-authorized location, then calls the OpenAI Responses API with:
 
 - ≤ 50 messages; ≤ 10,000 characters each; ≤ 100,000 total
 - Final message must be `user`
-- User/assistant messages: ≤ 4 image data URLs each (PNG, JPEG, WEBP, GIF)
+- User/assistant messages: ≤ 4 image data URLs each (PNG, JPEG, WEBP, GIF);
+  ≤ 16 MiB decoded image bytes across the whole conversation
+- Encrypted reasoning replay: ≤ 8 items / message, ≤ 120,000 chars each;
+  ≤ 480,000 chars across the conversation
+- `Content-Length` (when present) ≤ 20 MiB → otherwise HTTP 413
 - Optional `location`: finite lat/lng, reported accuracy, valid IANA time zone —
   ephemeral developer context, never chat text
 - Account name is **not** accepted on the request body — the route reads it from
   the Better Auth session cookie via `getSession`
+- Upstream OpenAI / stream failure text is **not** forwarded to clients — only
+  stable user-safe messages (and the existing incomplete-token copy)
 
 Without `OPENAI_API_KEY`, the route returns HTTP 503.
+
+App-level request rate limiting is not implemented here; platform WAF / rate
+limits are a separate staged change.
 
 ## Stream protocol
 

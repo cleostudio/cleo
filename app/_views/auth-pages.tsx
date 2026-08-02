@@ -245,6 +245,34 @@ export function SignUpPageView() {
   )
 }
 
+/** Static shell while the session lookup streams behind Suspense. */
+export function AccountLoadingShell() {
+  return (
+    <AuthShell
+      titleId="account-title"
+      eyebrow={<T zh="账户" en="Account" />}
+      description={
+        <T zh="正在加载账户信息…" en="Loading your account…" />
+      }
+    >
+      <div
+        role="status"
+        aria-busy="true"
+        aria-live="polite"
+        className="space-y-3"
+        data-account-loading-shell
+      >
+        <span className="sr-only">
+          <T zh="正在加载账户信息" en="Loading account" />
+        </span>
+        <div className="h-4 w-24 rounded-sm bg-muted" />
+        <div className="h-4 w-48 rounded-sm bg-muted" />
+        <div className="h-4 w-40 rounded-sm bg-muted" />
+      </div>
+    </AuthShell>
+  )
+}
+
 export function AccountPageView({
   user,
 }: {
