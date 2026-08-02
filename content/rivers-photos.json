@@ -1,0 +1,462 @@
+{
+  "nile": [
+    {
+      "featureName": "Nile at Luxor",
+      "alt": "Nile at Luxor — nile",
+      "caption": "Nile at Luxor",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALuxor%2C_Egypt%2C_Nile_River.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Luxor, Egypt, Nile River.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Luxor, Egypt, Nile River.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "010db739d85b6fda437cbca75fd6b621478c2c43f368e21e0e7243e610a06af1",
+      "width": 3072,
+      "height": 2048,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/nile/w640.jpg",
+          "bytes": 40231
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/nile/w1280.jpg",
+          "bytes": 117110
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/nile/w2048.jpg",
+          "bytes": 311087
+        }
+      ]
+    },
+    {
+      "featureName": "Blue Nile Falls",
+      "alt": "Blue Nile Falls — nile",
+      "caption": "Blue Nile Falls",
+      "photographer": "A.Savin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AET_Bahir_Dar_asv2018-02_img17_Tis_Issat.jpg",
+      "license": "FAL",
+      "commonsTitle": "File:ET Bahir Dar asv2018-02 img17 Tis Issat.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:ET Bahir Dar asv2018-02 img17 Tis Issat.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "eeab303ba1513cd761450ef24f0f9e0a36e3d1168aa2357295295ab9e490f4f2",
+      "width": 7869,
+      "height": 5246,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/nile/w640-2.jpg",
+          "bytes": 88885
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/nile/w1280-2.jpg",
+          "bytes": 271632
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/nile/w2048-2.jpg",
+          "bytes": 776488
+        }
+      ]
+    },
+    {
+      "featureName": "Nile from orbit",
+      "alt": "Nile from orbit — nile",
+      "caption": "Nile from orbit",
+      "photographer": "ISS Expedition 35 / NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AISS035-E-007148_Nile_-_Sinai_-_Dead_Sea_-_Wide_Angle_View.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:ISS035-E-007148 Nile - Sinai - Dead Sea - Wide Angle View.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:ISS035-E-007148 Nile - Sinai - Dead Sea - Wide Angle View.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "495fe30be676d0b6e680e52507e79532f9957c24b5c0fe598652be7967ceac08",
+      "width": 4256,
+      "height": 2832,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/nile/w640-3.jpg",
+          "bytes": 57372
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/nile/w1280-3.jpg",
+          "bytes": 152711
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/nile/w2048-3.jpg",
+          "bytes": 386323
+        }
+      ]
+    }
+  ],
+  "amazon": [
+    {
+      "featureName": "Amazon mainstream",
+      "alt": "Amazon mainstream — amazon",
+      "caption": "Amazon mainstream",
+      "photographer": "Alexander Gerst",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAmazon_River_-_2018.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Amazon River - 2018.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Amazon River - 2018.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "03e1de525b11c9cdb314f6d60151e7c4733627b8b980b219b5b4ebeddc4ff741",
+      "width": 5568,
+      "height": 3712,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/amazon/w640.jpg",
+          "bytes": 52884
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/amazon/w1280.jpg",
+          "bytes": 149208
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/amazon/w2048.jpg",
+          "bytes": 390760
+        }
+      ]
+    },
+    {
+      "featureName": "Amazon mouth",
+      "alt": "Amazon mouth — amazon",
+      "caption": "Amazon mouth",
+      "photographer": "INPE / Coordenação-Geral de Observação da Terra",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAmazon_River_mouth_on_the_Atlantic.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Amazon River mouth on the Atlantic.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Amazon River mouth on the Atlantic.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "cfa78b9121097cc4ceb59184bf3b49eff6d207c9d724ceec134bda219da55ee5",
+      "width": 9579,
+      "height": 5393,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/amazon/w640-2.jpg",
+          "bytes": 52272
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/amazon/w1280-2.jpg",
+          "bytes": 189464
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/amazon/w2048-2.jpg",
+          "bytes": 547420
+        }
+      ]
+    },
+    {
+      "featureName": "Amazon from orbit",
+      "alt": "Amazon from orbit — amazon",
+      "caption": "Amazon from orbit",
+      "photographer": "European Space Agency",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAmazon_River_ESA387332.jpg",
+      "license": "CC BY-SA 3.0 igo",
+      "commonsTitle": "File:Amazon River ESA387332.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Amazon River ESA387332.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f44dcbddabb24648e34b88a0ddbc57247364f925f030905a0271f36a17529efd",
+      "width": 1920,
+      "height": 1920,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/amazon/w640-3.jpg",
+          "bytes": 153090
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/amazon/w1280-3.jpg",
+          "bytes": 520537
+        },
+        {
+          "width": 1920,
+          "src": "/images/rivers/amazon/w2048-3.jpg",
+          "bytes": 1226594
+        }
+      ]
+    }
+  ],
+  "yangtze": [
+    {
+      "featureName": "Qutang Gorge",
+      "alt": "Qutang Gorge — yangtze",
+      "caption": "Qutang Gorge",
+      "photographer": "Tan Wei Liang Byorn",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AQutang_Gorge_on_Changjiang.jpg",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Qutang Gorge on Changjiang.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Qutang Gorge on Changjiang.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "93ee32aad5ec67dac375e7a38622e911b24442f8c4dc3ec6ad8d07c6f2a0cda3",
+      "width": 4752,
+      "height": 3168,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/yangtze/w640.jpg",
+          "bytes": 61672
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/yangtze/w1280.jpg",
+          "bytes": 150509
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/yangtze/w2048.jpg",
+          "bytes": 365594
+        }
+      ]
+    },
+    {
+      "featureName": "Three Gorges Dam",
+      "alt": "Three Gorges Dam — yangtze",
+      "caption": "Three Gorges Dam",
+      "photographer": "Le Grand Portage",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThree_Gorges_Dam%2C_Yangtze_River%2C_China.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Three Gorges Dam, Yangtze River, China.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Three Gorges Dam, Yangtze River, China.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d33f6b8b1601ba30454cccf412f7264e4203a7784840aab9d6ef5b964261012d",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/yangtze/w640-2.jpg",
+          "bytes": 43943
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/yangtze/w1280-2.jpg",
+          "bytes": 131164
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/yangtze/w2048-2.jpg",
+          "bytes": 352374
+        }
+      ]
+    },
+    {
+      "featureName": "Yangtze at Chongqing",
+      "alt": "Yangtze at Chongqing — yangtze",
+      "caption": "Yangtze at Chongqing",
+      "photographer": "Jim Wiggins",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChongqing_bridge%2C_Dafosi_Yangtze_River_Bridge.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Chongqing bridge, Dafosi Yangtze River Bridge.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Chongqing bridge, Dafosi Yangtze River Bridge.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "52c0dbca6f07f1d8040ac28231fe47cad4b9fa61619a2f4c813838e51b469e49",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/yangtze/w640-3.jpg",
+          "bytes": 49035
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/yangtze/w1280-3.jpg",
+          "bytes": 155805
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/yangtze/w2048-3.jpg",
+          "bytes": 453052
+        }
+      ]
+    }
+  ],
+  "danube": [
+    {
+      "featureName": "Danube at Budapest",
+      "alt": "Danube at Budapest — danube",
+      "caption": "Danube at Budapest",
+      "photographer": "Wilfredor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASz%C3%A9chenyi_Chain_Bridge_in_Budapest_at_night.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Széchenyi Chain Bridge in Budapest at night.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Széchenyi Chain Bridge in Budapest at night.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "19c249e87754da1256e33e2b1ce37ee615f379e9da4ff9b36469e5837736904d",
+      "width": 3580,
+      "height": 2000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/danube/w640.jpg",
+          "bytes": 69726
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/danube/w1280.jpg",
+          "bytes": 181370
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/danube/w2048.jpg",
+          "bytes": 443196
+        }
+      ]
+    },
+    {
+      "featureName": "Iron Gates",
+      "alt": "Iron Gates — danube",
+      "caption": "Iron Gates",
+      "photographer": "Pudelek",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AView_to_Iron_Gate%2C_Danube.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:View to Iron Gate, Danube.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:View to Iron Gate, Danube.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4cebb20a59616764324617ac31b5cdfde251c7d9cc68f62abf9b91dd90287e9a",
+      "width": 3321,
+      "height": 1910,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/danube/w640-2.jpg",
+          "bytes": 70677
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/danube/w1280-2.jpg",
+          "bytes": 220757
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/danube/w2048-2.jpg",
+          "bytes": 554904
+        }
+      ]
+    },
+    {
+      "featureName": "Danube Delta",
+      "alt": "Danube Delta — danube",
+      "caption": "Danube Delta",
+      "photographer": "European Space Agency",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADanube_Delta_ESA23450088.jpeg",
+      "license": "Attribution",
+      "commonsTitle": "File:Danube Delta ESA23450088.jpeg",
+      "provenance": "Curated from Wikimedia Commons (File:Danube Delta ESA23450088.jpeg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "754ff890df65062bbb7e180f84489432857dc859599f33ef05544334ce97935d",
+      "width": 15404,
+      "height": 15404,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/danube/w640-3.jpg",
+          "bytes": 104791
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/danube/w1280-3.jpg",
+          "bytes": 305655
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/danube/w2048-3.jpg",
+          "bytes": 809448
+        }
+      ]
+    }
+  ],
+  "mississippi": [
+    {
+      "featureName": "Mississippi barges",
+      "alt": "Mississippi barges — mississippi",
+      "caption": "Mississippi barges",
+      "photographer": "Paul Sableman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABarges_on_the_Mississippi_River%2C_near_St_Louis_-d.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Barges on the Mississippi River, near St Louis -d.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Barges on the Mississippi River, near St Louis -d.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3102d4cd3b2d1050bb4e96d51700f64dc1c97d1c7d58ae70cfbf2864d15be15c",
+      "width": 3240,
+      "height": 4320,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/mississippi/w640.jpg",
+          "bytes": 117172
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/mississippi/w1280.jpg",
+          "bytes": 318748
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/mississippi/w2048.jpg",
+          "bytes": 775536
+        }
+      ]
+    },
+    {
+      "featureName": "Upper Mississippi",
+      "alt": "Upper Mississippi — mississippi",
+      "caption": "Upper Mississippi",
+      "photographer": "Wikideas1",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AUpper_Mississippi_River_by_Kings_Bluff.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Upper Mississippi River by Kings Bluff.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Upper Mississippi River by Kings Bluff.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4743906566d1fef692e9b974e2c6b93dfa382f37d88d7e8e2f304ccfec124ef3",
+      "width": 10956,
+      "height": 2431,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/mississippi/w640-2.jpg",
+          "bytes": 42438
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/mississippi/w1280-2.jpg",
+          "bytes": 86323
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/mississippi/w2048-2.jpg",
+          "bytes": 199268
+        }
+      ]
+    },
+    {
+      "featureName": "Mississippi Delta",
+      "alt": "Mississippi Delta — mississippi",
+      "caption": "Mississippi Delta",
+      "photographer": "NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMississippi_delta_from_space.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Mississippi delta from space.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mississippi delta from space.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d457cc0d9c679f34581707c978eafb72980d91b98538b85bcb3054302cf3d581",
+      "width": 1797,
+      "height": 1910,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/mississippi/w640-3.jpg",
+          "bytes": 89026
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/mississippi/w1280-3.jpg",
+          "bytes": 325846
+        },
+        {
+          "width": 1797,
+          "src": "/images/rivers/mississippi/w2048-3.jpg",
+          "bytes": 777895
+        }
+      ]
+    }
+  ]
+}

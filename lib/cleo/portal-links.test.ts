@@ -144,7 +144,7 @@ describe('presentPortalGuideMarkdown', () => {
 })
 
 describe('presentTopicPhotoMarkdown', () => {
-  it('allows only curated atlas, space, civilizations, cities, and oceans JPEG paths', () => {
+  it('allows only curated atlas, space, civilizations, cities, oceans, and rivers JPEG paths', () => {
     expect(isCuratedTopicImageSrc('/images/atlas/japan/w1280.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('/images/atlas/japan/w1280-2.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('/images/space/mars/w2048-3.jpg')).toBe(true)
@@ -158,6 +158,7 @@ describe('presentTopicPhotoMarkdown', () => {
     expect(
       isCuratedTopicImageSrc('/images/oceans/pacific-ocean/w1280.jpg'),
     ).toBe(true)
+    expect(isCuratedTopicImageSrc('/images/rivers/nile/w1280.jpg')).toBe(true)
     expect(isCuratedTopicImageSrc('https://evil.example/x.jpg')).toBe(false)
     expect(isCuratedTopicImageSrc('/images/other/x.jpg')).toBe(false)
 
@@ -191,6 +192,11 @@ describe('CLEO_PORTAL_STARTERS', () => {
       label: 'Orient me to the Pacific Ocean',
       prompt:
         'Give me a quick orientation to the Pacific Ocean. Deep-link its Oceans guide when you mention it.',
+    })
+    expect(CLEO_PORTAL_STARTERS).toContainEqual({
+      label: 'Orient me to the Nile',
+      prompt:
+        'Give me a quick orientation to the Nile. Deep-link its Rivers guide when you mention the river.',
     })
   })
 })

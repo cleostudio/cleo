@@ -173,6 +173,32 @@ describe('topic photos', () => {
     ])
   })
 
+  it('resolves and matches Rivers guides by name and path', () => {
+    const photos = resolveTopicPhotos([
+      { collection: 'rivers', slug: 'nile' },
+      { collection: 'rivers', slug: 'not-a-river' },
+    ])
+    expect(photos).toHaveLength(3)
+    expect(photos[0]).toMatchObject({
+      collection: 'rivers',
+      slug: 'nile',
+      name: 'Nile',
+      href: '/rivers/nile',
+      src: '/images/rivers/nile/w1280.jpg',
+    })
+
+    const byName = matchTopicPhotosInText('Orient me to the Nile')
+    expect(byName.every((photo) => photo.slug === 'nile')).toBe(true)
+
+    const byPath = matchTopicPhotosInText(
+      'Compare /rivers/amazon with the Yangtze.',
+    )
+    expect([...new Set(byPath.map((photo) => photo.slug))].sort()).toEqual([
+      'amazon',
+      'yangtze',
+    ])
+  })
+
   it('prefers longer country names over nested shorter ones', () => {
     const photos = matchTopicPhotosInText('What is Nigeria known for?')
     expect(photos.map((photo) => photo.slug)).toEqual([

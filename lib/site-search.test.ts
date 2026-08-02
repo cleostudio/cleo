@@ -19,6 +19,7 @@ import {
 import { citySubjects } from './cities'
 import { civilizationSubjects } from './civilizations'
 import { oceanSubjects } from './oceans'
+import { riverSubjects } from './rivers'
 import { spaceSubjects } from './space'
 import { allTopics } from './topics'
 
@@ -50,6 +51,7 @@ describe('site search catalog', () => {
         'civilizations',
         'cities',
         'oceans',
+        'rivers',
         'photo',
         'writing',
         'surface',
@@ -61,6 +63,7 @@ describe('site search catalog', () => {
     expect(byKind('civilizations')).toHaveLength(civilizationSubjects.length)
     expect(byKind('cities')).toHaveLength(citySubjects.length)
     expect(byKind('oceans')).toHaveLength(oceanSubjects.length)
+    expect(byKind('rivers')).toHaveLength(riverSubjects.length)
     expect(byKind('photo')).toHaveLength(allGalleryItems().length)
     expect(byKind('writing')).toHaveLength(getAllPosts().length)
 
@@ -70,6 +73,7 @@ describe('site search catalog', () => {
       '/civilizations',
       '/cities',
       '/oceans',
+      '/rivers',
       '/gallery',
       '/cleo',
       '/blog',
@@ -204,6 +208,16 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('southern ocean')[0]).toBe('/oceans/southern-ocean')
     expect(hrefs('drake passage')[0]).toBe('/oceans/southern-ocean')
     expect(hrefs('monsoon moisture engine')[0]).toBe('/oceans/indian-ocean')
+  })
+
+  it('finds river guides and their features', () => {
+    expect(hrefs('nile')[0]).toBe('/rivers/nile')
+    expect(hrefs('amazon')[0]).toBe('/rivers/amazon')
+    expect(hrefs('yangtze')[0]).toBe('/rivers/yangtze')
+    expect(hrefs('danube')[0]).toBe('/rivers/danube')
+    expect(hrefs('mississippi')[0]).toBe('/rivers/mississippi')
+    expect(hrefs('iron gates')[0]).toBe('/rivers/danube')
+    expect(hrefs('desert corridor')[0]).toBe('/rivers/nile')
   })
 
   it('finds curated photographs by the place they show', () => {

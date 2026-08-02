@@ -49,6 +49,11 @@ describe('public page metadata copy', () => {
       description:
         'Evergreen field guides for world ocean basins and polar seas — orientation, features, circulation, and sources.',
     })
+    expect(publicPageMetadata.rivers).toEqual({
+      title: 'Rivers',
+      description:
+        'Evergreen field guides for world rivers — orientation, course, basin, hydrology, and sources.',
+    })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',
       description:
@@ -66,6 +71,7 @@ describe('public page metadata copy', () => {
       'civilizations',
       'cities',
       'oceans',
+      'rivers',
       'cleo',
     ] as const) {
       expect(publicPageMetadata[section].description.length, section).toBeLessThanOrEqual(160)

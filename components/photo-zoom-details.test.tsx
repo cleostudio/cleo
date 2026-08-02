@@ -109,4 +109,23 @@ describe('PhotoZoomDetails', () => {
     expect(screen.queryByText('Place')).toBeNull()
     expect(screen.queryByText('City')).toBeNull()
   })
+
+  it('shows feature capture cells for Rivers photographs', () => {
+    render(
+      <PhotoZoomDetails
+        collection="rivers"
+        title="Nile at Luxor"
+        subtitle="Nile"
+        photographer="Vyacheslav Argenberg"
+        license="CC BY 4.0"
+      />,
+    )
+
+    expect(screen.getByText('Feature')).toBeTruthy()
+    expect(screen.getByText('Nile at Luxor')).toBeTruthy()
+    expect(screen.getByText('River')).toBeTruthy()
+    expect(screen.getByText('Nile')).toBeTruthy()
+    expect(screen.queryByText('Place')).toBeNull()
+    expect(screen.queryByText('Ocean')).toBeNull()
+  })
 })

@@ -9,6 +9,7 @@ import { seo } from '~/lib/seo'
 import { citySubjectSlugs } from '~/lib/cities'
 import { civilizationSubjectSlugs } from '~/lib/civilizations'
 import { oceanSubjectSlugs } from '~/lib/oceans'
+import { riverSubjectSlugs } from '~/lib/rivers'
 import { spaceSubjectSlugs } from '~/lib/space'
 
 describe('discovery routes', () => {
@@ -42,12 +43,14 @@ describe('discovery routes', () => {
       '/civilizations',
       '/cities',
       '/oceans',
+      '/rivers',
       '/cleo',
       ...countrySlugs().map((slug) => `/explore/${slug}`),
       ...spaceSubjectSlugs().map((slug) => `/space/${slug}`),
       ...civilizationSubjectSlugs().map((slug) => `/civilizations/${slug}`),
       ...citySubjectSlugs().map((slug) => `/cities/${slug}`),
       ...oceanSubjectSlugs().map((slug) => `/oceans/${slug}`),
+      ...riverSubjectSlugs().map((slug) => `/rivers/${slug}`),
       ...archivedNewsletterIds.map((id) => `/newsletters/${id}`),
       ...getAllPosts().map((post) => `/blog/${post.slug}`),
     ]

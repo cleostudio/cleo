@@ -18810,5 +18810,365 @@
         "width": 2048
       }
     ]
+  },
+  "rivers/nile": {
+    "collection": "rivers",
+    "title": "Nile at Luxor",
+    "subtitle": "Nile",
+    "alt": "Nile at Luxor — nile",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 3072,
+    "height": 2048,
+    "renditions": [
+      {
+        "src": "/images/rivers/nile/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/nile/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/nile/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/nile-2": {
+    "collection": "rivers",
+    "title": "Blue Nile Falls",
+    "subtitle": "Nile",
+    "alt": "Blue Nile Falls — nile",
+    "photographer": "A.Savin",
+    "license": "FAL",
+    "width": 7869,
+    "height": 5246,
+    "renditions": [
+      {
+        "src": "/images/rivers/nile/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/nile/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/nile/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/nile-3": {
+    "collection": "rivers",
+    "title": "Nile from orbit",
+    "subtitle": "Nile",
+    "alt": "Nile from orbit — nile",
+    "photographer": "ISS Expedition 35 / NASA",
+    "license": "Public domain",
+    "width": 4256,
+    "height": 2832,
+    "renditions": [
+      {
+        "src": "/images/rivers/nile/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/nile/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/nile/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/amazon": {
+    "collection": "rivers",
+    "title": "Amazon mainstream",
+    "subtitle": "Amazon",
+    "alt": "Amazon mainstream — amazon",
+    "photographer": "Alexander Gerst",
+    "license": "CC BY-SA 2.0",
+    "width": 5568,
+    "height": 3712,
+    "renditions": [
+      {
+        "src": "/images/rivers/amazon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/amazon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/amazon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/amazon-2": {
+    "collection": "rivers",
+    "title": "Amazon mouth",
+    "subtitle": "Amazon",
+    "alt": "Amazon mouth — amazon",
+    "photographer": "INPE / Coordenação-Geral de Observação da Terra",
+    "license": "CC BY-SA 2.0",
+    "width": 9579,
+    "height": 5393,
+    "renditions": [
+      {
+        "src": "/images/rivers/amazon/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/amazon/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/amazon/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/amazon-3": {
+    "collection": "rivers",
+    "title": "Amazon from orbit",
+    "subtitle": "Amazon",
+    "alt": "Amazon from orbit — amazon",
+    "photographer": "European Space Agency",
+    "license": "CC BY-SA 3.0 igo",
+    "width": 1920,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/rivers/amazon/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/amazon/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/amazon/w2048-3.jpg",
+        "width": 1920
+      }
+    ]
+  },
+  "rivers/yangtze": {
+    "collection": "rivers",
+    "title": "Qutang Gorge",
+    "subtitle": "Yangtze",
+    "alt": "Qutang Gorge — yangtze",
+    "photographer": "Tan Wei Liang Byorn",
+    "license": "CC BY 3.0",
+    "width": 4752,
+    "height": 3168,
+    "renditions": [
+      {
+        "src": "/images/rivers/yangtze/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/yangtze/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/yangtze/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/yangtze-2": {
+    "collection": "rivers",
+    "title": "Three Gorges Dam",
+    "subtitle": "Yangtze",
+    "alt": "Three Gorges Dam — yangtze",
+    "photographer": "Le Grand Portage",
+    "license": "CC BY 2.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/rivers/yangtze/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/yangtze/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/yangtze/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/yangtze-3": {
+    "collection": "rivers",
+    "title": "Yangtze at Chongqing",
+    "subtitle": "Yangtze",
+    "alt": "Yangtze at Chongqing — yangtze",
+    "photographer": "Jim Wiggins",
+    "license": "CC BY-SA 2.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/rivers/yangtze/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/yangtze/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/yangtze/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/danube": {
+    "collection": "rivers",
+    "title": "Danube at Budapest",
+    "subtitle": "Danube",
+    "alt": "Danube at Budapest — danube",
+    "photographer": "Wilfredor",
+    "license": "CC0",
+    "width": 3580,
+    "height": 2000,
+    "renditions": [
+      {
+        "src": "/images/rivers/danube/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/danube/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/danube/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/danube-2": {
+    "collection": "rivers",
+    "title": "Iron Gates",
+    "subtitle": "Danube",
+    "alt": "Iron Gates — danube",
+    "photographer": "Pudelek",
+    "license": "CC BY-SA 4.0",
+    "width": 3321,
+    "height": 1910,
+    "renditions": [
+      {
+        "src": "/images/rivers/danube/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/danube/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/danube/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/danube-3": {
+    "collection": "rivers",
+    "title": "Danube Delta",
+    "subtitle": "Danube",
+    "alt": "Danube Delta — danube",
+    "photographer": "European Space Agency",
+    "license": "Attribution",
+    "width": 15404,
+    "height": 15404,
+    "renditions": [
+      {
+        "src": "/images/rivers/danube/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/danube/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/danube/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/mississippi": {
+    "collection": "rivers",
+    "title": "Mississippi barges",
+    "subtitle": "Mississippi",
+    "alt": "Mississippi barges — mississippi",
+    "photographer": "Paul Sableman",
+    "license": "CC BY 2.0",
+    "width": 3240,
+    "height": 4320,
+    "renditions": [
+      {
+        "src": "/images/rivers/mississippi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/mississippi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/mississippi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/mississippi-2": {
+    "collection": "rivers",
+    "title": "Upper Mississippi",
+    "subtitle": "Mississippi",
+    "alt": "Upper Mississippi — mississippi",
+    "photographer": "Wikideas1",
+    "license": "CC0",
+    "width": 10956,
+    "height": 2431,
+    "renditions": [
+      {
+        "src": "/images/rivers/mississippi/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/mississippi/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/mississippi/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/mississippi-3": {
+    "collection": "rivers",
+    "title": "Mississippi Delta",
+    "subtitle": "Mississippi",
+    "alt": "Mississippi Delta — mississippi",
+    "photographer": "NASA",
+    "license": "Public domain",
+    "width": 1797,
+    "height": 1910,
+    "renditions": [
+      {
+        "src": "/images/rivers/mississippi/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/mississippi/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/mississippi/w2048-3.jpg",
+        "width": 1797
+      }
+    ]
   }
 }

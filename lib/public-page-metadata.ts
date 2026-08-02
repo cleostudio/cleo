@@ -47,6 +47,11 @@ export const publicPageMetadata = {
     description:
       'Evergreen field guides for world ocean basins and polar seas — orientation, features, circulation, and sources.',
   },
+  rivers: {
+    title: 'Rivers',
+    description:
+      'Evergreen field guides for world rivers — orientation, course, basin, hydrology, and sources.',
+  },
   cleo: {
     title: 'Cleo',
     description:
