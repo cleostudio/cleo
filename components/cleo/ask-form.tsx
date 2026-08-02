@@ -96,53 +96,6 @@ type PendingThreadScrollRestore = {
   threadId: string
 }
 
-type ThreadScrollDebugData = {
-  activeThread: number | null
-  actualY: number
-  hasSavedPosition?: boolean
-  reachedExpected?: boolean
-  savedY: number | null
-  scrollTick?: number
-  targetThread: number | null
-}
-
-function documentScrollMetrics() {
-  const scrollHeight = document.documentElement.scrollHeight
-  const innerHeight = window.innerHeight
-  return {
-    innerHeight,
-    maxY: Math.max(0, scrollHeight - innerHeight),
-    scrollHeight,
-  }
-}
-
-function postThreadScrollDebug(
-  message:
-    | "save-outgoing-position"
-    | "prepare-thread-position"
-    | "restore-skipped-active-mismatch"
-    | "restore-before-scroll"
-    | "restore-after-scroll"
-    | "restore-post-paint"
-    | "auto-follow-scroll",
-  hypothesisId: "A" | "B" | "C" | "D",
-  data: ThreadScrollDebugData & {
-    innerHeight: number
-    maxY: number
-    scrollHeight: number
-    sequence: number
-  },
-) {
-  if (process.env.NODE_ENV !== "development") return
-
-  void fetch("/api/agent-debug/thread-scroll", {
-    body: JSON.stringify({ data, hypothesisId, message, timestamp: Date.now() }),
-    headers: { "Content-Type": "application/json" },
-    keepalive: true,
-    method: "POST",
-  }).catch(() => undefined)
-}
-
 function isAbortError(error: unknown) {
   return (
     (error instanceof DOMException && error.name === "AbortError") ||
@@ -382,9 +335,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const mountedRef = useRef(true)
   const stickToBottomRef = useRef(true)
   const lastScrollYRef = useRef(0)
-  const threadScrollDebugLabelsRef = useRef(new Map<string, number>())
-  const threadScrollDebugNextLabelRef = useRef(1)
-  const threadScrollDebugSequenceRef = useRef(0)
 
   const hasMessages = messages.some((message) => !message.hidden)
   const lastVisibleMessage = [...messages]
@@ -412,47 +362,13 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     setMessages(nextMessages)
   }, [])
 
-  const threadScrollDebugLabel = useCallback((threadId: string | null) => {
-    if (!threadId) return null
-
-    const existing = threadScrollDebugLabelsRef.current.get(threadId)
-    if (existing !== undefined) return existing
-
-    const next = threadScrollDebugNextLabelRef.current++
-    threadScrollDebugLabelsRef.current.set(threadId, next)
-    return next
-  }, [])
-
-  const logThreadScroll = useCallback(
-    (
-      message: Parameters<typeof postThreadScrollDebug>[0],
-      hypothesisId: Parameters<typeof postThreadScrollDebug>[1],
-      data: ThreadScrollDebugData,
-    ) => {
-      postThreadScrollDebug(message, hypothesisId, {
-        ...documentScrollMetrics(),
-        ...data,
-        sequence: threadScrollDebugSequenceRef.current++,
-      })
-    },
-    [],
-  )
-
   const saveActiveThreadScrollPosition = useCallback(() => {
     const threadId = activeThreadIdRef.current
     if (!threadId) return
 
     const savedY = Math.max(0, window.scrollY)
     threadScrollPositionsRef.current.set(threadId, savedY)
-    // #region agent log
-    logThreadScroll("save-outgoing-position", "A", {
-      activeThread: threadScrollDebugLabel(threadId),
-      actualY: window.scrollY,
-      savedY,
-      targetThread: null,
-    })
-    // #endregion
-  }, [logThreadScroll, threadScrollDebugLabel])
+  }, [])
 
   /**
    * A previously viewed thread returns exactly where its reader left off.
@@ -460,15 +376,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
    */
   const prepareThreadScrollPosition = useCallback((threadId: string) => {
     const savedScrollY = threadScrollPositionsRef.current.get(threadId)
-    // #region agent log
-    logThreadScroll("prepare-thread-position", "A", {
-      activeThread: threadScrollDebugLabel(activeThreadIdRef.current),
-      actualY: window.scrollY,
-      hasSavedPosition: savedScrollY !== undefined,
-      savedY: savedScrollY ?? null,
-      targetThread: threadScrollDebugLabel(threadId),
-    })
-    // #endregion
 
     if (savedScrollY === undefined) {
       stickToBottomRef.current = true
@@ -483,74 +390,22 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     // Do not let the streaming-follow effect overwrite the saved position.
     stickToBottomRef.current = false
     setThreadScrollRestoreTick((tick) => tick + 1)
-  }, [logThreadScroll, threadScrollDebugLabel])
+  }, [])
 
   useLayoutEffect(() => {
     const pending = pendingThreadScrollRestoreRef.current
     if (!pending) return
     if (pending.threadId !== activeThreadId) {
-      // #region agent log
-      logThreadScroll("restore-skipped-active-mismatch", "D", {
-        activeThread: threadScrollDebugLabel(activeThreadId),
-        actualY: window.scrollY,
-        savedY: pending.scrollY,
-        targetThread: threadScrollDebugLabel(pending.threadId),
-      })
-      // #endregion
       return
     }
 
     // Layout phase guarantees the selected thread's DOM is present before the
     // document scroll is restored, avoiding a visible visit to its top/end.
-    // #region agent log
-    logThreadScroll("restore-before-scroll", "B", {
-      activeThread: threadScrollDebugLabel(activeThreadId),
-      actualY: window.scrollY,
-      savedY: pending.scrollY,
-      targetThread: threadScrollDebugLabel(pending.threadId),
-    })
-    // #endregion
     window.scrollTo(0, pending.scrollY)
-    // #region agent log
-    logThreadScroll("restore-after-scroll", "B", {
-      activeThread: threadScrollDebugLabel(activeThreadId),
-      actualY: window.scrollY,
-      reachedExpected: window.scrollY === pending.scrollY,
-      savedY: pending.scrollY,
-      targetThread: threadScrollDebugLabel(pending.threadId),
-    })
-    // #endregion
     lastScrollYRef.current = window.scrollY
     stickToBottomRef.current = false
     pendingThreadScrollRestoreRef.current = null
-
-    let postPaintFrame: number | null = null
-    const frame = window.requestAnimationFrame(() => {
-      postPaintFrame = window.requestAnimationFrame(() => {
-        // #region agent log
-        logThreadScroll("restore-post-paint", "C", {
-          activeThread: threadScrollDebugLabel(activeThreadIdRef.current),
-          actualY: window.scrollY,
-          reachedExpected: window.scrollY === pending.scrollY,
-          savedY: pending.scrollY,
-          targetThread: threadScrollDebugLabel(pending.threadId),
-        })
-        // #endregion
-      })
-    })
-
-    return () => {
-      window.cancelAnimationFrame(frame)
-      if (postPaintFrame !== null) {
-        window.cancelAnimationFrame(postPaintFrame)
-      }
-    }
-  }, [
-    activeThreadId,
-    logThreadScroll,
-    threadScrollDebugLabel,
-    threadScrollRestoreTick,
-  ])
+  }, [activeThreadId, threadScrollRestoreTick])
 
   // Restore browser-only thread history once. A `/cleo?q=…` handoff starts a
   // fresh thread so the arrival ask does not append onto a restored chat.
@@ -719,19 +574,10 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       block: "end",
       behavior: "instant",
     })
-    // #region agent log
-    logThreadScroll("auto-follow-scroll", "C", {
-      activeThread: threadScrollDebugLabel(activeThreadIdRef.current),
-      actualY: window.scrollY,
-      savedY: null,
-      scrollTick,
-      targetThread: null,
-    })
-    // #endregion
     // Keep the baseline in sync so the follow-scroll itself is not read as
     // a user gesture on the next event.
     lastScrollYRef.current = window.scrollY
-  }, [hasMessages, logThreadScroll, scrollTick, threadScrollDebugLabel])
+  }, [hasMessages, scrollTick])
 
   useEffect(() => {
     if (!isSubmitting && hasMessages) {
