@@ -1010,5 +1010,465 @@
         }
       ]
     }
+  ],
+  "london": [
+    {
+      "featureName": "Tower Bridge",
+      "alt": "Tower Bridge — london",
+      "caption": "Tower Bridge",
+      "photographer": "Colin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATower%20Bridge%20from%20London%20City%20Hall%202015.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Tower Bridge from London City Hall 2015.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Tower Bridge from London City Hall 2015.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e995fe71c557593a12d43abe71db1c864188d37df6020258fb6f809d09fc82e2",
+      "width": 14258,
+      "height": 8021,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/london/w640.jpg",
+          "bytes": 72063
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/london/w1280.jpg",
+          "bytes": 174877
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/london/w2048.jpg",
+          "bytes": 438488
+        }
+      ]
+    },
+    {
+      "featureName": "Elizabeth Tower",
+      "alt": "Elizabeth Tower — london",
+      "caption": "Elizabeth Tower",
+      "photographer": "Julian Herzog",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABig%20Ben%20Elizabeth%20Tower%20London%202023%2001.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Big Ben Elizabeth Tower London 2023 01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Big Ben Elizabeth Tower London 2023 01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "443bce5eb4edd7cb166e8ab5bf02fd1bd9ee18ee786a390a9ebc6be18d7a981e",
+      "width": 5630,
+      "height": 6512,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/london/w640-2.jpg",
+          "bytes": 165319
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/london/w1280-2.jpg",
+          "bytes": 381408
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/london/w2048-2.jpg",
+          "bytes": 913851
+        }
+      ]
+    },
+    {
+      "featureName": "St Paul's Cathedral",
+      "alt": "St Paul's Cathedral — london",
+      "caption": "St Paul's Cathedral",
+      "photographer": "Colin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASt%20Paul%27s%20Cathedral%20Dome%20from%20One%20New%20Change%20-%20Square%20Crop.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:St Paul's Cathedral Dome from One New Change - Square Crop.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:St Paul's Cathedral Dome from One New Change - Square Crop.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5eaa678f9d04fd2a34ce182f4de0fa74a5a603aef70c4467569bceaa9c0117ed",
+      "width": 7514,
+      "height": 7514,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/london/w640-3.jpg",
+          "bytes": 68996
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/london/w1280-3.jpg",
+          "bytes": 159346
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/london/w2048-3.jpg",
+          "bytes": 385576
+        }
+      ]
+    }
+  ],
+  "athens": [
+    {
+      "featureName": "Acropolis",
+      "alt": "Acropolis — athens",
+      "caption": "Acropolis",
+      "photographer": "A.Savin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAttica%2006-13%20Athens%2050%20View%20from%20Philopappos%20-%20Acropolis%20Hill.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Attica 06-13 Athens 50 View from Philopappos - Acropolis Hill.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Attica 06-13 Athens 50 View from Philopappos - Acropolis Hill.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fe816cb21c9baa41c6bc2a6fd957a25e08e62577fbf8d4a62d6b41b75aee75a8",
+      "width": 5000,
+      "height": 3125,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/athens/w640.jpg",
+          "bytes": 78730
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/athens/w1280.jpg",
+          "bytes": 219649
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/athens/w2048.jpg",
+          "bytes": 598474
+        }
+      ]
+    },
+    {
+      "featureName": "Odeon of Herodes Atticus",
+      "alt": "Odeon of Herodes Atticus — athens",
+      "caption": "Odeon of Herodes Atticus",
+      "photographer": "George E. Koronaios",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe%20Odeon%20of%20Herodes%20Atticus%20on%20November%204%2C%202019.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:The Odeon of Herodes Atticus on November 4, 2019.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Odeon of Herodes Atticus on November 4, 2019.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6a77ccabd77ddcfb5e7ff0b8fce27d5077d166baa07620967ef9ec3f8929d587",
+      "width": 6000,
+      "height": 4000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/athens/w640-2.jpg",
+          "bytes": 56732
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/athens/w1280-2.jpg",
+          "bytes": 189631
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/athens/w2048-2.jpg",
+          "bytes": 546634
+        }
+      ]
+    },
+    {
+      "featureName": "Stoa of Attalos",
+      "alt": "Stoa of Attalos — athens",
+      "caption": "Stoa of Attalos",
+      "photographer": "Julian Lupyan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AStoa%20of%20Attalos%2C%20Athens%2C%20Greece.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Stoa of Attalos, Athens, Greece.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Stoa of Attalos, Athens, Greece.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ddcf670702707afcf7711754d330555007e527e4bb820b6ebbf14ea5a0aba8b4",
+      "width": 4273,
+      "height": 3665,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/athens/w640-3.jpg",
+          "bytes": 117797
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/athens/w1280-3.jpg",
+          "bytes": 260653
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/athens/w2048-3.jpg",
+          "bytes": 568867
+        }
+      ]
+    }
+  ],
+  "jerusalem": [
+    {
+      "featureName": "Western Wall",
+      "alt": "Western Wall — jerusalem",
+      "caption": "Western Wall",
+      "photographer": "Godot13",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWesten%20%28Wailing%29%20Wall%2C%20Jerusalem%2C%202007.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Westen (Wailing) Wall, Jerusalem, 2007.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Westen (Wailing) Wall, Jerusalem, 2007.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "986f8f6707d5d6a3f31f53815339d45099fdf7e5fe830fd5583ca976e08a9b76",
+      "width": 4288,
+      "height": 2848,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/jerusalem/w640.jpg",
+          "bytes": 95060
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/jerusalem/w1280.jpg",
+          "bytes": 268488
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/jerusalem/w2048.jpg",
+          "bytes": 673772
+        }
+      ]
+    },
+    {
+      "featureName": "Dome of the Rock",
+      "alt": "Dome of the Rock — jerusalem",
+      "caption": "Dome of the Rock",
+      "photographer": "Godot13",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AJerusalem-2013%282%29-Temple%20Mount-Dome%20of%20the%20Rock%20%28SE%20exposure%29.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Jerusalem-2013(2)-Temple Mount-Dome of the Rock (SE exposure).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Jerusalem-2013(2)-Temple Mount-Dome of the Rock (SE exposure).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f3388939342e70084dbd8d7a5ebdcf9cffbb34302a194f48151fbc69a7c2296b",
+      "width": 7500,
+      "height": 5425,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/jerusalem/w640-2.jpg",
+          "bytes": 80918
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/jerusalem/w1280-2.jpg",
+          "bytes": 198695
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/jerusalem/w2048-2.jpg",
+          "bytes": 530636
+        }
+      ]
+    },
+    {
+      "featureName": "Church of the Holy Sepulchre",
+      "alt": "Church of the Holy Sepulchre — jerusalem",
+      "caption": "Church of the Holy Sepulchre",
+      "photographer": "Berthold Werner",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AJerusalem%20Holy%20Sepulchre%20BW%2019.JPG",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Jerusalem Holy Sepulchre BW 19.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Jerusalem Holy Sepulchre BW 19.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7e942406770a8ca0ad692511b8685be1af29db9f34306ce47145641266c08df1",
+      "width": 4730,
+      "height": 3990,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/jerusalem/w640-3.jpg",
+          "bytes": 61884
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/jerusalem/w1280-3.jpg",
+          "bytes": 207633
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/jerusalem/w2048-3.jpg",
+          "bytes": 582388
+        }
+      ]
+    }
+  ],
+  "tokyo": [
+    {
+      "featureName": "Sensō-ji",
+      "alt": "Sensō-ji — tokyo",
+      "caption": "Sensō-ji",
+      "photographer": "Ray in Manila",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASenso-ji%2C%20Asakusa%2C%20Tokyo.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Senso-ji, Asakusa, Tokyo.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Senso-ji, Asakusa, Tokyo.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1482c7ca944c14c1f274c6f1b141ac3f63c392e37c57de13be77c5c4a4fdd163",
+      "width": 4625,
+      "height": 3427,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/tokyo/w640.jpg",
+          "bytes": 124740
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/tokyo/w1280.jpg",
+          "bytes": 279545
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/tokyo/w2048.jpg",
+          "bytes": 722882
+        }
+      ]
+    },
+    {
+      "featureName": "Tokyo Skytree",
+      "alt": "Tokyo Skytree — tokyo",
+      "caption": "Tokyo Skytree",
+      "photographer": "Basile Morin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWorm%27s-eye%20view%20of%20Tokyo%20Skytree%20with%20vertical%20symmetry%20impression%2C%20a%20sunny%20day%2C%20in%20Japan.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Worm's-eye view of Tokyo Skytree with vertical symmetry impression, a sunny day, in Japan.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Worm's-eye view of Tokyo Skytree with vertical symmetry impression, a sunny day, in Japan.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "468a2cf5c322d4b4fa1c360bb67f64c6846dd0082fdcb8db852efd740f8a20e5",
+      "width": 6241,
+      "height": 4161,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/tokyo/w640-2.jpg",
+          "bytes": 82535
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/tokyo/w1280-2.jpg",
+          "bytes": 173735
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/tokyo/w2048-2.jpg",
+          "bytes": 369052
+        }
+      ]
+    },
+    {
+      "featureName": "Meiji Shrine",
+      "alt": "Meiji Shrine — tokyo",
+      "caption": "Meiji Shrine",
+      "photographer": "MediaByPanda",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMeiji%20Jingu%20Shrine%20Tokyo%20Japan.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Meiji Jingu Shrine Tokyo Japan.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Meiji Jingu Shrine Tokyo Japan.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3fe495d1a1142d2c57f9272b96505d9051247cd8c9c954817cf653666ec8cd1a",
+      "width": 4032,
+      "height": 3024,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/tokyo/w640-3.jpg",
+          "bytes": 62414
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/tokyo/w1280-3.jpg",
+          "bytes": 228412
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/tokyo/w2048-3.jpg",
+          "bytes": 630361
+        }
+      ]
+    }
+  ],
+  "mexico-city": [
+    {
+      "featureName": "Zócalo",
+      "alt": "Zócalo — mexico city",
+      "caption": "Zócalo",
+      "photographer": "Uwebart",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AZocalo%20Mexico%20City%20panorama%20at%20nightfall.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Zocalo Mexico City panorama at nightfall.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Zocalo Mexico City panorama at nightfall.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1198efd2be6e6a822666e5a0bb8da3bcec8dcd802eef3078f2e09f0a385bcb75",
+      "width": 6526,
+      "height": 2482,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/mexico-city/w640.jpg",
+          "bytes": 32912
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/mexico-city/w1280.jpg",
+          "bytes": 108568
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/mexico-city/w2048.jpg",
+          "bytes": 300771
+        }
+      ]
+    },
+    {
+      "featureName": "Templo Mayor",
+      "alt": "Templo Mayor — mexico city",
+      "caption": "Templo Mayor",
+      "photographer": "Mike Peel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATemplo%20Mayor%202015%20040.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Templo Mayor 2015 040.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Templo Mayor 2015 040.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fb0054e44e11b62d8c535507324e7e312e441f4448a2099a04c0a96407a859e1",
+      "width": 5184,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/mexico-city/w640-2.jpg",
+          "bytes": 115725
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/mexico-city/w1280-2.jpg",
+          "bytes": 280718
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/mexico-city/w2048-2.jpg",
+          "bytes": 660361
+        }
+      ]
+    },
+    {
+      "featureName": "Palacio de Bellas Artes",
+      "alt": "Palacio de Bellas Artes — mexico city",
+      "caption": "Palacio de Bellas Artes",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APalacio%20de%20Bellas%20Artes%2C%20M%C3%A9xico%20D.F.%2C%20M%C3%A9xico%2C%202014-10-13%2C%20DD%2037.JPG",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Palacio de Bellas Artes, México D.F., México, 2014-10-13, DD 37.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Palacio de Bellas Artes, México D.F., México, 2014-10-13, DD 37.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "07fb799bf79a6432bd62ef67bc9a9fad1b34726ba3ec403ef5a5bd1430d2cdfd",
+      "width": 4970,
+      "height": 3572,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/mexico-city/w640-3.jpg",
+          "bytes": 62132
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/mexico-city/w1280-3.jpg",
+          "bytes": 188937
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/mexico-city/w2048-3.jpg",
+          "bytes": 495426
+        }
+      ]
+    }
   ]
 }
