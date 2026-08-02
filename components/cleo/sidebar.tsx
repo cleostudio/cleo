@@ -72,7 +72,7 @@ export function CleoSidebar({
             type="button"
             variant="ghost"
           >
-            <X aria-hidden="true" />
+            <PanelLeftClose aria-hidden="true" />
           </Button>
         </div>
 
