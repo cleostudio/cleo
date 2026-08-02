@@ -14,6 +14,7 @@ General-knowledge portal:
   photo-wall sections.
 - **Explore** — country field guides at `/explore/[slug]`
 - **Space** — Solar System, Moons, Deep Space at `/space` and `/space/[slug]`
+  (twenty-eight guides)
 - **Gallery** — editor-selected featured photo per Explore place, Space body,
   Civilizations site, Cities guide, Oceans basin, and Rivers course
 - **Civilizations** — historical field guides at `/civilizations` and

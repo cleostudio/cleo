@@ -152,6 +152,13 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('europa')[0]).toBe('/space/europa')
     expect(hrefs('moon').includes('/space/moon')).toBe(true)
     expect(hrefs('nebula')[0]).toMatch(/^\/space\/[a-z-]+nebula$/)
+    expect(hrefs('whirlpool galaxy')[0]).toBe('/space/whirlpool-galaxy')
+    expect(hrefs('large magellanic cloud')[0]).toBe(
+      '/space/large-magellanic-cloud',
+    )
+    expect(hrefs('eagle nebula')[0]).toBe('/space/eagle-nebula')
+    expect(hrefs('helix nebula')[0]).toBe('/space/helix-nebula')
+    expect(hrefs('horsehead nebula')[0]).toBe('/space/horsehead-nebula')
     expect(
       search('nebula', 12).every(
         (result) => result.hit.kind === 'space' || result.hit.kind === 'photo',

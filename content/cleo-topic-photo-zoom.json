@@ -15647,6 +15647,354 @@
       }
     ]
   },
+  "space/eagle-nebula": {
+    "collection": "space",
+    "title": "Pillars of Creation",
+    "subtitle": "Eagle Nebula",
+    "alt": "Pillars of Creation — eagle nebula",
+    "photographer": "NASA/ESA/Hubble Heritage Team (STScI/AURA)",
+    "license": "Public Domain (NASA)",
+    "width": 3249,
+    "height": 3045,
+    "renditions": [
+      {
+        "src": "/images/space/eagle-nebula/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/eagle-nebula/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/eagle-nebula/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/eagle-nebula-2": {
+    "collection": "space",
+    "title": "Towering Infernos",
+    "subtitle": "Eagle Nebula",
+    "alt": "Towering Infernos — eagle nebula",
+    "photographer": "NASA/JPL-Caltech/Harvard-Smithsonian CfA/ESA/STScI",
+    "license": "Public Domain (NASA)",
+    "width": 3426,
+    "height": 2548,
+    "renditions": [
+      {
+        "src": "/images/space/eagle-nebula/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/eagle-nebula/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/eagle-nebula/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/eagle-nebula-3": {
+    "collection": "space",
+    "title": "Eagle Nebula in infrared",
+    "subtitle": "Eagle Nebula",
+    "alt": "Eagle Nebula in infrared — eagle nebula",
+    "photographer": "NASA/JPL-Caltech",
+    "license": "Public Domain (NASA)",
+    "width": 3400,
+    "height": 3400,
+    "renditions": [
+      {
+        "src": "/images/space/eagle-nebula/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/eagle-nebula/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/eagle-nebula/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/whirlpool-galaxy": {
+    "collection": "space",
+    "title": "Whirlpool Galaxy",
+    "subtitle": "Whirlpool Galaxy",
+    "alt": "Whirlpool Galaxy — whirlpool galaxy",
+    "photographer": "NASA/Hubble Heritage Team (STScI/AURA)",
+    "license": "Public Domain (NASA)",
+    "width": 648,
+    "height": 809,
+    "renditions": [
+      {
+        "src": "/images/space/whirlpool-galaxy/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/whirlpool-galaxy/w1280.jpg",
+        "width": 648
+      }
+    ]
+  },
+  "space/whirlpool-galaxy-2": {
+    "collection": "space",
+    "title": "The Two-faced Whirlpool Galaxy",
+    "subtitle": "Whirlpool Galaxy",
+    "alt": "The Two-faced Whirlpool Galaxy — whirlpool galaxy",
+    "photographer": "NASA/ESA/S. Beckwith / Hubble Heritage Team (STScI/AURA)",
+    "license": "Public Domain (NASA)",
+    "width": 2685,
+    "height": 3617,
+    "renditions": [
+      {
+        "src": "/images/space/whirlpool-galaxy/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/whirlpool-galaxy/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/whirlpool-galaxy/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/whirlpool-galaxy-3": {
+    "collection": "space",
+    "title": "Whirlpool in different light",
+    "subtitle": "Whirlpool Galaxy",
+    "alt": "Whirlpool in different light — whirlpool galaxy",
+    "photographer": "NASA/JPL-Caltech",
+    "license": "Public Domain (NASA)",
+    "width": 5944,
+    "height": 3342,
+    "renditions": [
+      {
+        "src": "/images/space/whirlpool-galaxy/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/whirlpool-galaxy/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/whirlpool-galaxy/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/large-magellanic-cloud": {
+    "collection": "space",
+    "title": "Our Chaotic Neighbor",
+    "subtitle": "Large Magellanic Cloud",
+    "alt": "Our Chaotic Neighbor — large magellanic cloud",
+    "photographer": "NASA/JPL-Caltech/STScI",
+    "license": "Public Domain (NASA)",
+    "width": 6000,
+    "height": 6000,
+    "renditions": [
+      {
+        "src": "/images/space/large-magellanic-cloud/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/large-magellanic-cloud/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/large-magellanic-cloud/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/large-magellanic-cloud-2": {
+    "collection": "space",
+    "title": "Tarantula Nebula",
+    "subtitle": "Large Magellanic Cloud",
+    "alt": "Tarantula Nebula — large magellanic cloud",
+    "photographer": "NASA/CXC/STScI/JPL/PSU",
+    "license": "Public Domain (NASA)",
+    "width": 3600,
+    "height": 2880,
+    "renditions": [
+      {
+        "src": "/images/space/large-magellanic-cloud/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/large-magellanic-cloud/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/large-magellanic-cloud/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/large-magellanic-cloud-3": {
+    "collection": "space",
+    "title": "Hidden Treasure in the LMC",
+    "subtitle": "Large Magellanic Cloud",
+    "alt": "Hidden Treasure in the LMC — large magellanic cloud",
+    "photographer": "ESA/Hubble & NASA",
+    "license": "Public Domain (NASA)",
+    "width": 1280,
+    "height": 969,
+    "renditions": [
+      {
+        "src": "/images/space/large-magellanic-cloud/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/large-magellanic-cloud/w1280-3.jpg",
+        "width": 1280
+      }
+    ]
+  },
+  "space/helix-nebula": {
+    "collection": "space",
+    "title": "Helix Nebula",
+    "subtitle": "Helix Nebula",
+    "alt": "Helix Nebula — helix nebula",
+    "photographer": "NASA/JPL-Caltech",
+    "license": "Public Domain (NASA)",
+    "width": 2920,
+    "height": 2920,
+    "renditions": [
+      {
+        "src": "/images/space/helix-nebula/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/helix-nebula/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/helix-nebula/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/helix-nebula-2": {
+    "collection": "space",
+    "title": "Comets kick up dust in the Helix",
+    "subtitle": "Helix Nebula",
+    "alt": "Comets kick up dust in the Helix — helix nebula",
+    "photographer": "NASA/JPL-Caltech/Univ. of Arizona",
+    "license": "Public Domain (NASA)",
+    "width": 4279,
+    "height": 3559,
+    "renditions": [
+      {
+        "src": "/images/space/helix-nebula/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/helix-nebula/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/helix-nebula/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/helix-nebula-3": {
+    "collection": "space",
+    "title": "The Infrared Helix",
+    "subtitle": "Helix Nebula",
+    "alt": "The Infrared Helix — helix nebula",
+    "photographer": "NASA/JPL-Caltech/Harvard-Smithsonian CfA",
+    "license": "Public Domain (NASA)",
+    "width": 2400,
+    "height": 2794,
+    "renditions": [
+      {
+        "src": "/images/space/helix-nebula/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/helix-nebula/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/helix-nebula/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/horsehead-nebula": {
+    "collection": "space",
+    "title": "Horsehead Nebula",
+    "subtitle": "Horsehead Nebula",
+    "alt": "Horsehead Nebula — horsehead nebula",
+    "photographer": "NASA/NOAO/ESA/Hubble Heritage Team (STScI/AURA)",
+    "license": "Public Domain (NASA)",
+    "width": 853,
+    "height": 620,
+    "renditions": [
+      {
+        "src": "/images/space/horsehead-nebula/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/horsehead-nebula/w1280.jpg",
+        "width": 853
+      }
+    ]
+  },
+  "space/horsehead-nebula-2": {
+    "collection": "space",
+    "title": "Horsehead of a different color",
+    "subtitle": "Horsehead Nebula",
+    "alt": "Horsehead of a different color — horsehead nebula",
+    "photographer": "NASA/ESA/STScI",
+    "license": "Public Domain (NASA)",
+    "width": 2704,
+    "height": 2826,
+    "renditions": [
+      {
+        "src": "/images/space/horsehead-nebula/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/horsehead-nebula/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/horsehead-nebula/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "space/horsehead-nebula-3": {
+    "collection": "space",
+    "title": "Horsehead in infrared",
+    "subtitle": "Horsehead Nebula",
+    "alt": "Horsehead in infrared — horsehead nebula",
+    "photographer": "NASA/JPL-Caltech",
+    "license": "Public Domain (NASA)",
+    "width": 6250,
+    "height": 3800,
+    "renditions": [
+      {
+        "src": "/images/space/horsehead-nebula/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/space/horsehead-nebula/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/space/horsehead-nebula/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "civilizations/ancient-egypt": {
     "collection": "civilizations",
     "title": "Great Pyramid of Giza",

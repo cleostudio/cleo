@@ -2059,5 +2059,450 @@
         }
       ]
     }
+  ],
+  "eagle-nebula": [
+    {
+      "featureName": "Pillars of Creation",
+      "alt": "Pillars of Creation — eagle nebula",
+      "caption": "Pillars of Creation",
+      "photographer": "NASA/ESA/Hubble Heritage Team (STScI/AURA)",
+      "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000842",
+      "license": "Public Domain (NASA)",
+      "nasaId": "GSFC_20171208_Archive_e000842",
+      "provenance": "Curated from NASA image GSFC_20171208_Archive_e000842; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "049b096fd781c11bfcda743b7150eebc86d52a25b8b1128964241dc29933ded1",
+      "width": 3249,
+      "height": 3045,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/eagle-nebula/w640.jpg",
+          "bytes": 184621
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/eagle-nebula/w1280.jpg",
+          "bytes": 563441
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/eagle-nebula/w2048.jpg",
+          "bytes": 1311972
+        }
+      ]
+    },
+    {
+      "featureName": "Towering Infernos",
+      "alt": "Towering Infernos — eagle nebula",
+      "caption": "Towering Infernos",
+      "photographer": "NASA/JPL-Caltech/Harvard-Smithsonian CfA/ESA/STScI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA03096",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA03096",
+      "provenance": "Curated from NASA image PIA03096; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "15f101d2502a473041bc0b0c76e7eea0e9bc818bf1f664dea41baab25508bb0f",
+      "width": 3426,
+      "height": 2548,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/eagle-nebula/w640-2.jpg",
+          "bytes": 59495
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/eagle-nebula/w1280-2.jpg",
+          "bytes": 188106
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/eagle-nebula/w2048-2.jpg",
+          "bytes": 470785
+        }
+      ]
+    },
+    {
+      "featureName": "Eagle Nebula in infrared",
+      "alt": "Eagle Nebula in infrared — eagle nebula",
+      "caption": "Eagle Nebula in infrared",
+      "photographer": "NASA/JPL-Caltech",
+      "sourceUrl": "https://images.nasa.gov/details/PIA25433",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA25433",
+      "provenance": "Curated from NASA image PIA25433; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8f645467c687f1fa965ea28b24a0081669f2003d4317bbf01702f164857ca5dc",
+      "width": 3400,
+      "height": 3400,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/eagle-nebula/w640-3.jpg",
+          "bytes": 93667
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/eagle-nebula/w1280-3.jpg",
+          "bytes": 290353
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/eagle-nebula/w2048-3.jpg",
+          "bytes": 648797
+        }
+      ]
+    }
+  ],
+  "whirlpool-galaxy": [
+    {
+      "featureName": "Whirlpool Galaxy",
+      "alt": "Whirlpool Galaxy — whirlpool galaxy",
+      "caption": "Whirlpool Galaxy",
+      "photographer": "NASA/Hubble Heritage Team (STScI/AURA)",
+      "sourceUrl": "https://images.nasa.gov/details/PIA04230",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA04230",
+      "provenance": "Curated from NASA image PIA04230; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c01f41dee46d7a6536c3270d0947d9c84df9d6523f5470a4792a54fd0283f947",
+      "width": 648,
+      "height": 809,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/whirlpool-galaxy/w640.jpg",
+          "bytes": 85220
+        },
+        {
+          "width": 648,
+          "src": "/images/space/whirlpool-galaxy/w1280.jpg",
+          "bytes": 88585
+        }
+      ]
+    },
+    {
+      "featureName": "The Two-faced Whirlpool Galaxy",
+      "alt": "The Two-faced Whirlpool Galaxy — whirlpool galaxy",
+      "caption": "The Two-faced Whirlpool Galaxy",
+      "photographer": "NASA/ESA/S. Beckwith / Hubble Heritage Team (STScI/AURA)",
+      "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001925",
+      "license": "Public Domain (NASA)",
+      "nasaId": "GSFC_20171208_Archive_e001925",
+      "provenance": "Curated from NASA image GSFC_20171208_Archive_e001925; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "445e2410d51aa7c6a2d7dcdcffb8ce98494d9d5b6f8195ff22366955fa6af5b6",
+      "width": 2685,
+      "height": 3617,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/whirlpool-galaxy/w640-2.jpg",
+          "bytes": 141212
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/whirlpool-galaxy/w1280-2.jpg",
+          "bytes": 487251
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/whirlpool-galaxy/w2048-2.jpg",
+          "bytes": 1354254
+        }
+      ]
+    },
+    {
+      "featureName": "Whirlpool in different light",
+      "alt": "Whirlpool in different light — whirlpool galaxy",
+      "caption": "Whirlpool in different light",
+      "photographer": "NASA/JPL-Caltech",
+      "sourceUrl": "https://images.nasa.gov/details/PIA23128",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA23128",
+      "provenance": "Curated from NASA image PIA23128; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6e931e4841edd408a43b006b65b15595a06276e35a3fcf6d5572c7f20056dbd8",
+      "width": 5944,
+      "height": 3342,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/whirlpool-galaxy/w640-3.jpg",
+          "bytes": 28659
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/whirlpool-galaxy/w1280-3.jpg",
+          "bytes": 93515
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/whirlpool-galaxy/w2048-3.jpg",
+          "bytes": 243981
+        }
+      ]
+    }
+  ],
+  "large-magellanic-cloud": [
+    {
+      "featureName": "Our Chaotic Neighbor",
+      "alt": "Our Chaotic Neighbor — large magellanic cloud",
+      "caption": "Our Chaotic Neighbor",
+      "photographer": "NASA/JPL-Caltech/STScI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA07136",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA07136",
+      "provenance": "Curated from NASA image PIA07136; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b596b898a0284f7332f87f456627f9c70ef5873fb8479f72d9cb61401eae2f4d",
+      "width": 6000,
+      "height": 6000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/large-magellanic-cloud/w640.jpg",
+          "bytes": 80108
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/large-magellanic-cloud/w1280.jpg",
+          "bytes": 362655
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/large-magellanic-cloud/w2048.jpg",
+          "bytes": 1243873
+        }
+      ]
+    },
+    {
+      "featureName": "Tarantula Nebula",
+      "alt": "Tarantula Nebula — large magellanic cloud",
+      "caption": "Tarantula Nebula",
+      "photographer": "NASA/CXC/STScI/JPL/PSU",
+      "sourceUrl": "https://images.nasa.gov/details/PIA14415",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA14415",
+      "provenance": "Curated from NASA image PIA14415; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2e406426ffe4ab0d694663a0d2bf4a7e69ede80017a14c950b7bde2c25071679",
+      "width": 3600,
+      "height": 2880,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/large-magellanic-cloud/w640-2.jpg",
+          "bytes": 71346
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/large-magellanic-cloud/w1280-2.jpg",
+          "bytes": 265111
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/large-magellanic-cloud/w2048-2.jpg",
+          "bytes": 785476
+        }
+      ]
+    },
+    {
+      "featureName": "Hidden Treasure in the LMC",
+      "alt": "Hidden Treasure in the LMC — large magellanic cloud",
+      "caption": "Hidden Treasure in the LMC",
+      "photographer": "ESA/Hubble & NASA",
+      "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001642",
+      "license": "Public Domain (NASA)",
+      "nasaId": "GSFC_20171208_Archive_e001642",
+      "provenance": "Curated from NASA image GSFC_20171208_Archive_e001642; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "295f2d57f6edee52938b7aabbf833b4241f8b39e12141245d70132560e9335a3",
+      "width": 1280,
+      "height": 969,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/large-magellanic-cloud/w640-3.jpg",
+          "bytes": 64578
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/large-magellanic-cloud/w1280-3.jpg",
+          "bytes": 229358
+        }
+      ]
+    }
+  ],
+  "helix-nebula": [
+    {
+      "featureName": "Helix Nebula",
+      "alt": "Helix Nebula — helix nebula",
+      "caption": "Helix Nebula",
+      "photographer": "NASA/JPL-Caltech",
+      "sourceUrl": "https://images.nasa.gov/details/PIA15658",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA15658",
+      "provenance": "Curated from NASA image PIA15658; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "97a49cbbaea4e99a4aaae476b067514d4310d141bba589079d3492209dfe1747",
+      "width": 2920,
+      "height": 2920,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/helix-nebula/w640.jpg",
+          "bytes": 51187
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/helix-nebula/w1280.jpg",
+          "bytes": 164962
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/helix-nebula/w2048.jpg",
+          "bytes": 465191
+        }
+      ]
+    },
+    {
+      "featureName": "Comets kick up dust in the Helix",
+      "alt": "Comets kick up dust in the Helix — helix nebula",
+      "caption": "Comets kick up dust in the Helix",
+      "photographer": "NASA/JPL-Caltech/Univ. of Arizona",
+      "sourceUrl": "https://images.nasa.gov/details/PIA09178",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA09178",
+      "provenance": "Curated from NASA image PIA09178; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3b699278efc9b68e0e81b2793aa4f7cb1ea8bbb5bf88f8b60421dfc3b7819a71",
+      "width": 4279,
+      "height": 3559,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/helix-nebula/w640-2.jpg",
+          "bytes": 69915
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/helix-nebula/w1280-2.jpg",
+          "bytes": 240990
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/helix-nebula/w2048-2.jpg",
+          "bytes": 674800
+        }
+      ]
+    },
+    {
+      "featureName": "The Infrared Helix",
+      "alt": "The Infrared Helix — helix nebula",
+      "caption": "The Infrared Helix",
+      "photographer": "NASA/JPL-Caltech/Harvard-Smithsonian CfA",
+      "sourceUrl": "https://images.nasa.gov/details/PIA03294",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA03294",
+      "provenance": "Curated from NASA image PIA03294; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "42e0cebdb4af887a0dac97d6689f3eb2f18783e9e3f1ed2b22dad5c12074c189",
+      "width": 2400,
+      "height": 2794,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/helix-nebula/w640-3.jpg",
+          "bytes": 115504
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/helix-nebula/w1280-3.jpg",
+          "bytes": 377164
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/helix-nebula/w2048-3.jpg",
+          "bytes": 969344
+        }
+      ]
+    }
+  ],
+  "horsehead-nebula": [
+    {
+      "featureName": "Horsehead Nebula",
+      "alt": "Horsehead Nebula — horsehead nebula",
+      "caption": "Horsehead Nebula",
+      "photographer": "NASA/NOAO/ESA/Hubble Heritage Team (STScI/AURA)",
+      "sourceUrl": "https://images.nasa.gov/details/PIA04215",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA04215",
+      "provenance": "Curated from NASA image PIA04215; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1cfb7310376d396c083b1fac5cfbd86155e5cd325953bc6cc4fad8bef1b8a5dd",
+      "width": 853,
+      "height": 620,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/horsehead-nebula/w640.jpg",
+          "bytes": 31735
+        },
+        {
+          "width": 853,
+          "src": "/images/space/horsehead-nebula/w1280.jpg",
+          "bytes": 51354
+        }
+      ]
+    },
+    {
+      "featureName": "Horsehead of a different color",
+      "alt": "Horsehead of a different color — horsehead nebula",
+      "caption": "Horsehead of a different color",
+      "photographer": "NASA/ESA/STScI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA16008",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA16008",
+      "provenance": "Curated from NASA image PIA16008; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "af5881ceb3649cbae4a71ea00259a44be09003b496f97ad57514b3c6f518145b",
+      "width": 2704,
+      "height": 2826,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/horsehead-nebula/w640-2.jpg",
+          "bytes": 48579
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/horsehead-nebula/w1280-2.jpg",
+          "bytes": 138938
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/horsehead-nebula/w2048-2.jpg",
+          "bytes": 427701
+        }
+      ]
+    },
+    {
+      "featureName": "Horsehead in infrared",
+      "alt": "Horsehead in infrared — horsehead nebula",
+      "caption": "Horsehead in infrared",
+      "photographer": "NASA/JPL-Caltech",
+      "sourceUrl": "https://images.nasa.gov/details/PIA18905",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA18905",
+      "provenance": "Curated from NASA image PIA18905; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d41b94bbff8fc9b3279e00a90e35b62d84028b65329ec04e415fe9c8db772593",
+      "width": 6250,
+      "height": 3800,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/horsehead-nebula/w640-3.jpg",
+          "bytes": 28752
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/horsehead-nebula/w1280-3.jpg",
+          "bytes": 76636
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/horsehead-nebula/w2048-3.jpg",
+          "bytes": 187769
+        }
+      ]
+    }
   ]
 }

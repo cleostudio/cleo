@@ -441,6 +441,98 @@ const additions = {
       license: 'Public Domain (NASA)',
     },
   ],
+  'eagle-nebula': [
+    {
+      featureName: 'Towering Infernos',
+      nasaId: 'PIA03096',
+      downloadUrl: 'https://images-assets.nasa.gov/image/PIA03096/PIA03096~orig.jpg',
+      sourceUrl: 'https://images.nasa.gov/details/PIA03096',
+      credit: 'NASA/JPL-Caltech/Harvard-Smithsonian CfA/ESA/STScI',
+      license: 'Public Domain (NASA)',
+    },
+    {
+      featureName: 'Eagle Nebula in infrared',
+      nasaId: 'PIA25433',
+      downloadUrl: 'https://images-assets.nasa.gov/image/PIA25433/PIA25433~orig.jpg',
+      sourceUrl: 'https://images.nasa.gov/details/PIA25433',
+      credit: 'NASA/JPL-Caltech',
+      license: 'Public Domain (NASA)',
+    },
+  ],
+  'whirlpool-galaxy': [
+    {
+      featureName: 'The Two-faced Whirlpool Galaxy',
+      nasaId: 'GSFC_20171208_Archive_e001925',
+      downloadUrl:
+        'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001925/GSFC_20171208_Archive_e001925~orig.jpg',
+      sourceUrl: 'https://images.nasa.gov/details/GSFC_20171208_Archive_e001925',
+      credit: 'NASA/ESA/S. Beckwith / Hubble Heritage Team (STScI/AURA)',
+      license: 'Public Domain (NASA)',
+    },
+    {
+      featureName: 'Whirlpool in different light',
+      nasaId: 'PIA23128',
+      downloadUrl: 'https://images-assets.nasa.gov/image/PIA23128/PIA23128~orig.jpg',
+      sourceUrl: 'https://images.nasa.gov/details/PIA23128',
+      credit: 'NASA/JPL-Caltech',
+      license: 'Public Domain (NASA)',
+    },
+  ],
+  'large-magellanic-cloud': [
+    {
+      featureName: 'Tarantula Nebula',
+      nasaId: 'PIA14415',
+      downloadUrl: 'https://images-assets.nasa.gov/image/PIA14415/PIA14415~orig.jpg',
+      sourceUrl: 'https://images.nasa.gov/details/PIA14415',
+      credit: 'NASA/CXC/STScI/JPL/PSU',
+      license: 'Public Domain (NASA)',
+    },
+    {
+      featureName: 'Hidden Treasure in the LMC',
+      nasaId: 'GSFC_20171208_Archive_e001642',
+      downloadUrl:
+        'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001642/GSFC_20171208_Archive_e001642~orig.jpg',
+      sourceUrl: 'https://images.nasa.gov/details/GSFC_20171208_Archive_e001642',
+      credit: 'ESA/Hubble & NASA',
+      license: 'Public Domain (NASA)',
+    },
+  ],
+  'helix-nebula': [
+    {
+      featureName: 'Comets kick up dust in the Helix',
+      nasaId: 'PIA09178',
+      downloadUrl: 'https://images-assets.nasa.gov/image/PIA09178/PIA09178~orig.jpg',
+      sourceUrl: 'https://images.nasa.gov/details/PIA09178',
+      credit: 'NASA/JPL-Caltech/Univ. of Arizona',
+      license: 'Public Domain (NASA)',
+    },
+    {
+      featureName: 'The Infrared Helix',
+      nasaId: 'PIA03294',
+      downloadUrl: 'https://images-assets.nasa.gov/image/PIA03294/PIA03294~orig.jpg',
+      sourceUrl: 'https://images.nasa.gov/details/PIA03294',
+      credit: 'NASA/JPL-Caltech/Harvard-Smithsonian CfA',
+      license: 'Public Domain (NASA)',
+    },
+  ],
+  'horsehead-nebula': [
+    {
+      featureName: 'Horsehead of a different color',
+      nasaId: 'PIA16008',
+      downloadUrl: 'https://images-assets.nasa.gov/image/PIA16008/PIA16008~orig.jpg',
+      sourceUrl: 'https://images.nasa.gov/details/PIA16008',
+      credit: 'NASA/ESA/STScI',
+      license: 'Public Domain (NASA)',
+    },
+    {
+      featureName: 'Horsehead in infrared',
+      nasaId: 'PIA18905',
+      downloadUrl: 'https://images-assets.nasa.gov/image/PIA18905/PIA18905~orig.jpg',
+      sourceUrl: 'https://images.nasa.gov/details/PIA18905',
+      credit: 'NASA/JPL-Caltech',
+      license: 'Public Domain (NASA)',
+    },
+  ],
 }
 
 const sourceSlugs = Object.keys(rawSources)

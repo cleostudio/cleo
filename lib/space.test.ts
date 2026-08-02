@@ -58,5 +58,16 @@ describe('space subjects', () => {
     expect(groups[2]?.[1].some((subject) => subject.slug === 'orion-nebula')).toBe(
       true,
     )
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'eagle-nebula')).toBe(
+      true,
+    )
+    expect(
+      groups[2]?.[1].some((subject) => subject.slug === 'whirlpool-galaxy'),
+    ).toBe(true)
+    expect(
+      groups[2]?.[1].some(
+        (subject) => subject.slug === 'large-magellanic-cloud',
+      ),
+    ).toBe(true)
   })
 })
