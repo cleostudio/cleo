@@ -1068,7 +1068,7 @@ html[data-cleo-sidebar-open] body {
   position: relative;
   display: flex;
   align-items: center;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
 .cleo-sidebar-thread:hover,
