@@ -1,0 +1,278 @@
+{
+  "istanbul": [
+    {
+      "featureName": "Hagia Sophia",
+      "alt": "Hagia Sophia — istanbul",
+      "caption": "Hagia Sophia",
+      "photographer": "Arild Vågen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHagia_Sophia_Mars_2013.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Hagia Sophia Mars 2013.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Hagia Sophia Mars 2013.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "30a3647d5d224123b5786baee6ea3f511d6023d52a921308ea31edf8d85ea6de",
+      "width": 5514,
+      "height": 3681,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/istanbul/w640.jpg",
+          "bytes": 61126
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/istanbul/w1280.jpg",
+          "bytes": 194403
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/istanbul/w2048.jpg",
+          "bytes": 570926
+        }
+      ]
+    },
+    {
+      "featureName": "Galata Tower",
+      "alt": "Galata Tower — istanbul",
+      "caption": "Galata Tower",
+      "photographer": "Martin Falbisoner",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGalata_Tower_January_2015.JPG",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Galata Tower January 2015.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Galata Tower January 2015.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f7524d76e7b3e4aeeb056485ebc2a5d234e9c03775b06fad367c2a3e23b540bb",
+      "width": 2565,
+      "height": 5036,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/istanbul/w640-2.jpg",
+          "bytes": 137773
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/istanbul/w1280-2.jpg",
+          "bytes": 484378
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/istanbul/w2048-2.jpg",
+          "bytes": 1306572
+        }
+      ]
+    },
+    {
+      "featureName": "Bosphorus Bridge",
+      "alt": "Bosphorus Bridge — istanbul",
+      "caption": "Bosphorus Bridge",
+      "photographer": "Huseyinakbas63",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABosphorus_Bridge_(1973)_in_Istanbul.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Bosphorus Bridge (1973) in Istanbul.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Bosphorus Bridge (1973) in Istanbul.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "0bb743bb56c8906017813e3096bce95b3b1bf458b60d701647794e6042d06078",
+      "width": 4000,
+      "height": 2571,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/istanbul/w640-3.jpg",
+          "bytes": 50263
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/istanbul/w1280-3.jpg",
+          "bytes": 161717
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/istanbul/w2048-3.jpg",
+          "bytes": 462523
+        }
+      ]
+    }
+  ],
+  "cairo": [
+    {
+      "featureName": "Mosque of Muhammad Ali",
+      "alt": "Mosque of Muhammad Ali — cairo",
+      "caption": "Mosque of Muhammad Ali",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMuhammad_Ali_Mosque%2C_Citadel%2C_Cairo%2C_Egypt3.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Muhammad Ali Mosque, Citadel, Cairo, Egypt3.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Muhammad Ali Mosque, Citadel, Cairo, Egypt3.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "81b9331c76704a1c4346299f348c0ddf8a1ec29867efd83d8fe3f1244f662891",
+      "width": 3592,
+      "height": 1997,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/cairo/w640.jpg",
+          "bytes": 45458
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/cairo/w1280.jpg",
+          "bytes": 119288
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/cairo/w2048.jpg",
+          "bytes": 306114
+        }
+      ]
+    },
+    {
+      "featureName": "Cairo Citadel",
+      "alt": "Cairo Citadel — cairo",
+      "caption": "Cairo Citadel",
+      "photographer": "Amr F.Nagy",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AScenes_from_Cairo_Citadel_(25986).jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Scenes from Cairo Citadel (25986).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Scenes from Cairo Citadel (25986).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5f22b672944cbbca8336743f6d2f9391719eee138bd165a34174cdbd3117cf56",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/cairo/w640-2.jpg",
+          "bytes": 109853
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/cairo/w1280-2.jpg",
+          "bytes": 239342
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/cairo/w2048-2.jpg",
+          "bytes": 567681
+        }
+      ]
+    },
+    {
+      "featureName": "Khan el-Khalili",
+      "alt": "Khan el-Khalili — cairo",
+      "caption": "Khan el-Khalili",
+      "photographer": "The Erica Chang",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKhan_el-Khalili%2C_Cairo_Egypt_-_panoramio_(7).jpg",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Khan el-Khalili, Cairo Egypt - panoramio (7).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Khan el-Khalili, Cairo Egypt - panoramio (7).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a98aa5013265451277f933439fd71c0423d8ebfefdac81932da2ccd7bc59fce3",
+      "width": 3648,
+      "height": 2736,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/cairo/w640-3.jpg",
+          "bytes": 83873
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/cairo/w1280-3.jpg",
+          "bytes": 212045
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/cairo/w2048-3.jpg",
+          "bytes": 510137
+        }
+      ]
+    }
+  ],
+  "kyoto": [
+    {
+      "featureName": "Kiyomizu-dera",
+      "alt": "Kiyomizu-dera — kyoto",
+      "caption": "Kiyomizu-dera",
+      "photographer": "Martin Falbisoner",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKiyomizu-dera%2C_Kyoto%2C_November_2016_-01.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Kiyomizu-dera, Kyoto, November 2016 -01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Kiyomizu-dera, Kyoto, November 2016 -01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4e51e74278c020e1ed5208aa674d057b6437e50a190278647066dc4b692a8b7b",
+      "width": 5852,
+      "height": 3601,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/kyoto/w640.jpg",
+          "bytes": 82091
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/kyoto/w1280.jpg",
+          "bytes": 249679
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/kyoto/w2048.jpg",
+          "bytes": 688562
+        }
+      ]
+    },
+    {
+      "featureName": "Fushimi Inari",
+      "alt": "Fushimi Inari — kyoto",
+      "caption": "Fushimi Inari",
+      "photographer": "Basile Morin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATorii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Torii path with lantern at Fushimi Inari Taisha Shrine, Kyoto, Japan.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Torii path with lantern at Fushimi Inari Taisha Shrine, Kyoto, Japan.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "92d8adec41904539b210a50359d8224b09aeea1ede694ec760b7e8b959ea43f4",
+      "width": 5765,
+      "height": 3843,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/kyoto/w640-2.jpg",
+          "bytes": 108556
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/kyoto/w1280-2.jpg",
+          "bytes": 257637
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/kyoto/w2048-2.jpg",
+          "bytes": 612617
+        }
+      ]
+    },
+    {
+      "featureName": "Arashiyama Bamboo Grove",
+      "alt": "Arashiyama Bamboo Grove — kyoto",
+      "caption": "Arashiyama Bamboo Grove",
+      "photographer": "Basile Morin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABamboo_Forest%2C_Arashiyama%2C_Kyoto%2C_Japan.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Bamboo Forest, Arashiyama, Kyoto, Japan.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Bamboo Forest, Arashiyama, Kyoto, Japan.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ae84b41541c465e5ee483059f651174bab709cb0c06f5142c1a0281f6adcc22b",
+      "width": 6558,
+      "height": 4372,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/kyoto/w640-3.jpg",
+          "bytes": 105304
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/kyoto/w1280-3.jpg",
+          "bytes": 277789
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/kyoto/w2048-3.jpg",
+          "bytes": 743049
+        }
+      ]
+    }
+  ]
+}

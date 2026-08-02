@@ -62,6 +62,29 @@ describe('topic photos', () => {
     })
   })
 
+  it('resolves complete Cities photograph sets', () => {
+    const photos = resolveTopicPhotos([
+      { collection: 'cities', slug: 'istanbul' },
+      { collection: 'cities', slug: 'not-a-city' },
+    ])
+
+    expect(photos).toHaveLength(3)
+    expect(photos[0]).toMatchObject({
+      collection: 'cities',
+      slug: 'istanbul',
+      name: 'Istanbul',
+      href: '/cities/istanbul',
+      position: 1,
+      total: 3,
+      src: '/images/cities/istanbul/w1280.jpg',
+    })
+    expect(photos.map((photo) => photo.src)).toEqual([
+      '/images/cities/istanbul/w1280.jpg',
+      '/images/cities/istanbul/w1280-2.jpg',
+      '/images/cities/istanbul/w1280-3.jpg',
+    ])
+  })
+
   it('matches catalog subjects by name and path in conversation text', () => {
     const photos = matchTopicPhotosInText(
       'Tell me about Japan and also /space/europa — what do they look like?',
@@ -105,6 +128,22 @@ describe('topic photos', () => {
       'roman-empire',
       'roman-empire',
       'roman-empire',
+    ])
+  })
+
+  it('matches Cities guides by name and path', () => {
+    const byName = matchTopicPhotosInText('Orient me to Istanbul')
+    expect(byName.map((photo) => photo.collection)).toEqual([
+      'cities',
+      'cities',
+      'cities',
+    ])
+    expect(byName.every((photo) => photo.slug === 'istanbul')).toBe(true)
+
+    const byPath = matchTopicPhotosInText('Compare /cities/kyoto with Cairo.')
+    expect([...new Set(byPath.map((photo) => photo.slug))].sort()).toEqual([
+      'cairo',
+      'kyoto',
     ])
   })
 

@@ -55,4 +55,5 @@ static/
 # Space photo import originals (never public)
 .space-originals/
 .civilizations-originals/
+.cities-originals/
 

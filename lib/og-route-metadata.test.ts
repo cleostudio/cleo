@@ -41,6 +41,11 @@ describe('social OG image metadata', () => {
       'Civilizations · Cleo. Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
     ],
     [
+      '/cities',
+      publicPageMetadata.cities,
+      'Cities · Cleo. Evergreen field guides for capitals and route cities — orientation, signature sites, facts, and sources.',
+    ],
+    [
       '/cleo',
       publicPageMetadata.cleo,
       'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',

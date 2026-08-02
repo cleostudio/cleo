@@ -4,18 +4,18 @@
  */
 
 export type PortalGuideLink = {
-  collection: 'explore' | 'space' | 'civilizations'
+  collection: 'explore' | 'space' | 'civilizations' | 'cities'
   href: string
   label: string
   slug: string
 }
 
 const MARKDOWN_GUIDE_LINK =
-  /\[([^\]]*)\]\((\/(explore|space|civilizations)\/([a-z0-9-]+))\)/gi
+  /\[([^\]]*)\]\((\/(explore|space|civilizations|cities)\/([a-z0-9-]+))\)/gi
 
 /** Curated static JPEGs under the site image roots. */
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space|civilizations)\/[a-z0-9-]+\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
+  /^\/images\/(atlas|space|civilizations|cities)\/[a-z0-9-]+\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
 const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
@@ -57,22 +57,25 @@ export function cleanPortalGuideLabel(
   }
 
   const cleaned = trimmed
-    .replace(/\s*(?:explore|space|civilizations?)?\s*(?:field\s*)?guides?\s*$/i, '')
-    .replace(/^(?:explore|space|civilizations?)\s*[·|:–-]\s*/i, '')
-    .replace(/^(?:the\s+)?(?:explore|space|civilizations?)\s+/i, '')
+    .replace(
+      /\s*(?:explore|space|civilizations?|cities)?\s*(?:field\s*)?guides?\s*$/i,
+      '',
+    )
+    .replace(/^(?:explore|space|civilizations?|cities)\s*[·|:–-]\s*/i, '')
+    .replace(/^(?:the\s+)?(?:explore|space|civilizations?|cities)\s+/i, '')
     .trim()
 
   return cleaned || titleFromSlug(slug)
 }
 
-/** Pull unique Explore/Space guide links from assistant Markdown. */
+/** Pull unique Explore/Space/Civilizations/Cities guide links from assistant Markdown. */
 export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
   const found = new Map<string, PortalGuideLink>()
 
   for (const match of markdown.matchAll(MARKDOWN_GUIDE_LINK)) {
     const rawLabel = match[1] ?? ''
     const href = match[2]
-    const collection = match[3] as 'explore' | 'space'
+    const collection = match[3] as PortalGuideLink['collection']
     const slug = match[4]
 
     if (!href || !collection || !slug || found.has(href)) {
@@ -108,7 +111,7 @@ function stripLeadingGuideChrome(block: string) {
     remainder = remainder
       .replace(/^for a fuller primer,?\s*see\s+/i, '')
       .replace(/^see\s+(?:the\s+)?/i, '')
-      .replace(/^(?:explore|space|civilizations?)\s+/i, '')
+      .replace(/^(?:explore|space|civilizations?|cities)\s+/i, '')
       .trim()
   }
 
@@ -212,5 +215,10 @@ export const CLEO_PORTAL_STARTERS = [
     label: 'Orient me to Ancient Egypt',
     prompt:
       'Give me a quick orientation to Ancient Egypt. Deep-link its Civilizations guide when you mention it.',
+  },
+  {
+    label: 'Orient me to Istanbul',
+    prompt:
+      'Give me a quick orientation to Istanbul. Deep-link its Cities guide when you mention the city.',
   },
 ] as const

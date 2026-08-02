@@ -16,6 +16,7 @@ import {
   buildSiteSearchHits,
   siteSearchSpotlightIds,
 } from './site-search-catalog'
+import { citySubjects } from './cities'
 import { civilizationSubjects } from './civilizations'
 import { spaceSubjects } from './space'
 import { allTopics } from './topics'
@@ -46,6 +47,7 @@ describe('site search catalog', () => {
         'explore',
         'space',
         'civilizations',
+        'cities',
         'photo',
         'writing',
         'surface',
@@ -55,6 +57,7 @@ describe('site search catalog', () => {
     expect(byKind('explore')).toHaveLength(countries.length)
     expect(byKind('space')).toHaveLength(spaceSubjects.length)
     expect(byKind('civilizations')).toHaveLength(civilizationSubjects.length)
+    expect(byKind('cities')).toHaveLength(citySubjects.length)
     expect(byKind('photo')).toHaveLength(allGalleryItems().length)
     expect(byKind('writing')).toHaveLength(getAllPosts().length)
 
@@ -62,6 +65,7 @@ describe('site search catalog', () => {
       '/explore',
       '/space',
       '/civilizations',
+      '/cities',
       '/gallery',
       '/cleo',
       '/blog',
@@ -99,7 +103,7 @@ describe('site search catalog', () => {
   it('points photo hits at their gallery tile', () => {
     const photo = hits.find((entry) => entry.kind === 'photo')
     expect(photo?.href).toMatch(
-      /^\/gallery#photo-(places|space|civilizations)-[a-z0-9-]+$/,
+      /^\/gallery#photo-(places|space|civilizations|cities)-[a-z0-9-]+$/,
     )
   })
 
@@ -168,6 +172,16 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('coyolxauhqui')[0]).toBe('/civilizations/aztec')
     expect(hrefs('hatshepsut')[0]).toBe('/civilizations/ancient-egypt')
     expect(hrefs('el castillo')[0]).toBe('/civilizations/maya')
+  })
+
+  it('finds city guides and their sites', () => {
+    expect(hrefs('istanbul')[0]).toBe('/cities/istanbul')
+    expect(hrefs('cairo')[0]).toBe('/cities/cairo')
+    expect(hrefs('kyoto')[0]).toBe('/cities/kyoto')
+    expect(hrefs('galata tower')[0]).toBe('/cities/istanbul')
+    expect(hrefs('fushimi inari')[0]).toBe('/cities/kyoto')
+    expect(hrefs('bosphorus')[0]).toBe('/cities/istanbul')
+    expect(hrefs('strait capital')[0]).toBe('/cities/istanbul')
   })
 
   it('finds curated photographs by the place they show', () => {

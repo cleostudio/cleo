@@ -1,0 +1,98 @@
+{
+  "istanbul": [
+    {
+      "commonsTitle": "File:Hagia Sophia Mars 2013.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Hagia_Sophia_Mars_2013.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHagia_Sophia_Mars_2013.jpg",
+      "photographer": "Arild Vågen",
+      "license": "CC BY-SA 3.0",
+      "width": 5514,
+      "height": 3681,
+      "featureName": "Hagia Sophia"
+    },
+    {
+      "commonsTitle": "File:Galata Tower January 2015.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Galata_Tower_January_2015.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGalata_Tower_January_2015.JPG",
+      "photographer": "Martin Falbisoner",
+      "license": "CC BY-SA 4.0",
+      "width": 2565,
+      "height": 5036,
+      "featureName": "Galata Tower"
+    },
+    {
+      "commonsTitle": "File:Bosphorus Bridge (1973) in Istanbul.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Bosphorus_Bridge_%281973%29_in_Istanbul.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABosphorus_Bridge_(1973)_in_Istanbul.jpg",
+      "photographer": "Huseyinakbas63",
+      "license": "CC BY 4.0",
+      "width": 4000,
+      "height": 2571,
+      "featureName": "Bosphorus Bridge"
+    }
+  ],
+  "cairo": [
+    {
+      "commonsTitle": "File:Muhammad Ali Mosque, Citadel, Cairo, Egypt3.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Muhammad_Ali_Mosque%2C_Citadel%2C_Cairo%2C_Egypt3.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMuhammad_Ali_Mosque%2C_Citadel%2C_Cairo%2C_Egypt3.jpg",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "width": 3592,
+      "height": 1997,
+      "featureName": "Mosque of Muhammad Ali"
+    },
+    {
+      "commonsTitle": "File:Scenes from Cairo Citadel (25986).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Scenes_from_Cairo_Citadel_%2825986%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AScenes_from_Cairo_Citadel_(25986).jpg",
+      "photographer": "Amr F.Nagy",
+      "license": "CC BY-SA 4.0",
+      "width": 4000,
+      "height": 3000,
+      "featureName": "Cairo Citadel"
+    },
+    {
+      "commonsTitle": "File:Khan el-Khalili, Cairo Egypt - panoramio (7).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Khan_el-Khalili%2C_Cairo_Egypt_-_panoramio_%287%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKhan_el-Khalili%2C_Cairo_Egypt_-_panoramio_(7).jpg",
+      "photographer": "The Erica Chang",
+      "license": "CC BY 3.0",
+      "width": 3648,
+      "height": 2736,
+      "featureName": "Khan el-Khalili"
+    }
+  ],
+  "kyoto": [
+    {
+      "commonsTitle": "File:Kiyomizu-dera, Kyoto, November 2016 -01.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Kiyomizu-dera%2C_Kyoto%2C_November_2016_-01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKiyomizu-dera%2C_Kyoto%2C_November_2016_-01.jpg",
+      "photographer": "Martin Falbisoner",
+      "license": "CC BY-SA 4.0",
+      "width": 5852,
+      "height": 3601,
+      "featureName": "Kiyomizu-dera"
+    },
+    {
+      "commonsTitle": "File:Torii path with lantern at Fushimi Inari Taisha Shrine, Kyoto, Japan.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATorii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg",
+      "photographer": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "width": 5765,
+      "height": 3843,
+      "featureName": "Fushimi Inari"
+    },
+    {
+      "commonsTitle": "File:Bamboo Forest, Arashiyama, Kyoto, Japan.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Bamboo_Forest%2C_Arashiyama%2C_Kyoto%2C_Japan.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABamboo_Forest%2C_Arashiyama%2C_Kyoto%2C_Japan.jpg",
+      "photographer": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "width": 6558,
+      "height": 4372,
+      "featureName": "Arashiyama Bamboo Grove"
+    }
+  ]
+}

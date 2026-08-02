@@ -17658,5 +17658,221 @@
         "width": 2048
       }
     ]
+  },
+  "cities/istanbul": {
+    "collection": "cities",
+    "title": "Hagia Sophia",
+    "subtitle": "Istanbul",
+    "alt": "Hagia Sophia — istanbul",
+    "photographer": "Arild Vågen",
+    "license": "CC BY-SA 3.0",
+    "width": 5514,
+    "height": 3681,
+    "renditions": [
+      {
+        "src": "/images/cities/istanbul/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/istanbul/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/istanbul/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/istanbul-2": {
+    "collection": "cities",
+    "title": "Galata Tower",
+    "subtitle": "Istanbul",
+    "alt": "Galata Tower — istanbul",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 2565,
+    "height": 5036,
+    "renditions": [
+      {
+        "src": "/images/cities/istanbul/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/istanbul/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/istanbul/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/istanbul-3": {
+    "collection": "cities",
+    "title": "Bosphorus Bridge",
+    "subtitle": "Istanbul",
+    "alt": "Bosphorus Bridge — istanbul",
+    "photographer": "Huseyinakbas63",
+    "license": "CC BY 4.0",
+    "width": 4000,
+    "height": 2571,
+    "renditions": [
+      {
+        "src": "/images/cities/istanbul/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/istanbul/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/istanbul/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/cairo": {
+    "collection": "cities",
+    "title": "Mosque of Muhammad Ali",
+    "subtitle": "Cairo",
+    "alt": "Mosque of Muhammad Ali — cairo",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3592,
+    "height": 1997,
+    "renditions": [
+      {
+        "src": "/images/cities/cairo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/cairo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/cairo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/cairo-2": {
+    "collection": "cities",
+    "title": "Cairo Citadel",
+    "subtitle": "Cairo",
+    "alt": "Cairo Citadel — cairo",
+    "photographer": "Amr F.Nagy",
+    "license": "CC BY-SA 4.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/cities/cairo/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/cairo/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/cairo/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/cairo-3": {
+    "collection": "cities",
+    "title": "Khan el-Khalili",
+    "subtitle": "Cairo",
+    "alt": "Khan el-Khalili — cairo",
+    "photographer": "The Erica Chang",
+    "license": "CC BY 3.0",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "src": "/images/cities/cairo/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/cairo/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/cairo/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/kyoto": {
+    "collection": "cities",
+    "title": "Kiyomizu-dera",
+    "subtitle": "Kyoto",
+    "alt": "Kiyomizu-dera — kyoto",
+    "photographer": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "width": 5852,
+    "height": 3601,
+    "renditions": [
+      {
+        "src": "/images/cities/kyoto/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/kyoto/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/kyoto/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/kyoto-2": {
+    "collection": "cities",
+    "title": "Fushimi Inari",
+    "subtitle": "Kyoto",
+    "alt": "Fushimi Inari — kyoto",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 5765,
+    "height": 3843,
+    "renditions": [
+      {
+        "src": "/images/cities/kyoto/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/kyoto/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/kyoto/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/kyoto-3": {
+    "collection": "cities",
+    "title": "Arashiyama Bamboo Grove",
+    "subtitle": "Kyoto",
+    "alt": "Arashiyama Bamboo Grove — kyoto",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 6558,
+    "height": 4372,
+    "renditions": [
+      {
+        "src": "/images/cities/kyoto/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/kyoto/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/kyoto/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
   }
 }

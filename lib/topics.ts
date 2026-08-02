@@ -1,3 +1,4 @@
+import { citySubjects } from '~/lib/cities'
 import { civilizationSubjects } from '~/lib/civilizations'
 import { countries } from '~/lib/countries'
 import { spaceSubjects } from '~/lib/space'
@@ -20,6 +21,7 @@ export function allTopics(): Topic[] {
   const countryCount = countries.length
   const spaceCount = spaceSubjects.length
   const civilizationCount = civilizationSubjects.length
+  const cityCount = citySubjects.length
   return [
     {
       slug: 'countries',
@@ -48,6 +50,16 @@ export function allTopics(): Topic[] {
         'Evergreen field guides for historical civilizations — orientation, signature sites, facts, sources, and curated photographs.',
       tally: `${civilizationCount} guides`,
       href: '/civilizations',
+      secondaryHref: '/gallery',
+      secondaryLabel: 'Gallery',
+    },
+    {
+      slug: 'cities',
+      name: 'Cities',
+      description:
+        'Evergreen field guides for capitals and route cities — orientation, signature sites, facts, sources, and curated photographs.',
+      tally: `${cityCount} guides`,
+      href: '/cities',
       secondaryHref: '/gallery',
       secondaryLabel: 'Gallery',
     },

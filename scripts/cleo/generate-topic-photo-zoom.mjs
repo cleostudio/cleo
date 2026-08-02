@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Build a slim client-safe index of curated Explore/Space/Civilizations
+ * Build a slim client-safe index of curated Explore/Space/Civilizations/Cities
  * photographs for Cleo Markdown image zoom (Gallery-parity lightbox + caption
  * plate).
  *
@@ -19,16 +19,18 @@ const { allTopicPhotoItems } = await import(
   pathToFileURL(join(root, 'lib/gallery.ts')).href
 )
 
+const ROOT_KEY = {
+  places: 'atlas',
+  space: 'space',
+  civilizations: 'civilizations',
+  cities: 'cities',
+}
+
 const index = {}
 
 for (const item of allTopicPhotoItems()) {
-  const rootKey =
-    item.collection === 'places'
-      ? 'atlas'
-      : item.collection === 'civilizations'
-        ? 'civilizations'
-        : 'space'
-  const slug = item.href.replace(/^\/(explore|space|civilizations)\//, '')
+  const rootKey = ROOT_KEY[item.collection]
+  const slug = item.href.replace(/^\/(explore|space|civilizations|cities)\//, '')
   const slot = item.photo.renditions[0]?.src.match(/\/w\d+-(2|3)\.jpg$/)?.[1]
   const key = `${rootKey}/${slug}${slot ? `-${slot}` : ''}`
 

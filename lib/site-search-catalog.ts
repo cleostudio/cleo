@@ -1,8 +1,8 @@
 /**
  * Assembles the homepage search catalog: topic collections, country, space,
- * and civilization guides, curated photographs, Writing posts, and portal
- * surfaces. Import from Server Components only — it pulls every guide record,
- * reads the post files, and walks the photo manifests.
+ * civilization, and city guides, curated photographs, Writing posts, and
+ * portal surfaces. Import from Server Components only — it pulls every guide
+ * record, reads the post files, and walks the photo manifests.
  *
  * Hits stay deliberately thin. Titles, subtitles, and each kind's own
  * vocabulary are indexed by `lib/site-search.ts` on the client, so `keywords`
@@ -10,6 +10,7 @@
  */
 
 import { allAtlasEntries } from '~/lib/atlas'
+import { citySubjects } from '~/lib/cities'
 import { civilizationSubjects } from '~/lib/civilizations'
 import { buildPostRail, getAllPosts, type Post } from '~/lib/content'
 import { formatMonthYear } from '~/lib/date'
@@ -48,6 +49,12 @@ const PORTAL_SURFACES: SurfaceSeed[] = [
     subtitle: 'History guides',
     href: '/civilizations',
     keywords: 'history ancient empires cultures archaeology',
+  },
+  {
+    title: 'Cities',
+    subtitle: 'City guides',
+    href: '/cities',
+    keywords: 'capitals routes urban metropolis field guides',
   },
   {
     title: 'Gallery',
@@ -189,6 +196,25 @@ function civilizationHits(): SiteSearchHit[] {
   )
 }
 
+function cityHits(): SiteSearchHit[] {
+  return citySubjects.map((subject) =>
+    hit(
+      'cities',
+      `cities:${subject.slug}`,
+      subject.name,
+      `${subject.code} · ${subject.category}`,
+      `/cities/${subject.slug}`,
+      subject.subtitle,
+      subject.facts.kind,
+      subject.facts.country,
+      subject.facts.region,
+      subject.facts.capitalRole,
+      subject.facts.corridors,
+      subject.features.map((feature) => feature.name).join(' '),
+    ),
+  )
+}
+
 /**
  * The editor-selected photograph for each place and body — the same focused
  * index `/gallery` shows, so every photo result has a tile to land on.
@@ -249,6 +275,7 @@ export function buildSiteSearchHits(): SiteSearchHit[] {
     ...exploreHits(),
     ...spaceHits(),
     ...civilizationHits(),
+    ...cityHits(),
     ...photoHits(),
     ...writingHits(),
     ...surfaceHits(),
@@ -260,9 +287,11 @@ const SPOTLIGHT_IDS = [
   'topic:countries',
   'topic:space',
   'topic:civilizations',
+  'topic:cities',
   'explore:japan',
   'space:mars',
   'civilizations:ancient-egypt',
+  'cities:istanbul',
   'surface:/gallery',
   'surface:/cleo',
 ]

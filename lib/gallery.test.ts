@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
+import { citySubjects } from './cities'
 import { civilizationSubjects } from './civilizations'
 import { countries } from './countries'
 import {
@@ -14,15 +15,20 @@ describe('gallery catalog', () => {
   it('shows one featured photograph per topic in Gallery', () => {
     const items = allGalleryItems()
     expect(items).toHaveLength(
-      countries.length + spaceSubjects.length + civilizationSubjects.length,
+      countries.length +
+        spaceSubjects.length +
+        civilizationSubjects.length +
+        citySubjects.length,
     )
     expect(items.some((item) => item.collection === 'places')).toBe(true)
     expect(items.some((item) => item.collection === 'space')).toBe(true)
     expect(items.some((item) => item.collection === 'civilizations')).toBe(true)
+    expect(items.some((item) => item.collection === 'cities')).toBe(true)
     expect(items.some((item) => item.href === '/space/mars')).toBe(true)
     expect(items.some((item) => item.href === '/civilizations/ancient-egypt')).toBe(
       true,
     )
+    expect(items.some((item) => item.href === '/cities/istanbul')).toBe(true)
     expect(items.some((item) => item.id === 'places:japan:2')).toBe(false)
     expect(items.some((item) => item.id === 'space:mars:3')).toBe(false)
     expect(
@@ -37,11 +43,16 @@ describe('gallery catalog', () => {
   it('retains every three-photo topic set for guide and zoom consumers', () => {
     const items = allTopicPhotoItems()
     expect(items).toHaveLength(
-      (countries.length + spaceSubjects.length + civilizationSubjects.length) * 3,
+      (countries.length +
+        spaceSubjects.length +
+        civilizationSubjects.length +
+        citySubjects.length) *
+        3,
     )
     expect(items.some((item) => item.id === 'places:japan:2')).toBe(true)
     expect(items.some((item) => item.id === 'space:mars:3')).toBe(true)
     expect(items.some((item) => item.id === 'civilizations:maya:3')).toBe(true)
+    expect(items.some((item) => item.id === 'cities:istanbul:3')).toBe(true)
   })
 
   it('exposes place regions and topic categories as filter keys', () => {
@@ -54,11 +65,12 @@ describe('gallery catalog', () => {
     expect(keys).toContain('Mediterranean')
     expect(keys).toContain('Asia')
     expect(keys).toContain('Americas')
+    expect(keys).toContain('Capitals & routes')
   })
 
   it('describes the combined photograph count', () => {
     expect(galleryDescription(210)).toBe(
-      '210 curated photographs — places from Explore, bodies from Space, and sites from Civilizations.',
+      '210 curated photographs — places from Explore, bodies from Space, sites from Civilizations, and views from Cities.',
     )
   })
 })

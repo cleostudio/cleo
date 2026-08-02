@@ -37,6 +37,11 @@ export const publicPageMetadata = {
     description:
       'Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
   },
+  cities: {
+    title: 'Cities',
+    description:
+      'Evergreen field guides for capitals and route cities — orientation, signature sites, facts, and sources.',
+  },
   cleo: {
     title: 'Cleo',
     description:

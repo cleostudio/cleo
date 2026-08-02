@@ -200,7 +200,7 @@ are short, concrete, and conversational — "为什么按钮不需要手指光�
 ## Homepage introduction
 
 The homepage opens with three short bilingual paragraphs: Cleo is a knowledge
-portal focused on countries, space, and civilizations, with more subjects over time;
+portal focused on countries, space, civilizations, and cities, with more subjects over time;
 flip through photographs for a sense of place, or search the catalog by name;
 and a final line opens Topics, Explore, or Ask Cleo. Keep the voice natural and
 product-facing — no craft-romance phrasing, no exclusion lists. Avoid the word
@@ -246,8 +246,8 @@ second panel style. It overlays instead of pushing: the sections below stay put
 while the visitor types. On a fine pointer the field carries a small `/` key
 cap, which retires as soon as the field takes focus or content.
 
-Results arrive grouped — Topics, Countries, Space, Photographs, Writing,
-Portal — under quiet mono group labels, in the machine-text register the page
+Results arrive grouped — Topics, Countries, Space, Civilizations, Cities,
+Photographs, Writing, Portal — under quiet mono group labels, in the machine-text register the page
 eyebrow and section tags already use. Rows are title · kind, with the subject's
 own meta right-aligned (dropped below 40rem, where the title needs the width).
 Selective focus applies inside the title: the letters the query matched keep
@@ -918,7 +918,7 @@ index/service pages — not a centered card or marketing auth shell:
 ## Photo index / Gallery
 
 Media pipelines: [`atlas.md`](./atlas.md), [`space.md`](./space.md),
-[`civilizations.md`](./civilizations.md). Visual
+[`civilizations.md`](./civilizations.md), [`cities.md`](./cities.md). Visual
 contract below.
 
 Photo tiles are quiet objects: no hover captions or overlays, and the only

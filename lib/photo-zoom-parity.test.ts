@@ -2,6 +2,7 @@
 import { describe, expect, it } from 'vitest'
 import { allTopicPhotoItems } from '~/lib/gallery'
 import { getAtlasEntry } from '~/lib/atlas'
+import { getCitySubject } from '~/lib/cities'
 import { getCivilizationSubject } from '~/lib/civilizations'
 import { getSpaceSubject } from '~/lib/space'
 
@@ -46,6 +47,24 @@ describe('PhotoZoomDetails field parity', () => {
     for (const item of civilizations) {
       const slug = item.href.replace('/civilizations/', '')
       const subject = getCivilizationSubject(slug)
+      expect(subject, slug).toBeTruthy()
+      const photo = subject!.photos.find(
+        (photo) => photo.sourceUrl === item.photo.sourceUrl,
+      )
+      expect(photo, item.id).toBeTruthy()
+      expect(item.title).toBe(photo!.featureName)
+      expect(item.subtitle).toBe(subject!.name)
+      expect(item.photo.photographer).toBe(photo!.photographer)
+      expect(item.photo.license).toBe(photo!.license)
+    }
+  })
+
+  it('gallery city items match Cities topic page fields', () => {
+    const cities = allTopicPhotoItems().filter((i) => i.collection === 'cities')
+    expect(cities.length).toBeGreaterThan(0)
+    for (const item of cities) {
+      const slug = item.href.replace('/cities/', '')
+      const subject = getCitySubject(slug)
       expect(subject, slug).toBeTruthy()
       const photo = subject!.photos.find(
         (photo) => photo.sourceUrl === item.photo.sourceUrl,
