@@ -48,12 +48,15 @@ Keep hits thin:
 
 ## Handoff
 
-`AskForm` reads `q` from `location` on mount, asks once, strips the parameter.
-See [`cleo.md`](./cleo.md) § `/cleo?q=…` handoff.
+`AskForm` reads `q` from `location` on every arrival, asks once, and strips the
+parameter only when the turn starts — the router keeps `/cleo` alive between
+visits, so a second Ask Cleo in the same session reaches a shell that has
+already mounted. See [`cleo.md`](./cleo.md) § `/cleo?q=…` handoff.
 
 ## Verify
 
 - `lib/site-search.test.ts`
 - `components/home-site-search.test.tsx`
-- `lib/cleo/ask-link.test.ts`
+- `lib/cleo/ask-link.test.ts`, `components/cleo/ask-form.test.tsx` (arrivals)
 - Manual: typing, arrow keys, Ask Cleo row, Cmd/Ctrl-Return, photo → gallery ring
+- Manual: Ask Cleo twice in one session (home → ask → back home → ask again)

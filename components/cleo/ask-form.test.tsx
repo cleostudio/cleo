@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { StrictMode } from 'react'
+import { Activity, StrictMode } from 'react'
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -445,5 +445,99 @@ describe('AskForm arrivals', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1)
     expect(fetchMock.mock.calls[0]?.[1]?.signal?.aborted).toBe(false)
     expect(screen.getByRole('button', { name: 'Send' })).toBeTruthy()
+  })
+
+  it('keeps the question when the chat shell is torn down before the send', async () => {
+    const fetchMock = stubStream('Europa hides an ocean.')
+    window.history.replaceState(null, '', '/cleo?q=Why%20is%20Europa%20interesting')
+
+    // Arrive and leave again inside the tick the send waits for.
+    const first = render(<AskForm />)
+    first.unmount()
+    expect(fetchMock).not.toHaveBeenCalled()
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+    expect(sentMessages(fetchMock)).toEqual([
+      { content: 'Why is Europa interesting', role: 'user' },
+    ])
+  })
+
+  /** A chat shell the router can park in its bfcache and bring back. */
+  function CachedShell({ visible }: { visible: boolean }) {
+    return (
+      <Activity mode={visible ? 'visible' : 'hidden'}>
+        <AskForm />
+      </Activity>
+    )
+  }
+
+  // The router keeps recently visited trees alive in a hidden <Activity>
+  // (Cache Components bfcache), so the second Ask Cleo handoff of a session
+  // reaches the chat shell that already answered the first one.
+  it('asks a second handoff that arrives at a re-activated chat shell', async () => {
+    const fetchMock = stubStream('Everest, at 8,849 metres.')
+    window.history.replaceState(null, '', '/cleo?q=Weather%20tomorrow')
+
+    const view = render(<CachedShell visible />)
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1)
+    })
+    expect(window.location.search).toBe('')
+
+    // Leave Cleo, then arrive again from the homepage search with a new
+    // question — same tree, same component instance.
+    view.rerender(<CachedShell visible={false} />)
+    window.history.replaceState(null, '', '/cleo?q=Tallest%20mountain')
+    view.rerender(<CachedShell visible />)
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(2)
+    })
+    // The new question joins the conversation the shell kept, rather than
+    // wiping an exchange the visitor can still see.
+    const secondBody = JSON.parse(fetchMock.mock.calls[1]?.[1]?.body as string)
+    expect(secondBody.messages).toEqual([
+      { content: 'Weather tomorrow', role: 'user' },
+      { content: 'Everest, at 8,849 metres.', role: 'assistant' },
+      { content: 'Tallest mountain', role: 'user' },
+    ])
+    expect(window.location.search).toBe('')
+  })
+
+  it('frees the prompt dock when a re-activated shell had a turn in flight', async () => {
+    const fetchMock = vi.fn<
+      (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
+    >()
+    fetchMock.mockImplementation(
+      (_input, init) =>
+        new Promise((_resolve, reject) => {
+          init?.signal?.addEventListener('abort', () =>
+            reject(new DOMException('Aborted', 'AbortError')),
+          )
+        }),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+    window.history.replaceState(null, '', '/cleo?q=Weather%20tomorrow')
+
+    const view = render(<CachedShell visible />)
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: 'Stop generating' })).toBeTruthy()
+    })
+
+    // Leaving Cleo aborts the turn; coming back must not find a frozen dock.
+    view.rerender(<CachedShell visible={false} />)
+    view.rerender(<CachedShell visible />)
+
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: 'Send' })).toBeTruthy()
+    })
+    expect(
+      screen.getByRole('textbox', { name: 'Message' }).hasAttribute('disabled'),
+    ).toBe(false)
   })
 })
