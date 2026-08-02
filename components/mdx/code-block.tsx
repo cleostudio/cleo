@@ -1,22 +1,31 @@
 'use client'
 
 import { Check, Copy } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { ScrollAreaX } from '~/components/ui/scroll-area'
 import { localize, useLocale } from '~/lib/locale-client'
 
+const COPIED_RESET_MS = 1500
+
 export function CodeBlockPre(props: React.HTMLAttributes<HTMLPreElement>) {
   const locale = useLocale()
   const preRef = useRef<HTMLPreElement>(null)
+  const resetTimerRef = useRef<number | undefined>(undefined)
   const [copied, setCopied] = useState(false)
+
+  useEffect(() => () => window.clearTimeout(resetTimerRef.current), [])
 
   function copy() {
     const code = preRef.current?.querySelector('code')?.innerText
     if (!code) return
     navigator.clipboard.writeText(code)
     setCopied(true)
-    setTimeout(() => setCopied(false), 1500)
+    window.clearTimeout(resetTimerRef.current)
+    resetTimerRef.current = window.setTimeout(
+      () => setCopied(false),
+      COPIED_RESET_MS,
+    )
   }
 
   return (

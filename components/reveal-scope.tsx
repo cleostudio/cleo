@@ -50,9 +50,9 @@ export function RevealScope({
 
     // batch queue drained once per frame, sorted by document order
     let queue: HTMLElement[] = []
-    let drainScheduled = false
+    let drainHandle: number | null = null
     const drain = () => {
-      drainScheduled = false
+      drainHandle = null
       const batch = queue
       queue = []
       batch.sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1))
@@ -68,9 +68,8 @@ export function RevealScope({
             queue.push(entry.target as HTMLElement)
             io?.unobserve(entry.target)
           }
-          if (queue.length && !drainScheduled) {
-            drainScheduled = true
-            requestAnimationFrame(drain)
+          if (queue.length && drainHandle === null) {
+            drainHandle = requestAnimationFrame(drain)
           }
         },
         { threshold: THRESHOLD },
@@ -90,6 +89,7 @@ export function RevealScope({
 
     return () => {
       clearTimeout(arm)
+      if (drainHandle !== null) cancelAnimationFrame(drainHandle)
       io?.disconnect()
       window.removeEventListener('scroll', onScroll)
       for (const el of items) el.classList.remove('reveal-pending')
