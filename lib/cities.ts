@@ -1140,9 +1140,9 @@ const citySubjectDrafts: CitySubjectDraft[] = [
         kind: 'reference',
       },
       {
-        label: 'Encyclopaedia Britannica — Monserrate',
-        url: 'https://www.britannica.com/place/Monserrate',
-        kind: 'reference',
+        label: 'Banco de la República — Museo del Oro',
+        url: 'https://www.banrepcultural.org/bogota/museo-del-oro',
+        kind: 'agency',
       },
     ],
   },
