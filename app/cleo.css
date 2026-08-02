@@ -903,6 +903,13 @@ html[data-cleo-sidebar-open] .cleo-sidebar-closed-controls {
       transform 150ms var(--ease-swift) 80ms,
       visibility 0s linear 80ms;
   }
+
+  /* Collapsed desktop rail: leave only the two glyphs, not button chrome. */
+  html[data-cleo-route][data-cleo-sidebar-collapsed] .cleo-sidebar-toggle,
+  html[data-cleo-route][data-cleo-sidebar-collapsed] .cleo-sidebar-toggle:hover {
+    background: transparent;
+    box-shadow: none;
+  }
 }
 
 .cleo-sidebar-backdrop {
