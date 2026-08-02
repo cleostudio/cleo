@@ -36,6 +36,11 @@ describe('social OG image metadata', () => {
       'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
     ],
     [
+      '/civilizations',
+      publicPageMetadata.civilizations,
+      'Civilizations · Cleo. Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
+    ],
+    [
       '/cleo',
       publicPageMetadata.cleo,
       'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',

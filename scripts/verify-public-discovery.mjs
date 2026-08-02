@@ -74,6 +74,15 @@ const publicPages = [
     'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
   ),
   englishPage(
+    '/civilizations',
+    {
+      title: 'Civilizations',
+      description:
+        'Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
+    },
+    'Civilizations · Cleo. Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
+  ),
+  englishPage(
     '/cleo',
     {
       title: 'Cleo',

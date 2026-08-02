@@ -9,6 +9,7 @@ export type SiteSearchKind =
   | 'topic'
   | 'explore'
   | 'space'
+  | 'civilizations'
   | 'photo'
   | 'writing'
   | 'surface'
@@ -33,6 +34,7 @@ export const SITE_SEARCH_KIND_LABEL: Record<SiteSearchKind, string> = {
   topic: 'Topic',
   explore: 'Country',
   space: 'Space',
+  civilizations: 'Civilization',
   photo: 'Photograph',
   writing: 'Writing',
   surface: 'Portal',
@@ -43,6 +45,7 @@ export const SITE_SEARCH_GROUP_LABEL: Record<SiteSearchKind, string> = {
   topic: 'Topics',
   explore: 'Countries',
   space: 'Space',
+  civilizations: 'Civilizations',
   photo: 'Photographs',
   writing: 'Writing',
   surface: 'Portal',
@@ -57,6 +60,8 @@ const KIND_TERMS: Record<SiteSearchKind, string> = {
   topic: 'topic topics collection collections catalog',
   explore: 'country countries nation explore guide place',
   space: 'space astronomy astronomical body guide',
+  civilizations:
+    'civilization civilizations history historical empire culture ancient guide',
   // Not "gallery": that word belongs to the portal surface of the same name.
   photo: 'photo photos photograph photographs photography image images picture pictures view',
   writing: 'writing essay essays post posts article articles blog note notes',
@@ -65,9 +70,17 @@ const KIND_TERMS: Record<SiteSearchKind, string> = {
 
 /** Catalog order, which is also the tie-break order for equal scores. */
 const KIND_RANK = new Map<SiteSearchKind, number>(
-  (['topic', 'explore', 'space', 'photo', 'writing', 'surface'] as const).map(
-    (kind, index) => [kind, index],
-  ),
+  (
+    [
+      'topic',
+      'explore',
+      'space',
+      'civilizations',
+      'photo',
+      'writing',
+      'surface',
+    ] as const
+  ).map((kind, index) => [kind, index]),
 )
 
 /** A nudge, not a verdict: match quality decides the order first. */
@@ -75,6 +88,7 @@ const KIND_PRIOR: Record<SiteSearchKind, number> = {
   topic: 12,
   explore: 10,
   space: 10,
+  civilizations: 10,
   surface: 8,
   writing: 6,
   photo: 2,

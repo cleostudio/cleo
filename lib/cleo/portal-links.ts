@@ -4,23 +4,23 @@
  */
 
 export type PortalGuideLink = {
-  collection: 'explore' | 'space'
+  collection: 'explore' | 'space' | 'civilizations'
   href: string
   label: string
   slug: string
 }
 
 const MARKDOWN_GUIDE_LINK =
-  /\[([^\]]*)\]\((\/(explore|space)\/([a-z0-9-]+))\)/gi
+  /\[([^\]]*)\]\((\/(explore|space|civilizations)\/([a-z0-9-]+))\)/gi
 
 /** Curated static JPEGs under the site image roots. */
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space)\/[a-z0-9-]+\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
+  /^\/images\/(atlas|space|civilizations)\/[a-z0-9-]+\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
 const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
 
-/** True when Markdown image src is a same-site curated atlas/space JPEG. */
+/** True when Markdown image src is a same-site curated topic JPEG. */
 export function isCuratedTopicImageSrc(src: string): boolean {
   return CURATED_TOPIC_IMAGE_SRC.test(src)
 }
@@ -57,9 +57,9 @@ export function cleanPortalGuideLabel(
   }
 
   const cleaned = trimmed
-    .replace(/\s*(?:explore|space)?\s*(?:field\s*)?guides?\s*$/i, '')
-    .replace(/^(?:explore|space)\s*[·|:–-]\s*/i, '')
-    .replace(/^(?:the\s+)?(?:explore|space)\s+/i, '')
+    .replace(/\s*(?:explore|space|civilizations?)?\s*(?:field\s*)?guides?\s*$/i, '')
+    .replace(/^(?:explore|space|civilizations?)\s*[·|:–-]\s*/i, '')
+    .replace(/^(?:the\s+)?(?:explore|space|civilizations?)\s+/i, '')
     .trim()
 
   return cleaned || titleFromSlug(slug)
@@ -108,7 +108,7 @@ function stripLeadingGuideChrome(block: string) {
     remainder = remainder
       .replace(/^for a fuller primer,?\s*see\s+/i, '')
       .replace(/^see\s+(?:the\s+)?/i, '')
-      .replace(/^(?:explore|space)\s+/i, '')
+      .replace(/^(?:explore|space|civilizations?)\s+/i, '')
       .trim()
   }
 
@@ -207,5 +207,10 @@ export const CLEO_PORTAL_STARTERS = [
     label: 'Compare Mars and Earth',
     prompt:
       'Compare Mars and Earth in a few sharp points. Deep-link each Space guide when you name the planets.',
+  },
+  {
+    label: 'Orient me to Ancient Egypt',
+    prompt:
+      'Give me a quick orientation to Ancient Egypt. Deep-link its Civilizations guide when you mention it.',
   },
 ] as const

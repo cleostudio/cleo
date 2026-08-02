@@ -1,3 +1,4 @@
+import { civilizationSubjects } from '~/lib/civilizations'
 import { countries } from '~/lib/countries'
 import { spaceSubjects } from '~/lib/space'
 
@@ -18,6 +19,7 @@ export interface Topic {
 export function allTopics(): Topic[] {
   const countryCount = countries.length
   const spaceCount = spaceSubjects.length
+  const civilizationCount = civilizationSubjects.length
   return [
     {
       slug: 'countries',
@@ -36,6 +38,16 @@ export function allTopics(): Topic[] {
         'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, facts, a photograph, and sources.',
       tally: `${spaceCount} guides`,
       href: '/space',
+      secondaryHref: '/gallery',
+      secondaryLabel: 'Gallery',
+    },
+    {
+      slug: 'civilizations',
+      name: 'Civilizations',
+      description:
+        'Evergreen field guides for historical civilizations — orientation, signature sites, facts, sources, and curated photographs.',
+      tally: `${civilizationCount} guides`,
+      href: '/civilizations',
       secondaryHref: '/gallery',
       secondaryLabel: 'Gallery',
     },

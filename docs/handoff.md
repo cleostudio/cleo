@@ -14,7 +14,10 @@ General-knowledge portal:
 - **Explore** — country field guides at `/explore/[slug]`
 - **Space** — Solar System, Moons, Deep Space at `/space` and `/space/[slug]`
 - **Gallery** — editor-selected featured photo per Explore place and Space body
-- **Topics** — catalog in `lib/topics.ts` (Countries + Space first)
+- **Civilizations** — historical field guides at `/civilizations` and
+  `/civilizations/[slug]` (Africa & Near East, Mediterranean, Asia, Americas;
+  twenty guides including Persia, Ottoman, Mongol, Tang, and Classical Japan)
+- **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)
 - **Cleo** — browser-only agent at `/cleo`, OpenAI only
 - **Account** — Better Auth email/password on Neon (`/sign-in`, `/sign-up`,
@@ -36,18 +39,20 @@ reuse.
 | Posts | `content/blog/<slug>/` |
 | Explore / atlas | `lib/countries.ts`, `lib/atlas/*`, `content/atlas.json`, `/explore` |
 | Space | `lib/space.ts`, `content/space-photos.json`, `/space` |
+| Civilizations | `lib/civilizations.ts`, `content/civilizations-photos.json`, `/civilizations` |
 | Gallery | `lib/gallery.ts`, `/gallery` (`galleryItemDomId` + `place-gallery-target`) |
 | Homepage doorways | `components/nav-cards.tsx`, `.nav-card` / `.nc-*` in `app/globals.css` |
 | Homepage search | `lib/site-search-catalog.ts`, `lib/site-search.ts`, `components/home-site-search.tsx` |
 | Cleo | `components/cleo/*`, `lib/cleo/*`, `POST /api/responses` |
 | Auth | `lib/auth.ts`, `lib/db/*`, `/api/auth/[...all]`, `/sign-in` |
-| Place images | `public/images/atlas/`, `public/images/space/` (static `srcset`) |
+| Place images | `public/images/atlas/`, `public/images/space/`, `public/images/civilizations/` (static `srcset`) |
 | Country prose | `scripts/atlas/atlas-about.json` via `pnpm write:atlas-about` |
 | Env | `OPENAI_API_KEY`; Neon `DATABASE_URL` + `BETTER_AUTH_SECRET` for account; optional `PUBLIC_SITE_URL` / `SITE_URL` (`.env.example`) |
 | Social seeds | `content/social.json`, `content/github.json` (components retained; not in chrome) |
 
 Deep runbooks: [`cleo.md`](./cleo.md), [`homepage-search.md`](./homepage-search.md),
-[`atlas.md`](./atlas.md), [`space.md`](./space.md), [`auth.md`](./auth.md).
+[`atlas.md`](./atlas.md), [`space.md`](./space.md),
+[`civilizations.md`](./civilizations.md), [`auth.md`](./auth.md).
 
 ## Design
 

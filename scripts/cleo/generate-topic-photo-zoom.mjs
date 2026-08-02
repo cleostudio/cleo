@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Build a slim client-safe index of curated Explore/Space photographs for
- * Cleo Markdown image zoom (Gallery-parity lightbox + caption plate).
+ * Build a slim client-safe index of curated Explore/Space/Civilizations
+ * photographs for Cleo Markdown image zoom (Gallery-parity lightbox + caption
+ * plate).
  *
  * Avoids shipping the full atlas prose corpus to the /cleo client bundle.
  *
@@ -21,8 +22,13 @@ const { allTopicPhotoItems } = await import(
 const index = {}
 
 for (const item of allTopicPhotoItems()) {
-  const rootKey = item.collection === 'places' ? 'atlas' : 'space'
-  const slug = item.href.replace(/^\/(explore|space)\//, '')
+  const rootKey =
+    item.collection === 'places'
+      ? 'atlas'
+      : item.collection === 'civilizations'
+        ? 'civilizations'
+        : 'space'
+  const slug = item.href.replace(/^\/(explore|space|civilizations)\//, '')
   const slot = item.photo.renditions[0]?.src.match(/\/w\d+-(2|3)\.jpg$/)?.[1]
   const key = `${rootKey}/${slug}${slot ? `-${slot}` : ''}`
 

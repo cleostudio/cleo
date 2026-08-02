@@ -1,28 +1,34 @@
 /**
- * Sanitize assistant Markdown so Cleo cannot invent Explore/Space guide paths
- * or curated image URLs that are not in the site catalog.
+ * Sanitize assistant Markdown so Cleo cannot invent Explore/Space/Civilizations
+ * guide paths or curated image URLs that are not in the site catalog.
  */
 
 import { getAtlasEntry } from "~/lib/atlas"
+import { getCivilizationSubject } from "~/lib/civilizations"
 import { getSpaceSubject } from "~/lib/space"
+
+type GuideCollection = "explore" | "space" | "civilizations"
 
 /** Inline guide links, including optional title / angle-bracket destinations. */
 const MARKDOWN_GUIDE_LINK =
-  /\[([^\]]*)\]\(\s*<?(\/(explore|space)\/([a-z0-9-]+))>?(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/gi
+  /\[([^\]]*)\]\(\s*<?(\/(explore|space|civilizations)\/([a-z0-9-]+))>?(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/gi
 
 /** Reference definitions: `[id]: /explore/slug "title"`. */
 const MARKDOWN_GUIDE_REF_DEF =
-  /^[ \t]*\[([^\]]+)\]:[ \t]*<?(\/(explore|space)\/([a-z0-9-]+))>?(?:[ \t]+(?:"[^"]*"|'[^']*'|\([^)]*\)))?[ \t]*$/gim
+  /^[ \t]*\[([^\]]+)\]:[ \t]*<?(\/(explore|space|civilizations)\/([a-z0-9-]+))>?(?:[ \t]+(?:"[^"]*"|'[^']*'|\([^)]*\)))?[ \t]*$/gim
 
 const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
 
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space)\/([a-z0-9-]+)\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
+  /^\/images\/(atlas|space|civilizations)\/([a-z0-9-]+)\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
-function guideExists(collection: "explore" | "space", slug: string) {
+function guideExists(collection: GuideCollection, slug: string) {
   if (collection === "explore") {
     return Boolean(getAtlasEntry(slug))
+  }
+  if (collection === "civilizations") {
+    return Boolean(getCivilizationSubject(slug))
   }
   return Boolean(getSpaceSubject(slug))
 }
@@ -36,6 +42,14 @@ function curatedImageExists(src: string) {
     const entry = getAtlasEntry(slug)
     return Boolean(
       entry?.photos.some((photo) =>
+        photo.renditions.some((rendition) => rendition.src === src),
+      ),
+    )
+  }
+  if (collection === "civilizations") {
+    const subject = getCivilizationSubject(slug)
+    return Boolean(
+      subject?.photos.some((photo) =>
         photo.renditions.some((rendition) => rendition.src === src),
       ),
     )
@@ -70,7 +84,9 @@ export function sanitizePortalMarkdown(markdown: string): string {
       slug: string,
     ) => {
       if (
-        (collection === "explore" || collection === "space") &&
+        (collection === "explore" ||
+          collection === "space" ||
+          collection === "civilizations") &&
         guideExists(collection, slug)
       ) {
         return `[${id}]: ${href}`
@@ -100,7 +116,11 @@ export function sanitizePortalMarkdown(markdown: string): string {
       }
       // Leave non-curated images for presentPortalGuideMarkdown to strip;
       // only inventing catalog paths is in scope here.
-      if (src.startsWith("/images/atlas/") || src.startsWith("/images/space/")) {
+      if (
+        src.startsWith("/images/atlas/") ||
+        src.startsWith("/images/space/") ||
+        src.startsWith("/images/civilizations/")
+      ) {
         return alt.trim() || ""
       }
       return full
@@ -112,7 +132,9 @@ export function sanitizePortalMarkdown(markdown: string): string {
       MARKDOWN_GUIDE_LINK,
       (_full, label: string, href: string, collection: string, slug: string) => {
         if (
-          (collection === "explore" || collection === "space") &&
+          (collection === "explore" ||
+            collection === "space" ||
+            collection === "civilizations") &&
           guideExists(collection, slug)
         ) {
           return `[${label}](${href})`
@@ -126,7 +148,7 @@ export function sanitizePortalMarkdown(markdown: string): string {
 /** True when markdown contains at least one invented portal path. */
 export function hasInventedPortalPaths(markdown: string): boolean {
   for (const match of markdown.matchAll(MARKDOWN_GUIDE_LINK)) {
-    const collection = match[3] as "explore" | "space"
+    const collection = match[3] as GuideCollection
     const slug = match[4]!
     if (!guideExists(collection, slug)) {
       return true
@@ -134,7 +156,7 @@ export function hasInventedPortalPaths(markdown: string): boolean {
   }
 
   for (const match of markdown.matchAll(MARKDOWN_GUIDE_REF_DEF)) {
-    const collection = match[3] as "explore" | "space"
+    const collection = match[3] as GuideCollection
     const slug = match[4]!
     if (!guideExists(collection, slug)) {
       return true
@@ -144,7 +166,9 @@ export function hasInventedPortalPaths(markdown: string): boolean {
   for (const match of markdown.matchAll(MARKDOWN_IMAGE)) {
     const src = match[2]!
     if (
-      (src.startsWith("/images/atlas/") || src.startsWith("/images/space/")) &&
+      (src.startsWith("/images/atlas/") ||
+        src.startsWith("/images/space/") ||
+        src.startsWith("/images/civilizations/")) &&
       !curatedImageExists(src)
     ) {
       return true

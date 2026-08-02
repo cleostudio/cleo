@@ -4,6 +4,7 @@ import { getAllPosts } from '~/lib/content'
 import { countrySlugs } from '~/lib/countries'
 import { localeRoutePair } from '~/lib/locale-metadata'
 import { archivedNewsletterIds } from '~/lib/newsletters'
+import { civilizationSubjectSlugs } from '~/lib/civilizations'
 import { spaceSubjectSlugs } from '~/lib/space'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -27,9 +28,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/topics', latest),
     entry('/explore'),
     entry('/space'),
+    entry('/civilizations'),
     entry('/cleo'),
     ...countrySlugs().map((slug) => entry(`/explore/${slug}`)),
     ...spaceSubjectSlugs().map((slug) => entry(`/space/${slug}`)),
+    ...civilizationSubjectSlugs().map((slug) => entry(`/civilizations/${slug}`)),
     ...archivedNewsletterIds.map((id) => entry(`/newsletters/${id}`)),
     ...posts.map((post) => entry(`/blog/${post.slug}`, post.publishedAt)),
   ]

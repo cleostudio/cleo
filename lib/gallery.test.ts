@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
+import { civilizationSubjects } from './civilizations'
 import { countries } from './countries'
 import {
   allGalleryItems,
@@ -12,10 +13,16 @@ import { spaceSubjects } from './space'
 describe('gallery catalog', () => {
   it('shows one featured photograph per topic in Gallery', () => {
     const items = allGalleryItems()
-    expect(items).toHaveLength(countries.length + spaceSubjects.length)
+    expect(items).toHaveLength(
+      countries.length + spaceSubjects.length + civilizationSubjects.length,
+    )
     expect(items.some((item) => item.collection === 'places')).toBe(true)
     expect(items.some((item) => item.collection === 'space')).toBe(true)
+    expect(items.some((item) => item.collection === 'civilizations')).toBe(true)
     expect(items.some((item) => item.href === '/space/mars')).toBe(true)
+    expect(items.some((item) => item.href === '/civilizations/ancient-egypt')).toBe(
+      true,
+    )
     expect(items.some((item) => item.id === 'places:japan:2')).toBe(false)
     expect(items.some((item) => item.id === 'space:mars:3')).toBe(false)
     expect(
@@ -29,22 +36,29 @@ describe('gallery catalog', () => {
 
   it('retains every three-photo topic set for guide and zoom consumers', () => {
     const items = allTopicPhotoItems()
-    expect(items).toHaveLength((countries.length + spaceSubjects.length) * 3)
+    expect(items).toHaveLength(
+      (countries.length + spaceSubjects.length + civilizationSubjects.length) * 3,
+    )
     expect(items.some((item) => item.id === 'places:japan:2')).toBe(true)
     expect(items.some((item) => item.id === 'space:mars:3')).toBe(true)
+    expect(items.some((item) => item.id === 'civilizations:maya:3')).toBe(true)
   })
 
-  it('exposes place regions and space categories as filter keys', () => {
+  it('exposes place regions and topic categories as filter keys', () => {
     const keys = galleryFilterKeys()
     expect(keys).toContain('Asia')
     expect(keys).toContain('Solar System')
     expect(keys).toContain('Moons')
     expect(keys).toContain('Deep Space')
+    expect(keys).toContain('Africa & Near East')
+    expect(keys).toContain('Mediterranean')
+    expect(keys).toContain('Asia')
+    expect(keys).toContain('Americas')
   })
 
   it('describes the combined photograph count', () => {
     expect(galleryDescription(210)).toBe(
-      '210 curated photographs — places from Explore and bodies from Space.',
+      '210 curated photographs — places from Explore, bodies from Space, and sites from Civilizations.',
     )
   })
 })

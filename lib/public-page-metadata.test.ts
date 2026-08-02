@@ -34,6 +34,11 @@ describe('public page metadata copy', () => {
       description:
         'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
     })
+    expect(publicPageMetadata.civilizations).toEqual({
+      title: 'Civilizations',
+      description:
+        'Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
+    })
     expect(publicPageMetadata.cleo).toEqual({
       title: 'Cleo',
       description:
@@ -48,6 +53,7 @@ describe('public page metadata copy', () => {
       'topics',
       'explore',
       'space',
+      'civilizations',
       'cleo',
     ] as const) {
       expect(publicPageMetadata[section].description.length, section).toBeLessThanOrEqual(160)

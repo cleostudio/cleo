@@ -20,11 +20,11 @@ export type TopicPhotoZoomRecord = {
 }
 
 const CURATED_TOPIC_IMAGE_PATH =
-  /^\/images\/(atlas|space)\/([a-z0-9-]+)\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
+  /^\/images\/(atlas|space|civilizations)\/([a-z0-9-]+)\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
 const index = topicPhotoZoom as Record<string, TopicPhotoZoomRecord>
 
-/** Parse a curated atlas/space JPEG path into a zoom catalog key. */
+/** Parse a curated topic JPEG path into a zoom catalog key. */
 export function topicPhotoZoomKeyFromSrc(src: string): string | null {
   const match = CURATED_TOPIC_IMAGE_PATH.exec(src)
   if (!match) return null

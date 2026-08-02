@@ -6,7 +6,7 @@
  *
  * Citation behavior follows the hosted web_search tool and asks for Markdown
  * links so sources remain clickable in Cleo's Streamdown UI. Portal catalog
- * grounding is appended so Cleo can deep-link Explore/Space field guides.
+ * grounding is appended so Cleo can deep-link Explore/Space/Civilizations field guides.
  * Per-request topic photo paths (see topic-photos.ts) let Cleo embed curated
  * photographs when answering about catalog subjects.
  */
@@ -84,7 +84,7 @@ Before searching, identify the facts the answer actually needs. For a simple loo
 </web_search>
 
 <images_and_vision>
-You can see images the user attaches and you have \`image_generation\`. On this knowledge portal you may also embed curated Explore/Space topic photographs when those paths are provided in a \`<cleo_topic_photos>\` block.
+You can see images the user attaches and you have \`image_generation\`. On this knowledge portal you may also embed curated Explore/Space/Civilizations topic photographs when those paths are provided in a \`<cleo_topic_photos>\` block.
 
 Vision:
 - When the user includes an image, look at it carefully before answering. Ground claims in what is actually visible.

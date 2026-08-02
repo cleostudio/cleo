@@ -8,14 +8,15 @@ import {
 } from './topic-photos'
 
 describe('topic photos', () => {
-  it('resolves complete Explore and Space photograph sets with embeddable paths', () => {
+  it('resolves complete Explore, Space, and Civilizations photograph sets', () => {
     const photos = resolveTopicPhotos([
       { collection: 'explore', slug: 'japan' },
       { collection: 'space', slug: 'mars' },
+      { collection: 'civilizations', slug: 'ancient-egypt' },
       { collection: 'explore', slug: 'not-a-country' },
     ])
 
-    expect(photos).toHaveLength(6)
+    expect(photos).toHaveLength(9)
     expect(photos.slice(0, 3)).toMatchObject([
       {
         collection: 'explore',
@@ -45,11 +46,20 @@ describe('topic photos', () => {
       total: 3,
       src: '/images/space/mars/w1280.jpg',
     })
-    expect(photos.slice(3).map((photo) => photo.src)).toEqual([
+    expect(photos.slice(3, 6).map((photo) => photo.src)).toEqual([
       '/images/space/mars/w1280.jpg',
       '/images/space/mars/w1280-2.jpg',
       '/images/space/mars/w1280-3.jpg',
     ])
+    expect(photos[6]).toMatchObject({
+      collection: 'civilizations',
+      slug: 'ancient-egypt',
+      name: 'Ancient Egypt',
+      href: '/civilizations/ancient-egypt',
+      position: 1,
+      total: 3,
+      src: '/images/civilizations/ancient-egypt/w1280.jpg',
+    })
   })
 
   it('matches catalog subjects by name and path in conversation text', () => {
@@ -62,6 +72,40 @@ describe('topic photos', () => {
       'japan',
     ])
     expect(photos).toHaveLength(6)
+    expect(photos.every((photo) => photo.collection === 'explore' || photo.collection === 'space')).toBe(
+      true,
+    )
+  })
+
+  it('keeps Classical Japan distinct from Explore Japan for topic photos', () => {
+    const explore = matchTopicPhotosInText('Tell me about Japan')
+    expect(explore.map((photo) => photo.collection)).toEqual([
+      'explore',
+      'explore',
+      'explore',
+    ])
+    expect(explore.every((photo) => photo.slug === 'japan')).toBe(true)
+
+    const classical = matchTopicPhotosInText('Orient me to Classical Japan')
+    expect(classical.map((photo) => photo.collection)).toEqual([
+      'civilizations',
+      'civilizations',
+      'civilizations',
+    ])
+    expect(classical.every((photo) => photo.slug === 'classical-japan')).toBe(
+      true,
+    )
+  })
+
+  it('matches Civilizations guides by path', () => {
+    const photos = matchTopicPhotosInText(
+      'Compare /civilizations/roman-empire with the Nile story.',
+    )
+    expect(photos.map((photo) => photo.slug)).toEqual([
+      'roman-empire',
+      'roman-empire',
+      'roman-empire',
+    ])
   })
 
   it('prefers longer country names over nested shorter ones', () => {

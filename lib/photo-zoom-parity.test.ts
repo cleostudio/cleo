@@ -2,6 +2,7 @@
 import { describe, expect, it } from 'vitest'
 import { allTopicPhotoItems } from '~/lib/gallery'
 import { getAtlasEntry } from '~/lib/atlas'
+import { getCivilizationSubject } from '~/lib/civilizations'
 import { getSpaceSubject } from '~/lib/space'
 
 describe('PhotoZoomDetails field parity', () => {
@@ -29,6 +30,26 @@ describe('PhotoZoomDetails field parity', () => {
       const subject = getSpaceSubject(slug)
       expect(subject, slug).toBeTruthy()
       const photo = subject!.photos.find((photo) => photo.sourceUrl === item.photo.sourceUrl)
+      expect(photo, item.id).toBeTruthy()
+      expect(item.title).toBe(photo!.featureName)
+      expect(item.subtitle).toBe(subject!.name)
+      expect(item.photo.photographer).toBe(photo!.photographer)
+      expect(item.photo.license).toBe(photo!.license)
+    }
+  })
+
+  it('gallery civilization items match Civilizations topic page fields', () => {
+    const civilizations = allTopicPhotoItems().filter(
+      (i) => i.collection === 'civilizations',
+    )
+    expect(civilizations.length).toBeGreaterThan(0)
+    for (const item of civilizations) {
+      const slug = item.href.replace('/civilizations/', '')
+      const subject = getCivilizationSubject(slug)
+      expect(subject, slug).toBeTruthy()
+      const photo = subject!.photos.find(
+        (photo) => photo.sourceUrl === item.photo.sourceUrl,
+      )
       expect(photo, item.id).toBeTruthy()
       expect(item.title).toBe(photo!.featureName)
       expect(item.subtitle).toBe(subject!.name)
