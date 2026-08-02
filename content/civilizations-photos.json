@@ -1833,5 +1833,465 @@
         }
       ]
     }
+  ],
+  "kush": [
+    {
+      "featureName": "Pyramids of Meroë",
+      "alt": "Pyramids of Meroë — kush",
+      "caption": "Pyramids of Meroë",
+      "photographer": "Laurent de Walick",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMeroe_Pyramids_-_33110830438.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Meroe Pyramids - 33110830438.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Meroe Pyramids - 33110830438.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ba898731931d657e4eaa6f7b42f849b0d303e556230b739ccf1480a5eb37b84f",
+      "width": 4608,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/kush/w640.jpg",
+          "bytes": 47149
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/kush/w1280.jpg",
+          "bytes": 180208
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/kush/w2048.jpg",
+          "bytes": 536727
+        }
+      ]
+    },
+    {
+      "featureName": "Jebel Barkal",
+      "alt": "Jebel Barkal — kush",
+      "caption": "Jebel Barkal",
+      "photographer": "Hans Birger Nilsen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AJebel_Barkal_(34292845132).jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Jebel Barkal (34292845132).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Jebel Barkal (34292845132).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "59267554c3d0f37a575694cf1188d33d1aa88ace466c9b6984f1a10b818d362d",
+      "width": 3740,
+      "height": 2307,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/kush/w640-2.jpg",
+          "bytes": 27226
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/kush/w1280-2.jpg",
+          "bytes": 66503
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/kush/w2048-2.jpg",
+          "bytes": 175297
+        }
+      ]
+    },
+    {
+      "featureName": "Pyramids of Nuri",
+      "alt": "Pyramids of Nuri — kush",
+      "caption": "Pyramids of Nuri",
+      "photographer": "Sue Fleckney",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATaharqo's_pyramid%2C_Nuri%2C_Sudan%2C_North-east_Africa.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Taharqo's pyramid, Nuri, Sudan, North-east Africa.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Taharqo's pyramid, Nuri, Sudan, North-east Africa.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fb092f499fd01ec7f7dceff7bad2333c20af1989efd96a2b546c343a92af7bdf",
+      "width": 5472,
+      "height": 3648,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/kush/w640-3.jpg",
+          "bytes": 48982
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/kush/w1280-3.jpg",
+          "bytes": 172518
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/kush/w2048-3.jpg",
+          "bytes": 483278
+        }
+      ]
+    }
+  ],
+  "great-zimbabwe": [
+    {
+      "featureName": "Great Zimbabwe",
+      "alt": "Great Zimbabwe — great zimbabwe",
+      "caption": "Great Zimbabwe",
+      "photographer": "Janice Bell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGreat-zim-aerial-looking-West.JPG",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Great-zim-aerial-looking-West.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Great-zim-aerial-looking-West.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3b1595177c947069bb5963aea4850fa86b99b73bb90cc02c794a9328bc989db2",
+      "width": 4672,
+      "height": 3104,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/great-zimbabwe/w640.jpg",
+          "bytes": 55915
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/great-zimbabwe/w1280.jpg",
+          "bytes": 165999
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/great-zimbabwe/w2048.jpg",
+          "bytes": 431890
+        }
+      ]
+    },
+    {
+      "featureName": "Hill Complex",
+      "alt": "Hill Complex — great zimbabwe",
+      "caption": "Hill Complex",
+      "photographer": "Andrew Moore",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Great_Zimbabwe_Hill_Complex.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:The Great Zimbabwe Hill Complex.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Great Zimbabwe Hill Complex.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3ea961ecdbca9843e983d6c3934ab378a709d33137c20ecf6e5f1590ec755102",
+      "width": 4978,
+      "height": 3033,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/great-zimbabwe/w640-2.jpg",
+          "bytes": 125690
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/great-zimbabwe/w1280-2.jpg",
+          "bytes": 293380
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/great-zimbabwe/w2048-2.jpg",
+          "bytes": 673700
+        }
+      ]
+    },
+    {
+      "featureName": "Conical Tower",
+      "alt": "Conical Tower — great zimbabwe",
+      "caption": "Conical Tower",
+      "photographer": "Andrew Moore from Johannesburg, South Africa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AConical_Tower_-_Great_Enclosure_IV_(47561215932).jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Conical Tower - Great Enclosure IV (47561215932).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Conical Tower - Great Enclosure IV (47561215932).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "acde0bbb23b4fdb5667e032baadf4167dc6eb808adfcb0ae0898d5359bd47f8d",
+      "width": 4615,
+      "height": 3450,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/great-zimbabwe/w640-3.jpg",
+          "bytes": 192658
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/great-zimbabwe/w1280-3.jpg",
+          "bytes": 505737
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/great-zimbabwe/w2048-3.jpg",
+          "bytes": 1187901
+        }
+      ]
+    }
+  ],
+  "gupta-empire": [
+    {
+      "featureName": "Dashavatara Temple",
+      "alt": "Dashavatara Temple — gupta empire",
+      "caption": "Dashavatara Temple",
+      "photographer": "Work2win",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARemains_of_the_Dashavatara_Temple_in_Deogarh%2C_Lalitpur.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Remains of the Dashavatara Temple in Deogarh, Lalitpur.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Remains of the Dashavatara Temple in Deogarh, Lalitpur.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "459ec81159a1bc8fe780af8da227b2176b399a69635a929d159fe190a0295032",
+      "width": 3264,
+      "height": 2448,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/gupta-empire/w640.jpg",
+          "bytes": 79941
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/gupta-empire/w1280.jpg",
+          "bytes": 237806
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/gupta-empire/w2048.jpg",
+          "bytes": 609122
+        }
+      ]
+    },
+    {
+      "featureName": "Udayagiri Caves",
+      "alt": "Udayagiri Caves — gupta empire",
+      "caption": "Udayagiri Caves",
+      "photographer": "Shraddhasinghuikey",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AUdayagiri_scriptures1.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Udayagiri scriptures1.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Udayagiri scriptures1.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "24c7085ae142b6c54650bd10ee4886530fafcdc6bf8f6d9ab189ca3425e39ddc",
+      "width": 2688,
+      "height": 1512,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/gupta-empire/w640-2.jpg",
+          "bytes": 34494
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/gupta-empire/w1280-2.jpg",
+          "bytes": 113982
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/gupta-empire/w2048-2.jpg",
+          "bytes": 325611
+        }
+      ]
+    },
+    {
+      "featureName": "Ajanta Caves",
+      "alt": "Ajanta Caves — gupta empire",
+      "caption": "Ajanta Caves",
+      "photographer": "Dey.sandip",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACave_26%2C_Ajanta.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Cave 26, Ajanta.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Cave 26, Ajanta.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "798f0bd08eb5fadd4098ff93e1dd631f57f42c0f7c0da69ff6235dbca1be0e61",
+      "width": 4100,
+      "height": 2662,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/gupta-empire/w640-3.jpg",
+          "bytes": 77167
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/gupta-empire/w1280-3.jpg",
+          "bytes": 244822
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/gupta-empire/w2048-3.jpg",
+          "bytes": 662377
+        }
+      ]
+    }
+  ],
+  "teotihuacan": [
+    {
+      "featureName": "Pyramid of the Sun",
+      "alt": "Pyramid of the Sun — teotihuacan",
+      "caption": "Pyramid of the Sun",
+      "photographer": "Daniel Case",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APyramid_of_the_Sun%2C_Teotihuacan%2C_from_path_to_parking_lot.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Pyramid of the Sun, Teotihuacan, from path to parking lot.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Pyramid of the Sun, Teotihuacan, from path to parking lot.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3823ea2b7483f04aaf6b2ade3155f96fb054d9793ad8b458d1fa628e0026e658",
+      "width": 5424,
+      "height": 3168,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/teotihuacan/w640.jpg",
+          "bytes": 57742
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/teotihuacan/w1280.jpg",
+          "bytes": 143264
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/teotihuacan/w2048.jpg",
+          "bytes": 375199
+        }
+      ]
+    },
+    {
+      "featureName": "Avenue of the Dead",
+      "alt": "Avenue of the Dead — teotihuacan",
+      "caption": "Avenue of the Dead",
+      "photographer": "AnbyG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAvenue_of_the_Dead_at_Teotihuacan2.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Avenue of the Dead at Teotihuacan2.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Avenue of the Dead at Teotihuacan2.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9c585a51aa7001fa384282d9ffb800d849b7e187332fe60f3194ad7d4eaafa10",
+      "width": 5184,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/teotihuacan/w640-2.jpg",
+          "bytes": 76459
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/teotihuacan/w1280-2.jpg",
+          "bytes": 228171
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/teotihuacan/w2048-2.jpg",
+          "bytes": 635252
+        }
+      ]
+    },
+    {
+      "featureName": "Pyramid of the Moon",
+      "alt": "Pyramid of the Moon — teotihuacan",
+      "caption": "Pyramid of the Moon",
+      "photographer": "Jarek Tuszyński",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWiki_Loves_Pyramids_-_Teotihuacan_-_Pyramid_of_the_Moon_-_1.JPG",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Wiki Loves Pyramids - Teotihuacan - Pyramid of the Moon - 1.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Wiki Loves Pyramids - Teotihuacan - Pyramid of the Moon - 1.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8a53091bd6b954654ee068e9dc9591ee6cad2a00aa54e478b5337586cb9b6303",
+      "width": 4288,
+      "height": 2848,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/teotihuacan/w640-3.jpg",
+          "bytes": 85268
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/teotihuacan/w1280-3.jpg",
+          "bytes": 257081
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/teotihuacan/w2048-3.jpg",
+          "bytes": 690907
+        }
+      ]
+    }
+  ],
+  "polynesia": [
+    {
+      "featureName": "Ahu Tongariki",
+      "alt": "Ahu Tongariki — polynesia",
+      "caption": "Ahu Tongariki",
+      "photographer": "Rivi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAhu_Tongariki.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Ahu Tongariki.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ahu Tongariki.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "14b7c8d89d81a973fd8e34a11736e67957f69947be07d1460275f6f0dc4a691e",
+      "width": 3008,
+      "height": 2000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/polynesia/w640.jpg",
+          "bytes": 56082
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/polynesia/w1280.jpg",
+          "bytes": 170245
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/polynesia/w2048.jpg",
+          "bytes": 423938
+        }
+      ]
+    },
+    {
+      "featureName": "Haʻamonga ʻa Maui",
+      "alt": "Haʻamonga ʻa Maui — polynesia",
+      "caption": "Haʻamonga ʻa Maui",
+      "photographer": "Miyasige Tosikazu",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHa'amonga_a_Maui_in_1991.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Ha'amonga a Maui in 1991.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ha'amonga a Maui in 1991.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "734dc5c9142dcea274f2063c6cdf7a8536699cc59e0ee60ca77e24f5f107b580",
+      "width": 4416,
+      "height": 3072,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/polynesia/w640-2.jpg",
+          "bytes": 64128
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/polynesia/w1280-2.jpg",
+          "bytes": 207449
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/polynesia/w2048-2.jpg",
+          "bytes": 519869
+        }
+      ]
+    },
+    {
+      "featureName": "Puʻukoholā Heiau",
+      "alt": "Puʻukoholā Heiau — polynesia",
+      "caption": "Puʻukoholā Heiau",
+      "photographer": "Bamse",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APu'ukohol%C4%81_Heiau_National_Historic_Site2.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Pu'ukoholā Heiau National Historic Site2.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Pu'ukoholā Heiau National Historic Site2.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2eb6014b1bd7e40763f3ecdf38a4139f38c99251891a00e88316d7cde86bc356",
+      "width": 3872,
+      "height": 2592,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/polynesia/w640-3.jpg",
+          "bytes": 76712
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/polynesia/w1280-3.jpg",
+          "bytes": 260098
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/polynesia/w2048-3.jpg",
+          "bytes": 676232
+        }
+      ]
+    }
   ]
 }
