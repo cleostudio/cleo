@@ -53,6 +53,7 @@ describe('civilization subjects', () => {
       'Mediterranean',
       'Asia',
       'Americas',
+      'Oceania',
     ])
     expect(
       groups[0]?.[1].some((subject) => subject.slug === 'ancient-egypt'),
@@ -64,10 +65,13 @@ describe('civilization subjects', () => {
       true,
     )
     expect(groups[3]?.[1].some((subject) => subject.slug === 'maya')).toBe(true)
+    expect(groups[4]?.[1].some((subject) => subject.slug === 'polynesia')).toBe(
+      true,
+    )
   })
 
   it('covers a broad starter set across regions', () => {
-    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(18)
+    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(24)
     expect(civilizationSubjectSlugs()).toEqual(
       expect.arrayContaining([
         'mesopotamia',
@@ -80,6 +84,11 @@ describe('civilization subjects', () => {
         'mongol-empire',
         'tang-china',
         'classical-japan',
+        'kush',
+        'great-zimbabwe',
+        'gupta-empire',
+        'teotihuacan',
+        'polynesia',
       ]),
     )
   })

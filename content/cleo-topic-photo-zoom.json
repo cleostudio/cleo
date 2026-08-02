@@ -15719,6 +15719,78 @@
       }
     ]
   },
+  "civilizations/kush": {
+    "collection": "civilizations",
+    "title": "Pyramids of Meroë",
+    "subtitle": "Kingdom of Kush",
+    "alt": "Pyramids of Meroë — kush",
+    "photographer": "Laurent de Walick",
+    "license": "CC BY 2.0",
+    "width": 4608,
+    "height": 3456,
+    "renditions": [
+      {
+        "src": "/images/civilizations/kush/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/kush/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/kush/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/kush-2": {
+    "collection": "civilizations",
+    "title": "Jebel Barkal",
+    "subtitle": "Kingdom of Kush",
+    "alt": "Jebel Barkal — kush",
+    "photographer": "Hans Birger Nilsen",
+    "license": "CC BY-SA 2.0",
+    "width": 3740,
+    "height": 2307,
+    "renditions": [
+      {
+        "src": "/images/civilizations/kush/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/kush/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/kush/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/kush-3": {
+    "collection": "civilizations",
+    "title": "Pyramids of Nuri",
+    "subtitle": "Kingdom of Kush",
+    "alt": "Pyramids of Nuri — kush",
+    "photographer": "Sue Fleckney",
+    "license": "CC BY-SA 2.0",
+    "width": 5472,
+    "height": 3648,
+    "renditions": [
+      {
+        "src": "/images/civilizations/kush/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/kush/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/kush/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "civilizations/mesopotamia": {
     "collection": "civilizations",
     "title": "Great Ziggurat of Ur",
@@ -15999,6 +16071,78 @@
       },
       {
         "src": "/images/civilizations/aksum/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/great-zimbabwe": {
+    "collection": "civilizations",
+    "title": "Great Zimbabwe",
+    "subtitle": "Great Zimbabwe",
+    "alt": "Great Zimbabwe — great zimbabwe",
+    "photographer": "Janice Bell",
+    "license": "CC BY-SA 4.0",
+    "width": 4672,
+    "height": 3104,
+    "renditions": [
+      {
+        "src": "/images/civilizations/great-zimbabwe/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/great-zimbabwe/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/great-zimbabwe/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/great-zimbabwe-2": {
+    "collection": "civilizations",
+    "title": "Hill Complex",
+    "subtitle": "Great Zimbabwe",
+    "alt": "Hill Complex — great zimbabwe",
+    "photographer": "Andrew Moore",
+    "license": "CC BY-SA 2.0",
+    "width": 4978,
+    "height": 3033,
+    "renditions": [
+      {
+        "src": "/images/civilizations/great-zimbabwe/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/great-zimbabwe/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/great-zimbabwe/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/great-zimbabwe-3": {
+    "collection": "civilizations",
+    "title": "Conical Tower",
+    "subtitle": "Great Zimbabwe",
+    "alt": "Conical Tower — great zimbabwe",
+    "photographer": "Andrew Moore from Johannesburg, South Africa",
+    "license": "CC BY-SA 2.0",
+    "width": 4615,
+    "height": 3450,
+    "renditions": [
+      {
+        "src": "/images/civilizations/great-zimbabwe/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/great-zimbabwe/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/great-zimbabwe/w2048-3.jpg",
         "width": 2048
       }
     ]
@@ -16723,6 +16867,78 @@
       }
     ]
   },
+  "civilizations/gupta-empire": {
+    "collection": "civilizations",
+    "title": "Dashavatara Temple",
+    "subtitle": "Gupta Empire",
+    "alt": "Dashavatara Temple — gupta empire",
+    "photographer": "Work2win",
+    "license": "CC BY-SA 4.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/civilizations/gupta-empire/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/gupta-empire/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/gupta-empire/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/gupta-empire-2": {
+    "collection": "civilizations",
+    "title": "Udayagiri Caves",
+    "subtitle": "Gupta Empire",
+    "alt": "Udayagiri Caves — gupta empire",
+    "photographer": "Shraddhasinghuikey",
+    "license": "CC BY-SA 4.0",
+    "width": 2688,
+    "height": 1512,
+    "renditions": [
+      {
+        "src": "/images/civilizations/gupta-empire/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/gupta-empire/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/gupta-empire/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/gupta-empire-3": {
+    "collection": "civilizations",
+    "title": "Ajanta Caves",
+    "subtitle": "Gupta Empire",
+    "alt": "Ajanta Caves — gupta empire",
+    "photographer": "Dey.sandip",
+    "license": "CC BY-SA 3.0",
+    "width": 4100,
+    "height": 2662,
+    "renditions": [
+      {
+        "src": "/images/civilizations/gupta-empire/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/gupta-empire/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/gupta-empire/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "civilizations/mongol-empire": {
     "collection": "civilizations",
     "title": "Orkhon Valley",
@@ -16863,6 +17079,78 @@
       },
       {
         "src": "/images/civilizations/classical-japan/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/teotihuacan": {
+    "collection": "civilizations",
+    "title": "Pyramid of the Sun",
+    "subtitle": "Teotihuacan",
+    "alt": "Pyramid of the Sun — teotihuacan",
+    "photographer": "Daniel Case",
+    "license": "CC BY-SA 3.0",
+    "width": 5424,
+    "height": 3168,
+    "renditions": [
+      {
+        "src": "/images/civilizations/teotihuacan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/teotihuacan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/teotihuacan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/teotihuacan-2": {
+    "collection": "civilizations",
+    "title": "Avenue of the Dead",
+    "subtitle": "Teotihuacan",
+    "alt": "Avenue of the Dead — teotihuacan",
+    "photographer": "AnbyG",
+    "license": "CC BY-SA 4.0",
+    "width": 5184,
+    "height": 3456,
+    "renditions": [
+      {
+        "src": "/images/civilizations/teotihuacan/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/teotihuacan/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/teotihuacan/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/teotihuacan-3": {
+    "collection": "civilizations",
+    "title": "Pyramid of the Moon",
+    "subtitle": "Teotihuacan",
+    "alt": "Pyramid of the Moon — teotihuacan",
+    "photographer": "Jarek Tuszyński",
+    "license": "CC BY 4.0",
+    "width": 4288,
+    "height": 2848,
+    "renditions": [
+      {
+        "src": "/images/civilizations/teotihuacan/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/teotihuacan/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/teotihuacan/w2048-3.jpg",
         "width": 2048
       }
     ]
@@ -17079,6 +17367,78 @@
       },
       {
         "src": "/images/civilizations/inca/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/polynesia": {
+    "collection": "civilizations",
+    "title": "Ahu Tongariki",
+    "subtitle": "Polynesia",
+    "alt": "Ahu Tongariki — polynesia",
+    "photographer": "Rivi",
+    "license": "CC BY-SA 3.0",
+    "width": 3008,
+    "height": 2000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/polynesia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/polynesia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/polynesia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/polynesia-2": {
+    "collection": "civilizations",
+    "title": "Haʻamonga ʻa Maui",
+    "subtitle": "Polynesia",
+    "alt": "Haʻamonga ʻa Maui — polynesia",
+    "photographer": "Miyasige Tosikazu",
+    "license": "CC BY 2.0",
+    "width": 4416,
+    "height": 3072,
+    "renditions": [
+      {
+        "src": "/images/civilizations/polynesia/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/polynesia/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/polynesia/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/polynesia-3": {
+    "collection": "civilizations",
+    "title": "Puʻukoholā Heiau",
+    "subtitle": "Polynesia",
+    "alt": "Puʻukoholā Heiau — polynesia",
+    "photographer": "Bamse",
+    "license": "CC BY-SA 4.0",
+    "width": 3872,
+    "height": 2592,
+    "renditions": [
+      {
+        "src": "/images/civilizations/polynesia/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/polynesia/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/polynesia/w2048-3.jpg",
         "width": 2048
       }
     ]

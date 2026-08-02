@@ -67,8 +67,8 @@ function withPhotos(draft: CivilizationSubjectDraft): CivilizationSubject {
 }
 
 /**
- * Curated catalog — Africa & Near East, Mediterranean, Asia, and Americas
- * (twenty guides). Expand here as new Civilizations guides ship.
+ * Curated catalog — Africa & Near East, Mediterranean, Asia, Americas, and
+ * Oceania. Expand here as new Civilizations guides ship.
  */
 const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
   {
@@ -118,6 +118,57 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       {
         label: 'UNESCO — Memphis and its Necropolis',
         url: 'https://whc.unesco.org/en/list/86',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'kush',
+    code: 'KSH',
+    name: 'Kingdom of Kush',
+    category: 'Africa & Near East',
+    subtitle: 'Nile kingdom · Nubia',
+    about:
+      'The Kingdom of Kush was Egypt’s powerful southern neighbor and, for a time, its ruler. Along the Middle Nile in what is now Sudan, Kushite states centered first at Kerma, then Napata, then Meroë — each capital marking a different balance of trade, iron, and royal ideology. Orientation is Nilotic and funerary: steep pyramids denser than Egypt’s, temples under the sacred mountain of Jebel Barkal, and a court that borrowed Egyptian forms while speaking its own political language. Kushite kings of the Twenty-Fifth Dynasty ruled Egypt as pharaohs before Assyrian pressure pushed power back south. Later Meroitic culture developed its own script and kept Mediterranean and African exchange alive long after New Kingdom Egypt had faded. This primer stays with Nubian kingship, pyramid fields, and Nile corridor politics rather than treating Kush as Egypt’s footnote.',
+    facts: {
+      kind: 'Nile kingdom',
+      heartland: 'Middle Nile · Nubia (Sudan)',
+      era: 'c. 2500 BCE – 350 CE (Kerma to late Meroë)',
+      peak: 'Napatan Twenty-Fifth Dynasty & Meroitic florescence',
+      writing: 'Egyptian scripts; later Meroitic',
+      exploreLinks: ['Sudan', 'Egypt'],
+    },
+    features: [
+      {
+        name: 'Pyramids of Meroë',
+        description:
+          'A dense field of steep royal pyramids on the Butana plain — Kushite funerary architecture at its most distinctive scale.',
+      },
+      {
+        name: 'Jebel Barkal',
+        description:
+          'A sandstone butte treated as a holy mountain of Amun, with temples and pyramids at its foot — Napata’s sacred landmark.',
+      },
+      {
+        name: 'Pyramids of Nuri',
+        description:
+          'A Napatan royal cemetery including Taharqa’s pyramid — Kushite kingship written as a skyline of stone points.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Kush',
+        url: 'https://www.britannica.com/place/Kush',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Kushite Kingdoms',
+        url: 'https://www.metmuseum.org/toah/hd/kush/hd_kush.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Archaeological Sites of the Island of Meroe',
+        url: 'https://whc.unesco.org/en/list/1336',
         kind: 'catalog',
       },
     ],
@@ -322,6 +373,57 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       {
         label: 'UNESCO — Aksum',
         url: 'https://whc.unesco.org/en/list/15',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'great-zimbabwe',
+    code: 'GZW',
+    name: 'Great Zimbabwe',
+    category: 'Africa & Near East',
+    subtitle: 'Stone city · southern Africa',
+    about:
+      'Great Zimbabwe was the stone capital of a medieval trading state on the Zimbabwe Plateau. Dry-stone walls without mortar — the Hill Complex, the Great Enclosure, the mysterious conical tower — organized elite space above a landscape of cattle wealth and long-distance exchange. Orientation is architectural and commercial: gold and ivory moved toward the Indian Ocean; glass beads and ceramics moved inland; local politics concentrated labor into walls that still refuse easy colonial myths of foreign builders. The site gives its modern country a name; the state around it was part of a wider Shona-speaking world of zimbabwes (stone houses) before power shifted north. This primer stays with masonry, plateau ecology, and Indian Ocean connection rather than treasure legends alone.',
+    facts: {
+      kind: 'Stone city state',
+      heartland: 'Zimbabwe Plateau · southeastern Africa',
+      era: 'c. 11th – 15th centuries CE',
+      peak: 'Great Enclosure florescence, 13th–14th centuries',
+      writing: 'Oral and archaeological record (no local script corpus)',
+      exploreLinks: ['Zimbabwe'],
+    },
+    features: [
+      {
+        name: 'Great Zimbabwe',
+        description:
+          'The wider ruin field — granite walls and enclosures that made a capital readable as stone topography.',
+      },
+      {
+        name: 'Hill Complex',
+        description:
+          'Elite and ritual structures on the granite hill — the oldest major cluster, looking down on the valley enclosures.',
+      },
+      {
+        name: 'Conical Tower',
+        description:
+          'A solid stone tower inside the Great Enclosure — an emblem of Great Zimbabwe’s dry-stone ambition and still-debated meaning.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Great Zimbabwe',
+        url: 'https://www.britannica.com/place/Great-Zimbabwe',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Great Zimbabwe',
+        url: 'https://www.metmuseum.org/toah/hd/zimb/hd_zimb.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Great Zimbabwe National Monument',
+        url: 'https://whc.unesco.org/en/list/364',
         kind: 'catalog',
       },
     ],
@@ -837,6 +939,57 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
     ],
   },
   {
+    slug: 'gupta-empire',
+    code: 'GUP',
+    name: 'Gupta Empire',
+    category: 'Asia',
+    subtitle: 'Classical Indian empire · Gangetic plain',
+    about:
+      'The Gupta Empire is often treated as a classical high point of northern Indian culture — a period when Sanskrit poetry, mathematical astronomy, and Buddhist and Hindu art set canons later ages remembered as golden. From a Magadhan and Gangetic core, Gupta rulers built a looser imperial umbrella than the Mauryas: feudatory kings, land grants, and prestige more than total administration. Orientation is cultural and religious as much as military — cave temples and freestanding shrines, Buddha images of serene proportion, and courts that patronized dramatists and scholars. Contemporary Vakataka patronage helped produce Ajanta’s painted caves; Gupta-period sites from Udayagiri to Deogarh show how temple form hardened into durable types. The empire fragmented under Hunnic pressure and internal division, but its aesthetic afterlife was long. This primer stays with classical forms, temple experiment, and Gangetic kingship rather than a year-by-year king list.',
+    facts: {
+      kind: 'Classical Indian empire',
+      heartland: 'Gangetic plain · northern India',
+      era: 'c. 320 – 550 CE',
+      peak: 'Chandragupta II and early 5th century',
+      writing: 'Sanskrit (Brahmi-derived scripts)',
+      exploreLinks: ['India', 'Bangladesh', 'Nepal', 'Pakistan'],
+    },
+    features: [
+      {
+        name: 'Dashavatara Temple',
+        description:
+          'An early stone temple at Deogarh — Gupta-period architecture experimenting with a square sanctum and narrative reliefs.',
+      },
+      {
+        name: 'Udayagiri Caves',
+        description:
+          'A hillside cave complex near Vidisha with Gupta-era Vaishnava sculpture — royal devotion cut into living rock.',
+      },
+      {
+        name: 'Ajanta Caves',
+        description:
+          'Rock-cut Buddhist viharas and chaityas whose painted and carved florescence overlaps the Gupta cultural horizon under Vakataka patrons.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Gupta dynasty',
+        url: 'https://www.britannica.com/topic/Gupta-dynasty',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Gupta Period',
+        url: 'https://www.metmuseum.org/toah/hd/gupt/hd_gupt.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Ajanta Caves',
+        url: 'https://whc.unesco.org/en/list/242',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
     slug: 'mongol-empire',
     code: 'MNG',
     name: 'Mongol Empire',
@@ -934,6 +1087,57 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       {
         label: 'UNESCO — Himeji-jo',
         url: 'https://whc.unesco.org/en/list/661',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'teotihuacan',
+    code: 'TEO',
+    name: 'Teotihuacan',
+    category: 'Americas',
+    subtitle: 'Metropolis · Basin of Mexico',
+    about:
+      'Teotihuacan was Mesoamerica’s great early metropolis — a planned city of avenues, apartment compounds, and pyramids whose influence reached far beyond the Basin of Mexico. Orientation is urban and anonymous: we still debate who ruled it, yet the Avenue of the Dead, Pyramid of the Sun, and Pyramid of the Moon organize space with unmistakable intent. Multiethnic neighborhoods, obsidian workshops, and a wide trade web made the city a magnet; murals and temple sculpture broadcast a religious visual language later peoples still recognized. Collapse in the mid-first millennium CE emptied the core; later Aztec pilgrims treated the ruins as a place of origin myths. This primer stays with street grid, monumental axis, and metropolitan scale rather than forcing a single ethnic label onto a cosmopolitan capital.',
+    facts: {
+      kind: 'Metropolitan city',
+      heartland: 'Basin of Mexico · central highlands',
+      era: 'c. 100 BCE – 550 CE',
+      peak: 'Classic metropolis, 2nd–5th centuries CE',
+      writing: 'Limited glyphic evidence (debated); strong visual programs',
+      exploreLinks: ['Mexico'],
+    },
+    features: [
+      {
+        name: 'Pyramid of the Sun',
+        description:
+          'One of the largest pyramids in the Americas — a massive platform on the city’s central axis that still dominates the valley view.',
+      },
+      {
+        name: 'Avenue of the Dead',
+        description:
+          'The city’s ritual boulevard — a long north–south axis lining compounds, plazas, and temple platforms toward the Moon pyramid.',
+      },
+      {
+        name: 'Pyramid of the Moon',
+        description:
+          'The northern terminus of the avenue, framed by surrounding peaks — a stage for processions and offerings at the city’s head.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Teotihuacán',
+        url: 'https://www.britannica.com/place/Teotihuacan',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Teotihuacan',
+        url: 'https://www.metmuseum.org/toah/hd/teot/hd_teot.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Pre-Hispanic City of Teotihuacan',
+        url: 'https://whc.unesco.org/en/list/414',
         kind: 'catalog',
       },
     ],
@@ -1087,6 +1291,57 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       {
         label: 'UNESCO — Historic Sanctuary of Machu Picchu',
         url: 'https://whc.unesco.org/en/list/274',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'polynesia',
+    code: 'POL',
+    name: 'Polynesia',
+    category: 'Oceania',
+    subtitle: 'Oceanic network · Pacific triangle',
+    about:
+      'Polynesia is a civilization of open ocean — a triangle of related peoples, languages, and voyaging technologies stretching from Hawaiʻi to Aotearoa (New Zealand) to Rapa Nui (Easter Island), with Tonga and Samoa among the western anchors. Orientation is maritime and genealogical: double-hulled canoes, star paths, and oral histories that treat islands as nodes in a kinship sea rather than isolated ends of the earth. Monumental stonework appears in different local idioms — Rapa Nui’s moai on ceremonial ahu, Tongan trilithons and burial mounds, Hawaiian heiau platforms — while shared linguistic roots keep the network legible. European contact rearranged politics and demography violently; Polynesian cultures did not vanish with first landfall stories. This primer stays with voyaging, island ritual architecture, and the Pacific triangle rather than a single island’s tourist myth.',
+    facts: {
+      kind: 'Oceanic network',
+      heartland: 'Central & eastern Pacific · Polynesian triangle',
+      era: 'Settlement expansion c. 1000 BCE – 1300 CE; enduring cultures',
+      peak: 'Regional florescences vary by archipelago (e.g. classic Rapa Nui, Tongan maritime chiefdoms)',
+      writing: 'Oral tradition; later Latin scripts; Rongorongo on Rapa Nui (undeciphered)',
+      exploreLinks: ['Chile', 'Tonga', 'United States', 'New Zealand', 'Samoa', 'France'],
+    },
+    features: [
+      {
+        name: 'Ahu Tongariki',
+        description:
+          'Rapa Nui’s largest ceremonial platform — fifteen restored moai facing inland along the island’s southeastern shore.',
+      },
+      {
+        name: 'Haʻamonga ʻa Maui',
+        description:
+          'A coral-limestone trilithon on Tongatapu — a monumental gateway attributed to early Tongan chiefly power.',
+      },
+      {
+        name: 'Puʻukoholā Heiau',
+        description:
+          'A massive Hawaiian temple platform at Kawaihae — dry-stacked stone sacral architecture tied to late pre-contact state formation.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Polynesian culture',
+        url: 'https://www.britannica.com/topic/Polynesian-culture',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Oceania',
+        url: 'https://www.metmuseum.org/toah/hd/ocean/hd_ocean.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Rapa Nui National Park',
+        url: 'https://whc.unesco.org/en/list/715',
         kind: 'catalog',
       },
     ],
