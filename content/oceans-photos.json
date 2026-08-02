@@ -918,5 +918,465 @@
         }
       ]
     }
+  ],
+  "black-sea": [
+    {
+      "featureName": "Black Sea coast",
+      "alt": "Black Sea coast — black sea",
+      "caption": "Black Sea coast",
+      "photographer": "Jagermesh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABlack%20Sea%20coast%20of%20Georgia%20(country),%20with%20skyline%20of%20Batumi%20on%20the%20horizon.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Black Sea coast of Georgia (country), with skyline of Batumi on the horizon.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Black Sea coast of Georgia (country), with skyline of Batumi on the horizon.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "edb7d1e4f338f466b2fab80f7666582ab60c475e4075cada4cee341b6543579c",
+      "width": 4577,
+      "height": 2927,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/black-sea/w640.jpg",
+          "bytes": 69090
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/black-sea/w1280.jpg",
+          "bytes": 196534
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/black-sea/w2048.jpg",
+          "bytes": 523034
+        }
+      ]
+    },
+    {
+      "featureName": "Bosporus Strait",
+      "alt": "Bosporus Strait — black sea",
+      "caption": "Bosporus Strait",
+      "photographer": "Ank Kumar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWHITE%20TRADER%20Crude%20Oil%20Tanker,%20Bosphorus%20Strait,%20Istanbul,%20Turkiye%20(Ank%20Kumar,%20Infosys%20Limited)%2002.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:WHITE TRADER Crude Oil Tanker, Bosphorus Strait, Istanbul, Turkiye (Ank Kumar, Infosys Limited) 02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:WHITE TRADER Crude Oil Tanker, Bosphorus Strait, Istanbul, Turkiye (Ank Kumar, Infosys Limited) 02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8ef0f6f597e09b49c2f53598fa79bbbf2b7572d7218806cde5227a0c87a076c4",
+      "width": 4534,
+      "height": 3023,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/black-sea/w640-2.jpg",
+          "bytes": 25324
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/black-sea/w1280-2.jpg",
+          "bytes": 76290
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/black-sea/w2048-2.jpg",
+          "bytes": 194317
+        }
+      ]
+    },
+    {
+      "featureName": "Odesa coast",
+      "alt": "Odesa coast — black sea",
+      "caption": "Odesa coast",
+      "photographer": "Юлія Рядченко",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOdesa%20Black%20Sea%20coast.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Odesa Black Sea coast.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Odesa Black Sea coast.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2508578a3ae83b41d9756380d99bf306e869a542052250c898ed7e9362ccd7b4",
+      "width": 4160,
+      "height": 3120,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/black-sea/w640-3.jpg",
+          "bytes": 54522
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/black-sea/w1280-3.jpg",
+          "bytes": 157395
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/black-sea/w2048-3.jpg",
+          "bytes": 414645
+        }
+      ]
+    }
+  ],
+  "baltic-sea": [
+    {
+      "featureName": "Stockholm Archipelago",
+      "alt": "Stockholm Archipelago — baltic sea",
+      "caption": "Stockholm Archipelago",
+      "photographer": "Ad Meskens",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AStockholm%20Archipelago%20Silja%20Baltic%20Princess%2004.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Stockholm Archipelago Silja Baltic Princess 04.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Stockholm Archipelago Silja Baltic Princess 04.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "708dd5e55c35e56a12903b66a23ea5cb09af42c773757aa135d10d7681e6671c",
+      "width": 5016,
+      "height": 2783,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/baltic-sea/w640.jpg",
+          "bytes": 56486
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/baltic-sea/w1280.jpg",
+          "bytes": 102025
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/baltic-sea/w2048.jpg",
+          "bytes": 237234
+        }
+      ]
+    },
+    {
+      "featureName": "German Baltic coast",
+      "alt": "German Baltic coast — baltic sea",
+      "caption": "German Baltic coast",
+      "photographer": "Radomianin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABaltic%20Sea%20view%20from%20Schmiedeberg%20hill%20in%20Rerik,%202025-06-23.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Baltic Sea view from Schmiedeberg hill in Rerik, 2025-06-23.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Baltic Sea view from Schmiedeberg hill in Rerik, 2025-06-23.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "af67db95c1a283e69b0aa4da0a3dfcfe1ad36179dcad1e2749bf3dc41fb094f8",
+      "width": 5978,
+      "height": 3968,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/baltic-sea/w640-2.jpg",
+          "bytes": 95126
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/baltic-sea/w1280-2.jpg",
+          "bytes": 260000
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/baltic-sea/w2048-2.jpg",
+          "bytes": 666190
+        }
+      ]
+    },
+    {
+      "featureName": "Latvian Baltic coast",
+      "alt": "Latvian Baltic coast — baltic sea",
+      "caption": "Latvian Baltic coast",
+      "photographer": "Ymblanter",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABaltic%20Sea%20coast%20near%20Miķeļtornis.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Baltic Sea coast near Miķeļtornis.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Baltic Sea coast near Miķeļtornis.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ba7e5e1a241edcafa5929de528709994c4444caac355cce1dd320c550c80fe80",
+      "width": 3528,
+      "height": 2604,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/baltic-sea/w640-3.jpg",
+          "bytes": 68818
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/baltic-sea/w1280-3.jpg",
+          "bytes": 192199
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/baltic-sea/w2048-3.jpg",
+          "bytes": 489915
+        }
+      ]
+    }
+  ],
+  "north-sea": [
+    {
+      "featureName": "Heligoland",
+      "alt": "Heligoland — north sea",
+      "caption": "Heligoland",
+      "photographer": "A.Savin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHeligoland%2007-2016%20photo14.jpg",
+      "license": "FAL",
+      "commonsTitle": "File:Heligoland 07-2016 photo14.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Heligoland 07-2016 photo14.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6720749baba0fd5685a1b873dc1972a16f0e2df0d56cbb37c6efb3c8fd360574",
+      "width": 4748,
+      "height": 2671,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/north-sea/w640.jpg",
+          "bytes": 80918
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/north-sea/w1280.jpg",
+          "bytes": 237495
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/north-sea/w2048.jpg",
+          "bytes": 662308
+        }
+      ]
+    },
+    {
+      "featureName": "Wadden Sea",
+      "alt": "Wadden Sea — north sea",
+      "caption": "Wadden Sea",
+      "photographer": "Ralf Roletschek",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A13-09-29-nordfriesisches-wattenmeer-RalfR-15.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:13-09-29-nordfriesisches-wattenmeer-RalfR-15.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:13-09-29-nordfriesisches-wattenmeer-RalfR-15.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5568e19b92cb0b2806f9c3c58742dfe8ff88e0c476b74e5b0ae3c274f1dcd442",
+      "width": 4288,
+      "height": 2848,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/north-sea/w640-2.jpg",
+          "bytes": 57722
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/north-sea/w1280-2.jpg",
+          "bytes": 140061
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/north-sea/w2048-2.jpg",
+          "bytes": 333721
+        }
+      ]
+    },
+    {
+      "featureName": "North Sea coast",
+      "alt": "North Sea coast — north sea",
+      "caption": "North Sea coast",
+      "photographer": "Bob Harvey",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe%20North%20Sea%20Coast%20-%20geograph.org.uk%20-%206632611.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:The North Sea Coast - geograph.org.uk - 6632611.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The North Sea Coast - geograph.org.uk - 6632611.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "42f1053d24f29f682cfad9a4c6efbe0d25f40d3ffa604a8648f2e88b214db39b",
+      "width": 6252,
+      "height": 4164,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/north-sea/w640-3.jpg",
+          "bytes": 41418
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/north-sea/w1280-3.jpg",
+          "bytes": 144407
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/north-sea/w2048-3.jpg",
+          "bytes": 426291
+        }
+      ]
+    }
+  ],
+  "gulf-of-mexico": [
+    {
+      "featureName": "Gulf from orbit",
+      "alt": "Gulf from orbit — gulf of mexico",
+      "caption": "Gulf from orbit",
+      "photographer": "NASA/Terry Virts",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASunset%20over%20the%20gulf%20of%20Mexico%20-%20iss042e034066.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Sunset over the gulf of Mexico - iss042e034066.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Sunset over the gulf of Mexico - iss042e034066.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "61ca72265de199504b520e8dfc34ec0dccf89db8ba7f3b353c4807de2055b1ff",
+      "width": 4928,
+      "height": 3280,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/gulf-of-mexico/w640.jpg",
+          "bytes": 32220
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/gulf-of-mexico/w1280.jpg",
+          "bytes": 57964
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/gulf-of-mexico/w2048.jpg",
+          "bytes": 125257
+        }
+      ]
+    },
+    {
+      "featureName": "Florida Gulf coast",
+      "alt": "Florida Gulf coast — gulf of mexico",
+      "caption": "Florida Gulf coast",
+      "photographer": "Ryan Hodnett",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGulf%20of%20Mexico%20-%20Sarasota,%20Florida%202023-01-22%20(01).jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Gulf of Mexico - Sarasota, Florida 2023-01-22 (01).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Gulf of Mexico - Sarasota, Florida 2023-01-22 (01).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "85a4842a6c84c74586feba392e2fc25657b3b25c271123d2d3c4d732cb2b1ff5",
+      "width": 5935,
+      "height": 3338,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/gulf-of-mexico/w640-2.jpg",
+          "bytes": 45889
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/gulf-of-mexico/w1280-2.jpg",
+          "bytes": 95180
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/gulf-of-mexico/w2048-2.jpg",
+          "bytes": 225394
+        }
+      ]
+    },
+    {
+      "featureName": "Mississippi River Delta",
+      "alt": "Mississippi River Delta — gulf of mexico",
+      "caption": "Mississippi River Delta",
+      "photographer": "MODIS Land Rapid Response Team, NASA GSFC",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMississippi%20River%20Delta%20(MODIS%202018-11-21).jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Mississippi River Delta (MODIS 2018-11-21).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mississippi River Delta (MODIS 2018-11-21).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6e0cacb0ad64955c03e908b841780c82cf521503aff2db3bcea79b13cb919793",
+      "width": 2106,
+      "height": 1697,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/gulf-of-mexico/w640-3.jpg",
+          "bytes": 43539
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/gulf-of-mexico/w1280-3.jpg",
+          "bytes": 149338
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/gulf-of-mexico/w2048-3.jpg",
+          "bytes": 362279
+        }
+      ]
+    }
+  ],
+  "east-china-sea": [
+    {
+      "featureName": "East China Sea from orbit",
+      "alt": "East China Sea from orbit — east china sea",
+      "caption": "East China Sea from orbit",
+      "photographer": "Earth Science and Remote Sensing Unit, Lyndon B. Johnson Space Center",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AISS039-E-4475%20-%20View%20of%20East%20China%20Sea.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:ISS039-E-4475 - View of East China Sea.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:ISS039-E-4475 - View of East China Sea.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d2e3227d4399816bbe9fb28c8a2f768a488a6eda48e4a8158616e28a14d37d3c",
+      "width": 4256,
+      "height": 2832,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/east-china-sea/w640.jpg",
+          "bytes": 35232
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/east-china-sea/w1280.jpg",
+          "bytes": 116042
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/east-china-sea/w2048.jpg",
+          "bytes": 457914
+        }
+      ]
+    },
+    {
+      "featureName": "Ryukyu coast",
+      "alt": "Ryukyu coast — east china sea",
+      "caption": "Ryukyu coast",
+      "photographer": "Kugel~commonswiki",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABreaking%20waves%20off%20the%20northern%20coast%20of%20Iheya%20Island%20202603.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Breaking waves off the northern coast of Iheya Island 202603.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Breaking waves off the northern coast of Iheya Island 202603.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8d6db3fe5e79a4d8137f905ddeb1284f8eae8bdf0d7740c916a8c8c0f338473b",
+      "width": 7008,
+      "height": 4672,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/east-china-sea/w640-2.jpg",
+          "bytes": 43593
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/east-china-sea/w1280-2.jpg",
+          "bytes": 112027
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/east-china-sea/w2048-2.jpg",
+          "bytes": 290467
+        }
+      ]
+    },
+    {
+      "featureName": "Fog over East China Sea",
+      "alt": "Fog over East China Sea — east china sea",
+      "caption": "Fog over East China Sea",
+      "photographer": "NASA, Terra MODIS Rapid Response System",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFog%20patch%20over%20the%20East%20China%20Sea%20April%2015%202013%200240Z.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Fog patch over the East China Sea April 15 2013 0240Z.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Fog patch over the East China Sea April 15 2013 0240Z.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "89ceeb10feeee8bb4312c1b036b2364263548110360354790817fced25730a0c",
+      "width": 4519,
+      "height": 4374,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/oceans/east-china-sea/w640-3.jpg",
+          "bytes": 72523
+        },
+        {
+          "width": 1280,
+          "src": "/images/oceans/east-china-sea/w1280-3.jpg",
+          "bytes": 215050
+        },
+        {
+          "width": 2048,
+          "src": "/images/oceans/east-china-sea/w2048-3.jpg",
+          "bytes": 668908
+        }
+      ]
+    }
   ]
 }
