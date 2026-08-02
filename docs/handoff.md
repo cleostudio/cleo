@@ -19,7 +19,7 @@ General-knowledge portal:
   Civilizations site, Cities guide, Oceans basin, and Rivers course
 - **Civilizations** — historical field guides at `/civilizations` and
   `/civilizations/[slug]` (Africa & Near East, Mediterranean, Asia, Americas,
-  Oceania; twenty-eight regional guides)
+  Oceania; thirty-two regional guides)
 - **Cities** — capital and route-city field guides at `/cities` and
   `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; twenty-one
   guides)

@@ -68,6 +68,18 @@ describe('civilization subjects', () => {
     expect(groups[4]?.[1].some((subject) => subject.slug === 'polynesia')).toBe(
       true,
     )
+    expect(groups[4]?.[1].some((subject) => subject.slug === 'maori')).toBe(
+      true,
+    )
+    expect(
+      groups[4]?.[1].some((subject) => subject.slug === 'aboriginal-australia'),
+    ).toBe(true)
+    expect(groups[4]?.[1].some((subject) => subject.slug === 'melanesia')).toBe(
+      true,
+    )
+    expect(
+      groups[4]?.[1].some((subject) => subject.slug === 'micronesian-cultures'),
+    ).toBe(true)
   })
 
   it('covers a broad starter set across regions', () => {

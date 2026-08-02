@@ -18315,6 +18315,294 @@
       }
     ]
   },
+  "civilizations/maori": {
+    "collection": "civilizations",
+    "title": "Te Whare Rūnanga",
+    "subtitle": "Māori",
+    "alt": "Te Whare Rūnanga — maori",
+    "photographer": "W. Bulach",
+    "license": "CC BY-SA 4.0",
+    "width": 2000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/maori/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/maori/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/maori/w2048.jpg",
+        "width": 2000
+      }
+    ]
+  },
+  "civilizations/maori-2": {
+    "collection": "civilizations",
+    "title": "Waitangi Treaty Grounds",
+    "subtitle": "Māori",
+    "alt": "Waitangi Treaty Grounds — maori",
+    "photographer": "W. Bulach",
+    "license": "CC BY-SA 4.0",
+    "width": 3150,
+    "height": 2100,
+    "renditions": [
+      {
+        "src": "/images/civilizations/maori/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/maori/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/maori/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/maori-3": {
+    "collection": "civilizations",
+    "title": "Maungakiekie",
+    "subtitle": "Māori",
+    "alt": "Maungakiekie — maori",
+    "photographer": "russellstreet",
+    "license": "CC BY-SA 2.0",
+    "width": 3888,
+    "height": 2187,
+    "renditions": [
+      {
+        "src": "/images/civilizations/maori/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/maori/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/maori/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/aboriginal-australia": {
+    "collection": "civilizations",
+    "title": "Uluru",
+    "subtitle": "Aboriginal Australia",
+    "alt": "Uluru — aboriginal australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 6720,
+    "height": 4480,
+    "renditions": [
+      {
+        "src": "/images/civilizations/aboriginal-australia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/aboriginal-australia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/aboriginal-australia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/aboriginal-australia-2": {
+    "collection": "civilizations",
+    "title": "Ubirr rock art",
+    "subtitle": "Aboriginal Australia",
+    "alt": "Ubirr rock art — aboriginal australia",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 6720,
+    "height": 4480,
+    "renditions": [
+      {
+        "src": "/images/civilizations/aboriginal-australia/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/aboriginal-australia/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/aboriginal-australia/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/aboriginal-australia-3": {
+    "collection": "civilizations",
+    "title": "Kata Tjuta",
+    "subtitle": "Aboriginal Australia",
+    "alt": "Kata Tjuta — aboriginal australia",
+    "photographer": "Christian Mehlführer",
+    "license": "CC BY 2.5",
+    "width": 4765,
+    "height": 1500,
+    "renditions": [
+      {
+        "src": "/images/civilizations/aboriginal-australia/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/aboriginal-australia/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/aboriginal-australia/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/melanesia": {
+    "collection": "civilizations",
+    "title": "Haus Tambaran",
+    "subtitle": "Melanesia",
+    "alt": "Haus Tambaran — melanesia",
+    "photographer": "Sylt-Tinto",
+    "license": "CC0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/melanesia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/melanesia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/melanesia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/melanesia-2": {
+    "collection": "civilizations",
+    "title": "Navala",
+    "subtitle": "Melanesia",
+    "alt": "Navala — melanesia",
+    "photographer": "Anton Leddin",
+    "license": "CC BY-SA 3.0",
+    "width": 3374,
+    "height": 2323,
+    "renditions": [
+      {
+        "src": "/images/civilizations/melanesia/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/melanesia/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/melanesia/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/melanesia-3": {
+    "collection": "civilizations",
+    "title": "Lapita pottery",
+    "subtitle": "Melanesia",
+    "alt": "Lapita pottery — melanesia",
+    "photographer": "Patrick Nunn",
+    "license": "CC BY-SA 4.0",
+    "width": 3872,
+    "height": 2592,
+    "renditions": [
+      {
+        "src": "/images/civilizations/melanesia/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/melanesia/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/melanesia/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/micronesian-cultures": {
+    "collection": "civilizations",
+    "title": "Nan Madol",
+    "subtitle": "Micronesian cultures",
+    "alt": "Nan Madol — micronesia",
+    "photographer": "Uhooep",
+    "license": "CC BY-SA 4.0",
+    "width": 5184,
+    "height": 3888,
+    "renditions": [
+      {
+        "src": "/images/civilizations/micronesian-cultures/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/micronesian-cultures/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/micronesian-cultures/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/micronesian-cultures-2": {
+    "collection": "civilizations",
+    "title": "Yap stone money",
+    "subtitle": "Micronesian cultures",
+    "alt": "Yap stone money — micronesia",
+    "photographer": "Scot Nelson",
+    "license": "CC0",
+    "width": 2784,
+    "height": 1856,
+    "renditions": [
+      {
+        "src": "/images/civilizations/micronesian-cultures/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/micronesian-cultures/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/micronesian-cultures/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/micronesian-cultures-3": {
+    "collection": "civilizations",
+    "title": "Latte stones",
+    "subtitle": "Micronesian cultures",
+    "alt": "Latte stones — micronesia",
+    "photographer": "Lance Vanlewen",
+    "license": "CC BY-SA 4.0",
+    "width": 4032,
+    "height": 2268,
+    "renditions": [
+      {
+        "src": "/images/civilizations/micronesian-cultures/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/micronesian-cultures/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/micronesian-cultures/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "cities/istanbul": {
     "collection": "cities",
     "title": "Hagia Sophia",

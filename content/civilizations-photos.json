@@ -2569,5 +2569,373 @@
         }
       ]
     }
+  ],
+  "maori": [
+    {
+      "featureName": "Te Whare Rūnanga",
+      "alt": "Te Whare Rūnanga — maori",
+      "caption": "Te Whare Rūnanga",
+      "photographer": "W. Bulach",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A00_0569_M%C4%81ori_meeting_house_%28Marae%29_-_Waitangi_%28NZ%29.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:00 0569 Māori meeting house (Marae) - Waitangi (NZ).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:00 0569 Māori meeting house (Marae) - Waitangi (NZ).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d3b62f4e3028f46506f37c175cbaf94de0e7e2a90ca0698159562dc2479a12e2",
+      "width": 2000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/maori/w640.jpg",
+          "bytes": 165845
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/maori/w1280.jpg",
+          "bytes": 581871
+        },
+        {
+          "width": 2000,
+          "src": "/images/civilizations/maori/w2048.jpg",
+          "bytes": 1520258
+        }
+      ]
+    },
+    {
+      "featureName": "Waitangi Treaty Grounds",
+      "alt": "Waitangi Treaty Grounds — maori",
+      "caption": "Waitangi Treaty Grounds",
+      "photographer": "W. Bulach",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A00_1563_Waitangi_Treaty_Grounds%2C_National_Reserve_%28NZ%29.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:00 1563 Waitangi Treaty Grounds, National Reserve (NZ).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:00 1563 Waitangi Treaty Grounds, National Reserve (NZ).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "4a65126a51eef630bde11c625c641b0606237c6809423aaf9e03fae306908810",
+      "width": 3150,
+      "height": 2100,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/maori/w640-2.jpg",
+          "bytes": 64501
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/maori/w1280-2.jpg",
+          "bytes": 234041
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/maori/w2048-2.jpg",
+          "bytes": 698439
+        }
+      ]
+    },
+    {
+      "featureName": "Maungakiekie",
+      "alt": "Maungakiekie — maori",
+      "caption": "Maungakiekie",
+      "photographer": "russellstreet",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMaungakiekie_One_Tree_Hill_in_2008_04.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Maungakiekie One Tree Hill in 2008 04.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Maungakiekie One Tree Hill in 2008 04.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1f7b86359ff96606ead0a6558ecaa8a4fcbc2bcf8d7149b3b6c1d40c83c921a2",
+      "width": 3888,
+      "height": 2187,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/maori/w640-3.jpg",
+          "bytes": 76904
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/maori/w1280-3.jpg",
+          "bytes": 186655
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/maori/w2048-3.jpg",
+          "bytes": 475471
+        }
+      ]
+    }
+  ],
+  "aboriginal-australia": [
+    {
+      "featureName": "Uluru",
+      "alt": "Uluru — aboriginal australia",
+      "caption": "Uluru",
+      "photographer": "Dietmar Rabich",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APetermann_Ranges_%28AU%29%2C_Uluru-Kata_Tjuta_National_Park%2C_Uluru%2C_Kuniya_Walk_--_2019_--_3615.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Petermann Ranges (AU), Uluru-Kata Tjuta National Park, Uluru, Kuniya Walk -- 2019 -- 3615.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Petermann Ranges (AU), Uluru-Kata Tjuta National Park, Uluru, Kuniya Walk -- 2019 -- 3615.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "96e586215b7d79efae970e4caa99bc02bb8e32fa6d3f044acddf89c5f48216c5",
+      "width": 6720,
+      "height": 4480,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/aboriginal-australia/w640.jpg",
+          "bytes": 90849
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/aboriginal-australia/w1280.jpg",
+          "bytes": 214121
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/aboriginal-australia/w2048.jpg",
+          "bytes": 542908
+        }
+      ]
+    },
+    {
+      "featureName": "Ubirr rock art",
+      "alt": "Ubirr rock art — aboriginal australia",
+      "caption": "Ubirr rock art",
+      "photographer": "Dietmar Rabich",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKakadu_%28AU%29%2C_Kakadu_National_Park%2C_Ubirr_Rock_Art_--_2019_--_4169.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Kakadu (AU), Kakadu National Park, Ubirr Rock Art -- 2019 -- 4169.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Kakadu (AU), Kakadu National Park, Ubirr Rock Art -- 2019 -- 4169.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "88678f1ad3466ce77163906347cd99bfee93ad01856ac67e0b3c2b6285817990",
+      "width": 6720,
+      "height": 4480,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/aboriginal-australia/w640-2.jpg",
+          "bytes": 111208
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/aboriginal-australia/w1280-2.jpg",
+          "bytes": 279352
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/aboriginal-australia/w2048-2.jpg",
+          "bytes": 718416
+        }
+      ]
+    },
+    {
+      "featureName": "Kata Tjuta",
+      "alt": "Kata Tjuta — aboriginal australia",
+      "caption": "Kata Tjuta",
+      "photographer": "Christian Mehlführer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMC_Olgas_pano.jpg",
+      "license": "CC BY 2.5",
+      "commonsTitle": "File:MC Olgas pano.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:MC Olgas pano.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1883974fd7c33f7dc38d3c0de7b2d79f010914d3fdfb351a0ab2c4bb722ac5b1",
+      "width": 4765,
+      "height": 1500,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/aboriginal-australia/w640-3.jpg",
+          "bytes": 23904
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/aboriginal-australia/w1280-3.jpg",
+          "bytes": 67568
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/aboriginal-australia/w2048-3.jpg",
+          "bytes": 176265
+        }
+      ]
+    }
+  ],
+  "melanesia": [
+    {
+      "featureName": "Haus Tambaran",
+      "alt": "Haus Tambaran — melanesia",
+      "caption": "Haus Tambaran",
+      "photographer": "Sylt-Tinto",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHaus_Tambaran%2C_Apangai.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Haus Tambaran, Apangai.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Haus Tambaran, Apangai.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2c509dc6b44fb8b2a2aaa73b9c4b340c05dc28bec05c78030e49dedd03d3f7e5",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/melanesia/w640.jpg",
+          "bytes": 73242
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/melanesia/w1280.jpg",
+          "bytes": 223961
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/melanesia/w2048.jpg",
+          "bytes": 590503
+        }
+      ]
+    },
+    {
+      "featureName": "Navala",
+      "alt": "Navala — melanesia",
+      "caption": "Navala",
+      "photographer": "Anton Leddin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABureNavala2.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:BureNavala2.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:BureNavala2.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e78d21de2b818ab2e9dc5e838c8bdae8e51bd0527e4446a7e1e46cfa824fa2bd",
+      "width": 3374,
+      "height": 2323,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/melanesia/w640-2.jpg",
+          "bytes": 88455
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/melanesia/w1280-2.jpg",
+          "bytes": 220886
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/melanesia/w2048-2.jpg",
+          "bytes": 495285
+        }
+      ]
+    },
+    {
+      "featureName": "Lapita pottery",
+      "alt": "Lapita pottery — melanesia",
+      "caption": "Lapita pottery",
+      "photographer": "Patrick Nunn",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADecorated_piece_of_Lapita_pottery_from_the_Bourewa_site_in_Fiji.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Decorated piece of Lapita pottery from the Bourewa site in Fiji.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Decorated piece of Lapita pottery from the Bourewa site in Fiji.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9efa78cfe3b768f6ab07ac974ba0d0459573eec6e4524cc657add51083d370e8",
+      "width": 3872,
+      "height": 2592,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/melanesia/w640-3.jpg",
+          "bytes": 57344
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/melanesia/w1280-3.jpg",
+          "bytes": 121954
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/melanesia/w2048-3.jpg",
+          "bytes": 286151
+        }
+      ]
+    }
+  ],
+  "micronesian-cultures": [
+    {
+      "featureName": "Nan Madol",
+      "alt": "Nan Madol — micronesia",
+      "caption": "Nan Madol",
+      "photographer": "Uhooep",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANan_Madol%2C_FSM.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Nan Madol, FSM.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Nan Madol, FSM.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b919a53555099e52fc3b69ce3fdd019d4765e6f27429c972dffd0b67c4be5612",
+      "width": 5184,
+      "height": 3888,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/micronesian-cultures/w640.jpg",
+          "bytes": 112278
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/micronesian-cultures/w1280.jpg",
+          "bytes": 338518
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/micronesian-cultures/w2048.jpg",
+          "bytes": 881284
+        }
+      ]
+    },
+    {
+      "featureName": "Yap stone money",
+      "alt": "Yap stone money — micronesia",
+      "caption": "Yap stone money",
+      "photographer": "Scot Nelson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYap_stone_money_2.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Yap stone money 2.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Yap stone money 2.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3bbb00b72b5561f501689c47f568bf8a83cc26616b0e2cf7e3534591648c5d85",
+      "width": 2784,
+      "height": 1856,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/micronesian-cultures/w640-2.jpg",
+          "bytes": 85175
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/micronesian-cultures/w1280-2.jpg",
+          "bytes": 272322
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/micronesian-cultures/w2048-2.jpg",
+          "bytes": 679349
+        }
+      ]
+    },
+    {
+      "featureName": "Latte stones",
+      "alt": "Latte stones — micronesia",
+      "caption": "Latte stones",
+      "photographer": "Lance Vanlewen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALatte_Stones_in_Latte_Stone_Park%2C_Guam.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Latte Stones in Latte Stone Park, Guam.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Latte Stones in Latte Stone Park, Guam.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b70998775212125bb686bd35c73aea3f9791890a37242872d5626778c5ed2db7",
+      "width": 4032,
+      "height": 2268,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/micronesian-cultures/w640-3.jpg",
+          "bytes": 106633
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/micronesian-cultures/w1280-3.jpg",
+          "bytes": 305423
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/micronesian-cultures/w2048-3.jpg",
+          "bytes": 824094
+        }
+      ]
+    }
   ]
 }

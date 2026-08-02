@@ -188,6 +188,17 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('gupta empire')[0]).toBe('/civilizations/gupta-empire')
     expect(hrefs('teotihuacan')[0]).toBe('/civilizations/teotihuacan')
     expect(hrefs('polynesia')[0]).toBe('/civilizations/polynesia')
+    expect(hrefs('maori')[0]).toBe('/civilizations/maori')
+    expect(hrefs('aboriginal australia')[0]).toBe(
+      '/civilizations/aboriginal-australia',
+    )
+    expect(hrefs('melanesia')[0]).toBe('/civilizations/melanesia')
+    expect(hrefs('micronesian cultures')[0]).toBe(
+      '/civilizations/micronesian-cultures',
+    )
+    expect(hrefs('oceanic island network')[0]).toBe(
+      '/civilizations/micronesian-cultures',
+    )
     expect(hrefs('chola')[0]).toBe('/civilizations/chola-empire')
     expect(hrefs('olmec')[0]).toBe('/civilizations/olmec')
     expect(hrefs('early caliphates')[0]).toBe('/civilizations/early-caliphates')

@@ -799,6 +799,102 @@
       "featureName": "Puʻukoholā Heiau"
     }
   ],
+  "maori": [
+    {
+      "commonsTitle": "File:00 0569 Māori meeting house (Marae) - Waitangi (NZ).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/00_0569_M%C4%81ori_meeting_house_%28Marae%29_-_Waitangi_%28NZ%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A00_0569_M%C4%81ori_meeting_house_%28Marae%29_-_Waitangi_%28NZ%29.jpg",
+      "photographer": "W. Bulach",
+      "license": "CC BY-SA 4.0",
+      "width": 2000,
+      "height": 3000,
+      "featureName": "Te Whare Rūnanga"
+    },
+    {
+      "commonsTitle": "File:00 1563 Waitangi Treaty Grounds, National Reserve (NZ).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/00_1563_Waitangi_Treaty_Grounds%2C_National_Reserve_%28NZ%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A00_1563_Waitangi_Treaty_Grounds%2C_National_Reserve_%28NZ%29.jpg",
+      "photographer": "W. Bulach",
+      "license": "CC BY-SA 4.0",
+      "width": 3150,
+      "height": 2100,
+      "featureName": "Waitangi Treaty Grounds"
+    },
+    {
+      "commonsTitle": "File:Maungakiekie One Tree Hill in 2008 04.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Maungakiekie_One_Tree_Hill_in_2008_04.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMaungakiekie_One_Tree_Hill_in_2008_04.jpg",
+      "photographer": "russellstreet",
+      "license": "CC BY-SA 2.0",
+      "width": 3888,
+      "height": 2187,
+      "featureName": "Maungakiekie"
+    }
+  ],
+  "aboriginal-australia": [
+    {
+      "commonsTitle": "File:Petermann Ranges (AU), Uluru-Kata Tjuta National Park, Uluru, Kuniya Walk -- 2019 -- 3615.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Petermann_Ranges_%28AU%29%2C_Uluru-Kata_Tjuta_National_Park%2C_Uluru%2C_Kuniya_Walk_--_2019_--_3615.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APetermann_Ranges_%28AU%29%2C_Uluru-Kata_Tjuta_National_Park%2C_Uluru%2C_Kuniya_Walk_--_2019_--_3615.jpg",
+      "photographer": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "width": 6720,
+      "height": 4480,
+      "featureName": "Uluru"
+    },
+    {
+      "commonsTitle": "File:Kakadu (AU), Kakadu National Park, Ubirr Rock Art -- 2019 -- 4169.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Kakadu_%28AU%29%2C_Kakadu_National_Park%2C_Ubirr_Rock_Art_--_2019_--_4169.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKakadu_%28AU%29%2C_Kakadu_National_Park%2C_Ubirr_Rock_Art_--_2019_--_4169.jpg",
+      "photographer": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "width": 6720,
+      "height": 4480,
+      "featureName": "Ubirr rock art"
+    },
+    {
+      "commonsTitle": "File:MC Olgas pano.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/MC_Olgas_pano.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMC_Olgas_pano.jpg",
+      "photographer": "Christian Mehlführer",
+      "license": "CC BY 2.5",
+      "width": 4765,
+      "height": 1500,
+      "featureName": "Kata Tjuta"
+    }
+  ],
+  "melanesia": [
+    {
+      "commonsTitle": "File:Haus Tambaran, Apangai.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Haus_Tambaran%2C_Apangai.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHaus_Tambaran%2C_Apangai.jpg",
+      "photographer": "Sylt-Tinto",
+      "license": "CC0",
+      "width": 4000,
+      "height": 3000,
+      "featureName": "Haus Tambaran"
+    },
+    {
+      "commonsTitle": "File:BureNavala2.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/BureNavala2.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABureNavala2.jpg",
+      "photographer": "Anton Leddin",
+      "license": "CC BY-SA 3.0",
+      "width": 3374,
+      "height": 2323,
+      "featureName": "Navala"
+    },
+    {
+      "commonsTitle": "File:Decorated piece of Lapita pottery from the Bourewa site in Fiji.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Decorated_piece_of_Lapita_pottery_from_the_Bourewa_site_in_Fiji.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADecorated_piece_of_Lapita_pottery_from_the_Bourewa_site_in_Fiji.jpg",
+      "photographer": "Patrick Nunn",
+      "license": "CC BY-SA 4.0",
+      "width": 3872,
+      "height": 2592,
+      "featureName": "Lapita pottery"
+    }
+  ],
   "chola-empire": [
     {
       "commonsTitle": "File:Brihadeeswarar Temple 3624.jpg",
@@ -893,6 +989,38 @@
       "width": 5152,
       "height": 3864,
       "featureName": "Great Mosque of Córdoba"
+    }
+  ],
+  "micronesian-cultures": [
+    {
+      "commonsTitle": "File:Nan Madol, FSM.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Nan_Madol%2C_FSM.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANan_Madol%2C_FSM.jpg",
+      "photographer": "Uhooep",
+      "license": "CC BY-SA 4.0",
+      "width": 5184,
+      "height": 3888,
+      "featureName": "Nan Madol"
+    },
+    {
+      "commonsTitle": "File:Yap stone money 2.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Yap_stone_money_2.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYap_stone_money_2.jpg",
+      "photographer": "Scot Nelson",
+      "license": "CC0",
+      "width": 2784,
+      "height": 1856,
+      "featureName": "Yap stone money"
+    },
+    {
+      "commonsTitle": "File:Latte Stones in Latte Stone Park, Guam.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Latte_Stones_in_Latte_Stone_Park%2C_Guam.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALatte_Stones_in_Latte_Stone_Park%2C_Guam.jpg",
+      "photographer": "Lance Vanlewen",
+      "license": "CC BY-SA 4.0",
+      "width": 4032,
+      "height": 2268,
+      "featureName": "Latte stones"
     }
   ]
 }
