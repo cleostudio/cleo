@@ -1,8 +1,14 @@
 /** Shared image limits for vision input and generation display. */
 
 export const MAX_IMAGES_PER_MESSAGE = 4
+/** Hard cap on attached/generated images across one `/api/responses` body. */
+export const MAX_IMAGES_PER_REQUEST = 16
 export const MAX_IMAGE_BYTES = 4 * 1024 * 1024
+/** Aggregate decoded image budget for one request (not per message). */
+export const MAX_TOTAL_IMAGE_BYTES = 12 * 1024 * 1024
 export const MAX_IMAGE_DIMENSION = 2048
+/** Reject oversized JSON bodies before they are fully parsed into memory. */
+export const MAX_REQUEST_BODY_BYTES = 16 * 1024 * 1024
 
 /** Responses `image_generation` output — jpeg keeps multi-turn payloads smaller. */
 export const GENERATED_IMAGE_MEDIA_TYPE = "image/jpeg" as const

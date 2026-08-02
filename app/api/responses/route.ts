@@ -27,11 +27,19 @@ import {
   GENERATED_IMAGE_OUTPUT_FORMAT,
   GENERATED_IMAGE_PARTIAL_IMAGES,
   MAX_IMAGES_PER_MESSAGE,
+  MAX_IMAGES_PER_REQUEST,
+  MAX_REQUEST_BODY_BYTES,
+  MAX_TOTAL_IMAGE_BYTES,
   parseImageDataUrl,
   toImageDataUrl,
 } from "~/lib/cleo/images"
+import {
+  checkCleoRateLimit,
+  clientKeyFromHeaders,
+} from "~/lib/cleo/rate-limit"
 import { selectReasoningEffort } from "~/lib/cleo/reasoning-effort"
 import {
+  MAX_TOTAL_ENCRYPTED_REASONING_CHARS,
   sanitizeReasoningItems,
   type EncryptedReasoningItem,
 } from "~/lib/cleo/reasoning-items"
@@ -173,6 +181,9 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
 
   const messages: ConversationMessage[] = []
   let totalLength = 0
+  let totalImages = 0
+  let totalImageBytes = 0
+  let totalReasoningChars = 0
 
   for (const item of body.messages) {
     if (
@@ -218,6 +229,28 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
       )
     }
 
+    totalImages += imagesResult.length
+    if (totalImages > MAX_IMAGES_PER_REQUEST) {
+      return errorResponse(
+        `Conversations must include ${MAX_IMAGES_PER_REQUEST} images or fewer.`,
+        400
+      )
+    }
+
+    for (const image of imagesResult) {
+      const parsed = parseImageDataUrl(image.url)
+      if (parsed) {
+        totalImageBytes += Math.floor((parsed.base64.length * 3) / 4)
+      }
+    }
+
+    if (totalImageBytes > MAX_TOTAL_IMAGE_BYTES) {
+      return errorResponse(
+        "The combined image attachments are too large for one request.",
+        400
+      )
+    }
+
     const message: ConversationMessage = {
       content,
       role: item.role,
@@ -232,6 +265,15 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
         "reasoningItems" in item ? item.reasoningItems : undefined
       )
       if (reasoningItems) {
+        for (const reasoningItem of reasoningItems) {
+          totalReasoningChars += reasoningItem.encrypted_content.length
+        }
+        if (totalReasoningChars > MAX_TOTAL_ENCRYPTED_REASONING_CHARS) {
+          return errorResponse(
+            "The combined reasoning payload is too large for one request.",
+            400
+          )
+        }
         message.reasoningItems = reasoningItems
       }
     }
@@ -425,6 +467,33 @@ function joinReasoningParts(parts: Map<number, string>) {
 }
 
 export async function POST(request: Request) {
+  const contentLengthHeader = request.headers.get("content-length")
+  if (contentLengthHeader) {
+    const contentLength = Number(contentLengthHeader)
+    if (
+      Number.isFinite(contentLength) &&
+      contentLength > MAX_REQUEST_BODY_BYTES
+    ) {
+      return errorResponse("The request body is too large.", 413)
+    }
+  }
+
+  const rateLimit = checkCleoRateLimit(clientKeyFromHeaders(request.headers))
+  if (!rateLimit.ok) {
+    return new Response(
+      JSON.stringify({
+        error: "Too many requests. Try again shortly.",
+      }),
+      {
+        status: 429,
+        headers: {
+          "content-type": "application/json",
+          "retry-after": String(rateLimit.retryAfterSeconds),
+        },
+      }
+    )
+  }
+
   let body: unknown
 
   try {

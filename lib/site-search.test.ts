@@ -48,7 +48,14 @@ describe('site search catalog', () => {
     expect(byKind('photo')).toHaveLength(allGalleryItems().length)
     expect(byKind('writing')).toHaveLength(getAllPosts().length)
 
-    for (const href of ['/gallery', '/cleo', '/blog', '/topics', '/']) {
+    for (const href of [
+      '/explore',
+      '/gallery',
+      '/cleo',
+      '/blog',
+      '/topics',
+      '/',
+    ]) {
       expect(hits.some((entry) => entry.href === href)).toBe(true)
     }
   })
@@ -141,6 +148,7 @@ describe('searchSiteCatalog', () => {
   })
 
   it('reaches portal surfaces by name', () => {
+    expect(hrefs('explore')[0]).toBe('/explore')
     expect(hrefs('gallery')[0]).toBe('/gallery')
     expect(hrefs('cleo')[0]).toBe('/cleo')
     expect(hrefs('topics')[0]).toBe('/topics')

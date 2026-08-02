@@ -6,8 +6,13 @@
 import { getAtlasEntry } from "~/lib/atlas"
 import { getSpaceSubject } from "~/lib/space"
 
+/** Inline guide links, including optional title / angle-bracket destinations. */
 const MARKDOWN_GUIDE_LINK =
-  /\[([^\]]*)\]\((\/(explore|space)\/([a-z0-9-]+))\)/gi
+  /\[([^\]]*)\]\(\s*<?(\/(explore|space)\/([a-z0-9-]+))>?(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/gi
+
+/** Reference definitions: `[id]: /explore/slug "title"`. */
+const MARKDOWN_GUIDE_REF_DEF =
+  /^[ \t]*\[([^\]]+)\]:[ \t]*<?(\/(explore|space)\/([a-z0-9-]+))>?(?:[ \t]+(?:"[^"]*"|'[^']*'|\([^)]*\)))?[ \t]*$/gim
 
 const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
@@ -43,13 +48,51 @@ function curatedImageExists(src: string) {
   )
 }
 
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+}
+
 /**
  * Drop invented guide deep-links and curated photo embeds. Valid links/images
  * are kept; invalid guide links become plain labels; invalid images become alt
  * text (or empty).
  */
 export function sanitizePortalMarkdown(markdown: string): string {
-  const withoutBadImages = markdown.replace(
+  const inventedRefIds = new Set<string>()
+
+  const withoutBadRefDefs = markdown.replace(
+    MARKDOWN_GUIDE_REF_DEF,
+    (
+      full,
+      id: string,
+      href: string,
+      collection: string,
+      slug: string,
+    ) => {
+      if (
+        (collection === "explore" || collection === "space") &&
+        guideExists(collection, slug)
+      ) {
+        return `[${id}]: ${href}`
+      }
+      inventedRefIds.add(id.toLowerCase())
+      return ""
+    },
+  )
+
+  let withoutBadRefUses = withoutBadRefDefs
+  for (const id of inventedRefIds) {
+    const collapsed = new RegExp(
+      `\\[([^\\]]*)\\](?:\\[${escapeRegExp(id)}\\]|\\[\\])`,
+      "gi",
+    )
+    withoutBadRefUses = withoutBadRefUses.replace(
+      collapsed,
+      (_full, label: string) => label.trim() || id,
+    )
+  }
+
+  const withoutBadImages = withoutBadRefUses.replace(
     MARKDOWN_IMAGE,
     (full, alt: string, src: string) => {
       if (curatedImageExists(src)) {
@@ -64,23 +107,33 @@ export function sanitizePortalMarkdown(markdown: string): string {
     }
   )
 
-  return withoutBadImages.replace(
-    MARKDOWN_GUIDE_LINK,
-    (_full, label: string, _href: string, collection: string, slug: string) => {
-      if (
-        (collection === "explore" || collection === "space") &&
-        guideExists(collection, slug)
-      ) {
-        return `[${label}](/${collection}/${slug})`
-      }
-      return label.trim() || slug
-    }
-  )
+  return withoutBadImages
+    .replace(
+      MARKDOWN_GUIDE_LINK,
+      (_full, label: string, href: string, collection: string, slug: string) => {
+        if (
+          (collection === "explore" || collection === "space") &&
+          guideExists(collection, slug)
+        ) {
+          return `[${label}](${href})`
+        }
+        return label.trim() || slug
+      },
+    )
+    .replace(/\n{3,}/g, "\n\n")
 }
 
 /** True when markdown contains at least one invented portal path. */
 export function hasInventedPortalPaths(markdown: string): boolean {
   for (const match of markdown.matchAll(MARKDOWN_GUIDE_LINK)) {
+    const collection = match[3] as "explore" | "space"
+    const slug = match[4]!
+    if (!guideExists(collection, slug)) {
+      return true
+    }
+  }
+
+  for (const match of markdown.matchAll(MARKDOWN_GUIDE_REF_DEF)) {
     const collection = match[3] as "explore" | "space"
     const slug = match[4]!
     if (!guideExists(collection, slug)) {
