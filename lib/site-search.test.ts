@@ -132,11 +132,14 @@ describe('searchSiteCatalog', () => {
   it('finds countries by name, code, region, capital, and currency', () => {
     expect(hrefs('japan')[0]).toBe('/explore/japan')
     expect(hrefs('jp')[0]).toBe('/explore/japan')
-    expect(hrefs('tokyo')[0]).toBe('/explore/japan')
     expect(hrefs('yen')[0]).toBe('/explore/japan')
-    expect(hrefs('western europe').every((href) => href.startsWith('/explore/'))).toBe(
-      true,
-    )
+    // Tokyo is both Japan's capital and a Cities guide — city wins on exact name.
+    expect(hrefs('tokyo')[0]).toBe('/cities/tokyo')
+    // "western" also hits Western Wall photography; Explore region hits remain.
+    expect(
+      hrefs('western europe').filter((href) => href.startsWith('/explore/'))
+        .length,
+    ).toBeGreaterThan(3)
   })
 
   it('resolves a whole initialism to the country it stands for', () => {
@@ -192,6 +195,11 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('cusco')[0]).toBe('/cities/cusco')
     expect(hrefs('beijing')[0]).toBe('/cities/beijing')
     expect(hrefs('delhi')[0]).toBe('/cities/delhi')
+    expect(hrefs('london')[0]).toBe('/cities/london')
+    expect(hrefs('athens')[0]).toBe('/cities/athens')
+    expect(hrefs('jerusalem')[0]).toBe('/cities/jerusalem')
+    expect(hrefs('tokyo')[0]).toBe('/cities/tokyo')
+    expect(hrefs('mexico city')[0]).toBe('/cities/mexico-city')
     expect(hrefs('galata tower')[0]).toBe('/cities/istanbul')
     expect(hrefs('fushimi inari')[0]).toBe('/cities/kyoto')
     expect(hrefs('pantheon')[0]).toBe('/cities/rome')
@@ -200,6 +208,9 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('andean imperial capital')[0]).toBe('/cities/cusco')
     expect(hrefs('bosphorus')[0]).toBe('/cities/istanbul')
     expect(hrefs('strait capital')[0]).toBe('/cities/istanbul')
+    expect(hrefs('imperial port')[0]).toBe('/cities/london')
+    expect(hrefs('stoa of attalos')[0]).toBe('/cities/athens')
+    expect(hrefs('highland basin capital')[0]).toBe('/cities/mexico-city')
   })
 
   it('finds ocean guides and their features', () => {
@@ -336,9 +347,9 @@ describe('searchSiteCatalog', () => {
   })
 
   it('leaves a title unmarked when nothing in it matched', () => {
-    const [tokyo] = search('tokyo')
-    expect(tokyo?.hit.title).toBe('Japan')
-    expect(tokyo?.titleMatches).toEqual([])
+    const [hit] = search('yen')
+    expect(hit?.hit.title).toBe('Japan')
+    expect(hit?.titleMatches).toEqual([])
   })
 })
 

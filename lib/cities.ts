@@ -70,7 +70,8 @@ function withPhotos(draft: CitySubjectDraft): CitySubject {
 
 /**
  * Curated catalog — capitals and route cities across Mediterranean & Europe,
- * Asia, and Africa & Americas. Expand here as new Cities guides ship.
+ * Asia, and Africa & Americas (sixteen guides). Expand here as new Cities
+ * guides ship.
  */
 const citySubjectDrafts: CitySubjectDraft[] = [
   {
@@ -277,6 +278,162 @@ const citySubjectDrafts: CitySubjectDraft[] = [
       {
         label: 'Metropolitan Museum — Venice and the Islamic World',
         url: 'https://www.metmuseum.org/toah/hd/vnis/hd_vnis.htm',
+        kind: 'reference',
+      },
+    ],
+  },
+  {
+    slug: 'london',
+    code: 'LON',
+    name: 'London',
+    category: 'Mediterranean & Europe',
+    subtitle: 'Thames capital · imperial port',
+    about:
+      'London is a river capital that grew where the Thames could be bridged and where Atlantic and continental trade met an island state. Orientation is tidal and institutional: the City’s financial core, Westminster’s parliamentary riverfront, and docks that once made the estuary a global warehouse. Roman Londinium, medieval markets, and imperial shipping stacked into one of Europe’s densest political economies. The river remains the city’s structural spine even when railways and underground lines steal the daily commute. This primer stays with Thames geography, port capital form, and civic landmarks rather than every borough’s story.',
+    facts: {
+      kind: 'River capital',
+      country: 'United Kingdom',
+      region: 'Thames estuary · southeastern England',
+      founded: 'Roman Londinium; continuous urban life through medieval and modern capitals',
+      capitalRole: 'Capital of the United Kingdom',
+      corridors: 'River Thames, North Sea approaches, historic Atlantic trade routes',
+      exploreLinks: ['United Kingdom'],
+    },
+    features: [
+      {
+        name: 'Tower Bridge',
+        description:
+          'The bascule bridge below the Tower — Victorian engineering that still stages the Thames as London’s working waterfront.',
+      },
+      {
+        name: 'Elizabeth Tower',
+        description:
+          'The Palace of Westminster’s clock tower — parliamentary silhouette on the north bank of the Thames.',
+      },
+      {
+        name: "St Paul's Cathedral",
+        description:
+          'Wren’s dome above the City — a rebuilt sacred landmark that still anchors London’s skyline after fire and war.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — London',
+        url: 'https://www.britannica.com/place/London',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Palace of Westminster and Westminster Abbey',
+        url: 'https://whc.unesco.org/en/list/426',
+        kind: 'catalog',
+      },
+      {
+        label: 'Museum of London — City history',
+        url: 'https://www.londonmuseum.org.uk/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'athens',
+    code: 'ATH',
+    name: 'Athens',
+    category: 'Mediterranean & Europe',
+    subtitle: 'Acropolis city · Attic plain',
+    about:
+      'Athens is the classical city of the Attic plain — a dense capital whose Acropolis still organizes the skyline and whose agora once organized civic life. Orientation is rock and democracy’s afterimage: temple architecture on the citadel, theaters and stoas on the slopes and plain, and a modern capital layered over archaeological ground. Mediterranean light, marble, and a long memory of city-state politics make Athens a hinge between antiquity and the contemporary Greek state. This primer stays with acropolis geography, civic spaces, and capital continuity rather than every classical author.',
+    facts: {
+      kind: 'Classical capital',
+      country: 'Greece',
+      region: 'Attica · eastern mainland Greece',
+      founded: 'Bronze Age settlement; classical polis florescence in the 5th–4th centuries BCE',
+      capitalRole: 'Capital of Greece',
+      corridors: 'Saronic Gulf approaches; land routes across the Attic plain',
+      exploreLinks: ['Greece'],
+    },
+    features: [
+      {
+        name: 'Acropolis',
+        description:
+          'The citadel of the Parthenon and companion temples — the city’s enduring geometric and civic emblem.',
+      },
+      {
+        name: 'Odeon of Herodes Atticus',
+        description:
+          'The Roman-era theater on the Acropolis slope — a stone bowl still used for performance under the citadel.',
+      },
+      {
+        name: 'Stoa of Attalos',
+        description:
+          'The reconstructed colonnade on the Ancient Agora — a commercial and civic frontage for the classical marketplace.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Athens',
+        url: 'https://www.britannica.com/place/Athens',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Acropolis, Athens',
+        url: 'https://whc.unesco.org/en/list/404',
+        kind: 'catalog',
+      },
+      {
+        label: 'American School of Classical Studies — Athenian Agora',
+        url: 'https://www.ascsa.edu.gr/excavations/athenian-agora',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'jerusalem',
+    code: 'JLM',
+    name: 'Jerusalem',
+    category: 'Mediterranean & Europe',
+    subtitle: 'Highland sanctuary · shared sacred city',
+    about:
+      'Jerusalem is a highland city where sacred geographies of Judaism, Christianity, and Islam overlap on a compact ridge between the Mediterranean and the Jordan Valley. Orientation is wall, mount, and pilgrimage: the Western Wall and Temple Mount/Haram al-Sharif platform; the Church of the Holy Sepulchre in the Christian Quarter; and a dense Old City plan of quarters, markets, and gates. Political capitals and empires have claimed the ridge for millennia without erasing its role as a destination of worship. This primer stays with sacred topography and urban quarters rather than every contested chronology.',
+    facts: {
+      kind: 'Sacred highland city',
+      country: 'Israel',
+      region: 'Judean hills · eastern Mediterranean highland',
+      founded: 'Ancient highland settlement with continuous sacred and urban use across millennia',
+      capitalRole: 'Declared capital of Israel; also claimed as capital by Palestine — contested status',
+      corridors: 'Highland ridge routes; pilgrimage roads from Mediterranean and Jordan Valley approaches',
+      exploreLinks: ['Israel', 'Palestine'],
+    },
+    features: [
+      {
+        name: 'Western Wall',
+        description:
+          'The retaining wall of the ancient Temple platform — Judaism’s most visited outdoor prayer site in the Old City.',
+      },
+      {
+        name: 'Dome of the Rock',
+        description:
+          'The golden-domed shrine on the Haram al-Sharif / Temple Mount — Islamic sacred architecture at the city’s visual center.',
+      },
+      {
+        name: 'Church of the Holy Sepulchre',
+        description:
+          'The compound church of crucifixion and resurrection traditions — a shared Christian pilgrimage core in the Old City.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Jerusalem',
+        url: 'https://www.britannica.com/place/Jerusalem',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Old City of Jerusalem and its Walls',
+        url: 'https://whc.unesco.org/en/list/148',
+        kind: 'catalog',
+      },
+      {
+        label: 'Metropolitan Museum — Jerusalem',
+        url: 'https://www.metmuseum.org/toah/hd/jeru/hd_jeru.htm',
         kind: 'reference',
       },
     ],
@@ -490,6 +647,58 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     ],
   },
   {
+    slug: 'tokyo',
+    code: 'TYO',
+    name: 'Tokyo',
+    category: 'Asia',
+    subtitle: 'Bay megacity · former Edo',
+    about:
+      'Tokyo is a bay megacity that grew from the shogunal capital of Edo into Japan’s political and economic center. Orientation is lowland and water: Sumida and bay edges, temple towns such as Asakusa, shrine forests like Meiji, and a skyline of towers that mark postwar rebuilding. The city’s density stacks neighborhoods that still keep shrine, market, and station as local anchors. Earthquake, fire, and war remade fabric without erasing the Edo street logic underneath. This primer stays with bay geography, sacred-commercial nodes, and capital scale rather than every ward’s specialty.',
+    facts: {
+      kind: 'Bay megacity',
+      country: 'Japan',
+      region: 'Kantō plain · Tokyo Bay',
+      founded: 'Edo castle town expanding from the 17th century; renamed Tokyo as imperial capital in 1868',
+      capitalRole: 'Capital of Japan',
+      corridors: 'Tokyo Bay; Sumida River; historic Tōkaidō and national rail/metro networks',
+      exploreLinks: ['Japan'],
+    },
+    features: [
+      {
+        name: 'Sensō-ji',
+        description:
+          'Asakusa’s ancient temple gate and hall — a still-working pilgrimage and market node in the old downtown.',
+      },
+      {
+        name: 'Tokyo Skytree',
+        description:
+          'The modern broadcast tower above Sumida — a vertical marker of the bay city’s contemporary skyline.',
+      },
+      {
+        name: 'Meiji Shrine',
+        description:
+          'The forest shrine dedicated to Emperor Meiji — a sacred green room carved into the dense capital.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Tokyo',
+        url: 'https://www.britannica.com/place/Tokyo',
+        kind: 'reference',
+      },
+      {
+        label: 'Tokyo Metropolitan Government — About Tokyo',
+        url: 'https://www.metro.tokyo.lg.jp/english/',
+        kind: 'agency',
+      },
+      {
+        label: 'Meiji Jingu — Shrine overview',
+        url: 'https://www.meijijingu.or.jp/en/',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
     slug: 'cairo',
     code: 'CAI',
     name: 'Cairo',
@@ -642,6 +851,58 @@ const citySubjectDrafts: CitySubjectDraft[] = [
         label: 'UNESCO — Qhapaq Ñan, Andean Road System',
         url: 'https://whc.unesco.org/en/list/1459',
         kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'mexico-city',
+    code: 'MEX',
+    name: 'Mexico City',
+    category: 'Africa & Americas',
+    subtitle: 'Highland basin · former Tenochtitlan',
+    about:
+      'Mexico City occupies a highland basin where the Aztec island capital of Tenochtitlan once rose from lake waters. Orientation is lacustrine memory and imperial overlay: the Zócalo and cathedral over the sacred precinct; Templo Mayor ruins beside colonial streets; and boulevards of a modern megacity that still sits on soft lakebed ground. Spanish conquest remade the plan without fully erasing the island city’s ceremonial core. Seismic risk and altitude shape daily life as much as museums and ministries. This primer stays with basin geography, Mesoamerican capital form, and colonial-modern layering rather than every neighborhood’s mural.',
+    facts: {
+      kind: 'Highland basin capital',
+      country: 'Mexico',
+      region: 'Valley of Mexico · central highlands',
+      founded: 'Aztec Tenochtitlan 1325; Spanish Mexico City from 1521 on the same island core',
+      capitalRole: 'Capital of Mexico',
+      corridors: 'Historic lake causeways; highland routes toward coasts and the Bajío',
+      exploreLinks: ['Mexico'],
+    },
+    features: [
+      {
+        name: 'Zócalo',
+        description:
+          'The vast main square with the Metropolitan Cathedral — civic and sacred center over the former island capital.',
+      },
+      {
+        name: 'Templo Mayor',
+        description:
+          'The excavated Aztec twin temple beside the cathedral — the sacred precinct of Tenochtitlan returned to view.',
+      },
+      {
+        name: 'Palacio de Bellas Artes',
+        description:
+          'The marble palace of fine arts on the Alameda edge — a twentieth-century cultural landmark of the capital.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Mexico City',
+        url: 'https://www.britannica.com/place/Mexico-City',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Historic Centre of Mexico City',
+        url: 'https://whc.unesco.org/en/list/412',
+        kind: 'catalog',
+      },
+      {
+        label: 'INAH — Templo Mayor',
+        url: 'https://www.templomayor.inah.gob.mx/',
+        kind: 'agency',
       },
     ],
   },

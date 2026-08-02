@@ -17947,6 +17947,222 @@
       }
     ]
   },
+  "cities/london": {
+    "collection": "cities",
+    "title": "Tower Bridge",
+    "subtitle": "London",
+    "alt": "Tower Bridge — london",
+    "photographer": "Colin",
+    "license": "CC BY-SA 4.0",
+    "width": 14258,
+    "height": 8021,
+    "renditions": [
+      {
+        "src": "/images/cities/london/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/london/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/london/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/london-2": {
+    "collection": "cities",
+    "title": "Elizabeth Tower",
+    "subtitle": "London",
+    "alt": "Elizabeth Tower — london",
+    "photographer": "Julian Herzog",
+    "license": "CC BY 4.0",
+    "width": 5630,
+    "height": 6512,
+    "renditions": [
+      {
+        "src": "/images/cities/london/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/london/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/london/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/london-3": {
+    "collection": "cities",
+    "title": "St Paul's Cathedral",
+    "subtitle": "London",
+    "alt": "St Paul's Cathedral — london",
+    "photographer": "Colin",
+    "license": "CC BY-SA 4.0",
+    "width": 7514,
+    "height": 7514,
+    "renditions": [
+      {
+        "src": "/images/cities/london/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/london/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/london/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/athens": {
+    "collection": "cities",
+    "title": "Acropolis",
+    "subtitle": "Athens",
+    "alt": "Acropolis — athens",
+    "photographer": "A.Savin",
+    "license": "CC BY-SA 3.0",
+    "width": 5000,
+    "height": 3125,
+    "renditions": [
+      {
+        "src": "/images/cities/athens/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/athens/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/athens/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/athens-2": {
+    "collection": "cities",
+    "title": "Odeon of Herodes Atticus",
+    "subtitle": "Athens",
+    "alt": "Odeon of Herodes Atticus — athens",
+    "photographer": "George E. Koronaios",
+    "license": "CC BY-SA 4.0",
+    "width": 6000,
+    "height": 4000,
+    "renditions": [
+      {
+        "src": "/images/cities/athens/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/athens/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/athens/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/athens-3": {
+    "collection": "cities",
+    "title": "Stoa of Attalos",
+    "subtitle": "Athens",
+    "alt": "Stoa of Attalos — athens",
+    "photographer": "Julian Lupyan",
+    "license": "CC0",
+    "width": 4273,
+    "height": 3665,
+    "renditions": [
+      {
+        "src": "/images/cities/athens/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/athens/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/athens/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/jerusalem": {
+    "collection": "cities",
+    "title": "Western Wall",
+    "subtitle": "Jerusalem",
+    "alt": "Western Wall — jerusalem",
+    "photographer": "Godot13",
+    "license": "CC BY-SA 4.0",
+    "width": 4288,
+    "height": 2848,
+    "renditions": [
+      {
+        "src": "/images/cities/jerusalem/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/jerusalem/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/jerusalem/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/jerusalem-2": {
+    "collection": "cities",
+    "title": "Dome of the Rock",
+    "subtitle": "Jerusalem",
+    "alt": "Dome of the Rock — jerusalem",
+    "photographer": "Godot13",
+    "license": "CC BY-SA 4.0",
+    "width": 7500,
+    "height": 5425,
+    "renditions": [
+      {
+        "src": "/images/cities/jerusalem/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/jerusalem/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/jerusalem/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/jerusalem-3": {
+    "collection": "cities",
+    "title": "Church of the Holy Sepulchre",
+    "subtitle": "Jerusalem",
+    "alt": "Church of the Holy Sepulchre — jerusalem",
+    "photographer": "Berthold Werner",
+    "license": "CC BY-SA 3.0",
+    "width": 4730,
+    "height": 3990,
+    "renditions": [
+      {
+        "src": "/images/cities/jerusalem/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/jerusalem/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/jerusalem/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "cities/kyoto": {
     "collection": "cities",
     "title": "Kiyomizu-dera",
@@ -18235,6 +18451,78 @@
       }
     ]
   },
+  "cities/tokyo": {
+    "collection": "cities",
+    "title": "Sensō-ji",
+    "subtitle": "Tokyo",
+    "alt": "Sensō-ji — tokyo",
+    "photographer": "Ray in Manila",
+    "license": "CC BY 2.0",
+    "width": 4625,
+    "height": 3427,
+    "renditions": [
+      {
+        "src": "/images/cities/tokyo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/tokyo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/tokyo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/tokyo-2": {
+    "collection": "cities",
+    "title": "Tokyo Skytree",
+    "subtitle": "Tokyo",
+    "alt": "Tokyo Skytree — tokyo",
+    "photographer": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "width": 6241,
+    "height": 4161,
+    "renditions": [
+      {
+        "src": "/images/cities/tokyo/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/tokyo/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/tokyo/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/tokyo-3": {
+    "collection": "cities",
+    "title": "Meiji Shrine",
+    "subtitle": "Tokyo",
+    "alt": "Meiji Shrine — tokyo",
+    "photographer": "MediaByPanda",
+    "license": "CC BY-SA 4.0",
+    "width": 4032,
+    "height": 3024,
+    "renditions": [
+      {
+        "src": "/images/cities/tokyo/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/tokyo/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/tokyo/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "cities/cairo": {
     "collection": "cities",
     "title": "Mosque of Muhammad Ali",
@@ -18447,6 +18735,78 @@
       },
       {
         "src": "/images/cities/cusco/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/mexico-city": {
+    "collection": "cities",
+    "title": "Zócalo",
+    "subtitle": "Mexico City",
+    "alt": "Zócalo — mexico city",
+    "photographer": "Uwebart",
+    "license": "CC BY-SA 3.0",
+    "width": 6526,
+    "height": 2482,
+    "renditions": [
+      {
+        "src": "/images/cities/mexico-city/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/mexico-city/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/mexico-city/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/mexico-city-2": {
+    "collection": "cities",
+    "title": "Templo Mayor",
+    "subtitle": "Mexico City",
+    "alt": "Templo Mayor — mexico city",
+    "photographer": "Mike Peel",
+    "license": "CC BY-SA 4.0",
+    "width": 5184,
+    "height": 3456,
+    "renditions": [
+      {
+        "src": "/images/cities/mexico-city/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/mexico-city/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/mexico-city/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/mexico-city-3": {
+    "collection": "cities",
+    "title": "Palacio de Bellas Artes",
+    "subtitle": "Mexico City",
+    "alt": "Palacio de Bellas Artes — mexico city",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 4970,
+    "height": 3572,
+    "renditions": [
+      {
+        "src": "/images/cities/mexico-city/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/mexico-city/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/mexico-city/w2048-3.jpg",
         "width": 2048
       }
     ]

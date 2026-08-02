@@ -350,5 +350,165 @@
       "height": 2983,
       "featureName": "Shah-i-Zinda"
     }
+  ],
+  "london": [
+    {
+      "commonsTitle": "File:Tower Bridge from London City Hall 2015.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Tower_Bridge_from_London_City_Hall_2015.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATower%20Bridge%20from%20London%20City%20Hall%202015.jpg",
+      "photographer": "Colin",
+      "license": "CC BY-SA 4.0",
+      "width": 14258,
+      "height": 8021,
+      "featureName": "Tower Bridge"
+    },
+    {
+      "commonsTitle": "File:Big Ben Elizabeth Tower London 2023 01.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Big_Ben_Elizabeth_Tower_London_2023_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABig%20Ben%20Elizabeth%20Tower%20London%202023%2001.jpg",
+      "photographer": "Julian Herzog",
+      "license": "CC BY 4.0",
+      "width": 5630,
+      "height": 6512,
+      "featureName": "Elizabeth Tower"
+    },
+    {
+      "commonsTitle": "File:St Paul's Cathedral Dome from One New Change - Square Crop.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/St_Paul%27s_Cathedral_Dome_from_One_New_Change_-_Square_Crop.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASt%20Paul%27s%20Cathedral%20Dome%20from%20One%20New%20Change%20-%20Square%20Crop.jpg",
+      "photographer": "Colin",
+      "license": "CC BY-SA 4.0",
+      "width": 7514,
+      "height": 7514,
+      "featureName": "St Paul's Cathedral"
+    }
+  ],
+  "athens": [
+    {
+      "commonsTitle": "File:Attica 06-13 Athens 50 View from Philopappos - Acropolis Hill.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAttica%2006-13%20Athens%2050%20View%20from%20Philopappos%20-%20Acropolis%20Hill.jpg",
+      "photographer": "A.Savin",
+      "license": "CC BY-SA 3.0",
+      "width": 5000,
+      "height": 3125,
+      "featureName": "Acropolis"
+    },
+    {
+      "commonsTitle": "File:The Odeon of Herodes Atticus on November 4, 2019.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/The_Odeon_of_Herodes_Atticus_on_November_4%2C_2019.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe%20Odeon%20of%20Herodes%20Atticus%20on%20November%204%2C%202019.jpg",
+      "photographer": "George E. Koronaios",
+      "license": "CC BY-SA 4.0",
+      "width": 6000,
+      "height": 4000,
+      "featureName": "Odeon of Herodes Atticus"
+    },
+    {
+      "commonsTitle": "File:Stoa of Attalos, Athens, Greece.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Stoa_of_Attalos%2C_Athens%2C_Greece.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AStoa%20of%20Attalos%2C%20Athens%2C%20Greece.jpg",
+      "photographer": "Julian Lupyan",
+      "license": "CC0",
+      "width": 4273,
+      "height": 3665,
+      "featureName": "Stoa of Attalos"
+    }
+  ],
+  "tokyo": [
+    {
+      "commonsTitle": "File:Senso-ji, Asakusa, Tokyo.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Senso-ji%2C_Asakusa%2C_Tokyo.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASenso-ji%2C%20Asakusa%2C%20Tokyo.jpg",
+      "photographer": "Ray in Manila",
+      "license": "CC BY 2.0",
+      "width": 4625,
+      "height": 3427,
+      "featureName": "Sensō-ji"
+    },
+    {
+      "commonsTitle": "File:Worm's-eye view of Tokyo Skytree with vertical symmetry impression, a sunny day, in Japan.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Worm%27s-eye_view_of_Tokyo_Skytree_with_vertical_symmetry_impression%2C_a_sunny_day%2C_in_Japan.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWorm%27s-eye%20view%20of%20Tokyo%20Skytree%20with%20vertical%20symmetry%20impression%2C%20a%20sunny%20day%2C%20in%20Japan.jpg",
+      "photographer": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "width": 6241,
+      "height": 4161,
+      "featureName": "Tokyo Skytree"
+    },
+    {
+      "commonsTitle": "File:Meiji Jingu Shrine Tokyo Japan.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Meiji_Jingu_Shrine_Tokyo_Japan.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMeiji%20Jingu%20Shrine%20Tokyo%20Japan.jpg",
+      "photographer": "MediaByPanda",
+      "license": "CC BY-SA 4.0",
+      "width": 4032,
+      "height": 3024,
+      "featureName": "Meiji Shrine"
+    }
+  ],
+  "jerusalem": [
+    {
+      "commonsTitle": "File:Westen (Wailing) Wall, Jerusalem, 2007.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Westen_%28Wailing%29_Wall%2C_Jerusalem%2C_2007.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWesten%20%28Wailing%29%20Wall%2C%20Jerusalem%2C%202007.jpg",
+      "photographer": "Godot13",
+      "license": "CC BY-SA 4.0",
+      "width": 4288,
+      "height": 2848,
+      "featureName": "Western Wall"
+    },
+    {
+      "commonsTitle": "File:Jerusalem-2013(2)-Temple Mount-Dome of the Rock (SE exposure).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Jerusalem-2013%282%29-Temple_Mount-Dome_of_the_Rock_%28SE_exposure%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AJerusalem-2013%282%29-Temple%20Mount-Dome%20of%20the%20Rock%20%28SE%20exposure%29.jpg",
+      "photographer": "Godot13",
+      "license": "CC BY-SA 4.0",
+      "width": 7500,
+      "height": 5425,
+      "featureName": "Dome of the Rock"
+    },
+    {
+      "commonsTitle": "File:Jerusalem Holy Sepulchre BW 19.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Jerusalem_Holy_Sepulchre_BW_19.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AJerusalem%20Holy%20Sepulchre%20BW%2019.JPG",
+      "photographer": "Berthold Werner",
+      "license": "CC BY-SA 3.0",
+      "width": 4730,
+      "height": 3990,
+      "featureName": "Church of the Holy Sepulchre"
+    }
+  ],
+  "mexico-city": [
+    {
+      "commonsTitle": "File:Zocalo Mexico City panorama at nightfall.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Zocalo_Mexico_City_panorama_at_nightfall.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AZocalo%20Mexico%20City%20panorama%20at%20nightfall.jpg",
+      "photographer": "Uwebart",
+      "license": "CC BY-SA 3.0",
+      "width": 6526,
+      "height": 2482,
+      "featureName": "Zócalo"
+    },
+    {
+      "commonsTitle": "File:Templo Mayor 2015 040.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Templo_Mayor_2015_040.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATemplo%20Mayor%202015%20040.jpg",
+      "photographer": "Mike Peel",
+      "license": "CC BY-SA 4.0",
+      "width": 5184,
+      "height": 3456,
+      "featureName": "Templo Mayor"
+    },
+    {
+      "commonsTitle": "File:Palacio de Bellas Artes, México D.F., México, 2014-10-13, DD 37.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Palacio_de_Bellas_Artes%2C_M%C3%A9xico_D.F.%2C_M%C3%A9xico%2C_2014-10-13%2C_DD_37.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APalacio%20de%20Bellas%20Artes%2C%20M%C3%A9xico%20D.F.%2C%20M%C3%A9xico%2C%202014-10-13%2C%20DD%2037.JPG",
+      "photographer": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "width": 4970,
+      "height": 3572,
+      "featureName": "Palacio de Bellas Artes"
+    }
   ]
 }
