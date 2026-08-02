@@ -904,10 +904,15 @@ html[data-cleo-sidebar-open] .cleo-sidebar-closed-controls {
       visibility 0s linear 80ms;
   }
 
-  /* Collapsed desktop rail: leave only the two glyphs, not button chrome. */
-  html[data-cleo-route][data-cleo-sidebar-collapsed] .cleo-sidebar-toggle,
-  html[data-cleo-route][data-cleo-sidebar-collapsed] .cleo-sidebar-toggle:hover {
+  /* Collapsed desktop rail: bare glyphs at rest, same muted hover surface as
+     the open-sidebar controls. */
+  html[data-cleo-route][data-cleo-sidebar-collapsed] .cleo-sidebar-toggle {
     background: transparent;
+    box-shadow: none;
+  }
+
+  html[data-cleo-route][data-cleo-sidebar-collapsed] .cleo-sidebar-toggle:hover {
+    background: var(--muted);
     box-shadow: none;
   }
 }
