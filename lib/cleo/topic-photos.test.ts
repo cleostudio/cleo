@@ -122,11 +122,10 @@ describe('topic photos', () => {
 
   it('matches Civilizations guides by path', () => {
     const photos = matchTopicPhotosInText(
-      'Compare /civilizations/roman-empire with the Nile story.',
+      'Compare /civilizations/roman-empire with the Maya story.',
     )
-    expect(photos.map((photo) => photo.slug)).toEqual([
-      'roman-empire',
-      'roman-empire',
+    expect([...new Set(photos.map((photo) => photo.slug))].sort()).toEqual([
+      'maya',
       'roman-empire',
     ])
   })

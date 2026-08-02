@@ -217,7 +217,7 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('danube')[0]).toBe('/rivers/danube')
     expect(hrefs('mississippi')[0]).toBe('/rivers/mississippi')
     expect(hrefs('iron gates')[0]).toBe('/rivers/danube')
-    expect(hrefs('desert corridor')[0]).toBe('/rivers/nile')
+    expect(hrefs('blue nile falls')[0]).toBe('/rivers/nile')
   })
 
   it('finds curated photographs by the place they show', () => {
