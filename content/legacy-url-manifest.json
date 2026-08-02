@@ -108,6 +108,23 @@
     },
     {
       "kind": "page",
+      "source": "/blog/an-island-still-becoming",
+      "probes": [
+        "/blog/an-island-still-becoming"
+      ],
+      "status": 200,
+      "contains": "<article"
+    },
+    {
+      "kind": "redirect",
+      "source": "/en/blog/an-island-still-becoming",
+      "destination": "/blog/an-island-still-becoming",
+      "probes": [
+        "/en/blog/an-island-still-becoming"
+      ]
+    },
+    {
+      "kind": "page",
       "source": "/blog/how-rivers-draw-nations",
       "probes": [
         "/blog/how-rivers-draw-nations"

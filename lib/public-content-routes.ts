@@ -2,6 +2,7 @@
 // proxy, post index, feeds, and sitemap all consume this explicit allowlist.
 export const publishedPostSlugs = [
   'a-brief-history-of-dawn',
+  'an-island-still-becoming',
   'how-rivers-draw-nations',
   'letters-from-low-earth-orbit',
   'pale-blue-marble',

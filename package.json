@@ -9,6 +9,7 @@
   },
   "pnpm": {
     "overrides": {
+      "@esbuild-kit/core-utils>esbuild": "0.28.1",
       "next>postcss": "8.5.22",
       "next>sharp": "0.35.3"
     }

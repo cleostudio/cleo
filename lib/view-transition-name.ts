@@ -4,6 +4,8 @@ function postTransitionId(slug: string) {
   switch (slug) {
     case 'a-brief-history-of-dawn':
       return 'p01'
+    case 'an-island-still-becoming':
+      return 'p10'
     case 'how-rivers-draw-nations':
       return 'p02'
     case 'letters-from-low-earth-orbit':
