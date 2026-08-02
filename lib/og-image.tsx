@@ -309,6 +309,34 @@ function OgSectionMark({ section }: { section: PublicSection }) {
     )
   }
 
+  if (section === 'rivers') {
+    // Meandering course with a delta fan for world-river guides.
+    return (
+      <svg
+        width="232"
+        height="232"
+        viewBox="0 0 232 232"
+        fill="none"
+        aria-hidden="true"
+      >
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <path
+            d="M52 48c18 28 10 46-6 68 20 10 42 8 62-6 16 22 8 40-8 62 28 4 54-6 74-28"
+            stroke={stroke}
+            strokeWidth="1.7"
+          />
+          <path
+            d="M168 156l18 22M168 156l-6 26M168 156l22 8"
+            stroke={faint}
+            strokeWidth="1.4"
+          />
+          <circle cx="52" cy="48" r="2.2" stroke={stroke} strokeWidth="1.3" />
+          <circle cx="188" cy="188" r="1.6" stroke={stroke} strokeWidth="1.3" />
+        </g>
+      </svg>
+    )
+  }
+
   if (section === 'gallery') {
     return (
       <svg

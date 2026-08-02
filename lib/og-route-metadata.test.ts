@@ -51,6 +51,11 @@ describe('social OG image metadata', () => {
       'Oceans · Cleo. Evergreen field guides for world ocean basins and polar seas — orientation, features, circulation, and sources.',
     ],
     [
+      '/rivers',
+      publicPageMetadata.rivers,
+      'Rivers · Cleo. Evergreen field guides for major rivers — orientation, course, basin, hydrology, and sources.',
+    ],
+    [
       '/cleo',
       publicPageMetadata.cleo,
       'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',

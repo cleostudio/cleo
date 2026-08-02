@@ -9,7 +9,7 @@ import { allTopicPhotoItems } from '~/lib/gallery'
 import { staticRendition } from '~/lib/static-photo'
 
 describe('topicPhotoZoomKeyFromSrc', () => {
-  it('parses curated atlas, space, civilizations, cities, and oceans paths', () => {
+  it('parses curated atlas, space, civilizations, cities, oceans, and rivers paths', () => {
     expect(topicPhotoZoomKeyFromSrc('/images/atlas/japan/w1280.jpg')).toBe(
       'atlas/japan',
     )
@@ -25,6 +25,9 @@ describe('topicPhotoZoomKeyFromSrc', () => {
     expect(
       topicPhotoZoomKeyFromSrc('/images/oceans/pacific-ocean/w1280.jpg'),
     ).toBe('oceans/pacific-ocean')
+    expect(topicPhotoZoomKeyFromSrc('/images/rivers/nile/w1280.jpg')).toBe(
+      'rivers/nile',
+    )
     expect(topicPhotoZoomKeyFromSrc('/images/atlas/japan/w1280-2.jpg')).toBe(
       'atlas/japan-2',
     )
@@ -40,6 +43,9 @@ describe('topicPhotoZoomKeyFromSrc', () => {
     expect(
       topicPhotoZoomKeyFromSrc('/images/oceans/arctic-ocean/w2048-3.jpg'),
     ).toBe('oceans/arctic-ocean-3')
+    expect(topicPhotoZoomKeyFromSrc('/images/rivers/nile/w2048-3.jpg')).toBe(
+      'rivers/nile-3',
+    )
   })
 
   it('rejects non-curated paths', () => {

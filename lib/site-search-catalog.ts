@@ -1,6 +1,6 @@
 /**
  * Assembles the homepage search catalog: topic collections, country, space,
- * civilization, city, and ocean guides, curated photographs, Writing posts,
+ * civilization, city, ocean, and river guides, curated photographs, Writing posts,
  * and portal surfaces. Import from Server Components only — it pulls every
  * guide record, reads the post files, and walks the photo manifests.
  *
@@ -16,6 +16,7 @@ import { buildPostRail, getAllPosts, type Post } from '~/lib/content'
 import { formatMonthYear } from '~/lib/date'
 import { allGalleryItems, galleryItemDomId } from '~/lib/gallery'
 import { oceanSubjects } from '~/lib/oceans'
+import { riverSubjects } from '~/lib/rivers'
 import type { SiteSearchHit, SiteSearchKind } from '~/lib/site-search'
 import { spaceSubjects } from '~/lib/space'
 import { allTopics } from '~/lib/topics'
@@ -62,6 +63,12 @@ const PORTAL_SURFACES: SurfaceSeed[] = [
     subtitle: 'Ocean guides',
     href: '/oceans',
     keywords: 'basins seas polar circulation bathymetry field guides',
+  },
+  {
+    title: 'Rivers',
+    subtitle: 'River guides',
+    href: '/rivers',
+    keywords: 'courses basins floodplains hydrology field guides',
   },
   {
     title: 'Gallery',
@@ -242,6 +249,26 @@ function oceanHits(): SiteSearchHit[] {
   )
 }
 
+function riverHits(): SiteSearchHit[] {
+  return riverSubjects.map((subject) =>
+    hit(
+      'rivers',
+      `rivers:${subject.slug}`,
+      subject.name,
+      `${subject.code} · ${subject.category}`,
+      `/rivers/${subject.slug}`,
+      subject.subtitle,
+      subject.facts.kind,
+      subject.facts.course,
+      subject.facts.region,
+      subject.facts.basin,
+      subject.facts.hydrology,
+      subject.facts.climateRole,
+      subject.features.map((feature) => feature.name).join(' '),
+    ),
+  )
+}
+
 /**
  * The editor-selected photograph for each place and body — the same focused
  * index `/gallery` shows, so every photo result has a tile to land on.
@@ -304,6 +331,7 @@ export function buildSiteSearchHits(): SiteSearchHit[] {
     ...civilizationHits(),
     ...cityHits(),
     ...oceanHits(),
+    ...riverHits(),
     ...photoHits(),
     ...writingHits(),
     ...surfaceHits(),
@@ -317,11 +345,13 @@ const SPOTLIGHT_IDS = [
   'topic:civilizations',
   'topic:cities',
   'topic:oceans',
+  'topic:rivers',
   'explore:japan',
   'space:mars',
   'civilizations:ancient-egypt',
   'cities:istanbul',
   'oceans:pacific-ocean',
+  'rivers:nile',
   'surface:/gallery',
   'surface:/cleo',
 ]

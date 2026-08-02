@@ -4,18 +4,18 @@
  */
 
 export type PortalGuideLink = {
-  collection: 'explore' | 'space' | 'civilizations' | 'cities' | 'oceans'
+  collection: 'explore' | 'space' | 'civilizations' | 'cities' | 'oceans' | 'rivers'
   href: string
   label: string
   slug: string
 }
 
 const MARKDOWN_GUIDE_LINK =
-  /\[([^\]]*)\]\((\/(explore|space|civilizations|cities|oceans)\/([a-z0-9-]+))\)/gi
+  /\[([^\]]*)\]\((\/(explore|space|civilizations|cities|oceans|rivers)\/([a-z0-9-]+))\)/gi
 
 /** Curated static JPEGs under the site image roots. */
 const CURATED_TOPIC_IMAGE_SRC =
-  /^\/images\/(atlas|space|civilizations|cities|oceans)\/[a-z0-9-]+\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
+  /^\/images\/(atlas|space|civilizations|cities|oceans|rivers)\/[a-z0-9-]+\/w(640|1280|2048)(?:-(2|3))?\.jpg$/
 
 const MARKDOWN_IMAGE =
   /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
@@ -58,17 +58,17 @@ export function cleanPortalGuideLabel(
 
   const cleaned = trimmed
     .replace(
-      /\s*(?:explore|space|civilizations?|cities|oceans?)?\s*(?:field\s*)?guides?\s*$/i,
+      /\s*(?:explore|space|civilizations?|cities|oceans?|rivers?)?\s*(?:field\s*)?guides?\s*$/i,
       '',
     )
-    .replace(/^(?:explore|space|civilizations?|cities|oceans)\s*[·|:–-]\s*/i, '')
-    .replace(/^(?:the\s+)?(?:explore|space|civilizations?|cities|oceans)\s+/i, '')
+    .replace(/^(?:explore|space|civilizations?|cities|oceans|rivers)\s*[·|:–-]\s*/i, '')
+    .replace(/^(?:the\s+)?(?:explore|space|civilizations?|cities|oceans|rivers)\s+/i, '')
     .trim()
 
   return cleaned || titleFromSlug(slug)
 }
 
-/** Pull unique Explore/Space/Civilizations/Cities/Oceans guide links from assistant Markdown. */
+/** Pull unique Explore/Space/Civilizations/Cities/Oceans/Rivers guide links from assistant Markdown. */
 export function extractPortalGuideLinks(markdown: string): PortalGuideLink[] {
   const found = new Map<string, PortalGuideLink>()
 
@@ -111,7 +111,7 @@ function stripLeadingGuideChrome(block: string) {
     remainder = remainder
       .replace(/^for a fuller primer,?\s*see\s+/i, '')
       .replace(/^see\s+(?:the\s+)?/i, '')
-      .replace(/^(?:explore|space|civilizations?|cities|oceans)\s+/i, '')
+      .replace(/^(?:explore|space|civilizations?|cities|oceans|rivers)\s+/i, '')
       .trim()
   }
 
@@ -225,5 +225,10 @@ export const CLEO_PORTAL_STARTERS = [
     label: 'Orient me to the Pacific Ocean',
     prompt:
       'Give me a quick orientation to the Pacific Ocean. Deep-link its Oceans guide when you mention it.',
+  },
+  {
+    label: 'Orient me to the Nile',
+    prompt:
+      'Give me a quick orientation to the Nile. Deep-link its Rivers guide when you mention the river.',
   },
 ] as const

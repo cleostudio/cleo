@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Build a slim client-safe index of curated
- * Explore/Space/Civilizations/Cities/Oceans photographs for Cleo Markdown
+ * Explore/Space/Civilizations/Cities/Oceans/Rivers photographs for Cleo Markdown
  * image zoom (Gallery-parity lightbox + caption plate).
  *
  * Avoids shipping the full atlas prose corpus to the /cleo client bundle.
@@ -25,6 +25,7 @@ const ROOT_KEY = {
   civilizations: 'civilizations',
   cities: 'cities',
   oceans: 'oceans',
+  rivers: 'rivers',
 }
 
 const index = {}
@@ -32,7 +33,7 @@ const index = {}
 for (const item of allTopicPhotoItems()) {
   const rootKey = ROOT_KEY[item.collection]
   const slug = item.href.replace(
-    /^\/(explore|space|civilizations|cities|oceans)\//,
+    /^\/(explore|space|civilizations|cities|oceans|rivers)\//,
     '',
   )
   const slot = item.photo.renditions[0]?.src.match(/\/w\d+-(2|3)\.jpg$/)?.[1]

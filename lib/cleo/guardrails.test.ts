@@ -41,6 +41,21 @@ describe("portal markdown guardrails", () => {
     expect(hasInventedPortalPaths(markdown)).toBe(true)
   })
 
+  it("keeps real Rivers guide links and curated river photos", () => {
+    const markdown =
+      "See [Nile](/rivers/nile) and ![Nile at Luxor](/images/rivers/nile/w1280.jpg)."
+
+    expect(sanitizePortalMarkdown(markdown)).toBe(markdown)
+    expect(hasInventedPortalPaths(markdown)).toBe(false)
+  })
+
+  it("strips invented Rivers guide links", () => {
+    const markdown = "Visit [Styx](/rivers/styx) sometime."
+
+    expect(sanitizePortalMarkdown(markdown)).toBe("Visit Styx sometime.")
+    expect(hasInventedPortalPaths(markdown)).toBe(true)
+  })
+
   it("strips invented guide links to plain labels", () => {
     const markdown = "Visit [Atlantis](/explore/atlantis) sometime."
 

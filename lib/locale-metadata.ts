@@ -22,6 +22,7 @@ const SECTION_IMAGE_PATHS = new Set([
   '/civilizations',
   '/cities',
   '/oceans',
+  '/rivers',
   '/topics',
   '/projects',
 ])

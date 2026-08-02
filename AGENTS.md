@@ -20,6 +20,7 @@ Better Auth on Neon Postgres (Marketplace).
 | Civilizations guides + Commons photos | [`docs/civilizations.md`](docs/civilizations.md) |
 | Cities guides + Commons photos | [`docs/cities.md`](docs/cities.md) |
 | Oceans guides + Commons photos | [`docs/oceans.md`](docs/oceans.md) |
+| Rivers guides + Commons photos | [`docs/rivers.md`](docs/rivers.md) |
 | Better Auth + Neon | [`docs/auth.md`](docs/auth.md) |
 | Tokens, deviations from cali.so | [`docs/theme-preset.md`](docs/theme-preset.md) |
 | Full visual/interaction spec | [`docs/design-language.md`](docs/design-language.md) |
@@ -36,15 +37,15 @@ Human onboarding: [`README.md`](README.md).
 - Country orientation prose is curated (`scripts/atlas/atlas-about.json`), never
   generated at build or request time. The site never calls a model to render a
   page.
-- Place/space/civilization/city/ocean images are static JPEGs under
-  `public/images/{atlas,space,civilizations,cities,oceans}/` with browser
+- Place/space/civilization/city/ocean/river images are static JPEGs under
+  `public/images/{atlas,space,civilizations,cities,oceans,rivers}/` with browser
   `srcset`. No image CDN, account, or `/_next/image` re-encode at runtime.
 - Theme: semantic tokens only — never hex or raw `--gray-N` in components. Two
   easings (`--ease-swift`, `--ease-spring`). Column widths via `max-w-content` /
   `max-w-content-narrow`. Departures from [cali.so](https://github.com/CaliCastle/cali.so)
   go in `docs/theme-preset.md` **and** `presetDeviations` in `lib/theme-preset.ts`.
 - Render model output through Streamdown, never raw HTML. Invented
-  Explore/Space/Civilizations/Cities/Oceans paths are stripped by
+  Explore/Space/Civilizations/Cities/Oceans/Rivers paths are stripped by
   `lib/cleo/guardrails.ts`.
 - Keep `OPENAI_API_KEY`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_API_KEY`, and
   database URLs server-side. Never `NEXT_PUBLIC_` those secrets.
@@ -81,9 +82,10 @@ change; update the matching `docs/*` runbook when subsystem behavior changes.
 | Civilizations media | `pnpm validate:civilizations` |
 | Cities media | `pnpm validate:cities` |
 | Oceans media | `pnpm validate:oceans` |
+| Rivers media | `pnpm validate:rivers` |
 | Unit / security | `pnpm test:unit` / `pnpm test:security` |
 | Homepage search | `lib/site-search.test.ts`, `components/home-site-search.test.tsx`, `lib/cleo/ask-link.test.ts` |
-| Cleo topic-photo zoom index | after atlas/space caption or rendition changes: `pnpm generate:cleo-topic-photo-zoom` |
+| Cleo topic-photo zoom index | after atlas/space/oceans/rivers caption or rendition changes: `pnpm generate:cleo-topic-photo-zoom` |
 | UI | Changed flows on desktop/mobile and light/dark |
 
 Cleo manual smoke (when touching the agent): multi-turn chat, reasoning activity,

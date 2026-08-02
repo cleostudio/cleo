@@ -1,5 +1,5 @@
 /**
- * Compact Explore + Space + Civilizations + Cities + Oceans catalog injected
+ * Compact Explore + Space + Civilizations + Cities + Oceans + Rivers catalog injected
  * into Cleo's developer instructions so the agent can deep-link to real field
  * guides.
  */
@@ -8,6 +8,7 @@ import { citySubjects } from '~/lib/cities'
 import { civilizationSubjects } from '~/lib/civilizations'
 import { countries } from '~/lib/countries'
 import { oceanSubjects } from '~/lib/oceans'
+import { riverSubjects } from '~/lib/rivers'
 import { spaceSubjects } from '~/lib/space'
 
 /** Site paths Cleo may cite besides individual guides. */
@@ -20,6 +21,7 @@ const PORTAL_SURFACES = [
   ['Civilizations', '/civilizations'],
   ['Cities', '/cities'],
   ['Oceans', '/oceans'],
+  ['Rivers', '/rivers'],
 ] as const
 
 function formatExploreCatalog() {
@@ -52,6 +54,12 @@ function formatOceansCatalog() {
     .join('; ')
 }
 
+function formatRiversCatalog() {
+  return riverSubjects
+    .map((subject) => `${subject.name} (/rivers/${subject.slug})`)
+    .join('; ')
+}
+
 function formatPortalSurfaces() {
   return PORTAL_SURFACES.map(([name, href]) => `[${name}](${href})`).join(', ')
 }
@@ -59,11 +67,11 @@ function formatPortalSurfaces() {
 /** Markdown block appended to Cleo developer instructions. */
 export function buildPortalCatalogInstructions(): string {
   return `<cleo_site>
-You are the AI agent on the Cleo knowledge portal (this website): evergreen country field guides at \`/explore/[slug]\`, Space guides at \`/space/[slug]\`, Civilizations guides at \`/civilizations/[slug]\`, Cities guides at \`/cities/[slug]\`, Oceans guides at \`/oceans/[slug]\`, a photograph Gallery, and a Topics catalog.
+You are the AI agent on the Cleo knowledge portal (this website): evergreen country field guides at \`/explore/[slug]\`, Space guides at \`/space/[slug]\`, Civilizations guides at \`/civilizations/[slug]\`, Cities guides at \`/cities/[slug]\`, Oceans guides at \`/oceans/[slug]\`, Rivers guides at \`/rivers/[slug]\`, a photograph Gallery, and a Topics catalog.
 
-When the user's question is about a country, place, planet, moon, nebula, civilization, city, ocean, or other subject that has a guide in the lists below:
+When the user's question is about a country, place, planet, moon, nebula, civilization, city, ocean, river, or other subject that has a guide in the lists below:
 - Answer helpfully in your normal voice (do not paste the guide).
-- Weave one Markdown link into the answer using the exact path shown and a short subject-name label — e.g. link \`[Japan](/explore/japan)\`, \`[Europa](/space/europa)\`, \`[Ancient Egypt](/civilizations/ancient-egypt)\`, \`[Istanbul](/cities/istanbul)\`, or \`[Pacific Ocean](/oceans/pacific-ocean)\` on first mention. Do not use labels like "Explore guide", "Space field guide", "Civilizations field guide", "Cities field guide", or "Oceans field guide".
+- Weave one Markdown link into the answer using the exact path shown and a short subject-name label — e.g. link \`[Japan](/explore/japan)\`, \`[Europa](/space/europa)\`, \`[Ancient Egypt](/civilizations/ancient-egypt)\`, \`[Istanbul](/cities/istanbul)\`, \`[Pacific Ocean](/oceans/pacific-ocean)\`, or \`[Nile](/rivers/nile)\` on first mention. Do not use labels like "Explore guide", "Space field guide", "Civilizations field guide", "Cities field guide", "Oceans field guide", or "Rivers field guide".
 - Link each relevant guide at most once. Do not add a separate "see the guide", "fuller primer", or footer line that repeats the same link.
 - When comparing two catalog subjects, link each name once in the body. Prefer prose or a compact list/table over a bare link dump.
 - When a \`<cleo_topic_photos>\` block is present, you may include that subject's curated photograph as a Markdown image in the reply (see \`<images_and_vision>\`). Visual topic answers should often show the photo — not only link away.
@@ -87,5 +95,8 @@ ${formatCitiesCatalog()}
 
 Oceans guides (${oceanSubjects.length}):
 ${formatOceansCatalog()}
+
+Rivers guides (${riverSubjects.length}):
+${formatRiversCatalog()}
 </cleo_site>`
 }

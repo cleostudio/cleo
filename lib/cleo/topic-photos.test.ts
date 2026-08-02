@@ -122,11 +122,10 @@ describe('topic photos', () => {
 
   it('matches Civilizations guides by path', () => {
     const photos = matchTopicPhotosInText(
-      'Compare /civilizations/roman-empire with the Nile story.',
+      'Compare /civilizations/roman-empire with the Maya story.',
     )
-    expect(photos.map((photo) => photo.slug)).toEqual([
-      'roman-empire',
-      'roman-empire',
+    expect([...new Set(photos.map((photo) => photo.slug))].sort()).toEqual([
+      'maya',
       'roman-empire',
     ])
   })
@@ -170,6 +169,32 @@ describe('topic photos', () => {
     expect([...new Set(byPath.map((photo) => photo.slug))].sort()).toEqual([
       'atlantic-ocean',
       'southern-ocean',
+    ])
+  })
+
+  it('resolves and matches Rivers guides by name and path', () => {
+    const photos = resolveTopicPhotos([
+      { collection: 'rivers', slug: 'nile' },
+      { collection: 'rivers', slug: 'not-a-river' },
+    ])
+    expect(photos).toHaveLength(3)
+    expect(photos[0]).toMatchObject({
+      collection: 'rivers',
+      slug: 'nile',
+      name: 'Nile',
+      href: '/rivers/nile',
+      src: '/images/rivers/nile/w1280.jpg',
+    })
+
+    const byName = matchTopicPhotosInText('Orient me to the Nile')
+    expect(byName.every((photo) => photo.slug === 'nile')).toBe(true)
+
+    const byPath = matchTopicPhotosInText(
+      'Compare /rivers/amazon with the Yangtze.',
+    )
+    expect([...new Set(byPath.map((photo) => photo.slug))].sort()).toEqual([
+      'amazon',
+      'yangtze',
     ])
   })
 

@@ -4,11 +4,12 @@ import { citySubjects } from './cities'
 import { civilizationSubjects } from './civilizations'
 import { countries } from './countries'
 import { oceanSubjects } from './oceans'
+import { riverSubjects } from './rivers'
 import { spaceSubjects } from './space'
 import { allTopics } from './topics'
 
 describe('topics catalog', () => {
-  it('lists countries, space, civilizations, cities, and oceans as knowledge collections', () => {
+  it('lists countries, space, civilizations, cities, oceans, and rivers as knowledge collections', () => {
     const topics = allTopics()
 
     expect(topics.map((topic) => topic.slug)).toEqual([
@@ -17,6 +18,7 @@ describe('topics catalog', () => {
       'civilizations',
       'cities',
       'oceans',
+      'rivers',
     ])
     expect(topics[0]).toMatchObject({
       href: '/explore',
@@ -42,6 +44,11 @@ describe('topics catalog', () => {
       href: '/oceans',
       secondaryHref: '/gallery',
       tally: `${oceanSubjects.length} guides`,
+    })
+    expect(topics[5]).toMatchObject({
+      href: '/rivers',
+      secondaryHref: '/gallery',
+      tally: `${riverSubjects.length} guides`,
     })
   })
 })
