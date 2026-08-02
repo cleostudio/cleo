@@ -4,9 +4,10 @@ import { afterEach, describe, expect, it } from 'vitest'
 
 import {
   cleoAskHref,
+  clearCleoPromptFromLocation,
   MAX_CLEO_PROMPT_PARAM_LENGTH,
   parseCleoPromptParam,
-  takeCleoPromptFromLocation,
+  readCleoPromptFromLocation,
 } from './ask-link'
 
 describe('cleoAskHref', () => {
@@ -57,33 +58,60 @@ describe('parseCleoPromptParam', () => {
   })
 })
 
-describe('takeCleoPromptFromLocation', () => {
+describe('readCleoPromptFromLocation', () => {
   afterEach(() => {
     window.history.replaceState(null, '', '/')
   })
 
-  it('reads the handoff prompt and strips it from the URL', () => {
+  it('reads the handoff prompt without consuming it', () => {
     window.history.replaceState(null, '', cleoAskHref('Orient me to Japan'))
 
-    expect(takeCleoPromptFromLocation()).toBe('Orient me to Japan')
+    expect(readCleoPromptFromLocation()).toBe('Orient me to Japan')
+    // The URL stays the carrier until a turn claims the question, so a chat
+    // shell that re-runs its arrival pass still finds it.
+    expect(readCleoPromptFromLocation()).toBe('Orient me to Japan')
+    expect(window.location.search).toBe('?q=Orient%20me%20to%20Japan')
+  })
+
+  it('leaves an ordinary visit alone', () => {
+    window.history.replaceState(null, '', '/cleo')
+    expect(readCleoPromptFromLocation()).toBeNull()
+    expect(window.location.pathname).toBe('/cleo')
+  })
+})
+
+describe('clearCleoPromptFromLocation', () => {
+  afterEach(() => {
+    window.history.replaceState(null, '', '/')
+  })
+
+  it('drops the parameter so a reload does not re-run the turn', () => {
+    window.history.replaceState(null, '', cleoAskHref('Orient me to Japan'))
+
+    clearCleoPromptFromLocation()
+
     expect(window.location.pathname).toBe('/cleo')
     expect(window.location.search).toBe('')
-    // A reload must not re-run the turn.
-    expect(takeCleoPromptFromLocation()).toBeNull()
+    expect(readCleoPromptFromLocation()).toBeNull()
   })
 
   it('keeps the rest of the URL intact', () => {
     window.history.replaceState(null, '', '/cleo?q=Mars&ref=home#answer')
 
-    expect(takeCleoPromptFromLocation()).toBe('Mars')
+    clearCleoPromptFromLocation()
+
     expect(`${window.location.search}${window.location.hash}`).toBe(
       '?ref=home#answer',
     )
   })
 
-  it('leaves an ordinary visit alone', () => {
-    window.history.replaceState(null, '', '/cleo')
-    expect(takeCleoPromptFromLocation()).toBeNull()
-    expect(window.location.pathname).toBe('/cleo')
+  it('leaves a URL without a handoff untouched', () => {
+    window.history.replaceState(null, '', '/cleo#answer')
+
+    clearCleoPromptFromLocation()
+
+    expect(`${window.location.pathname}${window.location.hash}`).toBe(
+      '/cleo#answer',
+    )
   })
 })

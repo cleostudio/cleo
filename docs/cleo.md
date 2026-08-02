@@ -77,10 +77,26 @@ Without `OPENAI_API_KEY`, the route returns HTTP 503.
 
 ## `/cleo?q=…` handoff
 
-Only external entry into a pre-filled turn. Max 1,000 characters. `AskForm`
-consumes it once on mount (or via `initialPrompt`), asks, then strips the
-parameter so `/cleo` stays prerenderable and reload does not re-run the turn.
-Built by `lib/cleo/ask-link.ts`.
+Only external entry into a pre-filled turn. Max 1,000 characters. Built by
+`lib/cleo/ask-link.ts`, which reads `location` directly rather than
+`useSearchParams` so `/cleo` stays prerenderable.
+
+The URL carries the question until a turn claims it:
+
+- `AskForm` re-reads `readCleoPromptFromLocation()` on every arrival pass, not
+  only first mount. Cache Components park recently visited trees in a hidden
+  React `<Activity>`, so the second Ask Cleo handoff of a session lands on the
+  chat shell that answered the first — a question latched to mount would be
+  dropped, and the parameter left in the URL.
+- `clearCleoPromptFromLocation()` runs from `sendTurn`, once the turn is
+  committed to. A cancelled tick, a teardown, or a Strict Mode remount therefore
+  leaves the handoff intact for the next pass instead of destroying it.
+- A handoff continues the visible transcript; it does not clear it.
+- `initialPrompt` is the same handoff for callers that already hold the
+  question; the shell records the value it asked instead of using the URL.
+
+Leaving `/cleo` aborts an in-flight turn, but its bookkeeping still lands so a
+re-activated shell is never stuck mid-send.
 
 ## Account name
 

@@ -18,7 +18,10 @@ import { Markdown } from "~/components/cleo/markdown"
 import { Button } from "~/components/cleo/ui/button"
 import { Input } from "~/components/cleo/ui/input"
 import { ZoomableMessageImage } from "~/components/cleo/zoomable-message-image"
-import { takeCleoPromptFromLocation } from "~/lib/cleo/ask-link"
+import {
+  clearCleoPromptFromLocation,
+  readCleoPromptFromLocation,
+} from "~/lib/cleo/ask-link"
 import {
   filesToMessageImages,
   IMAGE_ACCEPT,
@@ -70,6 +73,8 @@ type TurnRequest = {
   clearPriorIncomplete?: boolean
   hideUserMessage?: boolean
   history: Message[]
+  /** Runs once the turn is committed to, so an arrival can release its handoff. */
+  onStart?: () => void
   question: string
   userImages: MessageImage[]
 }
@@ -286,7 +291,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const messagesRef = useRef<Message[]>([])
   const isSubmittingRef = useRef(false)
-  const mountedRef = useRef(true)
   const stickToBottomRef = useRef(true)
   const lastScrollYRef = useRef(0)
 
@@ -353,10 +357,12 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     }
   }, [hasMessages, isSubmitting])
 
+  // Leaving Cleo drops the turn rather than streaming an answer nobody is
+  // reading. The router may keep this shell alive in its bfcache, so the turn's
+  // own bookkeeping still has to land — otherwise coming back finds a prompt
+  // dock frozen mid-send.
   useEffect(() => {
-    mountedRef.current = true
     return () => {
-      mountedRef.current = false
       abortControllerRef.current?.abort()
     }
   }, [])
@@ -416,32 +422,46 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const sendTurnRef = useRef<(request: TurnRequest) => Promise<void>>(
     async () => undefined
   )
-  // undefined: not read yet · string: waiting to be asked · null: done or none.
-  const arrivalQuestionRef = useRef<string | null | undefined>(undefined)
+  // The `initialPrompt` this shell has already asked. The URL is its own record
+  // for `/cleo?q=…` arrivals; a prop needs one kept here.
+  const askedPropRef = useRef<string | undefined>(undefined)
 
   // A handoff from elsewhere on the site — the homepage search bar, or a shared
   // `/cleo?q=…` link — asks its question once, on arrival.
   //
-  // The question is read from the URL on the first pass and held here, because
-  // reading it also strips the parameter. Sending waits a tick and cancels on
-  // cleanup, so a remount cancels the attempt outright instead of aborting a
-  // request that is already in flight.
+  // This runs on mount and every time the router re-activates the chat shell:
+  // with Cache Components, Next keeps recently visited trees alive in a hidden
+  // <Activity>, so a second Ask Cleo handoff lands on this same instance rather
+  // than a fresh one. The question therefore cannot be latched to first mount —
+  // it is re-read from the URL on every pass, and stays there until `sendTurn`
+  // commits to the turn. A cancelled tick, a teardown, or a Strict Mode remount
+  // leaves the handoff intact for the next pass instead of destroying it.
+  //
+  // Sending waits a tick and cancels on cleanup, so a remount cancels the
+  // attempt outright instead of aborting a request that is already in flight.
+  // `isSubmitting` is a dependency so a handoff that arrives while an earlier
+  // turn is still winding down is retried once that turn settles.
   useEffect(() => {
-    if (arrivalQuestionRef.current === undefined) {
-      arrivalQuestionRef.current =
-        (initialPrompt ?? takeCleoPromptFromLocation())?.trim() || null
+    const question = (initialPrompt ?? readCleoPromptFromLocation())?.trim()
+    if (!question) return
+    if (initialPrompt !== undefined && askedPropRef.current === initialPrompt) {
+      return
     }
 
-    const question = arrivalQuestionRef.current
-    if (!question) return
-
     const timer = window.setTimeout(() => {
-      arrivalQuestionRef.current = null
-      void sendTurnRef.current({ history: [], question, userImages: [] })
+      void sendTurnRef.current({
+        history: messagesRef.current,
+        onStart: () => {
+          if (initialPrompt === undefined) clearCleoPromptFromLocation()
+          else askedPropRef.current = initialPrompt
+        },
+        question,
+        userImages: [],
+      })
     }, 0)
 
     return () => window.clearTimeout(timer)
-  }, [initialPrompt])
+  }, [initialPrompt, isSubmitting])
 
   function handleStop() {
     abortControllerRef.current?.abort()
@@ -527,12 +547,14 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
 
   async function sendTurn({
     history,
+    onStart,
     question,
     userImages,
     hideUserMessage = false,
     clearPriorIncomplete = false,
   }: TurnRequest) {
     if (isSubmittingRef.current) return
+    onStart?.()
 
     const userMessage: Message = {
       content: question,
@@ -585,7 +607,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
 
     const flushPending = () => {
       rafHandle = null
-      if (!mountedRef.current) return
 
       const textChunk = pendingText
       const activitiesChunk = pendingActivities
@@ -774,7 +795,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
         )
       }
 
-      if (clearPriorIncomplete && mountedRef.current) {
+      if (clearPriorIncomplete) {
         setMessages((currentMessages) =>
           currentMessages.map((message) =>
             message.id !== assistantMessage.id && message.incomplete
@@ -788,12 +809,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
 
       const aborted =
         isAbortError(requestError) || abortController.signal.aborted
-
-      // Ignore late aborts from an unmounted tree so a remounted empty shell
-      // is not the only surviving signal of a failed turn.
-      if (!mountedRef.current) {
-        return
-      }
 
       const hadVisibleDraft =
         Boolean(output.trim()) || receivedImages || receivedActivities
@@ -839,9 +854,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
         abortControllerRef.current = null
       }
       isSubmittingRef.current = false
-      if (mountedRef.current) {
-        setIsSubmitting(false)
-      }
+      setIsSubmitting(false)
     }
   }
 

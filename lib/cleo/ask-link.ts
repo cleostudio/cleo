@@ -1,7 +1,8 @@
 /**
  * The `/cleo?q=…` handoff. Anywhere on the site can hand Cleo a question by
- * linking to this route; `components/cleo/ask-form.tsx` sends it once on mount
- * and strips the parameter so a reload does not re-run the turn.
+ * linking to this route; `components/cleo/ask-form.tsx` reads the question on
+ * arrival, asks it, and only then strips the parameter so a reload does not
+ * re-run the turn.
  *
  * Client-safe: no catalog, model, or Node imports.
  */
@@ -39,24 +40,37 @@ export function parseCleoPromptParam(search: string): string | null {
 }
 
 /**
- * Take the handoff prompt from the current URL and drop the parameter, so the
- * transcript owns the question from then on and a reload starts clean. Reading
- * `location` directly (rather than `useSearchParams`) keeps `/cleo` prerendered
- * instead of bailing the whole chat shell out to client-side rendering.
+ * The handoff prompt waiting in the current URL, or null when there is none.
+ *
+ * Reading is deliberately free of side effects: the URL stays the carrier until
+ * a turn actually starts, so a chat shell that is torn down or re-activated
+ * before the question is sent can still find it. Reading `location` directly
+ * (rather than `useSearchParams`) keeps `/cleo` prerendered instead of bailing
+ * the whole chat shell out to client-side rendering.
  */
-export function takeCleoPromptFromLocation(): string | null {
+export function readCleoPromptFromLocation(): string | null {
   if (typeof window === 'undefined') return null
+  return parseCleoPromptParam(window.location.search)
+}
 
-  const prompt = parseCleoPromptParam(window.location.search)
-  if (!prompt) return null
+/**
+ * Drop the handoff parameter once the transcript owns the question, so a reload
+ * starts clean and a later visit to `/cleo` does not re-run the turn.
+ *
+ * The existing history state is passed straight back through because it carries
+ * the router's own marker, which is what keeps Next.js from reading this edit as
+ * a navigation. The parameter is Cleo's alone and means nothing to routing.
+ */
+export function clearCleoPromptFromLocation(): void {
+  if (typeof window === 'undefined') return
 
   const url = new URL(window.location.href)
+  if (!url.searchParams.has(CLEO_PROMPT_PARAM)) return
+
   url.searchParams.delete(CLEO_PROMPT_PARAM)
   window.history.replaceState(
     window.history.state,
     '',
     `${url.pathname}${url.search}${url.hash}`,
   )
-
-  return prompt
 }
