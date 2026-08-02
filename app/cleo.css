@@ -583,6 +583,11 @@ html[data-cleo-route] .site-chrome {
   padding-bottom: 0;
 }
 
+/* Keep the site dock aligned with the prompt column beside the history rail. */
+html[data-cleo-route] .dock {
+  left: calc(50% + (var(--cleo-sidebar-offset) / 2));
+}
+
 html[data-cleo-route] .site-chrome-main {
   /* Cleo owns its gutters via --app-column-gutter; don't double-inset. */
   padding-top: 0;
