@@ -493,6 +493,136 @@
       "license": "Public Domain (NASA)"
     }
   ],
+  "callisto": [
+    {
+      "featureName": "Global Callisto in color",
+      "nasaId": "PIA03456",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA03456/PIA03456~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA03456",
+      "credit": "NASA/JPL/DLR",
+      "license": "Public Domain (NASA)"
+    },
+    {
+      "featureName": "Callisto from Voyager and Galileo",
+      "nasaId": "PIA01055",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA01055/PIA01055~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA01055",
+      "credit": "NASA/JPL/DLR",
+      "license": "Public Domain (NASA)"
+    },
+    {
+      "featureName": "Valhalla impact structure",
+      "nasaId": "PIA00516",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA00516/PIA00516~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00516",
+      "credit": "NASA/JPL/ASU",
+      "license": "Public Domain (NASA)"
+    }
+  ],
+  "triton": [
+    {
+      "featureName": "Voyager color image of Triton",
+      "nasaId": "PIA02246",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA02246/PIA02246~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA02246",
+      "credit": "NASA/JPL",
+      "license": "Public Domain (NASA)"
+    },
+    {
+      "featureName": "Complex geologic history of Triton",
+      "nasaId": "PIA01538",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA01538/PIA01538~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA01538",
+      "credit": "NASA/JPL",
+      "license": "Public Domain (NASA)"
+    },
+    {
+      "featureName": "Triton cantaloupe terrain",
+      "nasaId": "PIA12186",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA12186/PIA12186~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA12186",
+      "credit": "NASA/JPL/USRA/LPI",
+      "license": "Public Domain (NASA)"
+    }
+  ],
+  "charon": [
+    {
+      "featureName": "Charon's surface in detail",
+      "nasaId": "PIA21860",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA21860/PIA21860~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA21860",
+      "credit": "NASA/JHUAPL/SwRI",
+      "license": "Public Domain (NASA)"
+    },
+    {
+      "featureName": "Features on Charon",
+      "nasaId": "PIA19864",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA19864/PIA19864~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA19864",
+      "credit": "NASA/JHUAPL/SwRI",
+      "license": "Public Domain (NASA)"
+    },
+    {
+      "featureName": "Charon in Plutoshine",
+      "nasaId": "PIA11708",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA11708/PIA11708~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA11708",
+      "credit": "NASA/JHUAPL/SwRI",
+      "license": "Public Domain (NASA)"
+    }
+  ],
+  "miranda": [
+    {
+      "featureName": "Miranda icy face",
+      "nasaId": "PIA18185",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA18185/PIA18185~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA18185",
+      "credit": "NASA/JPL-Caltech",
+      "license": "Public Domain (NASA)"
+    },
+    {
+      "featureName": "Miranda highest-resolution color",
+      "nasaId": "PIA00042",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA00042/PIA00042~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00042",
+      "credit": "NASA/JPL",
+      "license": "Public Domain (NASA)"
+    },
+    {
+      "featureName": "Miranda large fault",
+      "nasaId": "PIA00044",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA00044/PIA00044~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00044",
+      "credit": "NASA/JPL",
+      "license": "Public Domain (NASA)"
+    }
+  ],
+  "iapetus": [
+    {
+      "featureName": "Global view of Iapetus dichotomy",
+      "nasaId": "PIA11690",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA11690/PIA11690~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA11690",
+      "credit": "NASA/JPL/Space Science Institute",
+      "license": "Public Domain (NASA)"
+    },
+    {
+      "featureName": "Towering peaks of Iapetus",
+      "nasaId": "PIA08379",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA08379/PIA08379~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA08379",
+      "credit": "NASA/JPL/Space Science Institute",
+      "license": "Public Domain (NASA)"
+    },
+    {
+      "featureName": "Encountering Iapetus",
+      "nasaId": "PIA06166",
+      "downloadUrl": "https://images-assets.nasa.gov/image/PIA06166/PIA06166~orig.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/PIA06166",
+      "credit": "NASA/JPL/Space Science Institute",
+      "license": "Public Domain (NASA)"
+    }
+  ],
   "iss": [
     {
       "featureName": "ISS flyaround",

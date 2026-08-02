@@ -917,6 +917,241 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     ],
   },
   {
+    slug: 'callisto',
+    code: 'CAL',
+    name: 'Callisto',
+    category: 'Moons',
+    subtitle: 'Galilean moon · Jupiter',
+    about:
+      'Callisto is the outermost Galilean moon of Jupiter and the most heavily cratered large body in the Solar System — an icy sphere whose surface records billions of years of impacts with little later resurfacing. Beneath that battered crust, magnetic and gravity data suggest a salty subsurface ocean sandwiched in ice; above it, Valhalla and other multi-ring basins mark enormous ancient collisions. Orientation completes the Galilean quartet: farther and colder than Io, Europa, and Ganymede, Callisto sits outside Jupiter’s strongest radiation belts and preserves a quieter geologic archive. Galileo’s cameras mapped dark, dusty terrains and bright ice scars; the durable story is deep time on an ice moon, not a single basin close-up. This primer stays with that cratered, ocean-bearing picture.',
+    facts: {
+      kind: 'Moon',
+      system: 'Jupiter',
+      meanDistance: '1,882,700 km from Jupiter',
+      radiusKm: 2410.3,
+      orbitalPeriod: '16.69 Earth days',
+      rotationPeriod: '16.69 Earth days (tidally locked)',
+      companions: 'Jupiter; outermost Galilean moon',
+    },
+    features: [
+      {
+        name: 'Valhalla basin',
+        description:
+          'A vast multi-ring impact structure — one of the largest and oldest scars on any icy moon.',
+      },
+      {
+        name: 'Cratered icy crust',
+        description:
+          'A densely cratered surface with little resurfacing, preserving a long impact record.',
+      },
+      {
+        name: 'Subsurface ocean',
+        description:
+          'Evidence for a salty liquid layer within the ice shell, inferred from magnetic and gravity data.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Callisto',
+        url: 'https://science.nasa.gov/jupiter/moons/callisto/',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Galileo mission',
+        url: 'https://science.nasa.gov/mission/galileo/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'triton',
+    code: 'TRI',
+    name: 'Triton',
+    category: 'Moons',
+    subtitle: 'Natural satellite · Neptune',
+    about:
+      'Triton is Neptune’s largest moon and one of the oddest large satellites: it orbits backward relative to Neptune’s spin, likely a captured Kuiper Belt world now locked in a decaying path. Voyager 2 found a young, cold surface of nitrogen ice, dark streaks from polar geysers, and “cantaloupe” terrain of interlocking cells — signs of internal heat and past cryovolcanism. Orientation is ice-giant companion as former dwarf-planet cousin: roughly as large as Pluto, with a thin atmosphere and seasons driven by extreme axial tilt relative to the Sun. The durable story is capture, activity, and a surface still rewriting itself at the edge of the planetary system. This primer stays with that Voyager-era portrait rather than speculative mission schedules.',
+    facts: {
+      kind: 'Moon',
+      system: 'Neptune',
+      meanDistance: '354,759 km from Neptune',
+      radiusKm: 1353.4,
+      orbitalPeriod: '5.88 Earth days (retrograde)',
+      rotationPeriod: '5.88 Earth days (tidally locked)',
+      companions: 'Neptune; likely captured Kuiper Belt object',
+    },
+    features: [
+      {
+        name: 'Retrograde orbit',
+        description:
+          'Triton circles Neptune opposite the planet’s rotation — strong evidence of capture.',
+      },
+      {
+        name: 'Nitrogen geysers',
+        description:
+          'Dark polar plumes and streaks where subsurface nitrogen vents into the thin atmosphere.',
+      },
+      {
+        name: 'Cantaloupe terrain',
+        description:
+          'A unique cellular landscape of ridges and pits unlike anything seen on other icy moons.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Triton',
+        url: 'https://science.nasa.gov/neptune/moons/triton/',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Voyager mission',
+        url: 'https://science.nasa.gov/mission/voyager/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'charon',
+    code: 'CHA',
+    name: 'Charon',
+    category: 'Moons',
+    subtitle: 'Natural satellite · Pluto',
+    about:
+      'Charon is Pluto’s giant companion — large enough that the two worlds orbit a barycenter outside Pluto, forming a true binary dwarf-planet system. New Horizons revealed a varied icy surface: a reddish polar cap stained by gases escaped from Pluto, canyon systems, and smoother plains among older cratered highlands. Orientation is partnership at the edge of the classical planets: Charon is about half Pluto’s diameter, tidally locked face-to-face, sharing a 6.4-day dance. The durable story is how a captured or giant-impact sibling shaped both worlds’ geology and atmospheres. This primer stays with that binary architecture and New Horizons landscape, not with informal feature-name debates.',
+    facts: {
+      kind: 'Moon',
+      system: 'Pluto',
+      meanDistance: '19,591 km from Pluto',
+      radiusKm: 606,
+      orbitalPeriod: '6.39 Earth days',
+      rotationPeriod: '6.39 Earth days (tidally locked)',
+      companions: 'Pluto; barycenter outside Pluto',
+    },
+    features: [
+      {
+        name: 'Binary orbit',
+        description:
+          'Pluto and Charon orbit a shared barycenter outside Pluto — a double dwarf-planet system.',
+      },
+      {
+        name: 'Red north polar cap',
+        description:
+          'A tholin-stained polar region fed by material that escaped Pluto’s atmosphere.',
+      },
+      {
+        name: 'Canyon and plains terrain',
+        description:
+          'Deep fractures and smoother icy plains amid older cratered highlands.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Charon',
+        url: 'https://science.nasa.gov/dwarf-planets/pluto/moons/charon/',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA New Horizons mission',
+        url: 'https://science.nasa.gov/mission/new-horizons/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'miranda',
+    code: 'MIR',
+    name: 'Miranda',
+    category: 'Moons',
+    subtitle: 'Natural satellite · Uranus',
+    about:
+      'Miranda is a small icy moon of Uranus whose surface looks stitched together from mismatched geologic provinces — coronae of bright, chevron-patterned terrain beside ancient cratered plains, and cliffs so high they would dwarf Earth’s tallest walls. Voyager 2’s brief flyby in 1986 remains our only close look; it caught Verona Rupes and other scarps that hint at catastrophic upheaval, incomplete differentiation, or extreme tidal heating in the past. Orientation is ice-giant moon as puzzle: only a few hundred kilometers across, yet among the most geologically surprising worlds visited. The durable story is fractured history written in ice, not a complete global map. This primer stays with that Voyager portrait of extremes.',
+    facts: {
+      kind: 'Moon',
+      system: 'Uranus',
+      meanDistance: '129,900 km from Uranus',
+      radiusKm: 235.8,
+      orbitalPeriod: '1.41 Earth days',
+      rotationPeriod: '1.41 Earth days (tidally locked)',
+      companions: 'Uranus; innermost of the five major Uranian moons',
+    },
+    features: [
+      {
+        name: 'Verona Rupes',
+        description:
+          'A towering fault scarp — among the tallest known cliffs in the Solar System.',
+      },
+      {
+        name: 'Coronae',
+        description:
+          'Odd, ovoid provinces of ridges and bright ice that interrupt older cratered terrain.',
+      },
+      {
+        name: 'Patchwork geology',
+        description:
+          'Sharply contrasting surface units that suggest extreme past upheaval or incomplete mixing.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Miranda',
+        url: 'https://science.nasa.gov/uranus/moons/miranda/',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Voyager mission',
+        url: 'https://science.nasa.gov/mission/voyager/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'iapetus',
+    code: 'IAP',
+    name: 'Iapetus',
+    category: 'Moons',
+    subtitle: 'Natural satellite · Saturn',
+    about:
+      'Iapetus is Saturn’s two-faced moon: one hemisphere coated in dark, reddish material, the other bright water ice, with a towering equatorial ridge that makes the world look walnut-shaped in silhouette. Cassini mapped the dichotomy and the ridge’s peaks, linking the dark side to dust swept from outer retrograde moons and thermal effects that keep bright ice from spreading. Orientation is Saturn system oddity with a clear story — color contrast plus a mountain belt circling the equator — rather than a blank cratered ball. The durable facts are the yin-yang surface and the ridge’s scale; the open questions are exactly how the ridge formed. This primer stays with that Cassini landscape.',
+    facts: {
+      kind: 'Moon',
+      system: 'Saturn',
+      meanDistance: '3,560,820 km from Saturn',
+      radiusKm: 734.5,
+      orbitalPeriod: '79.32 Earth days',
+      rotationPeriod: '79.32 Earth days (tidally locked)',
+      companions: 'Saturn; distant regular satellite',
+    },
+    features: [
+      {
+        name: 'Two-tone dichotomy',
+        description:
+          'A dark leading hemisphere and a bright trailing one — the starkest color contrast among large moons.',
+      },
+      {
+        name: 'Equatorial ridge',
+        description:
+          'A mountain belt running much of the equator, giving Iapetus a distinctive walnut profile.',
+      },
+      {
+        name: 'Distant Saturn orbit',
+        description:
+          'A long, slow path well outside Titan — cold, cratered, and shaped by outer-system dust.',
+      },
+    ],
+    sources: [
+      {
+        label: 'NASA — Iapetus',
+        url: 'https://science.nasa.gov/saturn/moons/iapetus/',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Cassini mission',
+        url: 'https://science.nasa.gov/mission/cassini/',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
     slug: 'milky-way',
     code: 'MWY',
     name: 'Milky Way',

@@ -2,7 +2,7 @@
 
 Space guides at `/space` and `/space/[slug]`. Catalog in `lib/space.ts`:
 Solar System, Moons, Deep Space (planets, major moons, ISS, galaxies, nebulae;
-twenty-eight guides). Topics catalog lists Space alongside Countries
+thirty-three guides). Topics catalog lists Space alongside Countries
 (`lib/topics.ts`).
 
 ## Map
