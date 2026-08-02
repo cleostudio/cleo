@@ -1,0 +1,143 @@
+"use client"
+
+import { PanelLeftClose, PanelLeftOpen, SquarePen, Trash2, X } from "lucide-react"
+
+import { Button } from "~/components/cleo/ui/button"
+import { ScrollAreaY } from "~/components/ui/scroll-area"
+import type { CleoThreadSummary } from "~/lib/cleo/threads"
+import { cn } from "~/lib/utils"
+
+type CleoSidebarProps = {
+  activeThreadId: string | null
+  mobileOpen: boolean
+  onCloseMobile: () => void
+  onDeleteThread: (threadId: string) => void
+  onNewChat: () => void
+  onSelectThread: (threadId: string) => void
+  threads: readonly CleoThreadSummary[]
+}
+
+export function CleoSidebar({
+  activeThreadId,
+  mobileOpen,
+  onCloseMobile,
+  onDeleteThread,
+  onNewChat,
+  onSelectThread,
+  threads,
+}: CleoSidebarProps) {
+  return (
+    <>
+      <div
+        aria-hidden={!mobileOpen}
+        className="cleo-sidebar-backdrop"
+        data-open={mobileOpen || undefined}
+        onClick={onCloseMobile}
+      />
+      <aside
+        aria-label="Chat history"
+        className="cleo-sidebar"
+        data-open={mobileOpen || undefined}
+        id="cleo-sidebar"
+      >
+        <div className="cleo-sidebar-header">
+          <Button
+            className="cleo-sidebar-new-chat"
+            onClick={() => {
+              onNewChat()
+              onCloseMobile()
+            }}
+            type="button"
+            variant="outline"
+          >
+            <SquarePen aria-hidden="true" data-icon="inline-start" />
+            New chat
+          </Button>
+          <Button
+            aria-label="Close sidebar"
+            className="cleo-sidebar-close-mobile"
+            onClick={onCloseMobile}
+            size="icon-sm"
+            type="button"
+            variant="ghost"
+          >
+            <X aria-hidden="true" />
+          </Button>
+        </div>
+
+        <ScrollAreaY className="cleo-sidebar-scroll">
+          {threads.length === 0 ? (
+            <p className="cleo-sidebar-empty">No chats yet</p>
+          ) : (
+            <ul className="cleo-sidebar-list">
+              {threads.map((thread) => {
+                const isActive = thread.id === activeThreadId
+                return (
+                  <li key={thread.id}>
+                    <div
+                      className={cn(
+                        "cleo-sidebar-thread",
+                        isActive && "cleo-sidebar-thread-active",
+                      )}
+                    >
+                      <button
+                        aria-current={isActive ? "true" : undefined}
+                        className="cleo-sidebar-thread-button"
+                        onClick={() => {
+                          onSelectThread(thread.id)
+                          onCloseMobile()
+                        }}
+                        type="button"
+                      >
+                        <span className="cleo-sidebar-thread-title">
+                          {thread.title}
+                        </span>
+                      </button>
+                      <button
+                        aria-label={`Delete "${thread.title}"`}
+                        className="cleo-sidebar-thread-delete"
+                        onClick={() => onDeleteThread(thread.id)}
+                        type="button"
+                      >
+                        <Trash2 aria-hidden="true" className="size-3.5" />
+                      </button>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+        </ScrollAreaY>
+      </aside>
+    </>
+  )
+}
+
+type CleoSidebarToggleProps = {
+  mobileOpen: boolean
+  onToggle: () => void
+}
+
+export function CleoSidebarToggle({
+  mobileOpen,
+  onToggle,
+}: CleoSidebarToggleProps) {
+  return (
+    <Button
+      aria-controls="cleo-sidebar"
+      aria-expanded={mobileOpen}
+      aria-label={mobileOpen ? "Close chat history" : "Open chat history"}
+      className="cleo-sidebar-toggle"
+      onClick={onToggle}
+      size="icon-sm"
+      type="button"
+      variant="ghost"
+    >
+      {mobileOpen ? (
+        <PanelLeftClose aria-hidden="true" />
+      ) : (
+        <PanelLeftOpen aria-hidden="true" />
+      )}
+    </Button>
+  )
+}

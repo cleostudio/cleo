@@ -26,6 +26,7 @@ vi.mock('./zoomable-message-image', () => ({
 
 import { writeCachedUserLocation } from '~/lib/cleo/location-cache'
 import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
+import { readThreadsStore, upsertThread } from '~/lib/cleo/threads'
 
 import { AskForm } from './ask-form'
 
@@ -61,8 +62,15 @@ function mockPermissions(state: PermissionState) {
   })
 }
 
+class ResizeObserverStub {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+
 beforeEach(() => {
   window.localStorage.clear()
+  vi.stubGlobal('ResizeObserver', ResizeObserverStub)
   originalScrollIntoView ??= Object.getOwnPropertyDescriptor(
     HTMLElement.prototype,
     'scrollIntoView',
@@ -353,34 +361,35 @@ describe('AskForm location context', () => {
   })
 })
 
-describe('AskForm arrivals', () => {
-  /** Answers on the next tick, and honours the abort signal like `fetch` does. */
-  function stubStream(text: string) {
-    const fetchMock = vi.fn<
-      (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
-    >()
-    fetchMock.mockImplementation(
-      (_input, init) =>
-        new Promise((resolve, reject) => {
-          const fail = () => reject(new DOMException('Aborted', 'AbortError'))
-          if (init?.signal?.aborted) return fail()
-          init?.signal?.addEventListener('abort', fail)
-          setTimeout(
-            () =>
-              resolve(
-                new Response(`${JSON.stringify({ type: 'text', delta: text })}\n`),
-              ),
-            0,
-          )
-        }),
-    )
-    vi.stubGlobal('fetch', fetchMock)
-    return fetchMock
-  }
+/** Answers on the next tick, and honours the abort signal like `fetch` does. */
+function stubStream(text: string) {
+  const fetchMock = vi.fn<
+    (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
+  >()
+  fetchMock.mockImplementation(
+    (_input, init) =>
+      new Promise((resolve, reject) => {
+        const fail = () => reject(new DOMException('Aborted', 'AbortError'))
+        if (init?.signal?.aborted) return fail()
+        init?.signal?.addEventListener('abort', fail)
+        setTimeout(
+          () =>
+            resolve(
+              new Response(`${JSON.stringify({ type: 'text', delta: text })}\n`),
+            ),
+          0,
+        )
+      }),
+  )
+  vi.stubGlobal('fetch', fetchMock)
+  return fetchMock
+}
 
-  function sentMessages(fetchMock: ReturnType<typeof stubStream>) {
-    return JSON.parse(fetchMock.mock.calls[0]?.[1]?.body as string).messages
-  }
+function sentMessages(fetchMock: ReturnType<typeof stubStream>) {
+  return JSON.parse(fetchMock.mock.calls[0]?.[1]?.body as string).messages
+}
+
+describe('AskForm arrivals', () => {
 
   it('waits for a question on an ordinary visit', async () => {
     const fetchMock = stubStream('Hi')
@@ -445,5 +454,79 @@ describe('AskForm arrivals', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1)
     expect(fetchMock.mock.calls[0]?.[1]?.signal?.aborted).toBe(false)
     expect(screen.getByRole('button', { name: 'Send' })).toBeTruthy()
+  })
+})
+
+describe('AskForm chat sidebar', () => {
+  it('lists a New chat control and persists a finished turn into history', async () => {
+    const fetchMock = stubStream('A cold desert world.')
+    render(<AskForm />)
+
+    expect(screen.getByRole('button', { name: 'New chat' })).toBeTruthy()
+    expect(screen.getByRole('complementary', { name: 'Chat history' })).toBeTruthy()
+
+    fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), {
+      target: { value: 'What is Mars like?' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    await waitFor(() => {
+      expect(screen.getByText('A cold desert world.')).toBeTruthy()
+    })
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole('button', { name: 'What is Mars like?' }),
+      ).toBeTruthy()
+    })
+    expect(readThreadsStore().threads[0]?.title).toBe('What is Mars like?')
+  })
+
+  it('restores the active thread from localStorage on mount', async () => {
+    upsertThread({
+      id: 'thread-restore-1',
+      nextMessageId: 3,
+      messages: [
+        { id: 1, role: 'user', content: 'Orient me to Japan' },
+        { id: 2, role: 'assistant', content: 'An archipelago in the Pacific.' },
+      ],
+    })
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(screen.getByText('An archipelago in the Pacific.')).toBeTruthy()
+      expect(document.querySelector('.user-message-text')?.textContent).toBe(
+        'Orient me to Japan',
+      )
+    })
+    expect(
+      screen
+        .getByRole('button', { name: 'Orient me to Japan' })
+        .getAttribute('aria-current'),
+    ).toBe('true')
+  })
+
+  it('starts a blank composer when New chat is pressed', async () => {
+    stubStream('Kept in history.')
+    render(<AskForm />)
+
+    fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), {
+      target: { value: 'First thread' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    await waitFor(() => {
+      expect(screen.getByText('Kept in history.')).toBeTruthy()
+    })
+
+    fireEvent.click(screen.getByRole('button', { name: 'New chat' }))
+
+    await waitFor(() => {
+      expect(screen.queryByText('Kept in history.')).toBeNull()
+      expect(document.querySelector('.user-message-text')).toBeNull()
+    })
+    expect(screen.getByRole('button', { name: 'First thread' })).toBeTruthy()
   })
 })

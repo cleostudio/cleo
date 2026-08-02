@@ -7,12 +7,21 @@
   --cleo-prompt-bottom-mobile: calc(4.5rem + env(safe-area-inset-bottom, 0px));
   /* Clearance under the last message: prompt bottom offset + prompt height + air */
   --cleo-content-pad: calc(var(--cleo-prompt-bottom) + 5rem);
+  /* Chat history rail — offset is 0 on small screens (drawer), width on desktop */
+  --cleo-sidebar-width: 16.5rem;
+  --cleo-sidebar-offset: 0px;
 }
 
 @media (max-width: 39.99rem) {
   :root {
     --app-column-gutter: 1rem;
     --cleo-content-pad: calc(var(--cleo-prompt-bottom-mobile) + 5rem);
+  }
+}
+
+@media (min-width: 40rem) {
+  html[data-cleo-route] {
+    --cleo-sidebar-offset: var(--cleo-sidebar-width);
   }
 }
 
@@ -496,11 +505,12 @@
   position: fixed;
   top: 50%;
   bottom: auto;
-  left: 50%;
+  /* Center in the main column (viewport minus sidebar offset). */
+  left: calc(50% + (var(--cleo-sidebar-offset) / 2));
   z-index: calc(var(--z-nav) - 1);
   display: flex;
   width: min(
-    calc(100% - (2 * var(--app-column-gutter))),
+    calc(100% - var(--cleo-sidebar-offset) - (2 * var(--app-column-gutter))),
     var(--app-column-max)
   );
   flex-direction: column;
@@ -758,4 +768,238 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
 
 .cleo-error-retry:hover:not(:disabled) {
   color: var(--destructive);
+}
+
+/* ── Chat history sidebar (Cleo only) ─────────────────────────────── */
+
+.cleo-layout {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  flex: 1;
+  flex-direction: column;
+}
+
+.cleo-main {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  flex: 1;
+  padding-left: var(--cleo-sidebar-offset);
+  box-sizing: border-box;
+}
+
+.cleo-sidebar-toggle {
+  position: fixed;
+  top: max(0.75rem, env(safe-area-inset-top, 0px));
+  left: max(0.65rem, env(safe-area-inset-left, 0px));
+  z-index: calc(var(--z-nav) - 1);
+  color: var(--muted-foreground);
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--border) 70%, transparent);
+}
+
+.cleo-sidebar-toggle:hover {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+@media (min-width: 40rem) {
+  .cleo-sidebar-toggle {
+    display: none;
+  }
+}
+
+.cleo-sidebar-backdrop {
+  display: none;
+}
+
+.cleo-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: calc(var(--z-nav) - 2);
+  display: flex;
+  width: var(--cleo-sidebar-width);
+  flex-direction: column;
+  gap: 0.75rem;
+  padding:
+    max(0.85rem, env(safe-area-inset-top, 0px))
+    0.75rem
+    max(5.5rem, calc(env(safe-area-inset-bottom, 0px) + 4.5rem))
+    max(0.75rem, env(safe-area-inset-left, 0px));
+  background: color-mix(in oklab, var(--background) 92%, var(--muted));
+  box-shadow: 1px 0 0 0 var(--border);
+  transform: translateX(-105%);
+  transition: transform 180ms var(--ease-swift);
+}
+
+.cleo-sidebar[data-open] {
+  transform: translateX(0);
+}
+
+.cleo-sidebar-backdrop[data-open] {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-nav) - 3);
+  background: color-mix(in oklab, var(--foreground) 18%, transparent);
+}
+
+@media (min-width: 40rem) {
+  .cleo-sidebar {
+    transform: none;
+    transition: none;
+  }
+
+  .cleo-sidebar-backdrop {
+    display: none !important;
+  }
+
+  .cleo-sidebar-close-mobile {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cleo-sidebar {
+    transition: none;
+  }
+}
+
+.cleo-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.cleo-sidebar-new-chat {
+  flex: 1;
+  justify-content: flex-start;
+  border-color: var(--border);
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  letter-spacing: -0.011em;
+}
+
+.cleo-sidebar-new-chat:hover {
+  background: var(--muted);
+}
+
+.cleo-sidebar-close-mobile {
+  color: var(--muted-foreground);
+}
+
+.cleo-sidebar-scroll {
+  min-height: 0;
+  flex: 1;
+}
+
+.cleo-sidebar-empty {
+  margin: 0.75rem 0.35rem;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  letter-spacing: -0.011em;
+}
+
+.cleo-sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cleo-sidebar-thread {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
+}
+
+.cleo-sidebar-thread:hover,
+.cleo-sidebar-thread:focus-within {
+  background: var(--hover);
+}
+
+.cleo-sidebar-thread-active {
+  background: var(--active);
+}
+
+.cleo-sidebar-thread-active:hover,
+.cleo-sidebar-thread-active:focus-within {
+  background: var(--active);
+}
+
+.cleo-sidebar-thread-button {
+  min-width: 0;
+  flex: 1;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0.55rem 2rem 0.55rem 0.55rem;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  letter-spacing: -0.011em;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cleo-sidebar-thread-button:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: -2px;
+  border-radius: 2px;
+}
+
+.cleo-sidebar-thread-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cleo-sidebar-thread-delete {
+  position: absolute;
+  top: 50%;
+  right: 0.2rem;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--muted-foreground);
+  opacity: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: color 150ms ease, opacity 150ms ease;
+}
+
+.cleo-sidebar-thread:hover .cleo-sidebar-thread-delete,
+.cleo-sidebar-thread:focus-within .cleo-sidebar-thread-delete {
+  opacity: 1;
+}
+
+.cleo-sidebar-thread-delete:hover {
+  color: var(--destructive);
+}
+
+.cleo-sidebar-thread-delete:focus-visible {
+  opacity: 1;
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 1px;
+}
+
+@media (pointer: coarse) {
+  .cleo-sidebar-thread-delete {
+    opacity: 0.85;
+  }
 }

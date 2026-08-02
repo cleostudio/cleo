@@ -8,6 +8,8 @@ Read this when changing `/cleo`, `POST /api/responses`, or anything under
 | Piece | Path |
 | --- | --- |
 | UI (messages, attachments, stream, Retry/Continue, `?q=` handoff) | `components/cleo/ask-form.tsx` |
+| Sidebar (New chat + thread history) | `components/cleo/sidebar.tsx` |
+| Thread persistence (localStorage) | `lib/cleo/threads.ts` |
 | Page shell | `app/_views/cleo-page.tsx` |
 | API route | `app/api/responses/route.ts` |
 | Voice + portal catalog | `lib/cleo/instructions.ts`, `lib/cleo/portal-catalog.ts` |
@@ -133,13 +135,19 @@ as opt-in location:
 
 ## Client-only state
 
-Conversation and encrypted reasoning items are browser-only and clear on
-reload. Location preference persists (localStorage for guests; account field
-when signed in). The last successful fix also persists while Location is on
+Conversations are browser-only. The Cleo sidebar lists prior threads and a
+**New chat** control; thread transcripts (including encrypted reasoning items
+for multi-turn replay under `store: false`) persist in `localStorage`
+(`cleo-threads`), capped at 40 threads. Empty drafts are not stored. Oversized
+`data:` image attachments are stripped on save so quota stays usable; curated
+`/images/atlas|space/…` paths remain. A `/cleo?q=…` handoff always starts a
+fresh thread.
+
+Location preference persists (localStorage for guests; account field when
+signed in). The last successful fix also persists while Location is on
 (`cleo-location-last`) so refresh can restore coordinates without
-re-prompting. Reasoning items keep multi-turn coherent under `store: false`.
-Signed-in account name is read per turn from the session on the server — it
-is not stored in the browser conversation transcript.
+re-prompting. Signed-in account name is read per turn from the session on the
+server — it is not stored in the browser conversation transcript.
 
 Account auth is Better Auth + Neon (see [`auth.md`](./auth.md)). No media
 library or AMA booking.
@@ -153,6 +161,8 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
 ## Verify
 
 - Multi-turn chat, reasoning activity, web search
+- Sidebar: New chat, switch threads, delete, restore after reload (desktop rail
+  + mobile drawer)
 - Image attach/vision, image generation, streaming, cancellation
 - Retry/Continue on incomplete/failed turns
 - Location preference (grant, deny, refresh/leave-and-return without

@@ -15,6 +15,7 @@ import { ThinkingOrb } from "thinking-orbs"
 import { ActivityPanel } from "~/components/cleo/activity-panel"
 import { LiquidGlass } from "~/components/cleo/liquid-glass"
 import { Markdown } from "~/components/cleo/markdown"
+import { CleoSidebar, CleoSidebarToggle } from "~/components/cleo/sidebar"
 import { Button } from "~/components/cleo/ui/button"
 import { Input } from "~/components/cleo/ui/input"
 import { ZoomableMessageImage } from "~/components/cleo/zoomable-message-image"
@@ -46,6 +47,17 @@ import {
   type MessageImage,
   parseStreamLine,
 } from "~/lib/cleo/stream"
+import {
+  createThreadId,
+  deleteThread,
+  getThread,
+  listThreadSummaries,
+  readThreadsStore,
+  setActiveThreadId as persistActiveThreadId,
+  subscribeToThreads,
+  type CleoThreadSummary,
+  upsertThread,
+} from "~/lib/cleo/threads"
 
 const MAX_INPUT_LENGTH = 10_000
 
@@ -279,12 +291,19 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [scrollTick, setScrollTick] = useState(0)
+  const [threadSummaries, setThreadSummaries] = useState<CleoThreadSummary[]>(
+    [],
+  )
+  const [activeThreadId, setActiveThreadId] = useState<string | null>(null)
+  const [sidebarMobileOpen, setSidebarMobileOpen] = useState(false)
+  const [threadsHydrated, setThreadsHydrated] = useState(false)
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const messagesRef = useRef<Message[]>([])
+  const activeThreadIdRef = useRef<string | null>(null)
   const isSubmittingRef = useRef(false)
   const mountedRef = useRef(true)
   const stickToBottomRef = useRef(true)
@@ -304,6 +323,73 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   useEffect(() => {
     messagesRef.current = messages
   }, [messages])
+
+  useEffect(() => {
+    activeThreadIdRef.current = activeThreadId
+  }, [activeThreadId])
+
+  // Restore browser-only thread history once. A `/cleo?q=…` handoff starts a
+  // fresh thread so the arrival ask does not append onto a restored chat.
+  useEffect(() => {
+    const store = readThreadsStore()
+    setThreadSummaries(listThreadSummaries(store))
+
+    const arrivalPending = Boolean(
+      (initialPrompt ?? new URLSearchParams(window.location.search).get("q"))
+        ?.trim(),
+    )
+
+    if (arrivalPending) {
+      const id = createThreadId()
+      activeThreadIdRef.current = id
+      setActiveThreadId(id)
+      setThreadsHydrated(true)
+      return
+    }
+
+    if (store.activeThreadId) {
+      const thread = getThread(store.activeThreadId, store)
+      if (thread) {
+        activeThreadIdRef.current = thread.id
+        setActiveThreadId(thread.id)
+        setMessages(thread.messages as Message[])
+        messageIdRef.current = thread.nextMessageId
+        setThreadsHydrated(true)
+        return
+      }
+    }
+
+    const id = createThreadId()
+    activeThreadIdRef.current = id
+    setActiveThreadId(id)
+    setThreadsHydrated(true)
+  }, [initialPrompt])
+
+  useEffect(() => {
+    return subscribeToThreads(() => {
+      setThreadSummaries(listThreadSummaries())
+    })
+  }, [])
+
+  // Persist the active thread (debounced while streaming so localStorage is
+  // not rewritten on every token).
+  useEffect(() => {
+    if (!threadsHydrated) return
+    const threadId = activeThreadIdRef.current
+    if (!threadId) return
+
+    const delay = isSubmitting ? 400 : 0
+    const timer = window.setTimeout(() => {
+      const store = upsertThread({
+        id: threadId,
+        messages: messagesRef.current,
+        nextMessageId: messageIdRef.current,
+      })
+      setThreadSummaries(listThreadSummaries(store))
+    }, delay)
+
+    return () => window.clearTimeout(timer)
+  }, [messages, isSubmitting, threadsHydrated, activeThreadId])
 
   useEffect(() => {
     lastScrollYRef.current = window.scrollY
@@ -446,6 +532,120 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   function handleStop() {
     abortControllerRef.current?.abort()
   }
+
+  const resetComposer = useCallback(() => {
+    setInput("")
+    setPendingImages([])
+    setError(null)
+  }, [])
+
+  const handleNewChat = useCallback(() => {
+    const alreadyEmpty =
+      !isSubmittingRef.current &&
+      !messagesRef.current.some((message) => !message.hidden)
+
+    if (alreadyEmpty) {
+      resetComposer()
+      return
+    }
+
+    if (isSubmittingRef.current) {
+      abortControllerRef.current?.abort()
+    }
+
+    const currentId = activeThreadIdRef.current
+    if (currentId) {
+      upsertThread({
+        id: currentId,
+        messages: messagesRef.current,
+        nextMessageId: messageIdRef.current,
+        active: false,
+      })
+    }
+
+    const id = createThreadId()
+    activeThreadIdRef.current = id
+    setActiveThreadId(id)
+    persistActiveThreadId(null)
+    setMessages([])
+    messageIdRef.current = 0
+    resetComposer()
+    stickToBottomRef.current = true
+    setThreadSummaries(listThreadSummaries())
+  }, [resetComposer])
+
+  const handleSelectThread = useCallback(
+    (threadId: string) => {
+      if (threadId === activeThreadIdRef.current) return
+
+      if (isSubmittingRef.current) {
+        abortControllerRef.current?.abort()
+      }
+
+      const currentId = activeThreadIdRef.current
+      if (currentId) {
+        upsertThread({
+          id: currentId,
+          messages: messagesRef.current,
+          nextMessageId: messageIdRef.current,
+          active: false,
+        })
+      }
+
+      const thread = getThread(threadId)
+      if (!thread) {
+        setThreadSummaries(listThreadSummaries())
+        return
+      }
+
+      activeThreadIdRef.current = thread.id
+      setActiveThreadId(thread.id)
+      persistActiveThreadId(thread.id)
+      setMessages(thread.messages as Message[])
+      messageIdRef.current = thread.nextMessageId
+      resetComposer()
+      stickToBottomRef.current = true
+      setScrollTick((tick) => tick + 1)
+      setThreadSummaries(listThreadSummaries())
+    },
+    [resetComposer],
+  )
+
+  const handleDeleteThread = useCallback(
+    (threadId: string) => {
+      const wasActive = threadId === activeThreadIdRef.current
+      if (wasActive && isSubmittingRef.current) {
+        abortControllerRef.current?.abort()
+      }
+
+      const store = deleteThread(threadId)
+      setThreadSummaries(listThreadSummaries(store))
+
+      if (!wasActive) return
+
+      if (store.activeThreadId) {
+        const thread = getThread(store.activeThreadId, store)
+        if (thread) {
+          activeThreadIdRef.current = thread.id
+          setActiveThreadId(thread.id)
+          setMessages(thread.messages as Message[])
+          messageIdRef.current = thread.nextMessageId
+          resetComposer()
+          stickToBottomRef.current = true
+          setScrollTick((tick) => tick + 1)
+          return
+        }
+      }
+
+      const id = createThreadId()
+      activeThreadIdRef.current = id
+      setActiveThreadId(id)
+      setMessages([])
+      messageIdRef.current = 0
+      resetComposer()
+    },
+    [resetComposer],
+  )
 
   // Stable callbacks so memoized AssistantMessage rows do not churn on parent
   // re-renders while sendTurn itself is recreated each render.
@@ -871,183 +1071,208 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   }
 
   return (
-    <div className="app-column min-w-0">
-      {hasMessages ? (
-        <div className="cleo-messages pt-8 sm:pt-10">
-          <div className="flex flex-col gap-7">
-            {messages.map((message) => {
-              if (message.hidden) {
-                return null
-              }
+    <div className="cleo-layout">
+      <CleoSidebar
+        activeThreadId={activeThreadId}
+        mobileOpen={sidebarMobileOpen}
+        onCloseMobile={() => setSidebarMobileOpen(false)}
+        onDeleteThread={handleDeleteThread}
+        onNewChat={handleNewChat}
+        onSelectThread={handleSelectThread}
+        threads={threadSummaries}
+      />
+      <CleoSidebarToggle
+        mobileOpen={sidebarMobileOpen}
+        onToggle={() => setSidebarMobileOpen((open) => !open)}
+      />
 
-              if (message.role === "user") {
-                return <UserMessage key={message.id} message={message} />
-              }
+      <div className="cleo-main">
+        <div className="app-column min-w-0">
+          {hasMessages ? (
+            <div className="cleo-messages pt-8 sm:pt-10">
+              <div className="flex flex-col gap-7">
+                {messages.map((message) => {
+                  if (message.hidden) {
+                    return null
+                  }
 
-              return (
-                <AssistantMessage
-                  canContinueIncomplete={canContinueIncomplete}
-                  canRetryLastTurn={canRetryLastTurn}
-                  isLive={isSubmitting && message.id === messages.at(-1)?.id}
-                  key={message.id}
-                  message={message}
-                  onContinue={handleContinue}
-                  onDismissIncomplete={handleDismissIncomplete}
-                  onRetry={handleRetry}
-                  showIncompleteActions={message.id === lastVisibleMessage?.id}
-                />
-              )
-            })}
-          </div>
-          <div
-            aria-hidden="true"
-            className="cleo-messages-end"
-            ref={messagesEndRef}
-          />
-        </div>
-      ) : null}
+                  if (message.role === "user") {
+                    return <UserMessage key={message.id} message={message} />
+                  }
 
-      <div
-        className="prompt-dock-shell"
-        data-docked={hasMessages || undefined}
-      >
-        {error ? (
-          <div
-            className="cleo-error-banner mb-3 px-4 text-center text-sm text-destructive"
-            role="alert"
-          >
-            <p>{error}</p>
-            {canRetryLastTurn ? (
-              <button
-                className="cleo-answer-action cleo-error-retry"
-                onClick={handleRetry}
-                type="button"
-              >
-                Retry
-              </button>
-            ) : null}
-          </div>
-        ) : null}
-
-        <form
-          aria-busy={isSubmitting}
-          className="glass-surface prompt-dock"
-          onSubmit={handleSubmit}
-        >
-          <LiquidGlass />
-          {pendingImages.length > 0 ? (
-            <div className="prompt-dock-attachments">
-              {pendingImages.map((url, index) => (
-                <div
-                  className="prompt-dock-attachment"
-                  key={`${url.slice(0, 48)}-${index}`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element -- local preview data URLs */}
-                  <img
-                    alt={`Selected image ${index + 1}`}
-                    className="prompt-dock-attachment-image"
-                    src={url}
-                  />
-                  <button
-                    aria-label={`Remove image ${index + 1}`}
-                    className="prompt-dock-attachment-remove"
-                    disabled={isSubmitting}
-                    onClick={() => removePendingImage(index)}
-                    type="button"
-                  >
-                    <X aria-hidden="true" className="size-3.5" />
-                  </button>
-                </div>
-              ))}
+                  return (
+                    <AssistantMessage
+                      canContinueIncomplete={canContinueIncomplete}
+                      canRetryLastTurn={canRetryLastTurn}
+                      isLive={isSubmitting && message.id === messages.at(-1)?.id}
+                      key={message.id}
+                      message={message}
+                      onContinue={handleContinue}
+                      onDismissIncomplete={handleDismissIncomplete}
+                      onRetry={handleRetry}
+                      showIncompleteActions={
+                        message.id === lastVisibleMessage?.id
+                      }
+                    />
+                  )
+                })}
+              </div>
+              <div
+                aria-hidden="true"
+                className="cleo-messages-end"
+                ref={messagesEndRef}
+              />
             </div>
           ) : null}
-          <div className="prompt-dock-row">
-            <input
-              accept={IMAGE_ACCEPT}
-              className="sr-only"
-              disabled={isSubmitting}
-              multiple
-              onChange={handleImageSelection}
-              ref={fileInputRef}
-              type="file"
-            />
-            <Button
-              aria-label="Attach images"
-              className="prompt-dock-attach size-11 shrink-0 rounded-full active:!translate-y-0"
-              disabled={
-                isSubmitting || pendingImages.length >= MAX_IMAGES_PER_MESSAGE
-              }
-              onClick={() => fileInputRef.current?.click()}
-              size="icon"
-              type="button"
-              variant="ghost"
-            >
-              <Plus
-                aria-hidden="true"
-                className="size-5"
-                strokeWidth={2.25}
-              />
-            </Button>
-            <Input
-              aria-label="Message"
-              autoComplete="off"
-              className="prompt-dock-input md:text-base"
-              disabled={isSubmitting}
-              maxLength={MAX_INPUT_LENGTH}
-              name="message"
-              onChange={(event) => setInput(event.target.value)}
-              placeholder="Ask anything"
-              ref={inputRef}
-              required={!isSubmitting && pendingImages.length === 0}
-              value={input}
-            />
-            <Button
-              aria-label={isSubmitting ? "Stop generating" : "Send"}
-              className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
-              disabled={!isSubmitting && !canSubmit}
-              onClick={
-                isSubmitting
-                  ? handleStop
-                  : () => {
-                      void handleSubmit()
-                    }
-              }
-              size="icon"
-              type="button"
-            >
-              {isSubmitting ? (
-                <Square
-                  aria-hidden="true"
-                  className="size-3.5 fill-current"
-                />
-              ) : (
-                <CornerRightUp
-                  aria-hidden="true"
-                  className="size-5"
-                  strokeWidth={2.25}
-                />
-              )}
-            </Button>
-          </div>
-        </form>
 
-        {!hasMessages ? (
-          <div className="cleo-starters" role="group" aria-label="Suggestions">
-            {CLEO_PORTAL_STARTERS.map((starter) => (
-              <button
-                className="cleo-starter"
-                disabled={isSubmitting}
-                key={starter.label}
-                onClick={() => {
-                  void handleSubmit(undefined, starter.prompt)
-                }}
-                type="button"
+          <div
+            className="prompt-dock-shell"
+            data-docked={hasMessages || undefined}
+          >
+            {error ? (
+              <div
+                className="cleo-error-banner mb-3 px-4 text-center text-sm text-destructive"
+                role="alert"
               >
-                {starter.label}
-              </button>
-            ))}
+                <p>{error}</p>
+                {canRetryLastTurn ? (
+                  <button
+                    className="cleo-answer-action cleo-error-retry"
+                    onClick={handleRetry}
+                    type="button"
+                  >
+                    Retry
+                  </button>
+                ) : null}
+              </div>
+            ) : null}
+
+            <form
+              aria-busy={isSubmitting}
+              className="glass-surface prompt-dock"
+              onSubmit={handleSubmit}
+            >
+              <LiquidGlass />
+              {pendingImages.length > 0 ? (
+                <div className="prompt-dock-attachments">
+                  {pendingImages.map((url, index) => (
+                    <div
+                      className="prompt-dock-attachment"
+                      key={`${url.slice(0, 48)}-${index}`}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element -- local preview data URLs */}
+                      <img
+                        alt={`Selected image ${index + 1}`}
+                        className="prompt-dock-attachment-image"
+                        src={url}
+                      />
+                      <button
+                        aria-label={`Remove image ${index + 1}`}
+                        className="prompt-dock-attachment-remove"
+                        disabled={isSubmitting}
+                        onClick={() => removePendingImage(index)}
+                        type="button"
+                      >
+                        <X aria-hidden="true" className="size-3.5" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+              <div className="prompt-dock-row">
+                <input
+                  accept={IMAGE_ACCEPT}
+                  className="sr-only"
+                  disabled={isSubmitting}
+                  multiple
+                  onChange={handleImageSelection}
+                  ref={fileInputRef}
+                  type="file"
+                />
+                <Button
+                  aria-label="Attach images"
+                  className="prompt-dock-attach size-11 shrink-0 rounded-full active:!translate-y-0"
+                  disabled={
+                    isSubmitting ||
+                    pendingImages.length >= MAX_IMAGES_PER_MESSAGE
+                  }
+                  onClick={() => fileInputRef.current?.click()}
+                  size="icon"
+                  type="button"
+                  variant="ghost"
+                >
+                  <Plus
+                    aria-hidden="true"
+                    className="size-5"
+                    strokeWidth={2.25}
+                  />
+                </Button>
+                <Input
+                  aria-label="Message"
+                  autoComplete="off"
+                  className="prompt-dock-input md:text-base"
+                  disabled={isSubmitting}
+                  maxLength={MAX_INPUT_LENGTH}
+                  name="message"
+                  onChange={(event) => setInput(event.target.value)}
+                  placeholder="Ask anything"
+                  ref={inputRef}
+                  required={!isSubmitting && pendingImages.length === 0}
+                  value={input}
+                />
+                <Button
+                  aria-label={isSubmitting ? "Stop generating" : "Send"}
+                  className="prompt-dock-send size-11 shrink-0 rounded-full active:!translate-y-0"
+                  disabled={!isSubmitting && !canSubmit}
+                  onClick={
+                    isSubmitting
+                      ? handleStop
+                      : () => {
+                          void handleSubmit()
+                        }
+                  }
+                  size="icon"
+                  type="button"
+                >
+                  {isSubmitting ? (
+                    <Square
+                      aria-hidden="true"
+                      className="size-3.5 fill-current"
+                    />
+                  ) : (
+                    <CornerRightUp
+                      aria-hidden="true"
+                      className="size-5"
+                      strokeWidth={2.25}
+                    />
+                  )}
+                </Button>
+              </div>
+            </form>
+
+            {!hasMessages ? (
+              <div
+                className="cleo-starters"
+                role="group"
+                aria-label="Suggestions"
+              >
+                {CLEO_PORTAL_STARTERS.map((starter) => (
+                  <button
+                    className="cleo-starter"
+                    disabled={isSubmitting}
+                    key={starter.label}
+                    onClick={() => {
+                      void handleSubmit(undefined, starter.prompt)
+                    }}
+                    type="button"
+                  >
+                    {starter.label}
+                  </button>
+                ))}
+              </div>
+            ) : null}
           </div>
-        ) : null}
+        </div>
       </div>
     </div>
   )
