@@ -71,7 +71,7 @@ export function allTopics(): Topic[] {
       slug: 'oceans',
       name: 'Oceans',
       description:
-        'Evergreen field guides for world ocean basins and polar seas — orientation, features, facts, sources, and curated photographs.',
+        'Evergreen field guides for world ocean basins, major seas, and polar seas — orientation, features, facts, sources, and curated photographs.',
       tally: `${oceanCount} guides`,
       href: '/oceans',
       secondaryHref: '/gallery',

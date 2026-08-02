@@ -22,8 +22,9 @@ General-knowledge portal:
 - **Cities** — capital and route-city field guides at `/cities` and
   `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; sixteen
   guides)
-- **Oceans** — world ocean basin and polar-sea field guides at `/oceans` and
-  `/oceans/[slug]` (Pacific, Atlantic, Indian, Arctic, Southern)
+- **Oceans** — world ocean basin, major-sea, and polar-sea field guides at
+  `/oceans` and `/oceans/[slug]` (world basins, major seas, polar seas; ten
+  guides)
 - **Rivers** — major world-river field guides at `/rivers` and `/rivers/[slug]`
   (Africa, Asia, Europe & Americas; eleven guides)
 - **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations,

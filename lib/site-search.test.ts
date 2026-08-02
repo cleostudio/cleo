@@ -217,8 +217,15 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('pacific ocean')[0]).toBe('/oceans/pacific-ocean')
     expect(hrefs('atlantic ocean')[0]).toBe('/oceans/atlantic-ocean')
     expect(hrefs('southern ocean')[0]).toBe('/oceans/southern-ocean')
+    expect(hrefs('mediterranean sea')[0]).toBe('/oceans/mediterranean-sea')
+    expect(hrefs('caribbean sea')[0]).toBe('/oceans/caribbean-sea')
+    expect(hrefs('south china sea')[0]).toBe('/oceans/south-china-sea')
+    expect(hrefs('red sea')[0]).toBe('/oceans/red-sea')
+    expect(hrefs('arabian sea')[0]).toBe('/oceans/arabian-sea')
     expect(hrefs('drake passage')[0]).toBe('/oceans/southern-ocean')
-    expect(hrefs('monsoon moisture engine')[0]).toBe('/oceans/indian-ocean')
+    expect(hrefs('agulhas current')[0]).toBe('/oceans/indian-ocean')
+    expect(hrefs('gibraltar gateway')[0]).toBe('/oceans/mediterranean-sea')
+    expect(hrefs('el nido limestone coast')[0]).toBe('/oceans/south-china-sea')
   })
 
   it('finds river guides and their features', () => {

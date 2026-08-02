@@ -82,6 +82,7 @@ describe('gallery catalog', () => {
     expect(keys).toContain('Mediterranean & Europe')
     expect(keys).toContain('Africa & Americas')
     expect(keys).toContain('World ocean basins')
+    expect(keys).toContain('Major seas')
     expect(keys).toContain('Polar seas')
     expect(keys).toContain('Africa')
     expect(keys).toContain('Europe & Americas')
