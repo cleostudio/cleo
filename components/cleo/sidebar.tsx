@@ -1,7 +1,7 @@
 "use client"
 
 import type { CSSProperties } from "react"
-import { PanelLeftClose, PanelLeftOpen, SquarePen, Trash2, X } from "lucide-react"
+import { PanelLeftClose, PanelLeftOpen, SquarePen, Trash2 } from "lucide-react"
 
 import { Button } from "~/components/cleo/ui/button"
 import { ScrollAreaY } from "~/components/ui/scroll-area"
