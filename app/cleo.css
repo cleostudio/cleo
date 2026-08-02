@@ -384,6 +384,13 @@
   background: color-mix(in oklab, var(--muted) 80%, transparent);
 }
 
+.prompt-dock-attach:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--background),
+    0 0 0 3px var(--focus-ring);
+}
+
 .prompt-dock-attach:disabled {
   opacity: 0.45;
 }
@@ -636,9 +643,9 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
 
 .prompt-dock-input:focus-visible {
   border: 0 !important;
-  box-shadow: none !important;
-  outline: 1px solid var(--focus-ring);
-  outline-offset: 3px;
+  /* Prefer ring-via-shadow: outline is easy to miss inside the glass pill. */
+  outline: none;
+  box-shadow: 0 0 0 1px var(--focus-ring) !important;
 }
 
 .prompt-dock-send {
@@ -669,9 +676,11 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   border-color: transparent;
   background: var(--primary);
   color: var(--primary-foreground);
-  box-shadow: none;
-  outline: 1px solid var(--focus-ring);
-  outline-offset: 3px;
+  outline: none;
+  /* Double ring so the indicator reads on the filled primary disc. */
+  box-shadow:
+    0 0 0 2px var(--background),
+    0 0 0 3px var(--focus-ring);
 }
 
 .prompt-dock-send:disabled {
