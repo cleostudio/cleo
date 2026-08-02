@@ -240,10 +240,17 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('rhine')[0]).toBe('/rivers/rhine')
     expect(hrefs('volga')[0]).toBe('/rivers/volga')
     expect(hrefs('mississippi')[0]).toBe('/rivers/mississippi')
+    expect(hrefs('indus')[0]).toBe('/rivers/indus')
+    expect(hrefs('niger river')[0]).toBe('/rivers/niger')
+    expect(hrefs('paraná')[0]).toBe('/rivers/parana')
+    expect(hrefs('murray–darling')[0]).toBe('/rivers/murray-darling')
+    expect(hrefs('lena')[0]).toBe('/rivers/lena')
     expect(hrefs('iron gates')[0]).toBe('/rivers/danube')
     expect(hrefs('blue nile falls')[0]).toBe('/rivers/nile')
     expect(hrefs('loess sediment')[0]).toBe('/rivers/yellow-river')
     expect(hrefs('middle rhine gorge')[0]).toBe('/rivers/rhine')
+    expect(hrefs('siberian trunk')[0]).toBe('/rivers/lena')
+    expect(hrefs('inner niger delta')[0]).toBe('/rivers/niger')
   })
 
   it('finds curated photographs by the place they show', () => {

@@ -69,8 +69,8 @@ function withPhotos(draft: RiverSubjectDraft): RiverSubject {
 }
 
 /**
- * Curated catalog — major rivers across Africa, Asia, and Europe & Americas.
- * Expand here as new Rivers guides ship.
+ * Curated catalog — major rivers across Africa, Asia, and Europe, Americas & Oceania
+ * (sixteen guides). Expand here as new Rivers guides ship.
  */
 const riverSubjectDrafts: RiverSubjectDraft[] = [
   {
@@ -179,6 +179,58 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
       {
         label: 'UNESCO — Salonga National Park',
         url: 'https://whc.unesco.org/en/list/280',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'niger',
+    code: 'NGR',
+    name: 'Niger River',
+    category: 'Africa',
+    subtitle: 'Sahel arc · Inner Delta',
+    about:
+      'The Niger River is West Africa’s great arc waterway — rising near the Atlantic highland of Guinea, bending northeast through the Sahel, then turning south to a Gulf of Guinea delta in Nigeria. Orientation is inland delta and trade corridor: the Inner Niger Delta’s seasonal floodplains; cities such as Bamako and the historic Niger bend near Timbuktu; and a lower course that concentrates oil, fisheries, and dense settlement. Monsoon floods still pulse the middle basin even where dams and irrigation remake the edges. This primer stays with course arc, inland delta, and Sahel hydrology rather than every riparian state dispute.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Guinea highlands → Sahel bend → Inner Niger Delta → Nigerian lower course → Gulf of Guinea',
+      region: 'West Africa · Niger Basin',
+      basin: 'Large West African drainage spanning Sahel and Guinean zones; Inner Delta as seasonal storage',
+      hydrology: 'Monsoon flood pulse; inland delta that expands and contracts with the rains',
+      climateRole: 'Sahel freshwater corridor; floodplain agriculture and fishery engine',
+      exploreLinks: ['Nigeria', 'Mali', 'Niger', 'Guinea', 'Benin'],
+    },
+    features: [
+      {
+        name: 'Niger at Bamako',
+        description:
+          'The river as a Malian capital waterfront — bridges and shores where the upper–middle course meets a growing city.',
+      },
+      {
+        name: 'Niger near Timbuktu',
+        description:
+          'The northern bend’s working water — fishing and seasonal navigation on the desert-edge reach.',
+      },
+      {
+        name: 'Niger Delta',
+        description:
+          'The Gulf of Guinea outlet’s channel maze — one of Africa’s largest wetland and coastal deltas.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Niger River',
+        url: 'https://www.britannica.com/place/Niger-River',
+        kind: 'reference',
+      },
+      {
+        label: 'ESA — The Niger delta',
+        url: 'https://www.esa.int/ESA_Multimedia/Images/2012/05/The_Niger_delta',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Cliff of Bandiagara',
+        url: 'https://whc.unesco.org/en/list/516',
         kind: 'catalog',
       },
     ],
@@ -392,10 +444,114 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     ],
   },
   {
+    slug: 'indus',
+    code: 'IND',
+    name: 'Indus',
+    category: 'Asia',
+    subtitle: 'Himalayan source · Arabian Sea delta',
+    about:
+      'The Indus is South Asia’s western great river — rising in the Tibetan/Himalayan highlands and running through the mountains of northern Pakistan before crossing the Indus plain to an Arabian Sea delta. Orientation is irrigation and alluvium: a canalized agricultural corridor that made civilizations and modern states; gorge and confluence reaches in the north; and a sediment-rich delta facing monsoon and tidal processes. This primer stays with course geography, plain irrigation, and delta form rather than every canal headwork.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Himalayan/Tibetan sources → northern mountain corridor → Indus plain → Arabian Sea delta',
+      region: 'South Asia · Indus Basin',
+      basin: 'Major western South Asian drainage shared across highland and plain states',
+      hydrology: 'Snow and glacier melt plus monsoon rains; extensive modern canal diversion',
+      climateRole: 'Irrigation spine of the Indus plain; delta sediment and coastal wetland engine',
+      exploreLinks: ['Pakistan', 'India', 'China'],
+    },
+    features: [
+      {
+        name: 'Indus near Leh',
+        description:
+          'The high upper valley under mountain light — where the young Indus still reads as a highland river.',
+      },
+      {
+        name: 'Indus in Pakistan',
+        description:
+          'Colored sediment and working reaches of the middle–lower corridor — the plain’s structural waterway.',
+      },
+      {
+        name: 'Indus Delta',
+        description:
+          'The Arabian Sea outlet’s channel fan — sediment geometry where the river meets the northwest Indian Ocean.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Indus River',
+        url: 'https://www.britannica.com/place/Indus-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Indus River and Delta',
+        url: 'https://earthobservatory.nasa.gov/images/92867/indus-river-and-delta',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Archaeological Ruins at Moenjodaro',
+        url: 'https://whc.unesco.org/en/list/138',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'lena',
+    code: 'LEN',
+    name: 'Lena',
+    category: 'Asia',
+    subtitle: 'Siberian trunk · Arctic delta',
+    about:
+      'The Lena is one of Siberia’s great north-flowing rivers — rising near Lake Baikal’s approaches and running to a vast Arctic delta on the Laptev Sea. Orientation is permafrost and pillars: the Lena Pillars’ limestone cliffs; a long taiga trunk past Yakutsk; and a branching delta that freezes and thaws with the polar year. It is a cold-climate counterpart to the temperate continental rivers farther south. This primer stays with Siberian course, rock-cut reaches, and Arctic outlet geography rather than every tributary name.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Central Siberian sources → Yakutian trunk → Laptev Sea delta',
+      region: 'Eastern Siberia · Lena Basin',
+      basin: 'One of Russia’s largest Arctic-draining basins; permafrost-dominated catchment',
+      hydrology: 'Strong spring ice breakup floods; long winter ice cover; limited human regulation',
+      climateRole: 'Arctic freshwater and sediment conveyor; permafrost and delta wetland indicator',
+      exploreLinks: ['Russia'],
+    },
+    features: [
+      {
+        name: 'Lena Pillars',
+        description:
+          'Towering limestone cliffs along the middle Lena — a rock gallery that frames the Siberian trunk.',
+      },
+      {
+        name: 'Lena near Yakutsk',
+        description:
+          'The broad working reach beside Sakha’s capital — a cold-climate river city on the great northbound stem.',
+      },
+      {
+        name: 'Lena Delta',
+        description:
+          'The Laptev Sea outlet’s branching wetland — one of the Arctic’s largest river deltas.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Lena River',
+        url: 'https://www.britannica.com/place/Lena-River',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Lena Pillars Nature Park',
+        url: 'https://whc.unesco.org/en/list/1299',
+        kind: 'catalog',
+      },
+      {
+        label: 'NASA Earth Observatory — Lena River Delta',
+        url: 'https://earthobservatory.nasa.gov/images/14768/lena-river-delta',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
     slug: 'danube',
     code: 'DAN',
     name: 'Danube',
-    category: 'Europe & Americas',
+    category: 'Europe, Americas & Oceania',
     subtitle: 'European corridor · Black Sea delta',
     about:
       'The Danube is Central and Southeastern Europe’s great west-to-east river — rising in Germany and crossing or bordering many states before forming a Black Sea delta. Orientation is corridor and choke point: capital cities that face the water, the Iron Gates gorge on the Serbia–Romania border, and a delta that fans into wetlands and channels. For centuries it linked Alpine, Pannonian, and Balkan worlds by barge and treaty. This primer stays with course geography, gorge, and delta rather than every capital’s riverfront story.',
@@ -447,7 +603,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     slug: 'rhine',
     code: 'RHN',
     name: 'Rhine',
-    category: 'Europe & Americas',
+    category: 'Europe, Americas & Oceania',
     subtitle: 'Alpine source · industrial corridor',
     about:
       'The Rhine is Western Europe’s classic north-flowing working river — rising in the Alps, tumbling over the Rhine Falls, cutting the romantic Middle Rhine gorge, and running through industrial and port landscapes toward the North Sea. Orientation is trade and gorge: Loreley cliffs that squeeze barge traffic into a scenic choke point; Cologne and other cities that face the water as civic frontage; and a deltaic Dutch outlet engineered for flood control and shipping. This primer stays with course geography and corridor commerce rather than every wine-slope legend.',
@@ -506,7 +662,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     slug: 'volga',
     code: 'VLG',
     name: 'Volga',
-    category: 'Europe & Americas',
+    category: 'Europe, Americas & Oceania',
     subtitle: 'European Russia · Caspian delta',
     about:
       'The Volga is Europe’s longest river — a vast north-to-south drainage across European Russia that ends in a branching Caspian Sea delta. Orientation is reservoir and steppe: cascade dams that turned much of the middle Volga into linked lakes; historic cities such as Nizhny Novgorod at major confluences; and a delta wetland that fans into the Caspian’s northern shallows. For centuries the river linked forest, steppe, and Caspian trade worlds. This primer stays with course, reservoirs, and delta geography rather than every regional capital.',
@@ -558,7 +714,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     slug: 'amazon',
     code: 'AMZ',
     name: 'Amazon',
-    category: 'Europe & Americas',
+    category: 'Europe, Americas & Oceania',
     subtitle: 'Rainforest basin · Atlantic discharge',
     about:
       'The Amazon is a continental rainforest river whose main stem and tributaries drain a vast South American lowland into the Atlantic. Orientation is volume and canopy: blackwater and whitewater confluences, seasonal floodplains (várzea), and a mouth so wide that freshwater influence reaches far offshore. The basin stores carbon and biodiversity at planetary scale; navigation and cities such as Manaus sit inside a still-working fluvial wilderness. This primer stays with mainstream, mouth, and basin hydrology rather than every tributary name.',
@@ -610,7 +766,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     slug: 'mississippi',
     code: 'MIS',
     name: 'Mississippi',
-    category: 'Europe & Americas',
+    category: 'Europe, Americas & Oceania',
     subtitle: 'Interior artery · Gulf delta',
     about:
       'The Mississippi is the central arterial river of the contiguous United States — collecting the Missouri and Ohio systems before running south to a Gulf of Mexico delta. Orientation is barge commerce and flood control: locks and levees that made the interior a single navigation market; bluff and bottomland landscapes of the upper river; and a delta that builds and loses land as sediment and sea level trade places. This primer stays with trunk hydrology, working waterway, and delta geography rather than every tributary war story.',
@@ -654,6 +810,110 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
       {
         label: 'NASA Earth Observatory — Mississippi River Delta',
         url: 'https://earthobservatory.nasa.gov/images/144255/the-mississippi-river-delta',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'parana',
+    code: 'PRN',
+    name: 'Paraná',
+    category: 'Europe, Americas & Oceania',
+    subtitle: 'La Plata system · Iguaçu hinge',
+    about:
+      'The Paraná is South America’s second-great artery after the Amazon — a long subtropical river that gathers Brazilian plateau waters, meets the Iguaçu, and runs toward the Río de la Plata estuary with the Uruguay. Orientation is falls and floodplain: Iguaçu Falls on a major tributary hinge; broad lowland reaches used for hydropower and barge traffic; and a sediment-rich corridor shared by Brazil, Paraguay, and Argentina. This primer stays with course structure, confluence geography, and La Plata hydrology rather than every reservoir name.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Brazilian plateau sources → Iguaçu confluence zone → Paraguay–Argentina corridor → Río de la Plata',
+      region: 'South America · Paraná–La Plata basin',
+      basin: 'Major subtropical drainage; Paraguay River as a key tributary system',
+      hydrology: 'Seasonal floods on a wide floodplain; large hydropower reservoirs on the main stem and tributaries',
+      climateRole: 'Subtropical sediment and freshwater conveyor into the Río de la Plata',
+      exploreLinks: ['Brazil', 'Argentina', 'Paraguay', 'Uruguay'],
+    },
+    features: [
+      {
+        name: 'Paraná mainstream',
+        description:
+          'Broad lowland water under evening light — the working subtropical trunk of the La Plata system.',
+      },
+      {
+        name: 'Iguaçu Falls',
+        description:
+          'The great cataract on the Iguaçu tributary — a thunderous hinge near the Paraná confluence.',
+      },
+      {
+        name: 'Iguazú–Paraná confluence',
+        description:
+          'Where the Iguazú meets the Paraná — a three-country corner of channels, forest, and border geography.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Paraná River',
+        url: 'https://www.britannica.com/place/Parana-River',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Iguaçu National Park',
+        url: 'https://whc.unesco.org/en/list/303',
+        kind: 'catalog',
+      },
+      {
+        label: 'NASA Earth Observatory — Fires along the Paraná',
+        url: 'https://earthobservatory.nasa.gov/images/147068/fires-along-the-parana-river',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'murray-darling',
+    code: 'MUR',
+    name: 'Murray–Darling',
+    category: 'Europe, Americas & Oceania',
+    subtitle: 'Australian inland basin · dryland rivers',
+    about:
+      'The Murray–Darling is Australia’s largest river system — a network of inland rivers that drain much of southeastern Australia toward the Southern Ocean approaches via the Murray mouth. Orientation is dryland hydrology: the Murray as the main stem; the Darling as a long, intermittent western tributary; and a basin where irrigation, drought, and flood pulse compete for a scarce water budget. Towns such as Yarrawonga and Wilcannia mark working reaches that can run high or near empty. This primer stays with basin structure, dryland regime, and corridor geography rather than every allocation rule.',
+    facts: {
+      kind: 'Dryland river system',
+      course: 'Southeastern Australian highlands and plains → Murray main stem → Southern Ocean mouth',
+      region: 'Southeastern Australia · Murray–Darling Basin',
+      basin: 'Australia’s largest drainage basin; Darling and many tributaries with highly variable flow',
+      hydrology: 'Extreme wet–dry variability; heavy irrigation diversion; intermittent western tributaries',
+      climateRole: 'Dryland agriculture water spine; drought and flood indicator for southeastern Australia',
+      exploreLinks: ['Australia'],
+    },
+    features: [
+      {
+        name: 'Murray at Yarrawonga',
+        description:
+          'A tree-lined Murray reach on the Victoria–New South Wales border — the working main stem of the basin.',
+      },
+      {
+        name: 'Darling River',
+        description:
+          'The long western tributary under open sky — a classic dryland channel that can shrink to pools between floods.',
+      },
+      {
+        name: 'Darling at Wilcannia',
+        description:
+          'A historic Darling town reach — where outback settlement still depends on an intermittent river.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Murray River',
+        url: 'https://www.britannica.com/place/Murray-River',
+        kind: 'reference',
+      },
+      {
+        label: 'Murray–Darling Basin Authority',
+        url: 'https://www.mdba.gov.au/',
+        kind: 'agency',
+      },
+      {
+        label: 'Geoscience Australia — Murray–Darling Basin',
+        url: 'https://www.ga.gov.au/scientific-topics/national-location-information/landforms/murray-darling-basin',
         kind: 'agency',
       },
     ],
