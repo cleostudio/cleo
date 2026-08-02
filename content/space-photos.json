@@ -2504,5 +2504,400 @@
         }
       ]
     }
+  ],
+  "callisto": [
+    {
+      "featureName": "Global Callisto in color",
+      "alt": "Global Callisto in color — callisto",
+      "caption": "Global Callisto in color",
+      "photographer": "NASA/JPL/DLR",
+      "sourceUrl": "https://images.nasa.gov/details/PIA03456",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA03456",
+      "provenance": "Curated from NASA image PIA03456; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6b1607c5dfb7ce3f5cf1ceffe3a98e3c88607090b39367904f19bb526cfedc24",
+      "width": 740,
+      "height": 753,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/callisto/w640.jpg",
+          "bytes": 61181
+        },
+        {
+          "width": 740,
+          "src": "/images/space/callisto/w1280.jpg",
+          "bytes": 74733
+        }
+      ]
+    },
+    {
+      "featureName": "Callisto from Voyager and Galileo",
+      "alt": "Callisto from Voyager and Galileo — callisto",
+      "caption": "Callisto from Voyager and Galileo",
+      "photographer": "NASA/JPL/DLR",
+      "sourceUrl": "https://images.nasa.gov/details/PIA01055",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA01055",
+      "provenance": "Curated from NASA image PIA01055; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e18560739be6ef7b301ec9ce851c38efcb89488e25507d4ca784f6b045753c80",
+      "width": 1200,
+      "height": 1200,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/callisto/w640-2.jpg",
+          "bytes": 86560
+        },
+        {
+          "width": 1200,
+          "src": "/images/space/callisto/w1280-2.jpg",
+          "bytes": 273021
+        }
+      ]
+    },
+    {
+      "featureName": "Valhalla impact structure",
+      "alt": "Valhalla impact structure — callisto",
+      "caption": "Valhalla impact structure",
+      "photographer": "NASA/JPL/ASU",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00516",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00516",
+      "provenance": "Curated from NASA image PIA00516; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e28aaf5d2d99596dc93cec07d98f5c8266bc4badfc850601fc8d9558d2352df2",
+      "width": 400,
+      "height": 400,
+      "renditions": [
+        {
+          "width": 400,
+          "src": "/images/space/callisto/w640-3.jpg",
+          "bytes": 43425
+        }
+      ]
+    }
+  ],
+  "triton": [
+    {
+      "featureName": "Voyager color image of Triton",
+      "alt": "Voyager color image of Triton — triton",
+      "caption": "Voyager color image of Triton",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA02246",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA02246",
+      "provenance": "Curated from NASA image PIA02246; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a979f0312bdc63f576f83d5d7a906963c3c1548b23b6221172f66f3d80aa0b3e",
+      "width": 450,
+      "height": 450,
+      "renditions": [
+        {
+          "width": 450,
+          "src": "/images/space/triton/w640.jpg",
+          "bytes": 9942
+        }
+      ]
+    },
+    {
+      "featureName": "Complex geologic history of Triton",
+      "alt": "Complex geologic history of Triton — triton",
+      "caption": "Complex geologic history of Triton",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA01538",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA01538",
+      "provenance": "Curated from NASA image PIA01538; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "84355a687de165ed14131133fcfc9a8dc0339cebe8f8e42ad4df42aa924ed678",
+      "width": 1885,
+      "height": 1903,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/triton/w640-2.jpg",
+          "bytes": 68901
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/triton/w1280-2.jpg",
+          "bytes": 218650
+        },
+        {
+          "width": 1885,
+          "src": "/images/space/triton/w2048-2.jpg",
+          "bytes": 491568
+        }
+      ]
+    },
+    {
+      "featureName": "Triton cantaloupe terrain",
+      "alt": "Triton cantaloupe terrain — triton",
+      "caption": "Triton cantaloupe terrain",
+      "photographer": "NASA/JPL/USRA/LPI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA12186",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA12186",
+      "provenance": "Curated from NASA image PIA12186; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "864b043471ed7778fbdc52cfcc8b808bd48021324ab531c5c4b7c43a2b38ccf1",
+      "width": 836,
+      "height": 545,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/triton/w640-3.jpg",
+          "bytes": 68423
+        },
+        {
+          "width": 836,
+          "src": "/images/space/triton/w1280-3.jpg",
+          "bytes": 109116
+        }
+      ]
+    }
+  ],
+  "charon": [
+    {
+      "featureName": "Charon's surface in detail",
+      "alt": "Charon's surface in detail — charon",
+      "caption": "Charon's surface in detail",
+      "photographer": "NASA/JHUAPL/SwRI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA21860",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA21860",
+      "provenance": "Curated from NASA image PIA21860; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c67e68848a128af8dbef2316c51de6282d0a455375928f2bae4f9cfd1e04a237",
+      "width": 2130,
+      "height": 1074,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/charon/w640.jpg",
+          "bytes": 38484
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/charon/w1280.jpg",
+          "bytes": 121940
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/charon/w2048.jpg",
+          "bytes": 292799
+        }
+      ]
+    },
+    {
+      "featureName": "Features on Charon",
+      "alt": "Features on Charon — charon",
+      "caption": "Features on Charon",
+      "photographer": "NASA/JHUAPL/SwRI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA19864",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA19864",
+      "provenance": "Curated from NASA image PIA19864; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6ca9afe2b36021c46d87ba3c0cf91c52e29bbe7dee776464a6fae0ae45b689fc",
+      "width": 3600,
+      "height": 1800,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/charon/w640-2.jpg",
+          "bytes": 27651
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/charon/w1280-2.jpg",
+          "bytes": 70095
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/charon/w2048-2.jpg",
+          "bytes": 150870
+        }
+      ]
+    },
+    {
+      "featureName": "Charon in Plutoshine",
+      "alt": "Charon in Plutoshine — charon",
+      "caption": "Charon in Plutoshine",
+      "photographer": "NASA/JHUAPL/SwRI",
+      "sourceUrl": "https://images.nasa.gov/details/PIA11708",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA11708",
+      "provenance": "Curated from NASA image PIA11708; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "629d410bc11522a8a4f2739918b1aa718440ba15ff367733b6183b5409791f1d",
+      "width": 1058,
+      "height": 1272,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/charon/w640-3.jpg",
+          "bytes": 105227
+        },
+        {
+          "width": 1058,
+          "src": "/images/space/charon/w1280-3.jpg",
+          "bytes": 264431
+        }
+      ]
+    }
+  ],
+  "miranda": [
+    {
+      "featureName": "Miranda icy face",
+      "alt": "Miranda icy face — miranda",
+      "caption": "Miranda icy face",
+      "photographer": "NASA/JPL-Caltech",
+      "sourceUrl": "https://images.nasa.gov/details/PIA18185",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA18185",
+      "provenance": "Curated from NASA image PIA18185; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3c63e1c8cdc234752ccb015b05636bcade54427b8795e2bb7b293edf6072533d",
+      "width": 571,
+      "height": 574,
+      "renditions": [
+        {
+          "width": 571,
+          "src": "/images/space/miranda/w640.jpg",
+          "bytes": 63380
+        }
+      ]
+    },
+    {
+      "featureName": "Miranda highest-resolution color",
+      "alt": "Miranda highest-resolution color — miranda",
+      "caption": "Miranda highest-resolution color",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00042",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00042",
+      "provenance": "Curated from NASA image PIA00042; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fc8239dc71f1b373fa766849b19418be926aad7d241de19a3d0cba56943b9ebb",
+      "width": 459,
+      "height": 600,
+      "renditions": [
+        {
+          "width": 459,
+          "src": "/images/space/miranda/w640-2.jpg",
+          "bytes": 21893
+        }
+      ]
+    },
+    {
+      "featureName": "Miranda large fault",
+      "alt": "Miranda large fault — miranda",
+      "caption": "Miranda large fault",
+      "photographer": "NASA/JPL",
+      "sourceUrl": "https://images.nasa.gov/details/PIA00044",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA00044",
+      "provenance": "Curated from NASA image PIA00044; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1703748b82965a1c35efdfd6f6e424c680938f428de33262aeccf774cf0cdb1c",
+      "width": 1016,
+      "height": 1002,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/miranda/w640-3.jpg",
+          "bytes": 42446
+        },
+        {
+          "width": 1016,
+          "src": "/images/space/miranda/w1280-3.jpg",
+          "bytes": 78460
+        }
+      ]
+    }
+  ],
+  "iapetus": [
+    {
+      "featureName": "Global view of Iapetus dichotomy",
+      "alt": "Global view of Iapetus dichotomy — iapetus",
+      "caption": "Global view of Iapetus dichotomy",
+      "photographer": "NASA/JPL/Space Science Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA11690",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA11690",
+      "provenance": "Curated from NASA image PIA11690; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e8596873d8a57935f3bdb8f67ad54a7d4d876701548706921c3679c91c29df2d",
+      "width": 2448,
+      "height": 1200,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/iapetus/w640.jpg",
+          "bytes": 30611
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/iapetus/w1280.jpg",
+          "bytes": 98663
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/iapetus/w2048.jpg",
+          "bytes": 253713
+        }
+      ]
+    },
+    {
+      "featureName": "Towering peaks of Iapetus",
+      "alt": "Towering peaks of Iapetus — iapetus",
+      "caption": "Towering peaks of Iapetus",
+      "photographer": "NASA/JPL/Space Science Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA08379",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA08379",
+      "provenance": "Curated from NASA image PIA08379; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9f15c0df8ccf23361420b773704dc4dda68a98528d6cc7fbe7567138966aae57",
+      "width": 4082,
+      "height": 1546,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/iapetus/w640-2.jpg",
+          "bytes": 25678
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/iapetus/w1280-2.jpg",
+          "bytes": 63636
+        },
+        {
+          "width": 2048,
+          "src": "/images/space/iapetus/w2048-2.jpg",
+          "bytes": 148218
+        }
+      ]
+    },
+    {
+      "featureName": "Encountering Iapetus",
+      "alt": "Encountering Iapetus — iapetus",
+      "caption": "Encountering Iapetus",
+      "photographer": "NASA/JPL/Space Science Institute",
+      "sourceUrl": "https://images.nasa.gov/details/PIA06166",
+      "license": "Public Domain (NASA)",
+      "nasaId": "PIA06166",
+      "provenance": "Curated from NASA image PIA06166; imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "33b8537557d5d98f2c0d161392e44855b3625c241942c32afc21c6b03bc285dd",
+      "width": 1380,
+      "height": 1378,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/space/iapetus/w640-3.jpg",
+          "bytes": 54517
+        },
+        {
+          "width": 1280,
+          "src": "/images/space/iapetus/w1280-3.jpg",
+          "bytes": 156608
+        },
+        {
+          "width": 1380,
+          "src": "/images/space/iapetus/w2048-3.jpg",
+          "bytes": 197805
+        }
+      ]
+    }
   ]
 }

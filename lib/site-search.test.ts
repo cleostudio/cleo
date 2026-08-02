@@ -150,6 +150,10 @@ describe('searchSiteCatalog', () => {
   it('finds space guides and their features', () => {
     expect(hrefs('mars')[0]).toBe('/space/mars')
     expect(hrefs('europa')[0]).toBe('/space/europa')
+    expect(hrefs('callisto')[0]).toBe('/space/callisto')
+    expect(hrefs('triton')[0]).toBe('/space/triton')
+    expect(hrefs('miranda')[0]).toBe('/space/miranda')
+    expect(hrefs('iapetus')[0]).toBe('/space/iapetus')
     expect(hrefs('moon').includes('/space/moon')).toBe(true)
     expect(hrefs('nebula')[0]).toMatch(/^\/space\/[a-z-]+nebula$/)
     expect(hrefs('whirlpool galaxy')[0]).toBe('/space/whirlpool-galaxy')
