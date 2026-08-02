@@ -274,5 +274,1104 @@
         }
       ]
     }
+  ],
+  "mesopotamia": [
+    {
+      "featureName": "Great Ziggurat of Ur",
+      "alt": "Great Ziggurat of Ur — mesopotamia",
+      "caption": "Great Ziggurat of Ur",
+      "photographer": "Amjedha95",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AZiggurat_of_Ur.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Ziggurat of Ur.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ziggurat of Ur.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6ea2064ced75f7e1ff0f786b6747107f1a02b97c3d5a3730657346b33f2ac037",
+      "width": 1280,
+      "height": 852,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mesopotamia/w640.jpg",
+          "bytes": 52567
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mesopotamia/w1280.jpg",
+          "bytes": 216495
+        }
+      ]
+    },
+    {
+      "featureName": "Ishtar Gate",
+      "alt": "Ishtar Gate — mesopotamia",
+      "caption": "Ishtar Gate",
+      "photographer": "Hahaha",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APergamonmuseum_Ishtartor_06.jpg",
+      "license": "CC SA 1.0",
+      "commonsTitle": "File:Pergamonmuseum Ishtartor 06.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Pergamonmuseum Ishtartor 06.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f1790463e1be92165f7ad585ab93538d8110fd681d111efca376eeaedca1ed1b",
+      "width": 1944,
+      "height": 2592,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mesopotamia/w640-2.jpg",
+          "bytes": 128155
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mesopotamia/w1280-2.jpg",
+          "bytes": 388296
+        },
+        {
+          "width": 1944,
+          "src": "/images/civilizations/mesopotamia/w2048-2.jpg",
+          "bytes": 871046
+        }
+      ]
+    },
+    {
+      "featureName": "Lamassu of Khorsabad",
+      "alt": "Lamassu of Khorsabad — mesopotamia",
+      "caption": "Lamassu of Khorsabad",
+      "photographer": "Osama Shukir Muhammed Amin FRCP(Glasg)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAssyrian_shedu-lamassu_from_Khorsabad%2C_Iraq._Iraq_Museum.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Assyrian shedu-lamassu from Khorsabad, Iraq. Iraq Museum.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Assyrian shedu-lamassu from Khorsabad, Iraq. Iraq Museum.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "178f909b5feab2b64a9033ed67cbcdaf614e4dfb018563a5c930f8676ce91195",
+      "width": 6016,
+      "height": 4016,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mesopotamia/w640-3.jpg",
+          "bytes": 52710
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mesopotamia/w1280-3.jpg",
+          "bytes": 166348
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mesopotamia/w2048-3.jpg",
+          "bytes": 441938
+        }
+      ]
+    }
+  ],
+  "mali-empire": [
+    {
+      "featureName": "Great Mosque of Djenné",
+      "alt": "Great Mosque of Djenné — mali empire",
+      "caption": "Great Mosque of Djenné",
+      "photographer": "Dr. Ondřej Havelka (cestovatel)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Great_Clay_Mosque_in_Djenne%2C_Mali.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:The Great Clay Mosque in Djenne, Mali.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Great Clay Mosque in Djenne, Mali.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9cb38d22e911158acd3d7c229c4fa715621106fabaffb6fcb528d82ad16f526a",
+      "width": 4000,
+      "height": 2106,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mali-empire/w640.jpg",
+          "bytes": 81588
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mali-empire/w1280.jpg",
+          "bytes": 221376
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mali-empire/w2048.jpg",
+          "bytes": 533139
+        }
+      ]
+    },
+    {
+      "featureName": "Sankoré Madrasah",
+      "alt": "Sankoré Madrasah — mali empire",
+      "caption": "Sankoré Madrasah",
+      "photographer": "upyernoz from Haverford, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASankore_Mosque_in_Timbuktu.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Sankore Mosque in Timbuktu.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Sankore Mosque in Timbuktu.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6a0373cfbb81f90280f736008b026947c9a3cf70458a11eed516e4634d3854a3",
+      "width": 2831,
+      "height": 1836,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mali-empire/w640-2.jpg",
+          "bytes": 26781
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mali-empire/w1280-2.jpg",
+          "bytes": 100093
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mali-empire/w2048-2.jpg",
+          "bytes": 355162
+        }
+      ]
+    },
+    {
+      "featureName": "Tomb of Askia",
+      "alt": "Tomb of Askia — mali empire",
+      "caption": "Tomb of Askia",
+      "photographer": "Gio53",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATombeau_askia.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Tombeau askia.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Tombeau askia.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1cc240105637519c248adf7058e88acb07966d522e9b39cb11482dfeb53d87eb",
+      "width": 3648,
+      "height": 2736,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mali-empire/w640-3.jpg",
+          "bytes": 42632
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mali-empire/w1280-3.jpg",
+          "bytes": 160628
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mali-empire/w2048-3.jpg",
+          "bytes": 509991
+        }
+      ]
+    }
+  ],
+  "aksum": [
+    {
+      "featureName": "King Ezana’s Stele",
+      "alt": "King Ezana’s Stele — aksum",
+      "caption": "King Ezana’s Stele",
+      "photographer": "Bair175",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALarge_obelisk_in_Axum%2C_Ethiopia.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Large obelisk in Axum, Ethiopia.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Large obelisk in Axum, Ethiopia.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2ec51d4e9ffa33547c093c3a2301db1caa00ac18d11518e7b074c1b1ae7125bd",
+      "width": 3328,
+      "height": 2216,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/aksum/w640.jpg",
+          "bytes": 63984
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/aksum/w1280.jpg",
+          "bytes": 172099
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/aksum/w2048.jpg",
+          "bytes": 431421
+        }
+      ]
+    },
+    {
+      "featureName": "Northern Stelae Park",
+      "alt": "Northern Stelae Park — aksum",
+      "caption": "Northern Stelae Park",
+      "photographer": "A.Savin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AET_Axum_asv2018-01_img38_Stelae_Park.jpg",
+      "license": "FAL",
+      "commonsTitle": "File:ET Axum asv2018-01 img38 Stelae Park.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:ET Axum asv2018-01 img38 Stelae Park.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d5440a1d764a11d0dcb4ac1264e2d83c11ff76b85f7dfa516719a7778af3c7b6",
+      "width": 7762,
+      "height": 4851,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/aksum/w640-2.jpg",
+          "bytes": 68978
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/aksum/w1280-2.jpg",
+          "bytes": 205944
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/aksum/w2048-2.jpg",
+          "bytes": 592379
+        }
+      ]
+    },
+    {
+      "featureName": "Church of Our Lady Mary of Zion",
+      "alt": "Church of Our Lady Mary of Zion — aksum",
+      "caption": "Church of Our Lady Mary of Zion",
+      "photographer": "Sailko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAksum%2C_resti_della_chiesa_pi%C3%B9_antica_di_re_ezana_presso_santa_maria_di_zion%2C_00.jpg",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Aksum, resti della chiesa più antica di re ezana presso santa maria di zion, 00.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Aksum, resti della chiesa più antica di re ezana presso santa maria di zion, 00.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e601cf0559d1fe6dc4c3c0f7aebc2cf04bca832f079aaf8fa707f1714c2dba0c",
+      "width": 3424,
+      "height": 4520,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/aksum/w640-3.jpg",
+          "bytes": 176127
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/aksum/w1280-3.jpg",
+          "bytes": 675866
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/aksum/w2048-3.jpg",
+          "bytes": 1790922
+        }
+      ]
+    }
+  ],
+  "classical-greece": [
+    {
+      "featureName": "Parthenon",
+      "alt": "Parthenon — classical greece",
+      "caption": "Parthenon",
+      "photographer": "Jebulon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAcropolis_Parthenon_Athens_Greece.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Acropolis Parthenon Athens Greece.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Acropolis Parthenon Athens Greece.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "757ead809b536db77804084b2283a6d608213dff6d9e34aa2d688ff3a7dc97ab",
+      "width": 4397,
+      "height": 1885,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/classical-greece/w640.jpg",
+          "bytes": 56669
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/classical-greece/w1280.jpg",
+          "bytes": 123805
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/classical-greece/w2048.jpg",
+          "bytes": 292820
+        }
+      ]
+    },
+    {
+      "featureName": "Temple of Apollo, Delphi",
+      "alt": "Temple of Apollo, Delphi — classical greece",
+      "caption": "Temple of Apollo, Delphi",
+      "photographer": "Skyring",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADelphi_Temple_of_Apollo.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Delphi Temple of Apollo.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Delphi Temple of Apollo.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "83cf352a42d4107178547eba31cf1a00aa442ab4efee8d611007658257498e68",
+      "width": 5070,
+      "height": 3763,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/classical-greece/w640-2.jpg",
+          "bytes": 122591
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/classical-greece/w1280-2.jpg",
+          "bytes": 312675
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/classical-greece/w2048-2.jpg",
+          "bytes": 817454
+        }
+      ]
+    },
+    {
+      "featureName": "Stadium at Olympia",
+      "alt": "Stadium at Olympia — classical greece",
+      "caption": "Stadium at Olympia",
+      "photographer": "troy mckaskle from SF Bay Area",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOlympia_Stadium.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Olympia Stadium.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Olympia Stadium.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a94161f4d767b8f16e42552084444998482616c616d2ad80f2ec77621e9c550b",
+      "width": 2048,
+      "height": 1536,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/classical-greece/w640-3.jpg",
+          "bytes": 34245
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/classical-greece/w1280-3.jpg",
+          "bytes": 121624
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/classical-greece/w2048-3.jpg",
+          "bytes": 410426
+        }
+      ]
+    }
+  ],
+  "byzantine-empire": [
+    {
+      "featureName": "Hagia Sophia",
+      "alt": "Hagia Sophia — byzantine empire",
+      "caption": "Hagia Sophia",
+      "photographer": "Arild Vågen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHagia_Sophia_Mars_2013.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Hagia Sophia Mars 2013.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Hagia Sophia Mars 2013.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "30a3647d5d224123b5786baee6ea3f511d6023d52a921308ea31edf8d85ea6de",
+      "width": 5514,
+      "height": 3681,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/byzantine-empire/w640.jpg",
+          "bytes": 61126
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/byzantine-empire/w1280.jpg",
+          "bytes": 194403
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/byzantine-empire/w2048.jpg",
+          "bytes": 570926
+        }
+      ]
+    },
+    {
+      "featureName": "Basilica of San Vitale",
+      "alt": "Basilica of San Vitale — byzantine empire",
+      "caption": "Basilica of San Vitale",
+      "photographer": "Emmagraziani",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABasilica_di_San_Vitale%2C_Ravenna.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Basilica di San Vitale, Ravenna.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Basilica di San Vitale, Ravenna.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "bf852c8dcffa6b289cb4a7a944758298e67637e6c812b477a657b179ba16526e",
+      "width": 4436,
+      "height": 2912,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/byzantine-empire/w640-2.jpg",
+          "bytes": 56526
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/byzantine-empire/w1280-2.jpg",
+          "bytes": 145016
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/byzantine-empire/w2048-2.jpg",
+          "bytes": 370160
+        }
+      ]
+    },
+    {
+      "featureName": "Theodosian Walls",
+      "alt": "Theodosian Walls — byzantine empire",
+      "caption": "Theodosian Walls",
+      "photographer": "A.Savin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIstanbul_asv2021-11_img65_Walls_of_Constantinople.jpg",
+      "license": "FAL",
+      "commonsTitle": "File:Istanbul asv2021-11 img65 Walls of Constantinople.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Istanbul asv2021-11 img65 Walls of Constantinople.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d4351679e44e73231b6038f2eb6b9ae06bed13f60437207a088073b505d2c1bc",
+      "width": 7520,
+      "height": 4230,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/byzantine-empire/w640-3.jpg",
+          "bytes": 74941
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/byzantine-empire/w1280-3.jpg",
+          "bytes": 229826
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/byzantine-empire/w2048-3.jpg",
+          "bytes": 649673
+        }
+      ]
+    }
+  ],
+  "carthage": [
+    {
+      "featureName": "Antonine Baths",
+      "alt": "Antonine Baths — carthage",
+      "caption": "Antonine Baths",
+      "photographer": "Silar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A01996_01434_Ruins_of_Antonine_Baths_at_Carthage.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:01996 01434 Ruins of Antonine Baths at Carthage.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:01996 01434 Ruins of Antonine Baths at Carthage.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1820ce512f3be769079b10d1f2d1a3ad4ebc49ba23c88a1573545d3997d796a3",
+      "width": 2399,
+      "height": 1599,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/carthage/w640.jpg",
+          "bytes": 33742
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/carthage/w1280.jpg",
+          "bytes": 120984
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/carthage/w2048.jpg",
+          "bytes": 346995
+        }
+      ]
+    },
+    {
+      "featureName": "Byrsa Hill",
+      "alt": "Byrsa Hill — carthage",
+      "caption": "Byrsa Hill",
+      "photographer": "Tracey Hind from Aups, France",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACarthage_Byrsa_-_more_Roman_ruins%2C_with_modern_Mosque_in_the_background._%2852763833251%29.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Carthage Byrsa - more Roman ruins, with modern Mosque in the background. (52763833251).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Carthage Byrsa - more Roman ruins, with modern Mosque in the background. (52763833251).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "60d9a414b8cbc30ee8308a39e269a6ace768d3c93148a4bed5e7d79d1a3b0b44",
+      "width": 5184,
+      "height": 3888,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/carthage/w640-2.jpg",
+          "bytes": 86600
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/carthage/w1280-2.jpg",
+          "bytes": 229825
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/carthage/w2048-2.jpg",
+          "bytes": 556668
+        }
+      ]
+    },
+    {
+      "featureName": "Punic Ports",
+      "alt": "Punic Ports — carthage",
+      "caption": "Punic Ports",
+      "photographer": "Ferchichi Abderraouf",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APorts_puniques_de_Carthage.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Ports puniques de Carthage.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ports puniques de Carthage.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3f7b65ba091fdef49dab9b3d5544f0d8e4c065680345845084642816a842921e",
+      "width": 5184,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/carthage/w640-3.jpg",
+          "bytes": 113809
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/carthage/w1280-3.jpg",
+          "bytes": 289055
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/carthage/w2048-3.jpg",
+          "bytes": 709846
+        }
+      ]
+    }
+  ],
+  "indus-valley": [
+    {
+      "featureName": "Mohenjo-daro",
+      "alt": "Mohenjo-daro — indus valley",
+      "caption": "Mohenjo-daro",
+      "photographer": "Saqib Qayyum",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMohenjo-daro.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Mohenjo-daro.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mohenjo-daro.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9f4dfd0dd8493ae685c2394980369de369e930d1269e7f747cb991c12da6ce42",
+      "width": 3648,
+      "height": 2736,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/indus-valley/w640.jpg",
+          "bytes": 51299
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/indus-valley/w1280.jpg",
+          "bytes": 198894
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/indus-valley/w2048.jpg",
+          "bytes": 571268
+        }
+      ]
+    },
+    {
+      "featureName": "Great Bath, Mohenjo-daro",
+      "alt": "Great Bath, Mohenjo-daro — indus valley",
+      "caption": "Great Bath, Mohenjo-daro",
+      "photographer": "Aakashaliraza",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGreat_Bath%2C_Mohenjo-daro_20160806_JYN-01.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Great Bath, Mohenjo-daro 20160806 JYN-01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Great Bath, Mohenjo-daro 20160806 JYN-01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1af86fc839304dee7c9c4403a7bd238f5a45bdf2e7b6d86ce8acc1b09c505627",
+      "width": 3264,
+      "height": 2448,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/indus-valley/w640-2.jpg",
+          "bytes": 53758
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/indus-valley/w1280-2.jpg",
+          "bytes": 174784
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/indus-valley/w2048-2.jpg",
+          "bytes": 524182
+        }
+      ]
+    },
+    {
+      "featureName": "Dholavira",
+      "alt": "Dholavira — indus valley",
+      "caption": "Dholavira",
+      "photographer": "Bhuppigraphy",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADholavira_archaeological_site.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Dholavira archaeological site.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Dholavira archaeological site.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "af10e647e63f6e22f8a0f4f9b109b003387ea0c76dbf3e3a3d85995dc86fbf66",
+      "width": 6000,
+      "height": 4000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/indus-valley/w640-3.jpg",
+          "bytes": 56915
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/indus-valley/w1280-3.jpg",
+          "bytes": 207947
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/indus-valley/w2048-3.jpg",
+          "bytes": 590521
+        }
+      ]
+    }
+  ],
+  "han-china": [
+    {
+      "featureName": "Great Wall at Jinshanling",
+      "alt": "Great Wall at Jinshanling — han china",
+      "caption": "Great Wall at Jinshanling",
+      "photographer": "Jakub Hałun",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20090529_Great_Wall_8125.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:20090529 Great Wall 8125.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:20090529 Great Wall 8125.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "949406b05f6e64255d325d6e3a9528074af2f0120a389a9f1c6194435955098e",
+      "width": 3008,
+      "height": 2000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/han-china/w640.jpg",
+          "bytes": 65743
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/han-china/w1280.jpg",
+          "bytes": 226870
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/han-china/w2048.jpg",
+          "bytes": 618679
+        }
+      ]
+    },
+    {
+      "featureName": "Yangling Mausoleum figurines",
+      "alt": "Yangling Mausoleum figurines — han china",
+      "caption": "Yangling Mausoleum figurines",
+      "photographer": "James Glazier",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APainted_earthenware_tomb_figurine_of_a_warrior._From_the_tomb_of_Emperor_Jing_%28reigned_157_BC_-_141_BC%29._Yangling_Mausoleum%2C_Xianyang%2C_Shaanxi%2C_China.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Painted earthenware tomb figurine of a warrior. From the tomb of Emperor Jing (reigned 157 BC - 141 BC). Yangling Mausoleum, Xianyang, Shaanxi, China.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Painted earthenware tomb figurine of a warrior. From the tomb of Emperor Jing (reigned 157 BC - 141 BC). Yangling Mausoleum, Xianyang, Shaanxi, China.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d9dcf9a61548c4d04a999051be45e5d7dea218299584bec16b62b5cd3d252149",
+      "width": 2549,
+      "height": 3564,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/han-china/w640-2.jpg",
+          "bytes": 53966
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/han-china/w1280-2.jpg",
+          "bytes": 214581
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/han-china/w2048-2.jpg",
+          "bytes": 806571
+        }
+      ]
+    },
+    {
+      "featureName": "Mogao Caves",
+      "alt": "Mogao Caves — han china",
+      "caption": "Mogao Caves",
+      "photographer": "No machine-readable author provided. BetacommandBot assumed (based on copyright claims).",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMogao_Caves.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Mogao Caves.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mogao Caves.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "295670e889cdcc29f5b3c17644269835759ff0470bce1869960279e57e04aebf",
+      "width": 1360,
+      "height": 1020,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/han-china/w640-3.jpg",
+          "bytes": 63251
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/han-china/w1280-3.jpg",
+          "bytes": 208041
+        },
+        {
+          "width": 1360,
+          "src": "/images/civilizations/han-china/w2048-3.jpg",
+          "bytes": 298809
+        }
+      ]
+    }
+  ],
+  "khmer": [
+    {
+      "featureName": "Angkor Wat",
+      "alt": "Angkor Wat — khmer",
+      "caption": "Angkor Wat",
+      "photographer": "Bjørn Christian Tørrissen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAngkor_Wat.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Angkor Wat.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Angkor Wat.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "32fe90efdbb94b55c3705ae472800037220d18af1c51cc41f67dca612490f94a",
+      "width": 2004,
+      "height": 1362,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/khmer/w640.jpg",
+          "bytes": 77828
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/khmer/w1280.jpg",
+          "bytes": 249964
+        },
+        {
+          "width": 2004,
+          "src": "/images/civilizations/khmer/w2048.jpg",
+          "bytes": 586844
+        }
+      ]
+    },
+    {
+      "featureName": "Bayon",
+      "alt": "Bayon — khmer",
+      "caption": "Bayon",
+      "photographer": "Jakub Hałun",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20171127_Bayon_Temple_Angkor_Thom_4772_DxO.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:20171127 Bayon Temple Angkor Thom 4772 DxO.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:20171127 Bayon Temple Angkor Thom 4772 DxO.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1139ab2406eb7ddd3bc877a25e38fa2bbd7bc696917416de9f5f120c208b814e",
+      "width": 3190,
+      "height": 4816,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/khmer/w640-2.jpg",
+          "bytes": 178196
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/khmer/w1280-2.jpg",
+          "bytes": 601147
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/khmer/w2048-2.jpg",
+          "bytes": 1497887
+        }
+      ]
+    },
+    {
+      "featureName": "Ta Prohm",
+      "alt": "Ta Prohm — khmer",
+      "caption": "Ta Prohm",
+      "photographer": "Sasha Isachenko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATa_Prohm.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Ta Prohm.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ta Prohm.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "55f511a1b970f53b54be0ad159ff7d416897a7a7191a2886d621efff8402daef",
+      "width": 4976,
+      "height": 2799,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/khmer/w640-3.jpg",
+          "bytes": 101592
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/khmer/w1280-3.jpg",
+          "bytes": 286623
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/khmer/w2048-3.jpg",
+          "bytes": 755467
+        }
+      ]
+    }
+  ],
+  "maurya": [
+    {
+      "featureName": "Great Stupa at Sanchi",
+      "alt": "Great Stupa at Sanchi — maurya",
+      "caption": "Great Stupa at Sanchi",
+      "photographer": "https://www.flickr.com/photos/chromatic_aberration/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASanchi_Stupa_from_Eastern_gate%2C_Madhya_Pradesh.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Sanchi Stupa from Eastern gate, Madhya Pradesh.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Sanchi Stupa from Eastern gate, Madhya Pradesh.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "60fbb7df767178bc407ddc9194caa46e043a2a78e561502b7e3f67e296bf03cf",
+      "width": 1600,
+      "height": 1179,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/maurya/w640.jpg",
+          "bytes": 67119
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/maurya/w1280.jpg",
+          "bytes": 203726
+        },
+        {
+          "width": 1600,
+          "src": "/images/civilizations/maurya/w2048.jpg",
+          "bytes": 341459
+        }
+      ]
+    },
+    {
+      "featureName": "Ashoka Pillar, Sarnath",
+      "alt": "Ashoka Pillar, Sarnath — maurya",
+      "caption": "Ashoka Pillar, Sarnath",
+      "photographer": "ผู้สร้างสรรค์ผลงาน/ส่งข้อมูลเก็บในคลังข้อมูลเสรีวิกิมีเดียคอมมอนส์ - เทวประภาส มากคล้าย",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASarnath_Ashoka_Pillar..jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Sarnath Ashoka Pillar..jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Sarnath Ashoka Pillar..jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9a8338c19c4d4768aa44613d1e772a5a68fda2bc801fdcccc920b9f58c42fc01",
+      "width": 3295,
+      "height": 3336,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/maurya/w640-2.jpg",
+          "bytes": 80326
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/maurya/w1280-2.jpg",
+          "bytes": 303038
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/maurya/w2048-2.jpg",
+          "bytes": 793620
+        }
+      ]
+    },
+    {
+      "featureName": "Barabar Caves",
+      "alt": "Barabar Caves — maurya",
+      "caption": "Barabar Caves",
+      "photographer": "Abhisal2408",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20211020125157_IMG_5439.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:20211020125157 IMG 5439.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:20211020125157 IMG 5439.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "81f1d22fe36186d749a50b983313055e65885d0bd6209ab158241cdbc500af2a",
+      "width": 5184,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/maurya/w640-3.jpg",
+          "bytes": 95447
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/maurya/w1280-3.jpg",
+          "bytes": 251141
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/maurya/w2048-3.jpg",
+          "bytes": 602594
+        }
+      ]
+    }
+  ],
+  "aztec": [
+    {
+      "featureName": "Templo Mayor",
+      "alt": "Templo Mayor — aztec",
+      "caption": "Templo Mayor",
+      "photographer": "José Luiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFront_platform_-_Templo_Mayor_-_Mexico_2024.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Front platform - Templo Mayor - Mexico 2024.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Front platform - Templo Mayor - Mexico 2024.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c4068f2b3cf16c6e535591ac599758e3c82536e6ff0b4fa15b03dbe1bd942558",
+      "width": 4608,
+      "height": 2184,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/aztec/w640.jpg",
+          "bytes": 79926
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/aztec/w1280.jpg",
+          "bytes": 169250
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/aztec/w2048.jpg",
+          "bytes": 396603
+        }
+      ]
+    },
+    {
+      "featureName": "Sun Stone",
+      "alt": "Sun Stone — aztec",
+      "caption": "Sun Stone",
+      "photographer": "Gary Todd",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAztec_Sun_Stone_or_Calendar_Stone.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Aztec Sun Stone or Calendar Stone.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Aztec Sun Stone or Calendar Stone.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fa06f6e0f972f93b6d7c759691a7e9b77188748794d114e3bff454baae8ed3d7",
+      "width": 4752,
+      "height": 3168,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/aztec/w640-2.jpg",
+          "bytes": 68331
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/aztec/w1280-2.jpg",
+          "bytes": 202788
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/aztec/w2048-2.jpg",
+          "bytes": 499779
+        }
+      ]
+    },
+    {
+      "featureName": "Coyolxauhqui Stone",
+      "alt": "Coyolxauhqui Stone — aztec",
+      "caption": "Coyolxauhqui Stone",
+      "photographer": "No machine-readable author provided. RobAn~commonswiki assumed (based on copyright clai...",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACoyolxauhqui.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Coyolxauhqui.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Coyolxauhqui.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "0081b16b1f08c97acf3a893cb61dd657e06fd12766997bfadb94e05eb99096d2",
+      "width": 1758,
+      "height": 1131,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/aztec/w640-3.jpg",
+          "bytes": 36558
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/aztec/w1280-3.jpg",
+          "bytes": 110481
+        },
+        {
+          "width": 1758,
+          "src": "/images/civilizations/aztec/w2048-3.jpg",
+          "bytes": 123704
+        }
+      ]
+    }
+  ],
+  "inca": [
+    {
+      "featureName": "Machu Picchu",
+      "alt": "Machu Picchu — inca",
+      "caption": "Machu Picchu",
+      "photographer": "Pedro Szekely at https://www.flickr.com/photos/pedrosz/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMachu_Picchu%2C_Peru.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Machu Picchu, Peru.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Machu Picchu, Peru.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f9a0beb1dc0d4cba27009c12a0a3974c7a206aa5d6da93132a7375d017a6bebc",
+      "width": 1600,
+      "height": 1067,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/inca/w640.jpg",
+          "bytes": 100439
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/inca/w1280.jpg",
+          "bytes": 270017
+        },
+        {
+          "width": 1600,
+          "src": "/images/civilizations/inca/w2048.jpg",
+          "bytes": 449192
+        }
+      ]
+    },
+    {
+      "featureName": "Sacsayhuamán",
+      "alt": "Sacsayhuamán — inca",
+      "caption": "Sacsayhuamán",
+      "photographer": "Lalo Campos P",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASaqsaywaman.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Saqsaywaman.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Saqsaywaman.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "bece119ff51dd06eadaef3010189d7e779f116fd455c3437ad7b97e40860345c",
+      "width": 2043,
+      "height": 1373,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/inca/w640-2.jpg",
+          "bytes": 57107
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/inca/w1280-2.jpg",
+          "bytes": 178897
+        },
+        {
+          "width": 2043,
+          "src": "/images/civilizations/inca/w2048-2.jpg",
+          "bytes": 490567
+        }
+      ]
+    },
+    {
+      "featureName": "Qorikancha",
+      "alt": "Qorikancha — inca",
+      "caption": "Qorikancha",
+      "photographer": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACoricancha_Eingang.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Coricancha Eingang.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Coricancha Eingang.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c8308b50587c2e2f6ebf73511698699088f20cd4ce5a5994e645ec480593e10a",
+      "width": 2881,
+      "height": 3893,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/inca/w640-3.jpg",
+          "bytes": 169424
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/inca/w1280-3.jpg",
+          "bytes": 584635
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/inca/w2048-3.jpg",
+          "bytes": 1547655
+        }
+      ]
+    }
   ]
 }

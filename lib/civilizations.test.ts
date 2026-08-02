@@ -50,6 +50,7 @@ describe('civilization subjects', () => {
     expect(groups.map(([category]) => category)).toEqual([
       'Africa & Near East',
       'Mediterranean',
+      'Asia',
       'Americas',
     ])
     expect(
@@ -58,6 +59,22 @@ describe('civilization subjects', () => {
     expect(
       groups[1]?.[1].some((subject) => subject.slug === 'roman-empire'),
     ).toBe(true)
-    expect(groups[2]?.[1].some((subject) => subject.slug === 'maya')).toBe(true)
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'han-china')).toBe(
+      true,
+    )
+    expect(groups[3]?.[1].some((subject) => subject.slug === 'maya')).toBe(true)
+  })
+
+  it('covers a broad starter set across regions', () => {
+    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(12)
+    expect(civilizationSubjectSlugs()).toEqual(
+      expect.arrayContaining([
+        'mesopotamia',
+        'classical-greece',
+        'han-china',
+        'inca',
+        'mali-empire',
+      ]),
+    )
   })
 })

@@ -31,6 +31,134 @@
       "featureName": "Temple of Hatshepsut"
     }
   ],
+  "mesopotamia": [
+    {
+      "commonsTitle": "File:Ziggurat of Ur.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Ziggurat_of_Ur.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AZiggurat_of_Ur.jpg",
+      "photographer": "Amjedha95",
+      "license": "CC BY-SA 4.0",
+      "width": 1280,
+      "height": 852,
+      "featureName": "Great Ziggurat of Ur"
+    },
+    {
+      "commonsTitle": "File:Pergamonmuseum Ishtartor 06.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Pergamonmuseum_Ishtartor_06.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APergamonmuseum_Ishtartor_06.jpg",
+      "photographer": "Hahaha",
+      "license": "CC SA 1.0",
+      "width": 1944,
+      "height": 2592,
+      "featureName": "Ishtar Gate"
+    },
+    {
+      "commonsTitle": "File:Assyrian shedu-lamassu from Khorsabad, Iraq. Iraq Museum.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Assyrian_shedu-lamassu_from_Khorsabad%2C_Iraq._Iraq_Museum.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAssyrian_shedu-lamassu_from_Khorsabad%2C_Iraq._Iraq_Museum.jpg",
+      "photographer": "Osama Shukir Muhammed Amin FRCP(Glasg)",
+      "license": "CC BY-SA 4.0",
+      "width": 6016,
+      "height": 4016,
+      "featureName": "Lamassu of Khorsabad"
+    }
+  ],
+  "mali-empire": [
+    {
+      "commonsTitle": "File:The Great Clay Mosque in Djenne, Mali.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/The_Great_Clay_Mosque_in_Djenne%2C_Mali.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe_Great_Clay_Mosque_in_Djenne%2C_Mali.jpg",
+      "photographer": "Dr. Ond\u0159ej Havelka (cestovatel)",
+      "license": "CC BY-SA 4.0",
+      "width": 4000,
+      "height": 2106,
+      "featureName": "Great Mosque of Djenn\u00e9"
+    },
+    {
+      "commonsTitle": "File:Sankore Mosque in Timbuktu.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Sankore_Mosque_in_Timbuktu.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASankore_Mosque_in_Timbuktu.jpg",
+      "photographer": "upyernoz from Haverford, USA",
+      "license": "CC BY 2.0",
+      "width": 2831,
+      "height": 1836,
+      "featureName": "Sankor\u00e9 Madrasah"
+    },
+    {
+      "commonsTitle": "File:Tombeau askia.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Tombeau_askia.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATombeau_askia.jpg",
+      "photographer": "Gio53",
+      "license": "CC BY-SA 4.0",
+      "width": 3648,
+      "height": 2736,
+      "featureName": "Tomb of Askia"
+    }
+  ],
+  "aksum": [
+    {
+      "commonsTitle": "File:Large obelisk in Axum, Ethiopia.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Large_obelisk_in_Axum%2C_Ethiopia.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALarge_obelisk_in_Axum%2C_Ethiopia.jpg",
+      "photographer": "Bair175",
+      "license": "CC BY-SA 4.0",
+      "width": 3328,
+      "height": 2216,
+      "featureName": "King Ezana\u2019s Stele"
+    },
+    {
+      "commonsTitle": "File:ET Axum asv2018-01 img38 Stelae Park.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/ET_Axum_asv2018-01_img38_Stelae_Park.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AET_Axum_asv2018-01_img38_Stelae_Park.jpg",
+      "photographer": "A.Savin",
+      "license": "FAL",
+      "width": 7762,
+      "height": 4851,
+      "featureName": "Northern Stelae Park"
+    },
+    {
+      "commonsTitle": "File:Aksum, resti della chiesa pi\u00f9 antica di re ezana presso santa maria di zion, 00.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Aksum%2C_resti_della_chiesa_pi%C3%B9_antica_di_re_ezana_presso_santa_maria_di_zion%2C_00.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAksum%2C_resti_della_chiesa_pi%C3%B9_antica_di_re_ezana_presso_santa_maria_di_zion%2C_00.jpg",
+      "photographer": "Sailko",
+      "license": "CC BY 3.0",
+      "width": 3424,
+      "height": 4520,
+      "featureName": "Church of Our Lady Mary of Zion"
+    }
+  ],
+  "classical-greece": [
+    {
+      "commonsTitle": "File:Acropolis Parthenon Athens Greece.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Acropolis_Parthenon_Athens_Greece.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAcropolis_Parthenon_Athens_Greece.jpg",
+      "photographer": "Jebulon",
+      "license": "CC0",
+      "width": 4397,
+      "height": 1885,
+      "featureName": "Parthenon"
+    },
+    {
+      "commonsTitle": "File:Delphi Temple of Apollo.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Delphi_Temple_of_Apollo.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADelphi_Temple_of_Apollo.jpg",
+      "photographer": "Skyring",
+      "license": "CC BY-SA 4.0",
+      "width": 5070,
+      "height": 3763,
+      "featureName": "Temple of Apollo, Delphi"
+    },
+    {
+      "commonsTitle": "File:Olympia Stadium.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Olympia_Stadium.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOlympia_Stadium.jpg",
+      "photographer": "troy mckaskle from SF Bay Area",
+      "license": "CC BY-SA 2.0",
+      "width": 2048,
+      "height": 1536,
+      "featureName": "Stadium at Olympia"
+    }
+  ],
   "roman-empire": [
     {
       "commonsTitle": "File:Colosseo 2020.jpg",
@@ -63,6 +191,198 @@
       "featureName": "Pantheon"
     }
   ],
+  "byzantine-empire": [
+    {
+      "commonsTitle": "File:Hagia Sophia Mars 2013.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Hagia_Sophia_Mars_2013.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHagia_Sophia_Mars_2013.jpg",
+      "photographer": "Arild V\u00e5gen",
+      "license": "CC BY-SA 3.0",
+      "width": 5514,
+      "height": 3681,
+      "featureName": "Hagia Sophia"
+    },
+    {
+      "commonsTitle": "File:Basilica di San Vitale, Ravenna.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Basilica_di_San_Vitale%2C_Ravenna.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABasilica_di_San_Vitale%2C_Ravenna.jpg",
+      "photographer": "Emmagraziani",
+      "license": "CC BY-SA 4.0",
+      "width": 4436,
+      "height": 2912,
+      "featureName": "Basilica of San Vitale"
+    },
+    {
+      "commonsTitle": "File:Istanbul asv2021-11 img65 Walls of Constantinople.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Istanbul_asv2021-11_img65_Walls_of_Constantinople.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIstanbul_asv2021-11_img65_Walls_of_Constantinople.jpg",
+      "photographer": "A.Savin",
+      "license": "FAL",
+      "width": 7520,
+      "height": 4230,
+      "featureName": "Theodosian Walls"
+    }
+  ],
+  "carthage": [
+    {
+      "commonsTitle": "File:01996 01434 Ruins of Antonine Baths at Carthage.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/01996_01434_Ruins_of_Antonine_Baths_at_Carthage.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A01996_01434_Ruins_of_Antonine_Baths_at_Carthage.jpg",
+      "photographer": "Silar",
+      "license": "CC BY-SA 4.0",
+      "width": 2399,
+      "height": 1599,
+      "featureName": "Antonine Baths"
+    },
+    {
+      "commonsTitle": "File:Carthage Byrsa - more Roman ruins, with modern Mosque in the background. (52763833251).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Carthage_Byrsa_-_more_Roman_ruins%2C_with_modern_Mosque_in_the_background._%2852763833251%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACarthage_Byrsa_-_more_Roman_ruins%2C_with_modern_Mosque_in_the_background._%2852763833251%29.jpg",
+      "photographer": "Tracey Hind from Aups, France",
+      "license": "CC BY-SA 2.0",
+      "width": 5184,
+      "height": 3888,
+      "featureName": "Byrsa Hill"
+    },
+    {
+      "commonsTitle": "File:Ports puniques de Carthage.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Ports_puniques_de_Carthage.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APorts_puniques_de_Carthage.jpg",
+      "photographer": "Ferchichi Abderraouf",
+      "license": "CC BY-SA 3.0",
+      "width": 5184,
+      "height": 3456,
+      "featureName": "Punic Ports"
+    }
+  ],
+  "indus-valley": [
+    {
+      "commonsTitle": "File:Mohenjo-daro.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Mohenjo-daro.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMohenjo-daro.jpg",
+      "photographer": "Saqib Qayyum",
+      "license": "CC BY-SA 3.0",
+      "width": 3648,
+      "height": 2736,
+      "featureName": "Mohenjo-daro"
+    },
+    {
+      "commonsTitle": "File:Great Bath, Mohenjo-daro 20160806 JYN-01.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/Great_Bath%2C_Mohenjo-daro_20160806_JYN-01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGreat_Bath%2C_Mohenjo-daro_20160806_JYN-01.jpg",
+      "photographer": "Aakashaliraza",
+      "license": "CC BY-SA 4.0",
+      "width": 3264,
+      "height": 2448,
+      "featureName": "Great Bath, Mohenjo-daro"
+    },
+    {
+      "commonsTitle": "File:Dholavira archaeological site.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Dholavira_archaeological_site.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADholavira_archaeological_site.jpg",
+      "photographer": "Bhuppigraphy",
+      "license": "CC BY-SA 4.0",
+      "width": 6000,
+      "height": 4000,
+      "featureName": "Dholavira"
+    }
+  ],
+  "han-china": [
+    {
+      "commonsTitle": "File:20090529 Great Wall 8125.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/20090529_Great_Wall_8125.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20090529_Great_Wall_8125.jpg",
+      "photographer": "Jakub Ha\u0142un",
+      "license": "CC BY-SA 3.0",
+      "width": 3008,
+      "height": 2000,
+      "featureName": "Great Wall at Jinshanling"
+    },
+    {
+      "commonsTitle": "File:Painted earthenware tomb figurine of a warrior. From the tomb of Emperor Jing (reigned 157 BC - 141 BC). Yangling Mausoleum, Xianyang, Shaanxi, China.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Painted_earthenware_tomb_figurine_of_a_warrior._From_the_tomb_of_Emperor_Jing_%28reigned_157_BC_-_141_BC%29._Yangling_Mausoleum%2C_Xianyang%2C_Shaanxi%2C_China.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APainted_earthenware_tomb_figurine_of_a_warrior._From_the_tomb_of_Emperor_Jing_%28reigned_157_BC_-_141_BC%29._Yangling_Mausoleum%2C_Xianyang%2C_Shaanxi%2C_China.jpg",
+      "photographer": "James Glazier",
+      "license": "CC BY-SA 2.0",
+      "width": 2549,
+      "height": 3564,
+      "featureName": "Yangling Mausoleum figurines"
+    },
+    {
+      "commonsTitle": "File:Mogao Caves.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Mogao_Caves.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMogao_Caves.jpg",
+      "photographer": "No machine-readable author provided. BetacommandBot assumed (based on copyright claims).",
+      "license": "CC BY-SA 3.0",
+      "width": 1360,
+      "height": 1020,
+      "featureName": "Mogao Caves"
+    }
+  ],
+  "khmer": [
+    {
+      "commonsTitle": "File:Angkor Wat.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/Angkor_Wat.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAngkor_Wat.jpg",
+      "photographer": "Bj\u00f8rn Christian T\u00f8rrissen",
+      "license": "CC BY-SA 4.0",
+      "width": 2004,
+      "height": 1362,
+      "featureName": "Angkor Wat"
+    },
+    {
+      "commonsTitle": "File:20171127 Bayon Temple Angkor Thom 4772 DxO.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/20171127_Bayon_Temple_Angkor_Thom_4772_DxO.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20171127_Bayon_Temple_Angkor_Thom_4772_DxO.jpg",
+      "photographer": "Jakub Ha\u0142un",
+      "license": "CC BY-SA 4.0",
+      "width": 3190,
+      "height": 4816,
+      "featureName": "Bayon"
+    },
+    {
+      "commonsTitle": "File:Ta Prohm.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Ta_Prohm.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATa_Prohm.jpg",
+      "photographer": "Sasha Isachenko",
+      "license": "CC BY-SA 3.0",
+      "width": 4976,
+      "height": 2799,
+      "featureName": "Ta Prohm"
+    }
+  ],
+  "maurya": [
+    {
+      "commonsTitle": "File:Sanchi Stupa from Eastern gate, Madhya Pradesh.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Sanchi_Stupa_from_Eastern_gate%2C_Madhya_Pradesh.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASanchi_Stupa_from_Eastern_gate%2C_Madhya_Pradesh.jpg",
+      "photographer": "https://www.flickr.com/photos/chromatic_aberration/",
+      "license": "CC BY-SA 2.0",
+      "width": 1600,
+      "height": 1179,
+      "featureName": "Great Stupa at Sanchi"
+    },
+    {
+      "commonsTitle": "File:Sarnath Ashoka Pillar..jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Sarnath_Ashoka_Pillar..jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASarnath_Ashoka_Pillar..jpg",
+      "photographer": "\u0e1c\u0e39\u0e49\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e2a\u0e23\u0e23\u0e04\u0e4c\u0e1c\u0e25\u0e07\u0e32\u0e19/\u0e2a\u0e48\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e40\u0e01\u0e47\u0e1a\u0e43\u0e19\u0e04\u0e25\u0e31\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e40\u0e2a\u0e23\u0e35\u0e27\u0e34\u0e01\u0e34\u0e21\u0e35\u0e40\u0e14\u0e35\u0e22\u0e04\u0e2d\u0e21\u0e21\u0e2d\u0e19\u0e2a\u0e4c - \u0e40\u0e17\u0e27\u0e1b\u0e23\u0e30\u0e20\u0e32\u0e2a \u0e21\u0e32\u0e01\u0e04\u0e25\u0e49\u0e32\u0e22",
+      "license": "CC BY-SA 3.0",
+      "width": 3295,
+      "height": 3336,
+      "featureName": "Ashoka Pillar, Sarnath"
+    },
+    {
+      "commonsTitle": "File:20211020125157 IMG 5439.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/20211020125157_IMG_5439.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A20211020125157_IMG_5439.jpg",
+      "photographer": "Abhisal2408",
+      "license": "CC BY-SA 4.0",
+      "width": 5184,
+      "height": 3456,
+      "featureName": "Barabar Caves"
+    }
+  ],
   "maya": [
     {
       "commonsTitle": "File:Tikal Temple I 2026.jpg",
@@ -93,6 +413,70 @@
       "width": 4990,
       "height": 3157,
       "featureName": "Temple of the Inscriptions"
+    }
+  ],
+  "aztec": [
+    {
+      "commonsTitle": "File:Front platform - Templo Mayor - Mexico 2024.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Front_platform_-_Templo_Mayor_-_Mexico_2024.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFront_platform_-_Templo_Mayor_-_Mexico_2024.jpg",
+      "photographer": "Jos\u00e9 Luiz",
+      "license": "CC BY-SA 4.0",
+      "width": 4608,
+      "height": 2184,
+      "featureName": "Templo Mayor"
+    },
+    {
+      "commonsTitle": "File:Aztec Sun Stone or Calendar Stone.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Aztec_Sun_Stone_or_Calendar_Stone.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAztec_Sun_Stone_or_Calendar_Stone.jpg",
+      "photographer": "Gary Todd",
+      "license": "CC0",
+      "width": 4752,
+      "height": 3168,
+      "featureName": "Sun Stone"
+    },
+    {
+      "commonsTitle": "File:Coyolxauhqui.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Coyolxauhqui.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACoyolxauhqui.jpg",
+      "photographer": "No machine-readable author provided. RobAn~commonswiki assumed (based on copyright clai...",
+      "license": "Public domain",
+      "width": 1758,
+      "height": 1131,
+      "featureName": "Coyolxauhqui Stone"
+    }
+  ],
+  "inca": [
+    {
+      "commonsTitle": "File:Machu Picchu, Peru.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Machu_Picchu%2C_Peru.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMachu_Picchu%2C_Peru.jpg",
+      "photographer": "Pedro Szekely at https://www.flickr.com/photos/pedrosz/",
+      "license": "CC BY-SA 2.0",
+      "width": 1600,
+      "height": 1067,
+      "featureName": "Machu Picchu"
+    },
+    {
+      "commonsTitle": "File:Saqsaywaman.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Saqsaywaman.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASaqsaywaman.jpg",
+      "photographer": "Lalo Campos P",
+      "license": "CC BY-SA 4.0",
+      "width": 2043,
+      "height": 1373,
+      "featureName": "Sacsayhuam\u00e1n"
+    },
+    {
+      "commonsTitle": "File:Coricancha Eingang.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Coricancha_Eingang.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACoricancha_Eingang.jpg",
+      "photographer": "5snake5",
+      "license": "CC0",
+      "width": 2881,
+      "height": 3893,
+      "featureName": "Qorikancha"
     }
   ]
 }

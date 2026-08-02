@@ -1,9 +1,10 @@
 # Civilizations field guides
 
 Civilizations guides at `/civilizations` and `/civilizations/[slug]`. Catalog in
-`lib/civilizations.ts`: historical civilizations with orientation, signature
-sites, facts, sources, and curated photographs. Topics catalog lists
-Civilizations alongside Countries and Space (`lib/topics.ts`).
+`lib/civilizations.ts`: historical civilizations across Africa & Near East,
+Mediterranean, Asia, and the Americas — orientation, signature sites, facts,
+sources, and curated photographs. Topics catalog lists Civilizations alongside
+Countries and Space (`lib/topics.ts`).
 
 ## Map
 

@@ -60,11 +60,14 @@ function withPhotos(draft: CivilizationSubjectDraft): CivilizationSubject {
   if (!Array.isArray(photos) || photos.length !== 3) {
     throw new Error(`Missing three civilization photos for ${draft.slug}`)
   }
-  return { ...draft, photos: photos as [CivilizationPhoto, CivilizationPhoto, CivilizationPhoto] }
+  return {
+    ...draft,
+    photos: photos as [CivilizationPhoto, CivilizationPhoto, CivilizationPhoto],
+  }
 }
 
 /**
- * Curated starter catalog — Africa & Near East, Mediterranean, and Americas.
+ * Curated catalog — Africa & Near East, Mediterranean, Asia, and Americas.
  * Expand here as new Civilizations guides ship.
  */
 const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
@@ -120,6 +123,210 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
     ],
   },
   {
+    slug: 'mesopotamia',
+    code: 'MES',
+    name: 'Mesopotamia',
+    category: 'Africa & Near East',
+    subtitle: 'River civilization · Tigris–Euphrates',
+    about:
+      'Mesopotamia is less a single kingdom than a long experiment in living between two rivers. The Tigris and Euphrates braided irrigation, surplus grain, and city rivalry into the first dense urban societies of the Near East — Uruk, Ur, Lagash, Babylon, Nineveh — each rewriting what a capital could mean. Mudbrick was the everyday material; ideology was written into ziggurats, law collections, and temple households that owned land and labor. Cuneiform began as accounting and became literature, omen science, and royal boast. Empires rose by mastering canals and caravans as much as by chariots: Akkad’s early reach, Babylon’s legal fame, Assyria’s military machine, later Neo-Babylonian restoration. The durable lesson is infrastructural: without levees and ledgers, the plain returns to marsh and dust. This primer stays with rivers, cities, script, and temple economy rather than a king-by-king chronicle.',
+    facts: {
+      kind: 'River civilization',
+      heartland: 'Tigris–Euphrates plain · Iraq & Syria',
+      era: 'c. 3500 BCE – 539 BCE (as independent Mesopotamian states)',
+      peak: 'Old Babylonian & Neo-Assyrian high points, 2nd–1st millennia BCE',
+      writing: 'Cuneiform (Sumerian, Akkadian)',
+      exploreLinks: 'Iraq, Syria, Iran, Turkey',
+    },
+    features: [
+      {
+        name: 'Great Ziggurat of Ur',
+        description:
+          'A stepped temple platform of the Neo-Sumerian city of Ur — mudbrick monumentality rebuilt across centuries as a vertical argument for divine presence.',
+      },
+      {
+        name: 'Ishtar Gate',
+        description:
+          'Nebuchadnezzar II’s glazed-brick processional gate of Babylon, reconstructed in Berlin — dragons and bulls as imperial threshold design.',
+      },
+      {
+        name: 'Lamassu of Khorsabad',
+        description:
+          'Human-headed winged bulls from Sargon II’s Assyrian capital — guardian sculptures that fused myth, masonry, and palace intimidation.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Mesopotamia',
+        url: 'https://www.britannica.com/place/Mesopotamia-historical-region-Asia',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Mesopotamia',
+        url: 'https://www.metmuseum.org/toah/hd/mega/hd_mega.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Samarra Archaeological City',
+        url: 'https://whc.unesco.org/en/list/276',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'mali-empire',
+    code: 'MAL',
+    name: 'Mali Empire',
+    category: 'Africa & Near East',
+    subtitle: 'Sahelian empire · West Africa',
+    about:
+      'The Mali Empire turned the West African Sahel into a hinge between desert caravans and savanna farms. Gold from forest margins, salt from Saharan pans, and scholarship in river cities made an inland power that European and Maghrebi writers could not ignore — especially when Mansa Musa’s pilgrimage advertised wealth on a continental stage. Orientation here is commercial and Islamic at once: rulers patronized mosques and madrasas while taxing trade that moved by camel, canoe, and foot. Timbuktu and Djenné became names for learning and mudbrick ambition; Gao and Niani mark shifting political gravity. Oral epics preserved founding stories even as Arabic literacy kept accounts and law. The empire’s later fractures do not erase the durable pattern: a Sahelian statecraft built on routes, reputation, and religious cosmopolitanism. This primer favors trade corridors, cities of learning, and earthen architecture over a list of every succession dispute.',
+    facts: {
+      kind: 'Sahelian empire',
+      heartland: 'Upper Niger · West African Sahel',
+      era: 'c. 1230 – 1600 CE',
+      peak: '14th century under Mansa Musa and successors',
+      writing: 'Arabic (with rich Mandé oral traditions)',
+      exploreLinks: 'Mali, Guinea, Senegal, Mauritania, Niger',
+    },
+    features: [
+      {
+        name: 'Great Mosque of Djenné',
+        description:
+          'The world’s largest mudbrick mosque — a living Sudano-Sahelian monument renewed by annual plastering as much as by original design.',
+      },
+      {
+        name: 'Sankoré Madrasah',
+        description:
+          'A Timbuktu center of Islamic learning whose libraries and courtyards made the city a Sahelian node in wider scholarly networks.',
+      },
+      {
+        name: 'Tomb of Askia',
+        description:
+          'A pyramidal earthen tomb at Gao associated with the Songhai ruler Askia Mohammad — later imperial architecture on Mali’s eastern horizon.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Mali empire',
+        url: 'https://www.britannica.com/place/Mali-historical-empire-Africa',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Mali Empire',
+        url: 'https://www.metmuseum.org/toah/hd/mali/hd_mali.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Old Towns of Djenné',
+        url: 'https://whc.unesco.org/en/list/116',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'aksum',
+    code: 'AKS',
+    name: 'Aksum',
+    category: 'Africa & Near East',
+    subtitle: 'Highland trading kingdom · Horn of Africa',
+    about:
+      'Aksum rose on the Ethiopian highlands as a state that could see both the Red Sea and the African interior. Ivory, gold, incense, and enslaved people moved through its ports; coins stamped in Greek, Geʿez, and other scripts advertised a kingdom fluent in more than one commercial language. Giant stelae — stone needles carved to resemble multi-story buildings — turned royal funerary ambition into a skyline. In the fourth century, royal conversion made Aksum an early Christian power in Africa, tying highland churches to wider Mediterranean and Near Eastern networks without erasing older local forms. Orientation is vertical and maritime at once: terrace agriculture on plateaus, caravan paths to the coast, and monuments that still dominate Axum’s fields. Decline shifted centers southward, but the stelae and liturgical inheritance remain. This primer stays with trade, stelae, and early African Christianity rather than later Solomonic legend alone.',
+    facts: {
+      kind: 'Highland trading kingdom',
+      heartland: 'Tigray highlands · Eritrean–Ethiopian corridor',
+      era: 'c. 100 – 940 CE',
+      peak: '3rd–6th centuries CE',
+      writing: 'Geʿez (with Greek on coinage and inscriptions)',
+      exploreLinks: 'Ethiopia, Eritrea',
+    },
+    features: [
+      {
+        name: 'King Ezana’s Stele',
+        description:
+          'One of Aksum’s great standing monoliths — a carved granite marker of royal funerary status still commanding the stelae field.',
+      },
+      {
+        name: 'Northern Stelae Park',
+        description:
+          'The principal field of Aksumite funerary monuments, where fallen and standing stones map elite memory onto open ground.',
+      },
+      {
+        name: 'Church of Our Lady Mary of Zion',
+        description:
+          'A sacred complex at Axum long associated with Ethiopian Christianity’s royal and liturgical center — continuity layered over Aksumite ground.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Aksum',
+        url: 'https://www.britannica.com/place/Aksum-ancient-kingdom-Africa',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Aksum',
+        url: 'https://www.metmuseum.org/toah/hd/aksu_1/hd_aksu_1.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Aksum',
+        url: 'https://whc.unesco.org/en/list/15',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'classical-greece',
+    code: 'GRK',
+    name: 'Classical Greece',
+    category: 'Mediterranean',
+    subtitle: 'City-state civilization · Aegean world',
+    about:
+      'Classical Greece was a conversation among cities more than a single state. Athens, Sparta, Corinth, Thebes, and dozens of others shared language, gods, and competitive habits while refusing political unity until Macedon imposed it from outside. Orientation favors the polis: citizen assemblies and exclusionary citizenship, temples that doubled as treasuries, and panhellenic sanctuaries where rivals met under truce. Philosophy, drama, and history writing flourished beside slavery and endemic warfare; marble perfection and brutal politics occupied the same century. Colonies and trade laced the Black Sea and western Mediterranean with Greek towns, exporting styles of temple and alphabet. The Persian Wars and the Peloponnesian War remain structural events, not just stories — moments when the city-state system revealed its strengths and its suicidal fractures. This primer stays with the polis, sanctuary, and shared culture rather than a tourist checklist of every statue.',
+    facts: {
+      kind: 'City-state civilization',
+      heartland: 'Aegean basin · southern Balkans',
+      era: 'Archaic to Hellenistic; Classical core c. 480–323 BCE',
+      peak: '5th century BCE (Athens’ high classical moment)',
+      writing: 'Greek alphabet',
+      exploreLinks: 'Greece, Turkey, Italy, Cyprus',
+    },
+    features: [
+      {
+        name: 'Parthenon',
+        description:
+          'Athena’s temple on the Athenian Acropolis — Doric order, sculptural program, and imperial treasury in one marble argument.',
+      },
+      {
+        name: 'Temple of Apollo, Delphi',
+        description:
+          'The oracular sanctuary’s temple core, where panhellenic pilgrimage and political consultation shared sacred ground.',
+      },
+      {
+        name: 'Stadium at Olympia',
+        description:
+          'The racecourse of the Olympic Games — athletic competition as a Greek language of truce, fame, and civic pride.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Ancient Greek civilization',
+        url: 'https://www.britannica.com/place/ancient-Greece',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Ancient Greece',
+        url: 'https://www.metmuseum.org/toah/hd/grck/hd_grck.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Acropolis, Athens',
+        url: 'https://whc.unesco.org/en/list/404',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
     slug: 'roman-empire',
     code: 'ROM',
     name: 'Roman Empire',
@@ -139,7 +346,7 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       {
         name: 'Colosseum',
         description:
-          'The Flavian Amphitheatre in Rome — a engineered bowl for public spectacle whose arches and vomitoria still teach Roman crowd logistics in stone.',
+          'The Flavian Amphitheatre in Rome — an engineered bowl for public spectacle whose arches and vomitoria still teach Roman crowd logistics in stone.',
       },
       {
         name: 'Roman Forum',
@@ -166,6 +373,312 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       {
         label: 'UNESCO — Historic Centre of Rome',
         url: 'https://whc.unesco.org/en/list/91',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'byzantine-empire',
+    code: 'BYZ',
+    name: 'Byzantine Empire',
+    category: 'Mediterranean',
+    subtitle: 'Eastern Roman empire · Constantinople',
+    about:
+      'Byzantium is what happens when the Roman Empire keeps its eastern half and slowly becomes something new without admitting the rename. Constantinople sat on a peninsula between seas and continents, guarded by walls that held for centuries while western provinces slipped away. Greek replaced Latin in administration; Christianity — especially Orthodox liturgy and theology — became the empire’s shared grammar; Roman law was codified and taught as inheritance. Orientation is urban and ceremonial: hippodrome factions, mosaic-clad churches, and a court that treated diplomacy as theater. Trade and war with Persians, Arabs, Slavs, Latins, and Turks shaped a state that survived by adaptation as much as by nostalgia. 1453 ends the imperial capital; it does not erase the artistic and legal afterlife. This primer stays with capital, faith, and continuity rather than every palace intrigue.',
+    facts: {
+      kind: 'Eastern Roman empire',
+      heartland: 'Constantinople · Balkans & Anatolia',
+      era: '330 – 1453 CE (conventional imperial span)',
+      peak: 'Justinianic 6th century; Macedonian revival 10th–11th',
+      writing: 'Medieval Greek',
+      exploreLinks: 'Turkey, Greece, Italy, Bulgaria, Egypt',
+    },
+    features: [
+      {
+        name: 'Hagia Sophia',
+        description:
+          'Justinian’s great church in Constantinople — a dome over a basilica plan that reset sacred architecture for the medieval Mediterranean.',
+      },
+      {
+        name: 'Basilica of San Vitale',
+        description:
+          'An octagonal church in Ravenna whose mosaics of Justinian and Theodora freeze Byzantine court theology in glass and gold.',
+      },
+      {
+        name: 'Theodosian Walls',
+        description:
+          'The land walls of Constantinople — layered fortifications that made the capital nearly impregnable for a millennium.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Byzantine Empire',
+        url: 'https://www.britannica.com/place/Byzantine-Empire',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Byzantium',
+        url: 'https://www.metmuseum.org/toah/hd/byza/hd_byza.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Historic Areas of Istanbul',
+        url: 'https://whc.unesco.org/en/list/356',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'carthage',
+    code: 'CAR',
+    name: 'Carthage',
+    category: 'Mediterranean',
+    subtitle: 'Punic maritime power · North Africa',
+    about:
+      'Carthage was a Phoenician foundation that became the western Mediterranean’s great mercantile rival to Rome. From a Tunisian peninsula it ran a network of ports, farms, and alliances that prized ships over legions — until the Punic Wars forced a different kind of history. Orientation is maritime and agricultural together: harbors cut for warships and traders, hinterland estates feeding the city, and a Punic culture that kept Levantine roots while adapting to North Africa and Iberia. Hannibal’s Alpine crossing is the famous chapter; the quieter structure is a commercial empire that Rome could not leave standing. Destruction in 146 BCE was meant to be final; Roman Carthage later rose on the same ground, layering baths and forums over Punic memory. This primer stays with ports, rivalry, and North African position rather than only battlefield romance.',
+    facts: {
+      kind: 'Punic maritime power',
+      heartland: 'Gulf of Tunis · western Mediterranean network',
+      era: 'c. 814 BCE – 146 BCE (Punic city)',
+      peak: '3rd century BCE before and during the Punic Wars',
+      writing: 'Punic (Phoenician-derived script)',
+      exploreLinks: 'Tunisia, Spain, Italy, Algeria',
+    },
+    features: [
+      {
+        name: 'Antonine Baths',
+        description:
+          'Vast Roman imperial baths on the Carthage shore — later monumentality on the site of the destroyed Punic capital.',
+      },
+      {
+        name: 'Byrsa Hill',
+        description:
+          'The acropolis of ancient Carthage, where Punic and Roman layers stack on the city’s commanding height.',
+      },
+      {
+        name: 'Punic Ports',
+        description:
+          'The circular naval harbor and commercial basins that made Carthage a machine for Mediterranean sea power.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Carthage',
+        url: 'https://www.britannica.com/place/Carthage-ancient-city-Tunisia',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Carthage',
+        url: 'https://www.metmuseum.org/toah/hd/cart/hd_cart.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Archaeological Site of Carthage',
+        url: 'https://whc.unesco.org/en/list/37',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'indus-valley',
+    code: 'IND',
+    name: 'Indus Valley',
+    category: 'Asia',
+    subtitle: 'River civilization · Indus basin',
+    about:
+      'The Indus Valley civilization built cities with a planner’s patience: baked-brick blocks, covered drains, standardized weights, and citadels rising above lower towns. Harappa and Mohenjo-daro are the famous names; dozens of other sites stretch from Balochistan to Gujarat, tied by river and monsoon. Orientation is civic and quiet — fewer royal boasts carved in stone than in Egypt or Mesopotamia, more evidence of urban order in wells, baths, and warehouse platforms. The script remains undeciphered, which keeps politics partly opaque and makes craft and trade the clearer story: beads, metals, seals, and links to Mesopotamian markets. Decline around the early second millennium BCE was regional and staggered, not a single cinematic collapse. This primer stays with urban fabric, water management, and undeciphered signs rather than invented kings.',
+    facts: {
+      kind: 'River civilization',
+      heartland: 'Indus and Ghaggar-Hakra basins · South Asia',
+      era: 'Mature Harappan c. 2600 – 1900 BCE',
+      peak: 'Mature urban phase, mid–late 3rd millennium BCE',
+      writing: 'Indus script (undeciphered)',
+      exploreLinks: 'Pakistan, India',
+    },
+    features: [
+      {
+        name: 'Mohenjo-daro',
+        description:
+          'A major Indus city on the lower Indus — grid streets, brick platforms, and a citadel that still define the civilization’s urban image.',
+      },
+      {
+        name: 'Great Bath, Mohenjo-daro',
+        description:
+          'A watertight ceremonial pool at the citadel — public ritual architecture without a matching royal inscription to explain it.',
+      },
+      {
+        name: 'Dholavira',
+        description:
+          'A western Indus city in the Rann of Kutch with reservoirs and monumental signage — arid-edge urbanism at civilization’s margin.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Indus civilization',
+        url: 'https://www.britannica.com/topic/Indus-civilization',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Indus Valley',
+        url: 'https://www.metmuseum.org/toah/hd/indus/hd_indus.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Archaeological Ruins at Moenjodaro',
+        url: 'https://whc.unesco.org/en/list/138',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'han-china',
+    code: 'HAN',
+    name: 'Han China',
+    category: 'Asia',
+    subtitle: 'Imperial dynasty · East Asia',
+    about:
+      'The Han dynasty set many of the defaults later ages would call simply “Chinese”: a Confucian-trained bureaucracy, an imperial examination embryo, expanded frontiers, and a cultural self-image durable enough that ethnic identity still borrows the name. Orientation is administrative and continental — censuses and granaries, Silk Road corridors opening west, and tomb cultures that filled the afterlife with clay retinues and lacquer luxury. Paper, iron tools, and long-distance trade changed daily life while court politics swung between strong emperors and consort clans. The dynasty split into Western and Eastern periods around a disruptive interregnum, yet the institutional habit of unified empire returned. This primer stays with bureaucracy, frontier roads, and funerary material culture rather than every usurper’s year count.',
+    facts: {
+      kind: 'Imperial dynasty',
+      heartland: 'North China Plain · Yellow River basin',
+      era: '206 BCE – 220 CE',
+      peak: 'Western Han high empire, 1st century BCE – 1st century CE',
+      writing: 'Classical Chinese (seal, clerical scripts)',
+      exploreLinks: 'China, Mongolia, Vietnam, North Korea',
+    },
+    features: [
+      {
+        name: 'Great Wall at Jinshanling',
+        description:
+          'A mountainous wall stretch whose later masonry sits on a longer frontier story the Han helped define against steppe powers.',
+      },
+      {
+        name: 'Yangling Mausoleum figurines',
+        description:
+          'Painted earthenware attendants from Emperor Jing’s tomb complex — Han funerary world-building in miniature armies and servants.',
+      },
+      {
+        name: 'Mogao Caves',
+        description:
+          'The Dunhuang cave temples on the Silk Road corridor — later painted glory on an oasis route the Han empire helped open.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Han dynasty',
+        url: 'https://www.britannica.com/topic/Han-dynasty',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Han Dynasty',
+        url: 'https://www.metmuseum.org/toah/hd/hand/hd_hand.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Silk Roads: Chang’an–Tianshan Corridor',
+        url: 'https://whc.unesco.org/en/list/1442',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'khmer',
+    code: 'KHM',
+    name: 'Khmer Empire',
+    category: 'Asia',
+    subtitle: 'Temple empire · mainland Southeast Asia',
+    about:
+      'The Khmer Empire organized the lower Mekong and Tonlé Sap into a hydraulic and temple landscape without peer in mainland Southeast Asia. Angkor was not one building but a metropolitan region of reservoirs, canals, rice fields, and state temples that mapped cosmic order onto monsoon earth. Kings claimed divine kingship; sandstone and laterite recorded both devotion and labor mobilization on a staggering scale. Orientation is hydrological: control of water made surplus, surplus made monuments, monuments made legitimacy. Indian-derived scripts and Hindu-Buddhist cults arrived through trade and court fashion, then became thoroughly Khmer. The empire’s thirteenth–fifteenth century transformations shifted capitals and cults; the forest reclaiming Ta Prohm is poetic, not the whole story. This primer stays with water, temple-mountains, and Angkorian statecraft.',
+    facts: {
+      kind: 'Temple empire',
+      heartland: 'Tonlé Sap & Mekong lowlands · Cambodia',
+      era: 'c. 802 – 1431 CE',
+      peak: 'Angkor Wat era, 12th century CE',
+      writing: 'Old Khmer / Sanskrit inscriptions',
+      exploreLinks: 'Cambodia, Thailand, Laos, Vietnam',
+    },
+    features: [
+      {
+        name: 'Angkor Wat',
+        description:
+          'Suryavarman II’s temple-mountain — a vast west-facing complex whose galleries and moat stage Hindu cosmology at imperial scale.',
+      },
+      {
+        name: 'Bayon',
+        description:
+          'Jayavarman VII’s state temple at Angkor Thom, famous for serene stone faces and a Buddhist turn in royal ideology.',
+      },
+      {
+        name: 'Ta Prohm',
+        description:
+          'A monastic temple left partly to the forest — roots and galleries showing how Angkor’s stone and living landscape intertwine.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Khmer empire',
+        url: 'https://www.britannica.com/place/Khmer-empire',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Angkor',
+        url: 'https://www.metmuseum.org/toah/hd/angk/hd_angk.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Angkor',
+        url: 'https://whc.unesco.org/en/list/668',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'maurya',
+    code: 'MRY',
+    name: 'Maurya Empire',
+    category: 'Asia',
+    subtitle: 'Early Indian empire · Gangetic plain',
+    about:
+      'The Maurya Empire was the first state to pull most of the Indian subcontinent under one administrative canopy. From Magadha’s Gangetic core, Chandragupta and his successors built roads, spy networks, and tax systems that treated distance as a solvable problem. Ashoka’s reign after Kalinga turned imperial communication into ethics: rock and pillar edicts in Prakrit urged restraint and public welfare while still projecting power. Orientation is inscriptional and infrastructural — polished sandstone pillars, cave retreats for Ajivikas, and stupas that marked a Buddhist landscape under royal patronage. Greek ambassadors noticed the capital; later Indian memory treated the Mauryas as a template for unity. The empire fragmented within generations of Ashoka, but the habit of writing rule onto stone endured. This primer stays with edicts, roads, and early imperial scale rather than legend alone.',
+    facts: {
+      kind: 'Early Indian empire',
+      heartland: 'Magadha · Gangetic plain',
+      era: 'c. 322 – 185 BCE',
+      peak: 'Ashoka’s reign, mid–3rd century BCE',
+      writing: 'Brahmi / Prakrit edicts (and related scripts)',
+      exploreLinks: 'India, Pakistan, Nepal, Bangladesh, Afghanistan',
+    },
+    features: [
+      {
+        name: 'Great Stupa at Sanchi',
+        description:
+          'A major Buddhist stupa complex enlarged under and after Mauryan patronage — hemispherical relic mound as imperial-era sacred architecture.',
+      },
+      {
+        name: 'Ashoka Pillar, Sarnath',
+        description:
+          'A polished Mauryan pillar at the deer park of the Buddha’s first sermon — edict and emblem (later India’s lion capital) in one shaft.',
+      },
+      {
+        name: 'Barabar Caves',
+        description:
+          'Rock-cut caves in Bihar with mirror-polished interiors — Mauryan engineering offered to Ajivika ascetics.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Mauryan empire',
+        url: 'https://www.britannica.com/place/Mauryan-Empire',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Maurya Period',
+        url: 'https://www.metmuseum.org/toah/hd/maur/hd_maur.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Buddhist Monuments at Sanchi',
+        url: 'https://whc.unesco.org/en/list/524',
         kind: 'catalog',
       },
     ],
@@ -221,6 +734,108 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
       },
     ],
   },
+  {
+    slug: 'aztec',
+    code: 'AZT',
+    name: 'Aztec',
+    category: 'Americas',
+    subtitle: 'Triple-alliance empire · Basin of Mexico',
+    about:
+      'The Aztec — more precisely the Mexica and their Triple Alliance partners — built an empire of tribute from an island capital in the Basin of Mexico. Tenochtitlan’s causeways, chinampa farms, and twin-temple precinct turned a lake into a metropolis that astonished the first Spaniards to see it. Orientation is aquatic and ritual: market exchange at Tlatelolco, flower wars and captive-taking as politics, and a calendar cosmology carved into basalt. Nahuatl poetry and pictorial books preserved memory beside tribute lists. The empire was young — rising in the fourteenth and fifteenth centuries — and brittle where subject cities waited for an opening. 1521 ends Tenochtitlan as a Mexica capital; it does not erase the cultural depth still readable in language, cuisine, and stone. This primer stays with lake city, tribute, and temple precinct rather than conquest melodrama alone.',
+    facts: {
+      kind: 'Triple-alliance empire',
+      heartland: 'Basin of Mexico · central highlands',
+      era: 'c. 1325 – 1521 CE',
+      peak: 'Late Postclassic, mid–late 15th century',
+      writing: 'Nahuatl (pictorial books and colonial alphabetic texts)',
+      exploreLinks: 'Mexico',
+    },
+    features: [
+      {
+        name: 'Templo Mayor',
+        description:
+          'The twin-stair main temple of Tenochtitlan — layered rebuilds dedicated to Tlaloc and Huitzilopochtli at the city’s sacred center.',
+      },
+      {
+        name: 'Sun Stone',
+        description:
+          'The great Mexica calendar stone — a carved cosmology of eras and solar force, now an emblem of central Mexican antiquity.',
+      },
+      {
+        name: 'Coyolxauhqui Stone',
+        description:
+          'A monumental relief of the dismembered moon goddess, found at the Templo Mayor — mythic narrative as temple pavement.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Aztec',
+        url: 'https://www.britannica.com/topic/Aztec',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Aztec',
+        url: 'https://www.metmuseum.org/toah/hd/azte/hd_azte.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Historic Centre of Mexico City',
+        url: 'https://whc.unesco.org/en/list/412',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'inca',
+    code: 'INC',
+    name: 'Inca',
+    category: 'Americas',
+    subtitle: 'Andean empire · Tawantinsuyu',
+    about:
+      'The Inca Empire — Tawantinsuyu, the fourfold realm — stitched the Andes together with roads, storehouses, and a resettlement policy that treated mountains as an administrative problem. From Cusco, rulers extended control from highland valleys to Pacific coast and Amazonian edges, demanding labor service (mit’a) more than coined tax. Orientation is vertical ecology: terrace farming, freeze-dried potatoes, llama caravans, and stonework so precise that mortar became optional. Quipu cords kept accounts without a full phonetic script; Quechua spread as a language of rule. Machu Picchu is the famous ridge estate; Sacsayhuamán and Qorikancha show the capital’s military and solar sacredness. Spanish conquest shattered the imperial spine quickly; Andean communities and technologies did not vanish with it. This primer stays with roads, stone, and vertical archipelago farming rather than treasure legends.',
+    facts: {
+      kind: 'Andean empire',
+      heartland: 'Cusco basin · Andean spine of western South America',
+      era: 'c. 1438 – 1533 CE (imperial expansion to conquest)',
+      peak: 'Late Horizon under Pachacuti and successors, 15th century',
+      writing: 'Quipu record-keeping (Quechua language)',
+      exploreLinks: 'Peru, Bolivia, Ecuador, Chile, Argentina, Colombia',
+    },
+    features: [
+      {
+        name: 'Machu Picchu',
+        description:
+          'A royal estate and ritual complex on a forested ridge — terraces and temples that became the global image of Inca stone mastery.',
+      },
+      {
+        name: 'Sacsayhuamán',
+        description:
+          'Zigzag megalithic walls above Cusco — fortress, ceremonial complex, and showcase of tightly fitted Andean masonry.',
+      },
+      {
+        name: 'Qorikancha',
+        description:
+          'The Temple of the Sun in Cusco, later wrapped by a Spanish church — Inca ashlar precision still visible in the lower courses.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Inca',
+        url: 'https://www.britannica.com/topic/Inca',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Inca',
+        url: 'https://www.metmuseum.org/toah/hd/inca/hd_inca.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Historic Sanctuary of Machu Picchu',
+        url: 'https://whc.unesco.org/en/list/274',
+        kind: 'catalog',
+      },
+    ],
+  },
 ]
 
 export const civilizationSubjects: CivilizationSubject[] =
@@ -236,7 +851,10 @@ export function getCivilizationSubject(
   return civilizationSubjects.find((subject) => subject.slug === slug)
 }
 
-export function civilizationSubjectsByCategory(): [string, CivilizationSubject[]][] {
+export function civilizationSubjectsByCategory(): [
+  string,
+  CivilizationSubject[],
+][] {
   const order: string[] = []
   const groups = new Map<string, CivilizationSubject[]>()
   for (const subject of civilizationSubjects) {

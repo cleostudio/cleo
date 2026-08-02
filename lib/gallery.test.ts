@@ -52,6 +52,7 @@ describe('gallery catalog', () => {
     expect(keys).toContain('Deep Space')
     expect(keys).toContain('Africa & Near East')
     expect(keys).toContain('Mediterranean')
+    expect(keys).toContain('Asia')
     expect(keys).toContain('Americas')
   })
 
