@@ -65,7 +65,8 @@ describe('gallery catalog', () => {
     expect(keys).toContain('Mediterranean')
     expect(keys).toContain('Asia')
     expect(keys).toContain('Americas')
-    expect(keys).toContain('Capitals & routes')
+    expect(keys).toContain('Mediterranean & Europe')
+    expect(keys).toContain('Africa & Americas')
   })
 
   it('describes the combined photograph count', () => {

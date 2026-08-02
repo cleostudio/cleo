@@ -9,8 +9,8 @@ import {
 import { getCountryByName } from './countries'
 
 describe('city subjects', () => {
-  it('ships a starter catalog with unique slugs and codes', () => {
-    expect(citySubjects.length).toBeGreaterThanOrEqual(3)
+  it('ships a regional catalog with unique slugs and codes', () => {
+    expect(citySubjects.length).toBeGreaterThanOrEqual(11)
 
     const slugs = citySubjects.map((subject) => subject.slug)
     const codes = citySubjects.map((subject) => subject.code)
@@ -48,8 +48,18 @@ describe('city subjects', () => {
 
   it('groups subjects by category in catalog order', () => {
     const groups = citySubjectsByCategory()
-    expect(groups.map(([category]) => category)).toEqual(['Capitals & routes'])
+    expect(groups.map(([category]) => category)).toEqual([
+      'Mediterranean & Europe',
+      'Asia',
+      'Africa & Americas',
+    ])
     expect(groups[0]?.[1].some((subject) => subject.slug === 'istanbul')).toBe(
+      true,
+    )
+    expect(groups[1]?.[1].some((subject) => subject.slug === 'kyoto')).toBe(
+      true,
+    )
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'cairo')).toBe(
       true,
     )
   })

@@ -17731,74 +17731,218 @@
       }
     ]
   },
-  "cities/cairo": {
+  "cities/rome": {
     "collection": "cities",
-    "title": "Mosque of Muhammad Ali",
-    "subtitle": "Cairo",
-    "alt": "Mosque of Muhammad Ali — cairo",
-    "photographer": "Diego Delso",
-    "license": "CC BY-SA 3.0",
-    "width": 3592,
-    "height": 1997,
+    "title": "Colosseum",
+    "subtitle": "Rome",
+    "alt": "Colosseum — rome",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 2.5",
+    "width": 4827,
+    "height": 2833,
     "renditions": [
       {
-        "src": "/images/cities/cairo/w640.jpg",
+        "src": "/images/cities/rome/w640.jpg",
         "width": 640
       },
       {
-        "src": "/images/cities/cairo/w1280.jpg",
+        "src": "/images/cities/rome/w1280.jpg",
         "width": 1280
       },
       {
-        "src": "/images/cities/cairo/w2048.jpg",
+        "src": "/images/cities/rome/w2048.jpg",
         "width": 2048
       }
     ]
   },
-  "cities/cairo-2": {
+  "cities/rome-2": {
     "collection": "cities",
-    "title": "Cairo Citadel",
-    "subtitle": "Cairo",
-    "alt": "Cairo Citadel — cairo",
-    "photographer": "Amr F.Nagy",
+    "title": "Pantheon",
+    "subtitle": "Rome",
+    "alt": "Pantheon — rome",
+    "photographer": "Dietmar Rabich",
     "license": "CC BY-SA 4.0",
-    "width": 4000,
-    "height": 3000,
+    "width": 5184,
+    "height": 3456,
     "renditions": [
       {
-        "src": "/images/cities/cairo/w640-2.jpg",
+        "src": "/images/cities/rome/w640-2.jpg",
         "width": 640
       },
       {
-        "src": "/images/cities/cairo/w1280-2.jpg",
+        "src": "/images/cities/rome/w1280-2.jpg",
         "width": 1280
       },
       {
-        "src": "/images/cities/cairo/w2048-2.jpg",
+        "src": "/images/cities/rome/w2048-2.jpg",
         "width": 2048
       }
     ]
   },
-  "cities/cairo-3": {
+  "cities/rome-3": {
     "collection": "cities",
-    "title": "Khan el-Khalili",
-    "subtitle": "Cairo",
-    "alt": "Khan el-Khalili — cairo",
-    "photographer": "The Erica Chang",
-    "license": "CC BY 3.0",
-    "width": 3648,
-    "height": 2736,
+    "title": "Roman Forum",
+    "subtitle": "Rome",
+    "alt": "Roman Forum — rome",
+    "photographer": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "width": 4917,
+    "height": 3278,
     "renditions": [
       {
-        "src": "/images/cities/cairo/w640-3.jpg",
+        "src": "/images/cities/rome/w640-3.jpg",
         "width": 640
       },
       {
-        "src": "/images/cities/cairo/w1280-3.jpg",
+        "src": "/images/cities/rome/w1280-3.jpg",
         "width": 1280
       },
       {
-        "src": "/images/cities/cairo/w2048-3.jpg",
+        "src": "/images/cities/rome/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/paris": {
+    "collection": "cities",
+    "title": "Eiffel Tower",
+    "subtitle": "Paris",
+    "alt": "Eiffel Tower — paris",
+    "photographer": "Benh LIEU SONG",
+    "license": "Public domain",
+    "width": 2900,
+    "height": 5367,
+    "renditions": [
+      {
+        "src": "/images/cities/paris/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/paris/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/paris/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/paris-2": {
+    "collection": "cities",
+    "title": "Notre-Dame",
+    "subtitle": "Paris",
+    "alt": "Notre-Dame — paris",
+    "photographer": "Benh LIEU SONG",
+    "license": "CC BY-SA 3.0",
+    "width": 3880,
+    "height": 2097,
+    "renditions": [
+      {
+        "src": "/images/cities/paris/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/paris/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/paris/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/paris-3": {
+    "collection": "cities",
+    "title": "Louvre",
+    "subtitle": "Paris",
+    "alt": "Louvre — paris",
+    "photographer": "Benh LIEU SONG (Flickr)",
+    "license": "CC BY-SA 3.0",
+    "width": 6740,
+    "height": 2832,
+    "renditions": [
+      {
+        "src": "/images/cities/paris/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/paris/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/paris/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/venice": {
+    "collection": "cities",
+    "title": "St Mark's Basilica",
+    "subtitle": "Venice",
+    "alt": "St Mark's Basilica — venice",
+    "photographer": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "width": 12096,
+    "height": 8352,
+    "renditions": [
+      {
+        "src": "/images/cities/venice/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/venice/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/venice/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/venice-2": {
+    "collection": "cities",
+    "title": "Grand Canal",
+    "subtitle": "Venice",
+    "alt": "Grand Canal — venice",
+    "photographer": "Wolfgang Moroder",
+    "license": "CC BY-SA 3.0",
+    "width": 7307,
+    "height": 4912,
+    "renditions": [
+      {
+        "src": "/images/cities/venice/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/venice/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/venice/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/venice-3": {
+    "collection": "cities",
+    "title": "Rialto Bridge",
+    "subtitle": "Venice",
+    "alt": "Rialto Bridge — venice",
+    "photographer": "Wolfgang Moroder",
+    "license": "CC BY-SA 3.0",
+    "width": 7360,
+    "height": 4912,
+    "renditions": [
+      {
+        "src": "/images/cities/venice/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/venice/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/venice/w2048-3.jpg",
         "width": 2048
       }
     ]
@@ -17871,6 +18015,438 @@
       },
       {
         "src": "/images/cities/kyoto/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/beijing": {
+    "collection": "cities",
+    "title": "Forbidden City",
+    "subtitle": "Beijing",
+    "alt": "Forbidden City — beijing",
+    "photographer": "Pixelflake",
+    "license": "CC BY-SA 3.0",
+    "width": 4092,
+    "height": 2046,
+    "renditions": [
+      {
+        "src": "/images/cities/beijing/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/beijing/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/beijing/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/beijing-2": {
+    "collection": "cities",
+    "title": "Temple of Heaven",
+    "subtitle": "Beijing",
+    "alt": "Temple of Heaven — beijing",
+    "photographer": "Fong Chen",
+    "license": "Public domain",
+    "width": 3000,
+    "height": 2000,
+    "renditions": [
+      {
+        "src": "/images/cities/beijing/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/beijing/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/beijing/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/beijing-3": {
+    "collection": "cities",
+    "title": "Summer Palace",
+    "subtitle": "Beijing",
+    "alt": "Summer Palace — beijing",
+    "photographer": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "width": 3554,
+    "height": 2369,
+    "renditions": [
+      {
+        "src": "/images/cities/beijing/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/beijing/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/beijing/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/delhi": {
+    "collection": "cities",
+    "title": "Red Fort",
+    "subtitle": "Delhi",
+    "alt": "Red Fort — delhi",
+    "photographer": "A.Savin",
+    "license": "FAL",
+    "width": 5387,
+    "height": 3030,
+    "renditions": [
+      {
+        "src": "/images/cities/delhi/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/delhi/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/delhi/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/delhi-2": {
+    "collection": "cities",
+    "title": "Qutb Minar",
+    "subtitle": "Delhi",
+    "alt": "Qutb Minar — delhi",
+    "photographer": "A.Savin",
+    "license": "FAL",
+    "width": 2755,
+    "height": 3673,
+    "renditions": [
+      {
+        "src": "/images/cities/delhi/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/delhi/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/delhi/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/delhi-3": {
+    "collection": "cities",
+    "title": "Jama Masjid",
+    "subtitle": "Delhi",
+    "alt": "Jama Masjid — delhi",
+    "photographer": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "width": 5605,
+    "height": 3726,
+    "renditions": [
+      {
+        "src": "/images/cities/delhi/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/delhi/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/delhi/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/samarkand": {
+    "collection": "cities",
+    "title": "Registan",
+    "subtitle": "Samarkand",
+    "alt": "Registan — samarkand",
+    "photographer": "Ekrem Canli",
+    "license": "CC BY-SA 3.0",
+    "width": 3752,
+    "height": 2530,
+    "renditions": [
+      {
+        "src": "/images/cities/samarkand/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/samarkand/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/samarkand/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/samarkand-2": {
+    "collection": "cities",
+    "title": "Bibi-Khanym Mosque",
+    "subtitle": "Samarkand",
+    "alt": "Bibi-Khanym Mosque — samarkand",
+    "photographer": "Bgag",
+    "license": "CC0",
+    "width": 3214,
+    "height": 4212,
+    "renditions": [
+      {
+        "src": "/images/cities/samarkand/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/samarkand/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/samarkand/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/samarkand-3": {
+    "collection": "cities",
+    "title": "Shah-i-Zinda",
+    "subtitle": "Samarkand",
+    "alt": "Shah-i-Zinda — samarkand",
+    "photographer": "Bgag",
+    "license": "CC0",
+    "width": 4568,
+    "height": 2983,
+    "renditions": [
+      {
+        "src": "/images/cities/samarkand/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/samarkand/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/samarkand/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/cairo": {
+    "collection": "cities",
+    "title": "Mosque of Muhammad Ali",
+    "subtitle": "Cairo",
+    "alt": "Mosque of Muhammad Ali — cairo",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 3592,
+    "height": 1997,
+    "renditions": [
+      {
+        "src": "/images/cities/cairo/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/cairo/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/cairo/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/cairo-2": {
+    "collection": "cities",
+    "title": "Cairo Citadel",
+    "subtitle": "Cairo",
+    "alt": "Cairo Citadel — cairo",
+    "photographer": "Amr F.Nagy",
+    "license": "CC BY-SA 4.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/cities/cairo/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/cairo/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/cairo/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/cairo-3": {
+    "collection": "cities",
+    "title": "Khan el-Khalili",
+    "subtitle": "Cairo",
+    "alt": "Khan el-Khalili — cairo",
+    "photographer": "The Erica Chang",
+    "license": "CC BY 3.0",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "src": "/images/cities/cairo/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/cairo/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/cairo/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/timbuktu": {
+    "collection": "cities",
+    "title": "Djinguereber Mosque",
+    "subtitle": "Timbuktu",
+    "alt": "Djinguereber Mosque — timbuktu",
+    "photographer": "upyernoz",
+    "license": "CC BY 2.0",
+    "width": 2796,
+    "height": 1804,
+    "renditions": [
+      {
+        "src": "/images/cities/timbuktu/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/timbuktu/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/timbuktu/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/timbuktu-2": {
+    "collection": "cities",
+    "title": "Sankore Madrasah",
+    "subtitle": "Timbuktu",
+    "alt": "Sankore Madrasah — timbuktu",
+    "photographer": "Dr. Ondřej Havelka (cestovatel)",
+    "license": "CC BY-SA 4.0",
+    "width": 1899,
+    "height": 2529,
+    "renditions": [
+      {
+        "src": "/images/cities/timbuktu/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/timbuktu/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/timbuktu/w2048-2.jpg",
+        "width": 1899
+      }
+    ]
+  },
+  "cities/timbuktu-3": {
+    "collection": "cities",
+    "title": "Sidi Yahya Mosque",
+    "subtitle": "Timbuktu",
+    "alt": "Sidi Yahya Mosque — timbuktu",
+    "photographer": "Angeline A. van Achterberg",
+    "license": "CC BY-SA 4.0",
+    "width": 6756,
+    "height": 4450,
+    "renditions": [
+      {
+        "src": "/images/cities/timbuktu/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/timbuktu/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/timbuktu/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/cusco": {
+    "collection": "cities",
+    "title": "Plaza de Armas",
+    "subtitle": "Cusco",
+    "alt": "Plaza de Armas — cusco",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 6115,
+    "height": 3679,
+    "renditions": [
+      {
+        "src": "/images/cities/cusco/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/cusco/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/cusco/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/cusco-2": {
+    "collection": "cities",
+    "title": "Sacsayhuamán",
+    "subtitle": "Cusco",
+    "alt": "Sacsayhuamán — cusco",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 8688,
+    "height": 4770,
+    "renditions": [
+      {
+        "src": "/images/cities/cusco/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/cusco/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/cusco/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/cusco-3": {
+    "collection": "cities",
+    "title": "Qorikancha",
+    "subtitle": "Cusco",
+    "alt": "Qorikancha — cusco",
+    "photographer": "5snake5",
+    "license": "CC0",
+    "width": 2881,
+    "height": 3893,
+    "renditions": [
+      {
+        "src": "/images/cities/cusco/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/cusco/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/cusco/w2048-3.jpg",
         "width": 2048
       }
     ]

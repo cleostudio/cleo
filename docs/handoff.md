@@ -20,7 +20,8 @@ General-knowledge portal:
   `/civilizations/[slug]` (Africa & Near East, Mediterranean, Asia, Americas,
   Oceania; twenty-eight regional guides)
 - **Cities** — capital and route-city field guides at `/cities` and
-  `/cities/[slug]` (Istanbul, Cairo, Kyoto to start)
+  `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; eleven
+  guides)
 - **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations,
   Cities)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)
