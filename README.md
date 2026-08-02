@@ -53,12 +53,19 @@ Open [http://localhost:3000](http://localhost:3000). Keep the OpenAI key,
 ## Validate
 
 ```bash
+pnpm lint
 pnpm typecheck
 pnpm test:unit
 pnpm build
 ```
 
+`pnpm lint` runs ESLint (`eslint-config-next/core-web-vitals`) and must stay at
+zero errors. Warnings are pre-existing React Compiler debt, listed file by file
+in [`eslint.config.mjs`](./eslint.config.mjs); new files are held to the full
+rule set.
+
 After media or manifest edits: `pnpm validate:atlas` and/or `pnpm validate:space`.
+Before releasing dependency changes: `pnpm audit:prod`.
 
 Manually check homepage search (typing, arrows, Ask Cleo), `/cleo` streaming and
 cancellation, the dock Location preference (including denied permission), and

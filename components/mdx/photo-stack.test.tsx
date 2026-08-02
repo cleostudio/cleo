@@ -13,7 +13,7 @@ describe('PhotoStack', () => {
           <button type="button">Photo one</button>
           <button type="button">Photo two</button>
         </PhotoStackFrames>
-        <PhotoStackCaption>Jensen's first month</PhotoStackCaption>
+        <PhotoStackCaption>{"Jensen's first month"}</PhotoStackCaption>
       </PhotoStack>,
     )
 

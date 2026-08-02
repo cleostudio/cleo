@@ -30,7 +30,7 @@ export function isCuratedTopicImageSrc(src: string): boolean {
  * cannot inject arbitrary remote or data-URL images via text.
  */
 export function presentTopicPhotoMarkdown(markdown: string): string {
-  return markdown.replace(MARKDOWN_IMAGE, (full, alt: string, src: string) => {
+  return markdown.replace(MARKDOWN_IMAGE, (_full, alt: string, src: string) => {
     if (!isCuratedTopicImageSrc(src)) {
       return alt.trim() || ''
     }

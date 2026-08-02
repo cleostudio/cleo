@@ -45,6 +45,9 @@ Human onboarding: [`README.md`](README.md).
   Never `NEXT_PUBLIC_` those secrets.
 - Path alias: `~/*`. Prefer `cn` and `components/ui/*`.
 - Package manager: **pnpm only**.
+- `pnpm lint` stays at zero errors. `eslint.config.mjs` scopes the React
+ Compiler rules down to `warn` for a fixed list of pre-existing files — remove
+ entries as you fix them, never add new ones.
 
 ## How to work
 
@@ -52,9 +55,11 @@ Human onboarding: [`README.md`](README.md).
 pnpm install
 cp .env.example .env.local   # OPENAI_API_KEY for /cleo; Neon + Better Auth for account
 pnpm dev                     # only service; default Next port
+pnpm lint                    # ESLint; must stay at zero errors
 pnpm typecheck
 pnpm test:unit               # and/or pnpm test:security when relevant
 pnpm build                   # when changing routes/config
+pnpm audit:prod              # when changing dependencies
 # Auth schema (when DATABASE_URL is set):
 pnpm db:push
 ```
@@ -69,8 +74,9 @@ change; update the matching `docs/*` runbook when subsystem behavior changes.
 
 | Change | Check |
 | --- | --- |
-| Code / types | `pnpm typecheck` |
+| Code / types | `pnpm lint` and `pnpm typecheck` |
 | Routes / config | `pnpm build` |
+| Dependencies | `pnpm audit:prod` |
 | Atlas media / manifest | `pnpm validate:atlas` |
 | Space media | `pnpm validate:space` |
 | Unit / security | `pnpm test:unit` / `pnpm test:security` |

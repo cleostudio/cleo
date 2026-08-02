@@ -10,11 +10,13 @@
   "pnpm": {
     "overrides": {
       "next>postcss": "8.5.22",
-      "next>sharp": "0.35.3"
+      "next>sharp": "0.35.3",
+      "@esbuild-kit/core-utils>esbuild": "^0.25.12"
     }
   },
   "scripts": {
     "dev": "next dev",
+    "lint": "eslint .",
     "prebuild": "node scripts/ensure-preview-env.mjs && node scripts/generate-og-runtime-fonts.mjs",
     "audit:prod": "node scripts/audit-production-dependencies.mjs",
     "build": "next build",
@@ -88,6 +90,8 @@
     "@types/react-dom": "^19.2.3",
     "dotenv": "^17.4.2",
     "drizzle-kit": "^0.31.10",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.3.0-preview.9",
     "jsdom": "^29.1.1",
     "shadcn": "^4.14.0",
     "tailwindcss": "^4.3.3",
