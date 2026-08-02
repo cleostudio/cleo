@@ -19675,6 +19675,78 @@
       }
     ]
   },
+  "rivers/niger": {
+    "collection": "rivers",
+    "title": "Niger at Bamako",
+    "subtitle": "Niger River",
+    "alt": "Niger at Bamako — niger",
+    "photographer": "GMason",
+    "license": "CC BY-SA 4.0",
+    "width": 4896,
+    "height": 3672,
+    "renditions": [
+      {
+        "src": "/images/rivers/niger/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/niger/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/niger/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/niger-2": {
+    "collection": "rivers",
+    "title": "Niger near Timbuktu",
+    "subtitle": "Niger River",
+    "alt": "Niger near Timbuktu — niger",
+    "photographer": "Annabel Symington",
+    "license": "CC BY 2.0",
+    "width": 1722,
+    "height": 1146,
+    "renditions": [
+      {
+        "src": "/images/rivers/niger/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/niger/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/niger/w2048-2.jpg",
+        "width": 1722
+      }
+    ]
+  },
+  "rivers/niger-3": {
+    "collection": "rivers",
+    "title": "Niger Delta",
+    "subtitle": "Niger River",
+    "alt": "Niger Delta — niger",
+    "photographer": "European Space Agency",
+    "license": "CC BY-SA 3.0 igo",
+    "width": 3508,
+    "height": 3508,
+    "renditions": [
+      {
+        "src": "/images/rivers/niger/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/niger/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/niger/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "rivers/yangtze": {
     "collection": "rivers",
     "title": "Qutang Gorge",
@@ -19959,6 +20031,150 @@
       },
       {
         "src": "/images/rivers/yellow-river/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/indus": {
+    "collection": "rivers",
+    "title": "Indus near Leh",
+    "subtitle": "Indus",
+    "alt": "Indus near Leh — indus",
+    "photographer": "KennyOMG",
+    "license": "CC BY-SA 3.0",
+    "width": 11136,
+    "height": 2954,
+    "renditions": [
+      {
+        "src": "/images/rivers/indus/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/indus/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/indus/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/indus-2": {
+    "collection": "rivers",
+    "title": "Indus in Pakistan",
+    "subtitle": "Indus",
+    "alt": "Indus in Pakistan — indus",
+    "photographer": "Arslanmk",
+    "license": "CC BY-SA 3.0",
+    "width": 2760,
+    "height": 3302,
+    "renditions": [
+      {
+        "src": "/images/rivers/indus/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/indus/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/indus/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/indus-3": {
+    "collection": "rivers",
+    "title": "Indus Delta",
+    "subtitle": "Indus",
+    "alt": "Indus Delta — indus",
+    "photographer": "NASA MODIS",
+    "license": "Public domain",
+    "width": 3781,
+    "height": 3364,
+    "renditions": [
+      {
+        "src": "/images/rivers/indus/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/indus/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/indus/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/lena": {
+    "collection": "rivers",
+    "title": "Lena Pillars",
+    "subtitle": "Lena",
+    "alt": "Lena Pillars — lena",
+    "photographer": "Hardscarf",
+    "license": "CC BY-SA 4.0",
+    "width": 5839,
+    "height": 3893,
+    "renditions": [
+      {
+        "src": "/images/rivers/lena/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/lena/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/lena/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/lena-2": {
+    "collection": "rivers",
+    "title": "Lena near Yakutsk",
+    "subtitle": "Lena",
+    "alt": "Lena near Yakutsk — lena",
+    "photographer": "James St. John",
+    "license": "CC BY 2.0",
+    "width": 3008,
+    "height": 1926,
+    "renditions": [
+      {
+        "src": "/images/rivers/lena/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/lena/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/lena/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/lena-3": {
+    "collection": "rivers",
+    "title": "Lena Delta",
+    "subtitle": "Lena",
+    "alt": "Lena Delta — lena",
+    "photographer": "NASA Landsat",
+    "license": "Public domain",
+    "width": 3100,
+    "height": 3100,
+    "renditions": [
+      {
+        "src": "/images/rivers/lena/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/lena/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/lena/w2048-3.jpg",
         "width": 2048
       }
     ]
@@ -20320,6 +20536,150 @@
       {
         "src": "/images/rivers/mississippi/w2048-3.jpg",
         "width": 1797
+      }
+    ]
+  },
+  "rivers/parana": {
+    "collection": "rivers",
+    "title": "Paraná mainstream",
+    "subtitle": "Paraná",
+    "alt": "Paraná mainstream — parana",
+    "photographer": "6lobalica",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2160,
+    "renditions": [
+      {
+        "src": "/images/rivers/parana/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/parana/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/parana/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/parana-2": {
+    "collection": "rivers",
+    "title": "Iguaçu Falls",
+    "subtitle": "Paraná",
+    "alt": "Iguaçu Falls — parana",
+    "photographer": "Fellipe Toffolo de Souza",
+    "license": "CC BY-SA 4.0",
+    "width": 4096,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/rivers/parana/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/parana/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/parana/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/parana-3": {
+    "collection": "rivers",
+    "title": "Iguazú–Paraná confluence",
+    "subtitle": "Paraná",
+    "alt": "Iguazú–Paraná confluence — parana",
+    "photographer": "Phillip Capper",
+    "license": "CC BY 2.0",
+    "width": 4288,
+    "height": 2848,
+    "renditions": [
+      {
+        "src": "/images/rivers/parana/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/parana/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/parana/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/murray-darling": {
+    "collection": "rivers",
+    "title": "Murray at Yarrawonga",
+    "subtitle": "Murray–Darling",
+    "alt": "Murray at Yarrawonga — murray darling",
+    "photographer": "Dancar79",
+    "license": "CC BY-SA 4.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/rivers/murray-darling/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/murray-darling/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/murray-darling/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/murray-darling-2": {
+    "collection": "rivers",
+    "title": "Darling River",
+    "subtitle": "Murray–Darling",
+    "alt": "Darling River — murray darling",
+    "photographer": "Mattinbgn",
+    "license": "CC BY-SA 4.0",
+    "width": 5390,
+    "height": 3691,
+    "renditions": [
+      {
+        "src": "/images/rivers/murray-darling/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/murray-darling/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/murray-darling/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/murray-darling-3": {
+    "collection": "rivers",
+    "title": "Darling at Wilcannia",
+    "subtitle": "Murray–Darling",
+    "alt": "Darling at Wilcannia — murray darling",
+    "photographer": "Calistemon",
+    "license": "CC BY-SA 4.0",
+    "width": 4608,
+    "height": 3456,
+    "renditions": [
+      {
+        "src": "/images/rivers/murray-darling/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/murray-darling/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/murray-darling/w2048-3.jpg",
+        "width": 2048
       }
     ]
   }

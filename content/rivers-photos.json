@@ -1010,5 +1010,465 @@
         }
       ]
     }
+  ],
+  "indus": [
+    {
+      "featureName": "Indus near Leh",
+      "alt": "Indus near Leh — indus",
+      "caption": "Indus near Leh",
+      "photographer": "KennyOMG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIndus%20Valley%20near%20Leh.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Indus Valley near Leh.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Indus Valley near Leh.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "e92455976ba977587f818b628ac37ba49431ce4331812a2f40a2d40e3e450bfa",
+      "width": 11136,
+      "height": 2954,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/indus/w640.jpg",
+          "bytes": 20900
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/indus/w1280.jpg",
+          "bytes": 68415
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/indus/w2048.jpg",
+          "bytes": 186162
+        }
+      ]
+    },
+    {
+      "featureName": "Indus in Pakistan",
+      "alt": "Indus in Pakistan — indus",
+      "caption": "Indus in Pakistan",
+      "photographer": "Arslanmk",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AColors%20of%20River%20Indus%20in%20Pakistan.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Colors of River Indus in Pakistan.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Colors of River Indus in Pakistan.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "993714ef927596c62d8af9a68744a71ee96ffe0a0213f881db730604a198e089",
+      "width": 2760,
+      "height": 3302,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/indus/w640-2.jpg",
+          "bytes": 127045
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/indus/w1280-2.jpg",
+          "bytes": 346500
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/indus/w2048-2.jpg",
+          "bytes": 837455
+        }
+      ]
+    },
+    {
+      "featureName": "Indus Delta",
+      "alt": "Indus Delta — indus",
+      "caption": "Indus Delta",
+      "photographer": "NASA MODIS",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AIndus%20River%20and%20Delta%20%28MODIS%202018-10-16%29.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Indus River and Delta (MODIS 2018-10-16).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Indus River and Delta (MODIS 2018-10-16).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "11031e2e809b7980bbeb4672bc5b29799674a9fb1842ad605b42e18392538d8e",
+      "width": 3781,
+      "height": 3364,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/indus/w640-3.jpg",
+          "bytes": 41691
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/indus/w1280-3.jpg",
+          "bytes": 148125
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/indus/w2048-3.jpg",
+          "bytes": 414544
+        }
+      ]
+    }
+  ],
+  "niger": [
+    {
+      "featureName": "Niger at Bamako",
+      "alt": "Niger at Bamako — niger",
+      "caption": "Niger at Bamako",
+      "photographer": "GMason",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AViewFromTheSouthernShoreOfCiteDuNiger.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:ViewFromTheSouthernShoreOfCiteDuNiger.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:ViewFromTheSouthernShoreOfCiteDuNiger.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ab97c63acde12358eb4b5d6a5b6586c5b01a0c23708eefa38b013114b4f25415",
+      "width": 4896,
+      "height": 3672,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/niger/w640.jpg",
+          "bytes": 35611
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/niger/w1280.jpg",
+          "bytes": 82632
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/niger/w2048.jpg",
+          "bytes": 219511
+        }
+      ]
+    },
+    {
+      "featureName": "Niger near Timbuktu",
+      "alt": "Niger near Timbuktu — niger",
+      "caption": "Niger near Timbuktu",
+      "photographer": "Annabel Symington",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFlickr%20-%20stringer%20bel%20-%20fisherman%20on%20the%20Niger%20River%20near%20Timbuktu%2C%20Mali.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Flickr - stringer bel - fisherman on the Niger River near Timbuktu, Mali.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Flickr - stringer bel - fisherman on the Niger River near Timbuktu, Mali.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d2a3b39eb31495bf29daf752aa806da0bc6cf2188b11dcbebb83be0d996c64f2",
+      "width": 1722,
+      "height": 1146,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/niger/w640-2.jpg",
+          "bytes": 19741
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/niger/w1280-2.jpg",
+          "bytes": 65701
+        },
+        {
+          "width": 1722,
+          "src": "/images/rivers/niger/w2048-2.jpg",
+          "bytes": 142519
+        }
+      ]
+    },
+    {
+      "featureName": "Niger Delta",
+      "alt": "Niger Delta — niger",
+      "caption": "Niger Delta",
+      "photographer": "European Space Agency",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe%20Niger%20delta.jpg",
+      "license": "CC BY-SA 3.0 igo",
+      "commonsTitle": "File:The Niger delta.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Niger delta.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "dd4fbc7d5bd758c3beb7c76b6b13b67049d878d904862c00a323f59fb677b1bd",
+      "width": 3508,
+      "height": 3508,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/niger/w640-3.jpg",
+          "bytes": 125965
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/niger/w1280-3.jpg",
+          "bytes": 453892
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/niger/w2048-3.jpg",
+          "bytes": 1367146
+        }
+      ]
+    }
+  ],
+  "parana": [
+    {
+      "featureName": "Paraná mainstream",
+      "alt": "Paraná mainstream — parana",
+      "caption": "Paraná mainstream",
+      "photographer": "6lobalica",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AParana-at-sunset.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Parana-at-sunset.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Parana-at-sunset.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a89ffb2281a1711fc0e48f6d406a2cdc8caedc1224ab96a34f6d8e45b1e1f42f",
+      "width": 3840,
+      "height": 2160,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/parana/w640.jpg",
+          "bytes": 33436
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/parana/w1280.jpg",
+          "bytes": 97437
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/parana/w2048.jpg",
+          "bytes": 266912
+        }
+      ]
+    },
+    {
+      "featureName": "Iguaçu Falls",
+      "alt": "Iguaçu Falls — parana",
+      "caption": "Iguaçu Falls",
+      "photographer": "Fellipe Toffolo de Souza",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AThe%20Igua%C3%A7u%20Falls%20with%20a%20rainbow%20in%20a%20sunny%20day.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:The Iguaçu Falls with a rainbow in a sunny day.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:The Iguaçu Falls with a rainbow in a sunny day.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "82628d1b367ea157411e85bdeddcd68911546699c26c23bb8908a1b02fc6e562",
+      "width": 4096,
+      "height": 2304,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/parana/w640-2.jpg",
+          "bytes": 65414
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/parana/w1280-2.jpg",
+          "bytes": 172491
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/parana/w2048-2.jpg",
+          "bytes": 463646
+        }
+      ]
+    },
+    {
+      "featureName": "Iguazú–Paraná confluence",
+      "alt": "Iguazú–Paraná confluence — parana",
+      "caption": "Iguazú–Paraná confluence",
+      "photographer": "Phillip Capper",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AConfluence%20of%20the%20Iguazu%20and%20Parana%20rivers%2C%20Puerto%20Iguazu%2C%20Misiones%2C%20Argentina%2C%206th.%20Jan.%202011%20-%20Flickr%20-%20PhillipC.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Confluence of the Iguazu and Parana rivers, Puerto Iguazu, Misiones, Argentina, 6th. Jan. 2011 - Flickr - PhillipC.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Confluence of the Iguazu and Parana rivers, Puerto Iguazu, Misiones, Argentina, 6th. Jan. 2011 - Flickr - PhillipC.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "02078898a6546b1320ca2712bf88751fe568d7f2586da6613e7178b5939bd2d5",
+      "width": 4288,
+      "height": 2848,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/parana/w640-3.jpg",
+          "bytes": 64145
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/parana/w1280-3.jpg",
+          "bytes": 173635
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/parana/w2048-3.jpg",
+          "bytes": 436508
+        }
+      ]
+    }
+  ],
+  "murray-darling": [
+    {
+      "featureName": "Murray at Yarrawonga",
+      "alt": "Murray at Yarrawonga — murray darling",
+      "caption": "Murray at Yarrawonga",
+      "photographer": "Dancar79",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMurray%20River%20scenery%2C%20Yarrawonga%2C%20Victoria%2C%20Australia.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Murray River scenery, Yarrawonga, Victoria, Australia.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Murray River scenery, Yarrawonga, Victoria, Australia.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f2a129a8041b14652b9cecb3fde2e77cbe8ce2cd6394273dd215a501b3a79a39",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/murray-darling/w640.jpg",
+          "bytes": 56175
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/murray-darling/w1280.jpg",
+          "bytes": 192247
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/murray-darling/w2048.jpg",
+          "bytes": 529510
+        }
+      ]
+    },
+    {
+      "featureName": "Darling River",
+      "alt": "Darling River — murray darling",
+      "caption": "Darling River",
+      "photographer": "Mattinbgn",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APalinyewah%20Darling%20River%20002.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Palinyewah Darling River 002.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Palinyewah Darling River 002.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a80f51025f7c4a09c7b3f3cc97215c72540405f35056f03afddcc1dfe0bd70fb",
+      "width": 5390,
+      "height": 3691,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/murray-darling/w640-2.jpg",
+          "bytes": 79728
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/murray-darling/w1280-2.jpg",
+          "bytes": 234357
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/murray-darling/w2048-2.jpg",
+          "bytes": 641541
+        }
+      ]
+    },
+    {
+      "featureName": "Darling at Wilcannia",
+      "alt": "Darling at Wilcannia — murray darling",
+      "caption": "Darling at Wilcannia",
+      "photographer": "Calistemon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADarling%20River%20in%20Wilcannia%2C%20July%202026%2003.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Darling River in Wilcannia, July 2026 03.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Darling River in Wilcannia, July 2026 03.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1f087a1f5e55eb16fc060ced699d98c17d9e361c352b0e7d545c1fb404fed777",
+      "width": 4608,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/murray-darling/w640-3.jpg",
+          "bytes": 61626
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/murray-darling/w1280-3.jpg",
+          "bytes": 174814
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/murray-darling/w2048-3.jpg",
+          "bytes": 467360
+        }
+      ]
+    }
+  ],
+  "lena": [
+    {
+      "featureName": "Lena Pillars",
+      "alt": "Lena Pillars — lena",
+      "caption": "Lena Pillars",
+      "photographer": "Hardscarf",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALenapilaren%20-%20uitzicht%20over%20de%20Lena%20%282%29.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Lenapilaren - uitzicht over de Lena (2).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Lenapilaren - uitzicht over de Lena (2).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3aca70dfe4e2ba4a645e431a93bb6349155622ebdb9fb153e1574730af831236",
+      "width": 5839,
+      "height": 3893,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/lena/w640.jpg",
+          "bytes": 109335
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/lena/w1280.jpg",
+          "bytes": 207779
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/lena/w2048.jpg",
+          "bytes": 475744
+        }
+      ]
+    },
+    {
+      "featureName": "Lena near Yakutsk",
+      "alt": "Lena near Yakutsk — lena",
+      "caption": "Lena near Yakutsk",
+      "photographer": "James St. John",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALena%20River%20%28near%20Yakutsk%2C%20Siberia%2C%20Russia%29%204%20%2821447252376%29.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Lena River (near Yakutsk, Siberia, Russia) 4 (21447252376).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Lena River (near Yakutsk, Siberia, Russia) 4 (21447252376).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "0371c4c0b9ee2e6ea9d394d6ca899e8410370e1568bfbcdbd88c962ab7e6a68f",
+      "width": 3008,
+      "height": 1926,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/lena/w640-2.jpg",
+          "bytes": 65184
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/lena/w1280-2.jpg",
+          "bytes": 169307
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/lena/w2048-2.jpg",
+          "bytes": 486638
+        }
+      ]
+    },
+    {
+      "featureName": "Lena Delta",
+      "alt": "Lena Delta — lena",
+      "caption": "Lena Delta",
+      "photographer": "NASA Landsat",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALena%20River%20Delta%20-%20Landsat%202000.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Lena River Delta - Landsat 2000.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Lena River Delta - Landsat 2000.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b61f361bf9f1dc64ed1664a498c68223d23b85b8a5d1dc899143598d48af59ce",
+      "width": 3100,
+      "height": 3100,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/lena/w640-3.jpg",
+          "bytes": 148344
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/lena/w1280-3.jpg",
+          "bytes": 546315
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/lena/w2048-3.jpg",
+          "bytes": 1536984
+        }
+      ]
+    }
   ]
 }
