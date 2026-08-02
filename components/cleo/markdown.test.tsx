@@ -131,6 +131,19 @@ describe('Cleo Markdown topic photos', () => {
     ).toBe('/explore/japan')
   })
 
+  it('opens external citations in a new tab with an isolated opener', () => {
+    render(
+      <Markdown>
+        {'Per [science.nasa.gov](https://science.nasa.gov/europa-clipper/).'}
+      </Markdown>,
+    )
+
+    const link = screen.getByRole('link', { name: 'science.nasa.gov' })
+
+    expect(link.getAttribute('target')).toBe('_blank')
+    expect(link.getAttribute('rel')).toBe('noopener noreferrer')
+  })
+
   it('strips invented Explore guide links to plain labels', () => {
     render(
       <Markdown>{'Visit [Atlantis](/explore/atlantis) sometime.'}</Markdown>,
