@@ -17,6 +17,7 @@ vi.mock('next/link', () => ({
   default: ({
     children,
     href,
+    onClick,
     prefetch: _prefetch,
     ...rest
   }: AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -24,7 +25,14 @@ vi.mock('next/link', () => ({
     href: string
     prefetch?: boolean
   }) => (
-    <a href={href} {...rest}>
+    <a
+      href={href}
+      {...rest}
+      onClick={(event) => {
+        event.preventDefault()
+        onClick?.(event)
+      }}
+    >
       {children}
     </a>
   ),
