@@ -142,7 +142,9 @@ for multi-turn replay under `store: false`) persist in `localStorage`
 (`cleo-threads`), capped at 40 threads. Empty drafts are not stored. Oversized
 `data:` image attachments are stripped on save so quota stays usable; curated
 `/images/atlas|space/…` paths remain. A `/cleo?q=…` handoff always starts a
-fresh thread.
+fresh thread. During a browser session, switching threads restores each
+thread’s last document scroll position; an unopened thread still opens at its
+latest reply.
 
 Location preference persists (localStorage for guests; account field when
 signed in). The last successful fix also persists while Location is on
@@ -164,7 +166,8 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
 - Multi-turn chat, reasoning activity, web search
 - Sidebar: New chat, switch threads, delete, restore after reload (collapsible
   desktop rail from 64rem with preference in `cleo-sidebar-collapsed`; below
-  that a drawer above the prompt/site dock)
+  that a drawer above the prompt/site dock); switching threads restores the
+  prior reading position
 - Image attach/vision, image generation, streaming, cancellation
 - Retry/Continue on incomplete/failed turns
 - Location preference (grant, deny, refresh/leave-and-return without

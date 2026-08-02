@@ -91,6 +91,11 @@ type TurnRequest = {
   userImages: MessageImage[]
 }
 
+type PendingThreadScrollRestore = {
+  scrollY: number
+  threadId: string
+}
+
 function isAbortError(error: unknown) {
   return (
     (error instanceof DOMException && error.name === "AbortError") ||
@@ -309,6 +314,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     return window.matchMedia("(min-width: 64rem)").matches
   })
   const [threadsHydrated, setThreadsHydrated] = useState(false)
+  const [threadScrollRestoreTick, setThreadScrollRestoreTick] = useState(0)
   const sidebarLandmarkActive = isDesktopSidebar
     ? !sidebarCollapsed
     : sidebarMobileOpen
@@ -322,6 +328,9 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const messagesRef = useRef<Message[]>([])
   const activeThreadIdRef = useRef<string | null>(null)
+  const threadScrollPositionsRef = useRef(new Map<string, number>())
+  const pendingThreadScrollRestoreRef =
+    useRef<PendingThreadScrollRestore | null>(null)
   const isSubmittingRef = useRef(false)
   const mountedRef = useRef(true)
   const stickToBottomRef = useRef(true)
@@ -345,6 +354,47 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   useEffect(() => {
     activeThreadIdRef.current = activeThreadId
   }, [activeThreadId])
+
+  const saveActiveThreadScrollPosition = useCallback(() => {
+    const threadId = activeThreadIdRef.current
+    if (!threadId) return
+
+    threadScrollPositionsRef.current.set(threadId, Math.max(0, window.scrollY))
+  }, [])
+
+  /**
+   * A previously viewed thread returns exactly where its reader left off.
+   * First visits preserve the prior behavior: follow the latest reply.
+   */
+  const prepareThreadScrollPosition = useCallback((threadId: string) => {
+    const savedScrollY = threadScrollPositionsRef.current.get(threadId)
+
+    if (savedScrollY === undefined) {
+      stickToBottomRef.current = true
+      setScrollTick((tick) => tick + 1)
+      return
+    }
+
+    pendingThreadScrollRestoreRef.current = {
+      scrollY: savedScrollY,
+      threadId,
+    }
+    // Do not let the streaming-follow effect overwrite the saved position.
+    stickToBottomRef.current = false
+    setThreadScrollRestoreTick((tick) => tick + 1)
+  }, [])
+
+  useLayoutEffect(() => {
+    const pending = pendingThreadScrollRestoreRef.current
+    if (!pending || pending.threadId !== activeThreadId) return
+
+    // Layout phase guarantees the selected thread's DOM is present before the
+    // document scroll is restored, avoiding a visible visit to its top/end.
+    window.scrollTo(0, pending.scrollY)
+    lastScrollYRef.current = window.scrollY
+    stickToBottomRef.current = false
+    pendingThreadScrollRestoreRef.current = null
+  }, [activeThreadId, threadScrollRestoreTick])
 
   // Restore browser-only thread history once. A `/cleo?q=…` handoff starts a
   // fresh thread so the arrival ask does not append onto a restored chat.
@@ -640,6 +690,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
 
     const currentId = activeThreadIdRef.current
     if (currentId) {
+      saveActiveThreadScrollPosition()
       upsertThread({
         id: currentId,
         messages: messagesRef.current,
@@ -657,7 +708,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     resetComposer()
     stickToBottomRef.current = true
     setThreadSummaries(listThreadSummaries())
-  }, [resetComposer])
+  }, [resetComposer, saveActiveThreadScrollPosition])
 
   const handleSelectThread = useCallback(
     (threadId: string) => {
@@ -669,6 +720,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
 
       const currentId = activeThreadIdRef.current
       if (currentId) {
+        saveActiveThreadScrollPosition()
         upsertThread({
           id: currentId,
           messages: messagesRef.current,
@@ -689,11 +741,10 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       setMessages(thread.messages as Message[])
       messageIdRef.current = thread.nextMessageId
       resetComposer()
-      stickToBottomRef.current = true
-      setScrollTick((tick) => tick + 1)
+      prepareThreadScrollPosition(thread.id)
       setThreadSummaries(listThreadSummaries())
     },
-    [resetComposer],
+    [prepareThreadScrollPosition, resetComposer, saveActiveThreadScrollPosition],
   )
 
   const handleDeleteThread = useCallback(
@@ -716,8 +767,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
           setMessages(thread.messages as Message[])
           messageIdRef.current = thread.nextMessageId
           resetComposer()
-          stickToBottomRef.current = true
-          setScrollTick((tick) => tick + 1)
+          prepareThreadScrollPosition(thread.id)
           return
         }
       }
@@ -729,7 +779,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       messageIdRef.current = 0
       resetComposer()
     },
-    [resetComposer],
+    [prepareThreadScrollPosition, resetComposer],
   )
 
   // Stable callbacks so memoized AssistantMessage rows do not churn on parent

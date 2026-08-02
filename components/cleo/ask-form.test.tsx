@@ -34,13 +34,19 @@ vi.mock('./zoomable-message-image', () => ({
 
 import { writeCachedUserLocation } from '~/lib/cleo/location-cache'
 import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
-import { readThreadsStore, upsertThread } from '~/lib/cleo/threads'
+import {
+  readThreadsStore,
+  setActiveThreadId,
+  upsertThread,
+} from '~/lib/cleo/threads'
 
 import { AskForm } from './ask-form'
 
 let originalGeolocation: PropertyDescriptor | undefined
 let originalPermissions: PropertyDescriptor | undefined
 let originalScrollIntoView: PropertyDescriptor | undefined
+let originalScrollTo: PropertyDescriptor | undefined
+let originalScrollY: PropertyDescriptor | undefined
 
 function mockGeolocation(
   implementation: (
@@ -74,6 +80,30 @@ class ResizeObserverStub {
   observe() {}
   unobserve() {}
   disconnect() {}
+}
+
+function mockDocumentScroll(initialScrollY = 0) {
+  originalScrollTo ??= Object.getOwnPropertyDescriptor(window, 'scrollTo')
+  originalScrollY ??= Object.getOwnPropertyDescriptor(window, 'scrollY')
+
+  let scrollY = initialScrollY
+  const scrollTo = vi.fn()
+
+  Object.defineProperty(window, 'scrollTo', {
+    configurable: true,
+    value: scrollTo,
+  })
+  Object.defineProperty(window, 'scrollY', {
+    configurable: true,
+    get: () => scrollY,
+  })
+
+  return {
+    scrollTo,
+    setScrollY: (nextScrollY: number) => {
+      scrollY = nextScrollY
+    },
+  }
 }
 
 beforeEach(() => {
@@ -122,9 +152,21 @@ afterEach(() => {
   } else {
     Reflect.deleteProperty(HTMLElement.prototype, 'scrollIntoView')
   }
+  if (originalScrollTo) {
+    Object.defineProperty(window, 'scrollTo', originalScrollTo)
+  } else {
+    Reflect.deleteProperty(window, 'scrollTo')
+  }
+  if (originalScrollY) {
+    Object.defineProperty(window, 'scrollY', originalScrollY)
+  } else {
+    Reflect.deleteProperty(window, 'scrollY')
+  }
   originalGeolocation = undefined
   originalPermissions = undefined
   originalScrollIntoView = undefined
+  originalScrollTo = undefined
+  originalScrollY = undefined
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
 })
@@ -559,6 +601,77 @@ describe('AskForm chat sidebar', () => {
         .getByRole('button', { name: 'Orient me to Japan' })
         .getAttribute('aria-current'),
     ).toBe('true')
+  })
+
+  it('restores each thread to its prior document position', async () => {
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      writable: true,
+      value: vi.fn().mockImplementation((query: string) => ({
+        matches: query.includes('min-width: 64rem'),
+        media: query,
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    })
+    const { scrollTo, setScrollY } = mockDocumentScroll()
+
+    upsertThread({
+      id: 'thread-scroll-a',
+      nextMessageId: 3,
+      messages: [
+        { id: 1, role: 'user', content: 'Thread A question' },
+        { id: 2, role: 'assistant', content: 'Thread A answer' },
+      ],
+    })
+    upsertThread({
+      id: 'thread-scroll-b',
+      nextMessageId: 3,
+      messages: [
+        { id: 1, role: 'user', content: 'Thread B question' },
+        { id: 2, role: 'assistant', content: 'Thread B answer' },
+      ],
+    })
+    setActiveThreadId('thread-scroll-a')
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Thread A answer')).toBeTruthy()
+    })
+    scrollTo.mockClear()
+
+    // Leave A halfway through, then visit B for the first time.
+    setScrollY(240)
+    const history = screen.getByRole('complementary', { name: 'Chat history' })
+    fireEvent.click(
+      within(history).getByRole('button', { name: 'Thread B question' }),
+    )
+    await waitFor(() => {
+      expect(screen.getByText('Thread B answer')).toBeTruthy()
+    })
+
+    // Leave B at a different offset. Returning to A restores its exact spot.
+    setScrollY(460)
+    fireEvent.click(
+      within(history).getByRole('button', { name: 'Thread A question' }),
+    )
+    await waitFor(() => {
+      expect(scrollTo).toHaveBeenLastCalledWith(0, 240)
+    })
+
+    // A can now move independently; switching back restores B's saved spot.
+    setScrollY(80)
+    fireEvent.click(
+      within(history).getByRole('button', { name: 'Thread B question' }),
+    )
+    await waitFor(() => {
+      expect(scrollTo).toHaveBeenLastCalledWith(0, 460)
+    })
   })
 
   it('opens the mobile history drawer above page chrome', async () => {
