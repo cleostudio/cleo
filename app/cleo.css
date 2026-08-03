@@ -516,6 +516,7 @@
   justify-content: center;
   gap: 0.5rem;
   width: min(100%, var(--app-column-max));
+  margin-top: 0.35rem;
   margin-inline: auto;
   padding-inline: 0.15rem;
 }
