@@ -78,10 +78,9 @@ Without `OPENAI_API_KEY`, the route returns HTTP 503.
   `content/cleo-topic-photo-zoom.json` (kept in sync by
   `lib/cleo/topic-photo-zoom.test.ts`).
 - Guide deep-links are inline Markdown in the reply (no separate chip row).
-- Portal starters in `portal-links.ts`: empty state groups them under quiet
-  Explore / Space / Civilizations / Cities / Oceans / Rivers labels (same mono
-  register as homepage search). Click submits immediately (incl. full Japan
-  photo-set prompt).
+- Portal starters in `portal-links.ts`: empty state renders them as a wrap of
+  liquid-glass pills (`glass-surface` + `LiquidGlass`, same grammar as the
+  prompt dock). Click submits immediately (incl. full Japan photo-set prompt).
 
 ## `/cleo?q=…` handoff
 

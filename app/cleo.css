@@ -508,97 +508,74 @@
   transform: translate(-50%, -50%);
 }
 
-/* Empty-state starters: quiet groups under the prompt, same mono register
-   as homepage search — not a wrap of underlined phrases. Keep the block
-   narrower than the prompt so the six groups read as one composition. */
+/* Empty-state starters: liquid-glass pills under the prompt — same
+   glass-surface + LiquidGlass grammar as the dock. */
 .cleo-starters {
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  width: min(100%, 26rem);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  width: min(100%, 34rem);
   margin-inline: auto;
   padding-inline: 0.15rem;
 }
 
-.cleo-starters-heading {
-  margin: 0;
-  color: var(--muted-foreground);
-  font-size: 0.8125rem;
-  line-height: 1.3;
-  text-align: center;
-}
-
-.cleo-starter-groups {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  column-gap: 1.25rem;
-  row-gap: 0.85rem;
-}
-
-@media (min-width: 40rem) {
-  .cleo-starter-groups {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 1.5rem;
-    row-gap: 0.95rem;
-  }
-}
-
-.cleo-starter-group {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.cleo-starter-group-label {
-  margin: 0;
-  color: var(--muted-foreground);
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-  font-size: 0.6875rem;
-  font-weight: var(--font-weight-normal);
-  letter-spacing: 0.08em;
-  line-height: 1.3;
-  text-transform: uppercase;
-}
-
-.cleo-starter-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.15rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 .cleo-starter {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   border: 0;
-  background: transparent;
-  padding: 0.1rem 0;
+  padding: 0.5rem 1rem;
   color: var(--foreground);
   font: inherit;
-  font-size: 0.925rem;
-  line-height: 1.35;
-  text-align: left;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  text-align: center;
   cursor: pointer;
-  transition: color 150ms ease;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms var(--ease-swift),
+    transform 150ms var(--ease-swift);
 }
 
 .cleo-starter:hover:not(:disabled) {
-  color: color-mix(in oklab, var(--foreground) 72%, var(--muted-foreground));
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--foreground) 18%, transparent),
+    var(--shadow-medium);
+}
+
+.cleo-starter:active:not(:disabled) {
+  transform: scale(0.98);
 }
 
 .cleo-starter:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
 .cleo-starter:disabled {
   cursor: not-allowed;
   opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cleo-starter,
+  .cleo-starter:active:not(:disabled) {
+    transition: none;
+    transform: none;
+  }
+}
+
+.cleo-starter-label {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .prompt-dock-shell[data-docked] {
