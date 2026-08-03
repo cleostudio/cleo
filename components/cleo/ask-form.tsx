@@ -943,10 +943,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
         ) : null}
 
         {!hasMessages ? (
-          <div className="cleo-welcome">
-            <p className="cleo-welcome-title">Cleo</p>
-            <p className="cleo-welcome-copy">What&apos;s on your mind?</p>
-          </div>
+          <p className="cleo-welcome">What&apos;s on your mind?</p>
         ) : null}
 
         <form

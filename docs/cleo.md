@@ -78,11 +78,11 @@ Without `OPENAI_API_KEY`, the route returns HTTP 503.
   `content/cleo-topic-photo-zoom.json` (kept in sync by
   `lib/cleo/topic-photo-zoom.test.ts`).
 - Guide deep-links are inline Markdown in the reply (no separate chip row).
-- Empty state: a short welcome (“Cleo” + “What's on your mind?”) above the
-  prompt dock; portal starters from `portal-links.ts` render below as a wrap of
-  liquid-glass pills (`glass-surface` + `LiquidGlass`, same grammar as the
-  prompt dock) with a leading emoji and a short full-sentence label. Click
-  submits immediately (incl. full Japan photo-set prompt).
+- Empty state: a large “What's on your mind?” welcome above the prompt dock;
+  portal starters from `portal-links.ts` render below as a wrap of liquid-glass
+  pills (`glass-surface` + `LiquidGlass`, same grammar as the prompt dock) with
+  a leading emoji and a short full-sentence label. Click submits immediately
+  (incl. full Japan photo-set prompt).
 
 ## `/cleo?q=…` handoff
 
