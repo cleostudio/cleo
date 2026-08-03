@@ -199,7 +199,7 @@ describe('CLEO_PORTAL_STARTERS', () => {
     })
     expect(CLEO_PORTAL_STARTERS).toContainEqual({
       collection: 'rivers',
-      label: 'the Nile',
+      label: 'Nile',
       prompt:
         'Tell me about the Nile. Deep-link its Rivers page when you mention the river.',
     })
