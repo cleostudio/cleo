@@ -1,6 +1,6 @@
-import { cacheLife } from 'next/cache'
 import Link from 'next/link'
 
+import { CopyrightYear } from '~/components/copyright-year'
 import { FooterClock } from '~/components/footer-clock'
 import { FooterCoordinates } from '~/components/footer-coordinates'
 import { brailleText } from '~/lib/braille'
@@ -27,13 +27,6 @@ function Tree({
   )
 }
 
-async function CopyrightYear() {
-  'use cache'
-  cacheLife({ stale: 86_400, revalidate: 86_400, expire: 86_400 })
-
-  return new Date().getFullYear()
-}
-
 // Swiss editorial footer, set as folder trees: each column is a directory
 // listing with box-drawing connectors.
 export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
@@ -55,11 +48,6 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
               </Link>
             </li>
           ))}
-          <li>
-            <Link href={localePath(locale, '/gallery')} className="footer-tree-link">
-              <T zh="图库" en="Gallery" />
-            </Link>
-          </li>
         </Tree>
         <Tree zh="索引" en="index">
           <li>
@@ -68,13 +56,18 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
             </Link>
           </li>
           <li>
-            <Link href={localePath(locale, '/explore')} className="footer-tree-link">
-              <T zh="探索" en="Explore" />
+            <Link href={localePath(locale, '/blog')} className="footer-tree-link">
+              <T zh="写作" en="Writing" />
             </Link>
           </li>
           <li>
-            <Link href={localePath(locale, '/blog')} className="footer-tree-link">
-              <T zh="写作" en="Writing" />
+            <Link href={localePath(locale, '/gallery')} className="footer-tree-link">
+              <T zh="图库" en="Gallery" />
+            </Link>
+          </li>
+          <li>
+            <Link href={localePath(locale, '/explore')} className="footer-tree-link">
+              <T zh="探索" en="Explore" />
             </Link>
           </li>
           <li>
