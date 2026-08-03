@@ -55,11 +55,6 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
               </Link>
             </li>
           ))}
-          <li>
-            <Link href={localePath(locale, '/gallery')} className="footer-tree-link">
-              <T zh="图库" en="Gallery" />
-            </Link>
-          </li>
         </Tree>
         <Tree zh="索引" en="index">
           <li>
@@ -75,6 +70,11 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
           <li>
             <Link href={localePath(locale, '/blog')} className="footer-tree-link">
               <T zh="写作" en="Writing" />
+            </Link>
+          </li>
+          <li>
+            <Link href={localePath(locale, '/gallery')} className="footer-tree-link">
+              <T zh="图库" en="Gallery" />
             </Link>
           </li>
           <li>
