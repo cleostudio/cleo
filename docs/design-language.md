@@ -247,9 +247,17 @@ follows that section's timing instead of this ordinary entrance budget.
 
 Reusable doorway pattern (`.nav-card` + `.nc-vignette` in
 `components/nav-cards.tsx` / `app/globals.css`). The homepage mounts four
-doorways under the masthead. Each doorway is a small stack of physical
-paper objects — not a flat icon in a rounded square — that fans open when the
-card is hovered (fine pointer) or `:focus-visible` (keyboard).
+doorways under the masthead inside `.home-portal`. Each doorway is a small
+stack of physical paper objects — not a flat icon in a rounded square — that
+fans open when the card is hovered (fine pointer) or `:focus-visible`
+(keyboard).
+
+Homepage vertical rhythm uses two even steps in `app/globals.css`:
+`.home-portal` gaps the masthead, doorway band, and search together
+(2rem / 2.25rem from 40rem); `.home-page` gaps the portal cluster and each
+content section (places, topics, writing) at a larger step (3.25rem /
+3.75rem from 40rem). Section heads share a 1rem (`mt-4`) gap to their body.
+Do not reintroduce per-section `mt-*` utilities that break the even cadence.
 
 ### Contract
 

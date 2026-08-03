@@ -759,17 +759,46 @@
   }
 }
 
-/* ── Homepage knowledge portal ───────────────────────────────────── */
+/* ── Homepage knowledge portal ─────────────────────────────────────
+   Two-level vertical rhythm: the portal cluster (masthead, doorways,
+   search) shares one step; content sections share a larger even step. */
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3.25rem;
+}
+
+.home-portal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.home-portal .nav-cards {
+  margin-top: 0;
+}
+
+@media (min-width: 40rem) {
+  .home-page {
+    gap: 3.75rem;
+  }
+
+  .home-portal {
+    gap: 2.25rem;
+  }
+}
 
 .home-highlights {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem 0.75rem;
+  gap: 1rem 0.875rem;
 }
 
 @media (min-width: 40rem) {
   .home-highlights {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.125rem 1rem;
   }
 }
 
@@ -3394,7 +3423,6 @@ a:focus-visible .external-label .external-mark {
   background: color-mix(in oklab, var(--paper-ink) 3%, var(--paper));
   filter: drop-shadow(0 -1px 0 color-mix(in oklab, var(--paper-ink) 34%, transparent));
 }
-
 
 .email-envelope-return {
   position: absolute;

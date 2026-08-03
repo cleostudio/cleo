@@ -41,6 +41,26 @@ function SectionTitle({
   )
 }
 
+function SectionLink({
+  href,
+  delay,
+  children,
+}: {
+  href: string
+  delay: number
+  children: React.ReactNode
+}) {
+  return (
+    <Link
+      href={href}
+      className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+      style={{ '--enter-delay': `${delay}ms` } as React.CSSProperties}
+    >
+      {children}
+    </Link>
+  )
+}
+
 export async function HomePageView({ locale }: { locale: Locale }) {
   const topics = allTopics()
   const posts = getAllPosts()
@@ -51,65 +71,59 @@ export async function HomePageView({ locale }: { locale: Locale }) {
   const writingCenter = (writingPosts.length - 1) / 2
 
   return (
-    <div className="mx-auto w-full max-w-content">
-      <div className="enter max-w-content-narrow">
-        <div className="flex items-center gap-2">
-          <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
-          <PixelCluster variant={HOME_MASTHEAD_VARIANT} className="shrink-0" />
+    <div className="home-page mx-auto w-full max-w-content">
+      <div className="home-portal">
+        <div className="enter max-w-content-narrow">
+          <div className="flex items-center gap-2">
+            <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
+            <PixelCluster variant={HOME_MASTHEAD_VARIANT} className="shrink-0" />
+          </div>
         </div>
+
+        <NavCards
+          postCount={posts.length}
+          exploreCount={countries.length}
+          topicCount={topics.length}
+          locale={locale}
+          photoCard={<GalleryNavCard locale={locale} />}
+        />
+
+        <section aria-label="Search">
+          <div className="enter" style={{ '--enter-delay': '100ms' } as React.CSSProperties}>
+            <HomeSiteSearch
+              hits={searchHits}
+              spotlightIds={siteSearchSpotlightIds(searchHits)}
+            />
+          </div>
+        </section>
       </div>
 
-      <NavCards
-        postCount={posts.length}
-        exploreCount={countries.length}
-        topicCount={topics.length}
-        locale={locale}
-        photoCard={<GalleryNavCard locale={locale} />}
-      />
-
-      <section className="mt-6" aria-label="Search">
-        <div className="enter" style={{ '--enter-delay': '100ms' } as React.CSSProperties}>
-          <HomeSiteSearch
-            hits={searchHits}
-            spotlightIds={siteSearchSpotlightIds(searchHits)}
-          />
-        </div>
-      </section>
-
-      <section className="mt-8" aria-labelledby="home-places-heading">
+      <section aria-labelledby="home-places-heading">
         <div className="flex items-center justify-between gap-4">
           <SectionTitle index="01" delay={160}>
             <span id="home-places-heading">
               <T zh="精选地点" en="Highlighted places" />
             </span>
           </SectionTitle>
-          <Link
-            href="/gallery"
-            className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
-            style={{ '--enter-delay': '160ms' } as React.CSSProperties}
-          >
+          <SectionLink href="/gallery" delay={160}>
             <T zh="全部图库" en="Full gallery" />
-          </Link>
+          </SectionLink>
         </div>
-        <div className="enter mt-5" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
+        <div className="enter mt-4" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
           <HomeHighlightedPlaces entries={highlights} />
         </div>
       </section>
 
-      <section className="mt-16" aria-labelledby="home-topics-heading">
+      <section aria-labelledby="home-topics-heading">
         <div className="flex items-center justify-between gap-4">
           <SectionTitle index="02" delay={220}>
             <span id="home-topics-heading">
               <T zh="主题发现" en="Topic discovery" />
             </span>
           </SectionTitle>
-          <Link
-            href="/topics"
-            className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
-            style={{ '--enter-delay': '220ms' } as React.CSSProperties}
-          >
+          <SectionLink href="/topics" delay={220}>
             <T zh="全部主题" en="All topics" />
-          </Link>
+          </SectionLink>
         </div>
         <ul className="focus-list mt-4 flex flex-col">
           {topics.map((topic, index) => (
@@ -142,20 +156,16 @@ export async function HomePageView({ locale }: { locale: Locale }) {
       </section>
 
       {writingPosts.length > 0 && (
-        <section className="mt-16" aria-labelledby="home-writing-heading">
+        <section aria-labelledby="home-writing-heading">
           <div className="flex items-center justify-between gap-4">
             <SectionTitle index="03" delay={300}>
               <span id="home-writing-heading">
                 <T zh="写作" en="Writing" />
               </span>
             </SectionTitle>
-            <Link
-              href="/blog"
-              className="enter relative shrink-0 text-sm text-muted-foreground transition-colors duration-150 ease-[ease] after:absolute after:-inset-x-2 after:-inset-y-3 after:content-[''] hover:text-foreground focus-visible:rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
-              style={{ '--enter-delay': '300ms' } as React.CSSProperties}
-            >
+            <SectionLink href="/blog" delay={300}>
               <T zh="全部写作" en="All writing" />
-            </Link>
+            </SectionLink>
           </div>
           <ul className="focus-list mt-4 flex flex-col">
             {writingPosts.map((post, index) => (
