@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
 import { HomeHighlightedPlaces } from '~/components/home-highlighted-places'
-import { HomeIntroduction } from '~/components/home-introduction'
 import { HomeSiteSearch } from '~/components/home-site-search'
 import { GalleryNavCard, NavCards } from '~/components/nav-cards'
 import { HOME_MASTHEAD_VARIANT, PixelCluster } from '~/components/pixel-cluster'
@@ -57,9 +56,6 @@ export async function HomePageView({ locale }: { locale: Locale }) {
         <div className="flex items-center gap-2">
           <h1 className="text-base font-semibold tracking-tight text-foreground">Cleo</h1>
           <PixelCluster variant={HOME_MASTHEAD_VARIANT} className="shrink-0" />
-        </div>
-        <div className="mt-4">
-          <HomeIntroduction />
         </div>
       </div>
 

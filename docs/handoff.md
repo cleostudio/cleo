@@ -6,12 +6,12 @@ Current as of July 2026 (Cleo fork).
 
 General-knowledge portal:
 
-- **Homepage** — paper-artifact doorway cards (Writing, Gallery, Explore,
-  Topics); one search bar over the whole portal (countries, Space bodies,
-  civilizations, cities, oceans, rivers, curated photographs, Writing, topic
-  collections, portal surfaces) with an Ask Cleo row → `/cleo?q=…`; highlighted
-  places; topic discovery; recent Writing. No personal contact / music / books /
-  photo-wall sections.
+- **Homepage** — masthead, paper-artifact doorway cards (Writing, Gallery,
+  Explore, Topics); one search bar over the whole portal (countries, Space
+  bodies, civilizations, cities, oceans, rivers, curated photographs, Writing,
+  topic collections, portal surfaces) with an Ask Cleo row → `/cleo?q=…`;
+  highlighted places; topic discovery; recent Writing. No intro bio, personal
+  contact / music / books / photo-wall sections.
 - **Explore** — country pages at `/explore/[slug]`
 - **Space** — Solar System, Moons, Deep Space at `/space` and `/space/[slug]`
   (thirty-three subjects)
