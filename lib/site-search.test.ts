@@ -221,6 +221,13 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('athens')[0]).toBe('/cities/athens')
     expect(hrefs('jerusalem')[0]).toBe('/cities/jerusalem')
     expect(hrefs('tokyo')[0]).toBe('/cities/tokyo')
+    expect(hrefs('seoul')[0]).toBe('/cities/seoul')
+    expect(hrefs('bangkok')[0]).toBe('/cities/bangkok')
+    // Singapore is both Explore country and Cities guide — Country wins the
+    // exact-title tie; the city guide still ranks and wins on city-only terms.
+    expect(hrefs('singapore')).toContain('/cities/singapore')
+    expect(hrefs('mumbai')[0]).toBe('/cities/mumbai')
+    expect(hrefs('shanghai')[0]).toBe('/cities/shanghai')
     expect(hrefs('mexico city')[0]).toBe('/cities/mexico-city')
     expect(hrefs('marrakech')[0]).toBe('/cities/marrakech')
     expect(hrefs('lagos')[0]).toBe('/cities/lagos')
@@ -243,6 +250,16 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('river-plate capital')[0]).toBe('/cities/buenos-aires')
     expect(hrefs('bay coastal metropolis')[0]).toBe('/cities/rio-de-janeiro')
     expect(hrefs('andean plateau capital')[0]).toBe('/cities/bogota')
+    // Prefer secondary sites / subtitles: hero photo titles also index as Gallery.
+    expect(hrefs('n seoul tower')[0]).toBe('/cities/seoul')
+    expect(hrefs('bukchon hanok village')[0]).toBe('/cities/seoul')
+    expect(hrefs('merlion')[0]).toBe('/cities/singapore')
+    expect(hrefs('chhatrapati shivaji terminus')[0]).toBe('/cities/mumbai')
+    expect(hrefs('the bund')[0]).toBe('/cities/shanghai')
+    expect(hrefs('yu garden')[0]).toBe('/cities/shanghai')
+    expect(hrefs('han river capital')[0]).toBe('/cities/seoul')
+    expect(hrefs('straits port')[0]).toBe('/cities/singapore')
+    expect(hrefs('chao phraya plain')[0]).toBe('/cities/bangkok')
   })
 
   it('finds ocean guides and their features', () => {
@@ -268,6 +285,22 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('wadden sea')[0]).toBe('/oceans/north-sea')
     expect(hrefs('florida gulf coast')[0]).toBe('/oceans/gulf-of-mexico')
     expect(hrefs('ryukyu coast')[0]).toBe('/oceans/east-china-sea')
+    expect(hrefs('bering sea')[0]).toBe('/oceans/bering-sea')
+    expect(hrefs('greenland sea')[0]).toBe('/oceans/greenland-sea')
+    expect(hrefs('barents sea')[0]).toBe('/oceans/barents-sea')
+    expect(hrefs('weddell sea')[0]).toBe('/oceans/weddell-sea')
+    expect(hrefs('ross sea')[0]).toBe('/oceans/ross-sea')
+    // Secondary features (hero photo titles also index under Gallery).
+    expect(hrefs('pribilof islands')[0]).toBe('/oceans/bering-sea')
+    expect(hrefs('bering strait')[0]).toBe('/oceans/bering-sea')
+    expect(hrefs('scoresby sund glaciers')[0]).toBe('/oceans/greenland-sea')
+    expect(hrefs('jan mayen beerenberg')[0]).toBe('/oceans/greenland-sea')
+    expect(hrefs('nordkapp approach')[0]).toBe('/oceans/barents-sea')
+    expect(hrefs('barents sea bloom')[0]).toBe('/oceans/barents-sea')
+    expect(hrefs('flying over the weddell')[0]).toBe('/oceans/weddell-sea')
+    expect(hrefs('weddell from orbit')[0]).toBe('/oceans/weddell-sea')
+    expect(hrefs('ross ice shelf')[0]).toBe('/oceans/ross-sea')
+    expect(hrefs('mcmurdo sound')[0]).toBe('/oceans/ross-sea')
   })
 
   it('finds river guides and their features', () => {
@@ -292,6 +325,11 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('paraná')[0]).toBe('/rivers/parana')
     expect(hrefs('murray–darling')[0]).toBe('/rivers/murray-darling')
     expect(hrefs('lena')[0]).toBe('/rivers/lena')
+    expect(hrefs('amur')[0]).toBe('/rivers/amur')
+    expect(hrefs('brahmaputra')[0]).toBe('/rivers/brahmaputra')
+    expect(hrefs('irrawaddy')[0]).toBe('/rivers/irrawaddy')
+    expect(hrefs('euphrates')[0]).toBe('/rivers/euphrates')
+    expect(hrefs('tigris')[0]).toBe('/rivers/tigris')
     expect(hrefs('iron gates')[0]).toBe('/rivers/danube')
     expect(hrefs('blue nile falls')[0]).toBe('/rivers/nile')
     expect(hrefs('loess sediment')[0]).toBe('/rivers/yellow-river')
@@ -303,6 +341,16 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('rosso crossing')[0]).toBe('/rivers/senegal')
     expect(hrefs('limpopo sandbanks')[0]).toBe('/rivers/limpopo')
     expect(hrefs('okavango channels')[0]).toBe('/rivers/okavango')
+    // Secondary features (hero photo titles also index under Gallery).
+    expect(hrefs('amur near amursk')[0]).toBe('/rivers/amur')
+    expect(hrefs('khabarovsk riverfront')[0]).toBe('/rivers/amur')
+    expect(hrefs('yarlung tsangpo')[0]).toBe('/rivers/brahmaputra')
+    expect(hrefs('brahmaputra at guwahati')[0]).toBe('/rivers/brahmaputra')
+    expect(hrefs('sagaing shore')[0]).toBe('/rivers/irrawaddy')
+    expect(hrefs('bagan riverside temple')[0]).toBe('/rivers/irrawaddy')
+    expect(hrefs('euphrates in turkey')[0]).toBe('/rivers/euphrates')
+    expect(hrefs('tigris at mosul')[0]).toBe('/rivers/tigris')
+    expect(hrefs('tigris through baghdad')[0]).toBe('/rivers/tigris')
   })
 
   it('finds curated photographs by the place they show', () => {

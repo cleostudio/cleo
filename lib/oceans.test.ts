@@ -10,7 +10,7 @@ import {
 
 describe('ocean subjects', () => {
   it('ships a starter catalog with unique slugs and codes', () => {
-    expect(oceanSubjects.length).toBeGreaterThanOrEqual(15)
+    expect(oceanSubjects.length).toBeGreaterThanOrEqual(20)
 
     const slugs = oceanSubjects.map((subject) => subject.slug)
     const codes = oceanSubjects.map((subject) => subject.code)
@@ -62,6 +62,9 @@ describe('ocean subjects', () => {
     ).toBe(true)
     expect(
       groups[2]?.[1].some((subject) => subject.slug === 'arctic-ocean'),
+    ).toBe(true)
+    expect(
+      groups[2]?.[1].some((subject) => subject.slug === 'bering-sea'),
     ).toBe(true)
   })
 
