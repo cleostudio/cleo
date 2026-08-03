@@ -504,8 +504,9 @@
     var(--app-column-max)
   );
   flex-direction: column;
-  gap: 0.85rem;
-  transform: translate(-50%, -50%);
+  gap: 1rem;
+  /* Empty state sits a touch below true center; docked overrides transform. */
+  transform: translate(-50%, calc(-50% + 0.85rem));
 }
 
 /* Empty-state starters: liquid-glass pills under the prompt — same
@@ -516,7 +517,7 @@
   justify-content: center;
   gap: 0.5rem;
   width: min(100%, var(--app-column-max));
-  margin-top: 0.35rem;
+  margin-top: 0.2rem;
   margin-inline: auto;
   padding-inline: 0.15rem;
 }
