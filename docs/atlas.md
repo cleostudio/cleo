@@ -47,7 +47,7 @@ pnpm generate:cleo-topic-photo-zoom
 - Renditions up to 640 / 1280 / 2048px, never falsely upscaled
 - Browser `srcset` from static files — no account, CDN, or `/_next/image`
   re-encode at runtime
-- Gallery shows the editor-selected featured photograph; guides and Cleo keep
+- Gallery shows the editor-selected featured photograph; topic pages and Cleo keep
   all three curated views
 
 ## Verify

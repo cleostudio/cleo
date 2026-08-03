@@ -11,7 +11,7 @@ alongside Countries and Space (`lib/topics.ts`).
 
 | Piece | Path |
 | --- | --- |
-| Guide definitions | `lib/civilizations.ts` |
+| Subject definitions | `lib/civilizations.ts` |
 | Photo manifest | `content/civilizations-photos.json` |
 | Photo sources | `scripts/civilizations/civilizations-photo-sources.json` |
 | Public JPEGs | `public/images/civilizations/{slug}/` |
@@ -37,7 +37,7 @@ pnpm generate:cleo-topic-photo-zoom
 
 Same as atlas/space: static JPEGs, browser `srcset`, no runtime image CDN or
 `/_next/image` re-encode. Gallery shows the editor-selected featured photo;
-guides and Cleo retain all three views. Credit links point at Wikimedia Commons
+topic pages and Cleo retain all three views. Credit links point at Wikimedia Commons
 (licenses vary: PD, CC0, CC BY, CC BY-SA).
 
 ## Verify

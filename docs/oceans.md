@@ -10,7 +10,7 @@ Civilizations, Cities, and Rivers (`lib/topics.ts`).
 
 | Piece | Path |
 | --- | --- |
-| Guide definitions | `lib/oceans.ts` |
+| Subject definitions | `lib/oceans.ts` |
 | Photo manifest | `content/oceans-photos.json` |
 | Photo sources | `scripts/oceans/oceans-photo-sources.json` |
 | Public JPEGs | `public/images/oceans/{slug}/` |
@@ -36,7 +36,7 @@ pnpm generate:cleo-topic-photo-zoom
 
 Same as atlas/space/civilizations/cities: static JPEGs, browser `srcset`, no
 runtime image CDN or `/_next/image` re-encode. Gallery shows the
-editor-selected featured photo; guides and Cleo retain all three views. Credit
+editor-selected featured photo; topic pages and Cleo retain all three views. Credit
 links point at Wikimedia Commons (licenses vary: PD, CC0, CC BY, CC BY-SA).
 
 Fact-plate Explore names deep-link to `/explore/[slug]` via exact country

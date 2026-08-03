@@ -10,7 +10,7 @@ Cities, and Oceans (`lib/topics.ts`).
 
 | Piece | Path |
 | --- | --- |
-| Guide definitions | `lib/rivers.ts` |
+| Subject definitions | `lib/rivers.ts` |
 | Photo manifest | `content/rivers-photos.json` |
 | Photo sources | `scripts/rivers/rivers-photo-sources.json` |
 | Public JPEGs | `public/images/rivers/{slug}/` |
@@ -36,7 +36,7 @@ pnpm generate:cleo-topic-photo-zoom
 
 Same as other topic shelves: static JPEGs, browser `srcset`, no runtime image
 CDN or `/_next/image` re-encode. Gallery shows the editor-selected featured
-photo; guides and Cleo retain all three views. Credit links point at Wikimedia
+photo; topic pages and Cleo retain all three views. Credit links point at Wikimedia
 Commons (licenses vary: PD, CC0, CC BY, CC BY-SA).
 
 Fact-plate Explore names deep-link to `/explore/[slug]` via exact country

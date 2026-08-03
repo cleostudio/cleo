@@ -9,7 +9,7 @@ thirty-three subjects). Topics catalog lists Space alongside Countries
 
 | Piece | Path |
 | --- | --- |
-| Guide definitions | `lib/space.ts` |
+| Subject definitions | `lib/space.ts` |
 | Photo manifest | `content/space-photos.json` |
 | Public JPEGs | `public/images/space/{slug}/` |
 | Gallery unification | `lib/gallery.ts` |
@@ -35,7 +35,7 @@ pnpm generate:cleo-topic-photo-zoom
 
 Same as atlas: static JPEGs, browser `srcset`, no runtime image CDN or
 `/_next/image` re-encode. Gallery shows the editor-selected featured photo;
-guides and Cleo retain all three views.
+topic pages and Cleo retain all three views.
 
 ## Verify
 

@@ -1665,7 +1665,7 @@
   gap: 0.5rem 1.5rem;
 }
 
-/* Field-guide plates carry real values — language lists, currency names,
+/* Topic fact plates carry real values — language lists, currency names,
    orbital periods — that will not hold one line across four columns, and that
    a reader has reason to copy. */
 .spec-plate-guide {
@@ -6192,7 +6192,7 @@ a:focus-visible .external-label .external-mark {
   box-shadow: 0 0 0 1px var(--border);
 }
 
-/* ── Country field guide (/explore/[slug]) + gallery toolbar ─────── */
+/* ── Country topic page (/explore/[slug]) + gallery toolbar ─────── */
 
 .guide-label {
   color: color-mix(in oklab, var(--muted-foreground) 78%, transparent);
@@ -6241,7 +6241,7 @@ a:focus-visible .external-label .external-mark {
   margin-top: 0.125rem;
   font-size: 0.75rem;
   /* Wikimedia credit lines run long. The overlay reserves a fixed strip, so a
-     cell that wraps would ride up over the photograph; the field guide behind
+     cell that wraps would ride up over the photograph; the topic page behind
      the caption carries the full credit. */
   max-width: 16rem;
   overflow: hidden;
