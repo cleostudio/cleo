@@ -109,7 +109,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
             <T zh="全部图库" en="Full gallery" />
           </SectionLink>
         </div>
-        <div className="enter mt-4" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
+        <div className="enter page-section-body" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
           <HomeHighlightedPlaces entries={highlights} />
         </div>
       </section>
@@ -125,7 +125,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
             <T zh="全部主题" en="All topics" />
           </SectionLink>
         </div>
-        <ul className="focus-list mt-4 flex flex-col">
+        <ul className="focus-list page-section-body flex flex-col">
           {topics.map((topic, index) => (
             <li
               key={topic.slug}

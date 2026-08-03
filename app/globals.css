@@ -765,15 +765,15 @@
    head = section label → body. Keep homepage and page-* on these tokens. */
 
 :root {
-  --page-gap: 3.25rem;
-  --page-gap-cluster: 2rem;
-  --page-gap-head: 1rem;
+  --page-gap: 2.75rem;
+  --page-gap-cluster: 1.5rem;
+  --page-gap-head: 0.75rem;
 }
 
 @media (min-width: 40rem) {
   :root {
-    --page-gap: 3.75rem;
-    --page-gap-cluster: 2.25rem;
+    --page-gap: 3.25rem;
+    --page-gap-cluster: 1.75rem;
   }
 }
 
@@ -803,13 +803,13 @@
 .home-highlights {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 0.875rem;
+  gap: 0.875rem 0.75rem;
 }
 
 @media (min-width: 40rem) {
   .home-highlights {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.125rem 1rem;
+    gap: 1rem 0.875rem;
   }
 }
 
