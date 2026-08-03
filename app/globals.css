@@ -765,15 +765,15 @@
    head = section label → body. Keep homepage and page-* on these tokens. */
 
 :root {
-  --page-gap: 2.75rem;
-  --page-gap-cluster: 1.5rem;
-  --page-gap-head: 0.75rem;
+  --page-gap: 2.5rem;
+  --page-gap-cluster: 1.25rem;
+  --page-gap-head: 0.625rem;
 }
 
 @media (min-width: 40rem) {
   :root {
-    --page-gap: 3.25rem;
-    --page-gap-cluster: 1.75rem;
+    --page-gap: 3rem;
+    --page-gap-cluster: 1.5rem;
   }
 }
 
