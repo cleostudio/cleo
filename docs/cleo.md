@@ -80,7 +80,8 @@ Without `OPENAI_API_KEY`, the route returns HTTP 503.
 - Guide deep-links are inline Markdown in the reply (no separate chip row).
 - Portal starters in `portal-links.ts`: empty state renders them as a wrap of
   liquid-glass pills (`glass-surface` + `LiquidGlass`, same grammar as the
-  prompt dock). Click submits immediately (incl. full Japan photo-set prompt).
+  prompt dock) with a leading emoji and a short full-sentence label. Click
+  submits immediately (incl. full Japan photo-set prompt).
 
 ## `/cleo?q=…` handoff
 

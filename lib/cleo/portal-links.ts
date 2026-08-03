@@ -200,6 +200,8 @@ export type CleoStarterCollection =
 
 export type CleoPortalStarter = {
   collection: CleoStarterCollection
+  /** Leading emoji shown on the empty-state glass pill. */
+  emoji: string
   label: string
   prompt: string
 }
@@ -227,49 +229,57 @@ const CLEO_STARTER_GROUP_ORDER: readonly CleoStarterCollection[] = [
 export const CLEO_PORTAL_STARTERS: readonly CleoPortalStarter[] = [
   {
     collection: 'explore',
-    label: 'Japan',
+    emoji: '🗻',
+    label: 'Tell me about Japan',
     prompt:
       'Tell me about Japan. Deep-link its Explore page when you mention the country.',
   },
   {
     collection: 'explore',
-    label: 'Japan photos',
+    emoji: '📷',
+    label: 'Show me Japan photos',
     prompt:
       'Show me all three curated photos of Japan and deep-link its Explore page.',
   },
   {
     collection: 'space',
-    label: 'Europa',
+    emoji: '🌕',
+    label: 'Why is Europa interesting?',
     prompt:
       'Why is Europa interesting as an ocean world? Deep-link the Space page when you name it.',
   },
   {
     collection: 'space',
-    label: 'Mars and Earth',
+    emoji: '🪐',
+    label: 'Compare Mars and Earth',
     prompt:
       'Compare Mars and Earth in a few sharp points. Deep-link each Space page when you name the planets.',
   },
   {
     collection: 'civilizations',
-    label: 'Ancient Egypt',
+    emoji: '🏛',
+    label: 'Tell me about Ancient Egypt',
     prompt:
       'Tell me about Ancient Egypt. Deep-link its Civilizations page when you mention it.',
   },
   {
     collection: 'cities',
-    label: 'Istanbul',
+    emoji: '🕌',
+    label: 'Tell me about Istanbul',
     prompt:
       'Tell me about Istanbul. Deep-link its Cities page when you mention the city.',
   },
   {
     collection: 'oceans',
-    label: 'Pacific Ocean',
+    emoji: '🌊',
+    label: 'Tell me about the Pacific Ocean',
     prompt:
       'Tell me about the Pacific Ocean. Deep-link its Oceans page when you mention it.',
   },
   {
     collection: 'rivers',
-    label: 'Nile',
+    emoji: '💧',
+    label: 'Tell me about the Nile',
     prompt:
       'Tell me about the Nile. Deep-link its Rivers page when you mention the river.',
   },

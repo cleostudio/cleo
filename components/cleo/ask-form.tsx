@@ -1057,6 +1057,9 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
                 type="button"
               >
                 <LiquidGlass />
+                <span aria-hidden="true" className="cleo-starter-emoji">
+                  {starter.emoji}
+                </span>
                 <span className="cleo-starter-label">{starter.label}</span>
               </button>
             ))}
