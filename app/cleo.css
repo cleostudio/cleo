@@ -509,6 +509,31 @@
   transform: translate(-50%, calc(-50% + 0.85rem));
 }
 
+.cleo-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding-inline: 0.75rem;
+  text-align: center;
+}
+
+.cleo-welcome-title {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.cleo-welcome-copy {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.925rem;
+  line-height: 1.4;
+}
+
 /* Empty-state starters: liquid-glass pills under the prompt — same
    glass-surface + LiquidGlass grammar as the dock. */
 .cleo-starters {

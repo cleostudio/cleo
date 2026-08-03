@@ -942,6 +942,15 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
           </div>
         ) : null}
 
+        {!hasMessages ? (
+          <div className="cleo-welcome">
+            <p className="cleo-welcome-title">Cleo</p>
+            <p className="cleo-welcome-copy">
+              Ask about places, space, and the world.
+            </p>
+          </div>
+        ) : null}
+
         <form
           aria-busy={isSubmitting}
           className="glass-surface prompt-dock"
