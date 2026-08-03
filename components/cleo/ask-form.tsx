@@ -41,7 +41,7 @@ import {
   type MessageIncomplete,
   toConversationPayload,
 } from "~/lib/cleo/conversation-helpers"
-import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
+import { groupCleoPortalStarters } from "~/lib/cleo/portal-links"
 import type { EncryptedReasoningItem } from "~/lib/cleo/reasoning-items"
 import { isDocumentNearBottom } from "~/lib/cleo/stick-to-bottom"
 import {
@@ -1046,19 +1046,39 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
 
         {!hasMessages ? (
           <div className="cleo-starters" role="group" aria-label="Suggestions">
-            {CLEO_PORTAL_STARTERS.map((starter) => (
-              <button
-                className="cleo-starter"
-                disabled={isSubmitting}
-                key={starter.label}
-                onClick={() => {
-                  void handleSubmit(undefined, starter.prompt)
-                }}
-                type="button"
-              >
-                {starter.label}
-              </button>
-            ))}
+            <p className="cleo-starters-heading">Try asking</p>
+            <div className="cleo-starter-groups">
+              {groupCleoPortalStarters().map((group) => (
+                <section
+                  aria-labelledby={`cleo-starter-${group.collection}`}
+                  className="cleo-starter-group"
+                  key={group.collection}
+                >
+                  <h2
+                    className="cleo-starter-group-label"
+                    id={`cleo-starter-${group.collection}`}
+                  >
+                    {group.label}
+                  </h2>
+                  <ul className="cleo-starter-list">
+                    {group.starters.map((starter) => (
+                      <li key={starter.label}>
+                        <button
+                          className="cleo-starter"
+                          disabled={isSubmitting}
+                          onClick={() => {
+                            void handleSubmit(undefined, starter.prompt)
+                          }}
+                          type="button"
+                        >
+                          {starter.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
           </div>
         ) : null}
       </div>

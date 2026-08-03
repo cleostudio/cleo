@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import {
   CLEO_PORTAL_STARTERS,
   extractPortalGuideLinks,
+  groupCleoPortalStarters,
   isCuratedTopicImageSrc,
   presentPortalGuideMarkdown,
   presentTopicPhotoMarkdown,
@@ -179,24 +180,49 @@ describe('CLEO_PORTAL_STARTERS', () => {
       true,
     )
     expect(CLEO_PORTAL_STARTERS).toContainEqual({
-      label: 'Show Japan photos',
+      collection: 'explore',
+      label: 'Japan photos',
       prompt:
         'Show me all three curated photos of Japan and deep-link its Explore page.',
     })
     expect(CLEO_PORTAL_STARTERS).toContainEqual({
-      label: 'Tell me about Istanbul',
+      collection: 'cities',
+      label: 'Istanbul',
       prompt:
         'Tell me about Istanbul. Deep-link its Cities page when you mention the city.',
     })
     expect(CLEO_PORTAL_STARTERS).toContainEqual({
-      label: 'Tell me about the Pacific Ocean',
+      collection: 'oceans',
+      label: 'Pacific Ocean',
       prompt:
         'Tell me about the Pacific Ocean. Deep-link its Oceans page when you mention it.',
     })
     expect(CLEO_PORTAL_STARTERS).toContainEqual({
-      label: 'Tell me about the Nile',
+      collection: 'rivers',
+      label: 'the Nile',
       prompt:
         'Tell me about the Nile. Deep-link its Rivers page when you mention the river.',
     })
+  })
+
+  it('groups starters under portal collection labels', () => {
+    const groups = groupCleoPortalStarters()
+    expect(groups.map((group) => group.collection)).toEqual([
+      'explore',
+      'space',
+      'civilizations',
+      'cities',
+      'oceans',
+      'rivers',
+    ])
+    expect(groups[0]).toMatchObject({
+      collection: 'explore',
+      label: 'Explore',
+    })
+    expect(groups[0]?.starters.map((starter) => starter.label)).toEqual([
+      'Japan',
+      'Japan photos',
+    ])
+    expect(groups.every((group) => group.starters.length >= 1)).toBe(true)
   })
 })

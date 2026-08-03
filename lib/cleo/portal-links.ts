@@ -189,46 +189,122 @@ export function presentPortalGuideMarkdown(markdown: string): string {
   return kept.join('\n\n')
 }
 
+/** Portal collections offered as empty-state starter groups. */
+export type CleoStarterCollection =
+  | 'explore'
+  | 'space'
+  | 'civilizations'
+  | 'cities'
+  | 'oceans'
+  | 'rivers'
+
+export type CleoPortalStarter = {
+  collection: CleoStarterCollection
+  label: string
+  prompt: string
+}
+
+/** Quiet mono labels — same register as homepage search groups. */
+export const CLEO_STARTER_GROUP_LABEL: Record<CleoStarterCollection, string> = {
+  explore: 'Explore',
+  space: 'Space',
+  civilizations: 'Civilizations',
+  cities: 'Cities',
+  oceans: 'Oceans',
+  rivers: 'Rivers',
+}
+
+const CLEO_STARTER_GROUP_ORDER: readonly CleoStarterCollection[] = [
+  'explore',
+  'space',
+  'civilizations',
+  'cities',
+  'oceans',
+  'rivers',
+]
+
 /** Empty-state prompts that exercise portal grounding. */
-export const CLEO_PORTAL_STARTERS = [
+export const CLEO_PORTAL_STARTERS: readonly CleoPortalStarter[] = [
   {
-    label: 'Tell me about Japan',
+    collection: 'explore',
+    label: 'Japan',
     prompt:
       'Tell me about Japan. Deep-link its Explore page when you mention the country.',
   },
   {
-    label: 'Show Japan photos',
+    collection: 'explore',
+    label: 'Japan photos',
     prompt:
       'Show me all three curated photos of Japan and deep-link its Explore page.',
   },
   {
-    label: 'Why is Europa interesting?',
+    collection: 'space',
+    label: 'Europa',
     prompt:
       'Why is Europa interesting as an ocean world? Deep-link the Space page when you name it.',
   },
   {
-    label: 'Compare Mars and Earth',
+    collection: 'space',
+    label: 'Mars and Earth',
     prompt:
       'Compare Mars and Earth in a few sharp points. Deep-link each Space page when you name the planets.',
   },
   {
-    label: 'Tell me about Ancient Egypt',
+    collection: 'civilizations',
+    label: 'Ancient Egypt',
     prompt:
       'Tell me about Ancient Egypt. Deep-link its Civilizations page when you mention it.',
   },
   {
-    label: 'Tell me about Istanbul',
+    collection: 'cities',
+    label: 'Istanbul',
     prompt:
       'Tell me about Istanbul. Deep-link its Cities page when you mention the city.',
   },
   {
-    label: 'Tell me about the Pacific Ocean',
+    collection: 'oceans',
+    label: 'Pacific Ocean',
     prompt:
       'Tell me about the Pacific Ocean. Deep-link its Oceans page when you mention it.',
   },
   {
-    label: 'Tell me about the Nile',
+    collection: 'rivers',
+    label: 'the Nile',
     prompt:
       'Tell me about the Nile. Deep-link its Rivers page when you mention the river.',
   },
-] as const
+]
+
+export type CleoStarterGroup = {
+  collection: CleoStarterCollection
+  label: string
+  starters: readonly CleoPortalStarter[]
+}
+
+/** Group starters under portal collection labels for the empty-state UI. */
+export function groupCleoPortalStarters(
+  starters: readonly CleoPortalStarter[] = CLEO_PORTAL_STARTERS,
+): CleoStarterGroup[] {
+  const byCollection = new Map<CleoStarterCollection, CleoPortalStarter[]>()
+
+  for (const starter of starters) {
+    const list = byCollection.get(starter.collection)
+    if (list) {
+      list.push(starter)
+    } else {
+      byCollection.set(starter.collection, [starter])
+    }
+  }
+
+  return CLEO_STARTER_GROUP_ORDER.flatMap((collection) => {
+    const groupStarters = byCollection.get(collection)
+    if (!groupStarters?.length) return []
+    return [
+      {
+        collection,
+        label: CLEO_STARTER_GROUP_LABEL[collection],
+        starters: groupStarters,
+      },
+    ]
+  })
+}
