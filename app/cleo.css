@@ -509,12 +509,14 @@
 }
 
 /* Empty-state starters: quiet groups under the prompt, same mono register
-   as homepage search — not a wrap of underlined phrases. */
+   as homepage search — not a wrap of underlined phrases. Keep the block
+   narrower than the prompt so the six groups read as one composition. */
 .cleo-starters {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  width: 100%;
+  gap: 0.6rem;
+  width: min(100%, 26rem);
+  margin-inline: auto;
   padding-inline: 0.15rem;
 }
 
@@ -530,13 +532,15 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
-  gap: 0.9rem 1.35rem;
+  column-gap: 1.25rem;
+  row-gap: 0.85rem;
 }
 
 @media (min-width: 40rem) {
   .cleo-starter-groups {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem 1.75rem;
+    column-gap: 1.5rem;
+    row-gap: 0.95rem;
   }
 }
 
