@@ -11,7 +11,8 @@ General-knowledge portal:
   bodies, civilizations, cities, oceans, rivers, curated photographs, Writing,
   topic collections, portal surfaces) with an Ask Cleo row → `/cleo?q=…`;
   highlighted places; topic discovery; recent Writing. No intro bio, personal
-  contact / music / books / photo-wall sections.
+  contact / music / books / photo-wall sections. Vertical rhythm uses shared
+  `--page-gap` / `--page-gap-cluster` tokens (see design-language).
 - **Explore** — country pages at `/explore/[slug]`
 - **Space** — Solar System, Moons, Deep Space at `/space` and `/space/[slug]`
   (thirty-three subjects)

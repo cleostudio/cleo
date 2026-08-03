@@ -37,7 +37,7 @@ function AuthShell({
   footer?: ReactNode
 }) {
   return (
-    <div className="mx-auto w-full max-w-content">
+    <div className="page-cluster mx-auto w-full max-w-content">
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
           <h1 id={titleId} className="page-eyebrow enter">
@@ -56,12 +56,12 @@ function AuthShell({
         />
       </div>
 
-      <div className="enter mt-8 max-w-sm" style={enterDelay(80)}>
+      <div className="enter max-w-sm" style={enterDelay(80)}>
         {children}
       </div>
 
       {footer ? (
-        <div className="enter mt-6" style={enterDelay(100)}>
+        <div className="enter" style={enterDelay(100)}>
           {footer}
         </div>
       ) : null}
@@ -308,31 +308,33 @@ export function AccountPageView({
         />
       }
     >
-      <dl className="spec-nameplate">
+      <div className="page-cluster">
+        <dl className="spec-nameplate">
+          <div>
+            <dt>
+              <T zh="名称" en="Name" />
+            </dt>
+            <dd>{user.name}</dd>
+          </div>
+          <div>
+            <dt>
+              <T zh="邮箱" en="Email" />
+            </dt>
+            <dd>{user.email}</dd>
+          </div>
+        </dl>
         <div>
-          <dt>
-            <T zh="名称" en="Name" />
-          </dt>
-          <dd>{user.name}</dd>
+          <Button
+            type="button"
+            variant="tertiary"
+            size="lg"
+            loading={pending}
+            expandHitArea
+            onClick={() => void signOut()}
+          >
+            <T zh="退出登录" en="Sign out" />
+          </Button>
         </div>
-        <div>
-          <dt>
-            <T zh="邮箱" en="Email" />
-          </dt>
-          <dd>{user.email}</dd>
-        </div>
-      </dl>
-      <div className="mt-6">
-        <Button
-          type="button"
-          variant="tertiary"
-          size="lg"
-          loading={pending}
-          expandHitArea
-          onClick={() => void signOut()}
-        >
-          <T zh="退出登录" en="Sign out" />
-        </Button>
       </div>
     </AuthShell>
   )

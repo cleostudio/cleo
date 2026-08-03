@@ -23,7 +23,7 @@ export function GalleryPageView() {
   const entries = allGalleryItems()
 
   return (
-    <div className="mx-auto w-full max-w-content">
+    <div className="page-stack mx-auto w-full max-w-content">
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
           <h1 className="page-eyebrow">
@@ -33,9 +33,7 @@ export function GalleryPageView() {
         <PixelCluster variant={4} className="shrink-0" />
       </div>
 
-      <div className="mt-4">
-        <PlaceGallery entries={entries} />
-      </div>
+      <PlaceGallery entries={entries} />
     </div>
   )
 }

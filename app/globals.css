@@ -759,34 +759,45 @@
   }
 }
 
-/* ── Homepage knowledge portal ─────────────────────────────────────
-   Two-level vertical rhythm: the portal cluster (masthead, doorways,
-   search) shares one step; content sections share a larger even step. */
+/* ── Site vertical rhythm ───────────────────────────────────────────
+   Shared steps for the homepage and every catalog / field-guide page.
+   Cluster = tools/media under a masthead; stack = major content bands;
+   head = section label → body. Keep homepage and page-* on these tokens. */
 
-.home-page {
-  display: flex;
-  flex-direction: column;
-  gap: 3.25rem;
+:root {
+  --page-gap: 3.25rem;
+  --page-gap-cluster: 2rem;
+  --page-gap-head: 1rem;
 }
 
+@media (min-width: 40rem) {
+  :root {
+    --page-gap: 3.75rem;
+    --page-gap-cluster: 2.25rem;
+  }
+}
+
+.page-stack,
+.home-page,
+.field-guide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-gap);
+}
+
+.page-cluster,
 .home-portal {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--page-gap-cluster);
 }
 
 .home-portal .nav-cards {
   margin-top: 0;
 }
 
-@media (min-width: 40rem) {
-  .home-page {
-    gap: 3.75rem;
-  }
-
-  .home-portal {
-    gap: 2.25rem;
-  }
+.page-section-body {
+  margin-top: var(--page-gap-head);
 }
 
 .home-highlights {
@@ -1638,7 +1649,7 @@
 
 /* the post plate breathes under the title (wins over .spec-plate margin: 0) */
 .post-title-card .spec-plate {
-  margin-top: 1.5rem;
+  margin-top: var(--page-gap-head);
 }
 
 /* ── Spec plate: stamped label/value meta (technical print register) ── */
@@ -2030,7 +2041,8 @@
 /* ── Posts like this: catalog rows at the article foot ────────────── */
 
 .post-related {
-  margin-top: 4rem;
+  /* page-stack owns the section gap; keep only the hairline breathing room */
+  margin-top: 0;
   padding-top: 1rem;
 }
 

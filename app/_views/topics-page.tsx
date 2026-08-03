@@ -22,7 +22,7 @@ export function TopicsPageView() {
   const center = (topics.length - 1) / 2
 
   return (
-    <div className="relative mx-auto w-full max-w-content">
+    <div className="page-stack relative mx-auto w-full max-w-content">
       <GhostSchematic className="top-4 right-6 hidden w-56 sm:block" />
       <div className="flex items-start justify-between gap-4">
         <header className="max-w-content-narrow">
@@ -33,7 +33,7 @@ export function TopicsPageView() {
         <PixelCluster variant={3} className="enter shrink-0" />
       </div>
 
-      <TopicsBlueprintStage className="mt-10">
+      <TopicsBlueprintStage>
         <ul className="focus-list flex flex-col">
           {topics.map((topic, index) => (
             <li
