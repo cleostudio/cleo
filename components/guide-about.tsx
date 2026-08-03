@@ -12,16 +12,16 @@ export function GuideAbout({ about }: { about: string }) {
     .filter(Boolean)
 
   return (
-    <>
+    <div className="page-section-body flex flex-col gap-3">
       {paragraphs.map((paragraph, index) => (
         <p
-          className="mt-3 text-sm leading-relaxed text-foreground/90 text-pretty"
+          className="text-sm leading-relaxed text-foreground/90 text-pretty"
           // Static prose that never reorders.
           key={index}
         >
           {paragraph}
         </p>
       ))}
-    </>
+    </div>
   )
 }

@@ -18,7 +18,7 @@ a quiet left-aligned colophon, then topics and index trees.
 | Adding a token or changing a pinned value | [`theme-preset.md`](./theme-preset.md) first |
 | Implementing a surface/component | Jump via [Contents](#contents) to the matching section |
 | Reviewing motion/a11y | [Motion system](#motion-system) + every section's reduced-motion note |
-| Homepage portal copy/marks | [Homepage introduction](#homepage-introduction), [Homepage search](#homepage-search) |
+| Homepage portal search | [Homepage search](#homepage-search) |
 
 ## Hard rules (implementers)
 
@@ -41,7 +41,6 @@ a quiet left-aligned colophon, then topics and index trees.
 - [Typography](#typography)
 - [Color, borders, dark mode](#color-borders-dark-mode)
 - [Writing style](#writing-style)
-- [Homepage introduction](#homepage-introduction)
 - [Homepage search](#homepage-search)
 - [Entrance choreography](#entrance-choreography)
 - [Paper-artifact doorway vignettes](#paper-artifact-doorway-vignettes)
@@ -197,43 +196,6 @@ Titles do the work: post listings are title + date, no descriptions. Titles
 are short, concrete, and conversational — "为什么按钮不需要手指光标" not
 "关于按钮光标设计的一些思考与实践". Section headers are one or two words.
 
-## Homepage introduction
-
-The homepage opens with three short bilingual paragraphs: Cleo is a knowledge
-portal focused on countries, space, civilizations, cities, oceans, and rivers, with more subjects over time;
-flip through photographs for a sense of place, or search the catalog by name;
-and a final line opens Topics, Explore, or Ask Cleo. Keep the voice natural and
-product-facing — no craft-romance phrasing, no exclusion lists. Avoid the word
-“guides”. Do not repeat a subject across paragraphs: countries/space,
-topic/Topics, and Ask Cleo each appear once (Ask Cleo only in the linked CTA).
-
-Four decorative 18px marks sit on plain product phrases: the craft figure after
-"knowledge portal" / 知识门户, the orbital sparkle before "countries and space"
-/ 国家 和 太空, the camera after "photographs" / 照片, and the magnifier after
-"catalog" / 目录. The orbital mark precedes its phrase; the others follow.
-Inline text establishes the shared baseline while each mark centers against
-that text. Hovering a marked phrase on a fine pointer, or pressing it on touch,
-produces one brief response with no looping or layout movement: craft labels
-take a restrained rainbow gradient; hop units rise in sequence; the camera
-shutter blinks; the magnifier tips. Decorative marks stay out of the
-accessibility tree; reduced motion keeps every mark and text unit static.
-
-Linked phrases use the shared `SitePreviewCard` primitive, but each popup is a
-distinct small object:
-
-- photographs → Gallery: image-led `.link-card-with-image` (curated place JPEG,
-  site line and title; no description)
-- catalog → homepage search: outlined field and cascading ruled result rows
-  (see § Homepage search for the live field)
-- Topics: `.service-card` identity head, bio, and tally foot
-- Explore: travel-folio object card (stamp, itinerary, map) with a quiet layer
-  settle
-- Ask Cleo: `.email-envelope-card` physical note (FROM / stamps / TO) with a
-  single letter reveal and question heading
-
-Fine-pointer hover opens the card; touch falls back to the plain destination
-link. Cards stay informational only (`pointer-events: none` on the plate).
-
 ## Homepage search
 
 Behavior and file map: [`homepage-search.md`](./homepage-search.md). Visual
@@ -285,9 +247,18 @@ follows that section's timing instead of this ordinary entrance budget.
 
 Reusable doorway pattern (`.nav-card` + `.nc-vignette` in
 `components/nav-cards.tsx` / `app/globals.css`). The homepage mounts four
-doorways after the introduction. Each doorway is a small stack of physical
-paper objects — not a flat icon in a rounded square — that fans open when the
-card is hovered (fine pointer) or `:focus-visible` (keyboard).
+doorways under the masthead inside `.home-portal`. Each doorway is a small
+stack of physical paper objects — not a flat icon in a rounded square — that
+fans open when the card is hovered (fine pointer) or `:focus-visible`
+(keyboard).
+
+Homepage vertical rhythm uses shared CSS tokens in `app/globals.css`:
+`--page-gap` (2.25rem / 2.75rem from 40rem), `--page-gap-cluster`
+(1.125rem / 1.375rem), and `--page-gap-head` (0.5rem). Apply them through
+`.page-stack` / `.home-page` / `.field-guide` for major bands,
+`.page-cluster` / `.home-portal` for masthead↔tools/media clusters, and
+`.page-section-body` for section label → body. Do not reintroduce per-section
+`mt-10` / `mt-12` / `gap-10` utilities that break the even cadence.
 
 ### Contract
 
@@ -468,8 +439,8 @@ rendition instead of enlarging the tile's selected source.
 The site no longer uses a face or portrait of the author. The bottom dock's
 Home item is a geometric `HomeIcon`. Social service cards (retained, not in
 public chrome) use a text monogram mark ("C") instead of a photo avatar. The
-homepage hero is typography-only: the name, a PixelCluster accent, and the
-introduction — no portrait column. The app / favicon mark
+homepage hero is typography-only: the name and a PixelCluster accent — no
+portrait column. The app / favicon mark
 (`app/icon.tsx`, `app/apple-icon.tsx`) is that same homepage PixelCluster
 (`HOME_MASTHEAD_VARIANT`), scaled onto the dark sheet — not a
 letter monogram.

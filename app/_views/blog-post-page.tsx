@@ -93,11 +93,11 @@ function BlogPostLoadingShell({ locale }: { locale: Locale }) {
             <span className="h-2 w-24 bg-muted/50" />
           </div>
         </div>
-        <div aria-hidden className="mt-10 h-24 space-y-3">
+        <div aria-hidden className="page-section-body h-24 space-y-3">
           <div className="post-loading-title h-7 w-4/5 bg-muted/60" />
           <div className="h-[3.25rem] w-full bg-muted/45" />
         </div>
-        <div aria-hidden className="mt-10 space-y-3">
+        <div aria-hidden className="mt-[var(--page-gap)] space-y-3">
           <div className="h-3 w-full bg-muted/35" />
           <div className="h-3 w-11/12 bg-muted/35" />
           <div className="h-3 w-3/4 bg-muted/35" />
@@ -176,8 +176,8 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
   return (
     <>
       <PostToc nodes={rail} nodesEn={railEn} />
-      <article className="post-article mx-auto w-full max-w-content">
-        <header>
+      <article className="post-article page-stack mx-auto w-full max-w-content">
+        <header className={post.cover ? 'page-cluster' : undefined}>
           {post.cover && (
             <PolaroidCover
               slug={post.slug}
@@ -191,7 +191,7 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
             />
           )}
           <div className="post-title-card">
-            <div className="mt-10 flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-4">
               <h1
                 id={POST_ARTICLE_START_ID}
                 className="text-2xl font-semibold tracking-tight text-balance"
@@ -244,7 +244,7 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
             </dl>
           </div>
         </header>
-        <RevealScope lang={english ? 'en' : 'zh-CN'} className="post-body-stage prose enter mt-10">
+        <RevealScope lang={english ? 'en' : 'zh-CN'} className="post-body-stage prose enter">
           <CachedPostBody slug={post.slug} locale={locale} />
         </RevealScope>
         {related.length > 0 && (
@@ -255,7 +255,7 @@ export async function BlogPostPageView({ slug, locale }: { slug: string; locale:
             <h2 id="post-related-heading" className="post-related-label">
               <T zh="相关阅读" en="Posts like this" />
             </h2>
-            <ul className="focus-list mt-3 flex flex-col">
+            <ul className="focus-list page-section-body flex flex-col">
               {related.map((entry) => (
                 <li key={entry.slug}>
                   <PostRow

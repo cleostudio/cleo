@@ -70,7 +70,7 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       />
 
       <section
-        className="enter mt-10"
+        className="enter"
         style={{ '--enter-delay': '100ms' } as React.CSSProperties}
         aria-labelledby="guide-about"
       >
@@ -81,14 +81,14 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <section
-        className="enter mt-12"
+        className="enter"
         style={{ '--enter-delay': '120ms' } as React.CSSProperties}
         aria-labelledby="guide-places"
       >
         <h2 id="guide-places" className="guide-label">
           Places
         </h2>
-        <ol className="mt-3 flex flex-col">
+        <ol className="page-section-body flex flex-col">
           {entry.places.map((place, index) => (
             <li key={place.name} className="hairline-top grid grid-cols-[2rem_1fr] gap-3 py-3 text-sm">
               <span className="tabular-nums text-muted-foreground" aria-hidden>
@@ -104,14 +104,14 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <section
-        className="enter mt-12"
+        className="enter"
         style={{ '--enter-delay': '140ms' } as React.CSSProperties}
         aria-labelledby="guide-facts"
       >
         <h2 id="guide-facts" className="guide-label">
           Fact plate
         </h2>
-        <dl className="spec-plate spec-plate-guide mt-3">
+        <dl className="spec-plate spec-plate-guide page-section-body">
           <div>
             <dt>Capital</dt>
             <dd>
@@ -143,14 +143,14 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
       </section>
 
       <section
-        className="enter mt-12"
+        className="enter"
         style={{ '--enter-delay': '160ms' } as React.CSSProperties}
         aria-labelledby="guide-sources"
       >
         <h2 id="guide-sources" className="guide-label">
           Sources
         </h2>
-        <ul className="mt-3 flex flex-col gap-2 text-sm">
+        <ul className="page-section-body flex flex-col gap-2 text-sm">
           {entry.sources.map((source) => (
             <li key={source.url} className="hairline-top pt-2">
               <a
@@ -169,16 +169,22 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         </ul>
       </section>
 
-      <p className="enter mt-10" style={{ '--enter-delay': '180ms' } as React.CSSProperties}>
-        <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
-          Browse the gallery →
-        </Link>
-      </p>
-      <p className="enter mt-3 mb-4" style={{ '--enter-delay': '190ms' } as React.CSSProperties}>
-        <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
-          ← All countries
-        </Link>
-      </p>
+      <nav
+        className="page-cluster enter mb-4"
+        style={{ '--enter-delay': '180ms' } as React.CSSProperties}
+        aria-label="Continue"
+      >
+        <p>
+          <Link href="/gallery" className="text-sm text-muted-foreground hover:text-foreground">
+            Browse the gallery →
+          </Link>
+        </p>
+        <p>
+          <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
+            ← All countries
+          </Link>
+        </p>
+      </nav>
     </article>
   )
 }

@@ -21,14 +21,14 @@ export function BlogIndexPageView({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-content">
+    <div className="page-stack mx-auto w-full max-w-content">
       <header className="enter flex items-center justify-between">
         <h1 className="page-eyebrow">
           <T zh="写作" en="Writing" />
         </h1>
         <PixelCluster variant={1} />
       </header>
-      <WritingInkStage className="mt-6" contentClassName="flex flex-col gap-8">
+      <WritingInkStage contentClassName="page-stack">
         {[...postsByYear].map(([year, yearPosts]) => {
           const center = (yearPosts.length - 1) / 2
 
@@ -44,7 +44,7 @@ export function BlogIndexPageView({ locale }: { locale: Locale }) {
               >
                 {year}
               </h2>
-              <RevealScope as="ul" className="focus-list mt-2 flex flex-col">
+              <RevealScope as="ul" className="focus-list page-section-body flex flex-col">
                 {yearPosts.map((post, index) => (
                   <li
                     key={post.slug}

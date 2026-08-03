@@ -71,7 +71,7 @@ export function CivilizationSubjectPageView({ slug }: { slug: string }) {
       />
 
       <section
-        className="enter mt-10"
+        className="enter"
         style={{ '--enter-delay': '100ms' } as React.CSSProperties}
         aria-labelledby="civilization-about"
       >
@@ -82,14 +82,14 @@ export function CivilizationSubjectPageView({ slug }: { slug: string }) {
       </section>
 
       <section
-        className="enter mt-12"
+        className="enter"
         style={{ '--enter-delay': '120ms' } as React.CSSProperties}
         aria-labelledby="civilization-features"
       >
         <h2 id="civilization-features" className="guide-label">
           Features
         </h2>
-        <ol className="mt-3 flex flex-col">
+        <ol className="page-section-body flex flex-col">
           {subject.features.map((feature, index) => (
             <li
               key={feature.name}
@@ -110,14 +110,14 @@ export function CivilizationSubjectPageView({ slug }: { slug: string }) {
       </section>
 
       <section
-        className="enter mt-12"
+        className="enter"
         style={{ '--enter-delay': '140ms' } as React.CSSProperties}
         aria-labelledby="civilization-facts"
       >
         <h2 id="civilization-facts" className="guide-label">
           Fact plate
         </h2>
-        <dl className="spec-plate spec-plate-guide mt-3">
+        <dl className="spec-plate spec-plate-guide page-section-body">
           <div>
             <dt>Kind</dt>
             <dd>
@@ -178,14 +178,14 @@ export function CivilizationSubjectPageView({ slug }: { slug: string }) {
       </section>
 
       <section
-        className="enter mt-12"
+        className="enter"
         style={{ '--enter-delay': '160ms' } as React.CSSProperties}
         aria-labelledby="civilization-sources"
       >
         <h2 id="civilization-sources" className="guide-label">
           Sources
         </h2>
-        <ul className="mt-3 flex flex-col gap-2 text-sm">
+        <ul className="page-section-body flex flex-col gap-2 text-sm">
           {subject.sources.map((source) => (
             <li key={source.url} className="hairline-top pt-2">
               <a
@@ -205,7 +205,7 @@ export function CivilizationSubjectPageView({ slug }: { slug: string }) {
       </section>
 
       <p
-        className="enter mt-10 mb-4"
+        className="enter mb-4"
         style={{ '--enter-delay': '180ms' } as React.CSSProperties}
       >
         <Link
