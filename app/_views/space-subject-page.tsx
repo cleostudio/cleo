@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { GuidePhotoCollection } from '~/components/guide-photo-collection'
-import { GuideOrientation } from '~/components/guide-orientation'
+import { GuideAbout } from '~/components/guide-about'
 import { PixelCluster } from '~/components/pixel-cluster'
 import {
   getSpaceSubject,
@@ -80,9 +80,9 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         aria-labelledby="space-about"
       >
         <h2 id="space-about" className="guide-label">
-          Orientation
+          About
         </h2>
-        <GuideOrientation about={subject.about} />
+        <GuideAbout about={subject.about} />
       </section>
 
       <section
@@ -192,7 +192,7 @@ export function SpaceSubjectPageView({ slug }: { slug: string }) {
         style={{ '--enter-delay': '180ms' } as React.CSSProperties}
       >
         <Link href="/space" className="text-sm text-muted-foreground hover:text-foreground">
-          ← All space guides
+          ← All Space
         </Link>
       </p>
     </article>

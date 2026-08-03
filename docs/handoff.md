@@ -12,22 +12,22 @@ General-knowledge portal:
   collections, portal surfaces) with an Ask Cleo row → `/cleo?q=…`; highlighted
   places; topic discovery; recent Writing. No personal contact / music / books /
   photo-wall sections.
-- **Explore** — country field guides at `/explore/[slug]`
+- **Explore** — country pages at `/explore/[slug]`
 - **Space** — Solar System, Moons, Deep Space at `/space` and `/space/[slug]`
-  (thirty-three guides)
+  (thirty-three subjects)
 - **Gallery** — editor-selected featured photo per Explore place, Space body,
-  Civilizations site, Cities guide, Oceans basin, and Rivers course
-- **Civilizations** — historical field guides at `/civilizations` and
+  Civilizations site, Cities page, Oceans basin, and Rivers course
+- **Civilizations** — historical pages at `/civilizations` and
   `/civilizations/[slug]` (Africa & Near East, Mediterranean, Asia, Americas,
-  Oceania; thirty-two regional guides)
-- **Cities** — capital and route-city field guides at `/cities` and
+  Oceania; thirty-two regional subjects)
+- **Cities** — capital and route-city pages at `/cities` and
   `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; twenty-six
-  guides)
-- **Oceans** — world ocean basin, major-sea, and polar-sea field guides at
+  cities)
+- **Oceans** — world ocean basin, major-sea, and polar-sea pages at
   `/oceans` and `/oceans/[slug]` (world basins, major seas, polar seas; twenty
-  guides)
-- **Rivers** — major world-river field guides at `/rivers` and `/rivers/[slug]`
-  (Africa, Asia, Europe, Americas & Oceania; twenty-six guides)
+  subjects)
+- **Rivers** — major world-river pages at `/rivers` and `/rivers/[slug]`
+  (Africa, Asia, Europe, Americas & Oceania; twenty-six rivers)
 - **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations,
   Cities, Oceans, Rivers)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)
@@ -76,7 +76,7 @@ Deep runbooks: [`cleo.md`](./cleo.md), [`homepage-search.md`](./homepage-search.
 - Full visual/interaction spec: [`design-language.md`](./design-language.md)
   (incl. paper-artifact doorway vignettes — `NavCards` on the homepage for
   Writing, Gallery, Explore, and Topics)
-- Country pages: warm-paper field-guide layout (passport labels, hairline rules,
+- Country pages: warm-paper topic layout (passport labels, hairline rules,
   zoomable contact-print hero)
 
 ## Local / Preview

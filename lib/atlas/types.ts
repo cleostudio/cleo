@@ -1,4 +1,4 @@
-/** Country Atlas — evergreen field-guide records for every Explore slug. */
+/** Country Atlas — factual about records for every Explore slug. */
 
 /** Actual intrinsic width of a generated JPEG rendition. */
 export type AtlasRenditionWidth = number
@@ -49,7 +49,7 @@ export interface AtlasEntry {
   name: string
   region: string
   subregion: string
-  /** Neutral evergreen overview, 250–350 words. */
+  /** Neutral factual overview, 250–350 words. */
   about: string
   facts: AtlasFacts
   /** Exactly three notable places. */

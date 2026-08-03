@@ -1,4 +1,4 @@
-/** Rivers topic — evergreen field-guide records for world rivers. */
+/** Rivers topic — factual about records for world rivers. */
 
 import riversPhotos from '~/content/rivers-photos.json'
 import type { StaticPhoto } from '~/lib/static-photo'
@@ -43,7 +43,7 @@ export interface RiverSubject {
   category: string
   /** One-line kind label under the title. */
   subtitle: string
-  /** Neutral evergreen overview, ~150–250 words. */
+  /** Neutral factual overview, ~150–250 words. */
   about: string
   facts: RiverFacts
   /** Exactly three notable sites / features. */
@@ -70,7 +70,7 @@ function withPhotos(draft: RiverSubjectDraft): RiverSubject {
 
 /**
  * Curated catalog — major rivers across Africa, Asia, and Europe, Americas & Oceania
- * (twenty-six guides). Expand here as new Rivers guides ship.
+ * (twenty-six rivers). Expand here as new Rivers pages ship.
  */
 const riverSubjectDrafts: RiverSubjectDraft[] = [
   {
@@ -80,7 +80,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Africa',
     subtitle: 'Desert corridor · White & Blue Nile',
     about:
-      'The Nile is a long desert-edge river whose White and Blue branches meet in Sudan before the main stem runs north through Egypt to a Mediterranean delta. Orientation is hydraulic and civilizational: cataracts and floodplains that once timed the agricultural year; highland Ethiopian runoff that still pulses the Blue Nile; and a lower valley where cities and irrigation squeeze a green ribbon through arid land. Dams and barrages remade the flood regime, but the river remains the structural spine of northeast African settlement. This primer stays with course, confluence, and corridor geography rather than every pharaonic reign.',
+      'The Nile is a long river along the edge of the Sahara. Its White Nile and Blue Nile branches meet at Khartoum, Sudan, and the combined river flows north through Egypt to a delta on the Mediterranean Sea. Cataracts, floodplains, and seasonal flows historically shaped agriculture and settlement along its course.\nRunoff from the Ethiopian Highlands continues to drive the seasonal flow of the Blue Nile, while the lower Nile Valley supports dense cities and irrigated farmland in a narrow green corridor through arid terrain. Dams and barrages have altered the river’s former flood regime, but the Nile remains a central geographic and settlement corridor of northeast Africa.',
     facts: {
       kind: 'Continental river',
       course: 'East African sources → Sudan confluence → Egyptian valley → Mediterranean delta',
@@ -132,7 +132,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Africa',
     subtitle: 'Rainforest discharge · Atlantic outlet',
     about:
-      'The Congo River is Central Africa’s great rainforest drainage — a high-discharge system that gathers water from a vast equatorial basin before cutting toward the Atlantic through rapids and narrows. Orientation is volume and barrier: Pool Malebo’s twin-capital hinge at Kinshasa and Brazzaville; Livingstone Falls and related cataracts that block continuous navigation to the sea; and hydropower sites such as Inga that treat the lower river as a continental energy corridor. The basin’s forests and wetlands store carbon and biodiversity at planetary scale. This primer stays with course structure, navigation breaks, and basin hydrology rather than every tributary name.',
+      'The Congo River drains a vast equatorial basin in Central Africa, carrying high volumes of water from rainforest, wetlands, and tributary systems toward the Atlantic Ocean. Its lower course passes through rapids, narrows, and cataracts that interrupt navigation. Pool Malebo forms a broad reach between Kinshasa in the Democratic Republic of the Congo and Brazzaville in the Republic of the Congo, linking the two capital cities across the river.\nBelow Pool Malebo, Livingstone Falls and related cataracts prevent continuous navigation from the interior to the sea. The lower river also includes major hydropower sites, notably Inga, where its flow is used for large-scale electricity generation. Across the basin, forests and wetlands hold major stores of carbon and support extensive biodiversity.',
     facts: {
       kind: 'Continental river',
       course: 'East-central African sources → Congo Basin → Pool Malebo → lower cataracts → Atlantic',
@@ -190,7 +190,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Africa',
     subtitle: 'Sahel arc · Inner Delta',
     about:
-      'The Niger River is West Africa’s great arc waterway — rising near the Atlantic highland of Guinea, bending northeast through the Sahel, then turning south to a Gulf of Guinea delta in Nigeria. Orientation is inland delta and trade corridor: the Inner Niger Delta’s seasonal floodplains; cities such as Bamako and the historic Niger bend near Timbuktu; and a lower course that concentrates oil, fisheries, and dense settlement. Monsoon floods still pulse the middle basin even where dams and irrigation remake the edges. This primer stays with course arc, inland delta, and Sahel hydrology rather than every riparian state dispute.',
+      'The Niger River rises in the highlands of Guinea near the Atlantic coast, flows northeast through the Sahel, and then turns south toward the Gulf of Guinea, where it forms a large delta in Nigeria. Its broad arc crosses several West African regions and has long linked inland settlements with trade routes.\nIn Mali, the Inner Niger Delta consists of seasonal floodplains shaped by monsoon-driven river floods. The river passes Bamako and follows the historic Niger bend near Timbuktu before continuing into its lower course. In Nigeria, the Niger Delta contains dense settlement, fisheries, and major oil-producing areas. Dams and irrigation projects have altered parts of the basin, while seasonal flooding remains a central feature of its middle reaches.',
     facts: {
       kind: 'Continental river',
       course: 'Guinea highlands → Sahel bend → Inner Niger Delta → Nigerian lower course → Gulf of Guinea',
@@ -242,7 +242,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Africa',
     subtitle: 'Victoria Falls · Kariba to delta',
     about:
-      'The Zambezi is southern Africa’s great east-flowing trunk — rising in the uplands of northwestern Zambia and Angola, plunging at Victoria Falls, and running through Lake Kariba and Cahora Bassa before spreading into a Mozambique Channel delta. Orientation is falls, reservoir, and outlet: Mosi-oa-Tunya as a continental landmark; large hydropower lakes that remade the middle course; and a coastal floodplain that meets the Indian Ocean. Shared borders and wildlife corridors shape its human geography as much as discharge does. This primer stays with course structure, falls-to-delta hinges, and basin hydrology rather than every tributary state.',
+      'The Zambezi is a major east-flowing river of southern Africa. It rises in the uplands of northwestern Zambia and Angola, passes through or along several national borders, plunges over Victoria Falls, and continues through Lake Kariba and Cahora Bassa before spreading across a delta on Mozambique’s coast at the Indian Ocean.\nVictoria Falls, also known as Mosi-oa-Tunya, is a major landmark on the river. The large hydropower reservoirs of Lake Kariba and Cahora Bassa have substantially altered the middle course, while the lower river forms a coastal floodplain and delta in Mozambique. Shared borders, wildlife corridors, river discharge, reservoirs, falls, and delta wetlands all shape the basin’s physical and human geography.',
     facts: {
       kind: 'Continental river',
       course: 'Central African uplands → Victoria Falls → Kariba / Cahora Bassa → Mozambique delta → Indian Ocean',
@@ -303,7 +303,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Africa',
     subtitle: 'Lesotho highlands · Atlantic outlet',
     about:
-      'The Orange River (Gariep) is southern Africa’s long west-flowing trunk — rising in the Lesotho highlands, crossing the South African interior, and forming much of the Namibia border before reaching the Atlantic. Orientation is highland source, arid canyon, and regulated middle course: Gariep Dam as a major hydraulic hinge; Augrabies Falls where the river cuts a granite gorge; and a desert-edge lower reach that delivers scarce freshwater to the west coast. This primer stays with course, canyon hydrology, and basin storage rather than every irrigation scheme.',
+      'The Orange River, also known as the Gariep, is southern Africa’s longest west-flowing river. It rises in the highlands of Lesotho, crosses the South African interior, and forms much of the border between South Africa and Namibia before entering the Atlantic Ocean.\nIts upper course begins in highland terrain, while the middle river is regulated by major storage works including Gariep Dam. Near Augrabies Falls, the river passes through a granite gorge in an arid landscape. The lower Orange follows the desert edge toward the west coast, where its flow supplies scarce freshwater to dry surrounding regions.',
     facts: {
       kind: 'Continental river',
       course: 'Lesotho Drakensberg sources → South African interior → Augrabies gorge → Namibia border → Atlantic',
@@ -355,7 +355,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Africa',
     subtitle: 'Sahel border river · Atlantic outlet',
     about:
-      'The Senegal River is West Africa’s great Sahel border waterway — rising in the Guinean highlands, marking much of the Senegal–Mauritania frontier, and reaching the Atlantic near Saint-Louis. Orientation is valley agriculture and shared basin: floodplain farming along the lower course; ferry and bridge crossings such as Rosso; and seasonal floods that still pulse the valley even where dams and irrigation remake the edges. It is a desert-edge corridor rather than a rainforest trunk. This primer stays with course, border geography, and Sahel hydrology rather than every canal project.',
+      'The Senegal River rises in the Guinean highlands and flows northwest through West Africa to the Atlantic Ocean near Saint-Louis, Senegal. Along much of its lower course, it forms the border between Senegal and Mauritania. The river valley supports floodplain farming and irrigated agriculture, with crossings including the ferry and bridge at Rosso.\nSeasonal floods continue to shape the valley, although dams and irrigation systems have altered parts of the river’s banks and floodplain. The Senegal is a desert-edge Sahelian waterway rather than a rainforest river, and its basin is shared by several West African countries.',
     facts: {
       kind: 'Continental river',
       course: 'Guinean highlands → Mali–Senegal–Mauritania valley → Saint-Louis approaches → Atlantic',
@@ -407,7 +407,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Africa',
     subtitle: 'Southern Africa arc · Indian Ocean',
     about:
-      'The Limpopo is a major southern African arc river — gathering water from South Africa, Botswana, and Zimbabwe before turning east through Mozambique to the Indian Ocean. Orientation is sandbank and flood: a wide, often seasonal channel that can seem nearly dry in drought and expansive in flood years; wildlife corridors along Kruger and neighboring parks; and a lower Mozambique reach that concentrates settlement and cyclone risk. It is a boundary and lifeline more than a navigable trunk. This primer stays with course arc, flood regime, and rim geography rather than every tributary name.',
+      'The Limpopo is a major southern African river that gathers water from South Africa, Botswana, and Zimbabwe before curving east through Mozambique to the Indian Ocean. Its wide, often seasonal channel may appear nearly dry during drought and expand greatly in flood years. The river forms or follows parts of national boundaries and supports settlements, agriculture, and wildlife corridors near Kruger National Park and neighboring protected areas. In lower Mozambique, communities along the river are exposed to flooding and cyclone-related risk. The Limpopo is more significant as a boundary and regional water source than as a navigable transport route.',
     facts: {
       kind: 'Continental river',
       course: 'Southern African interior sources → South Africa–Botswana–Zimbabwe borders → Mozambique → Indian Ocean',
@@ -459,7 +459,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Africa',
     subtitle: 'Endorheic inland delta · Kalahari',
     about:
-      'The Okavango is southern Africa’s great endorheic river — rising in the Angolan highlands, crossing the Caprivi approaches of Namibia, and spreading into an inland delta in Botswana’s Kalahari rather than reaching the sea. Orientation is flood pulse and fan: seasonal waters that expand a labyrinth of channels, lagoons, and islands; wildlife concentrated where desert meets wetland; and an inland terminus that makes the system a climate and ecology laboratory. It is a river defined by where it ends as much as where it begins. This primer stays with course, inland delta geometry, and endorheic hydrology rather than every safari camp.',
+      'The Okavango is an endorheic river in southern Africa. It rises in the Angolan highlands, crosses the Caprivi approaches of Namibia, and spreads into an inland delta in Botswana’s Kalahari rather than reaching the sea. Seasonal floodwaters expand across a broad fan of channels, lagoons, and islands, forming the Okavango Delta. Wildlife is concentrated along the boundary between desert and wetland. The river’s inland terminus, flood pulse, delta geometry, and endorheic hydrology make it a notable system for climate and ecology research.',
     facts: {
       kind: 'Endorheic river',
       course: 'Angolan highlands → Namibia Caprivi approaches → Okavango Delta (Botswana) — no ocean outlet',
@@ -511,7 +511,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'China’s main stem · gorge to delta',
     about:
-      'The Yangtze (Chang Jiang) is China’s longest river — a west-to-east main stem from Tibetan Plateau headwaters through deep gorges and industrial cities to a East China Sea delta. Orientation is gorge, dam, and megacity: Qutang and neighboring gorges that squeeze the middle course; the Three Gorges Dam as a modern hydraulic hinge; and lower-basin cities that treat the river as transport, water supply, and flood risk at once. This primer stays with course structure and hydraulic control rather than every provincial reach.',
+      'The Yangtze, or Chang Jiang, is China’s longest river, flowing west to east from headwaters on the Tibetan Plateau through deep gorges, industrial cities, and a delta on the East China Sea. Its middle course includes Qutang Gorge and neighboring gorges, where the river is confined by steep terrain. The Three Gorges Dam forms a major modern element of hydraulic control on the river.\nIn the lower basin, cities depend on the Yangtze for transport and water supply while also managing its flood risk. The river’s course and flow have been shaped by both its mountain gorges and large-scale engineering works.',
     facts: {
       kind: 'Continental river',
       course: 'Qinghai–Tibet headwaters → Three Gorges → middle–lower plains → East China Sea',
@@ -563,7 +563,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Sacred plain · Bay of Bengal delta',
     about:
-      'The Ganges is the great river of the northern Indian plain — rising in the Himalaya and running southeast across a densely farmed corridor before joining the Brahmaputra system in a vast Bay of Bengal delta. Orientation is pilgrimage and floodplain: ghats and temples that treat the water as sacred geography; a monsoon flood pulse that still remakes embankments and sandbars; and a delta shared with Bangladesh where channels braid into one of Earth’s largest wetland mosaics. This primer stays with course, plain, and delta rather than every ritual calendar.',
+      'The Ganges rises in the Himalaya and flows southeast across the densely farmed northern Indian plain. It is regarded as sacred in Hindu tradition, with ghats and temples lining parts of its course. Seasonal monsoon flooding reshapes floodplains, embankments, and sandbars along the river.\nIn its lower reaches, the Ganges joins the Brahmaputra system in a vast delta shared by India and Bangladesh on the Bay of Bengal. Its braided channels, wetlands, and tidal waterways form one of the world’s largest wetland mosaics.',
     facts: {
       kind: 'Continental river',
       course: 'Himalayan sources → Indo-Gangetic Plain → Bengal delta → Bay of Bengal',
@@ -615,7 +615,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Mainland Southeast Asia · monsoon pulse',
     about:
-      'The Mekong is Mainland Southeast Asia’s great north–south river — rising on the Tibetan Plateau and threading China, Myanmar, Laos, Thailand, Cambodia, and Vietnam before fanning into a fertile delta. Orientation is monsoon and livelihood: gorge and sandbar reaches of the upper and middle course; the Tonlé Sap’s seasonal flood pulse that reverses into Cambodia’s great lake; and a Vietnamese delta of canals, orchards, and rice. Dams and irrigation are remaking the sediment budget. This primer stays with corridor geography and flood-pulse ecology rather than every border dispute.',
+      'The Mekong is a major north–south river of Mainland Southeast Asia. It rises on the Tibetan Plateau and flows through China, Myanmar, Laos, Thailand, Cambodia, and Vietnam before dividing across a fertile delta in southern Vietnam. Its upper and middle reaches include gorges, rapids, and sandbars, while lower reaches spread across broad floodplains.\nSeasonal monsoon flows shape livelihoods along the river. In Cambodia, the Mekong’s flood pulse reverses the flow of the Tonlé Sap River and expands Tonlé Sap, the country’s large freshwater lake. The Vietnamese delta is a network of canals, orchards, and rice-growing land. Dams and irrigation projects along the basin are changing river flows and sediment movement.',
     facts: {
       kind: 'Continental river',
       course: 'Tibetan Plateau sources → mainland Southeast Asian corridor → Mekong Delta → South China Sea',
@@ -667,7 +667,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Loess sediment · North China plain',
     about:
-      'The Yellow River (Huang He) is northern China’s iconic sediment-laden river — rising on the Tibetan Plateau and swinging across the Loess Plateau before crossing the North China Plain to a Bohai Sea delta. Orientation is silt and risk: Hukou’s compressed waterfall reach; a plain historically raised by levees above surrounding farmland; and a delta that builds and shifts as sediment supply and coastal processes trade places. The river’s nickname comes from the yellow loess load that still colors the water. This primer stays with course, sediment, and plain geography rather than every dynastic flood story.',
+      'The Yellow River, or Huang He, rises on the Tibetan Plateau and flows across the Loess Plateau before crossing the North China Plain to a delta on the Bohai Sea. Its water is colored by large amounts of yellow loess sediment carried from the plateau, giving the river its name.\nAt Hukou, the river is compressed into a narrow reach that forms a major waterfall. Across the North China Plain, long-built levees have in places raised the river channel above surrounding farmland, reflecting the river’s heavy sediment load and history of flooding. At its mouth, sediment and coastal processes continually build and reshape the Bohai Sea delta.',
     facts: {
       kind: 'Continental river',
       course: 'Qinghai–Tibet headwaters → Loess Plateau → North China Plain → Bohai Sea delta',
@@ -719,7 +719,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Himalayan source · Arabian Sea delta',
     about:
-      'The Indus is South Asia’s western great river — rising in the Tibetan/Himalayan highlands and running through the mountains of northern Pakistan before crossing the Indus plain to an Arabian Sea delta. Orientation is irrigation and alluvium: a canalized agricultural corridor that made civilizations and modern states; gorge and confluence reaches in the north; and a sediment-rich delta facing monsoon and tidal processes. This primer stays with course geography, plain irrigation, and delta form rather than every canal headwork.',
+      'The Indus is South Asia’s western great river. It rises in the Tibetan and Himalayan highlands, flows through the mountains of northern Pakistan, and then crosses the Indus plain to a delta on the Arabian Sea. Its northern course includes deep gorges and major confluences, while its lower course runs through an alluvial plain shaped by irrigation canals and intensive agriculture.\nThe river’s waters and sediments have supported civilizations and later modern states across the plain. At its mouth, the Indus forms a sediment-rich delta influenced by monsoon rainfall, river discharge, tides, and coastal processes.',
     facts: {
       kind: 'Continental river',
       course: 'Himalayan/Tibetan sources → northern mountain corridor → Indus plain → Arabian Sea delta',
@@ -771,7 +771,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Siberian trunk · Arctic delta',
     about:
-      'The Lena is one of Siberia’s great north-flowing rivers — rising near Lake Baikal’s approaches and running to a vast Arctic delta on the Laptev Sea. Orientation is permafrost and pillars: the Lena Pillars’ limestone cliffs; a long taiga trunk past Yakutsk; and a branching delta that freezes and thaws with the polar year. It is a cold-climate counterpart to the temperate continental rivers farther south. This primer stays with Siberian course, rock-cut reaches, and Arctic outlet geography rather than every tributary name.',
+      'The Lena is a major north-flowing river of Siberia. It rises near the approaches to Lake Baikal and runs north through taiga and permafrost landscapes before reaching a vast branching delta on the Laptev Sea in the Arctic Ocean. Its course includes the limestone cliffs of the Lena Pillars and passes the city of Yakutsk.\nThe river freezes and thaws in step with the polar year, especially across its Arctic delta. Compared with the temperate continental rivers farther south, the Lena is defined by its cold-climate setting, long Siberian course, rock-cut reaches, and Arctic outlet.',
     facts: {
       kind: 'Continental river',
       course: 'Central Siberian sources → Yakutian trunk → Laptev Sea delta',
@@ -823,7 +823,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Russia–China border · Pacific outlet',
     about:
-      'The Amur (Heilong Jiang) is East Asia’s great border river — rising in Mongolia and northeastern China and forming much of the Russia–China frontier before reaching the Pacific near Nikolaevsk. Orientation is frontier and floodplain: Heihe facing Blagoveshchensk across the water; timber and fishing towns on the Russian Far East reach; and a vast forested basin that freezes hard in winter. It is one of the world’s longest largely undammed major rivers. This primer stays with course, border geography, and Siberian–Manchurian hydrology rather than every tributary treaty.',
+      'The Amur, also known as the Heilong Jiang, is a major East Asian river that rises in Mongolia and northeastern China, forms much of the border between Russia and China, and reaches the Pacific near Nikolaevsk-on-Amur. Heihe in China faces Blagoveshchensk in Russia across its waters. Its lower and middle reaches pass timber and fishing towns in the Russian Far East, while its broad basin includes extensive forests and floodplains that freeze deeply in winter. The Amur is among the world’s longest major rivers with relatively few dams, and its course reflects the hydrology of Siberia and Manchuria as well as the geography of the Russia–China frontier.',
     facts: {
       kind: 'Continental river',
       course: 'Mongolian/Chinese headwaters → Russia–China border corridor → Russian Far East → Sea of Okhotsk approaches',
@@ -875,7 +875,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Himalayan gorge · Bengal delta',
     about:
-      'The Brahmaputra is South Asia’s great eastern Himalayan river — rising as the Yarlung Tsangpo on the Tibetan Plateau, cutting through Assam’s gorges, and joining the Ganges in a vast Bangladesh delta. Orientation is monsoon and gorge: the Tsangpo’s high plateau source; Guwahati’s working riverfront on the Assam plain; and the braided lower reaches that pulse with monsoon floods into Bengal. Dams and embankments are remaking the sediment budget. This primer stays with course, gorge, and delta geography rather than every border dispute.',
+      'The Brahmaputra is a major eastern Himalayan river in South Asia. It rises on the Tibetan Plateau as the Yarlung Tsangpo, descends through Himalayan gorges, crosses the Assam plain past Guwahati, and enters Bangladesh, where its lower braided channels join the Ganges in the Bengal delta. Its flow and sediment load are strongly shaped by the monsoon, producing large seasonal floods across Assam and the lower basin. Dams and embankments along the river system are altering water flow and sediment movement.',
     facts: {
       kind: 'Continental river',
       course: 'Tibetan Plateau (Yarlung Tsangpo) → Assam gorge → Indo-Bangladesh plain → Bay of Bengal delta',
@@ -927,7 +927,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Myanmar main stem · Andaman delta',
     about:
-      'The Irrawaddy (Ayeyarwady) is Myanmar’s great north–south artery — rising in the Himalaya approaches and running through the dry central basin to an Andaman Sea delta. Orientation is pagoda and sandbar: Bagan’s temple plains beside the water; Sagaing’s monastery hills on the west bank; and a seasonal flood pulse that still remakes sandbars and rice plains. It is the structural spine of Burmese settlement and transport. This primer stays with course, central basin, and delta rather than every irrigation scheme.',
+      'The Irrawaddy, also called the Ayeyarwady, is Myanmar’s principal north–south river. It rises in the Himalayan approaches, flows through the dry central basin, and reaches the Andaman Sea through a broad delta. Its course has long formed a main axis of settlement and transport in Myanmar.\nAlong the central river, Bagan’s temple plains stand near the water, while Sagaing’s monastery-covered hills rise on the west bank. Seasonal floods reshape sandbars and inundate rice plains, especially toward the delta.',
     facts: {
       kind: 'Continental river',
       course: 'Himalayan approaches → central Myanmar basin → Andaman Sea delta',
@@ -979,7 +979,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Mesopotamian west stem · Shatt al-Arab',
     about:
-      'The Euphrates is Mesopotamia’s western great river — rising in eastern Anatolia and running through Syria and Iraq to join the Tigris in a shared Shatt al-Arab delta. Orientation is canyon, reservoir, and cradle: Kemaliye’s dramatic gorge reaches in Türkiye; Lake Assad’s regulated Syrian stem; and the irrigated plain where ancient and modern civilizations drew water from the same channel. Dams and diversion have remade the historic flood regime. This primer stays with course, gorge, and plain geography rather than every canal headwork.',
+      'The Euphrates is the western of Mesopotamia’s two great rivers. It rises in eastern Anatolia in Türkiye, flows through Syria and Iraq, and joins the Tigris to form the Shatt al-Arab, which reaches the Persian Gulf. Its upper course includes the deep gorge near Kemaliye, while its Syrian course is regulated by reservoirs including Lake Assad. Farther downstream, the river crosses irrigated plains where ancient and modern societies have drawn water from the same channel. Dams, reservoirs, and diversion works have substantially altered its historic flood regime.',
     facts: {
       kind: 'Continental river',
       course: 'Anatolian highlands → Syrian plateau → Iraqi plain → Shatt al-Arab → Persian Gulf',
@@ -1031,7 +1031,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Mesopotamian east stem · Baghdad corridor',
     about:
-      'The Tigris is Mesopotamia’s eastern great river — rising in eastern Anatolia and running southeast through Iraq to meet the Euphrates at the head of the Persian Gulf. Orientation is capital and bridge: Mosul’s historic crossings on the upper reach; Baghdad stretching along both banks; and the irrigated Mesopotamian plain that made the river a cradle of urban civilization. Dams and upstream use have reduced the historic flood pulse. This primer stays with course, gorge source, and plain corridor rather than every irrigation dispute.',
+      'The Tigris is Mesopotamia’s eastern major river. It rises in the gorge country of eastern Anatolia, flows southeast through Iraq, and joins the Euphrates at the head of the Persian Gulf. Along its course are Mosul, with its historic crossings on the upper river, and Baghdad, which extends along both banks.\nThe river waters the irrigated Mesopotamian plain, a region associated with the rise of early urban civilization. Dams and upstream water use have reduced the Tigris’s historic flood pulse.',
     facts: {
       kind: 'Continental river',
       course: 'Anatolian highlands → Syrian–Iraqi border approaches → Iraqi plain → Shatt al-Arab',
@@ -1083,7 +1083,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Europe, Americas & Oceania',
     subtitle: 'European corridor · Black Sea delta',
     about:
-      'The Danube is Central and Southeastern Europe’s great west-to-east river — rising in Germany and crossing or bordering many states before forming a Black Sea delta. Orientation is corridor and choke point: capital cities that face the water, the Iron Gates gorge on the Serbia–Romania border, and a delta that fans into wetlands and channels. For centuries it linked Alpine, Pannonian, and Balkan worlds by barge and treaty. This primer stays with course geography, gorge, and delta rather than every capital’s riverfront story.',
+      'The Danube is a major west-to-east river of Central and Southeastern Europe. It rises in Germany, crosses or forms borders between numerous states, and reaches the Black Sea through a broad delta of wetlands and channels. Its course connects the Alpine region, the Pannonian Basin, and the Balkans, passing capital cities that face or straddle its banks.\nA notable constriction along the river is the Iron Gates gorge on the Serbia–Romania border. For centuries, the Danube has served as a route for barge traffic, trade, diplomacy, and political boundaries, linking regions with distinct historical and cultural landscapes.',
     facts: {
       kind: 'Continental river',
       course: 'Black Forest sources → Central European corridor → Iron Gates → Black Sea delta',
@@ -1135,7 +1135,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Europe, Americas & Oceania',
     subtitle: 'Alpine source · industrial corridor',
     about:
-      'The Rhine is Western Europe’s classic north-flowing working river — rising in the Alps, tumbling over the Rhine Falls, cutting the romantic Middle Rhine gorge, and running through industrial and port landscapes toward the North Sea. Orientation is trade and gorge: Loreley cliffs that squeeze barge traffic into a scenic choke point; Cologne and other cities that face the water as civic frontage; and a deltaic Dutch outlet engineered for flood control and shipping. This primer stays with course geography and corridor commerce rather than every wine-slope legend.',
+      'The Rhine is a major north-flowing river of Western Europe. It rises in the Alps, passes over the Rhine Falls, flows through the Middle Rhine gorge, and continues through industrial and port landscapes toward the North Sea. Its course includes the Loreley cliffs, where the river narrows and barge traffic passes through a confined section of the gorge.\nCities including Cologne face the Rhine as a central civic and commercial waterfront. Farther downstream, the river enters a Dutch delta shaped by flood-control works and shipping infrastructure before reaching the North Sea. The Rhine has long served as a major corridor for trade, industry, and inland navigation.',
     facts: {
       kind: 'Continental river',
       course: 'Alpine sources → Rhine Falls → Upper/Middle Rhine → Lower Rhine → North Sea delta',
@@ -1194,7 +1194,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Europe, Americas & Oceania',
     subtitle: 'European Russia · Caspian delta',
     about:
-      'The Volga is Europe’s longest river — a vast north-to-south drainage across European Russia that ends in a branching Caspian Sea delta. Orientation is reservoir and steppe: cascade dams that turned much of the middle Volga into linked lakes; historic cities such as Nizhny Novgorod at major confluences; and a delta wetland that fans into the Caspian’s northern shallows. For centuries the river linked forest, steppe, and Caspian trade worlds. This primer stays with course, reservoirs, and delta geography rather than every regional capital.',
+      'The Volga is Europe’s longest river, flowing north to south across European Russia and ending in a branching delta in the northern shallows of the Caspian Sea. Much of its middle course has been altered by a cascade of dams and reservoirs, creating linked stretches of broad water. Historic cities, including Nizhny Novgorod, developed along the river and at major confluences. For centuries, the Volga connected the forest regions of northern Russia, the steppe, and the trading networks of the Caspian basin. Its lower delta forms an extensive wetland before the river reaches the Caspian Sea.',
     facts: {
       kind: 'Continental river',
       course: 'Valdai Hills sources → reservoir cascade → lower steppe reach → Caspian delta',
@@ -1246,7 +1246,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Europe, Americas & Oceania',
     subtitle: 'Rainforest basin · Atlantic discharge',
     about:
-      'The Amazon is a continental rainforest river whose main stem and tributaries drain a vast South American lowland into the Atlantic. Orientation is volume and canopy: blackwater and whitewater confluences, seasonal floodplains (várzea), and a mouth so wide that freshwater influence reaches far offshore. The basin stores carbon and biodiversity at planetary scale; navigation and cities such as Manaus sit inside a still-working fluvial wilderness. This primer stays with mainstream, mouth, and basin hydrology rather than every tributary name.',
+      'The Amazon is a continental rainforest river system whose main stem and tributaries drain a vast South American lowland into the Atlantic Ocean. Its waters include blackwater and whitewater rivers that meet at major confluences, while seasonal floodplains known as várzea expand and contract with annual flooding. At its mouth, the river is so wide that its freshwater influence extends far offshore.\nThe Amazon basin stores carbon and supports biodiversity on a planetary scale. Navigation routes and cities including Manaus lie within a river landscape shaped by active channels, floodplains, forests, and seasonal hydrology.',
     facts: {
       kind: 'Continental river',
       course: 'Andean and shield sources → Amazonian lowland → Atlantic mouth',
@@ -1298,7 +1298,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Europe, Americas & Oceania',
     subtitle: 'Interior artery · Gulf delta',
     about:
-      'The Mississippi is the central arterial river of the contiguous United States — collecting the Missouri and Ohio systems before running south to a Gulf of Mexico delta. Orientation is barge commerce and flood control: locks and levees that made the interior a single navigation market; bluff and bottomland landscapes of the upper river; and a delta that builds and loses land as sediment and sea level trade places. This primer stays with trunk hydrology, working waterway, and delta geography rather than every tributary war story.',
+      'The Mississippi River is the central arterial river of the contiguous United States, collecting the Missouri and Ohio river systems before flowing south to a delta on the Gulf of Mexico. Its locks, dams, levees, and navigation channels support barge commerce and flood control across much of the interior, linking major agricultural, industrial, and port regions.\nThe upper river passes through bluff country and broad bottomlands, while the lower river carries sediment toward the Gulf. At its delta, land is continually built, reshaped, and lost as river sediment, coastal erosion, subsidence, storms, and sea-level rise interact.',
     facts: {
       kind: 'Continental river',
       course: 'Northern interior sources → midcontinent confluence zone → Gulf of Mexico delta',
@@ -1350,7 +1350,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Europe, Americas & Oceania',
     subtitle: 'La Plata system · Iguaçu hinge',
     about:
-      'The Paraná is South America’s second-great artery after the Amazon — a long subtropical river that gathers Brazilian plateau waters, meets the Iguaçu, and runs toward the Río de la Plata estuary with the Uruguay. Orientation is falls and floodplain: Iguaçu Falls on a major tributary hinge; broad lowland reaches used for hydropower and barge traffic; and a sediment-rich corridor shared by Brazil, Paraguay, and Argentina. This primer stays with course structure, confluence geography, and La Plata hydrology rather than every reservoir name.',
+      'The Paraná is South America’s second-largest river system after the Amazon. It rises on the Brazilian Plateau, receives the Iguaçu River, and flows south through Brazil, Paraguay, and Argentina toward the Río de la Plata estuary, which it shares with the Uruguay River.\nIts basin includes Iguaçu Falls on a major tributary, broad subtropical floodplains, and sediment-rich lowland channels. The river supports major hydropower installations and barge traffic, particularly along reaches shared by Brazil, Paraguay, and Argentina, and is a principal component of the La Plata drainage system.',
     facts: {
       kind: 'Continental river',
       course: 'Brazilian plateau sources → Iguaçu confluence zone → Paraguay–Argentina corridor → Río de la Plata',
@@ -1402,7 +1402,7 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
     category: 'Europe, Americas & Oceania',
     subtitle: 'Australian inland basin · dryland rivers',
     about:
-      'The Murray–Darling is Australia’s largest river system — a network of inland rivers that drain much of southeastern Australia toward the Southern Ocean approaches via the Murray mouth. Orientation is dryland hydrology: the Murray as the main stem; the Darling as a long, intermittent western tributary; and a basin where irrigation, drought, and flood pulse compete for a scarce water budget. Towns such as Yarrawonga and Wilcannia mark working reaches that can run high or near empty. This primer stays with basin structure, dryland regime, and corridor geography rather than every allocation rule.',
+      'The Murray–Darling is Australia’s largest river system, a network of inland rivers draining much of southeastern Australia toward the Southern Ocean through the Murray mouth. The Murray forms the main stem, while the Darling is a long, intermittent tributary from the west. Its basin is shaped by a dryland hydrological regime in which irrigation demand, drought, and flood pulses draw on a limited water supply. Towns including Yarrawonga on the Murray and Wilcannia on the Darling lie along working river reaches that may be high in flood periods or close to empty during drought.',
     facts: {
       kind: 'Dryland river system',
       course: 'Southeastern Australian highlands and plains → Murray main stem → Southern Ocean mouth',

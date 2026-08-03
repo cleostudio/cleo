@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Builds evergreen About copy + editorial fields for every country into
+ * Builds factual About copy + editorial fields for every country into
  * content/atlas.content.json (no photo binaries). Photo import merges later.
  */
 
@@ -13,7 +13,7 @@ const { countries } = await import(join(root, 'lib/countries.ts'))
 const factsByCode = JSON.parse(
   readFileSync(join(root, 'scripts/atlas/country-facts.json'), 'utf8'),
 )
-// Orientation prose is curated, not derived. `pnpm write:atlas-about` writes
+// About prose is curated, not derived. `pnpm write:atlas-about` writes
 // it once by hand; nothing here generates copy at build time.
 const aboutBySlug = JSON.parse(
   readFileSync(join(root, 'scripts/atlas/atlas-about.json'), 'utf8'),
@@ -96,7 +96,7 @@ if (missing.length) {
 }
 
 if (missingAbout.length) {
-  console.error('Missing Orientation prose for', missingAbout.join(', '))
+  console.error('Missing About prose for', missingAbout.join(', '))
   console.error('Run: OPENAI_API_KEY=... pnpm write:atlas-about')
   process.exit(1)
 }
@@ -119,7 +119,7 @@ if (existsSync(atlasPath)) {
 
   if (synced > 0) {
     writeFileSync(atlasPath, `${JSON.stringify(atlas, null, 2)}\n`)
-    console.log(`Synced ${synced} Orientation entries → content/atlas.json`)
+    console.log(`Synced ${synced} About entries → content/atlas.json`)
   }
 }
 

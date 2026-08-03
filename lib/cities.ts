@@ -1,4 +1,4 @@
-/** Cities topic — evergreen field-guide records for capitals and route cities. */
+/** Cities topic — factual about records for capitals and route cities. */
 
 import citiesPhotos from '~/content/cities-photos.json'
 import type { StaticPhoto } from '~/lib/static-photo'
@@ -43,7 +43,7 @@ export interface CitySubject {
   category: string
   /** One-line kind label under the title. */
   subtitle: string
-  /** Neutral evergreen overview, ~150–250 words. */
+  /** Neutral factual overview, ~150–250 words. */
   about: string
   facts: CityFacts
   /** Exactly three notable sites / features. */
@@ -70,8 +70,8 @@ function withPhotos(draft: CitySubjectDraft): CitySubject {
 
 /**
  * Curated catalog — capitals and route cities across Mediterranean & Europe,
- * Asia, and Africa & Americas (twenty-six guides). Expand here as new Cities
- * guides ship.
+ * Asia, and Africa & Americas (twenty-six cities). Expand here as new Cities
+ * pages ship.
  */
 const citySubjectDrafts: CitySubjectDraft[] = [
   {
@@ -81,7 +81,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Mediterranean & Europe',
     subtitle: 'Strait capital · Bosphorus',
     about:
-      'Istanbul is a city built on a strait — a capital that has repeatedly turned the Bosphorus into political geography. As Byzantium, Constantinople, and then Istanbul, it sat where Europe and Asia face each other across a working waterway of ferries, fortresses, and bridges. Orientation is maritime and imperial: Golden Horn harbors, peninsula walls, and a skyline of domes that mark successive claims on the same ground. Trade and pilgrimage routes met here long before railways; the city remains a corridor as much as a destination. Neighborhoods stack Greek, Roman, Byzantine, Ottoman, and republican layers without erasing the strait’s daily traffic. This primer stays with water crossing, capital continuity, and urban threshold rather than a museum checklist alone.',
+      'Istanbul occupies both sides of the Bosphorus, the strait linking the Black Sea and the Sea of Marmara and separating Europe from Asia. Known successively as Byzantium, Constantinople, and Istanbul, it served as the capital of the Roman, Byzantine, and Ottoman empires. The Golden Horn forms a major natural harbor beside the historic peninsula, whose walls, ports, domes, and former imperial sites reflect these successive periods.\nTrade, migration, pilgrimage, and military routes converged at the Bosphorus long before the arrival of railways. Ferries, bridges, and waterfront fortifications continue to shape movement between the city’s European and Asian districts. Its neighborhoods contain Greek, Roman, Byzantine, Ottoman, and republican-era structures and institutions, while the strait remains central to the city’s daily life and geography.',
     facts: {
       kind: 'Strait capital',
       country: 'Türkiye',
@@ -133,7 +133,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Mediterranean & Europe',
     subtitle: 'Imperial capital · Tiber basin',
     about:
-      'Rome is a capital that taught later cities how power could look permanent. From a Tiber ford and seven hills it grew into the administrative heart of a Mediterranean empire, then remade itself as papal capital and modern Italian seat. Orientation is layered and ceremonial: forums and amphitheaters of the classical city sit beside Renaissance and Baroque streets that reused the same stones; the river remains a soft spine through dense districts. Roads once radiated from the milliarium aureum; railways and ring roads now do similar work at metropolitan scale. This primer stays with capital continuity, monumental reuse, and river geography rather than a reign-by-reign chronicle.',
+      'Rome is Italy’s capital, built around a historic Tiber crossing and the city’s seven hills. It grew from an early settlement into the administrative center of a Mediterranean empire, later became the seat of the papacy, and remains the national capital of modern Italy. Classical forums and amphitheaters stand alongside Renaissance and Baroque streets, many incorporating reused stone and earlier structures. The Tiber runs through the dense urban fabric, while the ancient road network once centered on the milliarium aureum has been supplemented by rail lines and ring roads serving the wider metropolitan area.',
     facts: {
       kind: 'Imperial capital',
       country: 'Italy',
@@ -185,7 +185,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Mediterranean & Europe',
     subtitle: 'River capital · Seine basin',
     about:
-      'Paris is a river capital whose islands, bridges, and embankments turned the Seine into an urban argument. From a medieval island nucleus it expanded into royal, revolutionary, and republican capitals stacked on the same basin. Orientation is riparian and axial: Île de la Seine, right- and left-bank contrasts, and later boulevards that made movement itself a political project. Museums, markets, and ministries still cluster along corridors that once carried grain and pilgrims. This primer stays with river geography, capital display, and route structure rather than café mythology alone.',
+      'Paris is a river capital shaped by the Seine, its islands, bridges, and embankments. From a medieval island nucleus, the city expanded across the surrounding basin through successive royal, revolutionary, and republican periods. Its structure reflects both the river and major urban axes, with contrasts between the right and left banks and later boulevards created as part of large-scale political and civic redesign.\nMuseums, markets, and government ministries remain concentrated along corridors that once carried grain, pilgrims, and other traffic. The Seine continues to organize the city’s physical layout and public spaces, while the islands, embankments, and boulevard network record Paris’s development as a national capital.',
     facts: {
       kind: 'River capital',
       country: 'France',
@@ -237,7 +237,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Mediterranean & Europe',
     subtitle: 'Lagoon republic · Adriatic routes',
     about:
-      'Venice is a lagoon city that made water its street grid and the Adriatic its economic hinterland. Built on islands and piles, it became a maritime republic whose merchants linked the eastern Mediterranean to Alpine and northern European markets. Orientation is hydraulic and ceremonial: the Grand Canal as main avenue, campi as neighborhood rooms, and Piazza San Marco as the state’s outdoor hall. Trade, shipyards, and diplomacy were urban industries, not side effects. This primer stays with lagoon geography, maritime corridors, and republican display rather than a gondola postcard alone.',
+      'Venice is a city in the Venetian Lagoon, built on islands supported by piles and shaped by waterways rather than a conventional street grid. The Grand Canal serves as its principal waterway, while campi function as neighborhood public spaces and Piazza San Marco forms the historic ceremonial center of the city.\nFrom the Middle Ages, Venice developed as a maritime republic whose merchants connected the eastern Mediterranean with Alpine and northern European markets. Trade, shipbuilding, and diplomacy were central urban activities, supported by the lagoon’s protected routes and access to the Adriatic. Its physical layout and public architecture reflect both the practical demands of waterborne life and the political display of the former republic.',
     facts: {
       kind: 'Lagoon republic city',
       country: 'Italy',
@@ -289,7 +289,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Mediterranean & Europe',
     subtitle: 'Thames capital · imperial port',
     about:
-      'London is a river capital that grew where the Thames could be bridged and where Atlantic and continental trade met an island state. Orientation is tidal and institutional: the City’s financial core, Westminster’s parliamentary riverfront, and docks that once made the estuary a global warehouse. Roman Londinium, medieval markets, and imperial shipping stacked into one of Europe’s densest political economies. The river remains the city’s structural spine even when railways and underground lines steal the daily commute. This primer stays with Thames geography, port capital form, and civic landmarks rather than every borough’s story.',
+      'London grew where the River Thames could be bridged and where Atlantic and continental trade met an island state. Its historic core includes the City of London, a financial centre; Westminster, the parliamentary riverfront; and docklands that once helped make the Thames estuary a global warehouse. Roman Londinium, medieval markets, and imperial shipping shaped a dense concentration of political and economic activity.\nThe Thames remains London’s structural spine, although railways and the Underground carry much of the daily commute. Its banks and crossings connect civic landmarks, financial districts, former port areas, and the wider metropolitan region.',
     facts: {
       kind: 'River capital',
       country: 'United Kingdom',
@@ -341,7 +341,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Mediterranean & Europe',
     subtitle: 'Acropolis city · Attic plain',
     about:
-      'Athens is the classical city of the Attic plain — a dense capital whose Acropolis still organizes the skyline and whose agora once organized civic life. Orientation is rock and democracy’s afterimage: temple architecture on the citadel, theaters and stoas on the slopes and plain, and a modern capital layered over archaeological ground. Mediterranean light, marble, and a long memory of city-state politics make Athens a hinge between antiquity and the contemporary Greek state. This primer stays with acropolis geography, civic spaces, and capital continuity rather than every classical author.',
+      'Athens is the capital of Greece, built across the Attic plain beneath the Acropolis, whose rocky citadel remains a defining feature of the city skyline. In antiquity, the Acropolis held major temples, while the Agora below it served as a central civic and commercial space. Ancient theaters, stoas, sanctuaries, and other archaeological sites extend across the surrounding slopes and urban fabric.\nThe modern city developed over and around this earlier landscape. Marble monuments, Mediterranean light, and the remains of city-state institutions are closely associated with Athens’s classical past, while its role as the Greek capital connects that past to the contemporary state.',
     facts: {
       kind: 'Classical capital',
       country: 'Greece',
@@ -393,7 +393,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Mediterranean & Europe',
     subtitle: 'Highland sanctuary · shared sacred city',
     about:
-      'Jerusalem is a highland city where sacred geographies of Judaism, Christianity, and Islam overlap on a compact ridge between the Mediterranean and the Jordan Valley. Orientation is wall, mount, and pilgrimage: the Western Wall and Temple Mount/Haram al-Sharif platform; the Church of the Holy Sepulchre in the Christian Quarter; and a dense Old City plan of quarters, markets, and gates. Political capitals and empires have claimed the ridge for millennia without erasing its role as a destination of worship. This primer stays with sacred topography and urban quarters rather than every contested chronology.',
+      'Jerusalem is a highland city on a compact ridge between the Mediterranean and the Jordan Valley, where sites sacred to Judaism, Christianity, and Islam stand close together. Its Old City contains quarters, markets, and gates within historic walls. Major religious sites include the Western Wall and the Temple Mount/Haram al-Sharif platform, as well as the Church of the Holy Sepulchre in the Christian Quarter.\nPolitical capitals and successive empires have claimed Jerusalem for millennia, while the city has remained a major destination of worship. Its religious and urban geography is shaped by the Old City’s quarters and by the concentration of sacred sites on and around the ridge.',
     facts: {
       kind: 'Sacred highland city',
       country: 'Israel',
@@ -445,7 +445,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Former imperial capital · Yamashiro basin',
     about:
-      'Kyoto was Japan’s imperial capital for more than a millennium — a planned basin city whose grid, temples, and craft quarters outlasted the court’s political primacy. Orientation is topographic and ceremonial: mountains frame a rectangular city idea borrowed and remade from continental models; temple-shrine precincts mark neighborhoods; rivers and roads tied the capital to the Tōkaidō and inland routes. Even after the seat of government moved, Kyoto kept cultural capital: pilgrimage paths, seasonal festivals, and workshops that still define national images of tradition. Modern traffic and tourism press the same corridors. This primer stays with basin capital, sacred paths, and route geography rather than a temple-by-temple guidebook.',
+      'Kyoto was Japan’s imperial capital for more than a millennium. Set in a basin and laid out on a grid adapted from continental urban models, it developed as a rectangular city framed by mountains, with temples, shrines, craft quarters, rivers, and roads forming much of its physical and social structure. Routes linked the capital with the Tōkaidō and inland regions, while temple and shrine precincts became important neighborhood landmarks.\nAfter the imperial court and national government moved elsewhere, Kyoto remained a major cultural center. Pilgrimage paths, seasonal festivals, religious sites, and long-established workshops continue to shape its association with Japanese traditions. Modern traffic and tourism now use many of the same corridors that long connected the basin city to surrounding regions.',
     facts: {
       kind: 'Former imperial capital',
       country: 'Japan',
@@ -497,7 +497,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Imperial capital · North China plain',
     about:
-      'Beijing is a planned imperial capital on the North China Plain — a city whose axes, walls, and palace compounds made cosmology into street geometry. Ming and Qing rulers centered authority in the Forbidden City; temples, altars, and processional ways extended ritual order into the surrounding grid. Orientation is axial and seasonal: north–south ceremony, courtyard compounds, and later rail and ring-road rings that absorbed a megacity around the old core. Nearby imperial gardens and wall corridors remind visitors that capital defense and leisure were also landscape projects. This primer stays with axis, palace, and ritual geography rather than a modern skyline tour alone.',
+      'Beijing is an imperial capital on the North China Plain whose axes, walls, and palace compounds translated cosmological order into street geometry. Ming and Qing rulers centered authority in the Forbidden City, while temples, altars, and processional routes extended ritual order through the surrounding grid. North–south ceremonial alignments and courtyard compounds shaped the old city, later joined by rail lines and successive ring roads as the metropolis expanded around its historic core. Nearby imperial gardens and surviving wall corridors reflect the role of landscape in both capital defense and leisure.',
     facts: {
       kind: 'Imperial capital',
       country: 'China',
@@ -549,7 +549,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Imperial crossroads · Yamuna plain',
     about:
-      'Delhi is a capital region of successive cities on the Yamuna’s western plain — a place where sultanate, Mughal, and modern Indian capitals reused the same strategic ground. Orientation is layered and corridor-driven: forts and Friday mosques of earlier cities sit beside the planned avenues of New Delhi; the river and ridge frame settlement even when highways try to ignore them. Trade routes, pilgrimage circuits, and imperial roads long funneled people through this threshold between the Indus–Gangetic world and the peninsula. This primer stays with capital succession, fort-mosque pairs, and plain geography rather than every dynasty’s full timeline.',
+      'Delhi is a capital region on the Yamuna’s western plain, shaped by successive cities that occupied the same strategic ground. Sultanate and Mughal forts and Friday mosques stand alongside the planned avenues of New Delhi, reflecting repeated shifts in political power and urban form. The Yamuna and the Delhi Ridge frame the settlement, although modern highways often cut across these older geographic patterns. Trade routes, pilgrimage circuits, and imperial roads have long carried people through Delhi, a threshold between the Indus–Gangetic plain and the Indian peninsula.',
     facts: {
       kind: 'Imperial crossroads capital',
       country: 'India',
@@ -601,7 +601,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Silk Road crossroads · Zeravshan valley',
     about:
-      'Samarkand is a Central Asian crossroads city where oasis agriculture and long-distance trade made a capital of corridors. Under Timur and his successors it became a showcase of tiled madrasas, mosques, and mausoleums that still dominate the skyline. Orientation is caravan and courtyard: the Registan as an urban room of learning and display; necropolises and congregational mosques marking routes through the living city. The Zeravshan valley and steppe approaches explain why armies and merchants kept returning. This primer stays with Silk Road geography, Timurid urbanism, and oasis capital form rather than a conquest checklist alone.',
+      'Samarkand is a Central Asian city in the Zeravshan valley, shaped by oasis agriculture and long-distance trade across the steppe approaches. Its position on major routes helped make it a recurring center for merchants, armies, and imperial capitals.\nUnder Timur and his successors, Samarkand was rebuilt as a Timurid capital marked by tiled madrasas, mosques, and mausoleums that remain prominent in the city’s skyline. The Registan forms a major urban ensemble of learning and ceremonial display, while necropolises and congregational mosques trace routes through the inhabited city. Its historic form reflects Silk Road geography, Timurid urbanism, and the functions of an oasis capital.',
     facts: {
       kind: 'Silk Road crossroads',
       country: 'Uzbekistan',
@@ -653,7 +653,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Bay megacity · former Edo',
     about:
-      'Tokyo is a bay megacity that grew from the shogunal capital of Edo into Japan’s political and economic center. Orientation is lowland and water: Sumida and bay edges, temple towns such as Asakusa, shrine forests like Meiji, and a skyline of towers that mark postwar rebuilding. The city’s density stacks neighborhoods that still keep shrine, market, and station as local anchors. Earthquake, fire, and war remade fabric without erasing the Edo street logic underneath. This primer stays with bay geography, sacred-commercial nodes, and capital scale rather than every ward’s specialty.',
+      'Tokyo is a bay megacity that grew from the shogunal capital of Edo into Japan’s political and economic center. Its physical setting is defined by lowland, the Sumida River, and the edges of Tokyo Bay, with temple towns such as Asakusa, shrine forests such as Meiji, and a skyline of towers associated with postwar rebuilding. Dense neighborhoods retain shrines, markets, and railway stations as local anchors. Earthquakes, fires, and war repeatedly remade the urban fabric without entirely erasing underlying Edo street patterns.',
     facts: {
       kind: 'Bay megacity',
       country: 'Japan',
@@ -705,7 +705,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Han River capital · Joseon seat',
     about:
-      'Seoul is a Han River capital that grew from a walled Joseon seat into one of East Asia’s densest metropolitan regions. Orientation is river and ridge: palaces and shrines on lower slopes; hanok quarters climbing narrow lanes; modern towers marking a rebuilt postwar skyline without erasing the old capital’s north–south logic. The city stacks dynasty, occupation, and rapid industrial growth into neighborhoods that still treat palace walls, markets, and mountain parks as anchors. Buddhist temples, Confucian rites, and contemporary design districts coexist along corridors that once carried royal processions and now carry subway lines. This primer stays with river capital form, palace-and-village texture, and skyline markers rather than every district’s shopping specialty.',
+      'Seoul, South Korea’s capital, lies along the Han River and grew from a walled Joseon dynasty seat into one of East Asia’s densest metropolitan regions. Palaces and shrines occupy lower slopes beneath surrounding ridges, while hanok quarters climb narrow lanes and modern towers define a skyline rebuilt after the Korean War. The city retains the older capital’s north–south spatial logic despite rapid postwar expansion.\nDynastic history, Japanese occupation, and rapid industrial growth are layered across neighborhoods where palace walls, markets, and mountain parks remain prominent features. Buddhist temples, Confucian ritual sites, and contemporary design districts stand along corridors that once carried royal processions and now carry subway lines.',
     facts: {
       kind: 'Han River capital',
       country: 'South Korea',
@@ -757,7 +757,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Asia',
     subtitle: 'River capital · Chao Phraya plain',
     about:
-      'Bangkok is a Chao Phraya river capital where canal networks, royal compounds, and market streets turned a delta plain into Thailand’s political and commercial center. Orientation is water and spire: wats with glittering prangs along the river; palace walls enclosing sacred and administrative courts; Chinatown and old districts threading commerce beside khlongs even as expressways stack overhead. The city absorbed nineteenth-century treaty-port architecture, twentieth-century modernization, and a contemporary megacity scale without losing the river as its ceremonial spine. Floating markets, ferry piers, and temple fairs still mark seasonal and daily rhythms on the water. This primer stays with river capital, royal-temple pairs, and plain geography rather than every shopping mall corridor.',
+      'Bangkok, Thailand’s capital, stands on the Chao Phraya River in the delta plain and is the country’s political and commercial center. Canal networks, royal compounds, and market streets developed around the river and its khlongs. Wats with glittering prangs line the riverbanks, while palace walls enclose sacred and administrative courts. Chinatown and older districts concentrate commerce beside canals, beneath and alongside elevated expressways.\nThe city includes nineteenth-century treaty-port architecture, twentieth-century modernization, and the scale of a contemporary megacity. The Chao Phraya remains its ceremonial spine, serving ferry piers, floating markets, temple fairs, and daily river traffic.',
     facts: {
       kind: 'River capital',
       country: 'Thailand',
@@ -809,7 +809,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Island city-state · Straits port',
     about:
-      'Singapore is an island city-state at the Strait of Malacca — a port that turned harbor geography into a dense, multilingual capital. Orientation is water and reclamation: colonial-era quays beside container terminals; ethnic quarters that still map migration routes; gardens and reservoirs squeezed between towers on a tropical island with limited land. Independence made the city both nation and metropolis: public housing estates, business districts, and heritage shophouse rows share a compact shoreline. Heat, monsoon rain, and maritime trade shaped building form as much as any master plan. This primer stays with straits port logic, reclaimed waterfront, and garden-city landmarks rather than every financial-district tower.',
+      'Singapore is an island city-state at the Strait of Malacca, where a strategic harbor developed into a dense, multilingual capital. Its coastline combines colonial-era quays, container terminals, and extensive reclaimed land. Ethnic quarters reflect historic migration routes, while gardens and reservoirs occupy limited space among high-rise districts on the tropical island.\nIndependent since 1965, Singapore functions as both a nation and a metropolis. Public housing estates, commercial districts, and heritage shophouse rows stand along a compact shoreline. Heat, monsoon rainfall, and maritime trade have influenced its architecture and urban form, alongside long-term planning. The city’s landscape includes straits-facing port infrastructure, reclaimed waterfronts, and prominent garden-city landmarks.',
     facts: {
       kind: 'Island city-state',
       country: 'Singapore',
@@ -861,7 +861,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Bay port megacity · Arabian Sea coast',
     about:
-      'Mumbai is a bay port megacity on India’s Arabian Sea coast — a harbor that absorbed fishing villages, colonial fort towns, and textile-mill suburbs into one of the world’s most populous urban regions. Orientation is peninsula and rail: Victorian Gothic stations and seaside promenades beside dense bazaar streets; former mill lands now hosting finance and film; islands linked by causeways and bridges. Monsoon rain, tidal flats, and limited land pushed vertical growth while the port kept global shipping at the city’s edge. Bollywood, banking, and neighborhood temples share corridors that once carried cotton and passengers toward the hinterland. This primer stays with harbor geography, colonial port architecture, and seaside boulevards rather than every suburb’s commute pattern.',
+      'Mumbai is a bay port megacity on India’s Arabian Sea coast. Its harbor absorbed fishing villages, colonial fort towns, and textile-mill suburbs into one of the world’s most populous urban regions. The city occupies a peninsula and a chain of former islands linked by causeways and bridges, with rail corridors connecting Victorian Gothic stations, seaside promenades, dense bazaar streets, former mill districts, and suburban neighborhoods.\nMonsoon rain, tidal flats, and limited land have encouraged dense vertical growth, while the port remains a major edge of global shipping. Former mill lands now contain finance, commercial development, and film production. Bollywood, banking, and neighborhood temples occupy corridors that once carried cotton and passengers between the harbor city and its hinterland. Colonial port architecture and seaside boulevards remain prominent parts of Mumbai’s physical landscape.',
     facts: {
       kind: 'Bay port megacity',
       country: 'India',
@@ -913,7 +913,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Asia',
     subtitle: 'Yangtze river port · treaty-era hub',
     about:
-      'Shanghai is a Yangtze river port that turned estuary geography into China’s largest metropolis — a city where treaty-era Bund banks, lilong lanes, and Pudong towers stack along the Huangpu. Orientation is river bend and concession: foreign-built waterfront facing Pudong’s skyline; gardens and temples tucked between lane housing; rail and container ports linking the Yangtze basin to global trade. Republican glamour, industrial growth, and reform-era finance each left districts that still read as separate urban chapters on one waterfront. This primer stays with river port form, Bund-and-tower contrast, and classical garden pockets rather than every shopping district’s brand map.',
+      'Shanghai is a Yangtze River port and China’s largest metropolis, shaped by estuary geography and the Huangpu River waterfront. Treaty-era bank buildings on the Bund face Pudong’s high-rise skyline, while lilong lane housing, gardens, and temples occupy older districts behind the riverfront. Rail corridors and container ports connect the city with the Yangtze basin and international trade routes.\nRepublican-era commercial districts, industrial areas, and reform-era financial development remain visible in distinct parts of the city. The Bund, Pudong towers, classical garden areas, and former concession neighborhoods show how Shanghai’s port economy and successive periods of urban growth formed its present landscape.',
     facts: {
       kind: 'River port megacity',
       country: 'China',
@@ -965,7 +965,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Africa & Americas',
     subtitle: 'River capital · Nile corridor',
     about:
-      'Cairo is the dense capital of the Nile’s lower valley — a city that grew where river, desert edge, and long-distance routes concentrate people and power. Fatimid foundations, Mamluk streets, Ottoman overlays, and modern expansion stack into one of Africa’s great megacities. Orientation is riparian and monumental: the Citadel watches the urban plain; markets like Khan el-Khalili keep the historic core as a commercial artery; the Nile remains the city’s structural spine even when traffic and concrete try to ignore it. Nearby pyramids remind visitors that the capital sits inside a much older corridor of state formation. This primer stays with river capital, citadel, and historic bazaar rather than every dynasty’s reign.',
+      'Cairo is the capital of Egypt and a dense metropolis in the Nile’s lower valley, where the river, the desert edge, and long-distance routes have concentrated population and political power. Fatimid foundations, Mamluk streets, Ottoman-era districts, and modern expansion form a layered urban landscape and one of Africa’s largest cities. The Citadel overlooks the urban plain, while Khan el-Khalili remains a major commercial area in the historic core. The Nile is the city’s main geographical axis despite extensive roads and concrete development. The pyramids at Giza, nearby on the western edge of Greater Cairo, place the modern capital within a much older corridor of Egyptian state formation.',
     facts: {
       kind: 'River capital',
       country: 'Egypt',
@@ -1017,7 +1017,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Africa & Americas',
     subtitle: 'Sahara edge · Niger Bend routes',
     about:
-      'Timbuktu is a Sahara-edge city that turned caravan geography into scholarly reputation. Sitting near the Niger Bend, it linked desert salt and gold routes to riverine West Africa and became famous for mosques, madrasas, and manuscript libraries. Orientation is adobe and corridor: earthen minarets above sandy streets; markets that once priced books beside trade goods; seasonal rhythms of river and desert. Empires and droughts shifted its fortunes, yet the city’s three great mosques still sketch the medieval scholarly skyline. This primer stays with desert-edge routes, learning institutions, and earthen architecture rather than myth alone.',
+      'Timbuktu is a city on the edge of the Sahara near the Niger Bend in Mali. It historically linked trans-Saharan salt and gold routes with riverine West Africa, gaining renown as a center of trade, Islamic learning, mosques, madrasas, and manuscript libraries. Its built landscape includes sandy streets, earthen buildings, and adobe minarets.\nThe city’s markets once traded books alongside other goods, reflecting its role in scholarship as well as commerce. Changes in empires, trade patterns, drought, and river conditions altered its fortunes over time. Timbuktu’s three principal mosques remain major examples of its medieval earthen architecture and scholarly history.',
     facts: {
       kind: 'Desert-edge scholarly city',
       country: 'Mali',
@@ -1069,7 +1069,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Africa & Americas',
     subtitle: 'Andean capital · Urubamba approaches',
     about:
-      'Cusco was the political and ceremonial capital of the Inca world — a highland city whose stonework and sacred geography organized an empire of roads. Orientation is Andean and axial: a plaza core, temple precincts, and cyclopean walls that later Spanish churches and streets reused. The city sits where highland valleys open toward the Amazon approaches and the coastal world via the Qhapaq Ñan road system. Colonial overlays did not erase the Inca plan so much as build on it. This primer stays with highland capital form, plaza ritual, and road empire rather than a trek checklist to Machu Picchu alone.',
+      'Cusco was the political and ceremonial capital of the Inca world, a highland city whose stonework and sacred geography helped organize an empire of roads. Its urban core centered on plazas, temple precincts, and massive fitted-stone walls. After the Spanish conquest, churches, houses, and streets were built over and alongside Inca structures, leaving much of the earlier plan visible within the colonial city.\nThe city stands where highland valleys open toward the Amazon approaches and connect with the coastal world through the Qhapaq Ñan road system. Its historic form reflects its role as an Andean capital, with plaza ritual, sacred sites, and road connections shaping the city beyond its association with Machu Picchu.',
     facts: {
       kind: 'Andean imperial capital',
       country: 'Peru',
@@ -1121,7 +1121,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Africa & Americas',
     subtitle: 'Highland basin · former Tenochtitlan',
     about:
-      'Mexico City occupies a highland basin where the Aztec island capital of Tenochtitlan once rose from lake waters. Orientation is lacustrine memory and imperial overlay: the Zócalo and cathedral over the sacred precinct; Templo Mayor ruins beside colonial streets; and boulevards of a modern megacity that still sits on soft lakebed ground. Spanish conquest remade the plan without fully erasing the island city’s ceremonial core. Seismic risk and altitude shape daily life as much as museums and ministries. This primer stays with basin geography, Mesoamerican capital form, and colonial-modern layering rather than every neighborhood’s mural.',
+      'Mexico City occupies a highland basin on the former lake system where the Aztec island capital of Tenochtitlan was built. Its historic center includes the Zócalo and Metropolitan Cathedral above the former sacred precinct, while the ruins of the Templo Mayor stand beside colonial-era streets. Spanish conquest reshaped the city’s plan but did not entirely erase the ceremonial core of the island capital.\nThe modern metropolis extends far beyond this central area, with broad boulevards, museums, government ministries, and dense urban development built partly on soft former lakebed. Basin geography, high altitude, and seismic risk remain significant features of city life and urban infrastructure.',
     facts: {
       kind: 'Highland basin capital',
       country: 'Mexico',
@@ -1173,7 +1173,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Africa & Americas',
     subtitle: 'Atlas foothill · medina routes',
     about:
-      'Marrakech is a red-walled city of the Haouz plain where Atlas foothills meet long-distance Maghreb routes. Founded as an Almoravid capital, it grew a medina of souks, mosques, and palaces around Jemaa el-Fnaa — a square that still stages evening trade, food, and performance. Orientation is adobe and oasis: Koutoubia’s minaret marking the skyline; packed lanes of leather, metal, and spice; gardens and riads cooling the heat behind blank walls. The city was never Morocco’s sole political capital for every dynasty, yet it remains a southern commercial and cultural magnet. This primer stays with medina form, square, and Atlas-edge geography rather than a riad booking list.',
+      'Marrakech is a red-walled city on Morocco’s Haouz plain, near the foothills of the Atlas Mountains and along historic Maghreb trade routes. Founded as an Almoravid capital, it developed a medina of souks, mosques, palaces, gardens, and riads centered on Jemaa el-Fnaa, a square associated with evening trade, food stalls, and performances.\nThe Koutoubia Mosque’s minaret marks the city skyline. Within the medina, narrow lanes contain workshops and markets for leather, metalwork, spices, and other goods, while gardens and inward-facing riads provide shade behind largely blank exterior walls. Marrakech was not the political capital of every Moroccan dynasty, but it has long remained an important commercial and cultural center in southern Morocco.',
     facts: {
       kind: 'Medina market city',
       country: 'Morocco',
@@ -1225,7 +1225,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Africa & Americas',
     subtitle: 'Lagoon megacity · Gulf of Guinea',
     about:
-      'Lagos is a lagoon and Atlantic megacity — Nigeria’s commercial engine spread across islands, mainland bridges, and dense waterfront districts. Portuguese and later British port history layered onto Yoruba settlements; today the city absorbs migrants and trade from across West Africa. Orientation is water and congestion: lagoon creeks, Third Mainland Bridge arcs, and a skyline rising from older markets and new towers. It is not Nigeria’s political capital (that role moved to Abuja), yet Lagos remains the country’s primary port and media center. This primer stays with lagoon geography, bridge corridors, and commercial primacy rather than a neighborhood nightlife map.',
+      'Lagos is a lagoon and Atlantic megacity in Nigeria, spread across islands, mainland districts, bridges, and dense waterfront areas. Yoruba settlements were later shaped by Portuguese and British port activity, and the city continues to receive migrants and trade from across West Africa. Lagoon creeks, major bridge corridors including the Third Mainland Bridge, older markets, and newer high-rise districts define much of its physical landscape.\nAlthough Nigeria’s political capital moved to Abuja, Lagos remains the country’s main port, commercial center, and a major center for media. Its economy and urban growth are closely tied to maritime trade, the lagoon system, and extensive connections between the mainland and island districts.',
     facts: {
       kind: 'Lagoon port megacity',
       country: 'Nigeria',
@@ -1272,7 +1272,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Africa & Americas',
     subtitle: 'River-plate capital · Pampas edge',
     about:
-      'Buenos Aires is Argentina’s port capital on the western shore of the Río de la Plata — a city that turned a muddy estuary into a national doorway. Grid avenues, immigrant barrios, and a dense cultural life grew where Pampas agriculture met Atlantic shipping. Orientation is riverine and civic: Plaza de Mayo and the Casa Rosada as the political stage; the Obelisco marking the modern axis; theaters and cafés that made the capital a Spanish-language cultural hub. The estuary’s brown water and flat horizon shape the city’s light as much as its politics. This primer stays with river-plate geography, capital form, and civic landmarks rather than a tango itinerary alone.',
+      'Buenos Aires is Argentina’s capital and principal port city, on the western shore of the Río de la Plata. Its grid of avenues, immigrant barrios, and dense cultural life developed where Pampas agriculture connected with Atlantic shipping. Plaza de Mayo and the Casa Rosada form the city’s main political setting, while the Obelisco marks a central modern axis. Theaters, cafés, and publishing helped establish Buenos Aires as a major Spanish-language cultural center. The estuary’s brown water and flat horizon influence the city’s light, landscape, and civic identity.',
     facts: {
       kind: 'River-plate capital',
       country: 'Argentina',
@@ -1319,7 +1319,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Africa & Americas',
     subtitle: 'Bay capital · Atlantic Forest slopes',
     about:
-      'Rio de Janeiro occupies a broken shoreline where granite peaks, Atlantic Forest remnants, and Guanabara Bay meet a dense coastal city. Once Brazil’s capital, it remains a cultural and tourist emblem of the country’s Atlantic face. Orientation is topographic: Sugarloaf and Corcovado rising above beaches and neighborhoods squeezed onto narrow shelves of level land; Christ the Redeemer watching the meeting of mountain, city, and ocean. Colonial and imperial layers sit under twentieth-century growth without erasing the bay’s working harbor. This primer stays with bay geography, forested slopes, and skyline landmarks rather than Carnival logistics alone.',
+      'Rio de Janeiro occupies a broken shoreline where granite peaks, Atlantic Forest remnants, and Guanabara Bay meet a dense coastal city. Formerly Brazil’s capital, it remains a major cultural and tourist symbol of the country’s Atlantic coast. Sugarloaf and Corcovado rise above beaches and neighborhoods built on narrow shelves of level land, while the Christ the Redeemer statue overlooks the meeting of mountain, city, and ocean. Colonial and imperial districts lie beneath layers of twentieth-century growth, alongside the bay’s working harbor, forested slopes, and prominent skyline landmarks.',
     facts: {
       kind: 'Bay coastal metropolis',
       country: 'Brazil',
@@ -1366,7 +1366,7 @@ const citySubjectDrafts: CitySubjectDraft[] = [
     category: 'Africa & Americas',
     subtitle: 'Andean plateau capital · Eastern Hills',
     about:
-      'Bogotá is Colombia’s highland capital on the Bogotá savanna — a cool plateau city watched by the Eastern Hills and the sanctuary peak of Monserrate. Muisca settlement, Spanish colonial founding, and republican ministries stack around Plaza de Bolívar, while twentieth-century growth spreads across the flat basin. Orientation is altitude and axis: thin air, frequent cloud on the ridges, and a historic core of cathedral, capitol, and museums that still organizes national politics. Gold-working heritage and Andean trade routes sit in the city’s longer memory. This primer stays with plateau geography, civic square, and hill sanctuary rather than every barrio’s mural.',
+      'Bogotá is Colombia’s highland capital, located on the Bogotá savanna, a cool plateau bordered by the Eastern Hills and overlooked by the sanctuary peak of Monserrate. The city combines Muisca settlement history, Spanish colonial foundations, and republican-era government institutions around Plaza de Bolívar. Its twentieth-century expansion spread across the flat basin surrounding the historic center.\nThe historic core includes the cathedral, the Capitol, and major museums, and remains the center of national political life. Bogotá’s altitude contributes to thin air and frequent cloud cover along the ridges. Gold-working traditions and Andean trade routes form part of the region’s longer history.',
     facts: {
       kind: 'Andean plateau capital',
       country: 'Colombia',

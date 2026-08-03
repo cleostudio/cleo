@@ -1,9 +1,9 @@
-# Civilizations field guides
+# Civilizations
 
-Civilizations guides at `/civilizations` and `/civilizations/[slug]`. Catalog in
+Civilizations pages at `/civilizations` and `/civilizations/[slug]`. Catalog in
 `lib/civilizations.ts`: historical civilizations across Africa & Near East,
-Mediterranean, Asia, the Americas, and Oceania — orientation, signature sites,
-facts, sources, and curated photographs (thirty-two guides). Explore fact-plate
+Mediterranean, Asia, the Americas, and Oceania — about, signature sites,
+facts, sources, and curated photographs (thirty-two subjects). Explore fact-plate
 names deep-link to `/explore/[slug]`. Topics catalog lists Civilizations
 alongside Countries and Space (`lib/topics.ts`).
 
@@ -11,7 +11,7 @@ alongside Countries and Space (`lib/topics.ts`).
 
 | Piece | Path |
 | --- | --- |
-| Guide definitions | `lib/civilizations.ts` |
+| Subject definitions | `lib/civilizations.ts` |
 | Photo manifest | `content/civilizations-photos.json` |
 | Photo sources | `scripts/civilizations/civilizations-photo-sources.json` |
 | Public JPEGs | `public/images/civilizations/{slug}/` |
@@ -37,7 +37,7 @@ pnpm generate:cleo-topic-photo-zoom
 
 Same as atlas/space: static JPEGs, browser `srcset`, no runtime image CDN or
 `/_next/image` re-encode. Gallery shows the editor-selected featured photo;
-guides and Cleo retain all three views. Credit links point at Wikimedia Commons
+topic pages and Cleo retain all three views. Credit links point at Wikimedia Commons
 (licenses vary: PD, CC0, CC BY, CC BY-SA).
 
 ## Verify

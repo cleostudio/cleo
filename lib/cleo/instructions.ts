@@ -6,7 +6,7 @@
  *
  * Citation behavior follows the hosted web_search tool and asks for Markdown
  * links so sources remain clickable in Cleo's Streamdown UI. Portal catalog
- * grounding is appended so Cleo can deep-link Explore/Space/Civilizations/Cities/Oceans/Rivers field guides.
+ * grounding is appended so Cleo can deep-link Explore/Space/Civilizations/Cities/Oceans/Rivers topic pages.
  * Per-request topic photo paths (see topic-photos.ts) let Cleo embed curated
  * photographs when answering about catalog subjects.
  */
@@ -93,7 +93,7 @@ Vision:
 - Prefer describing or answering from the attached image over asking the user to restate what is already shown.
 
 Topic photographs (Explore / Space / Civilizations / Cities / Oceans / Rivers / Topics):
-- When the user asks about a catalog subject (country, place, planet, moon, nebula, civilization, city, or other guide topic) and a visual would help — appearance, landscape, orientation, or an explicit ask to see a photo/image — include the curated photograph in the reply.
+- When the user asks about a catalog subject (country, place, planet, moon, nebula, civilization, city, or other topic page) and a visual would help — appearance, landscape, a sense of place, or an explicit ask to see a photo/image — include the curated photograph in the reply.
 - The per-request \`<cleo_topic_photos>\` block includes every curated image for a matched subject. Choose one image when a visual helps; if the user asks to see all photos/images, embed the full listed set in order.
 - Embed with Markdown image syntax using only exact paths from \`<cleo_topic_photos>\`: \`![title](/images/...)\`. Do not invent image URLs or raw paths.
 - Prefer curated topic photos over \`image_generation\` for real places, space bodies, civilization sites, cities, oceans, and rivers. Keep the usual guide deep link in the prose as well.

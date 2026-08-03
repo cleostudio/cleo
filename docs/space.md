@@ -1,15 +1,15 @@
-# Space field guides
+# Space
 
-Space guides at `/space` and `/space/[slug]`. Catalog in `lib/space.ts`:
+Space pages at `/space` and `/space/[slug]`. Catalog in `lib/space.ts`:
 Solar System, Moons, Deep Space (planets, major moons, ISS, galaxies, nebulae;
-thirty-three guides). Topics catalog lists Space alongside Countries
+thirty-three subjects). Topics catalog lists Space alongside Countries
 (`lib/topics.ts`).
 
 ## Map
 
 | Piece | Path |
 | --- | --- |
-| Guide definitions | `lib/space.ts` |
+| Subject definitions | `lib/space.ts` |
 | Photo manifest | `content/space-photos.json` |
 | Public JPEGs | `public/images/space/{slug}/` |
 | Gallery unification | `lib/gallery.ts` |
@@ -17,7 +17,7 @@ thirty-three guides). Topics catalog lists Space alongside Countries
 
 ## Photo pipeline
 
-Three curated NASA images per guide.
+Three curated NASA images per subject.
 
 ```bash
 pnpm curate:space-photos
@@ -35,7 +35,7 @@ pnpm generate:cleo-topic-photo-zoom
 
 Same as atlas: static JPEGs, browser `srcset`, no runtime image CDN or
 `/_next/image` re-encode. Gallery shows the editor-selected featured photo;
-guides and Cleo retain all three views.
+topic pages and Cleo retain all three views.
 
 ## Verify
 

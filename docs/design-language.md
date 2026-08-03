@@ -604,7 +604,7 @@ typewriter/ascii textures, measuring ticks, registration marks. Rules:
   plate keeps the established metadata develop timing. The lightbox's
   capture details are the same register (`.spec-plate-flow`, cells wrapping
   to content): Place, Country or Subject, Photograph, Licence — capture data
-  was always plate content. Country and space field guides carry their Fact
+  was always plate content. Country and space topic pages carry their Fact
   plate in the same register, in the `.spec-plate-guide` variant: the Capital
   and Kind cells hold each page's signal, and because these values are real
   content rather than chrome — language lists, currency names, orbital
@@ -928,7 +928,7 @@ which develop to 62% on hover or focus-within. The print opens the lightbox;
 capture data — place, country or subject, photographer, licence — appears only
 there, on a `spec-plate spec-plate-flow` sheet whose cells spring in one by one.
 The overlay is view-only (`.zoom-overlay-details` is `pointer-events: none`),
-so the route into the field guide is the caption line beneath the tile rather
+so the route into the topic page is the caption line beneath the tile rather
 than the photograph. Those caption links disable prefetch to avoid a
 destination storm.
 
