@@ -253,8 +253,8 @@ fans open when the card is hovered (fine pointer) or `:focus-visible`
 (keyboard).
 
 Homepage vertical rhythm uses shared CSS tokens in `app/globals.css`:
-`--page-gap` (2.5rem / 3rem from 40rem), `--page-gap-cluster`
-(1.25rem / 1.5rem), and `--page-gap-head` (0.625rem). Apply them through
+`--page-gap` (2.25rem / 2.75rem from 40rem), `--page-gap-cluster`
+(1.125rem / 1.375rem), and `--page-gap-head` (0.5rem). Apply them through
 `.page-stack` / `.home-page` / `.field-guide` for major bands,
 `.page-cluster` / `.home-portal` for masthead↔tools/media clusters, and
 `.page-section-body` for section label → body. Do not reintroduce per-section
