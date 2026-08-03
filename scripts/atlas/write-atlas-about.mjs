@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Writes the Orientation prose for every country into
+ * Writes the About prose for every country into
  * scripts/atlas/atlas-about.json, a curated input alongside
  * country-facts.json and atlas-photo-sources.json.
  *
@@ -13,7 +13,7 @@
  *   OPENAI_API_KEY=... pnpm write:atlas-about --force    # rewrite everything
  *
  * Every result is checked before it is kept: length, no recycled template
- * phrasing, and none of the volatile claims a field guide should not carry.
+ * phrasing, and none of the volatile claims an about entry should not carry.
  */
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
@@ -57,7 +57,7 @@ const RECYCLED = [
 
 /**
  * Claims that either drift or are the easiest thing for a model to invent.
- * A field guide orients; it does not quote figures.
+ * About prose stays factual; it does not quote figures.
  */
 const VOLATILE = [
   { label: 'a year', pattern: /\b(1[5-9]\d{2}|20\d{2})\b/ },
@@ -69,7 +69,7 @@ const VOLATILE = [
   { label: 'brochure superlatives', pattern: /\b(must-see|world-class|breathtaking|stunning|hidden gem|paradise|bucket list)\b/i },
 ]
 
-const INSTRUCTIONS = `You write Orientation entries for a printed-feeling country field guide.
+const INSTRUCTIONS = `You write About entries for country pages on a general-knowledge portal.
 
 Voice: calm, plain, specific. A knowledgeable geographer describing a place to
 someone who has never been. No marketing, no second person, no exhortation.
@@ -121,10 +121,10 @@ Languages: ${facts.languages.join(', ')}
 Currency: ${facts.currency}
 Area: about ${facts.areaKm2.toLocaleString('en-US')} square kilometres
 
-The three places this guide features:
+The three places this page features:
 ${places}
 
-Write the Orientation entry for ${country.name}.`
+Write the About entry for ${country.name}.`
 }
 
 /** Returns a list of problems, empty when the draft is usable. */
@@ -194,7 +194,7 @@ if (queue.length === 0) {
 }
 
 if (!process.env.OPENAI_API_KEY) {
-  console.error('OPENAI_API_KEY is required to write Orientation prose.')
+  console.error('OPENAI_API_KEY is required to write About prose.')
   process.exit(1)
 }
 
@@ -245,7 +245,7 @@ async function write(country) {
   console.log(`  --- ${country.slug} FAILED — ${lastProblems.join('; ')}`)
 }
 
-console.log(`Writing Orientation prose for ${queue.length} countries...\n`)
+console.log(`Writing About prose for ${queue.length} countries...\n`)
 
 const pending = [...queue]
 

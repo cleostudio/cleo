@@ -1,4 +1,4 @@
-/** Space topic — evergreen field-guide records for solar-system and deep-space subjects. */
+/** Space topic — factual about records for solar-system and deep-space subjects. */
 
 import spacePhotos from '~/content/space-photos.json'
 import type { StaticPhoto } from '~/lib/static-photo'
@@ -43,7 +43,7 @@ export interface SpaceSubject {
   category: string
   /** One-line kind label under the title (e.g. "Terrestrial planet · Solar System"). */
   subtitle: string
-  /** Neutral evergreen overview, ~150–250 words. */
+  /** Neutral factual overview, ~150–250 words. */
   about: string
   facts: SpaceFacts
   /** Exactly three notable features. */
@@ -67,7 +67,7 @@ function withPhotos(draft: SpaceSubjectDraft): SpaceSubject {
 
 /**
  * Curated catalog — Solar System bodies, major moons, the ISS, nearby galaxies,
- * and signature nebulae. Expand here as new Space guides ship.
+ * and signature nebulae. Expand here as new Space pages ship.
  */
 const spaceSubjectDrafts: SpaceSubjectDraft[] = [
   {
@@ -77,7 +77,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'G-type main-sequence star · Solar System',
     about:
-      'The Sun is the gravitational heart of the Solar System — a G2V star holding planets, moons, and dust in a shared dynamical family. Nearly all of the system’s mass sits in this one sphere of plasma, and the light that reaches Earth left its photosphere about eight minutes earlier. Orientation here is structural rather than seasonal: a dense core where fusion converts hydrogen to helium, a radiative zone that carries energy outward over long timescales, and a convective envelope that boils into the visible surface. Above that surface, the chromosphere and corona extend into the solar wind that shapes planetary magnetospheres. The Sun is ordinary among stars and singular for us: close enough that its spots, flares, and quiet glow can be studied as weather and as physics at once. This primer stays with durable facts — mass, scale, and the architecture that makes a planetary system possible — rather than forecast cycles or mission headlines.',
+      'The Sun is a G2V star at the center of the Solar System, whose gravity holds the planets, moons, dust, and other bodies in a shared dynamical system. It contains nearly all of the Solar System’s mass. Sunlight reaching Earth left the Sun’s visible surface, or photosphere, about eight minutes earlier.\nIts interior consists of a dense core, where nuclear fusion converts hydrogen into helium, a radiative zone that carries energy outward over long timescales, and a convective envelope in which hot plasma rises and cooler material descends. Above the photosphere lie the chromosphere and the corona, which extend outward into the solar wind. This flow of charged particles affects planetary magnetospheres throughout the Solar System.\nThe Sun is an ordinary star by galactic standards, but its proximity allows detailed study of sunspots, flares, and other changes in its atmosphere. Its mass, energy output, and structure provide the conditions under which the Solar System formed and continues to exist.',
     facts: {
       kind: 'Star',
       system: 'Solar System',
@@ -124,7 +124,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Terrestrial planet · Solar System',
     about:
-      'Mercury is the innermost planet — a compact, airless world of cratered highlands and long scarps left by ancient cooling. Days on Mercury are extreme: the surface faces the Sun for long stretches, then turns into a night cold enough to hold water ice in permanently shadowed polar craters. The planet’s large metallic core and thin silicate shell make it denser than its size suggests, a clue to a violent early history. There is no substantial atmosphere to soften temperature swings or paint a sky; the horizon stays sharp and the Sun appears several times larger than it does from Earth. Orientation stays with geology and orbit: a 3:2 spin–orbit resonance, a short year, and a landscape that records impacts more clearly than weather. Mercury is less a destination than a boundary condition — how close a rocky planet can orbit a star and still keep a solid surface.',
+      'Mercury is the innermost planet, a compact, airless world with cratered highlands and long scarps formed as the planet cooled and contracted. Its surface experiences extreme conditions: long periods of sunlight are followed by intense cold, while permanently shadowed craters near the poles can preserve water ice.\nMercury has a large metallic core and a relatively thin silicate shell, making it unusually dense for its size and suggesting a violent early history. It has no substantial atmosphere to moderate temperatures or scatter light, so the horizon remains sharp and the Sun appears several times larger than it does from Earth. Mercury rotates in a 3:2 spin-orbit resonance and completes a year quickly; its surface preserves impact features more clearly than planets shaped by weather.',
     facts: {
       kind: 'Planet',
       system: 'Solar System',
@@ -171,7 +171,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Terrestrial planet · Solar System',
     about:
-      'Venus is Earth’s near twin in size and a lesson in divergent climate. A crushing carbon-dioxide atmosphere, opaque sulfuric clouds, and a runaway greenhouse keep the surface hotter than Mercury’s dayside despite a greater distance from the Sun. The landscape is volcanic and tectonic — broad highlands, lava plains, and circular coronae — mapped mostly by radar because visible light barely reaches the ground. Rotation is slow and retrograde, so a Venusian day outlasts its year when measured against the stars, while the upper clouds race around the planet in a few Earth days. This primer treats Venus as an orientation in planetary atmospheres: what happens when a thick greenhouse seals a rocky world. It is not a travel brochure; the durable story is pressure, heat, and a geology written under clouds.',
+      'Venus is similar to Earth in size but has a very different climate. Its dense carbon-dioxide atmosphere, opaque sulfuric-acid clouds, and strong greenhouse effect keep the surface hotter than Mercury’s dayside despite Venus being farther from the Sun. Surface pressure is extreme, and visible light barely reaches the ground.\nThe landscape is volcanic and tectonic, with broad highlands, lava plains, and circular structures known as coronae. Much of the surface has been mapped by radar because the cloud cover prevents direct optical observation. Venus rotates slowly in a retrograde direction: its rotation period is longer than its orbital period when measured against the stars. Meanwhile, winds in the upper atmosphere carry clouds around the planet in only a few Earth days.',
     facts: {
       kind: 'Planet',
       system: 'Solar System',
@@ -218,7 +218,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Terrestrial planet · Solar System',
     about:
-      'Earth is the reference planet — oceans, continents, a protective magnetic field, and an atmosphere that stays breathable because biology and geology keep exchanging carbon and oxygen. From space it is a blue marble with swirling weather; up close it is plate tectonics, a hydrologic cycle, and a biosphere that has rewritten the air over geologic time. The Moon stabilizes obliquity and raises tides; the Sun sets the energy budget. Orientation in this guide is planetary rather than national: Earth as one rocky world in a habitable-zone orbit, with liquid water at the surface and a climate system sensitive to composition and sunlight. The durable facts are mass, distance, and the unusual coupling of ocean, atmosphere, and life. Everything else on Cleo’s country guides sits on this one sphere.',
+      'Earth is a rocky planet orbiting the Sun in the habitable zone, with liquid water covering much of its surface. Its oceans, continents, atmosphere, magnetic field, and Moon shape conditions at the surface. From space, Earth appears blue and white because of its oceans, clouds, and swirling weather systems.\nEarth’s atmosphere is breathable in part because biological and geological processes exchange carbon, oxygen, and other materials over long periods. Plate tectonics and the hydrologic cycle continually reshape the surface and move matter between land, ocean, and air. The biosphere has substantially altered the composition of the atmosphere over geologic time.\nThe Moon helps stabilize Earth’s axial tilt and produces tides, while the Sun supplies the energy that drives weather, climate, and much of the planet’s living systems. Earth’s climate depends on sunlight, atmospheric composition, ocean circulation, and the close interaction of water, air, rock, and life.',
     facts: {
       kind: 'Planet',
       system: 'Solar System',
@@ -265,7 +265,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Natural satellite · Earth',
     about:
-      'The Moon is Earth’s companion and the only other world humans have walked. Its near side shows dark maria of ancient basalt and bright highlands saturated with craters; the far side is almost all highlands. Tidally locked, it keeps one face toward Earth while sunlight crawls across two weeks of day and two weeks of night. There is no substantial air, so shadows stay knife-edged and the sky is always black. The Moon raises tides, steadies Earth’s tilt over long timescales, and preserves an impact record mostly erased on our planet by weather and tectonics. Orientation here is selenography: basins, highlands, and a crust born from a giant impact early in Solar System history. It remains the nearest archive of that violent youth.',
+      'The Moon is Earth’s natural satellite and the only other world visited on foot by humans. Its near side contains dark maria, broad plains of ancient basalt, among bright, heavily cratered highlands. The far side is dominated by highlands and has far fewer maria. Tidally locked to Earth, the Moon keeps the same hemisphere facing the planet while individual locations experience about two weeks of daylight followed by two weeks of darkness.\nThe Moon has no substantial atmosphere, leaving shadows sharply defined and the sky black even in daylight. Its gravity raises tides on Earth and helps stabilize Earth’s axial tilt over long timescales. Basins, highlands, and craters preserve an impact record that weather, erosion, and tectonic activity have largely erased from Earth. Its crust formed after a giant impact early in Solar System history, making the Moon a nearby record of the Solar System’s early violent period.',
     facts: {
       kind: 'Moon',
       system: 'Earth–Moon',
@@ -312,7 +312,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Terrestrial planet · Solar System',
     about:
-      'Mars is the outermost rocky planet — a cold desert world with polar ice, a thin carbon-dioxide air, and landscapes that once ran with water. Dust colors the sky; volcanoes and canyons reach scales Earth cannot match in a single plate. The planet’s day is nearly Earth-like, its year nearly twice as long, and its seasons are sharpened by a tilted axis and an eccentric orbit. Orientation stays with durable geography: the Tharsis bulge, the northern lowlands versus southern highlands, and climate archives locked in ice and layered sediments. Mars is often imagined as a second Earth; the field-guide view is more modest — a smaller, drier sibling that still preserves an early wet chapter in rock.',
+      'Mars is the outermost rocky planet, a cold desert world with polar ice, a thin atmosphere dominated by carbon dioxide, and landscapes shaped by ancient flowing water. Dust colors its sky, while volcanoes and canyons occur on scales unmatched on Earth within a single tectonic plate. A Martian day is close to an Earth day, but its year is nearly twice as long. Its tilted axis and eccentric orbit produce pronounced seasons.\nMajor features include the Tharsis bulge, the low-lying northern plains, and the older southern highlands. Ice deposits and layered sediments preserve records of past climate. Mars is smaller and drier than Earth, but its rocks retain evidence of an earlier, wetter period.',
     facts: {
       kind: 'Planet',
       system: 'Solar System',
@@ -359,7 +359,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Gas giant · Solar System',
     about:
-      'Jupiter is the Solar System’s largest planet — a hydrogen–helium giant whose mass shapes the architecture around it. Banded clouds, a centuries-old Great Red Spot, and a powerful magnetic field make it a weather engine and a radiation hazard at once. Dozens of moons form a miniature system, including the Galilean worlds that rewrote astronomy when first seen through a telescope. There is no solid surface to stand on; “depth” means pressure and temperature rising until hydrogen turns metallic. Orientation emphasizes scale and influence: a short day, a wide orbit, and a gravitational presence that shepherds asteroids and flings comets. Jupiter is less a place than a primary — a star that never ignited, still dominating the outer system’s dynamics.',
+      'Jupiter is the Solar System’s largest planet, a hydrogen–helium giant whose mass strongly influences the orbits of nearby bodies. Its atmosphere is marked by alternating cloud bands, the centuries-old Great Red Spot, and powerful storms. A strong magnetic field creates intense radiation belts around the planet.\nJupiter has dozens of moons, including Io, Europa, Ganymede, and Callisto, the Galilean moons first observed through a telescope in the early 17th century. The planet has no solid surface; pressure and temperature increase with depth until hydrogen enters a metallic state. Jupiter rotates rapidly, producing a short day, and follows a wide orbit around the Sun. Its gravity affects asteroids and comets and remains a major influence on the dynamics of the outer Solar System.',
     facts: {
       kind: 'Planet',
       system: 'Solar System',
@@ -406,7 +406,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Gas giant · Solar System',
     about:
-      'Saturn is the ringed giant — a hydrogen world less dense than water, wrapped in a disk of ice and rock so thin and bright it became the planet’s emblem. The atmosphere shows muted bands and long-lived storms; the interior likely mirrors Jupiter’s layered hydrogen physics at a smaller scale. Titan, with its thick air and methane cycle, and Enceladus, with its plume-fed subsurface ocean, make the satellite system a second subject almost as rich as the planet. Orientation here is architecture: rings sorted by density waves, shepherd moons, and a rapid spin that flattens the globe. Saturn teaches how a giant planet and its debris can coevolve into a single dynamical sculpture.',
+      'Saturn is a giant planet composed mainly of hydrogen and is less dense than water. Its bright ring system, made largely of ice particles with rock and dust, forms a thin disk around the planet and is its most recognizable feature. Saturn’s atmosphere has subdued cloud bands and persistent storms, while its interior is thought to contain layers of hydrogen under increasing pressure, broadly similar to those of Jupiter.\nIts moons are also notable parts of the Saturnian system. Titan has a dense atmosphere and a methane-based weather cycle, including clouds, rain, rivers, and lakes. Enceladus contains a subsurface ocean that supplies water-rich plumes through fractures near its south pole. Saturn’s rings are structured by density waves and by the gravitational effects of nearby shepherd moons. The planet’s rapid rotation contributes to its noticeably flattened shape at the poles.',
     facts: {
       kind: 'Planet',
       system: 'Solar System',
@@ -453,7 +453,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Ice giant · Solar System',
     about:
-      'Uranus is an ice giant rolled on its side — an axis tilted nearly into its orbital plane, so seasons last for decades and poles take turns facing the Sun. Methane in the atmosphere absorbs red light and leaves the planet a pale cyan. A narrow ring system and a family of dark moons orbit in that unusual geometry. The interior is thought to mix water, ammonia, and methane ices around a rocky core, distinct from the hydrogen-dominated gas giants. Orientation stresses the tilt and the cold: sunlight is weak at ~19 AU, and the weather we resolve is subtle compared with Jupiter’s banners. Uranus is the Solar System’s quiet oddity — still a planet, still layered, but spun into a different seasonal clock.',
+      'Uranus is an ice giant with an axis tilted nearly into its orbital plane. Its poles take turns facing the Sun, producing seasons that last for decades. At an average distance of about 19 AU from the Sun, it receives weak sunlight and has a cold atmosphere. Methane absorbs red light in the atmosphere, giving the planet its pale cyan appearance.\nA narrow ring system and a group of dark moons orbit Uranus in the same unusual geometry. Its interior is thought to contain water, ammonia, and methane ices surrounding a rocky core, unlike the hydrogen-dominated interiors of Jupiter and Saturn. Weather patterns on Uranus are generally subtle at the resolution available from Earth and spacecraft observations.',
     facts: {
       kind: 'Planet',
       system: 'Solar System',
@@ -500,7 +500,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Ice giant · Solar System',
     about:
-      'Neptune is the outermost planet — a deep blue ice giant where the strongest winds measured in the Solar System tear across cold cloud decks. Discovered by mathematics before it was seen, it anchors the classical planetary sequence beyond Uranus. Triton’s retrograde orbit and geyser-like plumes hint at capture from the Kuiper Belt. Faint rings and dark storms come and go on timescales shorter than a human career. Orientation is remoteness and dynamics: sunlight is a dim coin, yet the atmosphere is restless, powered by internal heat as much as by the Sun. Neptune closes the set of major planets and opens the door to the small-body frontier beyond.',
+      'Neptune is the outermost planet in the Solar System, a deep-blue ice giant beyond Uranus. Its atmosphere contains the strongest measured winds in the Solar System, sweeping across cold cloud decks and driving dark storms that can appear and disappear within decades. Although sunlight at Neptune is faint, its atmosphere remains active through heat rising from the planet’s interior as well as energy from the Sun.\nNeptune was predicted through mathematical analysis of Uranus’s orbit before it was observed in 1846. Its largest moon, Triton, travels in a retrograde orbit, suggesting that it was captured from the Kuiper Belt. Triton has geyser-like plumes, while Neptune itself is surrounded by faint rings. Beyond Neptune lies the region of distant small bodies that includes the Kuiper Belt.',
     facts: {
       kind: 'Planet',
       system: 'Solar System',
@@ -547,7 +547,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Dwarf planet · Kuiper Belt',
     about:
-      'Pluto is a Kuiper Belt world of ice mountains, nitrogen plains, and a thin seasonal atmosphere — reclassified as a dwarf planet yet undiminished as a geological story. Charon’s lockstep orbit makes the pair a true binary; smaller moons stitch a compact system. Close-range imaging revealed a heart-shaped basin of soft ices, rugged water-ice highlands, and haze layers catching the weak sunlight. Orientation rejects the old “ninth planet” argument and keeps the physical one: a differentiated icy body that still stirs its surface. Pluto shows that the outer Solar System is not a junk drawer of leftovers but a province of active, complex worlds.',
+      'Pluto is a dwarf planet in the Kuiper Belt, with ice mountains, nitrogen-ice plains, and a thin seasonal atmosphere. It is a differentiated icy body with an active surface shaped by volatile ices and other geological processes. Once classified as the Solar System’s ninth planet, Pluto was reclassified as a dwarf planet in 2006.\nPluto and its largest moon, Charon, orbit a shared center of mass outside Pluto, giving the pair characteristics of a binary system. Four smaller moons—Styx, Nix, Kerberos, and Hydra—orbit farther out. Close-range observations have identified the heart-shaped Sputnik Planitia basin, rugged water-ice highlands, and layers of atmospheric haze illuminated by weak sunlight.',
     facts: {
       kind: 'Dwarf planet',
       system: 'Kuiper Belt',
@@ -594,7 +594,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Small-body region · Solar System',
     about:
-      'The asteroid belt is a broad annular zone between Mars and Jupiter where leftover planetesimals never finished building a planet. It is mostly empty space: the total mass is a fraction of the Moon’s, spread across countless kilometers. Ceres, a dwarf planet, dominates that mass; Vesta and other large asteroids preserve basaltic crusts and iron cores from an early differentiated generation. Resonances with Jupiter carve gaps (the Kirkwood gaps) and continually stir orbits. Orientation treats the belt as a region and a museum — not a rubble wall to dodge in every story, but a dynamical province where Solar System beginnings remain readable in rock.',
+      'The asteroid belt is a broad annular region between Mars and Jupiter containing planetesimals that did not combine to form a planet. It is mostly empty space, with a total mass only a fraction of the Moon’s distributed across a vast area. Ceres, a dwarf planet, contains much of that mass. Vesta and other large asteroids retain basaltic crusts and iron cores formed during an early period of differentiation.\nJupiter’s gravitational resonances create the Kirkwood gaps and continually alter asteroid orbits. Rather than forming a dense wall of debris, the belt is a sparsely populated dynamical region whose rocks preserve evidence of the Solar System’s early formation.',
     facts: {
       kind: 'Region',
       system: 'Solar System',
@@ -641,7 +641,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Solar System',
     subtitle: 'Orbital laboratory · Low Earth orbit',
     about:
-      'The International Space Station is a continuously inhabited laboratory circling Earth about every ninety minutes. Assembled module by module in low orbit, it is a joint outpost where crews run experiments in microgravity, watch Earth systems from above, and practice the logistics of living beyond the atmosphere. Orientation is architectural and orbital rather than planetary: pressurized nodes, solar arrays, visiting vehicles, and a path that threads between atmosphere and the radiation of deeper space. The station is not a destination world — it is scaffolding for human presence, a place where the sky is a ninety-minute day-night cycle and “down” is always toward the blue curve. This primer stays with what the ISS is for: research, partnership, and a durable foothold just above the air.',
+      'The International Space Station is a continuously inhabited laboratory in low Earth orbit, circling the planet about every ninety minutes. Built module by module by an international partnership, it contains pressurized living and working areas, solar arrays, docking ports, and visiting spacecraft. Crews conduct microgravity experiments, observe Earth systems, and maintain the equipment needed for long-duration human spaceflight.\nThe station operates between Earth’s atmosphere and the stronger radiation environment of deeper space. Its orbit produces a day-night cycle roughly every ninety minutes, while Earth’s blue curve provides the constant reference for down. The ISS supports research, international cooperation, and the development of systems for living and working beyond the atmosphere.',
     facts: {
       kind: 'Space station',
       system: 'Low Earth orbit',
@@ -688,7 +688,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Galilean moon · Jupiter',
     about:
-      'Io is the innermost of Jupiter’s four large Galilean moons and the most volcanically active world known. Tidal flexing from Jupiter and neighboring moons kneads its interior, driving hundreds of volcanoes that paint the surface in sulfur yellows, reds, and blacks. There are almost no impact craters — lava and plume fallout resurface the crust continuously. Orientation is geology under stress: a thin atmosphere of sulfur dioxide, towering plumes, and a moon locked in resonance with Europa and Ganymede. Io is a laboratory for tidal heating, not a cold ice ball. This primer stays with the durable picture — a rocky satellite remade by gravity — rather than any single eruption campaign.',
+      'Io is the innermost of Jupiter’s four large Galilean moons and the most volcanically active world known. Tidal flexing caused by Jupiter and neighboring moons heats and deforms its interior, driving hundreds of volcanoes that color the surface in sulfur yellows, reds, and blacks. Its crust has almost no impact craters because lava flows and volcanic plume deposits continuously resurface it.\nIo has a thin atmosphere dominated by sulfur dioxide, and some eruptions produce plumes rising high above the surface. Its orbital resonance with Europa and Ganymede helps maintain the tidal forces that power its volcanism. A rocky satellite rather than an icy moon, Io is continually reshaped by gravity-driven tidal heating.',
     facts: {
       kind: 'Moon',
       system: 'Jupiter',
@@ -735,7 +735,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Galilean moon · Jupiter',
     about:
-      'Europa is an ice-shelled moon of Jupiter and one of the Solar System’s prime ocean worlds. A bright, cracked crust a few to tens of kilometers thick is thought to overlie a global saltwater ocean kept liquid by tidal heat. The surface is young by planetary standards — ridges, chaos terrain, and reddish stains mark places where the ice has broken and refrozen. Orientation is habitability without romance: a moon small enough to hold in a mental model, yet hiding more water than Earth’s seas if the ocean models hold. Radiation from Jupiter makes the surface hostile; the interesting chemistry, if any, would be below. This primer stays with structure and evidence — ice, ocean, and the physics that keep both in play.',
+      'Europa is an ice-shelled moon of Jupiter, with a bright, fractured crust thought to be a few to tens of kilometers thick. Beneath the ice, evidence and models indicate a global saltwater ocean kept liquid by heat generated through Jupiter’s tidal pull. If those ocean models are correct, Europa may contain more water than Earth’s seas.\nIts surface is young by planetary standards and is marked by ridges, disrupted areas known as chaos terrain, and reddish stains where ice may have broken, shifted, and refrozen. Intense radiation from Jupiter makes the surface hostile, while any potentially significant chemistry would likely occur beneath the ice. Europa’s structure is defined by the interaction of its ice shell, subsurface ocean, and tidal heating.',
     facts: {
       kind: 'Moon',
       system: 'Jupiter',
@@ -782,7 +782,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Galilean moon · Jupiter',
     about:
-      'Ganymede is the largest moon in the Solar System — bigger than Mercury — and the only one known to generate its own magnetic field. Its surface mixes dark, ancient cratered terrain with brighter, grooved ice that tells of tectonic stretching. Beneath the crust, models point to a layered interior that may include a deep saltwater ocean. Orientation is scale and complexity: a differentiated world with aurorae, a thin oxygen atmosphere, and a place in the Laplace resonance with Io and Europa. Ganymede is less a “planet-like moon” slogan than a body that simply grew large enough to behave like one. This primer stays with that architecture — field, ice, and interior — without mission-of-the-week framing.',
+      'Ganymede is the largest moon in the Solar System, larger than Mercury, and the only moon known to generate its own magnetic field. Its surface includes dark, ancient cratered terrain and brighter regions of grooved ice shaped by tectonic stretching. Aurorae occur around its magnetic poles, and it has a very thin oxygen atmosphere.\nModels indicate that Ganymede has a differentiated interior, with layers that may include a deep saltwater ocean beneath its icy crust. It is locked in the Laplace resonance with Jupiter’s moons Io and Europa. Its magnetic field, ice-rich surface, and layered interior give it many physical characteristics associated with larger planetary bodies.',
     facts: {
       kind: 'Moon',
       system: 'Jupiter',
@@ -829,7 +829,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Natural satellite · Saturn',
     about:
-      'Titan is Saturn’s largest moon and the only satellite with a thick nitrogen atmosphere. Orange haze hides a cold surface where methane and ethane play the role water plays on Earth — clouds, rain, rivers, and lakes near the poles. Under the organic-rich crust, evidence points to a water-ammonia ocean. Orientation is climate chemistry at 94 kelvin: dunes of hydrocarbon sand, bright highlands, and a weather cycle that would feel familiar if the liquids were not methane. Huygens’s descent and Cassini’s radar mapped enough to make Titan a second geologic world, not just a featureless blob. This primer stays with atmosphere, hydrology, and interior — the durable Titan — rather than any single flyby highlight.',
+      'Titan is Saturn’s largest moon and the only known satellite with a thick nitrogen atmosphere. Its orange haze obscures a surface at about 94 kelvin, where methane and ethane form clouds, rain, rivers, and lakes, especially near the poles. Hydrocarbon sand dunes and bright highlands shape parts of the landscape, while an organic-rich crust may overlie a water-ammonia ocean.\nObservations from the Huygens probe and Cassini spacecraft revealed Titan as a geologically varied world rather than a featureless icy body. Cassini radar mapped lakes, channels, dunes, and other surface features through the haze, while atmospheric measurements showed an active methane-based weather cycle with broad similarities to Earth’s water cycle.',
     facts: {
       kind: 'Moon',
       system: 'Saturn',
@@ -876,7 +876,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Natural satellite · Saturn',
     about:
-      'Enceladus is a small, bright icy moon of Saturn whose south polar region vents water vapor and ice into space. Those plumes feed a diffuse ring and, more importantly, sample a subsurface ocean that contacts rock — a setting where chemistry can run. Tiger-stripe fractures mark the active pole; the rest of the moon is cratered and cold. Orientation is contrast: a world you could almost circle in an afternoon of imagination, yet one that punches above its size for ocean science. Cassini flew through the plumes and tasted salts and organics; the durable story is a heated, porous interior under a cracked shell. This primer stays with that ocean-moon picture, not with any single plume-brightness headline.',
+      'Enceladus is a small, bright icy moon of Saturn. Its south polar region vents water vapor and ice particles into space, forming plumes that feed Saturn’s diffuse E ring. The plumes also provide material from a subsurface ocean that is in contact with rock, where chemical reactions may occur.\nTiger-stripe fractures cross the active south polar terrain, while much of the rest of the moon is cold and heavily cratered. NASA’s Cassini spacecraft flew through the plumes and detected salts and organic compounds. The evidence indicates a heated, porous interior beneath Enceladus’s cracked ice shell and an ocean beneath the surface.',
     facts: {
       kind: 'Moon',
       system: 'Saturn',
@@ -923,7 +923,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Galilean moon · Jupiter',
     about:
-      'Callisto is the outermost Galilean moon of Jupiter and the most heavily cratered large body in the Solar System — an icy sphere whose surface records billions of years of impacts with little later resurfacing. Beneath that battered crust, magnetic and gravity data suggest a salty subsurface ocean sandwiched in ice; above it, Valhalla and other multi-ring basins mark enormous ancient collisions. Orientation completes the Galilean quartet: farther and colder than Io, Europa, and Ganymede, Callisto sits outside Jupiter’s strongest radiation belts and preserves a quieter geologic archive. Galileo’s cameras mapped dark, dusty terrains and bright ice scars; the durable story is deep time on an ice moon, not a single basin close-up. This primer stays with that cratered, ocean-bearing picture.',
+      'Callisto is the outermost of Jupiter’s four Galilean moons and the most heavily cratered large body in the Solar System. Its icy surface preserves billions of years of impacts, with little evidence of later resurfacing. Valhalla and other multi-ring basins were formed by enormous ancient collisions, while dark, dusty terrain and bright ice scars cover much of the moon.\nMagnetic and gravity measurements suggest that a salty subsurface ocean may lie beneath Callisto’s battered ice crust. Farther from Jupiter than Io, Europa, and Ganymede, Callisto is colder and lies outside the planet’s strongest radiation belts. Images from the Galileo spacecraft documented a geologic record dominated by ancient impacts and long-term preservation.',
     facts: {
       kind: 'Moon',
       system: 'Jupiter',
@@ -970,7 +970,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Natural satellite · Neptune',
     about:
-      'Triton is Neptune’s largest moon and one of the oddest large satellites: it orbits backward relative to Neptune’s spin, likely a captured Kuiper Belt world now locked in a decaying path. Voyager 2 found a young, cold surface of nitrogen ice, dark streaks from polar geysers, and “cantaloupe” terrain of interlocking cells — signs of internal heat and past cryovolcanism. Orientation is ice-giant companion as former dwarf-planet cousin: roughly as large as Pluto, with a thin atmosphere and seasons driven by extreme axial tilt relative to the Sun. The durable story is capture, activity, and a surface still rewriting itself at the edge of the planetary system. This primer stays with that Voyager-era portrait rather than speculative mission schedules.',
+      'Triton is Neptune’s largest moon and one of the Solar System’s most unusual large satellites. It orbits in the direction opposite Neptune’s rotation, a retrograde path that suggests it was captured from the Kuiper Belt rather than formed around Neptune. Comparable in size to Pluto, Triton may be a former dwarf-planet-sized body altered by its capture into orbit.\nVoyager 2 observed a young, cold surface dominated by nitrogen ice, with dark streaks associated with polar geysers and regions of interlocking cellular landforms known as cantaloupe terrain. These features indicate internal heat and past cryovolcanic activity. Triton has a thin atmosphere and strong seasonal changes caused by its extreme axial tilt relative to the Sun. Its orbit is gradually decaying, while its surface shows evidence of continuing geological renewal in the outer Solar System.',
     facts: {
       kind: 'Moon',
       system: 'Neptune',
@@ -1017,7 +1017,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Natural satellite · Pluto',
     about:
-      'Charon is Pluto’s giant companion — large enough that the two worlds orbit a barycenter outside Pluto, forming a true binary dwarf-planet system. New Horizons revealed a varied icy surface: a reddish polar cap stained by gases escaped from Pluto, canyon systems, and smoother plains among older cratered highlands. Orientation is partnership at the edge of the classical planets: Charon is about half Pluto’s diameter, tidally locked face-to-face, sharing a 6.4-day dance. The durable story is how a captured or giant-impact sibling shaped both worlds’ geology and atmospheres. This primer stays with that binary architecture and New Horizons landscape, not with informal feature-name debates.',
+      'Charon is Pluto’s largest companion and is about half Pluto’s diameter. The two bodies orbit a shared barycenter outside Pluto, making them a binary dwarf-planet system. They are tidally locked, with the same hemispheres facing each other, and complete an orbit every 6.4 days.\nImages from NASA’s New Horizons mission showed a varied icy surface, including older cratered highlands, smoother plains, and extensive canyon systems. Charon’s north polar region has a reddish cap, likely formed from gases escaping Pluto and becoming chemically altered after settling on Charon’s surface. Its shared history with Pluto may reflect capture or, more likely, formation after a giant impact that affected the geology and atmospheres of both bodies.',
     facts: {
       kind: 'Moon',
       system: 'Pluto',
@@ -1064,7 +1064,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Natural satellite · Uranus',
     about:
-      'Miranda is a small icy moon of Uranus whose surface looks stitched together from mismatched geologic provinces — coronae of bright, chevron-patterned terrain beside ancient cratered plains, and cliffs so high they would dwarf Earth’s tallest walls. Voyager 2’s brief flyby in 1986 remains our only close look; it caught Verona Rupes and other scarps that hint at catastrophic upheaval, incomplete differentiation, or extreme tidal heating in the past. Orientation is ice-giant moon as puzzle: only a few hundred kilometers across, yet among the most geologically surprising worlds visited. The durable story is fractured history written in ice, not a complete global map. This primer stays with that Voyager portrait of extremes.',
+      'Miranda is a small icy moon of Uranus, a few hundred kilometers across. Its surface contains sharply contrasting geologic provinces, including bright coronae with chevron-patterned terrain, ancient cratered plains, and large cliffs. Verona Rupes, observed by Voyager 2, is among the Solar System’s tallest known scarps and would dwarf Earth’s tallest walls.\nVoyager 2’s 1986 flyby remains the only close observation of Miranda and did not produce a complete global map. The moon’s fractured, varied terrain may reflect catastrophic disruption, incomplete internal differentiation, or periods of intense tidal heating.',
     facts: {
       kind: 'Moon',
       system: 'Uranus',
@@ -1111,7 +1111,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Moons',
     subtitle: 'Natural satellite · Saturn',
     about:
-      'Iapetus is Saturn’s two-faced moon: one hemisphere coated in dark, reddish material, the other bright water ice, with a towering equatorial ridge that makes the world look walnut-shaped in silhouette. Cassini mapped the dichotomy and the ridge’s peaks, linking the dark side to dust swept from outer retrograde moons and thermal effects that keep bright ice from spreading. Orientation is Saturn system oddity with a clear story — color contrast plus a mountain belt circling the equator — rather than a blank cratered ball. The durable facts are the yin-yang surface and the ridge’s scale; the open questions are exactly how the ridge formed. This primer stays with that Cassini landscape.',
+      'Iapetus is a moon of Saturn with a striking two-toned surface: one hemisphere is coated in dark, reddish material, while the other is covered in bright water ice. It also has a towering ridge along much of its equator, giving the moon a walnut-like silhouette. Cassini mapped both the sharp color contrast and the ridge’s peaks.\nThe dark material is associated with dust from Saturn’s outer retrograde moons and with thermal effects that limit the spread of bright ice onto the darker hemisphere. Iapetus’s most persistent features are its yin-yang appearance and its equatorial mountain belt. The precise process that formed the ridge remains uncertain.',
     facts: {
       kind: 'Moon',
       system: 'Saturn',
@@ -1158,7 +1158,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Deep Space',
     subtitle: 'Barred spiral galaxy · Local Group',
     about:
-      'The Milky Way is our galaxy — a barred spiral of stars, gas, dust, and dark matter spanning on the order of a hundred thousand light-years. The Sun sits in a quiet stretch of a spiral-arm environment, orbiting the center once every couple of hundred million years. From Earth’s night side the disk appears as a pale band; infrared and radio maps reveal a central bar, molecular clouds, and a supermassive black hole in the nucleus. Orientation zooms out from planets to the structure that contains them: halo, disk, bulge, and the satellite galaxies bound alongside. This primer stays with architecture and membership, not with transient astronomical alerts. Every Solar System guide on Cleo is a footnote inside this one galaxy.',
+      'The Milky Way is a barred spiral galaxy of stars, gas, dust, and dark matter, spanning roughly 100,000 light-years. The Sun lies in a relatively quiet region of its spiral-arm structure and orbits the galactic center about once every few hundred million years. From Earth’s night side, the galaxy’s disk appears as a pale band across the sky.\nInfrared and radio observations show a central bar, molecular clouds, and a supermassive black hole at the nucleus. The Milky Way includes a stellar halo, disk, and central bulge, along with satellite galaxies gravitationally bound to it. The Solar System is one small part of this larger galactic structure.',
     facts: {
       kind: 'Galaxy',
       system: 'Local Group',
@@ -1205,7 +1205,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Deep Space',
     subtitle: 'Spiral galaxy · Local Group',
     about:
-      'Andromeda (M31) is the nearest major spiral galaxy and the Milky Way’s future partner in a slow gravitational waltz. On a dark autumn night it appears as a soft oval to the unaided eye; telescopes resolve dust lanes, star clouds, and a bright nucleus. It is larger and more massive than the Milky Way by many estimates, with its own retinue of dwarf satellites. Orientation is neighborliness at cosmic scale: about 2.5 million light-years away, still close enough that its light left when Australopithecus walked Earth. The durable story is structure and destiny — two large spirals in the Local Group that will eventually merge — without treating the merger as imminent drama. Andromeda is simply the next island over in our galactic archipelago.',
+      'Andromeda, also known as M31, is the nearest major spiral galaxy to the Milky Way, about 2.5 million light-years away. Its light began traveling toward Earth when Australopithecus walked the planet. On dark autumn nights, it can appear to the unaided eye as a faint oval of light; telescopes reveal dust lanes, star clouds, and a bright central nucleus.\nBy many estimates, Andromeda is larger and more massive than the Milky Way and is accompanied by numerous dwarf satellite galaxies. Both galaxies belong to the Local Group, a collection of galaxies bound by gravity. Their mutual gravitational attraction is expected to bring them together in a merger billions of years from now.',
     facts: {
       kind: 'Galaxy',
       system: 'Local Group',
@@ -1252,7 +1252,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Deep Space',
     subtitle: 'Star-forming nebula · Orion',
     about:
-      'The Orion Nebula (M42) is the nearest large star-forming region bright enough to see with the unaided eye as a fuzzy patch in Orion’s sword. Hot young stars in its core carve cavities in gas and dust, lighting the cloud from within and driving outflows that shred natal material. Infrared views pierce the haze to reveal protoplanetary disks and embedded clusters; optical views show the glowing walls of ionized hydrogen. Orientation is stellar nursery at a human scale of night-sky familiarity: about 1,300–1,400 light-years away, close enough that its structure is a textbook for how stars assemble. This primer stays with the cloud’s architecture and role — a factory floor for stars — not with transient brightness alerts.',
+      'The Orion Nebula, also known as M42, is the nearest large star-forming region bright enough to be seen with the unaided eye as a fuzzy patch in Orion’s sword. It lies about 1,300–1,400 light-years from Earth. Hot young stars in its core carve cavities through gas and dust, illuminating the cloud from within and driving outflows that disperse surrounding natal material.\nOptical observations show glowing walls of ionized hydrogen, while infrared observations penetrate the haze to reveal embedded clusters and protoplanetary disks around young stars. The nebula’s layered gas, dust, cavities, and newly formed stars provide a nearby example of the processes by which stars and planetary systems assemble.',
     facts: {
       kind: 'Nebula',
       system: 'Milky Way · Orion Molecular Cloud',
@@ -1299,7 +1299,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Deep Space',
     subtitle: 'Supernova remnant · Taurus',
     about:
-      'The Crab Nebula (M1) is the expanding debris of a star that exploded in 1054 CE — a supernova recorded by skywatchers across Eurasia. At its center, a pulsar spins dozens of times per second, injecting energy that lights filaments of gas and a synchrotron nebula across the spectrum. Orientation is aftermath: what a core-collapse leaves behind when the remnant is still young on cosmic clocks. Roughly 6,500 light-years away in Taurus, the Crab is a calibration source for high-energy astronomy and a vivid case study in how neutron stars power their surroundings. This primer stays with the remnant’s structure and engine, not with day-to-day flux monitoring.',
+      'The Crab Nebula, also known as M1, is the expanding debris of a star that exploded as a supernova in 1054 CE. The event was recorded by skywatchers across Eurasia. About 6,500 light-years away in the constellation Taurus, the remnant contains filaments of gas surrounding a central neutron star.\nThe neutron star is a pulsar that spins dozens of times per second. It injects energy into the surrounding material, producing synchrotron radiation and making the nebula visible across much of the electromagnetic spectrum. The Crab Nebula is a young core-collapse supernova remnant on cosmic timescales and is widely used as a calibration source in high-energy astronomy.',
     facts: {
       kind: 'Nebula',
       system: 'Milky Way · Taurus',
@@ -1346,7 +1346,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Deep Space',
     subtitle: 'Star-forming nebula · Carina',
     about:
-      'The Carina Nebula (NGC 3372) is a vast southern star-forming complex where massive stars carve pillars, cavities, and shock fronts into dense clouds. Home to η Carinae and rich clusters of young stars, it is a more violent nursery than Orion — higher masses, stronger winds, and a landscape of cold dust lit by ultraviolet glare. Orientation is southern-sky grandeur: thousands of light-years away, spanning degrees on the sky, a region where stellar feedback is rewriting the molecular cloud in real geologic time. Hubble and other observatories have turned its ridges into iconic “landscapes,” but the durable story is feedback physics — how the biggest stars shape the next generation. This primer stays with that role and structure.',
+      'The Carina Nebula, also cataloged as NGC 3372, is a vast star-forming complex in the southern sky. Massive stars within it carve pillars, cavities, and shock fronts into dense molecular clouds through intense ultraviolet radiation and powerful stellar winds. The region contains η Carinae, one of the Milky Way’s most massive and luminous stellar systems, along with rich clusters of young stars.\nLocated thousands of light-years away and spanning several degrees on the sky, the Carina Nebula is a more energetic stellar nursery than the Orion Nebula, with higher-mass stars, stronger winds, and extensive cold dust illuminated by ultraviolet light. Its ridges, dust pillars, and ionized gas have been imaged by Hubble and other observatories. These structures show stellar feedback in action as radiation, winds, and explosions from massive stars reshape the molecular cloud and influence later generations of star formation.',
     facts: {
       kind: 'Nebula',
       system: 'Milky Way · Carina–Sagittarius arm',
@@ -1393,7 +1393,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Deep Space',
     subtitle: 'Star-forming nebula · Serpens',
     about:
-      'The Eagle Nebula (M16) is a bright star-forming complex in Serpens whose cold pillars of gas and dust — the Pillars of Creation — became one of astronomy’s most recognizable landscapes. Hot young stars in the cluster NGC 6611 carve cavities and silhouette denser columns against glowing hydrogen; infrared light pierces the haze to show embedded protostars still assembling inside. Orientation is stellar nursery as public icon: roughly 5,700–7,000 light-years away, close enough for Hubble and other telescopes to resolve individual ridges while still distant enough that light left before recorded history. The durable story is feedback — how massive stars reshape the cloud that made them — not a single photograph’s fame. This primer stays with the nebula’s architecture and role in the Galactic disk.',
+      'The Eagle Nebula, also catalogued as M16, is a bright star-forming complex in the constellation Serpens about 5,700 to 7,000 light-years from Earth. It contains the open cluster NGC 6611, whose hot young stars illuminate surrounding hydrogen gas and carve cavities in the cloud. Dense, colder columns of gas and dust stand in silhouette against the glowing nebula.\nThe best-known structures are the Pillars of Creation, towering dusty columns in which embedded protostars are still forming. Infrared observations can penetrate much of the obscuring dust and reveal young stars within the cloud. The nebula shows how radiation and stellar winds from massive stars reshape the material from which they formed, dispersing some regions while compressing others. Its distance allows telescopes including Hubble to resolve individual ridges and pillars, while the observed light began its journey before recorded history.',
     facts: {
       kind: 'Nebula',
       system: 'Milky Way · Serpens',
@@ -1440,7 +1440,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Deep Space',
     subtitle: 'Spiral galaxy · Canes Venatici',
     about:
-      'The Whirlpool Galaxy (M51) is a face-on grand-design spiral locked in a close dance with a smaller companion, NGC 5195. Its arms are unusually sharp — lanes of dust and knots of star formation winding out from a bright nucleus — which made it an early proof that “spiral nebulae” are galaxies in their own right. Orientation is interaction physics you can see: tidal bridges and triggered star formation drawn across tens of thousands of light-years, about 23–31 million light-years from Earth in Canes Venatici. Multiwavelength portraits peel the same disk into stars, warm dust, and high-energy glow. This primer stays with structure and companionship — a textbook interacting spiral — rather than transient outburst headlines.',
+      'The Whirlpool Galaxy, also known as M51, is a face-on grand-design spiral galaxy interacting closely with the smaller companion galaxy NGC 5195. Sharp spiral arms, marked by dark dust lanes and bright knots of star formation, wind outward from a luminous nucleus. Observations of M51 helped establish that the objects once called “spiral nebulae” are galaxies beyond the Milky Way.\nTidal forces between M51 and NGC 5195 have produced bridges of material and triggered star formation across tens of thousands of light-years. Located about 23–31 million light-years from Earth in the constellation Canes Venatici, the system is observed at many wavelengths, which reveal different components of its disk, including stars, warm dust, and high-energy emission.',
     facts: {
       kind: 'Galaxy',
       system: 'Canes Venatici · M51 group',
@@ -1487,7 +1487,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Deep Space',
     subtitle: 'Satellite galaxy · Local Group',
     about:
-      'The Large Magellanic Cloud (LMC) is the Milky Way’s brightest satellite galaxy — an irregular, barred system of stars, gas, and dust visible to the unaided eye from the southern sky. It hosts the Tarantula Nebula, one of the most vigorous nearby star-forming regions, and a rich census of clusters, remnants, and young massive stars that let astronomers study stellar life cycles up close. Orientation is neighborliness: roughly 160,000 light-years away, near enough that individual clouds resolve while still outside the Milky Way’s main disk. The Magellanic Clouds share a history of tidal interaction with each other and with our Galaxy; the durable story is that extended Local Group family. This primer stays with the LMC’s structure and role as a satellite laboratory, not with short-lived survey campaigns.',
+      'The Large Magellanic Cloud (LMC) is the Milky Way’s brightest satellite galaxy. An irregular barred system of stars, gas, and dust, it is visible to the unaided eye from the Southern Hemisphere. It lies about 160,000 light-years away, close enough for astronomers to resolve individual gas clouds, star clusters, and stellar populations while remaining outside the Milky Way’s main disk.\nThe LMC contains the Tarantula Nebula, one of the most active nearby regions of star formation, along with numerous clusters, supernova remnants, and young massive stars. These features provide detailed evidence of stellar formation and evolution. The LMC and the Small Magellanic Cloud have undergone tidal interactions with each other and with the Milky Way, making the LMC part of the interacting galaxy system of the Local Group.',
     facts: {
       kind: 'Galaxy',
       system: 'Local Group · Magellanic Clouds',
@@ -1534,7 +1534,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Deep Space',
     subtitle: 'Planetary nebula · Aquarius',
     about:
-      'The Helix Nebula (NGC 7293) is one of the nearest bright planetary nebulae — the glowing shell of gas cast off by a Sun-like star as it leaves the red-giant phase and becomes a hot white dwarf. From Earth it spans nearly half a degree on the sky in Aquarius, earning nicknames like the “Eye of God” for its round, layered look. Infrared views reveal dusty knots and comet-shaped globules pointing away from the central star; ultraviolet maps show the hot ionized cavity. Orientation is stellar fate at a human-friendly distance: about 650–700 light-years away, a preview of what stars like the Sun will leave behind on gigayear clocks. This primer stays with the nebula’s geometry and engine, not with day-to-day amateur imaging alerts.',
+      'The Helix Nebula, cataloged as NGC 7293, is a bright planetary nebula in the constellation Aquarius, about 650–700 light-years from Earth. It is the expanding shell of gas expelled by a Sun-like star after its red-giant phase, leaving a hot white dwarf at its center. The nebula spans nearly half a degree in Earth’s sky and has a round, layered appearance that has led to nicknames including the “Eye of God.”\nInfrared observations show dust-rich knots and comet-shaped globules directed away from the central star, while ultraviolet maps trace the hot ionized cavity within the shell. The Helix Nebula illustrates a late stage in the evolution of stars similar to the Sun, whose outer layers will also be shed over billion-year timescales.',
     facts: {
       kind: 'Nebula',
       system: 'Milky Way · Aquarius',
@@ -1581,7 +1581,7 @@ const spaceSubjectDrafts: SpaceSubjectDraft[] = [
     category: 'Deep Space',
     subtitle: 'Dark nebula · Orion',
     about:
-      'The Horsehead Nebula (Barnard 33) is a dark cloud of cold dust silhouetted against the bright emission nebula IC 434 in Orion — a seahorse-shaped notch in glowing hydrogen just south of Alnitak in Orion’s Belt. Behind and around it lie the Flame Nebula and a broader molecular complex where stars continue to form. Optical images show the famous silhouette; infrared light turns the horse’s head into a glowing landscape of warm dust. Orientation is night-sky familiarity at modest distance: roughly 1,375–1,500 light-years away, part of the same Orion molecular neighborhood that includes the Orion Nebula. The durable story is contrast — dense dust against ionized gas — and how wavelength changes what we see. This primer stays with that structure rather than photographic folklore alone.',
+      'The Horsehead Nebula, also cataloged as Barnard 33, is a dark cloud of cold dust silhouetted against the bright emission nebula IC 434 in Orion. Its well-known outline resembles a seahorse-shaped notch in glowing hydrogen south of Alnitak, the easternmost star in Orion’s Belt. The nearby Flame Nebula and a wider molecular cloud complex surround the region, where star formation is still taking place.\nThe nebula lies roughly 1,375 to 1,500 light-years from Earth, within the Orion molecular cloud region that also includes the Orion Nebula. In visible light, dense dust produces the familiar dark silhouette against ionized gas. Infrared observations reveal warmer dust within and around the cloud, changing the apparent horse-head shape into a brighter, more textured structure.',
     facts: {
       kind: 'Nebula',
       system: 'Milky Way · Orion Molecular Cloud',

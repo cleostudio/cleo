@@ -7,7 +7,7 @@ conversation.
 The homepage is a neutral portal: one search bar over countries, Space bodies,
 civilizations, cities, oceans, rivers, curated photographs, Writing posts, topic collections,
 and site surfaces, plus highlighted places, topic discovery, and recent Writing.
-Explore field guides live at `/explore/[slug]`, Space at `/space/[slug]`,
+Explore country pages live at `/explore/[slug]`, Space at `/space/[slug]`,
 Civilizations at `/civilizations/[slug]`, Cities at `/cities/[slug]`, Oceans at
 `/oceans/[slug]`, Rivers at `/rivers/[slug]`,
 photographs at `/gallery`, topics at `/topics`, Writing at `/blog`, and the
@@ -37,12 +37,12 @@ Open [http://localhost:3000](http://localhost:3000). Keep the OpenAI key,
 - Next.js 16.3 preview, React 19, TypeScript, Tailwind CSS v4
 - Base UI primitives (`@fluid` registry)
 - MDX Writing under `content/blog/`
-- Country guides: `content/atlas.json` + static JPEGs in `public/images/atlas/`
-- Space guides: `lib/space.ts` + `content/space-photos.json` + `public/images/space/`
-- Civilizations guides: `lib/civilizations.ts` + `content/civilizations-photos.json` + `public/images/civilizations/`
-- Cities guides: `lib/cities.ts` + `content/cities-photos.json` + `public/images/cities/`
-- Oceans guides: `lib/oceans.ts` + `content/oceans-photos.json` + `public/images/oceans/`
-- Rivers guides: `lib/rivers.ts` + `content/rivers-photos.json` + `public/images/rivers/`
+- Country pages: `content/atlas.json` + static JPEGs in `public/images/atlas/`
+- Space pages: `lib/space.ts` + `content/space-photos.json` + `public/images/space/`
+- Civilizations pages: `lib/civilizations.ts` + `content/civilizations-photos.json` + `public/images/civilizations/`
+- Cities pages: `lib/cities.ts` + `content/cities-photos.json` + `public/images/cities/`
+- Oceans pages: `lib/oceans.ts` + `content/oceans-photos.json` + `public/images/oceans/`
+- Rivers pages: `lib/rivers.ts` + `content/rivers-photos.json` + `public/images/rivers/`
 - OpenAI Responses API for `/api/responses` only
 - Better Auth (email/password) on Neon Postgres for `/sign-in` / `/account`
 - Vercel Web Analytics + Speed Insights (enable both in the Vercel dashboard)

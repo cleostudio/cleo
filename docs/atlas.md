@@ -1,7 +1,7 @@
 # Explore / atlas (countries)
 
-Country field guides at `/explore/[slug]`. One record per slug in
-`content/atlas.json`. Orientation prose is curated, not generated at build or
+Country pages at `/explore/[slug]`. One record per slug in
+`content/atlas.json`. About prose is curated, not generated at build or
 request time — the site never calls a model to render a page.
 
 ## Map
@@ -9,7 +9,7 @@ request time — the site never calls a model to render a page.
 | Piece | Path |
 | --- | --- |
 | Manifest | `content/atlas.json` |
-| Orientation prose corpus | `scripts/atlas/atlas-about.json` |
+| About prose corpus | `scripts/atlas/atlas-about.json` |
 | Prose uniqueness bar | `lib/atlas/prose.test.ts` |
 | Atlas lib | `lib/atlas/*`, `lib/countries.ts` |
 | Public JPEGs | `public/images/atlas/{slug}/` |

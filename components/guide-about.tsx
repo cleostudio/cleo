@@ -1,11 +1,11 @@
 /**
- * Orientation prose for a field guide.
+ * About prose for a topic page.
  *
  * Country entries are written as several paragraphs (newline separated in
- * `content/atlas.json`); space entries are a single block. Both render the
- * same way so the two guide types stay typographically identical.
+ * `content/atlas.json`); other topics may be one or more blocks. All render
+ * the same way so guide types stay typographically identical.
  */
-export function GuideOrientation({ about }: { about: string }) {
+export function GuideAbout({ about }: { about: string }) {
   const paragraphs = about
     .split('\n')
     .map((paragraph) => paragraph.trim())

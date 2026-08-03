@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { GuidePhotoCollection } from '~/components/guide-photo-collection'
-import { GuideOrientation } from '~/components/guide-orientation'
+import { GuideAbout } from '~/components/guide-about'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { countrySlugs, getCountry } from '~/lib/countries'
 import { atlasDescription, getAtlasEntry } from '~/lib/atlas'
@@ -75,9 +75,9 @@ export function ExploreCountryPageView({ slug }: { slug: string }) {
         aria-labelledby="guide-about"
       >
         <h2 id="guide-about" className="guide-label">
-          Orientation
+          About
         </h2>
-        <GuideOrientation about={entry.about} />
+        <GuideAbout about={entry.about} />
       </section>
 
       <section

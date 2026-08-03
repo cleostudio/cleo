@@ -181,22 +181,22 @@ describe('CLEO_PORTAL_STARTERS', () => {
     expect(CLEO_PORTAL_STARTERS).toContainEqual({
       label: 'Show Japan photos',
       prompt:
-        'Show me all three curated photos of Japan and deep-link its field guide.',
+        'Show me all three curated photos of Japan and deep-link its Explore page.',
     })
     expect(CLEO_PORTAL_STARTERS).toContainEqual({
-      label: 'Orient me to Istanbul',
+      label: 'Tell me about Istanbul',
       prompt:
-        'Give me a quick orientation to Istanbul. Deep-link its Cities guide when you mention the city.',
+        'Tell me about Istanbul. Deep-link its Cities page when you mention the city.',
     })
     expect(CLEO_PORTAL_STARTERS).toContainEqual({
-      label: 'Orient me to the Pacific Ocean',
+      label: 'Tell me about the Pacific Ocean',
       prompt:
-        'Give me a quick orientation to the Pacific Ocean. Deep-link its Oceans guide when you mention it.',
+        'Tell me about the Pacific Ocean. Deep-link its Oceans page when you mention it.',
     })
     expect(CLEO_PORTAL_STARTERS).toContainEqual({
-      label: 'Orient me to the Nile',
+      label: 'Tell me about the Nile',
       prompt:
-        'Give me a quick orientation to the Nile. Deep-link its Rivers guide when you mention the river.',
+        'Tell me about the Nile. Deep-link its Rivers page when you mention the river.',
     })
   })
 })

@@ -1,9 +1,9 @@
-# Rivers field guides
+# Rivers
 
-Rivers guides at `/rivers` and `/rivers/[slug]`. Catalog in `lib/rivers.ts`:
-Africa, Asia, and Europe, Americas & Oceania — orientation, course features,
+Rivers pages at `/rivers` and `/rivers/[slug]`. Catalog in `lib/rivers.ts`:
+Africa, Asia, and Europe, Americas & Oceania — about, course features,
 basin, hydrology, climate role, sources, and curated photographs (twenty-six
-guides). Topics catalog lists Rivers alongside Countries, Space, Civilizations,
+rivers). Topics catalog lists Rivers alongside Countries, Space, Civilizations,
 Cities, and Oceans (`lib/topics.ts`).
 
 ## Map

@@ -38,7 +38,7 @@ const PORTAL_SURFACES: SurfaceSeed[] = [
     title: 'Explore',
     subtitle: 'Country guides',
     href: '/explore',
-    keywords: 'atlas field guides places world map',
+    keywords: 'atlas countries places world map',
   },
   {
     title: 'Space',
@@ -56,19 +56,19 @@ const PORTAL_SURFACES: SurfaceSeed[] = [
     title: 'Cities',
     subtitle: 'City guides',
     href: '/cities',
-    keywords: 'capitals routes urban metropolis field guides',
+    keywords: 'capitals routes urban metropolis',
   },
   {
     title: 'Oceans',
     subtitle: 'Ocean guides',
     href: '/oceans',
-    keywords: 'basins seas polar circulation bathymetry field guides',
+    keywords: 'basins seas polar circulation bathymetry',
   },
   {
     title: 'Rivers',
     subtitle: 'River guides',
     href: '/rivers',
-    keywords: 'courses basins floodplains hydrology field guides',
+    keywords: 'courses basins floodplains hydrology',
   },
   {
     title: 'Gallery',

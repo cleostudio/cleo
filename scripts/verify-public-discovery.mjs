@@ -69,54 +69,54 @@ const publicPages = [
     {
       title: 'Space',
       description:
-        'Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
+        'About the Solar System, major moons, and nearby deep space — overview, features, and facts.',
     },
-    'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
+    'Space · Cleo. About the Solar System, major moons, and nearby deep space — overview, features, and facts.',
   ),
   englishPage(
     '/civilizations',
     {
       title: 'Civilizations',
       description:
-        'Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
+        'About historical civilizations — overview, signature sites, facts, and sources.',
     },
-    'Civilizations · Cleo. Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
+    'Civilizations · Cleo. About historical civilizations — overview, signature sites, facts, and sources.',
   ),
   englishPage(
     '/cities',
     {
       title: 'Cities',
       description:
-        'Evergreen field guides for capitals and route cities — orientation, signature sites, facts, and sources.',
+        'About capitals and route cities — overview, signature sites, facts, and sources.',
     },
-    'Cities · Cleo. Evergreen field guides for capitals and route cities — orientation, signature sites, facts, and sources.',
+    'Cities · Cleo. About capitals and route cities — overview, signature sites, facts, and sources.',
   ),
   englishPage(
     '/oceans',
     {
       title: 'Oceans',
       description:
-        'Evergreen field guides for world ocean basins, major seas, and polar seas — orientation, features, circulation, and sources.',
+        'About world ocean basins, major seas, and polar seas — overview, features, circulation, and sources.',
     },
-    'Oceans · Cleo. Evergreen field guides for world ocean basins, major seas, and polar seas — orientation, features, circulation, and sources.',
+    'Oceans · Cleo. About world ocean basins, major seas, and polar seas — overview, features, circulation, and sources.',
   ),
   englishPage(
     '/rivers',
     {
       title: 'Rivers',
       description:
-        'Evergreen field guides for major rivers — orientation, course, basin, hydrology, and sources.',
+        'About major rivers — overview, course, basin, hydrology, and sources.',
     },
-    'Rivers · Cleo. Evergreen field guides for major rivers — orientation, course, basin, hydrology, and sources.',
+    'Rivers · Cleo. About major rivers — overview, course, basin, hydrology, and sources.',
   ),
   englishPage(
     '/cleo',
     {
       title: 'Cleo',
       description:
-        'A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',
+        'A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link topic pages, read images, and generate them.',
     },
-    'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',
+    'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link topic pages, read images, and generate them.',
   ),
 ]
 

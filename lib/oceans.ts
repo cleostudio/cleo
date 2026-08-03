@@ -1,4 +1,4 @@
-/** Oceans topic — evergreen field-guide records for world ocean basins. */
+/** Oceans topic — factual about records for world ocean basins. */
 
 import oceansPhotos from '~/content/oceans-photos.json'
 import type { StaticPhoto } from '~/lib/static-photo'
@@ -43,7 +43,7 @@ export interface OceanSubject {
   category: string
   /** One-line kind label under the title. */
   subtitle: string
-  /** Neutral evergreen overview, ~150–250 words. */
+  /** Neutral factual overview, ~150–250 words. */
   about: string
   facts: OceanFacts
   /** Exactly three notable sites / features. */
@@ -70,7 +70,7 @@ function withPhotos(draft: OceanSubjectDraft): OceanSubject {
 
 /**
  * Curated catalog — world ocean basins, major seas, and polar seas
- * (twenty guides). Expand here as new Oceans guides ship.
+ * (twenty subjects). Expand here as new Oceans pages ship.
  */
 const oceanSubjectDrafts: OceanSubjectDraft[] = [
   {
@@ -80,7 +80,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'World ocean basins',
     subtitle: 'Largest basin · Ring of Fire rim',
     about:
-      'The Pacific Ocean is Earth’s largest ocean basin — a vast water hemisphere between the Americas and Asia–Oceania whose floor holds the deepest trenches and whose rim concentrates volcanoes and earthquakes. Orientation is plate-tectonic and circulatory: spreading ridges in the east, subduction arcs in the west, and subtropical gyres that redistribute heat. Coral systems such as the Great Barrier Reef mark shallow margins; open-ocean cloud streets and trade winds mark the free surface. This primer stays with basin scale, rim tectonics, and reef–trench contrast rather than every island chain.',
+      'The Pacific Ocean is Earth’s largest ocean basin, extending between the Americas and Asia–Oceania. Its seafloor contains the world’s deepest trenches, while its rim includes many of the volcanoes and earthquake zones associated with the Pacific Ring of Fire. Spreading ridges occur mainly in the eastern basin, and subduction arcs are prominent along much of the western margin.\nSubtropical gyres circulate across the Pacific, redistributing heat through broad rotating current systems. Shallow tropical margins support coral systems including Australia’s Great Barrier Reef, while the open ocean is shaped by trade winds and long bands of cloud known as cloud streets. The basin’s physical geography ranges from extensive reef shelves to deep ocean trenches.',
     facts: {
       kind: 'Ocean basin',
       extent: 'Largest ocean by area and volume; spans tropics to both polar approaches',
@@ -132,7 +132,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'World ocean basins',
     subtitle: 'S-shaped basin · Mid-ocean ridge',
     about:
-      'The Atlantic Ocean is the S-shaped basin between the Americas and Europe–Africa — younger in geologic terms than the Pacific, with a mid-ocean ridge that still spreads at the surface in Iceland. Orientation is ridge-and-current: the Mid-Atlantic Ridge as a north–south spine, the Gulf Stream and its extensions as heat conveyors, and relatively narrow ocean–atmosphere exchanges that shape European and eastern North American climates. This primer stays with spreading geometry, western boundary currents, and basin connectivity rather than every coastal sea.',
+      'The Atlantic Ocean is an S-shaped ocean basin between the Americas and Europe and Africa. It is geologically younger than the Pacific Ocean and is divided along much of its length by the Mid-Atlantic Ridge, a north–south spreading center that reaches the surface in Iceland.\nIts circulation includes the Gulf Stream and related currents, which carry warm water northward and influence climates in Europe and eastern North America. Exchanges between the ocean and atmosphere, together with the basin’s connections to surrounding seas, affect regional weather and long-term climate patterns.',
     facts: {
       kind: 'Ocean basin',
       extent: 'Second-largest ocean; connects Arctic approaches to the Southern Ocean',
@@ -184,7 +184,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'World ocean basins',
     subtitle: 'Monsoon basin · Southern Hemisphere gyre',
     about:
-      'The Indian Ocean is the monsoon-driven basin bounded by Africa, Asia, and Australia — the only ocean whose northern rim is closed by a continent and whose seasonal winds reverse with the year. Orientation is atmospheric as much as oceanic: monsoon charts, western boundary currents such as the Agulhas, and broad tropical bays that funnel moisture onto land. Ridge systems and fracture zones structure the floor; cyclone seasons mark the free surface. This primer stays with monsoon coupling, Agulhas leakage, and tropical margins rather than every archipelago.',
+      'The Indian Ocean is a monsoon-driven ocean basin bounded by Africa, Asia, and Australia. Its northern rim is closed by the Asian continent, and its seasonal wind patterns reverse during the year as monsoon circulation shifts. Broad tropical bays, including the Arabian Sea and Bay of Bengal, help funnel moisture onto adjacent land areas.\nWestern boundary currents such as the Agulhas Current shape circulation in the southwest, where some water enters the Atlantic through Agulhas leakage. Mid-ocean ridge systems and fracture zones structure the seafloor, while tropical cyclone seasons affect the ocean surface and surrounding coasts.',
     facts: {
       kind: 'Ocean basin',
       extent: 'Third-largest ocean; strongly seasonal northern circulation',
@@ -236,7 +236,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Major seas',
     subtitle: 'Enclosed sea · Gibraltar gateway',
     about:
-      'The Mediterranean Sea is a nearly enclosed sea between Europe, Africa, and western Asia — linked to the Atlantic only through the Strait of Gibraltar. Orientation is gateway and basin: evaporative concentration that makes Mediterranean waters denser than the open Atlantic; island arcs and volcanic calderas such as Santorini; and a long rim of ports that turned the sea into a shared historical theater. Summer drought and winter storms shape its climate more than equatorial trades. This primer stays with enclosure, exchange at Gibraltar, and rim geography rather than every gulf name.',
+      'The Mediterranean Sea is a nearly enclosed sea between Europe, Africa, and western Asia, connected to the Atlantic Ocean only through the Strait of Gibraltar. Strong evaporation raises the salinity and density of Mediterranean waters relative to the open Atlantic, producing a continuing exchange through the strait. Its basin includes island arcs and volcanic calderas, including Santorini, and is bordered by a long chain of ports that have linked surrounding societies throughout history. Its climate is marked by dry summers and winter storms rather than equatorial trade winds.',
     facts: {
       kind: 'Enclosed sea',
       extent: 'Nearly landlocked basin between Europe, Africa, and western Asia',
@@ -288,7 +288,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Major seas',
     subtitle: 'Tropical American sea · island arcs',
     about:
-      'The Caribbean Sea is a tropical American sea bounded by the Greater and Lesser Antilles, Central America, and northern South America. Orientation is island-arc and reef: volcanic and limestone islands that rim a deep basin; coral shelves and clear shallow banks; and passages that exchange water with the Atlantic. Trade winds, hurricanes, and warm surface waters define its climate and hazards. This primer stays with arc geography, reef margins, and basin enclosure rather than every island state.',
+      'The Caribbean Sea is a tropical sea of the Americas, bounded by the Greater and Lesser Antilles, Central America, and northern South America. Volcanic and limestone islands form arcs around a deep central basin, while coral shelves, reefs, and clear shallow banks extend along many coasts and islands. Passages between the islands exchange water with the Atlantic Ocean. Trade winds, warm surface waters, and seasonal hurricanes shape the sea’s climate and major hazards.',
     facts: {
       kind: 'Tropical marginal sea',
       extent: 'Tropical sea enclosed by Antillean arcs and the American mainland',
@@ -340,7 +340,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Major seas',
     subtitle: 'Monsoon marginal sea · island chains',
     about:
-      'The South China Sea is a monsoon-driven marginal sea of the western Pacific — rimmed by China, Mainland Southeast Asia, and island nations from the Philippines to Indonesia. Orientation is shelf and monsoon: broad continental shelves, limestone coasts such as Hạ Long and El Nido, and seasonal winds that reverse surface circulation. It is a major shipping and fishery theater as well as a warm tropical basin. This primer stays with monsoon hydrology, rim geography, and shelf seas rather than maritime boundary disputes.',
+      'The South China Sea is a monsoon-driven marginal sea of the western Pacific, bordered by China, mainland Southeast Asia, and island nations from the Philippines to Indonesia. It includes broad continental shelves, limestone coasts such as Hạ Long and El Nido, and warm tropical waters. Seasonal monsoon winds reverse surface circulation and influence hydrology across the basin. The sea is an important shipping route and fishing area, with extensive shelf seas along much of its rim.',
     facts: {
       kind: 'Monsoon marginal sea',
       extent: 'Large western Pacific marginal sea between Asia and island Southeast Asia',
@@ -392,7 +392,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Major seas',
     subtitle: 'Rift sea · coral deserts',
     about:
-      'The Red Sea is a narrow rift sea between Africa and Arabia — an arm of the Indian Ocean system linked northward toward Suez and Aqaba. Orientation is tectonic and arid: a spreading axis beneath clear, warm water; desert coasts with little river dilution; and coral reefs that thrive in high-salinity conditions. Bab el-Mandeb gates exchange with the Gulf of Aden; the northern gulfs fork toward Egypt, Israel, Jordan, and Saudi Arabia. This primer stays with rift geography, coral coasts, and gateway exchange rather than every resort shoreline.',
+      'The Red Sea is a narrow rift sea between Africa and the Arabian Peninsula, forming an arm of the Indian Ocean system. It connects southward through the Bab el-Mandeb strait to the Gulf of Aden and branches northward into the Gulf of Suez and the Gulf of Aqaba. These northern gulfs reach the coasts of Egypt, Israel, Jordan, and Saudi Arabia.\nA spreading axis lies beneath the Red Sea’s clear, warm waters. Its largely desert coasts receive little river runoff, contributing to high salinity and conditions that support extensive coral reefs. Water exchange with the Gulf of Aden is controlled by Bab el-Mandeb, while the sea’s rift setting shapes its long, narrow geography and surrounding arid landscape.',
     facts: {
       kind: 'Rift sea',
       extent: 'Long, narrow sea between northeast Africa and the Arabian Peninsula',
@@ -444,7 +444,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Major seas',
     subtitle: 'Northwest Indian Ocean · monsoon basin',
     about:
-      'The Arabian Sea is the northwestern arm of the Indian Ocean — bounded by the Arabian Peninsula, Iran and Pakistan, and India’s west coast. Orientation is monsoon and upwelling: seasonal winds that reverse surface currents and fertilize coastal waters; dust storms that color the basin from orbit; and port coasts from Goa to Oman. It links Red Sea and Persian Gulf approaches to the wider Indian Ocean. This primer stays with monsoon circulation, arid rim geography, and coastal upwelling rather than every gulf inlet.',
+      'The Arabian Sea is the northwestern arm of the Indian Ocean, bounded by the Arabian Peninsula, Iran and Pakistan, and India’s west coast. It connects the approaches to the Red Sea and Persian Gulf with the wider Indian Ocean.\nSeasonal monsoon winds reverse surface currents and drive coastal upwelling, bringing nutrient-rich water toward the surface. Dust storms from the arid surrounding regions can color the basin in satellite imagery. Its shores include port coasts from Goa in India to Oman, within a rim of largely dry land and productive upwelling waters.',
     facts: {
       kind: 'Monsoon marginal sea',
       extent: 'Northwestern Indian Ocean basin between Arabia, Iran–Pakistan, and western India',
@@ -496,7 +496,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Major seas',
     subtitle: 'Enclosed Eurasian sea · Bosporus gateway',
     about:
-      'The Black Sea is a nearly enclosed Eurasian sea between southeast Europe and western Asia — linked to the Mediterranean only through the Bosporus, Sea of Marmara, and Dardanelles. Orientation is gateway and stratification: a deep, poorly ventilated lower layer beneath fresher surface water fed by large rivers; steep Crimean and Caucasus coasts; and a long rim of ports from Odesa to Batumi. Limited exchange at the Turkish straits keeps the basin chemically and historically distinct from the open Atlantic system. This primer stays with enclosure, Bosporus exchange, and Pontic rim geography rather than every coastal gulf.',
+      'The Black Sea is a nearly enclosed Eurasian sea between southeastern Europe and western Asia. It connects to the Mediterranean through the Bosporus, the Sea of Marmara, and the Dardanelles. Large rivers supply relatively fresh surface water, while the deep lower layer is poorly ventilated and remains largely separated from the waters above. Limited exchange through the Turkish straits helps maintain the basin’s distinctive chemical conditions.\nIts shores include steep sections along Crimea and the Caucasus, with major ports around its long coastal rim, from Odesa in the northwest to Batumi in the east. The Black Sea’s enclosure, stratified waters, and connection through the Bosporus have also shaped its historical relationship with the wider Mediterranean and Atlantic systems.',
     facts: {
       kind: 'Enclosed sea',
       extent: 'Nearly landlocked basin between southeast Europe and western Asia',
@@ -548,7 +548,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Major seas',
     subtitle: 'Brackish shelf sea · northern Europe',
     about:
-      'The Baltic Sea is a shallow, brackish shelf sea of northern Europe — nearly enclosed by Scandinavia, the Baltic states, and the North European Plain, and linked to the North Sea through the Danish straits. Orientation is salinity and archipelago: heavy freshwater inflow, limited tidal range, and island coasts such as Stockholm’s skärgård that blur land and water. Winter ice can cover northern reaches; summer blooms mark nutrient-rich surface layers. This primer stays with brackish hydrology, gateway exchange, and rim geography rather than every gulf name.',
+      'The Baltic Sea is a shallow, brackish shelf sea in northern Europe, nearly enclosed by Scandinavia, the Baltic states, and the North European Plain. It connects to the North Sea through the Danish straits. Heavy freshwater inflow and limited exchange with saltier water give the sea its low salinity, while its tidal range is generally small.\nIts coasts include extensive island landscapes and archipelagos, including Stockholm’s skärgård, where islands, inlets, and shallow waters blur the boundary between land and sea. Winter ice can cover northern areas, and nutrient-rich surface waters may produce summer algal blooms. Water exchange through the Danish straits and the geography of the surrounding coasts strongly shape the Baltic’s hydrology.',
     facts: {
       kind: 'Brackish shelf sea',
       extent: 'Shallow, nearly enclosed sea of northern Europe',
@@ -600,7 +600,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Major seas',
     subtitle: 'Northwest European shelf · storm sea',
     about:
-      'The North Sea is a shallow northwest European shelf sea between Britain, Scandinavia, and the Low Countries — open to the Atlantic in the north and linked to the Baltic through the Skagerrak and Kattegat. Orientation is shelf and storm: strong tides, frequent gales, productive fisheries, and coasts engineered against surge — from Wadden Sea mudflats to Heligoland’s red cliffs. It has long been a corridor of trade, energy, and weather for northern Europe. This primer stays with shelf geometry, tidal coasts, and gateway roles rather than every estuary.',
+      'The North Sea is a shallow shelf sea in northwestern Europe, lying between Great Britain, Scandinavia, and the Low Countries. It opens northward to the Atlantic Ocean and connects with the Baltic Sea through the Skagerrak and Kattegat. Strong tides, frequent gales, and shallow waters shape its conditions, while its productive fisheries have long supported coastal communities.\nIts shores include the Wadden Sea’s mudflats and Heligoland’s red cliffs, as well as low-lying coasts protected by dikes, barriers, and other defenses against storm surge. The North Sea has long served as a corridor for trade, energy development, and weather systems affecting northern Europe.',
     facts: {
       kind: 'Shelf sea',
       extent: 'Shallow sea between Britain, Scandinavia, and northwest Europe',
@@ -652,7 +652,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Major seas',
     subtitle: 'American marginal sea · Loop Current',
     about:
-      'The Gulf of Mexico is a large American marginal sea bounded by the United States, Mexico, and Cuba — linked to the Atlantic through the Straits of Florida and to the Caribbean through the Yucatán Channel. Orientation is loop and delta: the Loop Current that feeds the Gulf Stream; the Mississippi River Delta as a major sediment and freshwater injector; and warm, hurricane-prone waters over a broad continental shelf. Coral and carbonate coasts mark Florida and Yucatán margins. This primer stays with basin enclosure, Loop Current exchange, and rim geography rather than every bayou.',
+      'The Gulf of Mexico is a large marginal sea of the Atlantic Ocean bounded by the United States, Mexico, and Cuba. It connects to the Atlantic through the Straits of Florida and to the Caribbean Sea through the Yucatán Channel. The Loop Current enters through the Yucatán Channel, circulates within the gulf, and exits through the Straits of Florida to feed the Gulf Stream.\nThe Mississippi River Delta is a major source of sediment and freshwater to the northern gulf. Much of the gulf lies over a broad continental shelf, and its warm waters are frequently affected by hurricanes. Coral and carbonate coasts occur along the Florida and Yucatán margins.',
     facts: {
       kind: 'Marginal sea',
       extent: 'Large semi-enclosed sea between North America and Cuba',
@@ -704,7 +704,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Major seas',
     subtitle: 'East Asian shelf sea · Kuroshio rim',
     about:
-      'The East China Sea is a broad East Asian marginal sea of the western Pacific — rimmed by China, the Korean Peninsula, and the Ryukyu chain toward Japan, and linked southward toward the Taiwan Strait approaches. Orientation is shelf and Kuroshio: wide continental shelves, monsoon and typhoon seasons, and a warm western-boundary current that skirts the basin’s eastern edge. Fishing grounds, shipping lanes, and fog banks mark a productive temperate–subtropical sea. This primer stays with shelf geometry, Kuroshio influence, and rim geography rather than maritime boundary disputes.',
+      'The East China Sea is a marginal sea of the western Pacific Ocean in East Asia. It is bordered by China to the west, the Korean Peninsula to the north, and the Ryukyu island chain of Japan along its eastern side, with southern waters extending toward the approaches to the Taiwan Strait. Much of the sea lies over broad continental shelves.\nIts waters are shaped by East Asian monsoon patterns, seasonal typhoons, and the Kuroshio Current, a warm western-boundary current that passes along the basin’s eastern margin. Productive fishing grounds, major shipping lanes, and recurring fog banks occur across this temperate-to-subtropical sea.',
     facts: {
       kind: 'Shelf marginal sea',
       extent: 'Broad western Pacific marginal sea between China, Korea, and the Ryukyus',
@@ -756,7 +756,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Polar seas',
     subtitle: 'Polar basin · Seasonal sea ice',
     about:
-      'The Arctic Ocean is the smallest and shallowest of the world oceans — a polar basin nearly enclosed by continents and covered for much of the year by drifting sea ice. Orientation is ice and exchange: pack ice that moves with winds and currents, gateways such as the Fram Strait that export ice and water to the Atlantic, and submarine ridges that divide deep basins. Seasonal light and darkness shape biology and human routes as much as bathymetry does. This primer stays with ice cover, basin enclosure, and polar exchange rather than every coastal shelf sea.',
+      'The Arctic Ocean is the smallest and shallowest of the world’s oceans. It is a polar basin nearly enclosed by North America, Greenland, Europe, and Asia, and is covered for much of the year by drifting sea ice. Pack ice moves with winds and currents, while gateways including the Fram Strait carry ice and water between the Arctic and the Atlantic Ocean.\nSubmarine ridges divide the ocean’s deep basins, and broad continental shelves surround much of its margin. Seasonal cycles of prolonged daylight and darkness strongly affect marine life, sea-ice conditions, and human movement across the region. Its physical character is shaped by ice cover, partial enclosure by land, and exchange with neighboring oceans.',
     facts: {
       kind: 'Polar ocean',
       extent: 'Smallest and shallowest world ocean; largely ice-covered in winter',
@@ -808,7 +808,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Polar seas',
     subtitle: 'Circumpolar ocean · ACC ring',
     about:
-      'The Southern Ocean is the continuous ring of water around Antarctica — defined less by enclosing continents than by the Antarctic Circumpolar Current that links the Atlantic, Indian, and Pacific. Orientation is circumpolar and wind-driven: Drake Passage as a choke point, ice shelves and seas such as the Weddell as ice factories, and a frontal system that isolates Antarctic waters. It is the planet’s great mixer of deep and surface layers. This primer stays with circumpolar flow, passage geography, and ice-margin seas rather than territorial naming debates alone.',
+      'The Southern Ocean forms a continuous ring of water around Antarctica, linked by the Antarctic Circumpolar Current, which connects the Atlantic, Indian, and Pacific oceans. Unlike oceans bounded mainly by continents, it is defined largely by this circumpolar current and by a system of fronts that separates cold Antarctic waters from warmer waters to the north.\nDrake Passage between South America and Antarctica is a major constriction in the circumpolar flow. Ice shelves and marginal seas, including the Weddell Sea, produce dense, cold water and sea ice. Through strong winds, currents, and exchanges between deep and surface waters, the Southern Ocean plays a major role in global ocean circulation.',
     facts: {
       kind: 'Polar ocean',
       extent: 'Circumpolar belt around Antarctica; connects the three great ocean basins',
@@ -860,7 +860,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Polar seas',
     subtitle: 'North Pacific gateway · seasonal ice',
     about:
-      'The Bering Sea is a broad subarctic sea of the North Pacific — bounded by Alaska and the Aleutian chain to the east and Russia’s Kamchatka and Chukotka coasts to the west, with the Bering Strait as its narrow Arctic gateway. Orientation is ice and exchange: winter sea ice that advances from the north, productive shelf waters that feed fisheries, and the strait as a choke point between Pacific and Arctic systems. The Pribilof Islands rise from the shelf as volcanic stepping stones in open water. This primer stays with seasonal ice, strait geography, and rim exchange rather than every coastal embayment.',
+      'The Bering Sea is a broad subarctic sea in the North Pacific, bounded by Alaska and the Aleutian chain to the east and by Russia’s Kamchatka and Chukotka coasts to the west. The narrow Bering Strait forms its connection to the Arctic Ocean. Winter sea ice advances southward from the north, while productive shelf waters support major fisheries. The strait is an important passage between Pacific and Arctic marine systems. The Pribilof Islands rise from the continental shelf as volcanic islands in open water.',
     facts: {
       kind: 'Polar marginal sea',
       extent: 'Broad North Pacific sea between Alaska and Russia; seasonal ice cover',
@@ -912,7 +912,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Polar seas',
     subtitle: 'North Atlantic polar sea · iceberg drift',
     about:
-      'The Greenland Sea is a polar arm of the North Atlantic between Greenland’s east coast, Iceland’s north rim, and the Svalbard–Jan Mayen island arc — a corridor where Arctic pack ice and Greenland icebergs drift south toward warmer Atlantic water. Orientation is ice export and ridge geography: the East Greenland Current carrying ice and cold water; Scoresby Sund as a major glacier-fed fjord system; and Jan Mayen’s Beerenberg volcano rising from the polar sea. It is a mixing zone between Arctic and Atlantic systems. This primer stays with iceberg drift, current exchange, and island gateways rather than every fjord name.',
+      'The Greenland Sea is a polar arm of the North Atlantic between Greenland’s east coast, Iceland’s northern rim, and the Svalbard–Jan Mayen island arc. Arctic pack ice and icebergs from Greenland drift south through the sea toward warmer Atlantic water, carried in part by the cold East Greenland Current.\nThe sea is a mixing zone between Arctic and Atlantic water systems. Its notable features include Scoresby Sund, a major glacier-fed fjord system on Greenland’s east coast, and Jan Mayen, where the Beerenberg volcano rises from the polar sea. Ice export, current exchange, and the island gateways around Greenland, Iceland, Svalbard, and Jan Mayen shape the region’s physical geography.',
     facts: {
       kind: 'Polar Atlantic sea',
       extent: 'North Atlantic polar sea between Greenland, Iceland, and the Norwegian Sea',
@@ -964,7 +964,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Polar seas',
     subtitle: 'Arctic Atlantic shelf · ice edge',
     about:
-      'The Barents Sea is a broad Arctic marginal sea north of Norway and European Russia — where warm Atlantic water meets polar cold and sets the northern edge of ice-free winter navigation. Orientation is Atlantic warmth and ice margin: the North Cape as a landmark on the Norwegian rim; Honningsvåg and fishing towns facing open polar water; and summer phytoplankton blooms visible from orbit. It is one of the Arctic’s most productive and strategically watched shelves. This primer stays with Atlantic inflow, ice-edge geography, and rim ports rather than every offshore field.',
+      'The Barents Sea is a broad Arctic marginal sea north of Norway and European Russia. Warm Atlantic water enters from the southwest and meets polar cold water, helping define the northern limit of largely ice-free winter navigation. The North Cape marks part of the Norwegian rim, while Honningsvåg and other fishing towns face the open polar sea.\nThe sea includes productive continental-shelf waters, with extensive summer phytoplankton blooms that can be seen from orbit. Its Atlantic inflow, shifting ice edge, fisheries, shipping conditions, and offshore resources make it an important and closely monitored part of the Arctic.',
     facts: {
       kind: 'Arctic marginal sea',
       extent: 'Broad shelf sea north of Norway and northwest Russia',
@@ -1016,7 +1016,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Polar seas',
     subtitle: 'Antarctic embayment · pack-ice factory',
     about:
-      'The Weddell Sea is a vast embayment of the Southern Ocean along Antarctica’s east coast — bounded by the Antarctic Peninsula and the Filchner–Ronne ice shelves, and famous as a factory of thick pack ice and cold bottom water. Orientation is ice and embayment: floes that consolidate under persistent cold; ice shelves that calve into the sea; and orbit-scale views that show the embayment as a white cap on the continent’s margin. Historic exploration routes crossed its floes toward the pole. This primer stays with pack-ice geography, shelf margins, and embayment scale rather than territorial claims alone.',
+      'The Weddell Sea is a large embayment of the Southern Ocean along Antarctica’s eastern coast, bounded by the Antarctic Peninsula and the Filchner–Ronne Ice Shelf. Persistent cold produces extensive, thick pack ice, while ice shelves along its margins calve into the sea. From satellite views, the embayment often appears as a broad white cap along the continent’s edge. Its waters also contribute to the formation of dense, cold bottom water. Historic Antarctic expeditions crossed its floes on routes toward the South Pole.',
     facts: {
       kind: 'Antarctic embayment',
       extent: 'Large ice-covered embayment of the Southern Ocean along east Antarctica',
@@ -1068,7 +1068,7 @@ const oceanSubjectDrafts: OceanSubjectDraft[] = [
     category: 'Polar seas',
     subtitle: 'Antarctic embayment · ice-shelf margin',
     about:
-      'The Ross Sea is a deep embayment of the Southern Ocean south of New Zealand — bounded by the Ross Ice Shelf, one of Antarctica’s largest floating ice platforms, and ringed by volcanic peaks on Ross Island near McMurdo Sound. Orientation is shelf and sound: pancake ice forming in autumn freeze-up; the ice shelf as a horizontal glacier front; and McMurdo Sound as a gateway for research stations and historic expeditions. It is among the most biologically productive Antarctic seas. This primer stays with ice-shelf geography, sound access, and embayment ecology rather than every base name.',
+      'The Ross Sea is a deep embayment of the Southern Ocean south of New Zealand. It is bounded by the Ross Ice Shelf, one of Antarctica’s largest floating ice platforms, and by volcanic peaks on Ross Island near McMurdo Sound. Pancake ice commonly forms during the autumn freeze-up, while the ice shelf forms a broad, horizontal glacier front along the sea’s southern margin.\nMcMurdo Sound provides access to research stations and has been associated with historic Antarctic expeditions. The Ross Sea is among the most biologically productive seas around Antarctica, with ecosystems shaped by seasonal sea ice, the ice-shelf edge, and the surrounding continental shelf.',
     facts: {
       kind: 'Antarctic embayment',
       extent: 'Deep Southern Ocean embayment south of New Zealand; Ross Ice Shelf margin',

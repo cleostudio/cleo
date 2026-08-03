@@ -33,32 +33,32 @@ describe('social OG image metadata', () => {
     [
       '/space',
       publicPageMetadata.space,
-      'Space · Cleo. Evergreen field guides for the Solar System, major moons, and nearby deep space — orientation, features, and facts.',
+      'Space · Cleo. About the Solar System, major moons, and nearby deep space — overview, features, and facts.',
     ],
     [
       '/civilizations',
       publicPageMetadata.civilizations,
-      'Civilizations · Cleo. Evergreen field guides for historical civilizations — orientation, signature sites, facts, and sources.',
+      'Civilizations · Cleo. About historical civilizations — overview, signature sites, facts, and sources.',
     ],
     [
       '/cities',
       publicPageMetadata.cities,
-      'Cities · Cleo. Evergreen field guides for capitals and route cities — orientation, signature sites, facts, and sources.',
+      'Cities · Cleo. About capitals and route cities — overview, signature sites, facts, and sources.',
     ],
     [
       '/oceans',
       publicPageMetadata.oceans,
-      'Oceans · Cleo. Evergreen field guides for world ocean basins, major seas, and polar seas — orientation, features, circulation, and sources.',
+      'Oceans · Cleo. About world ocean basins, major seas, and polar seas — overview, features, circulation, and sources.',
     ],
     [
       '/rivers',
       publicPageMetadata.rivers,
-      'Rivers · Cleo. Evergreen field guides for major rivers — orientation, course, basin, hydrology, and sources.',
+      'Rivers · Cleo. About major rivers — overview, course, basin, hydrology, and sources.',
     ],
     [
       '/cleo',
       publicPageMetadata.cleo,
-      'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link field guides, read images, and generate them.',
+      'Cleo. A general-purpose AI agent on the Cleo knowledge portal — chat, search the web, deep-link topic pages, read images, and generate them.',
     ],
   ] as const)('describes the %s artwork with its own content', (path, copy, expected) => {
     expect(imageAlt(metadataFor(path, copy.title, copy.description))).toBe(expected)

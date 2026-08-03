@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { GuidePhotoCollection } from '~/components/guide-photo-collection'
-import { GuideOrientation } from '~/components/guide-orientation'
+import { GuideAbout } from '~/components/guide-about'
 import { PixelCluster } from '~/components/pixel-cluster'
 import {
   cityDescription,
@@ -76,9 +76,9 @@ export function CitySubjectPageView({ slug }: { slug: string }) {
         aria-labelledby="city-about"
       >
         <h2 id="city-about" className="guide-label">
-          Orientation
+          About
         </h2>
-        <GuideOrientation about={subject.about} />
+        <GuideAbout about={subject.about} />
       </section>
 
       <section
@@ -216,7 +216,7 @@ export function CitySubjectPageView({ slug }: { slug: string }) {
           href="/cities"
           className="text-sm text-muted-foreground hover:text-foreground"
         >
-          ← All city guides
+          ← All Cities
         </Link>
       </p>
     </article>

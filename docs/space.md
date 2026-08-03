@@ -1,8 +1,8 @@
-# Space field guides
+# Space
 
-Space guides at `/space` and `/space/[slug]`. Catalog in `lib/space.ts`:
+Space pages at `/space` and `/space/[slug]`. Catalog in `lib/space.ts`:
 Solar System, Moons, Deep Space (planets, major moons, ISS, galaxies, nebulae;
-thirty-three guides). Topics catalog lists Space alongside Countries
+thirty-three subjects). Topics catalog lists Space alongside Countries
 (`lib/topics.ts`).
 
 ## Map
@@ -17,7 +17,7 @@ thirty-three guides). Topics catalog lists Space alongside Countries
 
 ## Photo pipeline
 
-Three curated NASA images per guide.
+Three curated NASA images per subject.
 
 ```bash
 pnpm curate:space-photos

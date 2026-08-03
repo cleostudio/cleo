@@ -3,10 +3,10 @@ import { describe, expect, it } from 'vitest'
 import { allAtlasEntries, getAtlasEntry } from './index'
 
 /**
- * Orientation prose used to be generated from one template, so all 195
- * countries shared five byte-identical sentences and 66% of their vocabulary,
- * and every landlocked country was told about its coast. These hold the
- * curated replacement to the bar that fixed.
+ * About prose used to be generated from one template, so all 195 countries
+ * shared five byte-identical sentences and 66% of their vocabulary, and every
+ * landlocked country was told about its coast. These hold the curated
+ * replacement to the bar that fixed.
  */
 
 const entries = allAtlasEntries()
@@ -23,7 +23,7 @@ function tokens(text: string) {
   return new Set(text.toLowerCase().match(/[a-z']+/g) ?? [])
 }
 
-describe('atlas Orientation prose', () => {
+describe('atlas About prose', () => {
   it('covers every country', () => {
     expect(abouts).toHaveLength(195)
     expect(abouts.every((about) => about.trim().length > 0)).toBe(true)
@@ -74,7 +74,7 @@ describe('atlas Orientation prose', () => {
   })
 
   it.each([
-    ['the old template', /occupies a distinctive corner|coasts or interiors|anchors ordinary exchange|reliable silhouette|compact fact plate|field guide stays evergreen/i],
+    ['the old template', /occupies a distinctive corner|coasts or interiors|anchors ordinary exchange|reliable silhouette|compact fact plate|field guide stays evergreen|Orientation here|This primer/i],
     ['a year or date', /\b(1[5-9]\d{2}|20\d{2})\b/],
     ['a statistic', /\d\s?%|\bpercent\b|\b\d[\d,.]*\s?(million|billion|inhabitants|residents)\b/i],
     ['advisory or pricing copy', /\b(visa|vaccination|advisory|entry requirement|price|cheap|expensive)\b/i],

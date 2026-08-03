@@ -192,43 +192,43 @@ export function presentPortalGuideMarkdown(markdown: string): string {
 /** Empty-state prompts that exercise portal grounding. */
 export const CLEO_PORTAL_STARTERS = [
   {
-    label: 'Orient me to Japan',
+    label: 'Tell me about Japan',
     prompt:
-      'Give me a quick orientation to Japan. Deep-link its field guide when you mention the country.',
+      'Tell me about Japan. Deep-link its Explore page when you mention the country.',
   },
   {
     label: 'Show Japan photos',
     prompt:
-      'Show me all three curated photos of Japan and deep-link its field guide.',
+      'Show me all three curated photos of Japan and deep-link its Explore page.',
   },
   {
     label: 'Why is Europa interesting?',
     prompt:
-      'Why is Europa interesting as an ocean world? Deep-link the Space guide when you name it.',
+      'Why is Europa interesting as an ocean world? Deep-link the Space page when you name it.',
   },
   {
     label: 'Compare Mars and Earth',
     prompt:
-      'Compare Mars and Earth in a few sharp points. Deep-link each Space guide when you name the planets.',
+      'Compare Mars and Earth in a few sharp points. Deep-link each Space page when you name the planets.',
   },
   {
-    label: 'Orient me to Ancient Egypt',
+    label: 'Tell me about Ancient Egypt',
     prompt:
-      'Give me a quick orientation to Ancient Egypt. Deep-link its Civilizations guide when you mention it.',
+      'Tell me about Ancient Egypt. Deep-link its Civilizations page when you mention it.',
   },
   {
-    label: 'Orient me to Istanbul',
+    label: 'Tell me about Istanbul',
     prompt:
-      'Give me a quick orientation to Istanbul. Deep-link its Cities guide when you mention the city.',
+      'Tell me about Istanbul. Deep-link its Cities page when you mention the city.',
   },
   {
-    label: 'Orient me to the Pacific Ocean',
+    label: 'Tell me about the Pacific Ocean',
     prompt:
-      'Give me a quick orientation to the Pacific Ocean. Deep-link its Oceans guide when you mention it.',
+      'Tell me about the Pacific Ocean. Deep-link its Oceans page when you mention it.',
   },
   {
-    label: 'Orient me to the Nile',
+    label: 'Tell me about the Nile',
     prompt:
-      'Give me a quick orientation to the Nile. Deep-link its Rivers guide when you mention the river.',
+      'Tell me about the Nile. Deep-link its Rivers page when you mention the river.',
   },
 ] as const

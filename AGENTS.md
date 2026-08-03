@@ -34,7 +34,7 @@ Human onboarding: [`README.md`](README.md).
   AMA, owner admin, Media Library, Clerk, Bunny, Stripe, Resend, Google,
   Tencent, or Upstash without an explicit product decision. Neon + Better Auth
   are in product — see [`docs/auth.md`](docs/auth.md).
-- Country orientation prose is curated (`scripts/atlas/atlas-about.json`), never
+- Country about prose is curated (`scripts/atlas/atlas-about.json`), never
   generated at build or request time. The site never calls a model to render a
   page.
 - Place/space/civilization/city/ocean/river images are static JPEGs under
