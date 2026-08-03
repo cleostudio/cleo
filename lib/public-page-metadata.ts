@@ -30,27 +30,27 @@ export const publicPageMetadata = {
   space: {
     title: 'Space',
     description:
-      'About the Solar System, major moons, and nearby deep space — overview, features, and facts.',
+      'Planets, moons, and deep-sky neighbors — structure, motion, and the view across the Solar System and beyond.',
   },
   civilizations: {
     title: 'Civilizations',
     description:
-      'About historical civilizations — overview, signature sites, facts, and sources.',
+      'Cultures that shaped regions across millennia — signature sites, durable facts, and what remains.',
   },
   cities: {
     title: 'Cities',
     description:
-      'About capitals and route cities — overview, signature sites, facts, and sources.',
+      'Capitals and corridor cities where routes meet — harbors, plazas, walls, and urban layers.',
   },
   oceans: {
     title: 'Oceans',
     description:
-      'About world ocean basins, major seas, and polar seas — overview, features, circulation, and sources.',
+      'World basins, major seas, and polar waters — currents, trenches, climate roles, and open blue.',
   },
   rivers: {
     title: 'Rivers',
     description:
-      'About major rivers — overview, course, basin, hydrology, and sources.',
+      'Major courses that cut continents — sources, floodplains, basins, and the paths water draws.',
   },
   cleo: {
     title: 'Cleo',

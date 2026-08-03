@@ -31,7 +31,7 @@ export function allTopics(): Topic[] {
       slug: 'countries',
       name: 'Countries',
       description:
-        'About every country — geography, notable places, facts, sources, and one curated photograph.',
+        'Every nation on the map — landforms, capitals, places that define a country, and one photograph to open the door.',
       tally: `${countryCount} countries`,
       href: '/explore',
       secondaryHref: '/gallery',
@@ -41,7 +41,7 @@ export function allTopics(): Topic[] {
       slug: 'space',
       name: 'Space',
       description:
-        'About the Solar System, major moons, and nearby deep space — overview, features, facts, a photograph, and sources.',
+        'Planets, moons, and deep-sky neighbors — structure, motion, and the view from close range or across light-years.',
       tally: `${spaceCount} subjects`,
       href: '/space',
       secondaryHref: '/gallery',
@@ -51,7 +51,7 @@ export function allTopics(): Topic[] {
       slug: 'civilizations',
       name: 'Civilizations',
       description:
-        'About historical civilizations — overview, signature sites, facts, sources, and curated photographs.',
+        'Cultures that shaped regions across millennia — signature sites, durable facts, and photographs of what remains.',
       tally: `${civilizationCount} subjects`,
       href: '/civilizations',
       secondaryHref: '/gallery',
@@ -61,7 +61,7 @@ export function allTopics(): Topic[] {
       slug: 'cities',
       name: 'Cities',
       description:
-        'About capitals and route cities — overview, signature sites, facts, sources, and curated photographs.',
+        'Capitals and corridor cities where routes meet — harbors, plazas, walls, and the layers a metropolis keeps.',
       tally: `${cityCount} cities`,
       href: '/cities',
       secondaryHref: '/gallery',
@@ -71,7 +71,7 @@ export function allTopics(): Topic[] {
       slug: 'oceans',
       name: 'Oceans',
       description:
-        'About world ocean basins, major seas, and polar seas — overview, features, facts, sources, and curated photographs.',
+        'World basins, major seas, and polar waters — currents, trenches, climate roles, and the open blue between shores.',
       tally: `${oceanCount} basins`,
       href: '/oceans',
       secondaryHref: '/gallery',
@@ -81,7 +81,7 @@ export function allTopics(): Topic[] {
       slug: 'rivers',
       name: 'Rivers',
       description:
-        'About major rivers across Africa, Asia, and Europe, Americas & Oceania — overview, course features, facts, sources, and curated photographs.',
+        'Major courses that cut continents — sources, floodplains, cataracts, and the paths water draws through land.',
       tally: `${riverCount} rivers`,
       href: '/rivers',
       secondaryHref: '/gallery',
