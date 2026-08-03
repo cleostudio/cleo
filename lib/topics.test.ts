@@ -23,32 +23,32 @@ describe('topics catalog', () => {
     expect(topics[0]).toMatchObject({
       href: '/explore',
       secondaryHref: '/gallery',
-      tally: `${countries.length} guides`,
+      tally: `${countries.length} countries`,
     })
     expect(topics[1]).toMatchObject({
       href: '/space',
       secondaryHref: '/gallery',
-      tally: `${spaceSubjects.length} guides`,
+      tally: `${spaceSubjects.length} subjects`,
     })
     expect(topics[2]).toMatchObject({
       href: '/civilizations',
       secondaryHref: '/gallery',
-      tally: `${civilizationSubjects.length} guides`,
+      tally: `${civilizationSubjects.length} subjects`,
     })
     expect(topics[3]).toMatchObject({
       href: '/cities',
       secondaryHref: '/gallery',
-      tally: `${citySubjects.length} guides`,
+      tally: `${citySubjects.length} cities`,
     })
     expect(topics[4]).toMatchObject({
       href: '/oceans',
       secondaryHref: '/gallery',
-      tally: `${oceanSubjects.length} guides`,
+      tally: `${oceanSubjects.length} basins`,
     })
     expect(topics[5]).toMatchObject({
       href: '/rivers',
       secondaryHref: '/gallery',
-      tally: `${riverSubjects.length} guides`,
+      tally: `${riverSubjects.length} rivers`,
     })
   })
 })
