@@ -167,7 +167,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
               <T zh="全部写作" en="All writing" />
             </SectionLink>
           </div>
-          <ul className="focus-list mt-4 flex flex-col">
+          <ul className="focus-list page-section-body flex flex-col">
             {writingPosts.map((post, index) => (
               <li
                 key={post.slug}
