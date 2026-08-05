@@ -599,6 +599,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
 
     // rAF-batched stream UI updates — one setMessages per frame.
     let pendingText = ""
+    let pendingTextReplace: string | null = null
     let pendingActivities: ActivityItem[] = []
     let pendingImagesById = new Map<string, MessageImage>()
     let pendingReasoningItems: EncryptedReasoningItem[] | null = null
@@ -609,12 +610,14 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       rafHandle = null
 
       const textChunk = pendingText
+      const textReplace = pendingTextReplace
       const activitiesChunk = pendingActivities
       const imagesChunk = [...pendingImagesById.values()]
       const reasoningChunk = pendingReasoningItems
       const incompleteChunk = pendingIncomplete
 
       pendingText = ""
+      pendingTextReplace = null
       pendingActivities = []
       pendingImagesById = new Map()
       pendingReasoningItems = null
@@ -622,6 +625,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
 
       if (
         !textChunk &&
+        textReplace === null &&
         activitiesChunk.length === 0 &&
         imagesChunk.length === 0 &&
         !reasoningChunk &&
@@ -635,7 +639,9 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
           if (message.id !== assistantMessage.id) return message
 
           let next = message
-          if (textChunk) {
+          if (textReplace !== null) {
+            next = { ...next, content: textReplace }
+          } else if (textChunk) {
             next = { ...next, content: next.content + textChunk }
           }
           for (const activity of activitiesChunk) {
@@ -712,6 +718,14 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
         if (event.type === "text") {
           output += event.delta
           pendingText += event.delta
+          scheduleFlush()
+          return
+        }
+        if (event.type === "text_replace") {
+          // Citation post-process replaces the full answer; drop buffered deltas.
+          pendingText = ""
+          output = event.content
+          pendingTextReplace = event.content
           scheduleFlush()
           return
         }

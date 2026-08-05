@@ -48,6 +48,11 @@ import {
   sanitizeReasoningItems,
   type EncryptedReasoningItem,
 } from "~/lib/cleo/reasoning-items"
+import {
+  applyUrlCitations,
+  parseUrlCitation,
+  type UrlCitation,
+} from "~/lib/cleo/citations"
 import { logPromptCacheTelemetry } from "~/lib/cleo/prompt-cache-telemetry"
 import { cleoSafetyIdentifier } from "~/lib/cleo/safety-identifier"
 import {
@@ -652,8 +657,38 @@ export async function POST(request: Request) {
     const activities = new Map<string, ActivityItem>()
     const reasoningParts = new Map<string, Map<number, string>>()
     const collectedReasoningItems: EncryptedReasoningItem[] = []
+    const urlCitations: UrlCitation[] = []
+    let emittedTextContent = ""
     let emittedText = false
     let emittedImage = false
+
+    const rememberUrlCitation = (value: unknown) => {
+      const citation = parseUrlCitation(value)
+      if (!citation) {
+        return
+      }
+      const duplicate = urlCitations.some(
+        (item) =>
+          item.start_index === citation.start_index &&
+          item.end_index === citation.end_index &&
+          item.url === citation.url
+      )
+      if (!duplicate) {
+        urlCitations.push(citation)
+      }
+    }
+
+    const emitAnnotatedTextIfNeeded = (
+      controller: ReadableStreamDefaultController<Uint8Array>
+    ) => {
+      if (!emittedTextContent || urlCitations.length === 0) {
+        return
+      }
+      const annotated = applyUrlCitations(emittedTextContent, urlCitations)
+      if (annotated !== emittedTextContent) {
+        enqueue(controller, { type: "text_replace", content: annotated })
+      }
+    }
 
     const enqueue = (
       controller: ReadableStreamDefaultController<Uint8Array>,
@@ -723,7 +758,22 @@ export async function POST(request: Request) {
 
             if (event.type === "response.output_text.delta") {
               emittedText = true
+              emittedTextContent += event.delta
               enqueue(controller, { type: "text", delta: event.delta })
+              continue
+            }
+
+            if (event.type === "response.output_text.done") {
+              // Prefer the finalized text as the citation index base.
+              if (typeof event.text === "string") {
+                emittedTextContent = event.text
+                emittedText = emittedText || event.text.length > 0
+              }
+              continue
+            }
+
+            if (event.type === "response.output_text.annotation.added") {
+              rememberUrlCitation(event.annotation)
               continue
             }
 
@@ -835,7 +885,18 @@ export async function POST(request: Request) {
             }
 
             if (event.type === "response.output_item.done") {
-              if (event.item.type === "web_search_call") {
+              if (event.item.type === "message") {
+                for (const part of event.item.content ?? []) {
+                  if (part.type !== "output_text") continue
+                  if (typeof part.text === "string" && part.text) {
+                    emittedTextContent = part.text
+                    emittedText = true
+                  }
+                  for (const annotation of part.annotations ?? []) {
+                    rememberUrlCitation(annotation)
+                  }
+                }
+              } else if (event.item.type === "web_search_call") {
                 emitActivity(controller, activityFromWebSearch(event.item))
               } else if (event.item.type === "reasoning") {
                 const summary =
@@ -919,6 +980,7 @@ export async function POST(request: Request) {
             }
           }
 
+          emitAnnotatedTextIfNeeded(controller)
           emitCollectedReasoningItems(controller)
 
           if (incompleteNotice) {
@@ -943,6 +1005,7 @@ export async function POST(request: Request) {
             console.error("OpenAI Responses API stream failed.", streamError)
 
             try {
+              emitAnnotatedTextIfNeeded(controller)
               emitCollectedReasoningItems(controller)
               enqueue(controller, {
                 type: "error",

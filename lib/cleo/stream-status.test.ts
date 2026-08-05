@@ -36,6 +36,20 @@ describe("incomplete status helpers", () => {
     })
   })
 
+  it("parses text_replace events", () => {
+    expect(
+      parseStreamLine(
+        JSON.stringify({
+          type: "text_replace",
+          content: "[Paris](https://example.com/paris) is the capital.",
+        })
+      )
+    ).toEqual({
+      type: "text_replace",
+      content: "[Paris](https://example.com/paris) is the capital.",
+    })
+  })
+
   it("parses reasoning_items events", () => {
     expect(
       parseStreamLine(

@@ -68,11 +68,14 @@ Without `OPENAI_API_KEY`, the route returns HTTP 503.
 
 ## Stream protocol
 
-`lib/cleo/stream.ts` events: `text`, `activity`, `image`, `reasoning_items`,
-`status` (incomplete), `error`.
+`lib/cleo/stream.ts` events: `text`, `text_replace`, `activity`, `image`,
+`reasoning_items`, `status` (incomplete), `error`.
 
 - Soft **incomplete** keeps partial answers (Retry/Continue in the UI).
 - Hard **error** is for true failures.
+- After a turn, `url_citation` annotations from hosted web search are merged
+  into Markdown links and emitted as `text_replace` when the streamed text
+  lacked clickable citations.
 
 ## Behavior rules
 

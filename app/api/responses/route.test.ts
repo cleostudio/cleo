@@ -848,6 +848,53 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("xhigh")
   })
 
+  it("replaces streamed text with Markdown links from url_citation annotations", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "Paris is lovely.", type: "response.output_text.delta" },
+        {
+          annotation: {
+            type: "url_citation",
+            start_index: 0,
+            end_index: 5,
+            url: "https://example.com/paris",
+            title: "Paris",
+          },
+          type: "response.output_text.annotation.added",
+        },
+        {
+          text: "Paris is lovely.",
+          type: "response.output_text.done",
+        },
+        {
+          response: {
+            usage: {
+              input_tokens: 10,
+              output_tokens: 4,
+              total_tokens: 14,
+              input_tokens_details: {
+                cached_tokens: 0,
+                cache_write_tokens: 0,
+              },
+            },
+          },
+          type: "response.completed",
+        },
+      ])
+    )
+
+    const events = await ndjson(await POST(ask(question)))
+
+    expect(events).toContainEqual({
+      type: "text",
+      delta: "Paris is lovely.",
+    })
+    expect(events).toContainEqual({
+      type: "text_replace",
+      content: "[Paris](https://example.com/paris) is lovely.",
+    })
+  })
+
   it("logs prompt-cache telemetry when a turn completes", async () => {
     const info = vi.spyOn(console, "info").mockImplementation(() => undefined)
     openai.create.mockResolvedValueOnce(

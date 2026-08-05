@@ -53,6 +53,12 @@ export type StreamTextEvent = {
   type: "text"
 }
 
+/** Replace the full assistant text after post-processing (e.g. citations). */
+export type StreamTextReplaceEvent = {
+  content: string
+  type: "text_replace"
+}
+
 export type StreamActivityEvent = {
   activity: ActivityItem
   type: "activity"
@@ -90,6 +96,7 @@ export type StreamStatusEvent = {
 
 export type ClientStreamEvent =
   | StreamTextEvent
+  | StreamTextReplaceEvent
   | StreamActivityEvent
   | StreamImageEvent
   | StreamErrorEvent
@@ -214,6 +221,14 @@ export function parseStreamLine(line: string): ClientStreamEvent | null {
       }
 
       return { type: "text", delta: parsed.delta }
+    }
+
+    if (parsed.type === "text_replace") {
+      if (!("content" in parsed) || typeof parsed.content !== "string") {
+        return null
+      }
+
+      return { type: "text_replace", content: parsed.content }
     }
 
     if (parsed.type === "activity") {
