@@ -205,6 +205,22 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('coyolxauhqui')[0]).toBe('/civilizations/aztec')
     expect(hrefs('hatshepsut')[0]).toBe('/civilizations/ancient-egypt')
     expect(hrefs('el castillo')[0]).toBe('/civilizations/maya')
+    expect(hrefs('minoan crete')[0]).toBe('/civilizations/minoan-crete')
+    expect(hrefs('mycenaean greece')[0]).toBe('/civilizations/mycenaean-greece')
+    expect(hrefs('etruscan')[0]).toBe('/civilizations/etruscan')
+    expect(hrefs('phoenicia')[0]).toBe('/civilizations/phoenicia')
+    expect(hrefs('nuragic sardinia')[0]).toBe('/civilizations/nuragic-sardinia')
+    expect(hrefs('mississippian')[0]).toBe('/civilizations/mississippian')
+    expect(hrefs('ancestral puebloan')[0]).toBe(
+      '/civilizations/ancestral-puebloan',
+    )
+    expect(hrefs('chavin')[0]).toBe('/civilizations/chavin')
+    expect(hrefs('moche')[0]).toBe('/civilizations/moche')
+    expect(hrefs('tiwanaku')[0]).toBe('/civilizations/tiwanaku')
+    expect(hrefs('palace of knossos')[0]).toBe('/civilizations/minoan-crete')
+    expect(hrefs('lion gate')[0]).toBe('/civilizations/mycenaean-greece')
+    expect(hrefs('monks mound')[0]).toBe('/civilizations/mississippian')
+    expect(hrefs('cliff palace')[0]).toBe('/civilizations/ancestral-puebloan')
   })
 
   it('finds city guides and their sites', () => {
@@ -260,6 +276,16 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('han river capital')[0]).toBe('/cities/seoul')
     expect(hrefs('straits port')[0]).toBe('/cities/singapore')
     expect(hrefs('chao phraya plain')[0]).toBe('/cities/bangkok')
+    expect(hrefs('lisbon')[0]).toBe('/cities/lisbon')
+    expect(hrefs('vienna')[0]).toBe('/cities/vienna')
+    expect(hrefs('prague')[0]).toBe('/cities/prague')
+    expect(hrefs('barcelona')[0]).toBe('/cities/barcelona')
+    expect(hrefs('moscow')[0]).toBe('/cities/moscow')
+    expect(hrefs('belém tower')[0]).toBe('/cities/lisbon')
+    expect(hrefs('schönbrunn')[0]).toBe('/cities/vienna')
+    expect(hrefs('charles bridge')[0]).toBe('/cities/prague')
+    expect(hrefs('sagrada família')[0]).toBe('/cities/barcelona')
+    expect(hrefs('red square')[0]).toBe('/cities/moscow')
   })
 
   it('finds ocean guides and their features', () => {
@@ -351,6 +377,16 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('euphrates in turkey')[0]).toBe('/rivers/euphrates')
     expect(hrefs('tigris at mosul')[0]).toBe('/rivers/tigris')
     expect(hrefs('tigris through baghdad')[0]).toBe('/rivers/tigris')
+    expect(hrefs('loire')[0]).toBe('/rivers/loire')
+    expect(hrefs('thames')[0]).toBe('/rivers/thames')
+    expect(hrefs('colorado river')[0]).toBe('/rivers/colorado')
+    expect(hrefs('yukon river')[0]).toBe('/rivers/yukon')
+    expect(hrefs('orinoco')[0]).toBe('/rivers/orinoco')
+    expect(hrefs('chambord on the loire')[0]).toBe('/rivers/loire')
+    expect(hrefs('thames barrier')[0]).toBe('/rivers/thames')
+    expect(hrefs('horseshoe bend')[0]).toBe('/rivers/colorado')
+    expect(hrefs('yukon at dawson')[0]).toBe('/rivers/yukon')
+    expect(hrefs('orinoco delta')[0]).toBe('/rivers/orinoco')
   })
 
   it('finds curated photographs by the place they show', () => {

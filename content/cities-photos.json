@@ -2390,5 +2390,465 @@
         }
       ]
     }
+  ],
+  "lisbon": [
+    {
+      "featureName": "Belém Tower",
+      "alt": "Belém Tower — lisbon",
+      "caption": "Belém Tower",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATorre_de_Bel%C3%A9m%2C_Lisboa%2C_Portugal%2C_2012-05-12%2C_DD_16.JPG",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Torre de Belém, Lisboa, Portugal, 2012-05-12, DD 16.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Torre de Belém, Lisboa, Portugal, 2012-05-12, DD 16.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8e86e9ad5a7a314c1cced70a2e021858ff3944fd56c97ae42a38879fb996c9a9",
+      "width": 4490,
+      "height": 3443,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/lisbon/w640.jpg",
+          "bytes": 67885
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/lisbon/w1280.jpg",
+          "bytes": 155641
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/lisbon/w2048.jpg",
+          "bytes": 399990
+        }
+      ]
+    },
+    {
+      "featureName": "Jerónimos Monastery",
+      "alt": "Jerónimos Monastery — lisbon",
+      "caption": "Jerónimos Monastery",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMonasterio_de_los_Jer%C3%B3nimos%2C_Lisboa%2C_Portugal%2C_2022-07-24%2C_DD_38-40_HDR.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Monasterio de los Jerónimos, Lisboa, Portugal, 2022-07-24, DD 38-40 HDR.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Monasterio de los Jerónimos, Lisboa, Portugal, 2022-07-24, DD 38-40 HDR.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "058349810a1864cbdeecf5fbefdf1cc9aaa201b4779b8589f279645572d53a89",
+      "width": 6365,
+      "height": 5557,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/lisbon/w640-2.jpg",
+          "bytes": 153891
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/lisbon/w1280-2.jpg",
+          "bytes": 359016
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/lisbon/w2048-2.jpg",
+          "bytes": 849164
+        }
+      ]
+    },
+    {
+      "featureName": "Praça do Comércio",
+      "alt": "Praça do Comércio — lisbon",
+      "caption": "Praça do Comércio",
+      "photographer": "Berthold Werner",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALisbon_Pra%C3%A7a_do_Com%C3%A9rcio_BW_2018-10-08_17-42-58.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Lisbon Praça do Comércio BW 2018-10-08 17-42-58.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Lisbon Praça do Comércio BW 2018-10-08 17-42-58.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3c0ddeb1f24f5e87832e5ddc9dc6ce291f6cf774cf03971a3973870be8e4d294",
+      "width": 5760,
+      "height": 3956,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/lisbon/w640-3.jpg",
+          "bytes": 48868
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/lisbon/w1280-3.jpg",
+          "bytes": 161237
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/lisbon/w2048-3.jpg",
+          "bytes": 449747
+        }
+      ]
+    }
+  ],
+  "vienna": [
+    {
+      "featureName": "Schönbrunn Palace",
+      "alt": "Schönbrunn Palace — vienna",
+      "caption": "Schönbrunn Palace",
+      "photographer": "Thomas Wolf , www.foto-tw.de",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASchloss_Sch%C3%B6nbrunn_Wien_2014_(Zuschnitt_1).jpg",
+      "license": "CC BY-SA 3.0 de",
+      "commonsTitle": "File:Schloss Schönbrunn Wien 2014 (Zuschnitt 1).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Schloss Schönbrunn Wien 2014 (Zuschnitt 1).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "0a54f59ef5f1dc56e7ffdf2853bba0b9dfc7c04b81e89c6f73dc2433802e151b",
+      "width": 8247,
+      "height": 3693,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/vienna/w640.jpg",
+          "bytes": 71237
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/vienna/w1280.jpg",
+          "bytes": 200257
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/vienna/w2048.jpg",
+          "bytes": 535755
+        }
+      ]
+    },
+    {
+      "featureName": "St. Stephen's Cathedral",
+      "alt": "St. Stephen's Cathedral — vienna",
+      "caption": "St. Stephen's Cathedral",
+      "photographer": "Uoaei1",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AStephansdom_Heident%C3%BCrme_01.JPG",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Stephansdom Heidentürme 01.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Stephansdom Heidentürme 01.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "acc7542d8911aeff4bc2edbcaf27b152424d05c8e45198eec75e0b95c4f672fc",
+      "width": 3685,
+      "height": 5528,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/vienna/w640-2.jpg",
+          "bytes": 107040
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/vienna/w1280-2.jpg",
+          "bytes": 285587
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/vienna/w2048-2.jpg",
+          "bytes": 675840
+        }
+      ]
+    },
+    {
+      "featureName": "Hofburg",
+      "alt": "Hofburg — vienna",
+      "caption": "Hofburg",
+      "photographer": "Jankovszky György / Fortepan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMichaelerplatz%2C_Hofburg._Fortepan_58131.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Michaelerplatz, Hofburg. Fortepan 58131.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Michaelerplatz, Hofburg. Fortepan 58131.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "914cd6f1e1f12000eb947795e39c5d970d27b924d353a0514928aabc69cb52d1",
+      "width": 6592,
+      "height": 4095,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/vienna/w640-3.jpg",
+          "bytes": 47303
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/vienna/w1280-3.jpg",
+          "bytes": 148982
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/vienna/w2048-3.jpg",
+          "bytes": 405590
+        }
+      ]
+    }
+  ],
+  "prague": [
+    {
+      "featureName": "Charles Bridge",
+      "alt": "Charles Bridge — prague",
+      "caption": "Charles Bridge",
+      "photographer": "DXR",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANorth_view_of_Charles_Bridge_from_M%C3%A1nes%C5%AFv_most%2C_Prague_20160808_1.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:North view of Charles Bridge from Mánesův most, Prague 20160808 1.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:North view of Charles Bridge from Mánesův most, Prague 20160808 1.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8f42e872e2b11e4b522821014420e22dac37537333961d80dc2dfcfe57b7098b",
+      "width": 7164,
+      "height": 4030,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/prague/w640.jpg",
+          "bytes": 72831
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/prague/w1280.jpg",
+          "bytes": 173473
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/prague/w2048.jpg",
+          "bytes": 430277
+        }
+      ]
+    },
+    {
+      "featureName": "Prague Castle",
+      "alt": "Prague Castle — prague",
+      "caption": "Prague Castle",
+      "photographer": "Estec sarl.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APrague_castle_panorama.jpg",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Prague castle panorama.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Prague castle panorama.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "04c7366cbdc2eab13af03a4c86f267bd0e9f24035f8027e9d76154758e888d6e",
+      "width": 2777,
+      "height": 2052,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/prague/w640-2.jpg",
+          "bytes": 71669
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/prague/w1280-2.jpg",
+          "bytes": 275543
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/prague/w2048-2.jpg",
+          "bytes": 802554
+        }
+      ]
+    },
+    {
+      "featureName": "Old Town Square",
+      "alt": "Old Town Square — prague",
+      "caption": "Old Town Square",
+      "photographer": "Diliff",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APrague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Prague Old Town Square, Czech Republic - Oct 2010.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Prague Old Town Square, Czech Republic - Oct 2010.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "78037b60de65fa7959d37a08f790c306e7d816e1a9010ba765a3d1101decb430",
+      "width": 4000,
+      "height": 3864,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/prague/w640-3.jpg",
+          "bytes": 80910
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/prague/w1280-3.jpg",
+          "bytes": 226415
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/prague/w2048-3.jpg",
+          "bytes": 629956
+        }
+      ]
+    }
+  ],
+  "barcelona": [
+    {
+      "featureName": "Sagrada Família",
+      "alt": "Sagrada Família — barcelona",
+      "caption": "Sagrada Família",
+      "photographer": "Txllxt TxllxT",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABarcelona_-_Pla%C3%A7a_de_Gaud%C3%AD_-_View_SW_on_La_Sagrada_Fam%C3%ADlia_-_Nativity_fa%C3%A7ade_V.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Barcelona - Plaça de Gaudí - View SW on La Sagrada Família - Nativity façade V.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Barcelona - Plaça de Gaudí - View SW on La Sagrada Família - Nativity façade V.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "77eed198725f7c87cc0d01a7346d2df8201de68bc4310d623244db2cc13ad170",
+      "width": 4032,
+      "height": 6048,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/barcelona/w640.jpg",
+          "bytes": 189318
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/barcelona/w1280.jpg",
+          "bytes": 534962
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/barcelona/w2048.jpg",
+          "bytes": 1268441
+        }
+      ]
+    },
+    {
+      "featureName": "Park Güell",
+      "alt": "Park Güell — barcelona",
+      "caption": "Park Güell",
+      "photographer": "Bernard Gagnon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APark_G%C3%BCell_02.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Park Güell 02.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Park Güell 02.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1095ef8d9c362ba5adfd0952966f4a3395e559ff35ea020a22b672d9953eb6eb",
+      "width": 2960,
+      "height": 2232,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/barcelona/w640-2.jpg",
+          "bytes": 99346
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/barcelona/w1280-2.jpg",
+          "bytes": 263908
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/barcelona/w2048-2.jpg",
+          "bytes": 606594
+        }
+      ]
+    },
+    {
+      "featureName": "Casa Batlló",
+      "alt": "Casa Batlló — barcelona",
+      "caption": "Casa Batlló",
+      "photographer": "Bernard Gagnon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACasa_Batll%C3%B3_01.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Casa Batlló 01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Casa Batlló 01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "604d8da6f7f399de778a7755e058afc5681838bbfd1c399c49a75755c190e7eb",
+      "width": 3267,
+      "height": 2422,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/barcelona/w640-3.jpg",
+          "bytes": 96479
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/barcelona/w1280-3.jpg",
+          "bytes": 260003
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/barcelona/w2048-3.jpg",
+          "bytes": 579010
+        }
+      ]
+    }
+  ],
+  "moscow": [
+    {
+      "featureName": "Red Square",
+      "alt": "Red Square — moscow",
+      "caption": "Red Square",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMoscow's_Red_Square%2C_Moscow%2C_Russia.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Moscow's Red Square, Moscow, Russia.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Moscow's Red Square, Moscow, Russia.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7f0365b41d40a0b2c2f289479b8a8ef5b3cf9518e6b58701d3c4134206ce8707",
+      "width": 4912,
+      "height": 3264,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/moscow/w640.jpg",
+          "bytes": 73568
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/moscow/w1280.jpg",
+          "bytes": 199213
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/moscow/w2048.jpg",
+          "bytes": 511050
+        }
+      ]
+    },
+    {
+      "featureName": "Moscow Kremlin",
+      "alt": "Moscow Kremlin — moscow",
+      "caption": "Moscow Kremlin",
+      "photographer": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AVista_general_del_Kremlin%2C_Mosc%C3%BA%2C_Rusia%2C_2016-10-03%2C_DD_18-19_HDR.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Vista general del Kremlin, Moscú, Rusia, 2016-10-03, DD 18-19 HDR.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Vista general del Kremlin, Moscú, Rusia, 2016-10-03, DD 18-19 HDR.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "591bdf716e5ad3e799eda4a7591f54e0d10da378df3465028a4ce61c2da8c501",
+      "width": 7062,
+      "height": 3460,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/moscow/w640-2.jpg",
+          "bytes": 35675
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/moscow/w1280-2.jpg",
+          "bytes": 98710
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/moscow/w2048-2.jpg",
+          "bytes": 261082
+        }
+      ]
+    },
+    {
+      "featureName": "St. Basil's Cathedral",
+      "alt": "St. Basil's Cathedral — moscow",
+      "caption": "St. Basil's Cathedral",
+      "photographer": "Godot13",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASaint_Basil's_Cathedral_(Moscow%2C_2004).jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Saint Basil's Cathedral (Moscow, 2004).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Saint Basil's Cathedral (Moscow, 2004).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "0377ad6ab1639a994b6204f46b5311a8e2df35705e63869058861423cac6af4f",
+      "width": 3727,
+      "height": 3830,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/cities/moscow/w640-3.jpg",
+          "bytes": 78115
+        },
+        {
+          "width": 1280,
+          "src": "/images/cities/moscow/w1280-3.jpg",
+          "bytes": 200376
+        },
+        {
+          "width": 2048,
+          "src": "/images/cities/moscow/w2048-3.jpg",
+          "bytes": 524874
+        }
+      ]
+    }
   ]
 }

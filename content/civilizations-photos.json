@@ -2937,5 +2937,915 @@
         }
       ]
     }
+  ],
+  "minoan-crete": [
+    {
+      "featureName": "Palace of Knossos",
+      "alt": "Palace of Knossos — minoan crete",
+      "caption": "Palace of Knossos",
+      "photographer": "Marc Ryckaert ( MJJR )",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKnossos_R03.jpg",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Knossos R03.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Knossos R03.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "211ed17487ccceb81ad550338d4291eb13718fce2c59a9741e0e1553850ae6a1",
+      "width": 3768,
+      "height": 2590,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/minoan-crete/w640.jpg",
+          "bytes": 76452
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/minoan-crete/w1280.jpg",
+          "bytes": 210287
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/minoan-crete/w2048.jpg",
+          "bytes": 514934
+        }
+      ]
+    },
+    {
+      "featureName": "Phaistos Disc",
+      "alt": "Phaistos Disc — minoan crete",
+      "caption": "Phaistos Disc",
+      "photographer": "Joyofmuseums",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APhaistos_Disc_-_Heraklion_Archaeological_Museum_by_Joy_of_Museums.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Phaistos Disc - Heraklion Archaeological Museum by Joy of Museums.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Phaistos Disc - Heraklion Archaeological Museum by Joy of Museums.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "bbd9f0b2519a274ef67f915d5b94cfe045652572e7826d6f795da0350543e69c",
+      "width": 3129,
+      "height": 2758,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/minoan-crete/w640-2.jpg",
+          "bytes": 133374
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/minoan-crete/w1280-2.jpg",
+          "bytes": 268212
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/minoan-crete/w2048-2.jpg",
+          "bytes": 615000
+        }
+      ]
+    },
+    {
+      "featureName": "Bull-leaping fresco",
+      "alt": "Bull-leaping fresco — minoan crete",
+      "caption": "Bull-leaping fresco",
+      "photographer": "Jebulon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABull_leaping_minoan_fresco_archmus_Heraklion.jpg",
+      "license": "CC0",
+      "commonsTitle": "File:Bull leaping minoan fresco archmus Heraklion.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Bull leaping minoan fresco archmus Heraklion.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6e4a5d62867ec90a1996ff230601f34d0735346fad47609bb36c4df2ae372d3f",
+      "width": 4305,
+      "height": 2640,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/minoan-crete/w640-3.jpg",
+          "bytes": 65184
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/minoan-crete/w1280-3.jpg",
+          "bytes": 183929
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/minoan-crete/w2048-3.jpg",
+          "bytes": 463656
+        }
+      ]
+    }
+  ],
+  "mycenaean-greece": [
+    {
+      "featureName": "Lion Gate",
+      "alt": "Lion Gate — mycenaean greece",
+      "caption": "Lion Gate",
+      "photographer": "Andreas Trepte",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALions-Gate-Mycenae.jpg",
+      "license": "CC BY-SA 2.5",
+      "commonsTitle": "File:Lions-Gate-Mycenae.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Lions-Gate-Mycenae.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1e34b908fafb25d89b7bf46ac2a8d5fd964dddc1c032ef5bfea8f3bdf4e9cca7",
+      "width": 3000,
+      "height": 2430,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mycenaean-greece/w640.jpg",
+          "bytes": 66644
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mycenaean-greece/w1280.jpg",
+          "bytes": 285981
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mycenaean-greece/w2048.jpg",
+          "bytes": 890364
+        }
+      ]
+    },
+    {
+      "featureName": "Treasury of Atreus",
+      "alt": "Treasury of Atreus — mycenaean greece",
+      "caption": "Treasury of Atreus",
+      "photographer": "Berthold Werner",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMykene_BW_2017-10-10_12-19-49.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Mykene BW 2017-10-10 12-19-49.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mykene BW 2017-10-10 12-19-49.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "dcc9c797d2f44bd34107762ebeceb8d7310ea5dd60b6ade5b5ead9d2a822bff7",
+      "width": 4000,
+      "height": 6016,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mycenaean-greece/w640-2.jpg",
+          "bytes": 119757
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mycenaean-greece/w1280-2.jpg",
+          "bytes": 345656
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mycenaean-greece/w2048-2.jpg",
+          "bytes": 874953
+        }
+      ]
+    },
+    {
+      "featureName": "Grave Circle A",
+      "alt": "Grave Circle A — mycenaean greece",
+      "caption": "Grave Circle A",
+      "photographer": "Berthold Werner",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMykene_BW_2017-10-10_13-05-00.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Mykene BW 2017-10-10 13-05-00.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Mykene BW 2017-10-10 13-05-00.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8e339a2a9dea1965805bea2a5ad1980f0d32cbef23dd16b041d0e6ef1ea818b0",
+      "width": 8352,
+      "height": 4404,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mycenaean-greece/w640-3.jpg",
+          "bytes": 57229
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mycenaean-greece/w1280-3.jpg",
+          "bytes": 210637
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mycenaean-greece/w2048-3.jpg",
+          "bytes": 610438
+        }
+      ]
+    }
+  ],
+  "etruscan": [
+    {
+      "featureName": "Banditaccia necropolis",
+      "alt": "Banditaccia necropolis — etruscan",
+      "caption": "Banditaccia necropolis",
+      "photographer": "louis-garden",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATombaDadoBanditaccia.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:TombaDadoBanditaccia.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:TombaDadoBanditaccia.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "5b7fb6793d624037369642c678831220274ed1e83c1a6c84b928fe4ef3bd8e29",
+      "width": 2400,
+      "height": 1800,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/etruscan/w640.jpg",
+          "bytes": 71231
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/etruscan/w1280.jpg",
+          "bytes": 246254
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/etruscan/w2048.jpg",
+          "bytes": 635825
+        }
+      ]
+    },
+    {
+      "featureName": "Sarcophagus of the Spouses",
+      "alt": "Sarcophagus of the Spouses — etruscan",
+      "caption": "Sarcophagus of the Spouses",
+      "photographer": "Frank Axelsson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEtruscan_sarcophagus.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Etruscan sarcophagus.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Etruscan sarcophagus.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f0cb05beef7782d0cb4e554e2c1bfaa243ed8cf71dbd0b22995043423c99626c",
+      "width": 2848,
+      "height": 2136,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/etruscan/w640-2.jpg",
+          "bytes": 48354
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/etruscan/w1280-2.jpg",
+          "bytes": 152722
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/etruscan/w2048-2.jpg",
+          "bytes": 488262
+        }
+      ]
+    },
+    {
+      "featureName": "Tarquinia tomb frescoes",
+      "alt": "Tarquinia tomb frescoes — etruscan",
+      "caption": "Tarquinia tomb frescoes",
+      "photographer": "Sailko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATomba_dei_leopardi%2C_470_ac_ca._01.jpg",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Tomba dei leopardi, 470 ac ca. 01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Tomba dei leopardi, 470 ac ca. 01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9784b868f59d566b6d489c33399c642e8f03a16412e6fa8b60752528cfabf8de",
+      "width": 3392,
+      "height": 2432,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/etruscan/w640-3.jpg",
+          "bytes": 54270
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/etruscan/w1280-3.jpg",
+          "bytes": 132236
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/etruscan/w2048-3.jpg",
+          "bytes": 337113
+        }
+      ]
+    }
+  ],
+  "phoenicia": [
+    {
+      "featureName": "Byblos ruins",
+      "alt": "Byblos ruins — phoenicia",
+      "caption": "Byblos ruins",
+      "photographer": "Vyacheslav Argenberg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AByblos_ancient_ruins%2C_Phoenician_city_of_Byblos%2C_Lebanon.jpg",
+      "license": "CC BY 4.0",
+      "commonsTitle": "File:Byblos ancient ruins, Phoenician city of Byblos, Lebanon.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Byblos ancient ruins, Phoenician city of Byblos, Lebanon.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "31b610aea50bda33367185334c8bf9289c185884042be3f9b5a604c9748b4ec0",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/phoenicia/w640.jpg",
+          "bytes": 58598
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/phoenicia/w1280.jpg",
+          "bytes": 192100
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/phoenicia/w2048.jpg",
+          "bytes": 540643
+        }
+      ]
+    },
+    {
+      "featureName": "Tyre harbor ruins",
+      "alt": "Tyre harbor ruins — phoenicia",
+      "caption": "Tyre harbor ruins",
+      "photographer": "RomanDeckert",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASubmergedEgyptianHarbour_TyreSour_Lebanon_RomanDeckert04112019.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:SubmergedEgyptianHarbour TyreSour Lebanon RomanDeckert04112019.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:SubmergedEgyptianHarbour TyreSour Lebanon RomanDeckert04112019.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "cf618affec76e1b03e82f82135c1d44c0fa4abd35c714fb31748c9e487cca0cc",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/phoenicia/w640-2.jpg",
+          "bytes": 83441
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/phoenicia/w1280-2.jpg",
+          "bytes": 205266
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/phoenicia/w2048-2.jpg",
+          "bytes": 509417
+        }
+      ]
+    },
+    {
+      "featureName": "Ahiram sarcophagus",
+      "alt": "Ahiram sarcophagus — phoenicia",
+      "caption": "Ahiram sarcophagus",
+      "photographer": "O.Mustafin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAhiram_Sarcophagus_1.JPG",
+      "license": "Public domain",
+      "commonsTitle": "File:Ahiram Sarcophagus 1.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Ahiram Sarcophagus 1.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b2c406e5345515d2d1f8e7496dcb40f6c2e5c5db145c26c361e2034219d79f67",
+      "width": 1280,
+      "height": 960,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/phoenicia/w640-3.jpg",
+          "bytes": 124821
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/phoenicia/w1280-3.jpg",
+          "bytes": 283927
+        }
+      ]
+    }
+  ],
+  "nuragic-sardinia": [
+    {
+      "featureName": "Su Nuraxi",
+      "alt": "Su Nuraxi — nuragic sardinia",
+      "caption": "Su Nuraxi",
+      "photographer": "Norbert Nagel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANuraghe_Su_Nuraxi_-_Barumini_-_Sardinia_-_Italy_-_30.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Nuraghe Su Nuraxi - Barumini - Sardinia - Italy - 30.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Nuraghe Su Nuraxi - Barumini - Sardinia - Italy - 30.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "cf451964cfbb1d5571ef2d90abdeaadf8783f7e5e6b9a13bc376cc55461d10fb",
+      "width": 5517,
+      "height": 3682,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/nuragic-sardinia/w640.jpg",
+          "bytes": 84430
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/nuragic-sardinia/w1280.jpg",
+          "bytes": 224206
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/nuragic-sardinia/w2048.jpg",
+          "bytes": 605219
+        }
+      ]
+    },
+    {
+      "featureName": "Nuraghe Losa",
+      "alt": "Nuraghe Losa — nuragic sardinia",
+      "caption": "Nuraghe Losa",
+      "photographer": "Sailko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAbbasanta%2C_nuraghe_losa%2C_01.jpg",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Abbasanta, nuraghe losa, 01.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Abbasanta, nuraghe losa, 01.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "cc07b19523736f59a30f18a8b7041fd238a09377f9954b08f6e45ec95bdc4931",
+      "width": 5472,
+      "height": 3648,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/nuragic-sardinia/w640-2.jpg",
+          "bytes": 69354
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/nuragic-sardinia/w1280-2.jpg",
+          "bytes": 222104
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/nuragic-sardinia/w2048-2.jpg",
+          "bytes": 645936
+        }
+      ]
+    },
+    {
+      "featureName": "Santa Cristina well temple",
+      "alt": "Santa Cristina well temple — nuragic sardinia",
+      "caption": "Santa Cristina well temple",
+      "photographer": "No machine-readable author provided. Shardan assumed (based on copyright claims).",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APozzo_Sacro_Santa_Cristina.JPG",
+      "license": "CC BY-SA 2.5",
+      "commonsTitle": "File:Pozzo Sacro Santa Cristina.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Pozzo Sacro Santa Cristina.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f6ffcc6f1b3d398d9f6121537f2063e5c5d014fc4d4ac0b7814898417ce1863e",
+      "width": 2430,
+      "height": 1604,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/nuragic-sardinia/w640-3.jpg",
+          "bytes": 50677
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/nuragic-sardinia/w1280-3.jpg",
+          "bytes": 165357
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/nuragic-sardinia/w2048-3.jpg",
+          "bytes": 478335
+        }
+      ]
+    }
+  ],
+  "mississippian": [
+    {
+      "featureName": "Monks Mound",
+      "alt": "Monks Mound — mississippian",
+      "caption": "Monks Mound",
+      "photographer": "User: (WT-shared) Ethajek at wts wikivoyage",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACahokia_Monks_Mound.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Cahokia Monks Mound.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Cahokia Monks Mound.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "00218c2d411274b86e9a964ccdb676ec19a419c1c86cd1d361b939feaca419e7",
+      "width": 4000,
+      "height": 3000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mississippian/w640.jpg",
+          "bytes": 28460
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mississippian/w1280.jpg",
+          "bytes": 79373
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mississippian/w2048.jpg",
+          "bytes": 234685
+        }
+      ]
+    },
+    {
+      "featureName": "Cahokia Woodhenge",
+      "alt": "Cahokia Woodhenge — mississippian",
+      "caption": "Cahokia Woodhenge",
+      "photographer": "QuartierLatin1968",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWoodhenge_Cahokia_3998.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Woodhenge Cahokia 3998.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Woodhenge Cahokia 3998.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f4818cbed234f7ab37599d0e72dc746b23342ccc17f5b9b79d9cb0d5d493c5c3",
+      "width": 2592,
+      "height": 1944,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mississippian/w640-2.jpg",
+          "bytes": 37815
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mississippian/w1280-2.jpg",
+          "bytes": 119156
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mississippian/w2048-2.jpg",
+          "bytes": 340235
+        }
+      ]
+    },
+    {
+      "featureName": "Etowah Mounds",
+      "alt": "Etowah Mounds — mississippian",
+      "caption": "Etowah Mounds",
+      "photographer": "Jeffreyrfoote",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEtowah_Indian_Mounds.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Etowah Indian Mounds.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Etowah Indian Mounds.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "541a03c6b6ce9987cd44184c060ec6adb9a13e86f06050730f0f92fffffbab77",
+      "width": 5472,
+      "height": 3648,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/mississippian/w640-3.jpg",
+          "bytes": 64324
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/mississippian/w1280-3.jpg",
+          "bytes": 183451
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/mississippian/w2048-3.jpg",
+          "bytes": 431732
+        }
+      ]
+    }
+  ],
+  "ancestral-puebloan": [
+    {
+      "featureName": "Cliff Palace",
+      "alt": "Cliff Palace — ancestral puebloan",
+      "caption": "Cliff Palace",
+      "photographer": "Massimo Catarinella",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMesaVerdeNationalParkCliffPalace.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:MesaVerdeNationalParkCliffPalace.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:MesaVerdeNationalParkCliffPalace.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ea06ee589d49492e9c9f435b099f8fdcc3e95a1d8f8c7317af78b65082cd6876",
+      "width": 3456,
+      "height": 2304,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/ancestral-puebloan/w640.jpg",
+          "bytes": 84725
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/ancestral-puebloan/w1280.jpg",
+          "bytes": 273537
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/ancestral-puebloan/w2048.jpg",
+          "bytes": 732285
+        }
+      ]
+    },
+    {
+      "featureName": "Pueblo Bonito",
+      "alt": "Pueblo Bonito — ancestral puebloan",
+      "caption": "Pueblo Bonito",
+      "photographer": "Gerd Eichmann",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChaco_Canyon-Pueblo_Bonito-02-von_oben-1982-gje.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Chaco Canyon-Pueblo Bonito-02-von oben-1982-gje.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Chaco Canyon-Pueblo Bonito-02-von oben-1982-gje.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a34b883e6cf7a97fb14b6f74515938d43ab2c7a023dc3fba3865520a283b1fd5",
+      "width": 3840,
+      "height": 2541,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/ancestral-puebloan/w640-2.jpg",
+          "bytes": 90616
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/ancestral-puebloan/w1280-2.jpg",
+          "bytes": 239992
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/ancestral-puebloan/w2048-2.jpg",
+          "bytes": 593395
+        }
+      ]
+    },
+    {
+      "featureName": "White House Ruin",
+      "alt": "White House Ruin — ancestral puebloan",
+      "caption": "White House Ruin",
+      "photographer": "Andreas F. Borchert",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACanyon_de_Chelly_White_House_Ruin_2006_09_07.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Canyon de Chelly White House Ruin 2006 09 07.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Canyon de Chelly White House Ruin 2006 09 07.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b8518226530dc92fcbce280db68407761d877d1f7c895cfc1f691cb5eb111dbb",
+      "width": 3504,
+      "height": 2336,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/ancestral-puebloan/w640-3.jpg",
+          "bytes": 57217
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/ancestral-puebloan/w1280-3.jpg",
+          "bytes": 175815
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/ancestral-puebloan/w2048-3.jpg",
+          "bytes": 446261
+        }
+      ]
+    }
+  ],
+  "chavin": [
+    {
+      "featureName": "Chavín de Huántar",
+      "alt": "Chavín de Huántar — chavin",
+      "caption": "Chavín de Huántar",
+      "photographer": "PsamatheM",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChav%C3%ADn_de_Huantar-nX13.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Chavín de Huantar-nX13.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Chavín de Huantar-nX13.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "276362d95ae1d9a40b92f938635d43baed91247f1a2e57262735d4a95d1c7dc1",
+      "width": 5472,
+      "height": 3648,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/chavin/w640.jpg",
+          "bytes": 118968
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/chavin/w1280.jpg",
+          "bytes": 315339
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/chavin/w2048.jpg",
+          "bytes": 838326
+        }
+      ]
+    },
+    {
+      "featureName": "Lanzón monolith",
+      "alt": "Lanzón monolith — chavin",
+      "caption": "Lanzón monolith",
+      "photographer": "Reto Luescher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEl-lanzon.JPG",
+      "license": "CC BY 2.5",
+      "commonsTitle": "File:El-lanzon.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:El-lanzon.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "16a0f72ed9d1a83d642ad6e90adf4902f04cea413301a3778efd85b322b85838",
+      "width": 1944,
+      "height": 2592,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/chavin/w640-2.jpg",
+          "bytes": 69317
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/chavin/w1280-2.jpg",
+          "bytes": 226635
+        },
+        {
+          "width": 1944,
+          "src": "/images/civilizations/chavin/w2048-2.jpg",
+          "bytes": 573239
+        }
+      ]
+    },
+    {
+      "featureName": "Circular plaza",
+      "alt": "Circular plaza — chavin",
+      "caption": "Circular plaza",
+      "photographer": "Dtarazona",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChavin_de_Huantar_Plaza_Circular_06122009.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Chavin de Huantar Plaza Circular 06122009.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Chavin de Huantar Plaza Circular 06122009.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "63fddddb5dc04e563842bb208dad2d93ad1d83cf0f72c7c9411c6ba7900f39c0",
+      "width": 3072,
+      "height": 2304,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/chavin/w640-3.jpg",
+          "bytes": 88196
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/chavin/w1280-3.jpg",
+          "bytes": 271215
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/chavin/w2048-3.jpg",
+          "bytes": 675321
+        }
+      ]
+    }
+  ],
+  "moche": [
+    {
+      "featureName": "Huaca de la Luna",
+      "alt": "Huaca de la Luna — moche",
+      "caption": "Huaca de la Luna",
+      "photographer": "Martin St-Amant ( S23678 )",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHuaca_de_la_Luna_-_Ao%C3%BBt_2007.jpg",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Huaca de la Luna - Août 2007.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Huaca de la Luna - Août 2007.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2b998af66e649d802225b7526672fe052582ffd7d4fd0b8b40744998b4736499",
+      "width": 5936,
+      "height": 5020,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/moche/w640.jpg",
+          "bytes": 70228
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/moche/w1280.jpg",
+          "bytes": 265343
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/moche/w2048.jpg",
+          "bytes": 788923
+        }
+      ]
+    },
+    {
+      "featureName": "Lord of Sipán tomb",
+      "alt": "Lord of Sipán tomb — moche",
+      "caption": "Lord of Sipán tomb",
+      "photographer": "Bruno Girin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATomb_of_El_Se%C3%B1or_de_Sipan_reconstruction_at_Huaca_Rajada.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Tomb of El Señor de Sipan reconstruction at Huaca Rajada.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Tomb of El Señor de Sipan reconstruction at Huaca Rajada.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "fcc740edae2fad7f4de85e2d1b89bbb60d555d6cfc033b851c780c0017e60d31",
+      "width": 1280,
+      "height": 848,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/moche/w640-2.jpg",
+          "bytes": 52786
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/moche/w1280-2.jpg",
+          "bytes": 221596
+        }
+      ]
+    },
+    {
+      "featureName": "Huaca del Sol",
+      "alt": "Huaca del Sol — moche",
+      "caption": "Huaca del Sol",
+      "photographer": "Pitxiquin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACases_del_districte_de_Moche_amb_la_Huaca_del_Sol_darrera.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Cases del districte de Moche amb la Huaca del Sol darrera.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Cases del districte de Moche amb la Huaca del Sol darrera.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "770757d3b4495429175b2b4ffa7b358768fa9702a14a457727a4b1d7206e01e6",
+      "width": 3968,
+      "height": 2976,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/moche/w640-3.jpg",
+          "bytes": 70412
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/moche/w1280-3.jpg",
+          "bytes": 159096
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/moche/w2048-3.jpg",
+          "bytes": 363433
+        }
+      ]
+    }
+  ],
+  "tiwanaku": [
+    {
+      "featureName": "Gate of the Sun",
+      "alt": "Gate of the Sun — tiwanaku",
+      "caption": "Gate of the Sun",
+      "photographer": "rodoluca",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APuerta_del_Sol%2C_Tiwanaku%2C_Bolivia_-_panoramio.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Puerta del Sol, Tiwanaku, Bolivia - panoramio.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Puerta del Sol, Tiwanaku, Bolivia - panoramio.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "95e5de0bb90e2cdf0ccace2afc1a47bcc1e30e20be824c9210da1c825aec1731",
+      "width": 2034,
+      "height": 1356,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/tiwanaku/w640.jpg",
+          "bytes": 53950
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/tiwanaku/w1280.jpg",
+          "bytes": 165275
+        },
+        {
+          "width": 2034,
+          "src": "/images/civilizations/tiwanaku/w2048.jpg",
+          "bytes": 284218
+        }
+      ]
+    },
+    {
+      "featureName": "Kalasasaya",
+      "alt": "Kalasasaya — tiwanaku",
+      "caption": "Kalasasaya",
+      "photographer": "No machine-readable author provided. Anakin~commonswiki assumed (based on copyright cla…",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKalasasaya.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Kalasasaya.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Kalasasaya.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b0268896923e3a5418123b1cc1b4b773721b9153fb867e87ebe8690d84f0208f",
+      "width": 2048,
+      "height": 1536,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/tiwanaku/w640-2.jpg",
+          "bytes": 61255
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/tiwanaku/w1280-2.jpg",
+          "bytes": 216562
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/tiwanaku/w2048-2.jpg",
+          "bytes": 563544
+        }
+      ]
+    },
+    {
+      "featureName": "Akapana",
+      "alt": "Akapana — tiwanaku",
+      "caption": "Akapana",
+      "photographer": "DeFries",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APiramide_de_Akapana_en_restauracion_(Tiwanaku)%2C_Bolivia.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:Piramide de Akapana en restauracion (Tiwanaku), Bolivia.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Piramide de Akapana en restauracion (Tiwanaku), Bolivia.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "331e6ce3ccc83d8a74085f43552465248be5af4e789c1caf5c5f244252d83902",
+      "width": 2047,
+      "height": 1365,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/tiwanaku/w640-3.jpg",
+          "bytes": 66137
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/tiwanaku/w1280-3.jpg",
+          "bytes": 193160
+        },
+        {
+          "width": 2047,
+          "src": "/images/civilizations/tiwanaku/w2048-3.jpg",
+          "bytes": 467497
+        }
+      ]
+    }
   ]
 }

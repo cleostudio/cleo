@@ -3,7 +3,7 @@
 Cities pages at `/cities` and `/cities/[slug]`. Catalog in `lib/cities.ts`:
 capitals and route cities across Mediterranean & Europe, Asia, and Africa &
 Americas — about, signature sites, facts, sources, and curated
-photographs (twenty-six cities). Topics catalog lists Cities alongside Countries,
+photographs (thirty-one cities). Topics catalog lists Cities alongside Countries,
 Space, Civilizations, Oceans, and Rivers (`lib/topics.ts`).
 
 ## Map

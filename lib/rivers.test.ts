@@ -10,7 +10,7 @@ import {
 
 describe('river subjects', () => {
   it('ships a starter catalog with unique slugs and codes', () => {
-    expect(riverSubjects.length).toBeGreaterThanOrEqual(26)
+    expect(riverSubjects.length).toBeGreaterThanOrEqual(31)
 
     const slugs = riverSubjects.map((subject) => subject.slug)
     const codes = riverSubjects.map((subject) => subject.code)
@@ -63,6 +63,21 @@ describe('river subjects', () => {
     expect(
       groups[2]?.[1].some((subject) => subject.slug === 'murray-darling'),
     ).toBe(true)
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'loire')).toBe(
+      true,
+    )
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'thames')).toBe(
+      true,
+    )
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'colorado')).toBe(
+      true,
+    )
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'yukon')).toBe(
+      true,
+    )
+    expect(groups[2]?.[1].some((subject) => subject.slug === 'orinoco')).toBe(
+      true,
+    )
   })
 
   it('lists Explore countries by exact catalog names', () => {

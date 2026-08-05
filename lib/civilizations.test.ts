@@ -61,6 +61,18 @@ describe('civilization subjects', () => {
     expect(
       groups[1]?.[1].some((subject) => subject.slug === 'roman-empire'),
     ).toBe(true)
+    expect(
+      groups[1]?.[1].some((subject) => subject.slug === 'minoan-crete'),
+    ).toBe(true)
+    expect(
+      groups[1]?.[1].some((subject) => subject.slug === 'phoenicia'),
+    ).toBe(true)
+    expect(
+      groups[3]?.[1].some((subject) => subject.slug === 'mississippian'),
+    ).toBe(true)
+    expect(groups[3]?.[1].some((subject) => subject.slug === 'tiwanaku')).toBe(
+      true,
+    )
     expect(groups[2]?.[1].some((subject) => subject.slug === 'han-china')).toBe(
       true,
     )
@@ -83,7 +95,7 @@ describe('civilization subjects', () => {
   })
 
   it('covers a broad starter set across regions', () => {
-    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(27)
+    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(42)
     expect(civilizationSubjectSlugs()).toEqual(
       expect.arrayContaining([
         'mesopotamia',
@@ -104,6 +116,16 @@ describe('civilization subjects', () => {
         'chola-empire',
         'olmec',
         'early-caliphates',
+        'minoan-crete',
+        'mycenaean-greece',
+        'etruscan',
+        'phoenicia',
+        'nuragic-sardinia',
+        'mississippian',
+        'ancestral-puebloan',
+        'chavin',
+        'moche',
+        'tiwanaku',
       ]),
     )
   })

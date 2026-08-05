@@ -2,7 +2,7 @@
 
 Rivers pages at `/rivers` and `/rivers/[slug]`. Catalog in `lib/rivers.ts`:
 Africa, Asia, and Europe, Americas & Oceania — about, course features,
-basin, hydrology, climate role, sources, and curated photographs (twenty-six
+basin, hydrology, climate role, sources, and curated photographs (thirty-one
 rivers). Topics catalog lists Rivers alongside Countries, Space, Civilizations,
 Cities, and Oceans (`lib/topics.ts`).
 

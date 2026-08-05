@@ -1406,6 +1406,266 @@ const citySubjectDrafts: CitySubjectDraft[] = [
       },
     ],
   },
+  {
+    slug: 'lisbon',
+    code: 'LIS',
+    name: 'Lisbon',
+    category: 'Mediterranean & Europe',
+    subtitle: 'Atlantic port capital · Tagus estuary',
+    about:
+      'Lisbon is Portugal’s capital, set on hills above the Tagus estuary where the river widens before meeting the Atlantic. The city’s historic core climbs from waterfront squares and riverside warehouses toward ridge neighborhoods, with the Belém district marking the outer harbor approach associated with early modern voyages. Roman, Moorish, and medieval layers underlie a skyline reshaped after the 1755 earthquake, when the Baixa was rebuilt on a planned grid facing the river.\nMaritime trade and administration long concentrated along the Tagus, linking inland routes to Atlantic shipping. Palaces, monasteries, and defensive towers along the estuary record Lisbon’s role as a royal and imperial port, while ferries, bridges, and the waterfront continue to organize daily movement between the city and the south bank.',
+    facts: {
+      kind: 'Atlantic port capital',
+      country: 'Portugal',
+      region: 'Tagus estuary · western Iberian Atlantic coast',
+      founded: 'Roman Olisipo; continuous urban life through Moorish, medieval, and early modern capitals',
+      capitalRole: 'Capital of Portugal',
+      corridors: 'Tagus estuary; Atlantic approaches; historic overland routes into central Portugal',
+      exploreLinks: ['Portugal'],
+    },
+    features: [
+      {
+        name: 'Belém Tower',
+        description:
+          'The Manueline riverside fortress at the Tagus mouth — a defensive and ceremonial marker of Lisbon’s Age of Discoveries harbor.',
+      },
+      {
+        name: 'Jerónimos Monastery',
+        description:
+          'The great limestone monastery at Belém — royal patronage carved into cloisters that once prayed for outgoing fleets.',
+      },
+      {
+        name: 'Praça do Comércio',
+        description:
+          'The arcaded waterfront square of the rebuilt Baixa — Lisbon’s ceremonial room opening directly onto the Tagus.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Lisbon',
+        url: 'https://www.britannica.com/place/Lisbon',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Monastery of the Hieronymites and Tower of Belém',
+        url: 'https://whc.unesco.org/en/list/263',
+        kind: 'catalog',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Portugal',
+        url: 'https://www.britannica.com/place/Portugal',
+        kind: 'reference',
+      },
+    ],
+  },
+  {
+    slug: 'vienna',
+    code: 'VIE',
+    name: 'Vienna',
+    category: 'Mediterranean & Europe',
+    subtitle: 'Imperial capital · Danube basin',
+    about:
+      'Vienna is Austria’s capital, a historic Danube-basin city where a fortified medieval core expanded into an imperial metropolis. Successive Habsburg residences, churches, and administrative quarters concentrated political and cultural life around the Innere Stadt, while later ring boulevards replaced the old walls with museums, parliament buildings, and apartment blocks. The Danube and its canal branches frame the city’s northern edge and long-distance corridors.\nAs the seat of a multinational empire and later of the Austrian republic, Vienna gathered courts, ministries, universities, and performance houses into a dense central district. Palace complexes such as the Hofburg and Schönbrunn, together with St. Stephen’s Cathedral, remain the most visible anchors of that imperial urban geography.',
+    facts: {
+      kind: 'Imperial capital',
+      country: 'Austria',
+      region: 'Danube basin · northeastern Austria',
+      founded: 'Roman Vindobona; continuous urban life through medieval dukedom and Habsburg capital',
+      capitalRole: 'Capital of Austria; historic capital of the Habsburg monarchy',
+      corridors: 'Danube River; Alpine and Pannonian land routes; historic roads toward Bohemia and Hungary',
+      exploreLinks: ['Austria'],
+    },
+    features: [
+      {
+        name: 'Schönbrunn Palace',
+        description:
+          'The Baroque imperial summer residence and gardens — Habsburg court life staged as a complete palace landscape.',
+      },
+      {
+        name: "St. Stephen's Cathedral",
+        description:
+          'The Gothic cathedral on Stephansplatz — Vienna’s medieval spire and sacred center of the Innere Stadt.',
+      },
+      {
+        name: 'Hofburg',
+        description:
+          'The vast imperial palace complex in the city center — winter seat of Habsburg power across centuries of accretion.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Vienna',
+        url: 'https://www.britannica.com/place/Vienna',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Palace and Gardens of Schönbrunn',
+        url: 'https://whc.unesco.org/en/list/786',
+        kind: 'catalog',
+      },
+      {
+        label: 'UNESCO — Historic Centre of Vienna',
+        url: 'https://whc.unesco.org/en/list/1033',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'prague',
+    code: 'PRG',
+    name: 'Prague',
+    category: 'Mediterranean & Europe',
+    subtitle: 'Castle capital · Vltava bend',
+    about:
+      'Prague is the capital of Czechia, built on both banks of the Vltava where the river bends beneath a castle ridge. Medieval districts — Hradčany, the Lesser Town, the Old Town, and the New Town — form a compact historic center linked by stone bridges and towers. Gothic, Renaissance, and Baroque layers accumulate around market squares, synagogues, and palace courtyards that survived large-scale nineteenth-century clearance.\nThe castle complex above the river long concentrated royal and later presidential authority, while Charles Bridge and the Old Town Square organized pilgrimage, trade, and civic ceremony below. Prague’s setting on the Vltava made it a Central European crossroads between Bohemia, Moravia, and routes toward Germany and Austria.',
+    facts: {
+      kind: 'Castle capital',
+      country: 'Czechia',
+      region: 'Vltava basin · Bohemia',
+      founded: 'Early medieval settlement; major royal city from the Přemyslid and Luxembourg eras',
+      capitalRole: 'Capital of Czechia; historic capital of Bohemia and of Czechoslovakia',
+      corridors: 'Vltava River; Bohemian land routes toward Germany, Austria, and Moravia',
+      exploreLinks: ['Czechia'],
+    },
+    features: [
+      {
+        name: 'Charles Bridge',
+        description:
+          'The stone bridge of towers and statues across the Vltava — Prague’s classic pedestrian hinge between castle and Old Town.',
+      },
+      {
+        name: 'Prague Castle',
+        description:
+          'The hilltop palace and cathedral complex above the river — a continuous seat of Bohemian and Czech authority.',
+      },
+      {
+        name: 'Old Town Square',
+        description:
+          'The medieval market square with church façades and the astronomical clock — Prague’s civic room in the historic core.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Prague',
+        url: 'https://www.britannica.com/place/Prague',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Historic Centre of Prague',
+        url: 'https://whc.unesco.org/en/list/616',
+        kind: 'catalog',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Czech Republic',
+        url: 'https://www.britannica.com/place/Czech-Republic',
+        kind: 'reference',
+      },
+    ],
+  },
+  {
+    slug: 'barcelona',
+    code: 'BCN',
+    name: 'Barcelona',
+    category: 'Mediterranean & Europe',
+    subtitle: 'Mediterranean port · Catalan coast',
+    about:
+      'Barcelona is a Mediterranean port city on Spain’s Catalan coast, where a Roman and medieval core meets a nineteenth-century expansion grid and a working harbor. Montjuïc and the Collserola ridges frame the coastal plain, while the Ramblas and adjoining Gothic streets lead from the waterfront into denser historic quarters. From the late nineteenth century, new avenues and apartment blocks absorbed industrial growth and a distinctive architectural culture.\nThe city’s modern identity is closely tied to Antoni Gaudí and related Catalan modernisme, whose churches, parks, and townhouses punctuate the Eixample and hillside neighborhoods. Port traffic, rail lines, and coastal roads continue to link Barcelona to the wider Mediterranean and to inland Catalonia.',
+    facts: {
+      kind: 'Mediterranean port',
+      country: 'Spain',
+      region: 'Catalan coast · northwestern Mediterranean',
+      founded: 'Roman Barcino; continuous urban life through medieval county capital and industrial metropolis',
+      capitalRole: 'Capital of Catalonia; major Spanish port metropolis (Madrid is the national capital)',
+      corridors: 'Mediterranean harbor; coastal routes toward France and Valencia; inland corridors into Catalonia',
+      exploreLinks: ['Spain'],
+    },
+    features: [
+      {
+        name: 'Sagrada Família',
+        description:
+          'Gaudí’s unfinished basilica of towers and sculpted façades — Barcelona’s most visible emblem of Catalan modernisme.',
+      },
+      {
+        name: 'Park Güell',
+        description:
+          'The hillpark of mosaic benches and viaducts — a garden-city fragment overlooking the Mediterranean city.',
+      },
+      {
+        name: 'Casa Batlló',
+        description:
+          'The bone-and-scale façade on Passeig de Gràcia — a domestic Gaudí landmark in the Eixample’s parade of townhouses.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Barcelona',
+        url: 'https://www.britannica.com/place/Barcelona',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Works of Antoni Gaudí',
+        url: 'https://whc.unesco.org/en/list/320',
+        kind: 'catalog',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Antoni Gaudí',
+        url: 'https://www.britannica.com/biography/Antoni-Gaudi',
+        kind: 'reference',
+      },
+    ],
+  },
+  {
+    slug: 'moscow',
+    code: 'MOW',
+    name: 'Moscow',
+    category: 'Mediterranean & Europe',
+    subtitle: 'Kremlin capital · Moskva River',
+    about:
+      'Moscow is Russia’s capital, centered on the Kremlin fortress above the Moskva River and the adjoining ceremonial space of Red Square. From a medieval princely seat it grew into the political core of a continental state, later sharing imperial prominence with St. Petersburg before reclaiming capital status in the twentieth century. Radial avenues and ring roads spread from the historic fortress across a vast metropolitan region.\nChurches, palaces, walls, and later Soviet monuments concentrate around the river bend that still anchors the city’s symbolic geography. The Kremlin’s cathedrals and palaces, St. Basil’s Cathedral on Red Square, and the surrounding administrative quarter remain the most compact expression of Moscow’s role as a national and imperial capital.',
+    facts: {
+      kind: 'Kremlin capital',
+      country: 'Russia',
+      region: 'Moskva River · East European Plain',
+      founded: 'First chronicle mention 1147; continuous urban life through Muscovite, imperial, and Soviet capitals',
+      capitalRole: 'Capital of Russia; historic capital of Muscovy and of the Soviet Union',
+      corridors: 'Moskva River; historic roads toward Vladimir, Novgorod, and the Volga; rail hubs of the European plain',
+      exploreLinks: ['Russia'],
+    },
+    features: [
+      {
+        name: 'Red Square',
+        description:
+          'The ceremonial plaza beside the Kremlin walls — Russia’s most famous open stage for parade, market, and memory.',
+      },
+      {
+        name: 'Moscow Kremlin',
+        description:
+          'The fortified riverside citadel of cathedrals and palaces — the enduring political and sacred core of the capital.',
+      },
+      {
+        name: "St. Basil's Cathedral",
+        description:
+          'The multicolored tented church on Red Square — Ivan IV’s commemorative cathedral and Moscow’s fairy-tale silhouette.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Moscow',
+        url: 'https://www.britannica.com/place/Moscow',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Kremlin and Red Square, Moscow',
+        url: 'https://whc.unesco.org/en/list/545',
+        kind: 'catalog',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Kremlin',
+        url: 'https://www.britannica.com/topic/Kremlin',
+        kind: 'reference',
+      },
+    ],
+  },
 ]
 
 export const citySubjects: CitySubject[] = citySubjectDrafts.map(withPhotos)
