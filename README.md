@@ -45,6 +45,7 @@ Open [http://localhost:3000](http://localhost:3000). Keep the OpenAI key,
 - Rivers pages: `lib/rivers.ts` + `content/rivers-photos.json` + `public/images/rivers/`
 - OpenAI Responses API for `/api/responses` only
 - Better Auth (email/password) on Neon Postgres for `/sign-in` / `/account`
+- Sentry (`@sentry/nextjs`) for errors, tracing, session replay, and OpenAI spans
 - Vercel Web Analytics + Speed Insights (enable both in the Vercel dashboard)
 
 ## Docs
@@ -57,6 +58,7 @@ Open [http://localhost:3000](http://localhost:3000). Keep the OpenAI key,
 | [`docs/theme-preset.md`](./docs/theme-preset.md) | Enforced visual token contract |
 | [`docs/design-language.md`](./docs/design-language.md) | Full UI/UX spec |
 | [`docs/auth.md`](./docs/auth.md) | Better Auth + Neon account setup |
+| [`docs/sentry.md`](./docs/sentry.md) | Sentry errors, tracing, replay, source maps |
 
 ## Validate
 

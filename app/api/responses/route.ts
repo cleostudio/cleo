@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/nextjs"
 import OpenAI, { APIError } from "openai"
 import type {
   EasyInputMessage,
@@ -88,7 +89,12 @@ let openAIClientKey: string | null = null
 
 function getOpenAIClient(apiKey: string) {
   if (!openAIClient || openAIClientKey !== apiKey) {
-    openAIClient = new OpenAI({ apiKey })
+    // Manual wrap keeps AI spans consistent across Next runtimes; prompt
+    // bodies stay off (see sentry.server.config.ts openAIIntegration).
+    openAIClient = Sentry.instrumentOpenAiClient(new OpenAI({ apiKey }), {
+      recordInputs: false,
+      recordOutputs: false,
+    })
     openAIClientKey = apiKey
   }
 

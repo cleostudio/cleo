@@ -23,6 +23,7 @@ Better Auth on Neon Postgres (Marketplace).
 | Oceans guides + Commons photos | [`docs/oceans.md`](docs/oceans.md) |
 | Rivers guides + Commons photos | [`docs/rivers.md`](docs/rivers.md) |
 | Better Auth + Neon | [`docs/auth.md`](docs/auth.md) |
+| Sentry (errors / tracing / replay) | [`docs/sentry.md`](docs/sentry.md) |
 | Tokens, deviations from cali.so | [`docs/theme-preset.md`](docs/theme-preset.md) |
 | Full visual/interaction spec | [`docs/design-language.md`](docs/design-language.md) |
 
@@ -48,8 +49,10 @@ Human onboarding: [`README.md`](README.md).
 - Render model output through Streamdown, never raw HTML. Invented
   Explore/Space/Civilizations/Cities/Oceans/Rivers paths are stripped by
   `lib/cleo/guardrails.ts`.
-- Keep `OPENAI_API_KEY`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_API_KEY`, and
-  database URLs server-side. Never `NEXT_PUBLIC_` those secrets.
+- Keep `OPENAI_API_KEY`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_API_KEY`,
+  `SENTRY_AUTH_TOKEN`, and database URLs server-side. Never `NEXT_PUBLIC_`
+  those secrets. `NEXT_PUBLIC_SENTRY_DSN` is public by design (see
+  [`docs/sentry.md`](docs/sentry.md)).
 - Path alias: `~/*`. Prefer `cn` and `components/ui/*`.
 - Package manager: **pnpm only**.
 
@@ -57,11 +60,11 @@ Human onboarding: [`README.md`](README.md).
 
 ```bash
 pnpm install
-cp .env.example .env.local   # OPENAI_API_KEY for /cleo; Neon + Better Auth for account
+cp .env.example .env.local   # OPENAI_API_KEY for /cleo; Neon + Better Auth for account; Sentry DSN optional
 pnpm dev                     # only service; default Next port
 pnpm typecheck
 pnpm test:unit               # and/or pnpm test:security when relevant
-pnpm build                   # when changing routes/config
+pnpm build                   # when changing routes/config (needs SENTRY_AUTH_TOKEN for source maps)
 # Auth schema (when DATABASE_URL is set):
 pnpm db:push
 ```
@@ -100,6 +103,9 @@ Retry/Continue, Location preference (including denied permission).
   returns HTTP 503 and the rest of the site stays usable for UI work.
 - Neon + Better Auth: without `DATABASE_URL` / `BETTER_AUTH_SECRET`,
   `/api/auth/*` returns HTTP 503; portal pages stay usable.
+- Sentry: without `NEXT_PUBLIC_SENTRY_DSN` / `SENTRY_DSN`, the SDK no-ops and
+  the site stays usable; without `SENTRY_AUTH_TOKEN`, builds skip source map
+  upload. See [`docs/sentry.md`](docs/sentry.md).
 - Previews stub missing `SITE_URL` / `PUBLIC_SITE_URL` via
   `scripts/ensure-preview-env.mjs` during `prebuild`. No Bunny/Clerk.
 
