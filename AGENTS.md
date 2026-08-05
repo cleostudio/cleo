@@ -14,6 +14,7 @@ Better Auth on Neon Postgres (Marketplace).
 | Concern | Doc |
 | --- | --- |
 | Cleo chat / API / location / topic photos | [`docs/cleo.md`](docs/cleo.md) |
+| Cleo self-improving loops (evals / feedback / memory) | [`docs/cleo-self-improving.md`](docs/cleo-self-improving.md) |
 | Homepage portal search + Ask Cleo handoff | [`docs/homepage-search.md`](docs/homepage-search.md) |
 | Explore countries, prose, Wikimedia photos | [`docs/atlas.md`](docs/atlas.md) |
 | Space guides + NASA photos | [`docs/space.md`](docs/space.md) |

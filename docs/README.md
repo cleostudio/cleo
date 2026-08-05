@@ -8,6 +8,7 @@ these runbooks.
 | --- | --- |
 | [`handoff.md`](./handoff.md) | Picking up the repo; need current product/status |
 | [`cleo.md`](./cleo.md) | Changing `/cleo`, `/api/responses`, or `lib/cleo/*` |
+| [`cleo-self-improving.md`](./cleo-self-improving.md) | Designing feedback, evals, memory, or prompt-evolution loops for Cleo |
 | [`homepage-search.md`](./homepage-search.md) | Changing portal search or the Ask Cleo handoff |
 | [`atlas.md`](./atlas.md) | Changing country guides, prose, or Explore photos |
 | [`space.md`](./space.md) | Changing Space guides or NASA photo imports |
