@@ -32,12 +32,19 @@ Entry: bottom dock `SayHiIcon` (`G` then `C`) or homepage search Ask Cleo row.
 optional browser-authorized location, then calls the OpenAI Responses API with:
 
 - Model: `gpt-5.6-terra`
-- Tools: `web_search`, `image_generation` (jpeg + compression, one partial preview)
+- Tools: `web_search` (adaptive `search_context_size`; opt-in
+  `user_location.timezone` when Location is shared), `image_generation`
+  (jpeg + compression, one partial preview)
 - Adaptive reasoning effort; encrypted reasoning replay (`reasoning.context: "all_turns"`)
-- `max_tool_calls`, `truncation: "auto"`, prompt caching, streaming
+- `max_tool_calls`, `truncation: "auto"`, streaming
+- GPT-5.6 prompt caching: stable `prompt_cache_key`,
+  `prompt_cache_options.mode: "explicit"`, and an explicit breakpoint after
+  the shared voice/catalog developer prefix (per-turn topic photos, account
+  name, and location sit after the breakpoint)
+- Hashed `safety_identifier` from the signed-in user id or guest client key
 - `maxDuration` 90s, `store: false`
-- Signed-in account name from Better Auth session (private instructions; see
-  § Account name)
+- Signed-in account name from Better Auth session (private developer context;
+  see § Account name)
 
 ### Request limits
 
@@ -49,7 +56,8 @@ optional browser-authorized location, then calls the OpenAI Responses API with:
 - `Content-Length` over 16MB → HTTP 413
 - Best-effort per-IP rate limit (12 turns / minute / warm isolate) → HTTP 429
 - Optional `location`: finite lat/lng, reported accuracy, valid IANA time zone —
-  ephemeral developer context, never chat text
+  ephemeral developer context (coords) plus `web_search.user_location.timezone`,
+  never chat text
 - Account name is **not** accepted on the request body — the route reads it from
   the Better Auth session cookie via `getSession`
 
@@ -107,15 +115,17 @@ re-activated shell is never stuck mid-send.
 ## Account name
 
 When the request carries a signed-in Better Auth session, Cleo receives the
-account `user.name` as ephemeral developer context
-(`lib/cleo/user-profile.ts` → `<cleo_user_profile>`), the same privacy pattern
-as opt-in location:
+account `user.name` as ephemeral developer context after the cached voice
+prefix (`lib/cleo/user-profile.ts` → `<cleo_user_profile>`), the same privacy
+pattern as opt-in location:
 
 - Server-only: `getSession(request.headers)` in `POST /api/responses`. A
   client-supplied `name` field is ignored.
 - Guests and unconfigured auth get no profile block. Session lookup failures
   fail open (chat continues without the name) so Neon blips cannot take Cleo
   down.
+- The hashed account id (or guest client key) is sent as
+  `safety_identifier` for abuse monitoring — never the raw email or name.
 - Instructions tell Cleo to use the name for natural personalization (greetings,
   direct address) without forcing it every turn or inventing other personal
   details. Email is never included.
@@ -145,8 +155,9 @@ as opt-in location:
   24h TTL) so the footer / Cleo do not show “unavailable” after refresh when
   Location is still on.
 - Off clears the in-memory location and the cached last reading immediately.
-- Server validates in `location.ts` and adds coords + IANA TZ only to private
-  per-turn instructions. Browser settings remain the grant/revoke control.
+- Server validates in `location.ts`, adds coords + IANA TZ to private per-turn
+  developer context, and passes the IANA TZ to `web_search.user_location` for
+  local search bias. Browser settings remain the grant/revoke control.
 - `components/footer-coordinates.tsx` may render coordinates when present.
   The site footer stays mounted (CSS-hidden) on `/cleo` so leaving chat does
   not remount the stamp into a “Locating…” wait. The last reading stays

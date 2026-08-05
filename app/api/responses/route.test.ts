@@ -69,6 +69,32 @@ async function ndjson(response: Response) {
     .map((line) => JSON.parse(line))
 }
 
+function developerTexts(request: {
+  input?: Array<{
+    role?: string
+    content?: string | Array<{ type?: string; text?: string }>
+  }>
+}) {
+  return (request.input ?? [])
+    .filter((item) => item.role === "developer")
+    .map((item) => {
+      if (typeof item.content === "string") return item.content
+      if (!Array.isArray(item.content)) return ""
+      return item.content
+        .map((part) => (typeof part.text === "string" ? part.text : ""))
+        .join("")
+    })
+}
+
+function developerCorpus(request: {
+  input?: Array<{
+    role?: string
+    content?: string | Array<{ type?: string; text?: string }>
+  }>
+}) {
+  return developerTexts(request).join("\n\n")
+}
+
 beforeEach(() => {
   openai.create.mockReset()
   auth.getSession.mockReset()
@@ -258,7 +284,7 @@ describe("POST /api/responses: opt-in location context", () => {
     expect(openai.create).not.toHaveBeenCalled()
   })
 
-  it("adds explicitly shared location only to private request instructions", async () => {
+  it("adds explicitly shared location only to private developer context", async () => {
     openai.create.mockResolvedValueOnce(
       responseStream([{ delta: "A local answer.", type: "response.output_text.delta" }])
     )
@@ -276,20 +302,35 @@ describe("POST /api/responses: opt-in location context", () => {
     )
 
     const request = openai.create.mock.calls[0]?.[0]
+    const privateContext = developerCorpus(request)
+    const userMessage = request.input.find(
+      (item: { role?: string; content?: unknown }) =>
+        item.role === "user" && item.content === "Tell me about Japan"
+    )
 
-    expect(request.instructions).toContain("<cleo_user_location>")
-    expect(request.instructions).toContain("Latitude: 37.77490")
-    expect(request.instructions).toContain("Longitude: -122.41940")
-    expect(request.instructions).toContain("IANA time zone: America/Los_Angeles")
-    expect(request.instructions).toContain("never volunteer it")
-    expect(request.input[0].content).toBe("Tell me about Japan")
+    expect(request.instructions).toBeUndefined()
+    expect(privateContext).toContain("<cleo_user_location>")
+    expect(privateContext).toContain("Latitude: 37.77490")
+    expect(privateContext).toContain("Longitude: -122.41940")
+    expect(privateContext).toContain("IANA time zone: America/Los_Angeles")
+    expect(privateContext).toContain("never volunteer it")
+    expect(userMessage).toBeTruthy()
+    expect(
+      request.tools.find((tool: { type: string }) => tool.type === "web_search")
+    ).toMatchObject({
+      search_context_size: "medium",
+      user_location: {
+        type: "approximate",
+        timezone: "America/Los_Angeles",
+      },
+    })
   })
 })
 
 describe("POST /api/responses: signed-in user profile", () => {
-  it("adds the session account name only to private request instructions", async () => {
+  it("adds the session account name only to private developer context", async () => {
     auth.getSession.mockResolvedValueOnce({
-      user: { name: "Ada Lovelace", email: "ada@example.com" },
+      user: { id: "user_ada", name: "Ada Lovelace", email: "ada@example.com" },
     })
     openai.create.mockResolvedValueOnce(
       responseStream([{ delta: "Hi Ada.", type: "response.output_text.delta" }])
@@ -298,12 +339,20 @@ describe("POST /api/responses: signed-in user profile", () => {
     await POST(ask(question))
 
     const request = openai.create.mock.calls[0]?.[0]
+    const privateContext = developerCorpus(request)
 
-    expect(request.instructions).toContain("<cleo_user_profile>")
-    expect(request.instructions).toContain("Preferred name: Ada Lovelace")
-    expect(request.instructions).toContain("Do not force the name into every reply")
-    expect(request.instructions).not.toContain("ada@example.com")
-    expect(request.input[0].content).toBe("Tell me about Japan")
+    expect(privateContext).toContain("<cleo_user_profile>")
+    expect(privateContext).toContain("Preferred name: Ada Lovelace")
+    expect(privateContext).toContain("Do not force the name into every reply")
+    expect(privateContext).not.toContain("ada@example.com")
+    expect(request.safety_identifier).toMatch(/^[a-f0-9]{64}$/)
+    expect(request.safety_identifier).not.toContain("user_ada")
+    expect(
+      request.input.some(
+        (item: { role?: string; content?: unknown }) =>
+          item.role === "user" && item.content === "Tell me about Japan"
+      )
+    ).toBe(true)
   })
 
   it("omits profile instructions for guests", async () => {
@@ -315,7 +364,8 @@ describe("POST /api/responses: signed-in user profile", () => {
 
     const request = openai.create.mock.calls[0]?.[0]
 
-    expect(request.instructions).not.toContain("<cleo_user_profile>")
+    expect(developerCorpus(request)).not.toContain("<cleo_user_profile>")
+    expect(request.safety_identifier).toMatch(/^[a-f0-9]{64}$/)
   })
 
   it("ignores a client-supplied name on the request body", async () => {
@@ -326,10 +376,11 @@ describe("POST /api/responses: signed-in user profile", () => {
     await POST(ask({ ...question, name: "Spoofed Name" }))
 
     const request = openai.create.mock.calls[0]?.[0]
+    const privateContext = developerCorpus(request)
 
     expect(auth.getSession).toHaveBeenCalled()
-    expect(request.instructions).not.toContain("Spoofed Name")
-    expect(request.instructions).not.toContain("<cleo_user_profile>")
+    expect(privateContext).not.toContain("Spoofed Name")
+    expect(privateContext).not.toContain("<cleo_user_profile>")
   })
 
   it("fails open when session lookup throws", async () => {
@@ -342,12 +393,12 @@ describe("POST /api/responses: signed-in user profile", () => {
     const request = openai.create.mock.calls[0]?.[0]
 
     expect(response.status).toBe(200)
-    expect(request.instructions).not.toContain("<cleo_user_profile>")
+    expect(developerCorpus(request)).not.toContain("<cleo_user_profile>")
   })
 
   it("skips profile instructions when the session name is unusable", async () => {
     auth.getSession.mockResolvedValueOnce({
-      user: { name: "   <>   ", email: "ada@example.com" },
+      user: { id: "user_ada", name: "   <>   ", email: "ada@example.com" },
     })
     openai.create.mockResolvedValueOnce(
       responseStream([{ delta: "Hello.", type: "response.output_text.delta" }])
@@ -357,12 +408,12 @@ describe("POST /api/responses: signed-in user profile", () => {
 
     const request = openai.create.mock.calls[0]?.[0]
 
-    expect(request.instructions).not.toContain("<cleo_user_profile>")
+    expect(developerCorpus(request)).not.toContain("<cleo_user_profile>")
   })
 
   it("can combine signed-in name with opt-in location instructions", async () => {
     auth.getSession.mockResolvedValueOnce({
-      user: { name: "Ada Lovelace", email: "ada@example.com" },
+      user: { id: "user_ada", name: "Ada Lovelace", email: "ada@example.com" },
     })
     openai.create.mockResolvedValueOnce(
       responseStream([{ delta: "Hi Ada.", type: "response.output_text.delta" }])
@@ -381,11 +432,12 @@ describe("POST /api/responses: signed-in user profile", () => {
     )
 
     const request = openai.create.mock.calls[0]?.[0]
+    const privateContext = developerCorpus(request)
 
-    expect(request.instructions).toContain("<cleo_user_profile>")
-    expect(request.instructions).toContain("Preferred name: Ada Lovelace")
-    expect(request.instructions).toContain("<cleo_user_location>")
-    expect(request.instructions).toContain("America/Los_Angeles")
+    expect(privateContext).toContain("<cleo_user_profile>")
+    expect(privateContext).toContain("Preferred name: Ada Lovelace")
+    expect(privateContext).toContain("<cleo_user_location>")
+    expect(privateContext).toContain("America/Los_Angeles")
   })
 })
 
@@ -480,7 +532,10 @@ describe("POST /api/responses: image attachments", () => {
     )
 
     expect(response.status).toBe(200)
-    expect(openai.create.mock.calls[0]?.[0].input[0].content).toEqual([
+    const userMessage = openai.create.mock.calls[0]?.[0].input.find(
+      (item: { role?: string }) => item.role === "user"
+    )
+    expect(userMessage?.content).toEqual([
       { text: "what is this", type: "input_text" },
       expect.objectContaining({ type: "input_image" }),
     ])
@@ -616,12 +671,17 @@ describe("POST /api/responses: streaming and upstream errors", () => {
 
     await POST(ask(question))
 
-    expect(openai.create.mock.calls[0]?.[0]).toMatchObject({
+    const request = openai.create.mock.calls[0]?.[0]
+    const cachedPrefix = request.input[0]
+
+    expect(request).toMatchObject({
       model: "gpt-5.6-terra",
       store: false,
       stream: true,
       max_tool_calls: 8,
       truncation: "auto",
+      prompt_cache_key: "cleo:gpt-5.6-terra:voice-v1",
+      prompt_cache_options: { mode: "explicit" },
       reasoning: {
         effort: "medium",
         summary: "auto",
@@ -632,16 +692,29 @@ describe("POST /api/responses: streaming and upstream errors", () => {
         "web_search_call.action.sources",
       ],
     })
-    expect(openai.create.mock.calls[0]?.[0].prompt_cache_key).toMatch(
-      /^cleo:[0-9a-f]+$/
-    )
+    expect(request.safety_identifier).toMatch(/^[a-f0-9]{64}$/)
+    expect(cachedPrefix).toMatchObject({
+      role: "developer",
+      content: [
+        {
+          type: "input_text",
+          prompt_cache_breakpoint: { mode: "explicit" },
+        },
+      ],
+    })
+    expect(typeof cachedPrefix.content[0].text).toBe("string")
+    expect(cachedPrefix.content[0].text.length).toBeGreaterThan(100)
+    expect(request.tools.map((tool: { type: string }) => tool.type)).toEqual([
+      "web_search",
+      "image_generation",
+    ])
     expect(
-      openai.create.mock.calls[0]?.[0].tools.map(
-        (tool: { type: string }) => tool.type
-      )
-    ).toEqual(["web_search", "image_generation"])
+      request.tools.find((tool: { type: string }) => tool.type === "web_search")
+    ).toMatchObject({
+      search_context_size: "medium",
+    })
     expect(
-      openai.create.mock.calls[0]?.[0].tools.find(
+      request.tools.find(
         (tool: { type: string }) => tool.type === "image_generation"
       )
     ).toMatchObject({
@@ -649,6 +722,32 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       output_format: "jpeg",
       partial_images: 1,
     })
+  })
+
+  it("uses a larger web_search context budget for research turns", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "ok", type: "response.output_text.delta" }])
+    )
+
+    await POST(
+      ask({
+        messages: [
+          {
+            content: "Compare Mars and Earth with sources",
+            role: "user",
+          },
+        ],
+      })
+    )
+
+    expect(
+      openai.create.mock.calls[0]?.[0].tools.find(
+        (tool: { type: string }) => tool.type === "web_search"
+      )
+    ).toMatchObject({
+      search_context_size: "high",
+    })
+    expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("high")
   })
 
   it("streams generated images as jpeg data URLs", async () => {
@@ -845,13 +944,17 @@ describe("POST /api/responses: streaming and upstream errors", () => {
 
     await POST(ask(question))
 
-    const instructions = openai.create.mock.calls[0]?.[0].instructions as string
-    expect(instructions).toContain("<cleo_topic_photos>")
-    expect(instructions).toContain("![Mount Fuji](/images/atlas/japan/w1280.jpg)")
-    expect(instructions).toContain(
+    const privateContext = developerCorpus(openai.create.mock.calls[0]?.[0])
+    expect(privateContext).toContain("<cleo_topic_photos>")
+    expect(privateContext).toContain(
+      "![Mount Fuji](/images/atlas/japan/w1280.jpg)"
+    )
+    expect(privateContext).toContain(
       "![Hiroshima Peace Memorial](/images/atlas/japan/w1280-2.jpg)"
     )
-    expect(instructions).toContain("![Kyoto Temples](/images/atlas/japan/w1280-3.jpg)")
-    expect(instructions).toContain("embed every listed photograph")
+    expect(privateContext).toContain(
+      "![Kyoto Temples](/images/atlas/japan/w1280-3.jpg)"
+    )
+    expect(privateContext).toContain("embed every listed photograph")
   })
 })

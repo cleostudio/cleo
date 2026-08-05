@@ -7,6 +7,7 @@ import type {
   ResponseInputMessageContentList,
   ResponseOutputItem,
   ResponseReasoningItem,
+  WebSearchTool,
 } from "openai/resources/responses/responses"
 
 /** Create params plus API fields the installed SDK typings still omit. */
@@ -15,10 +16,11 @@ type CleoResponseCreateParams = ResponseCreateParamsStreaming & {
 }
 
 import { getSession } from "~/lib/auth"
-import { promptCacheKeyForConversation } from "~/lib/cleo/conversation-helpers"
+import { CLEO_PROMPT_CACHE_KEY } from "~/lib/cleo/conversation-helpers"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
   buildUserLocationInstructions,
+  buildWebSearchUserLocation,
   parseUserLocation,
 } from "~/lib/cleo/location"
 import {
@@ -37,12 +39,16 @@ import {
   checkCleoRateLimit,
   clientKeyFromHeaders,
 } from "~/lib/cleo/rate-limit"
-import { selectReasoningEffort } from "~/lib/cleo/reasoning-effort"
+import {
+  selectReasoningEffort,
+  selectSearchContextSize,
+} from "~/lib/cleo/reasoning-effort"
 import {
   MAX_TOTAL_ENCRYPTED_REASONING_CHARS,
   sanitizeReasoningItems,
   type EncryptedReasoningItem,
 } from "~/lib/cleo/reasoning-items"
+import { cleoSafetyIdentifier } from "~/lib/cleo/safety-identifier"
 import {
   buildTopicPhotoInstructions,
   conversationTopicText,
@@ -91,6 +97,20 @@ type ConversationMessage = {
 }
 
 type AgentInput = Array<EasyInputMessage | ResponseReasoningItem>
+
+/** Stable voice/catalog prefix with an explicit GPT-5.6 cache breakpoint. */
+function cachedInstructionsInput(): EasyInputMessage {
+  return {
+    role: "developer",
+    content: [
+      {
+        type: "input_text",
+        text: CLEO_INSTRUCTIONS,
+        prompt_cache_breakpoint: { mode: "explicit" },
+      },
+    ],
+  }
+}
 
 function errorResponse(error: string, status: number) {
   return Response.json({ error }, { status })
@@ -530,37 +550,60 @@ export async function POST(request: Request) {
   }
 
   const client = getOpenAIClient(apiKey)
-  const input = toApiInput(parsed)
   const topicPhotos = matchTopicPhotosInText(conversationTopicText(parsed))
   const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
   const locationInstructions = location
     ? buildUserLocationInstructions(location)
     : undefined
+  const webSearchUserLocation = location
+    ? buildWebSearchUserLocation(location)
+    : undefined
   // Account name comes from the Better Auth session cookie — never trust a
   // client-supplied name field on the request body. Fail open if session
   // lookup errors so a Neon blip cannot take Cleo down.
   let profileInstructions: string | undefined
+  let safetySeed = `guest:${clientKeyFromHeaders(request.headers)}`
   try {
     const session = await getSession(request.headers)
+    if (session?.user?.id) {
+      safetySeed = `user:${session.user.id}`
+    }
     if (session?.user?.name) {
       profileInstructions = buildUserProfileInstructions(session.user.name)
     }
   } catch (error) {
     console.error("Failed to load auth session for Cleo personalization.", error)
   }
-  const instructions = [
-    CLEO_INSTRUCTIONS,
+  // Keep the GPT-5.6 cache breakpoint on the stable voice/catalog only.
+  // Per-turn topic photos, account name, and location sit after it so they
+  // cannot invalidate the shared prefix or inflate cache-write charges.
+  const ephemeralInstructions = [
     topicPhotoInstructions,
     profileInstructions,
     locationInstructions,
   ]
     .filter(Boolean)
     .join("\n\n")
+  const input: AgentInput = [cachedInstructionsInput()]
+  if (ephemeralInstructions) {
+    input.push({
+      role: "developer",
+      content: ephemeralInstructions,
+    })
+  }
+  input.push(...toApiInput(parsed))
   const latestUserText =
     [...parsed].reverse().find((message) => message.role === "user")?.content ??
     ""
   const reasoningEffort = selectReasoningEffort(latestUserText)
-  const promptCacheKey = promptCacheKeyForConversation(parsed)
+  const searchContextSize = selectSearchContextSize(reasoningEffort)
+  const webSearchTool: WebSearchTool = {
+    type: "web_search",
+    search_context_size: searchContextSize,
+    ...(webSearchUserLocation
+      ? { user_location: webSearchUserLocation }
+      : {}),
+  }
 
   try {
     const createParams: CleoResponseCreateParams = {
@@ -568,7 +611,6 @@ export async function POST(request: Request) {
       // Output items (encrypted reasoning) are round-tripped; the SDK input
       // type is slightly narrower than runtime-accepted output.
       input: input as ResponseInput,
-      instructions,
       // Keep headroom for reasoning + tools + visible answer.
       max_output_tokens: 16_384,
       max_tool_calls: MAX_TOOL_CALLS,
@@ -582,7 +624,7 @@ export async function POST(request: Request) {
       stream: true,
       text: { verbosity: "medium" },
       tools: [
-        { type: "web_search" },
+        webSearchTool,
         {
           type: "image_generation",
           partial_images: GENERATED_IMAGE_PARTIAL_IMAGES,
@@ -592,7 +634,9 @@ export async function POST(request: Request) {
           output_compression: GENERATED_IMAGE_OUTPUT_COMPRESSION,
         },
       ],
-      prompt_cache_key: promptCacheKey,
+      prompt_cache_key: CLEO_PROMPT_CACHE_KEY,
+      prompt_cache_options: { mode: "explicit" },
+      safety_identifier: cleoSafetyIdentifier(safetySeed),
       store: false,
       include: [
         "reasoning.encrypted_content",

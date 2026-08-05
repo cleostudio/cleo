@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest"
 
-import { selectReasoningEffort } from "./reasoning-effort"
+import {
+  selectReasoningEffort,
+  selectSearchContextSize,
+} from "./reasoning-effort"
 
 describe("selectReasoningEffort", () => {
   it("uses low effort for short social turns", () => {
@@ -22,5 +25,13 @@ describe("selectReasoningEffort", () => {
     expect(selectReasoningEffort("What is the capital of Japan?")).toBe(
       "medium"
     )
+  })
+})
+
+describe("selectSearchContextSize", () => {
+  it("mirrors reasoning effort for web_search context budget", () => {
+    expect(selectSearchContextSize("low")).toBe("low")
+    expect(selectSearchContextSize("medium")).toBe("medium")
+    expect(selectSearchContextSize("high")).toBe("high")
   })
 })

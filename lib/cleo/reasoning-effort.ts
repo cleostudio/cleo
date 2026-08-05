@@ -4,6 +4,7 @@
  */
 
 export type CleoReasoningEffort = "low" | "medium" | "high"
+export type CleoSearchContextSize = "low" | "medium" | "high"
 
 const HIGH_SIGNAL =
   /\b(compare|comparison|versus|vs\.?|trade-?off|research|sources?|cite|citation|fact[- ]?check|verify|verif(?:y|ication)|pros?\s+and\s+cons?|deep\s+dive|analyze|analysis|investigate|debate|controvers(?:y|ial)|why\s+do|how\s+does|explain\s+why)\b/i
@@ -28,4 +29,14 @@ export function selectReasoningEffort(userText: string): CleoReasoningEffort {
   }
 
   return "medium"
+}
+
+/**
+ * Align hosted web_search context budget with the turn's reasoning effort:
+ * light social turns stay cheap; research turns get more retrieved context.
+ */
+export function selectSearchContextSize(
+  effort: CleoReasoningEffort
+): CleoSearchContextSize {
+  return effort
 }
