@@ -6,9 +6,9 @@ import {
 } from "./reasoning-effort"
 
 describe("selectReasoningEffort", () => {
-  it("uses minimal effort for short social turns", () => {
-    expect(selectReasoningEffort("Hey Cleo")).toBe("minimal")
-    expect(selectReasoningEffort("thanks!")).toBe("minimal")
+  it("uses low effort for short social turns (tools forbid minimal)", () => {
+    expect(selectReasoningEffort("Hey Cleo")).toBe("low")
+    expect(selectReasoningEffort("thanks!")).toBe("low")
     expect(selectReasoningEffort("Tell me about Japan")).toBe("medium")
   })
 

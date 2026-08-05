@@ -29,9 +29,10 @@ export function selectReasoningEffort(userText: string): CleoReasoningEffort {
   }
 
   if (LOW_SIGNAL.test(text)) {
-    // Snappy social turns. Prefer minimal over none while web_search remains
-    // attached on every request.
-    return "minimal"
+    // Snappy social turns. Use `low`, not `minimal`/`none`: Cleo always attaches
+    // `web_search` + `image_generation`, and the Responses API rejects those
+    // tools when reasoning.effort is `minimal` (or `none`).
+    return "low"
   }
 
   if (XHIGH_SIGNAL.test(text)) {

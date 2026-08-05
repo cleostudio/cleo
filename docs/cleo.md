@@ -36,8 +36,10 @@ optional browser-authorized location, then calls the OpenAI Responses API with:
 - Tools: `web_search` (adaptive `search_context_size`; opt-in
   `user_location.timezone` when Location is shared), `image_generation`
   (jpeg + compression, one partial preview)
-- Adaptive reasoning effort (`minimal` greetings → `medium` default → `high`
-  research → `xhigh` only for explicit deep-research asks); encrypted
+- Adaptive reasoning effort (`low` greetings → `medium` default → `high`
+  research → `xhigh` only for explicit deep-research asks). Greetings use
+  `low` rather than `minimal` because hosted `web_search` /
+  `image_generation` reject `reasoning.effort: "minimal"`. Encrypted
   reasoning replay (`reasoning.context: "all_turns"`)
 - `max_tool_calls`, `truncation: "auto"`, streaming
 - GPT-5.6 prompt caching: stable `prompt_cache_key`,
