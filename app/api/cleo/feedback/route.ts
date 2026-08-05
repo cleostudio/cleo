@@ -15,8 +15,6 @@ import {
 import { getDb, isDatabaseConfigured } from '~/lib/db'
 import { cleoFeedback } from '~/lib/db/cleo-schema'
 
-export const runtime = 'nodejs'
-
 function json(data: unknown, status = 200) {
   return Response.json(data, { status })
 }
