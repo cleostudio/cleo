@@ -1,7 +1,8 @@
 # Cleo agent surface
 
 Read this when changing `/cleo`, `POST /api/responses`, or anything under
-`components/cleo/*` / `lib/cleo/*`.
+`components/cleo/*` / `lib/cleo/*`. For feedback, evals, memory, or
+prompt-evolution design, see [`cleo-self-improving.md`](./cleo-self-improving.md).
 
 ## Map
 
