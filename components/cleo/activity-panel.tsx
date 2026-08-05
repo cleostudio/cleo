@@ -39,11 +39,7 @@ function hostnameFromUrl(url: string) {
 }
 
 function isActiveStatus(status: ActivityItem["status"]) {
-  return (
-    status === "in_progress" ||
-    status === "searching" ||
-    status === "generating"
-  )
+  return status === "in_progress" || status === "searching"
 }
 
 function formatReasoningSummary(summary: string) {
@@ -88,18 +84,6 @@ function activityLabel(activity: ActivityItem) {
     }
 
     return isActiveStatus(activity.status) ? "Thinking" : "Thought"
-  }
-
-  if (activity.kind === "image_generation") {
-    if (activity.status === "completed") {
-      return "Generated an image"
-    }
-
-    if (activity.status === "failed") {
-      return "Image generation failed"
-    }
-
-    return "Generating an image"
   }
 
   const action = activity.action
@@ -162,10 +146,6 @@ function hasActionDetail(activity: ActivityItem) {
 function hasSpecificCollapsedDetail(activity: ActivityItem) {
   if (activity.kind === "reasoning") {
     return Boolean(activity.summary?.trim())
-  }
-
-  if (activity.kind === "image_generation") {
-    return true
   }
 
   return hasActionDetail(activity)
@@ -258,10 +238,6 @@ function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
     (activity) =>
       activity.kind === "web_search" && isActiveStatus(activity.status)
   )
-  const hasActiveImageGeneration = activities.some(
-    (activity) =>
-      activity.kind === "image_generation" && isActiveStatus(activity.status)
-  )
   const hasActiveReasoning = activities.some(
     (activity) =>
       activity.kind === "reasoning" && isActiveStatus(activity.status)
@@ -272,10 +248,6 @@ function panelOrbState(activities: ActivityItem[], isLive: boolean): OrbState {
 
   if (isLive && hasActiveSearch) {
     return "searching"
-  }
-
-  if (isLive && hasActiveImageGeneration) {
-    return "composing"
   }
 
   if (isLive && hasActiveReasoning) {

@@ -200,7 +200,7 @@ flowchart LR
 **Pipeline**
 
 1. **Baseline** — current harness: `CLEO_INSTRUCTIONS` + catalog + tools
-   (`web_search`, `image_generation`) + guardrails as used by
+   (`web_search`) + guardrails as used by
    `app/api/responses/route.ts`.
 2. **Analyze** — open-code real failures (guardrail hits, Retry/Continue,
    invented links, bad search/image use); axial-code into a short taxonomy.

@@ -51,15 +51,15 @@ describe('ZoomableMessageImage', () => {
   it('upgrades a data-URL image to a zoom trigger after sizing', async () => {
     render(
       <ZoomableMessageImage
-        alt="Generated image 1"
-        className="message-image message-image-assistant"
+        alt="Attached image 1"
+        className="message-image"
         src="data:image/png;base64,abc"
       />,
     )
 
     await waitFor(() => {
       expect(
-        screen.getByRole('button', { name: 'Zoom image: Generated image 1' }),
+        screen.getByRole('button', { name: 'Zoom image: Attached image 1' }),
       ).toBeTruthy()
     })
 
@@ -71,34 +71,34 @@ describe('ZoomableMessageImage', () => {
   it('resets measured size when the image src changes', async () => {
     const { rerender } = render(
       <ZoomableMessageImage
-        alt="Generated image 1"
+        alt="Attached image 1"
         src="data:image/jpeg;base64,partial"
       />,
     )
 
     await waitFor(() => {
       expect(
-        screen.getByRole('button', { name: 'Zoom image: Generated image 1' }),
+        screen.getByRole('button', { name: 'Zoom image: Attached image 1' }),
       ).toBeTruthy()
     })
 
     rerender(
       <ZoomableMessageImage
-        alt="Generated image 1"
+        alt="Attached image 1"
         src="data:image/jpeg;base64,final"
       />,
     )
 
     expect(
-      screen.queryByRole('button', { name: 'Zoom image: Generated image 1' }),
+      screen.queryByRole('button', { name: 'Zoom image: Attached image 1' }),
     ).toBeNull()
-    expect(screen.getByAltText('Generated image 1').getAttribute('src')).toBe(
+    expect(screen.getByAltText('Attached image 1').getAttribute('src')).toBe(
       'data:image/jpeg;base64,final',
     )
 
     await waitFor(() => {
       expect(
-        screen.getByRole('button', { name: 'Zoom image: Generated image 1' }),
+        screen.getByRole('button', { name: 'Zoom image: Attached image 1' }),
       ).toBeTruthy()
     })
   })

@@ -63,7 +63,7 @@ The user opted in to remember these durable preferences across sessions:
 `
 const MEMORY_BLOCK_SUFFIX = `
 
-Use a note only when it clearly helps the current request. Do not invent memories, preferences, or personal facts beyond this list. Do not recite the whole list unprompted. Treat these notes as private account context — never put them in citations or image-generation prompts unless the user asks. Guests and users without this block have no durable memory.
+Use a note only when it clearly helps the current request. Do not invent memories, preferences, or personal facts beyond this list. Do not recite the whole list unprompted. Treat these notes as private account context — never put them in citations unless the user asks. Guests and users without this block have no durable memory.
 </cleo_user_memory>`
 
 /**
