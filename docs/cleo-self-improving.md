@@ -200,10 +200,10 @@ flowchart LR
 **Pipeline**
 
 1. **Baseline** — current harness: `CLEO_INSTRUCTIONS` + catalog + tools
-   (`web_search`, `image_generation`) + guardrails as used by
+   (`web_search`) + guardrails as used by
    `app/api/responses/route.ts`.
 2. **Analyze** — open-code real failures (guardrail hits, Retry/Continue,
-   invented links, bad search/image use); axial-code into a short taxonomy.
+   invented links, bad search use); axial-code into a short taxonomy.
 3. **Dataset** — curated JSON/CSV/Promptfoo cases for portal-shaped prompts
    (countries, space, civilizations, cities, oceans, rivers, vision, refusal,
    casual chat). Tag each case with failure-mode codes. Seed from failures,
@@ -250,7 +250,7 @@ Collect, with explicit privacy bounds:
 | Guardrail strip | Server after sanitize | Invented guide/image paths — free failure-mode labels |
 | Incomplete / Retry / Continue | Existing stream `status` + UI actions | Soft failures |
 | Cancellation | Client abort | Latency / overlong turns |
-| Tool churn | `max_tool_calls` / activity events | Search/image misuse |
+| Tool churn | `max_tool_calls` / activity events | Search misuse |
 | Sentry errors | Existing SDK | Infra / API failures (no raw chat bodies) |
 
 **Storage:** Neon tables scoped by `userId` when signed in; for guests either
@@ -293,7 +293,7 @@ Prefer cheap deterministic checks before LLM-as-judge. Return a pass/fail
 | No invented curated images | TS | Images match `isCuratedTopicImageSrc` / topic-photo sets when subject matched |
 | Guardrail noop | TS | Sanitize did not strip (or strips only on negative cases) |
 | Catalog mention | TS | When the gold case expects a deep link, reply contains the canonical path |
-| Tool policy | TS / activity | Search/image used only when the case expects it (or not used when forbidden) |
+| Tool policy | TS / activity | Search used only when the case expects it (or not used when forbidden) |
 | Voice / usefulness | `score_model` / Promptfoo LLM assert | Rubric: lead with answer, no stock phrases, correct register |
 | Grounding when searched | `score_model` | Claims that needed `web_search` cite Markdown links |
 | Safety / overclaim | `score_model` | No fake personal experience; uncertainty when warranted |

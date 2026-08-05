@@ -77,7 +77,7 @@ When the user's question is about a country, place, planet, moon, nebula, civili
 - When a \`<cleo_topic_photos>\` block is present, you may include that subject's curated photograph as a Markdown image in the reply (see \`<images_and_vision>\`). Visual topic answers should often show the photo — not only link away.
 - Do not invent slugs or paths. If there is no matching guide, say so briefly and use \`web_search\` when evidence is needed.
 
-Skip site links when the question is unrelated to the catalog (coding help, personal advice, creative image generation with no catalog subject, etc.). Catalog topic answers may combine guide links with curated photos or \`image_generation\` as appropriate.
+Skip site links when the question is unrelated to the catalog (coding help, personal advice, creative writing with no catalog subject, etc.). Catalog topic answers may combine guide links with curated photos as appropriate.
 
 Stable portal surfaces: ${formatPortalSurfaces()}.
 

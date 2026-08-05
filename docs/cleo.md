@@ -39,13 +39,12 @@ optional browser-authorized location, then calls the OpenAI Responses API with:
 
 - Model: `gpt-5.6-terra`
 - Tools: `web_search` (adaptive `search_context_size`; opt-in
-  `user_location.timezone` when Location is shared), `image_generation`
-  (jpeg + compression, one partial preview)
+  `user_location.timezone` when Location is shared)
 - Adaptive reasoning effort (`low` greetings → `medium` default → `high`
   research → `xhigh` only for explicit deep-research asks). Greetings use
-  `low` rather than `minimal` because hosted `web_search` /
-  `image_generation` reject `reasoning.effort: "minimal"`. Encrypted
-  reasoning replay (`reasoning.context: "all_turns"`)
+  `low` rather than `minimal` because hosted `web_search` rejects
+  `reasoning.effort: "minimal"`. Encrypted reasoning replay
+  (`reasoning.context: "all_turns"`)
 - `max_tool_calls`, `truncation: "auto"`, streaming
 - GPT-5.6 prompt caching: stable `prompt_cache_key`,
   `prompt_cache_options.mode: "explicit"`, and an explicit breakpoint after
@@ -61,7 +60,8 @@ optional browser-authorized location, then calls the OpenAI Responses API with:
 
 - ≤ 50 messages; ≤ 10,000 characters each; ≤ 100,000 total
 - Final message must be `user`
-- User/assistant messages: ≤ 4 image data URLs each (PNG, JPEG, WEBP, GIF)
+- User messages: ≤ 4 image data URLs each (PNG, JPEG, WEBP, GIF); assistant
+  messages cannot include images
 - ≤ 16 images and ≤ ~12MB decoded image bytes across the whole request
 - ≤ ~240k characters of encrypted reasoning across the whole request
 - `Content-Length` over 16MB → HTTP 413
@@ -76,7 +76,7 @@ Without `OPENAI_API_KEY`, the route returns HTTP 503.
 
 ## Stream protocol
 
-`lib/cleo/stream.ts` events: `text`, `text_replace`, `activity`, `image`,
+`lib/cleo/stream.ts` events: `text`, `text_replace`, `activity`,
 `reasoning_items`, `status` (incomplete), `error`.
 
 - Soft **incomplete** keeps partial answers (Retry/Continue in the UI).
@@ -95,7 +95,7 @@ Without `OPENAI_API_KEY`, the route returns HTTP 503.
   (one view, or all three when asked). The UI allowlists only
   `/images/atlas|space|civilizations|cities|oceans|rivers/...` paths via `isCuratedTopicImageSrc`
   (`lib/cleo/portal-links.ts`) before Streamdown renders them.
-- Markdown topic photos and attachment/generated data-URL images use shared
+- Markdown topic photos and user-attachment data-URL images use shared
   `ZoomImage`. Curated topic photos resolve Gallery-parity caption plates via
   `content/cleo-topic-photo-zoom.json` (kept in sync by
   `lib/cleo/topic-photo-zoom.test.ts`).
@@ -216,7 +216,7 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
 ## Verify
 
 - Multi-turn chat, reasoning activity, web search
-- Image attach/vision, image generation, streaming, cancellation
+- Image attach/vision, streaming, cancellation
 - Retry/Continue on incomplete/failed turns
 - Location preference (grant, deny, refresh/leave-and-return without
   re-prompt; Safari/`unknown` Permissions API restores after a prior grant;

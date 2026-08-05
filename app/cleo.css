@@ -419,16 +419,11 @@
   z-index: 1;
 }
 
-.user-message-images,
-.assistant-message-images {
+.user-message-images {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 0.5rem;
-}
-
-.assistant-message-images {
-  justify-content: flex-start;
 }
 
 .message-image,
@@ -456,21 +451,6 @@
   display: block;
   max-width: 100%;
   max-height: 18rem;
-}
-
-.message-image-assistant,
-.cleo-message-photo-frame.message-image-assistant {
-  max-width: min(100%, 24rem);
-  max-height: 24rem;
-}
-
-.cleo-message-photo-frame.message-image-assistant img,
-.cleo-message-photo-frame.message-image-assistant .message-image-zoom {
-  max-height: 24rem;
-}
-
-.cleo-message-photo-frame.message-image-assistant .zoom-trigger {
-  max-height: 24rem;
 }
 
 @media (min-width: 40rem) {

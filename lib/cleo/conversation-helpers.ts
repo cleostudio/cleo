@@ -47,12 +47,13 @@ export function toConversationPayload(
     .filter(
       (message) =>
         !message.hidden &&
-        (Boolean(message.content.trim()) || Boolean(message.images?.length))
+        (Boolean(message.content.trim()) ||
+          (message.role === "user" && Boolean(message.images?.length)))
     )
     .map(({ role, content, images, reasoningItems }) => ({
       role,
       content,
-      ...(images && images.length > 0 ? { images } : {}),
+      ...(role === "user" && images && images.length > 0 ? { images } : {}),
       ...(role === "assistant" &&
       reasoningItems &&
       reasoningItems.length > 0
@@ -78,4 +79,4 @@ export function makeIncomplete(
  * matches exact prefixes at breakpoints, and a conversation-specific key
  * fragments the shared instruction cache.
  */
-export const CLEO_PROMPT_CACHE_KEY = "cleo:gpt-5.6-terra:voice-v1"
+export const CLEO_PROMPT_CACHE_KEY = "cleo:gpt-5.6-terra:voice-v2"

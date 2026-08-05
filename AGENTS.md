@@ -99,7 +99,7 @@ change; update the matching `docs/*` runbook when subsystem behavior changes.
 | UI | Changed flows on desktop/mobile and light/dark |
 
 Cleo manual smoke (when touching the agent): multi-turn chat, reasoning activity,
-web search, image attach/vision, image generation, streaming, cancellation,
+web search, image attach/vision, streaming, cancellation,
 Retry/Continue, Location preference (including denied permission).
 
 ## Cursor Cloud / Previews

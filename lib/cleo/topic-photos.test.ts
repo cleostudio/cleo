@@ -217,7 +217,8 @@ describe('topic photos', () => {
     expect(block).toContain('/images/atlas/japan/w1280-2.jpg')
     expect(block).toContain('/images/atlas/japan/w1280-3.jpg')
     expect(block).toContain('embed every listed photograph')
-    expect(block).toContain('Prefer these curated photos over `image_generation`')
+    expect(block).toContain('Prefer these curated photos for real places')
+    expect(block).toContain('You cannot generate new images')
     expect(buildTopicPhotoInstructions([])).toBe('')
   })
 

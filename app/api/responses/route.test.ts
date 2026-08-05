@@ -509,6 +509,26 @@ describe("POST /api/responses: image attachments", () => {
     })
   })
 
+  it("rejects images on assistant messages", async () => {
+    const response = await POST(
+      ask({
+        messages: [
+          {
+            content: "here is a picture",
+            images: [{ url: imageDataUrl(64) }],
+            role: "assistant",
+          },
+          { content: "thanks", role: "user" },
+        ],
+      })
+    )
+
+    expect(response.status).toBe(400)
+    await expect(response.json()).resolves.toEqual({
+      error: "Assistant messages cannot include images.",
+    })
+  })
+
   it("rejects more than four images on one message", async () => {
     const response = await POST(
       ask({
@@ -531,17 +551,20 @@ describe("POST /api/responses: image attachments", () => {
   })
 
   it("rejects more than sixteen images across the conversation", async () => {
-    const response = await POST(
-      ask({
-        messages: Array.from({ length: 5 }, (_, index) => ({
-          content: `batch ${index}`,
-          images: Array.from({ length: 4 }, () => ({
-            url: imageDataUrl(64),
-          })),
-          role: index % 2 === 0 ? "user" : "assistant",
+    const messages = Array.from({ length: 5 }, (_, index) => [
+      {
+        content: `batch ${index}`,
+        images: Array.from({ length: 4 }, () => ({
+          url: imageDataUrl(64),
         })),
-      })
-    )
+        role: "user" as const,
+      },
+      ...(index < 4
+        ? [{ content: `ok ${index}`, role: "assistant" as const }]
+        : []),
+    ]).flat()
+
+    const response = await POST(ask({ messages }))
 
     expect(response.status).toBe(400)
     await expect(response.json()).resolves.toEqual({
@@ -731,7 +754,7 @@ describe("POST /api/responses: streaming and upstream errors", () => {
       stream: true,
       max_tool_calls: 8,
       truncation: "auto",
-      prompt_cache_key: "cleo:gpt-5.6-terra:voice-v1",
+      prompt_cache_key: "cleo:gpt-5.6-terra:voice-v2",
       prompt_cache_options: { mode: "explicit" },
       reasoning: {
         effort: "medium",
@@ -757,21 +780,11 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     expect(cachedPrefix.content[0].text.length).toBeGreaterThan(100)
     expect(request.tools.map((tool: { type: string }) => tool.type)).toEqual([
       "web_search",
-      "image_generation",
     ])
     expect(
       request.tools.find((tool: { type: string }) => tool.type === "web_search")
     ).toMatchObject({
       search_context_size: "medium",
-    })
-    expect(
-      request.tools.find(
-        (tool: { type: string }) => tool.type === "image_generation"
-      )
-    ).toMatchObject({
-      output_compression: 85,
-      output_format: "jpeg",
-      partial_images: 1,
     })
   })
 
@@ -801,52 +814,6 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("high")
   })
 
-  it("streams generated images as jpeg data URLs", async () => {
-    openai.create.mockResolvedValueOnce(
-      responseStream([
-        {
-          item: {
-            id: "img_1",
-            status: "in_progress",
-            type: "image_generation_call",
-          },
-          type: "response.output_item.added",
-        },
-        {
-          item_id: "img_1",
-          partial_image_b64: "partialbytes",
-          type: "response.image_generation_call.partial_image",
-        },
-        {
-          item: {
-            id: "img_1",
-            result: "finalbytes",
-            status: "completed",
-            type: "image_generation_call",
-          },
-          type: "response.output_item.done",
-        },
-      ])
-    )
-
-    const events = await ndjson(await POST(ask(question)))
-    const images = events.filter((event) => event.type === "image")
-
-    expect(images).toEqual([
-      {
-        id: "img_1",
-        imageUrl: "data:image/jpeg;base64,partialbytes",
-        partial: true,
-        type: "image",
-      },
-      {
-        id: "img_1",
-        imageUrl: "data:image/jpeg;base64,finalbytes",
-        type: "image",
-      },
-    ])
-  })
-
   it("uses low reasoning effort for short social turns", async () => {
     openai.create.mockResolvedValueOnce(
       responseStream([{ delta: "hi", type: "response.output_text.delta" }])
@@ -855,8 +822,8 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     await POST(ask({ messages: [{ content: "Hey Cleo", role: "user" }] }))
 
     const request = openai.create.mock.calls[0]?.[0]
-    // `minimal` is rejected by the API while web_search + image_generation
-    // stay attached on every Cleo turn.
+    // `minimal` is rejected by the API while web_search stays attached on
+    // every Cleo turn.
     expect(request.reasoning.effort).toBe("low")
     expect(
       request.tools.find((tool: { type: string }) => tool.type === "web_search")

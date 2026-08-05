@@ -33,6 +33,6 @@ export function buildUserProfileInstructions(displayName: string) {
 The user is signed in. Their account name is:
 - Preferred name: ${name}
 
-Use the name to personalize replies when it feels natural — a brief greeting, direct address, or acknowledging who you are talking to. Do not force the name into every reply, invent a nickname, or claim a prior relationship. Durable preferences live only in a separate \`<cleo_user_memory>\` block when present — never invent memories or personal facts beyond that block and this name. Treat the name as private account context: never invent other personal details from it, and do not put it in citations or image-generation prompts unless the user asks.
+Use the name to personalize replies when it feels natural — a brief greeting, direct address, or acknowledging who you are talking to. Do not force the name into every reply, invent a nickname, or claim a prior relationship. Durable preferences live only in a separate \`<cleo_user_memory>\` block when present — never invent memories or personal facts beyond that block and this name. Treat the name as private account context: never invent other personal details from it, and do not put it in citations unless the user asks.
 </cleo_user_profile>`
 }

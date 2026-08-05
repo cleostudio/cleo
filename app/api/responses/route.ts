@@ -6,7 +6,6 @@ import type {
   ResponseFunctionWebSearch,
   ResponseInput,
   ResponseInputMessageContentList,
-  ResponseOutputItem,
   ResponseReasoningItem,
   WebSearchTool,
 } from "openai/resources/responses/responses"
@@ -25,10 +24,6 @@ import {
   parseUserLocation,
 } from "~/lib/cleo/location"
 import {
-  GENERATED_IMAGE_MEDIA_TYPE,
-  GENERATED_IMAGE_OUTPUT_COMPRESSION,
-  GENERATED_IMAGE_OUTPUT_FORMAT,
-  GENERATED_IMAGE_PARTIAL_IMAGES,
   MAX_IMAGES_PER_MESSAGE,
   MAX_IMAGES_PER_REQUEST,
   MAX_REQUEST_BODY_BYTES,
@@ -80,7 +75,7 @@ const MODEL = "gpt-5.6-terra"
 const MAX_INPUT_LENGTH = 10_000
 const MAX_MESSAGES = 50
 const MAX_TOTAL_INPUT_LENGTH = 100_000
-/** Cap hosted tool churn (web_search + image_generation) per turn. */
+/** Cap hosted tool churn (web_search) per turn. */
 const MAX_TOOL_CALLS = 8
 
 /** Allow long tool-using turns on Vercel without cutting the NDJSON stream short. */
@@ -172,22 +167,9 @@ function parseMessageImages(value: unknown): MessageImage[] | Response {
       )
     }
 
-    const image: MessageImage = {
+    images.push({
       url: toImageDataUrl(parsed.mediaType, parsed.base64),
-    }
-
-    if ("id" in item && item.id !== undefined) {
-      if (typeof item.id !== "string" || !item.id.trim()) {
-        return errorResponse(
-          "Generated image ids must be non-empty strings.",
-          400
-        )
-      }
-
-      image.id = item.id.trim()
-    }
-
-    images.push(image)
+    })
   }
 
   return images
@@ -235,8 +217,16 @@ function parseMessages(body: unknown): ConversationMessage[] | Response {
     }
 
     const content = item.content.trim()
+    if (
+      item.role === "assistant" &&
+      "images" in item &&
+      item.images !== undefined
+    ) {
+      return errorResponse("Assistant messages cannot include images.", 400)
+    }
+
     const imagesResult = parseMessageImages(
-      "images" in item ? item.images : undefined
+      item.role === "user" && "images" in item ? item.images : undefined
     )
 
     if (imagesResult instanceof Response) {
@@ -349,9 +339,6 @@ function toUserContent(
 
 function toApiInput(messages: ConversationMessage[]): AgentInput {
   const input: AgentInput = []
-  // With store: false, image_generation_call ids cannot be replayed. Carry the
-  // latest generated images into the next user turn as input_image instead.
-  let pendingGeneratedImages: MessageImage[] = []
 
   for (const message of messages) {
     if (message.role === "assistant") {
@@ -367,21 +354,14 @@ function toApiInput(messages: ConversationMessage[]): AgentInput {
       }
       input.push({
         role: "assistant",
-        content: message.content || "Generated an image.",
+        content: message.content,
       } satisfies EasyInputMessage)
-      pendingGeneratedImages = message.images ?? []
       continue
     }
 
-    const userImages = message.images ?? []
-    // Prefer the latest generated images that still fit beside new attachments.
-    const room = Math.max(0, MAX_IMAGES_PER_MESSAGE - userImages.length)
-    const images = [...pendingGeneratedImages.slice(-room), ...userImages]
-    pendingGeneratedImages = []
-
     input.push({
       role: "user",
-      content: toUserContent(message.content, images),
+      content: toUserContent(message.content, message.images ?? []),
     } satisfies EasyInputMessage)
   }
 
@@ -452,17 +432,6 @@ function activityFromWebSearch(
     kind: "web_search",
     status: status ?? item.status,
     action: toWebSearchAction(item.action),
-  }
-}
-
-function activityFromImageGeneration(
-  item: ResponseOutputItem.ImageGenerationCall,
-  status?: ActivityStatus
-): ActivityItem {
-  return {
-    id: item.id,
-    kind: "image_generation",
-    status: status ?? item.status,
   }
 }
 
@@ -641,17 +610,7 @@ export async function POST(request: Request) {
       },
       stream: true,
       text: { verbosity: "medium" },
-      tools: [
-        webSearchTool,
-        {
-          type: "image_generation",
-          partial_images: GENERATED_IMAGE_PARTIAL_IMAGES,
-          quality: "auto",
-          size: "auto",
-          output_format: GENERATED_IMAGE_OUTPUT_FORMAT,
-          output_compression: GENERATED_IMAGE_OUTPUT_COMPRESSION,
-        },
-      ],
+      tools: [webSearchTool],
       prompt_cache_key: CLEO_PROMPT_CACHE_KEY,
       prompt_cache_options: { mode: "explicit" },
       safety_identifier: cleoSafetyIdentifier(safetySeed),
@@ -672,7 +631,6 @@ export async function POST(request: Request) {
     const urlCitations: UrlCitation[] = []
     let emittedTextContent = ""
     let emittedText = false
-    let emittedImage = false
 
     const rememberUrlCitation = (value: unknown) => {
       const citation = parseUrlCitation(value)
@@ -800,11 +758,6 @@ export async function POST(request: Request) {
                   controller,
                   activityFromReasoning(event.item, "in_progress")
                 )
-              } else if (event.item.type === "image_generation_call") {
-                emitActivity(
-                  controller,
-                  activityFromImageGeneration(event.item, "in_progress")
-                )
               }
               continue
             }
@@ -850,52 +803,6 @@ export async function POST(request: Request) {
               continue
             }
 
-            if (event.type === "response.image_generation_call.in_progress") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "in_progress",
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.generating") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "generating",
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.partial_image") {
-              emittedImage = true
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "generating",
-              })
-              enqueue(controller, {
-                type: "image",
-                id: event.item_id,
-                imageUrl: toImageDataUrl(
-                  GENERATED_IMAGE_MEDIA_TYPE,
-                  event.partial_image_b64
-                ),
-                partial: true,
-              })
-              continue
-            }
-
-            if (event.type === "response.image_generation_call.completed") {
-              emitActivity(controller, {
-                id: event.item_id,
-                kind: "image_generation",
-                status: "completed",
-              })
-              continue
-            }
-
             if (event.type === "response.output_item.done") {
               if (event.item.type === "message") {
                 for (const part of event.item.content ?? []) {
@@ -933,23 +840,6 @@ export async function POST(request: Request) {
                       : {}),
                   })
                 }
-              } else if (event.item.type === "image_generation_call") {
-                emitActivity(
-                  controller,
-                  activityFromImageGeneration(event.item, "completed")
-                )
-
-                if (event.item.result) {
-                  emittedImage = true
-                  enqueue(controller, {
-                    type: "image",
-                    id: event.item.id,
-                    imageUrl: toImageDataUrl(
-                      GENERATED_IMAGE_MEDIA_TYPE,
-                      event.item.result
-                    ),
-                  })
-                }
               }
               continue
             }
@@ -980,7 +870,7 @@ export async function POST(request: Request) {
 
               // Soft-incomplete when usable content already streamed; hard
               // error only when the turn produced nothing visible.
-              if (emittedText || emittedImage) {
+              if (emittedText) {
                 incompleteNotice = mapped
               } else {
                 throw new Error(

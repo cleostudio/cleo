@@ -112,22 +112,6 @@ function upsertActivity(
   return next
 }
 
-function upsertMessageImage(
-  images: MessageImage[] | undefined,
-  image: MessageImage
-) {
-  const current = images ?? []
-  const index = current.findIndex((item) => item.id === image.id)
-
-  if (index === -1) {
-    return [...current, image]
-  }
-
-  const next = [...current]
-  next[index] = image
-  return next
-}
-
 function lastUserMessageIndex(
   messages: readonly Message[],
   options?: { includeHidden?: boolean }
@@ -159,7 +143,7 @@ const UserMessage = memo(function UserMessage({ message }: UserMessageProps) {
                   : `Uploaded image ${index + 1}`
               }
               className="message-image"
-              key={image.id ?? `${message.id}-${index}`}
+              key={`${message.id}-${index}`}
               src={image.url}
             />
           ))}
@@ -205,7 +189,7 @@ const AssistantMessage = memo(function AssistantMessage({
     !isLive &&
     Boolean(message.turnId) &&
     messageHasVisibleContent(message) &&
-    Boolean(message.content.trim() || (message.images && message.images.length > 0))
+    Boolean(message.content.trim())
 
   return (
     <section aria-label="AI response" aria-live="polite" className="min-w-0">
@@ -213,24 +197,9 @@ const AssistantMessage = memo(function AssistantMessage({
         <ActivityPanel activities={message.activities} isLive={isLive} />
       ) : null}
 
-      {message.images && message.images.length > 0 ? (
-        <div className="assistant-message-images mb-3">
-          {message.images.map((image, index) => (
-            <ZoomableMessageImage
-              alt={`Generated image ${index + 1}`}
-              className="message-image message-image-assistant"
-              key={image.id ?? `${message.id}-${index}`}
-              src={image.url}
-            />
-          ))}
-        </div>
-      ) : null}
-
       {message.content ? (
         <Markdown isAnimating={isLive}>{message.content}</Markdown>
-      ) : isLive &&
-        !(message.activities && message.activities.length > 0) &&
-        !(message.images && message.images.length > 0) ? (
+      ) : isLive && !(message.activities && message.activities.length > 0) ? (
         <ThinkingOrb
           aria-label="Listening"
           className="block"
@@ -609,7 +578,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       activities: [],
       content: "",
       id: messageIdRef.current++,
-      images: [],
       role: "assistant",
       turnId: crypto.randomUUID(),
     }
@@ -636,7 +604,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     setScrollTick((tick) => tick + 1)
 
     let output = ""
-    let receivedImages = false
     let receivedActivities = false
     let sawIncomplete = false
 
@@ -644,7 +611,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     let pendingText = ""
     let pendingTextReplace: string | null = null
     let pendingActivities: ActivityItem[] = []
-    let pendingImagesById = new Map<string, MessageImage>()
     let pendingReasoningItems: EncryptedReasoningItem[] | null = null
     let pendingIncomplete: MessageIncomplete | null = null
     let rafHandle: number | null = null
@@ -655,14 +621,12 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       const textChunk = pendingText
       const textReplace = pendingTextReplace
       const activitiesChunk = pendingActivities
-      const imagesChunk = [...pendingImagesById.values()]
       const reasoningChunk = pendingReasoningItems
       const incompleteChunk = pendingIncomplete
 
       pendingText = ""
       pendingTextReplace = null
       pendingActivities = []
-      pendingImagesById = new Map()
       pendingReasoningItems = null
       pendingIncomplete = null
 
@@ -670,7 +634,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
         !textChunk &&
         textReplace === null &&
         activitiesChunk.length === 0 &&
-        imagesChunk.length === 0 &&
         !reasoningChunk &&
         !incompleteChunk
       ) {
@@ -691,12 +654,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
             next = {
               ...next,
               activities: upsertActivity(next.activities, activity),
-            }
-          }
-          for (const image of imagesChunk) {
-            next = {
-              ...next,
-              images: upsertMessageImage(next.images, image),
             }
           }
           if (reasoningChunk) {
@@ -778,15 +735,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
           scheduleFlush()
           return
         }
-        if (event.type === "image") {
-          receivedImages = true
-          pendingImagesById.set(event.id, {
-            id: event.id,
-            url: event.imageUrl,
-          })
-          scheduleFlush()
-          return
-        }
         if (event.type === "reasoning_items") {
           pendingReasoningItems = event.items
           scheduleFlush()
@@ -841,10 +789,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       }
 
       const hadUsefulOutput =
-        Boolean(output.trim()) ||
-        receivedImages ||
-        receivedActivities ||
-        sawIncomplete
+        Boolean(output.trim()) || receivedActivities || sawIncomplete
 
       if (!hadUsefulOutput && !abortController.signal.aborted) {
         throw new Error(
@@ -867,8 +812,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       const aborted =
         isAbortError(requestError) || abortController.signal.aborted
 
-      const hadVisibleDraft =
-        Boolean(output.trim()) || receivedImages || receivedActivities
+      const hadVisibleDraft = Boolean(output.trim()) || receivedActivities
 
       if (aborted && !hadVisibleDraft) {
         // Keep the user prompt so Retry can recover; drop the empty assistant.

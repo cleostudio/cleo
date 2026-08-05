@@ -12,7 +12,7 @@ type ZoomableMessageImageProps = {
 }
 
 /**
- * Click-to-zoom for Cleo attachment / generated data-URL images.
+ * Click-to-zoom for Cleo user-attachment data-URL images.
  * Measures intrinsic size once so ZoomImage can FLIP without a catalog entry.
  */
 export function ZoomableMessageImage({
@@ -26,7 +26,7 @@ export function ZoomableMessageImage({
 
   useEffect(() => {
     let cancelled = false
-    // Drop stale geometry while a partial → final (or swapped) src loads.
+    // Drop stale geometry while a swapped src loads.
     setSize(null)
     const probe = new window.Image()
     probe.decoding = 'async'

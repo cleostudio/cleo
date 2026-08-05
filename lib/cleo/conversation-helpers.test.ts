@@ -56,6 +56,6 @@ describe("conversation helpers", () => {
   })
 
   it("uses one stable prompt-cache key for the shared voice prefix", () => {
-    expect(CLEO_PROMPT_CACHE_KEY).toBe("cleo:gpt-5.6-terra:voice-v1")
+    expect(CLEO_PROMPT_CACHE_KEY).toBe("cleo:gpt-5.6-terra:voice-v2")
   })
 })

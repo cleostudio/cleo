@@ -29,9 +29,9 @@ export type WebSearchAction =
     }
 
 export type ActivityStatus =
-  "in_progress" | "searching" | "generating" | "completed" | "failed"
+  "in_progress" | "searching" | "completed" | "failed"
 
-export type ActivityKind = "web_search" | "reasoning" | "image_generation"
+export type ActivityKind = "web_search" | "reasoning"
 
 export type ActivityItem = {
   action?: WebSearchAction
@@ -42,9 +42,7 @@ export type ActivityItem = {
 }
 
 export type MessageImage = {
-  /** OpenAI image_generation_call id when the image was generated. */
-  id?: string
-  /** data: URL or https URL for display and API input. */
+  /** data: URL for display and API vision input. */
   url: string
 }
 
@@ -62,13 +60,6 @@ export type StreamTextReplaceEvent = {
 export type StreamActivityEvent = {
   activity: ActivityItem
   type: "activity"
-}
-
-export type StreamImageEvent = {
-  id: string
-  imageUrl: string
-  partial?: boolean
-  type: "image"
 }
 
 export type StreamErrorEvent = {
@@ -98,7 +89,6 @@ export type ClientStreamEvent =
   | StreamTextEvent
   | StreamTextReplaceEvent
   | StreamActivityEvent
-  | StreamImageEvent
   | StreamErrorEvent
   | StreamReasoningItemsEvent
   | StreamStatusEvent
@@ -133,18 +123,13 @@ function isActivityStatus(value: unknown): value is ActivityStatus {
   return (
     value === "in_progress" ||
     value === "searching" ||
-    value === "generating" ||
     value === "completed" ||
     value === "failed"
   )
 }
 
 function isActivityKind(value: unknown): value is ActivityKind {
-  return (
-    value === "web_search" ||
-    value === "reasoning" ||
-    value === "image_generation"
-  )
+  return value === "web_search" || value === "reasoning"
 }
 
 function parseActivityItem(value: unknown): ActivityItem | null {
@@ -246,29 +231,6 @@ export function parseStreamLine(line: string): ClientStreamEvent | null {
         type: "activity",
         activity,
       }
-    }
-
-    if (parsed.type === "image") {
-      if (
-        !("id" in parsed) ||
-        typeof parsed.id !== "string" ||
-        !("imageUrl" in parsed) ||
-        typeof parsed.imageUrl !== "string"
-      ) {
-        return null
-      }
-
-      const event: StreamImageEvent = {
-        type: "image",
-        id: parsed.id,
-        imageUrl: parsed.imageUrl,
-      }
-
-      if ("partial" in parsed && parsed.partial === true) {
-        event.partial = true
-      }
-
-      return event
     }
 
     if (parsed.type === "error") {
