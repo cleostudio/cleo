@@ -224,20 +224,18 @@ flowchart LR
 Automation may open a draft PR; it must not hot-patch production env vars
 with a new system prompt.
 
-Suggested package layout (when implementing):
+Shipped / planned package layout:
 
 | Path | Role |
 | --- | --- |
-| `content/cleo-evals/` or `scripts/cleo/evals/` | Golden cases + expected signals + failure-mode tags |
-| `scripts/cleo/eval-run.mjs` | Batch generate + grade |
-| `scripts/cleo/optimize-instructions.mjs` | Offline revise loop (dev/CI only) |
+| `content/cleo-evals/cases.json` | Golden cases + expected signals + failure-mode tags |
+| `content/cleo-evals/README.md` | How to add a case from a production failure |
+| `lib/cleo/evals/*` | Taxonomy, loader, vitest suite |
 | `lib/cleo/graders/*` | Deterministic graders shared by tests + eval |
+| `scripts/cleo/eval-run.mjs` | (Later) batch live generate + grade |
+| `scripts/cleo/optimize-instructions.mjs` | (Later) offline revise loop (dev/CI only) |
 | Optional `promptfoo/` config | CI regression / red-team later |
 | Optional Platform Datasets UI | Short-lived bootstrap only (deprecated platform) |
-
-Start with in-repo golden cases + deterministic graders. Optionally explore
-Platform annotation UX while it exists, then keep the durable copy in git /
-Promptfoo so CI can fail regressions after Nov 2026.
 
 ### 2. Online signals (instrumentation)
 
@@ -334,23 +332,23 @@ Recommended default:
 
 ## Implementation phases
 
-### Phase A — Eval harness (ship first)
+### Phase A — Eval harness (shipped)
 
-1. Draft a short failure taxonomy from known Cleo failure modes (invented
-   paths, missing catalog links, curated-image misuse, voice/register,
-   refusal/casual).
-2. Golden cases for catalog grounding + voice smoke tests (start ~20–30;
-   grow from real failures). Tag cases with taxonomy codes; split train /
-   held-out.
-3. Deterministic graders wrapping `guardrails` + catalog getters; return
-   diagnostic text, not only booleans.
-4. `pnpm test:cleo-eval` (vitest and/or Promptfoo) runnable without network
-   for deterministic cases; optional live job behind `OPENAI_API_KEY`.
-5. Optional parallel bootstrap: annotate a small set in Platform Datasets /
-   Optimize **only while available**, then copy the resulting cases + any
-   prompt diff ideas into git (manual merge). Do not treat Platform as
-   durable storage.
-6. Document how to add a case when a production failure is found.
+In-repo offline harness (no network):
+
+| Piece | Path |
+| --- | --- |
+| Failure taxonomy | `lib/cleo/evals/taxonomy.ts` |
+| Golden cases (train/holdout) | `content/cleo-evals/cases.json` |
+| How to add a case | `content/cleo-evals/README.md` |
+| Deterministic graders + ASI | `lib/cleo/graders/*` |
+| Suite | `pnpm test:cleo-eval` |
+
+Still optional later in Phase A+:
+
+1. Live Responses job behind `OPENAI_API_KEY` for the same case prompts.
+2. Short Platform Datasets / Optimize bootstrap **only while available**, then
+   copy cases + prompt diff ideas into git (manual merge).
 
 ### Phase B — Feedback UI + Neon signals
 

@@ -13,6 +13,7 @@ prompt-evolution design, see [`cleo-self-improving.md`](./cleo-self-improving.md
 | API route | `app/api/responses/route.ts` |
 | Voice + portal catalog | `lib/cleo/instructions.ts`, `lib/cleo/portal-catalog.ts` |
 | Guardrails (strip invented Explore/Space/Civilizations/Cities/Oceans/Rivers paths) | `lib/cleo/guardrails.ts` |
+| Offline eval cases + deterministic graders | `content/cleo-evals/`, `lib/cleo/evals/`, `lib/cleo/graders/` (`pnpm test:cleo-eval`) |
 | Public turn rate limit | `lib/cleo/rate-limit.ts` |
 | NDJSON protocol | `lib/cleo/stream.ts` |
 | Images (server / client) | `lib/cleo/images.ts`, `lib/cleo/client-images.ts` |

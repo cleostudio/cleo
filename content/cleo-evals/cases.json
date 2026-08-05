@@ -1,0 +1,348 @@
+[
+  {
+    "id": "explore-japan-grounded",
+    "split": "train",
+    "failureModes": ["missing_catalog_link"],
+    "prompt": "Tell me about Japan.",
+    "assistant": "Japan is an archipelago where dense cities sit close to steep coasts and volcanic highlands. Start with the [Japan](/explore/japan) guide for places and context.",
+    "expect": {
+      "catalogHrefs": ["/explore/japan"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "space-mars-grounded",
+    "split": "train",
+    "failureModes": ["missing_catalog_link"],
+    "prompt": "What should I know about Mars?",
+    "assistant": "Mars is a cold desert world with polar ice and a thin CO₂ atmosphere. The [Mars](/space/mars) guide covers the planet’s geology and exploration.",
+    "expect": {
+      "catalogHrefs": ["/space/mars"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "civilizations-egypt-grounded",
+    "split": "train",
+    "failureModes": ["missing_catalog_link"],
+    "prompt": "Give me a primer on Ancient Egypt.",
+    "assistant": "Ancient Egypt organized life around the Nile’s flood rhythm for millennia. See the [Ancient Egypt](/civilizations/ancient-egypt) guide for sites and chronology.",
+    "expect": {
+      "catalogHrefs": ["/civilizations/ancient-egypt"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "cities-istanbul-grounded",
+    "split": "train",
+    "failureModes": ["missing_catalog_link"],
+    "prompt": "Why visit Istanbul?",
+    "assistant": "Istanbul spans two continents and layers Byzantine, Ottoman, and modern streets. The [Istanbul](/cities/istanbul) guide is the best portal starting point.",
+    "expect": {
+      "catalogHrefs": ["/cities/istanbul"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "oceans-pacific-grounded",
+    "split": "train",
+    "failureModes": ["missing_catalog_link"],
+    "prompt": "How large is the Pacific Ocean?",
+    "assistant": "The Pacific is the largest ocean basin on Earth, spanning from Asia–Australia to the Americas. Details live in the [Pacific Ocean](/oceans/pacific-ocean) guide.",
+    "expect": {
+      "catalogHrefs": ["/oceans/pacific-ocean"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "rivers-nile-grounded",
+    "split": "train",
+    "failureModes": ["missing_catalog_link"],
+    "prompt": "Where does the Nile flow?",
+    "assistant": "The Nile runs north through northeastern Africa to the Mediterranean. Use the [Nile](/rivers/nile) guide for course and basin context.",
+    "expect": {
+      "catalogHrefs": ["/rivers/nile"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "japan-with-curated-photo",
+    "split": "train",
+    "failureModes": ["invented_curated_image", "missing_catalog_link"],
+    "prompt": "Show me a photo of Japan and a short intro.",
+    "assistant": "Here’s a sense of place:\n\n![Mount Fuji](/images/atlas/japan/w1280.jpg)\n\nJapan pairs alpine volcanoes with dense coastal cities — more in the [Japan](/explore/japan) guide.",
+    "expect": {
+      "catalogHrefs": ["/explore/japan"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "mars-with-curated-photo",
+    "split": "holdout",
+    "failureModes": ["invented_curated_image", "missing_catalog_link"],
+    "prompt": "Show Mars and summarize it.",
+    "assistant": "![Mars](/images/space/mars/w1280.jpg)\n\nRust-colored deserts and polar caps define the planet. See [Mars](/space/mars).",
+    "expect": {
+      "catalogHrefs": ["/space/mars"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "invented-explore-link",
+    "split": "train",
+    "failureModes": ["invented_guide_link"],
+    "prompt": "Tell me about Atlantis.",
+    "assistant": "Atlantis is a legendary island. Visit [Atlantis](/explore/atlantis) for the field guide.",
+    "expect": {
+      "hasInventedPaths": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "invented-space-link",
+    "split": "train",
+    "failureModes": ["invented_guide_link"],
+    "prompt": "Is there a guide to Planet X?",
+    "assistant": "Not in our catalog, but you can open [Planet X](/space/planet-x) anyway.",
+    "expect": {
+      "hasInventedPaths": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "invented-city-link",
+    "split": "holdout",
+    "failureModes": ["invented_guide_link"],
+    "prompt": "Take me to El Dorado.",
+    "assistant": "Try the [El Dorado](/cities/el-dorado) city guide.",
+    "expect": {
+      "hasInventedPaths": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "invented-ocean-link",
+    "split": "train",
+    "failureModes": ["invented_guide_link"],
+    "prompt": "Is Panthalassa in the oceans section?",
+    "assistant": "See [Panthalassa](/oceans/panthalassa) for the ancient ocean.",
+    "expect": {
+      "hasInventedPaths": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "invented-river-link",
+    "split": "holdout",
+    "failureModes": ["invented_guide_link"],
+    "prompt": "Do you have a Styx river page?",
+    "assistant": "Yes — [Styx](/rivers/styx).",
+    "expect": {
+      "hasInventedPaths": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "invented-civilization-link",
+    "split": "train",
+    "failureModes": ["invented_guide_link"],
+    "prompt": "Is there a Mu civilization guide?",
+    "assistant": "Open [Mu](/civilizations/lost-continent-mu) for the overview.",
+    "expect": {
+      "hasInventedPaths": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "invented-curated-image",
+    "split": "train",
+    "failureModes": ["invented_curated_image"],
+    "prompt": "Show Atlantis.",
+    "assistant": "![Atlantis](/images/atlas/atlantis/w1280.jpg)\n\nA legendary island — no portal guide exists.",
+    "expect": {
+      "hasInventedPaths": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "wrong-shelf-istanbul-as-explore",
+    "split": "train",
+    "failureModes": ["wrong_shelf", "invented_guide_link"],
+    "prompt": "Link the Istanbul explore page.",
+    "assistant": "See [Istanbul](/explore/istanbul) in Explore.",
+    "expect": {
+      "hasInventedPaths": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "missing-japan-link",
+    "split": "train",
+    "failureModes": ["missing_catalog_link"],
+    "prompt": "Tell me about Japan on this site.",
+    "assistant": "Japan is an island country in East Asia with a long imperial history and modern megacities.",
+    "expect": {
+      "missingCatalogHrefs": ["/explore/japan"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "stock-phrase-great-question",
+    "split": "train",
+    "failureModes": ["stock_phrase"],
+    "prompt": "What is Kyoto like?",
+    "assistant": "Great question! Kyoto keeps temple districts and older street grids. See [Kyoto](/cities/kyoto).",
+    "expect": {
+      "catalogHrefs": ["/cities/kyoto"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "hasStockPhrases": true
+    }
+  },
+  {
+    "id": "stock-phrase-happy-to",
+    "split": "holdout",
+    "failureModes": ["stock_phrase"],
+    "prompt": "Summarize the Nile.",
+    "assistant": "I'd be happy to help. The Nile runs north to the Mediterranean — [Nile](/rivers/nile).",
+    "expect": {
+      "catalogHrefs": ["/rivers/nile"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "hasStockPhrases": true
+    }
+  },
+  {
+    "id": "casual-greeting-clean",
+    "split": "train",
+    "failureModes": ["refusal_or_casual"],
+    "prompt": "hey cleo",
+    "assistant": "Hey — what are you curious about?",
+    "expect": {
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "coding-help-no-portal-fiction",
+    "split": "train",
+    "failureModes": ["refusal_or_casual", "invented_guide_link"],
+    "prompt": "How do I reverse a string in TypeScript?",
+    "assistant": "Use `[...value].reverse().join('')` for Unicode-safe-ish reversal of BMP text, or iterate code points if you need fuller Unicode handling.",
+    "expect": {
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "multi-shelf-grounded",
+    "split": "holdout",
+    "failureModes": ["missing_catalog_link", "wrong_shelf"],
+    "prompt": "Compare the Nile and Ancient Egypt briefly with site links.",
+    "assistant": "The river and the civilization are inseparable: start with [Nile](/rivers/nile) for the course, then [Ancient Egypt](/civilizations/ancient-egypt) for the societies that formed along it.",
+    "expect": {
+      "catalogHrefs": ["/rivers/nile", "/civilizations/ancient-egypt"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "oceans-mediterranean-grounded",
+    "split": "holdout",
+    "failureModes": ["missing_catalog_link"],
+    "prompt": "What is the Mediterranean Sea?",
+    "assistant": "The Mediterranean is a nearly enclosed sea between Europe, Africa, and Asia. Portal overview: [Mediterranean Sea](/oceans/mediterranean-sea).",
+    "expect": {
+      "catalogHrefs": ["/oceans/mediterranean-sea"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "cities-kyoto-photo",
+    "split": "holdout",
+    "failureModes": ["invented_curated_image", "missing_catalog_link"],
+    "prompt": "Show Kyoto.",
+    "assistant": "![Kyoto](/images/cities/kyoto/w1280.jpg)\n\nTemple precincts and grid streets — more in [Kyoto](/cities/kyoto).",
+    "expect": {
+      "catalogHrefs": ["/cities/kyoto"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "egypt-photo-grounded",
+    "split": "train",
+    "failureModes": ["invented_curated_image", "missing_catalog_link"],
+    "prompt": "Show Ancient Egypt.",
+    "assistant": "![Ancient Egypt](/images/civilizations/ancient-egypt/w1280.jpg)\n\nMonumental stone and river agriculture — [Ancient Egypt](/civilizations/ancient-egypt).",
+    "expect": {
+      "catalogHrefs": ["/civilizations/ancient-egypt"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "pacific-photo-grounded",
+    "split": "holdout",
+    "failureModes": ["invented_curated_image", "missing_catalog_link"],
+    "prompt": "Show the Pacific Ocean.",
+    "assistant": "![Pacific Ocean](/images/oceans/pacific-ocean/w1280.jpg)\n\nThe largest ocean basin — [Pacific Ocean](/oceans/pacific-ocean).",
+    "expect": {
+      "catalogHrefs": ["/oceans/pacific-ocean"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "nile-photo-grounded",
+    "split": "train",
+    "failureModes": ["invented_curated_image", "missing_catalog_link"],
+    "prompt": "Show the Nile.",
+    "assistant": "![Nile](/images/rivers/nile/w1280.jpg)\n\nNorthbound through northeastern Africa — [Nile](/rivers/nile).",
+    "expect": {
+      "catalogHrefs": ["/rivers/nile"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "noStockPhrases": true
+    }
+  },
+  {
+    "id": "stock-phrase-breakdown",
+    "split": "train",
+    "failureModes": ["stock_phrase"],
+    "prompt": "Explain Mars briefly.",
+    "assistant": "Here's a breakdown: Mars is smaller than Earth with a thin atmosphere. See [Mars](/space/mars).",
+    "expect": {
+      "catalogHrefs": ["/space/mars"],
+      "noInventedPaths": true,
+      "guardrailNoop": true,
+      "hasStockPhrases": true
+    }
+  }
+]

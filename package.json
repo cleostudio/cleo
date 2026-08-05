@@ -22,6 +22,7 @@
     "start": "next start",
     "test:security": "vitest run lib/security",
     "test:unit": "vitest run app components lib --exclude='**/*.live.test.ts'",
+    "test:cleo-eval": "vitest run lib/cleo/evals lib/cleo/graders",
     "test:localization": "node --test scripts/localization.test.mjs",
     "verify:legacy-urls": "node scripts/verify-legacy-url-contract.mjs",
     "verify:links": "node scripts/verify-public-links.mjs",
