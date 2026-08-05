@@ -121,6 +121,9 @@ export default withSentryConfig(nextConfig, {
   org: 'cleo-studio',
   project: 'sentry-cleo',
 
+  // US-region org — set SENTRY_URL in CI/Vercel/Cursor Cloud (see docs/sentry.md).
+  sentryUrl: process.env.SENTRY_URL,
+
   // Source map upload (set SENTRY_AUTH_TOKEN in CI / Vercel / Cursor Cloud).
   authToken: process.env.SENTRY_AUTH_TOKEN,
 

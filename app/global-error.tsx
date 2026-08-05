@@ -2,8 +2,8 @@
 
 import './globals.css'
 
-import { useEffect } from 'react'
 import * as Sentry from '@sentry/nextjs'
+import { useEffect } from 'react'
 
 import { AmbientBackground } from '~/components/ambient-background'
 import { ThemeProvider } from '~/components/theme-provider'

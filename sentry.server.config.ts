@@ -11,8 +11,8 @@ Sentry.init({
 
   tracesSampleRate: isDev ? 1.0 : 0.1,
 
-  // Local variable values on server stack frames (dev + staging debugging).
-  includeLocalVariables: true,
+  // Keep off so /api/responses (and other) errors do not attach chat locals.
+  includeLocalVariables: false,
 
   enableLogs: true,
 

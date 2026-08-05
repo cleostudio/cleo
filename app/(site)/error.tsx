@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect } from 'react'
 import * as Sentry from '@sentry/nextjs'
+import { useEffect } from 'react'
 
 import { ErrorPageView, type ErrorBoundaryProps } from '../_views/error-page'
 

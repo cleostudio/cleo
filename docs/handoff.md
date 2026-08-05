@@ -65,7 +65,7 @@ reuse.
 | Auth | `lib/auth.ts`, `lib/db/*`, `/api/auth/[...all]`, `/sign-in` |
 | Place images | `public/images/atlas/`, `public/images/space/`, `public/images/civilizations/`, `public/images/cities/`, `public/images/oceans/`, `public/images/rivers/` (static `srcset`) |
 | Country prose | `scripts/atlas/atlas-about.json` via `pnpm write:atlas-about` |
-| Env | `OPENAI_API_KEY`; Neon `DATABASE_URL` + `BETTER_AUTH_SECRET` for account; Sentry `NEXT_PUBLIC_SENTRY_DSN` / `SENTRY_DSN` (+ optional `SENTRY_AUTH_TOKEN`); optional `PUBLIC_SITE_URL` / `SITE_URL` (`.env.example`) |
+| Env | `OPENAI_API_KEY`; Neon `DATABASE_URL` + `BETTER_AUTH_SECRET` for account; Sentry `NEXT_PUBLIC_SENTRY_DSN` / `SENTRY_DSN` (+ `SENTRY_AUTH_TOKEN` / `SENTRY_URL` for source maps); optional `PUBLIC_SITE_URL` / `SITE_URL` (`.env.example`) |
 | Sentry | `@sentry/nextjs` — `instrumentation*.ts`, `sentry.*.config.ts`, tunnel `/monitoring` |
 | Social seeds | `content/social.json`, `content/github.json` (components retained; not in chrome) |
 

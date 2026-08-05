@@ -48,19 +48,15 @@ Preview for deployed capture and source maps.
 
 ## Local verify
 
-```bash
-# with DSN in .env.local
-pnpm dev
-curl -s "http://localhost:3000/api/sentry-test?marker=Sentry%20test%20error%20local"
-```
-
-Then confirm the issue in Sentry Issues for `sentry-cleo`. Remove
-`app/api/sentry-test/route.ts` after verification if you do not want a
-dev-only endpoint in the tree.
+With DSN in `.env.local`, run `pnpm dev` and trigger a real error path (for
+example a temporary `throw` in a route handler). Confirm the issue appears
+under `sentry-cleo`, then remove the temporary throw.
 
 ## Privacy
 
 - Session Replay masks all text and blocks media by default.
 - OpenAI prompt/completion bodies are not sent (`recordInputs` /
   `recordOutputs: false`).
+- Server `includeLocalVariables` stays off so chat/request locals are not
+  attached to events.
 - Never put `SENTRY_AUTH_TOKEN` in `NEXT_PUBLIC_*`.
