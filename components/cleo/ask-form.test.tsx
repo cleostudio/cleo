@@ -24,6 +24,12 @@ vi.mock('./zoomable-message-image', () => ({
   ZoomableMessageImage: () => null,
 }))
 
+vi.mock('~/lib/auth-client', () => ({
+  authClient: {
+    useSession: () => ({ data: null, isPending: false }),
+  },
+}))
+
 import { writeCachedUserLocation } from '~/lib/cleo/location-cache'
 import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
 
@@ -427,6 +433,19 @@ describe('AskForm arrivals', () => {
     expect(sentMessages(fetchMock)).toEqual([
       { content: 'Compare Mars and Earth', role: 'user' },
     ])
+  })
+
+  it('shows turn feedback after a completed assistant reply', async () => {
+    stubStream('Japan sits on four plates.')
+    window.history.replaceState(null, '', '/cleo?q=Orient%20me%20to%20Japan')
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Japan sits on four plates.')).toBeTruthy()
+      expect(screen.getByRole('button', { name: 'Good response' })).toBeTruthy()
+      expect(screen.getByRole('button', { name: 'Bad response' })).toBeTruthy()
+    })
   })
 
   it('survives a Strict Mode remount without aborting the turn', async () => {

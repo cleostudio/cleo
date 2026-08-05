@@ -61,6 +61,8 @@ import {
   conversationTopicText,
   matchTopicPhotosInText,
 } from "~/lib/cleo/topic-photos"
+import { buildUserMemoryInstructions } from "~/lib/cleo/memory"
+import { loadUserMemoryNotesForInjection } from "~/lib/cleo/memory-store"
 import { buildUserProfileInstructions } from "~/lib/cleo/user-profile"
 import {
   type ActivityItem,
@@ -570,15 +572,18 @@ export async function POST(request: Request) {
   const webSearchUserLocation = location
     ? buildWebSearchUserLocation(location)
     : undefined
-  // Account name comes from the Better Auth session cookie — never trust a
-  // client-supplied name field on the request body. Fail open if session
-  // lookup errors so a Neon blip cannot take Cleo down.
+  // Account name + opt-in memory come from the Better Auth session cookie —
+  // never trust a client-supplied name/memory field on the request body.
+  // Fail open if session or Neon lookup errors so a blip cannot take Cleo down.
   let profileInstructions: string | undefined
+  let memoryInstructions: string | undefined
   let safetySeed = `guest:${clientKeyFromHeaders(request.headers)}`
   try {
     const session = await getSession(request.headers)
     if (session?.user?.id) {
       safetySeed = `user:${session.user.id}`
+      const notes = await loadUserMemoryNotesForInjection(session.user.id)
+      memoryInstructions = buildUserMemoryInstructions(notes)
     }
     if (session?.user?.name) {
       profileInstructions = buildUserProfileInstructions(session.user.name)
@@ -587,11 +592,12 @@ export async function POST(request: Request) {
     console.error("Failed to load auth session for Cleo personalization.", error)
   }
   // Keep the GPT-5.6 cache breakpoint on the stable voice/catalog only.
-  // Per-turn topic photos, account name, and location sit after it so they
-  // cannot invalidate the shared prefix or inflate cache-write charges.
+  // Per-turn topic photos, account name, memory, and location sit after it so
+  // they cannot invalidate the shared prefix or inflate cache-write charges.
   const ephemeralInstructions = [
     topicPhotoInstructions,
     profileInstructions,
+    memoryInstructions,
     locationInstructions,
   ]
     .filter(Boolean)

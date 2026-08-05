@@ -884,6 +884,9 @@ index/service pages — not a centered card or marketing auth shell:
   primary action). Form-level errors use `role="alert"` in destructive ink.
 - Signed-in `/account` shows name and email in a `.spec-nameplate` (real
   selectable data). Sign out is a tertiary pill — quiet, not destructive-filled.
+- Cleo memory notes sit below the nameplate in the same narrow column: plain
+  list + shared `Input` / `Button`, no cards. Clear-all and per-note Delete are
+  tertiary. Unavailable storage shows a quiet status line (no alert chrome).
 - No cards, hero panels, or social-provider chrome. Portal content stays public.
 
 ## Photo index / Gallery

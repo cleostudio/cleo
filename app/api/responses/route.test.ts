@@ -17,6 +17,10 @@ const auth = vi.hoisted(() => ({
   getSession: vi.fn(),
 }))
 
+const memoryStore = vi.hoisted(() => ({
+  loadUserMemoryNotesForInjection: vi.fn(),
+}))
+
 vi.mock("openai", () => {
   class OpenAI {
     responses = { create: openai.create }
@@ -27,6 +31,10 @@ vi.mock("openai", () => {
 
 vi.mock("~/lib/auth", () => ({
   getSession: auth.getSession,
+}))
+
+vi.mock("~/lib/cleo/memory-store", () => ({
+  loadUserMemoryNotesForInjection: memoryStore.loadUserMemoryNotesForInjection,
 }))
 
 import { resetCleoRateLimitForTests } from "~/lib/cleo/rate-limit"
@@ -99,6 +107,8 @@ beforeEach(() => {
   openai.create.mockReset()
   auth.getSession.mockReset()
   auth.getSession.mockResolvedValue(null)
+  memoryStore.loadUserMemoryNotesForInjection.mockReset()
+  memoryStore.loadUserMemoryNotesForInjection.mockResolvedValue([])
   resetCleoRateLimitForTests()
   vi.stubEnv("OPENAI_API_KEY", "test-key")
   vi.spyOn(console, "error").mockImplementation(() => undefined)
@@ -409,6 +419,47 @@ describe("POST /api/responses: signed-in user profile", () => {
     const request = openai.create.mock.calls[0]?.[0]
 
     expect(developerCorpus(request)).not.toContain("<cleo_user_profile>")
+  })
+
+  it("injects opt-in memory notes for signed-in users only", async () => {
+    auth.getSession.mockResolvedValueOnce({
+      user: { id: "user_ada", name: "Ada Lovelace", email: "ada@example.com" },
+    })
+    memoryStore.loadUserMemoryNotesForInjection.mockResolvedValueOnce([
+      {
+        id: "n1",
+        note: "Prefer metric units",
+        createdAt: new Date("2026-01-01T00:00:00Z"),
+      },
+    ])
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "Hi Ada.", type: "response.output_text.delta" }])
+    )
+
+    await POST(ask(question))
+
+    const request = openai.create.mock.calls[0]?.[0]
+    const privateContext = developerCorpus(request)
+
+    expect(memoryStore.loadUserMemoryNotesForInjection).toHaveBeenCalledWith(
+      "user_ada"
+    )
+    expect(privateContext).toContain("<cleo_user_memory>")
+    expect(privateContext).toContain("Prefer metric units")
+    expect(privateContext).toContain("Do not invent memories")
+  })
+
+  it("omits memory for guests and does not load notes", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "Hello.", type: "response.output_text.delta" }])
+    )
+
+    await POST(ask(question))
+
+    expect(memoryStore.loadUserMemoryNotesForInjection).not.toHaveBeenCalled()
+    expect(developerCorpus(openai.create.mock.calls[0]?.[0])).not.toContain(
+      "<cleo_user_memory>"
+    )
   })
 
   it("can combine signed-in name with opt-in location instructions", async () => {

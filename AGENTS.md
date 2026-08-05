@@ -64,9 +64,14 @@ cp .env.example .env.local   # OPENAI_API_KEY for /cleo; Neon + Better Auth for 
 pnpm dev                     # only service; default Next port
 pnpm typecheck
 pnpm test:unit               # and/or pnpm test:security when relevant
+pnpm test:cleo-eval          # offline Cleo graders + golden cases + optimize unit tests
 pnpm build                   # when changing routes/config (needs SENTRY_AUTH_TOKEN for source maps)
-# Auth schema (when DATABASE_URL is set):
+# Auth + Cleo feedback/memory schema (when DATABASE_URL is set):
 pnpm db:push
+# Optional: export feedback → eval case candidates for triage
+pnpm export:cleo-feedback
+# Optional: instruction optimize dry-run (add -- --live with OPENAI_API_KEY)
+pnpm optimize:cleo
 ```
 
 Before changing Next.js framework usage, read the matching guide under
@@ -88,6 +93,7 @@ change; update the matching `docs/*` runbook when subsystem behavior changes.
 | Oceans media | `pnpm validate:oceans` |
 | Rivers media | `pnpm validate:rivers` |
 | Unit / security | `pnpm test:unit` / `pnpm test:security` |
+| Cleo offline evals | `pnpm test:cleo-eval` |
 | Homepage search | `lib/site-search.test.ts`, `components/home-site-search.test.tsx`, `lib/cleo/ask-link.test.ts` |
 | Cleo topic-photo zoom index | after atlas/space/oceans/rivers caption or rendition changes: `pnpm generate:cleo-topic-photo-zoom` |
 | UI | Changed flows on desktop/mobile and light/dark |

@@ -13,6 +13,10 @@ prompt-evolution design, see [`cleo-self-improving.md`](./cleo-self-improving.md
 | API route | `app/api/responses/route.ts` |
 | Voice + portal catalog | `lib/cleo/instructions.ts`, `lib/cleo/portal-catalog.ts` |
 | Guardrails (strip invented Explore/Space/Civilizations/Cities/Oceans/Rivers paths) | `lib/cleo/guardrails.ts` |
+| Offline eval cases + deterministic graders | `content/cleo-evals/`, `lib/cleo/evals/`, `lib/cleo/graders/` (`pnpm test:cleo-eval`) |
+| Turn feedback (thumbs + note) | `components/cleo/message-feedback.tsx`, `POST /api/cleo/feedback`, `lib/db/cleo-schema.ts` |
+| Opt-in account memory | `lib/cleo/memory.ts`, `GET/POST/DELETE /api/cleo/memory`, `/account` + `RememberNote` |
+| Offline instruction optimize | `lib/cleo/optimize/*`, `pnpm optimize:cleo` (dry-run) / `--live` |
 | Public turn rate limit | `lib/cleo/rate-limit.ts` |
 | NDJSON protocol | `lib/cleo/stream.ts` |
 | Images (server / client) | `lib/cleo/images.ts`, `lib/cleo/client-images.ts` |
@@ -22,6 +26,7 @@ prompt-evolution design, see [`cleo-self-improving.md`](./cleo-self-improving.md
 | Ask link builder | `lib/cleo/ask-link.ts` |
 | Location (client / preference / cache / server validate) | `lib/cleo/client-location.ts`, `lib/cleo/location-preference.ts`, `lib/cleo/location-preference-account.ts`, `lib/cleo/location-cache.ts`, `lib/cleo/location.ts` |
 | Signed-in name for personalization | `lib/cleo/user-profile.ts` (via `getSession` in the API route) |
+| Signed-in memory for personalization | `lib/cleo/memory.ts` + `memory-store.ts` (via session in the API route) |
 | Styles | `app/cleo.css` (keep prompt dock above site dock via `--cleo-prompt-bottom`) |
 | Route layout flag | `components/cleo-route-attribute.tsx` (`html[data-cleo-route]`, cleared in `useLayoutEffect` before destination paint) |
 
@@ -138,6 +143,22 @@ pattern as opt-in location:
 - Instructions tell Cleo to use the name for natural personalization (greetings,
   direct address) without forcing it every turn or inventing other personal
   details. Email is never included.
+
+## Account memory
+
+Signed-in users may save short preference notes (opt-in). Notes are Neon rows
+owned by `user.id`, visible and deletable on `/account`, and injectable as a
+bounded `<cleo_user_memory>` developer block on each chat turn:
+
+- CRUD: `GET/POST/DELETE /api/cleo/memory` (session required; rate-limited).
+- Caps: 20 notes × 280 characters; injection block soft-capped (~1800 chars,
+  newest retained).
+- Injection fails open (empty) if Neon is unset or the load errors — chat
+  continues without memory.
+- Guests never receive a memory block and cannot write notes. Chat **Remember**
+  is hidden when signed out.
+- Notes must not invent facts beyond the stored list; they never rewrite shared
+  `CLEO_INSTRUCTIONS` (that stays on the offline optimize + PR path).
 
 ## Location
 

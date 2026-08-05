@@ -33,10 +33,11 @@ General-knowledge portal:
   Cities, Oceans, Rivers)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)
 - **Cleo** — browser-only agent at `/cleo`, OpenAI only. Self-improving
-  design (offline evals / feedback / opt-in memory) is proposed in
-  [`cleo-self-improving.md`](./cleo-self-improving.md); not implemented yet.
+  loops in [`cleo-self-improving.md`](./cleo-self-improving.md): Phases
+  **A–D** shipped (evals, feedback, `pnpm optimize:cleo`, opt-in account
+  memory on Neon).
 - **Account** — Better Auth email/password on Neon (`/sign-in`, `/sign-up`,
-  `/account`); portal content stays public
+  `/account` with Cleo memory notes); portal content stays public
 
 **Not in product:** Clerk, Bunny media, AMA booking, Stripe, Resend, Google,
 Tencent, Upstash. Neon + Better Auth are in product (see [`auth.md`](./auth.md)).

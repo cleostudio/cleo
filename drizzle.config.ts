@@ -16,7 +16,7 @@ if (!url) {
 }
 
 export default defineConfig({
-  schema: './lib/db/auth-schema.ts',
+  schema: ['./lib/db/auth-schema.ts', './lib/db/cleo-schema.ts'],
   out: './drizzle',
   dialect: 'postgresql',
   dbCredentials: { url },
