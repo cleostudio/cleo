@@ -7,6 +7,7 @@ import type {
   ResponseInputMessageContentList,
   ResponseOutputItem,
   ResponseReasoningItem,
+  WebSearchTool,
 } from "openai/resources/responses/responses"
 
 /** Create params plus API fields the installed SDK typings still omit. */
@@ -15,10 +16,11 @@ type CleoResponseCreateParams = ResponseCreateParamsStreaming & {
 }
 
 import { getSession } from "~/lib/auth"
-import { promptCacheKeyForConversation } from "~/lib/cleo/conversation-helpers"
+import { CLEO_PROMPT_CACHE_KEY } from "~/lib/cleo/conversation-helpers"
 import { CLEO_INSTRUCTIONS } from "~/lib/cleo/instructions"
 import {
   buildUserLocationInstructions,
+  buildWebSearchUserLocation,
   parseUserLocation,
 } from "~/lib/cleo/location"
 import {
@@ -37,12 +39,22 @@ import {
   checkCleoRateLimit,
   clientKeyFromHeaders,
 } from "~/lib/cleo/rate-limit"
-import { selectReasoningEffort } from "~/lib/cleo/reasoning-effort"
+import {
+  selectReasoningEffort,
+  selectSearchContextSize,
+} from "~/lib/cleo/reasoning-effort"
 import {
   MAX_TOTAL_ENCRYPTED_REASONING_CHARS,
   sanitizeReasoningItems,
   type EncryptedReasoningItem,
 } from "~/lib/cleo/reasoning-items"
+import {
+  applyUrlCitations,
+  parseUrlCitation,
+  type UrlCitation,
+} from "~/lib/cleo/citations"
+import { logPromptCacheTelemetry } from "~/lib/cleo/prompt-cache-telemetry"
+import { cleoSafetyIdentifier } from "~/lib/cleo/safety-identifier"
 import {
   buildTopicPhotoInstructions,
   conversationTopicText,
@@ -91,6 +103,20 @@ type ConversationMessage = {
 }
 
 type AgentInput = Array<EasyInputMessage | ResponseReasoningItem>
+
+/** Stable voice/catalog prefix with an explicit GPT-5.6 cache breakpoint. */
+function cachedInstructionsInput(): EasyInputMessage {
+  return {
+    role: "developer",
+    content: [
+      {
+        type: "input_text",
+        text: CLEO_INSTRUCTIONS,
+        prompt_cache_breakpoint: { mode: "explicit" },
+      },
+    ],
+  }
+}
 
 function errorResponse(error: string, status: number) {
   return Response.json({ error }, { status })
@@ -530,37 +556,60 @@ export async function POST(request: Request) {
   }
 
   const client = getOpenAIClient(apiKey)
-  const input = toApiInput(parsed)
   const topicPhotos = matchTopicPhotosInText(conversationTopicText(parsed))
   const topicPhotoInstructions = buildTopicPhotoInstructions(topicPhotos)
   const locationInstructions = location
     ? buildUserLocationInstructions(location)
     : undefined
+  const webSearchUserLocation = location
+    ? buildWebSearchUserLocation(location)
+    : undefined
   // Account name comes from the Better Auth session cookie — never trust a
   // client-supplied name field on the request body. Fail open if session
   // lookup errors so a Neon blip cannot take Cleo down.
   let profileInstructions: string | undefined
+  let safetySeed = `guest:${clientKeyFromHeaders(request.headers)}`
   try {
     const session = await getSession(request.headers)
+    if (session?.user?.id) {
+      safetySeed = `user:${session.user.id}`
+    }
     if (session?.user?.name) {
       profileInstructions = buildUserProfileInstructions(session.user.name)
     }
   } catch (error) {
     console.error("Failed to load auth session for Cleo personalization.", error)
   }
-  const instructions = [
-    CLEO_INSTRUCTIONS,
+  // Keep the GPT-5.6 cache breakpoint on the stable voice/catalog only.
+  // Per-turn topic photos, account name, and location sit after it so they
+  // cannot invalidate the shared prefix or inflate cache-write charges.
+  const ephemeralInstructions = [
     topicPhotoInstructions,
     profileInstructions,
     locationInstructions,
   ]
     .filter(Boolean)
     .join("\n\n")
+  const input: AgentInput = [cachedInstructionsInput()]
+  if (ephemeralInstructions) {
+    input.push({
+      role: "developer",
+      content: ephemeralInstructions,
+    })
+  }
+  input.push(...toApiInput(parsed))
   const latestUserText =
     [...parsed].reverse().find((message) => message.role === "user")?.content ??
     ""
   const reasoningEffort = selectReasoningEffort(latestUserText)
-  const promptCacheKey = promptCacheKeyForConversation(parsed)
+  const searchContextSize = selectSearchContextSize(reasoningEffort)
+  const webSearchTool: WebSearchTool = {
+    type: "web_search",
+    search_context_size: searchContextSize,
+    ...(webSearchUserLocation
+      ? { user_location: webSearchUserLocation }
+      : {}),
+  }
 
   try {
     const createParams: CleoResponseCreateParams = {
@@ -568,7 +617,6 @@ export async function POST(request: Request) {
       // Output items (encrypted reasoning) are round-tripped; the SDK input
       // type is slightly narrower than runtime-accepted output.
       input: input as ResponseInput,
-      instructions,
       // Keep headroom for reasoning + tools + visible answer.
       max_output_tokens: 16_384,
       max_tool_calls: MAX_TOOL_CALLS,
@@ -582,7 +630,7 @@ export async function POST(request: Request) {
       stream: true,
       text: { verbosity: "medium" },
       tools: [
-        { type: "web_search" },
+        webSearchTool,
         {
           type: "image_generation",
           partial_images: GENERATED_IMAGE_PARTIAL_IMAGES,
@@ -592,7 +640,9 @@ export async function POST(request: Request) {
           output_compression: GENERATED_IMAGE_OUTPUT_COMPRESSION,
         },
       ],
-      prompt_cache_key: promptCacheKey,
+      prompt_cache_key: CLEO_PROMPT_CACHE_KEY,
+      prompt_cache_options: { mode: "explicit" },
+      safety_identifier: cleoSafetyIdentifier(safetySeed),
       store: false,
       include: [
         "reasoning.encrypted_content",
@@ -607,8 +657,38 @@ export async function POST(request: Request) {
     const activities = new Map<string, ActivityItem>()
     const reasoningParts = new Map<string, Map<number, string>>()
     const collectedReasoningItems: EncryptedReasoningItem[] = []
+    const urlCitations: UrlCitation[] = []
+    let emittedTextContent = ""
     let emittedText = false
     let emittedImage = false
+
+    const rememberUrlCitation = (value: unknown) => {
+      const citation = parseUrlCitation(value)
+      if (!citation) {
+        return
+      }
+      const duplicate = urlCitations.some(
+        (item) =>
+          item.start_index === citation.start_index &&
+          item.end_index === citation.end_index &&
+          item.url === citation.url
+      )
+      if (!duplicate) {
+        urlCitations.push(citation)
+      }
+    }
+
+    const emitAnnotatedTextIfNeeded = (
+      controller: ReadableStreamDefaultController<Uint8Array>
+    ) => {
+      if (!emittedTextContent || urlCitations.length === 0) {
+        return
+      }
+      const annotated = applyUrlCitations(emittedTextContent, urlCitations)
+      if (annotated !== emittedTextContent) {
+        enqueue(controller, { type: "text_replace", content: annotated })
+      }
+    }
 
     const enqueue = (
       controller: ReadableStreamDefaultController<Uint8Array>,
@@ -669,9 +749,31 @@ export async function POST(request: Request) {
             null
 
           for await (const event of responseStream) {
+            if (
+              event.type === "response.completed" ||
+              event.type === "response.incomplete"
+            ) {
+              logPromptCacheTelemetry(event.response.usage)
+            }
+
             if (event.type === "response.output_text.delta") {
               emittedText = true
+              emittedTextContent += event.delta
               enqueue(controller, { type: "text", delta: event.delta })
+              continue
+            }
+
+            if (event.type === "response.output_text.done") {
+              // Prefer the finalized text as the citation index base.
+              if (typeof event.text === "string") {
+                emittedTextContent = event.text
+                emittedText = emittedText || event.text.length > 0
+              }
+              continue
+            }
+
+            if (event.type === "response.output_text.annotation.added") {
+              rememberUrlCitation(event.annotation)
               continue
             }
 
@@ -783,7 +885,18 @@ export async function POST(request: Request) {
             }
 
             if (event.type === "response.output_item.done") {
-              if (event.item.type === "web_search_call") {
+              if (event.item.type === "message") {
+                for (const part of event.item.content ?? []) {
+                  if (part.type !== "output_text") continue
+                  if (typeof part.text === "string" && part.text) {
+                    emittedTextContent = part.text
+                    emittedText = true
+                  }
+                  for (const annotation of part.annotations ?? []) {
+                    rememberUrlCitation(annotation)
+                  }
+                }
+              } else if (event.item.type === "web_search_call") {
                 emitActivity(controller, activityFromWebSearch(event.item))
               } else if (event.item.type === "reasoning") {
                 const summary =
@@ -867,6 +980,7 @@ export async function POST(request: Request) {
             }
           }
 
+          emitAnnotatedTextIfNeeded(controller)
           emitCollectedReasoningItems(controller)
 
           if (incompleteNotice) {
@@ -891,6 +1005,7 @@ export async function POST(request: Request) {
             console.error("OpenAI Responses API stream failed.", streamError)
 
             try {
+              emitAnnotatedTextIfNeeded(controller)
               emitCollectedReasoningItems(controller)
               enqueue(controller, {
                 type: "error",

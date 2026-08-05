@@ -71,19 +71,11 @@ export function makeIncomplete(
   }
 }
 
-/** Stable prompt-cache key for a conversation's first user text. */
-export function promptCacheKeyForConversation(
-  messages: readonly { content: string; role: string }[]
-) {
-  const firstUser = messages.find(
-    (message) => message.role === "user" && message.content.trim()
-  )
-  const seed = firstUser?.content.trim() ?? "cleo"
-  // FNV-1a 32-bit — short, deterministic, good enough for cache bucketing.
-  let hash = 0x811c9dc5
-  for (let i = 0; i < seed.length; i += 1) {
-    hash ^= seed.charCodeAt(i)
-    hash = Math.imul(hash, 0x01000193)
-  }
-  return `cleo:${(hash >>> 0).toString(16)}`
-}
+/**
+ * Stable prompt-cache key for Cleo's shared voice + portal catalog prefix.
+ * Bump the trailing version when `CLEO_INSTRUCTIONS` changes enough to warrant
+ * a fresh cache partition. Do not key this on per-turn user text — GPT-5.6
+ * matches exact prefixes at breakpoints, and a conversation-specific key
+ * fragments the shared instruction cache.
+ */
+export const CLEO_PROMPT_CACHE_KEY = "cleo:gpt-5.6-terra:voice-v1"

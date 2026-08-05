@@ -5,6 +5,15 @@ export type UserLocation = {
   timeZone: string
 }
 
+/** Approximate location shape accepted by the Responses `web_search` tool. */
+export type WebSearchUserLocation = {
+  type: "approximate"
+  timezone: string
+  city?: string
+  country?: string
+  region?: string
+}
+
 const MAX_LOCATION_ACCURACY_METERS = 20_000_000
 const MAX_TIME_ZONE_LENGTH = 100
 
@@ -77,4 +86,18 @@ The user explicitly chose to share this private, approximate device location for
 
 Use it only when it materially improves a location-aware answer, such as local time, weather, nearby choices, or regional context. Treat it as sensitive: never volunteer it, quote its exact coordinates, infer an address, or imply that you know it unless the user asks or it is necessary to answer. Respect the reported accuracy and say when a location-specific conclusion remains uncertain.
 </cleo_user_location>`
+}
+
+/**
+ * Pass the user's IANA time zone into hosted `web_search` so local queries
+ * bias toward relevant results. Coords stay in private developer instructions
+ * only — the search tool accepts approximate place fields, not lat/lng.
+ */
+export function buildWebSearchUserLocation(
+  location: UserLocation
+): WebSearchUserLocation {
+  return {
+    type: "approximate",
+    timezone: location.timeZone,
+  }
 }

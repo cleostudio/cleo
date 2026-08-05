@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest"
 
 import {
+  CLEO_PROMPT_CACHE_KEY,
   CONTINUE_PROMPT,
   makeIncomplete,
   messageHasVisibleContent,
-  promptCacheKeyForConversation,
   toConversationPayload,
 } from "./conversation-helpers"
 
@@ -55,21 +55,7 @@ describe("conversation helpers", () => {
     ])
   })
 
-  it("stable prompt cache keys per first user message", () => {
-    const a = promptCacheKeyForConversation([
-      { role: "user", content: "Tell me about Japan" },
-    ])
-    const b = promptCacheKeyForConversation([
-      { role: "user", content: "Tell me about Japan" },
-      { role: "assistant", content: "…" },
-      { role: "user", content: "more" },
-    ])
-    const c = promptCacheKeyForConversation([
-      { role: "user", content: "Tell me about Mars" },
-    ])
-
-    expect(a).toBe(b)
-    expect(a).not.toBe(c)
-    expect(a.startsWith("cleo:")).toBe(true)
+  it("uses one stable prompt-cache key for the shared voice prefix", () => {
+    expect(CLEO_PROMPT_CACHE_KEY).toBe("cleo:gpt-5.6-terra:voice-v1")
   })
 })
