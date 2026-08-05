@@ -1447,6 +1447,266 @@ const riverSubjectDrafts: RiverSubjectDraft[] = [
       },
     ],
   },
+  {
+    slug: 'loire',
+    code: 'LOI',
+    name: 'Loire',
+    category: 'Europe, Americas & Oceania',
+    subtitle: 'Château valley · Atlantic outlet',
+    about:
+      'The Loire is France’s longest river, rising in the Massif Central and flowing north, then west, to an Atlantic estuary near Nantes. Its middle valley is a broad cultural landscape of floodplain towns, vineyards, and Renaissance châteaux, including reaches around Amboise, Chambord, and Saumur. Seasonal floods, sandbanks, and embankments have long shaped settlement and navigation along the main stem.\nUnlike many heavily canalized European rivers, stretches of the Loire retain a relatively mobile sandy channel. The valley’s historic towns and palace estates record how royal courts, agriculture, and river traffic organized central France around this west-flowing corridor.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Massif Central sources → Orléans bend → château valley → Nantes estuary → Atlantic',
+      region: 'Central & western France · Loire Basin',
+      basin: 'France’s largest river basin; Allier and other Massif Central tributaries',
+      hydrology: 'Variable pluvial regime with notable floods; sandy, partly mobile middle channel',
+      climateRole: 'Temperate Atlantic-facing freshwater corridor; floodplain agriculture and château landscape hinge',
+      exploreLinks: ['France'],
+    },
+    features: [
+      {
+        name: 'Loire at Amboise',
+        description:
+          'A working château-town reach of the middle Loire — river, bridge, and ridge settlement in one valley scene.',
+      },
+      {
+        name: 'Chambord on the Loire',
+        description:
+          'The vast Renaissance château in the Loire landscape — royal hunting architecture set against the river’s floodplain domain.',
+      },
+      {
+        name: 'Loire at Saumur',
+        description:
+          'Castle and town above a broad Loire bend — a classic west-valley prospect where the river still dominates the view.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Loire River',
+        url: 'https://www.britannica.com/place/Loire-River',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — The Loire Valley between Sully-sur-Loire and Chalonnes',
+        url: 'https://whc.unesco.org/en/list/933',
+        kind: 'catalog',
+      },
+      {
+        label: 'Encyclopaedia Britannica — France',
+        url: 'https://www.britannica.com/place/France',
+        kind: 'reference',
+      },
+    ],
+  },
+  {
+    slug: 'thames',
+    code: 'THA',
+    name: 'Thames',
+    category: 'Europe, Americas & Oceania',
+    subtitle: 'Tidal estuary · London corridor',
+    about:
+      'The Thames is the principal river of southern England, rising in the Cotswolds and flowing east through Oxford and London to a North Sea estuary. Upstream reaches are a managed freshwater river of locks and towpaths; below Teddington the tide reshapes a working urban waterway of embankments, bridges, and former docklands. London’s political and commercial core grew where the river could be bridged and where sea trade met an inland corridor.\nFlood risk on the lower estuary led to major engineered defenses, including the Thames Barrier. The river remains the structural spine of the capital, staging landmarks from Westminster to Tower Bridge while carrying residual commercial and service traffic toward the sea.',
+    facts: {
+      kind: 'Tidal river',
+      course: 'Cotswold sources → upper freshwater locks → London tidal reach → North Sea estuary',
+      region: 'Southern England · Thames Basin',
+      basin: 'Compact but densely settled basin of southern England; many chalk and clay tributaries',
+      hydrology: 'Tidal below Teddington; managed upstream locks; major flood barrier on the lower estuary',
+      climateRole: 'Temperate urban freshwater and tidal corridor; flood-risk hinge for London',
+      exploreLinks: ['United Kingdom'],
+    },
+    features: [
+      {
+        name: 'Thames at Tower Bridge',
+        description:
+          'The bascule bridge and Pool of London reach — Victorian engineering staging the river as a working capital waterfront.',
+      },
+      {
+        name: 'Thames at Westminster',
+        description:
+          'The parliamentary embankment on the north bank — where national government faces the tidal Thames.',
+      },
+      {
+        name: 'Thames Barrier',
+        description:
+          'The movable flood gates on the lower estuary — modern defense where North Sea surge meets the London corridor.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — River Thames',
+        url: 'https://www.britannica.com/place/River-Thames',
+        kind: 'reference',
+      },
+      {
+        label: 'UK Environment Agency',
+        url: 'https://www.gov.uk/government/organisations/environment-agency',
+        kind: 'agency',
+      },
+      {
+        label: 'UNESCO — Palace of Westminster and Westminster Abbey',
+        url: 'https://whc.unesco.org/en/list/426',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'colorado',
+    code: 'COL',
+    name: 'Colorado River',
+    category: 'Europe, Americas & Oceania',
+    subtitle: 'Canyon river · arid Southwest',
+    about:
+      'The Colorado River rises in the Rocky Mountains of the United States and flows southwest through the arid Colorado Plateau before turning south toward the Gulf of California in Mexico. Along its course it has cut deep canyons, most famously the Grand Canyon, and formed entrenched meanders such as Horseshoe Bend. Modern reservoirs and diversions store and allocate nearly all of its flow for cities, farms, and hydropower across the Southwest.\nBy the time the river approaches its historic delta in Mexico, upstream consumption and drought can reduce it to a trickle or dry channel. The contrast between carved bedrock canyons upstream and a sediment-starved delta downstream makes the Colorado a central case of arid-basin water management in North America.',
+    facts: {
+      kind: 'Arid-basin river',
+      course: 'Rocky Mountain sources → Colorado Plateau canyons → lower desert corridor → Gulf of California delta',
+      region: 'Southwestern United States & northwestern Mexico · Colorado Basin',
+      basin: 'Large arid drainage shared by seven U.S. states and Mexico; Green and other plateau tributaries',
+      hydrology: 'Snowmelt-dominated native regime now heavily stored and diverted by dams and canals',
+      climateRole: 'Desert-city and irrigation lifeline; canyon erosion engine; dwindling delta freshwater pulse',
+      exploreLinks: ['United States', 'Mexico'],
+    },
+    features: [
+      {
+        name: 'Grand Canyon',
+        description:
+          'The vast stratified gorge of the Colorado Plateau — the river’s most famous excavation through deep geologic time.',
+      },
+      {
+        name: 'Horseshoe Bend',
+        description:
+          'An entrenched meander near Page, Arizona — a near-circle of green river cut into red cliff country.',
+      },
+      {
+        name: 'Colorado River Delta',
+        description:
+          'The Gulf of California outlet from orbit — a once-vast wetland now shaped by upstream diversion and drought.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Colorado River',
+        url: 'https://www.britannica.com/place/Colorado-River-United-States-Mexico',
+        kind: 'reference',
+      },
+      {
+        label: 'National Park Service — Grand Canyon',
+        url: 'https://www.nps.gov/grca/index.htm',
+        kind: 'agency',
+      },
+      {
+        label: 'USGS — Colorado River Basin',
+        url: 'https://www.usgs.gov/centers/arizona-water-science-center/science/colorado-river-basin',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'yukon',
+    code: 'YUK',
+    name: 'Yukon River',
+    category: 'Europe, Americas & Oceania',
+    subtitle: 'Subarctic artery · Bering outlet',
+    about:
+      'The Yukon River is a major subarctic river of northwestern North America, flowing from headwaters in British Columbia and Yukon through interior Alaska to a broad delta on the Bering Sea. Towns such as Whitehorse and Dawson grew along its Canadian reaches as administrative and gold-rush hubs, while lower Alaskan villages still depend on the river for travel and subsistence. Winter ice and a short open-water season define much of its human geography.\nThe Yukon carries a large sediment load from glaciated and permafrost landscapes into one of the continent’s great northern deltas. Compared with midlatitude engineered rivers, long stretches remain lightly canalized, with flood pulses, freeze-up, and breakup still structuring life along the valley.',
+    facts: {
+      kind: 'Subarctic river',
+      course: 'Northern Cordillera sources → Yukon Plateau → interior Alaska → Bering Sea delta',
+      region: 'Northwestern Canada & Alaska · Yukon Basin',
+      basin: 'One of North America’s largest northern drainages; many Cordilleran and interior tributaries',
+      hydrology: 'Snowmelt and ice-jam floods; long winter ice cover; lightly engineered main stem',
+      climateRole: 'Subarctic sediment and freshwater conveyor into the Bering Sea; permafrost-basin indicator',
+      exploreLinks: ['Canada', 'United States'],
+    },
+    features: [
+      {
+        name: 'Yukon at Dawson',
+        description:
+          'The river below the Klondike gold-rush town — a subarctic valley reach where mining history meets the main stem.',
+      },
+      {
+        name: 'Yukon at Whitehorse',
+        description:
+          'The territorial capital waterfront on the upper river — administration and transport staged beside a northern artery.',
+      },
+      {
+        name: 'Yukon Delta',
+        description:
+          'The Bering Sea outlet’s braided wetland mosaic from above — where the northern river finally meets the sea.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Yukon River',
+        url: 'https://www.britannica.com/place/Yukon-River',
+        kind: 'reference',
+      },
+      {
+        label: 'USGS — Yukon River',
+        url: 'https://www.usgs.gov/mission-areas/water-resources/science/yukon-river-basin',
+        kind: 'agency',
+      },
+      {
+        label: 'NASA Earth Observatory — Yukon River Delta',
+        url: 'https://earthobservatory.nasa.gov/images/1464/yukon-river-delta',
+        kind: 'agency',
+      },
+    ],
+  },
+  {
+    slug: 'orinoco',
+    code: 'ORI',
+    name: 'Orinoco',
+    category: 'Europe, Americas & Oceania',
+    subtitle: 'Llanos corridor · Atlantic delta',
+    about:
+      'The Orinoco is a major river of northern South America, rising in the Guiana Highlands and sweeping in a broad arc through Venezuela before reaching an Atlantic delta. For part of its middle course it forms a border with Colombia, collecting Andean and highland tributaries that feed the Llanos grasslands and forested fringes. Its mainstream is a wide tropical channel used for navigation and regional settlement.\nNear the coast, the Orinoco Delta spreads into a labyrinth of distributaries, mangroves, and wetlands. From orbit the river’s sediment plume and branching mouth are unmistakable, marking one of South America’s principal freshwater systems outside the Amazon basin.',
+    facts: {
+      kind: 'Continental river',
+      course: 'Guiana Highland sources → Venezuela–Colombia arc → Llanos corridor → Atlantic delta',
+      region: 'Northern South America · Orinoco Basin',
+      basin: 'Large tropical drainage of Venezuela and eastern Colombia; Meta and other Llanos tributaries',
+      hydrology: 'Strong wet-season flood pulse across the Llanos; broad navigable mainstream and delta distributaries',
+      climateRole: 'Tropical grassland and wetland freshwater engine; Atlantic sediment and plume delivery',
+      exploreLinks: ['Venezuela', 'Colombia'],
+    },
+    features: [
+      {
+        name: 'Orinoco mainstream',
+        description:
+          'The broad tropical channel through the Llanos — northern South America’s working Orinoco trunk.',
+      },
+      {
+        name: 'Orinoco Delta',
+        description:
+          'The Atlantic outlet’s mangrove and distributary maze — where the river frays into wetland channels.',
+      },
+      {
+        name: 'Orinoco from orbit',
+        description:
+          'The sediment-rich bend and tributary junctions from space — basin geometry made plain from above.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Orinoco River',
+        url: 'https://www.britannica.com/place/Orinoco-River',
+        kind: 'reference',
+      },
+      {
+        label: 'NASA Earth Observatory — Orinoco River',
+        url: 'https://earthobservatory.nasa.gov/images/3593/orinoco-river-delta-venezuela',
+        kind: 'agency',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Venezuela',
+        url: 'https://www.britannica.com/place/Venezuela',
+        kind: 'reference',
+      },
+    ],
+  },
 ]
 
 export const riverSubjects: RiverSubject[] = riverSubjectDrafts.map(withPhotos)

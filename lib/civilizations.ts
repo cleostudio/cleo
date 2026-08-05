@@ -68,7 +68,7 @@ function withPhotos(draft: CivilizationSubjectDraft): CivilizationSubject {
 
 /**
  * Curated catalog — Africa & Near East, Mediterranean, Asia, Americas, and
- * Oceania. Expand here as new Civilizations pages ship.
+ * Oceania (forty-two subjects). Expand here as new Civilizations pages ship.
  */
 const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
   {
@@ -739,6 +739,261 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
         label: 'UNESCO — Archaeological Site of Carthage',
         url: 'https://whc.unesco.org/en/list/37',
         kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'minoan-crete',
+    code: 'MIN',
+    name: 'Minoan Crete',
+    category: 'Mediterranean',
+    subtitle: 'Palace civilization · Crete',
+    about:
+      'Minoan Crete was a Bronze Age civilization centered on the island of Crete, where multi-storey palace complexes concentrated administration, storage, craft production, and ceremonial life. Knossos, Phaistos, Malia, and Zakros organized agricultural surplus, long-distance exchange, and ritual activity around central courts. Frescoes, fine pottery, and sealstones document a distinctive visual culture of processions, marine motifs, and athletic display. Crete’s position between the Aegean, Egypt, and the Near East supported maritime contacts that moved goods, materials, and artistic ideas across the eastern Mediterranean.\nMinoan writing includes Cretan hieroglyphs and Linear A, which remains undeciphered. After destructions and rebuilding in the mid-second millennium BCE, Mycenaean Greeks gained control of Knossos and introduced Linear B, an early form of Greek used for palace accounts. Palatial centers declined in the later Bronze Age, and political focus in the Aegean shifted toward the mainland. Surviving architecture, archives, and art remain the principal record of Europe’s earliest high civilization.',
+    facts: {
+      kind: 'Palace civilization',
+      heartland: 'Crete · eastern Mediterranean',
+      era: 'c. 3000 – 1100 BCE',
+      peak: 'Neopalatial period, c. 1700–1450 BCE',
+      writing: 'Cretan hieroglyphs; Linear A (undeciphered); later Linear B',
+      exploreLinks: ['Greece'],
+    },
+    features: [
+      {
+        name: 'Palace of Knossos',
+        description:
+          'The largest Minoan palace complex near Heraklion — courts, storerooms, and painted rooms long associated with the Labyrinth tradition.',
+      },
+      {
+        name: 'Phaistos Disc',
+        description:
+          'A fired clay disc impressed with unique spiral signs — an undeciphered Minoan text found at the palace of Phaistos.',
+      },
+      {
+        name: 'Bull-leaping fresco',
+        description:
+          'A Knossos wall painting of athletes vaulting a bull — the emblematic image of Minoan ceremonial athleticism.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Minoan civilization',
+        url: 'https://www.britannica.com/topic/Minoan-civilization',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Minoan Crete',
+        url: 'https://www.metmuseum.org/toah/hd/mino/hd_mino.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Minoan Palatial Centres',
+        url: 'https://whc.unesco.org/en/list/1733',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'mycenaean-greece',
+    code: 'MYC',
+    name: 'Mycenaean Greece',
+    category: 'Mediterranean',
+    subtitle: 'Palace kingdoms · mainland Greece',
+    about:
+      'Mycenaean Greece was the Late Bronze Age civilization of mainland Greece, organized around fortified palace centers such as Mycenae, Tiryns, Pylos, and Thebes. Rulers controlled agricultural estates, craft workshops, and military forces from citadels built with massive cyclopean masonry. Shaft graves and tholos tombs preserved gold masks, weapons, and luxury imports that document an elite society engaged in Aegean and eastern Mediterranean exchange. Mycenaean material culture later became entangled with Homeric memory of the Trojan War and early Greek kingship.\nPalace scribes used Linear B, an early Greek syllabic script, to record rations, personnel, land, and offerings. Mycenaean power extended into the Aegean and, for a time, to Knossos on Crete. In the later thirteenth and twelfth centuries BCE, many palaces were destroyed or abandoned amid wider Mediterranean disruptions. The collapse of the palace system ended this phase of Greek history, though language, place names, and later epic tradition preserved traces of the Mycenaean world.',
+    facts: {
+      kind: 'Palace kingdoms',
+      heartland: 'Peloponnese and mainland Greece · Aegean',
+      era: 'c. 1600 – 1100 BCE',
+      peak: 'Palatial period, 14th–13th centuries BCE',
+      writing: 'Linear B (early Greek)',
+      exploreLinks: ['Greece'],
+    },
+    features: [
+      {
+        name: 'Lion Gate',
+        description:
+          'The monumental entrance to Mycenae’s citadel — a relieving triangle with confronted lions above the cyclopean threshold.',
+      },
+      {
+        name: 'Treasury of Atreus',
+        description:
+          'A vast corbelled tholos tomb near Mycenae — elite burial architecture at the scale of a built mountain chamber.',
+      },
+      {
+        name: 'Grave Circle A',
+        description:
+          'A royal shaft-grave enclosure inside Mycenae’s walls — the findspot of gold masks and other early Mycenaean elite burials.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Mycenaean civilization',
+        url: 'https://www.britannica.com/topic/Mycenaean-civilization',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Mycenaean Civilization',
+        url: 'https://www.metmuseum.org/toah/hd/myce/hd_myce.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Archaeological Sites of Mycenae and Tiryns',
+        url: 'https://whc.unesco.org/en/list/941',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'etruscan',
+    code: 'ETR',
+    name: 'Etruscan civilization',
+    category: 'Mediterranean',
+    subtitle: 'Urban civilization · Etruria',
+    about:
+      'The Etruscan civilization developed in Etruria, the region of central Italy between the Tiber and Arno rivers, where independent city-states built towns, harbors, sanctuaries, and extensive cemeteries. Etruscan elites controlled metal resources, agriculture, and maritime trade linking Italy to Greece, Carthage, and the eastern Mediterranean. Much of what survives comes from tombs: chamber architecture, painted walls, sarcophagi, and rich grave goods that document banqueting, religion, dress, and family identity. Etruscan political influence once reached into Latium and Campania and shaped early Rome.\nEtruscan writing adapted a Greek alphabet and appears mainly in short funerary and dedicatory inscriptions; the language is non-Indo-European and only partly understood. From the fourth century BCE, Roman expansion absorbed Etruscan cities one by one. By the first century BCE, Latin language and Roman institutions dominated the former Etruscan heartland, but engineering, religious practices, and artistic forms borrowed from Etruria remained visible in Roman culture.',
+    facts: {
+      kind: 'Urban civilization',
+      heartland: 'Etruria · central Italy between Tiber and Arno',
+      era: 'c. 900 – 100 BCE',
+      peak: 'Archaic florescence, 6th century BCE',
+      writing: 'Etruscan alphabet (adapted from Greek)',
+      exploreLinks: ['Italy'],
+    },
+    features: [
+      {
+        name: 'Banditaccia necropolis',
+        description:
+          'The vast Etruscan cemetery of Cerveteri — tumuli and rock-cut house tombs laid out like a city of the dead.',
+      },
+      {
+        name: 'Sarcophagus of the Spouses',
+        description:
+          'A terracotta funerary couch from Cerveteri showing a reclining couple — Etruscan banqueting imagery cast as eternal companionship.',
+      },
+      {
+        name: 'Tarquinia tomb frescoes',
+        description:
+          'Painted chamber tombs of the Monterozzi necropolis — dancers, musicians, and ritual scenes preserving Etruscan pictorial art.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Etruscan',
+        url: 'https://www.britannica.com/topic/Etruscan',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Etruscan Art',
+        url: 'https://www.metmuseum.org/toah/hd/etru/hd_etru.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Etruscan Necropolises of Cerveteri and Tarquinia',
+        url: 'https://whc.unesco.org/en/list/1158',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'phoenicia',
+    code: 'PHO',
+    name: 'Phoenicia',
+    category: 'Mediterranean',
+    subtitle: 'Maritime city-states · Levantine coast',
+    about:
+      'Phoenicia was a network of coastal city-states along the Levantine shore, especially Byblos, Sidon, and Tyre, whose people the Greeks called Phoenicians. Positioned between inland empires and Mediterranean sea lanes, these cities specialized in shipbuilding, purple dye, timber, metals, glass, and long-distance trade. Phoenician merchants and settlers founded colonies and trading posts across the western Mediterranean, including Carthage in North Africa and sites on Cyprus, Sicily, Sardinia, and Iberia. Urban life combined harbors, temples, craft quarters, and royal or oligarchic authority that shifted under Egyptian, Assyrian, Babylonian, and Persian pressure.\nThe Phoenician alphabet, a consonant script adapted and transmitted through trade and colonization, became the ancestor of Greek and later alphabetic systems. Inscriptions on stone, metal, and ivory record kings, dedications, and funerary texts. After Alexander’s conquests and Hellenistic reorganization, distinct Phoenician political independence faded, but Levantine ports and diaspora communities continued within larger imperial frameworks. Archaeology at Byblos, Tyre, and western colonies preserves harbors, temples, tombs, and craft debris from this maritime world.',
+    facts: {
+      kind: 'Maritime city-states',
+      heartland: 'Levantine coast · Lebanon and adjoining Syria',
+      era: 'c. 1500 – 300 BCE (as Phoenician city-states)',
+      peak: 'Early first-millennium BCE colonial expansion',
+      writing: 'Phoenician alphabet',
+      exploreLinks: ['Lebanon', 'Syria', 'Tunisia', 'Spain'],
+    },
+    features: [
+      {
+        name: 'Byblos ruins',
+        description:
+          'Layered temples, walls, and harbor remains of one of the oldest Phoenician cities — a long-lived Levantine port of timber and script.',
+      },
+      {
+        name: 'Tyre harbor ruins',
+        description:
+          'Coastal and submerged remains of Tyre’s island port — the maritime base of a major Phoenician trading power.',
+      },
+      {
+        name: 'Ahiram sarcophagus',
+        description:
+          'A royal limestone coffin from Byblos bearing an early Phoenician inscription — a landmark in the history of the alphabet.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Phoenicia',
+        url: 'https://www.britannica.com/place/Phoenicia',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Phoenician',
+        url: 'https://www.metmuseum.org/toah/hd/phoe/hd_phoe.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Byblos',
+        url: 'https://whc.unesco.org/en/list/22',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'nuragic-sardinia',
+    code: 'NUR',
+    name: 'Nuragic Sardinia',
+    category: 'Mediterranean',
+    subtitle: 'Tower culture · Sardinia',
+    about:
+      'Nuragic Sardinia was a Bronze and Iron Age culture of the island of Sardinia, named for the nuraghe, dry-stone towers built as truncated cones with corbelled chambers. Thousands of nuraghi still mark the landscape, ranging from single towers to complex multi-tower fortresses with curtain walls and surrounding villages. Communities practiced agriculture, herding, bronze metallurgy, and exchange with Mycenaean, Cypriot, Iberian, and later Phoenician partners. Sacred wells, giant tombs, and bronze figurines document ritual life alongside defensive and residential architecture.\nNuragic society left no indigenous writing system; its record is archaeological. Construction of new nuraghi declined after the Final Bronze Age, but settlements and sanctuaries continued into the Iron Age as Phoenician and Carthaginian contacts intensified. Rome annexed Sardinia in 238 BCE after the First Punic War. Even under Punic and Roman pressure, Nuragic architectural forms and local traditions remained a defining prehistoric signature of the island.',
+    facts: {
+      kind: 'Tower culture',
+      heartland: 'Sardinia · western Mediterranean',
+      era: 'c. 1800 – 238 BCE (to Roman annexation)',
+      peak: 'Late Bronze Age nuraghe complexes, mid–late 2nd millennium BCE',
+      writing: 'No indigenous script; later Punic and Latin',
+      exploreLinks: ['Italy'],
+    },
+    features: [
+      {
+        name: 'Su Nuraxi',
+        description:
+          'The complex nuraghe and village at Barumini — the clearest UNESCO-listed example of Nuragic defensive architecture.',
+      },
+      {
+        name: 'Nuraghe Losa',
+        description:
+          'A well-preserved trilobate nuraghe near Abbasanta — dressed basalt towers and courtyards of a mid-island stronghold.',
+      },
+      {
+        name: 'Santa Cristina well temple',
+        description:
+          'A precise subterranean sacred well in Paulilatino — Nuragic hydraulic ritual architecture cut in ashlar masonry.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Nuraghic culture',
+        url: 'https://www.britannica.com/topic/Nuraghic-culture',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Su Nuraxi di Barumini',
+        url: 'https://whc.unesco.org/en/list/833',
+        kind: 'catalog',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Sardinia',
+        url: 'https://www.britannica.com/place/Sardinia-island-Italy',
+        kind: 'reference',
       },
     ],
   },
@@ -1453,6 +1708,261 @@ const civilizationSubjectDrafts: CivilizationSubjectDraft[] = [
         label: 'UNESCO — Historic Sanctuary of Machu Picchu',
         url: 'https://whc.unesco.org/en/list/274',
         kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'mississippian',
+    code: 'MIS',
+    name: 'Mississippian culture',
+    category: 'Americas',
+    subtitle: 'Mound-building culture · Mississippi valley',
+    about:
+      'Mississippian culture was a maize-farming tradition of the southeastern and mid-continental river valleys of North America, flourishing from about 700 CE into the era of early European contact. Communities built platform mounds, plazas, and planned towns supported by corn, beans, and squash agriculture on fertile bottomlands. Political life often centered on mound towns whose leaders coordinated ritual, redistribution, and warfare across satellite villages. Cahokia, near present-day St. Louis, was the largest of these centers and for a time among the most populous settlements north of Mexico.\nShell-tempered pottery, copper ornaments, and engraved marine shell belong to a shared ceremonial vocabulary sometimes called the Southeastern Ceremonial Complex. There was no phonetic writing system; social memory and ideology were carried through oral tradition and material symbols. Regional Mississippian societies persisted in varied forms after Cahokia’s decline, and Spanish and later colonial encounters recorded descendant mound-building and agricultural communities across the Southeast.',
+    facts: {
+      kind: 'Mound-building culture',
+      heartland: 'Mississippi and southeastern river valleys · North America',
+      era: 'c. 700 – 1600 CE',
+      peak: 'Cahokia florescence, c. 1050–1200 CE',
+      writing: 'Oral tradition; iconographic shell and copper art',
+      exploreLinks: ['United States'],
+    },
+    features: [
+      {
+        name: 'Monks Mound',
+        description:
+          'The largest prehistoric earthen mound north of Mexico — a terraced platform that dominated Cahokia’s central precinct.',
+      },
+      {
+        name: 'Cahokia Woodhenge',
+        description:
+          'A reconstructed circle of wooden posts near Monks Mound — an astronomical marker aligned to solstice sunrises.',
+      },
+      {
+        name: 'Etowah Mounds',
+        description:
+          'A major Mississippian mound center in Georgia — platforms, plaza, and elite burials of a southeastern chiefdom.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Mississippian culture',
+        url: 'https://www.britannica.com/topic/Mississippian-culture',
+        kind: 'reference',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Cahokia Mounds',
+        url: 'https://www.britannica.com/place/Cahokia-Mounds',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Cahokia Mounds State Historic Site',
+        url: 'https://whc.unesco.org/en/list/198',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'ancestral-puebloan',
+    code: 'PUE',
+    name: 'Ancestral Puebloan',
+    category: 'Americas',
+    subtitle: 'Pueblo tradition · Four Corners',
+    about:
+      'Ancestral Puebloan peoples developed settled farming communities across the Four Corners region of the Colorado Plateau, where Arizona, New Mexico, Colorado, and Utah meet. They cultivated maize, beans, and squash, built pit houses and later masonry pueblos, and organized ceremonial life around kivas. Between the tenth and thirteenth centuries, great houses in Chaco Canyon and cliff dwellings at Mesa Verde concentrated population, storage, and ritual architecture in distinctive canyon and mesa settings. Roads, turquoise exchange, and shared architectural forms linked widely spaced communities.\nSevere drought, resource stress, and social reorganization contributed to large-scale migration from many cliff dwellings and canyon centers after about 1300 CE. Descendants continued Pueblo traditions in the Rio Grande valley and on western mesas, including Hopi, Zuni, Acoma, and other Pueblo peoples. Earlier scholarship used the Navajo-derived term Anasazi; Ancestral Puebloan is the preferred designation linking archaeological cultures to living communities. The material record remains architectural, ceramic, and agricultural rather than textual.',
+    facts: {
+      kind: 'Pueblo tradition',
+      heartland: 'Four Corners · Colorado Plateau',
+      era: 'c. 100 – 1600 CE',
+      peak: 'Chacoan and Pueblo III florescences, 11th–13th centuries',
+      writing: 'Oral tradition; later Spanish records of descendant Pueblos',
+      exploreLinks: ['United States'],
+    },
+    features: [
+      {
+        name: 'Cliff Palace',
+        description:
+          'The largest cliff dwelling at Mesa Verde — a sandstone alcove village of rooms, towers, and kivas sheltered by the canyon wall.',
+      },
+      {
+        name: 'Pueblo Bonito',
+        description:
+          'Chaco Canyon’s great house — a D-shaped masonry complex of hundreds of rooms at the heart of the Chacoan system.',
+      },
+      {
+        name: 'White House Ruin',
+        description:
+          'A multi-storey cliff dwelling in Canyon de Chelly — Ancestral Puebloan masonry set against a sheer Navajo Nation canyon face.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Ancestral Pueblo culture',
+        url: 'https://www.britannica.com/topic/Ancestral-Pueblo-culture',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Mesa Verde National Park',
+        url: 'https://whc.unesco.org/en/list/27',
+        kind: 'catalog',
+      },
+      {
+        label: 'Encyclopaedia Britannica — Chaco Culture National Historical Park',
+        url: 'https://www.britannica.com/place/Chaco-Culture-National-Historical-Park',
+        kind: 'reference',
+      },
+    ],
+  },
+  {
+    slug: 'chavin',
+    code: 'CHA',
+    name: 'Chavín',
+    category: 'Americas',
+    subtitle: 'Religious horizon · northern Andes',
+    about:
+      'Chavín was an early Horizon culture of the north-central Peruvian Andes, named for the ceremonial center of Chavín de Huántar in the Ancash highlands. Between about 900 and 200 BCE, related religious imagery and architectural forms spread across highland and coastal regions of northern and central Peru. The site functioned as a pilgrimage and oracle center, drawing visitors into stone temples with interior galleries, canals, and carved monuments. Its art fused human, feline, bird, and serpent traits into a dense sacred visual language.\nChavín influence appears on ceramics, textiles, metalwork, and stone far from the highland center, suggesting shared cult ideas rather than a single territorial empire. There was no phonetic writing system; ideology was communicated through architecture and iconography. As Chavín power waned, regional societies diversified along the coast and in the highlands. The site remains one of the clearest early expressions of pan-Andean ceremonial complexity before later states such as Moche, Wari, and Inca.',
+    facts: {
+      kind: 'Religious horizon',
+      heartland: 'North-central Peruvian Andes · Ancash',
+      era: 'c. 900 – 200 BCE',
+      peak: 'Chavín de Huántar florescence, first millennium BCE',
+      writing: 'Iconographic stone programs; no phonetic script',
+      exploreLinks: ['Peru'],
+    },
+    features: [
+      {
+        name: 'Chavín de Huántar',
+        description:
+          'The highland ceremonial center of galleries, plazas, and stone temples — the namesake pilgrimage hub of the Chavín horizon.',
+      },
+      {
+        name: 'Lanzón monolith',
+        description:
+          'A tall granite idol set deep within the Old Temple — a fanged staff-bearing deity at the axis of Chavín ritual space.',
+      },
+      {
+        name: 'Circular plaza',
+        description:
+          'A sunken round court before the temple façades — a gathering stage lined with carved stone for processions and offerings.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Chavín',
+        url: 'https://www.britannica.com/topic/Chavin',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Dualism in Andean Art',
+        url: 'https://www.metmuseum.org/toah/hd/dual/hd_dual.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Chavin (Archaeological Site)',
+        url: 'https://whc.unesco.org/en/list/330',
+        kind: 'catalog',
+      },
+    ],
+  },
+  {
+    slug: 'moche',
+    code: 'MOC',
+    name: 'Moche',
+    category: 'Americas',
+    subtitle: 'Coastal kingdoms · northern Peru',
+    about:
+      'The Moche were an Andean civilization of Peru’s northern desert coast, flourishing from about the first to the eighth century CE along river valleys from Lambayeque to Nepeña. Irrigation canals drawn from Andean runoff supported maize, beans, and other crops in an otherwise arid landscape. Urban and ceremonial life clustered around adobe platform mounds, where murals, sacrifices, and elite rituals reinforced political and religious authority. Moche artisans produced highly modeled and fineline-painted ceramics, metal ornaments, and textile work that narrate warfare, ceremony, and daily scenes with unusual clarity.\nPolitical power appears to have been regional rather than fully unified, with valley centers sharing style and ideology. The royal tombs at Sipán revealed rulers buried with gold, silver, copper, shell, and attendant sacrifices. Environmental stress, including severe El Niño flooding, and internal change contributed to the transformation of Moche societies in later centuries. Successor north-coast cultures retained aspects of Moche technology and imagery within new political orders.',
+    facts: {
+      kind: 'Coastal kingdoms',
+      heartland: 'Northern Peruvian coast · Moche and Lambayeque valleys',
+      era: 'c. 100 – 800 CE',
+      peak: 'Southern and northern Moche florescences, 1st–8th centuries CE',
+      writing: 'Narrative ceramic and mural imagery; no phonetic script',
+      exploreLinks: ['Peru'],
+    },
+    features: [
+      {
+        name: 'Huaca de la Luna',
+        description:
+          'An adobe ceremonial platform near Trujillo — polychrome reliefs and sacrifice contexts of a major Moche temple complex.',
+      },
+      {
+        name: 'Lord of Sipán tomb',
+        description:
+          'A richly furnished royal burial in the Lambayeque Valley — gold, silver, and regalia that redefined Moche elite archaeology.',
+      },
+      {
+        name: 'Huaca del Sol',
+        description:
+          'The enormous adobe platform opposite Huaca de la Luna — once among the largest mudbrick monuments of the Americas.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Moche',
+        url: 'https://www.britannica.com/topic/Moche',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Ancient Andean Metalworking',
+        url: 'https://www.metmuseum.org/toah/hd/ande_en/hd_ande_en.htm',
+        kind: 'reference',
+      },
+      {
+        label: 'Metropolitan Museum — Dualism in Andean Art',
+        url: 'https://www.metmuseum.org/toah/hd/dual/hd_dual.htm',
+        kind: 'reference',
+      },
+    ],
+  },
+  {
+    slug: 'tiwanaku',
+    code: 'TIW',
+    name: 'Tiwanaku',
+    category: 'Americas',
+    subtitle: 'Highland state · Lake Titicaca',
+    about:
+      'Tiwanaku was a major pre-Columbian civilization centered near the southern shore of Lake Titicaca in what is now Bolivia, with influence extending into southern Peru and neighboring highland and valley zones. From a planned ceremonial and urban core, its leaders coordinated agriculture on the altiplano, including raised fields adapted to frost and poor drainage, and maintained long-distance exchange in obsidian, metals, and prestige goods. Monumental sandstone and andesite architecture, finely cut ashlar, and carved gateways expressed a state ideology visible far beyond the capital.\nAt its Middle Horizon height, Tiwanaku shared stylistic and religious connections with the Wari sphere farther north in Peru, though the two states remained distinct. There was no phonetic writing system; political and sacred messages were carried in stone sculpture, ceramics, and textiles. After about 1000 CE the capital declined amid climatic stress and political fragmentation. Later Andean societies, including the Inca, regarded the ruins as an ancestral and sacred landscape.',
+    facts: {
+      kind: 'Highland state',
+      heartland: 'Southern Lake Titicaca basin · Bolivia and southern Peru',
+      era: 'c. 200 BCE – 1000 CE',
+      peak: 'Middle Horizon expansion, c. 500–1000 CE',
+      writing: 'Iconographic stone programs; no phonetic script',
+      exploreLinks: ['Bolivia', 'Peru'],
+    },
+    features: [
+      {
+        name: 'Gate of the Sun',
+        description:
+          'A monolithic andesite gateway carved with the Staff God and winged attendants — Tiwanaku’s most famous religious monument.',
+      },
+      {
+        name: 'Kalasasaya',
+        description:
+          'A large rectangular ritual platform of upright stones and ashlar walls — the ceremonial court framing the Gate of the Sun.',
+      },
+      {
+        name: 'Akapana',
+        description:
+          'A stepped pyramid-platform of earth and cut stone — the dominant artificial mountain of Tiwanaku’s sacred core.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Encyclopaedia Britannica — Tiwanaku',
+        url: 'https://www.britannica.com/place/Tiwanaku',
+        kind: 'reference',
+      },
+      {
+        label: 'UNESCO — Tiwanaku: Spiritual and Political Centre',
+        url: 'https://whc.unesco.org/en/list/567',
+        kind: 'catalog',
+      },
+      {
+        label: 'Metropolitan Museum — Dualism in Andean Art',
+        url: 'https://www.metmuseum.org/toah/hd/dual/hd_dual.htm',
+        kind: 'reference',
       },
     ],
   },

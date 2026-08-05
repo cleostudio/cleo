@@ -20,15 +20,15 @@ General-knowledge portal:
   Civilizations site, Cities page, Oceans basin, and Rivers course
 - **Civilizations** — historical pages at `/civilizations` and
   `/civilizations/[slug]` (Africa & Near East, Mediterranean, Asia, Americas,
-  Oceania; thirty-two regional subjects)
+  Oceania; forty-two regional subjects)
 - **Cities** — capital and route-city pages at `/cities` and
-  `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; twenty-six
+  `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; thirty-one
   cities)
 - **Oceans** — world ocean basin, major-sea, and polar-sea pages at
   `/oceans` and `/oceans/[slug]` (world basins, major seas, polar seas; twenty
   subjects)
 - **Rivers** — major world-river pages at `/rivers` and `/rivers/[slug]`
-  (Africa, Asia, Europe, Americas & Oceania; twenty-six rivers)
+  (Africa, Asia, Europe, Americas & Oceania; thirty-one rivers)
 - **Topics** — catalog in `lib/topics.ts` (Countries, Space, Civilizations,
   Cities, Oceans, Rivers)
 - **Writing** — MDX under `content/blog/` (kept for a future encyclopedia layer)

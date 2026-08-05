@@ -1022,5 +1022,325 @@
       "height": 2268,
       "featureName": "Latte stones"
     }
+  ],
+  "minoan-crete": [
+    {
+      "commonsTitle": "File:Knossos R03.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Knossos_R03.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKnossos_R03.jpg",
+      "photographer": "Marc Ryckaert ( MJJR )",
+      "license": "CC BY 3.0",
+      "width": 3768,
+      "height": 2590,
+      "featureName": "Palace of Knossos"
+    },
+    {
+      "commonsTitle": "File:Phaistos Disc - Heraklion Archaeological Museum by Joy of Museums.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Phaistos_Disc_-_Heraklion_Archaeological_Museum_by_Joy_of_Museums.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APhaistos_Disc_-_Heraklion_Archaeological_Museum_by_Joy_of_Museums.jpg",
+      "photographer": "Joyofmuseums",
+      "license": "CC BY-SA 4.0",
+      "width": 3129,
+      "height": 2758,
+      "featureName": "Phaistos Disc"
+    },
+    {
+      "commonsTitle": "File:Bull leaping minoan fresco archmus Heraklion.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Bull_leaping_minoan_fresco_archmus_Heraklion.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABull_leaping_minoan_fresco_archmus_Heraklion.jpg",
+      "photographer": "Jebulon",
+      "license": "CC0",
+      "width": 4305,
+      "height": 2640,
+      "featureName": "Bull-leaping fresco"
+    }
+  ],
+  "mycenaean-greece": [
+    {
+      "commonsTitle": "File:Lions-Gate-Mycenae.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Lions-Gate-Mycenae.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALions-Gate-Mycenae.jpg",
+      "photographer": "Andreas Trepte",
+      "license": "CC BY-SA 2.5",
+      "width": 3000,
+      "height": 2430,
+      "featureName": "Lion Gate"
+    },
+    {
+      "commonsTitle": "File:Mykene BW 2017-10-10 12-19-49.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/Mykene_BW_2017-10-10_12-19-49.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMykene_BW_2017-10-10_12-19-49.jpg",
+      "photographer": "Berthold Werner",
+      "license": "CC BY-SA 3.0",
+      "width": 4000,
+      "height": 6016,
+      "featureName": "Treasury of Atreus"
+    },
+    {
+      "commonsTitle": "File:Mykene BW 2017-10-10 13-05-00.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Mykene_BW_2017-10-10_13-05-00.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMykene_BW_2017-10-10_13-05-00.jpg",
+      "photographer": "Berthold Werner",
+      "license": "CC BY-SA 3.0",
+      "width": 8352,
+      "height": 4404,
+      "featureName": "Grave Circle A"
+    }
+  ],
+  "etruscan": [
+    {
+      "commonsTitle": "File:TombaDadoBanditaccia.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/TombaDadoBanditaccia.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATombaDadoBanditaccia.jpg",
+      "photographer": "louis-garden",
+      "license": "CC BY-SA 3.0",
+      "width": 2400,
+      "height": 1800,
+      "featureName": "Banditaccia necropolis"
+    },
+    {
+      "commonsTitle": "File:Etruscan sarcophagus.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Etruscan_sarcophagus.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEtruscan_sarcophagus.jpg",
+      "photographer": "Frank Axelsson",
+      "license": "CC BY-SA 3.0",
+      "width": 2848,
+      "height": 2136,
+      "featureName": "Sarcophagus of the Spouses"
+    },
+    {
+      "commonsTitle": "File:Tomba dei leopardi, 470 ac ca. 01.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Tomba_dei_leopardi%2C_470_ac_ca._01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATomba_dei_leopardi%2C_470_ac_ca._01.jpg",
+      "photographer": "Sailko",
+      "license": "CC BY 3.0",
+      "width": 3392,
+      "height": 2432,
+      "featureName": "Tarquinia tomb frescoes"
+    }
+  ],
+  "phoenicia": [
+    {
+      "commonsTitle": "File:Byblos ancient ruins, Phoenician city of Byblos, Lebanon.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Byblos_ancient_ruins%2C_Phoenician_city_of_Byblos%2C_Lebanon.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AByblos_ancient_ruins%2C_Phoenician_city_of_Byblos%2C_Lebanon.jpg",
+      "photographer": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "width": 4000,
+      "height": 3000,
+      "featureName": "Byblos ruins"
+    },
+    {
+      "commonsTitle": "File:SubmergedEgyptianHarbour TyreSour Lebanon RomanDeckert04112019.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/SubmergedEgyptianHarbour_TyreSour_Lebanon_RomanDeckert04112019.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASubmergedEgyptianHarbour_TyreSour_Lebanon_RomanDeckert04112019.jpg",
+      "photographer": "RomanDeckert",
+      "license": "CC BY-SA 4.0",
+      "width": 4000,
+      "height": 3000,
+      "featureName": "Tyre harbor ruins"
+    },
+    {
+      "commonsTitle": "File:Byblos- Jebeil. Byblos. Sarcophagus of Ahiram, King of Byblos LOC matpc.03491.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Byblos-_Jebeil._Byblos._Sarcophagus_of_Ahiram%2C_King_of_Byblos_LOC_matpc.03491.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AByblos-_Jebeil._Byblos._Sarcophagus_of_Ahiram%2C_King_of_Byblos_LOC_matpc.03491.jpg",
+      "photographer": "Matson Collection",
+      "license": "Public domain",
+      "width": 5779,
+      "height": 4291,
+      "featureName": "Ahiram sarcophagus"
+    }
+  ],
+  "nuragic-sardinia": [
+    {
+      "commonsTitle": "File:Nuraghe Su Nuraxi - Barumini - Sardinia - Italy - 30.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Nuraghe_Su_Nuraxi_-_Barumini_-_Sardinia_-_Italy_-_30.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANuraghe_Su_Nuraxi_-_Barumini_-_Sardinia_-_Italy_-_30.jpg",
+      "photographer": "Norbert Nagel",
+      "license": "CC BY-SA 3.0",
+      "width": 5517,
+      "height": 3682,
+      "featureName": "Su Nuraxi"
+    },
+    {
+      "commonsTitle": "File:Abbasanta, nuraghe losa, 01.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Abbasanta%2C_nuraghe_losa%2C_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAbbasanta%2C_nuraghe_losa%2C_01.jpg",
+      "photographer": "Sailko",
+      "license": "CC BY 3.0",
+      "width": 5472,
+      "height": 3648,
+      "featureName": "Nuraghe Losa"
+    },
+    {
+      "commonsTitle": "File:Pozzo Sacro Santa Cristina.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Pozzo_Sacro_Santa_Cristina.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APozzo_Sacro_Santa_Cristina.JPG",
+      "photographer": "No machine-readable author provided. Shardan assumed (based on copyright claims).",
+      "license": "CC BY-SA 2.5",
+      "width": 2430,
+      "height": 1604,
+      "featureName": "Santa Cristina well temple"
+    }
+  ],
+  "mississippian": [
+    {
+      "commonsTitle": "File:Cahokia Monks Mound.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Cahokia_Monks_Mound.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACahokia_Monks_Mound.jpg",
+      "photographer": "User: (WT-shared) Ethajek at wts wikivoyage",
+      "license": "Public domain",
+      "width": 4000,
+      "height": 3000,
+      "featureName": "Monks Mound"
+    },
+    {
+      "commonsTitle": "File:Woodhenge Cahokia 3998.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Woodhenge_Cahokia_3998.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWoodhenge_Cahokia_3998.jpg",
+      "photographer": "QuartierLatin1968",
+      "license": "CC BY-SA 3.0",
+      "width": 2592,
+      "height": 1944,
+      "featureName": "Cahokia Woodhenge"
+    },
+    {
+      "commonsTitle": "File:Etowah Indian Mounds.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Etowah_Indian_Mounds.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEtowah_Indian_Mounds.jpg",
+      "photographer": "Jeffreyrfoote",
+      "license": "CC BY-SA 4.0",
+      "width": 5472,
+      "height": 3648,
+      "featureName": "Etowah Mounds"
+    }
+  ],
+  "ancestral-puebloan": [
+    {
+      "commonsTitle": "File:MesaVerdeNationalParkCliffPalace.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/MesaVerdeNationalParkCliffPalace.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMesaVerdeNationalParkCliffPalace.jpg",
+      "photographer": "Massimo Catarinella",
+      "license": "CC BY-SA 3.0",
+      "width": 3456,
+      "height": 2304,
+      "featureName": "Cliff Palace"
+    },
+    {
+      "commonsTitle": "File:Chaco Canyon-Pueblo Bonito-02-von oben-1982-gje.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Chaco_Canyon-Pueblo_Bonito-02-von_oben-1982-gje.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChaco_Canyon-Pueblo_Bonito-02-von_oben-1982-gje.jpg",
+      "photographer": "Gerd Eichmann",
+      "license": "CC BY-SA 4.0",
+      "width": 3840,
+      "height": 2541,
+      "featureName": "Pueblo Bonito"
+    },
+    {
+      "commonsTitle": "File:Canyon de Chelly White House Ruin 2006 09 07.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Canyon_de_Chelly_White_House_Ruin_2006_09_07.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACanyon_de_Chelly_White_House_Ruin_2006_09_07.jpg",
+      "photographer": "Andreas F. Borchert",
+      "license": "CC BY-SA 4.0",
+      "width": 3504,
+      "height": 2336,
+      "featureName": "White House Ruin"
+    }
+  ],
+  "chavin": [
+    {
+      "commonsTitle": "File:Chavín de Huantar-nX13.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Chav%C3%ADn_de_Huantar-nX13.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChav%C3%ADn_de_Huantar-nX13.jpg",
+      "photographer": "PsamatheM",
+      "license": "CC BY-SA 4.0",
+      "width": 5472,
+      "height": 3648,
+      "featureName": "Chavín de Huántar"
+    },
+    {
+      "commonsTitle": "File:El-lanzon.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/El-lanzon.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEl-lanzon.JPG",
+      "photographer": "Reto Luescher",
+      "license": "CC BY 2.5",
+      "width": 1944,
+      "height": 2592,
+      "featureName": "Lanzón monolith"
+    },
+    {
+      "commonsTitle": "File:Chavin de Huantar Plaza Circular 06122009.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Chavin_de_Huantar_Plaza_Circular_06122009.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChavin_de_Huantar_Plaza_Circular_06122009.jpg",
+      "photographer": "Dtarazona",
+      "license": "CC BY-SA 3.0",
+      "width": 3072,
+      "height": 2304,
+      "featureName": "Circular plaza"
+    }
+  ],
+  "moche": [
+    {
+      "commonsTitle": "File:Huaca de la Luna - Août 2007.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Huaca_de_la_Luna_-_Ao%C3%BBt_2007.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHuaca_de_la_Luna_-_Ao%C3%BBt_2007.jpg",
+      "photographer": "Martin St-Amant ( S23678 )",
+      "license": "CC BY 3.0",
+      "width": 5936,
+      "height": 5020,
+      "featureName": "Huaca de la Luna"
+    },
+    {
+      "commonsTitle": "File:LORD OF SIPAN RECONSTRUCTION.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/LORD_OF_SIPAN_RECONSTRUCTION.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALORD_OF_SIPAN_RECONSTRUCTION.JPG",
+      "photographer": "user:Oresaba",
+      "license": "CC BY-SA 3.0",
+      "width": 2592,
+      "height": 3888,
+      "featureName": "Lord of Sipán tomb"
+    },
+    {
+      "commonsTitle": "File:Cases del districte de Moche amb la Huaca del Sol darrera.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Cases_del_districte_de_Moche_amb_la_Huaca_del_Sol_darrera.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACases_del_districte_de_Moche_amb_la_Huaca_del_Sol_darrera.jpg",
+      "photographer": "Pitxiquin",
+      "license": "CC BY-SA 4.0",
+      "width": 3968,
+      "height": 2976,
+      "featureName": "Huaca del Sol"
+    }
+  ],
+  "tiwanaku": [
+    {
+      "commonsTitle": "File:Puerta del Sol, Tiwanaku, Bolivia - panoramio.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Puerta_del_Sol%2C_Tiwanaku%2C_Bolivia_-_panoramio.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APuerta_del_Sol%2C_Tiwanaku%2C_Bolivia_-_panoramio.jpg",
+      "photographer": "rodoluca",
+      "license": "CC BY-SA 3.0",
+      "width": 2034,
+      "height": 1356,
+      "featureName": "Gate of the Sun"
+    },
+    {
+      "commonsTitle": "File:Kalasasaya.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Kalasasaya.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKalasasaya.jpg",
+      "photographer": "No machine-readable author provided. Anakin~commonswiki assumed (based on copyright cla…",
+      "license": "CC BY-SA 3.0",
+      "width": 2048,
+      "height": 1536,
+      "featureName": "Kalasasaya"
+    },
+    {
+      "commonsTitle": "File:Piramide de Akapana en restauracion (Tiwanaku), Bolivia.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Piramide_de_Akapana_en_restauracion_%28Tiwanaku%29%2C_Bolivia.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APiramide_de_Akapana_en_restauracion_(Tiwanaku)%2C_Bolivia.jpg",
+      "photographer": "DeFries",
+      "license": "CC BY 2.0",
+      "width": 2047,
+      "height": 1365,
+      "featureName": "Akapana"
+    }
   ]
 }

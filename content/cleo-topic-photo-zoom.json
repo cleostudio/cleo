@@ -17235,6 +17235,366 @@
       }
     ]
   },
+  "civilizations/minoan-crete": {
+    "collection": "civilizations",
+    "title": "Palace of Knossos",
+    "subtitle": "Minoan Crete",
+    "alt": "Palace of Knossos — minoan crete",
+    "photographer": "Marc Ryckaert ( MJJR )",
+    "license": "CC BY 3.0",
+    "width": 3768,
+    "height": 2590,
+    "renditions": [
+      {
+        "src": "/images/civilizations/minoan-crete/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/minoan-crete/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/minoan-crete/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/minoan-crete-2": {
+    "collection": "civilizations",
+    "title": "Phaistos Disc",
+    "subtitle": "Minoan Crete",
+    "alt": "Phaistos Disc — minoan crete",
+    "photographer": "Joyofmuseums",
+    "license": "CC BY-SA 4.0",
+    "width": 3129,
+    "height": 2758,
+    "renditions": [
+      {
+        "src": "/images/civilizations/minoan-crete/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/minoan-crete/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/minoan-crete/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/minoan-crete-3": {
+    "collection": "civilizations",
+    "title": "Bull-leaping fresco",
+    "subtitle": "Minoan Crete",
+    "alt": "Bull-leaping fresco — minoan crete",
+    "photographer": "Jebulon",
+    "license": "CC0",
+    "width": 4305,
+    "height": 2640,
+    "renditions": [
+      {
+        "src": "/images/civilizations/minoan-crete/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/minoan-crete/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/minoan-crete/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/mycenaean-greece": {
+    "collection": "civilizations",
+    "title": "Lion Gate",
+    "subtitle": "Mycenaean Greece",
+    "alt": "Lion Gate — mycenaean greece",
+    "photographer": "Andreas Trepte",
+    "license": "CC BY-SA 2.5",
+    "width": 3000,
+    "height": 2430,
+    "renditions": [
+      {
+        "src": "/images/civilizations/mycenaean-greece/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/mycenaean-greece/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/mycenaean-greece/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/mycenaean-greece-2": {
+    "collection": "civilizations",
+    "title": "Treasury of Atreus",
+    "subtitle": "Mycenaean Greece",
+    "alt": "Treasury of Atreus — mycenaean greece",
+    "photographer": "Berthold Werner",
+    "license": "CC BY-SA 3.0",
+    "width": 4000,
+    "height": 6016,
+    "renditions": [
+      {
+        "src": "/images/civilizations/mycenaean-greece/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/mycenaean-greece/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/mycenaean-greece/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/mycenaean-greece-3": {
+    "collection": "civilizations",
+    "title": "Grave Circle A",
+    "subtitle": "Mycenaean Greece",
+    "alt": "Grave Circle A — mycenaean greece",
+    "photographer": "Berthold Werner",
+    "license": "CC BY-SA 3.0",
+    "width": 8352,
+    "height": 4404,
+    "renditions": [
+      {
+        "src": "/images/civilizations/mycenaean-greece/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/mycenaean-greece/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/mycenaean-greece/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/etruscan": {
+    "collection": "civilizations",
+    "title": "Banditaccia necropolis",
+    "subtitle": "Etruscan civilization",
+    "alt": "Banditaccia necropolis — etruscan",
+    "photographer": "louis-garden",
+    "license": "CC BY-SA 3.0",
+    "width": 2400,
+    "height": 1800,
+    "renditions": [
+      {
+        "src": "/images/civilizations/etruscan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/etruscan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/etruscan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/etruscan-2": {
+    "collection": "civilizations",
+    "title": "Sarcophagus of the Spouses",
+    "subtitle": "Etruscan civilization",
+    "alt": "Sarcophagus of the Spouses — etruscan",
+    "photographer": "Frank Axelsson",
+    "license": "CC BY-SA 3.0",
+    "width": 2848,
+    "height": 2136,
+    "renditions": [
+      {
+        "src": "/images/civilizations/etruscan/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/etruscan/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/etruscan/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/etruscan-3": {
+    "collection": "civilizations",
+    "title": "Tarquinia tomb frescoes",
+    "subtitle": "Etruscan civilization",
+    "alt": "Tarquinia tomb frescoes — etruscan",
+    "photographer": "Sailko",
+    "license": "CC BY 3.0",
+    "width": 3392,
+    "height": 2432,
+    "renditions": [
+      {
+        "src": "/images/civilizations/etruscan/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/etruscan/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/etruscan/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/phoenicia": {
+    "collection": "civilizations",
+    "title": "Byblos ruins",
+    "subtitle": "Phoenicia",
+    "alt": "Byblos ruins — phoenicia",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/phoenicia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/phoenicia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/phoenicia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/phoenicia-2": {
+    "collection": "civilizations",
+    "title": "Tyre harbor ruins",
+    "subtitle": "Phoenicia",
+    "alt": "Tyre harbor ruins — phoenicia",
+    "photographer": "RomanDeckert",
+    "license": "CC BY-SA 4.0",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/phoenicia/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/phoenicia/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/phoenicia/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/phoenicia-3": {
+    "collection": "civilizations",
+    "title": "Ahiram sarcophagus",
+    "subtitle": "Phoenicia",
+    "alt": "Ahiram sarcophagus — phoenicia",
+    "photographer": "Matson Collection",
+    "license": "Public domain",
+    "width": 5779,
+    "height": 4291,
+    "renditions": [
+      {
+        "src": "/images/civilizations/phoenicia/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/phoenicia/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/phoenicia/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/nuragic-sardinia": {
+    "collection": "civilizations",
+    "title": "Su Nuraxi",
+    "subtitle": "Nuragic Sardinia",
+    "alt": "Su Nuraxi — nuragic sardinia",
+    "photographer": "Norbert Nagel",
+    "license": "CC BY-SA 3.0",
+    "width": 5517,
+    "height": 3682,
+    "renditions": [
+      {
+        "src": "/images/civilizations/nuragic-sardinia/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/nuragic-sardinia/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/nuragic-sardinia/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/nuragic-sardinia-2": {
+    "collection": "civilizations",
+    "title": "Nuraghe Losa",
+    "subtitle": "Nuragic Sardinia",
+    "alt": "Nuraghe Losa — nuragic sardinia",
+    "photographer": "Sailko",
+    "license": "CC BY 3.0",
+    "width": 5472,
+    "height": 3648,
+    "renditions": [
+      {
+        "src": "/images/civilizations/nuragic-sardinia/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/nuragic-sardinia/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/nuragic-sardinia/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/nuragic-sardinia-3": {
+    "collection": "civilizations",
+    "title": "Santa Cristina well temple",
+    "subtitle": "Nuragic Sardinia",
+    "alt": "Santa Cristina well temple — nuragic sardinia",
+    "photographer": "No machine-readable author provided. Shardan assumed (based on copyright claims).",
+    "license": "CC BY-SA 2.5",
+    "width": 2430,
+    "height": 1604,
+    "renditions": [
+      {
+        "src": "/images/civilizations/nuragic-sardinia/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/nuragic-sardinia/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/nuragic-sardinia/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "civilizations/indus-valley": {
     "collection": "civilizations",
     "title": "Mohenjo-daro",
@@ -18240,6 +18600,366 @@
       {
         "src": "/images/civilizations/inca/w2048-3.jpg",
         "width": 2048
+      }
+    ]
+  },
+  "civilizations/mississippian": {
+    "collection": "civilizations",
+    "title": "Monks Mound",
+    "subtitle": "Mississippian culture",
+    "alt": "Monks Mound — mississippian",
+    "photographer": "User: (WT-shared) Ethajek at wts wikivoyage",
+    "license": "Public domain",
+    "width": 4000,
+    "height": 3000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/mississippian/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/mississippian/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/mississippian/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/mississippian-2": {
+    "collection": "civilizations",
+    "title": "Cahokia Woodhenge",
+    "subtitle": "Mississippian culture",
+    "alt": "Cahokia Woodhenge — mississippian",
+    "photographer": "QuartierLatin1968",
+    "license": "CC BY-SA 3.0",
+    "width": 2592,
+    "height": 1944,
+    "renditions": [
+      {
+        "src": "/images/civilizations/mississippian/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/mississippian/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/mississippian/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/mississippian-3": {
+    "collection": "civilizations",
+    "title": "Etowah Mounds",
+    "subtitle": "Mississippian culture",
+    "alt": "Etowah Mounds — mississippian",
+    "photographer": "Jeffreyrfoote",
+    "license": "CC BY-SA 4.0",
+    "width": 5472,
+    "height": 3648,
+    "renditions": [
+      {
+        "src": "/images/civilizations/mississippian/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/mississippian/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/mississippian/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/ancestral-puebloan": {
+    "collection": "civilizations",
+    "title": "Cliff Palace",
+    "subtitle": "Ancestral Puebloan",
+    "alt": "Cliff Palace — ancestral puebloan",
+    "photographer": "Massimo Catarinella",
+    "license": "CC BY-SA 3.0",
+    "width": 3456,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/civilizations/ancestral-puebloan/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/ancestral-puebloan/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/ancestral-puebloan/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/ancestral-puebloan-2": {
+    "collection": "civilizations",
+    "title": "Pueblo Bonito",
+    "subtitle": "Ancestral Puebloan",
+    "alt": "Pueblo Bonito — ancestral puebloan",
+    "photographer": "Gerd Eichmann",
+    "license": "CC BY-SA 4.0",
+    "width": 3840,
+    "height": 2541,
+    "renditions": [
+      {
+        "src": "/images/civilizations/ancestral-puebloan/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/ancestral-puebloan/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/ancestral-puebloan/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/ancestral-puebloan-3": {
+    "collection": "civilizations",
+    "title": "White House Ruin",
+    "subtitle": "Ancestral Puebloan",
+    "alt": "White House Ruin — ancestral puebloan",
+    "photographer": "Andreas F. Borchert",
+    "license": "CC BY-SA 4.0",
+    "width": 3504,
+    "height": 2336,
+    "renditions": [
+      {
+        "src": "/images/civilizations/ancestral-puebloan/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/ancestral-puebloan/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/ancestral-puebloan/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/chavin": {
+    "collection": "civilizations",
+    "title": "Chavín de Huántar",
+    "subtitle": "Chavín",
+    "alt": "Chavín de Huántar — chavin",
+    "photographer": "PsamatheM",
+    "license": "CC BY-SA 4.0",
+    "width": 5472,
+    "height": 3648,
+    "renditions": [
+      {
+        "src": "/images/civilizations/chavin/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/chavin/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/chavin/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/chavin-2": {
+    "collection": "civilizations",
+    "title": "Lanzón monolith",
+    "subtitle": "Chavín",
+    "alt": "Lanzón monolith — chavin",
+    "photographer": "Reto Luescher",
+    "license": "CC BY 2.5",
+    "width": 1944,
+    "height": 2592,
+    "renditions": [
+      {
+        "src": "/images/civilizations/chavin/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/chavin/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/chavin/w2048-2.jpg",
+        "width": 1944
+      }
+    ]
+  },
+  "civilizations/chavin-3": {
+    "collection": "civilizations",
+    "title": "Circular plaza",
+    "subtitle": "Chavín",
+    "alt": "Circular plaza — chavin",
+    "photographer": "Dtarazona",
+    "license": "CC BY-SA 3.0",
+    "width": 3072,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/civilizations/chavin/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/chavin/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/chavin/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/moche": {
+    "collection": "civilizations",
+    "title": "Huaca de la Luna",
+    "subtitle": "Moche",
+    "alt": "Huaca de la Luna — moche",
+    "photographer": "Martin St-Amant ( S23678 )",
+    "license": "CC BY 3.0",
+    "width": 5936,
+    "height": 5020,
+    "renditions": [
+      {
+        "src": "/images/civilizations/moche/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/moche/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/moche/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/moche-2": {
+    "collection": "civilizations",
+    "title": "Lord of Sipán tomb",
+    "subtitle": "Moche",
+    "alt": "Lord of Sipán tomb — moche",
+    "photographer": "user:Oresaba",
+    "license": "CC BY-SA 3.0",
+    "width": 2592,
+    "height": 3888,
+    "renditions": [
+      {
+        "src": "/images/civilizations/moche/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/moche/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/moche/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/moche-3": {
+    "collection": "civilizations",
+    "title": "Huaca del Sol",
+    "subtitle": "Moche",
+    "alt": "Huaca del Sol — moche",
+    "photographer": "Pitxiquin",
+    "license": "CC BY-SA 4.0",
+    "width": 3968,
+    "height": 2976,
+    "renditions": [
+      {
+        "src": "/images/civilizations/moche/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/moche/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/moche/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/tiwanaku": {
+    "collection": "civilizations",
+    "title": "Gate of the Sun",
+    "subtitle": "Tiwanaku",
+    "alt": "Gate of the Sun — tiwanaku",
+    "photographer": "rodoluca",
+    "license": "CC BY-SA 3.0",
+    "width": 2034,
+    "height": 1356,
+    "renditions": [
+      {
+        "src": "/images/civilizations/tiwanaku/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/tiwanaku/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/tiwanaku/w2048.jpg",
+        "width": 2034
+      }
+    ]
+  },
+  "civilizations/tiwanaku-2": {
+    "collection": "civilizations",
+    "title": "Kalasasaya",
+    "subtitle": "Tiwanaku",
+    "alt": "Kalasasaya — tiwanaku",
+    "photographer": "No machine-readable author provided. Anakin~commonswiki assumed (based on copyright cla…",
+    "license": "CC BY-SA 3.0",
+    "width": 2048,
+    "height": 1536,
+    "renditions": [
+      {
+        "src": "/images/civilizations/tiwanaku/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/tiwanaku/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/tiwanaku/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/tiwanaku-3": {
+    "collection": "civilizations",
+    "title": "Akapana",
+    "subtitle": "Tiwanaku",
+    "alt": "Akapana — tiwanaku",
+    "photographer": "DeFries",
+    "license": "CC BY 2.0",
+    "width": 2047,
+    "height": 1365,
+    "renditions": [
+      {
+        "src": "/images/civilizations/tiwanaku/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/tiwanaku/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/tiwanaku/w2048-3.jpg",
+        "width": 2047
       }
     ]
   },
@@ -20471,6 +21191,366 @@
       },
       {
         "src": "/images/cities/bogota/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/lisbon": {
+    "collection": "cities",
+    "title": "Belém Tower",
+    "subtitle": "Lisbon",
+    "alt": "Belém Tower — lisbon",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "width": 4490,
+    "height": 3443,
+    "renditions": [
+      {
+        "src": "/images/cities/lisbon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/lisbon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/lisbon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/lisbon-2": {
+    "collection": "cities",
+    "title": "Jerónimos Monastery",
+    "subtitle": "Lisbon",
+    "alt": "Jerónimos Monastery — lisbon",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 6365,
+    "height": 5557,
+    "renditions": [
+      {
+        "src": "/images/cities/lisbon/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/lisbon/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/lisbon/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/lisbon-3": {
+    "collection": "cities",
+    "title": "Praça do Comércio",
+    "subtitle": "Lisbon",
+    "alt": "Praça do Comércio — lisbon",
+    "photographer": "Berthold Werner",
+    "license": "CC BY-SA 4.0",
+    "width": 5760,
+    "height": 3956,
+    "renditions": [
+      {
+        "src": "/images/cities/lisbon/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/lisbon/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/lisbon/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/vienna": {
+    "collection": "cities",
+    "title": "Schönbrunn Palace",
+    "subtitle": "Vienna",
+    "alt": "Schönbrunn Palace — vienna",
+    "photographer": "Thomas Wolf , www.foto-tw.de",
+    "license": "CC BY-SA 3.0 de",
+    "width": 8247,
+    "height": 3693,
+    "renditions": [
+      {
+        "src": "/images/cities/vienna/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/vienna/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/vienna/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/vienna-2": {
+    "collection": "cities",
+    "title": "St. Stephen's Cathedral",
+    "subtitle": "Vienna",
+    "alt": "St. Stephen's Cathedral — vienna",
+    "photographer": "Uoaei1",
+    "license": "CC BY-SA 3.0",
+    "width": 3685,
+    "height": 5528,
+    "renditions": [
+      {
+        "src": "/images/cities/vienna/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/vienna/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/vienna/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/vienna-3": {
+    "collection": "cities",
+    "title": "Hofburg",
+    "subtitle": "Vienna",
+    "alt": "Hofburg — vienna",
+    "photographer": "Jankovszky György / Fortepan",
+    "license": "CC BY-SA 3.0",
+    "width": 6592,
+    "height": 4095,
+    "renditions": [
+      {
+        "src": "/images/cities/vienna/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/vienna/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/vienna/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/prague": {
+    "collection": "cities",
+    "title": "Charles Bridge",
+    "subtitle": "Prague",
+    "alt": "Charles Bridge — prague",
+    "photographer": "DXR",
+    "license": "CC BY-SA 4.0",
+    "width": 7164,
+    "height": 4030,
+    "renditions": [
+      {
+        "src": "/images/cities/prague/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/prague/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/prague/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/prague-2": {
+    "collection": "cities",
+    "title": "Prague Castle",
+    "subtitle": "Prague",
+    "alt": "Prague Castle — prague",
+    "photographer": "Estec sarl.",
+    "license": "CC BY 3.0",
+    "width": 2777,
+    "height": 2052,
+    "renditions": [
+      {
+        "src": "/images/cities/prague/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/prague/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/prague/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/prague-3": {
+    "collection": "cities",
+    "title": "Old Town Square",
+    "subtitle": "Prague",
+    "alt": "Old Town Square — prague",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 4000,
+    "height": 3864,
+    "renditions": [
+      {
+        "src": "/images/cities/prague/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/prague/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/prague/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/barcelona": {
+    "collection": "cities",
+    "title": "Sagrada Família",
+    "subtitle": "Barcelona",
+    "alt": "Sagrada Família — barcelona",
+    "photographer": "Txllxt TxllxT",
+    "license": "CC BY-SA 4.0",
+    "width": 4032,
+    "height": 6048,
+    "renditions": [
+      {
+        "src": "/images/cities/barcelona/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/barcelona/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/barcelona/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/barcelona-2": {
+    "collection": "cities",
+    "title": "Park Güell",
+    "subtitle": "Barcelona",
+    "alt": "Park Güell — barcelona",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "width": 2960,
+    "height": 2232,
+    "renditions": [
+      {
+        "src": "/images/cities/barcelona/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/barcelona/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/barcelona/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/barcelona-3": {
+    "collection": "cities",
+    "title": "Casa Batlló",
+    "subtitle": "Barcelona",
+    "alt": "Casa Batlló — barcelona",
+    "photographer": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "width": 3267,
+    "height": 2422,
+    "renditions": [
+      {
+        "src": "/images/cities/barcelona/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/barcelona/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/barcelona/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/moscow": {
+    "collection": "cities",
+    "title": "Red Square",
+    "subtitle": "Moscow",
+    "alt": "Red Square — moscow",
+    "photographer": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "width": 4912,
+    "height": 3264,
+    "renditions": [
+      {
+        "src": "/images/cities/moscow/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/moscow/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/moscow/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/moscow-2": {
+    "collection": "cities",
+    "title": "Moscow Kremlin",
+    "subtitle": "Moscow",
+    "alt": "Moscow Kremlin — moscow",
+    "photographer": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "width": 7062,
+    "height": 3460,
+    "renditions": [
+      {
+        "src": "/images/cities/moscow/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/moscow/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/moscow/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "cities/moscow-3": {
+    "collection": "cities",
+    "title": "St. Basil's Cathedral",
+    "subtitle": "Moscow",
+    "alt": "St. Basil's Cathedral — moscow",
+    "photographer": "Godot13",
+    "license": "CC BY-SA 4.0",
+    "width": 3727,
+    "height": 3830,
+    "renditions": [
+      {
+        "src": "/images/cities/moscow/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/cities/moscow/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/cities/moscow/w2048-3.jpg",
         "width": 2048
       }
     ]
@@ -23783,6 +24863,366 @@
       },
       {
         "src": "/images/rivers/murray-darling/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/loire": {
+    "collection": "rivers",
+    "title": "Loire at Amboise",
+    "subtitle": "Loire",
+    "alt": "Loire at Amboise — loire",
+    "photographer": "Avi1111 dr. avishai teicher",
+    "license": "CC BY-SA 4.0",
+    "width": 4608,
+    "height": 3456,
+    "renditions": [
+      {
+        "src": "/images/rivers/loire/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/loire/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/loire/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/loire-2": {
+    "collection": "rivers",
+    "title": "Chambord on the Loire",
+    "subtitle": "Loire",
+    "alt": "Chambord on the Loire — loire",
+    "photographer": "Benh LIEU SONG",
+    "license": "CC BY-SA 3.0",
+    "width": 15605,
+    "height": 6256,
+    "renditions": [
+      {
+        "src": "/images/rivers/loire/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/loire/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/loire/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/loire-3": {
+    "collection": "rivers",
+    "title": "Loire at Saumur",
+    "subtitle": "Loire",
+    "alt": "Loire at Saumur — loire",
+    "photographer": "Kev22",
+    "license": "CC BY-SA 3.0",
+    "width": 4272,
+    "height": 2848,
+    "renditions": [
+      {
+        "src": "/images/rivers/loire/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/loire/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/loire/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/thames": {
+    "collection": "rivers",
+    "title": "Thames at Tower Bridge",
+    "subtitle": "Thames",
+    "alt": "Thames at Tower Bridge — thames",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "width": 9462,
+    "height": 4734,
+    "renditions": [
+      {
+        "src": "/images/rivers/thames/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/thames/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/thames/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/thames-2": {
+    "collection": "rivers",
+    "title": "Thames at Westminster",
+    "subtitle": "Thames",
+    "alt": "Thames at Westminster — thames",
+    "photographer": "Diliff",
+    "license": "CC BY-SA 2.5",
+    "width": 3200,
+    "height": 1261,
+    "renditions": [
+      {
+        "src": "/images/rivers/thames/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/thames/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/thames/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/thames-3": {
+    "collection": "rivers",
+    "title": "Thames Barrier",
+    "subtitle": "Thames",
+    "alt": "Thames Barrier — thames",
+    "photographer": "mattbuck ( category )",
+    "license": "CC BY-SA 4.0",
+    "width": 4548,
+    "height": 2856,
+    "renditions": [
+      {
+        "src": "/images/rivers/thames/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/thames/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/thames/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/colorado": {
+    "collection": "rivers",
+    "title": "Grand Canyon",
+    "subtitle": "Colorado River",
+    "alt": "Grand Canyon — colorado",
+    "photographer": "Tomascastelazo",
+    "license": "CC BY-SA 3.0",
+    "width": 5184,
+    "height": 3456,
+    "renditions": [
+      {
+        "src": "/images/rivers/colorado/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/colorado/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/colorado/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/colorado-2": {
+    "collection": "rivers",
+    "title": "Horseshoe Bend",
+    "subtitle": "Colorado River",
+    "alt": "Horseshoe Bend — colorado",
+    "photographer": "Luca Galuzzi ( Lucag )",
+    "license": "CC BY-SA 2.5",
+    "width": 2000,
+    "height": 1333,
+    "renditions": [
+      {
+        "src": "/images/rivers/colorado/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/colorado/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/colorado/w2048-2.jpg",
+        "width": 2000
+      }
+    ]
+  },
+  "rivers/colorado-3": {
+    "collection": "rivers",
+    "title": "Colorado River Delta",
+    "subtitle": "Colorado River",
+    "alt": "Colorado River Delta — colorado",
+    "photographer": "NASA",
+    "license": "Public domain",
+    "width": 4928,
+    "height": 2768,
+    "renditions": [
+      {
+        "src": "/images/rivers/colorado/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/colorado/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/colorado/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/yukon": {
+    "collection": "rivers",
+    "title": "Yukon at Dawson",
+    "subtitle": "Yukon River",
+    "alt": "Yukon at Dawson — yukon",
+    "photographer": "Photo by and (c)2006 Derek Ramsey ( Ram-Man )",
+    "license": "CC BY-SA 2.5",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/rivers/yukon/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/yukon/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/yukon/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/yukon-2": {
+    "collection": "rivers",
+    "title": "Yukon at Whitehorse",
+    "subtitle": "Yukon River",
+    "alt": "Yukon at Whitehorse — yukon",
+    "photographer": "Gareth Sloan from Montreal, Canada",
+    "license": "CC BY-SA 2.0",
+    "width": 2496,
+    "height": 1664,
+    "renditions": [
+      {
+        "src": "/images/rivers/yukon/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/yukon/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/yukon/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/yukon-3": {
+    "collection": "rivers",
+    "title": "Yukon Delta",
+    "subtitle": "Yukon River",
+    "alt": "Yukon Delta — yukon",
+    "photographer": "Jeff Schmaltz",
+    "license": "Public domain",
+    "width": 5600,
+    "height": 4000,
+    "renditions": [
+      {
+        "src": "/images/rivers/yukon/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/yukon/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/yukon/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/orinoco": {
+    "collection": "rivers",
+    "title": "Orinoco mainstream",
+    "subtitle": "Orinoco",
+    "alt": "Orinoco mainstream — orinoco",
+    "photographer": "Paolostefano1412",
+    "license": "CC BY-SA 3.0",
+    "width": 4288,
+    "height": 2848,
+    "renditions": [
+      {
+        "src": "/images/rivers/orinoco/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/orinoco/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/orinoco/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/orinoco-2": {
+    "collection": "rivers",
+    "title": "Orinoco Delta",
+    "subtitle": "Orinoco",
+    "alt": "Orinoco Delta — orinoco",
+    "photographer": "Cesar Pérez",
+    "license": "CC BY-SA 4.0",
+    "width": 2912,
+    "height": 2144,
+    "renditions": [
+      {
+        "src": "/images/rivers/orinoco/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/orinoco/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/orinoco/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "rivers/orinoco-3": {
+    "collection": "rivers",
+    "title": "Orinoco from orbit",
+    "subtitle": "Orinoco",
+    "alt": "Orinoco from orbit — orinoco",
+    "photographer": "NASA",
+    "license": "Public domain",
+    "width": 4096,
+    "height": 4096,
+    "renditions": [
+      {
+        "src": "/images/rivers/orinoco/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/rivers/orinoco/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/rivers/orinoco/w2048-3.jpg",
         "width": 2048
       }
     ]

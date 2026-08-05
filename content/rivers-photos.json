@@ -2390,5 +2390,465 @@
         }
       ]
     }
+  ],
+  "loire": [
+    {
+      "featureName": "Loire at Amboise",
+      "alt": "Loire at Amboise — loire",
+      "caption": "Loire at Amboise",
+      "photographer": "Avi1111 dr. avishai teicher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALoire_River_in_Amboise_(1).jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Loire River in Amboise (1).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Loire River in Amboise (1).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "f7b08b4b39d540f097cfb2f9853baade54f0278e727ec79ee4404501c8940e84",
+      "width": 4608,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/loire/w640.jpg",
+          "bytes": 62157
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/loire/w1280.jpg",
+          "bytes": 201801
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/loire/w2048.jpg",
+          "bytes": 586965
+        }
+      ]
+    },
+    {
+      "featureName": "Chambord on the Loire",
+      "alt": "Chambord on the Loire — loire",
+      "caption": "Chambord on the Loire",
+      "photographer": "Benh LIEU SONG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChambord_Castle_Northwest_facade.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Chambord Castle Northwest facade.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Chambord Castle Northwest facade.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3258b8563a1d459a728d04f8b320b6aeb1650b1326554c137e0811724eaa3189",
+      "width": 15605,
+      "height": 6256,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/loire/w640-2.jpg",
+          "bytes": 60607
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/loire/w1280-2.jpg",
+          "bytes": 142302
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/loire/w2048-2.jpg",
+          "bytes": 356342
+        }
+      ]
+    },
+    {
+      "featureName": "Loire at Saumur",
+      "alt": "Loire at Saumur — loire",
+      "caption": "Loire at Saumur",
+      "photographer": "Kev22",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASaumur_-_Vue_sur_la_Loire_et_le_ch%C3%A2teau.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Saumur - Vue sur la Loire et le château.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Saumur - Vue sur la Loire et le château.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "bbb95841e32238655a6370334d554f1dfd03cab1633036026e177df6bcab6d2e",
+      "width": 4272,
+      "height": 2848,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/loire/w640-3.jpg",
+          "bytes": 53526
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/loire/w1280-3.jpg",
+          "bytes": 133101
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/loire/w2048-3.jpg",
+          "bytes": 346033
+        }
+      ]
+    }
+  ],
+  "thames": [
+    {
+      "featureName": "Thames at Tower Bridge",
+      "alt": "Thames at Tower Bridge — thames",
+      "caption": "Thames at Tower Bridge",
+      "photographer": "Diliff",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATower_Bridge_London_Feb_2006.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Tower Bridge London Feb 2006.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Tower Bridge London Feb 2006.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c13e836dc96103284ec8a497062615025e0f0afb8323d5e7403d3981ff8679f5",
+      "width": 9462,
+      "height": 4734,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/thames/w640.jpg",
+          "bytes": 49545
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/thames/w1280.jpg",
+          "bytes": 109247
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/thames/w2048.jpg",
+          "bytes": 257637
+        }
+      ]
+    },
+    {
+      "featureName": "Thames at Westminster",
+      "alt": "Thames at Westminster — thames",
+      "caption": "Thames at Westminster",
+      "photographer": "Diliff",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APalace_of_Westminster%2C_London_-_Feb_2007.jpg",
+      "license": "CC BY-SA 2.5",
+      "commonsTitle": "File:Palace of Westminster, London - Feb 2007.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Palace of Westminster, London - Feb 2007.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "3a9b12931dc2cb6666f67baacc8d71bf551ad9dc29a0164c96fd573310a9d14c",
+      "width": 3200,
+      "height": 1261,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/thames/w640-2.jpg",
+          "bytes": 46237
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/thames/w1280-2.jpg",
+          "bytes": 100604
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/thames/w2048-2.jpg",
+          "bytes": 238026
+        }
+      ]
+    },
+    {
+      "featureName": "Thames Barrier",
+      "alt": "Thames Barrier — thames",
+      "caption": "Thames Barrier",
+      "photographer": "mattbuck ( category )",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALondon_MMB_%C2%BB119_Thames_Barrier.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:London MMB »119 Thames Barrier.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:London MMB »119 Thames Barrier.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "7bc889f34eb480ed4c36c7f8ac464f07815931fb02d3fdacf8c1c42ae321560d",
+      "width": 4548,
+      "height": 2856,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/thames/w640-3.jpg",
+          "bytes": 53469
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/thames/w1280-3.jpg",
+          "bytes": 145354
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/thames/w2048-3.jpg",
+          "bytes": 383473
+        }
+      ]
+    }
+  ],
+  "colorado": [
+    {
+      "featureName": "Grand Canyon",
+      "alt": "Grand Canyon — colorado",
+      "caption": "Grand Canyon",
+      "photographer": "Tomascastelazo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGrand_canyon_march_2013.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Grand canyon march 2013.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Grand canyon march 2013.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "bacd380172b44a60ce1b5361e97563ae3547ce5366b5a865dc7880c0a4fc7225",
+      "width": 5184,
+      "height": 3456,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/colorado/w640.jpg",
+          "bytes": 93626
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/colorado/w1280.jpg",
+          "bytes": 229805
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/colorado/w2048.jpg",
+          "bytes": 585944
+        }
+      ]
+    },
+    {
+      "featureName": "Horseshoe Bend",
+      "alt": "Horseshoe Bend — colorado",
+      "caption": "Horseshoe Bend",
+      "photographer": "Luca Galuzzi ( Lucag )",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AUSA_10187_Horseshoe_Bend_Luca_Galuzzi_2007.jpg",
+      "license": "CC BY-SA 2.5",
+      "commonsTitle": "File:USA 10187 Horseshoe Bend Luca Galuzzi 2007.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:USA 10187 Horseshoe Bend Luca Galuzzi 2007.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "cade55a06448500c53d605984d002b2263534ebb374b960c1ae90dfef274df71",
+      "width": 2000,
+      "height": 1333,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/colorado/w640-2.jpg",
+          "bytes": 72564
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/colorado/w1280-2.jpg",
+          "bytes": 233692
+        },
+        {
+          "width": 2000,
+          "src": "/images/rivers/colorado/w2048-2.jpg",
+          "bytes": 579310
+        }
+      ]
+    },
+    {
+      "featureName": "Colorado River Delta",
+      "alt": "Colorado River Delta — colorado",
+      "caption": "Colorado River Delta",
+      "photographer": "NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AISS-64_Colorado_River_Delta_and_Gulf_of_California%2C_Mexico.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:ISS-64 Colorado River Delta and Gulf of California, Mexico.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:ISS-64 Colorado River Delta and Gulf of California, Mexico.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "126e8911f6d174be65476a2705356b5d822e58d1b0642d74fc5cec3d4176b3ef",
+      "width": 4928,
+      "height": 2768,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/colorado/w640-3.jpg",
+          "bytes": 48977
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/colorado/w1280-3.jpg",
+          "bytes": 117322
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/colorado/w2048-3.jpg",
+          "bytes": 293832
+        }
+      ]
+    }
+  ],
+  "yukon": [
+    {
+      "featureName": "Yukon at Dawson",
+      "alt": "Yukon at Dawson — yukon",
+      "caption": "Yukon at Dawson",
+      "photographer": "Photo by and (c)2006 Derek Ramsey ( Ram-Man )",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADawson_City_Lookout_Yukon_River_3264px.jpg",
+      "license": "CC BY-SA 2.5",
+      "commonsTitle": "File:Dawson City Lookout Yukon River 3264px.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Dawson City Lookout Yukon River 3264px.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "04c63828fe57dd66a8775b5f1d247f6a40e0a3071bee7673389fa974d3ff39d7",
+      "width": 3264,
+      "height": 2448,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/yukon/w640.jpg",
+          "bytes": 32273
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/yukon/w1280.jpg",
+          "bytes": 82032
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/yukon/w2048.jpg",
+          "bytes": 213506
+        }
+      ]
+    },
+    {
+      "featureName": "Yukon at Whitehorse",
+      "alt": "Yukon at Whitehorse — yukon",
+      "caption": "Yukon at Whitehorse",
+      "photographer": "Gareth Sloan from Montreal, Canada",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYukon_River_at_Whitehorse_-a.jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Yukon River at Whitehorse -a.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Yukon River at Whitehorse -a.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "05e01947f37cd888879325b136c84b2fecc4b406972cbe674d3c71ca3f5fa8c9",
+      "width": 2496,
+      "height": 1664,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/yukon/w640-2.jpg",
+          "bytes": 44634
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/yukon/w1280-2.jpg",
+          "bytes": 147906
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/yukon/w2048-2.jpg",
+          "bytes": 389663
+        }
+      ]
+    },
+    {
+      "featureName": "Yukon Delta",
+      "alt": "Yukon Delta — yukon",
+      "caption": "Yukon Delta",
+      "photographer": "Jeff Schmaltz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYukon_River_Delta%2C_Alaska.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Yukon River Delta, Alaska.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Yukon River Delta, Alaska.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "152a0cb7f2c451119d3d74c13175437b939f0ca2e277fd4592a5ec3b9f07a99d",
+      "width": 5600,
+      "height": 4000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/yukon/w640-3.jpg",
+          "bytes": 62286
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/yukon/w1280-3.jpg",
+          "bytes": 251510
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/yukon/w2048-3.jpg",
+          "bytes": 749353
+        }
+      ]
+    }
+  ],
+  "orinoco": [
+    {
+      "featureName": "Orinoco mainstream",
+      "alt": "Orinoco mainstream — orinoco",
+      "caption": "Orinoco mainstream",
+      "photographer": "Paolostefano1412",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOrinoco_river_from_Parmana_Venezuela.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Orinoco river from Parmana Venezuela.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Orinoco river from Parmana Venezuela.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "27dee8c8c9522ea458aca8839b4d3acd086645c7057870e5455697e2dcd7b096",
+      "width": 4288,
+      "height": 2848,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/orinoco/w640.jpg",
+          "bytes": 39745
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/orinoco/w1280.jpg",
+          "bytes": 89151
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/orinoco/w2048.jpg",
+          "bytes": 226187
+        }
+      ]
+    },
+    {
+      "featureName": "Orinoco Delta",
+      "alt": "Orinoco Delta — orinoco",
+      "caption": "Orinoco Delta",
+      "photographer": "Cesar Pérez",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARio_al_sur_de_Monagas_cerca_Delta_Amacuro.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Rio al sur de Monagas cerca Delta Amacuro.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Rio al sur de Monagas cerca Delta Amacuro.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "2fe05654519eb2565ed431dc3745815e0bc078bc54d107db8e071865bfa3f024",
+      "width": 2912,
+      "height": 2144,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/orinoco/w640-2.jpg",
+          "bytes": 54268
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/orinoco/w1280-2.jpg",
+          "bytes": 148980
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/orinoco/w2048-2.jpg",
+          "bytes": 423723
+        }
+      ]
+    },
+    {
+      "featureName": "Orinoco from orbit",
+      "alt": "Orinoco from orbit — orinoco",
+      "caption": "Orinoco from orbit",
+      "photographer": "NASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASTS61C-36-0029_Orinoco%2C_Meta_Rivers%2C_Colombia_and_Venezuela_January_1986.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:STS61C-36-0029 Orinoco, Meta Rivers, Colombia and Venezuela January 1986.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:STS61C-36-0029 Orinoco, Meta Rivers, Colombia and Venezuela January 1986.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "1d716af4f21c0b22fc5d17cba49c7987d11710cca449a6a7f32e1435e2640dfd",
+      "width": 4096,
+      "height": 4096,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/rivers/orinoco/w640-3.jpg",
+          "bytes": 69299
+        },
+        {
+          "width": 1280,
+          "src": "/images/rivers/orinoco/w1280-3.jpg",
+          "bytes": 261011
+        },
+        {
+          "width": 2048,
+          "src": "/images/rivers/orinoco/w2048-3.jpg",
+          "bytes": 860194
+        }
+      ]
+    }
   ]
 }

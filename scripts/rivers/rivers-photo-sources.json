@@ -830,5 +830,165 @@
       "height": 2000,
       "featureName": "Tigris through Baghdad"
     }
+  ],
+  "loire": [
+    {
+      "commonsTitle": "File:Loire River in Amboise (1).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Loire_River_in_Amboise_%281%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALoire_River_in_Amboise_(1).jpg",
+      "photographer": "Avi1111 dr. avishai teicher",
+      "license": "CC BY-SA 4.0",
+      "width": 4608,
+      "height": 3456,
+      "featureName": "Loire at Amboise"
+    },
+    {
+      "commonsTitle": "File:Chambord Castle Northwest facade.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Chambord_Castle_Northwest_facade.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AChambord_Castle_Northwest_facade.jpg",
+      "photographer": "Benh LIEU SONG",
+      "license": "CC BY-SA 3.0",
+      "width": 15605,
+      "height": 6256,
+      "featureName": "Chambord on the Loire"
+    },
+    {
+      "commonsTitle": "File:Saumur - Vue sur la Loire et le château.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Saumur_-_Vue_sur_la_Loire_et_le_ch%C3%A2teau.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASaumur_-_Vue_sur_la_Loire_et_le_ch%C3%A2teau.jpg",
+      "photographer": "Kev22",
+      "license": "CC BY-SA 3.0",
+      "width": 4272,
+      "height": 2848,
+      "featureName": "Loire at Saumur"
+    }
+  ],
+  "thames": [
+    {
+      "commonsTitle": "File:Tower Bridge London Feb 2006.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Tower_Bridge_London_Feb_2006.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATower_Bridge_London_Feb_2006.jpg",
+      "photographer": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "width": 9462,
+      "height": 4734,
+      "featureName": "Thames at Tower Bridge"
+    },
+    {
+      "commonsTitle": "File:Palace of Westminster, London - Feb 2007.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Palace_of_Westminster%2C_London_-_Feb_2007.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APalace_of_Westminster%2C_London_-_Feb_2007.jpg",
+      "photographer": "Diliff",
+      "license": "CC BY-SA 2.5",
+      "width": 3200,
+      "height": 1261,
+      "featureName": "Thames at Westminster"
+    },
+    {
+      "commonsTitle": "File:London MMB »119 Thames Barrier.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/London_MMB_%C2%BB119_Thames_Barrier.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALondon_MMB_%C2%BB119_Thames_Barrier.jpg",
+      "photographer": "mattbuck ( category )",
+      "license": "CC BY-SA 4.0",
+      "width": 4548,
+      "height": 2856,
+      "featureName": "Thames Barrier"
+    }
+  ],
+  "colorado": [
+    {
+      "commonsTitle": "File:Grand canyon march 2013.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Grand_canyon_march_2013.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AGrand_canyon_march_2013.jpg",
+      "photographer": "Tomascastelazo",
+      "license": "CC BY-SA 3.0",
+      "width": 5184,
+      "height": 3456,
+      "featureName": "Grand Canyon"
+    },
+    {
+      "commonsTitle": "File:USA 10187 Horseshoe Bend Luca Galuzzi 2007.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/USA_10187_Horseshoe_Bend_Luca_Galuzzi_2007.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AUSA_10187_Horseshoe_Bend_Luca_Galuzzi_2007.jpg",
+      "photographer": "Luca Galuzzi ( Lucag )",
+      "license": "CC BY-SA 2.5",
+      "width": 2000,
+      "height": 1333,
+      "featureName": "Horseshoe Bend"
+    },
+    {
+      "commonsTitle": "File:ISS-64 Colorado River Delta and Gulf of California, Mexico.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/ISS-64_Colorado_River_Delta_and_Gulf_of_California%2C_Mexico.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AISS-64_Colorado_River_Delta_and_Gulf_of_California%2C_Mexico.jpg",
+      "photographer": "NASA",
+      "license": "Public domain",
+      "width": 4928,
+      "height": 2768,
+      "featureName": "Colorado River Delta"
+    }
+  ],
+  "yukon": [
+    {
+      "commonsTitle": "File:Dawson City Lookout Yukon River 3264px.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Dawson_City_Lookout_Yukon_River_3264px.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADawson_City_Lookout_Yukon_River_3264px.jpg",
+      "photographer": "Photo by and (c)2006 Derek Ramsey ( Ram-Man )",
+      "license": "CC BY-SA 2.5",
+      "width": 3264,
+      "height": 2448,
+      "featureName": "Yukon at Dawson"
+    },
+    {
+      "commonsTitle": "File:Yukon River at Whitehorse -a.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Yukon_River_at_Whitehorse_-a.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYukon_River_at_Whitehorse_-a.jpg",
+      "photographer": "Gareth Sloan from Montreal, Canada",
+      "license": "CC BY-SA 2.0",
+      "width": 2496,
+      "height": 1664,
+      "featureName": "Yukon at Whitehorse"
+    },
+    {
+      "commonsTitle": "File:Yukon River Delta, Alaska.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Yukon_River_Delta%2C_Alaska.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYukon_River_Delta%2C_Alaska.jpg",
+      "photographer": "Jeff Schmaltz",
+      "license": "Public domain",
+      "width": 5600,
+      "height": 4000,
+      "featureName": "Yukon Delta"
+    }
+  ],
+  "orinoco": [
+    {
+      "commonsTitle": "File:Orinoco river from Parmana Venezuela.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Orinoco_river_from_Parmana_Venezuela.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOrinoco_river_from_Parmana_Venezuela.jpg",
+      "photographer": "Paolostefano1412",
+      "license": "CC BY-SA 3.0",
+      "width": 4288,
+      "height": 2848,
+      "featureName": "Orinoco mainstream"
+    },
+    {
+      "commonsTitle": "File:Rio al sur de Monagas cerca Delta Amacuro.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Rio_al_sur_de_Monagas_cerca_Delta_Amacuro.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARio_al_sur_de_Monagas_cerca_Delta_Amacuro.jpg",
+      "photographer": "Cesar Pérez",
+      "license": "CC BY-SA 4.0",
+      "width": 2912,
+      "height": 2144,
+      "featureName": "Orinoco Delta"
+    },
+    {
+      "commonsTitle": "File:STS61C-36-0029 Orinoco, Meta Rivers, Colombia and Venezuela January 1986.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/STS61C-36-0029_Orinoco%2C_Meta_Rivers%2C_Colombia_and_Venezuela_January_1986.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASTS61C-36-0029_Orinoco%2C_Meta_Rivers%2C_Colombia_and_Venezuela_January_1986.jpg",
+      "photographer": "NASA",
+      "license": "Public domain",
+      "width": 4096,
+      "height": 4096,
+      "featureName": "Orinoco from orbit"
+    }
   ]
 }
