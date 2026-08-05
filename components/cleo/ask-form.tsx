@@ -289,7 +289,10 @@ const AssistantMessage = memo(function AssistantMessage({
             prompt={feedbackPrompt}
             turnId={message.turnId}
           />
-          <RememberNote suggestedNote={feedbackPrompt} />
+          <RememberNote
+            suggestedNote={feedbackPrompt}
+            turnId={message.turnId}
+          />
         </>
       ) : null}
     </section>

@@ -81,12 +81,24 @@ export async function POST(request: Request) {
   try {
     const db = getDb()
     const existing = await db
-      .select({ id: cleoFeedback.id })
+      .select({
+        id: cleoFeedback.id,
+        userId: cleoFeedback.userId,
+        guestKeyHash: cleoFeedback.guestKeyHash,
+      })
       .from(cleoFeedback)
       .where(eq(cleoFeedback.turnId, feedback.turnId))
       .limit(1)
 
     if (existing[0]) {
+      const ownerOk = userId
+        ? existing[0].userId === userId
+        : existing[0].userId == null &&
+          existing[0].guestKeyHash === guestKeyHash
+      if (!ownerOk) {
+        return json({ error: 'Feedback turn is not owned by this client.' }, 403)
+      }
+
       await db
         .update(cleoFeedback)
         .set(row)

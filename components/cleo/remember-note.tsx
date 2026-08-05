@@ -11,6 +11,8 @@ type RememberNoteProps = {
   className?: string
   /** Prefill from the user turn when opening the form. */
   suggestedNote?: string
+  /** Unique suffix so multiple completed turns do not share input ids. */
+  turnId?: string
 }
 
 type SubmitState = 'idle' | 'saving' | 'saved' | 'error'
@@ -33,11 +35,16 @@ async function postMemoryNote(note: string) {
  * Signed-in opt-in control to save a durable preference note for Cleo.
  * Guests see nothing — memory is account-scoped only.
  */
-export function RememberNote({ className, suggestedNote }: RememberNoteProps) {
+export function RememberNote({
+  className,
+  suggestedNote,
+  turnId = 'default',
+}: RememberNoteProps) {
   const { data: session, isPending } = authClient.useSession()
   const [open, setOpen] = useState(false)
   const [note, setNote] = useState('')
   const [status, setStatus] = useState<SubmitState>('idle')
+  const inputId = `cleo-remember-note-${turnId}`
 
   if (isPending || !session?.user) return null
 
@@ -104,13 +111,13 @@ export function RememberNote({ className, suggestedNote }: RememberNoteProps) {
             void submit()
           }}
         >
-          <label className="sr-only" htmlFor="cleo-remember-note">
+          <label className="sr-only" htmlFor={inputId}>
             Preference to remember
           </label>
           <input
             autoComplete="off"
             className="cleo-feedback-comment-input"
-            id="cleo-remember-note"
+            id={inputId}
             maxLength={CLEO_MEMORY_NOTE_MAX}
             onChange={(event) => setNote(event.target.value)}
             placeholder="Preference to remember (e.g. prefer metric)"

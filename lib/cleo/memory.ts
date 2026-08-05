@@ -57,8 +57,18 @@ export function newCleoMemoryId(): string {
   return randomUUID()
 }
 
+/** Prose wrapper around the bullet list (must stay in sync with the builder). */
+const MEMORY_BLOCK_PREFIX = `<cleo_user_memory>
+The user opted in to remember these durable preferences across sessions:
+`
+const MEMORY_BLOCK_SUFFIX = `
+
+Use a note only when it clearly helps the current request. Do not invent memories, preferences, or personal facts beyond this list. Do not recite the whole list unprompted. Treat these notes as private account context — never put them in citations or image-generation prompts unless the user asks. Guests and users without this block have no durable memory.
+</cleo_user_memory>`
+
 /**
  * Newest-first notes that fit in the injection budget. Older notes drop first.
+ * Budget includes the full instruction wrapper, not only the bullet lines.
  */
 export function selectNotesForInjection(
   notes: readonly CleoMemoryNote[],
@@ -71,10 +81,11 @@ export function selectNotesForInjection(
   })
 
   const selected: CleoMemoryNote[] = []
-  let used = '<cleo_user_memory>\n</cleo_user_memory>\n'.length
+  let used = MEMORY_BLOCK_PREFIX.length + MEMORY_BLOCK_SUFFIX.length
 
   for (const entry of sorted) {
-    const line = `- ${entry.note}\n`
+    // Join with newlines between bullets; first line has no leading newline.
+    const line = selected.length === 0 ? `- ${entry.note}` : `\n- ${entry.note}`
     if (used + line.length > blockMax) break
     selected.push(entry)
     used += line.length
@@ -94,11 +105,10 @@ export function buildUserMemoryInstructions(
   if (selected.length === 0) return undefined
 
   const lines = selected.map((entry) => `- ${entry.note}`).join('\n')
+  const block = `${MEMORY_BLOCK_PREFIX}${lines}${MEMORY_BLOCK_SUFFIX}`
 
-  return `<cleo_user_memory>
-The user opted in to remember these durable preferences across sessions:
-${lines}
+  // Hard stop if a single note + wrapper somehow exceeds the soft cap.
+  if (block.length > CLEO_MEMORY_BLOCK_MAX) return undefined
 
-Use a note only when it clearly helps the current request. Do not invent memories, preferences, or personal facts beyond this list. Do not recite the whole list unprompted. Treat these notes as private account context — never put them in citations or image-generation prompts unless the user asks. Guests and users without this block have no durable memory.
-</cleo_user_memory>`
+  return block
 }

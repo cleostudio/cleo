@@ -111,8 +111,20 @@ describe('POST /api/cleo/feedback', () => {
     expect(inserted.inventedPaths).toBe(true)
   })
 
-  it('updates an existing turn feedback row', async () => {
-    db.selectLimit.mockResolvedValue([{ id: 'existing' }])
+  it('updates an existing turn feedback row for the same guest', async () => {
+    // First insert to capture the guest hash this client key produces.
+    await POST(feedbackRequest(validBody))
+    const inserted = db.insertValues.mock.calls[0]?.[0] as {
+      guestKeyHash: string
+    }
+    db.insertValues.mockClear()
+    db.selectLimit.mockResolvedValue([
+      {
+        id: 'existing',
+        userId: null,
+        guestKeyHash: inserted.guestKeyHash,
+      },
+    ])
 
     const response = await POST(
       feedbackRequest({ ...validBody, rating: 'up', comment: 'Actually fine' }),
@@ -125,6 +137,24 @@ describe('POST /api/cleo/feedback', () => {
     })
     expect(db.updateSet).toHaveBeenCalled()
     expect(db.insertValues).not.toHaveBeenCalled()
+  })
+
+  it('rejects updates when the turn belongs to another owner', async () => {
+    db.selectLimit.mockResolvedValue([
+      {
+        id: 'existing',
+        userId: 'user_other',
+        guestKeyHash: null,
+      },
+    ])
+
+    const response = await POST(
+      feedbackRequest({ ...validBody, rating: 'up', comment: 'hijack' }),
+    )
+    expect(response.status).toBe(403)
+    expect(db.updateSet).not.toHaveBeenCalled()
+    const payload = await response.json()
+    expect(JSON.stringify(payload)).not.toContain('hijack')
   })
 
   it('rejects invalid rating without leaking body contents', async () => {

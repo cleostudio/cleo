@@ -73,10 +73,16 @@ describe('buildUserMemoryInstructions', () => {
       createdAt: new Date(Date.UTC(2026, 0, index + 1)).toISOString(),
     }))
 
-    const selected = selectNotesForInjection(notes, 400)
+    const selected = selectNotesForInjection(notes, 900)
     expect(selected.length).toBeGreaterThan(0)
     expect(selected.length).toBeLessThan(notes.length)
     // Newest retained.
     expect(selected.at(-1)?.note).toContain('number 29')
+
+    const block = buildUserMemoryInstructions(notes)
+    expect(block).toBeDefined()
+    expect(block!.length).toBeLessThanOrEqual(CLEO_MEMORY_BLOCK_MAX)
+    expect(block).toContain('number 29')
+    expect(block).not.toContain('number 0')
   })
 })

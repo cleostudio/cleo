@@ -1,4 +1,4 @@
-import { and, asc, count, desc, eq } from 'drizzle-orm'
+import { and, count, desc, eq } from 'drizzle-orm'
 
 import {
   CLEO_MEMORY_NOTES_MAX,
@@ -52,7 +52,10 @@ export async function listUserMemoryNotes(
   }
 }
 
-/** Notes oldest→newest for injection (fail-open empty on errors). */
+/**
+ * Newest notes for injection (same window as the account list). Fail-open empty
+ * on errors. `selectNotesForInjection` reorders oldest→newest for the block.
+ */
 export async function loadUserMemoryNotesForInjection(
   userId: string,
 ): Promise<CleoMemoryNote[]> {
@@ -68,7 +71,7 @@ export async function loadUserMemoryNotesForInjection(
       })
       .from(cleoMemory)
       .where(eq(cleoMemory.userId, userId))
-      .orderBy(asc(cleoMemory.createdAt))
+      .orderBy(desc(cleoMemory.createdAt))
       .limit(CLEO_MEMORY_NOTES_MAX)
 
     return rows.map(toNote)
