@@ -217,10 +217,13 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('chavin')[0]).toBe('/civilizations/chavin')
     expect(hrefs('moche')[0]).toBe('/civilizations/moche')
     expect(hrefs('tiwanaku')[0]).toBe('/civilizations/tiwanaku')
-    expect(hrefs('palace of knossos')[0]).toBe('/civilizations/minoan-crete')
-    expect(hrefs('lion gate')[0]).toBe('/civilizations/mycenaean-greece')
-    expect(hrefs('monks mound')[0]).toBe('/civilizations/mississippian')
-    expect(hrefs('cliff palace')[0]).toBe('/civilizations/ancestral-puebloan')
+    // Secondary features (hero photo titles also index under Gallery).
+    expect(hrefs('phaistos disc')[0]).toBe('/civilizations/minoan-crete')
+    expect(hrefs('treasury of atreus')[0]).toBe(
+      '/civilizations/mycenaean-greece',
+    )
+    expect(hrefs('cahokia woodhenge')[0]).toBe('/civilizations/mississippian')
+    expect(hrefs('pueblo bonito')[0]).toBe('/civilizations/ancestral-puebloan')
   })
 
   it('finds city guides and their sites', () => {
@@ -281,11 +284,12 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('prague')[0]).toBe('/cities/prague')
     expect(hrefs('barcelona')[0]).toBe('/cities/barcelona')
     expect(hrefs('moscow')[0]).toBe('/cities/moscow')
-    expect(hrefs('belém tower')[0]).toBe('/cities/lisbon')
-    expect(hrefs('schönbrunn')[0]).toBe('/cities/vienna')
-    expect(hrefs('charles bridge')[0]).toBe('/cities/prague')
-    expect(hrefs('sagrada família')[0]).toBe('/cities/barcelona')
-    expect(hrefs('red square')[0]).toBe('/cities/moscow')
+    // Secondary features (hero photo titles also index under Gallery).
+    expect(hrefs('jerónimos monastery')[0]).toBe('/cities/lisbon')
+    expect(hrefs("st. stephen's cathedral")[0]).toBe('/cities/vienna')
+    expect(hrefs('old town square')[0]).toBe('/cities/prague')
+    expect(hrefs('park güell')[0]).toBe('/cities/barcelona')
+    expect(hrefs('moscow kremlin')[0]).toBe('/cities/moscow')
   })
 
   it('finds ocean guides and their features', () => {
@@ -382,10 +386,11 @@ describe('searchSiteCatalog', () => {
     expect(hrefs('colorado river')[0]).toBe('/rivers/colorado')
     expect(hrefs('yukon river')[0]).toBe('/rivers/yukon')
     expect(hrefs('orinoco')[0]).toBe('/rivers/orinoco')
+    // Secondary features (hero photo titles also index under Gallery).
     expect(hrefs('chambord on the loire')[0]).toBe('/rivers/loire')
     expect(hrefs('thames barrier')[0]).toBe('/rivers/thames')
     expect(hrefs('horseshoe bend')[0]).toBe('/rivers/colorado')
-    expect(hrefs('yukon at dawson')[0]).toBe('/rivers/yukon')
+    expect(hrefs('yukon at whitehorse')[0]).toBe('/rivers/yukon')
     expect(hrefs('orinoco delta')[0]).toBe('/rivers/orinoco')
   })
 
