@@ -48,6 +48,63 @@ Live chat is still one-shot generation + stream + post-hoc guardrails. There
 is no thumbs feedback, no eval suite, and no durable memory beyond Location
 and account name.
 
+## Research: best practices and reference implementations
+
+Surveyed August 2026. Prefer these sources when implementing; do not chase
+every research system into the Cleo runtime.
+
+### Canonical references
+
+| Source | Why it matters for Cleo |
+| --- | --- |
+| [Self-Evolving Agents cookbook](https://developers.openai.com/cookbook/examples/partners/self_evolving_agents/autonomous_agent_retraining) | Baseline → human/LLM feedback → Evals → revised prompt → promote. Compares Platform Optimize, static metaprompt, and GEPA. |
+| [Agent improvement loop (traces → evals → Codex)](https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop) | Production flywheel: traces + human/LLM feedback → reusable evals (Promptfoo) → ranked harness changes → developer handoff. **Reviewed loop first**, deeper automation later. |
+| [Working with evals](https://developers.openai.com/api/docs/guides/evals) | Official Evals API: `data_source_config` + `testing_criteria` (graders); template vars for ground truth vs sample output. |
+| [GEPA](https://github.com/gepa-ai/gepa) | Reflective prompt/search over execution traces with train/val Pareto selection; used in the OpenAI cookbook and DSPy/MLflow/Opik integrations. |
+| [Reflexion (Shinn et al.)](https://arxiv.org/abs/2303.11366) | Actor → Evaluator → verbal Self-Reflection into bounded episodic memory (typically 1–3 lessons). |
+| [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Start simple; evaluator-optimizer only when criteria are clear and iteration helps; frameworks optional; measure before adding complexity. |
+| [Anthropic: harness design](https://www.anthropic.com/engineering/harness-design-long-running-apps) | Separate skeptical **evaluator** from generator (self-grade is too lenient); re-examine harness when models improve. |
+| Mem0 / scoped memory docs | `user_id` / `agent_id` / `run_id` scoping; add/search/update/delete; user-visible deletion. Pattern to copy on Neon — not a required dependency. |
+
+### Practices that consistently show up
+
+1. **Improve the harness, not the weights.** Instructions, tools, validators, and evals are the durable artifacts. OpenAI’s improvement-loop notebook treats the harness as the full contract (prompt + tools + routing + validation). Cleo already has most of that in-repo; evolve it offline.
+2. **Grounded evaluators beat self-critique.** Prefer external truth (catalog getters, `guardrails`, tests, tool results) over the generator grading itself. Anthropic and Reflexion both stress this; Cleo’s guardrails are free graders.
+3. **Separate generator from evaluator.** Use a distinct rubric/judge (lower temperature / separate call) when you need semantic scores. Cap interactive revise loops (2–3 max); put multi-iteration search offline.
+4. **Train vs held-out.** Static metaprompt loops overfit section-by-section feedback. GEPA-style and cookbook guidance: optimize on train, promote only if val improves.
+5. **Traces → feedback → evals → change set.** Do not stop at thumbs. Convert failures into reusable cases (Promptfoo or vitest/OpenAI Evals), then a ranked handoff (HALO-style or a short markdown report) for a PR.
+6. **Start with Platform Optimize / small golden set**, then automate. Cookbook progression: UI Optimize → scripted graders → GEPA when you need generalization.
+7. **Memory is scoped and deletable.** Personal memory ≠ global prompt evolution. Scope by user; expose clear/delete; inject a bounded block; never invent beyond stored notes (aligns with Mem0 scoping and Cleo’s `<cleo_user_profile>` pattern).
+8. **Keep the live path simple.** Anthropic: add evaluator-optimizer only when measurable. Cleo’s 90s stream budget favors deterministic sanitize online + rich offline loops.
+9. **Human gate until the eval gate is trusted.** OpenAI’s improvement loop default: propose diffs, developer merges. Automate merge only after graders are stable.
+10. **Skip RFT / fine-tuning for Cleo.** OpenAI is winding down fine-tuning access for new users; Cleo’s non-goal remains prompt/harness evolution via OpenAI API only.
+
+### Best-fit implementations to borrow (not adopt wholesale)
+
+| Implementation | Borrow | Leave alone for Cleo |
+| --- | --- | --- |
+| OpenAI Evals Platform + Optimize | Early labeling, thumbs + comment → Optimize on `CLEO_INSTRUCTIONS` draft | Do not make Platform the only source of truth; keep cases in git |
+| OpenAI Evals API graders | `string_check` / `score_model` for CI-ish runs | Mirror critical checks in local TS graders that call `guardrails` |
+| Promptfoo (from improvement-loop cookbook) | YAML scenarios, regression gate, CI | Optional; vitest may cover Phase A without a new runner |
+| GEPA (`gepa-ai/gepa`) | Phase C+ offline instruction search with train/val | Never run GEPA inside `/api/responses` |
+| HALO / Codex handoff pattern | Rank harness changes → `codex_handoff.md`-style PR body | No requirement to adopt Agents SDK or HALO dependency |
+| Reflexion / Self-Refine | Bounded episodic lessons; offline or rare online repair | No unbounded reflection buffer in the browser transcript |
+| Mem0 / Letta-style memory | Scope keys, CRUD, audit history | Prefer Neon tables first; avoid a second memory SaaS unless product asks |
+| DSPy / SuperOptiX GEPA adapters | Ideas for persisting optimized instructions as artifacts | Stay on Responses route; no Python agent rewrite |
+
+### Recommended stack for Cleo (research → product)
+
+| Layer | Choice | Rationale |
+| --- | --- | --- |
+| Online chat | Keep current Responses API + guardrails | Simple, measured, within invariants |
+| Online repair | Deterministic sanitize; ≤1 optional repair on hard fail | Latency / `maxDuration` |
+| Shared learning | Offline evals → PR to `instructions.ts` | Matches OpenAI + Anthropic “reviewed harness change” |
+| Early optimize | OpenAI Platform Optimize on a golden CSV | Fast learning before building GEPA |
+| Later optimize | Scripted graders → optional GEPA | Train/val; score report in PR |
+| Regression gate | Local deterministic graders (+ optional Promptfoo/OpenAI Evals) | Same truth as production helpers |
+| Personal memory | Neon, signed-in, scoped, deletable | Mem0 practices without new vendor |
+| Trace capture | Lightweight signals + sampled redacted cases | Improvement-loop “traces” without `store: true` |
+
 ## Architecture (three loops)
 
 Use three loops with different trust and latency budgets. Only the offline
@@ -201,28 +258,34 @@ Recommended default:
 
 ### Phase A — Eval harness (ship first)
 
-1. Golden cases for catalog grounding + voice smoke tests.
+1. Golden cases for catalog grounding + voice smoke tests (start ~20–30;
+   grow from real failures).
 2. Deterministic graders wrapping `guardrails` + catalog getters.
 3. `pnpm test:cleo-eval` (or vitest) runnable without network for
    deterministic cases; optional live job behind `OPENAI_API_KEY`.
-4. Document how to add a case when a production failure is found.
+4. Optional parallel: upload the same CSV to OpenAI Evals / Platform Optimize
+   for a first instruction revision (manual merge).
+5. Document how to add a case when a production failure is found.
 
 ### Phase B — Feedback UI + Neon signals
 
 1. Lightweight turn feedback in `components/cleo/*` (design-language: no card
-   clutter; one clear control).
+   clutter; one clear control). Prefer rating + short text (feeds Optimize /
+   meta-prompt the way the cookbooks expect).
 2. Neon schema + `POST /api/cleo/feedback`.
-3. Export script: signals → eval case candidates (human triage).
+3. Export script: signals → eval case candidates (human triage) — the
+   “traces → evals” step from the improvement-loop cookbook.
 
 ### Phase C — Offline optimize → PR
 
 1. Scripted meta-prompt revise of `CLEO_INSTRUCTIONS` against failing cases.
-2. Score must beat baseline on train **and** held-out cases.
-3. Open draft PR with score report; engineer merges.
+2. Score must beat baseline on train **and** held-out cases (anti-overfit).
+3. Open draft PR with score report / handoff notes; engineer merges.
+4. Later: optional GEPA pass when static metaprompt plateaus.
 
 ### Phase D — Opt-in account memory
 
-1. Schema + account UI to view/clear notes.
+1. Schema + account UI to view/clear notes (`user_id`-scoped; Mem0-like CRUD).
 2. `<cleo_user_memory>` injection + instruction updates in `instructions.ts`
    / `user-profile.ts` pattern.
 3. Tests for cap, redaction, and guest isolation.
