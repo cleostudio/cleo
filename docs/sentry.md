@@ -23,6 +23,7 @@ Next.js app. Org: **cleo-studio**. Project: **sentry-cleo**
 | `NEXT_PUBLIC_SENTRY_DSN` | Client (+ server fallback) | Yes for browser capture | Public DSN from project client keys |
 | `SENTRY_DSN` | Server / Edge | Recommended | Same DSN; falls back to `NEXT_PUBLIC_SENTRY_DSN` |
 | `SENTRY_AUTH_TOKEN` | Build | For readable prod stacks | Auth token with release/source-map scopes |
+| `SENTRY_URL` | Build | Yes for this org | `https://us.sentry.io` (US-region org) |
 | `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | Client | Optional | Defaults to `NODE_ENV` |
 | `SENTRY_ENVIRONMENT` | Server / Edge | Optional | Defaults to `VERCEL_ENV` then `NODE_ENV` |
 
@@ -37,12 +38,13 @@ Environments → Cleo):
 2. `SENTRY_DSN` — same DSN
 3. `SENTRY_AUTH_TOKEN` — for `pnpm build` source map upload (optional for local
    UI work; required for symbolicated production traces)
-4. Optional: `SENTRY_ENVIRONMENT=development` and
-   `NEXT_PUBLIC_SENTRY_ENVIRONMENT=development` so cloud runs do not look like
-   production
+4. `SENTRY_URL=https://us.sentry.io` — US-region API host for uploads
+5. Optional: set `SENTRY_ENVIRONMENT` and `NEXT_PUBLIC_SENTRY_ENVIRONMENT`
+   to a non-production label (for example the Node `NODE_ENV` for local work)
+   so cloud runs do not look like production
 
-Also set the same three (DSN + auth token) on Vercel Production / Preview for
-deployed capture and source maps.
+Also set the same vars (DSN + auth token + `SENTRY_URL`) on Vercel Production /
+Preview for deployed capture and source maps.
 
 ## Local verify
 
