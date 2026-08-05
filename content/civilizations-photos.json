@@ -3857,5 +3857,465 @@
         }
       ]
     }
+  ],
+  "rapa-nui": [
+    {
+      "featureName": "Ahu Tongariki",
+      "alt": "Ahu Tongariki — rapa nui",
+      "caption": "Ahu Tongariki",
+      "photographer": "Rivi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAhu_Tongariki_cropped.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Ahu Tongariki cropped.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Ahu Tongariki cropped.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "6c5ac83480444bef0a23b0829f5fc2ab5fb3eaa9fbe11dc18e95841baab35bba",
+      "width": 2256,
+      "height": 1500,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/rapa-nui/w640.jpg",
+          "bytes": 50442
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/rapa-nui/w1280.jpg",
+          "bytes": 180869
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/rapa-nui/w2048.jpg",
+          "bytes": 472971
+        }
+      ]
+    },
+    {
+      "featureName": "Rano Raraku",
+      "alt": "Rano Raraku — rapa nui",
+      "caption": "Rano Raraku",
+      "photographer": "Rivi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARano_Raraku_quarry.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Rano Raraku quarry.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Rano Raraku quarry.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "65e120566068739e9f8cef90fe2c806d0c1d3785e4f454680bc29f5020d94fb1",
+      "width": 3008,
+      "height": 2000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/rapa-nui/w640-2.jpg",
+          "bytes": 55285
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/rapa-nui/w1280-2.jpg",
+          "bytes": 198062
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/rapa-nui/w2048-2.jpg",
+          "bytes": 508948
+        }
+      ]
+    },
+    {
+      "featureName": "Orongo",
+      "alt": "Orongo — rapa nui",
+      "caption": "Orongo",
+      "photographer": "Jucar1967",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAldea_ceremonial_de_Orongo%2C_Isla_de_Pascua.JPG",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Aldea ceremonial de Orongo, Isla de Pascua.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Aldea ceremonial de Orongo, Isla de Pascua.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "91c32f3fcdc8d4ad9ad9459ee0bf789139fbfb903c1ee1383f62db4ae2c632e9",
+      "width": 3008,
+      "height": 2000,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/rapa-nui/w640-3.jpg",
+          "bytes": 59074
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/rapa-nui/w1280-3.jpg",
+          "bytes": 212581
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/rapa-nui/w2048-3.jpg",
+          "bytes": 577692
+        }
+      ]
+    }
+  ],
+  "tonga": [
+    {
+      "featureName": "Haʻamonga ʻa Maui",
+      "alt": "Haʻamonga ʻa Maui — tonga",
+      "caption": "Haʻamonga ʻa Maui",
+      "photographer": "Tauʻolunga",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHa%CA%BBamonga.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Haʻamonga.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Haʻamonga.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "cad76e1df082e727db05b29c608b037c0114c35cb036a80a41448b57aa3fc090",
+      "width": 2000,
+      "height": 1500,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/tonga/w640.jpg",
+          "bytes": 78013
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/tonga/w1280.jpg",
+          "bytes": 295943
+        },
+        {
+          "width": 2000,
+          "src": "/images/civilizations/tonga/w2048.jpg",
+          "bytes": 550431
+        }
+      ]
+    },
+    {
+      "featureName": "Lapaha langi",
+      "alt": "Lapaha langi — tonga",
+      "caption": "Lapaha langi",
+      "photographer": "Tauʻolunga",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALangi-Tau%E2%80%98atonga.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Langi-Tau‘atonga.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Langi-Tau‘atonga.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "26aa8fdd70d3f78f799dda96b877da961d1af83cf201c6bbe089d9c539852ec1",
+      "width": 1500,
+      "height": 818,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/tonga/w640-2.jpg",
+          "bytes": 52161
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/tonga/w1280-2.jpg",
+          "bytes": 190895
+        },
+        {
+          "width": 1500,
+          "src": "/images/civilizations/tonga/w2048-2.jpg",
+          "bytes": 235565
+        }
+      ]
+    },
+    {
+      "featureName": "Tongatapu coast",
+      "alt": "Tongatapu coast — tonga",
+      "caption": "Tongatapu coast",
+      "photographer": "David Broad",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANuku'alofa_harbor%2C_north_coast_of_Tongatapu_island%2C_Kingdom_of_Tonga_-_panoramio.jpg",
+      "license": "CC BY 3.0",
+      "commonsTitle": "File:Nuku'alofa harbor, north coast of Tongatapu island, Kingdom of Tonga - panoramio.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Nuku'alofa harbor, north coast of Tongatapu island, Kingdom of Tonga - panoramio.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "ebe3f3f60517dbbe52abee6a3273475155ff3f0079a908bd62cc76d9b61ccf77",
+      "width": 2592,
+      "height": 1936,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/tonga/w640-3.jpg",
+          "bytes": 25687
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/tonga/w1280-3.jpg",
+          "bytes": 87904
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/tonga/w2048-3.jpg",
+          "bytes": 349602
+        }
+      ]
+    }
+  ],
+  "hawaii": [
+    {
+      "featureName": "Puʻukoholā Heiau",
+      "alt": "Puʻukoholā Heiau — hawaii",
+      "caption": "Puʻukoholā Heiau",
+      "photographer": "Bamse",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APu'ukohola_Heiau_temple2.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Pu'ukohola Heiau temple2.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Pu'ukohola Heiau temple2.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "d7bd8f455bf2b4a897f02bb7c7d322dde2f4d559073c8c566024121ab10c3edd",
+      "width": 3872,
+      "height": 2592,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/hawaii/w640.jpg",
+          "bytes": 85965
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/hawaii/w1280.jpg",
+          "bytes": 301612
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/hawaii/w2048.jpg",
+          "bytes": 813506
+        }
+      ]
+    },
+    {
+      "featureName": "Puʻuhonua o Hōnaunau",
+      "alt": "Puʻuhonua o Hōnaunau — hawaii",
+      "caption": "Puʻuhonua o Hōnaunau",
+      "photographer": "Carol M. Highsmith",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APu%CA%BBuhonua_o_H%C5%8Dnaunau.jpg",
+      "license": "Public domain",
+      "commonsTitle": "File:Puʻuhonua o Hōnaunau.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Puʻuhonua o Hōnaunau.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "8085515ef709db19ade688f91a98cebce8de1e3bcb900c35400b6334e2d13e7d",
+      "width": 4681,
+      "height": 3057,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/hawaii/w640-2.jpg",
+          "bytes": 68089
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/hawaii/w1280-2.jpg",
+          "bytes": 199939
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/hawaii/w2048-2.jpg",
+          "bytes": 538175
+        }
+      ]
+    },
+    {
+      "featureName": "Hale o Keawe",
+      "alt": "Hale o Keawe — hawaii",
+      "caption": "Hale o Keawe",
+      "photographer": "Chiz 99",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHale_o_keawe_heiau_1.JPG",
+      "license": "CC BY-SA 2.5",
+      "commonsTitle": "File:Hale o keawe heiau 1.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Hale o keawe heiau 1.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "afeabebeeb99140ceb0dc3729e8e159e36ce3d43c046a400074211f5595cd1d6",
+      "width": 2560,
+      "height": 1920,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/hawaii/w640-3.jpg",
+          "bytes": 56427
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/hawaii/w1280-3.jpg",
+          "bytes": 176308
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/hawaii/w2048-3.jpg",
+          "bytes": 470796
+        }
+      ]
+    }
+  ],
+  "samoa": [
+    {
+      "featureName": "Pulemelei Mound",
+      "alt": "Pulemelei Mound — samoa",
+      "caption": "Pulemelei Mound",
+      "photographer": "Neil",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AView_from_Pulemelei_Mound_-_Samoa.jpg",
+      "license": "CC BY 2.0",
+      "commonsTitle": "File:View from Pulemelei Mound - Samoa.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:View from Pulemelei Mound - Samoa.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "a86af026ec1a0e6d28546722bfac349b63223b2154f2931ee2ee0fe5e4d4c998",
+      "width": 3072,
+      "height": 2304,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/samoa/w640.jpg",
+          "bytes": 96564
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/samoa/w1280.jpg",
+          "bytes": 264030
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/samoa/w2048.jpg",
+          "bytes": 647680
+        }
+      ]
+    },
+    {
+      "featureName": "Samoan fale",
+      "alt": "Samoan fale — samoa",
+      "caption": "Samoan fale",
+      "photographer": "Teinesavaii",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASamoan_fale%2C_Lelepa_village%2C_Savaii%2C_Samoa_2009.JPG",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:Samoan fale, Lelepa village, Savaii, Samoa 2009.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:Samoan fale, Lelepa village, Savaii, Samoa 2009.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "b2d79cd1404c4c53b810438fe686eb2e79dea9b3885b50e133e7449f6c36dcaf",
+      "width": 3264,
+      "height": 2448,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/samoa/w640-2.jpg",
+          "bytes": 85709
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/samoa/w1280-2.jpg",
+          "bytes": 234197
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/samoa/w2048-2.jpg",
+          "bytes": 549307
+        }
+      ]
+    },
+    {
+      "featureName": "Apia coast",
+      "alt": "Apia coast — samoa",
+      "caption": "Apia coast",
+      "photographer": "Michael Coghlan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AApia_Coast_(30381965350).jpg",
+      "license": "CC BY-SA 2.0",
+      "commonsTitle": "File:Apia Coast (30381965350).jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Apia Coast (30381965350).jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "c9ebba781803a62972c67060d5a42d68caee867d16c2b82226616ced139ccd31",
+      "width": 1598,
+      "height": 1198,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/samoa/w640-3.jpg",
+          "bytes": 96774
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/samoa/w1280-3.jpg",
+          "bytes": 242819
+        },
+        {
+          "width": 1598,
+          "src": "/images/civilizations/samoa/w2048-3.jpg",
+          "bytes": 385630
+        }
+      ]
+    }
+  ],
+  "lapita": [
+    {
+      "featureName": "Lapita pottery",
+      "alt": "Lapita pottery — lapita",
+      "caption": "Lapita pottery",
+      "photographer": "Patrick Nunn",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADecorated_piece_of_Lapita_pottery_from_the_Bourewa_site_in_Fiji.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Decorated piece of Lapita pottery from the Bourewa site in Fiji.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Decorated piece of Lapita pottery from the Bourewa site in Fiji.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "9efa78cfe3b768f6ab07ac974ba0d0459573eec6e4524cc657add51083d370e8",
+      "width": 3872,
+      "height": 2592,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/lapita/w640.jpg",
+          "bytes": 57344
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/lapita/w1280.jpg",
+          "bytes": 121954
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/lapita/w2048.jpg",
+          "bytes": 286151
+        }
+      ]
+    },
+    {
+      "featureName": "Teouma cemetery",
+      "alt": "Teouma cemetery — lapita",
+      "caption": "Teouma cemetery",
+      "photographer": "Torbenbrinker",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APortVilaLapita.jpg",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:PortVilaLapita.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:PortVilaLapita.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "617d5f4c9836758917bf5e3843114ce7dbdb5be1b27782e4e53a2447d9cfd11b",
+      "width": 3648,
+      "height": 2736,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/lapita/w640-2.jpg",
+          "bytes": 39610
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/lapita/w1280-2.jpg",
+          "bytes": 106310
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/lapita/w2048-2.jpg",
+          "bytes": 299594
+        }
+      ]
+    },
+    {
+      "featureName": "Bourewa site",
+      "alt": "Bourewa site — lapita",
+      "caption": "Bourewa site",
+      "photographer": "Patrick Nunn",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABourewa_archaeological_site_(Fiji)_excavated_pits_in_2009_a.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsTitle": "File:Bourewa archaeological site (Fiji) excavated pits in 2009 a.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Bourewa archaeological site (Fiji) excavated pits in 2009 a.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "0c316868ca4188f986acc37ebbd6737273a894d55da5b975e1d663be343a1ef9",
+      "width": 3072,
+      "height": 2304,
+      "renditions": [
+        {
+          "width": 640,
+          "src": "/images/civilizations/lapita/w640-3.jpg",
+          "bytes": 87972
+        },
+        {
+          "width": 1280,
+          "src": "/images/civilizations/lapita/w1280-3.jpg",
+          "bytes": 288483
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/lapita/w2048-3.jpg",
+          "bytes": 723927
+        }
+      ]
+    }
   ]
 }

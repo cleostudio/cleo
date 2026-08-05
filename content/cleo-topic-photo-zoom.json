@@ -19323,6 +19323,366 @@
       }
     ]
   },
+  "civilizations/rapa-nui": {
+    "collection": "civilizations",
+    "title": "Ahu Tongariki",
+    "subtitle": "Rapa Nui",
+    "alt": "Ahu Tongariki — rapa nui",
+    "photographer": "Rivi",
+    "license": "CC BY-SA 3.0",
+    "width": 2256,
+    "height": 1500,
+    "renditions": [
+      {
+        "src": "/images/civilizations/rapa-nui/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/rapa-nui/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/rapa-nui/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/rapa-nui-2": {
+    "collection": "civilizations",
+    "title": "Rano Raraku",
+    "subtitle": "Rapa Nui",
+    "alt": "Rano Raraku — rapa nui",
+    "photographer": "Rivi",
+    "license": "CC BY-SA 3.0",
+    "width": 3008,
+    "height": 2000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/rapa-nui/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/rapa-nui/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/rapa-nui/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/rapa-nui-3": {
+    "collection": "civilizations",
+    "title": "Orongo",
+    "subtitle": "Rapa Nui",
+    "alt": "Orongo — rapa nui",
+    "photographer": "Jucar1967",
+    "license": "CC BY-SA 3.0",
+    "width": 3008,
+    "height": 2000,
+    "renditions": [
+      {
+        "src": "/images/civilizations/rapa-nui/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/rapa-nui/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/rapa-nui/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/tonga": {
+    "collection": "civilizations",
+    "title": "Haʻamonga ʻa Maui",
+    "subtitle": "Tonga",
+    "alt": "Haʻamonga ʻa Maui — tonga",
+    "photographer": "Tauʻolunga",
+    "license": "CC BY-SA 3.0",
+    "width": 2000,
+    "height": 1500,
+    "renditions": [
+      {
+        "src": "/images/civilizations/tonga/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/tonga/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/tonga/w2048.jpg",
+        "width": 2000
+      }
+    ]
+  },
+  "civilizations/tonga-2": {
+    "collection": "civilizations",
+    "title": "Lapaha langi",
+    "subtitle": "Tonga",
+    "alt": "Lapaha langi — tonga",
+    "photographer": "Tauʻolunga",
+    "license": "CC BY-SA 3.0",
+    "width": 1500,
+    "height": 818,
+    "renditions": [
+      {
+        "src": "/images/civilizations/tonga/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/tonga/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/tonga/w2048-2.jpg",
+        "width": 1500
+      }
+    ]
+  },
+  "civilizations/tonga-3": {
+    "collection": "civilizations",
+    "title": "Tongatapu coast",
+    "subtitle": "Tonga",
+    "alt": "Tongatapu coast — tonga",
+    "photographer": "David Broad",
+    "license": "CC BY 3.0",
+    "width": 2592,
+    "height": 1936,
+    "renditions": [
+      {
+        "src": "/images/civilizations/tonga/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/tonga/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/tonga/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/hawaii": {
+    "collection": "civilizations",
+    "title": "Puʻukoholā Heiau",
+    "subtitle": "Hawaiʻi",
+    "alt": "Puʻukoholā Heiau — hawaii",
+    "photographer": "Bamse",
+    "license": "CC BY-SA 4.0",
+    "width": 3872,
+    "height": 2592,
+    "renditions": [
+      {
+        "src": "/images/civilizations/hawaii/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/hawaii/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/hawaii/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/hawaii-2": {
+    "collection": "civilizations",
+    "title": "Puʻuhonua o Hōnaunau",
+    "subtitle": "Hawaiʻi",
+    "alt": "Puʻuhonua o Hōnaunau — hawaii",
+    "photographer": "Carol M. Highsmith",
+    "license": "Public domain",
+    "width": 4681,
+    "height": 3057,
+    "renditions": [
+      {
+        "src": "/images/civilizations/hawaii/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/hawaii/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/hawaii/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/hawaii-3": {
+    "collection": "civilizations",
+    "title": "Hale o Keawe",
+    "subtitle": "Hawaiʻi",
+    "alt": "Hale o Keawe — hawaii",
+    "photographer": "Chiz 99",
+    "license": "CC BY-SA 2.5",
+    "width": 2560,
+    "height": 1920,
+    "renditions": [
+      {
+        "src": "/images/civilizations/hawaii/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/hawaii/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/hawaii/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/samoa": {
+    "collection": "civilizations",
+    "title": "Pulemelei Mound",
+    "subtitle": "Samoa",
+    "alt": "Pulemelei Mound — samoa",
+    "photographer": "Neil",
+    "license": "CC BY 2.0",
+    "width": 3072,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/civilizations/samoa/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/samoa/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/samoa/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/samoa-2": {
+    "collection": "civilizations",
+    "title": "Samoan fale",
+    "subtitle": "Samoa",
+    "alt": "Samoan fale — samoa",
+    "photographer": "Teinesavaii",
+    "license": "CC BY-SA 3.0",
+    "width": 3264,
+    "height": 2448,
+    "renditions": [
+      {
+        "src": "/images/civilizations/samoa/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/samoa/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/samoa/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/samoa-3": {
+    "collection": "civilizations",
+    "title": "Apia coast",
+    "subtitle": "Samoa",
+    "alt": "Apia coast — samoa",
+    "photographer": "Michael Coghlan",
+    "license": "CC BY-SA 2.0",
+    "width": 1598,
+    "height": 1198,
+    "renditions": [
+      {
+        "src": "/images/civilizations/samoa/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/samoa/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/samoa/w2048-3.jpg",
+        "width": 1598
+      }
+    ]
+  },
+  "civilizations/lapita": {
+    "collection": "civilizations",
+    "title": "Lapita pottery",
+    "subtitle": "Lapita",
+    "alt": "Lapita pottery — lapita",
+    "photographer": "Patrick Nunn",
+    "license": "CC BY-SA 4.0",
+    "width": 3872,
+    "height": 2592,
+    "renditions": [
+      {
+        "src": "/images/civilizations/lapita/w640.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/lapita/w1280.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/lapita/w2048.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/lapita-2": {
+    "collection": "civilizations",
+    "title": "Teouma cemetery",
+    "subtitle": "Lapita",
+    "alt": "Teouma cemetery — lapita",
+    "photographer": "Torbenbrinker",
+    "license": "CC BY-SA 3.0",
+    "width": 3648,
+    "height": 2736,
+    "renditions": [
+      {
+        "src": "/images/civilizations/lapita/w640-2.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/lapita/w1280-2.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/lapita/w2048-2.jpg",
+        "width": 2048
+      }
+    ]
+  },
+  "civilizations/lapita-3": {
+    "collection": "civilizations",
+    "title": "Bourewa site",
+    "subtitle": "Lapita",
+    "alt": "Bourewa site — lapita",
+    "photographer": "Patrick Nunn",
+    "license": "CC BY-SA 4.0",
+    "width": 3072,
+    "height": 2304,
+    "renditions": [
+      {
+        "src": "/images/civilizations/lapita/w640-3.jpg",
+        "width": 640
+      },
+      {
+        "src": "/images/civilizations/lapita/w1280-3.jpg",
+        "width": 1280
+      },
+      {
+        "src": "/images/civilizations/lapita/w2048-3.jpg",
+        "width": 2048
+      }
+    ]
+  },
   "cities/istanbul": {
     "collection": "cities",
     "title": "Hagia Sophia",

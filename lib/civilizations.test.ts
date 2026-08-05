@@ -92,10 +92,25 @@ describe('civilization subjects', () => {
     expect(
       groups[4]?.[1].some((subject) => subject.slug === 'micronesian-cultures'),
     ).toBe(true)
+    expect(groups[4]?.[1].some((subject) => subject.slug === 'rapa-nui')).toBe(
+      true,
+    )
+    expect(groups[4]?.[1].some((subject) => subject.slug === 'tonga')).toBe(
+      true,
+    )
+    expect(groups[4]?.[1].some((subject) => subject.slug === 'hawaii')).toBe(
+      true,
+    )
+    expect(groups[4]?.[1].some((subject) => subject.slug === 'samoa')).toBe(
+      true,
+    )
+    expect(groups[4]?.[1].some((subject) => subject.slug === 'lapita')).toBe(
+      true,
+    )
   })
 
   it('covers a broad starter set across regions', () => {
-    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(42)
+    expect(civilizationSubjects.length).toBeGreaterThanOrEqual(47)
     expect(civilizationSubjectSlugs()).toEqual(
       expect.arrayContaining([
         'mesopotamia',
@@ -126,6 +141,11 @@ describe('civilization subjects', () => {
         'chavin',
         'moche',
         'tiwanaku',
+        'rapa-nui',
+        'tonga',
+        'hawaii',
+        'samoa',
+        'lapita',
       ]),
     )
   })

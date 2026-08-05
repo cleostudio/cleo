@@ -224,6 +224,19 @@ describe('searchSiteCatalog', () => {
     )
     expect(hrefs('cahokia woodhenge')[0]).toBe('/civilizations/mississippian')
     expect(hrefs('pueblo bonito')[0]).toBe('/civilizations/ancestral-puebloan')
+    expect(hrefs('rapa nui')[0]).toBe('/civilizations/rapa-nui')
+    expect(hrefs('hawaii')[0]).toBe('/civilizations/hawaii')
+    expect(hrefs('lapita')[0]).toBe('/civilizations/lapita')
+    // Tonga and Samoa are also Explore countries — Country wins the
+    // exact-title tie; civilization guides still rank and win on site terms.
+    expect(hrefs('tonga')).toContain('/civilizations/tonga')
+    expect(hrefs('samoa')).toContain('/civilizations/samoa')
+    // Secondary features (hero photo titles also index under Gallery).
+    expect(hrefs('rano raraku')[0]).toBe('/civilizations/rapa-nui')
+    expect(hrefs('lapaha langi')[0]).toBe('/civilizations/tonga')
+    expect(hrefs('hale o keawe')[0]).toBe('/civilizations/hawaii')
+    expect(hrefs('samoan fale')[0]).toBe('/civilizations/samoa')
+    expect(hrefs('bourewa site')[0]).toBe('/civilizations/lapita')
   })
 
   it('finds city guides and their sites', () => {

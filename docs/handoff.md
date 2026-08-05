@@ -20,7 +20,7 @@ General-knowledge portal:
   Civilizations site, Cities page, Oceans basin, and Rivers course
 - **Civilizations** — historical pages at `/civilizations` and
   `/civilizations/[slug]` (Africa & Near East, Mediterranean, Asia, Americas,
-  Oceania; forty-two regional subjects)
+  Oceania; forty-seven regional subjects)
 - **Cities** — capital and route-city pages at `/cities` and
   `/cities/[slug]` (Mediterranean & Europe, Asia, Africa & Americas; thirty-one
   cities)

@@ -1342,5 +1342,165 @@
       "height": 1365,
       "featureName": "Akapana"
     }
+  ],
+  "rapa-nui": [
+    {
+      "commonsTitle": "File:Ahu Tongariki cropped.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Ahu_Tongariki_cropped.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAhu_Tongariki_cropped.jpg",
+      "photographer": "Rivi",
+      "license": "CC BY-SA 3.0",
+      "width": 2256,
+      "height": 1500,
+      "featureName": "Ahu Tongariki"
+    },
+    {
+      "commonsTitle": "File:Rano Raraku quarry.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Rano_Raraku_quarry.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARano_Raraku_quarry.jpg",
+      "photographer": "Rivi",
+      "license": "CC BY-SA 3.0",
+      "width": 3008,
+      "height": 2000,
+      "featureName": "Rano Raraku"
+    },
+    {
+      "commonsTitle": "File:Aldea ceremonial de Orongo, Isla de Pascua.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Aldea_ceremonial_de_Orongo%2C_Isla_de_Pascua.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAldea_ceremonial_de_Orongo%2C_Isla_de_Pascua.JPG",
+      "photographer": "Jucar1967",
+      "license": "CC BY-SA 3.0",
+      "width": 3008,
+      "height": 2000,
+      "featureName": "Orongo"
+    }
+  ],
+  "tonga": [
+    {
+      "commonsTitle": "File:Haʻamonga.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Ha%CA%BBamonga.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHa%CA%BBamonga.jpg",
+      "photographer": "Tauʻolunga",
+      "license": "CC BY-SA 3.0",
+      "width": 2000,
+      "height": 1500,
+      "featureName": "Haʻamonga ʻa Maui"
+    },
+    {
+      "commonsTitle": "File:Langi-Tau‘atonga.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Langi-Tau%E2%80%98atonga.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALangi-Tau%E2%80%98atonga.jpg",
+      "photographer": "Tauʻolunga",
+      "license": "CC BY-SA 3.0",
+      "width": 1500,
+      "height": 818,
+      "featureName": "Lapaha langi"
+    },
+    {
+      "commonsTitle": "File:Nuku'alofa harbor, north coast of Tongatapu island, Kingdom of Tonga - panoramio.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Nuku%27alofa_harbor%2C_north_coast_of_Tongatapu_island%2C_Kingdom_of_Tonga_-_panoramio.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANuku'alofa_harbor%2C_north_coast_of_Tongatapu_island%2C_Kingdom_of_Tonga_-_panoramio.jpg",
+      "photographer": "David Broad",
+      "license": "CC BY 3.0",
+      "width": 2592,
+      "height": 1936,
+      "featureName": "Tongatapu coast"
+    }
+  ],
+  "hawaii": [
+    {
+      "commonsTitle": "File:Pu'ukohola Heiau temple2.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Pu%27ukohola_Heiau_temple2.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APu'ukohola_Heiau_temple2.jpg",
+      "photographer": "Bamse",
+      "license": "CC BY-SA 4.0",
+      "width": 3872,
+      "height": 2592,
+      "featureName": "Puʻukoholā Heiau"
+    },
+    {
+      "commonsTitle": "File:Puʻuhonua o Hōnaunau.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Pu%CA%BBuhonua_o_H%C5%8Dnaunau.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APu%CA%BBuhonua_o_H%C5%8Dnaunau.jpg",
+      "photographer": "Carol M. Highsmith",
+      "license": "Public domain",
+      "width": 4681,
+      "height": 3057,
+      "featureName": "Puʻuhonua o Hōnaunau"
+    },
+    {
+      "commonsTitle": "File:Hale o keawe heiau 1.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Hale_o_keawe_heiau_1.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHale_o_keawe_heiau_1.JPG",
+      "photographer": "Chiz 99",
+      "license": "CC BY-SA 2.5",
+      "width": 2560,
+      "height": 1920,
+      "featureName": "Hale o Keawe"
+    }
+  ],
+  "samoa": [
+    {
+      "commonsTitle": "File:View from Pulemelei Mound - Samoa.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/View_from_Pulemelei_Mound_-_Samoa.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AView_from_Pulemelei_Mound_-_Samoa.jpg",
+      "photographer": "Neil",
+      "license": "CC BY 2.0",
+      "width": 3072,
+      "height": 2304,
+      "featureName": "Pulemelei Mound"
+    },
+    {
+      "commonsTitle": "File:Samoan fale, Lelepa village, Savaii, Samoa 2009.JPG",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Samoan_fale%2C_Lelepa_village%2C_Savaii%2C_Samoa_2009.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASamoan_fale%2C_Lelepa_village%2C_Savaii%2C_Samoa_2009.JPG",
+      "photographer": "Teinesavaii",
+      "license": "CC BY-SA 3.0",
+      "width": 3264,
+      "height": 2448,
+      "featureName": "Samoan fale"
+    },
+    {
+      "commonsTitle": "File:Apia Coast (30381965350).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Apia_Coast_%2830381965350%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AApia_Coast_(30381965350).jpg",
+      "photographer": "Michael Coghlan",
+      "license": "CC BY-SA 2.0",
+      "width": 1598,
+      "height": 1198,
+      "featureName": "Apia coast"
+    }
+  ],
+  "lapita": [
+    {
+      "commonsTitle": "File:Decorated piece of Lapita pottery from the Bourewa site in Fiji.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Decorated_piece_of_Lapita_pottery_from_the_Bourewa_site_in_Fiji.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADecorated_piece_of_Lapita_pottery_from_the_Bourewa_site_in_Fiji.jpg",
+      "photographer": "Patrick Nunn",
+      "license": "CC BY-SA 4.0",
+      "width": 3872,
+      "height": 2592,
+      "featureName": "Lapita pottery"
+    },
+    {
+      "commonsTitle": "File:PortVilaLapita.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/PortVilaLapita.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APortVilaLapita.jpg",
+      "photographer": "Torbenbrinker",
+      "license": "CC BY-SA 3.0",
+      "width": 3648,
+      "height": 2736,
+      "featureName": "Teouma cemetery"
+    },
+    {
+      "commonsTitle": "File:Bourewa archaeological site (Fiji) excavated pits in 2009 a.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Bourewa_archaeological_site_%28Fiji%29_excavated_pits_in_2009_a.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABourewa_archaeological_site_(Fiji)_excavated_pits_in_2009_a.jpg",
+      "photographer": "Patrick Nunn",
+      "license": "CC BY-SA 4.0",
+      "width": 3072,
+      "height": 2304,
+      "featureName": "Bourewa site"
+    }
   ]
 }
