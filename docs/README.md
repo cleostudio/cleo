@@ -17,6 +17,7 @@ these runbooks.
 | [`oceans.md`](./oceans.md) | Changing Oceans guides or Commons photo imports |
 | [`rivers.md`](./rivers.md) | Changing Rivers guides or Commons photo imports |
 | [`auth.md`](./auth.md) | Changing Better Auth, Neon, or account routes |
+| [`sentry.md`](./sentry.md) | Changing Sentry SDK init, tunnel, source maps, or env vars |
 | [`theme-preset.md`](./theme-preset.md) | Adding/changing a color, motion, radius, or width token |
 | [`design-language.md`](./design-language.md) | Implementing or reviewing UI/UX composition |
 

@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { withSentryConfig } from '@sentry/nextjs'
 
 import legacyUrlManifest from './content/legacy-url-manifest.json'
 import { securityHeaders } from './lib/security/headers'
@@ -116,4 +117,18 @@ const nextConfig: NextConfig = {
   ],
 }
 
-export default nextConfig
+export default withSentryConfig(nextConfig, {
+  org: 'cleo-studio',
+  project: 'sentry-cleo',
+
+  // Source map upload (set SENTRY_AUTH_TOKEN in CI / Vercel / Cursor Cloud).
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+
+  // Upload a wider set of client source files for better stack traces.
+  widenClientFileUpload: true,
+
+  // Same-origin tunnel so browsers can reach Sentry behind ad blockers / CSP.
+  tunnelRoute: '/monitoring',
+
+  silent: !process.env.CI,
+})
