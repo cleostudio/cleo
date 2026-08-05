@@ -35,12 +35,15 @@ optional browser-authorized location, then calls the OpenAI Responses API with:
 - Tools: `web_search` (adaptive `search_context_size`; opt-in
   `user_location.timezone` when Location is shared), `image_generation`
   (jpeg + compression, one partial preview)
-- Adaptive reasoning effort; encrypted reasoning replay (`reasoning.context: "all_turns"`)
+- Adaptive reasoning effort (`minimal` greetings → `medium` default → `high`
+  research → `xhigh` only for explicit deep-research asks); encrypted
+  reasoning replay (`reasoning.context: "all_turns"`)
 - `max_tool_calls`, `truncation: "auto"`, streaming
 - GPT-5.6 prompt caching: stable `prompt_cache_key`,
   `prompt_cache_options.mode: "explicit"`, and an explicit breakpoint after
   the shared voice/catalog developer prefix (per-turn topic photos, account
-  name, and location sit after the breakpoint)
+  name, and location sit after the breakpoint). Completed turns log
+  `cleo.prompt_cache` with `cached_tokens` / `cache_write_tokens`.
 - Hashed `safety_identifier` from the signed-in user id or guest client key
 - `maxDuration` 90s, `store: false`
 - Signed-in account name from Better Auth session (private developer context;

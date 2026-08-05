@@ -796,14 +796,18 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     ])
   })
 
-  it("uses low reasoning effort for short social turns", async () => {
+  it("uses minimal reasoning effort for short social turns", async () => {
     openai.create.mockResolvedValueOnce(
       responseStream([{ delta: "hi", type: "response.output_text.delta" }])
     )
 
     await POST(ask({ messages: [{ content: "Hey Cleo", role: "user" }] }))
 
-    expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("low")
+    const request = openai.create.mock.calls[0]?.[0]
+    expect(request.reasoning.effort).toBe("minimal")
+    expect(
+      request.tools.find((tool: { type: string }) => tool.type === "web_search")
+    ).toMatchObject({ search_context_size: "low" })
   })
 
   it("uses high reasoning effort for comparison prompts", async () => {
@@ -823,6 +827,58 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     )
 
     expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("high")
+  })
+
+  it("uses xhigh reasoning effort only for explicit deep-research asks", async () => {
+    openai.create.mockResolvedValueOnce(
+      responseStream([{ delta: "ok", type: "response.output_text.delta" }])
+    )
+
+    await POST(
+      ask({
+        messages: [
+          {
+            content: "Do a deep research report on Nile basin water politics",
+            role: "user",
+          },
+        ],
+      })
+    )
+
+    expect(openai.create.mock.calls[0]?.[0].reasoning.effort).toBe("xhigh")
+  })
+
+  it("logs prompt-cache telemetry when a turn completes", async () => {
+    const info = vi.spyOn(console, "info").mockImplementation(() => undefined)
+    openai.create.mockResolvedValueOnce(
+      responseStream([
+        { delta: "ok", type: "response.output_text.delta" },
+        {
+          response: {
+            usage: {
+              input_tokens: 4200,
+              output_tokens: 120,
+              total_tokens: 4320,
+              input_tokens_details: {
+                cached_tokens: 3900,
+                cache_write_tokens: 0,
+              },
+            },
+          },
+          type: "response.completed",
+        },
+      ])
+    )
+
+    await ndjson(await POST(ask(question)))
+
+    expect(info).toHaveBeenCalledWith("cleo.prompt_cache", {
+      cached_tokens: 3900,
+      cache_write_tokens: 0,
+      input_tokens: 4200,
+      output_tokens: 120,
+      total_tokens: 4320,
+    })
   })
 
   it("replays encrypted reasoning items before assistant turns", async () => {

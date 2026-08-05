@@ -48,6 +48,7 @@ import {
   sanitizeReasoningItems,
   type EncryptedReasoningItem,
 } from "~/lib/cleo/reasoning-items"
+import { logPromptCacheTelemetry } from "~/lib/cleo/prompt-cache-telemetry"
 import { cleoSafetyIdentifier } from "~/lib/cleo/safety-identifier"
 import {
   buildTopicPhotoInstructions,
@@ -713,6 +714,13 @@ export async function POST(request: Request) {
             null
 
           for await (const event of responseStream) {
+            if (
+              event.type === "response.completed" ||
+              event.type === "response.incomplete"
+            ) {
+              logPromptCacheTelemetry(event.response.usage)
+            }
+
             if (event.type === "response.output_text.delta") {
               emittedText = true
               enqueue(controller, { type: "text", delta: event.delta })
