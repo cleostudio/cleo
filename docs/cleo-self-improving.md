@@ -7,17 +7,20 @@ for `/cleo`. Runtime chat behavior remains in [`cleo.md`](./cleo.md).
 
 Make Cleo improve over time **without** retraining a model and **without**
 letting a live turn rewrite production behavior. Improvement means better
-instructions, grounded portal answers, and (optionally) per-account
-preferences — driven by measurable feedback and human-gated promotion.
+**harness** behavior (instructions, tools, validators, routing), grounded
+portal answers, and (optionally) per-account preferences — driven by
+measurable feedback and human-gated promotion.
 
-This follows the OpenAI [self-evolving agents cookbook](https://developers.openai.com/cookbook/examples/partners/self_evolving_agents/autonomous_agent_retraining):
-baseline agent → feedback / graders → eval score → revised prompt → new
-baseline. Adapt that loop to Cleo’s invariants; do not port the healthcare
-summarizer example literally.
+This follows the OpenAI [self-evolving agents cookbook](https://developers.openai.com/cookbook/examples/partners/self_evolving_agents/autonomous_agent_retraining)
+and the [agent improvement loop](https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop):
+baseline agent → traces / feedback / graders → eval score → revised harness →
+new baseline. Adapt those loops to Cleo’s invariants; do not port the
+healthcare summarizer or diligence-analyst examples literally.
 
 ## Non-goals
 
-- Model fine-tuning or weight updates.
+- Model fine-tuning or weight updates (OpenAI is winding down fine-tuning
+  access for new users; see [RFT](https://developers.openai.com/api/docs/guides/reinforcement-fine-tuning)).
 - Letting the live `/api/responses` turn mutate `CLEO_INSTRUCTIONS` or catalog
   data.
 - Calling a model to author Explore / Space / Civilizations / Cities / Oceans /
@@ -30,6 +33,11 @@ summarizer example literally.
 - Migrating the chat stack to Eve / Agents SDK unless product asks for a
   rewrite. Self-improvement is a **loop around** the existing Responses API
   agent.
+- Building the improvement loop on OpenAI Platform Evals / dataset-backed
+  Prompt Optimizer as a durable home (platform deprecation: read-only
+  2026-10-31, shutdown 2026-11-30 — see [deprecations](https://developers.openai.com/api/docs/deprecations#2026-06-03-evals-platform)).
+  Prefer in-repo graders + Promptfoo / local scripts; Platform UI is optional
+  exploration only while it still exists.
 
 ## What already helps
 
@@ -40,9 +48,11 @@ summarizer example literally.
 | Invented-path / image strip | `lib/cleo/guardrails.ts` | Free deterministic grader signal |
 | Topic photo allowlist | `lib/cleo/topic-photos.ts`, `portal-links.ts` | Grounded media checks |
 | Adaptive reasoning | `lib/cleo/reasoning-effort.ts` | Cost/quality knob; keep out of auto-prompt soup |
+| Tool policy (search / image) | instructions + Responses tools | Part of the harness — evolve with evidence |
 | Signed-in name context | `lib/cleo/user-profile.ts` | Pattern for private per-turn instruction blocks |
 | Unit tests | `lib/cleo/*.test.ts` | Regression harness for guardrails & helpers |
 | Neon + Better Auth | `docs/auth.md` | Durable store for opt-in signals / prefs |
+| Sentry | `docs/sentry.md` | Error/latency breadcrumbs; not a transcript store |
 
 Live chat is still one-shot generation + stream + post-hoc guardrails. There
 is no thumbs feedback, no eval suite, and no durable memory beyond Location
@@ -50,46 +60,92 @@ and account name.
 
 ## Research: best practices and reference implementations
 
-Surveyed August 2026. Prefer these sources when implementing; do not chase
-every research system into the Cleo runtime.
+Surveyed August 2026 (re-audited against live OpenAI / Anthropic / GEPA /
+Mem0 docs). Prefer these sources when implementing; do not chase every
+research system into the Cleo runtime.
 
 ### Canonical references
 
 | Source | Why it matters for Cleo |
 | --- | --- |
-| [Self-Evolving Agents cookbook](https://developers.openai.com/cookbook/examples/partners/self_evolving_agents/autonomous_agent_retraining) | Baseline → human/LLM feedback → Evals → revised prompt → promote. Compares Platform Optimize, static metaprompt, and GEPA. |
-| [Agent improvement loop (traces → evals → Codex)](https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop) | Production flywheel: traces + human/LLM feedback → reusable evals (Promptfoo) → ranked harness changes → developer handoff. **Reviewed loop first**, deeper automation later. |
-| [Working with evals](https://developers.openai.com/api/docs/guides/evals) | Official Evals API: `data_source_config` + `testing_criteria` (graders); template vars for ground truth vs sample output. |
-| [GEPA](https://github.com/gepa-ai/gepa) | Reflective prompt/search over execution traces with train/val Pareto selection; used in the OpenAI cookbook and DSPy/MLflow/Opik integrations. |
+| [Self-Evolving Agents cookbook](https://developers.openai.com/cookbook/examples/partners/self_evolving_agents/autonomous_agent_retraining) | Baseline → human/LLM feedback → graders → revised prompt → promote. Compares Platform Optimize, static metaprompt, and GEPA. Stop criteria (~80% positive / diminishing returns). |
+| [Agent improvement loop (traces → evals → Codex)](https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop) | Production flywheel: traces + human/LLM feedback → reusable evals (Promptfoo) → ranked harness changes (HALO) → developer handoff. **Reviewed loop first**, deeper automation later. Harness = prompt + tools + routing + validation. |
+| [Building resilient prompts (evaluation flywheel)](https://developers.openai.com/cookbook/examples/evaluation/building_resilient_prompts_using_an_evaluation_flywheel) | Analyze → Measure → Improve. Open coding → axial coding failure taxonomy; narrow graders per failure mode; judge alignment (TPR/TNR); synthetic tuples for coverage. |
+| [Moving from OpenAI Evals to Promptfoo](https://developers.openai.com/cookbook/examples/evaluation/moving-from-openai-evals-to-promptfoo) | Official migration path as Platform Evals shut down. Portable config + CI; recreate custom agent workflows manually. |
+| [Working with evals](https://developers.openai.com/api/docs/guides/evals) / [Graders](https://developers.openai.com/api/docs/guides/graders) | Historical API shapes (`data_source_config`, `testing_criteria`, `string_check` / `score_model` / Python). Useful concepts; **do not** depend on the hosted platform past Nov 2026. |
+| [Prompt optimizer](https://developers.openai.com/api/docs/guides/prompt-optimizer) | Dense annotations (Good/Bad + critique) beat bare thumbs; narrowly-defined graders; always human-review optimized prompts. Dataset-backed Optimize is part of the Evals deprecation. |
+| [GEPA](https://github.com/gepa-ai/gepa) / [optimize_anything](https://gepa-ai.github.io/gepa/blog/2026/02/18/introducing-optimize-anything/) | Reflective prompt/search with train/val Pareto selection; **Actionable Side Information (ASI)** — rich textual feedback, not scalar scores alone. |
 | [Reflexion (Shinn et al.)](https://arxiv.org/abs/2303.11366) | Actor → Evaluator → verbal Self-Reflection into bounded episodic memory (typically 1–3 lessons). |
-| [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Start simple; evaluator-optimizer only when criteria are clear and iteration helps; frameworks optional; measure before adding complexity. |
-| [Anthropic: harness design](https://www.anthropic.com/engineering/harness-design-long-running-apps) | Separate skeptical **evaluator** from generator (self-grade is too lenient); re-examine harness when models improve. |
-| Mem0 / scoped memory docs | `user_id` / `agent_id` / `run_id` scoping; add/search/update/delete; user-visible deletion. Pattern to copy on Neon — not a required dependency. |
+| [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Start simple; evaluator-optimizer only when criteria are clear and iteration helps; frameworks optional; measure before adding complexity; **tool ACI** often matters as much as the system prompt. |
+| [Anthropic: harness design](https://www.anthropic.com/engineering/harness-design-long-running-apps) | Separate skeptical **evaluator** from generator (self-grade is too lenient); re-examine harness assumptions when models improve. |
+| Mem0 entity-scoped memory | `user_id` / `agent_id` / `app_id` / `run_id` scoping; add/search/update/delete; user-visible deletion; avoid cross-scope leakage. Pattern to copy on Neon — not a required dependency. |
 
 ### Practices that consistently show up
 
-1. **Improve the harness, not the weights.** Instructions, tools, validators, and evals are the durable artifacts. OpenAI’s improvement-loop notebook treats the harness as the full contract (prompt + tools + routing + validation). Cleo already has most of that in-repo; evolve it offline.
-2. **Grounded evaluators beat self-critique.** Prefer external truth (catalog getters, `guardrails`, tests, tool results) over the generator grading itself. Anthropic and Reflexion both stress this; Cleo’s guardrails are free graders.
-3. **Separate generator from evaluator.** Use a distinct rubric/judge (lower temperature / separate call) when you need semantic scores. Cap interactive revise loops (2–3 max); put multi-iteration search offline.
-4. **Train vs held-out.** Static metaprompt loops overfit section-by-section feedback. GEPA-style and cookbook guidance: optimize on train, promote only if val improves.
-5. **Traces → feedback → evals → change set.** Do not stop at thumbs. Convert failures into reusable cases (Promptfoo or vitest/OpenAI Evals), then a ranked handoff (HALO-style or a short markdown report) for a PR.
-6. **Start with Platform Optimize / small golden set**, then automate. Cookbook progression: UI Optimize → scripted graders → GEPA when you need generalization.
-7. **Memory is scoped and deletable.** Personal memory ≠ global prompt evolution. Scope by user; expose clear/delete; inject a bounded block; never invent beyond stored notes (aligns with Mem0 scoping and Cleo’s `<cleo_user_profile>` pattern).
-8. **Keep the live path simple.** Anthropic: add evaluator-optimizer only when measurable. Cleo’s 90s stream budget favors deterministic sanitize online + rich offline loops.
-9. **Human gate until the eval gate is trusted.** OpenAI’s improvement loop default: propose diffs, developer merges. Automate merge only after graders are stable.
-10. **Skip RFT / fine-tuning for Cleo.** OpenAI is winding down fine-tuning access for new users; Cleo’s non-goal remains prompt/harness evolution via OpenAI API only.
+1. **Improve the harness, not the weights.** Instructions, tools, validators,
+   routing, and evals are the durable artifacts. OpenAI’s improvement-loop
+   notebook treats the harness as the full contract. Cleo already has most of
+   that in-repo (`instructions.ts`, tool attachment in `/api/responses`,
+   `guardrails.ts`); evolve all of it offline — not only the system prompt.
+2. **Failure taxonomy before automation.** Open-code ~30–50 failing traces,
+   then axial-code into a small set of failure modes (invented links, wrong
+   shelf, missing citation, voice/register, overlong search, etc.). Narrow
+   graders map 1:1 to those modes ([resilient prompts cookbook](https://developers.openai.com/cookbook/examples/evaluation/building_resilient_prompts_using_an_evaluation_flywheel)).
+3. **Grounded evaluators beat self-critique.** Prefer external truth (catalog
+   getters, `guardrails`, tests, tool results) over the generator grading
+   itself. Anthropic and Reflexion both stress this; Cleo’s guardrails are
+   free graders.
+4. **Separate generator from evaluator.** Use a distinct rubric/judge (separate
+   call / lower temperature) when you need semantic scores. Cap interactive
+   revise loops (2–3 max); put multi-iteration search offline.
+5. **Align the judge before trusting it.** Measure LLM graders against human
+   labels with TPR/TNR on imbalanced data; few-shot clear pass/fail examples;
+   hold out a test set so the judge is not overfit ([resilient prompts](https://developers.openai.com/cookbook/examples/evaluation/building_resilient_prompts_using_an_evaluation_flywheel)
+   / [graders](https://developers.openai.com/api/docs/guides/graders)). Watch
+   for **grader hacking**: high judge scores with low human scores.
+6. **Dense annotations beat bare thumbs.** Good/Bad plus a short critique
+   (`output_feedback`) is what Optimize / meta-prompt loops actually use.
+   Prefer binary pass/fail over fuzzy 1–5 scales when automating.
+7. **Train vs held-out.** Static metaprompt loops overfit section-by-section
+   feedback. GEPA-style and cookbook guidance: optimize on train, promote only
+   if val improves. Keep a blind / production-sampled set for continuous
+   monitoring.
+8. **Traces → feedback → evals → change set.** Do not stop at thumbs. Convert
+   failures into reusable cases (Promptfoo or vitest), then a ranked handoff
+   (HALO-style or a short markdown report) for a PR. The improvement-loop
+   default is a **reviewed** change set.
+9. **Prefer portable evals over hosted Platform Evals.** OpenAI’s migration
+   path is Promptfoo; Cleo Phase A should land cases + graders in git first.
+   Optional Platform / Datasets exploration is fine only as a short-lived
+   bootstrap before the Nov 2026 shutdown.
+10. **Memory is scoped and deletable.** Personal memory ≠ global prompt
+    evolution. Scope by user; expose clear/delete; inject a bounded block;
+    never invent beyond stored notes (Mem0 scoping + Cleo’s
+    `<cleo_user_profile>` pattern).
+11. **Keep the live path simple.** Anthropic: add evaluator-optimizer only when
+    measurable. Cleo’s 90s stream budget favors deterministic sanitize online +
+    rich offline loops.
+12. **Human gate until the eval gate is trusted.** Propose diffs; developer
+    merges. Automate merge only after graders are stable. Self-evolving
+    cookbook: stop when quality plateaus or identified failure modes are gone
+    (~80% positive feedback as a rough Platform heuristic).
+13. **Skip RFT / fine-tuning for Cleo.** Fine-tuning access is winding down for
+    new users; stay on prompt/harness evolution via OpenAI API only.
+14. **Feed optimizers with ASI, not just scalars.** GEPA and DSPy adapters
+    perform better when graders return diagnostic text (what failed, expected
+    vs actual, which link was invented). Mirror that in Cleo graders.
 
 ### Best-fit implementations to borrow (not adopt wholesale)
 
 | Implementation | Borrow | Leave alone for Cleo |
 | --- | --- | --- |
-| OpenAI Evals Platform + Optimize | Early labeling, thumbs + comment → Optimize on `CLEO_INSTRUCTIONS` draft | Do not make Platform the only source of truth; keep cases in git |
-| OpenAI Evals API graders | `string_check` / `score_model` for CI-ish runs | Mirror critical checks in local TS graders that call `guardrails` |
-| Promptfoo (from improvement-loop cookbook) | YAML scenarios, regression gate, CI | Optional; vitest may cover Phase A without a new runner |
-| GEPA (`gepa-ai/gepa`) | Phase C+ offline instruction search with train/val | Never run GEPA inside `/api/responses` |
+| Promptfoo (+ OpenAI migration cookbook) | YAML/JSON scenarios, assertions, CI gate, red-team later | Do not require Agents SDK; wrap Responses path or grade frozen outputs |
+| In-repo vitest / `lib/cleo/graders/*` | Deterministic checks shared with production `guardrails` | Do not duplicate truth in a second language |
+| OpenAI Platform Datasets / Optimize | Optional short bootstrap while UI still exists; annotation UX ideas | Not the source of truth after Nov 2026; never the only copy of cases |
 | HALO / Codex handoff pattern | Rank harness changes → `codex_handoff.md`-style PR body | No requirement to adopt Agents SDK or HALO dependency |
+| GEPA (`gepa-ai/gepa` / `optimize_anything`) | Phase C+ offline instruction (or harness text) search with train/val + ASI | Never run GEPA inside `/api/responses` |
 | Reflexion / Self-Refine | Bounded episodic lessons; offline or rare online repair | No unbounded reflection buffer in the browser transcript |
-| Mem0 / Letta-style memory | Scope keys, CRUD, audit history | Prefer Neon tables first; avoid a second memory SaaS unless product asks |
+| Mem0 / Letta-style memory | Scope keys, CRUD, audit history, session `run_id` cleanup | Prefer Neon tables first; avoid a second memory SaaS unless product asks |
 | DSPy / SuperOptiX GEPA adapters | Ideas for persisting optimized instructions as artifacts | Stay on Responses route; no Python agent rewrite |
 
 ### Recommended stack for Cleo (research → product)
@@ -98,12 +154,14 @@ every research system into the Cleo runtime.
 | --- | --- | --- |
 | Online chat | Keep current Responses API + guardrails | Simple, measured, within invariants |
 | Online repair | Deterministic sanitize; ≤1 optional repair on hard fail | Latency / `maxDuration` |
-| Shared learning | Offline evals → PR to `instructions.ts` | Matches OpenAI + Anthropic “reviewed harness change” |
-| Early optimize | OpenAI Platform Optimize on a golden CSV | Fast learning before building GEPA |
-| Later optimize | Scripted graders → optional GEPA | Train/val; score report in PR |
-| Regression gate | Local deterministic graders (+ optional Promptfoo/OpenAI Evals) | Same truth as production helpers |
+| Shared learning | Offline evals → PR to harness (`instructions.ts`, tools, graders) | Matches OpenAI + Anthropic “reviewed harness change” |
+| Durable eval runner | Promptfoo and/or vitest in-repo | Survives Platform Evals shutdown; CI-friendly |
+| Early optimize | Manual / meta-prompt revise against failing cases (+ optional Platform Optimize while available) | Fast learning; human merge |
+| Later optimize | Scripted graders + optional GEPA with ASI | Train/val; score + feedback report in PR |
+| Regression gate | Local deterministic graders first; Promptfoo/LLM judges second | Same truth as production helpers |
 | Personal memory | Neon, signed-in, scoped, deletable | Mem0 practices without new vendor |
 | Trace capture | Lightweight signals + sampled redacted cases | Improvement-loop “traces” without `store: true` |
+| Failure taxonomy | Axial codes in eval case metadata | Graders stay narrow and auditable |
 
 ## Architecture (three loops)
 
@@ -125,11 +183,12 @@ flowchart LR
   end
 
   subgraph offline [Offline improvement - human gated]
-    S --> D[Eval dataset]
+    S --> T[Failure taxonomy]
+    T --> D[Eval dataset]
     D --> E[Graders + LLM-as-judge]
-    E --> P[Candidate instructions]
+    E --> P[Candidate harness diff]
     P --> H[Human review + PR]
-    H --> I[lib/cleo/instructions.ts]
+    H --> I["lib/cleo harness"]
     I --> R
   end
 ```
@@ -140,22 +199,28 @@ flowchart LR
 
 **Pipeline**
 
-1. **Baseline** — current `CLEO_INSTRUCTIONS` + catalog + tools
-   (`web_search`, `image_generation`) as used by `app/api/responses/route.ts`.
-2. **Dataset** — curated JSON/CSV of portal-shaped prompts (countries, space
-   bodies, civilizations, cities, oceans, rivers, vision, refusal, casual
-   chat). Seed from real failure modes (guardrail hits, Retry/Continue,
-   invented links), not only happy paths.
-3. **Generate** — run the same Responses path in a scripted harness
-   (`scripts/cleo/eval-run.mjs` or similar), OpenAI-only, no page rendering.
-4. **Grade** — mix deterministic and model graders (see § Graders).
-5. **Aggregate** — weighted score; stop when above threshold or `max_retry`.
-6. **Reflect / revise** — meta-prompt (or later GEPA-style search) proposes a
-   **diff** to instructions; never silent overwrite of `main`.
-7. **Promote** — human reviews; land via PR. Update `docs/cleo.md` if
-   behavior boundaries change.
+1. **Baseline** — current harness: `CLEO_INSTRUCTIONS` + catalog + tools
+   (`web_search`, `image_generation`) + guardrails as used by
+   `app/api/responses/route.ts`.
+2. **Analyze** — open-code real failures (guardrail hits, Retry/Continue,
+   invented links, bad search/image use); axial-code into a short taxonomy.
+3. **Dataset** — curated JSON/CSV/Promptfoo cases for portal-shaped prompts
+   (countries, space, civilizations, cities, oceans, rivers, vision, refusal,
+   casual chat). Tag each case with failure-mode codes. Seed from failures,
+   not only happy paths. Split train / held-out early.
+4. **Generate** — run the same Responses path in a scripted harness
+   (`scripts/cleo/eval-run.mjs` or Promptfoo custom provider), OpenAI-only, no
+   page rendering.
+5. **Grade** — mix deterministic and model graders (see § Graders). Prefer
+   binary pass/fail + short diagnostic text (ASI) over opaque 1–5 scores.
+6. **Aggregate** — weighted score; stop when above threshold or `max_retry`.
+7. **Reflect / revise** — meta-prompt (or later GEPA-style search) proposes a
+   **diff** to the harness (usually `instructions.ts`, sometimes tool policy
+   or guardrails); never silent overwrite of `main`.
+8. **Promote** — human reviews; land via PR with score report on train **and**
+   held-out. Update `docs/cleo.md` if behavior boundaries change.
 
-**Promotion rule:** Candidate instructions ship only through git review.
+**Promotion rule:** Candidate harness changes ship only through git review.
 Automation may open a draft PR; it must not hot-patch production env vars
 with a new system prompt.
 
@@ -163,14 +228,16 @@ Suggested package layout (when implementing):
 
 | Path | Role |
 | --- | --- |
-| `content/cleo-evals/` or `scripts/cleo/evals/` | Golden cases + expected signals |
+| `content/cleo-evals/` or `scripts/cleo/evals/` | Golden cases + expected signals + failure-mode tags |
 | `scripts/cleo/eval-run.mjs` | Batch generate + grade |
 | `scripts/cleo/optimize-instructions.mjs` | Offline revise loop (dev/CI only) |
 | `lib/cleo/graders/*` | Deterministic graders shared by tests + eval |
-| Optional OpenAI Evals UI | Early exploration with thumbs + Optimize |
+| Optional `promptfoo/` config | CI regression / red-team later |
+| Optional Platform Datasets UI | Short-lived bootstrap only (deprecated platform) |
 
-Start with OpenAI Platform Evals for a small hand-labeled set, then move the
-same graders into a repo script so CI can fail regressions.
+Start with in-repo golden cases + deterministic graders. Optionally explore
+Platform annotation UX while it exists, then keep the durable copy in git /
+Promptfoo so CI can fail regressions after Nov 2026.
 
 ### 2. Online signals (instrumentation)
 
@@ -181,16 +248,18 @@ Collect, with explicit privacy bounds:
 
 | Signal | Source | Why |
 | --- | --- | --- |
-| Explicit feedback | Optional 👍/👎 + short comment on assistant turns | Human preference text for Optimize / meta-prompt |
-| Guardrail strip | Server after sanitize | Invented guide/image paths |
+| Explicit feedback | Optional 👍/👎 + short comment on assistant turns | Dense human preference text for Optimize / meta-prompt |
+| Guardrail strip | Server after sanitize | Invented guide/image paths — free failure-mode labels |
 | Incomplete / Retry / Continue | Existing stream `status` + UI actions | Soft failures |
 | Cancellation | Client abort | Latency / overlong turns |
 | Tool churn | `max_tool_calls` / activity events | Search/image misuse |
+| Sentry errors | Existing SDK | Infra / API failures (no raw chat bodies) |
 
 **Storage:** Neon tables scoped by `userId` when signed in; for guests either
 omit durable storage or store only coarse anonymous aggregates (no raw chat
 bodies without consent). Keep raw transcripts out of analytics by default —
-store case ids, hashes, grader flags, and short feedback text.
+store case ids, hashes, grader flags, failure-mode codes, and short feedback
+text.
 
 **API sketch:** `POST /api/cleo/feedback` (session-aware), rate-limited like
 chat turns. Fail open if Neon is unset (same pattern as auth / Cleo 503
@@ -209,26 +278,33 @@ Follow the existing ephemeral-instruction pattern
 - Instructions must forbid inventing memories beyond that block (same voice
   rules as name personalization).
 - Guests stay browser-only; no cross-device memory.
+- Optional session scope (`run_id`-style) for temporary notes that expire —
+  do not mix into durable user prefs without explicit promote.
 
 This is **not** the self-evolving loop. One user’s corrections must not become
 everyone’s system prompt without the offline + human path.
 
 ## Graders (Cleo-specific)
 
-Prefer cheap deterministic checks before LLM-as-judge.
+Prefer cheap deterministic checks before LLM-as-judge. Return a pass/fail
+**and** a short diagnostic string so offline optimizers have ASI.
 
 | Grader | Type | Pass idea |
 | --- | --- | --- |
-| Guide link validity | Python/TS | Every `/explore|space|civilizations|cities|oceans|rivers/...` link resolves via existing getters |
+| Guide link validity | TS | Every `/explore\|space\|civilizations\|cities\|oceans\|rivers/...` link resolves via existing getters |
 | No invented curated images | TS | Images match `isCuratedTopicImageSrc` / topic-photo sets when subject matched |
 | Guardrail noop | TS | Sanitize did not strip (or strips only on negative cases) |
 | Catalog mention | TS | When the gold case expects a deep link, reply contains the canonical path |
-| Voice / usefulness | `score_model` | Rubric: lead with answer, no stock phrases, correct register |
+| Tool policy | TS / activity | Search/image used only when the case expects it (or not used when forbidden) |
+| Voice / usefulness | `score_model` / Promptfoo LLM assert | Rubric: lead with answer, no stock phrases, correct register |
 | Grounding when searched | `score_model` | Claims that needed `web_search` cite Markdown links |
 | Safety / overclaim | `score_model` | No fake personal experience; uncertainty when warranted |
 
 Reuse production helpers (`guardrails.ts`, portal getters) inside graders so
-eval truth matches runtime truth.
+eval truth matches runtime truth. Before promoting an LLM judge, spot-check
+agreement with a human on a labeled slice (aim for high TPR **and** TNR on
+failure-finding graders). Do not weaken guardrails to chase a higher judge
+score (reward hacking).
 
 ## Within-turn reflection (optional, capped)
 
@@ -253,35 +329,49 @@ Recommended default:
 - Self-improvement must not weaken guardrails to chase a higher judge score.
 - Portal pages remain statically authored; the agent improves *answers about*
   the portal, not the portal CMS.
+- Prefer git-owned cases over Platform-only datasets given the Evals
+  shutdown timeline.
 
 ## Implementation phases
 
 ### Phase A — Eval harness (ship first)
 
-1. Golden cases for catalog grounding + voice smoke tests (start ~20–30;
-   grow from real failures).
-2. Deterministic graders wrapping `guardrails` + catalog getters.
-3. `pnpm test:cleo-eval` (or vitest) runnable without network for
-   deterministic cases; optional live job behind `OPENAI_API_KEY`.
-4. Optional parallel: upload the same CSV to OpenAI Evals / Platform Optimize
-   for a first instruction revision (manual merge).
-5. Document how to add a case when a production failure is found.
+1. Draft a short failure taxonomy from known Cleo failure modes (invented
+   paths, missing catalog links, curated-image misuse, voice/register,
+   refusal/casual).
+2. Golden cases for catalog grounding + voice smoke tests (start ~20–30;
+   grow from real failures). Tag cases with taxonomy codes; split train /
+   held-out.
+3. Deterministic graders wrapping `guardrails` + catalog getters; return
+   diagnostic text, not only booleans.
+4. `pnpm test:cleo-eval` (vitest and/or Promptfoo) runnable without network
+   for deterministic cases; optional live job behind `OPENAI_API_KEY`.
+5. Optional parallel bootstrap: annotate a small set in Platform Datasets /
+   Optimize **only while available**, then copy the resulting cases + any
+   prompt diff ideas into git (manual merge). Do not treat Platform as
+   durable storage.
+6. Document how to add a case when a production failure is found.
 
 ### Phase B — Feedback UI + Neon signals
 
 1. Lightweight turn feedback in `components/cleo/*` (design-language: no card
-   clutter; one clear control). Prefer rating + short text (feeds Optimize /
-   meta-prompt the way the cookbooks expect).
+   clutter; one clear control). Prefer rating + short text (dense critique
+   feeds meta-prompt / Optimize-style revise the way the cookbooks expect).
 2. Neon schema + `POST /api/cleo/feedback`.
-3. Export script: signals → eval case candidates (human triage) — the
-   “traces → evals” step from the improvement-loop cookbook.
+3. Export script: signals → eval case candidates with suggested failure-mode
+   tags (human triage) — the “traces → evals” step from the improvement-loop
+   cookbook.
 
 ### Phase C — Offline optimize → PR
 
-1. Scripted meta-prompt revise of `CLEO_INSTRUCTIONS` against failing cases.
+1. Scripted meta-prompt revise of the harness (usually `CLEO_INSTRUCTIONS`,
+   sometimes tool policy / guardrails) against failing cases + grader ASI.
 2. Score must beat baseline on train **and** held-out cases (anti-overfit).
 3. Open draft PR with score report / handoff notes; engineer merges.
-4. Later: optional GEPA pass when static metaprompt plateaus.
+4. Later: optional GEPA / `optimize_anything` pass when static metaprompt
+   plateaus — still offline, still human-gated.
+5. Optionally rank multi-file harness changes with a HALO-style report; no
+   hard dependency.
 
 ### Phase D — Opt-in account memory
 
@@ -294,22 +384,25 @@ Recommended default:
 
 | Change | Check |
 | --- | --- |
-| Graders / harness | Deterministic eval suite green; live eval optional |
+| Graders / harness | Deterministic eval suite green; live eval optional; judge spot-check if LLM graders ship |
 | Feedback API | Unit + security tests; rate limit; no secret leakage |
 | Memory | Account isolation tests; instruction block size cap |
-| Instruction PR from optimize | `pnpm typecheck`, Cleo manual smoke, eval score report attached |
+| Instruction / harness PR from optimize | `pnpm typecheck`, Cleo manual smoke, train+held-out score report attached |
 | UI | Desktop/mobile, light/dark; feedback does not block streaming |
 
 ## Decision log (defaults)
 
 | Decision | Default |
 | --- | --- |
-| Where shared learning lands | Git-reviewed `lib/cleo/instructions.ts` |
+| Where shared learning lands | Git-reviewed harness (`lib/cleo/instructions.ts` + related tools/graders) |
 | Where personal learning lands | Neon, signed-in, opt-in |
 | Online auto-prompt update | **No** |
+| Durable eval home | In-repo cases + Promptfoo/vitest (not Platform Evals) |
+| Platform Datasets / Optimize | Optional bootstrap only until Nov 2026 shutdown |
 | New infra | Neon only unless product adds another store |
 | OpenAI `store` | Stay `false` until privacy review |
 | Framework migration | Stay on Responses API route |
+| Judge promotion | Align to humans (TPR/TNR) before using as a merge gate |
 
 When a product decision changes a row above, update this file and the
 relevant runbook (`cleo.md` / `auth.md`).
