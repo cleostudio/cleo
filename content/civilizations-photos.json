@@ -3279,24 +3279,29 @@
       "featureName": "Ahiram sarcophagus",
       "alt": "Ahiram sarcophagus — phoenicia",
       "caption": "Ahiram sarcophagus",
-      "photographer": "O.Mustafin",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAhiram_Sarcophagus_1.JPG",
+      "photographer": "Matson Collection",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AByblos-_Jebeil._Byblos._Sarcophagus_of_Ahiram%2C_King_of_Byblos_LOC_matpc.03491.jpg",
       "license": "Public domain",
-      "commonsTitle": "File:Ahiram Sarcophagus 1.JPG",
-      "provenance": "Curated from Wikimedia Commons (File:Ahiram Sarcophagus 1.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
-      "checksum": "b2c406e5345515d2d1f8e7496dcb40f6c2e5c5db145c26c361e2034219d79f67",
-      "width": 1280,
-      "height": 960,
+      "commonsTitle": "File:Byblos- Jebeil. Byblos. Sarcophagus of Ahiram, King of Byblos LOC matpc.03491.jpg",
+      "provenance": "Curated from Wikimedia Commons (File:Byblos- Jebeil. Byblos. Sarcophagus of Ahiram, King of Byblos LOC matpc.03491.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "89b5ef0f2f82c7867bc4628cf52919720b560507247649f163e4606073cec858",
+      "width": 5779,
+      "height": 4291,
       "renditions": [
         {
           "width": 640,
           "src": "/images/civilizations/phoenicia/w640-3.jpg",
-          "bytes": 124821
+          "bytes": 49276
         },
         {
           "width": 1280,
           "src": "/images/civilizations/phoenicia/w1280-3.jpg",
-          "bytes": 283927
+          "bytes": 171473
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/phoenicia/w2048-3.jpg",
+          "bytes": 460013
         }
       ]
     }
@@ -3704,24 +3709,29 @@
       "featureName": "Lord of Sipán tomb",
       "alt": "Lord of Sipán tomb — moche",
       "caption": "Lord of Sipán tomb",
-      "photographer": "Bruno Girin",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATomb_of_El_Se%C3%B1or_de_Sipan_reconstruction_at_Huaca_Rajada.jpg",
-      "license": "CC BY-SA 2.0",
-      "commonsTitle": "File:Tomb of El Señor de Sipan reconstruction at Huaca Rajada.jpg",
-      "provenance": "Curated from Wikimedia Commons (File:Tomb of El Señor de Sipan reconstruction at Huaca Rajada.jpg); imported locally with metadata stripped; originals kept outside the public tree.",
-      "checksum": "fcc740edae2fad7f4de85e2d1b89bbb60d555d6cfc033b851c780c0017e60d31",
-      "width": 1280,
-      "height": 848,
+      "photographer": "user:Oresaba",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALORD_OF_SIPAN_RECONSTRUCTION.JPG",
+      "license": "CC BY-SA 3.0",
+      "commonsTitle": "File:LORD OF SIPAN RECONSTRUCTION.JPG",
+      "provenance": "Curated from Wikimedia Commons (File:LORD OF SIPAN RECONSTRUCTION.JPG); imported locally with metadata stripped; originals kept outside the public tree.",
+      "checksum": "0e6c04a1501e3b65ff45050114b99f492f488b89f4947fd7223431dc7d67736a",
+      "width": 2592,
+      "height": 3888,
       "renditions": [
         {
           "width": 640,
           "src": "/images/civilizations/moche/w640-2.jpg",
-          "bytes": 52786
+          "bytes": 132350
         },
         {
           "width": 1280,
           "src": "/images/civilizations/moche/w1280-2.jpg",
-          "bytes": 221596
+          "bytes": 418585
+        },
+        {
+          "width": 2048,
+          "src": "/images/civilizations/moche/w2048-2.jpg",
+          "bytes": 1049400
         }
       ]
     },

@@ -17504,10 +17504,10 @@
     "title": "Ahiram sarcophagus",
     "subtitle": "Phoenicia",
     "alt": "Ahiram sarcophagus — phoenicia",
-    "photographer": "O.Mustafin",
+    "photographer": "Matson Collection",
     "license": "Public domain",
-    "width": 1280,
-    "height": 960,
+    "width": 5779,
+    "height": 4291,
     "renditions": [
       {
         "src": "/images/civilizations/phoenicia/w640-3.jpg",
@@ -17516,6 +17516,10 @@
       {
         "src": "/images/civilizations/phoenicia/w1280-3.jpg",
         "width": 1280
+      },
+      {
+        "src": "/images/civilizations/phoenicia/w2048-3.jpg",
+        "width": 2048
       }
     ]
   },
@@ -18844,10 +18848,10 @@
     "title": "Lord of Sipán tomb",
     "subtitle": "Moche",
     "alt": "Lord of Sipán tomb — moche",
-    "photographer": "Bruno Girin",
-    "license": "CC BY-SA 2.0",
-    "width": 1280,
-    "height": 848,
+    "photographer": "user:Oresaba",
+    "license": "CC BY-SA 3.0",
+    "width": 2592,
+    "height": 3888,
     "renditions": [
       {
         "src": "/images/civilizations/moche/w640-2.jpg",
@@ -18856,6 +18860,10 @@
       {
         "src": "/images/civilizations/moche/w1280-2.jpg",
         "width": 1280
+      },
+      {
+        "src": "/images/civilizations/moche/w2048-2.jpg",
+        "width": 2048
       }
     ]
   },
