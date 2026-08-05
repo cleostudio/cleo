@@ -59,3 +59,14 @@ pnpm export:cleo-feedback -- --out tmp/cleo-feedback-candidates.json
 Review the candidate JSON, edit failure-mode tags / expect flags, then copy
 approved cases into `cases.json` by hand. The export never writes golden cases
 directly.
+
+## Instruction optimize (Phase C)
+
+```bash
+pnpm optimize:cleo                 # dry-run on frozen optimize-target cases
+pnpm optimize:cleo -- --live       # regenerate + meta-prompt revise (needs OPENAI_API_KEY)
+```
+
+Writes `tmp/cleo-optimize/handoff.md` and `candidate-base-instructions.txt`.
+Promotion requires train **and** holdout pass-rate improvement. Apply
+candidates only through a human-reviewed PR to `CLEO_BASE_INSTRUCTIONS`.

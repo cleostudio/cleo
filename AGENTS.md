@@ -64,12 +64,14 @@ cp .env.example .env.local   # OPENAI_API_KEY for /cleo; Neon + Better Auth for 
 pnpm dev                     # only service; default Next port
 pnpm typecheck
 pnpm test:unit               # and/or pnpm test:security when relevant
-pnpm test:cleo-eval          # offline Cleo graders + golden cases (no network)
+pnpm test:cleo-eval          # offline Cleo graders + golden cases + optimize unit tests
 pnpm build                   # when changing routes/config (needs SENTRY_AUTH_TOKEN for source maps)
 # Auth + Cleo feedback schema (when DATABASE_URL is set):
 pnpm db:push
 # Optional: export feedback → eval case candidates for triage
 pnpm export:cleo-feedback
+# Optional: instruction optimize dry-run (add -- --live with OPENAI_API_KEY)
+pnpm optimize:cleo
 ```
 
 Before changing Next.js framework usage, read the matching guide under

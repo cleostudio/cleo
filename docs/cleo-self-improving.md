@@ -232,8 +232,8 @@ Shipped / planned package layout:
 | `content/cleo-evals/README.md` | How to add a case from a production failure |
 | `lib/cleo/evals/*` | Taxonomy, loader, vitest suite |
 | `lib/cleo/graders/*` | Deterministic graders shared by tests + eval |
-| `scripts/cleo/eval-run.mjs` | (Later) batch live generate + grade |
-| `scripts/cleo/optimize-instructions.mjs` | (Later) offline revise loop (dev/CI only) |
+| `scripts/cleo/optimize-instructions.mjs` | Offline dry-run / live revise loop (`pnpm optimize:cleo`) |
+| `lib/cleo/optimize/*` | Scoring, meta-prompt, handoff, promote gate |
 | Optional `promptfoo/` config | CI regression / red-team later |
 | Optional Platform Datasets UI | Short-lived bootstrap only (deprecated platform) |
 
@@ -363,16 +363,24 @@ Still optional later in Phase A+:
 Guests may leave feedback (guest key hash, no account id). Rows store capped
 excerpts + hashes, not a full analytics transcript warehouse.
 
-### Phase C — Offline optimize → PR
+### Phase C — Offline optimize → PR (shipped)
 
-1. Scripted meta-prompt revise of the harness (usually `CLEO_INSTRUCTIONS`,
-   sometimes tool policy / guardrails) against failing cases + grader ASI.
-2. Score must beat baseline on train **and** held-out cases (anti-overfit).
-3. Open draft PR with score report / handoff notes; engineer merges.
-4. Later: optional GEPA / `optimize_anything` pass when static metaprompt
-   plateaus — still offline, still human-gated.
-5. Optionally rank multi-file harness changes with a HALO-style report; no
-   hard dependency.
+| Piece | Path |
+| --- | --- |
+| Optimize targets filter | `lib/cleo/optimize/targets.ts` (excludes negative detector fixtures) |
+| Train/holdout scoring + promote gate | `lib/cleo/optimize/score.ts` |
+| Meta-prompt + parse | `lib/cleo/optimize/meta-prompt.ts` |
+| Loop | `lib/cleo/optimize/loop.ts` |
+| Handoff markdown | `lib/cleo/optimize/handoff.ts` |
+| CLI | `pnpm optimize:cleo` (dry-run) / `pnpm optimize:cleo -- --live` |
+
+Promotion rule: candidate pass rate must **strictly** beat baseline on train
+**and** holdout. Artifacts land in `tmp/cleo-optimize/` (`handoff.md` +
+`candidate-base-instructions.txt`). Apply only via human-reviewed PR to
+`CLEO_BASE_INSTRUCTIONS` (catalog stays appended by `buildCleoInstructions`).
+Bump `CLEO_PROMPT_CACHE_KEY` when the voice prefix changes enough.
+
+Later optional: GEPA / `optimize_anything` when static metaprompt plateaus.
 
 ### Phase D — Opt-in account memory
 

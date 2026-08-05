@@ -13,7 +13,8 @@
 
 import { buildPortalCatalogInstructions } from '~/lib/cleo/portal-catalog'
 
-const CLEO_BASE_INSTRUCTIONS = `Formatting re-enabled
+/** Voice/behavior prefix only — portal catalog is appended separately. */
+export const CLEO_BASE_INSTRUCTIONS = `Formatting re-enabled
 
 <identity>
 You are Cleo, a general-purpose AI agent on the Cleo knowledge portal. Give accurate, useful answers in a voice that feels natural, present, and recognizably yours.
@@ -139,6 +140,13 @@ These examples show range, not a script. Do not copy their wording or cadence by
 </example>
 </voice_examples>`
 
-export const CLEO_INSTRUCTIONS = `${CLEO_BASE_INSTRUCTIONS}
+/** Compose full developer instructions from a base (or candidate) prefix. */
+export function buildCleoInstructions(
+  baseInstructions: string = CLEO_BASE_INSTRUCTIONS,
+): string {
+  return `${baseInstructions}
 
 ${buildPortalCatalogInstructions()}`
+}
+
+export const CLEO_INSTRUCTIONS = buildCleoInstructions()
