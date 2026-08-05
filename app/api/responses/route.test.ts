@@ -796,7 +796,7 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     ])
   })
 
-  it("uses minimal reasoning effort for short social turns", async () => {
+  it("uses low reasoning effort for short social turns", async () => {
     openai.create.mockResolvedValueOnce(
       responseStream([{ delta: "hi", type: "response.output_text.delta" }])
     )
@@ -804,7 +804,9 @@ describe("POST /api/responses: streaming and upstream errors", () => {
     await POST(ask({ messages: [{ content: "Hey Cleo", role: "user" }] }))
 
     const request = openai.create.mock.calls[0]?.[0]
-    expect(request.reasoning.effort).toBe("minimal")
+    // `minimal` is rejected by the API while web_search + image_generation
+    // stay attached on every Cleo turn.
+    expect(request.reasoning.effort).toBe("low")
     expect(
       request.tools.find((tool: { type: string }) => tool.type === "web_search")
     ).toMatchObject({ search_context_size: "low" })
