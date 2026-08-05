@@ -24,6 +24,12 @@ vi.mock('./zoomable-message-image', () => ({
   ZoomableMessageImage: () => null,
 }))
 
+vi.mock('~/lib/auth-client', () => ({
+  authClient: {
+    useSession: () => ({ data: null, isPending: false }),
+  },
+}))
+
 import { writeCachedUserLocation } from '~/lib/cleo/location-cache'
 import { setLocationSyncEnabled } from '~/lib/cleo/location-preference'
 

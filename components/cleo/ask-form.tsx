@@ -16,6 +16,7 @@ import { ActivityPanel } from "~/components/cleo/activity-panel"
 import { LiquidGlass } from "~/components/cleo/liquid-glass"
 import { Markdown } from "~/components/cleo/markdown"
 import { MessageFeedback } from "~/components/cleo/message-feedback"
+import { RememberNote } from "~/components/cleo/remember-note"
 import { Button } from "~/components/cleo/ui/button"
 import { Input } from "~/components/cleo/ui/input"
 import { ZoomableMessageImage } from "~/components/cleo/zoomable-message-image"
@@ -282,11 +283,14 @@ const AssistantMessage = memo(function AssistantMessage({
       ) : null}
 
       {showFeedback && message.turnId ? (
-        <MessageFeedback
-          assistant={message.content}
-          prompt={feedbackPrompt}
-          turnId={message.turnId}
-        />
+        <>
+          <MessageFeedback
+            assistant={message.content}
+            prompt={feedbackPrompt}
+            turnId={message.turnId}
+          />
+          <RememberNote suggestedNote={feedbackPrompt} />
+        </>
       ) : null}
     </section>
   )

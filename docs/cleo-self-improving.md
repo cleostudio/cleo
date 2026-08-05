@@ -54,9 +54,9 @@ healthcare summarizer or diligence-analyst examples literally.
 | Neon + Better Auth | `docs/auth.md` | Durable store for opt-in signals / prefs |
 | Sentry | `docs/sentry.md` | Error/latency breadcrumbs; not a transcript store |
 
-Live chat is still one-shot generation + stream + post-hoc guardrails. There
-is no thumbs feedback, no eval suite, and no durable memory beyond Location
-and account name.
+Live chat is one-shot generation + stream + post-hoc guardrails, plus the
+shipped self-improvement surfaces below (evals, turn feedback, offline
+optimize, opt-in account memory).
 
 ## Research: best practices and reference implementations
 
@@ -382,12 +382,20 @@ Bump `CLEO_PROMPT_CACHE_KEY` when the voice prefix changes enough.
 
 Later optional: GEPA / `optimize_anything` when static metaprompt plateaus.
 
-### Phase D — Opt-in account memory
+### Phase D — Opt-in account memory (shipped)
 
-1. Schema + account UI to view/clear notes (`user_id`-scoped; Mem0-like CRUD).
-2. `<cleo_user_memory>` injection + instruction updates in `instructions.ts`
-   / `user-profile.ts` pattern.
-3. Tests for cap, redaction, and guest isolation.
+| Piece | Path |
+| --- | --- |
+| Schema | `lib/db/cleo-schema.ts` → `cleo_memory` (`pnpm db:push` when `DATABASE_URL` is set) |
+| Sanitize / inject helpers | `lib/cleo/memory.ts` → `<cleo_user_memory>` (cap 20 notes × 280 chars; block ≤1800) |
+| Neon store | `lib/cleo/memory-store.ts` (list/add/delete/clear; fail-open on inject) |
+| API | `GET/POST/DELETE /api/cleo/memory` — signed-in only, rate-limited |
+| Account UI | `components/account-memory-notes.tsx` on `/account` |
+| Chat Remember | `components/cleo/remember-note.tsx` (signed-in; guests see nothing) |
+| Injection | `POST /api/responses` loads notes for `session.user.id` into ephemeral developer context |
+
+Guests never get durable memory. One user’s notes never rewrite shared
+`CLEO_INSTRUCTIONS` — that stays on the offline + human PR path.
 
 ## Verification bar
 

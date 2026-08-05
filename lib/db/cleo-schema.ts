@@ -54,3 +54,34 @@ export const cleoFeedbackRelations = relations(cleoFeedback, ({ one }) => ({
     references: [user.id],
   }),
 }))
+
+/**
+ * Opt-in per-account memory notes (Phase D). Signed-in only; user-visible and
+ * deletable on `/account`. Injected as a bounded `<cleo_user_memory>` block.
+ */
+export const cleoMemory = pgTable(
+  'cleo_memory',
+  {
+    id: text('id').primaryKey(),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at')
+      .defaultNow()
+      .$onUpdate(() => /* @__PURE__ */ new Date())
+      .notNull(),
+    userId: text('user_id')
+      .notNull()
+      .references(() => user.id, { onDelete: 'cascade' }),
+    note: text('note').notNull(),
+  },
+  (table) => [
+    index('cleo_memory_userId_idx').on(table.userId),
+    index('cleo_memory_userId_createdAt_idx').on(table.userId, table.createdAt),
+  ],
+)
+
+export const cleoMemoryRelations = relations(cleoMemory, ({ one }) => ({
+  user: one(user, {
+    fields: [cleoMemory.userId],
+    references: [user.id],
+  }),
+}))

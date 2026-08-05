@@ -13,7 +13,7 @@ noindex and do not gate Explore / Space / Cleo.
 | --- | --- |
 | `GET/POST/PUT/PATCH/DELETE /api/auth/*` | Better Auth handler (`toNextJsHandler`) |
 | `/sign-in`, `/sign-up` | Email/password forms (print-register service UI) |
-| `/account` | Session nameplate + sign out |
+| `/account` | Session nameplate, Cleo memory notes, sign out |
 | Dock → Preferences → **Sign in** / **Account** | Discoverable entry in the Preferences panel |
 
 UI composition: same service-page register as Explore / Topics — `page-eyebrow`
@@ -35,12 +35,14 @@ missing `OPENAI_API_KEY` for `/api/responses`).
 | --- | --- |
 | `lib/db/index.ts` | Lazy Neon HTTP + Drizzle client |
 | `lib/db/auth-schema.ts` | Better Auth tables (`user`, `session`, `account`, `verification`) |
-| `lib/db/cleo-schema.ts` | Cleo product tables (`cleo_feedback` turn ratings) |
+| `lib/db/cleo-schema.ts` | Cleo product tables (`cleo_feedback`, `cleo_memory`) |
 | `lib/auth-user-fields.ts` | Shared `user.additionalFields` (e.g. Location preference) |
 | `lib/auth.ts` | Server `betterAuth` + `getSession` |
 | `lib/auth-client.ts` | React `createAuthClient` + `inferAdditionalFields` + Sentinel identify URL |
 | `lib/better-auth-kv.ts` | Resolve / validate project-scoped KV identify URL |
 | `lib/cleo/user-profile.ts` | Signed-in `user.name` → Cleo private instructions |
+| `lib/cleo/memory.ts` / `memory-store.ts` | Opt-in preference notes → `<cleo_user_memory>` |
+| `app/api/cleo/memory/route.ts` | Signed-in memory CRUD |
 | `app/api/auth/[...all]/route.ts` | Next.js route handler |
 | `drizzle.config.ts` | Migrations / push |
 | `app/_views/auth-pages.tsx` | Sign-in / sign-up / account UI |
@@ -121,7 +123,8 @@ Do not enable `activityTracking` on `dash()` unless you also migrate a
 ```bash
 pnpm db:push          # uses `pnpm exec drizzle-kit` (reliable PATH)
 # or: pnpm db:generate && pnpm db:migrate
-# Includes Better Auth tables + `cleo_feedback` (see `lib/db/cleo-schema.ts`).
+# Includes Better Auth tables + `cleo_feedback` / `cleo_memory`
+# (see `lib/db/cleo-schema.ts`).
 ```
 
 Re-generate the Drizzle schema from Better Auth when plugins change:
@@ -147,7 +150,10 @@ env is stripped. With a signed-in session, toggle Preferences → Location on,
 sign out and back in (or another browser) and confirm Location restores
 without a fresh geolocation prompt when browser permission is already granted.
 With a signed-in session, ask Cleo something casual (e.g. “Hey Cleo”) and
-confirm she can use the account name; signed-out turns must not.
+confirm she can use the account name; signed-out turns must not. Add a Cleo
+memory note on `/account` (or via Remember on a completed turn), ask a related
+follow-up, and confirm the preference is honored; delete the note and confirm
+it stops applying. Guests must not see Remember or persist notes.
 
 ## Boundaries
 

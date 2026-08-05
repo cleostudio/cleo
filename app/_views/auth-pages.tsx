@@ -9,10 +9,12 @@ import {
   type ReactNode,
 } from 'react'
 
+import { AccountMemoryNotes } from '~/components/account-memory-notes'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { Button } from '~/components/ui/button'
 import { Input } from '~/components/ui/input'
 import { authClient } from '~/lib/auth-client'
+import type { CleoMemoryNote } from '~/lib/cleo/memory'
 import { T } from '~/lib/i18n'
 
 type AuthMode = 'sign-in' | 'sign-up'
@@ -61,7 +63,7 @@ function AuthShell({
       </div>
 
       {footer ? (
-        <div className="enter" style={enterDelay(100)}>
+        <div className="enter max-w-sm" style={enterDelay(100)}>
           {footer}
         </div>
       ) : null}
@@ -247,8 +249,12 @@ export function SignUpPageView() {
 
 export function AccountPageView({
   user,
+  memoryNotes = [],
+  memoryStored = false,
 }: {
   user: { name: string; email: string } | null
+  memoryNotes?: CleoMemoryNote[]
+  memoryStored?: boolean
 }) {
   const router = useRouter()
   const [pending, setPending] = useState(false)
@@ -303,8 +309,14 @@ export function AccountPageView({
       eyebrow={<T zh="账户" en="Account" />}
       description={
         <T
-          zh="当前会话的账户信息。"
-          en="Details for your current session."
+          zh="当前会话的账户信息与可选的 Cleo 记忆笔记。"
+          en="Details for your current session and optional Cleo memory notes."
+        />
+      }
+      footer={
+        <AccountMemoryNotes
+          initialNotes={memoryNotes}
+          stored={memoryStored}
         />
       }
     >

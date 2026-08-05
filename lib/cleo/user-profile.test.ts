@@ -36,6 +36,7 @@ describe('buildUserProfileInstructions', () => {
     expect(instructions).toContain('<cleo_user_profile>')
     expect(instructions).toContain('Preferred name: Ada Lovelace')
     expect(instructions).toContain('Do not force the name into every reply')
+    expect(instructions).toContain('<cleo_user_memory>')
   })
 
   it('returns undefined when the name is unusable', () => {

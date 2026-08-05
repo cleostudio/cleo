@@ -66,7 +66,7 @@ pnpm typecheck
 pnpm test:unit               # and/or pnpm test:security when relevant
 pnpm test:cleo-eval          # offline Cleo graders + golden cases + optimize unit tests
 pnpm build                   # when changing routes/config (needs SENTRY_AUTH_TOKEN for source maps)
-# Auth + Cleo feedback schema (when DATABASE_URL is set):
+# Auth + Cleo feedback/memory schema (when DATABASE_URL is set):
 pnpm db:push
 # Optional: export feedback → eval case candidates for triage
 pnpm export:cleo-feedback
