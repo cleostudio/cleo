@@ -1,7 +1,13 @@
 import { neon } from '@neondatabase/serverless'
 import { drizzle, type NeonHttpDatabase } from 'drizzle-orm/neon-http'
 
-import * as schema from '~/lib/db/auth-schema'
+import * as authSchema from '~/lib/db/auth-schema'
+import * as cleoSchema from '~/lib/db/cleo-schema'
+
+const schema = {
+  ...authSchema,
+  ...cleoSchema,
+}
 
 export type Database = NeonHttpDatabase<typeof schema>
 

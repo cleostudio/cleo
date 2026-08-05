@@ -45,6 +45,7 @@
     "import:rivers-photos": "node scripts/rivers/import-rivers-photos.mjs",
     "validate:rivers": "node scripts/rivers/preflight.mjs",
     "generate:cleo-topic-photo-zoom": "tsx scripts/cleo/generate-topic-photo-zoom.mjs",
+    "export:cleo-feedback": "tsx scripts/cleo/export-feedback-cases.mjs",
     "db:generate": "pnpm exec drizzle-kit generate",
     "db:migrate": "pnpm exec drizzle-kit migrate",
     "db:push": "pnpm exec drizzle-kit push",

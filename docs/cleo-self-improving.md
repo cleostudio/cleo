@@ -350,15 +350,18 @@ Still optional later in Phase A+:
 2. Short Platform Datasets / Optimize bootstrap **only while available**, then
    copy cases + prompt diff ideas into git (manual merge).
 
-### Phase B — Feedback UI + Neon signals
+### Phase B — Feedback UI + Neon signals (shipped)
 
-1. Lightweight turn feedback in `components/cleo/*` (design-language: no card
-   clutter; one clear control). Prefer rating + short text (dense critique
-   feeds meta-prompt / Optimize-style revise the way the cookbooks expect).
-2. Neon schema + `POST /api/cleo/feedback`.
-3. Export script: signals → eval case candidates with suggested failure-mode
-   tags (human triage) — the “traces → evals” step from the improvement-loop
-   cookbook.
+| Piece | Path |
+| --- | --- |
+| Thumbs + optional note | `components/cleo/message-feedback.tsx` (on completed assistant turns) |
+| API | `POST /api/cleo/feedback` — rate-limited; fail-open `{ stored: false }` if Neon unset |
+| Schema | `lib/db/cleo-schema.ts` → `cleo_feedback` (`pnpm db:push` when `DATABASE_URL` is set) |
+| Parse / hashes | `lib/cleo/feedback.ts` (+ client-safe `feedback-shared.ts`) |
+| Export → case candidates | `pnpm export:cleo-feedback` → triage JSON (never auto-merges golden cases) |
+
+Guests may leave feedback (guest key hash, no account id). Rows store capped
+excerpts + hashes, not a full analytics transcript warehouse.
 
 ### Phase C — Offline optimize → PR
 

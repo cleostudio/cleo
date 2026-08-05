@@ -15,6 +15,7 @@ import { ThinkingOrb } from "thinking-orbs"
 import { ActivityPanel } from "~/components/cleo/activity-panel"
 import { LiquidGlass } from "~/components/cleo/liquid-glass"
 import { Markdown } from "~/components/cleo/markdown"
+import { MessageFeedback } from "~/components/cleo/message-feedback"
 import { Button } from "~/components/cleo/ui/button"
 import { Input } from "~/components/cleo/ui/input"
 import { ZoomableMessageImage } from "~/components/cleo/zoomable-message-image"
@@ -66,6 +67,8 @@ type Message = {
   incomplete?: MessageIncomplete
   reasoningItems?: EncryptedReasoningItem[]
   role: "assistant" | "user"
+  /** Stable client id for durable turn feedback (assistant messages). */
+  turnId?: string
 }
 
 type TurnRequest = {
@@ -174,6 +177,7 @@ const UserMessage = memo(function UserMessage({ message }: UserMessageProps) {
 type AssistantMessageProps = {
   canContinueIncomplete: boolean
   canRetryLastTurn: boolean
+  feedbackPrompt: string
   isLive: boolean
   message: Message
   onContinue: () => void
@@ -185,6 +189,7 @@ type AssistantMessageProps = {
 const AssistantMessage = memo(function AssistantMessage({
   canContinueIncomplete,
   canRetryLastTurn,
+  feedbackPrompt,
   isLive,
   message,
   onContinue,
@@ -195,6 +200,11 @@ const AssistantMessage = memo(function AssistantMessage({
   const incompleteNoteId = message.incomplete
     ? `cleo-incomplete-${message.id}`
     : undefined
+  const showFeedback =
+    !isLive &&
+    Boolean(message.turnId) &&
+    messageHasVisibleContent(message) &&
+    Boolean(message.content.trim() || (message.images && message.images.length > 0))
 
   return (
     <section aria-label="AI response" aria-live="polite" className="min-w-0">
@@ -270,9 +280,34 @@ const AssistantMessage = memo(function AssistantMessage({
           ) : null}
         </div>
       ) : null}
+
+      {showFeedback && message.turnId ? (
+        <MessageFeedback
+          assistant={message.content}
+          prompt={feedbackPrompt}
+          turnId={message.turnId}
+        />
+      ) : null}
     </section>
   )
 })
+
+/** Prefer the last visible user turn for feedback context (skip Continue prompts). */
+function feedbackPromptForAssistant(messages: Message[], assistantIndex: number) {
+  for (let index = assistantIndex - 1; index >= 0; index -= 1) {
+    const candidate = messages[index]
+    if (candidate?.role === "user" && !candidate.hidden) {
+      return candidate.content
+    }
+  }
+  for (let index = assistantIndex - 1; index >= 0; index -= 1) {
+    const candidate = messages[index]
+    if (candidate?.role === "user") {
+      return candidate.content
+    }
+  }
+  return ""
+}
 
 export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const [error, setError] = useState<string | null>(null)
@@ -569,6 +604,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       id: messageIdRef.current++,
       images: [],
       role: "assistant",
+      turnId: crypto.randomUUID(),
     }
 
     const conversation = [
@@ -902,7 +938,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
       {hasMessages ? (
         <div className="cleo-messages pt-8 sm:pt-10">
           <div className="flex flex-col gap-7">
-            {messages.map((message) => {
+            {messages.map((message, messageIndex) => {
               if (message.hidden) {
                 return null
               }
@@ -915,6 +951,10 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
                 <AssistantMessage
                   canContinueIncomplete={canContinueIncomplete}
                   canRetryLastTurn={canRetryLastTurn}
+                  feedbackPrompt={feedbackPromptForAssistant(
+                    messages,
+                    messageIndex,
+                  )}
                   isLive={isSubmitting && message.id === messages.at(-1)?.id}
                   key={message.id}
                   message={message}

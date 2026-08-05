@@ -738,6 +738,61 @@ html[data-cleo-route][data-cleo-empty] .site-chrome-main {
   opacity: 0.55;
 }
 
+.cleo-answer-action-active {
+  color: var(--foreground);
+}
+
+.cleo-message-feedback {
+  margin-top: 0.55rem;
+}
+
+.cleo-feedback-status {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.cleo-feedback-status-error {
+  color: var(--destructive);
+}
+
+.cleo-feedback-comment {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.cleo-feedback-comment-input {
+  flex: 1 1 12rem;
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.35rem 0;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.cleo-feedback-comment-input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.cleo-feedback-comment-input:focus {
+  outline: none;
+  border-bottom-color: color-mix(in oklab, var(--foreground) 45%, transparent);
+}
+
+.cleo-feedback-comment-input:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--foreground) 35%, transparent);
+  outline-offset: 3px;
+}
+
 .cleo-error-banner {
   display: flex;
   flex-wrap: wrap;

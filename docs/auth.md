@@ -35,6 +35,7 @@ missing `OPENAI_API_KEY` for `/api/responses`).
 | --- | --- |
 | `lib/db/index.ts` | Lazy Neon HTTP + Drizzle client |
 | `lib/db/auth-schema.ts` | Better Auth tables (`user`, `session`, `account`, `verification`) |
+| `lib/db/cleo-schema.ts` | Cleo product tables (`cleo_feedback` turn ratings) |
 | `lib/auth-user-fields.ts` | Shared `user.additionalFields` (e.g. Location preference) |
 | `lib/auth.ts` | Server `betterAuth` + `getSession` |
 | `lib/auth-client.ts` | React `createAuthClient` + `inferAdditionalFields` + Sentinel identify URL |
@@ -120,6 +121,7 @@ Do not enable `activityTracking` on `dash()` unless you also migrate a
 ```bash
 pnpm db:push          # uses `pnpm exec drizzle-kit` (reliable PATH)
 # or: pnpm db:generate && pnpm db:migrate
+# Includes Better Auth tables + `cleo_feedback` (see `lib/db/cleo-schema.ts`).
 ```
 
 Re-generate the Drizzle schema from Better Auth when plugins change:

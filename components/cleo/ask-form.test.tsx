@@ -429,6 +429,19 @@ describe('AskForm arrivals', () => {
     ])
   })
 
+  it('shows turn feedback after a completed assistant reply', async () => {
+    stubStream('Japan sits on four plates.')
+    window.history.replaceState(null, '', '/cleo?q=Orient%20me%20to%20Japan')
+
+    render(<AskForm />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Japan sits on four plates.')).toBeTruthy()
+      expect(screen.getByRole('button', { name: 'Good response' })).toBeTruthy()
+      expect(screen.getByRole('button', { name: 'Bad response' })).toBeTruthy()
+    })
+  })
+
   it('survives a Strict Mode remount without aborting the turn', async () => {
     const fetchMock = stubStream('Europa hides an ocean.')
     window.history.replaceState(null, '', '/cleo?q=Why%20is%20Europa%20interesting')

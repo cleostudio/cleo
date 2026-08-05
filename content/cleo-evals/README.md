@@ -49,3 +49,13 @@ Canonical design: [`docs/cleo-self-improving.md`](../../docs/cleo-self-improving
 Promote instruction/harness changes only when scores improve on **train and
 holdout**. Do not move a case from holdout to train just to make an optimize
 loop look better.
+
+## From production feedback (Phase B)
+
+```bash
+pnpm export:cleo-feedback -- --out tmp/cleo-feedback-candidates.json
+```
+
+Review the candidate JSON, edit failure-mode tags / expect flags, then copy
+approved cases into `cases.json` by hand. The export never writes golden cases
+directly.
