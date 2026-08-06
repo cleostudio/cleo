@@ -9,6 +9,7 @@ prompt-evolution design, see [`cleo-self-improving.md`](./cleo-self-improving.md
 | Piece | Path |
 | --- | --- |
 | UI (messages, attachments, stream, Retry/Continue, `?q=` handoff) | `components/cleo/ask-form.tsx` |
+| Thread autoscroll + turn anchoring (`use-stick-to-bottom`) | `lib/cleo/stick-to-bottom.ts`, `components/cleo/scroll-to-bottom.tsx` |
 | Page shell | `app/_views/cleo-page.tsx` |
 | API route | `app/api/responses/route.ts` |
 | Voice + portal catalog | `lib/cleo/instructions.ts`, `lib/cleo/portal-catalog.ts` |
@@ -31,6 +32,24 @@ prompt-evolution design, see [`cleo-self-improving.md`](./cleo-self-improving.md
 | Route layout flag | `components/cleo-route-attribute.tsx` (`html[data-cleo-route]`, cleared in `useLayoutEffect` before destination paint) |
 
 Entry: bottom dock `SayHiIcon` (`G` then `C`) or homepage search Ask Cleo row.
+
+## Thread scroll
+
+Conversation mode locks the Cleo shell to the viewport and scrolls inside
+`StickToBottom` (same library/pattern as [chloei](https://github.com/chloeilabs/chloei)):
+
+- Messages are grouped into user→assistant turns (`groupThreadMessages`).
+  Hidden Continue prompts stay off-screen and keep the follow-up assistant on
+  the prior turn.
+- The latest turn gets a screenful `min-height` so a freshly sent user bubble
+  can rest near the top while the answer grows below.
+- `resolveThreadScrollTarget` anchors that turn with `ANCHOR_TOP_GAP_PX`, then
+  falls through to true bottom-stick once the turn approaches the fixed prompt
+  (and keeps that pin for the turn after streaming ends).
+- Scrolling up escapes the lock; the sticky **Scroll to bottom** control
+  re-engages absolute bottom stick for one jump.
+- The prompt dock stays `position: fixed` (Safari must not remount it mid-send);
+  clearance uses `--cleo-content-pad` / `.cleo-messages-end`.
 
 ## API
 
@@ -217,6 +236,8 @@ Enable both in the Vercel project dashboard so `/_vercel/insights/*` and
 
 - Multi-turn chat, reasoning activity, web search
 - Image attach/vision, streaming, cancellation
+- Thread scroll: new turn anchors near the top; long answers bottom-stick;
+  scroll-up escapes; Scroll to bottom re-locks
 - Retry/Continue on incomplete/failed turns
 - Location preference (grant, deny, refresh/leave-and-return without
   re-prompt; Safari/`unknown` Permissions API restores after a prior grant;

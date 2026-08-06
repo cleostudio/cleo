@@ -9,7 +9,7 @@ import { AskForm } from '~/components/cleo/ask-form'
  */
 export function CleoPageView({ initialPrompt }: { initialPrompt?: string }) {
   return (
-    <div className="w-full">
+    <div className="cleo-page w-full">
       <AskForm initialPrompt={initialPrompt} />
     </div>
   )

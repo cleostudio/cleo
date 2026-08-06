@@ -540,21 +540,105 @@
   }
 }
 
-/* Tall end spacer so document scroll / scrollIntoView keep streamed text
-   above the fixed prompt + site dock instead of under them. */
+/* Tall end spacer so thread scroll keeps streamed text above the fixed
+   prompt + site dock instead of under them. */
 .cleo-messages-end {
   height: var(--cleo-content-pad);
   pointer-events: none;
+  flex-shrink: 0;
+}
+
+.cleo-message-groups {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.cleo-turn {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Screenful reserve on the latest turn so the user bubble can sit near the
+   top (chloei / ChatGPT-style anchoring) while the answer grows below. */
+.cleo-turn-last {
+  min-height: calc(100dvh - var(--cleo-content-pad));
+}
+
+.cleo-conversation {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+/* StickToBottom root establishes the flex height; Content's scrollRef is the
+   actual overflow scroller (height: 100% from the library). */
+.cleo-thread-scroll {
+  position: relative;
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+.cleo-thread-viewport {
+  min-height: 0;
+  flex: 1;
+}
+
+.cleo-thread-content {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.cleo-scroll-to-bottom {
+  position: sticky;
+  bottom: calc(var(--cleo-content-pad) - 0.75rem);
+  z-index: 2;
+  margin-inline: auto;
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+  box-shadow: var(--shadow-medium);
+  transition:
+    opacity 160ms var(--ease-swift),
+    transform 160ms var(--ease-swift),
+    color 160ms var(--ease-swift);
+}
+
+.cleo-scroll-to-bottom:hover:not(:disabled) {
+  color: var(--foreground);
 }
 
 /* Cleo layout flags live on <html> (see CleoRouteAttribute + AskForm) so a
-   leaving view-transition snapshot cannot keep body:has() locks on Home. */
+   leaving view-transition snapshot cannot keep body:has() locks on Home.
+   Conversation mode uses a contained StickToBottom scroller, so the shell
+   stays viewport-locked for both empty and threaded states. */
+html[data-cleo-route],
+html[data-cleo-route] body {
+  overflow: hidden;
+}
+
 html[data-cleo-route] .site-chrome {
+  height: 100svh;
+  min-height: 0;
+  overflow: hidden;
   padding-bottom: 0;
 }
 
 html[data-cleo-route] .site-chrome-main {
   /* Cleo owns its gutters via --app-column-gutter; don't double-inset. */
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
   padding-top: 0;
   padding-right: 0;
   padding-left: 0;
@@ -569,18 +653,7 @@ html[data-cleo-route] .column-rulers {
   display: none;
 }
 
-html[data-cleo-route][data-cleo-empty],
-html[data-cleo-route][data-cleo-empty] body {
-  overflow: hidden;
-}
-
-html[data-cleo-route][data-cleo-empty] .site-chrome {
-  height: 100svh;
-  min-height: 0;
-  overflow: hidden;
-}
-
-html[data-cleo-route][data-cleo-empty] .site-chrome-main {
+html[data-cleo-route] .cleo-page {
   display: flex;
   min-height: 0;
   flex: 1;

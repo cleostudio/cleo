@@ -38,6 +38,13 @@ import { AskForm } from './ask-form'
 let originalGeolocation: PropertyDescriptor | undefined
 let originalPermissions: PropertyDescriptor | undefined
 let originalScrollIntoView: PropertyDescriptor | undefined
+let originalResizeObserver: PropertyDescriptor | undefined
+
+class ResizeObserverStub {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
 
 function mockGeolocation(
   implementation: (
@@ -77,6 +84,15 @@ beforeEach(() => {
     configurable: true,
     value: vi.fn(),
   })
+  originalResizeObserver ??= Object.getOwnPropertyDescriptor(
+    globalThis,
+    'ResizeObserver',
+  )
+  Object.defineProperty(globalThis, 'ResizeObserver', {
+    configurable: true,
+    writable: true,
+    value: ResizeObserverStub,
+  })
 })
 
 afterEach(() => {
@@ -98,9 +114,15 @@ afterEach(() => {
   } else {
     Reflect.deleteProperty(HTMLElement.prototype, 'scrollIntoView')
   }
+  if (originalResizeObserver) {
+    Object.defineProperty(globalThis, 'ResizeObserver', originalResizeObserver)
+  } else {
+    Reflect.deleteProperty(globalThis, 'ResizeObserver')
+  }
   originalGeolocation = undefined
   originalPermissions = undefined
   originalScrollIntoView = undefined
+  originalResizeObserver = undefined
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
 })

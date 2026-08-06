@@ -11,15 +11,21 @@ import {
 } from "react"
 import { CornerRightUp, Plus, Square, X } from "lucide-react"
 import { ThinkingOrb } from "thinking-orbs"
+import {
+  StickToBottom,
+  type StickToBottomContext,
+} from "use-stick-to-bottom"
 
 import { ActivityPanel } from "~/components/cleo/activity-panel"
 import { LiquidGlass } from "~/components/cleo/liquid-glass"
 import { Markdown } from "~/components/cleo/markdown"
 import { MessageFeedback } from "~/components/cleo/message-feedback"
 import { RememberNote } from "~/components/cleo/remember-note"
+import { ScrollToBottom } from "~/components/cleo/scroll-to-bottom"
 import { Button } from "~/components/cleo/ui/button"
 import { Input } from "~/components/cleo/ui/input"
 import { ZoomableMessageImage } from "~/components/cleo/zoomable-message-image"
+import { cn } from "~/lib/utils"
 import {
   clearCleoPromptFromLocation,
   readCleoPromptFromLocation,
@@ -45,7 +51,10 @@ import {
 } from "~/lib/cleo/conversation-helpers"
 import { CLEO_PORTAL_STARTERS } from "~/lib/cleo/portal-links"
 import type { EncryptedReasoningItem } from "~/lib/cleo/reasoning-items"
-import { isDocumentNearBottom } from "~/lib/cleo/stick-to-bottom"
+import {
+  groupThreadMessages,
+  resolveThreadScrollTarget,
+} from "~/lib/cleo/stick-to-bottom"
 import {
   type ActivityItem,
   type MessageImage,
@@ -294,18 +303,17 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   )
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
-  const [scrollTick, setScrollTick] = useState(0)
   const abortControllerRef = useRef<AbortController | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const messageIdRef = useRef(0)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
   const messagesRef = useRef<Message[]>([])
   const isSubmittingRef = useRef(false)
-  const stickToBottomRef = useRef(true)
-  const lastScrollYRef = useRef(0)
+  const overflowPinnedTurnIdRef = useRef<string | null>(null)
+  const stickContextRef = useRef<StickToBottomContext | null>(null)
 
   const hasMessages = messages.some((message) => !message.hidden)
+  const messageGroups = groupThreadMessages(messages)
   const lastVisibleMessage = [...messages]
     .reverse()
     .find((message) => !message.hidden && message.role === "assistant")
@@ -316,51 +324,36 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   const canSubmit =
     !isSubmitting && (Boolean(input.trim()) || pendingImages.length > 0)
 
+  const targetThreadScrollTop = useCallback(
+    (
+      targetScrollTop: number,
+      {
+        contentElement,
+      }: {
+        contentElement: HTMLElement
+      },
+    ) => {
+      const result = resolveThreadScrollTarget({
+        targetScrollTop,
+        contentElement,
+        isActiveTurnInProgress: isSubmittingRef.current,
+        overflowPinnedTurnId: overflowPinnedTurnIdRef.current,
+      })
+      overflowPinnedTurnIdRef.current = result.overflowPinnedTurnId
+      return result.scrollTop
+    },
+    [],
+  )
+
   useEffect(() => {
     messagesRef.current = messages
   }, [messages])
 
   useEffect(() => {
-    lastScrollYRef.current = window.scrollY
-
-    const syncStickToBottom = () => {
-      const scrollY = window.scrollY
-      const nearBottom = isDocumentNearBottom(
-        scrollY,
-        window.innerHeight,
-        document.documentElement.scrollHeight,
-      )
-
-      // Auto-follow only scrolls downward. Any upward move is the user
-      // reading back — unstick even on short pages where "near bottom" is
-      // otherwise always true.
-      if (scrollY + 8 < lastScrollYRef.current) {
-        stickToBottomRef.current = false
-      } else if (nearBottom) {
-        stickToBottomRef.current = true
-      }
-
-      lastScrollYRef.current = scrollY
+    if (!hasMessages) {
+      overflowPinnedTurnIdRef.current = null
     }
-
-    window.addEventListener("scroll", syncStickToBottom, { passive: true })
-    window.addEventListener("resize", syncStickToBottom)
-    return () => {
-      window.removeEventListener("scroll", syncStickToBottom)
-      window.removeEventListener("resize", syncStickToBottom)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (!hasMessages || !stickToBottomRef.current) return
-    messagesEndRef.current?.scrollIntoView({
-      block: "end",
-      behavior: "instant",
-    })
-    // Keep the baseline in sync so the follow-scroll itself is not read as
-    // a user gesture on the next event.
-    lastScrollYRef.current = window.scrollY
-  }, [hasMessages, scrollTick])
+  }, [hasMessages])
 
   useEffect(() => {
     if (!isSubmitting && hasMessages) {
@@ -595,13 +588,13 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
     abortControllerRef.current = abortController
 
     isSubmittingRef.current = true
-    stickToBottomRef.current = true
     setMessages([...history, userMessage, assistantMessage])
     setInput("")
     setPendingImages([])
     setError(null)
     setIsSubmitting(true)
-    setScrollTick((tick) => tick + 1)
+    // Re-engage stick lock for the new turn even if the user had scrolled up.
+    void stickContextRef.current?.scrollToBottom("instant")
 
     let output = ""
     let receivedActivities = false
@@ -665,10 +658,6 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
           return next
         })
       )
-
-      if (stickToBottomRef.current) {
-        setScrollTick((tick) => tick + 1)
-      }
     }
 
     const scheduleFlush = () => {
@@ -885,44 +874,84 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
   }
 
   return (
-    <div className="app-column min-w-0">
+    <div
+      className={cn(
+        "app-column min-w-0",
+        hasMessages && "cleo-conversation",
+      )}
+    >
       {hasMessages ? (
-        <div className="cleo-messages pt-8 sm:pt-10">
-          <div className="flex flex-col gap-7">
-            {messages.map((message, messageIndex) => {
-              if (message.hidden) {
-                return null
-              }
+        <StickToBottom
+          className="cleo-thread-scroll"
+          contextRef={stickContextRef}
+          initial="smooth"
+          resize="smooth"
+          targetScrollTop={targetThreadScrollTop}
+        >
+          <StickToBottom.Content
+            className="cleo-thread-content"
+            scrollClassName="cleo-thread-viewport"
+          >
+            <div className="cleo-messages pt-8 sm:pt-10">
+              <div className="cleo-message-groups">
+                {messageGroups.map((group, groupIndex) => {
+                  const isLastGroup = groupIndex === messageGroups.length - 1
 
-              if (message.role === "user") {
-                return <UserMessage key={message.id} message={message} />
-              }
+                  return (
+                    <div
+                      className={cn("cleo-turn", isLastGroup && "cleo-turn-last")}
+                      data-message-group="turn"
+                      data-user-message-id={
+                        group.userMessageId !== null
+                          ? String(group.userMessageId)
+                          : ""
+                      }
+                      key={group.userMessageId ?? `turn-${groupIndex}`}
+                    >
+                      {group.messages.map((message) => {
+                        if (message.role === "user") {
+                          return (
+                            <UserMessage key={message.id} message={message} />
+                          )
+                        }
 
-              return (
-                <AssistantMessage
-                  canContinueIncomplete={canContinueIncomplete}
-                  canRetryLastTurn={canRetryLastTurn}
-                  feedbackPrompt={feedbackPromptForAssistant(
-                    messages,
-                    messageIndex,
-                  )}
-                  isLive={isSubmitting && message.id === messages.at(-1)?.id}
-                  key={message.id}
-                  message={message}
-                  onContinue={handleContinue}
-                  onDismissIncomplete={handleDismissIncomplete}
-                  onRetry={handleRetry}
-                  showIncompleteActions={message.id === lastVisibleMessage?.id}
-                />
-              )
-            })}
-          </div>
-          <div
-            aria-hidden="true"
-            className="cleo-messages-end"
-            ref={messagesEndRef}
-          />
-        </div>
+                        const messageIndex = messages.findIndex(
+                          (candidate) => candidate.id === message.id,
+                        )
+
+                        return (
+                          <AssistantMessage
+                            canContinueIncomplete={canContinueIncomplete}
+                            canRetryLastTurn={canRetryLastTurn}
+                            feedbackPrompt={feedbackPromptForAssistant(
+                              messages,
+                              messageIndex,
+                            )}
+                            isLive={
+                              isSubmitting &&
+                              message.id === messages.at(-1)?.id
+                            }
+                            key={message.id}
+                            message={message}
+                            onContinue={handleContinue}
+                            onDismissIncomplete={handleDismissIncomplete}
+                            onRetry={handleRetry}
+                            showIncompleteActions={
+                              message.id === lastVisibleMessage?.id
+                            }
+                          />
+                        )
+                      })}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+
+            <ScrollToBottom />
+            <div aria-hidden="true" className="cleo-messages-end" />
+          </StickToBottom.Content>
+        </StickToBottom>
       ) : null}
 
       <div
@@ -950,6 +979,7 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
         <form
           aria-busy={isSubmitting}
           className="glass-surface prompt-dock"
+          data-prompt-form
           onSubmit={handleSubmit}
         >
           <LiquidGlass />
