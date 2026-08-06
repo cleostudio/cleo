@@ -947,10 +947,10 @@ export function AskForm({ initialPrompt }: { initialPrompt?: string }) {
                 })}
               </div>
             </div>
-
-            <ScrollToBottom />
             <div aria-hidden="true" className="cleo-messages-end" />
           </StickToBottom.Content>
+          {/* Sibling of Content so the FAB stays viewport-fixed while reading up. */}
+          <ScrollToBottom />
         </StickToBottom>
       ) : null}
 

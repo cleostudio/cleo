@@ -599,10 +599,10 @@
 }
 
 .cleo-scroll-to-bottom {
-  position: sticky;
+  position: absolute;
   bottom: calc(var(--cleo-content-pad) - 0.75rem);
+  left: 50%;
   z-index: 2;
-  margin-inline: auto;
   border: 1px solid var(--border);
   color: var(--muted-foreground);
   box-shadow: var(--shadow-medium);

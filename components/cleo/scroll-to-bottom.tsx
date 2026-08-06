@@ -36,7 +36,7 @@ export function ScrollToBottom() {
     <Button
       aria-label="Scroll to bottom"
       className={cn(
-        "cleo-scroll-to-bottom",
+        "cleo-scroll-to-bottom -translate-x-1/2",
         isAtBottom
           ? "pointer-events-none translate-y-2 opacity-0"
           : "translate-y-0 opacity-100",
